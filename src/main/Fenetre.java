@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.embed.swing.JFXPanel;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -42,6 +44,10 @@ public class Fenetre extends JFrame implements KeyListener{
 		((LecteurMenu)this.lecteur).menu = menuTitre;
 		this.touchesPressees = new ArrayList<Integer>();
 		this.addKeyListener(this);
+		
+		//démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
+		@SuppressWarnings("unused")
+		JFXPanel fxPanel = new JFXPanel();
 	}
 	
 	public static Fenetre getFenetre(){

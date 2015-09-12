@@ -10,6 +10,7 @@ import java.util.Date;
 
 import javax.imageio.ImageIO;
 
+import son.LecteurAudio;
 import map.LecteurMap;
 import menu.LecteurMenu;
 
@@ -97,7 +98,7 @@ public abstract class Lecteur {
 	public void demarrer(){
 		allume = true;
 		System.out.println("Nouveau lecteur démarré");
-		Audio.playBgm(getNomBgm());
+		LecteurAudio.playBgm(getNomBgm(), 1.0f);
 		while(allume){
 			Date d1 = new Date();
 			ecranAtuel = calculerAffichage();

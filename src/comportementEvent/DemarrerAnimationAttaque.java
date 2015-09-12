@@ -2,8 +2,8 @@ package comportementEvent;
 
 import java.util.ArrayList;
 
+import son.LecteurAudio;
 import main.Arme;
-import main.Audio;
 import main.Partie;
 import map.Heros;
 
@@ -21,7 +21,7 @@ public class DemarrerAnimationAttaque extends CommandeEvent {
 		Heros heros = this.page.event.map.heros;
 		Arme armeActuelle = Arme.getArme(Partie.idArmeEquipee);
 		heros.animationAttaque = armeActuelle.framesDAnimation.size();
-		Audio.playSe(armeActuelle.nomEffetSonoreAttaque);
+		LecteurAudio.playSe(armeActuelle.nomEffetSonoreAttaque);
 		return curseurActuel+1;
 	}
 

@@ -141,7 +141,7 @@ public class Map {
 
 	private String getNomBgmFromData(int numero2) {
 		// TODO aller chercher le nom du BGM grâce au numéro de la map dans les fichiers du jeu
-		return "Enfermement.ogg";
+		return "Caverne_Gelee.mp3";
 	}
 
 	private static String getNomTilesetFromData(int numeroMap) {
