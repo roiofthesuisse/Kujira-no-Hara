@@ -13,6 +13,7 @@ import bibliothequeEvent.DarumaAleatoire;
 public class Map {
 	int numero;
 	public LecteurMap lecteur;
+	public String nomBGM;
 	public String nomTileset;
 	public Tileset tileset;
 	ArrayList<String[]> layer0; //couche du sol, importée par fichier CSV depuis RM
@@ -34,7 +35,8 @@ public class Map {
 	public Map(int numero, LecteurMap lecteur, int xDebutHeros, int yDebutHeros){
 		this.numero = numero;
 		this.lecteur = lecteur;
-		this.nomTileset = "Maison Tileset.png"; //TODO à l'avenir le nom du tileset devra être déductible du numéro
+		this.nomBGM = getNomBgmFromData(numero);
+		this.nomTileset = getNomTilesetFromData(numero);
 
 		//importation de la couche 0 du décor, transformation en un tableau
 		BufferedReader buff;
@@ -137,6 +139,16 @@ public class Map {
 		//fin de l'importation des évènements
 	}
 
+	private String getNomBgmFromData(int numero2) {
+		// TODO aller chercher le nom du BGM grâce au numéro de la map dans les fichiers du jeu
+		return "Enfermement.ogg";
+	}
+
+	private static String getNomTilesetFromData(int numeroMap) {
+		// TODO aller chercher le nom du tileset grâce au numéro de la map dans les fichiers du jeu
+		return "Maison Tileset.png";
+	}
+
 	/**
 	 * ouvrir le menu
 	 */
@@ -233,6 +245,11 @@ public class Map {
 		}
 		System.out.println("L'évènement à supprimer numéro "+numeroEventASupprimer+" n'a pas été trouvé dans la liste.");
 		return false;
+	}
+
+	public static String getNomBgm(int numeroNouvelleMap) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

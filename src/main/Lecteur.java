@@ -10,6 +10,9 @@ import java.util.Date;
 
 import javax.imageio.ImageIO;
 
+import map.LecteurMap;
+import menu.LecteurMenu;
+
 /**
  * Le lecteur peut être un lecteur de menu ou un lecteur de map.
  * Le rôle du lecteur est d'afficher dans la fenêtre la succession des frames au cours du temps.
@@ -82,9 +85,19 @@ public abstract class Lecteur {
 		return image3;
 	}
 	
+	public String getNomBgm(){
+		if(this instanceof LecteurMap){
+			return ((LecteurMap)this).map.nomBGM;
+		}else if(this instanceof LecteurMenu){
+			return ((LecteurMenu)this).menu.nomBGM;
+		}
+		return null;
+	}
+	
 	public void demarrer(){
 		allume = true;
 		System.out.println("Nouveau lecteur démarré");
+		Audio.playBgm(getNomBgm());
 		while(allume){
 			Date d1 = new Date();
 			ecranAtuel = calculerAffichage();

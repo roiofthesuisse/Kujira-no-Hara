@@ -9,6 +9,7 @@ public abstract class Menu {
 	public ArrayList<Texte> textes;
 	public ArrayList<ElementDeMenu> elements;
 	public Selectionnable elementSelectionne;
+	public String nomBGM;
 	
 	public void gauche(){
 		//TODO
