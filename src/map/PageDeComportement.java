@@ -19,7 +19,11 @@ public class PageDeComportement {
 	
 	//liste de commandes
 	public ArrayList<CommandeEvent> commandes;
-	int curseurCommandes = 0; //pour savoir quelle commande executer
+	 /**
+	  * Le curseur indique quelle commande executer.
+	  * Il se déplace incrémentalement, mais on peut lui faire faire des sauts.
+	  */
+	public int curseurCommandes = 0;
 	
 	//apparence
 	public String nomImage;

@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import main.Partie;
 
 /**
- * Une hitbox peut être assignée à une arme afin de calculer sa portée et son étendue
+ * Une hitbox peut être assignée à une arme afin de calculer sa portée et son étendue.
  */
 public class Hitbox {
 	int portee;
@@ -61,7 +61,7 @@ public class Hitbox {
 			int ymaxEvent = e.y + e.largeurHitbox/2;
 			//calcul du croisement entre la bodybox de l'event et la hitbox de l'arme
 			//printCroisement(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent);
-			return croisement(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, 1, 2); //1 et 2 pour toujours tester tous les types de croisements
+			return croisement(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, 1, 2); //1 et 2 étant différents, tous les types de croisements seront testés
 		}
 		return false;
 	}

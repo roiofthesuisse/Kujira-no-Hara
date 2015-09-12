@@ -10,13 +10,27 @@ import java.util.Date;
 
 import javax.imageio.ImageIO;
 
+/**
+ * Le lecteur peut être un lecteur de menu ou un lecteur de map.
+ * Le rôle du lecteur est d'afficher dans la fenêtre la succession des frames au cours du temps.
+ */
 public abstract class Lecteur {
 	public BufferedImage ecranAtuel;
 	public Fenetre fenetre = null;
-	public static int dureeFrame = 30; //en millisecondes
+	/**
+	 * Durée minimale d'une frame (en millisecondes).
+	 * Il est interdit qu'une frame dure moins longtemps, afin que l'animation soit compréhensible.
+	 * La frame peut durer plus longtemps si l'ordinateur a du mal à faire tourner le bousin.
+	 */
+	public static int dureeFrame = 30;
 	public static int imageType = BufferedImage.TYPE_INT_ARGB;
-	public Boolean allume = true; //dit si le lecteur est allumé
-	public int frameActuelle = 0; //chaque frame passe et le temps s'écoule - Baudelaire
+	/**
+	 * Est-ce que le lecteur est allumé ?
+	 * Si le lecteur est allumé, l'affichage est actualisé sans cesse.
+	 * Si le lecteur est éteint, l'affichage arrête sa boucle, et la fenêtre attend un nouveau lecteur.
+	 */
+	public Boolean allume = true;
+	public int frameActuelle = 0;
 
 	public abstract  BufferedImage calculerAffichage();
 	public abstract void keyPressed(int keycode);

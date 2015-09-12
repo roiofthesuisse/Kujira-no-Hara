@@ -15,7 +15,12 @@ import main.Partie;
 
 public class Heros extends Event {
 	public static String nomImageHeros = "Jiyounasu character.png";
-	public int animationAttaque = 0; //vaut 0 si n'attaque pas
+	/**
+	 * L'animation d'attaque vaut 0 si le héros n'attaque pas.
+	 * Au début d'une attaque, elle est mise au maximum (longueur de l'animation de l'attaque).
+	 * A chaque frame, elle est affichée puis décrémentée.
+	 */
+	public int animationAttaque = 0;
 
 	Heros(Map map, int x, int y, int direction) {
 		super(map, x, y, "heros", null, 24);

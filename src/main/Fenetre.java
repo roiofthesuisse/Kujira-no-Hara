@@ -31,6 +31,9 @@ public class Fenetre extends JFrame implements KeyListener{
 	public static Lecteur futurLecteur = null;
 	public ArrayList<Integer> touchesPressees = null;
 	
+	/**
+	 * La fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.
+	 */
 	private Fenetre(){
 		super(titre);
 		this.labelEcran = new JLabel();
@@ -71,12 +74,17 @@ public class Fenetre extends JFrame implements KeyListener{
 			icones.add(iconeGrande);
 			fenetre.setIconImages(icones);
 		} catch (IOException e) {
-			//problème avec les icones mais osef
+			//problème avec les icones
+			e.printStackTrace();
 		}
 		fenetre.setResizable(false);
 		fenetre.setVisible(true);
 	}
 	
+	/**
+	 * La fenêtre confie l'affichage d'un menu/map à un lecteur de menu/map.
+	 * Si jamais un futur lecteur est désigné, on effectue le remplacement.
+	 */
 	public static void demarrerAffichage(){
 		while(true){
 			maFenetre.lecteur.demarrer();
@@ -95,6 +103,10 @@ public class Fenetre extends JFrame implements KeyListener{
 	}
 	*/
 	
+	/**
+	 * Changer l'image affichée dans la fenêtre de jeu.
+	 * @param image nouvelle image à afficher dans la fenêtre
+	 */
 	public void actualiserAffichage(Image image){
 		this.invalidate();
 		this.remove(labelEcran);

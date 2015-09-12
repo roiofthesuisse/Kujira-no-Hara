@@ -17,10 +17,16 @@ public class Event implements Comparable<Event>{
 	public int frequenceActuelle = 4; //1:trèsAgité 2:agité 4:normal 8:mou 16:trèsMou
 	public String nom;
 	public int numero;
+	/**
+	 * 0 bas, 1 gauche, 2 droite, 3 haut.
+	 */
 	public int direction = 0;
 	public int animation = 0;
 	public BufferedImage imageActuelle = null;
-	public Boolean avance = false; //dit si l'event est en train d'avancer en ce moment même (utile pour l'animation)
+	/**
+	 * L'event est-il en train d'avancer en ce moment même ? (utile pour l'animation)
+	 */
+	public Boolean avance = false;
 	public Boolean animeALArretActuel = false;
 	public Boolean animeEnMouvementActuel = true;
 	public ArrayList<CommandeEvent> deplacementActuel;
@@ -29,14 +35,22 @@ public class Event implements Comparable<Event>{
 	Boolean traversableActuel = false;
 	public int largeurHitbox = 32;
 	int hauteurHitbox = 32;
-	int offsetY = 0; //décale d'affichage vers le bas
+	/**
+	 * Décale l'affichage vers le bas.
+	 * En effet, décaler l'affichage dans les trois autres directions est possible en modifiant l'image.
+	 */
+	int offsetY = 0; 
 	public ArrayList<PageDeComportement> pages;
 	public PageDeComportement pageActive = null;
 	public Boolean interrupteurLocalA = false;
 	public Boolean interrupteurLocalB = false;
 	public Boolean interrupteurLocalC = false;
 	public Boolean interrupteurLocalD = false;
-	public Boolean supprime = false; //simple marqueur ; l'event est vraiment supprimé en dehors de la boucle for sur les events
+	/**
+	 * Lorsque ce marqueur est à true, on considère l'event comme supprimé.
+	 * Ce n'est qu'un simple marqueur : l'event n'est réellement supprimé qu'après la boucle for sur les events.
+	 */
+	public Boolean supprime = false;
 	
 	/**
 	 * @param map
@@ -73,7 +87,7 @@ public class Event implements Comparable<Event>{
 							numeroCondition++;
 						}
 					}catch(NullPointerException e){
-						//pas de conditions
+						//pas de conditions pour déclencher cette page
 					}
 					//on apprend aux commandes qui est leur page
 					try{
@@ -81,13 +95,13 @@ public class Event implements Comparable<Event>{
 							comm.page = page;
 						}
 					}catch(NullPointerException e){
-						//pas de commandes
+						//pas de commandes dans cette page
 					}
 					numeroPage++;
 				}
 			}
 		}catch(NullPointerException e){
-			//pas de pages
+			//pas de pages dans cet event
 		}
 	}
 
@@ -96,7 +110,7 @@ public class Event implements Comparable<Event>{
 		int deltaY = (yFutur-yAutre);
 		int rayon = (tailleHitbox+tailleHitboxAutre);
 		if(deltaX*deltaX+deltaY*deltaY > rayon*rayon/2){
-			return false; //si trop loin pas de collision
+			return false; //si les deux events sont trop éloignés l'un de l'autre, il n'y a pas de collision
 		}else{ 
 			int x1min = xFutur;
 			int x1max = xFutur+tailleHitbox;

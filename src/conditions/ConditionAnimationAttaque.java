@@ -1,5 +1,8 @@
 package conditions;
 
+/**
+ * Si une animation d'attaque est en cours.
+ */
 public class ConditionAnimationAttaque extends Condition{
 	
 	public ConditionAnimationAttaque(){}

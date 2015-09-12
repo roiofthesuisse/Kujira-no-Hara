@@ -19,7 +19,7 @@ public class MenuTitre extends Menu {
 	public MenuTitre(LecteurMenu lecteur){
 		this.lecteur = lecteur;
 		this.textes = new ArrayList<Texte>();
-		Texte demarrer = new Texte("Démarrer le meilleur jeu du monde",290,320,0,true,0,null, new AllerVersUnAutreMenu(new MenuNouvellePartie(this.lecteur)), this);
+		Texte demarrer = new Texte("Démarrer", 290, 320, 0, true, 0, null, new AllerVersUnAutreMenu(new MenuNouvellePartie(this.lecteur)), this);
 		Texte bonus = new Texte("Bonus",290,350,0,true,0, null, null, this);
 		Texte quitter = new Texte("Quitter",290,380,0,true,0,null,new QuitterJeu(),this);
 		this.textes.add(demarrer);
@@ -28,6 +28,8 @@ public class MenuTitre extends Menu {
 		selectionner(demarrer);
 		
 		this.elements = new ArrayList<ElementDeMenu>();
+		
+		//afficher l'image de fond du menu-titre
 		/*
 		try {
 			BufferedImage imageFond;

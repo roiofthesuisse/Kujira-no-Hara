@@ -10,13 +10,26 @@ import main.Fenetre;
 import main.GestionClavier;
 import main.Lecteur;
 
+/**
+ * Le lecteur de map affiche la map et les évènements.
+ */
+//TODO méthode plus rapide : ne plus utiliser la méthode setRGB ou getRGB, remplacer les BufferedImages par des tableaux de bytes 
+//http://stackoverflow.com/questions/6524196/java-get-pixel-array-from-image
 public class LecteurMap extends Lecteur{
 	public Map map;
 	public Tileset tilesetActuel = null;
-	public Comparator<Event> comparateur; //permet de trier les events selon leur coordonnée y pour l'affichage
-	public Boolean stopEvent = false; //si true, les évènements n'avacent plus naturellement (seuls mouvements forcés autorisés)
+	/**
+	 * Permet de trier les events selon leur coordonnée y pour l'affichage.
+	 */
+	public Comparator<Event> comparateur;
+	/**
+	 * Si true, les évènements n'avancent plus naturellement (seuls mouvements forcés autorisés).
+	 */
+	public Boolean stopEvent = false; 
 	
-	//éventuel message à afficher à l'écran
+	/**
+	 * Message à afficher dans la boîte de dialogue.
+	 */
 	public Message messageActuel = null;
 	
 	public LecteurMap(Fenetre fenetre){
@@ -32,6 +45,7 @@ public class LecteurMap extends Lecteur{
 		BufferedImage ecran = ecranNoir();
 		
 		//ouverture du tileset
+		//TODO ne pas recréer le tileset à chaque frame, seulement au changement de map
 		try {
 			if(tilesetActuel == null){
 				tilesetActuel = new Tileset(map.tileset.nom);

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import comportementEvent.CommandeEvent;
 import comportementEvent.ModifierApparence;
 import conditions.Condition;
-import conditions.ConditionAnimationAttaque;
 import conditions.ConditionDansZoneDAttaque;
+import conditions.ConditionPendantDureeDAttaque;
 import map.Event;
 import map.Map;
 import map.PageDeComportement;
@@ -28,7 +28,7 @@ public class Algue extends Event{
 			//conditions de déclenchement
 			ArrayList<Condition> conditions = new ArrayList<Condition>();
 			Condition cond1 = new ConditionDansZoneDAttaque(); conditions.add(cond1);
-			Condition cond2 = new ConditionAnimationAttaque(); conditions.add(cond2);
+			Condition cond2 = new ConditionPendantDureeDAttaque(); conditions.add(cond2);
 			//commandes event à executer
 			ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
 			CommandeEvent comm0 = new ModifierApparence("daruma character.png"); commandes.add(comm0);

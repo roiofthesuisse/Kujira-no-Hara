@@ -3,6 +3,7 @@ package comportementEvent;
 import java.util.ArrayList;
 
 import main.Arme;
+import main.Audio;
 import main.Partie;
 import map.Heros;
 
@@ -18,8 +19,9 @@ public class DemarrerAnimationAttaque extends CommandeEvent {
 			System.out.println("page nulle");
 		}
 		Heros heros = this.page.event.map.heros;
-		int idArme = Partie.idArmeEquipee;
-		heros.animationAttaque = Arme.getArme(idArme).framesDAnimation.size();
+		Arme armeActuelle = Arme.getArme(Partie.idArmeEquipee);
+		heros.animationAttaque = armeActuelle.framesDAnimation.size();
+		Audio.playSE(armeActuelle.nomEffetSonoreAttaque);
 		return curseurActuel+1;
 	}
 
