@@ -45,7 +45,6 @@ public class LecteurMap extends Lecteur{
 		BufferedImage ecran = ecranNoir();
 		
 		//ouverture du tileset
-		//TODO ne pas recréer le tileset à chaque frame, seulement au changement de map
 		try {
 			if(tilesetActuel == null){
 				tilesetActuel = new Tileset(map.tileset.nom);
@@ -125,7 +124,7 @@ public class LecteurMap extends Lecteur{
 			ecran = superposerImages(ecran, messageActuel.image, 76, 320);
 		}
 		
-		//supprimer events dont le variable "supprimé" est à true
+		//supprimer events dont la variable "supprimé" est à true
 		//TODO
 		
 		return ecran;
@@ -208,7 +207,7 @@ public class LecteurMap extends Lecteur{
 		nouvelleMap.lecteur = this;
 		Fenetre.futurLecteur = this;
 		this.allume = false;
-		this.tilesetActuel = null;
+		if(tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) this.tilesetActuel = null;
 	}
 
 	@Override
