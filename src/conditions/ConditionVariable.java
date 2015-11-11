@@ -17,6 +17,7 @@ public class ConditionVariable extends Condition{
 	public static final int DIFFERENT = 5;
 	
 	/**
+	 * Utiliser les constantes situées dans la classe pour définir le type de comparaison.
 	 * @param numeroVariable numéro de la variable
 	 * @param inegalite 0 egal ; 1 superieur large ; 2 inferieur large ; 3 superieur strict ; 4 inferieur strict ; 5 différent
 	 * @param valeur comparative
@@ -33,12 +34,13 @@ public class ConditionVariable extends Condition{
 	public Boolean estVerifiee() {
 		int[] variables = this.page.event.map.lecteur.fenetre.partie.variables;
 		switch(typeInegalite){
-			case 0 : return variables[numeroVariable]==valeurQuIlEstCenseAvoir;
-			case 1 : return variables[numeroVariable]>=valeurQuIlEstCenseAvoir;
-			case 2 : return variables[numeroVariable]<=valeurQuIlEstCenseAvoir;
-			case 3 : return variables[numeroVariable]>valeurQuIlEstCenseAvoir;
-			case 4 : return variables[numeroVariable]<valeurQuIlEstCenseAvoir;
-			default : return variables[numeroVariable]!=valeurQuIlEstCenseAvoir;
+			case EGALE : return variables[numeroVariable]==valeurQuIlEstCenseAvoir;
+			case SUPERIEURE_LARGE : return variables[numeroVariable]>=valeurQuIlEstCenseAvoir;
+			case INFERIEURE_LARGE : return variables[numeroVariable]<=valeurQuIlEstCenseAvoir;
+			case SUPERIEURE_STRICTE : return variables[numeroVariable]>valeurQuIlEstCenseAvoir;
+			case INFERIEURE_STRICTE : return variables[numeroVariable]<valeurQuIlEstCenseAvoir;
+			case DIFFERENT : return variables[numeroVariable]!=valeurQuIlEstCenseAvoir;
+			default : return false;
 		}
 	}
 

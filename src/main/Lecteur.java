@@ -26,7 +26,7 @@ public abstract class Lecteur {
 	 * Il est interdit qu'une frame dure moins longtemps, afin que l'animation soit compréhensible.
 	 * La frame peut durer plus longtemps si l'ordinateur a du mal à faire tourner le bousin.
 	 */
-	public static int dureeFrame = 30;
+	public static long dureeFrame = 30;
 	public static int imageType = BufferedImage.TYPE_INT_ARGB;
 	/**
 	 * Est-ce que le lecteur est allumé ?
@@ -44,23 +44,18 @@ public abstract class Lecteur {
 		int largeur = Fenetre.largeurParDefaut;
 		int hauteur = Fenetre.hauteurParDefaut;
 		BufferedImage image = new BufferedImage(largeur, hauteur, imageType);
-		int couleur = new Color(0,0,0,0).getRGB();
-		for(int i=0; i<largeur; i++){
-			for(int j=0; j<hauteur; j++){
-				image.setRGB(i, j, couleur);
-			}
-		}
+		Graphics2D graphics = image.createGraphics();
+		graphics.setPaint(Color.black);
+		graphics.fillRect(0, 0, largeur, hauteur);
 		return image;
 	}
 	
 	public BufferedImage imageVide(int largeur, int hauteur){
 		BufferedImage image = new BufferedImage(largeur, hauteur, imageType);
-		int couleur = new Color(0,0,0,0).getRGB();
-		for(int i=0; i<largeur; i++){
-			for(int j=0; j<hauteur; j++){
-				image.setRGB(i, j, couleur);
-			}
-		}
+		Color couleur = new Color(0,0,0,0);
+		Graphics2D graphics = image.createGraphics();
+		graphics.setPaint(couleur);
+		graphics.fillRect(0, 0, largeur, hauteur);
 		return image;
 	}
 	
@@ -103,12 +98,19 @@ public abstract class Lecteur {
 			Date d1 = new Date();
 			ecranAtuel = calculerAffichage();
 			Date d2 = new Date();
-			while(d2.getTime()-d1.getTime() < dureeFrame){
-				d2 = new Date();
+			long dureeEffectiveDeLaFrame = d2.getTime()-d1.getTime();
+			if(dureeEffectiveDeLaFrame < dureeFrame){
+				//si l'affichage a pris moins de temps que la durée attendue, on attend que la frame se termine
+				try {
+					Thread.sleep(dureeFrame-dureeEffectiveDeLaFrame);
+				} catch (InterruptedException e) {
+					System.out.println("La boucle de lecture du jeu dans Lecteur.demarrer() fait de la merde.");
+					e.printStackTrace();
+				}
 			}
 			fenetre.actualiserAffichage(ecranAtuel);
 			frameActuelle++;
-			//System.out.println(d2.getTime()-d1.getTime());
+			//System.out.println("dureeEffectiveDeLaFrame : " + dureeEffectiveDeLaFrame);
 		}
 		System.out.println("Lecteur actuel arrêté à la frame "+frameActuelle);
 	}

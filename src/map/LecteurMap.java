@@ -1,6 +1,7 @@
 package map;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -132,11 +133,19 @@ public class LecteurMap extends Lecteur{
 
 	public void photographierCollision(){
 		BufferedImage img = new BufferedImage(640,480,imageType);
+		/*
+		//vieille façon de faire :
 		for(int i=00; i<640; i++){
 			for(int j=0; j<480; j++){
 				img.setRGB(i, j, Color.white.getRGB());
 			}
 		}
+		*/
+		//nouvelle façon de faire (plus rapide) :
+		Graphics2D graphics = img.createGraphics();
+		graphics.setPaint(Color.white);
+		graphics.fillRect(0, 0, 640, 480);
+		
 		img.setRGB(map.heros.x, map.heros.y, Color.red.getRGB());
 		img.setRGB(map.events.get(1).x, map.events.get(1).y, Color.blue.getRGB());
 		sauvegarderImage(img);
@@ -151,12 +160,7 @@ public class LecteurMap extends Lecteur{
 		int hauteur = eventImage.getHeight() / 4;
 		int animation = event.animation;
 		int direction = event.direction;
-		BufferedImage apparence = new BufferedImage(largeur,hauteur,imageType);
-		for(int i=0; i<largeur; i++){
-			for(int j=0; j<hauteur; j++){
-				apparence.setRGB(i, j, eventImage.getRGB(animation*largeur+i, direction*hauteur+j));
-			}
-		}
+		BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
 		int positionX = event.x + event.largeurHitbox/2 - largeur/2;
 		int positionY = event.y + event.largeurHitbox - hauteur + event.offsetY;
 		return superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);
@@ -173,12 +177,7 @@ public class LecteurMap extends Lecteur{
 	public BufferedImage dessinerCarreau(BufferedImage ecran, int xEcran, int yEcran, int carreau, Tileset tilesetUtilise) throws Exception{
 		int xTileset = carreau%8;
 		int yTileset = carreau/8;
-		BufferedImage dessinCarreau = new BufferedImage(32,32,imageType);
-		for(int i=0; i<32; i++){
-			for(int j=0; j<32; j++){
-				dessinCarreau.setRGB(i, j, tilesetUtilise.image.getRGB(xTileset*32+i,yTileset*32+j));
-			}
-		}
+		BufferedImage dessinCarreau = tilesetUtilise.image.getSubimage(xTileset*32, yTileset*32, 32, 32);
 		return superposerImages(ecran, dessinCarreau, xEcran*32, yEcran*32);
 	}
 
