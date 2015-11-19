@@ -24,6 +24,7 @@ public class Tileset {
 			//passabilités obtenues par le fichier csv du tileset
 			BufferedReader buff;
 			try {
+				//TODO remplacer ça par un JSON qui contient TOUTES les autres infos sur le tileset (brouillard, etc.)
 				buff = new BufferedReader(new FileReader(".\\ressources\\Data\\Tilesets\\"+nomTileset+"\\passabilite.csv"));
 				String ligne;
 				if((ligne = buff.readLine()) != null) {
@@ -38,7 +39,7 @@ public class Tileset {
 				e.printStackTrace();
 			}
 			
-			//TODO extraire les altitudes d'un fichier csv
+			//TODO extraire les altitudes d'un fichier JSON
 			this.altitude = new int[tailleTileset];
 			for(int i=0; i<tailleTileset; i++){
 				altitude[i] = 0;

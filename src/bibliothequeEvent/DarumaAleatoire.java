@@ -20,7 +20,7 @@ import map.PageDeComportement;
 public class DarumaAleatoire extends Event{
 	ArrayList<CommandeEvent> deplacementParDefaut;
 	
-	public DarumaAleatoire(Map map, int x, int y){
+	public DarumaAleatoire(Map map, Integer x, Integer y){
 		super(map, x,y, "daruma", getPages(), 32);
 		setIgnorerLesMouvementsImpossibles(true);
 	}

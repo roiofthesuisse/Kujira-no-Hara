@@ -250,7 +250,7 @@ public class LecteurMap extends Lecteur{
 	}
 	
 	private int calculerXCamera(){
-		int largeurMap = map.layer0.get(0).length;
+		int largeurMap = map.largeur;
 		if(largeurMap<20){
 			//map très petite, défilement inutile
 			return 0;
@@ -268,7 +268,7 @@ public class LecteurMap extends Lecteur{
 	}
 	
 	private int calculerYCamera(){
-		int hauteurMap = map.layer0.size();
+		int hauteurMap = map.hauteur;
 		if(hauteurMap<15){ 
 			//map très petite, défilement inutile
 			return 0;

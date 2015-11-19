@@ -61,7 +61,7 @@ public class Event implements Comparable<Event>{
 	 * @param pages
 	 * @param largeurHitbox
 	 */
-	protected Event(Map map, int x, int y, String nom, ArrayList<PageDeComportement> pages, int largeurHitbox){
+	protected Event(Map map, Integer x, Integer y, String nom, ArrayList<PageDeComportement> pages, int largeurHitbox){
 		this.map = map;
 		this.x = x*32;
 		this.y = y*32;
@@ -163,13 +163,13 @@ public class Event implements Comparable<Event>{
 			//si rencontre avec un élément de décor non passable -> false
 				//TODO etendre aux layers 1 et 2 : si false return false, sinon continuer à chercher dans la layer suivante.
 				//Si RAS, renvoyer true.
-			ArrayList<ArrayList<String[]>> layers = new ArrayList<ArrayList<String[]>>();
+			ArrayList<int[][]> layers = new ArrayList<int[][]>();
 			layers.add(map.layer0);
 			layers.add(map.layer1);
-			for(ArrayList<String[]> layer : layers){
+			for(int[][] layer : layers){
 				try{
-					int carrelageAInspecter = Integer.parseInt( layer.get(yAInspecter/32)[xAInspecter/32] );
-					int carrelageAInspecter2 = Integer.parseInt( layer.get(yAInspecter2/32)[xAInspecter2/32] );
+					int carrelageAInspecter = layer[xAInspecter/32][yAInspecter/32];
+					int carrelageAInspecter2 = layer[xAInspecter2/32][yAInspecter2/32];
 					if(carrelageAInspecter!=-1 && !map.tileset.passabilite[carrelageAInspecter]){
 						reponse = false;
 						return false;

@@ -18,7 +18,7 @@ import map.PageDeComportement;
 public class Panneau extends Event{
 	ArrayList<CommandeEvent> deplacementParDefaut;
 	
-	public Panneau(Map map, int x, int y){
+	public Panneau(Map map, Integer x, Integer y){
 		super(map, x,y, "panneau", getPages(), 32);
 		setIgnorerLesMouvementsImpossibles(true);
 	}

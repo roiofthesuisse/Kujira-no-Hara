@@ -1,5 +1,6 @@
 package comportementEvent;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import map.LecteurMap;
@@ -17,9 +18,14 @@ public class ChangerDeMap extends CommandeEvent {
 	}
 	
 	@Override
-	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {
+	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes){
 		LecteurMap lecteur = commandes.get(0).page.event.map.lecteur;
-		lecteur.changerMap(new Map(numeroNouvelleMap,lecteur,xDebutHeros,yDebutHeros));
+		try {
+			lecteur.changerMap(new Map(numeroNouvelleMap,lecteur,xDebutHeros,yDebutHeros));
+		} catch (FileNotFoundException e) {
+			System.err.println("Impossible de charger la map numero "+numeroNouvelleMap);
+			e.printStackTrace();
+		}
 		return curseurActuel+1;
 	}
 

@@ -2,8 +2,15 @@ package map;
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import main.Arme;
 import main.Partie;
@@ -11,14 +18,18 @@ import bibliothequeEvent.Algue;
 import bibliothequeEvent.DarumaAleatoire;
 
 public class Map {
-	int numero;
+	public final int numero;
 	public LecteurMap lecteur;
-	public String nomBGM;
+	public String nom;
+	public String nomBGM; //musique
+	public String nomBGS; //fond sonore
 	public String nomTileset;
-	public Tileset tileset;
-	ArrayList<String[]> layer0; //couche du sol, importée par fichier CSV depuis RM
-	ArrayList<String[]> layer1; //couche d'objets 1, importée par fichier CSV depuis RM
-	ArrayList<String[]> layer2; //couche d'objets 2, importée par fichier CSV depuis RM
+	public Tileset tileset; //image contenant les decors
+	public final int largeur;
+	public final int hauteur;
+	public int[][] layer0; //couche du sol
+	public int[][] layer1; //couche de decor 1
+	public int[][] layer2; //couche de decor 2
 	public BufferedImage imageCoucheSousHeros;
 	public BufferedImage imageCoucheSurHeros;
 	public ArrayList<Event> events;
@@ -31,57 +42,39 @@ public class Map {
 	 * @param numero de la map, c'est-à-dire numéro du fichier map à charger
 	 * @param lecteur de la map
 	 * @param nomTileset 
+	 * @throws FileNotFoundException 
 	 */
-	public Map(int numero, LecteurMap lecteur, int xDebutHeros, int yDebutHeros){
+	public Map(int numero, LecteurMap lecteur, int xDebutHeros, int yDebutHeros) throws FileNotFoundException{
 		this.numero = numero;
 		this.lecteur = lecteur;
-		this.nomBGM = getNomBgmFromData(numero);
-		this.nomTileset = getNomTilesetFromData(numero);
-
-		//importation de la couche 0 du décor, transformation en un tableau
-		BufferedReader buff;
-		this.layer0 = new ArrayList<String[]>();
-		try {
-			buff = new BufferedReader(new FileReader(".\\ressources\\Data\\Maps\\"+numero+"\\layer0.csv"));
-			String ligne;
-			while ((ligne = buff.readLine()) != null) {
-				this.layer0.add(ligne.split(";",-1)); //le -1 de split signifie qu'il gère les cases vides
-			}
-			buff.close();
-		} catch (Exception e) {
-			System.out.println("Erreur lors de l'ouverture de la couche 0 de la map :");
-			e.printStackTrace();
-		}
 		
-		//importation de la couche 1 du décor, transformation en un tableau
-		this.layer1 = new ArrayList<String[]>();
-		try {
-			buff = new BufferedReader(new FileReader(".\\ressources\\Data\\Maps\\"+numero+"\\layer1.csv"));
-			String ligne;
-			while ((ligne = buff.readLine()) != null) {
-				this.layer1.add(ligne.split(";",-1)); //le -1 de split signifie qu'il gère les cases vides
-			}
-			buff.close();
-		} catch (Exception e) {
-			System.out.println("Erreur lors de l'ouverture de la couche 1 de la map :");
-			e.printStackTrace();
-		}
+		//la map est un fichier JSON
+		String nomFichierJson = ".\\ressources\\Data\\Maps\\"+numero+".json";
+		Scanner scanner = new Scanner(new File(nomFichierJson));
+		String contenuFichierJson = scanner.useDelimiter("\\Z").next();
+		scanner.close();
+		JSONObject jsonMap = new JSONObject(contenuFichierJson);
+		
+		this.nomBGM = jsonMap.getString("bgm");
+		this.nomBGS = jsonMap.getString("bgs");
+		this.nomTileset = jsonMap.getString("tileset");
+		this.largeur = jsonMap.getInt("largeur");
+		this.hauteur = jsonMap.getInt("hauteur");
+		this.layer0 = recupererCouche(jsonMap,0);
+		this.layer1 = recupererCouche(jsonMap,1);
+		this.layer2 = recupererCouche(jsonMap,2);
 		
 		//chargement du tileset
 		this.tileset = new Tileset(nomTileset);
-		if(tileset == null){
-		}
 		
 		//on dessine la couche de décor inférieure, qui sera sous le héros et les évènements
 		//TODO prendre en compte les layer1 et 2
 		try{
-			int largeur = layer0.get(0).length;
-			int hauteur = layer0.size();
 			this.imageCoucheSousHeros = lecteur.imageVide(largeur*32,hauteur*32);
 			for(int i=0; i<largeur; i++){
 				for(int j=0; j<hauteur; j++){
 					try{
-						int carreau = Integer.parseInt( layer0.get(j)[i] );
+						int carreau = layer0[i][j];
 						imageCoucheSousHeros = this.lecteur.dessinerCarreau(imageCoucheSousHeros,i,j,carreau,tileset);
 					}catch(NumberFormatException e){
 						//case vide
@@ -96,13 +89,11 @@ public class Map {
 		//on dessine la couche de décor supérieure, qui sera au dessus du héros et des évènements
 		//TODO prendre en compte les layer0 et 2
 		try{
-			int largeur = layer1.get(0).length;
-			int hauteur = layer1.size();
 			this.imageCoucheSurHeros = lecteur.imageVide(largeur*32,hauteur*32);
 			for(int i=0; i<largeur; i++){
 				for(int j=0; j<hauteur; j++){
 					try{
-						int carreau = Integer.parseInt( layer1.get(j)[i] );
+						int carreau = layer1[i][j];
 						if(carreau>=0) imageCoucheSurHeros = this.lecteur.dessinerCarreau(imageCoucheSurHeros,i,j,carreau,tileset);
 					}catch(NumberFormatException e){
 						//case vide
@@ -114,16 +105,28 @@ public class Map {
 			e.printStackTrace();
 		}
 		
-		//importation des évènements grâce à un fichier CSV
+		//importer les events
 			//d'abord le héros :
 				try{
 					events = new ArrayList<Event>();
 					this.heros = new Heros(this, xDebutHeros,yDebutHeros,0);
 					events.add(heros);
 					
+					JSONArray jsonEvents = jsonMap.getJSONArray("events");
+					for(Object jsonEvent : jsonEvents){
+						//récupération des données dans le JSON
+						String nomEvent = ((JSONObject)jsonEvent).getString("nom");
+						int xEvent = ((JSONObject)jsonEvent).getInt("x");
+						int yEvent = ((JSONObject)jsonEvent).getInt("y");
+						//instanciation de l'event
+						Class<?> classeEvent = Class.forName("bibliothequeEvent."+nomEvent);
+						Constructor<?> constructeurEvent = classeEvent.getConstructor(this.getClass(), Integer.class, Integer.class);
+						Event event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
+						events.add(event);
+					}
 					//events.add( new Panneau(this,2,7) );
-					events.add( new DarumaAleatoire(this,1,1) );
-					events.add( new Algue(this,2,8) );
+					//events.add( new DarumaAleatoire(this,1,1) );
+					//events.add( new Algue(this,2,8) );
 					//events.add( new DarumaAleatoire(this,3,7) );
 					//events.add( new DarumaAleatoire(this,3,8) );
 				} catch(Exception e) {
@@ -139,14 +142,27 @@ public class Map {
 		//fin de l'importation des évènements
 	}
 
-	private String getNomBgmFromData(int numero2) {
-		// TODO aller chercher le nom du BGM grâce au numéro de la map dans les fichiers du jeu
-		return "Caverne_Gelee.mp3";
-	}
-
-	private static String getNomTilesetFromData(int numeroMap) {
-		// TODO aller chercher le nom du tileset grâce au numéro de la map dans les fichiers du jeu
-		return "Maison Tileset.png";
+	/**
+	 * 
+	 * @param jsonMap objet JSON représentant la map
+	 * @param numeroCouche numéro de la couche à récuperer
+	 * @return
+	 */
+	private int[][] recupererCouche(JSONObject jsonMap, int numeroCouche) {
+		int[][] couche = new int[largeur][hauteur];
+		JSONArray array = jsonMap.getJSONArray("couche"+numeroCouche);
+		JSONArray ligne;
+		for(int j=0; j<hauteur; j++){
+			ligne = (JSONArray) array.get(j);
+			for(int i=0; i<largeur; i++){
+				try{
+					couche[i][j] = Integer.parseInt((String) ligne.get(i));
+				}catch(ClassCastException e){
+					couche[i][j] = (Integer) ligne.get(i);
+				}
+			}
+		}
+		return couche;
 	}
 
 	/**

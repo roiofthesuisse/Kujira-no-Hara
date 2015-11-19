@@ -14,7 +14,7 @@ import map.PageDeComportement;
 public class Algue extends Event{
 	ArrayList<CommandeEvent> deplacementParDefaut;
 	
-	public Algue(Map map, int x, int y){
+	public Algue(Map map, Integer x, Integer y){
 		super(map, x,y, "algue", getPages(), 24);
 	}
 	

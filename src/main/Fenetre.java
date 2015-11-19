@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -148,12 +149,17 @@ public class Fenetre extends JFrame implements KeyListener{
 		//rien
 	}
 	
-	public void ouvrirPartie(){
+	public void ouvrirPartie() {
 		if(this.partie == null){
 			partie = Partie.nouvellePartie();
 		}
 		futurLecteur = new LecteurMap(this);
-		((LecteurMap)futurLecteur).map = new Map(partie.numeroMap, (LecteurMap)futurLecteur, partie.xHeros,partie.yHeros);
+		try {
+			((LecteurMap)futurLecteur).map = new Map(partie.numeroMap, (LecteurMap)futurLecteur, partie.xHeros,partie.yHeros);
+		} catch (FileNotFoundException e) {
+			System.err.println("Impossible de charger la map numero "+partie.numeroMap);
+			e.printStackTrace();
+		}
 		this.lecteur.allume = false;
 	}
 }
