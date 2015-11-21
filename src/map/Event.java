@@ -33,6 +33,7 @@ public class Event implements Comparable<Event>{
 	Boolean repeterLeDeplacementActuel = true;
 	protected Boolean ignorerLesMouvementsImpossiblesActuel = false;
 	Boolean traversableActuel = false;
+	Boolean auDessusDeToutActuel = false;
 	public int largeurHitbox = 32;
 	int hauteurHitbox = 32;
 	/**
@@ -51,6 +52,16 @@ public class Event implements Comparable<Event>{
 	 * Ce n'est qu'un simple marqueur : l'event n'est réellement supprimé qu'après la boucle for sur les events.
 	 */
 	public Boolean supprime = false;
+	
+	/**
+	 * chaque event regarde dans une direction
+	 */
+	public class Direction {
+		public static final int BAS = 0;
+		public static final int GAUCHE = 1;
+		public static final int DROITE = 2;
+		public static final int HAUT = 3;
+	}
 	
 	/**
 	 * @param map
@@ -105,7 +116,7 @@ public class Event implements Comparable<Event>{
 		}
 	}
 
-	public Boolean croisementDeHitbox(int xFutur, int yFutur, int tailleHitbox, int xAutre, int yAutre, int tailleHitboxAutre){
+	public Boolean lesHitboxesSeChevauchent(int xFutur, int yFutur, int tailleHitbox, int xAutre, int yAutre, int tailleHitboxAutre){
 		int deltaX = (xFutur-xAutre);
 		int deltaY = (yFutur-yAutre);
 		int rayon = (tailleHitbox+tailleHitboxAutre);
@@ -120,27 +131,7 @@ public class Event implements Comparable<Event>{
 			int y1max = yFutur+tailleHitbox;
 			int y2min = yAutre;
 			int y2max = yAutre+tailleHitboxAutre;
-			/*
-			if( //deux coins se chevauchent
-			   ((x1min<=x2min && x2min<x1max && x1max<=x2max)
-			  ||(x2min<=x1min && x1min<x2max && x2max<=x1max))
-			&& ((y1min<=y2min && y2min<y1max && y1max<=y2max)
-			  ||(y2min<=y1min && y1min<y2max && y2max<=y1max))
-			){
-				return true; 
-			}
-			if(tailleHitbox!=tailleHitboxAutre){
-				//dernier cas : deux segments se chevauchent
-				return(((x2min<x1min && x1min<x2max)||(x2min<x1max && x1max<x2max)) 
-					&& ((y2min<y1min && y1min<y2max)||(y2min<y1max && y1max<y2max)))
-					||(((x1min<x2min && x2min<x1max)||(x1min<x2max && x2max<x1max)) 
-					&& ((y1min<y2min && y2min<y1max)||(y1min<y2max && y2max<y1max)));
-			}else{
-				//si les deux events ont la même taille ils ne peuvent que se croiser par coin
-				return false;
-			}
-			*/
-			return Hitbox.croisement(x1min, x1max, y1min, y1max, x2min, x2max, y2min, y2max, tailleHitbox, tailleHitboxAutre);
+			return Hitbox.lesDeuxRectanglesSeChevauchent(x1min, x1max, y1min, y1max, x2min, x2max, y2min, y2max, tailleHitbox, tailleHitboxAutre);
 		}
 	}
 	
@@ -161,12 +152,13 @@ public class Event implements Comparable<Event>{
 		}
 		try{
 			//si rencontre avec un élément de décor non passable -> false
-				//TODO etendre aux layers 1 et 2 : si false return false, sinon continuer à chercher dans la layer suivante.
+				//TODO etendre aux layers 1 et 2 : si false alors return false, sinon continuer à chercher dans la layer suivante.
 				//Si RAS, renvoyer true.
 			ArrayList<int[][]> layers = new ArrayList<int[][]>();
 			layers.add(map.layer0);
 			layers.add(map.layer1);
-			for(int[][] layer : layers){
+			//TODO pas la peine de chercher toutes les couches à chaque fois, il est plus rapide de calculer une liste des cases passables de la map à sa création
+			/*for(int[][] layer : layers){
 				try{
 					int carrelageAInspecter = layer[xAInspecter/32][yAInspecter/32];
 					int carrelageAInspecter2 = layer[xAInspecter2/32][yAInspecter2/32];
@@ -186,11 +178,22 @@ public class Event implements Comparable<Event>{
 				}catch(NumberFormatException e){
 					System.out.println("NumberFormatException dans Event.deplacementPossible(), cela signifie que le CSV contient un non chiffre.");
 				}
+			}*/
+			if(!map.casePassable[xAInspecter/32][yAInspecter/32]){
+				return false;
 			}
+			if((sens==0||sens==3) && ((x+largeurHitbox-1)/32!=(x/32)) && !map.casePassable[xAInspecter2/32][yAInspecter2/32]){
+				return false;
+			}
+			if((sens==1||sens==2) && ((y+largeurHitbox-1)/32!=(y/32)) && !map.casePassable[xAInspecter2/32][yAInspecter2/32]){
+				return false;
+			}
+			//voilà
+			
 			//si rencontre avec un autre évènement non traversable -> false
 			for(Event autreEvent : this.map.events){
 				if(numero != autreEvent.numero){
-					if( croisementDeHitbox(xAInspecter3, yAInspecter3, largeurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox) ){
+					if( lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox) ){
 						return false;
 					}
 				}
@@ -279,8 +282,25 @@ public class Event implements Comparable<Event>{
 	 * permet de dire si un event est devant ou derrière un autre en terme d'affichage
 	 */
 	public int compareTo(Event e) {
-		if(y > e.y) return 1;
-		if(y < e.y) return -1;
+		if(auDessusDeToutActuel){
+			if(e.auDessusDeToutActuel){
+				//les deux sont au dessus de tout, on applique la logique inversée
+				if(y > e.y) return -1;
+				if(y < e.y) return 1;
+			}else{
+				//this est plus grand
+				return 1;
+			}
+		}else{
+			if(e.auDessusDeToutActuel){
+				//e est plus grand
+				return -1;
+			}else{
+				//aucun n'est au dessus de tout, on applique la logique normale
+				if(y > e.y) return 1;
+				if(y < e.y) return -1;
+			}
+		}
 		return 0;
 	}
 	
@@ -330,6 +350,7 @@ public class Event implements Comparable<Event>{
 				this.vitesseActuelle = pageActive.vitesse;
 				this.frequenceActuelle = pageActive.frequence;
 				this.animeALArretActuel = pageActive.animeALArret;
+				this.auDessusDeToutActuel = pageActive.auDessusDeTout;
 				this.animeEnMouvementActuel = pageActive.animeEnMouvement;
 				this.repeterLeDeplacementActuel = pageActive.repeterLeDeplacement;
 				this.ignorerLesMouvementsImpossiblesActuel = pageActive.ignorerLesMouvementsImpossibles;

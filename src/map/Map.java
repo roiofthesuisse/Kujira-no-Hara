@@ -1,10 +1,8 @@
 package map;
 
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,8 +12,6 @@ import org.json.JSONObject;
 
 import main.Arme;
 import main.Partie;
-import bibliothequeEvent.Algue;
-import bibliothequeEvent.DarumaAleatoire;
 
 public class Map {
 	public final int numero;
@@ -37,6 +33,7 @@ public class Map {
 	public int xDebutHeros;
 	public int yDebutHeros;
 	public Boolean toucheActionPressee = false;
+	public boolean[][] casePassable;
 	
 	/**
 	 * @param numero de la map, c'est-à-dire numéro du fichier map à charger
@@ -44,7 +41,7 @@ public class Map {
 	 * @param nomTileset 
 	 * @throws FileNotFoundException 
 	 */
-	public Map(int numero, LecteurMap lecteur, int xDebutHeros, int yDebutHeros) throws FileNotFoundException{
+	public Map(int numero, LecteurMap lecteur, int xDebutHerosArg, int yDebutHerosArg) throws FileNotFoundException{
 		this.numero = numero;
 		this.lecteur = lecteur;
 		
@@ -63,12 +60,27 @@ public class Map {
 		this.layer0 = recupererCouche(jsonMap,0);
 		this.layer1 = recupererCouche(jsonMap,1);
 		this.layer2 = recupererCouche(jsonMap,2);
+		this.xDebutHeros = xDebutHerosArg;
+		this.yDebutHeros = yDebutHerosArg;
 		
 		//chargement du tileset
 		this.tileset = new Tileset(nomTileset);
 		
 		//on dessine la couche de décor inférieure, qui sera sous le héros et les évènements
-		//TODO prendre en compte les layer1 et 2
+			creerImageDuDecorEnDessousDuHeros();
+		
+		//on dessine la couche de décor supérieure, qui sera au dessus du héros et des évènements
+			creerImageDuDecorAuDessusDuHeros();
+		
+		//importer les events
+			importerLesEvenements(jsonMap);
+			
+		//création de la liste des cases passables
+			creerListeDesCasesPassables();
+	}
+
+	private void creerImageDuDecorEnDessousDuHeros() {
+		// TODO prendre en compte toutes les couches 1 2 3 et les altitudes du tileset
 		try{
 			this.imageCoucheSousHeros = lecteur.imageVide(largeur*32,hauteur*32);
 			for(int i=0; i<largeur; i++){
@@ -85,9 +97,10 @@ public class Map {
 			System.out.println("Erreur lors de la lecture de la map :");
 			e.printStackTrace();
 		}
-		
-		//on dessine la couche de décor supérieure, qui sera au dessus du héros et des évènements
-		//TODO prendre en compte les layer0 et 2
+	}
+
+	private void creerImageDuDecorAuDessusDuHeros() {
+		//TODO prendre en compte toutes les couches 1 2 3 et les altitudes du tileset
 		try{
 			this.imageCoucheSurHeros = lecteur.imageVide(largeur*32,hauteur*32);
 			for(int i=0; i<largeur; i++){
@@ -104,42 +117,65 @@ public class Map {
 			System.out.println("Erreur lors de la lecture de la map :");
 			e.printStackTrace();
 		}
-		
-		//importer les events
-			//d'abord le héros :
-				try{
-					events = new ArrayList<Event>();
-					this.heros = new Heros(this, xDebutHeros,yDebutHeros,0);
-					events.add(heros);
-					
-					JSONArray jsonEvents = jsonMap.getJSONArray("events");
-					for(Object jsonEvent : jsonEvents){
-						//récupération des données dans le JSON
-						String nomEvent = ((JSONObject)jsonEvent).getString("nom");
-						int xEvent = ((JSONObject)jsonEvent).getInt("x");
-						int yEvent = ((JSONObject)jsonEvent).getInt("y");
-						//instanciation de l'event
-						Class<?> classeEvent = Class.forName("bibliothequeEvent."+nomEvent);
-						Constructor<?> constructeurEvent = classeEvent.getConstructor(this.getClass(), Integer.class, Integer.class);
-						Event event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
-						events.add(event);
+	}
+
+	private void importerLesEvenements(JSONObject jsonMap) {
+		try{
+			this.events = new ArrayList<Event>();
+			//d'abord le héros
+			this.heros = new Heros(this, this.xDebutHeros,this.yDebutHeros, Event.Direction.BAS);
+			this.events.add(heros);
+			//puis les autres
+			JSONArray jsonEvents = jsonMap.getJSONArray("events");
+			for(Object jsonEvent : jsonEvents){
+				//récupération des données dans le JSON
+				String nomEvent = ((JSONObject)jsonEvent).getString("nom");
+				int xEvent = ((JSONObject)jsonEvent).getInt("x");
+				int yEvent = ((JSONObject)jsonEvent).getInt("y");
+				//instanciation de l'event
+				Class<?> classeEvent = Class.forName("bibliothequeEvent."+nomEvent);
+				//TODO si l'event n'est pas dans la bibliothèque, le créer à partir du JSON
+				Constructor<?> constructeurEvent = classeEvent.getConstructor(this.getClass(), Integer.class, Integer.class);
+				Event event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
+				events.add(event);
+			}
+			//events.add( new Panneau(this,2,7) );
+			//events.add( new DarumaAleatoire(this,1,1) );
+			//events.add( new Algue(this,2,8) );
+			//events.add( new DarumaAleatoire(this,3,7) );
+			//events.add( new DarumaAleatoire(this,3,8) );
+		} catch(Exception e) {
+			System.out.println("Erreur lors de la constitution de la liste des events :");
+			e.printStackTrace();
+		}
+		//numérotation des events
+		for(int i=0; i<events.size(); i++){
+			events.get(i).numero = i;
+		}
+	}
+
+	private void creerListeDesCasesPassables() {
+		ArrayList<int[][]> layers = new ArrayList<int[][]>();
+		layers.add(this.layer0);
+		layers.add(this.layer1);
+		layers.add(this.layer2);
+		this.casePassable = new boolean[this.largeur][this.hauteur];
+		boolean passable;
+		int numeroDeLaCaseDansLeTileset;
+		for(int i=0; i<this.largeur; i++){
+			for(int j=0; j<this.hauteur; j++){
+				passable = true;
+				this.casePassable[i][j] = true;
+				for(int k=0; k<3&&passable; k++){ //si on en trouve une de non passable, on ne cherche pas les autres couches
+					int[][] layer = layers.get(k);
+					numeroDeLaCaseDansLeTileset = layer[i][j];
+					if(numeroDeLaCaseDansLeTileset!=-1 && !this.tileset.passabilite[numeroDeLaCaseDansLeTileset]){
+						this.casePassable[i][j] = false;
+						passable = false;
 					}
-					//events.add( new Panneau(this,2,7) );
-					//events.add( new DarumaAleatoire(this,1,1) );
-					//events.add( new Algue(this,2,8) );
-					//events.add( new DarumaAleatoire(this,3,7) );
-					//events.add( new DarumaAleatoire(this,3,8) );
-				} catch(Exception e) {
-					System.out.println("Erreur lors de la constitution de la liste des events :");
-					e.printStackTrace();
 				}
-			//ajouter les autres events à partir du CSV liste des events de cette map
-				//TODO
-			//numérotation des events
-				for(int i=0; i<events.size(); i++){
-					events.get(i).numero = i;
-				}
-		//fin de l'importation des évènements
+			}
+		}
 	}
 
 	/**

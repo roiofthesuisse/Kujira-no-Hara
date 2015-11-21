@@ -61,7 +61,7 @@ public class Hitbox {
 			int ymaxEvent = e.y + e.largeurHitbox/2;
 			//calcul du croisement entre la bodybox de l'event et la hitbox de l'arme
 			//printCroisement(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent);
-			return croisement(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, 1, 2); //1 et 2 étant différents, tous les types de croisements seront testés
+			return lesDeuxRectanglesSeChevauchent(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, 1, 2); //1 et 2 étant différents, tous les types de croisements seront testés
 		}
 		return false;
 	}
@@ -86,7 +86,7 @@ public class Hitbox {
 		LecteurMap.sauvegarderImage(img);
 	}
 	
-	public static Boolean croisement(int x1min, int x1max, int y1min, int y1max, int x2min, int x2max, int y2min, int y2max, int tailleHitbox, int tailleHitboxAutre){
+	public static Boolean lesDeuxRectanglesSeChevauchent(int x1min, int x1max, int y1min, int y1max, int x2min, int x2max, int y2min, int y2max, int tailleHitbox, int tailleHitboxAutre){
 		//premier cas : deux coins se chevauchent
 		Boolean deuxCoinsSeChevauchent = ((x1min<=x2min && x2min<x1max && x1max<=x2max)
 										 	||(x2min<=x1min && x1min<x2max && x2max<=x1max))

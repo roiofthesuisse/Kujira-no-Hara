@@ -33,6 +33,7 @@ public class PageDeComportement {
 	public Boolean animeALArret = false;
 	public Boolean animeEnMouvement = true;
 	public Boolean traversable = false;
+	public Boolean auDessusDeTout = false; //TODO connecter avec le auDessusDeToutActuel de l'Event conteneur
 	public int vitesse = 4;
 	public int frequence = 4;
 	
