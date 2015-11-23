@@ -23,7 +23,7 @@ public class Heros extends Event {
 	public int animationAttaque = 0;
 
 	Heros(Map map, int x, int y, int direction) {
-		super(map, x, y, "heros", null, 24);
+		super(map, x, y, "heros", new ArrayList<PageDeComportement>(), 24, 24);
 		this.pages = getPages();
 		initialiserLesPages();
 	}

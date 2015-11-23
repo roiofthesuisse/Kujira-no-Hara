@@ -3,24 +3,26 @@ package map;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import comportementEvent.Avancer;
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
 
 public class Event implements Comparable<Event>{
 	public Map map;
+	public String nom;
+	public int numero;
 	public int x; //en pixels
 	public int y; //en pixels
+	
 	//de combien de pixels avance l'event à chaque pas :
 	public int vitesseActuelle = 4; //1:trèsLent 2:lent 4:normal 8:rapide 16:trèsrapide 32:trèstrèsRapide
 	//toutes les combien de frames l'event change d'animation :
 	public int frequenceActuelle = 4; //1:trèsAgité 2:agité 4:normal 8:mou 16:trèsMou
-	public String nom;
-	public int numero;
-	/**
-	 * 0 bas, 1 gauche, 2 droite, 3 haut.
-	 */
-	public int direction = 0;
+	
+	public int direction = Event.Direction.BAS;
 	public int animation = 0;
 	public BufferedImage imageActuelle = null;
 	/**
@@ -35,7 +37,7 @@ public class Event implements Comparable<Event>{
 	Boolean traversableActuel = false;
 	Boolean auDessusDeToutActuel = false;
 	public int largeurHitbox = 32;
-	int hauteurHitbox = 32;
+	public int hauteurHitbox = 32;
 	/**
 	 * Décale l'affichage vers le bas.
 	 * En effet, décaler l'affichage dans les trois autres directions est possible en modifiant l'image.
@@ -72,16 +74,29 @@ public class Event implements Comparable<Event>{
 	 * @param pages
 	 * @param largeurHitbox
 	 */
-	protected Event(Map map, Integer x, Integer y, String nom, ArrayList<PageDeComportement> pages, int largeurHitbox){
+	protected Event(Map map, Integer x, Integer y, String nom, ArrayList<PageDeComportement> pages, int largeurHitbox, int hauteurHitbox){
 		this.map = map;
 		this.x = x*32;
 		this.y = y*32;
 		this.nom = nom;
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
+		this.hauteurHitbox = hauteurHitbox;
 		initialiserLesPages();
 	}
 	
+	protected Event(Map map, Integer x, Integer y, String nom, JSONArray tableauDesPages, int largeurHitbox, int hauteurHitbox){
+		this(map, x, y, nom, creerListeDesPagesViaJson(tableauDesPages), largeurHitbox, hauteurHitbox);
+	}
+
+	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(JSONArray tableauDesPages) {
+		ArrayList<PageDeComportement> listeDesPages = new ArrayList<PageDeComportement>();
+		for(Object pageJSON : tableauDesPages){
+			listeDesPages.add( new PageDeComportement((JSONObject)pageJSON) );
+		}
+		return listeDesPages;
+	}
+
 	protected void initialiserLesPages() {
 		int numeroCondition = 0;
 		int numeroPage = 0;
@@ -116,22 +131,22 @@ public class Event implements Comparable<Event>{
 		}
 	}
 
-	public Boolean lesHitboxesSeChevauchent(int xFutur, int yFutur, int tailleHitbox, int xAutre, int yAutre, int tailleHitboxAutre){
+	public Boolean lesHitboxesSeChevauchent(int xFutur, int yFutur, int largHitbox, int hautHitbox, int xAutre, int yAutre, int largHitboxAutre, int hautHitboxAutre){
 		int deltaX = (xFutur-xAutre);
 		int deltaY = (yFutur-yAutre);
-		int rayon = (tailleHitbox+tailleHitboxAutre);
+		int rayon = (Math.max(largHitbox, hautHitbox)+Math.max(largHitboxAutre, hautHitboxAutre));
 		if(deltaX*deltaX+deltaY*deltaY > rayon*rayon/2){
 			return false; //si les deux events sont trop éloignés l'un de l'autre, il n'y a pas de collision
 		}else{ 
 			int x1min = xFutur;
-			int x1max = xFutur+tailleHitbox;
+			int x1max = xFutur+largHitbox;
 			int x2min = xAutre;
-			int x2max = xAutre+tailleHitboxAutre;
+			int x2max = xAutre+largHitboxAutre;
 			int y1min = yFutur;
-			int y1max = yFutur+tailleHitbox;
+			int y1max = yFutur+hautHitbox;
 			int y2min = yAutre;
-			int y2max = yAutre+tailleHitboxAutre;
-			return Hitbox.lesDeuxRectanglesSeChevauchent(x1min, x1max, y1min, y1max, x2min, x2max, y2min, y2max, tailleHitbox, tailleHitboxAutre);
+			int y2max = yAutre+hautHitboxAutre;
+			return Hitbox.lesDeuxRectanglesSeChevauchent(x1min, x1max, y1min, y1max, x2min, x2max, y2min, y2max, largHitbox, hautHitbox, largHitboxAutre, hautHitboxAutre);
 		}
 	}
 	
@@ -144,7 +159,7 @@ public class Event implements Comparable<Event>{
 		int xAInspecter3 = this.x; //pour les events
 		int yAInspecter3 = this.y;
 		switch(sens){
-			case 0 : yAInspecter+=largeurHitbox;   yAInspecter2+=largeurHitbox;   xAInspecter2+=32; yAInspecter3+=vitesseActuelle; break;
+			case 0 : yAInspecter+=hauteurHitbox;   yAInspecter2+=hauteurHitbox;   xAInspecter2+=32; yAInspecter3+=vitesseActuelle; break;
 			case 1 : xAInspecter-=vitesseActuelle; xAInspecter2-=vitesseActuelle; yAInspecter2+=32; xAInspecter3-=vitesseActuelle; break;
 			case 2 : xAInspecter+=largeurHitbox;   xAInspecter2+=largeurHitbox;   yAInspecter2+=32; xAInspecter3+=vitesseActuelle; break;
 			case 3 : yAInspecter-=vitesseActuelle; yAInspecter2-=vitesseActuelle; xAInspecter2+=32; yAInspecter3-=vitesseActuelle; break;
@@ -152,40 +167,13 @@ public class Event implements Comparable<Event>{
 		}
 		try{
 			//si rencontre avec un élément de décor non passable -> false
-				//TODO etendre aux layers 1 et 2 : si false alors return false, sinon continuer à chercher dans la layer suivante.
-				//Si RAS, renvoyer true.
-			ArrayList<int[][]> layers = new ArrayList<int[][]>();
-			layers.add(map.layer0);
-			layers.add(map.layer1);
-			//TODO pas la peine de chercher toutes les couches à chaque fois, il est plus rapide de calculer une liste des cases passables de la map à sa création
-			/*for(int[][] layer : layers){
-				try{
-					int carrelageAInspecter = layer[xAInspecter/32][yAInspecter/32];
-					int carrelageAInspecter2 = layer[xAInspecter2/32][yAInspecter2/32];
-					if(carrelageAInspecter!=-1 && !map.tileset.passabilite[carrelageAInspecter]){
-						reponse = false;
-						return false;
-					}
-					//second carrelage à inspecter si l'event est à cheval sur deux cases
-					if(carrelageAInspecter2!=-1 && (sens==0||sens==3) && ((x+largeurHitbox-1)/32!=(x/32)) && !map.tileset.passabilite[carrelageAInspecter2]){
-						reponse = false;
-						return false;
-					}
-					if(carrelageAInspecter2!=-1 && (sens==1||sens==2) && ((y+largeurHitbox-1)/32!=(y/32)) && !map.tileset.passabilite[carrelageAInspecter2]){
-						reponse = false;
-						return false;
-					}
-				}catch(NumberFormatException e){
-					System.out.println("NumberFormatException dans Event.deplacementPossible(), cela signifie que le CSV contient un non chiffre.");
-				}
-			}*/
 			if(!map.casePassable[xAInspecter/32][yAInspecter/32]){
 				return false;
 			}
 			if((sens==0||sens==3) && ((x+largeurHitbox-1)/32!=(x/32)) && !map.casePassable[xAInspecter2/32][yAInspecter2/32]){
 				return false;
 			}
-			if((sens==1||sens==2) && ((y+largeurHitbox-1)/32!=(y/32)) && !map.casePassable[xAInspecter2/32][yAInspecter2/32]){
+			if((sens==1||sens==2) && ((y+hauteurHitbox-1)/32!=(y/32)) && !map.casePassable[xAInspecter2/32][yAInspecter2/32]){
 				return false;
 			}
 			//voilà
@@ -193,7 +181,7 @@ public class Event implements Comparable<Event>{
 			//si rencontre avec un autre évènement non traversable -> false
 			for(Event autreEvent : this.map.events){
 				if(numero != autreEvent.numero){
-					if( lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox) ){
+					if( lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) ){
 						return false;
 					}
 				}

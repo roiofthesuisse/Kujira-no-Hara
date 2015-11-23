@@ -21,7 +21,7 @@ public class DarumaAleatoire extends Event{
 	ArrayList<CommandeEvent> deplacementParDefaut;
 	
 	public DarumaAleatoire(Map map, Integer x, Integer y){
-		super(map, x,y, "daruma", getPages(), 32);
+		super(map, x,y, "daruma", getPages(), 32, 32);
 		setIgnorerLesMouvementsImpossibles(true);
 	}
 	
@@ -31,7 +31,7 @@ public class DarumaAleatoire extends Event{
 			//deplacement
 			ArrayList<CommandeEvent> deplacement = new ArrayList<CommandeEvent>();
 			deplacement.add(new AvancerAleatoirement());
-		PageDeComportement page0 = new PageDeComportement(null, null, "daruma character.png", deplacement);
+		PageDeComportement page0 = new PageDeComportement(null, null, "daruma character.png", null/*TODO deplacement*/);
 		page0.ignorerLesMouvementsImpossibles=true;
 		page0.vitesse=2;
 		pages.add(page0);
@@ -43,9 +43,9 @@ public class DarumaAleatoire extends Event{
 			//commandes event à executer
 			ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
 			CommandeEvent comm1 = new Message("lala lala\\n \\c[02]lele\\c[01] lele\\n popo\\n pr\\c[02]out\\c[01]"); commandes.add(comm1);
-			CommandeEvent comm2 = new Message("\\c[02]lili"); commandes.add(comm2);
-			CommandeEvent comm3 = new Message("lala"); commandes.add(comm3);
-			CommandeEvent comm4 = new AjouterArme(0); commandes.add(comm4);
+			//CommandeEvent comm2 = new Message("\\c[02]lili"); commandes.add(comm2);
+			//CommandeEvent comm3 = new Message("lala"); commandes.add(comm3);
+			//CommandeEvent comm4 = new AjouterArme(0); commandes.add(comm4);
 			CommandeEvent comm5 = new Attendre(5); commandes.add(comm5);
 			//CommandeEvent comm5 = new Message("lélé"); commandes.add(comm5);
 			//CommandeEvent comm6 = new ChangerDeMap(1,3,3); commandes.add(comm6);

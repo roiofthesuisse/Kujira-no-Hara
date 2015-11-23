@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+
+import org.json.JSONObject;
+
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
 import conditions.ConditionParler;
@@ -12,7 +15,7 @@ import conditions.ConditionParler;
 public class PageDeComportement {
 	public Event event;
 	public int numero;
-	public Boolean sOuvreParParole = false;
+	private Boolean sOuvreParParole = false; //équivalent à posséder la condition de déclenchement "parler"
 	
 	//conditions de déclenchement
 	public ArrayList<Condition> conditions;
@@ -33,7 +36,7 @@ public class PageDeComportement {
 	public Boolean animeALArret = false;
 	public Boolean animeEnMouvement = true;
 	public Boolean traversable = false;
-	public Boolean auDessusDeTout = false; //TODO connecter avec le auDessusDeToutActuel de l'Event conteneur
+	public Boolean auDessusDeTout = false;
 	public int vitesse = 4;
 	public int frequence = 4;
 	
@@ -64,6 +67,14 @@ public class PageDeComportement {
 				}
 			}
 		}
+	}
+
+	/**
+	 * La page de comportement est créée à partir du fichier JSON.
+	 * @param pageJSON objet JSON décrivant la page de comportements
+	 */
+	public PageDeComportement(JSONObject pageJSON) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public void executer() {

@@ -61,7 +61,7 @@ public abstract class Lecteur {
 	
 	public static void sauvegarderImage(BufferedImage image){
 		try {
-			File outputfile = new File("C:\\Users\\Pierre\\Pictures\\saved.png");
+			File outputfile = new File("C:/Users/RoiOfTheSuisse/Pictures/saved.png");
 			ImageIO.write(image, "png", outputfile);
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -32,6 +32,9 @@ public class Map {
 	public Heros heros;
 	public int xDebutHeros;
 	public int yDebutHeros;
+	/**
+	 * N'est vrai que durant l'action de l'appui, se remet à false tout de suite
+	 */
 	public Boolean toucheActionPressee = false;
 	public boolean[][] casePassable;
 	
@@ -127,16 +130,26 @@ public class Map {
 			this.events.add(heros);
 			//puis les autres
 			JSONArray jsonEvents = jsonMap.getJSONArray("events");
-			for(Object jsonEvent : jsonEvents){
+			for(Object ev : jsonEvents){
+				JSONObject jsonEvent = (JSONObject) ev;
 				//récupération des données dans le JSON
-				String nomEvent = ((JSONObject)jsonEvent).getString("nom");
-				int xEvent = ((JSONObject)jsonEvent).getInt("x");
-				int yEvent = ((JSONObject)jsonEvent).getInt("y");
+				String nomEvent = jsonEvent.getString("nom");
+				int xEvent = jsonEvent.getInt("x");
+				int yEvent = jsonEvent.getInt("y");
 				//instanciation de l'event
-				Class<?> classeEvent = Class.forName("bibliothequeEvent."+nomEvent);
-				//TODO si l'event n'est pas dans la bibliothèque, le créer à partir du JSON
-				Constructor<?> constructeurEvent = classeEvent.getConstructor(this.getClass(), Integer.class, Integer.class);
-				Event event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
+				Event event;
+				try{
+					//on essaye de le créer à partir de la bibliothèque
+					Class<?> classeEvent = Class.forName("bibliothequeEvent."+nomEvent);
+					Constructor<?> constructeurEvent = classeEvent.getConstructor(this.getClass(), Integer.class, Integer.class);
+					event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
+				}catch(ClassNotFoundException e){
+					//l'event n'est pas dans la bibliothèque, on le construit à partir de sa description JSON
+					int hauteurHitbox = jsonEvent.getInt("largeur");
+					int largeurHitbox = jsonEvent.getInt("hauteur");
+					JSONArray jsonPages = jsonEvent.getJSONArray("pages");
+					event = new Event(this, xEvent, yEvent, nomEvent, jsonPages, hauteurHitbox, largeurHitbox);
+				}
 				events.add(event);
 			}
 			//events.add( new Panneau(this,2,7) );
@@ -145,7 +158,7 @@ public class Map {
 			//events.add( new DarumaAleatoire(this,3,7) );
 			//events.add( new DarumaAleatoire(this,3,8) );
 		} catch(Exception e) {
-			System.out.println("Erreur lors de la constitution de la liste des events :");
+			System.err.println("Erreur lors de la constitution de la liste des events :");
 			e.printStackTrace();
 		}
 		//numérotation des events
@@ -239,11 +252,18 @@ public class Map {
 		lecteur.mettreHerosDansLaBonneDirection();
 		this.heros.avance = true;
 	}
+	
+	/**
+	 * attaquer ou parler
+	 */
+	public void action() {
+		toucheActionPressee = true;
+	}
 
 	/**
 	 * changer d'arme
 	 */
-	public void armeSuivante() {
+	public void equiperArmeSuivante() {
 		int idArmeEquipee = Partie.idArmeEquipee;
 		idArmeEquipee++;
 		int nombreDArmesPossedees = Partie.idArmesPossedees.size();
@@ -253,18 +273,11 @@ public class Map {
 		Partie.idArmeEquipee = idArmeEquipee;
 		System.out.println("arme suivante : "+Arme.getArme(idArmeEquipee).nom);
 	}
-
-	/**
-	 * attaquer ou parler
-	 */
-	public void action() {
-		toucheActionPressee = true;
-	}
 	
 	/**
 	 * changer d'arme
 	 */
-	public void armePrecedente() {
+	public void equiperArmePrecedente() {
 		int idArmeEquipee = Partie.idArmeEquipee;
 		idArmeEquipee--;
 		int nombreDArmesPossedees = Partie.idArmesPossedees.size();
@@ -279,7 +292,15 @@ public class Map {
 	 * utiliser objet secondaire
 	 */
 	public void objet() {
-		// TODO
+		//TODO
+		Event e = null;
+		for(Event f : events){
+			if(f.nom.equals("daruma"))e=f;
+		}
+		Hitbox.printCroisement(heros.x, heros.x+heros.largeurHitbox, 
+				heros.y, heros.y+heros.hauteurHitbox, 
+				e.x, e.x+e.largeurHitbox, 
+				e.y, e.y+e.hauteurHitbox);
 	}
 
 	/**

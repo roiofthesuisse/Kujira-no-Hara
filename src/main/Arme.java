@@ -87,7 +87,7 @@ public class Arme {
 			int frameFinCoupEventail = 7;
 			Arme eventail = new Arme(idEventail,"eventail","Jiyounasu Eventail character.png", null, framesAnimationEventail,hitboxEventail,frameDebutCoupEventail,frameFinCoupEventail);
 			Arme.armesDuJeu[idEventail] = eventail;
-			Partie.idArmesPossedees.add(idEventail);
+			//TODO redonner Partie.idArmesPossedees.add(idEventail);
 			
 		//autre
 			//TODO autres armes

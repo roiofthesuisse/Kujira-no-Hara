@@ -24,19 +24,24 @@ public class ConditionParler extends Condition {
 				int xmin1 = heros.x;
 				int xmax1 = heros.x+heros.largeurHitbox;
 				int ymin1 = heros.y;
-				int ymax1 = heros.y+heros.largeurHitbox;
+				int ymax1 = heros.y+heros.hauteurHitbox;
 				int xmin2 = event.x;
 				int xmax2 = event.x+event.largeurHitbox;
 				int ymin2 = event.y;
-				int ymax2 = event.y+event.largeurHitbox;
-				int deltaX = event.x-heros.x;
-				int deltaY = event.y-heros.y;
-				int distance = deltaX*deltaX + deltaY*deltaY;
-				int rayon = event.largeurHitbox+heros.largeurHitbox;
+				int ymax2 = event.y+event.hauteurHitbox;
+				int deltaX = (event.x+event.largeurHitbox/2)-(heros.x+heros.largeurHitbox/2);
+				int deltaY = (event.y+event.hauteurHitbox/2)-(heros.y+heros.hauteurHitbox/2);
+				double distance = deltaX*deltaX + deltaY*deltaY;
+				double rayonAuCarre = ((double)(event.largeurHitbox*event.largeurHitbox+event.hauteurHitbox*event.hauteurHitbox))/4.0
+								 	+ ((double)(heros.largeurHitbox*heros.largeurHitbox+heros.hauteurHitbox*heros.hauteurHitbox))/4.0;
 				int dir = heros.direction;
 				//il faut être collé à l'évènement et regarder vers lui
-				if( ( (ymin1==ymax2&&dir==3) || (xmin1==xmax2&&dir==1) || (xmax1==xmin2&&dir==2) || (ymax1==ymin2&&dir==0) )
-					&& distance<=rayon*rayon/2
+				//TODO ne marche pas bien
+				if( ( (ymin1>=ymax2 && dir==Event.Direction.HAUT) || 
+					  (xmin1>=xmax2 && dir==Event.Direction.GAUCHE) || 
+					  (xmax1<=xmin2 && dir==Event.Direction.DROITE) || 
+					  (ymax1<=ymin2 && dir==Event.Direction.BAS) )
+					&& distance<=rayonAuCarre
 				){
 					return true;
 				}
