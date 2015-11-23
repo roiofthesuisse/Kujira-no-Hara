@@ -1,6 +1,5 @@
 package conditions;
 
-import main.Arme;
 import main.Partie;
 import map.Event;
 import map.Heros;
@@ -14,10 +13,9 @@ public class ConditionDansZoneDAttaque extends Condition{
 	public Boolean estVerifiee() {
 		Boolean estCeQueLeHerosAUneArme = (Partie.idArmesPossedees.size() > 0);
 		if(estCeQueLeHerosAUneArme){
-			Hitbox hitbox = Arme.getArme(Partie.idArmeEquipee).hitbox;
 			Heros heros = this.page.event.map.heros;
 			Event event = this.page.event;
-			Boolean reponse = hitbox.estDansZoneDAttaque(event,heros);
+			Boolean reponse = Hitbox.estDansZoneDAttaque(event,heros);
 			return reponse;
 		}else{
 			return false;

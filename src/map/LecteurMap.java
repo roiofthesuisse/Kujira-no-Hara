@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import comportementEvent.Message;
+import main.Arme;
 import main.Fenetre;
 import main.GestionClavier;
 import main.Lecteur;
+import main.Partie;
 
 /**
  * Le lecteur de map affiche la map et les évènements.
@@ -75,6 +77,9 @@ public class LecteurMap extends Lecteur{
 			animerLesEvents();
 		}
 		
+		//TODO test à retirer
+		ecran = dessinerLaHitboxDuHeros(ecran,xCamera,yCamera);
+		
 		//on dessine les évènements
 		ecran = dessinerLesEvents(ecran,xCamera,yCamera);
 		
@@ -89,6 +94,23 @@ public class LecteurMap extends Lecteur{
 		//supprimer events dont la variable "supprimé" est à true
 		supprimerLesEventsASupprimer();
 		
+		return ecran;
+	}
+
+	private BufferedImage dessinerLaHitboxDuHeros(BufferedImage ecran, int xCamera, int yCamera) {
+		try{
+			int[] coord = Hitbox.calculerCoordonneesAbsolues(this.map.heros);
+			int xminHitbox = coord[0];
+			int xmaxHitbox = coord[1];
+			int yminHitbox = coord[2];
+			int ymaxHitbox = coord[3];
+			Graphics2D graphics = ecran.createGraphics();
+			graphics.setPaint(Color.magenta);
+			graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, yminHitbox-yCamera);
+			graphics.drawLine(xminHitbox-xCamera, ymaxHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
+			graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xminHitbox-xCamera, ymaxHitbox-yCamera);
+			graphics.drawLine(xmaxHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
+		}catch(Exception e){}
 		return ecran;
 	}
 
@@ -203,6 +225,7 @@ public class LecteurMap extends Lecteur{
 		BufferedImage eventImage = event.imageActuelle;
 		if(eventImage!=null){ 
 			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)
+			/*
 			int largeur = eventImage.getWidth() / 4;
 			int hauteur = eventImage.getHeight() / 4;
 			int animation = event.animation;
@@ -211,6 +234,13 @@ public class LecteurMap extends Lecteur{
 			int positionX = event.x + event.largeurHitbox/2 - largeur/2;
 			int positionY = event.y + event.hauteurHitbox - hauteur + event.offsetY;
 			return superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);
+			*/
+			//TODO test (pour visualiser les collisions)
+			Graphics2D graphics = ecran.createGraphics();
+			graphics.setPaint(Color.blue);
+			graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
+			return ecran;
+			
 		}else{
 			//l'event n'a pas d'image
 			return ecran;

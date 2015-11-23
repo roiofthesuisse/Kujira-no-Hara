@@ -13,7 +13,7 @@ public class Partie {
 	public boolean[] interrupteurs;
 	public int[] variables;
 	public boolean[] quetesFaites;
-	public static int idArmeEquipee;
+	public static int idArmeEquipee = -1;
 	public static ArrayList<Integer> idArmesPossedees = new ArrayList<Integer>();
 	
 	/**

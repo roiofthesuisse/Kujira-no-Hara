@@ -18,7 +18,7 @@ public class ConditionParler extends Condition {
 			int pageActive = this.page.event.pageActive.numero;
 			int cettePage = this.page.numero;
 			//il faut d'abord que la page ne soit pas ouverte
-			if(pageActive!=cettePage){ //mais cette condition est surement inutile...
+			if(pageActive!=cettePage){ //TODO vérifier si cette condition est utile
 				Event event = page.event;
 				Heros heros = event.map.heros;
 				int xmin1 = heros.x;
@@ -29,21 +29,61 @@ public class ConditionParler extends Condition {
 				int xmax2 = event.x+event.largeurHitbox;
 				int ymin2 = event.y;
 				int ymax2 = event.y+event.hauteurHitbox;
-				int deltaX = (event.x+event.largeurHitbox/2)-(heros.x+heros.largeurHitbox/2);
-				int deltaY = (event.y+event.hauteurHitbox/2)-(heros.y+heros.hauteurHitbox/2);
-				double distance = deltaX*deltaX + deltaY*deltaY;
-				double rayonAuCarre = ((double)(event.largeurHitbox*event.largeurHitbox+event.hauteurHitbox*event.hauteurHitbox))/4.0
-								 	+ ((double)(heros.largeurHitbox*heros.largeurHitbox+heros.hauteurHitbox*heros.hauteurHitbox))/4.0;
 				int dir = heros.direction;
 				//il faut être collé à l'évènement et regarder vers lui
-				//TODO ne marche pas bien
-				if( ( (ymin1>=ymax2 && dir==Event.Direction.HAUT) || 
-					  (xmin1>=xmax2 && dir==Event.Direction.GAUCHE) || 
-					  (xmax1<=xmin2 && dir==Event.Direction.DROITE) || 
-					  (ymax1<=ymin2 && dir==Event.Direction.BAS) )
-					&& distance<=rayonAuCarre
-				){
-					return true;
+				switch(dir){
+				case Event.Direction.HAUT:
+					if(ymin1 != ymax2){
+						return false;
+					}else{
+						if( heros.largeurHitbox < event.largeurHitbox ){ 
+							//la longueur de contact est supérieure à la moitié de la taille du héros
+							return ((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) || 
+								((xmin2<=xmin1 && xmin1<xmax2) && xmax2-xmin1>heros.largeurHitbox/2);
+						}else{
+							//le héros englobe l'event
+							return xmin1<=xmin2 && xmax2<=xmax1;
+						}
+					}
+				case Event.Direction.GAUCHE:
+					if(xmin1 != xmax2){
+						return false;
+					}else{
+						if( heros.hauteurHitbox < event.hauteurHitbox ){ 
+							//la longueur de contact est supérieure à la moitié de la taille du héros
+							return ((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) || 
+								((ymin2<=ymin1 && ymin1<ymax2) && ymax2-ymin1>heros.hauteurHitbox/2);
+						}else{
+							//le héros englobe l'event
+							return ymin1<=ymin2 && ymax2<=ymax1;
+						}
+					}
+				case Event.Direction.DROITE:
+					if(xmax1 != xmin2){
+						return false;
+					}else{
+						if( heros.hauteurHitbox < event.hauteurHitbox ){ 
+							//la longueur de contact est supérieure à la moitié de la taille du héros
+							return ((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) || 
+								((ymin2<=ymin1 && ymin1<ymax2) && ymax2-ymin1>heros.hauteurHitbox/2);
+						}else{
+							//le héros englobe l'event
+							return ymin1<=ymin2 && ymax2<=ymax1;
+						}
+					}
+				case Event.Direction.BAS:
+					if(ymax1 != ymin2){
+						return false;
+					}else{
+						if( heros.largeurHitbox < event.largeurHitbox ){ 
+							//la longueur de contact est supérieure à la moitié de la taille du héros
+							return ((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) || 
+								((xmin2<=xmin1 && xmin1<xmax2) && xmax2-xmin1>heros.largeurHitbox/2);
+						}else{
+							//le héros englobe l'event
+							return xmin1<=xmin2 && xmax2<=xmax1;
+						}
+					}
 				}
 			}
 		}catch(NullPointerException e){

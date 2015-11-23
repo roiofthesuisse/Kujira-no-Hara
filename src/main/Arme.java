@@ -75,7 +75,7 @@ public class Arme {
 			int frameFinCoupEpee = 5;
 			Arme epee = new Arme(idEpee,"epee","Jiyounasu AttaqueEpee character.png", "Epee.wav", framesAnimationEpee,hitboxEpee,frameDebutCoupEpee,frameFinCoupEpee);
 			Arme.armesDuJeu[idEpee] = epee;
-			Partie.idArmesPossedees.add(idEpee);
+			//Partie.idArmesPossedees.add(idEpee);
 			
 		//eventail
 			ArrayList<Integer> framesAnimationEventail = new ArrayList<Integer>();

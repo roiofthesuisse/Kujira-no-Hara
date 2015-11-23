@@ -7,6 +7,7 @@ import comportementEvent.Attendre;
 import comportementEvent.AvancerAleatoirement;
 import comportementEvent.ChangerDeMap;
 import comportementEvent.CommandeEvent;
+import comportementEvent.EquiperArme;
 import comportementEvent.Message;
 import comportementEvent.TeleporterEvent;
 import conditions.Condition;
@@ -45,7 +46,8 @@ public class DarumaAleatoire extends Event{
 			CommandeEvent comm1 = new Message("lala lala\\n \\c[02]lele\\c[01] lele\\n popo\\n pr\\c[02]out\\c[01]"); commandes.add(comm1);
 			//CommandeEvent comm2 = new Message("\\c[02]lili"); commandes.add(comm2);
 			//CommandeEvent comm3 = new Message("lala"); commandes.add(comm3);
-			//CommandeEvent comm4 = new AjouterArme(0); commandes.add(comm4);
+			CommandeEvent comm4 = new AjouterArme(0); commandes.add(comm4);
+			CommandeEvent comm4bis = new EquiperArme(0); commandes.add(comm4bis);
 			CommandeEvent comm5 = new Attendre(5); commandes.add(comm5);
 			//CommandeEvent comm5 = new Message("lélé"); commandes.add(comm5);
 			//CommandeEvent comm6 = new ChangerDeMap(1,3,3); commandes.add(comm6);

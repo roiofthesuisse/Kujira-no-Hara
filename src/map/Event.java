@@ -14,7 +14,13 @@ public class Event implements Comparable<Event>{
 	public Map map;
 	public String nom;
 	public int numero;
+	/**
+	 * distance entre le bord gauche de la map et le bord gauche de la hitbox de l'event
+	 */
 	public int x; //en pixels
+	/**
+	 * distance entre le bord haut de la map et le bord haut de la hitbox de l'event
+	 */
 	public int y; //en pixels
 	
 	//de combien de pixels avance l'event à chaque pas :

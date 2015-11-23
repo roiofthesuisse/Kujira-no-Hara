@@ -63,7 +63,7 @@ public class PageDeComportement {
 			for(Condition cond : conditions){
 				//TODO dans le futur il y aura aussi la condition "arrivée sur la case" en plus de "parler" :
 				if(cond.getClass().getName().equals("conditions.ConditionParler")){
-					sOuvreParParole = true;
+					this.sOuvreParParole = true;
 				}
 			}
 		}

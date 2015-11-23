@@ -4,14 +4,15 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import main.Arme;
 import main.Partie;
 
 /**
  * Une hitbox peut être assignée à une arme afin de calculer sa portée et son étendue.
  */
 public class Hitbox {
-	int portee;
-	int etendue;
+	public final int portee;
+	public final int etendue;
 	
 	/**
 	 * @param portee : profondeur de la zone d'attaque
@@ -22,51 +23,70 @@ public class Hitbox {
 		this.etendue = etendue;
 	}
 	
-	public Boolean estDansZoneDAttaque(Event e, Heros h){
-		Boolean estCeQueLeHerosAUneArme = (Partie.idArmesPossedees.size() > 0);
+	public static Boolean estDansZoneDAttaque(Event e, Heros h){
+		Boolean estCeQueLeHerosAUneArme = (Partie.idArmesPossedees.size() > 0) && Partie.idArmeEquipee>=0;
 		if(estCeQueLeHerosAUneArme){
-			int xminHitbox = h.x;
-			int xmaxHitbox = h.x;
-			int yminHitbox = h.y;
-			int ymaxHitbox = h.y;
 			//on calcule les bords de la zone d'attaque en fonction de l'orientation du héros
-			switch(h.direction){
-				case 0 : {
-					xminHitbox -= etendue/2;
-					xmaxHitbox += etendue/2;
-					ymaxHitbox += portee;
-					break;
-				}
-				case 1 : {
-					yminHitbox -= etendue/2;
-					ymaxHitbox += etendue/2;
-					xminHitbox -= portee/2;
-					break;
-				}
-				case 2 : {
-					yminHitbox -= etendue/2;
-					ymaxHitbox += etendue/2;
-					xmaxHitbox += portee/2;
-					break;
-				}
-				default : {
-					xminHitbox -= etendue/2;
-					xmaxHitbox += etendue/2;
-					yminHitbox -= portee;
-					break;
-				}
-			}
-			int xminEvent = e.x - e.largeurHitbox/2;
-			int xmaxEvent = e.x + e.largeurHitbox/2;
-			int yminEvent = e.y - e.hauteurHitbox/2;
-			int ymaxEvent = e.y + e.hauteurHitbox/2;
+			int[] coord = calculerCoordonneesAbsolues(h);
+			int xminHitbox = coord[0];
+			int xmaxHitbox = coord[1];
+			int yminHitbox = coord[2];
+			int ymaxHitbox = coord[3];
+			
+			int xminEvent = e.x;
+			int xmaxEvent = e.x + e.largeurHitbox;
+			int yminEvent = e.y;
+			int ymaxEvent = e.y + e.hauteurHitbox;
 			//calcul du croisement entre la bodybox de l'event et la hitbox de l'arme
-			//printCroisement(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent);
 			return lesDeuxRectanglesSeChevauchent(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, 1, 2, 3, 4); //1,2,3,4 étant différents, tous les types de croisements seront testés
 		}
 		return false;
 	}
 	
+	public static int[] calculerCoordonneesAbsolues(Heros h) {
+		int[] coordonneesAbsolues = new int[4];
+		Hitbox b = Arme.getArme(Partie.idArmeEquipee).hitbox;
+		int xminHitbox;
+		int xmaxHitbox;
+		int yminHitbox;
+		int ymaxHitbox;
+		switch(h.direction){
+			case Event.Direction.BAS : {
+				xminHitbox = (h.x+h.largeurHitbox/2) - b.etendue/2;
+				xmaxHitbox = (h.x+h.largeurHitbox/2) + b.etendue/2;
+				yminHitbox = h.y+h.hauteurHitbox;
+				ymaxHitbox = h.y+h.hauteurHitbox + b.portee;
+				break;
+			}
+			case Event.Direction.GAUCHE : {
+				xminHitbox = h.x - b.portee;
+				xmaxHitbox = h.x;
+				yminHitbox = (h.y+h.hauteurHitbox/2) - b.etendue/2;
+				ymaxHitbox = (h.y+h.hauteurHitbox/2) + b.etendue/2;
+				break;
+			}
+			case Event.Direction.DROITE : {
+				xminHitbox = h.x+h.largeurHitbox;
+				xmaxHitbox = h.x+h.largeurHitbox + b.portee;
+				yminHitbox = (h.y+h.hauteurHitbox/2) - b.etendue/2;
+				ymaxHitbox = (h.y+h.hauteurHitbox/2) + b.etendue/2;
+				break;
+			}
+			default: { //HAUT
+				xminHitbox = (h.x+h.largeurHitbox/2) - b.etendue/2;
+				xmaxHitbox = (h.x+h.largeurHitbox/2) + b.etendue/2;
+				yminHitbox = h.y - b.portee;
+				ymaxHitbox = h.y;
+				break;
+			}
+		}
+		coordonneesAbsolues[0] = xminHitbox;
+		coordonneesAbsolues[1] = xmaxHitbox;
+		coordonneesAbsolues[2] = yminHitbox;
+		coordonneesAbsolues[3] = ymaxHitbox;
+		return coordonneesAbsolues;
+	}
+
 	public static void printCroisement(int x1min, int x1max, int y1min, int y1max, int x2min, int x2max, int y2min, int y2max){
 		//on part d'une image blanche
 		BufferedImage img = new BufferedImage(640,480,LecteurMap.imageType);
