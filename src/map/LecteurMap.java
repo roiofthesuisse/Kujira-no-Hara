@@ -120,13 +120,25 @@ public class LecteurMap extends Lecteur{
 	 */
 	private void continuerLaLectureDesPagesDeCommandesEvent() {
 		for (Event event : this.map.events){
-			if(!event.supprime){
-				if(event.pageActive == null || event.pageActive.commandes==null){
-					event.activerUnePage();
+			if(!event.equals(this.map.heros)){ //le héros est calculé en dernier
+				if(!event.supprime){
+					if(event.pageActive == null || event.pageActive.commandes==null){
+						event.activerUnePage();
+					}
+					if(event.pageActive != null){
+						event.pageActive.executer();
+					}
 				}
-				if(event.pageActive != null){
-					event.pageActive.executer();
-				}
+			}
+		}
+		//le héros est calculé en dernier pour éviter les problèmes d'épée
+		Event event = this.map.heros;
+		if(!event.supprime){
+			if(event.pageActive == null || event.pageActive.commandes==null){
+				event.activerUnePage();
+			}
+			if(event.pageActive != null){
+				event.pageActive.executer();
 			}
 		}
 	}
@@ -225,7 +237,7 @@ public class LecteurMap extends Lecteur{
 		BufferedImage eventImage = event.imageActuelle;
 		if(eventImage!=null){ 
 			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)
-			/*
+			
 			int largeur = eventImage.getWidth() / 4;
 			int hauteur = eventImage.getHeight() / 4;
 			int animation = event.animation;
@@ -234,13 +246,13 @@ public class LecteurMap extends Lecteur{
 			int positionX = event.x + event.largeurHitbox/2 - largeur/2;
 			int positionY = event.y + event.hauteurHitbox - hauteur + event.offsetY;
 			return superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);
-			*/
+			/*
 			//TODO test (pour visualiser les collisions)
 			Graphics2D graphics = ecran.createGraphics();
 			graphics.setPaint(Color.blue);
 			graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
 			return ecran;
-			
+			*/
 		}else{
 			//l'event n'a pas d'image
 			return ecran;

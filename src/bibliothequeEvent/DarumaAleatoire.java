@@ -32,7 +32,7 @@ public class DarumaAleatoire extends Event{
 			//deplacement
 			ArrayList<CommandeEvent> deplacement = new ArrayList<CommandeEvent>();
 			deplacement.add(new AvancerAleatoirement());
-		PageDeComportement page0 = new PageDeComportement(null, null, "daruma character.png", null/*TODO deplacement*/);
+		PageDeComportement page0 = new PageDeComportement(null, null, "daruma character.png", deplacement);
 		page0.ignorerLesMouvementsImpossibles=true;
 		page0.vitesse=2;
 		pages.add(page0);
