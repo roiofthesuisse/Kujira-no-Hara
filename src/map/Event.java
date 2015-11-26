@@ -315,13 +315,14 @@ public class Event implements Comparable<Event>{
 				PageDeComportement page = pages.get(i);
 				Boolean cettePageConvient = true;
 				try{
-					for(Condition cond : page.conditions){
+					//si une condition est fausse, la page ne convient pas
+					for(int j=0; j<page.conditions.size() && cettePageConvient; j++){
+						Condition cond = page.conditions.get(j);
 						if(!cond.estVerifiee()){
 							cettePageConvient = false;
 						}
-						if(!cettePageConvient) break;
 					}
-				}catch(NullPointerException e){
+				}catch(NullPointerException e1){
 					//pas de conditions pour cette page
 				}
 				if(cettePageConvient){
@@ -329,7 +330,7 @@ public class Event implements Comparable<Event>{
 					pageQuOnChoisitEnRemplacement = page;
 				}
 			}
-		}catch(NullPointerException e){
+		}catch(NullPointerException e2){
 			//pas de pages pour cet event
 		}
 		//on ne change la page que si c'est une page différente

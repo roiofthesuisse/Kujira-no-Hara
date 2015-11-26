@@ -9,6 +9,7 @@ import java.io.IOException;
  */
 public class LecteurAudio {
 	public static Musique bgmEnCours = null;
+	//TODO bgs
 	
 	/**
 	 * Jouer un effet sonore.

@@ -7,11 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import comportementEvent.Message;
-import main.Arme;
 import main.Fenetre;
 import main.GestionClavier;
 import main.Lecteur;
-import main.Partie;
 
 /**
  * Le lecteur de map affiche la map et les évènements.
@@ -77,8 +75,8 @@ public class LecteurMap extends Lecteur{
 			animerLesEvents();
 		}
 		
-		//TODO test à retirer
-		ecran = dessinerLaHitboxDuHeros(ecran,xCamera,yCamera);
+		//DEBUG pour voir la hitbox de l'attaque du héros
+		//ecran = dessinerLaHitboxDuHeros(ecran,xCamera,yCamera);
 		
 		//on dessine les évènements
 		ecran = dessinerLesEvents(ecran,xCamera,yCamera);
@@ -97,6 +95,7 @@ public class LecteurMap extends Lecteur{
 		return ecran;
 	}
 
+	@SuppressWarnings("unused")
 	private BufferedImage dessinerLaHitboxDuHeros(BufferedImage ecran, int xCamera, int yCamera) {
 		try{
 			int[] coord = Hitbox.calculerCoordonneesAbsolues(this.map.heros);
@@ -237,7 +236,6 @@ public class LecteurMap extends Lecteur{
 		BufferedImage eventImage = event.imageActuelle;
 		if(eventImage!=null){ 
 			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)
-			
 			int largeur = eventImage.getWidth() / 4;
 			int hauteur = eventImage.getHeight() / 4;
 			int animation = event.animation;
@@ -247,7 +245,7 @@ public class LecteurMap extends Lecteur{
 			int positionY = event.y + event.hauteurHitbox - hauteur + event.offsetY;
 			return superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);
 			/*
-			//TODO test (pour visualiser les collisions)
+			//DEBUG pour visualiser les collisions
 			Graphics2D graphics = ecran.createGraphics();
 			graphics.setPaint(Color.blue);
 			graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);

@@ -150,7 +150,7 @@ public class Map {
 					JSONArray jsonPages = jsonEvent.getJSONArray("pages");
 					event = new Event(this, xEvent, yEvent, nomEvent, jsonPages, hauteurHitbox, largeurHitbox);
 				}
-				events.add(event);
+				this.events.add(event);
 			}
 			//events.add( new Panneau(this,2,7) );
 			//events.add( new DarumaAleatoire(this,1,1) );
@@ -162,8 +162,8 @@ public class Map {
 			e.printStackTrace();
 		}
 		//numérotation des events
-		for(int i=0; i<events.size(); i++){
-			events.get(i).numero = i;
+		for(int i=0; i<this.events.size(); i++){
+			this.events.get(i).numero = i;
 		}
 	}
 
@@ -294,7 +294,7 @@ public class Map {
 	public void objet() {
 		//TODO
 		Event e = null;
-		for(Event f : events){
+		for(Event f : this.events){
 			if(f.nom.equals("daruma"))e=f;
 		}
 		Hitbox.printCroisement(heros.x, heros.x+heros.largeurHitbox, 
@@ -310,7 +310,7 @@ public class Map {
 	 * @return booléen pour savoir si l'évent à supprimer a bien été trouvé dans la liste des évènements
 	 */
 	public boolean supprimerEvenement(int numeroEventASupprimer) {
-		for(Event event : events){
+		for(Event event : this.events){
 			if(event.numero == numeroEventASupprimer){
 				event.supprime = true;
 				return true;
@@ -318,11 +318,6 @@ public class Map {
 		}
 		System.out.println("L'évènement à supprimer numéro "+numeroEventASupprimer+" n'a pas été trouvé dans la liste.");
 		return false;
-	}
-
-	public static String getNomBgm(int numeroNouvelleMap) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 }

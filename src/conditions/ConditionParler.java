@@ -4,16 +4,10 @@ import map.Event;
 import map.Heros;
 
 public class ConditionParler extends Condition {
-	public static int frameDeLaDerniereFermetureDUnePageQuiACetteCondition = 0;
-	
-	public ConditionParler(){}
+	public static int distanceMaxParole = 4; //au dela de cette distance en pixels, le dialogue ne se déclenche pas
 	
 	@Override
 	public Boolean estVerifiee() {
-		//il faut que la dernière page s'ouvrant par parole se soit fermée il y a longtemps
-		if(this.page.event.map.lecteur.frameActuelle - frameDeLaDerniereFermetureDUnePageQuiACetteCondition < 5){
-			return false;
-		}
 		try{
 			int pageActive = this.page.event.pageActive.numero;
 			int cettePage = this.page.numero;
@@ -33,7 +27,7 @@ public class ConditionParler extends Condition {
 				//il faut être collé à l'évènement et regarder vers lui
 				switch(dir){
 				case Event.Direction.HAUT:
-					if(ymin1 != ymax2){
+					if( Math.abs(ymin1-ymax2)>distanceMaxParole ){
 						return false;
 					}else{
 						if( heros.largeurHitbox < event.largeurHitbox ){ 
@@ -46,7 +40,7 @@ public class ConditionParler extends Condition {
 						}
 					}
 				case Event.Direction.GAUCHE:
-					if(xmin1 != xmax2){
+					if( Math.abs(xmin1-xmax2)>distanceMaxParole ){
 						return false;
 					}else{
 						if( heros.hauteurHitbox < event.hauteurHitbox ){ 
@@ -59,7 +53,7 @@ public class ConditionParler extends Condition {
 						}
 					}
 				case Event.Direction.DROITE:
-					if(xmax1 != xmin2){
+					if( Math.abs(xmax1-xmin2)>distanceMaxParole ){
 						return false;
 					}else{
 						if( heros.hauteurHitbox < event.hauteurHitbox ){ 
@@ -71,11 +65,11 @@ public class ConditionParler extends Condition {
 							return ymin1<=ymin2 && ymax2<=ymax1;
 						}
 					}
-				case Event.Direction.BAS:
-					if(ymax1 != ymin2){
+				default:
+					if( Math.abs(ymax1-ymin2)>distanceMaxParole ){
 						return false;
 					}else{
-						if( heros.largeurHitbox < event.largeurHitbox ){ 
+						if( heros.largeurHitbox < event.largeurHitbox ){
 							//la longueur de contact est supérieure à la moitié de la taille du héros
 							return ((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) || 
 								((xmin2<=xmin1 && xmin1<xmax2) && xmax2-xmin1>heros.largeurHitbox/2);

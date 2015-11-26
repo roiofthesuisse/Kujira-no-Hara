@@ -44,7 +44,7 @@ public class DarumaAleatoire extends Event{
 			//commandes event à executer
 			ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
 			CommandeEvent comm1 = new Message("lala lala\\n \\c[02]lele\\c[01] lele\\n popo\\n pr\\c[02]out\\c[01]"); commandes.add(comm1);
-			//CommandeEvent comm2 = new Message("\\c[02]lili"); commandes.add(comm2);
+			CommandeEvent comm2 = new Message("\\c[02]lili"); commandes.add(comm2);
 			//CommandeEvent comm3 = new Message("lala"); commandes.add(comm3);
 			CommandeEvent comm4 = new AjouterArme(0); commandes.add(comm4);
 			CommandeEvent comm4bis = new EquiperArme(0); commandes.add(comm4bis);

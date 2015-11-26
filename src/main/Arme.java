@@ -69,13 +69,12 @@ public class Arme {
 		//épée
 			ArrayList<Integer> framesAnimationEpee = new ArrayList<Integer>();
 			framesAnimationEpee.add(3);framesAnimationEpee.add(2);framesAnimationEpee.add(2);framesAnimationEpee.add(1);framesAnimationEpee.add(1);framesAnimationEpee.add(0);framesAnimationEpee.add(0);
-			Hitbox hitboxEpee = new Hitbox(32,64);
+			Hitbox hitboxEpee = new Hitbox(24,48);
 			int idEpee = 0;
 			int frameDebutCoupEpee = 1;
 			int frameFinCoupEpee = 5;
 			Arme epee = new Arme(idEpee,"epee","Jiyounasu AttaqueEpee character.png", "Epee.wav", framesAnimationEpee,hitboxEpee,frameDebutCoupEpee,frameFinCoupEpee);
 			Arme.armesDuJeu[idEpee] = epee;
-			//Partie.idArmesPossedees.add(idEpee);
 			
 		//eventail
 			ArrayList<Integer> framesAnimationEventail = new ArrayList<Integer>();
@@ -87,7 +86,6 @@ public class Arme {
 			int frameFinCoupEventail = 7;
 			Arme eventail = new Arme(idEventail,"eventail","Jiyounasu Eventail character.png", null, framesAnimationEventail,hitboxEventail,frameDebutCoupEventail,frameFinCoupEventail);
 			Arme.armesDuJeu[idEventail] = eventail;
-			//TODO redonner Partie.idArmesPossedees.add(idEventail);
 			
 		//autre
 			//TODO autres armes

@@ -10,7 +10,6 @@ import org.json.JSONObject;
 
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
-import conditions.ConditionParler;
 
 public class PageDeComportement {
 	public Event event;
@@ -88,7 +87,6 @@ public class PageDeComportement {
 				if(curseurCommandes >= commandes.size()){
 					curseurCommandes = 0;
 					if(sOuvreParParole){
-						ConditionParler.frameDeLaDerniereFermetureDUnePageQuiACetteCondition = this.event.map.lecteur.frameActuelle;
 						this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
 					}
 				}
@@ -105,7 +103,6 @@ public class PageDeComportement {
 				//on a fini la page
 				curseurCommandes = 0;
 				if(sOuvreParParole){
-					ConditionParler.frameDeLaDerniereFermetureDUnePageQuiACetteCondition = this.event.map.lecteur.frameActuelle;
 					this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
 				}
 				this.event.activerUnePage();

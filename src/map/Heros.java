@@ -7,6 +7,7 @@ import comportementEvent.DemarrerAnimationAttaque;
 import conditions.Condition;
 import conditions.ConditionAnimationAttaque;
 import conditions.ConditionArmeEquipee;
+import conditions.ConditionPasDInterlocuteurAutour;
 import conditions.ConditionStopEvent;
 import conditions.ConditionToucheAction;
 import main.Arme;
@@ -36,12 +37,14 @@ public class Heros extends Event {
 				ArrayList<Condition> conditions0 = null;
 				PageDeComportement page0 = new PageDeComportement(conditions0, null, nomImageHeros, null);
 				page0.animeEnMouvement = true;
+				page0.vitesse=4;
 				pages.add(page0);
 			//page 1 : déclenchement animation attaque épée
 				ArrayList<Condition> conditions1 = new ArrayList<Condition>();
 				conditions1.add(new ConditionArmeEquipee(0));
 				conditions1.add(new ConditionToucheAction());
 				conditions1.add(new ConditionStopEvent(false));
+				conditions1.add(new ConditionPasDInterlocuteurAutour());
 				ArrayList<CommandeEvent> commandes1 = new ArrayList<CommandeEvent>();
 				commandes1.add( new DemarrerAnimationAttaque());
 				String nomImageHerosEpee = Arme.getArme(0).nomImageAttaque;
