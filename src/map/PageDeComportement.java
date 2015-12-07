@@ -3,9 +3,11 @@ package map;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import comportementEvent.CommandeEvent;
@@ -17,10 +19,10 @@ public class PageDeComportement {
 	private Boolean sOuvreParParole = false; //équivalent à posséder la condition de déclenchement "parler"
 	
 	//conditions de déclenchement
-	public ArrayList<Condition> conditions;
+	public final ArrayList<Condition> conditions;
 	
 	//liste de commandes
-	public ArrayList<CommandeEvent> commandes;
+	public final ArrayList<CommandeEvent> commandes;
 	 /**
 	  * Le curseur indique quelle commande executer.
 	  * Il se déplace incrémentalement, mais on peut lui faire faire des sauts.
@@ -40,7 +42,7 @@ public class PageDeComportement {
 	public int frequence = 4;
 	
 	//mouvement
-	public ArrayList<CommandeEvent> deplacement;
+	public final ArrayList<CommandeEvent> deplacement;
 	public Boolean repeterLeDeplacement = true;
 	public Boolean ignorerLesMouvementsImpossibles = false;
 	
@@ -71,9 +73,74 @@ public class PageDeComportement {
 	/**
 	 * La page de comportement est créée à partir du fichier JSON.
 	 * @param pageJSON objet JSON décrivant la page de comportements
+	 * @throws JSONException 
+	 * @throws ClassNotFoundException 
 	 */
 	public PageDeComportement(JSONObject pageJSON) {
-		// TODO Auto-generated constructor stub
+		// TODO est-ce que tout event ne devrait pas avoir une page vierge au début ?
+
+		
+		//conditions
+		ArrayList<Condition> conditions = new ArrayList<Condition>();
+		for(Object conditionJSON : pageJSON.getJSONArray("conditions")){
+			try{
+				Class<?> classeCondition = Class.forName("conditions.Condition"+((JSONObject) conditionJSON).get("nom"));
+				Constructor<?> constructeurCondition = classeCondition.getConstructor();
+				Condition condition = (Condition) constructeurCondition.newInstance();
+				conditions.add(condition);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		this.conditions = conditions;
+		
+		ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
+		for(Object commandeJSON : pageJSON.getJSONArray("commandes")){
+			try{
+				Class<?> classeCommande = Class.forName("comportementEvent."+((JSONObject) commandeJSON).get("nom"));
+				String parametre1 = (String) ((JSONObject) commandeJSON).get("texte"); //TODO faire bien
+				
+				Constructor<?> constructeurCommande = classeCommande.getConstructor(String.class);
+				CommandeEvent commande = (CommandeEvent) constructeurCommande.newInstance(parametre1);
+				commandes.add(commande);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		this.commandes = commandes;
+		
+		
+		
+		this.nomImage = (String) pageJSON.get("image");
+		
+		this.animeALArret = (Boolean) pageJSON.get("animeALArret");
+		this.animeEnMouvement = (Boolean) pageJSON.get("animeEnMouvement");
+		this.traversable = (Boolean) pageJSON.get("traversable");
+		System.out.println("traversable ? "+this.traversable);
+		this.auDessusDeTout = (Boolean) pageJSON.get("auDessusDeTout");
+		this.vitesse = (Integer) pageJSON.get("vitesse");
+		this.frequence = (Integer) pageJSON.get("frequence");
+		
+		this.deplacement = null; //TODO faire ça bien
+		this.repeterLeDeplacement = (Boolean) pageJSON.get("repeterLeDeplacement");
+		this.ignorerLesMouvementsImpossibles = (Boolean) pageJSON.get("ignorerLesMouvementsImpossibles");
+		
+		//ouverture de l'image d'apparence
+		try {
+			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomImage));
+		} catch (IOException e) {
+			System.out.println("Erreur lors de l'ouverture de l'apparence de l'event :");
+			e.printStackTrace();
+		}
+		//on précise si c'est une page qui s'ouvre en parlant à l'évent
+		if(conditions!=null){
+			for(Condition cond : conditions){
+				//TODO dans le futur il y aura aussi la condition "arrivée sur la case" en plus de "parler" :
+				if(cond.getClass().getName().equals("conditions.ConditionParler")){
+					this.sOuvreParParole = true;
+				}
+			}
+		}
 	}
 
 	public void executer() {

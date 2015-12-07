@@ -82,25 +82,34 @@
 		},
 		{
 			"nom": "teleporteur",
-			"x": 20,
+			"x": 15,
 			"y": 11,
 			"largeur": 32,
 			"hauteur": 32,
 			"pages": [
 				{
+					"conditions": [],
+					"commandes": [],
+					"image": "mouton character.png",
+					"animeALArret": false,
+					"animeEnMouvement": true,
+					"traversable": false,
+					"auDessusDeTout": false,
+					"vitesse": 4,
+					"frequence": 4,
+					"deplacement": [],
+					"repeterLeDeplacement": true,
+					"ignorerLesMouvementsImpossibles": false
+				},
+				{
 					"conditions": [
 						{
-							"nom": "Parler"
+							"nom": "Contact"
 						}
 					],
-					"commandes": [
-						{
-							"nom": "Message", 
-							"texte": "Pipi"
-						}
-					],
+					"commandes": [],
 					
-					"image": 2,
+					"image": "daruma character.png",
 					"animeALArret": false,
 					"animeEnMouvement": true,
 					"traversable": false,

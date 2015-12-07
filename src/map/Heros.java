@@ -2,6 +2,8 @@ package map;
 
 import java.util.ArrayList;
 
+import comportementEvent.Attendre;
+import comportementEvent.AvancerAleatoirement;
 import comportementEvent.CommandeEvent;
 import comportementEvent.DemarrerAnimationAttaque;
 import conditions.Condition;

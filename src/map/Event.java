@@ -40,7 +40,7 @@ public class Event implements Comparable<Event>{
 	public ArrayList<CommandeEvent> deplacementActuel;
 	Boolean repeterLeDeplacementActuel = true;
 	protected Boolean ignorerLesMouvementsImpossiblesActuel = false;
-	Boolean traversableActuel = false;
+	public Boolean traversableActuel = false;
 	Boolean auDessusDeToutActuel = false;
 	public int largeurHitbox = 32;
 	public int hauteurHitbox = 32;
@@ -171,6 +171,9 @@ public class Event implements Comparable<Event>{
 			case 3 : yAInspecter-=vitesseActuelle; yAInspecter2-=vitesseActuelle; xAInspecter2+=32; yAInspecter3-=vitesseActuelle; break;
 			default : break;
 		}
+		if(this.traversableActuel){ //l'event est lui-même traversable, donc il traverse tout
+			return true;
+		}
 		try{
 			//si rencontre avec un élément de décor non passable -> false
 			if(!map.casePassable[xAInspecter/32][yAInspecter/32]){
@@ -187,6 +190,9 @@ public class Event implements Comparable<Event>{
 			//si rencontre avec un autre évènement non traversable -> false
 			for(Event autreEvent : this.map.events){
 				if(numero != autreEvent.numero){
+					if(autreEvent.traversableActuel){ //l'event rencontré est traversable
+						return true;
+					}
 					if( lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) ){
 						return false;
 					}
