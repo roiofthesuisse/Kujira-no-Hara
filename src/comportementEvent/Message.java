@@ -22,11 +22,7 @@ public class Message extends CommandeEvent{
 	}
 	
 	public Message(ArrayList<Parametre> parametres){
-		for(Parametre parametre : parametres){
-			if(parametre.nom.equals("texte")){
-				this.texte = (String) parametre.valeur;
-			}
-		}
+		this( (String) trouverParametre("texte",parametres) );
 	}
 
 	@Override
