@@ -20,7 +20,7 @@ public class Panneau extends Event{
 	
 	public Panneau(Map map, Integer x, Integer y){
 		super(map, x,y, "panneau", getPages(), 32, 32);
-		setIgnorerLesMouvementsImpossibles(true);
+		this.ignorerLesMouvementsImpossiblesActuel = true;
 	}
 	
 	public static ArrayList<PageDeComportement> getPages(){

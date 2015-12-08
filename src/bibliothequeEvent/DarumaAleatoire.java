@@ -23,7 +23,7 @@ public class DarumaAleatoire extends Event{
 	
 	public DarumaAleatoire(Map map, Integer x, Integer y){
 		super(map, x,y, "daruma", getPages(), 32, 32);
-		setIgnorerLesMouvementsImpossibles(true);
+		this.ignorerLesMouvementsImpossiblesActuel = true;
 	}
 	
 	public static ArrayList<PageDeComportement> getPages(){

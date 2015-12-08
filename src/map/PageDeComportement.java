@@ -164,8 +164,7 @@ public class PageDeComportement {
 			System.out.println("Erreur lors de l'ouverture de l'apparence de l'event :");
 			e.printStackTrace();
 		}
-		//on précise si c'est une page qui s'ouvre en parlant à l'évent
-		//TODO utile ?
+		//on précise si c'est une page qui s'ouvre en parlant à l'event
 		if(conditions!=null){
 			for(Condition cond : conditions){
 				//TODO dans le futur il y aura aussi la condition "arrivée sur la case" en plus de "parler" :
@@ -205,7 +204,7 @@ public class PageDeComportement {
 				if(sOuvreParParole){
 					this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
 				}
-				this.event.activerUnePage();
+				this.event.pageActive = null; 
 			}
 		}
 	}

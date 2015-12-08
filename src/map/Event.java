@@ -39,7 +39,7 @@ public class Event implements Comparable<Event>{
 	public Boolean animeEnMouvementActuel = true;
 	public ArrayList<CommandeEvent> deplacementActuel;
 	Boolean repeterLeDeplacementActuel = true;
-	protected Boolean ignorerLesMouvementsImpossiblesActuel = false;
+	public Boolean ignorerLesMouvementsImpossiblesActuel = false;
 	public Boolean traversableActuel = false;
 	Boolean auDessusDeToutActuel = false;
 	public int largeurHitbox = 32;
@@ -89,6 +89,9 @@ public class Event implements Comparable<Event>{
 		this.largeurHitbox = largeurHitbox;
 		this.hauteurHitbox = hauteurHitbox;
 		initialiserLesPages();
+		if(pages!=null && pages.size()>=1){
+			attribuerLesProprietesActuelles(pages.get(0)); //par défaut, propriétés de la première page
+		}
 	}
 	
 	protected Event(Map map, Integer x, Integer y, String nom, JSONArray tableauDesPages, int largeurHitbox, int hauteurHitbox){
@@ -97,9 +100,6 @@ public class Event implements Comparable<Event>{
 
 	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(JSONArray tableauDesPages) {
 		ArrayList<PageDeComportement> listeDesPages = new ArrayList<PageDeComportement>();
-		//TODO tout event doit avoir une page vierge au début : mêmes propriétés, mais aucune commande ni condition
-		//TODO à ne faire que si la première page possède des conditions
-		//TODO si la page est parlable, le mouvement est associé à la page vierge et non à la page de parole
 		for(Object pageJSON : tableauDesPages){
 			listeDesPages.add( new PageDeComportement((JSONObject)pageJSON) );
 		}
@@ -121,7 +121,7 @@ public class Event implements Comparable<Event>{
 							cond.page = page;
 							numeroCondition++;
 						}
-					}catch(NullPointerException e){
+					}catch(NullPointerException e1){
 						//pas de conditions pour déclencher cette page
 					}
 					//on apprend aux commandes qui est leur page
@@ -129,13 +129,13 @@ public class Event implements Comparable<Event>{
 						for(CommandeEvent comm : page.commandes){
 							comm.page = page;
 						}
-					}catch(NullPointerException e){
+					}catch(NullPointerException e2){
 						//pas de commandes dans cette page
 					}
 					numeroPage++;
 				}
 			}
-		}catch(NullPointerException e){
+		}catch(NullPointerException e3){
 			//pas de pages dans cet event
 		}
 	}
@@ -213,10 +213,7 @@ public class Event implements Comparable<Event>{
 	 * déplacement naturel, inscrit dans la liste des déplacements de la page de l'event
 	 */
 	public void deplacer() {
-		if(pageActive==null){
-			activerUnePage(); //on essayer d'activer une page, mais il se peut que la bonne réponse soit aucune page
-		}
-		if(pageActive!=null){
+		if(pageActive!=null || (deplacementActuel!=null&&deplacementActuel.size()>0) ){
 			try{
 				CommandeEvent mouvementActuel = deplacementActuel.get(0);
 				String typeMouvement = mouvementActuel.getClass().getName();
@@ -309,15 +306,6 @@ public class Event implements Comparable<Event>{
 		}
 		return 0;
 	}
-	
-	public void setIgnorerLesMouvementsImpossibles(Boolean b){
-		if(this.pageActive == null) this.activerUnePage();
-		try{
-			ignorerLesMouvementsImpossiblesActuel = b;
-		}catch(NullPointerException e){
-			//pas de page pour cet event
-		}
-	}
 
 	public void activerUnePage() {
 		PageDeComportement pageQuOnChoisitEnRemplacement = null;
@@ -346,24 +334,34 @@ public class Event implements Comparable<Event>{
 			//pas de pages pour cet event
 		}
 		//on ne change la page que si c'est une page différente
-		if(this.pageActive==null || (this.pageActive.numero!=pageQuOnChoisitEnRemplacement.numero) ){
-			//changement de page !
+		if( this.pageActive==null || pageQuOnChoisitEnRemplacement==null || (this.pageActive.numero!=pageQuOnChoisitEnRemplacement.numero) ){
+			//changement de page
 			this.pageActive = pageQuOnChoisitEnRemplacement;
-			//System.out.println("     l'evènement "+numero+" ("+nom+") change de page : page "+pageActive.numero);
-			//maintenant on donne à l'évent toutes les propriétés de la page
+			
+			//on donne à l'évent toutes les propriétés de la page
 			if(this.pageActive != null){
-				this.imageActuelle = pageActive.image;
-				this.deplacementActuel = pageActive.deplacement;
-				this.vitesseActuelle = pageActive.vitesse;
-				this.frequenceActuelle = pageActive.frequence;
-				this.animeALArretActuel = pageActive.animeALArret;
-				this.auDessusDeToutActuel = pageActive.auDessusDeTout;
-				this.animeEnMouvementActuel = pageActive.animeEnMouvement;
-				this.repeterLeDeplacementActuel = pageActive.repeterLeDeplacement;
-				this.ignorerLesMouvementsImpossiblesActuel = pageActive.ignorerLesMouvementsImpossibles;
-				this.traversableActuel = pageActive.traversable;
+				attribuerLesProprietesActuelles(pageActive);
 			}
 		}
+	}
+
+	/**
+	 * On assigne les propriétés actuelles en utilisant celles d'une page donnée.
+	 */
+	private void attribuerLesProprietesActuelles(PageDeComportement page) {
+		//apparence
+		this.imageActuelle = page.image;
+		//propriétés
+		this.vitesseActuelle = page.vitesse;
+		this.frequenceActuelle = page.frequence;
+		this.animeALArretActuel = page.animeALArret;
+		this.auDessusDeToutActuel = page.auDessusDeTout;
+		this.animeEnMouvementActuel = page.animeEnMouvement;
+		this.traversableActuel = page.traversable;
+		//déplacement
+		this.deplacementActuel = page.deplacement;
+		this.repeterLeDeplacementActuel = page.repeterLeDeplacement;
+		this.ignorerLesMouvementsImpossiblesActuel = page.ignorerLesMouvementsImpossibles;
 	}
 	
 }

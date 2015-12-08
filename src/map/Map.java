@@ -281,7 +281,12 @@ public class Map {
 		int idArmeEquipee = Partie.idArmeEquipee;
 		idArmeEquipee--;
 		int nombreDArmesPossedees = Partie.idArmesPossedees.size();
+		if(nombreDArmesPossedees<=0){
+			//pas d'armes possédées
+			return;
+		}
 		if(idArmeEquipee<0){
+			//si pas d'arme équipée, on équipe la dernière possédée
 			idArmeEquipee += nombreDArmesPossedees;
 		}
 		Partie.idArmeEquipee = idArmeEquipee;
