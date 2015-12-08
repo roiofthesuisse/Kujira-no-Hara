@@ -3,21 +3,33 @@ package comportementEvent;
 import java.util.ArrayList;
 
 import map.Event;
+import menu.Parametre;
 
 public class Avancer extends CommandeEvent{
 	protected int direction;
 	public int nombreDeCarreaux;
 	public int ceQuiAEteFait = 0; //avancée en pixel, doit atteindre nombreDeCarreaux*32
 	
-	public Avancer(int direction, int nombreDeCarreaux){
+	public Avancer(Integer direction, Integer nombreDeCarreaux){
 		this.direction = direction;
 		this.nombreDeCarreaux = nombreDeCarreaux;
+	}
+	
+	/**
+	 * Constructeur générique.
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public Avancer(ArrayList<Parametre> parametres){
+		this( (Integer)trouverParametre("direction", parametres), (Integer)trouverParametre("nombreDeCarreaux", parametres) );
 	}
 	
 	public int getDirection(){
 		return direction;
 	}
 	
+	/**
+	 * Réinitialiser un mouvement le déclare non fait, et change la direction en cas de mouvement aléatoire.
+	 */
 	public void reinitialiser(){
 		ceQuiAEteFait = 0;
 	}

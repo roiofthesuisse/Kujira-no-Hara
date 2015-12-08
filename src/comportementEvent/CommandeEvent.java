@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import map.GenerateurAleatoire;
 import map.PageDeComportement;
+import menu.Parametre;
 
 public abstract class CommandeEvent {
 	String nom;
@@ -17,4 +18,17 @@ public abstract class CommandeEvent {
 	 * le curseur peut faire un grand saut (boucles, conditions...)
 	 */
 	public abstract int executer(int curseurActuel, ArrayList<CommandeEvent> commandes);
+	
+	/**
+	 * Permet de retrouver un paramètre dans une liste de paramètres.
+	 * Utile lors des instanciations génériques via JSON.
+	 */
+	public static Object trouverParametre(String nomParametre, ArrayList<Parametre> parametres){
+		for(Parametre parametre : parametres){
+			if(parametre.nom.equals(nomParametre)){
+				return parametre.valeur;
+			}
+		}
+		return null;
+	}
 }

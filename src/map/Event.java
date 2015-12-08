@@ -97,6 +97,9 @@ public class Event implements Comparable<Event>{
 
 	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(JSONArray tableauDesPages) {
 		ArrayList<PageDeComportement> listeDesPages = new ArrayList<PageDeComportement>();
+		//TODO tout event doit avoir une page vierge au début : mêmes propriétés, mais aucune commande ni condition
+		//TODO à ne faire que si la première page possède des conditions
+		//TODO si la page est parlable, le mouvement est associé à la page vierge et non à la page de parole
 		for(Object pageJSON : tableauDesPages){
 			listeDesPages.add( new PageDeComportement((JSONObject)pageJSON) );
 		}
@@ -220,10 +223,13 @@ public class Event implements Comparable<Event>{
 				switch(typeMouvement){
 					case "comportementEvent.Avancer" : deplacer((Avancer)mouvementActuel); break;
 					case "comportementEvent.AvancerAleatoirement" : deplacer((Avancer)mouvementActuel); break;
+					//TODO dans le futur, ajouter les autres types de mouvements ici
 					default : break;
 				}
-			}catch(NullPointerException e){
+			}catch(NullPointerException e1){
 				//pas de déplacement pour cet event
+			}catch(IndexOutOfBoundsException e2){
+				//le déplacement ne contient aucune commande
 			}
 		}
 	}

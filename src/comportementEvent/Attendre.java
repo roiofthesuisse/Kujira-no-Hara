@@ -2,6 +2,8 @@ package comportementEvent;
 
 import java.util.ArrayList;
 
+import menu.Parametre;
+
 public class Attendre extends CommandeEvent {
 	public int nombreDeFrames; //nombre de frames qu'il faut attendre
 	public int ceQuiAEteFait; //nombre de frames qu'on a déjà attendu
@@ -9,6 +11,14 @@ public class Attendre extends CommandeEvent {
 	public Attendre(int nombreDeFrames){
 		this.ceQuiAEteFait = 0;
 		this.nombreDeFrames = nombreDeFrames;
+	}
+	
+	/**
+	 * Constructeur générique.
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public Attendre(ArrayList<Parametre> parametres){
+		this( (Integer) trouverParametre("nombreDeFrames",parametres) );
 	}
 	
 	public void reinitialiser(){

@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import javax.imageio.ImageIO;
 
 import org.json.JSONException;
@@ -12,6 +14,7 @@ import org.json.JSONObject;
 
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
+import menu.Parametre;
 
 public class PageDeComportement {
 	public Event event;
@@ -69,7 +72,7 @@ public class PageDeComportement {
 			}
 		}
 	}
-
+	
 	/**
 	 * La page de comportement est créée à partir du fichier JSON.
 	 * @param pageJSON objet JSON décrivant la page de comportements
@@ -77,10 +80,7 @@ public class PageDeComportement {
 	 * @throws ClassNotFoundException 
 	 */
 	public PageDeComportement(JSONObject pageJSON) {
-		// TODO est-ce que tout event ne devrait pas avoir une page vierge au début ?
-
-		
-		//conditions
+		//conditions de déclenchement de la page
 		ArrayList<Condition> conditions = new ArrayList<Condition>();
 		for(Object conditionJSON : pageJSON.getJSONArray("conditions")){
 			try{
@@ -94,14 +94,24 @@ public class PageDeComportement {
 		}
 		this.conditions = conditions;
 		
+		//commandes de la page
 		ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
 		for(Object commandeJSON : pageJSON.getJSONArray("commandes")){
 			try{
 				Class<?> classeCommande = Class.forName("comportementEvent."+((JSONObject) commandeJSON).get("nom"));
-				String parametre1 = (String) ((JSONObject) commandeJSON).get("texte"); //TODO faire bien
-				
-				Constructor<?> constructeurCommande = classeCommande.getConstructor(String.class);
-				CommandeEvent commande = (CommandeEvent) constructeurCommande.newInstance(parametre1);
+				Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
+				String parametreNom;
+				Object parametreValeur;
+				ArrayList<Parametre> parametres = new ArrayList<Parametre>();
+				while(parametresNoms.hasNext()){
+					parametreNom = parametresNoms.next();
+					if(!parametreNom.equals("nom")){ //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+						parametreValeur = ((JSONObject) commandeJSON).get(parametreNom);
+						parametres.add( new Parametre(parametreNom, parametreValeur) );
+					}
+				}
+				Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
+				CommandeEvent commande = (CommandeEvent) constructeurCommande.newInstance(parametres);
 				commandes.add(commande);
 			}catch(Exception e){
 				e.printStackTrace();
@@ -110,18 +120,40 @@ public class PageDeComportement {
 		this.commandes = commandes;
 		
 		
-		
+		//apparence de l'event lors de cette page
 		this.nomImage = (String) pageJSON.get("image");
 		
+		//propriétés de l'event lors de cette page
 		this.animeALArret = (Boolean) pageJSON.get("animeALArret");
 		this.animeEnMouvement = (Boolean) pageJSON.get("animeEnMouvement");
 		this.traversable = (Boolean) pageJSON.get("traversable");
-		System.out.println("traversable ? "+this.traversable);
 		this.auDessusDeTout = (Boolean) pageJSON.get("auDessusDeTout");
 		this.vitesse = (Integer) pageJSON.get("vitesse");
 		this.frequence = (Integer) pageJSON.get("frequence");
 		
-		this.deplacement = null; //TODO faire ça bien
+		//mouvement de l'event lors de cette page
+		this.deplacement = new ArrayList<CommandeEvent>();
+		for(Object actionDeplacementJSON : pageJSON.getJSONArray("deplacement")){
+			try{
+				Class<?> classeActionDeplacement = Class.forName("comportementEvent."+((JSONObject) actionDeplacementJSON).get("nom"));
+				Iterator<String> parametresNoms = ((JSONObject) actionDeplacementJSON).keys();
+				String parametreNom;
+				Object parametreValeur;
+				ArrayList<Parametre> parametres = new ArrayList<Parametre>();
+				while(parametresNoms.hasNext()){
+					parametreNom = parametresNoms.next();
+					if(!parametreNom.equals("nom")){ //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+						parametreValeur = ((JSONObject) actionDeplacementJSON).get(parametreNom);
+						parametres.add( new Parametre(parametreNom, parametreValeur) );
+					}
+				}
+				Constructor<?> constructeurActionDeplacement = classeActionDeplacement.getConstructor(parametres.getClass());
+				CommandeEvent actionDeplacement = (CommandeEvent) constructeurActionDeplacement.newInstance(parametres);
+				deplacement.add(actionDeplacement);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
 		this.repeterLeDeplacement = (Boolean) pageJSON.get("repeterLeDeplacement");
 		this.ignorerLesMouvementsImpossibles = (Boolean) pageJSON.get("ignorerLesMouvementsImpossibles");
 		
@@ -133,6 +165,7 @@ public class PageDeComportement {
 			e.printStackTrace();
 		}
 		//on précise si c'est une page qui s'ouvre en parlant à l'évent
+		//TODO utile ?
 		if(conditions!=null){
 			for(Condition cond : conditions){
 				//TODO dans le futur il y aura aussi la condition "arrivée sur la case" en plus de "parler" :

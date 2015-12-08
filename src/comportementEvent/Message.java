@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 
 import main.GestionClavier;
 import map.LecteurMap;
+import menu.Parametre;
 import menu.Texte;
 
 public class Message extends CommandeEvent{
@@ -18,6 +19,14 @@ public class Message extends CommandeEvent{
 	
 	public Message(String texte) {
 		this.texte = texte;
+	}
+	
+	public Message(ArrayList<Parametre> parametres){
+		for(Parametre parametre : parametres){
+			if(parametre.nom.equals("texte")){
+				this.texte = (String) parametre.valeur;
+			}
+		}
 	}
 
 	@Override
