@@ -161,8 +161,8 @@ public class PageDeComportement {
 		try {
 			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomImage));
 		} catch (IOException e) {
-			System.out.println("Erreur lors de l'ouverture de l'apparence de l'event :");
-			e.printStackTrace();
+			//l'image n'existe pas
+			System.out.println("Erreur lors de l'ouverture de l'apparence de l'event ("+nomImage+")");
 		}
 		//on précise si c'est une page qui s'ouvre en parlant à l'event
 		if(conditions!=null){

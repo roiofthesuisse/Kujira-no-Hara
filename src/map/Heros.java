@@ -2,8 +2,6 @@ package map;
 
 import java.util.ArrayList;
 
-import comportementEvent.Attendre;
-import comportementEvent.AvancerAleatoirement;
 import comportementEvent.CommandeEvent;
 import comportementEvent.DemarrerAnimationAttaque;
 import conditions.Condition;
@@ -26,12 +24,10 @@ public class Heros extends Event {
 	public int animationAttaque = 0;
 
 	Heros(Map map, int x, int y, int direction) {
-		super(map, x, y, "heros", new ArrayList<PageDeComportement>(), 24, 24);
-		this.pages = getPages();
-		initialiserLesPages();
+		super(map, x, y, direction, "heros", creerPages(), 24, 24);
 	}
 	
-	public ArrayList<PageDeComportement> getPages(){
+	public static ArrayList<PageDeComportement> creerPages(){
 		ArrayList<PageDeComportement> pages = new  ArrayList<PageDeComportement>();
 		
 		//pages
@@ -75,7 +71,6 @@ public class Heros extends Event {
 				PageDeComportement page4 = new PageDeComportement(conditions4, null, nomImageHerosEventail, null);
 				pages.add(page4);
 		//fin pages
-		this.pages = pages;
 		return pages;
 	}
 	
@@ -99,25 +94,25 @@ public class Heros extends Event {
 			Boolean ilYADeplacement = false;
 			ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
 			if( touchesPressees.contains(GestionClavier.codeToucheHaut()) && !touchesPressees.contains(GestionClavier.codeToucheBas()) ){
-				if( deplacementPossible(3) ){
+				if( deplacementPossible(Event.Direction.HAUT) ){
 					ilYADeplacement = true;
 					this.y-=pageActive.vitesse;
 				}
 			}
 			if( touchesPressees.contains(GestionClavier.codeToucheBas()) && !touchesPressees.contains(GestionClavier.codeToucheHaut()) ){
-				if( deplacementPossible(0) ){
+				if( deplacementPossible(Event.Direction.BAS) ){
 					ilYADeplacement = true;
 					this.y+=pageActive.vitesse;
 				}
 			}
 			if( touchesPressees.contains(GestionClavier.codeToucheGauche()) && !touchesPressees.contains(GestionClavier.codeToucheDroite()) ){
-				if( deplacementPossible(1) ){
+				if( deplacementPossible(Event.Direction.GAUCHE) ){
 					ilYADeplacement = true;
 					this.x-=pageActive.vitesse;
 				}
 			}
 			if( touchesPressees.contains(GestionClavier.codeToucheDroite()) && !touchesPressees.contains(GestionClavier.codeToucheGauche()) ){
-				if( deplacementPossible(2) ){
+				if( deplacementPossible(Event.Direction.DROITE) ){
 					ilYADeplacement = true;
 					this.x+=pageActive.vitesse;
 				}

@@ -6,6 +6,9 @@ public class ModifierInterrupteur extends CommandeEvent {
 	int numeroInterrupteur;
 	boolean valeurADonner;
 	
+	/**
+	 * Constructeur spécifique
+	 */
 	public ModifierInterrupteur(int interrupteur, boolean value){
 		numeroInterrupteur = interrupteur;
 		valeurADonner = value;

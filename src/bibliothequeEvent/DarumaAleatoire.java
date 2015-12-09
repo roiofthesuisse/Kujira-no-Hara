@@ -22,7 +22,7 @@ public class DarumaAleatoire extends Event{
 	ArrayList<CommandeEvent> deplacementParDefaut;
 	
 	public DarumaAleatoire(Map map, Integer x, Integer y){
-		super(map, x,y, "daruma", getPages(), 32, 32);
+		super(map, x,y, Event.Direction.BAS, "daruma", getPages(), 32, 32);
 		this.ignorerLesMouvementsImpossiblesActuel = true;
 	}
 	

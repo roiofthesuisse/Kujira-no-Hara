@@ -10,13 +10,16 @@ public class Avancer extends CommandeEvent{
 	public int nombreDeCarreaux;
 	public int ceQuiAEteFait = 0; //avancée en pixel, doit atteindre nombreDeCarreaux*32
 	
+	/**
+	 * Constructeur spécifique
+	 */
 	public Avancer(Integer direction, Integer nombreDeCarreaux){
 		this.direction = direction;
 		this.nombreDeCarreaux = nombreDeCarreaux;
 	}
 	
 	/**
-	 * Constructeur générique.
+	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Avancer(ArrayList<Parametre> parametres){

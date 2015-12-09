@@ -271,7 +271,7 @@ public class LecteurMap extends Lecteur{
 	@Override
 	public void keyPressed(int keycode) {
 		switch(keycode){
-			case 10 : map.menu(); break; //entrée
+			case 10 : map.ouvrirLeMenu(); break; //entrée
 			case 90 : map.haut(); break; //z
 			case 81 : map.gauche(); break; //q
 			case 83 : map.bas(); break; //s

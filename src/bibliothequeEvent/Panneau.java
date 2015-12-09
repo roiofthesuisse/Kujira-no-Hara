@@ -19,7 +19,7 @@ public class Panneau extends Event{
 	ArrayList<CommandeEvent> deplacementParDefaut;
 	
 	public Panneau(Map map, Integer x, Integer y){
-		super(map, x,y, "panneau", getPages(), 32, 32);
+		super(map, x,y, Event.Direction.BAS, "panneau", getPages(), 32, 32);
 		this.ignorerLesMouvementsImpossiblesActuel = true;
 	}
 	

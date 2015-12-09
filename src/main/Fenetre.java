@@ -149,13 +149,16 @@ public class Fenetre extends JFrame implements KeyListener{
 		//rien
 	}
 	
-	public void ouvrirPartie() {
+	/**
+	 * La fenêtre a une partie sélectionnée, on l'ouvre.
+	 */
+	public void ouvrirLaPartie() {
 		if(this.partie == null){
-			partie = Partie.nouvellePartie();
+			partie = Partie.creerNouvellePartie();
 		}
 		futurLecteur = new LecteurMap(this);
 		try {
-			((LecteurMap)futurLecteur).map = new Map(partie.numeroMap, (LecteurMap)futurLecteur, partie.xHeros,partie.yHeros);
+			((LecteurMap)futurLecteur).map = new Map(partie.numeroMap, (LecteurMap)futurLecteur, partie.xHeros, partie.yHeros, partie.directionHeros);
 		} catch (FileNotFoundException e) {
 			System.err.println("Impossible de charger la map numero "+partie.numeroMap);
 			e.printStackTrace();

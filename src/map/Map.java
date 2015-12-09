@@ -32,6 +32,7 @@ public class Map {
 	public Heros heros;
 	public int xDebutHeros;
 	public int yDebutHeros;
+	public int directionDebutHeros;
 	/**
 	 * N'est vrai que durant l'action de l'appui, se remet à false tout de suite
 	 */
@@ -44,7 +45,7 @@ public class Map {
 	 * @param nomTileset 
 	 * @throws FileNotFoundException 
 	 */
-	public Map(int numero, LecteurMap lecteur, int xDebutHerosArg, int yDebutHerosArg) throws FileNotFoundException{
+	public Map(int numero, LecteurMap lecteur, int xDebutHerosArg, int yDebutHerosArg, int directionDebutHeros) throws FileNotFoundException{
 		this.numero = numero;
 		this.lecteur = lecteur;
 		
@@ -65,6 +66,7 @@ public class Map {
 		this.layer2 = recupererCouche(jsonMap,2);
 		this.xDebutHeros = xDebutHerosArg;
 		this.yDebutHeros = yDebutHerosArg;
+		this.directionDebutHeros = directionDebutHeros;
 		
 		//chargement du tileset
 		this.tileset = new Tileset(nomTileset);
@@ -126,7 +128,7 @@ public class Map {
 		try{
 			this.events = new ArrayList<Event>();
 			//d'abord le héros
-			this.heros = new Heros(this, this.xDebutHeros,this.yDebutHeros, Event.Direction.BAS);
+			this.heros = new Heros(this, this.xDebutHeros,this.yDebutHeros, this.directionDebutHeros);
 			this.events.add(heros);
 			//puis les autres
 			JSONArray jsonEvents = jsonMap.getJSONArray("events");
@@ -143,12 +145,18 @@ public class Map {
 					Class<?> classeEvent = Class.forName("bibliothequeEvent."+nomEvent);
 					Constructor<?> constructeurEvent = classeEvent.getConstructor(this.getClass(), Integer.class, Integer.class);
 					event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
-				}catch(ClassNotFoundException e){
+				}catch(ClassNotFoundException e1){
 					//l'event n'est pas dans la bibliothèque, on le construit à partir de sa description JSON
 					int hauteurHitbox = jsonEvent.getInt("largeur");
 					int largeurHitbox = jsonEvent.getInt("hauteur");
+					int direction;
+					try{
+						direction = jsonEvent.getInt("direction");
+					}catch(Exception e2){
+						direction = Event.Direction.BAS;
+					}
 					JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-					event = new Event(this, xEvent, yEvent, nomEvent, jsonPages, hauteurHitbox, largeurHitbox);
+					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, hauteurHitbox, largeurHitbox);
 				}
 				this.events.add(event);
 			}
@@ -157,9 +165,9 @@ public class Map {
 			//events.add( new Algue(this,2,8) );
 			//events.add( new DarumaAleatoire(this,3,7) );
 			//events.add( new DarumaAleatoire(this,3,8) );
-		} catch(Exception e) {
+		} catch(Exception e3) {
 			System.err.println("Erreur lors de la constitution de la liste des events :");
-			e.printStackTrace();
+			e3.printStackTrace();
 		}
 		//numérotation des events
 		for(int i=0; i<this.events.size(); i++){
@@ -217,7 +225,7 @@ public class Map {
 	/**
 	 * ouvrir le menu
 	 */
-	public void menu() {
+	public void ouvrirLeMenu() {
 		// TODO
 	}
 
@@ -271,7 +279,13 @@ public class Map {
 			idArmeEquipee -= nombreDArmesPossedees;
 		}
 		Partie.idArmeEquipee = idArmeEquipee;
-		System.out.println("arme suivante : "+Arme.getArme(idArmeEquipee).nom);
+		String nomArmeEquipee;
+		try{
+			nomArmeEquipee = Arme.getArme(idArmeEquipee).nom;
+		}catch(NullPointerException e){
+			nomArmeEquipee = "null";
+		}
+		System.out.println("arme suivante : "+nomArmeEquipee);
 	}
 	
 	/**

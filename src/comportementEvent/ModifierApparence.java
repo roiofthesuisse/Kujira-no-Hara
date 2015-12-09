@@ -17,6 +17,9 @@ public class ModifierApparence extends CommandeEvent {
 		this(nomNouvelleImage, -1); //c'est l'évènement qui donne l'ordre qui change d'apparence
 	}
 	
+	/**
+	 * Constructeur spécifique
+	 */
 	public ModifierApparence(String nomNouvelleImage, int eventId){
 		this.nomNouvelleImage = nomNouvelleImage;
 		this.eventId = eventId;

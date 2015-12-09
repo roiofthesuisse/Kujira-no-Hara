@@ -127,6 +127,41 @@
 					"ignorerLesMouvementsImpossibles": false
 				}
 			]
+		},
+		{
+			"nom": "teleporteur",
+			"x": 20,
+			"y": 11,
+			"largeur": 32,
+			"hauteur": 32,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "Contact"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "ChangerDeMap",
+							"numeroNouvelleMap": 1,
+							"xDebutHeros": 1,
+							"yDebutHeros": 10
+						}
+					],
+					
+					"image": "",
+					"animeALArret": false,
+					"animeEnMouvement": false,
+					"traversable": true,
+					"auDessusDeTout": false,
+					"vitesse": 4,
+					"frequence": 4,
+					"deplacement": [],
+					"repeterLeDeplacement": false,
+					"ignorerLesMouvementsImpossibles": false
+				}
+			]
 		}
 	]
 }

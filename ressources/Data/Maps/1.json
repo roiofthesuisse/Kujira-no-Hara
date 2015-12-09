@@ -61,6 +61,41 @@
 			"nom": "DarumaAleatoire",
 			"x": 1,
 			"y": 1
+		},
+		{
+			"nom": "teleporteur",
+			"x": 0,
+			"y": 10,
+			"largeur": 32,
+			"hauteur": 32,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "Contact"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "ChangerDeMap",
+							"numeroNouvelleMap": 0,
+							"xDebutHeros": 19,
+							"yDebutHeros": 11
+						}
+					],
+					
+					"image": "",
+					"animeALArret": false,
+					"animeEnMouvement": false,
+					"traversable": true,
+					"auDessusDeTout": false,
+					"vitesse": 4,
+					"frequence": 4,
+					"deplacement": [],
+					"repeterLeDeplacement": false,
+					"ignorerLesMouvementsImpossibles": false
+				}
+			]
 		}
 	]
 }

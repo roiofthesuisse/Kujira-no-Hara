@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 public class SupprimerEvent extends CommandeEvent {
 	
-	public SupprimerEvent(){}
+	public SupprimerEvent(){
+		
+	}
 	
 	@Override
 	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {

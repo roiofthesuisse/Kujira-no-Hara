@@ -1,16 +1,15 @@
 package menu;
 
+import main.Fenetre;
+
 public class OuvrirNouvellePartie extends ComportementElementDeMenu{
-	
-	public OuvrirNouvellePartie(){
-		
-	}
 	
 	@Override
 	public void executer() {
+		Fenetre fenetre = this.element.menu.lecteur.fenetre;
 		System.out.println("nouvelle partie");
-		this.element.menu.lecteur.fenetre.partie = null;
-		this.element.menu.lecteur.fenetre.ouvrirPartie();
+		fenetre.partie = null;
+		fenetre.ouvrirLaPartie();
 	}
 	
 }

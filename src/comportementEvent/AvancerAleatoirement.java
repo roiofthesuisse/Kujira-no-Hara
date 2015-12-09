@@ -1,6 +1,7 @@
 package comportementEvent;
 
 public class AvancerAleatoirement extends Avancer{	
+	
 	public AvancerAleatoirement(){
 		super(rand.nextInt(4), 1);
 	}

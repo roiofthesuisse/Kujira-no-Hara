@@ -16,7 +16,7 @@ public class Algue extends Event{
 	ArrayList<CommandeEvent> deplacementParDefaut;
 	
 	public Algue(Map map, Integer x, Integer y){
-		super(map, x,y, "algue", getPages(), 24, 24);
+		super(map, x,y, Event.Direction.BAS, "algue", getPages(), 24, 24);
 	}
 	
 	public static ArrayList<PageDeComportement> getPages(){

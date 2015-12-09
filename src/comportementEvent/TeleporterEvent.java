@@ -10,6 +10,7 @@ public class TeleporterEvent extends CommandeEvent{
 	private boolean utiliserVariables; //false:valeurs true:variables 
 	
 	/**
+	 * Constructeur spécifique
 	 * @param nouveauX
 	 * @param nouveauY
 	 * @param utiliserVariables false si valeurs fixes, true si numéros de variables

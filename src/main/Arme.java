@@ -84,7 +84,7 @@ public class Arme {
 			int idEventail = 1;
 			int frameDebutCoupEventail = 3;
 			int frameFinCoupEventail = 7;
-			Arme eventail = new Arme(idEventail,"eventail","Jiyounasu Eventail character.png", null, framesAnimationEventail,hitboxEventail,frameDebutCoupEventail,frameFinCoupEventail);
+			Arme eventail = new Arme(idEventail,"eventail","Jiyounasu Eventail character.png", "Eventail.mp3", framesAnimationEventail,hitboxEventail,frameDebutCoupEventail,frameFinCoupEventail);
 			Arme.armesDuJeu[idEventail] = eventail;
 			
 		//autre

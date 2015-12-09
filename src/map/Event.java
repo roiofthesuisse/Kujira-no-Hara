@@ -80,10 +80,11 @@ public class Event implements Comparable<Event>{
 	 * @param pages
 	 * @param largeurHitbox
 	 */
-	protected Event(Map map, Integer x, Integer y, String nom, ArrayList<PageDeComportement> pages, int largeurHitbox, int hauteurHitbox){
+	protected Event(Map map, Integer x, Integer y, Integer direction, String nom, ArrayList<PageDeComportement> pages, int largeurHitbox, int hauteurHitbox){
 		this.map = map;
 		this.x = x*32;
 		this.y = y*32;
+		this.direction = direction;
 		this.nom = nom;
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
@@ -94,8 +95,8 @@ public class Event implements Comparable<Event>{
 		}
 	}
 	
-	protected Event(Map map, Integer x, Integer y, String nom, JSONArray tableauDesPages, int largeurHitbox, int hauteurHitbox){
-		this(map, x, y, nom, creerListeDesPagesViaJson(tableauDesPages), largeurHitbox, hauteurHitbox);
+	protected Event(Map map, Integer x, Integer y, Integer direction, String nom, JSONArray tableauDesPages, int largeurHitbox, int hauteurHitbox){
+		this(map, x, y, direction, nom, creerListeDesPagesViaJson(tableauDesPages), largeurHitbox, hauteurHitbox);
 	}
 
 	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(JSONArray tableauDesPages) {
