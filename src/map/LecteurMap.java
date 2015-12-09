@@ -6,10 +6,14 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+import bibliothequeMenu.MenuPause;
 import comportementEvent.Message;
 import main.Fenetre;
 import main.GestionClavier;
 import main.Lecteur;
+import menu.LecteurMenu;
+import menu.Menu;
 
 /**
  * Le lecteur de map affiche la map et les évènements.
@@ -271,7 +275,7 @@ public class LecteurMap extends Lecteur{
 	@Override
 	public void keyPressed(int keycode) {
 		switch(keycode){
-			case 10 : map.ouvrirLeMenu(); break; //entrée
+			case 10 : this.ouvrirLeMenu(); break; //entrée
 			case 90 : map.haut(); break; //z
 			case 81 : map.gauche(); break; //q
 			case 83 : map.bas(); break; //s
@@ -288,12 +292,27 @@ public class LecteurMap extends Lecteur{
 		}
 	}
 	
+	/**
+	 * Ouvre une autre map (dans un nouveau LecteurMap).
+	 */
 	public void changerMap(Map nouvelleMap){
 		this.map = nouvelleMap;
 		nouvelleMap.lecteur = this;
 		Fenetre.futurLecteur = this;
 		this.allume = false;
 		if(tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) this.tilesetActuel = null;
+	}
+	
+	/**
+	 * Ouvrir le menu.
+	 */
+	public void ouvrirLeMenu() {
+		// TODO
+		LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, this);
+		Menu menu = new MenuPause(lecteurMenu);
+		Fenetre.futurLecteur = lecteurMenu;
+		lecteurMenu.menu = menu;
+		this.allume = false;
 	}
 
 	@Override

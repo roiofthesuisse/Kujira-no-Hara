@@ -4,13 +4,17 @@ import java.awt.image.BufferedImage;
 
 import main.Fenetre;
 import main.Lecteur;
+import map.LecteurMap;
 
 public class LecteurMenu extends Lecteur{
 	public Menu menu;
+	public LecteurMap lecteurMapMemorise;
 	
-	public LecteurMenu(Fenetre fenetre){
+	public LecteurMenu(Fenetre fenetre, LecteurMap lecteurMapMemorise){
 		this.fenetre = fenetre;
+		this.lecteurMapMemorise = lecteurMapMemorise;
 		this.allume = true;
+		
 	}
 	
 	public BufferedImage calculerAffichage(){

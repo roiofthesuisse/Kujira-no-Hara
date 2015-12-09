@@ -59,7 +59,7 @@ public class PageDeComportement {
 		try {
 			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomImage));
 		} catch (IOException e) {
-			System.out.println("Erreur lors de l'ouverture de l'apparence de l'event :");
+			//l'image d'apparence n'existe pas
 			e.printStackTrace();
 		}
 		//on précise si c'est une page qui s'ouvre en parlant à l'évent
@@ -161,8 +161,8 @@ public class PageDeComportement {
 		try {
 			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomImage));
 		} catch (IOException e) {
-			//l'image n'existe pas
-			System.out.println("Erreur lors de l'ouverture de l'apparence de l'event ("+nomImage+")");
+			//l'image d'apparence n'existe pas
+			//e.printStackTrace();
 		}
 		//on précise si c'est une page qui s'ouvre en parlant à l'event
 		if(conditions!=null){

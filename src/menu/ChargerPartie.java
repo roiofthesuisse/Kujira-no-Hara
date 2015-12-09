@@ -13,7 +13,7 @@ public class ChargerPartie extends ComportementElementDeMenu {
 	@Override
 	public void executer() {
 		Fenetre fenetre = this.element.menu.lecteur.fenetre;
-		System.out.println("nouvelle partie");
+		System.out.println("chargement de la partie numero "+numeroDeSauvegarde);
 		fenetre.partie = Partie.chargerPartie(this.numeroDeSauvegarde);
 		fenetre.ouvrirLaPartie();
 	}

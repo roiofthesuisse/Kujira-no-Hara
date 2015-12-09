@@ -40,7 +40,7 @@ public class Fenetre extends JFrame implements KeyListener{
 	private Fenetre(){
 		super(titre);
 		this.labelEcran = new JLabel();
-		this.lecteur = new LecteurMenu(this);
+		this.lecteur = new LecteurMenu(this, null);
 		MenuTitre menuTitre = new MenuTitre((LecteurMenu)this.lecteur);
 		((LecteurMenu)this.lecteur).menu = menuTitre;
 		this.touchesPressees = new ArrayList<Integer>();

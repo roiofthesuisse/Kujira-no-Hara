@@ -153,7 +153,7 @@ public class Map {
 					try{
 						direction = jsonEvent.getInt("direction");
 					}catch(Exception e2){
-						direction = Event.Direction.BAS;
+						direction = Event.Direction.BAS; //direction par défaut
 					}
 					JSONArray jsonPages = jsonEvent.getJSONArray("pages");
 					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, hauteurHitbox, largeurHitbox);
@@ -220,13 +220,6 @@ public class Map {
 			}
 		}
 		return couche;
-	}
-
-	/**
-	 * ouvrir le menu
-	 */
-	public void ouvrirLeMenu() {
-		// TODO
 	}
 
 	/**
@@ -312,14 +305,6 @@ public class Map {
 	 */
 	public void objet() {
 		//TODO
-		Event e = null;
-		for(Event f : this.events){
-			if(f.nom.equals("daruma"))e=f;
-		}
-		Hitbox.printCroisement(heros.x, heros.x+heros.largeurHitbox, 
-				heros.y, heros.y+heros.hauteurHitbox, 
-				e.x, e.x+e.largeurHitbox, 
-				e.y, e.y+e.hauteurHitbox);
 	}
 
 	/**

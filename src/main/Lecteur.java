@@ -92,7 +92,8 @@ public abstract class Lecteur {
 	
 	public void demarrer(){
 		allume = true;
-		System.out.println("Nouveau lecteur démarré");
+		String typeLecteur = this.getClass().getName().equals(LecteurMap.class.getName())? "LecteurMap":"LecteurMenu";
+		System.out.println("Un nouveau "+typeLecteur+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm(), 1.0f);
 		while(allume){
 			Date d1 = new Date();
@@ -112,7 +113,7 @@ public abstract class Lecteur {
 			frameActuelle++;
 			//System.out.println("dureeEffectiveDeLaFrame : " + dureeEffectiveDeLaFrame);
 		}
-		System.out.println("Lecteur actuel arrêté à la frame "+frameActuelle);
+		System.out.println("Le "+typeLecteur+" actuel vient d'être arrêté à la frame "+frameActuelle);
 	}
 	
 }
