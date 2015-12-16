@@ -17,6 +17,7 @@ public abstract class Menu {
 	
 	public void confirmer() {
 		if(elementSelectionne != null){
+			LecteurAudio.playSe("Confirmer.wav");
 			elementSelectionne.confirmer();
 		}else{
 			System.out.println("l'élément sélectionné de ce menu est null.");
@@ -46,7 +47,7 @@ public abstract class Menu {
 		if(elementASelectionner != null){
 			//bruit de déplacement du curseur
 			if(this.elementSelectionne!=null && !elementASelectionner.equals(this.elementSelectionne)){
-				LecteurAudio.playSe("Curseur.wav");
+				LecteurAudio.playSe("DeplacementCurseur.wav");
 			}
 			//désélection du précédent
 			if(this.elementSelectionne != null){
