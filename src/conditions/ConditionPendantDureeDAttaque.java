@@ -14,7 +14,7 @@ public class ConditionPendantDureeDAttaque extends Condition{
 	@Override
 	public Boolean estVerifiee() {
 		int animationAttaqueActuelle = this.page.event.map.heros.animationAttaque;
-		Arme armeActuelle = Arme.getArme(Partie.idArmeEquipee);
+		Arme armeActuelle = Partie.getArmeEquipee();
 		Boolean reponse = animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
 		return reponse;
 	}

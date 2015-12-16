@@ -13,7 +13,9 @@ public class AjouterArme extends CommandeEvent {
 	
 	@Override
 	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {
-		Partie.idArmesPossedees.add(idArme);
+		if(!Partie.idArmesPossedees.contains(idArme)){
+			Partie.idArmesPossedees.add(idArme);
+		}
 		return curseurActuel+1;
 	}
 

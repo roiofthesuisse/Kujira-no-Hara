@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import map.Event;
 import map.Map;
+import utilitaire.Math;
 
 public class Partie {
 	int numeroMap;
@@ -16,7 +17,7 @@ public class Partie {
 	public boolean[] interrupteurs;
 	public int[] variables;
 	public boolean[] quetesFaites;
-	public static int idArmeEquipee = -1;
+	private static int idArmeEquipee = -1;
 	public static ArrayList<Integer> idArmesPossedees = new ArrayList<Integer>();
 	
 	/**
@@ -68,6 +69,50 @@ public class Partie {
 	public static Partie chargerPartie(int numeroSauvegarde){
 		//TODO créer un objet Partie à partir d'un fichier de sauvegarde
 		return null;
+	}
+	
+	public static Arme getArmeEquipee(){
+		return Arme.getArme(Partie.idArmeEquipee);
+	}
+	
+	public static void equiperArme(int idArme){
+		Partie.idArmeEquipee = idArme;
+	}
+	
+	public static void equiperArmeSuivante(){
+		int nombreDArmesPossedees = Partie.idArmesPossedees.size();
+		//pas d'armes possédées
+		if(nombreDArmesPossedees<=0){
+			return;
+		}
+		//si pas d'arme équipée, on équipe la dernière possédée
+		if(idArmeEquipee<0){
+			idArmeEquipee += nombreDArmesPossedees-1;
+			return;
+		}
+		//on équipe l'arme suivante
+		Partie.idArmeEquipee = Math.modulo(Partie.idArmeEquipee + 1, idArmesPossedees.size());
+		//affichage console
+		if(Partie.getArmeEquipee()!=null){
+			System.out.println("arme suivante : "+Partie.getArmeEquipee().nom);
+		}
+	}
+	
+	public static void equiperArmePrecedente(){
+		int nombreDArmesPossedees = Partie.idArmesPossedees.size();
+		//pas d'armes possédées
+		if(nombreDArmesPossedees<=0){
+			return;
+		}
+		//si pas d'arme équipée, on équipe la dernière possédée
+		if(idArmeEquipee<0){
+			idArmeEquipee += nombreDArmesPossedees-1;
+			return;
+		}
+		//on équipe l'arme précédente
+		Partie.idArmeEquipee = Math.modulo(Partie.idArmeEquipee - 1, idArmesPossedees.size());
+		//affichage console
+		System.out.println("arme précédente : "+ Partie.getArmeEquipee().nom);
 	}
 	
 }

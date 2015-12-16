@@ -2,7 +2,7 @@ package comportementEvent;
 
 import java.util.ArrayList;
 
-import menu.Parametre;
+import utilitaire.Parametre;
 
 public class Attendre extends CommandeEvent {
 	public int nombreDeFrames; //nombre de frames qu'il faut attendre

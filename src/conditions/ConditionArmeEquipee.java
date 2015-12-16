@@ -12,7 +12,7 @@ public class ConditionArmeEquipee extends Condition{
 	@Override
 	public Boolean estVerifiee() {
 		if(Partie.idArmesPossedees.size()>0){
-			return Partie.idArmeEquipee == this.idArme;
+			return Partie.getArmeEquipee().id == this.idArme;
 		}
 		return false; //aucune arme possédée
 	}

@@ -9,8 +9,8 @@ import javax.imageio.ImageIO;
 
 import main.GestionClavier;
 import map.LecteurMap;
-import menu.Parametre;
 import menu.Texte;
+import utilitaire.Parametre;
 
 public class Message extends CommandeEvent{
 	public String texte;

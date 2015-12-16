@@ -31,6 +31,7 @@ public class GestionClavier {
 		public final static int RETOUR = ToucheCode.O;
 		public final static int ARME_PRECEDENTE = ToucheCode.L;
 		public final static int ACTION_SECONDAIRE = ToucheCode.M;
+		public static final int MENU = ToucheCode.ENTREE;
 		
 	}
 	

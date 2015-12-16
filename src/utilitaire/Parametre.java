@@ -1,4 +1,4 @@
-package menu;
+package utilitaire;
 
 public class Parametre{
 	public String nom;

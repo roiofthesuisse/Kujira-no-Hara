@@ -3,15 +3,20 @@ package map;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+import javax.imageio.ImageIO;
 
 import bibliothequeMenu.MenuPause;
 import comportementEvent.Message;
 import main.Fenetre;
 import main.GestionClavier;
 import main.Lecteur;
+import main.Partie;
 import menu.LecteurMenu;
 import menu.Menu;
 
@@ -21,6 +26,7 @@ import menu.Menu;
 public class LecteurMap extends Lecteur{
 	public Map map;
 	public Tileset tilesetActuel = null;
+	private static BufferedImage hudTouches;
 	/**
 	 * Permet de trier les events selon leur coordonnée y pour l'affichage.
 	 */
@@ -42,6 +48,14 @@ public class LecteurMap extends Lecteur{
 	            return e1.compareTo(e2);
 	        }
 	    };
+	    //images pour le HUD
+	    if(hudTouches==null){
+	    	try {
+				hudTouches = ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\touches.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	    }
 	}
 	
 	/**
@@ -88,6 +102,9 @@ public class LecteurMap extends Lecteur{
 		//ajouter imageCoucheSurHeros à l'écran
 		ecran = superposerImages(ecran, map.imageCoucheSurHeros, -xCamera, -yCamera);
 		
+		//ajouter les jauges
+		ecran = dessinerLesJauges(ecran);
+		
 		//on affiche le message
 		if(messageActuel!=null){
 			ecran = superposerImages(ecran, messageActuel.image, 76, 320);
@@ -96,6 +113,18 @@ public class LecteurMap extends Lecteur{
 		//supprimer events dont la variable "supprimé" est à true
 		supprimerLesEventsASupprimer();
 		
+		return ecran;
+	}
+
+	private BufferedImage dessinerLesJauges(BufferedImage ecran) {
+		//touches
+		ecran = superposerImages(ecran, hudTouches, 496, 0);
+		//icone de l'arme equipée
+		try{
+			ecran = superposerImages(ecran, Partie.getArmeEquipee().icone, 511, 56);
+		}catch(NullPointerException e){
+			//pas d'arme équipée
+		}
 		return ecran;
 	}
 
@@ -214,15 +243,6 @@ public class LecteurMap extends Lecteur{
 
 	public void photographierCollision(){
 		BufferedImage img = new BufferedImage(640,480,imageType);
-		/*
-		//vieille façon de faire :
-		for(int i=00; i<640; i++){
-			for(int j=0; j<480; j++){
-				img.setRGB(i, j, Color.white.getRGB());
-			}
-		}
-		*/
-		//nouvelle façon de faire (plus rapide) :
 		Graphics2D graphics = img.createGraphics();
 		graphics.setPaint(Color.white);
 		graphics.fillRect(0, 0, 640, 480);
@@ -275,19 +295,15 @@ public class LecteurMap extends Lecteur{
 	@Override
 	public void keyPressed(int keycode) {
 		switch(keycode){
-			case 10 : this.ouvrirLeMenu(); break; //entrée
-			case 90 : map.haut(); break; //z
-			case 81 : map.gauche(); break; //q
-			case 83 : map.bas(); break; //s
-			case 68 : map.droite(); break; //d
-			case 79 : map.equiperArmeSuivante(); break; //o
-			case 75 : map.action(); break; //k
-			case 76 : map.equiperArmePrecedente(); break; //l
-			case 77 : map.objet(); break; //m
-			/*case 38 : map.haut(); break;
-			case 37 : map.gauche(); break;
-			case 40 : map.bas(); break;
-			case 39 : map.droite(); break;*/
+			case GestionClavier.ToucheRole.MENU : this.ouvrirLeMenu(); break;
+			case GestionClavier.ToucheRole.HAUT : map.haut(); break;
+			case GestionClavier.ToucheRole.GAUCHE : map.gauche(); break;
+			case GestionClavier.ToucheRole.BAS : map.bas(); break;
+			case GestionClavier.ToucheRole.DROITE : map.droite(); break;
+			case GestionClavier.ToucheRole.ARME_SUIVANTE : map.equiperArmeSuivante(); break;
+			case GestionClavier.ToucheRole.ACTION : map.action(); break;
+			case GestionClavier.ToucheRole.ARME_PRECEDENTE : map.equiperArmePrecedente(); break;
+			case GestionClavier.ToucheRole.ACTION_SECONDAIRE : map.objet(); break;
 			default : break;
 		}
 	}
