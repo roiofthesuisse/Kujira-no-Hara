@@ -43,7 +43,7 @@ public abstract class Lecteur {
 	public BufferedImage ecranNoir(){
 		int largeur = Fenetre.largeurParDefaut;
 		int hauteur = Fenetre.hauteurParDefaut;
-		BufferedImage image = new BufferedImage(largeur, hauteur, imageType);
+		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.imageType);
 		Graphics2D graphics = image.createGraphics();
 		graphics.setPaint(Color.black);
 		graphics.fillRect(0, 0, largeur, hauteur);
@@ -51,7 +51,7 @@ public abstract class Lecteur {
 	}
 	
 	public BufferedImage imageVide(int largeur, int hauteur){
-		BufferedImage image = new BufferedImage(largeur, hauteur, imageType);
+		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.imageType);
 		Color couleur = new Color(0,0,0,0);
 		Graphics2D graphics = image.createGraphics();
 		graphics.setPaint(couleur);
@@ -91,29 +91,29 @@ public abstract class Lecteur {
 	}
 	
 	public void demarrer(){
-		allume = true;
+		this.allume = true;
 		String typeLecteur = this.getClass().getName().equals(LecteurMap.class.getName())? "LecteurMap":"LecteurMenu";
 		System.out.println("Un nouveau "+typeLecteur+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm(), 1.0f);
-		while(allume){
+		while(this.allume){
 			Date d1 = new Date();
-			ecranAtuel = calculerAffichage();
+			this.ecranAtuel = calculerAffichage();
 			Date d2 = new Date();
 			long dureeEffectiveDeLaFrame = d2.getTime()-d1.getTime();
 			if(dureeEffectiveDeLaFrame < dureeFrame){
 				//si l'affichage a pris moins de temps que la durée attendue, on attend que la frame se termine
 				try {
-					Thread.sleep(dureeFrame-dureeEffectiveDeLaFrame);
+					Thread.sleep(Lecteur.dureeFrame-dureeEffectiveDeLaFrame);
 				} catch (InterruptedException e) {
 					System.out.println("La boucle de lecture du jeu dans Lecteur.demarrer() fait de la merde.");
 					e.printStackTrace();
 				}
 			}
-			fenetre.actualiserAffichage(ecranAtuel);
-			frameActuelle++;
+			this.fenetre.actualiserAffichage(this.ecranAtuel);
+			this.frameActuelle++;
 			//System.out.println("dureeEffectiveDeLaFrame : " + dureeEffectiveDeLaFrame);
 		}
-		System.out.println("Le "+typeLecteur+" actuel vient d'être arrêté à la frame "+frameActuelle);
+		System.out.println("Le "+typeLecteur+" actuel vient d'être arrêté à la frame "+this.frameActuelle);
 	}
 	
 }

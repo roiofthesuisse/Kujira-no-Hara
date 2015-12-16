@@ -9,7 +9,7 @@ public class QuitterJeu extends ComportementElementDeMenu{
 	@Override
 	public void executer() {
 		Fenetre fenetre = this.element.menu.lecteur.fenetre;
-		fenetre.dispose();
+		fenetre.fermer();
 	}
 
 }

@@ -5,7 +5,7 @@ public class GestionClavier {
 	/**
 	 * Association entre les touches du clavier et leur keycode
 	 */
-	private class Touche{
+	private class ToucheCode{
 		public final static int Z = 90;
 		public final static int Q = 81;
 		public final static int S = 83;
@@ -21,34 +21,31 @@ public class GestionClavier {
 	/**
 	 * Association entre les touches du clavier et leur rôle
 	 */
-	public static int codeToucheHaut(){
-		return Touche.Z;
-	}
-	public static int codeToucheBas(){
-		return Touche.S;
-	}
-	public static int codeToucheGauche(){
-		return Touche.Q;
-	}
-	public static int codeToucheDroite(){
-		return Touche.D;
-	}
-	public static int codeToucheAction() {
-		return Touche.K;
+	public class ToucheRole{
+		public final static int ACTION = ToucheCode.K;
+		public final static int HAUT = ToucheCode.Z;
+		public final static int BAS = ToucheCode.S;
+		public final static int GAUCHE = ToucheCode.Q;
+		public final static int DROITE = ToucheCode.D;
+		public final static int ARME_SUIVANTE = ToucheCode.O;
+		public final static int RETOUR = ToucheCode.O;
+		public final static int ARME_PRECEDENTE = ToucheCode.L;
+		public final static int ACTION_SECONDAIRE = ToucheCode.M;
+		
 	}
 	
 	public static Boolean toucheConnue(int keycode){
 		switch(keycode){
-		case Touche.Z : return true; //z
-		case Touche.Q : return true; //q
-		case Touche.S : return true; //s
-		case Touche.D : return true; //d
-		case Touche.ESPACE : return true; //espace
-		case Touche.ENTREE : return true; //entrée
-		case Touche.O : return true; //o
-		case Touche.K : return true; //k
-		case Touche.L : return true; //l
-		case Touche.M : return true; //m
+		case ToucheCode.Z : return true; //z
+		case ToucheCode.Q : return true; //q
+		case ToucheCode.S : return true; //s
+		case ToucheCode.D : return true; //d
+		case ToucheCode.ESPACE : return true; //espace
+		case ToucheCode.ENTREE : return true; //entrée
+		case ToucheCode.O : return true; //o
+		case ToucheCode.K : return true; //k
+		case ToucheCode.L : return true; //l
+		case ToucheCode.M : return true; //m
 		default : System.out.println("une touche inconnue a été pressée : "+keycode); return false;
 		}
 	}

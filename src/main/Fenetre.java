@@ -31,8 +31,9 @@ public class Fenetre extends JFrame implements KeyListener{
 	public JLabel labelEcran = null;
 	public Lecteur lecteur = null;
 	public Partie partie = null;
-	public static Lecteur futurLecteur = null;
+	public Lecteur futurLecteur = null;
 	public ArrayList<Integer> touchesPressees = null;
+	public boolean quitterLeJeu = false;
 	
 	/**
 	 * La fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.
@@ -93,22 +94,12 @@ public class Fenetre extends JFrame implements KeyListener{
 	 * Si jamais un futur lecteur est désigné, on effectue le remplacement.
 	 */
 	public static void demarrerAffichage(){
-		while(true){
+		while(!maFenetre.quitterLeJeu){
 			maFenetre.lecteur.demarrer();
-			while(futurLecteur == null){}
-			maFenetre.lecteur = futurLecteur;
+			while(maFenetre.futurLecteur == null && !maFenetre.quitterLeJeu){}
+			maFenetre.lecteur = maFenetre.futurLecteur;
 		}
 	}
-	
-	//TODO
-	/*
-	public void changerLecteur(Lecteur nouveauLecteur){
-		System.out.println("Changement de lecteur");
-		this.lecteur.allume = false;
-		this.lecteur = nouveauLecteur;
-		demarrerAffichage();
-	}
-	*/
 	
 	/**
 	 * Changer l'image affichée dans la fenêtre de jeu.
@@ -116,9 +107,9 @@ public class Fenetre extends JFrame implements KeyListener{
 	 */
 	public void actualiserAffichage(Image image){
 		this.invalidate();
-		this.remove(labelEcran);
-		labelEcran = new JLabel(new ImageIcon(image));
-		this.add(labelEcran);
+		this.remove(this.labelEcran);
+		this.labelEcran = new JLabel(new ImageIcon(image));
+		this.add(this.labelEcran);
 		this.revalidate();
 	}
 	
@@ -131,8 +122,8 @@ public class Fenetre extends JFrame implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent event) {
 		Integer keyCode = event.getKeyCode();
-		if(! touchesPressees.contains(keyCode)){
-			touchesPressees.add(keyCode);
+		if(! this.touchesPressees.contains(keyCode)){
+			this.touchesPressees.add(keyCode);
 			GestionClavier.keyPressed(keyCode,this);
 		}
 	}
@@ -140,7 +131,7 @@ public class Fenetre extends JFrame implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent event) {
 		Integer keyCode = event.getKeyCode();
-		touchesPressees.remove(keyCode);
+		this.touchesPressees.remove(keyCode);
 		GestionClavier.keyReleased(keyCode,this);
 	}
 
@@ -154,15 +145,19 @@ public class Fenetre extends JFrame implements KeyListener{
 	 */
 	public void ouvrirLaPartie() {
 		if(this.partie == null){
-			partie = Partie.creerNouvellePartie();
+			this.partie = Partie.creerNouvellePartie();
 		}
-		futurLecteur = new LecteurMap(this);
+		this.futurLecteur = new LecteurMap(this);
 		try {
-			((LecteurMap)futurLecteur).map = new Map(partie.numeroMap, (LecteurMap)futurLecteur, partie.xHeros, partie.yHeros, partie.directionHeros);
+			((LecteurMap)futurLecteur).map = new Map(this.partie.numeroMap, (LecteurMap)this.futurLecteur, this.partie.xHeros, this.partie.yHeros, this.partie.directionHeros);
 		} catch (FileNotFoundException e) {
 			System.err.println("Impossible de charger la map numero "+partie.numeroMap);
 			e.printStackTrace();
 		}
 		this.lecteur.allume = false;
+	}
+	
+	public void fermer(){
+		System.exit(0);
 	}
 }

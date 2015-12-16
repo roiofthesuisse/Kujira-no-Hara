@@ -45,11 +45,11 @@ public class Message extends CommandeEvent{
 			
 		}
 		//si la touche action est relachée, la prochaine fois qu'elle sera pressé sera une nouvelle input
-		if( !lecteur.fenetre.touchesPressees.contains(GestionClavier.codeToucheAction()) ){
+		if( !lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION) ){
 			leRelachementDeToucheAEuLieu = true;
 		}
 		//et cette nouvelle input servira à fermer le message
-		if(leRelachementDeToucheAEuLieu && lecteur.fenetre.touchesPressees.contains(GestionClavier.codeToucheAction())){
+		if(leRelachementDeToucheAEuLieu && lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION)){
 			//on ferme le message
 			lecteur.messageActuel = null;
 			//lecteur.stopEvent = false; //TODO à enlever, gestion via la condition parler

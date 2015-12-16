@@ -93,25 +93,25 @@ public class Heros extends Event {
 			//déplacement selon les touches et les obstacles rencontrés
 			Boolean ilYADeplacement = false;
 			ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
-			if( touchesPressees.contains(GestionClavier.codeToucheHaut()) && !touchesPressees.contains(GestionClavier.codeToucheBas()) ){
+			if( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) && !touchesPressees.contains(GestionClavier.ToucheRole.BAS) ){
 				if( deplacementPossible(Event.Direction.HAUT) ){
 					ilYADeplacement = true;
 					this.y-=pageActive.vitesse;
 				}
 			}
-			if( touchesPressees.contains(GestionClavier.codeToucheBas()) && !touchesPressees.contains(GestionClavier.codeToucheHaut()) ){
+			if( touchesPressees.contains(GestionClavier.ToucheRole.BAS) && !touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ){
 				if( deplacementPossible(Event.Direction.BAS) ){
 					ilYADeplacement = true;
 					this.y+=pageActive.vitesse;
 				}
 			}
-			if( touchesPressees.contains(GestionClavier.codeToucheGauche()) && !touchesPressees.contains(GestionClavier.codeToucheDroite()) ){
+			if( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) && !touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ){
 				if( deplacementPossible(Event.Direction.GAUCHE) ){
 					ilYADeplacement = true;
 					this.x-=pageActive.vitesse;
 				}
 			}
-			if( touchesPressees.contains(GestionClavier.codeToucheDroite()) && !touchesPressees.contains(GestionClavier.codeToucheGauche()) ){
+			if( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) && !touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ){
 				if( deplacementPossible(Event.Direction.DROITE) ){
 					ilYADeplacement = true;
 					this.x+=pageActive.vitesse;

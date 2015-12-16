@@ -298,7 +298,7 @@ public class LecteurMap extends Lecteur{
 	public void changerMap(Map nouvelleMap){
 		this.map = nouvelleMap;
 		nouvelleMap.lecteur = this;
-		Fenetre.futurLecteur = this;
+		this.fenetre.futurLecteur = this;
 		this.allume = false;
 		if(tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) this.tilesetActuel = null;
 	}
@@ -307,10 +307,9 @@ public class LecteurMap extends Lecteur{
 	 * Ouvrir le menu.
 	 */
 	public void ouvrirLeMenu() {
-		// TODO
 		LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, this);
 		Menu menu = new MenuPause(lecteurMenu);
-		Fenetre.futurLecteur = lecteurMenu;
+		this.fenetre.futurLecteur = lecteurMenu;
 		lecteurMenu.menu = menu;
 		this.allume = false;
 	}
@@ -322,14 +321,12 @@ public class LecteurMap extends Lecteur{
 	}
 	
 	public void remettreAZeroLAnimationDuHeros(){
-		int toucheBas = GestionClavier.codeToucheBas();
-		int toucheHaut = GestionClavier.codeToucheHaut();
-		int toucheGauche = GestionClavier.codeToucheGauche();
-		int toucheDroite = GestionClavier.codeToucheDroite();
 		ArrayList<Integer> touchesPressees = fenetre.touchesPressees;
 		Event heros = map.heros;
-		if( !touchesPressees.contains(toucheBas) && !touchesPressees.contains(toucheHaut) 
-		&& !touchesPressees.contains(toucheGauche) && !touchesPressees.contains(toucheDroite) ){
+		if(!touchesPressees.contains(GestionClavier.ToucheRole.BAS) 
+		&& !touchesPressees.contains(GestionClavier.ToucheRole.HAUT) 
+		&& !touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) 
+		&& !touchesPressees.contains(GestionClavier.ToucheRole.DROITE)){
 			heros.avance = false;
 			heros.animation = 0;
 		}
@@ -338,18 +335,14 @@ public class LecteurMap extends Lecteur{
 	public void mettreHerosDansLaBonneDirection(){
 		Heros heros = map.heros;
 		if(!stopEvent && heros.animationAttaque<=0){
-			int toucheBas = GestionClavier.codeToucheBas();
-			int toucheHaut = GestionClavier.codeToucheHaut();
-			int toucheGauche = GestionClavier.codeToucheGauche();
-			int toucheDroite = GestionClavier.codeToucheDroite();
 			ArrayList<Integer> touchesPressees = fenetre.touchesPressees;
-			if( touchesPressees.contains(toucheGauche) ){
+			if( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ){
 				heros.direction = Event.Direction.GAUCHE;
-			}else if( touchesPressees.contains(toucheDroite) ){
+			}else if( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ){
 				heros.direction = Event.Direction.DROITE;
-			}else if( touchesPressees.contains(toucheBas) ){
+			}else if( touchesPressees.contains(GestionClavier.ToucheRole.BAS) ){
 				heros.direction = Event.Direction.BAS;
-			}else if( touchesPressees.contains(toucheHaut) ){
+			}else if( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ){
 				heros.direction = Event.Direction.HAUT;
 			}
 		}
