@@ -10,6 +10,7 @@ import java.io.IOException;
 public class LecteurAudio {
 	public static Musique bgmEnCours = null;
 	//TODO bgs
+	//TODO me
 	
 	/**
 	 * Jouer un effet sonore.
@@ -43,7 +44,7 @@ public class LecteurAudio {
 				return;
 			}
 		//si on est déjà en train de jouer le bon morceau, on ne fait rien
-		if(bgmEnCours==null || !nom.equals(bgmEnCours.nom)){
+		if(LecteurAudio.bgmEnCours==null || !nom.equals(LecteurAudio.bgmEnCours.nom)){
 			//on éteint la musique actuelle
 				stopBgm();
 
@@ -52,7 +53,7 @@ public class LecteurAudio {
 				musique.demarrerBgm();
 				
 			//on met à jour les données
-				bgmEnCours = musique;
+				LecteurAudio.bgmEnCours = musique;
 		}
 	}
 	
@@ -60,8 +61,8 @@ public class LecteurAudio {
 	 * Arrêter une musique.
 	 */
 	public static synchronized void stopBgm(){
-		if(bgmEnCours!=null){
-			bgmEnCours.arreter();
+		if(LecteurAudio.bgmEnCours!=null){
+			LecteurAudio.bgmEnCours.arreter();
 		}
 	}
 	

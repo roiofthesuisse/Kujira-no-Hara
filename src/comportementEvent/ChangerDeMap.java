@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import map.LecteurMap;
 import map.Map;
-import menu.Parametre;
+import utilitaire.Parametre;
 
 public class ChangerDeMap extends CommandeEvent {
 	private final int numeroNouvelleMap;

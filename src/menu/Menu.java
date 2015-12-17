@@ -3,6 +3,8 @@ package menu;
 import java.util.ArrayList;
 import java.util.Random;
 
+import son.LecteurAudio;
+
 public abstract class Menu {
 	public int identite = (new Random()).nextInt(100);
 	public LecteurMenu lecteur;
@@ -11,39 +13,50 @@ public abstract class Menu {
 	public Selectionnable elementSelectionne;
 	public String nomBGM;
 	
-	public void gauche(){
-		//TODO
-	}
-	public void droite(){
-		//TODO
-	}
 	public abstract void quitter();
 	
 	public void confirmer() {
 		if(elementSelectionne != null){
+			LecteurAudio.playSe("Confirmer.wav");
 			elementSelectionne.confirmer();
 		}else{
 			System.out.println("l'élément sélectionné de ce menu est null.");
 		}
 	}
 	
-	public void haut() {
+	public void selectionnerElementEnHaut() {
 		Selectionnable elementASelectionner = chercherSelectionnableAuDessus();
 		selectionner(elementASelectionner);
 	}
 
-	public void bas() {
+	public void selectionnerElementEnBas() {
 		Selectionnable elementASelectionner = chercherSelectionnableEnDessous();
+		selectionner(elementASelectionner);
+	}
+	
+	public void selectionnerElementAGauche(){
+		Selectionnable elementASelectionner = chercherSelectionnableAGauche();
+		selectionner(elementASelectionner);
+	}
+	public void selectionnerElementADroite(){
+		Selectionnable elementASelectionner = chercherSelectionnableADroite();
 		selectionner(elementASelectionner);
 	}
 	
 	public void selectionner(Selectionnable elementASelectionner){
 		if(elementASelectionner != null){
+			//bruit de déplacement du curseur
+			if(this.elementSelectionne!=null && !elementASelectionner.equals(this.elementSelectionne)){
+				LecteurAudio.playSe("DeplacementCurseur.wav");
+			}
+			//désélection du précédent
 			if(this.elementSelectionne != null){
 				this.elementSelectionne.selectionne = false;
 			}
+			//sélection du nouveau
 			this.elementSelectionne = elementASelectionner;
 			elementASelectionner.selectionne = true;
+			//déclenchement du comportement
 			elementASelectionner.comportementALArrivee();
 		}
 	}

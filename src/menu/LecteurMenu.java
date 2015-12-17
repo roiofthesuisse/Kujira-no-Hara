@@ -3,6 +3,7 @@ package menu;
 import java.awt.image.BufferedImage;
 
 import main.Fenetre;
+import main.GestionClavier;
 import main.Lecteur;
 import map.LecteurMap;
 
@@ -41,18 +42,12 @@ public class LecteurMenu extends Lecteur{
 	@Override
 	public void keyPressed(int keycode) {
 		switch(keycode){
-			case 32 : menu.confirmer(); break; //espace
-			case 10 : menu.confirmer(); break; //entrée
-			case 90 : menu.haut(); break; //z
-			case 81 : menu.gauche(); break; //q
-			case 83 : menu.bas(); break; //s
-			case 68 : menu.droite(); break; //d
-			/*case 38 : menu.haut(); break;
-			case 37 : menu.gauche(); break;
-			case 40 : menu.bas(); break;
-			case 39 : menu.droite(); break;*/
-			case 79 : menu.quitter(); break; //o
-			case 75 : menu.confirmer(); break; //k
+			case GestionClavier.ToucheRole.ACTION : menu.confirmer(); break;
+			case GestionClavier.ToucheRole.HAUT : menu.selectionnerElementEnHaut(); break; //z
+			case GestionClavier.ToucheRole.GAUCHE : menu.selectionnerElementAGauche(); break; //q
+			case GestionClavier.ToucheRole.BAS : menu.selectionnerElementEnBas(); break; //s
+			case GestionClavier.ToucheRole.DROITE : menu.selectionnerElementADroite(); break; //d
+			case GestionClavier.ToucheRole.RETOUR : menu.quitter(); break; //o
 			default : break;
 		}
 	}
@@ -60,7 +55,7 @@ public class LecteurMenu extends Lecteur{
 	public void changerMenu(Menu nouveauMenu){
 		this.menu = nouveauMenu;
 		nouveauMenu.lecteur = this;
-		Fenetre.futurLecteur = this;
+		this.fenetre.futurLecteur = this;
 		this.allume = false;
 	}
 

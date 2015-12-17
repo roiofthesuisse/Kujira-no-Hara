@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
-import menu.Parametre;
+import utilitaire.Parametre;
 
 public class PageDeComportement {
 	public Event event;

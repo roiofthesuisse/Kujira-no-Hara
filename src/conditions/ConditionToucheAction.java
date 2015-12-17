@@ -12,7 +12,7 @@ public class ConditionToucheAction extends Condition{
 	@Override
 	public Boolean estVerifiee() {
 		Map map = page.event.map;
-		if( map.toucheActionPressee && map.lecteur.fenetre.touchesPressees.contains(GestionClavier.codeToucheAction()) ){
+		if( map.toucheActionPressee && map.lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION) ){
 			map.toucheActionPressee = false;
 			return true;
 		}

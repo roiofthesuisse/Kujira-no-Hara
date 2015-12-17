@@ -3,7 +3,7 @@ package comportementEvent;
 import java.util.ArrayList;
 
 import map.Event;
-import menu.Parametre;
+import utilitaire.Parametre;
 
 public class Avancer extends CommandeEvent{
 	protected int direction;

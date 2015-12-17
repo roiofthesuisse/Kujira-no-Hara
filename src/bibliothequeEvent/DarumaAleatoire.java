@@ -48,6 +48,7 @@ public class DarumaAleatoire extends Event{
 			//CommandeEvent comm3 = new Message("lala"); commandes.add(comm3);
 			CommandeEvent comm4 = new AjouterArme(0); commandes.add(comm4);
 			CommandeEvent comm4bis = new EquiperArme(0); commandes.add(comm4bis);
+			CommandeEvent comm4ter = new AjouterArme(1); commandes.add(comm4ter);
 			CommandeEvent comm5 = new Attendre(5); commandes.add(comm5);
 			//CommandeEvent comm5 = new Message("lélé"); commandes.add(comm5);
 			//CommandeEvent comm6 = new ChangerDeMap(1,3,3); commandes.add(comm6);

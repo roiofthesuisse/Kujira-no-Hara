@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Paths;
 
 import javax.sound.sampled.AudioInputStream;
@@ -23,9 +24,13 @@ public class Musique {
 	 * Le clip peut être un Clip javax ou bien un OggClip.
 	 */
 	private Object clip;
+	private InputStream stream;
 	public String nom;
 	public FormatAudio format;
 	public TypeMusique type;
+	private Thread thread;
+	
+	private static long dureeMaximaleSe = 5000; //en millisecondes
 	
 	public enum FormatAudio{
 		WAV, OGG, MP3
@@ -43,7 +48,8 @@ public class Musique {
 			//le fichier est un OGG
 			this.format = FormatAudio.OGG;
 			try {
-				this.clip = new OggClip(new FileInputStream(new File(".\\ressources\\Audio\\"+type+"\\" + nom)));
+				this.stream = new FileInputStream(new File(".\\ressources\\Audio\\"+type+"\\" + nom));
+				this.clip = new OggClip(this.stream);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -54,8 +60,8 @@ public class Musique {
 			this.format = FormatAudio.WAV;
 			try {
 				this.clip = AudioSystem.getClip();
-				AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(".\\ressources\\Audio\\"+type+"\\" + nom));
-				((Clip)clip).open(inputStream);
+				this.stream = AudioSystem.getAudioInputStream(new File(".\\ressources\\Audio\\"+type+"\\" + nom));
+				((Clip)clip).open((AudioInputStream) this.stream);
 			} catch (LineUnavailableException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -82,11 +88,17 @@ public class Musique {
 				public void run() {
 				    OggClip oggClip = (OggClip) clip;
 				    oggClip.play(); //jouer une seule fois
+				    try {
+						Thread.sleep(dureeMaximaleSe);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				    arreter();
 				}
 			}
 			RunOggBgm r1 = new RunOggBgm();
-			Thread t1 = new Thread(r1);
-			t1.start();
+			this.thread = new Thread(r1, "SE OGG ("+this.nom+")");
+			this.thread.start();
 			break;
 			
 		case WAV : //le fichier est un WAV
@@ -94,11 +106,17 @@ public class Musique {
 				public void run() {
 				    Clip wavClip = (Clip) clip;
 				    wavClip.start(); //jouer une seule fois
+				    try {
+						Thread.sleep(dureeMaximaleSe);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				    arreter();
 				}
 			}
 			RunWavBgm r2 = new RunWavBgm();
-			Thread t2 = new Thread(r2);
-			t2.start();
+			this.thread = new Thread(r2, "SE WAV ("+this.nom+")");
+			this.thread.start();
 			break;
 			
 		case MP3 : //le fichier est un MP3
@@ -107,11 +125,17 @@ public class Musique {
 					MediaPlayer mp3Clip = (MediaPlayer) clip;
 					mp3Clip.setCycleCount(1); //jouer une seule fois
 					mp3Clip.play();
+					try {
+						Thread.sleep(dureeMaximaleSe);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					arreter();
 				}
 			}
 			RunMp3Bgm r3 = new RunMp3Bgm();
-			Thread t3 = new Thread(r3);
-			t3.start();
+			this.thread = new Thread(r3, "SE MP3 ("+this.nom+")");
+			this.thread.start();
 			break;
 			
 		default: //type de fichier inconnu
@@ -130,8 +154,8 @@ public class Musique {
 				}
 			}
 			RunOggBgm r1 = new RunOggBgm();
-			Thread t1 = new Thread(r1);
-			t1.start();
+			this.thread = new Thread(r1, "BGM OGG ("+this.nom+")");
+			this.thread.start();
 			break;
 			
 		case WAV : //le fichier est un WAV
@@ -142,8 +166,8 @@ public class Musique {
 				}
 			}
 			RunWavBgm r2 = new RunWavBgm();
-			Thread t2 = new Thread(r2);
-			t2.start();
+			this.thread = new Thread(r2, "BGM WAV ("+this.nom+")");
+			this.thread.start();
 			break;
 			
 		case MP3 : //le fichier est un MP3
@@ -155,8 +179,8 @@ public class Musique {
 				}
 			}
 			RunMp3Bgm r3 = new RunMp3Bgm();
-			Thread t3 = new Thread(r3);
-			t3.start();
+			this.thread = new Thread(r3, "BGM MP3 ("+this.nom+")");
+			this.thread.start();
 			break;
 			
 		default: //type de fichier inconnu
@@ -165,7 +189,11 @@ public class Musique {
 		}
 	}
 
+	/**
+	 * Il y a potentiellement deux threads à fermer : le Clip et l'InputStream.
+	 */
 	public void arreter() {
+		//on ferme le clip
 		switch(format){
 		case OGG : 
 			OggClip oggClip = (OggClip) clip;
@@ -185,6 +213,13 @@ public class Musique {
 		default :
 			break;
 		}
-		
+		//on ferme l'InputStream
+		if(this.stream!=null){
+			try {
+				this.stream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

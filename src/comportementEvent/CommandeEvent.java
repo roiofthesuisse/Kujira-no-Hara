@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import map.GenerateurAleatoire;
 import map.PageDeComportement;
-import menu.Parametre;
+import utilitaire.Parametre;
 
 public abstract class CommandeEvent {
 	String nom;

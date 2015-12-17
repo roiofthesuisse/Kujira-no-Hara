@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import main.Arme;
 import main.Partie;
 
 /**
@@ -24,7 +23,7 @@ public class Hitbox {
 	}
 	
 	public static Boolean estDansZoneDAttaque(Event e, Heros h){
-		Boolean estCeQueLeHerosAUneArme = (Partie.idArmesPossedees.size() > 0) && Partie.idArmeEquipee>=0;
+		Boolean estCeQueLeHerosAUneArme = (Partie.idArmesPossedees.size() > 0) && Partie.getArmeEquipee()!=null;
 		if(estCeQueLeHerosAUneArme){
 			//on calcule les bords de la zone d'attaque en fonction de l'orientation du héros
 			int[] coord = calculerCoordonneesAbsolues(h);
@@ -45,7 +44,7 @@ public class Hitbox {
 	
 	public static int[] calculerCoordonneesAbsolues(Heros h) {
 		int[] coordonneesAbsolues = new int[4];
-		Hitbox b = Arme.getArme(Partie.idArmeEquipee).hitbox;
+		Hitbox b = Partie.getArmeEquipee().hitbox;
 		int xminHitbox;
 		int xmaxHitbox;
 		int yminHitbox;

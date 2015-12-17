@@ -10,7 +10,6 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import main.Arme;
 import main.Partie;
 
 public class Map {
@@ -265,39 +264,14 @@ public class Map {
 	 * changer d'arme
 	 */
 	public void equiperArmeSuivante() {
-		int idArmeEquipee = Partie.idArmeEquipee;
-		idArmeEquipee++;
-		int nombreDArmesPossedees = Partie.idArmesPossedees.size();
-		if(idArmeEquipee>=nombreDArmesPossedees){
-			idArmeEquipee -= nombreDArmesPossedees;
-		}
-		Partie.idArmeEquipee = idArmeEquipee;
-		String nomArmeEquipee;
-		try{
-			nomArmeEquipee = Arme.getArme(idArmeEquipee).nom;
-		}catch(NullPointerException e){
-			nomArmeEquipee = "null";
-		}
-		System.out.println("arme suivante : "+nomArmeEquipee);
+		Partie.equiperArmeSuivante();
 	}
 	
 	/**
 	 * changer d'arme
 	 */
 	public void equiperArmePrecedente() {
-		int idArmeEquipee = Partie.idArmeEquipee;
-		idArmeEquipee--;
-		int nombreDArmesPossedees = Partie.idArmesPossedees.size();
-		if(nombreDArmesPossedees<=0){
-			//pas d'armes possédées
-			return;
-		}
-		if(idArmeEquipee<0){
-			//si pas d'arme équipée, on équipe la dernière possédée
-			idArmeEquipee += nombreDArmesPossedees;
-		}
-		Partie.idArmeEquipee = idArmeEquipee;
-		System.out.println("arme précédente : "+Arme.getArme(idArmeEquipee).nom);
+		Partie.equiperArmePrecedente();
 	}
 
 	/**

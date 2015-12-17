@@ -19,7 +19,7 @@ public class DemarrerAnimationAttaque extends CommandeEvent {
 			System.out.println("page nulle");
 		}
 		Heros heros = this.page.event.map.heros;
-		Arme armeActuelle = Arme.getArme(Partie.idArmeEquipee);
+		Arme armeActuelle = Partie.getArmeEquipee();
 		heros.animationAttaque = armeActuelle.framesDAnimation.size();
 		LecteurAudio.playSe(armeActuelle.nomEffetSonoreAttaque);
 		return curseurActuel+1;

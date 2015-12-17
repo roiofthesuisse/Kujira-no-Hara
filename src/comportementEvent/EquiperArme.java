@@ -13,7 +13,7 @@ public class EquiperArme extends CommandeEvent {
 	
 	@Override
 	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {
-		Partie.idArmeEquipee = this.idArme;
+		Partie.equiperArme(this.idArme);
 		return curseurActuel+1;
 	}
 
