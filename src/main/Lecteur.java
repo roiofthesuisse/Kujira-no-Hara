@@ -16,7 +16,7 @@ import menu.LecteurMenu;
 
 /**
  * Le lecteur peut être un lecteur de menu ou un lecteur de map.
- * Le rôle du lecteur est d'afficher dans la fenêtre la succession des frames au cours du temps.
+ * Le rôle du lecteur est d'afficher dans la fenêtre la succession des écrans au cours du temps.
  */
 public abstract class Lecteur {
 	public BufferedImage ecranAtuel;
