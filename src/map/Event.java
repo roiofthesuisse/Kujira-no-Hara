@@ -175,6 +175,11 @@ public class Event implements Comparable<Event>{
 	}
 	
 	public Boolean deplacementPossible(int sens){
+		//si l'Event est lui-même traversable, il peut faire son mouvement
+		if(this.traversableActuel){
+			return true;
+		}
+		
 		Boolean reponse = true;
 		int xAInspecter = this.x; //pour le décor
 		int yAInspecter = this.y;
@@ -183,14 +188,32 @@ public class Event implements Comparable<Event>{
 		int xAInspecter3 = this.x; //pour les events
 		int yAInspecter3 = this.y;
 		switch(sens){
-			case 0 : yAInspecter+=hauteurHitbox;   yAInspecter2+=hauteurHitbox;   xAInspecter2+=32; yAInspecter3+=vitesseActuelle; break;
-			case 1 : xAInspecter-=vitesseActuelle; xAInspecter2-=vitesseActuelle; yAInspecter2+=32; xAInspecter3-=vitesseActuelle; break;
-			case 2 : xAInspecter+=largeurHitbox;   xAInspecter2+=largeurHitbox;   yAInspecter2+=32; xAInspecter3+=vitesseActuelle; break;
-			case 3 : yAInspecter-=vitesseActuelle; yAInspecter2-=vitesseActuelle; xAInspecter2+=32; yAInspecter3-=vitesseActuelle; break;
-			default : break;
-		}
-		if(this.traversableActuel){ //l'event est lui-même traversable, donc il traverse tout
-			return true;
+		case Event.Direction.BAS : 
+			yAInspecter+=hauteurHitbox;   
+			yAInspecter2+=hauteurHitbox;   
+			xAInspecter2+=32; 
+			yAInspecter3+=vitesseActuelle; 
+			break;
+		case Event.Direction.GAUCHE : 
+			xAInspecter-=vitesseActuelle; 
+			xAInspecter2-=vitesseActuelle; 
+			yAInspecter2+=32; 
+			xAInspecter3-=vitesseActuelle; 
+			break;
+		case Event.Direction.DROITE : 
+			xAInspecter+=largeurHitbox;   
+			xAInspecter2+=largeurHitbox;   
+			yAInspecter2+=32; 
+			xAInspecter3+=vitesseActuelle; 
+			break;
+		case Event.Direction.HAUT : 
+			yAInspecter-=vitesseActuelle; 
+			yAInspecter2-=vitesseActuelle; 
+			xAInspecter2+=32; 
+			yAInspecter3-=vitesseActuelle; 
+			break;
+		default : 
+			break;
 		}
 		try{
 			//si rencontre avec un élément de décor non passable -> false
@@ -207,12 +230,11 @@ public class Event implements Comparable<Event>{
 			
 			//si rencontre avec un autre évènement non traversable -> false
 			for(Event autreEvent : this.map.events){
-				if(numero != autreEvent.numero){
-					if(autreEvent.traversableActuel){ //l'event rencontré est traversable
-						return true;
-					}
-					if( lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) ){
-						return false;
+				if(this.numero != autreEvent.numero){
+					if(!autreEvent.traversableActuel){ 
+						if( lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) ){
+							return false;
+						}
 					}
 				}
 			}
@@ -225,9 +247,10 @@ public class Event implements Comparable<Event>{
 	}
 
 	/**
-	 * déplacement naturel, inscrit dans la liste des déplacements de la page de l'event
+	 * Déplacement naturel, inscrit dans la liste des déplacements de la page de l'event
 	 */
 	public void deplacer() {
+		//si page active peut être nulle, le deplacementActuel est celui de la dernière page qui a été activée
 		if(pageActive!=null || (deplacementActuel!=null&&deplacementActuel.size()>0) ){
 			try{
 				CommandeEvent mouvementActuel = deplacementActuel.get(0);
@@ -247,7 +270,8 @@ public class Event implements Comparable<Event>{
 	}
 	
 	/**
-	 * déplacement naturel ou forcé
+	 * Déplace l'Event pour son déplacement naturel ou pour un déplacement forcé.
+	 * Vu qu'on utilise "deplacementActuel", un déplacement forcé devra être inséré artificiellement dans la liste.
 	 */
 	public void deplacer(Avancer mouvementActuel){
 		try{
@@ -260,7 +284,6 @@ public class Event implements Comparable<Event>{
 					case 1 : this.x-=vitesseActuelle; break;
 					case 2 : this.x+=vitesseActuelle; break;
 					case 3 : this.y-=vitesseActuelle; break;
-					default : break;
 				}
 				((Avancer) mouvementActuel).ceQuiAEteFait += vitesseActuelle;
 				//*ancien emplacement de l'animation*
