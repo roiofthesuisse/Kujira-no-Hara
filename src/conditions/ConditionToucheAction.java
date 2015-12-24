@@ -3,6 +3,9 @@ package conditions;
 import main.GestionClavier;
 import map.Map;
 
+/**
+ * La touche action est pressée.
+ */
 public class ConditionToucheAction extends Condition{
 	
 	public ConditionToucheAction(){

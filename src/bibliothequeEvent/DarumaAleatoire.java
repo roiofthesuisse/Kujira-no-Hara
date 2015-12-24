@@ -35,6 +35,7 @@ public class DarumaAleatoire extends Event{
 		PageDeComportement page0 = new PageDeComportement(null, null, "daruma character.png", deplacement);
 		page0.ignorerLesMouvementsImpossibles=true;
 		page0.vitesse=2;
+		page0.traversable=false;
 		pages.add(page0);
 		//page 1
 			//conditions de déclenchement

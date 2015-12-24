@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import utilitaire.Parametre;
 
 public class Attendre extends CommandeEvent {
-	public int nombreDeFrames; //nombre de frames qu'il faut attendre
-	public int ceQuiAEteFait; //nombre de frames qu'on a déjà attendu
+	private int nombreDeFrames; //nombre de frames qu'il faut attendre
+	private int ceQuiAEteFait; //nombre de frames qu'on a déjà attendu
 	
 	/**
 	 * Constructeur spécifique
@@ -25,16 +25,16 @@ public class Attendre extends CommandeEvent {
 	}
 	
 	public void reinitialiser(){
-		ceQuiAEteFait = 0;
+		this.ceQuiAEteFait = 0;
 	}
 	
 	@Override
 	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {
-		if(ceQuiAEteFait>=nombreDeFrames){
+		if(this.ceQuiAEteFait>=this.nombreDeFrames){
 			reinitialiser();
 			return curseurActuel+1;
 		}else{
-			ceQuiAEteFait++;
+			this.ceQuiAEteFait++;
 			return curseurActuel;
 		}
 	}

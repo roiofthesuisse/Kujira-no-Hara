@@ -1,0 +1,49 @@
+{
+	"nom": "Algue",
+	"largeur": 24,
+	"hauteur": 24,
+	"pages": [
+		{
+			"conditions": [],
+			"commandes": [],
+			
+			"image": "algues character.png",
+			"animeALArret": true,
+			"animeEnMouvement": true,
+			"traversable": false,
+			"auDessusDeTout": false,
+			"vitesse": 4,
+			"frequence": 4,
+			"deplacement": [],
+			"repeterLeDeplacement": false,
+			"ignorerLesMouvementsImpossibles": true
+		},
+		{
+			"conditions": [
+				{
+					"nom": "DansZoneDAttaque"
+				},
+				{
+					"nom": "PendantDureeDAttaque"
+				}
+			],
+			"commandes": [
+				{
+					"nom": "SupprimerEvent",
+					"texte": "lala lala\\n \\c[02]lele\\c[01] lele\\n popo\\n pr\\c[02]out\\c[01]"
+				}
+			],
+			
+			"image": "algues character.png",
+			"animeALArret": true,
+			"animeEnMouvement": true,
+			"traversable": false,
+			"auDessusDeTout": false,
+			"vitesse": 4,
+			"frequence": 4,
+			"deplacement": [],
+			"repeterLeDeplacement": false,
+			"ignorerLesMouvementsImpossibles": true
+		}
+	]
+}

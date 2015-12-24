@@ -17,10 +17,17 @@ public class Message extends CommandeEvent{
 	public BufferedImage image;
 	public Boolean leRelachementDeToucheAEuLieu = false;
 	
+	/**
+	 * Constructeur spécifique
+	 */
 	public Message(String texte) {
 		this.texte = texte;
 	}
 	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
 	public Message(ArrayList<Parametre> parametres){
 		this( (String) trouverParametre("texte",parametres) );
 	}

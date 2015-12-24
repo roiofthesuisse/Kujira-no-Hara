@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import comportementEvent.Avancer;
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
+import utilitaire.InterpreteurDeJson;
 
 public class Event implements Comparable<Event>{
 	public Map map;
@@ -64,11 +65,21 @@ public class Event implements Comparable<Event>{
 	/**
 	 * chaque event regarde dans une direction
 	 */
-	public class Direction {
+	public static class Direction {
 		public static final int BAS = 0;
 		public static final int GAUCHE = 1;
 		public static final int DROITE = 2;
 		public static final int HAUT = 3;
+		
+		public static int obtenirDirectionViaJson(JSONObject jsonEvent){
+			int dir;
+			try{
+				dir = jsonEvent.getInt("direction");
+			}catch(Exception e1){
+				dir = Event.Direction.BAS; //direction par défaut
+			}
+			return dir;
+		}
 	}
 	
 	/**
@@ -95,6 +106,9 @@ public class Event implements Comparable<Event>{
 		}
 	}
 	
+	/**
+	 * Event décrit dans la page JSON
+	 */
 	protected Event(Map map, Integer x, Integer y, Integer direction, String nom, JSONArray tableauDesPages, int largeurHitbox, int hauteurHitbox){
 		this(map, x, y, direction, nom, creerListeDesPagesViaJson(tableauDesPages), largeurHitbox, hauteurHitbox);
 	}

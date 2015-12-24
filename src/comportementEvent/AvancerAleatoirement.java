@@ -1,9 +1,24 @@
 package comportementEvent;
 
+import java.util.ArrayList;
+
+import utilitaire.Parametre;
+
 public class AvancerAleatoirement extends Avancer{	
 	
+	/**
+	 * Constructeur spécifique
+	 */
 	public AvancerAleatoirement(){
 		super(rand.nextInt(4), 1);
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public AvancerAleatoirement(ArrayList<Parametre> parametres){
+		this();
 	}
 	
 	@Override
