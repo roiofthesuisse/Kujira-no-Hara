@@ -9,7 +9,6 @@ import org.json.JSONObject;
 import comportementEvent.Avancer;
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
-import utilitaire.InterpreteurDeJson;
 
 public class Event implements Comparable<Event>{
 	public Map map;
