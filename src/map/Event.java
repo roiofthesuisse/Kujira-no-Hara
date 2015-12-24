@@ -344,6 +344,10 @@ public class Event implements Comparable<Event>{
 		return 0;
 	}
 
+	/**
+	 * Active la page de l'event qui vérifie toutes les conditions de déclenchement.
+	 * S'il y a plusieurs pages valides, on prend la dernière.
+	 */
 	public void activerUnePage() {
 		PageDeComportement pageQuOnChoisitEnRemplacement = null;
 		try{
