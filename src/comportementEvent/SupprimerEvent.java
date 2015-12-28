@@ -1,8 +1,7 @@
 package comportementEvent;
 
 import java.util.ArrayList;
-
-import utilitaire.Parametre;
+import java.util.HashMap;
 
 public class SupprimerEvent extends CommandeEvent {
 	
@@ -15,7 +14,7 @@ public class SupprimerEvent extends CommandeEvent {
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public SupprimerEvent(ArrayList<Parametre> parametres){
+	public SupprimerEvent(HashMap<String,Object> parametres){
 		this();
 	}
 	

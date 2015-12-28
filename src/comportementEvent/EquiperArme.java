@@ -1,9 +1,9 @@
 package comportementEvent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import main.Partie;
-import utilitaire.Parametre;
 
 public class EquiperArme extends CommandeEvent {
 	int idArme;
@@ -19,8 +19,8 @@ public class EquiperArme extends CommandeEvent {
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public EquiperArme(ArrayList<Parametre> parametres){
-		this( (Integer) trouverParametre("idArme",parametres) );
+	public EquiperArme(HashMap<String,Object> parametres){
+		this( (Integer) parametres.get("idArme") );
 	}
 	
 	@Override

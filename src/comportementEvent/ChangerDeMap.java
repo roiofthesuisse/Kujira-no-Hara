@@ -2,10 +2,10 @@ package comportementEvent;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import map.LecteurMap;
 import map.Map;
-import utilitaire.Parametre;
 
 public class ChangerDeMap extends CommandeEvent {
 	private final int numeroNouvelleMap;
@@ -25,10 +25,10 @@ public class ChangerDeMap extends CommandeEvent {
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public ChangerDeMap(ArrayList<Parametre> parametres){
-		this( (Integer)trouverParametre("numeroNouvelleMap", parametres), 
-			(Integer)trouverParametre("xDebutHeros", parametres),
-			(Integer)trouverParametre("yDebutHeros", parametres)
+	public ChangerDeMap(HashMap<String, Object> parametres){
+		this( (Integer) parametres.get("numeroNouvelleMap"), 
+			(Integer)parametres.get("xDebutHeros"),
+			(Integer)parametres.get("yDebutHeros")
 		);
 	}
 	

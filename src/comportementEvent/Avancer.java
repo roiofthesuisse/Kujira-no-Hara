@@ -1,9 +1,9 @@
 package comportementEvent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import map.Event;
-import utilitaire.Parametre;
 
 public class Avancer extends CommandeEvent{
 	protected int direction;
@@ -22,8 +22,9 @@ public class Avancer extends CommandeEvent{
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public Avancer(ArrayList<Parametre> parametres){
-		this( (Integer)trouverParametre("direction", parametres), (Integer)trouverParametre("nombreDeCarreaux", parametres) );
+	public Avancer(HashMap<String, Object> parametres){
+		this( (Integer)parametres.get("direction"), 
+			  (Integer)parametres.get("nombreDeCarreaux") );
 	}
 	
 	public int getDirection(){

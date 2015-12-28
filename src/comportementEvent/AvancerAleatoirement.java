@@ -1,8 +1,6 @@
 package comportementEvent;
 
-import java.util.ArrayList;
-
-import utilitaire.Parametre;
+import java.util.HashMap;
 
 public class AvancerAleatoirement extends Avancer{	
 	
@@ -17,7 +15,7 @@ public class AvancerAleatoirement extends Avancer{
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public AvancerAleatoirement(ArrayList<Parametre> parametres){
+	public AvancerAleatoirement(HashMap<String,Object> parametres){
 		this();
 	}
 	

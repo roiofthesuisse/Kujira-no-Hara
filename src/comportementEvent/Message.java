@@ -4,13 +4,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
 import main.GestionClavier;
 import map.LecteurMap;
 import menu.Texte;
-import utilitaire.Parametre;
 
 public class Message extends CommandeEvent{
 	public String texte;
@@ -28,8 +28,8 @@ public class Message extends CommandeEvent{
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public Message(ArrayList<Parametre> parametres){
-		this( (String) trouverParametre("texte",parametres) );
+	public Message(HashMap<String,Object> parametres){
+		this( (String) parametres.get("texte") );
 	}
 
 	@Override

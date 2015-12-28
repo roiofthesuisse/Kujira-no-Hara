@@ -1,8 +1,7 @@
 package comportementEvent;
 
 import java.util.ArrayList;
-
-import utilitaire.Parametre;
+import java.util.HashMap;
 
 public class Attendre extends CommandeEvent {
 	private int nombreDeFrames; //nombre de frames qu'il faut attendre
@@ -20,8 +19,8 @@ public class Attendre extends CommandeEvent {
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public Attendre(ArrayList<Parametre> parametres){
-		this( (Integer) trouverParametre("nombreDeFrames",parametres) );
+	public Attendre(HashMap<String, Object> parametres){
+		this( (Integer) parametres.get("nombreDeFrames") );
 	}
 	
 	public void reinitialiser(){
