@@ -1,0 +1,73 @@
+{
+	"nom": "DarumaAleatoire",
+	"largeur": 32,
+	"hauteur": 32,
+	"pages": [
+		{
+			"conditions": [],
+			"commandes": [],
+			
+			"image": "daruma character.png",
+			"animeALArret": false,
+			"animeEnMouvement": false,
+			"traversable": false,
+			"auDessusDeTout": false,
+			"vitesse": 2,
+			"frequence": 4,
+			"deplacement": [
+				{
+					"nom": "AvancerAleatoirement"
+				}
+			],
+			"repeterLeDeplacement": true,
+			"ignorerLesMouvementsImpossibles": true
+		},
+		{
+			"conditions": [
+				{
+					"nom": "Parler"
+				},
+				{
+					"nom": "ToucheAction"
+				}
+			],
+			"commandes": [
+				{
+					"nom": "Message",
+					"texte": "lala lala\\n \\c[02]lele\\c[01] lele\\n popo\\n pr\\c[02]out\\c[01]"
+				},
+				{
+					"nom": "Message",
+					"texte": "\\c[02]lili"
+				},
+				{
+					"nom": "AjouterArme",
+					"idArme": 0
+				},
+				{
+					"nom": "EquiperArme",
+					"idArme": 0
+				},
+				{
+					"nom": "AjouterArme",
+					"idArme": 1
+				},
+				{
+					"nom": "Attendre",
+					"nombreDeFrames": 5
+				}
+			],
+			
+			"image": "daruma character.png",
+			"animeALArret": false,
+			"animeEnMouvement": false,
+			"traversable": false,
+			"auDessusDeTout": false,
+			"vitesse": 2,
+			"frequence": 4,
+			"deplacement": [],
+			"repeterLeDeplacement": true,
+			"ignorerLesMouvementsImpossibles": false
+		}
+	]
+}

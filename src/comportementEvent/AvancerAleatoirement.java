@@ -1,9 +1,22 @@
 package comportementEvent;
 
+import java.util.HashMap;
+
 public class AvancerAleatoirement extends Avancer{	
 	
+	/**
+	 * Constructeur spécifique
+	 */
 	public AvancerAleatoirement(){
 		super(rand.nextInt(4), 1);
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public AvancerAleatoirement(HashMap<String,Object> parametres){
+		this();
 	}
 	
 	@Override

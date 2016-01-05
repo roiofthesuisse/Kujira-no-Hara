@@ -1,16 +1,14 @@
 package map;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import main.Partie;
+import utilitaire.InterpreteurDeJson;
 
 public class Map {
 	public final int numero;
@@ -49,11 +47,7 @@ public class Map {
 		this.lecteur = lecteur;
 		
 		//la map est un fichier JSON
-		String nomFichierJson = ".\\ressources\\Data\\Maps\\"+numero+".json";
-		Scanner scanner = new Scanner(new File(nomFichierJson));
-		String contenuFichierJson = scanner.useDelimiter("\\Z").next();
-		scanner.close();
-		JSONObject jsonMap = new JSONObject(contenuFichierJson);
+		JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(numero);
 		
 		this.nomBGM = jsonMap.getString("bgm");
 		this.nomBGS = jsonMap.getString("bgs");
@@ -140,22 +134,32 @@ public class Map {
 				//instanciation de l'event
 				Event event;
 				try{
-					//on essaye de le créer à partir de la bibliothèque
-					Class<?> classeEvent = Class.forName("bibliothequeEvent."+nomEvent);
-					Constructor<?> constructeurEvent = classeEvent.getConstructor(this.getClass(), Integer.class, Integer.class);
-					event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
-				}catch(ClassNotFoundException e1){
-					//l'event n'est pas dans la bibliothèque, on le construit à partir de sa description JSON
+					/*
+					try{
+					*/
+					//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
+					JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
+					int hauteurHitbox = jsonEventGenerique.getInt("largeur");
+					int largeurHitbox = jsonEventGenerique.getInt("hauteur");
+					int direction = Event.Direction.obtenirDirectionViaJson(jsonEventGenerique);
+					JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
+					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
+					/*
+					}catch(Exception e2){
+						e2.printStackTrace();
+						//on essaye de le créer à partir de la bibliothèque Java
+						Class<?> classeEvent = Class.forName("bibliothequeEvent."+nomEvent);
+						Constructor<?> constructeurEvent = classeEvent.getConstructor(this.getClass(), Integer.class, Integer.class);
+						event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
+					}
+					*/
+				}catch(Exception e3){
+					//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
 					int hauteurHitbox = jsonEvent.getInt("largeur");
 					int largeurHitbox = jsonEvent.getInt("hauteur");
-					int direction;
-					try{
-						direction = jsonEvent.getInt("direction");
-					}catch(Exception e2){
-						direction = Event.Direction.BAS; //direction par défaut
-					}
+					int direction = Event.Direction.obtenirDirectionViaJson(jsonEvent);
 					JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, hauteurHitbox, largeurHitbox);
+					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
 				}
 				this.events.add(event);
 			}

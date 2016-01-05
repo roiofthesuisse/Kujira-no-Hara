@@ -1,11 +1,21 @@
 package comportementEvent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SupprimerEvent extends CommandeEvent {
 	
-	public SupprimerEvent(){
-		
+	/**
+	 * Constructeur spécifique
+	 */
+	public SupprimerEvent(){}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public SupprimerEvent(HashMap<String,Object> parametres){
+		this();
 	}
 	
 	@Override

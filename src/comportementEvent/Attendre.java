@@ -1,12 +1,11 @@
 package comportementEvent;
 
 import java.util.ArrayList;
-
-import utilitaire.Parametre;
+import java.util.HashMap;
 
 public class Attendre extends CommandeEvent {
-	public int nombreDeFrames; //nombre de frames qu'il faut attendre
-	public int ceQuiAEteFait; //nombre de frames qu'on a déjà attendu
+	private int nombreDeFrames; //nombre de frames qu'il faut attendre
+	private int ceQuiAEteFait; //nombre de frames qu'on a déjà attendu
 	
 	/**
 	 * Constructeur spécifique
@@ -20,21 +19,21 @@ public class Attendre extends CommandeEvent {
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public Attendre(ArrayList<Parametre> parametres){
-		this( (Integer) trouverParametre("nombreDeFrames",parametres) );
+	public Attendre(HashMap<String, Object> parametres){
+		this( (Integer) parametres.get("nombreDeFrames") );
 	}
 	
 	public void reinitialiser(){
-		ceQuiAEteFait = 0;
+		this.ceQuiAEteFait = 0;
 	}
 	
 	@Override
 	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {
-		if(ceQuiAEteFait>=nombreDeFrames){
+		if(this.ceQuiAEteFait>=this.nombreDeFrames){
 			reinitialiser();
 			return curseurActuel+1;
 		}else{
-			ceQuiAEteFait++;
+			this.ceQuiAEteFait++;
 			return curseurActuel;
 		}
 	}

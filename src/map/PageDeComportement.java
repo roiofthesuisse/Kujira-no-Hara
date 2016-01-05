@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.imageio.ImageIO;
@@ -14,7 +15,6 @@ import org.json.JSONObject;
 
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
-import utilitaire.Parametre;
 
 public class PageDeComportement {
 	public Event event;
@@ -102,12 +102,12 @@ public class PageDeComportement {
 				Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
 				String parametreNom;
 				Object parametreValeur;
-				ArrayList<Parametre> parametres = new ArrayList<Parametre>();
+				HashMap<String,Object> parametres = new HashMap<String,Object>();
 				while(parametresNoms.hasNext()){
 					parametreNom = parametresNoms.next();
 					if(!parametreNom.equals("nom")){ //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
 						parametreValeur = ((JSONObject) commandeJSON).get(parametreNom);
-						parametres.add( new Parametre(parametreNom, parametreValeur) );
+						parametres.put( parametreNom, parametreValeur );
 					}
 				}
 				Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
@@ -139,15 +139,15 @@ public class PageDeComportement {
 				Iterator<String> parametresNoms = ((JSONObject) actionDeplacementJSON).keys();
 				String parametreNom;
 				Object parametreValeur;
-				ArrayList<Parametre> parametres = new ArrayList<Parametre>();
+				HashMap<String,Object> parametres = new HashMap<String,Object>();
 				while(parametresNoms.hasNext()){
 					parametreNom = parametresNoms.next();
 					if(!parametreNom.equals("nom")){ //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
 						parametreValeur = ((JSONObject) actionDeplacementJSON).get(parametreNom);
-						parametres.add( new Parametre(parametreNom, parametreValeur) );
+						parametres.put(parametreNom, parametreValeur);
 					}
 				}
-				Constructor<?> constructeurActionDeplacement = classeActionDeplacement.getConstructor(parametres.getClass());
+				Constructor<?> constructeurActionDeplacement = classeActionDeplacement.getConstructor(HashMap.class);
 				CommandeEvent actionDeplacement = (CommandeEvent) constructeurActionDeplacement.newInstance(parametres);
 				deplacement.add(actionDeplacement);
 			}catch(Exception e){

@@ -64,11 +64,21 @@ public class Event implements Comparable<Event>{
 	/**
 	 * chaque event regarde dans une direction
 	 */
-	public class Direction {
+	public static class Direction {
 		public static final int BAS = 0;
 		public static final int GAUCHE = 1;
 		public static final int DROITE = 2;
 		public static final int HAUT = 3;
+		
+		public static int obtenirDirectionViaJson(JSONObject jsonEvent){
+			int dir;
+			try{
+				dir = jsonEvent.getInt("direction");
+			}catch(Exception e1){
+				dir = Event.Direction.BAS; //direction par défaut
+			}
+			return dir;
+		}
 	}
 	
 	/**
@@ -95,6 +105,9 @@ public class Event implements Comparable<Event>{
 		}
 	}
 	
+	/**
+	 * Event décrit dans la page JSON
+	 */
 	protected Event(Map map, Integer x, Integer y, Integer direction, String nom, JSONArray tableauDesPages, int largeurHitbox, int hauteurHitbox){
 		this(map, x, y, direction, nom, creerListeDesPagesViaJson(tableauDesPages), largeurHitbox, hauteurHitbox);
 	}
@@ -161,6 +174,11 @@ public class Event implements Comparable<Event>{
 	}
 	
 	public Boolean deplacementPossible(int sens){
+		//si l'Event est lui-même traversable, il peut faire son mouvement
+		if(this.traversableActuel){
+			return true;
+		}
+		
 		Boolean reponse = true;
 		int xAInspecter = this.x; //pour le décor
 		int yAInspecter = this.y;
@@ -169,14 +187,32 @@ public class Event implements Comparable<Event>{
 		int xAInspecter3 = this.x; //pour les events
 		int yAInspecter3 = this.y;
 		switch(sens){
-			case 0 : yAInspecter+=hauteurHitbox;   yAInspecter2+=hauteurHitbox;   xAInspecter2+=32; yAInspecter3+=vitesseActuelle; break;
-			case 1 : xAInspecter-=vitesseActuelle; xAInspecter2-=vitesseActuelle; yAInspecter2+=32; xAInspecter3-=vitesseActuelle; break;
-			case 2 : xAInspecter+=largeurHitbox;   xAInspecter2+=largeurHitbox;   yAInspecter2+=32; xAInspecter3+=vitesseActuelle; break;
-			case 3 : yAInspecter-=vitesseActuelle; yAInspecter2-=vitesseActuelle; xAInspecter2+=32; yAInspecter3-=vitesseActuelle; break;
-			default : break;
-		}
-		if(this.traversableActuel){ //l'event est lui-même traversable, donc il traverse tout
-			return true;
+		case Event.Direction.BAS : 
+			yAInspecter+=hauteurHitbox;   
+			yAInspecter2+=hauteurHitbox;   
+			xAInspecter2+=32; 
+			yAInspecter3+=vitesseActuelle; 
+			break;
+		case Event.Direction.GAUCHE : 
+			xAInspecter-=vitesseActuelle; 
+			xAInspecter2-=vitesseActuelle; 
+			yAInspecter2+=32; 
+			xAInspecter3-=vitesseActuelle; 
+			break;
+		case Event.Direction.DROITE : 
+			xAInspecter+=largeurHitbox;   
+			xAInspecter2+=largeurHitbox;   
+			yAInspecter2+=32; 
+			xAInspecter3+=vitesseActuelle; 
+			break;
+		case Event.Direction.HAUT : 
+			yAInspecter-=vitesseActuelle; 
+			yAInspecter2-=vitesseActuelle; 
+			xAInspecter2+=32; 
+			yAInspecter3-=vitesseActuelle; 
+			break;
+		default : 
+			break;
 		}
 		try{
 			//si rencontre avec un élément de décor non passable -> false
@@ -193,12 +229,11 @@ public class Event implements Comparable<Event>{
 			
 			//si rencontre avec un autre évènement non traversable -> false
 			for(Event autreEvent : this.map.events){
-				if(numero != autreEvent.numero){
-					if(autreEvent.traversableActuel){ //l'event rencontré est traversable
-						return true;
-					}
-					if( lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) ){
-						return false;
+				if(this.numero != autreEvent.numero){
+					if(!autreEvent.traversableActuel){ 
+						if( lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) ){
+							return false;
+						}
 					}
 				}
 			}
@@ -211,9 +246,10 @@ public class Event implements Comparable<Event>{
 	}
 
 	/**
-	 * déplacement naturel, inscrit dans la liste des déplacements de la page de l'event
+	 * Déplacement naturel, inscrit dans la liste des déplacements de la page de l'event
 	 */
 	public void deplacer() {
+		//si page active peut être nulle, le deplacementActuel est celui de la dernière page qui a été activée
 		if(pageActive!=null || (deplacementActuel!=null&&deplacementActuel.size()>0) ){
 			try{
 				CommandeEvent mouvementActuel = deplacementActuel.get(0);
@@ -233,7 +269,8 @@ public class Event implements Comparable<Event>{
 	}
 	
 	/**
-	 * déplacement naturel ou forcé
+	 * Déplace l'Event pour son déplacement naturel ou pour un déplacement forcé.
+	 * Vu qu'on utilise "deplacementActuel", un déplacement forcé devra être inséré artificiellement dans la liste.
 	 */
 	public void deplacer(Avancer mouvementActuel){
 		try{
@@ -246,7 +283,6 @@ public class Event implements Comparable<Event>{
 					case 1 : this.x-=vitesseActuelle; break;
 					case 2 : this.x+=vitesseActuelle; break;
 					case 3 : this.y-=vitesseActuelle; break;
-					default : break;
 				}
 				((Avancer) mouvementActuel).ceQuiAEteFait += vitesseActuelle;
 				//*ancien emplacement de l'animation*
@@ -308,6 +344,10 @@ public class Event implements Comparable<Event>{
 		return 0;
 	}
 
+	/**
+	 * Active la page de l'event qui vérifie toutes les conditions de déclenchement.
+	 * S'il y a plusieurs pages valides, on prend la dernière.
+	 */
 	public void activerUnePage() {
 		PageDeComportement pageQuOnChoisitEnRemplacement = null;
 		try{
