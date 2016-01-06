@@ -24,6 +24,9 @@ import menu.LecteurMenu;
 
 @SuppressWarnings("serial")
 public class Fenetre extends JFrame implements KeyListener{
+	//constantes
+	public static final Integer TAILLE_D_UN_CARREAU = 32;
+	
 	private static Fenetre maFenetre = null;
 	public static String titre = "Le meilleur jeu du monde";
 	public static int largeurParDefaut = 640;
