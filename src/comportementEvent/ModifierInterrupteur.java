@@ -2,21 +2,28 @@ package comportementEvent;
 
 import java.util.ArrayList;
 
+import main.Fenetre;
+
+/**
+ * Modifier la valeur d'un interrupteur
+ */
 public class ModifierInterrupteur extends CommandeEvent {
 	int numeroInterrupteur;
 	boolean valeurADonner;
 	
 	/**
-	 * Constructeur spécifique
+	 * Constructeur explicite
+	 * @param numero de l'interrupteur à modifier
+	 * @param valeur à donner à l'interrupteur
 	 */
-	public ModifierInterrupteur(int interrupteur, boolean value){
-		numeroInterrupteur = interrupteur;
-		valeurADonner = value;
+	public ModifierInterrupteur(final int numero, final boolean valeur) {
+		numeroInterrupteur = numero;
+		valeurADonner = valeur;
 	}
 	
 	@Override
-	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {
-		this.page.event.map.lecteur.fenetre.partie.interrupteurs[numeroInterrupteur] = valeurADonner;
+	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
+		Fenetre.getPartieActuelle().interrupteurs[numeroInterrupteur] = valeurADonner;
 		return curseurActuel+1;
 	}
 

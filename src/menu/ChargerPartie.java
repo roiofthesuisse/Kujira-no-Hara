@@ -3,18 +3,25 @@ package menu;
 import main.Fenetre;
 import main.Partie;
 
+/**
+ * Charger une Partie dans le menu dédié
+ */
 public class ChargerPartie extends ComportementElementDeMenu {
 	private final int numeroDeSauvegarde;
 	
-	public ChargerPartie(int numeroDeSauvegarde){
+	/**
+	 * Constructeur explicite
+	 * @param numeroDeSauvegarde numéro du fichier de sauvegarde à charger
+	 */
+	public ChargerPartie(final int numeroDeSauvegarde) {
 		this.numeroDeSauvegarde = numeroDeSauvegarde;
 	}
 	
 	@Override
-	public void executer() {
-		Fenetre fenetre = this.element.menu.lecteur.fenetre;
+	public final void executer() {
+		final Fenetre fenetre = this.element.menu.lecteur.fenetre;
 		System.out.println("chargement de la partie numero "+numeroDeSauvegarde);
-		fenetre.partie = Partie.chargerPartie(this.numeroDeSauvegarde);
+		fenetre.setPartieActuelle( Partie.chargerPartie(this.numeroDeSauvegarde) );
 		fenetre.ouvrirLaPartie();
 	}
 

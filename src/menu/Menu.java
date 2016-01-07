@@ -57,7 +57,7 @@ public abstract class Menu {
 			this.elementSelectionne = elementASelectionner;
 			elementASelectionner.selectionne = true;
 			//déclenchement du comportement
-			elementASelectionner.comportementALArrivee();
+			elementASelectionner.executerLeComportementALArrivee();
 		}
 	}
 	

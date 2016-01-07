@@ -9,61 +9,74 @@ import java.awt.image.BufferedImage;
 
 import main.Lecteur;
 
-public class Texte extends Selectionnable{
+/**
+ * Un Texte peut être sélectionnable, avoir un comportement au survol et à la confirmation.
+ */
+public class Texte extends Selectionnable {
+	//constantes
+	public static final Color COULEUR_PAR_DEFAUT = new Color(50, 0, 150);
+	public static final Color COULEUR_PAR_DEFAUT2 = new Color(150, 0, 50);
+	public static final int MARGE_A_DROITE = 4; //pour ne pas que le côté droit du texte ne soit coupé
+	private static final int TAILLE_MOYENNE = 18;
+	public static final int INTERLIGNE = 8;
+	private static final int OPACITE_MAXIMALE = 100;
+	
 	public String contenu;
 	public int taille;
-	private static int tailleMoyenne = 18;
-	public static int interligne = 8;
 	public int opacite;
-	public static Color couleurParDefaut = new Color(50,0,150);
-	public static Color couleurParDefaut2 = new Color(150,0,50);
-	public static int margeDroite = 4; //pour ne pas que le côté droit du texte ne soit coupé
 
 	/**
-	 * @param contenu
-	 * @param xDebut
-	 * @param yDebut
-	 * @param selectionnable
-	 * @param c1
-	 * @param c2
-	 * @param menu
+	 * Constructeur implicite (opacité maximale, taille moyenne) pour les Menus
+	 * @param contenu du Texte
+	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
+	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
+	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
+	 * @param c1 c1 comportement au survol
+	 * @param c2 c2 comportement à la confirmation
+	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(String contenu, int xDebut, int yDebut, Boolean selectionnable, ComportementElementDeMenu c1, ComportementElementDeMenu c2, Menu menu){
-		this(contenu, xDebut, yDebut, tailleMoyenne, selectionnable, 100, c1, c2, menu);
+	public Texte(final String contenu, final int xDebut, final int yDebut, final Boolean selectionnable, final ComportementElementDeMenu c1, final ComportementElementDeMenu c2, final Menu menu) {
+		this(contenu, xDebut, yDebut, Texte.TAILLE_MOYENNE, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, menu);
 	}
 	
 	/**
-	 * @param contenu
-	 * @param xDebut
-	 * @param yDebut
-	 * @param selectionnable
-	 * @param opacite
-	 * @param c1
-	 * @param c2
-	 * @param menu
+	 * Constructeur implicite (taille moyenne) pour les Menus
+	 * @param contenu du Texte
+	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
+	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
+	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
+	 * @param opacite transparence
+	 * @param c1 comportement au survol
+	 * @param c2 comportement à la confirmation
+	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(String contenu, int xDebut, int yDebut, Boolean selectionnable, int opacite, ComportementElementDeMenu c1, ComportementElementDeMenu c2, Menu menu){
-		this(contenu, xDebut, yDebut, tailleMoyenne, selectionnable, opacite, c1, c2, menu);
+	public Texte(final String contenu, final int xDebut, final int yDebut, final Boolean selectionnable, final int opacite, final ComportementElementDeMenu c1, final ComportementElementDeMenu c2, final Menu menu) {
+		this(contenu, xDebut, yDebut, Texte.TAILLE_MOYENNE, selectionnable, opacite, c1, c2, menu);
 	}
 	
 	/**
-	 * @param contenu
-	 * @param xDebut
-	 * @param yDebut
-	 * @param taille
-	 * @param selectionnable
-	 * @param opacite
-	 * @param c1
-	 * @param c2
-	 * @param menu
+	 * Constructeur explicite pour les Menus
+	 * @param contenu du Texte
+	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
+	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
+	 * @param taille des caractères
+	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
+	 * @param opacite transparence
+	 * @param c1 comportement au survol
+	 * @param c2 comportement à la confirmation
+	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(String contenu, int xDebut, int yDebut, int taille, Boolean selectionnable, int opacite, ComportementElementDeMenu c1, ComportementElementDeMenu c2, Menu menu){
+	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final Boolean selectionnable, final int opacite, final ComportementElementDeMenu c1, final ComportementElementDeMenu c2, final Menu menu) {
 		this.menu = menu;
 		this.selectionnable = selectionnable;
 		this.comportementSelection = c1;
-		if(comportementSelection!=null) comportementSelection.element = this;
+		if (comportementSelection!=null) {
+			comportementSelection.element = this;
+		}
 		this.comportementConfirmation = c2;
-		if(comportementConfirmation!=null) comportementConfirmation.element = this;
+		if (comportementConfirmation!=null) {
+			comportementConfirmation.element = this;
+		}
 		this.contenu = contenu;
 		this.x = xDebut;
 		this.y = yDebut;
@@ -73,28 +86,32 @@ public class Texte extends Selectionnable{
 	}
 	
 	/**
-	 * à ne pas utiliser pour les menus !
-	 * pour les messages d'events seulement !!!
+	 * Constructeur explicite pour les Messages d'un Event
+	 * @param contenu du Texte
 	 */
-	public Texte(String contenu){
+	public Texte(final String contenu) {
 		this.contenu = contenu;
 	}
 	
-	public BufferedImage texteToImage(){
-        String[] texts = this.contenu.split("\\\\n");
-        int nombreLignes = texts.length;
+	/**
+	 * Convertir un Texte en image
+	 * @return le Texte sous forme d'image
+	 */
+	public final BufferedImage texteToImage() {
+        final String[] texts = this.contenu.split("\\\\n");
+        final int nombreLignes = texts.length;
 
-        BufferedImage img = new BufferedImage(1, 1, Lecteur.imageType);
+        BufferedImage img = new BufferedImage(1, 1, Lecteur.TYPE_DES_IMAGES);
         Graphics2D g2d = img.createGraphics();
-        Font font = new Font("Arial", Font.PLAIN, tailleMoyenne);
+        final Font font = new Font("Arial", Font.PLAIN, Texte.TAILLE_MOYENNE);
         g2d.setFont(font);
         FontMetrics fm = g2d.getFontMetrics();
-        int width = fm.stringWidth(texts[0])+margeDroite;
-        int height = fm.getHeight();
+        final int width = fm.stringWidth(texts[0])+Texte.MARGE_A_DROITE;
+        final int height = fm.getHeight();
         g2d.dispose();
         
-        int hauteurTotaleImage = (height+interligne)*nombreLignes-interligne;
-        img = new BufferedImage(width, hauteurTotaleImage, Lecteur.imageType);
+        final int hauteurTotaleImage = (height+Texte.INTERLIGNE)*nombreLignes-Texte.INTERLIGNE; //on retire l'interligne inutile tout à la fin
+        img = new BufferedImage(width, hauteurTotaleImage, Lecteur.TYPE_DES_IMAGES);
         g2d = img.createGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -106,22 +123,22 @@ public class Texte extends Selectionnable{
         g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
         g2d.setFont(font);
         fm = g2d.getFontMetrics();
-        g2d.setColor(couleurParDefaut);
-        for(int i=0; i<nombreLignes; i++){ //on écrit chaque ligne
+        g2d.setColor(Texte.COULEUR_PAR_DEFAUT);
+        for (int i = 0; i<nombreLignes; i++) { //on écrit chaque ligne
         	int largeurALaquelleOnEcrit = 0;
-        	int hauteurALaquelleOnEcrit = i*(tailleMoyenne+interligne)+fm.getAscent();
-        	String ligne = texts[i].trim();
-        	String[] boutsDeLigne = ligne.split("\\\\c",-1);
-        	int nombreDeBoutsDeLigne = boutsDeLigne.length;
-        	for(int j=0; j<nombreDeBoutsDeLigne; j++){
-        		if( boutsDeLigne[j].startsWith("[02]") ){
+        	final int hauteurALaquelleOnEcrit = i*(Texte.TAILLE_MOYENNE+Texte.INTERLIGNE)+fm.getAscent();
+        	final String ligne = texts[i].trim();
+        	final String[] boutsDeLigne = ligne.split("\\\\c", -1);
+        	final int nombreDeBoutsDeLigne = boutsDeLigne.length;
+        	for (int j = 0; j<nombreDeBoutsDeLigne; j++) {
+        		if ( boutsDeLigne[j].startsWith("[02]") ) {
         			boutsDeLigne[j] = boutsDeLigne[j].replace("[02]", "");
-	        		g2d.setColor(couleurParDefaut2); 
-	        		largeurALaquelleOnEcrit+=fm.stringWidth(boutsDeLigne[j-1]);
-        		}else if( boutsDeLigne[j].startsWith("[01]") ){
+	        		g2d.setColor(Texte.COULEUR_PAR_DEFAUT2); 
+	        		largeurALaquelleOnEcrit += fm.stringWidth(boutsDeLigne[j-1]);
+        		} else if ( boutsDeLigne[j].startsWith("[01]") ) {
         			boutsDeLigne[j] = boutsDeLigne[j].replace("[01]", "");
-	        		g2d.setColor(couleurParDefaut); 
-	        		largeurALaquelleOnEcrit+=fm.stringWidth(boutsDeLigne[j-1]);
+	        		g2d.setColor(Texte.COULEUR_PAR_DEFAUT); 
+	        		largeurALaquelleOnEcrit += fm.stringWidth(boutsDeLigne[j-1]);
         		}
         		g2d.drawString(boutsDeLigne[j], largeurALaquelleOnEcrit, hauteurALaquelleOnEcrit);
         	}
@@ -132,8 +149,8 @@ public class Texte extends Selectionnable{
 	}
 
 	@Override
-	public void comportementALArrivee() { //lorsque la sélection arrive sur ce texte
-		if( comportementSelection!=null ){
+	public final void executerLeComportementALArrivee() { //lorsque la sélection arrive sur ce texte
+		if ( comportementSelection!=null ) {
 			comportementSelection.executer();
 		}
 	}

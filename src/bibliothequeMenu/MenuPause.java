@@ -9,15 +9,22 @@ import menu.QuitterJeu;
 import menu.RevenirAuJeu;
 import menu.Texte;
 
+/**
+ * Menu sur lequel on arrive lorsqu'on appuie sur "pause" en jeu.
+ */
 public class MenuPause extends Menu {
 	
-	public MenuPause(LecteurMenu lecteur){
+	/**
+	 * Constructeur explicite
+	 * @param lecteur du Menu
+	 */
+	public MenuPause(final LecteurMenu lecteur) {
 		this.lecteur = lecteur;
 		
 		this.textes = new ArrayList<Texte>();
-		Texte retour = new Texte("Revenir au jeu", 290, 320, 0, true, 0, null, new RevenirAuJeu(), this);
+		final Texte retour = new Texte("Revenir au jeu", 290, 320, 0, true, 0, null, new RevenirAuJeu(), this);
 		this.textes.add(retour);
-		Texte quitter = new Texte("Quitter le jeu", 290, 350, 0, true, 0, null, new QuitterJeu(), this);
+		final Texte quitter = new Texte("Quitter le jeu", 290, 350, 0, true, 0, null, new QuitterJeu(), this);
 		this.textes.add(quitter);
 		
 		selectionner(retour);
@@ -26,7 +33,7 @@ public class MenuPause extends Menu {
 	}
 
 	@Override
-	public void quitter() {
+	public final void quitter() {
 		this.lecteur.fenetre.dispose();
 	}
 

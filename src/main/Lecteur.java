@@ -26,8 +26,8 @@ public abstract class Lecteur {
 	 * Il est interdit qu'une frame dure moins longtemps, afin que l'animation soit compréhensible.
 	 * La frame peut durer plus longtemps si l'ordinateur a du mal à faire tourner le bousin.
 	 */
-	public static long dureeFrame = 30;
-	public static int imageType = BufferedImage.TYPE_INT_ARGB;
+	private static final long DUREE_FRAME = 30;
+	public static final int TYPE_DES_IMAGES = BufferedImage.TYPE_INT_ARGB;
 	/**
 	 * Est-ce que le lecteur est allumé ?
 	 * Si le lecteur est allumé, l'affichage est actualisé sans cesse.
@@ -41,9 +41,9 @@ public abstract class Lecteur {
 	public abstract void keyReleased(Integer keycode);
 	
 	public BufferedImage ecranNoir(){
-		int largeur = Fenetre.largeurParDefaut;
-		int hauteur = Fenetre.hauteurParDefaut;
-		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.imageType);
+		int largeur = Fenetre.LARGEUR_ECRAN;
+		int hauteur = Fenetre.HAUTEUR_ECRAN;
+		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
 		Graphics2D graphics = image.createGraphics();
 		graphics.setPaint(Color.black);
 		graphics.fillRect(0, 0, largeur, hauteur);
@@ -51,7 +51,7 @@ public abstract class Lecteur {
 	}
 	
 	public BufferedImage imageVide(int largeur, int hauteur){
-		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.imageType);
+		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
 		Color couleur = new Color(0,0,0,0);
 		Graphics2D graphics = image.createGraphics();
 		graphics.setPaint(couleur);
@@ -69,10 +69,10 @@ public abstract class Lecteur {
 	}
 	
 	public BufferedImage superposerImages(BufferedImage ecran, BufferedImage image2, int x, int y){
-		BufferedImage image1 = ecran;
+		final BufferedImage image1 = ecran;
 		int largeur = image1.getWidth();
 		int hauteur = image1.getHeight();
-		BufferedImage image3 = new BufferedImage (largeur, hauteur, imageType);
+		BufferedImage image3 = new BufferedImage (largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
 		Graphics2D g2d = image3.createGraphics ();
 		g2d.drawImage (image1, null, 0, 0);
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));
@@ -100,10 +100,10 @@ public abstract class Lecteur {
 			this.ecranAtuel = calculerAffichage();
 			Date d2 = new Date();
 			long dureeEffectiveDeLaFrame = d2.getTime()-d1.getTime();
-			if(dureeEffectiveDeLaFrame < dureeFrame){
+			if(dureeEffectiveDeLaFrame < Lecteur.DUREE_FRAME){
 				//si l'affichage a pris moins de temps que la durée attendue, on attend que la frame se termine
 				try {
-					Thread.sleep(Lecteur.dureeFrame-dureeEffectiveDeLaFrame);
+					Thread.sleep(Lecteur.DUREE_FRAME-dureeEffectiveDeLaFrame);
 				} catch (InterruptedException e) {
 					System.out.println("La boucle de lecture du jeu dans Lecteur.demarrer() fait de la merde.");
 					e.printStackTrace();

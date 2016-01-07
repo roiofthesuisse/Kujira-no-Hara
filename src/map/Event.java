@@ -144,7 +144,7 @@ public class Event implements Comparable<Event> {
 	 * @return liste des Pages de l'Event
 	 */
 	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(final JSONArray tableauDesPages) {
-		ArrayList<PageDeComportement> listeDesPages = new ArrayList<PageDeComportement>();
+		final ArrayList<PageDeComportement> listeDesPages = new ArrayList<PageDeComportement>();
 		for (Object pageJSON : tableauDesPages) {
 			listeDesPages.add( new PageDeComportement((JSONObject) pageJSON) );
 		}
@@ -203,20 +203,20 @@ public class Event implements Comparable<Event> {
 	 * @return true si les deux Events vont se marcher dessus, false s'ils vont rester distants
 	 */
 	private Boolean lesHitboxesSeChevauchent(final int xFutur, final int yFutur, final int largHitbox, final int hautHitbox, final int xAutre, final int yAutre, final int largHitboxAutre, final int hautHitboxAutre) {
-		int deltaX = (xFutur-xAutre);
-		int deltaY = (yFutur-yAutre);
-		int rayon = (Math.max(largHitbox, hautHitbox)+Math.max(largHitboxAutre, hautHitboxAutre));
+		final int deltaX = (xFutur-xAutre);
+		final int deltaY = (yFutur-yAutre);
+		final int rayon = (Math.max(largHitbox, hautHitbox)+Math.max(largHitboxAutre, hautHitboxAutre));
 		if (deltaX*deltaX+deltaY*deltaY > rayon*rayon/2) {
 			return false; //si les deux events sont trop éloignés l'un de l'autre, il n'y a pas de collision
 		} else { 
-			int x1min = xFutur;
-			int x1max = xFutur+largHitbox;
-			int x2min = xAutre;
-			int x2max = xAutre+largHitboxAutre;
-			int y1min = yFutur;
-			int y1max = yFutur+hautHitbox;
-			int y2min = yAutre;
-			int y2max = yAutre+hautHitboxAutre;
+			final int x1min = xFutur;
+			final int x1max = xFutur+largHitbox;
+			final int x2min = xAutre;
+			final int x2max = xAutre+largHitboxAutre;
+			final int y1min = yFutur;
+			final int y1max = yFutur+hautHitbox;
+			final int y2min = yAutre;
+			final int y2max = yAutre+hautHitboxAutre;
 			return Hitbox.lesDeuxRectanglesSeChevauchent(x1min, x1max, y1min, y1max, x2min, x2max, y2min, y2max, largHitbox, hautHitbox, largHitboxAutre, hautHitboxAutre);
 		}
 	}
@@ -304,8 +304,8 @@ public class Event implements Comparable<Event> {
 		//si page active peut être nulle, le deplacementActuel est celui de la dernière page qui a été activée
 		if (pageActive!=null || (deplacementActuel!=null&&deplacementActuel.size()>0) ) {
 			try {
-				CommandeEvent mouvementActuel = deplacementActuel.get(0);
-				String typeMouvement = mouvementActuel.getClass().getName();
+				final CommandeEvent mouvementActuel = deplacementActuel.get(0);
+				final String typeMouvement = mouvementActuel.getClass().getName();
 				switch(typeMouvement) {
 					case "comportementEvent.Avancer" : deplacer((Avancer) mouvementActuel); break;
 					case "comportementEvent.AvancerAleatoirement" : deplacer((Avancer) mouvementActuel); break;
@@ -327,7 +327,7 @@ public class Event implements Comparable<Event> {
 	 */
 	public void deplacer(final Avancer mouvementActuel) {
 		try {
-			int sens = ((Avancer) mouvementActuel).getDirection();
+			final int sens = ((Avancer) mouvementActuel).getDirection();
 			if ( deplacementPossible(sens) ) {
 				this.avance = true;
 				//déplacement :
@@ -414,12 +414,12 @@ public class Event implements Comparable<Event> {
 		try {
 			Boolean onATrouveLaPageActive = false;
 			for (int i = pages.size()-1; i>=0 && !onATrouveLaPageActive; i--) {
-				PageDeComportement page = pages.get(i);
+				final PageDeComportement page = pages.get(i);
 				Boolean cettePageConvient = true;
 				try {
 					//si une condition est fausse, la page ne convient pas
 					for (int j = 0; j<page.conditions.size() && cettePageConvient; j++) {
-						Condition cond = page.conditions.get(j);
+						final Condition cond = page.conditions.get(j);
 						if (!cond.estVerifiee()) {
 							cettePageConvient = false;
 						}

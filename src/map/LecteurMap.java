@@ -3,20 +3,16 @@ package map;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
-import javax.imageio.ImageIO;
 
 import bibliothequeMenu.MenuPause;
 import comportementEvent.Message;
 import main.Fenetre;
 import main.GestionClavier;
+import main.GestionClavier.ToucheRole;
 import main.Lecteur;
-import main.Partie;
 import menu.LecteurMenu;
 import menu.Menu;
 
@@ -25,75 +21,73 @@ import menu.Menu;
  * Il reçoit les ordres du clavier pour les transcrire en actions.
  */
 public class LecteurMap extends Lecteur {
+	//constantes
+	private static final int X_AFFICHAGE_ARME = 511;
+	private static final int Y_AFFICHAGE_ARME = 56;
+	private static final int X_AFFICHAGE_MESSAGE = 76;
+	private static final int Y_AFFICHAGE_MESSAGE = 320;
+	
 	public Map map;
 	public Tileset tilesetActuel = null;
-	private static BufferedImage hudTouches;
-	/**
-	 * Permet de trier les events selon leur coordonnée y pour l'affichage.
-	 */
+	
+	/** permet de trier les events selon leur coordonnée y pour l'affichage */
 	public Comparator<Event> comparateur;
-	/**
-	 * Si true, les évènements n'avancent plus naturellement (seuls mouvements forcés autorisés).
-	 */
+	
+	/** si true, les évènements n'avancent plus naturellement (seuls mouvements forcés autorisés) */
 	public Boolean stopEvent = false; 
 	
-	/**
-	 * Message à afficher dans la boîte de dialogue.
-	 */
+	/** message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
 	
 	/** n'est vrai que durant l'action de l'appui, se remet à false tout de suite */
 	public Boolean toucheActionPressee = false;
 	
-	public LecteurMap(Fenetre fenetre){
+	/**
+	 * Constructeur explicite
+	 * @param fenetre dont ce Lecteur assure l'affichage
+	 */
+	public LecteurMap(final Fenetre fenetre) {
 		this.fenetre = fenetre;
-		this.comparateur = new Comparator<Event>(){
-	        public int compare(Event e1, Event e2){
+		this.comparateur = new Comparator<Event>() {
+	        public int compare(final Event e1, final Event e2) {
 	            return e1.compareTo(e2);
 	        }
 	    };
-	    //images pour le HUD
-	    if(hudTouches==null){
-	    	try {
-				hudTouches = ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\touches.png"));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-	    }
 	}
 	
 	/**
-	 * A chaque frame, calcule l'écran à afficher, avec le décor et les events dessus.
-	 * Ne pas oublier de récupérer le résultat de cette méthode.
+	 * A chaque frame, calcule l'écran à afficher, avec le décor et les Events dessus.
+	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
+	 * @return écran représentant la Map
 	 */
-	public BufferedImage calculerAffichage(){
+	public final BufferedImage calculerAffichage() {
 		BufferedImage ecran = ecranNoir();
 		
 		//ouverture du tileset
 		try {
-			if(tilesetActuel == null){
+			if (tilesetActuel == null) {
 				tilesetActuel = new Tileset(map.tileset.nom);
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("Erreur lors de l'ouverture du tileset :");
 			e.printStackTrace();
 		}
 		
 		//on dessine la map
-		int xCamera = calculerXCamera();
-		int yCamera = calculerYCamera();
+		final int xCamera = calculerXCamera();
+		final int yCamera = calculerYCamera();
 		ecran = superposerImages(ecran, map.imageCoucheSousHeros, -xCamera, -yCamera);
 		
 		//lecture des commandes event
 		continuerLaLectureDesPagesDeCommandesEvent();
 		
 		//déplacements des évènements
-		if(!this.stopEvent){
-			déplacerLesEvents();
+		if (!this.stopEvent) {
+			deplacerLesEvents();
 		}
 		
 		//animation des évènements
-		if(!this.stopEvent){
+		if (!this.stopEvent) {
 			animerLesEvents();
 		}
 		
@@ -101,7 +95,7 @@ public class LecteurMap extends Lecteur {
 		//ecran = dessinerLaHitboxDuHeros(ecran,xCamera,yCamera);
 		
 		//on dessine les évènements
-		ecran = dessinerLesEvents(ecran,xCamera,yCamera);
+		ecran = dessinerLesEvents(ecran, xCamera, yCamera);
 		
 		//ajouter imageCoucheSurHeros à l'écran
 		ecran = superposerImages(ecran, map.imageCoucheSurHeros, -xCamera, -yCamera);
@@ -110,8 +104,8 @@ public class LecteurMap extends Lecteur {
 		ecran = dessinerLesJauges(ecran);
 		
 		//on affiche le message
-		if(messageActuel!=null){
-			ecran = superposerImages(ecran, messageActuel.image, 76, 320);
+		if (messageActuel!=null) {
+			ecran = superposerImages(ecran, messageActuel.image, X_AFFICHAGE_MESSAGE, Y_AFFICHAGE_MESSAGE);
 		}
 		
 		//supprimer events dont la variable "supprimé" est à true
@@ -120,33 +114,49 @@ public class LecteurMap extends Lecteur {
 		return ecran;
 	}
 
-	private BufferedImage dessinerLesJauges(BufferedImage ecran) {
+	/**
+	 * Dessiner à l'écran les jauges et informations extradiégétiques à destination du joueur
+	 * @param ecran sur lequel on dessine les jauges
+	 * @return écran avec les jauges dessinées
+	 */
+	private BufferedImage dessinerLesJauges(final BufferedImage ecran) {
+		BufferedImage ecranModifie = ecran;
 		//touches
-		ecran = superposerImages(ecran, hudTouches, 496, 0);
+		//ecran = superposerImages(ecran, hudTouches, 496, 0);
+		
 		//icone de l'arme equipée
-		try{
-			ecran = superposerImages(ecran, Partie.getArmeEquipee().icone, 511, 56);
-		}catch(NullPointerException e){
+		try {
+			ecranModifie = superposerImages(ecranModifie, Fenetre.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
+		} catch (NullPointerException e) {
 			//pas d'arme équipée
 		}
-		return ecran;
+		return ecranModifie;
 	}
 
+	/**
+	 * Pour le debug, on peut souhaiter afficher la HitBox du Héros à l'écran.
+	 * @param ecran sur lequel on dessine la Htibox du Héros
+	 * @param xCamera position x de la caméra
+	 * @param yCamera position y de la caméra
+	 * @return écran avec la Hitbox du Héros dessinée dessus
+	 */
 	@SuppressWarnings("unused")
-	private BufferedImage dessinerLaHitboxDuHeros(BufferedImage ecran, int xCamera, int yCamera) {
-		try{
-			int[] coord = Hitbox.calculerCoordonneesAbsolues(this.map.heros);
-			int xminHitbox = coord[0];
-			int xmaxHitbox = coord[1];
-			int yminHitbox = coord[2];
-			int ymaxHitbox = coord[3];
-			Graphics2D graphics = ecran.createGraphics();
+	private BufferedImage dessinerLaHitboxDuHeros(final BufferedImage ecran, final int xCamera, final int yCamera) {
+		try {
+			final int[] coord = Hitbox.calculerCoordonneesAbsolues(this.map.heros);
+			final int xminHitbox = coord[0];
+			final int xmaxHitbox = coord[1];
+			final int yminHitbox = coord[2];
+			final int ymaxHitbox = coord[3];
+			final Graphics2D graphics = ecran.createGraphics();
 			graphics.setPaint(Color.magenta);
 			graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, yminHitbox-yCamera);
 			graphics.drawLine(xminHitbox-xCamera, ymaxHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
 			graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xminHitbox-xCamera, ymaxHitbox-yCamera);
 			graphics.drawLine(xmaxHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
-		}catch(Exception e){}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return ecran;
 	}
 
@@ -155,89 +165,106 @@ public class LecteurMap extends Lecteur {
 	 * Sinon, continuer de lire la page de commandes active de l'event.
 	 */
 	private void continuerLaLectureDesPagesDeCommandesEvent() {
-		for (Event event : this.map.events){
-			if(!event.equals(this.map.heros)){ //le héros est calculé en dernier
-				if(!event.supprime){
-					if(event.pageActive == null || event.pageActive.commandes==null){
+		for (Event event : this.map.events) {
+			if (!event.equals(this.map.heros)) { //le héros est calculé en dernier
+				if (!event.supprime) {
+					if (event.pageActive == null || event.pageActive.commandes==null) {
 						event.activerUnePage();
 					}
-					if(event.pageActive != null){
+					if (event.pageActive != null) {
 						event.pageActive.executer();
 					}
 				}
 			}
 		}
 		//le héros est calculé en dernier pour éviter les problèmes d'épée
-		Event event = this.map.heros;
-		if(!event.supprime){
-			if(event.pageActive == null || event.pageActive.commandes==null){
+		final Event event = this.map.heros;
+		if (!event.supprime) {
+			if (event.pageActive == null || event.pageActive.commandes==null) {
 				event.activerUnePage();
 			}
-			if(event.pageActive != null){
+			if (event.pageActive != null) {
 				event.pageActive.executer();
 			}
 		}
 	}
 
 	/**
-	 * Calculer le nouvel écran, avec les events dessinés dessus.
+	 * Calculer le nouvel écran, avec les Events dessinés dessus.
 	 * Ne pas oublier de récupérer le résultat de cette méthode.
+	 * @param ecran sur lequel on dessine les Events
+	 * @param xCamera position x de la caméra
+	 * @param yCamera position y de la caméra
+	 * @return écran avec les Events dessinés dessus
 	 */
-	private BufferedImage dessinerLesEvents(BufferedImage ecran, int xCamera, int yCamera) {
-		try{
+	private BufferedImage dessinerLesEvents(final BufferedImage ecran, final int xCamera, final int yCamera) {
+		BufferedImage ecranModifie = ecran;
+		try {
 			Collections.sort(this.map.events, this.comparateur); //on trie les events du plus derrière au plus devant
-			for(Event event : this.map.events){
-				if(!event.supprime){
-					ecran = dessinerEvent(ecran,event,xCamera,yCamera);
+			for (Event event : this.map.events) {
+				if (!event.supprime) {
+					ecranModifie = dessinerEvent(ecran, event, xCamera, yCamera);
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("Erreur lors du dessin des évènements :");
 			e.printStackTrace();
 		}
-		return ecran;
+		return ecranModifie;
 	}
 
 	/**
 	 * Donne la bonne valeur à l'attribut "animation" avant d'envoyer l'event à l'affichage.
 	 */
 	private void animerLesEvents() {
-		try{
-			for(Event event : this.map.events){
-				Boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
-				if(!event.avance && event.animeALArretActuel && passerALAnimationSuivante) event.animation = (event.animation+1)%4;
-				if(event.avance && event.animeEnMouvementActuel && passerALAnimationSuivante) event.animation = (event.animation+1)%4;
+		try {
+			for (Event event : this.map.events) {
+				final Boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
+				if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
+					event.animation = (event.animation+1)%4;
+				}
+				if (event.avance && event.animeEnMouvementActuel && passerALAnimationSuivante) {
+					event.animation = (event.animation+1)%4;
+				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("erreur lors de l'animation des évènements dans la boucle d'affichage de la map :");
 			e.printStackTrace();
 		}
 	}
 	
 	/**
-	 * Donne la bonne valeur aux positions x et y avant d'envoyer l'event à l'affichage.
+	 * Donne la bonne valeur aux positions x et y avant d'envoyer l'Event à l'affichage.
 	 */
-	private void déplacerLesEvents() {
-		try{
-			ArrayList<Integer> touchesPressees = this.fenetre.touchesPressees;
-			if( touchesPressees.contains(90) || touchesPressees.contains(81) || touchesPressees.contains(83) || touchesPressees.contains(68) ){
+	private void deplacerLesEvents() {
+		try {
+			final ArrayList<Integer> touchesPressees = this.fenetre.touchesPressees;
+			if ( touchesPressees.contains(ToucheRole.HAUT) 
+			|| touchesPressees.contains(ToucheRole.GAUCHE) 
+			|| touchesPressees.contains(ToucheRole.BAS) 
+			|| touchesPressees.contains(ToucheRole.DROITE) ) {
 				map.heros.avance = true;
 			}
-			for(Event event : this.map.events){
-				if(!event.supprime){
+			for (Event event : this.map.events) {
+				if (!event.supprime) {
 					event.deplacer(); //on effectue le déplacement si possible (pas d'obstacles rencontrés)
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("Erreur lors du déplacement des évènements :");
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Certains Events ont été marqués "à supprimer" durant la lecture des Commandes.
+	 * On les élimine maintenant, une fois que la lecture des Commandes est terminée.
+	 * En effet on ne peut pas supprimer des Events lorsqu'on est encore dans la boucle qui parcourt la liste des Events.
+	 */
 	private void supprimerLesEventsASupprimer() {
 		int nombreDEvents = this.map.events.size();
-		for(int i=0; i<nombreDEvents; i++){
-			if(this.map.events.get(i).supprime){
+		for (int i = 0; i<nombreDEvents; i++) {
+			if (this.map.events.get(i).supprime) {
 				this.map.events.remove(i);
 				nombreDEvents--;
 				i--;
@@ -245,11 +272,14 @@ public class LecteurMap extends Lecteur {
 		}
 	}
 
-	public void photographierCollision(){
-		BufferedImage img = new BufferedImage(640,480,imageType);
-		Graphics2D graphics = img.createGraphics();
+	/**
+	 * Faire une capture d'écran des collisions
+	 */
+	public final void photographierCollision() {
+		final BufferedImage img = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Lecteur.TYPE_DES_IMAGES);
+		final Graphics2D graphics = img.createGraphics();
 		graphics.setPaint(Color.white);
-		graphics.fillRect(0, 0, 640, 480);
+		graphics.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
 		
 		img.setRGB(map.heros.x, map.heros.y, Color.red.getRGB());
 		img.setRGB(map.events.get(1).x, map.events.get(1).y, Color.blue.getRGB());
@@ -257,20 +287,25 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Dessine l'event (tourné dans une certaine direction et dans une certaine étape d'animation).
-	 * Ne pas oublier de récupérer le résultat de cette méthode.
+	 * Dessine l'Event sur l'écran.
+	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
+	 * @param ecran sur lequel on dessine
+	 * @param event à dessiner
+	 * @param xCamera position x de la caméra
+	 * @param yCamera position y de la caméra
+	 * @return écran sur lequel on a dessiné l'Event demandé
 	 */
-	private BufferedImage dessinerEvent(BufferedImage ecran, Event event, int xCamera, int yCamera) {
-		BufferedImage eventImage = event.imageActuelle;
-		if(eventImage!=null){ 
+	private BufferedImage dessinerEvent(final BufferedImage ecran, final Event event, final int xCamera, final int yCamera) {
+		final BufferedImage eventImage = event.imageActuelle;
+		if (eventImage!=null) { 
 			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)
-			int largeur = eventImage.getWidth() / 4;
-			int hauteur = eventImage.getHeight() / 4;
-			int animation = event.animation;
-			int direction = event.direction;
-			BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
-			int positionX = event.x + event.largeurHitbox/2 - largeur/2;
-			int positionY = event.y + event.hauteurHitbox - hauteur + event.offsetY;
+			final int largeur = eventImage.getWidth() / 4;
+			final int hauteur = eventImage.getHeight() / 4;
+			final int animation = event.animation;
+			final int direction = event.direction;
+			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
+			final int positionX = event.x + event.largeurHitbox/2 - largeur/2;
+			final int positionY = event.y + event.hauteurHitbox - hauteur + event.offsetY;
 			return superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);
 			/*
 			//DEBUG pour visualiser les collisions
@@ -279,26 +314,32 @@ public class LecteurMap extends Lecteur {
 			graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
 			return ecran;
 			*/
-		}else{
+		} else {
 			//l'event n'a pas d'image
 			return ecran;
 		}
 	}
 	
 	/**
-	 * Dessine à l'écran aux coordonnées (xEcran;yEcran) un certain carreau du tileset.
-	 * Ne pas oublier de récupérer le résultat de cette méthode.
+	 * Dessine à l'écran un carreau du Tileset aux coordonnées (xEcran;yEcran).
+	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
+	 * @param ecran sur lequel on doit dessiner un carreau
+	 * @param xEcran position x où dessiner le carreau à l'écran
+	 * @param yEcran position y où dessiner le carreau à l'écran
+	 * @param carreau numéro du carreau à dessiner
+	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
+	 * @return écran sur lequel on a dessiné le carreau demandé
 	 */
-	public BufferedImage dessinerCarreau(BufferedImage ecran, int xEcran, int yEcran, int carreau, Tileset tilesetUtilise) throws Exception{
-		int xTileset = carreau%8;
-		int yTileset = carreau/8;
-		BufferedImage dessinCarreau = tilesetUtilise.image.getSubimage(xTileset*32, yTileset*32, 32, 32);
-		return superposerImages(ecran, dessinCarreau, xEcran*32, yEcran*32);
+	public final BufferedImage dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int carreau, final Tileset tilesetUtilise) {
+		final int xTileset = carreau % Tileset.LARGEUR_TILESET;
+		final int yTileset = carreau / Tileset.LARGEUR_TILESET;
+		final BufferedImage dessinCarreau = tilesetUtilise.image.getSubimage(xTileset*Fenetre.TAILLE_D_UN_CARREAU, yTileset*Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
+		return superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
 	}
 
 	@Override
-	public void keyPressed(int keycode) {
-		switch(keycode){
+	public final void keyPressed(final int keycode) {
+		switch(keycode) {
 			case GestionClavier.ToucheRole.MENU : this.ouvrirLeMenu(); break;
 			case GestionClavier.ToucheRole.HAUT : this.haut(); break;
 			case GestionClavier.ToucheRole.GAUCHE : this.gauche(); break;
@@ -314,152 +355,173 @@ public class LecteurMap extends Lecteur {
 	
 	/**
 	 * Ouvre une autre map (dans un nouveau LecteurMap).
+	 * @param nouvelleMap sur laquelle le Héros voyage
 	 */
-	public void changerMap(Map nouvelleMap){
+	public final void changerMap(final Map nouvelleMap) {
 		this.map = nouvelleMap;
 		nouvelleMap.lecteur = this;
 		this.fenetre.futurLecteur = this;
 		this.allume = false;
-		if(tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) this.tilesetActuel = null;
+		if (tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) {
+			this.tilesetActuel = null;
+		}
 	}
 	
 	/**
-	 * Ouvrir le menu.
+	 * Ouvrir le Menu du jeu.
+	 * On quitte la Map temporairement (elle est mémorisée) pour parcourir le Menu.
 	 */
-	public void ouvrirLeMenu() {
-		LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, this);
-		Menu menu = new MenuPause(lecteurMenu);
+	public final void ouvrirLeMenu() {
+		final LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, this);
+		final Menu menu = new MenuPause(lecteurMenu);
 		this.fenetre.futurLecteur = lecteurMenu;
 		lecteurMenu.menu = menu;
 		this.allume = false;
 	}
 
 	@Override
-	public void keyReleased(Integer keycode) {
+	public final void keyReleased(final Integer keycode) {
 		remettreAZeroLAnimationDuHeros(); //s'il s'est arrêté
 		mettreHerosDansLaBonneDirection();
 	}
 	
-	public void remettreAZeroLAnimationDuHeros(){
-		ArrayList<Integer> touchesPressees = fenetre.touchesPressees;
-		Event heros = map.heros;
-		if(!touchesPressees.contains(GestionClavier.ToucheRole.BAS) 
+	/**
+	 * Lorsque le Héros s'arrête de marcher, on arrête son animation.
+	 */
+	public final void remettreAZeroLAnimationDuHeros() {
+		final ArrayList<Integer> touchesPressees = fenetre.touchesPressees;
+		final Event heros = map.heros;
+		if (!touchesPressees.contains(GestionClavier.ToucheRole.BAS) 
 		&& !touchesPressees.contains(GestionClavier.ToucheRole.HAUT) 
 		&& !touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) 
-		&& !touchesPressees.contains(GestionClavier.ToucheRole.DROITE)){
+		&& !touchesPressees.contains(GestionClavier.ToucheRole.DROITE)) {
 			heros.avance = false;
 			heros.animation = 0;
 		}
 	}
 	
-	public void mettreHerosDansLaBonneDirection(){
-		Heros heros = map.heros;
-		if(!stopEvent && heros.animationAttaque<=0){
-			ArrayList<Integer> touchesPressees = fenetre.touchesPressees;
-			if( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ){
+	/**
+	 * Tourner le Héros dans la bonne Direction selon l'entrée clavier
+	 */
+	public final void mettreHerosDansLaBonneDirection() {
+		final Heros heros = map.heros;
+		if (!stopEvent && heros.animationAttaque<=0) {
+			final ArrayList<Integer> touchesPressees = fenetre.touchesPressees;
+			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
 				heros.direction = Event.Direction.GAUCHE;
-			}else if( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ){
+			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ) {
 				heros.direction = Event.Direction.DROITE;
-			}else if( touchesPressees.contains(GestionClavier.ToucheRole.BAS) ){
+			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
 				heros.direction = Event.Direction.BAS;
-			}else if( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ){
+			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ) {
 				heros.direction = Event.Direction.HAUT;
 			}
 		}
 	}
 	
-	private int calculerXCamera(){
-		int largeurMap = map.largeur;
-		if(largeurMap<20){
+	/**
+	 * Calculer la position x de la caméra
+	 * @return position x de la caméra
+	 */
+	private int calculerXCamera() {
+		final int largeurMap = map.largeur;
+		if ( largeurMap < (Fenetre.LARGEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU) ) {
 			//map très petite, défilement inutile
 			return 0;
-		}else{
+		} else {
 			//grande map, défilement possible
-			int xCamera = map.heros.x - Fenetre.largeurParDefaut/2;
-			if(xCamera<0){ //caméra ne déborde pas de la map à gauche
+			final int xCamera = map.heros.x - Fenetre.LARGEUR_ECRAN/2;
+			if (xCamera<0) { //caméra ne déborde pas de la map à gauche
 				return 0;
-			}else if(xCamera+Fenetre.largeurParDefaut>largeurMap*32){ //caméra ne déborde pas de la map à droite
-				return largeurMap*32 - Fenetre.largeurParDefaut;
-			}else{
+			} else if (xCamera+Fenetre.LARGEUR_ECRAN > largeurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map à droite
+				return largeurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN;
+			} else {
 				return xCamera;
 			}
 		}
 	}
 	
-	private int calculerYCamera(){
-		int hauteurMap = map.hauteur;
-		if(hauteurMap<15){ 
+	/**
+	 * Calculer la position y de la caméra
+	 * @return position y de la caméra
+	 */
+	private int calculerYCamera() {
+		final int hauteurMap = map.hauteur;
+		if ( hauteurMap < (Fenetre.HAUTEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU) ) { 
 			//map très petite, défilement inutile
 			return 0;
-		}else{
+		} else {
 			//grande map, défilement possible
-			int yCamera = map.heros.y - Fenetre.hauteurParDefaut/2;
-			if(yCamera<0){ //caméra ne déborde pas de la map en haut
+			final int yCamera = map.heros.y - Fenetre.HAUTEUR_ECRAN/2;
+			if (yCamera<0) { //caméra ne déborde pas de la map en haut
 				return 0;
-			}else if(yCamera+Fenetre.hauteurParDefaut>hauteurMap*32){ //caméra ne déborde pas de la map en bas
-				return hauteurMap*32 - Fenetre.hauteurParDefaut;
-			}else{
+			} else if (yCamera+Fenetre.HAUTEUR_ECRAN > hauteurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map en bas
+				return hauteurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.HAUTEUR_ECRAN;
+			} else {
 				return yCamera;
 			}
 		}
 	}
 	
-	public void normaliserApparenceDuHerosAvantMessage(){
+	/**
+	 * Le Héros arrête son animation pour écouter un Message.
+	 */
+	public final void normaliserApparenceDuHerosAvantMessage() {
 		this.map.heros.animation = 0;
 		this.map.heros.animationAttaque = 0;
 	}
 	
 	/**
-	 * marcher vers le haut
+	 * Déplacer le Héros vers le haut
 	 */
-	public void haut() {
+	public final void haut() {
 		this.mettreHerosDansLaBonneDirection();
 		this.map.heros.avance = true;
 	}
 
 	/**
-	 * marcher vers la gauche
+	 * Déplacer le Héros vers la gauche
 	 */
-	public void gauche() {
+	public final void gauche() {
 		this.mettreHerosDansLaBonneDirection();
 		this.map.heros.avance = true;
 	}
 
 	/**
-	 * marcher vers le bas
+	 * Déplacer le Héros vers le bas
 	 */
-	public void bas() {
+	public final void bas() {
 		this.mettreHerosDansLaBonneDirection();
 		this.map.heros.avance = true;
 	}
 
 	/**
-	 * marcher vers la droite
+	 * Déplacer le Héros vers la droite
 	 */
-	public void droite() {
+	public final void droite() {
 		this.mettreHerosDansLaBonneDirection();
 		this.map.heros.avance = true;
 	}
 	
 	/**
-	 * attaquer ou parler
+	 * Attaquer ou parler (suivant si gentil ou méchant)
 	 */
-	public void action() {
+	public final void action() {
 		this.toucheActionPressee = true;
 	}
 
 	/**
-	 * changer d'arme
+	 * Transmettre à la Partie le changement d'Arme ordonné à la Fenêtre
 	 */
-	public void equiperArmeSuivante() {
-		Partie.equiperArmeSuivante();
+	public final void equiperArmeSuivante() {
+		Fenetre.getPartieActuelle().equiperArmeSuivante();
 	}
 	
 	/**
-	 * changer d'arme
+	 * Transmettre à la Partie le changement d'Arme ordonné à la Fenêtre
 	 */
-	public void equiperArmePrecedente() {
-		Partie.equiperArmePrecedente();
+	public final void equiperArmePrecedente() {
+		Fenetre.getPartieActuelle().equiperArmePrecedente();
 	}
 
 	/**

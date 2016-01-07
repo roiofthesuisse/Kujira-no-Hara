@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import main.Fenetre;
 import main.Partie;
 
 /**
@@ -14,70 +15,79 @@ public class Hitbox {
 	public final int etendue;
 	
 	/**
+	 * Constructeur explicite
 	 * @param portee : profondeur de la zone d'attaque
 	 * @param etendue : largeur de la zone d'attaque
 	 */
-	public Hitbox(int portee, int etendue){
+	public Hitbox(final int portee, final int etendue) {
 		this.portee = portee;
 		this.etendue = etendue;
 	}
 	
-	public static Boolean estDansZoneDAttaque(Event e, Heros h){
-		Boolean estCeQueLeHerosAUneArme = (Partie.idArmesPossedees.size() > 0) && Partie.getArmeEquipee()!=null;
-		if(estCeQueLeHerosAUneArme){
+	/**
+	 * Cet Event est-il dans la zone d'attaque du Héros ?
+	 * @param e un Event
+	 * @param h le Héros
+	 * @return true si l'Event est dans la zone d'attaque, false sinon
+	 */
+	public static Boolean estDansZoneDAttaque(final Event e, final Heros h) {
+		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Boolean estCeQueLeHerosAUneArme = (partieActuelle.idArmesPossedees.size() > 0) && partieActuelle.getArmeEquipee()!=null;
+		if (estCeQueLeHerosAUneArme) {
 			//on calcule les bords de la zone d'attaque en fonction de l'orientation du héros
-			int[] coord = calculerCoordonneesAbsolues(h);
-			int xminHitbox = coord[0];
-			int xmaxHitbox = coord[1];
-			int yminHitbox = coord[2];
-			int ymaxHitbox = coord[3];
+			final int[] coord = calculerCoordonneesAbsolues(h);
+			final int xminHitbox = coord[0];
+			final int xmaxHitbox = coord[1];
+			final int yminHitbox = coord[2];
+			final int ymaxHitbox = coord[3];
 			
-			int xminEvent = e.x;
-			int xmaxEvent = e.x + e.largeurHitbox;
-			int yminEvent = e.y;
-			int ymaxEvent = e.y + e.hauteurHitbox;
+			final int xminEvent = e.x;
+			final int xmaxEvent = e.x + e.largeurHitbox;
+			final int yminEvent = e.y;
+			final int ymaxEvent = e.y + e.hauteurHitbox;
 			//calcul du croisement entre la bodybox de l'event et la hitbox de l'arme
 			return lesDeuxRectanglesSeChevauchent(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, 1, 2, 3, 4); //1,2,3,4 étant différents, tous les types de croisements seront testés
 		}
 		return false;
 	}
 	
-	public static int[] calculerCoordonneesAbsolues(Heros h) {
-		int[] coordonneesAbsolues = new int[4];
-		Hitbox b = Partie.getArmeEquipee().hitbox;
+	/**
+	 * Calcule les coordonnées x et y minimales et maximales du rectangle de la Hitbox.
+	 * @param h le Héros
+	 * @return xmin, xmax, ymin, ymax
+	 */
+	public static int[] calculerCoordonneesAbsolues(final Heros h) {
+		final int[] coordonneesAbsolues = new int[4];
+		final Hitbox b = Fenetre.getPartieActuelle().getArmeEquipee().hitbox;
 		int xminHitbox;
 		int xmaxHitbox;
 		int yminHitbox;
 		int ymaxHitbox;
-		switch(h.direction){
-			case Event.Direction.BAS : {
+		switch(h.direction) {
+			case Event.Direction.BAS :
 				xminHitbox = (h.x+h.largeurHitbox/2) - b.etendue/2;
 				xmaxHitbox = (h.x+h.largeurHitbox/2) + b.etendue/2;
 				yminHitbox = h.y+h.hauteurHitbox;
 				ymaxHitbox = h.y+h.hauteurHitbox + b.portee;
 				break;
-			}
-			case Event.Direction.GAUCHE : {
+			case Event.Direction.GAUCHE :
 				xminHitbox = h.x - b.portee;
 				xmaxHitbox = h.x;
 				yminHitbox = (h.y+h.hauteurHitbox/2) - b.etendue/2;
 				ymaxHitbox = (h.y+h.hauteurHitbox/2) + b.etendue/2;
 				break;
-			}
-			case Event.Direction.DROITE : {
+			case Event.Direction.DROITE :
 				xminHitbox = h.x+h.largeurHitbox;
 				xmaxHitbox = h.x+h.largeurHitbox + b.portee;
 				yminHitbox = (h.y+h.hauteurHitbox/2) - b.etendue/2;
 				ymaxHitbox = (h.y+h.hauteurHitbox/2) + b.etendue/2;
 				break;
-			}
-			default: { //HAUT
+			default : //HAUT
 				xminHitbox = (h.x+h.largeurHitbox/2) - b.etendue/2;
 				xmaxHitbox = (h.x+h.largeurHitbox/2) + b.etendue/2;
 				yminHitbox = h.y - b.portee;
 				ymaxHitbox = h.y;
 				break;
-			}
 		}
 		coordonneesAbsolues[0] = xminHitbox;
 		coordonneesAbsolues[1] = xmaxHitbox;
@@ -86,12 +96,23 @@ public class Hitbox {
 		return coordonneesAbsolues;
 	}
 
-	public static void printCroisement(int x1min, int x1max, int y1min, int y1max, int x2min, int x2max, int y2min, int y2max){
+	/**
+	 * Faire une capture d'écran avec deux rectangles
+	 * @param x1min coordonnée x minimale du rectangle rouge
+	 * @param x1max coordonnée x maximale du rectangle rouge
+	 * @param y1min coordonnée y minimale du rectangle rouge
+	 * @param y1max coordonnée y maximale du rectangle rouge
+	 * @param x2min coordonnée x minimale du rectangle bleu
+	 * @param x2max coordonnée x maximale du rectangle bleu
+	 * @param y2min coordonnée y minimale du rectangle bleu
+	 * @param y2max coordonnée y maximale du rectangle bleu
+	 */
+	public static void printCroisement(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max) {
 		//on part d'une image blanche
-		BufferedImage img = new BufferedImage(640,480,LecteurMap.imageType);
-		Graphics2D graphics = img.createGraphics();
+		final BufferedImage img = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, LecteurMap.TYPE_DES_IMAGES);
+		final Graphics2D graphics = img.createGraphics();
 		graphics.setPaint(Color.white);
-		graphics.fillRect(0, 0, 640, 480);
+		graphics.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
 		
 		//on dessine le rouge
 		graphics.setPaint(Color.red);

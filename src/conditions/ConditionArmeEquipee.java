@@ -1,18 +1,27 @@
 package conditions;
 
+import main.Fenetre;
 import main.Partie;
 
-public class ConditionArmeEquipee extends Condition{
+/**
+ * Vérifier si le Héros a équipé cette Arme
+ */
+public class ConditionArmeEquipee extends Condition {
 	public int idArme;
 	
-	public ConditionArmeEquipee(int idArme){
+	/**
+	 * Constructeur explicite
+	 * @param idArme identifiant de l'Arme à vérifier
+	 */
+	public ConditionArmeEquipee(final int idArme) {
 		this.idArme = idArme;
 	}
 	
 	@Override
-	public Boolean estVerifiee() {
-		if(Partie.idArmesPossedees.size()>0){
-			return Partie.getArmeEquipee().id == this.idArme;
+	public final Boolean estVerifiee() {
+		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		if (partieActuelle.idArmesPossedees.size()>0) {
+			return partieActuelle.getArmeEquipee().id == this.idArme;
 		}
 		return false; //aucune arme possédée
 	}

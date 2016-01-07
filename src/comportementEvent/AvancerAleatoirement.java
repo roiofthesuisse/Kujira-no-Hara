@@ -2,32 +2,39 @@ package comportementEvent;
 
 import java.util.HashMap;
 
-public class AvancerAleatoirement extends Avancer{	
+import map.Event.Direction;
+
+/**
+ * Déplacer un Event dans une Direction aléatoire et d'un certain nombre de cases
+ */
+public class AvancerAleatoirement extends Avancer {	
+	public static final int NOMBRE_DE_DIRECTIONS_POSSIBLES = 4; 
 	
-	/**
-	 * Constructeur spécifique
+	/** 
+	 * Constructeur explicite 
 	 */
-	public AvancerAleatoirement(){
-		super(rand.nextInt(4), 1);
+	public AvancerAleatoirement() {
+		super(rand.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES), 1);
 	}
 	
 	/**
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public AvancerAleatoirement(HashMap<String,Object> parametres){
+	public AvancerAleatoirement(final HashMap<String, Object> parametres) {
 		this();
 	}
 	
 	@Override
-	public void reinitialiser(){
+	public final void reinitialiser() {
 		super.reinitialiser();
-		int nouvelleDirection = rand.nextInt(4);
-		if( (direction==0 && nouvelleDirection!=3) 
-				|| (direction==1 && nouvelleDirection!=2) 
-				|| (direction==2 && nouvelleDirection!=1) 
-				|| (direction==3 && nouvelleDirection!=0) 
-		){
+		final int nouvelleDirection = rand.nextInt(4);
+		//ne pas faire demi-tour, ça donne l'impression que l'Event ne sait pas où il va
+		if ( (direction==Direction.BAS && nouvelleDirection!=Direction.HAUT) 
+				|| (direction==Direction.GAUCHE && nouvelleDirection!=Direction.DROITE) 
+				|| (direction==Direction.DROITE && nouvelleDirection!=Direction.GAUCHE) 
+				|| (direction==Direction.HAUT && nouvelleDirection!=Direction.BAS) 
+		) {
 			direction = nouvelleDirection;
 		}
 		

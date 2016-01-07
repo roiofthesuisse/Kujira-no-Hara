@@ -13,7 +13,7 @@ public class ElementDeMenu extends Selectionnable{
 		this.selectionne = false;
 	}
 	
-	public void comportementALArrivee(){
+	public void executerLeComportementALArrivee(){
 		this.selectionne = true;
 	}
 	

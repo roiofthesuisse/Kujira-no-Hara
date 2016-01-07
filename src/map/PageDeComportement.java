@@ -92,12 +92,12 @@ public class PageDeComportement {
 	 */
 	public PageDeComportement(final JSONObject pageJSON) {
 		//conditions de déclenchement de la page
-		ArrayList<Condition> conditions = new ArrayList<Condition>();
+		final ArrayList<Condition> conditions = new ArrayList<Condition>();
 		for (Object conditionJSON : pageJSON.getJSONArray("conditions")) {
 			try {
-				Class<?> classeCondition = Class.forName("conditions.Condition"+((JSONObject) conditionJSON).get("nom"));
-				Constructor<?> constructeurCondition = classeCondition.getConstructor();
-				Condition condition = (Condition) constructeurCondition.newInstance();
+				final Class<?> classeCondition = Class.forName("conditions.Condition"+((JSONObject) conditionJSON).get("nom"));
+				final Constructor<?> constructeurCondition = classeCondition.getConstructor();
+				final Condition condition = (Condition) constructeurCondition.newInstance();
 				conditions.add(condition);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -106,14 +106,14 @@ public class PageDeComportement {
 		this.conditions = conditions;
 		
 		//commandes de la page
-		ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
+		final ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
 		for (Object commandeJSON : pageJSON.getJSONArray("commandes")) {
 			try {
-				Class<?> classeCommande = Class.forName("comportementEvent."+((JSONObject) commandeJSON).get("nom"));
-				Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
+				final Class<?> classeCommande = Class.forName("comportementEvent."+((JSONObject) commandeJSON).get("nom"));
+				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
 				String parametreNom;
 				Object parametreValeur;
-				HashMap<String, Object> parametres = new HashMap<String, Object>();
+				final HashMap<String, Object> parametres = new HashMap<String, Object>();
 				while (parametresNoms.hasNext()) {
 					parametreNom = parametresNoms.next();
 					if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
@@ -121,8 +121,8 @@ public class PageDeComportement {
 						parametres.put( parametreNom, parametreValeur );
 					}
 				}
-				Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
-				CommandeEvent commande = (CommandeEvent) constructeurCommande.newInstance(parametres);
+				final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
+				final CommandeEvent commande = (CommandeEvent) constructeurCommande.newInstance(parametres);
 				commandes.add(commande);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -146,11 +146,11 @@ public class PageDeComportement {
 		this.deplacement = new ArrayList<CommandeEvent>();
 		for (Object actionDeplacementJSON : pageJSON.getJSONArray("deplacement")) {
 			try {
-				Class<?> classeActionDeplacement = Class.forName("comportementEvent."+((JSONObject) actionDeplacementJSON).get("nom"));
-				Iterator<String> parametresNoms = ((JSONObject) actionDeplacementJSON).keys();
+				final Class<?> classeActionDeplacement = Class.forName("comportementEvent."+((JSONObject) actionDeplacementJSON).get("nom"));
+				final Iterator<String> parametresNoms = ((JSONObject) actionDeplacementJSON).keys();
 				String parametreNom;
 				Object parametreValeur;
-				HashMap<String, Object> parametres = new HashMap<String, Object>();
+				final HashMap<String, Object> parametres = new HashMap<String, Object>();
 				while (parametresNoms.hasNext()) {
 					parametreNom = parametresNoms.next();
 					if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
@@ -158,8 +158,8 @@ public class PageDeComportement {
 						parametres.put(parametreNom, parametreValeur);
 					}
 				}
-				Constructor<?> constructeurActionDeplacement = classeActionDeplacement.getConstructor(HashMap.class);
-				CommandeEvent actionDeplacement = (CommandeEvent) constructeurActionDeplacement.newInstance(parametres);
+				final Constructor<?> constructeurActionDeplacement = classeActionDeplacement.getConstructor(HashMap.class);
+				final CommandeEvent actionDeplacement = (CommandeEvent) constructeurActionDeplacement.newInstance(parametres);
 				deplacement.add(actionDeplacement);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -191,7 +191,7 @@ public class PageDeComportement {
 	 * C'est-à-dire que les conditions de déclenchement ont été réunies.
 	 * On va donc lire les commandes une par une avec un curseur.
 	 */
-	public void executer() {
+	public final void executer() {
 		//si la page est une page "Parler", elle active le stopEvent qui fige tous les events
 		if (sOuvreParParole) {
 			this.event.map.lecteur.stopEvent = true;
@@ -207,7 +207,7 @@ public class PageDeComportement {
 				}
 				Boolean onAvanceDansLesCommandes = true;
 				while (onAvanceDansLesCommandes) {
-					int ancienCurseur = curseurCommandes;
+					final int ancienCurseur = curseurCommandes;
 					curseurCommandes = this.commandes.get(curseurCommandes).executer(curseurCommandes, commandes);
 					if (curseurCommandes==ancienCurseur) { 
 						//le curseur n'a pas changé, c'est donc une commande qui prend du temps

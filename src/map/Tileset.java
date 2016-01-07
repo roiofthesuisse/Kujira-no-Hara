@@ -7,6 +7,9 @@ import java.io.FileReader;
 import javax.imageio.ImageIO;
 
 public class Tileset {
+	//constantes
+	public static final int LARGEUR_TILESET = 8; //chaque ligne de Tileset contient 8 carreaux
+	
 	public String nom;
 	public BufferedImage image;
 	public boolean[] passabilite;

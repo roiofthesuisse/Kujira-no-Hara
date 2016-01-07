@@ -3,15 +3,20 @@ package comportementEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import main.Fenetre;
 import main.Partie;
 
+/**
+ * Equiper le Heros avec une Arme qu'il possède
+ */
 public class EquiperArme extends CommandeEvent {
 	int idArme;
 	
 	/**
-	 * Constructeur spécifique
+	 * Constructeur explicite
+	 * @param idArme identifiant de l'Arme à équiper
 	 */
-	public EquiperArme(int idArme){
+	public EquiperArme(final int idArme) {
 		this.idArme = idArme;
 	}
 	
@@ -19,13 +24,13 @@ public class EquiperArme extends CommandeEvent {
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public EquiperArme(HashMap<String,Object> parametres){
+	public EquiperArme(final HashMap<String, Object> parametres) {
 		this( (Integer) parametres.get("idArme") );
 	}
 	
 	@Override
-	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {
-		Partie.equiperArme(this.idArme);
+	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
+		Fenetre.getPartieActuelle().equiperArme(this.idArme);
 		return curseurActuel+1;
 	}
 

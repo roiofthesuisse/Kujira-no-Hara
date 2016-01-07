@@ -6,26 +6,28 @@ import map.Event;
 import map.Map;
 import utilitaire.Math;
 
-public class Partie {
-	int numeroMap;
-	Map map;
-	int xHeros;
-	int yHeros;
-	int directionHeros;
-	int vie;
-	int vieMax;
+/**
+ * Une Partie est l'ensemble des informations liées à l'avancée du joueur dans le jeu.
+ */
+public final class Partie {
+	public int numeroMap;
+	public Map map;
+	public int xHeros;
+	public int yHeros;
+	public int directionHeros;
+	public int vie;
+	public int vieMax;
 	public boolean[] interrupteurs;
 	public int[] variables;
 	public boolean[] quetesFaites;
-	private static int idArmeEquipee = -1;
-	public static ArrayList<Integer> idArmesPossedees = new ArrayList<Integer>();
+	private int idArmeEquipee = -1;
+	public ArrayList<Integer> idArmesPossedees = new ArrayList<Integer>();
 	
 	/**
-	 * le héros commence en map numéro 0
-	 * coordonnées (5;5)
-	 * 6 vies (sur 6 vies maximum)
+	 * Constructeur d'une nouvelle Partie vierge
 	 */
-	private Partie(){
+	private Partie() {
+		//TODO valeurs à importer depuis un JSON
 		this.numeroMap = 0;
 		this.xHeros = 5;
 		this.yHeros = 5;
@@ -39,13 +41,15 @@ public class Partie {
 	}
 	
 	/**
-	 * @param numeroMap numéro de la map où se trouve le héros
-	 * @param xHeros coordonnée x du héros
-	 * @param yHeros coordonnée y du héros
-	 * @param vie niveau d'énergie vitale du héros
-	 * @param vieMax niveau maximal possible d'énergie vitale du héros
+	 * Constructeur explicite
+	 * @param numeroMap numéro de la Map où se trouve le Héros en reprenant la Partie
+	 * @param xHeros coordonnée x du Héros en reprenant la Partie
+	 * @param yHeros coordonnée y du Héros en reprenant la Partie
+	 * @param directionHeros direction dans laquelle se trouve le Heros en reprenant la Partie
+	 * @param vie niveau d'énergie vitale du Héros en reprenant la Partie
+	 * @param vieMax niveau maximal possible d'énergie vitale du Héros en reprenant la Partie
 	 */
-	private Partie(int numeroMap, int xHeros, int yHeros, int directionHeros, int vie, int vieMax){
+	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax) {
 		this.numeroMap = numeroMap;
 		this.xHeros = xHeros;
 		this.yHeros = yHeros;
@@ -55,9 +59,10 @@ public class Partie {
 	}
 	
 	/**
+	 * Génère une nouvelle Partie vierge.
 	 * @return une nouvelle partie
 	 */
-	public static Partie creerNouvellePartie(){
+	public static Partie creerNouvellePartie() {
 		return new Partie();
 	}
 	
@@ -66,53 +71,69 @@ public class Partie {
 	 * @param numeroSauvegarde numéro de la partie sauvegardée
 	 * @return une partie sauvegardée
 	 */
-	public static Partie chargerPartie(int numeroSauvegarde){
+	public static Partie chargerPartie(final int numeroSauvegarde) {
 		//TODO créer un objet Partie à partir d'un fichier de sauvegarde
 		return null;
 	}
 	
-	public static Arme getArmeEquipee(){
-		return Arme.getArme(Partie.idArmeEquipee);
+	/**
+	 * Connaitre l'Arme actuellement équipée
+	 * @return Arme équipée
+	 */
+	public Arme getArmeEquipee() {
+		return Arme.getArme(this.idArmeEquipee);
 	}
 	
-	public static void equiperArme(int idArme){
-		Partie.idArmeEquipee = idArme;
+	/**
+	 * Equiper une Arme au Heros
+	 * @param idArme identifiant de l'Arme à équiper
+	 */
+	public void equiperArme(final int idArme) {
+		if (this.idArmesPossedees.contains(idArme)) {
+			this.idArmeEquipee = idArme;
+		}
 	}
 	
-	public static void equiperArmeSuivante(){
-		int nombreDArmesPossedees = Partie.idArmesPossedees.size();
+	/**
+	 * Equiper l'Arme suivante dans la liste des Armes possédées par le Héros
+	 */
+	public void equiperArmeSuivante() {
+		final int nombreDArmesPossedees = this.idArmesPossedees.size();
 		//pas d'armes possédées
-		if(nombreDArmesPossedees<=0){
+		if (nombreDArmesPossedees<=0) {
 			return;
 		}
 		//si pas d'arme équipée, on équipe la dernière possédée
-		if(idArmeEquipee<0){
+		if (idArmeEquipee<0) {
 			idArmeEquipee += nombreDArmesPossedees-1;
 			return;
 		}
 		//on équipe l'arme suivante
-		Partie.idArmeEquipee = Math.modulo(Partie.idArmeEquipee + 1, idArmesPossedees.size());
+		this.idArmeEquipee = Math.modulo(this.idArmeEquipee + 1, this.idArmesPossedees.size());
 		//affichage console
-		if(Partie.getArmeEquipee()!=null){
-			System.out.println("arme suivante : "+Partie.getArmeEquipee().nom);
+		if (this.getArmeEquipee()!=null) {
+			System.out.println("arme suivante : "+this.getArmeEquipee().nom);
 		}
 	}
 	
-	public static void equiperArmePrecedente(){
-		int nombreDArmesPossedees = Partie.idArmesPossedees.size();
+	/**
+	 * Equiper l'Arme précédente dans la liste des Armes possédées par le Héros
+	 */
+	public void equiperArmePrecedente() {
+		final int nombreDArmesPossedees = this.idArmesPossedees.size();
 		//pas d'armes possédées
-		if(nombreDArmesPossedees<=0){
+		if (nombreDArmesPossedees<=0) {
 			return;
 		}
 		//si pas d'arme équipée, on équipe la dernière possédée
-		if(idArmeEquipee<0){
+		if (idArmeEquipee<0) {
 			idArmeEquipee += nombreDArmesPossedees-1;
 			return;
 		}
 		//on équipe l'arme précédente
-		Partie.idArmeEquipee = Math.modulo(Partie.idArmeEquipee - 1, idArmesPossedees.size());
+		this.idArmeEquipee = Math.modulo(this.idArmeEquipee - 1, idArmesPossedees.size());
 		//affichage console
-		System.out.println("arme précédente : "+ Partie.getArmeEquipee().nom);
+		System.out.println("arme précédente : "+ this.getArmeEquipee().nom);
 	}
 	
 }

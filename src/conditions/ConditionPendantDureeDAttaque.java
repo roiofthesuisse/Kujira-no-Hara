@@ -1,21 +1,26 @@
 package conditions;
 
 import main.Arme;
-import main.Partie;
+import main.Fenetre;
 
 /**
  * Si l'attaque en est au moment du coup donné.
  * En effet, toutes les images de l'animation d'attaque ne correspondent pas au coup donné.
  */
-public class ConditionPendantDureeDAttaque extends Condition{
+public class ConditionPendantDureeDAttaque extends Condition {
 	
-	public ConditionPendantDureeDAttaque(){}
+	/**
+	 * Constructeur vide
+	 */
+	public ConditionPendantDureeDAttaque() {
+		
+	}
 	
 	@Override
-	public Boolean estVerifiee() {
-		int animationAttaqueActuelle = this.page.event.map.heros.animationAttaque;
-		Arme armeActuelle = Partie.getArmeEquipee();
-		Boolean reponse = animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
+	public final Boolean estVerifiee() {
+		final int animationAttaqueActuelle = this.page.event.map.heros.animationAttaque;
+		final Arme armeActuelle = Fenetre.getPartieActuelle().getArmeEquipee();
+		final Boolean reponse = animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
 		return reponse;
 	}
 

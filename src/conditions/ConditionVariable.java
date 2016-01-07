@@ -1,6 +1,11 @@
 package conditions;
 
-public class ConditionVariable extends Condition{
+import main.Fenetre;
+
+/**
+ * Vérifier la valeur d'une variable
+ */
+public class ConditionVariable extends Condition {
 	int numeroVariable;
 	int typeInegalite;
 	int valeurQuIlEstCenseAvoir;
@@ -23,7 +28,7 @@ public class ConditionVariable extends Condition{
 	 * @param valeur comparative
 	 * @param numero de la condition
 	 */
-	public ConditionVariable(int numeroVariable, int inegalite, int valeur, int numero){
+	public ConditionVariable(final int numeroVariable, final int inegalite, final int valeur, final int numero) {
 		this.numeroVariable = numeroVariable;
 		this.typeInegalite = inegalite;
 		this.valeurQuIlEstCenseAvoir = valeur;
@@ -31,9 +36,9 @@ public class ConditionVariable extends Condition{
 	}
 	
 	@Override
-	public Boolean estVerifiee() {
-		int[] variables = this.page.event.map.lecteur.fenetre.partie.variables;
-		switch(typeInegalite){
+	public final Boolean estVerifiee() {
+		final int[] variables = Fenetre.getPartieActuelle().variables;
+		switch (typeInegalite) {
 			case EGALE : return variables[numeroVariable]==valeurQuIlEstCenseAvoir;
 			case SUPERIEURE_LARGE : return variables[numeroVariable]>=valeurQuIlEstCenseAvoir;
 			case INFERIEURE_LARGE : return variables[numeroVariable]<=valeurQuIlEstCenseAvoir;

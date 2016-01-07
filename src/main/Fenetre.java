@@ -22,65 +22,82 @@ import map.LecteurMap;
 import map.Map;
 import menu.LecteurMenu;
 
+/**
+ * La Fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.
+ */
 @SuppressWarnings("serial")
-public class Fenetre extends JFrame implements KeyListener{
+public final class Fenetre extends JFrame implements KeyListener {
 	//constantes
 	public static final Integer TAILLE_D_UN_CARREAU = 32;
+	public static final int LARGEUR_ECRAN = 640;
+	public static final int HAUTEUR_ECRAN = 480;
 	
 	private static Fenetre maFenetre = null;
 	public static String titre = "Le meilleur jeu du monde";
-	public static int largeurParDefaut = 640;
-	public static int hauteurParDefaut = 480;
+
 	public JLabel labelEcran = null;
 	public Lecteur lecteur = null;
-	public Partie partie = null;
+	private Partie partie = null;
 	public Lecteur futurLecteur = null;
 	public ArrayList<Integer> touchesPressees = null;
 	public boolean quitterLeJeu = false;
 	
 	/**
-	 * La fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.
+	 * Constructeur explicite
 	 */
-	private Fenetre(){
+	private Fenetre() {
 		super(titre);
 		this.labelEcran = new JLabel();
 		this.lecteur = new LecteurMenu(this, null);
-		MenuTitre menuTitre = new MenuTitre((LecteurMenu)this.lecteur);
-		((LecteurMenu)this.lecteur).menu = menuTitre;
+		final MenuTitre menuTitre = new MenuTitre((LecteurMenu) this.lecteur);
+		((LecteurMenu) this.lecteur).menu = menuTitre;
 		this.touchesPressees = new ArrayList<Integer>();
 		this.addKeyListener(this);
 		
 		//démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
 		@SuppressWarnings("unused")
-		JFXPanel fxPanel = new JFXPanel();
+		final JFXPanel fxPanel = new JFXPanel();
 	}
 	
-	public static Fenetre getFenetre(){
-		if(maFenetre == null){
+	/**
+	 * Obtenir à tout moment l'unique Fenêtre active (singleton).
+	 * @return Fenêtre active
+	 */
+	public static Fenetre getFenetre() {
+		if (maFenetre == null) {
 			maFenetre = new Fenetre();
 		}
 		return maFenetre;
 	}
 	
-	public static Insets obtenirLesMarges(){
-		JFrame fenetreBidon = new JFrame();
+	/**
+	 * Calculer la taille des marges de la Fenêtre (variables selon l'Operating System).
+	 * En vérité la Fenêtre est un peu plus grande que l'écran : elle a des marges tout autour.
+	 * @return marges à prendre en compte
+	 */
+	public static Insets obtenirLesMarges() {
+		final JFrame fenetreBidon = new JFrame();
 		fenetreBidon.setVisible(true);
-		Insets marges = fenetreBidon.getInsets();
+		final Insets marges = fenetreBidon.getInsets();
 		fenetreBidon.dispose();
 		return marges;
 	}
 	
-	public static void ouvrirFenetre(){
-		Fenetre fenetre = getFenetre();
+	/**
+	 * Ouvrir la Fenêtre, afficher son titre et son icône.
+	 * Son contenu est encore vide pour l'instant, car l'affichage n'a pas démarré.
+	 */
+	public static void ouvrirFenetre() {
+		final Fenetre fenetre = getFenetre();
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Insets marges = obtenirLesMarges();
-		int margeHorizontale = marges.left+marges.right;
-		int margeVerticale = marges.top+marges.bottom;
-		fenetre.setSize(largeurParDefaut+margeHorizontale, hauteurParDefaut+margeVerticale);
+		final Insets marges = obtenirLesMarges();
+		final int margeHorizontale = marges.left+marges.right;
+		final int margeVerticale = marges.top+marges.bottom;
+		fenetre.setSize(LARGEUR_ECRAN+margeHorizontale, HAUTEUR_ECRAN+margeVerticale);
 		try {
-			ArrayList<Image> icones = new ArrayList<Image>();
-			BufferedImage iconePetite = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\baleine icone.png"));
-			BufferedImage iconeGrande = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\baleine icone grand.png"));
+			final ArrayList<Image> icones = new ArrayList<Image>();
+			final BufferedImage iconePetite = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\baleine icone.png"));
+			final BufferedImage iconeGrande = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\baleine icone grand.png"));
 			icones.add(iconePetite);
 			icones.add(iconeGrande);
 			fenetre.setIconImages(icones);
@@ -96,19 +113,27 @@ public class Fenetre extends JFrame implements KeyListener{
 	 * La fenêtre confie l'affichage d'un menu/map à un lecteur de menu/map.
 	 * Si jamais un futur lecteur est désigné, on effectue le remplacement.
 	 */
-	public static void demarrerAffichage(){
-		while(!maFenetre.quitterLeJeu){
+	public static void demarrerAffichage() {
+		while (!maFenetre.quitterLeJeu) {
 			maFenetre.lecteur.demarrer();
-			while(maFenetre.futurLecteur == null && !maFenetre.quitterLeJeu){}
+			while (maFenetre.futurLecteur == null && !maFenetre.quitterLeJeu) {
+				//TODO il ne devrait pas y avoir de boucle vide, mais un système de Threads...
+				try {
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 			maFenetre.lecteur = maFenetre.futurLecteur;
 		}
 	}
 	
 	/**
-	 * Changer l'image affichée dans la fenêtre de jeu.
+	 * Changer l'image affichée dans la Fenêtre de jeu.
 	 * @param image nouvelle image à afficher dans la fenêtre
 	 */
-	public void actualiserAffichage(Image image){
+	public void actualiserAffichage(final Image image) {
 		this.invalidate();
 		this.remove(this.labelEcran);
 		this.labelEcran = new JLabel(new ImageIcon(image));
@@ -116,43 +141,47 @@ public class Fenetre extends JFrame implements KeyListener{
 		this.revalidate();
 	}
 	
-	public static void main(String[] args){
+	/**
+	 * Point d'entrée du programme
+	 * @param args pas besoin d'arguments
+	 */
+	public static void main(final String[] args) {
 		ouvrirFenetre();
 		demarrerAffichage();
 	}
 
 	
 	@Override
-	public void keyPressed(KeyEvent event) {
-		Integer keyCode = event.getKeyCode();
-		if(! this.touchesPressees.contains(keyCode)){
+	public void keyPressed(final KeyEvent event) {
+		final Integer keyCode = event.getKeyCode();
+		if (!this.touchesPressees.contains(keyCode)) {
 			this.touchesPressees.add(keyCode);
-			GestionClavier.keyPressed(keyCode,this);
+			GestionClavier.keyPressed(keyCode, this);
 		}
 	}
 
 	@Override
-	public void keyReleased(KeyEvent event) {
-		Integer keyCode = event.getKeyCode();
+	public void keyReleased(final KeyEvent event) {
+		final Integer keyCode = event.getKeyCode();
 		this.touchesPressees.remove(keyCode);
-		GestionClavier.keyReleased(keyCode,this);
+		GestionClavier.keyReleased(keyCode, this);
 	}
 
 	@Override
-	public void keyTyped(KeyEvent event) {
+	public void keyTyped(final KeyEvent event) {
 		//rien
 	}
 	
 	/**
-	 * La fenêtre a une partie sélectionnée, on l'ouvre.
+	 * La Fenêtre a une partie sélectionnée, on l'ouvre.
 	 */
 	public void ouvrirLaPartie() {
-		if(this.partie == null){
+		if (this.partie == null) {
 			this.partie = Partie.creerNouvellePartie();
 		}
 		this.futurLecteur = new LecteurMap(this);
 		try {
-			((LecteurMap)futurLecteur).map = new Map(this.partie.numeroMap, (LecteurMap)this.futurLecteur, this.partie.xHeros, this.partie.yHeros, this.partie.directionHeros);
+			((LecteurMap) futurLecteur).map = new Map(this.partie.numeroMap, (LecteurMap) this.futurLecteur, this.partie.xHeros, this.partie.yHeros, this.partie.directionHeros);
 		} catch (FileNotFoundException e) {
 			System.err.println("Impossible de charger la map numero "+partie.numeroMap);
 			e.printStackTrace();
@@ -160,7 +189,26 @@ public class Fenetre extends JFrame implements KeyListener{
 		this.lecteur.allume = false;
 	}
 	
-	public void fermer(){
+	/**
+	 * Fermer la Fenêtre et quitter le jeu
+	 */
+	public void fermer() {
 		System.exit(0);
+	}
+	
+	/**
+	 * Obtenir la Partie actuelle
+	 * @return la Partie en cours
+	 */
+	public static Partie getPartieActuelle() {
+		return maFenetre.partie;
+	}
+	
+	/**
+	 * Mémoriser la Partie actuelle
+	 * @param partieActuelle à faire mémoriser par la Fenetre
+	 */
+	public void setPartieActuelle(final Partie partieActuelle) {
+		this.partie = partieActuelle;
 	}
 }

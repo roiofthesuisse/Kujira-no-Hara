@@ -3,15 +3,20 @@ package comportementEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import main.Fenetre;
 import main.Partie;
 
+/**
+ * Ajouter une nouvelle Arme au Heros
+ */
 public class AjouterArme extends CommandeEvent {
 	int idArme;
 	
 	/**
-	 * Constructeur spécifique
+	 * Constructeur explicite
+	 * @param idArme identifiant de l'Arme à ajouter
 	 */
-	public AjouterArme(int idArme){
+	public AjouterArme(final int idArme) {
 		this.idArme = idArme;
 	}
 	
@@ -19,14 +24,15 @@ public class AjouterArme extends CommandeEvent {
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public AjouterArme(HashMap<String,Object> parametres){
+	public AjouterArme(final HashMap<String, Object> parametres) {
 		this( (Integer) parametres.get("idArme") );
 	}
 	
 	@Override
-	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {
-		if(!Partie.idArmesPossedees.contains(idArme)){
-			Partie.idArmesPossedees.add(idArme);
+	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
+		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		if (!partieActuelle.idArmesPossedees.contains(idArme)) {
+			partieActuelle.idArmesPossedees.add(idArme);
 		}
 		return curseurActuel+1;
 	}

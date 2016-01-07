@@ -1,23 +1,31 @@
 package conditions;
 
-import main.Partie;
+import main.Fenetre;
 import map.Event;
 import map.Heros;
 import map.Hitbox;
 
-public class ConditionDansZoneDAttaque extends Condition{
+/**
+ * Vérifier si le Héros est armé, et si l'Event se trouve dans la zone d'action de son Arme
+ */
+public class ConditionDansZoneDAttaque extends Condition {
 	
-	public ConditionDansZoneDAttaque(){}
+	/**
+	 * Constructeur vide
+	 */
+	public ConditionDansZoneDAttaque() {
+		
+	}
 	
 	@Override
-	public Boolean estVerifiee() {
-		Boolean estCeQueLeHerosAUneArme = (Partie.idArmesPossedees.size() > 0);
-		if(estCeQueLeHerosAUneArme){
-			Heros heros = this.page.event.map.heros;
-			Event event = this.page.event;
-			Boolean reponse = Hitbox.estDansZoneDAttaque(event,heros);
+	public final Boolean estVerifiee() {
+		final Boolean estCeQueLeHerosAUneArme = (Fenetre.getPartieActuelle().idArmesPossedees.size() > 0);
+		if (estCeQueLeHerosAUneArme) {
+			final Heros heros = this.page.event.map.heros;
+			final Event event = this.page.event;
+			final Boolean reponse = Hitbox.estDansZoneDAttaque(event, heros);
 			return reponse;
-		}else{
+		} else {
 			return false;
 		}
 	}
