@@ -9,32 +9,43 @@ import org.json.JSONObject;
 import comportementEvent.Avancer;
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
+import main.Fenetre;
 
-public class Event implements Comparable<Event>{
+/**
+ * Un Event est un élément actif du décor, voire interactif.
+ * Ses éventuels comportements sont représentés par une liste de Pages.
+ */
+public class Event implements Comparable<Event> {
+	//constantes
+	public static final int VITESSE_PAR_DEFAUT = 4;
+	public static final int FREQUENCE_PAR_DEFAUT = 4;
+	private static final int HAUTEUR_HITBOX_PAR_DEFAUT = 32;
+	private static final int LARGEUR_HITBOX_PAR_DEFAUT = 32;
+	
+	/** Map à laquelle cet Event appartient */
 	public Map map;
+	/** nom de l'Event */
 	public String nom;
+	/** numéro de l'Event sur la Map */
 	public int numero;
-	/**
-	 * distance entre le bord gauche de la map et le bord gauche de la hitbox de l'event
-	 */
+	/** distance entre le bord gauche de la map et le bord gauche de la Hitbox de l'Event */
 	public int x; //en pixels
-	/**
-	 * distance entre le bord haut de la map et le bord haut de la hitbox de l'event
-	 */
+	/** distance entre le bord haut de la map et le bord haut de la Hitbox de l'Event */
 	public int y; //en pixels
 	
-	//de combien de pixels avance l'event à chaque pas :
-	public int vitesseActuelle = 4; //1:trèsLent 2:lent 4:normal 8:rapide 16:trèsrapide 32:trèstrèsRapide
-	//toutes les combien de frames l'event change d'animation :
-	public int frequenceActuelle = 4; //1:trèsAgité 2:agité 4:normal 8:mou 16:trèsMou
+	/** de combien de pixels avance l'Event à chaque pas ? */
+	public int vitesseActuelle = VITESSE_PAR_DEFAUT; //1:trèsLent 2:lent 4:normal 8:rapide 16:trèsrapide 32:trèstrèsRapide
+	/** toutes les combien de frames l'Event change-t-il d'animation ? */
+	public int frequenceActuelle = FREQUENCE_PAR_DEFAUT; //1:trèsAgité 2:agité 4:normal 8:mou 16:trèsMou
 	
 	public int direction = Event.Direction.BAS;
 	public int animation = 0;
 	public BufferedImage imageActuelle = null;
-	/**
-	 * L'event est-il en train d'avancer en ce moment même ? (utile pour l'animation)
-	 */
+	/** l'Event est-il en train d'avancer en ce moment même ? (utile pour l'animation) */
 	public Boolean avance = false;
+	/** 
+	 * Ces paramètres sont remplis automatiquement au chargement de la page.
+	 */
 	public Boolean animeALArretActuel = false;
 	public Boolean animeEnMouvementActuel = true;
 	public ArrayList<CommandeEvent> deplacementActuel;
@@ -42,8 +53,8 @@ public class Event implements Comparable<Event>{
 	public Boolean ignorerLesMouvementsImpossiblesActuel = false;
 	public Boolean traversableActuel = false;
 	Boolean auDessusDeToutActuel = false;
-	public int largeurHitbox = 32;
-	public int hauteurHitbox = 32;
+	public int largeurHitbox = LARGEUR_HITBOX_PAR_DEFAUT;
+	public int hauteurHitbox = HAUTEUR_HITBOX_PAR_DEFAUT;
 	/**
 	 * Décale l'affichage vers le bas.
 	 * En effet, décaler l'affichage dans les trois autres directions est possible en modifiant l'image.
@@ -62,7 +73,7 @@ public class Event implements Comparable<Event>{
 	public Boolean supprime = false;
 	
 	/**
-	 * chaque event regarde dans une direction
+	 * Tout Event regarde dans une Direction.
 	 */
 	public static class Direction {
 		public static final int BAS = 0;
@@ -70,11 +81,16 @@ public class Event implements Comparable<Event>{
 		public static final int DROITE = 2;
 		public static final int HAUT = 3;
 		
-		public static int obtenirDirectionViaJson(JSONObject jsonEvent){
+		/**
+		 * Méthode pratique pour récupérer la direction d'un Event décrit par un JSON.
+		 * @param jsonEvent object JSON décrivant l'évènement
+		 * @return direction initiale de l'évènement
+		 */
+		public static int obtenirDirectionViaJson(final JSONObject jsonEvent) {
 			int dir;
-			try{
+			try {
 				dir = jsonEvent.getInt("direction");
-			}catch(Exception e1){
+			} catch (Exception e1) {
 				dir = Event.Direction.BAS; //direction par défaut
 			}
 			return dir;
@@ -82,85 +98,117 @@ public class Event implements Comparable<Event>{
 	}
 	
 	/**
-	 * @param map
-	 * @param x
-	 * @param y
-	 * @param nom de l'event
-	 * @param nomImage
-	 * @param pages
-	 * @param largeurHitbox
+	 * Constructeur explicite de l'Event
+	 * @param map Map à laquelle l'Event appartient
+	 * @param x numero du carreau où se trouve l'Event, en abscisse, de gauche à droite
+	 * @param y numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
+	 * @param direction de l'Event
+	 * @param nom de l'Event
+	 * @param pages ensemble de Pages décrivant le comportement de l'Event
+	 * @param largeurHitbox largeur de la boîte de collision
+	 * @param hauteurHitbox hauteur de la boîte de collision
 	 */
-	protected Event(Map map, Integer x, Integer y, Integer direction, String nom, ArrayList<PageDeComportement> pages, int largeurHitbox, int hauteurHitbox){
+	protected Event(final Map map, final Integer x, final Integer y, final Integer direction, final String nom, final ArrayList<PageDeComportement> pages, final int largeurHitbox, final int hauteurHitbox) {
 		this.map = map;
-		this.x = x*32;
-		this.y = y*32;
+		this.x = x * Fenetre.TAILLE_D_UN_CARREAU;
+		this.y = y * Fenetre.TAILLE_D_UN_CARREAU;
 		this.direction = direction;
 		this.nom = nom;
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
 		this.hauteurHitbox = hauteurHitbox;
 		initialiserLesPages();
-		if(pages!=null && pages.size()>=1){
+		if (pages!=null && pages.size()>=1) {
 			attribuerLesProprietesActuelles(pages.get(0)); //par défaut, propriétés de la première page
 		}
 	}
 	
 	/**
-	 * Event décrit dans la page JSON
+	 * Constructeur de l'Event utilisant un tableau de pages JSON
+	 * @param map Map à laquelle l'Event appartient
+	 * @param x numero du carreau où se trouve l'Event, en abscisse, de gauche à droite
+	 * @param y numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
+	 * @param direction de l'Event
+	 * @param nom de l'Event
+	 * @param tableauDesPages tableau JSON contenant les Pages de comportement
+	 * @param largeurHitbox largeur de la boîte de collision
+	 * @param hauteurHitbox hauteur de la boîte de collision
 	 */
-	protected Event(Map map, Integer x, Integer y, Integer direction, String nom, JSONArray tableauDesPages, int largeurHitbox, int hauteurHitbox){
+	protected Event(final Map map, final Integer x, final Integer y, final Integer direction, final String nom, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox) {
 		this(map, x, y, direction, nom, creerListeDesPagesViaJson(tableauDesPages), largeurHitbox, hauteurHitbox);
 	}
 
-	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(JSONArray tableauDesPages) {
+	/**
+	 * Prend le tableau JSON des pages et crée la liste des Pages avec.
+	 * @param tableauDesPages au format JSON
+	 * @return liste des Pages de l'Event
+	 */
+	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(final JSONArray tableauDesPages) {
 		ArrayList<PageDeComportement> listeDesPages = new ArrayList<PageDeComportement>();
-		for(Object pageJSON : tableauDesPages){
-			listeDesPages.add( new PageDeComportement((JSONObject)pageJSON) );
+		for (Object pageJSON : tableauDesPages) {
+			listeDesPages.add( new PageDeComportement((JSONObject) pageJSON) );
 		}
 		return listeDesPages;
 	}
 
-	protected void initialiserLesPages() {
+	/**
+	 * On numérote les Pages de l'Event.
+	 * On relie les Conditions et les Commandes à leur Page.
+	 */
+	protected final void initialiserLesPages() {
 		int numeroCondition = 0;
 		int numeroPage = 0;
-		try{
-			for(PageDeComportement page : pages){
+		try {
+			for (PageDeComportement page : this.pages) {
 				page.event = this;
-				if(page!=null){
+				if (page!=null) {
 					page.numero = numeroPage;
 					//numérotation des conditions et on apprend aux conditions qui est leur page
-					try{
-						for(Condition cond : page.conditions){
+					try {
+						for (Condition cond : page.conditions) {
 							cond.numero = numeroCondition;
 							cond.page = page;
 							numeroCondition++;
 						}
-					}catch(NullPointerException e1){
+					} catch (NullPointerException e1) {
 						//pas de conditions pour déclencher cette page
 					}
 					//on apprend aux commandes qui est leur page
-					try{
-						for(CommandeEvent comm : page.commandes){
+					try {
+						for (CommandeEvent comm : page.commandes) {
 							comm.page = page;
 						}
-					}catch(NullPointerException e2){
+					} catch (NullPointerException e2) {
 						//pas de commandes dans cette page
 					}
 					numeroPage++;
 				}
 			}
-		}catch(NullPointerException e3){
+		} catch (NullPointerException e3) {
 			//pas de pages dans cet event
 		}
 	}
 
-	public Boolean lesHitboxesSeChevauchent(int xFutur, int yFutur, int largHitbox, int hautHitbox, int xAutre, int yAutre, int largHitboxAutre, int hautHitboxAutre){
+	/**
+	 * Est-ce que cet Event pourra aller à cet endroit dans le futur, 
+	 * sachant qu'un autre Event se trouve à tel endroit ?
+	 * @param xFutur position x de l'Event dans le futur
+	 * @param yFutur position y de l'Event dans le futur
+	 * @param largHitbox largeur de la boîte de collision de cet Event
+	 * @param hautHitbox hauteur de la boîte de collision de cet Event
+	 * @param xAutre position x actuelle de l'autre Event
+	 * @param yAutre position y actuelle de l'autre Event
+	 * @param largHitboxAutre largeur de la boîte de collision de l'autre Event
+	 * @param hautHitboxAutre hauteur de la boîte de collision de l'autre Event
+	 * @return true si les deux Events vont se marcher dessus, false s'ils vont rester distants
+	 */
+	private Boolean lesHitboxesSeChevauchent(final int xFutur, final int yFutur, final int largHitbox, final int hautHitbox, final int xAutre, final int yAutre, final int largHitboxAutre, final int hautHitboxAutre) {
 		int deltaX = (xFutur-xAutre);
 		int deltaY = (yFutur-yAutre);
 		int rayon = (Math.max(largHitbox, hautHitbox)+Math.max(largHitboxAutre, hautHitboxAutre));
-		if(deltaX*deltaX+deltaY*deltaY > rayon*rayon/2){
+		if (deltaX*deltaX+deltaY*deltaY > rayon*rayon/2) {
 			return false; //si les deux events sont trop éloignés l'un de l'autre, il n'y a pas de collision
-		}else{ 
+		} else { 
 			int x1min = xFutur;
 			int x1max = xFutur+largHitbox;
 			int x2min = xAutre;
@@ -173,9 +221,14 @@ public class Event implements Comparable<Event>{
 		}
 	}
 	
-	public Boolean deplacementPossible(int sens){
+	/**
+	 * Le déplacement dans cette direction est-il possible ?
+	 * @param sens direction dans laquelle l'Event compte avancer
+	 * @return si le déplacement est possible oui ou non
+	 */
+	protected Boolean deplacementPossible(final int sens) {
 		//si l'Event est lui-même traversable, il peut faire son mouvement
-		if(this.traversableActuel){
+		if (this.traversableActuel) {
 			return true;
 		}
 		
@@ -186,58 +239,57 @@ public class Event implements Comparable<Event>{
 		int yAInspecter2 = this.y;
 		int xAInspecter3 = this.x; //pour les events
 		int yAInspecter3 = this.y;
-		switch(sens){
+		switch(sens) {
 		case Event.Direction.BAS : 
-			yAInspecter+=hauteurHitbox;   
-			yAInspecter2+=hauteurHitbox;   
-			xAInspecter2+=32; 
-			yAInspecter3+=vitesseActuelle; 
+			yAInspecter += hauteurHitbox;   
+			yAInspecter2 += hauteurHitbox;   
+			xAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
+			yAInspecter3 += vitesseActuelle; 
 			break;
 		case Event.Direction.GAUCHE : 
-			xAInspecter-=vitesseActuelle; 
-			xAInspecter2-=vitesseActuelle; 
-			yAInspecter2+=32; 
-			xAInspecter3-=vitesseActuelle; 
+			xAInspecter -= vitesseActuelle; 
+			xAInspecter2 -= vitesseActuelle; 
+			yAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
+			xAInspecter3 -= vitesseActuelle; 
 			break;
 		case Event.Direction.DROITE : 
-			xAInspecter+=largeurHitbox;   
-			xAInspecter2+=largeurHitbox;   
-			yAInspecter2+=32; 
-			xAInspecter3+=vitesseActuelle; 
+			xAInspecter += largeurHitbox;   
+			xAInspecter2 += largeurHitbox;   
+			yAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
+			xAInspecter3 += vitesseActuelle; 
 			break;
 		case Event.Direction.HAUT : 
-			yAInspecter-=vitesseActuelle; 
-			yAInspecter2-=vitesseActuelle; 
-			xAInspecter2+=32; 
-			yAInspecter3-=vitesseActuelle; 
+			yAInspecter -= vitesseActuelle; 
+			yAInspecter2 -= vitesseActuelle; 
+			xAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
+			yAInspecter3 -= vitesseActuelle; 
 			break;
 		default : 
 			break;
 		}
-		try{
+		try {
 			//si rencontre avec un élément de décor non passable -> false
-			if(!map.casePassable[xAInspecter/32][yAInspecter/32]){
+			if (!map.casePassable[xAInspecter/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter/Fenetre.TAILLE_D_UN_CARREAU]) {
 				return false;
 			}
-			if((sens==0||sens==3) && ((x+largeurHitbox-1)/32!=(x/32)) && !map.casePassable[xAInspecter2/32][yAInspecter2/32]){
+			if ((sens==Direction.BAS||sens==Direction.HAUT) && ((x+largeurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(x/Fenetre.TAILLE_D_UN_CARREAU)) && !map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
 				return false;
 			}
-			if((sens==1||sens==2) && ((y+hauteurHitbox-1)/32!=(y/32)) && !map.casePassable[xAInspecter2/32][yAInspecter2/32]){
+			if ((sens==Direction.GAUCHE||sens==Direction.DROITE) && ((y+hauteurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(y/Fenetre.TAILLE_D_UN_CARREAU)) && !map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
 				return false;
 			}
 			//voilà
 			
 			//si rencontre avec un autre évènement non traversable -> false
-			for(Event autreEvent : this.map.events){
-				if(this.numero != autreEvent.numero){
-					if(!autreEvent.traversableActuel){ 
-						if( lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) ){
-							return false;
-						}
-					}
+			for (Event autreEvent : this.map.events) {
+				if (this.numero != autreEvent.numero 
+					&& !autreEvent.traversableActuel
+					&& lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, largeurHitbox, hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
+				) {
+					return false;
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			//on sort de la map !
 			e.printStackTrace();
 			reponse = true;
@@ -250,19 +302,19 @@ public class Event implements Comparable<Event>{
 	 */
 	public void deplacer() {
 		//si page active peut être nulle, le deplacementActuel est celui de la dernière page qui a été activée
-		if(pageActive!=null || (deplacementActuel!=null&&deplacementActuel.size()>0) ){
-			try{
+		if (pageActive!=null || (deplacementActuel!=null&&deplacementActuel.size()>0) ) {
+			try {
 				CommandeEvent mouvementActuel = deplacementActuel.get(0);
 				String typeMouvement = mouvementActuel.getClass().getName();
-				switch(typeMouvement){
-					case "comportementEvent.Avancer" : deplacer((Avancer)mouvementActuel); break;
-					case "comportementEvent.AvancerAleatoirement" : deplacer((Avancer)mouvementActuel); break;
+				switch(typeMouvement) {
+					case "comportementEvent.Avancer" : deplacer((Avancer) mouvementActuel); break;
+					case "comportementEvent.AvancerAleatoirement" : deplacer((Avancer) mouvementActuel); break;
 					//TODO dans le futur, ajouter les autres types de mouvements ici
 					default : break;
 				}
-			}catch(NullPointerException e1){
+			} catch (NullPointerException e1) {
 				//pas de déplacement pour cet event
-			}catch(IndexOutOfBoundsException e2){
+			} catch (IndexOutOfBoundsException e2) {
 				//le déplacement ne contient aucune commande
 			}
 		}
@@ -271,24 +323,25 @@ public class Event implements Comparable<Event>{
 	/**
 	 * Déplace l'Event pour son déplacement naturel ou pour un déplacement forcé.
 	 * Vu qu'on utilise "deplacementActuel", un déplacement forcé devra être inséré artificiellement dans la liste.
+	 * @param mouvementActuel mouvement à executer
 	 */
-	public void deplacer(Avancer mouvementActuel){
-		try{
+	public void deplacer(final Avancer mouvementActuel) {
+		try {
 			int sens = ((Avancer) mouvementActuel).getDirection();
-			if( deplacementPossible(sens) ){
+			if ( deplacementPossible(sens) ) {
 				this.avance = true;
 				//déplacement :
-				switch(sens){
-					case 0 : this.y+=vitesseActuelle; break;
-					case 1 : this.x-=vitesseActuelle; break;
-					case 2 : this.x+=vitesseActuelle; break;
-					case 3 : this.y-=vitesseActuelle; break;
+				switch (sens) {
+					case Direction.BAS : this.y += vitesseActuelle; break;
+					case Direction.GAUCHE : this.x -= vitesseActuelle; break;
+					case Direction.DROITE : this.x += vitesseActuelle; break;
+					case Direction.HAUT : this.y -= vitesseActuelle; break;
 				}
 				((Avancer) mouvementActuel).ceQuiAEteFait += vitesseActuelle;
 				//*ancien emplacement de l'animation*
 				//quelle sera la commande suivante ?
-				if( ((Avancer) mouvementActuel).ceQuiAEteFait >= ((Avancer) mouvementActuel).nombreDeCarreaux*32){
-					if(repeterLeDeplacementActuel){
+				if ( ((Avancer) mouvementActuel).ceQuiAEteFait >= ((Avancer) mouvementActuel).nombreDeCarreaux*Fenetre.TAILLE_D_UN_CARREAU) {
+					if (repeterLeDeplacementActuel) {
 						//on le réinitialise et on le met en bout de file
 						((Avancer) mouvementActuel).reinitialiser();
 						deplacementActuel.add(mouvementActuel);
@@ -296,10 +349,10 @@ public class Event implements Comparable<Event>{
 					//on passe au mouvement suivant
 					deplacementActuel.remove(0);
 				}
-			}else{
+			} else {
 				this.avance = false;
-				if(ignorerLesMouvementsImpossiblesActuel){
-					if(repeterLeDeplacementActuel){
+				if (ignorerLesMouvementsImpossiblesActuel) {
+					if (repeterLeDeplacementActuel) {
 						//on le réinitialise et on le met en bout de file
 						((Avancer) mouvementActuel).reinitialiser();
 						deplacementActuel.add(mouvementActuel);
@@ -311,7 +364,7 @@ public class Event implements Comparable<Event>{
 			
 		} catch (NullPointerException e1) {
 			//pas de mouvement pour cet évènement
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("Erreur lors du mouvement de l'évènement :");
 			e.printStackTrace();
 		}
@@ -319,26 +372,34 @@ public class Event implements Comparable<Event>{
 
 	@Override
 	/**
-	 * permet de dire si un event est devant ou derrière un autre en terme d'affichage
+	 * Permet de dire si un event est devant ou derrière un autre en terme d'affichage.
 	 */
-	public int compareTo(Event e) {
-		if(auDessusDeToutActuel){
-			if(e.auDessusDeToutActuel){
+	public int compareTo(final Event e) {
+		if (auDessusDeToutActuel) {
+			if (e.auDessusDeToutActuel) {
 				//les deux sont au dessus de tout, on applique la logique inversée
-				if(y > e.y) return -1;
-				if(y < e.y) return 1;
-			}else{
+				if (y > e.y) {
+					return -1;
+				}
+				if (y < e.y) {
+					return 1;
+				}
+			} else {
 				//this est plus grand
 				return 1;
 			}
-		}else{
-			if(e.auDessusDeToutActuel){
+		} else {
+			if (e.auDessusDeToutActuel) {
 				//e est plus grand
 				return -1;
-			}else{
+			} else {
 				//aucun n'est au dessus de tout, on applique la logique normale
-				if(y > e.y) return 1;
-				if(y < e.y) return -1;
+				if (y > e.y) {
+					return 1;
+				}
+				if (y < e.y) {
+					return -1;
+				}
 			}
 		}
 		return 0;
@@ -350,46 +411,47 @@ public class Event implements Comparable<Event>{
 	 */
 	public void activerUnePage() {
 		PageDeComportement pageQuOnChoisitEnRemplacement = null;
-		try{
+		try {
 			Boolean onATrouveLaPageActive = false;
-			for(int i=pages.size()-1; i>=0 && !onATrouveLaPageActive; i--){
+			for (int i = pages.size()-1; i>=0 && !onATrouveLaPageActive; i--) {
 				PageDeComportement page = pages.get(i);
 				Boolean cettePageConvient = true;
-				try{
+				try {
 					//si une condition est fausse, la page ne convient pas
-					for(int j=0; j<page.conditions.size() && cettePageConvient; j++){
+					for (int j = 0; j<page.conditions.size() && cettePageConvient; j++) {
 						Condition cond = page.conditions.get(j);
-						if(!cond.estVerifiee()){
+						if (!cond.estVerifiee()) {
 							cettePageConvient = false;
 						}
 					}
-				}catch(NullPointerException e1){
+				} catch (NullPointerException e1) {
 					//pas de conditions pour cette page
 				}
-				if(cettePageConvient){
+				if (cettePageConvient) {
 					onATrouveLaPageActive = true;
 					pageQuOnChoisitEnRemplacement = page;
 				}
 			}
-		}catch(NullPointerException e2){
+		} catch (NullPointerException e2) {
 			//pas de pages pour cet event
 		}
 		//on ne change la page que si c'est une page différente
-		if( this.pageActive==null || pageQuOnChoisitEnRemplacement==null || (this.pageActive.numero!=pageQuOnChoisitEnRemplacement.numero) ){
+		if ( this.pageActive==null || pageQuOnChoisitEnRemplacement==null || (this.pageActive.numero!=pageQuOnChoisitEnRemplacement.numero) ) {
 			//changement de page
 			this.pageActive = pageQuOnChoisitEnRemplacement;
 			
 			//on donne à l'évent toutes les propriétés de la page
-			if(this.pageActive != null){
+			if (this.pageActive != null) {
 				attribuerLesProprietesActuelles(pageActive);
 			}
 		}
 	}
 
 	/**
-	 * On assigne les propriétés actuelles en utilisant celles d'une page donnée.
+	 * On assigne les propriétés actuelles en utilisant celles d'une Page donnée.
+	 * @param page dont on récupère les propriétés pour les donner à l'Event
 	 */
-	private void attribuerLesProprietesActuelles(PageDeComportement page) {
+	private void attribuerLesProprietesActuelles(final PageDeComportement page) {
 		//apparence
 		this.imageActuelle = page.image;
 		//propriétés
