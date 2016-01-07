@@ -374,7 +374,7 @@ public class Event implements Comparable<Event> {
 	/**
 	 * Permet de dire si un event est devant ou derrière un autre en terme d'affichage.
 	 */
-	public int compareTo(final Event e) {
+	public final int compareTo(final Event e) {
 		if (auDessusDeToutActuel) {
 			if (e.auDessusDeToutActuel) {
 				//les deux sont au dessus de tout, on applique la logique inversée
@@ -409,7 +409,7 @@ public class Event implements Comparable<Event> {
 	 * Active la page de l'event qui vérifie toutes les conditions de déclenchement.
 	 * S'il y a plusieurs pages valides, on prend la dernière.
 	 */
-	public void activerUnePage() {
+	public final void activerUnePage() {
 		PageDeComportement pageQuOnChoisitEnRemplacement = null;
 		try {
 			Boolean onATrouveLaPageActive = false;

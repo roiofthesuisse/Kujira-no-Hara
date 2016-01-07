@@ -6,16 +6,16 @@ public class GestionClavier {
 	 * Association entre les touches du clavier et leur keycode
 	 */
 	private class ToucheCode{
-		public final static int Z = 90;
-		public final static int Q = 81;
-		public final static int S = 83;
-		public final static int D = 68;
-		public final static int ESPACE = 32;
-		public final static int ENTREE = 10;
-		public final static int O = 79;
-		public final static int K = 75;
-		public final static int L = 76;
-		public final static int M = 77;
+		public static final int Z = 90;
+		public static final int Q = 81;
+		public static final int S = 83;
+		public static final int D = 68;
+		public static final int ESPACE = 32;
+		public static final int ENTREE = 10;
+		public static final int O = 79;
+		public static final int K = 75;
+		public static final int L = 76;
+		public static final int M = 77;
 	}
 	
 	/**

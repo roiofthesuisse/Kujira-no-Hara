@@ -7,9 +7,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import main.Fenetre;
 import main.Partie;
 import utilitaire.InterpreteurDeJson;
 
+/**
+ * Une Map est un décor rectangulaire constitué de briques issues du Tileset.
+ * Le Heros et les Events se déplacent dedans.
+ */
 public class Map {
 	public final int numero;
 	public LecteurMap lecteur;
@@ -30,19 +35,17 @@ public class Map {
 	public int xDebutHeros;
 	public int yDebutHeros;
 	public int directionDebutHeros;
-	/**
-	 * N'est vrai que durant l'action de l'appui, se remet à false tout de suite
-	 */
-	public Boolean toucheActionPressee = false;
 	public boolean[][] casePassable;
 	
 	/**
-	 * @param numero de la map, c'est-à-dire numéro du fichier map à charger
-	 * @param lecteur de la map
-	 * @param nomTileset 
+	 * @param numero de la Map, c'est-à-dire numéro du fichier map (au format JSON) à charger
+	 * @param lecteur de la Map
+	 * @param xDebutHerosArg position x du Heros à son arrivée sur la Map
+	 * @param yDebutHerosArg position y du Heros à son arrivée sur la Map
+	 * @param directionDebutHeros direction du Heros à son arrivée sur la Map
 	 * @throws FileNotFoundException 
 	 */
-	public Map(int numero, LecteurMap lecteur, int xDebutHerosArg, int yDebutHerosArg, int directionDebutHeros) throws FileNotFoundException{
+	public Map(final int numero, final LecteurMap lecteur, final int xDebutHerosArg, final int yDebutHerosArg, final int directionDebutHeros) throws FileNotFoundException {
 		this.numero = numero;
 		this.lecteur = lecteur;
 		
@@ -54,9 +57,9 @@ public class Map {
 		this.nomTileset = jsonMap.getString("tileset");
 		this.largeur = jsonMap.getInt("largeur");
 		this.hauteur = jsonMap.getInt("hauteur");
-		this.layer0 = recupererCouche(jsonMap,0);
-		this.layer1 = recupererCouche(jsonMap,1);
-		this.layer2 = recupererCouche(jsonMap,2);
+		this.layer0 = recupererCouche(jsonMap, 0);
+		this.layer1 = recupererCouche(jsonMap, 1);
+		this.layer2 = recupererCouche(jsonMap, 2);
 		this.xDebutHeros = xDebutHerosArg;
 		this.yDebutHeros = yDebutHerosArg;
 		this.directionDebutHeros = directionDebutHeros;
@@ -77,55 +80,69 @@ public class Map {
 			creerListeDesCasesPassables();
 	}
 
+	/**
+	 * L'affichage est un sandwich : une partie du décor est en fond, et les Events sont affichés par dessus.
+	 * On affiche en premier le décor arrière.
+	 */
 	private void creerImageDuDecorEnDessousDuHeros() {
 		// TODO prendre en compte toutes les couches 1 2 3 et les altitudes du tileset
-		try{
-			this.imageCoucheSousHeros = lecteur.imageVide(largeur*32,hauteur*32);
-			for(int i=0; i<largeur; i++){
-				for(int j=0; j<hauteur; j++){
-					try{
+		try {
+			this.imageCoucheSousHeros = lecteur.imageVide(largeur*Fenetre.TAILLE_D_UN_CARREAU, hauteur*Fenetre.TAILLE_D_UN_CARREAU);
+			for (int i = 0; i<largeur; i++) {
+				for (int j = 0; j<hauteur; j++) {
+					try {
 						int carreau = layer0[i][j];
-						imageCoucheSousHeros = this.lecteur.dessinerCarreau(imageCoucheSousHeros,i,j,carreau,tileset);
-					}catch(NumberFormatException e){
+						imageCoucheSousHeros = this.lecteur.dessinerCarreau(imageCoucheSousHeros, i, j, carreau, tileset);
+					} catch (NumberFormatException e) {
 						//case vide
 					}
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("Erreur lors de la lecture de la map :");
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * L'affichage est un sandwich : une partie du décor est affichée par dessus les Events.
+	 * On affiche en dernier le décor supérieur.
+	 */
 	private void creerImageDuDecorAuDessusDuHeros() {
 		//TODO prendre en compte toutes les couches 1 2 3 et les altitudes du tileset
-		try{
-			this.imageCoucheSurHeros = lecteur.imageVide(largeur*32,hauteur*32);
-			for(int i=0; i<largeur; i++){
-				for(int j=0; j<hauteur; j++){
-					try{
+		try {
+			this.imageCoucheSurHeros = lecteur.imageVide(largeur*Fenetre.TAILLE_D_UN_CARREAU, hauteur*Fenetre.TAILLE_D_UN_CARREAU);
+			for (int i = 0; i<largeur; i++) {
+				for (int j = 0; j<hauteur; j++) {
+					try {
 						int carreau = layer1[i][j];
-						if(carreau>=0) imageCoucheSurHeros = this.lecteur.dessinerCarreau(imageCoucheSurHeros,i,j,carreau,tileset);
-					}catch(NumberFormatException e){
+						if (carreau>=0) {
+							imageCoucheSurHeros = this.lecteur.dessinerCarreau(imageCoucheSurHeros, i, j, carreau, tileset);
+						}
+					} catch (NumberFormatException e) {
 						//case vide
 					}
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("Erreur lors de la lecture de la map :");
 			e.printStackTrace();
 		}
 	}
 
-	private void importerLesEvenements(JSONObject jsonMap) {
-		try{
+	/**
+	 * Constitue la liste des Events de la Map en allant lire dans le fichier JSON décrivant la Map.
+	 * @param jsonMap objet JSON décrivant la Map
+	 */
+	private void importerLesEvenements(final JSONObject jsonMap) {
+		try {
 			this.events = new ArrayList<Event>();
 			//d'abord le héros
-			this.heros = new Heros(this, this.xDebutHeros,this.yDebutHeros, this.directionDebutHeros);
+			this.heros = new Heros(this, this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros);
 			this.events.add(heros);
 			//puis les autres
 			JSONArray jsonEvents = jsonMap.getJSONArray("events");
-			for(Object ev : jsonEvents){
+			for (Object ev : jsonEvents) {
 				JSONObject jsonEvent = (JSONObject) ev;
 				//récupération des données dans le JSON
 				String nomEvent = jsonEvent.getString("nom");
@@ -133,7 +150,7 @@ public class Map {
 				int yEvent = jsonEvent.getInt("y");
 				//instanciation de l'event
 				Event event;
-				try{
+				try {
 					/*
 					try{
 					*/
@@ -153,7 +170,7 @@ public class Map {
 						event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
 					}
 					*/
-				}catch(Exception e3){
+				} catch (Exception e3) {
 					//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
 					int hauteurHitbox = jsonEvent.getInt("largeur");
 					int largeurHitbox = jsonEvent.getInt("hauteur");
@@ -168,16 +185,19 @@ public class Map {
 			//events.add( new Algue(this,2,8) );
 			//events.add( new DarumaAleatoire(this,3,7) );
 			//events.add( new DarumaAleatoire(this,3,8) );
-		} catch(Exception e3) {
+		} catch (Exception e3) {
 			System.err.println("Erreur lors de la constitution de la liste des events :");
 			e3.printStackTrace();
 		}
 		//numérotation des events
-		for(int i=0; i<this.events.size(); i++){
+		for (int i = 0; i<this.events.size(); i++) {
 			this.events.get(i).numero = i;
 		}
 	}
 
+	/**
+	 * Création d'un tableau pour connaitre les passabilités de la Map plus rapidement par la suite.
+	 */
 	private void creerListeDesCasesPassables() {
 		ArrayList<int[][]> layers = new ArrayList<int[][]>();
 		layers.add(this.layer0);
@@ -186,14 +206,14 @@ public class Map {
 		this.casePassable = new boolean[this.largeur][this.hauteur];
 		boolean passable;
 		int numeroDeLaCaseDansLeTileset;
-		for(int i=0; i<this.largeur; i++){
-			for(int j=0; j<this.hauteur; j++){
+		for (int i = 0; i<this.largeur; i++) {
+			for (int j = 0; j<this.hauteur; j++) {
 				passable = true;
 				this.casePassable[i][j] = true;
-				for(int k=0; k<3&&passable; k++){ //si on en trouve une de non passable, on ne cherche pas les autres couches
+				for (int k = 0; k<3&&passable; k++) { //si on en trouve une de non passable, on ne cherche pas les autres couches
 					int[][] layer = layers.get(k);
 					numeroDeLaCaseDansLeTileset = layer[i][j];
-					if(numeroDeLaCaseDansLeTileset!=-1 && !this.tileset.passabilite[numeroDeLaCaseDansLeTileset]){
+					if (numeroDeLaCaseDansLeTileset!=-1 && !this.tileset.passabilite[numeroDeLaCaseDansLeTileset]) {
 						this.casePassable[i][j] = false;
 						passable = false;
 					}
@@ -203,86 +223,26 @@ public class Map {
 	}
 
 	/**
-	 * 
+	 * Va chercher une couche de décor en particulier dans le fichier JSON qui représente la Map.
 	 * @param jsonMap objet JSON représentant la map
 	 * @param numeroCouche numéro de la couche à récuperer
-	 * @return
+	 * @return un tableau bidimentionnel contenant le décor situé sur cette couche
 	 */
-	private int[][] recupererCouche(JSONObject jsonMap, int numeroCouche) {
+	private int[][] recupererCouche(final JSONObject jsonMap, final int numeroCouche) {
 		int[][] couche = new int[largeur][hauteur];
 		JSONArray array = jsonMap.getJSONArray("couche"+numeroCouche);
 		JSONArray ligne;
-		for(int j=0; j<hauteur; j++){
+		for (int j = 0; j<hauteur; j++) {
 			ligne = (JSONArray) array.get(j);
-			for(int i=0; i<largeur; i++){
-				try{
+			for (int i = 0; i<largeur; i++) {
+				try {
 					couche[i][j] = Integer.parseInt((String) ligne.get(i));
-				}catch(ClassCastException e){
+				} catch (ClassCastException e) {
 					couche[i][j] = (Integer) ligne.get(i);
 				}
 			}
 		}
 		return couche;
-	}
-
-	/**
-	 * marcher vers le haut
-	 */
-	public void haut() {
-		lecteur.mettreHerosDansLaBonneDirection();
-		this.heros.avance = true;
-	}
-
-	/**
-	 * marcher vers la gauche
-	 */
-	public void gauche() {
-		lecteur.mettreHerosDansLaBonneDirection();
-		this.heros.avance = true;
-	}
-
-	/**
-	 * marcher vers le bas
-	 */
-	public void bas() {
-		lecteur.mettreHerosDansLaBonneDirection();
-		this.heros.avance = true;
-	}
-
-	/**
-	 * marcher vers la droite
-	 */
-	public void droite() {
-		lecteur.mettreHerosDansLaBonneDirection();
-		this.heros.avance = true;
-	}
-	
-	/**
-	 * attaquer ou parler
-	 */
-	public void action() {
-		toucheActionPressee = true;
-	}
-
-	/**
-	 * changer d'arme
-	 */
-	public void equiperArmeSuivante() {
-		Partie.equiperArmeSuivante();
-	}
-	
-	/**
-	 * changer d'arme
-	 */
-	public void equiperArmePrecedente() {
-		Partie.equiperArmePrecedente();
-	}
-
-	/**
-	 * utiliser objet secondaire
-	 */
-	public void objet() {
-		//TODO
 	}
 
 	/**

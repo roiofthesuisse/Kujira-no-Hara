@@ -21,9 +21,10 @@ import menu.LecteurMenu;
 import menu.Menu;
 
 /**
- * Le lecteur de map affiche la map et les évènements.
+ * Le Lecteur de map affiche la Map et les Events.
+ * Il reçoit les ordres du clavier pour les transcrire en actions.
  */
-public class LecteurMap extends Lecteur{
+public class LecteurMap extends Lecteur {
 	public Map map;
 	public Tileset tilesetActuel = null;
 	private static BufferedImage hudTouches;
@@ -40,6 +41,9 @@ public class LecteurMap extends Lecteur{
 	 * Message à afficher dans la boîte de dialogue.
 	 */
 	public Message messageActuel = null;
+	
+	/** n'est vrai que durant l'action de l'appui, se remet à false tout de suite */
+	public Boolean toucheActionPressee = false;
 	
 	public LecteurMap(Fenetre fenetre){
 		this.fenetre = fenetre;
@@ -296,14 +300,14 @@ public class LecteurMap extends Lecteur{
 	public void keyPressed(int keycode) {
 		switch(keycode){
 			case GestionClavier.ToucheRole.MENU : this.ouvrirLeMenu(); break;
-			case GestionClavier.ToucheRole.HAUT : map.haut(); break;
-			case GestionClavier.ToucheRole.GAUCHE : map.gauche(); break;
-			case GestionClavier.ToucheRole.BAS : map.bas(); break;
-			case GestionClavier.ToucheRole.DROITE : map.droite(); break;
-			case GestionClavier.ToucheRole.ARME_SUIVANTE : map.equiperArmeSuivante(); break;
-			case GestionClavier.ToucheRole.ACTION : map.action(); break;
-			case GestionClavier.ToucheRole.ARME_PRECEDENTE : map.equiperArmePrecedente(); break;
-			case GestionClavier.ToucheRole.ACTION_SECONDAIRE : map.objet(); break;
+			case GestionClavier.ToucheRole.HAUT : this.haut(); break;
+			case GestionClavier.ToucheRole.GAUCHE : this.gauche(); break;
+			case GestionClavier.ToucheRole.BAS : this.bas(); break;
+			case GestionClavier.ToucheRole.DROITE : this.droite(); break;
+			case GestionClavier.ToucheRole.ARME_SUIVANTE : this.equiperArmeSuivante(); break;
+			case GestionClavier.ToucheRole.ACTION : this.action(); break;
+			case GestionClavier.ToucheRole.ARME_PRECEDENTE : this.equiperArmePrecedente(); break;
+			case GestionClavier.ToucheRole.ACTION_SECONDAIRE : this.objet(); break;
 			default : break;
 		}
 	}
@@ -403,6 +407,66 @@ public class LecteurMap extends Lecteur{
 	public void normaliserApparenceDuHerosAvantMessage(){
 		this.map.heros.animation = 0;
 		this.map.heros.animationAttaque = 0;
+	}
+	
+	/**
+	 * marcher vers le haut
+	 */
+	public void haut() {
+		this.mettreHerosDansLaBonneDirection();
+		this.map.heros.avance = true;
+	}
+
+	/**
+	 * marcher vers la gauche
+	 */
+	public void gauche() {
+		this.mettreHerosDansLaBonneDirection();
+		this.map.heros.avance = true;
+	}
+
+	/**
+	 * marcher vers le bas
+	 */
+	public void bas() {
+		this.mettreHerosDansLaBonneDirection();
+		this.map.heros.avance = true;
+	}
+
+	/**
+	 * marcher vers la droite
+	 */
+	public void droite() {
+		this.mettreHerosDansLaBonneDirection();
+		this.map.heros.avance = true;
+	}
+	
+	/**
+	 * attaquer ou parler
+	 */
+	public void action() {
+		this.toucheActionPressee = true;
+	}
+
+	/**
+	 * changer d'arme
+	 */
+	public void equiperArmeSuivante() {
+		Partie.equiperArmeSuivante();
+	}
+	
+	/**
+	 * changer d'arme
+	 */
+	public void equiperArmePrecedente() {
+		Partie.equiperArmePrecedente();
+	}
+
+	/**
+	 * utiliser objet secondaire
+	 */
+	public void objet() {
+		//TODO
 	}
 	
 }
