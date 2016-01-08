@@ -26,7 +26,7 @@ public class DemarrerAnimationAttaque extends CommandeEvent {
 		}
 		final Heros heros = this.page.event.map.heros;
 		final Arme armeActuelle = Fenetre.getPartieActuelle().getArmeEquipee();
-		heros.animationAttaque = armeActuelle.framesDAnimation.size();
+		heros.animationAttaque = armeActuelle.framesDAnimation.length;
 		LecteurAudio.playSe(armeActuelle.nomEffetSonoreAttaque);
 		return curseurActuel+1;
 	}

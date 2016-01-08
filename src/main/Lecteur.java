@@ -36,11 +36,29 @@ public abstract class Lecteur {
 	public Boolean allume = true;
 	public int frameActuelle = 0;
 
+	/**
+	 * Le rôle d'un Lecteur est de calculer l'écran à afficher dans la Fenêtre.
+	 * @return écran à afficher maintenant
+	 */
 	public abstract  BufferedImage calculerAffichage();
+	
+	/**
+	 * Prévenir le Lecteur qu'une touche a été pressée, pour qu'il en déduise une action à faire.
+	 * @param keycode numéro de la touche pressée
+	 */
 	public abstract void keyPressed(int keycode);
+	
+	/**
+	 * Prévenir le Lecteur qu'une touche a été relachée, pour qu'il en déduise une action à faire.
+	 * @param keycode numéro de la touche relachée
+	 */
 	public abstract void keyReleased(Integer keycode);
 	
-	public BufferedImage ecranNoir(){
+	/**
+	 * Produire un rectangle noir pour l'afficher comme écran
+	 * @return un rectangle noir
+	 */
+	public final BufferedImage ecranNoir() {
 		int largeur = Fenetre.LARGEUR_ECRAN;
 		int hauteur = Fenetre.HAUTEUR_ECRAN;
 		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
@@ -50,16 +68,26 @@ public abstract class Lecteur {
 		return image;
 	}
 	
-	public BufferedImage imageVide(int largeur, int hauteur){
+	/**
+	 * Produire un rectangle vide
+	 * @param largeur du rectangle
+	 * @param hauteur du rectangle
+	 * @return un rectangle sans couleur
+	 */
+	public final BufferedImage imageVide(final int largeur, final int hauteur) {
 		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
-		Color couleur = new Color(0,0,0,0);
+		Color couleur = new Color(0, 0, 0, 0);
 		Graphics2D graphics = image.createGraphics();
 		graphics.setPaint(couleur);
 		graphics.fillRect(0, 0, largeur, hauteur);
 		return image;
 	}
 	
-	public static void sauvegarderImage(BufferedImage image){
+	/**
+	 * Enregistrer une image dans l'ordinateur
+	 * @param image à enregistrer
+	 */
+	public static void sauvegarderImage(final BufferedImage image) {
 		try {
 			File outputfile = new File("C:/Users/RoiOfTheSuisse/Pictures/saved.png");
 			ImageIO.write(image, "png", outputfile);
@@ -68,39 +96,55 @@ public abstract class Lecteur {
 		}
 	}
 	
-	public BufferedImage superposerImages(BufferedImage ecran, BufferedImage image2, int x, int y){
+	/**
+	 * Superposer deux images
+	 * @param ecran image de fond, sur laquelle on va superposer l'autre
+	 * @param image2 image du dessus, superposée sur l'écran
+	 * @param x position x où on superpose l'image2
+	 * @param y position y où on superpose l'image2
+	 * @return écran sur lequel on a superposé l'image2
+	 */
+	public final BufferedImage superposerImages(final BufferedImage ecran, final BufferedImage image2, final int x, final int y) {
 		final BufferedImage image1 = ecran;
 		int largeur = image1.getWidth();
 		int hauteur = image1.getHeight();
-		BufferedImage image3 = new BufferedImage (largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
-		Graphics2D g2d = image3.createGraphics ();
-		g2d.drawImage (image1, null, 0, 0);
+		BufferedImage image3 = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
+		Graphics2D g2d = image3.createGraphics();
+		g2d.drawImage(image1, null, 0, 0);
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));
-		g2d.drawImage (image2, null, x, y);
-		g2d.dispose ();
+		g2d.drawImage(image2, null, x, y);
+		g2d.dispose();
 		return image3;
 	}
 	
-	public String getNomBgm(){
-		if(this instanceof LecteurMap){
-			return ((LecteurMap)this).map.nomBGM;
-		}else if(this instanceof LecteurMenu){
-			return ((LecteurMenu)this).menu.nomBGM;
+	/***
+	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Manu ou la Map
+	 * @return nom du BGM à jouer
+	 */
+	public final String getNomBgm() {
+		if (this instanceof LecteurMap) {
+			return ((LecteurMap) this).map.nomBGM;
+		} else if (this instanceof LecteurMenu) {
+			return ((LecteurMenu) this).menu.nomBGM;
 		}
 		return null;
 	}
 	
-	public void demarrer(){
+	/**
+	 * Démarrer le Lecteur.
+	 * Le Lecteur est allumé, la musique est lue, un écran est affiché à chaque frame.
+	 */
+	public final void demarrer() {
 		this.allume = true;
-		String typeLecteur = this.getClass().getName().equals(LecteurMap.class.getName())? "LecteurMap":"LecteurMenu";
+		String typeLecteur = this.getClass().getName().equals(LecteurMap.class.getName()) ? "LecteurMap" : "LecteurMenu";
 		System.out.println("Un nouveau "+typeLecteur+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm(), 1.0f);
-		while(this.allume){
+		while (this.allume) {
 			Date d1 = new Date();
 			this.ecranAtuel = calculerAffichage();
 			Date d2 = new Date();
 			long dureeEffectiveDeLaFrame = d2.getTime()-d1.getTime();
-			if(dureeEffectiveDeLaFrame < Lecteur.DUREE_FRAME){
+			if (dureeEffectiveDeLaFrame < Lecteur.DUREE_FRAME) {
 				//si l'affichage a pris moins de temps que la durée attendue, on attend que la frame se termine
 				try {
 					Thread.sleep(Lecteur.DUREE_FRAME-dureeEffectiveDeLaFrame);

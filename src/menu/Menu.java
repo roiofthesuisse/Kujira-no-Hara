@@ -5,8 +5,11 @@ import java.util.Random;
 
 import son.LecteurAudio;
 
+/**
+ * Un Menu est constitué d'images et de Textes, éventuellement sélectionnables.
+ */
 public abstract class Menu {
-	public int identite = (new Random()).nextInt(100);
+	public int identite = (new Random()).nextInt(100); //TODO c'est quoi ça ? importer le Menu depuis un fichier JSON
 	public LecteurMenu lecteur;
 	public ArrayList<Texte> textes;
 	public ArrayList<ElementDeMenu> elements;

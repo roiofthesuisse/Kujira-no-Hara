@@ -12,15 +12,22 @@ import main.GestionClavier;
 import map.LecteurMap;
 import menu.Texte;
 
-public class Message extends CommandeEvent{
+/**
+ * Afficher un Message dans une boîte de dialogue
+ */
+public class Message extends CommandeEvent {
+	//constantes
+	private static final int MARGE_DU_TEXTE = 24;
+	
 	public String texte;
 	public BufferedImage image;
 	public Boolean leRelachementDeToucheAEuLieu = false;
 	
 	/**
-	 * Constructeur spécifique
+	 * Constructeur explicite
+	 * @param texte affiché dans la boîte de dialogue
 	 */
-	public Message(String texte) {
+	public Message(final String texte) {
 		this.texte = texte;
 	}
 	
@@ -28,21 +35,21 @@ public class Message extends CommandeEvent{
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public Message(HashMap<String,Object> parametres){
+	public Message(final HashMap<String, Object> parametres) {
 		this( (String) parametres.get("texte") );
 	}
 
 	@Override
-	public int executer(int curseurActuel, ArrayList<CommandeEvent> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
 		LecteurMap lecteur = this.page.event.map.lecteur;
 		lecteur.normaliserApparenceDuHerosAvantMessage();
 		//si le message à afficher est différent du message affiché, on change !
-		if( lecteur.messageActuel==null || !lecteur.messageActuel.equals(texte) ){
+		if ( lecteur.messageActuel==null || !lecteur.messageActuel.equals(texte) ) {
 			lecteur.messageActuel = this;
 			try {
 				BufferedImage imageMessage = ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\parchotexte.png"));
 				Texte t = new Texte(texte);
-				imageMessage = lecteur.superposerImages(imageMessage, t.texteToImage(), 24, 24);
+				imageMessage = lecteur.superposerImages(imageMessage, t.texteToImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
 				this.image = imageMessage;
 				//lecteur.stopEvent = true; //TODO à enlever, gestion via la condition parler
 			} catch (IOException e) {
@@ -52,17 +59,17 @@ public class Message extends CommandeEvent{
 			
 		}
 		//si la touche action est relachée, la prochaine fois qu'elle sera pressé sera une nouvelle input
-		if( !lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION) ){
+		if ( !lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION) ) {
 			leRelachementDeToucheAEuLieu = true;
 		}
 		//et cette nouvelle input servira à fermer le message
-		if(leRelachementDeToucheAEuLieu && lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION)){
+		if (leRelachementDeToucheAEuLieu && lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION)) {
 			//on ferme le message
 			lecteur.messageActuel = null;
 			//lecteur.stopEvent = false; //TODO à enlever, gestion via la condition parler
 			leRelachementDeToucheAEuLieu = false;
 			return curseurActuel+1;
-		}else{
+		} else {
 			//on laisse le message ouvert
 			return curseurActuel;
 		}

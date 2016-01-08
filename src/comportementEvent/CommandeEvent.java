@@ -2,8 +2,8 @@ package comportementEvent;
 
 import java.util.ArrayList;
 
-import map.GenerateurAleatoire;
 import map.PageDeComportement;
+import utilitaire.GenerateurAleatoire;
 
 /**
  * Chaque Page de comportement d'un Event contient des Commandes.

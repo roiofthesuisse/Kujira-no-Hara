@@ -1,14 +1,21 @@
 package conditions;
 
-public class ConditionStopEvent extends Condition{
+/**
+ * Vérifier si le Lecteur de Map a figé tous les Events 
+ */
+public class ConditionStopEvent extends Condition {
 	boolean valeurQuIlEstCenseAvoir;
 	
-	public ConditionStopEvent(boolean valeur){
+	/**
+	 * Constructeur explicite
+	 * @param valeur attendue
+	 */
+	public ConditionStopEvent(final boolean valeur) {
 		this.valeurQuIlEstCenseAvoir = valeur;
 	}
 	
 	@Override
-	public Boolean estVerifiee() {
+	public final Boolean estVerifiee() {
 		return page.event.map.lecteur.stopEvent == valeurQuIlEstCenseAvoir;
 	}
 

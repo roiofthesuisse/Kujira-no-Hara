@@ -2,17 +2,25 @@ package conditions;
 
 import map.Event;
 
-public class ConditionDirection extends Condition{
+/**
+ * Est-ce que l'Event regarde dans cette Direction ?
+ */
+public class ConditionDirection extends Condition {
 	Event eventConcerne;
 	int directionVoulue;
 	
-	public ConditionDirection(Event event, int direction){
+	/**
+	 * Constructeur explicite
+	 * @param event dont on vérifie la direction
+	 * @param direction attendue
+	 */
+	public ConditionDirection(final Event event, final int direction) {
 		this.eventConcerne = event;
 		this.directionVoulue = direction;
 	}
 	
 	@Override
-	public Boolean estVerifiee() {
+	public final Boolean estVerifiee() {
 		return eventConcerne.direction==directionVoulue;
 	}
 

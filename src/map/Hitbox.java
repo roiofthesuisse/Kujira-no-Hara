@@ -126,23 +126,39 @@ public class Hitbox {
 		LecteurMap.sauvegarderImage(img);
 	}
 	
-	public static Boolean lesDeuxRectanglesSeChevauchent(int x1min, int x1max, int y1min, int y1max, int x2min, int x2max, int y2min, int y2max, int largHitbox, int hautHitbox, int largHitboxAutre, int hautHitboxAutre){
+	/**
+	 * Calcule si deux rectangles se chevauchent.
+	 * @param x1min coordonnée x minimale du rectangle 1
+	 * @param x1max coordonnée x maximale du rectangle 1
+	 * @param y1min coordonnée y minimale du rectangle 1
+	 * @param y1max coordonnée y maximale du rectangle 1
+	 * @param x2min coordonnée x minimale du rectangle 2
+	 * @param x2max coordonnée x maximale du rectangle 2
+	 * @param y2min coordonnée y minimale du rectangle 2
+	 * @param y2max coordonnée y maximale du rectangle 2
+	 * @param largHitbox largeur du rectangle 1 (non recalculé pour les parformances)
+	 * @param hautHitbox hauteur du rectangle 1 (non recalculé pour les parformances)
+	 * @param largHitboxAutre largeur du rectangle 2 (non recalculé pour les parformances)
+	 * @param hautHitboxAutre hauteur du rectangle 2 (non recalculé pour les parformances)
+	 * @return true si les rectangles se chevauchent, false sinon
+	 */
+	public static final Boolean lesDeuxRectanglesSeChevauchent(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max, final int largHitbox, final int hautHitbox, final int largHitboxAutre, final int hautHitboxAutre) {
 		//premier cas : deux coins se chevauchent
 		Boolean deuxCoinsSeChevauchent = ((x1min<=x2min && x2min<x1max && x1max<=x2max)
 										 	||(x2min<=x1min && x1min<x2max && x2max<=x1max))
 									  && ((y1min<=y2min && y2min<y1max && y1max<=y2max)
 											||(y2min<=y1min && y1min<y2max && y2max<=y1max));
-		if(deuxCoinsSeChevauchent){
+		if (deuxCoinsSeChevauchent) {
 			return true; 
 		}
 		
-		if(largHitbox==largHitboxAutre && hautHitbox==hautHitboxAutre){
+		if (largHitbox==largHitboxAutre && hautHitbox==hautHitboxAutre) {
 			//si deux events ont la même taille, ils ne peuvent se chevaucher que par le coin
 			//(pour être plus exact : le cas où deux events de même taille se chevauchent par l'arête est un cas particulier de la formule du chevauchement par coin)
 			return false;
 		}
 		
-		if(largHitbox!=largHitboxAutre){ //si deux events n'ont pas la même largeur, ils peuvent se chevaucher par arête horizontale
+		if (largHitbox!=largHitboxAutre) { //si deux events n'ont pas la même largeur, ils peuvent se chevaucher par arête horizontale
 			//deuxième cas : deux cotés de chevauchent
 			Boolean deuxCotesSeChevauchent = ((x1min<=x2min && x2max<=x1max)&&((y2min<=y1min && y1min<y2max && y2max<=y1max)||(y1min<=y2min && y2min<y1max && y1max<=y2max)))
 										  || ((x2min<=x1min && x1max<=x2max)&&((y1min<=y2min && y2min<y1max && y1max<=y2max)||(y2min<=y1min && y1min<y2max && y2max<=y1max)));
@@ -151,15 +167,15 @@ public class Hitbox {
 											&& ((y2min<y1min && y1min<y2max)||(y2min<y1max && y1max<y2max)))
 										   ||(((x1min<x2min && x2min<x1max)||(x1min<x2max && x2max<x1max)) 
 											&& ((y1min<y2min && y2min<y1max)||(y1min<y2max && y2max<y1max)));*/
-			if(deuxCotesSeChevauchent){
+			if (deuxCotesSeChevauchent) {
 				return true;
 			}
 		}
-		if(hautHitbox!=hautHitboxAutre){ //si deux events n'ont pas la même hauteur, ils peuvent se chevaucher par arête verticale
+		if (hautHitbox!=hautHitboxAutre) { //si deux events n'ont pas la même hauteur, ils peuvent se chevaucher par arête verticale
 			//deuxième cas : deux cotés de chevauchent
 			Boolean deuxCotesSeChevauchent = ((y1min<=y2min && y2max<=y1max)&&((x2min<=x1min && x1min<x2max && x2max<=x1max)||(x1min<=x2min && x2min<x1max && x1max<=x2max)))
 										  || ((y2min<=y1min && y1max<=y2max)&&((x1min<=x2min && x2min<x1max && x1max<=x2max)||(x2min<=x1min && x1min<x2max && x2max<=x1max)));
-			if(deuxCotesSeChevauchent){
+			if (deuxCotesSeChevauchent) {
 				return true;
 			}
 		}

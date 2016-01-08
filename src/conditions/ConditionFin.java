@@ -1,13 +1,20 @@
 package conditions;
 
-public class ConditionFin extends Condition{
+/**
+ * Balise "fin" de la Condition située parmi les Commandes Event.
+ */
+public class ConditionFin extends Condition {
 
-	public ConditionFin(int numero){
+	/**
+	 * Constructeur explicite
+	 * @param numero de la Condition
+	 */
+	public ConditionFin(final int numero) {
 		this.numero = numero;
 	}
 	
 	@Override
-	public Boolean estVerifiee() {
+	public final Boolean estVerifiee() {
 		return true;
 	}
 

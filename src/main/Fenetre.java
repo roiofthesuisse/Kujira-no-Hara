@@ -156,7 +156,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 		final Integer keyCode = event.getKeyCode();
 		if (!this.touchesPressees.contains(keyCode)) {
 			this.touchesPressees.add(keyCode);
-			GestionClavier.keyPressed(keyCode, this);
+			GestionClavier.keyPressed(keyCode, this.lecteur);
 		}
 	}
 
@@ -164,7 +164,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public void keyReleased(final KeyEvent event) {
 		final Integer keyCode = event.getKeyCode();
 		this.touchesPressees.remove(keyCode);
-		GestionClavier.keyReleased(keyCode, this);
+		GestionClavier.keyReleased(keyCode, this.lecteur);
 	}
 
 	@Override

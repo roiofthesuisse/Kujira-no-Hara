@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Fenetre;
-import main.Partie;
 
 /**
  * Equiper le Heros avec une Arme qu'il possède

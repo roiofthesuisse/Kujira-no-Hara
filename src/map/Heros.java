@@ -104,7 +104,7 @@ public class Heros extends Event {
 	public final void deplacer() {
 		if (animationAttaque > 0) {
 			//pas de déplacement si animation d'attaque
-			this.animation = Fenetre.getPartieActuelle().getArmeEquipee().framesDAnimation.get(animationAttaque-1);
+			this.animation = Fenetre.getPartieActuelle().getArmeEquipee().framesDAnimation[animationAttaque-1];
 			
 			animationAttaque--;
 		} else {

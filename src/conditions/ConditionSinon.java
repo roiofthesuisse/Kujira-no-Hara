@@ -1,13 +1,20 @@
 package conditions;
 
-public class ConditionSinon extends Condition{
+/**
+ * Balise "sinon" de la Condition située parmi les Commandes Event.
+ */
+public class ConditionSinon extends Condition {
 
-	public ConditionSinon(int numero){
+	/**
+	 * Constructeur explicite
+	 * @param numero de la Condition
+	 */
+	public ConditionSinon(final int numero) {
 		this.numero = numero;
 	}
 	
 	@Override
-	public Boolean estVerifiee() {
+	public final Boolean estVerifiee() {
 		return false;
 	}
 

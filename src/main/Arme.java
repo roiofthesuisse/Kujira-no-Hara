@@ -3,13 +3,28 @@ package main;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
 import map.Hitbox;
 
+/**
+ * Le Héros peut utiliser un certain nombre d'Armes contre les Events ennemis.
+ */
 public class Arme {
+	//constantes
+	public static final int ID_EPEE = 0;
+	public static final Hitbox ZONE_ATTAQUE_EPEE = new Hitbox(24, 48);
+	public static final int FRAME_DEBUT_COUP_EPEE = 1;
+	public static final int FRAME_FIN_COUP_EPEE = 5;
+	public static final int[] FRAMES_ANIMATION_EPEE = {3, 2, 2, 1, 1, 0, 0};
+	
+	public static final int ID_EVENTAIL = 1;
+	public static final Hitbox ZONE_ATTAQUE_EVENTAIL = new Hitbox(5*Fenetre.TAILLE_D_UN_CARREAU, 16);
+	public static final int FRAME_DEBUT_COUP_EVENTAIL = 3;
+	public static final int FRAME_FIN_COUP_EVENTAIL = 7;
+	public static final int[] FRAMES_ANIMATION_EVENTAIL = {0, 0, 0, 1, 1, 1, 0, 0};
+	
 	/**
 	 * Chaque arme possède un id propre. 
 	 * 0 pour l'épée, 1 pour la torche etc.
@@ -24,7 +39,7 @@ public class Arme {
 	 * Pour faire rester une image plus longtemps à l'écran, l'ajouter plusieurs fois à la liste.
 	 * La dernière image de la liste est affichée en premier, car l'affichage est décrémentaire.
 	 */
-	public ArrayList<Integer> framesDAnimation;
+	public int[] framesDAnimation;
 	private static Arme[] armesDuJeu = new Arme[10];
 	public Hitbox hitbox;
 	/**
@@ -39,14 +54,19 @@ public class Arme {
 	public int frameFinCoup;
 	
 	/**
-	 * @param id
-	 * @param nom
-	 * @param nomImageAttaque
-	 * @param framesDAnimation
+	 * @param id chaque Arme a un identifiant
+	 * @param nom chaque Arme a un nom
+	 * @param nomImageAttaque nom de l'image du Héros utilisant cette l'Arme
+	 * @param nomEffetSonoreAttaque nom du fichier sonore joué lors de l'utilisation
+	 * @param framesDAnimation séquence des vignettes à afficher lors de l'animation d'attaque
+	 * @param hitbox zone d'attaque qu'on peut atteindre
+	 * @param frameDebutCoup frame de l'animation d'attaque où le coup commence réellement
+	 * @param frameFinCoup frame de l'animation d'attaque où le coup est terminé
+	 * @param nomIcone nom du fichier image de l'icone de l'Arme
 	 */
-	public Arme(int id, String nom, String nomImageAttaque, String nomEffetSonoreAttaque, 
-			ArrayList<Integer> framesDAnimation, Hitbox hitbox, int frameDebutCoup, 
-			int frameFinCoup, String nomIcone){
+	public Arme(final int id, final String nom, final String nomImageAttaque, final String nomEffetSonoreAttaque, 
+			final int[] framesDAnimation, final Hitbox hitbox, final int frameDebutCoup, 
+			final int frameFinCoup, final String nomIcone) {
 		this.id = id;
 		this.nom = nom;
 		this.nomImageAttaque = nomImageAttaque;
@@ -70,10 +90,10 @@ public class Arme {
 	 * @param idArme identifiant de l'arme souhaitée
 	 * @return arme dont l'identifiant est idArme
 	 */
-	public static Arme getArme(int idArme) {
-		try{
+	public static Arme getArme(final int idArme) {
+		try {
 			return armesDuJeu[idArme];
-		}catch(Exception e){
+		} catch (Exception e) {
 			return null;
 		}
 	}
@@ -81,29 +101,14 @@ public class Arme {
 	/**
 	 * initialiser la liste des armes du jeu
 	 */
-	public static void initialiserLesArmesDuJeu(){
-		//TODO importer les armes du jeu à partir d'un fichier texte
+	public static void initialiserLesArmesDuJeu() {
+		//TODO importer les armes du jeu à partir d'un fichier texte plutôt qu'avec des constantes
 		
 		//épée
-			ArrayList<Integer> framesAnimationEpee = new ArrayList<Integer>();
-			framesAnimationEpee.add(3);framesAnimationEpee.add(2);framesAnimationEpee.add(2);framesAnimationEpee.add(1);framesAnimationEpee.add(1);framesAnimationEpee.add(0);framesAnimationEpee.add(0);
-			Hitbox hitboxEpee = new Hitbox(24,48);
-			int idEpee = 0;
-			int frameDebutCoupEpee = 1;
-			int frameFinCoupEpee = 5;
-			Arme epee = new Arme(idEpee,"epee","Jiyounasu AttaqueEpee character.png", "Epee.wav", framesAnimationEpee,hitboxEpee,frameDebutCoupEpee,frameFinCoupEpee, "epee2 icon.png");
-			Arme.armesDuJeu[idEpee] = epee;
+		Arme.armesDuJeu[ID_EPEE] = new Arme(ID_EPEE, "epee", "Jiyounasu AttaqueEpee character.png", "Epee.wav", FRAMES_ANIMATION_EPEE, ZONE_ATTAQUE_EPEE, FRAME_DEBUT_COUP_EPEE, FRAME_FIN_COUP_EPEE, "epee2 icon.png");
 			
 		//eventail
-			ArrayList<Integer> framesAnimationEventail = new ArrayList<Integer>();
-			framesAnimationEventail.add(0);framesAnimationEventail.add(0);framesAnimationEventail.add(0);framesAnimationEventail.add(1);framesAnimationEventail.add(1);framesAnimationEventail.add(1);
-			framesAnimationEventail.add(0);framesAnimationEventail.add(0);
-			Hitbox hitboxEventail = new Hitbox(5*32,16);
-			int idEventail = 1;
-			int frameDebutCoupEventail = 3;
-			int frameFinCoupEventail = 7;
-			Arme eventail = new Arme(idEventail,"eventail","Jiyounasu Eventail character.png", "Eventail.mp3", framesAnimationEventail,hitboxEventail,frameDebutCoupEventail,frameFinCoupEventail, "eventail icon.png");
-			Arme.armesDuJeu[idEventail] = eventail;
+		Arme.armesDuJeu[ID_EVENTAIL] = new Arme(ID_EVENTAIL, "eventail", "Jiyounasu Eventail character.png", "Eventail.mp3", FRAMES_ANIMATION_EVENTAIL, ZONE_ATTAQUE_EVENTAIL, FRAME_DEBUT_COUP_EVENTAIL, FRAME_FIN_COUP_EVENTAIL, "eventail icon.png");
 			
 		//autre
 			//TODO autres armes

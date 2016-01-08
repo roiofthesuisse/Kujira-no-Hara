@@ -8,7 +8,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import main.Fenetre;
-import main.Partie;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -38,6 +37,7 @@ public class Map {
 	public boolean[][] casePassable;
 	
 	/**
+	 * Constructeur explicite
 	 * @param numero de la Map, c'est-à-dire numéro du fichier map (au format JSON) à charger
 	 * @param lecteur de la Map
 	 * @param xDebutHerosArg position x du Heros à son arrivée sur la Map
@@ -246,14 +246,14 @@ public class Map {
 	}
 
 	/**
-	 * Mettre en attente dans la liste de suppression.
-	 * L'évènement sera supprimé à la fin de la boucle d'affichage
-	 * @param numeroEventASupprimer
-	 * @return booléen pour savoir si l'évent à supprimer a bien été trouvé dans la liste des évènements
+	 * Inscrire l'Event dans la liste des Events en attente de suppression
+	 * L'Event sera supprimé à la fin de la boucle d'affichage.
+	 * @param numeroEventASupprimer numéro de l'Event qu'il faut inscrire à la suppression
+	 * @return booléen pour savoir si l'Event à supprimer a bien été trouvé dans la liste des évènements
 	 */
-	public boolean supprimerEvenement(int numeroEventASupprimer) {
-		for(Event event : this.events){
-			if(event.numero == numeroEventASupprimer){
+	public final boolean supprimerEvenement(final int numeroEventASupprimer) {
+		for (Event event : this.events) {
+			if (event.numero == numeroEventASupprimer) {
 				event.supprime = true;
 				return true;
 			}
