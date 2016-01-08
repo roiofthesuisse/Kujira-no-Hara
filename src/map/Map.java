@@ -156,8 +156,8 @@ public class Map {
 					*/
 					//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
 					JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
-					int hauteurHitbox = jsonEventGenerique.getInt("largeur");
-					int largeurHitbox = jsonEventGenerique.getInt("hauteur");
+					int largeurHitbox = jsonEventGenerique.getInt("largeur");
+					int hauteurHitbox = jsonEventGenerique.getInt("hauteur");
 					int direction = Event.Direction.obtenirDirectionViaJson(jsonEventGenerique);
 					JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
 					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
@@ -172,8 +172,8 @@ public class Map {
 					*/
 				} catch (Exception e3) {
 					//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
-					int hauteurHitbox = jsonEvent.getInt("largeur");
-					int largeurHitbox = jsonEvent.getInt("hauteur");
+					int largeurHitbox = jsonEvent.getInt("largeur");
+					int hauteurHitbox = jsonEvent.getInt("hauteur");
 					int direction = Event.Direction.obtenirDirectionViaJson(jsonEvent);
 					JSONArray jsonPages = jsonEvent.getJSONArray("pages");
 					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);

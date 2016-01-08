@@ -22,8 +22,8 @@ import menu.Menu;
  */
 public class LecteurMap extends Lecteur {
 	//constantes
-	private static final int X_AFFICHAGE_ARME = 511;
-	private static final int Y_AFFICHAGE_ARME = 56;
+	private static final int X_AFFICHAGE_ARME = 612;
+	private static final int Y_AFFICHAGE_ARME = 4;
 	private static final int X_AFFICHAGE_MESSAGE = 76;
 	private static final int Y_AFFICHAGE_MESSAGE = 320;
 	
@@ -92,7 +92,7 @@ public class LecteurMap extends Lecteur {
 		}
 		
 		//DEBUG pour voir la hitbox de l'attaque du héros
-		//ecran = dessinerLaHitboxDuHeros(ecran,xCamera,yCamera);
+		//ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 		
 		//on dessine les évènements
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera);
@@ -119,18 +119,17 @@ public class LecteurMap extends Lecteur {
 	 * @param ecran sur lequel on dessine les jauges
 	 * @return écran avec les jauges dessinées
 	 */
-	private BufferedImage dessinerLesJauges(final BufferedImage ecran) {
-		BufferedImage ecranModifie = ecran;
+	private BufferedImage dessinerLesJauges(BufferedImage ecran) {
 		//touches
 		//ecran = superposerImages(ecran, hudTouches, 496, 0);
 		
 		//icone de l'arme equipée
 		try {
-			ecranModifie = superposerImages(ecranModifie, Fenetre.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
+			ecran = superposerImages(ecran, Fenetre.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
 		} catch (NullPointerException e) {
 			//pas d'arme équipée
 		}
-		return ecranModifie;
+		return ecran;
 	}
 
 	/**
@@ -141,7 +140,7 @@ public class LecteurMap extends Lecteur {
 	 * @return écran avec la Hitbox du Héros dessinée dessus
 	 */
 	@SuppressWarnings("unused")
-	private BufferedImage dessinerLaHitboxDuHeros(final BufferedImage ecran, final int xCamera, final int yCamera) {
+	private BufferedImage dessinerLaHitboxDuHeros(BufferedImage ecran, final int xCamera, final int yCamera) {
 		try {
 			final int[] coord = Hitbox.calculerCoordonneesAbsolues(this.map.heros);
 			final int xminHitbox = coord[0];
@@ -197,20 +196,19 @@ public class LecteurMap extends Lecteur {
 	 * @param yCamera position y de la caméra
 	 * @return écran avec les Events dessinés dessus
 	 */
-	private BufferedImage dessinerLesEvents(final BufferedImage ecran, final int xCamera, final int yCamera) {
-		BufferedImage ecranModifie = ecran;
+	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera) {
 		try {
 			Collections.sort(this.map.events, this.comparateur); //on trie les events du plus derrière au plus devant
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
-					ecranModifie = dessinerEvent(ecran, event, xCamera, yCamera);
+					ecran = dessinerEvent(ecran, event, xCamera, yCamera);
 				}
 			}
 		} catch (Exception e) {
 			System.out.println("Erreur lors du dessin des évènements :");
 			e.printStackTrace();
 		}
-		return ecranModifie;
+		return ecran;
 	}
 
 	/**

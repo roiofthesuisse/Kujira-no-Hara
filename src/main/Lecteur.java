@@ -104,8 +104,8 @@ public abstract class Lecteur {
 	 * @param y position y où on superpose l'image2
 	 * @return écran sur lequel on a superposé l'image2
 	 */
-	public final BufferedImage superposerImages(final BufferedImage ecran, final BufferedImage image2, final int x, final int y) {
-		final BufferedImage image1 = ecran;
+	public final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y) {
+		BufferedImage image1 = ecran;
 		int largeur = image1.getWidth();
 		int hauteur = image1.getHeight();
 		BufferedImage image3 = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
