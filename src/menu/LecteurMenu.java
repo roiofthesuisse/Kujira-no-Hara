@@ -51,7 +51,7 @@ public class LecteurMenu extends Lecteur {
 	}
 
 	@Override
-	public final void keyPressed(final int keycode) {
+	public final void keyPressed(final Integer keycode) {
 		switch(keycode) {
 			case GestionClavier.ToucheRole.ACTION : menu.confirmer(); break;
 			case GestionClavier.ToucheRole.HAUT : menu.selectionnerElementEnHaut(); break; //z

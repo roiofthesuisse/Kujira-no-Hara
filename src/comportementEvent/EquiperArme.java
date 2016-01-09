@@ -24,7 +24,7 @@ public class EquiperArme extends CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public EquiperArme(final HashMap<String, Object> parametres) {
-		this( (Integer) parametres.get("idArme") );
+		this( (int) parametres.get("idArme") );
 	}
 	
 	@Override

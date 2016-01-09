@@ -239,7 +239,7 @@ public class Map {
 				try {
 					couche[i][j] = Integer.parseInt((String) ligne.get(i));
 				} catch (ClassCastException e) {
-					couche[i][j] = (Integer) ligne.get(i);
+					couche[i][j] = (int) ligne.get(i);
 				}
 			}
 		}

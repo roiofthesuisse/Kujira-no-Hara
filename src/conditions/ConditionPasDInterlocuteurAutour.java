@@ -11,7 +11,7 @@ import map.PageDeComportement;
 public class ConditionPasDInterlocuteurAutour extends Condition {
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		ArrayList<Event> events = this.page.event.map.events;
 		for (Event event : events) {
 			if (event.pages!=null) {

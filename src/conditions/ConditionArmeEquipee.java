@@ -18,7 +18,7 @@ public class ConditionArmeEquipee extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		if (partieActuelle.idArmesPossedees.size()>0) {
 			return partieActuelle.getArmeEquipee().id == this.idArme;

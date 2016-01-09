@@ -18,12 +18,12 @@ public class ConditionDansZoneDAttaque extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
-		final Boolean estCeQueLeHerosAUneArme = (Fenetre.getPartieActuelle().idArmesPossedees.size() > 0);
+	public final boolean estVerifiee() {
+		final boolean estCeQueLeHerosAUneArme = (Fenetre.getPartieActuelle().idArmesPossedees.size() > 0);
 		if (estCeQueLeHerosAUneArme) {
 			final Heros heros = this.page.event.map.heros;
 			final Event event = this.page.event;
-			final Boolean reponse = Hitbox.estDansZoneDAttaque(event, heros);
+			final boolean reponse = Hitbox.estDansZoneDAttaque(event, heros);
 			return reponse;
 		} else {
 			return false;

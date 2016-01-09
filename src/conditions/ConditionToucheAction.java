@@ -14,7 +14,7 @@ public class ConditionToucheAction extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		LecteurMap lecteur = page.event.map.lecteur;
 		if ( lecteur.toucheActionPressee && lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION) ) {
 			lecteur.toucheActionPressee = false;

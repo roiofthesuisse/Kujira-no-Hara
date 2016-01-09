@@ -17,10 +17,10 @@ public class ConditionPendantDureeDAttaque extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		final int animationAttaqueActuelle = this.page.event.map.heros.animationAttaque;
 		final Arme armeActuelle = Fenetre.getPartieActuelle().getArmeEquipee();
-		final Boolean reponse = animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
+		final boolean reponse = animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
 		return reponse;
 	}
 

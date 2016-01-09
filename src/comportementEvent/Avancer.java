@@ -19,7 +19,7 @@ public class Avancer extends CommandeEvent {
 	 * @param direction dans laquelle l'Event doit avancer
 	 * @param nombreDeCarreaux distance parcourue
 	 */
-	public Avancer(final Integer direction, final Integer nombreDeCarreaux) {
+	public Avancer(final int direction, final int nombreDeCarreaux) {
 		this.direction = direction;
 		this.nombreDeCarreaux = nombreDeCarreaux;
 	}
@@ -29,8 +29,8 @@ public class Avancer extends CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Avancer(final HashMap<String, Object> parametres) {
-		this( (Integer) parametres.get("direction"), 
-			  (Integer) parametres.get("nombreDeCarreaux") );
+		this( (int) parametres.get("direction"), 
+			  (int) parametres.get("nombreDeCarreaux") );
 	}
 	
 	/**

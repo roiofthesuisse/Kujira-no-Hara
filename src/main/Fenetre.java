@@ -29,7 +29,7 @@ import utilitaire.GestionClavier;
 @SuppressWarnings("serial")
 public final class Fenetre extends JFrame implements KeyListener {
 	//constantes
-	public static final Integer TAILLE_D_UN_CARREAU = 32;
+	public static final int TAILLE_D_UN_CARREAU = 32;
 	public static final int LARGEUR_ECRAN = 640;
 	public static final int HAUTEUR_ECRAN = 480;
 	

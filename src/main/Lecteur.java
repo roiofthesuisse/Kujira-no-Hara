@@ -33,7 +33,7 @@ public abstract class Lecteur {
 	 * Si le lecteur est allumé, l'affichage est actualisé sans cesse.
 	 * Si le lecteur est éteint, l'affichage arrête sa boucle, et la fenêtre attend un nouveau lecteur.
 	 */
-	public Boolean allume = true;
+	public boolean allume = true;
 	public int frameActuelle = 0;
 
 	/**
@@ -46,7 +46,7 @@ public abstract class Lecteur {
 	 * Prévenir le Lecteur qu'une touche a été pressée, pour qu'il en déduise une action à faire.
 	 * @param keycode numéro de la touche pressée
 	 */
-	public abstract void keyPressed(int keycode);
+	public abstract void keyPressed(Integer keycode);
 	
 	/**
 	 * Prévenir le Lecteur qu'une touche a été relachée, pour qu'il en déduise une action à faire.

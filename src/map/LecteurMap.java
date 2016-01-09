@@ -34,13 +34,13 @@ public class LecteurMap extends Lecteur {
 	public Comparator<Event> comparateur;
 	
 	/** si true, les évènements n'avancent plus naturellement (seuls mouvements forcés autorisés) */
-	public Boolean stopEvent = false; 
+	public boolean stopEvent = false; 
 	
 	/** message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
 	
 	/** n'est vrai que durant l'action de l'appui, se remet à false tout de suite */
-	public Boolean toucheActionPressee = false;
+	public boolean toucheActionPressee = false;
 	
 	/**
 	 * Constructeur explicite
@@ -217,7 +217,7 @@ public class LecteurMap extends Lecteur {
 	private void animerLesEvents() {
 		try {
 			for (Event event : this.map.events) {
-				final Boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
+				final boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
 				if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
 					event.animation = (event.animation+1)%4;
 				}
@@ -334,7 +334,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	@Override
-	public final void keyPressed(final int keycode) {
+	public final void keyPressed(final Integer keycode) {
 		switch(keycode) {
 			case GestionClavier.ToucheRole.MENU : this.ouvrirLeMenu(); break;
 			case GestionClavier.ToucheRole.HAUT : this.haut(); break;

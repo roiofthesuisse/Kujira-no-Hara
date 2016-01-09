@@ -23,7 +23,7 @@ public class ConditionInterrupteurLocal extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		switch(numeroInterrupteur) {
 			case 0 : return eventConcerne.interrupteurLocalA==valeurQuIlEstCenseAvoir;
 			case 1 : return eventConcerne.interrupteurLocalB==valeurQuIlEstCenseAvoir;

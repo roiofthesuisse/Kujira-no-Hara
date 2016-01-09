@@ -15,7 +15,7 @@ public class ElementDeMenu extends Selectionnable {
 	 * @param selectionnable peut-on le sélectionner ?
 	 * @param menu auquel appartient l'Elément
 	 */
-	public ElementDeMenu(final BufferedImage image, final int x, final int y, final Boolean selectionnable, final Menu menu) {
+	public ElementDeMenu(final BufferedImage image, final int x, final int y, final boolean selectionnable, final Menu menu) {
 		this.menu = menu;
 		this.image = image;
 		this.x = x;

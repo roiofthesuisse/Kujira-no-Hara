@@ -14,7 +14,7 @@ public abstract class Condition extends CommandeEvent {
 	 * La Condition est elle vérifiée là maintenant ?
 	 * @return true si vérifiée, false si non vérifiée
 	 */
-	public abstract Boolean estVerifiee();
+	public abstract boolean estVerifiee();
 	
 	/**
 	 * Une Condition est une Commande Event, elle peut être executée pour faire des sauts de curseur.
@@ -28,7 +28,7 @@ public abstract class Condition extends CommandeEvent {
 			return curseurActuel+1;
 		} else {
 			int nouveauCurseur = curseurActuel;
-			Boolean onATrouveLaFinDeSi = false;
+			boolean onATrouveLaFinDeSi = false;
 			while (!onATrouveLaFinDeSi) {
 				nouveauCurseur++;
 				try {

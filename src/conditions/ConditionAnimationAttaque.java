@@ -13,8 +13,8 @@ public class ConditionAnimationAttaque extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
-		Boolean reponse = (this.page.event.map.heros.animationAttaque > 0);
+	public final boolean estVerifiee() {
+		boolean reponse = (this.page.event.map.heros.animationAttaque > 0);
 		return reponse;
 	}
 

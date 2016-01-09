@@ -93,7 +93,7 @@ public class Heros extends Event {
 	}
 	
 	@Override
-	public final Boolean deplacementPossible(final int sens) {
+	public final boolean deplacementPossible(final int sens) {
 		if (this.animationAttaque>0) { //le héros n'avance pas s'il est en animation d'attaque
 			return false;
 		}
@@ -109,7 +109,7 @@ public class Heros extends Event {
 			animationAttaque--;
 		} else {
 			//déplacement selon les touches et les obstacles rencontrés
-			Boolean ilYADeplacement = false;
+			boolean ilYADeplacement = false;
 			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) && !touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
 				if ( deplacementPossible(Event.Direction.HAUT) ) {

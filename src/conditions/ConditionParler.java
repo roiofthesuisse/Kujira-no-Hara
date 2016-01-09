@@ -10,7 +10,7 @@ public class ConditionParler extends Condition {
 	public static int distanceMaxParole = 4; //au dela de cette distance en pixels, le dialogue ne se déclenche pas
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		int pageActive;
 		try {
 			pageActive = this.page.event.pageActive.numero;

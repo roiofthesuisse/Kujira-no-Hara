@@ -13,8 +13,8 @@ public abstract class Selectionnable {
 	public static final int CONTOUR = 16;
 	
 	public Menu menu;
-	public Boolean selectionnable = true;
-	public Boolean selectionne = false;
+	public boolean selectionnable = true;
+	public boolean selectionne = false;
 	public ComportementElementDeMenu comportementSelection;
 	public ComportementElementDeMenu comportementConfirmation;
 	public BufferedImage image;

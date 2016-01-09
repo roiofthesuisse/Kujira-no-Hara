@@ -14,7 +14,7 @@ public class ConditionFin extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		return true;
 	}
 

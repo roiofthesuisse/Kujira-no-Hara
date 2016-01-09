@@ -32,9 +32,9 @@ public class ChangerDeMap extends CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ChangerDeMap(final HashMap<String, Object> parametres) {
-		this( (Integer) parametres.get("numeroNouvelleMap"), 
-			(Integer) parametres.get("xDebutHeros"),
-			(Integer) parametres.get("yDebutHeros")
+		this( (int) parametres.get("numeroNouvelleMap"), 
+			(int) parametres.get("xDebutHeros"),
+			(int) parametres.get("yDebutHeros")
 		);
 	}
 	

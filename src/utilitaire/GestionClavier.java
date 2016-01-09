@@ -44,7 +44,7 @@ public abstract class GestionClavier {
 	 * @param keycode numéro de la touche
 	 * @return true si la touche est utile, false sinon
 	 */
-	public static final Boolean toucheConnue(final int keycode) {
+	public static final boolean toucheConnue(final int keycode) {
 		switch(keycode) {
 			case ToucheCode.Z : return true;
 			case ToucheCode.Q : return true;

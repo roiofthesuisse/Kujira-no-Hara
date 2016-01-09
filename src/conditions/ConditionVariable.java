@@ -36,7 +36,7 @@ public class ConditionVariable extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		final int[] variables = Fenetre.getPartieActuelle().variables;
 		switch (typeInegalite) {
 			case EGALE : return variables[numeroVariable]==valeurQuIlEstCenseAvoir;

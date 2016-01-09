@@ -42,17 +42,17 @@ public class Event implements Comparable<Event> {
 	public int animation = 0;
 	public BufferedImage imageActuelle = null;
 	/** l'Event est-il en train d'avancer en ce moment même ? (utile pour l'animation) */
-	public Boolean avance = false;
+	public boolean avance = false;
 	/** 
 	 * Ces paramètres sont remplis automatiquement au chargement de la page.
 	 */
-	public Boolean animeALArretActuel = false;
-	public Boolean animeEnMouvementActuel = true;
+	public boolean animeALArretActuel = false;
+	public boolean animeEnMouvementActuel = true;
 	public ArrayList<CommandeEvent> deplacementActuel;
-	Boolean repeterLeDeplacementActuel = true;
-	public Boolean ignorerLesMouvementsImpossiblesActuel = false;
-	public Boolean traversableActuel = false;
-	Boolean auDessusDeToutActuel = false;
+	public boolean repeterLeDeplacementActuel = true;
+	public boolean ignorerLesMouvementsImpossiblesActuel = false;
+	public boolean traversableActuel = false;
+	public boolean auDessusDeToutActuel = false;
 	public int largeurHitbox = LARGEUR_HITBOX_PAR_DEFAUT;
 	public int hauteurHitbox = HAUTEUR_HITBOX_PAR_DEFAUT;
 	/**
@@ -62,15 +62,15 @@ public class Event implements Comparable<Event> {
 	int offsetY = 0; 
 	public ArrayList<PageDeComportement> pages;
 	public PageDeComportement pageActive = null;
-	public Boolean interrupteurLocalA = false;
-	public Boolean interrupteurLocalB = false;
-	public Boolean interrupteurLocalC = false;
-	public Boolean interrupteurLocalD = false;
+	public boolean interrupteurLocalA = false;
+	public boolean interrupteurLocalB = false;
+	public boolean interrupteurLocalC = false;
+	public boolean interrupteurLocalD = false;
 	/**
 	 * Lorsque ce marqueur est à true, on considère l'event comme supprimé.
 	 * Ce n'est qu'un simple marqueur : l'event n'est réellement supprimé qu'après la boucle for sur les events.
 	 */
-	public Boolean supprime = false;
+	public boolean supprime = false;
 	
 	/**
 	 * Tout Event regarde dans une Direction.
@@ -202,7 +202,7 @@ public class Event implements Comparable<Event> {
 	 * @param hautHitboxAutre hauteur de la boîte de collision de l'autre Event
 	 * @return true si les deux Events vont se marcher dessus, false s'ils vont rester distants
 	 */
-	private Boolean lesHitboxesSeChevauchent(final int xFutur, final int yFutur, final int largHitbox, final int hautHitbox, final int xAutre, final int yAutre, final int largHitboxAutre, final int hautHitboxAutre) {
+	private boolean lesHitboxesSeChevauchent(final int xFutur, final int yFutur, final int largHitbox, final int hautHitbox, final int xAutre, final int yAutre, final int largHitboxAutre, final int hautHitboxAutre) {
 		final int deltaX = (xFutur-xAutre);
 		final int deltaY = (yFutur-yAutre);
 		final int rayon = (Math.max(largHitbox, hautHitbox)+Math.max(largHitboxAutre, hautHitboxAutre));
@@ -226,13 +226,13 @@ public class Event implements Comparable<Event> {
 	 * @param sens direction dans laquelle l'Event compte avancer
 	 * @return si le déplacement est possible oui ou non
 	 */
-	protected Boolean deplacementPossible(final int sens) {
+	protected boolean deplacementPossible(final int sens) {
 		//si l'Event est lui-même traversable, il peut faire son mouvement
 		if (this.traversableActuel) {
 			return true;
 		}
 		
-		Boolean reponse = true;
+		boolean reponse = true;
 		int xAInspecter = this.x; //pour le décor
 		int yAInspecter = this.y;
 		int xAInspecter2 = this.x; //pour le décor, deuxième case à vérifier si entre deux cases
@@ -412,10 +412,10 @@ public class Event implements Comparable<Event> {
 	public final void activerUnePage() {
 		PageDeComportement pageQuOnChoisitEnRemplacement = null;
 		try {
-			Boolean onATrouveLaPageActive = false;
+			boolean onATrouveLaPageActive = false;
 			for (int i = pages.size()-1; i>=0 && !onATrouveLaPageActive; i--) {
 				final PageDeComportement page = pages.get(i);
-				Boolean cettePageConvient = true;
+				boolean cettePageConvient = true;
 				try {
 					//si une condition est fausse, la page ne convient pas
 					for (int j = 0; j<page.conditions.size() && cettePageConvient; j++) {

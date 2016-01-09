@@ -14,7 +14,7 @@ public class ConditionSinon extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		return false;
 	}
 

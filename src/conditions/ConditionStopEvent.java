@@ -15,7 +15,7 @@ public class ConditionStopEvent extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		return page.event.map.lecteur.stopEvent == valeurQuIlEstCenseAvoir;
 	}
 

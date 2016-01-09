@@ -12,7 +12,7 @@ import map.Heros;
 public class ConditionContact extends Condition {
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		try {
 			int pageActive = this.page.event.pageActive.numero;
 			int cettePage = this.page.numero;

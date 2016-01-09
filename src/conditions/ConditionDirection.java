@@ -20,7 +20,7 @@ public class ConditionDirection extends Condition {
 	}
 	
 	@Override
-	public final Boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		return eventConcerne.direction==directionVoulue;
 	}
 

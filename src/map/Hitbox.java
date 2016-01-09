@@ -30,9 +30,9 @@ public class Hitbox {
 	 * @param h le Héros
 	 * @return true si l'Event est dans la zone d'attaque, false sinon
 	 */
-	public static Boolean estDansZoneDAttaque(final Event e, final Heros h) {
+	public static boolean estDansZoneDAttaque(final Event e, final Heros h) {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
-		final Boolean estCeQueLeHerosAUneArme = (partieActuelle.idArmesPossedees.size() > 0) && partieActuelle.getArmeEquipee()!=null;
+		final boolean estCeQueLeHerosAUneArme = (partieActuelle.idArmesPossedees.size() > 0) && partieActuelle.getArmeEquipee()!=null;
 		if (estCeQueLeHerosAUneArme) {
 			//on calcule les bords de la zone d'attaque en fonction de l'orientation du héros
 			final int[] coord = calculerCoordonneesAbsolues(h);
@@ -142,9 +142,9 @@ public class Hitbox {
 	 * @param hautHitboxAutre hauteur du rectangle 2 (non recalculé pour les parformances)
 	 * @return true si les rectangles se chevauchent, false sinon
 	 */
-	public static final Boolean lesDeuxRectanglesSeChevauchent(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max, final int largHitbox, final int hautHitbox, final int largHitboxAutre, final int hautHitboxAutre) {
+	public static final boolean lesDeuxRectanglesSeChevauchent(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max, final int largHitbox, final int hautHitbox, final int largHitboxAutre, final int hautHitboxAutre) {
 		//premier cas : deux coins se chevauchent
-		Boolean deuxCoinsSeChevauchent = ((x1min<=x2min && x2min<x1max && x1max<=x2max)
+		boolean deuxCoinsSeChevauchent = ((x1min<=x2min && x2min<x1max && x1max<=x2max)
 										 	||(x2min<=x1min && x1min<x2max && x2max<=x1max))
 									  && ((y1min<=y2min && y2min<y1max && y1max<=y2max)
 											||(y2min<=y1min && y1min<y2max && y2max<=y1max));
@@ -160,7 +160,7 @@ public class Hitbox {
 		
 		if (largHitbox!=largHitboxAutre) { //si deux events n'ont pas la même largeur, ils peuvent se chevaucher par arête horizontale
 			//deuxième cas : deux cotés de chevauchent
-			Boolean deuxCotesSeChevauchent = ((x1min<=x2min && x2max<=x1max)&&((y2min<=y1min && y1min<y2max && y2max<=y1max)||(y1min<=y2min && y2min<y1max && y1max<=y2max)))
+			boolean deuxCotesSeChevauchent = ((x1min<=x2min && x2max<=x1max)&&((y2min<=y1min && y1min<y2max && y2max<=y1max)||(y1min<=y2min && y2min<y1max && y1max<=y2max)))
 										  || ((x2min<=x1min && x1max<=x2max)&&((y1min<=y2min && y2min<y1max && y1max<=y2max)||(y2min<=y1min && y1min<y2max && y2max<=y1max)));
 											//autre méthode pour résultat identique :
 										   /*(((x2min<x1min && x1min<x2max)||(x2min<x1max && x1max<x2max)) 
@@ -173,7 +173,7 @@ public class Hitbox {
 		}
 		if (hautHitbox!=hautHitboxAutre) { //si deux events n'ont pas la même hauteur, ils peuvent se chevaucher par arête verticale
 			//deuxième cas : deux cotés de chevauchent
-			Boolean deuxCotesSeChevauchent = ((y1min<=y2min && y2max<=y1max)&&((x2min<=x1min && x1min<x2max && x2max<=x1max)||(x1min<=x2min && x2min<x1max && x1max<=x2max)))
+			boolean deuxCotesSeChevauchent = ((y1min<=y2min && y2max<=y1max)&&((x2min<=x1min && x1min<x2max && x2max<=x1max)||(x1min<=x2min && x2min<x1max && x1max<=x2max)))
 										  || ((y2min<=y1min && y1max<=y2max)&&((x1min<=x2min && x2min<x1max && x1max<=x2max)||(x2min<=x1min && x1min<x2max && x2max<=x1max)));
 			if (deuxCotesSeChevauchent) {
 				return true;
@@ -181,7 +181,7 @@ public class Hitbox {
 		}
 		
 		//troisième cas : une hitbox incluse dans l'autre (pfff faut vraiment le faire exprès lol)
-		Boolean unInclusDansLAutre = ((x1min<=x2min && x2max<=x1max)&&(y1min<=y2min && y2max<=y1max))
+		boolean unInclusDansLAutre = ((x1min<=x2min && x2max<=x1max)&&(y1min<=y2min && y2max<=y1max))
 								   ||((x2min<=x1min && x1max<=x2max)&&(y2min<=y1min && y1max<=y2max));
 		return unInclusDansLAutre;
 	}

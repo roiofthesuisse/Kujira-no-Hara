@@ -25,7 +25,7 @@ public class PageDeComportement {
 	/** numero de la page */
 	public int numero;
 	/** ce flag est automatiquement mis à true si contient une page avec une condition Parler */
-	private Boolean sOuvreParParole = false;
+	private boolean sOuvreParParole = false;
 	
 	/** conditions de déclenchement */
 	public final ArrayList<Condition> conditions;
@@ -43,17 +43,17 @@ public class PageDeComportement {
 	public BufferedImage image = null;
 	
 	//paramètres
-	public Boolean animeALArret = false;
-	public Boolean animeEnMouvement = true;
-	public Boolean traversable = false;
-	public Boolean auDessusDeTout = false;
+	public boolean animeALArret = false;
+	public boolean animeEnMouvement = true;
+	public boolean traversable = false;
+	public boolean auDessusDeTout = false;
 	public int vitesse = Event.VITESSE_PAR_DEFAUT;
 	public int frequence = Event.FREQUENCE_PAR_DEFAUT;
 	
 	//mouvement
 	public final ArrayList<CommandeEvent> deplacement;
-	public Boolean repeterLeDeplacement = true;
-	public Boolean ignorerLesMouvementsImpossibles = false;
+	public boolean repeterLeDeplacement = true;
+	public boolean ignorerLesMouvementsImpossibles = false;
 	
 	/**
 	 * Constructeur explicite de la Page de comportement.
@@ -135,12 +135,12 @@ public class PageDeComportement {
 		this.nomImage = (String) pageJSON.get("image");
 		
 		//propriétés de l'event lors de cette page
-		this.animeALArret = (Boolean) pageJSON.get("animeALArret");
-		this.animeEnMouvement = (Boolean) pageJSON.get("animeEnMouvement");
-		this.traversable = (Boolean) pageJSON.get("traversable");
-		this.auDessusDeTout = (Boolean) pageJSON.get("auDessusDeTout");
-		this.vitesse = (Integer) pageJSON.get("vitesse");
-		this.frequence = (Integer) pageJSON.get("frequence");
+		this.animeALArret = (boolean) pageJSON.get("animeALArret");
+		this.animeEnMouvement = (boolean) pageJSON.get("animeEnMouvement");
+		this.traversable = (boolean) pageJSON.get("traversable");
+		this.auDessusDeTout = (boolean) pageJSON.get("auDessusDeTout");
+		this.vitesse = (int) pageJSON.get("vitesse");
+		this.frequence = (int) pageJSON.get("frequence");
 		
 		//mouvement de l'event lors de cette page
 		this.deplacement = new ArrayList<CommandeEvent>();
@@ -165,8 +165,8 @@ public class PageDeComportement {
 				e.printStackTrace();
 			}
 		}
-		this.repeterLeDeplacement = (Boolean) pageJSON.get("repeterLeDeplacement");
-		this.ignorerLesMouvementsImpossibles = (Boolean) pageJSON.get("ignorerLesMouvementsImpossibles");
+		this.repeterLeDeplacement = (boolean) pageJSON.get("repeterLeDeplacement");
+		this.ignorerLesMouvementsImpossibles = (boolean) pageJSON.get("ignorerLesMouvementsImpossibles");
 		
 		//ouverture de l'image d'apparence
 		try {
@@ -205,7 +205,7 @@ public class PageDeComportement {
 						this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
 					}
 				}
-				Boolean onAvanceDansLesCommandes = true;
+				boolean onAvanceDansLesCommandes = true;
 				while (onAvanceDansLesCommandes) {
 					final int ancienCurseur = curseurCommandes;
 					curseurCommandes = this.commandes.get(curseurCommandes).executer(curseurCommandes, commandes);

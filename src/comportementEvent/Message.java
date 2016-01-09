@@ -21,7 +21,7 @@ public class Message extends CommandeEvent {
 	
 	public String texte;
 	public BufferedImage image;
-	public Boolean leRelachementDeToucheAEuLieu = false;
+	public boolean leRelachementDeToucheAEuLieu = false;
 	
 	/**
 	 * Constructeur explicite
