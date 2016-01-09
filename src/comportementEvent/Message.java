@@ -8,9 +8,9 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
-import main.GestionClavier;
 import map.LecteurMap;
 import menu.Texte;
+import utilitaire.GestionClavier;
 
 /**
  * Afficher un Message dans une boîte de dialogue

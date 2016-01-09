@@ -27,7 +27,7 @@ import com.jcraft.jorbis.Info;
  * @author kevin glass
  */
 public class OggClip {
-	private final int BUFSIZE = 4096 * 2;
+	private static final int BUFSIZE = 4096 * 2;
 	private int convsize = BUFSIZE * 2;
 	private byte[] convbuffer = new byte[convsize];
 	private SyncState oy;
@@ -41,10 +41,10 @@ public class OggClip {
 	private SourceDataLine outputLine;
 	private int rate;
 	private int channels;
-	private BufferedInputStream bitStream=null;
-	private byte[] buffer=null;
-	private int bytes=0;
-	private Thread player=null;
+	private BufferedInputStream bitStream = null;
+	private byte[] buffer = null;
+	private int bytes = 0;
+	private Thread player = null;
 
 	private float balance;
 	private float gain = -1;
@@ -78,7 +78,7 @@ public class OggClip {
 	/**
 	 * Set the default gain value (default volume)
 	 */
-	public void setDefaultGain() {
+	public final void setDefaultGain() {
 		setGain(-1);
 	}
 	
@@ -88,7 +88,7 @@ public class OggClip {
 	 * 
 	 * @param gain The gain value
 	 */
-	public void setGain(float gain) {
+	public final void setGain(float gain) {
 		if (gain != -1) {
 			if ((gain < 0) || (gain > 1)) {
 				throw new IllegalArgumentException("Volume must be between 0.0 and 1.0");
@@ -125,7 +125,7 @@ public class OggClip {
 	 * 
 	 * @param balance The balance value
 	 */
-	public void setBalance(float balance) {
+	public final void setBalance(float balance) {
 		this.balance = balance;
 		
 		if (outputLine == null) {
@@ -164,7 +164,7 @@ public class OggClip {
 	/**
 	 * Pause the play back
 	 */
-	public void pause() {
+	public final void pause() {
 		paused = true;
 		oldGain = gain;
 		setGain(0);
@@ -175,14 +175,14 @@ public class OggClip {
 	 * 
 	 * @return True if the stream is paused
 	 */
-	public boolean isPaused() {
+	public final boolean isPaused() {
 		return paused;
 	}
 	
 	/**
 	 * Resume the play back
 	 */
-	public void resume() {
+	public final void resume() {
 		if (!paused) {
 			play();
 			return;
@@ -203,7 +203,7 @@ public class OggClip {
 	 * 
 	 * @return True if the clip has been stopped
 	 */
-	public boolean stopped() {
+	public final boolean stopped() {
 		return ((player == null) || (!player.isAlive()));
 	}
 	
@@ -224,7 +224,7 @@ public class OggClip {
 	/**
 	 * Play the clip once
 	 */
-	public void play() {
+	public final void play() {
 		stop();
 		
 		try {
@@ -255,7 +255,7 @@ public class OggClip {
 	/**
 	 * Loop the clip - maybe for background music
 	 */
-	public void loop() {
+	public final void loop() {
 		stop();
 		
 		try {
@@ -288,7 +288,7 @@ public class OggClip {
 	/**
 	 * Stop the clip playing
 	 */
-	public void stop() {
+	public final void stop() {
 		if (stopped()) {
 			return;
 		}
@@ -300,10 +300,11 @@ public class OggClip {
 	/**
 	 * Close the stream being played from
 	 */
-	public void close() {
+	public final void close() {
 		try {
-			if (bitStream != null)
+			if (bitStream != null) {
 				bitStream.close();
+			}
 		} catch (IOException e) {
 		}
 	}
@@ -313,8 +314,8 @@ public class OggClip {
 	 */
 	private void initJavaSound(int channels, int rate) {
 		try {
-			AudioFormat audioFormat = new AudioFormat(rate, 16,
-					channels, true, // PCM_Signed
+			AudioFormat audioFormat = new AudioFormat(rate, 16, channels, 
+					true, // PCM_Signed
 					false // littleEndian
 			);
 			DataLine.Info info = new DataLine.Info(SourceDataLine.class,
@@ -363,19 +364,19 @@ public class OggClip {
 	/*
 	 * Taken from the JOrbis Player
 	 */
-	private void initJOrbis(){
-	    oy=new SyncState();
-	    os=new StreamState();
-	    og=new Page();
-	    op=new Packet();
+	private void initJOrbis() {
+	    oy = new SyncState();
+	    os = new StreamState();
+	    og = new Page();
+	    op = new Packet();
 	  
-	    vi=new Info();
-	    vc=new Comment();
-	    vd=new DspState();
-	    vb=new Block(vd);
+	    vi = new Info();
+	    vc = new Comment();
+	    vd = new DspState();
+	    vb = new Block(vd);
 	  
-	    buffer=null;
-	    bytes=0;
+	    buffer = null;
+	    bytes = 0;
 
 	    oy.init();
 	}
@@ -553,8 +554,9 @@ public class OggClip {
 											if (val < -32768) {
 												val = -32768;
 											}
-											if (val < 0)
+											if (val < 0) {
 												val = val | 0x8000;
+											}
 											convbuffer[ptr] = (byte) (val);
 											convbuffer[ptr + 1] = (byte) (val >>> 8);
 											ptr += 2 * (vi.channels);
@@ -566,8 +568,9 @@ public class OggClip {
 								}
 							}
 						}
-						if (og.eos() != 0)
+						if (og.eos() != 0) {
 							eos = 1;
+						}
 					}
 				}
 
@@ -583,8 +586,9 @@ public class OggClip {
 						break;
 					}
 					oy.wrote(bytes);
-					if (bytes == 0)
+					if (bytes == 0) {
 						eos = 1;
+					}
 				}
 			}
 
@@ -599,11 +603,11 @@ public class OggClip {
 	
 	@SuppressWarnings("serial")
 	private class InternalException extends Exception {
-		public InternalException(Exception e) {
+		InternalException(Exception e) {
 			super(e);
 		}
 		
-		public InternalException(String msg) {
+		InternalException(String msg) {
 			super(msg);
 		}
 	}

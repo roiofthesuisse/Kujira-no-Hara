@@ -10,11 +10,11 @@ import java.util.Comparator;
 import bibliothequeMenu.MenuPause;
 import comportementEvent.Message;
 import main.Fenetre;
-import main.GestionClavier;
-import main.GestionClavier.ToucheRole;
 import main.Lecteur;
 import menu.LecteurMenu;
 import menu.Menu;
+import utilitaire.GestionClavier;
+import utilitaire.GestionClavier.ToucheRole;
 
 /**
  * Le Lecteur de map affiche la Map et les Events.
@@ -237,7 +237,7 @@ public class LecteurMap extends Lecteur {
 	private void deplacerLesEvents() {
 		try {
 			final ArrayList<Integer> touchesPressees = this.fenetre.touchesPressees;
-			if ( touchesPressees.contains(ToucheRole.HAUT) 
+			if ( touchesPressees.contains(ToucheRole.HAUT)
 			|| touchesPressees.contains(ToucheRole.GAUCHE) 
 			|| touchesPressees.contains(ToucheRole.BAS) 
 			|| touchesPressees.contains(ToucheRole.DROITE) ) {

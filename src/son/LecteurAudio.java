@@ -1,29 +1,32 @@
 package son;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
 /**
- * Classe chargée de lire les fichiers audio du jeu.
+ * Classe utilitaire chargée de lire les fichiers audio du jeu.
  */
-public class LecteurAudio {
+public abstract class LecteurAudio {
 	public static Musique bgmEnCours = null;
 	//TODO bgs
 	//TODO me
 	
 	/**
 	 * Jouer un effet sonore.
+	 * @param nom du fichier audio
 	 */
-	public static synchronized void playSe (final String nom) {
+	public static synchronized void playSe(final String nom) {
 		Musique musique = new Musique(nom, Musique.TypeMusique.SE);
 		musique.demarrerSe();
 	}
 	
 	/**
 	 * Jouer une musique au format OGG.
+	 * @param nom du fichier audio
+	 * @param volume sonore auquel il faut jouer la musique
 	 */
-	public static synchronized void playOggBgm(final String nom, float volume){
+	/*
+	import java.io.File;
+	import java.io.FileInputStream;
+	import java.io.IOException;
+	public static synchronized void playOggBgm(final String nom, final float volume) {
 		try {
 			OggClip ogg = new OggClip(new FileInputStream(new File(".\\ressources\\Audio\\BGM\\" + nom)));
 			ogg.loop();
@@ -33,18 +36,20 @@ public class LecteurAudio {
 			e.printStackTrace();
 		}
 	}
+	*/
+	
 	/**
-	 * @param nom
-	 * @param volume
-	 * @throws Exception 
+	 * Jouer une musique
+	 * @param nom du fichier audio
+	 * @param volume  sonore auquel il faut jouer la musique
 	 */
-	public static synchronized void playBgm (final String nom, float volume) {
+	public static synchronized void playBgm(final String nom, final float volume) {
 		//si le nom est vide, on ignore
-			if(nom==null || nom.equals("")){
+			if (nom==null || nom.equals("")) {
 				return;
 			}
 		//si on est déjà en train de jouer le bon morceau, on ne fait rien
-		if(LecteurAudio.bgmEnCours==null || !nom.equals(LecteurAudio.bgmEnCours.nom)){
+		if (LecteurAudio.bgmEnCours==null || !nom.equals(LecteurAudio.bgmEnCours.nom)) {
 			//on éteint la musique actuelle
 				stopBgm();
 
@@ -58,10 +63,10 @@ public class LecteurAudio {
 	}
 	
 	/**
-	 * Arrêter une musique.
+	 * Arrêter la musique actuellement jouée.
 	 */
-	public static synchronized void stopBgm(){
-		if(LecteurAudio.bgmEnCours!=null){
+	public static synchronized void stopBgm() {
+		if (LecteurAudio.bgmEnCours!=null) {
 			LecteurAudio.bgmEnCours.arreter();
 		}
 	}

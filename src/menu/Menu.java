@@ -1,59 +1,80 @@
 package menu;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import son.LecteurAudio;
 
 /**
- * Un Menu est constitué d'images et de Textes, éventuellement sélectionnables.
+ * Un Menu est constitué d'images et de Textes, éventuellement Sélectionnables.
  */
 public abstract class Menu {
-	public int identite = (new Random()).nextInt(100); //TODO c'est quoi ça ? importer le Menu depuis un fichier JSON
 	public LecteurMenu lecteur;
 	public ArrayList<Texte> textes;
 	public ArrayList<ElementDeMenu> elements;
 	public Selectionnable elementSelectionne;
 	public String nomBGM;
 	
+	/**
+	 * Quitter ce Menu.
+	 */
 	public abstract void quitter();
 	
-	public void confirmer() {
-		if(elementSelectionne != null){
+	/**
+	 * Confirmer l'Elément de Menu sélectionné.
+	 */
+	public final void confirmer() {
+		if (elementSelectionne != null) {
 			LecteurAudio.playSe("Confirmer.wav");
 			elementSelectionne.confirmer();
-		}else{
+		} else {
 			System.out.println("l'élément sélectionné de ce menu est null.");
 		}
 	}
 	
-	public void selectionnerElementEnHaut() {
+	/**
+	 * Sélectionner l'Elément Sélectionnable situé juste au dessus.
+	 */
+	public final void selectionnerElementEnHaut() {
 		Selectionnable elementASelectionner = chercherSelectionnableAuDessus();
 		selectionner(elementASelectionner);
 	}
 
-	public void selectionnerElementEnBas() {
+	/**
+	 * Sélectionner l'Elément Sélectionnable situé juste en dessous.
+	 */
+	public final void selectionnerElementEnBas() {
 		Selectionnable elementASelectionner = chercherSelectionnableEnDessous();
 		selectionner(elementASelectionner);
 	}
 	
-	public void selectionnerElementAGauche(){
+	/**
+	 * Sélectionner l'Elément Sélectionnable situé juste à gauche.
+	 */
+	public final void selectionnerElementAGauche() {
 		Selectionnable elementASelectionner = chercherSelectionnableAGauche();
 		selectionner(elementASelectionner);
 	}
-	public void selectionnerElementADroite(){
+	
+	/**
+	 * Sélectionner l'Elément Sélectionnable situé juste à droite.
+	 */
+	public final void selectionnerElementADroite() {
 		Selectionnable elementASelectionner = chercherSelectionnableADroite();
 		selectionner(elementASelectionner);
 	}
 	
-	public void selectionner(Selectionnable elementASelectionner){
-		if(elementASelectionner != null){
+	/**
+	 * Sélectionner cet Elément de Menu.
+	 * @param elementASelectionner nouvel Element sélectionné
+	 */
+	public final void selectionner(final Selectionnable elementASelectionner) {
+		if (elementASelectionner != null) {
 			//bruit de déplacement du curseur
-			if(this.elementSelectionne!=null && !elementASelectionner.equals(this.elementSelectionne)){
+			if (this.elementSelectionne!=null && !elementASelectionner.equals(this.elementSelectionne)) {
 				LecteurAudio.playSe("DeplacementCurseur.wav");
 			}
 			//désélection du précédent
-			if(this.elementSelectionne != null){
+			if (this.elementSelectionne != null) {
 				this.elementSelectionne.selectionne = false;
 			}
 			//sélection du nouveau
@@ -64,36 +85,44 @@ public abstract class Menu {
 		}
 	}
 	
-	public ArrayList<Selectionnable> getSelectionnables(){
+	/**
+	 * Obtenir la liste des Eléments Sélectionnables.
+	 * @return liste des Sélectionnables
+	 */
+	public final ArrayList<Selectionnable> getSelectionnables() {
 		ArrayList<Selectionnable> selectionnables = new ArrayList<Selectionnable>();
-		for(Texte t : this.textes){
-			if(t.selectionnable){
+		for (Texte t : this.textes) {
+			if (t.selectionnable) {
 				selectionnables.add(t);
 			}
 		}
-		for(ElementDeMenu e : this.elements){
-			if(e.selectionnable){
+		for (ElementDeMenu e : this.elements) {
+			if (e.selectionnable) {
 				selectionnables.add(e);
 			}
 		}
 		return selectionnables;
 	}
 	
-	public Selectionnable chercherSelectionnableAuDessus(){
+	/**
+	 * Calculer quel est l'Elément de Menu Sélectionnable situé au dessus de celui-ci
+	 * @return Elément de Menu situé au dessus
+	 */
+	private Selectionnable chercherSelectionnableAuDessus() {
 		Selectionnable elementASelectionner = null;
 		ArrayList<Selectionnable> selectionnables = getSelectionnables();
-		for(Selectionnable selectionnable : selectionnables){
+		for (Selectionnable selectionnable : selectionnables) {
 			//il doit être au dessus
-			if(selectionnable.y < elementSelectionne.y){
-				if(elementASelectionner != null){
+			if (selectionnable.y < elementSelectionne.y) {
+				if (elementASelectionner != null) {
 					//on prend le plus proche en ordonnée
-					if(selectionnable.y > elementASelectionner.y){
+					if (selectionnable.y > elementASelectionner.y) {
 						//on prend le plus proche en abscisse
-						if( Math.abs(selectionnable.x - elementSelectionne.x) <= Math.abs(elementASelectionner.x - elementSelectionne.x) ){
+						if ( Math.abs(selectionnable.x - elementSelectionne.x) <= Math.abs(elementASelectionner.x - elementSelectionne.x) ) {
 							elementASelectionner = selectionnable;
 						}
 					}
-				}else{
+				} else {
 					elementASelectionner = selectionnable;
 				}
 			}
@@ -101,21 +130,25 @@ public abstract class Menu {
 		return elementASelectionner;
 	}
 	
-	public Selectionnable chercherSelectionnableEnDessous(){
+	/**
+	 * Calculer quel est l'Elément de Menu Sélectionnable situé en dessous de celui-ci
+	 * @return Elément de Menu situé en dessous
+	 */
+	private Selectionnable chercherSelectionnableEnDessous() {
 		Selectionnable elementASelectionner = null;
 		ArrayList<Selectionnable> selectionnables = getSelectionnables();
-		for(Selectionnable selectionnable : selectionnables){
+		for (Selectionnable selectionnable : selectionnables) {
 			//il doit être en dessous
-			if(selectionnable.y > elementSelectionne.y){
-				if(elementASelectionner != null){
+			if (selectionnable.y > elementSelectionne.y) {
+				if (elementASelectionner != null) {
 					//on prend le plus proche en ordonnée
-					if(selectionnable.y < elementASelectionner.y){
+					if (selectionnable.y < elementASelectionner.y) {
 						//on prend le plus proche en abscisse
-						if( Math.abs(selectionnable.x - elementSelectionne.x) <= Math.abs(elementASelectionner.x - elementSelectionne.x) ){
+						if ( Math.abs(selectionnable.x - elementSelectionne.x) <= Math.abs(elementASelectionner.x - elementSelectionne.x) ) {
 							elementASelectionner = selectionnable;
 						}
 					}
-				}else{
+				} else {
 					elementASelectionner = selectionnable;
 				}
 			}
@@ -123,21 +156,25 @@ public abstract class Menu {
 		return elementASelectionner;
 	}
 	
-	public Selectionnable chercherSelectionnableAGauche(){
+	/**
+	 * Calculer quel est l'Elément de Menu Sélectionnable situé à gauche de celui-ci
+	 * @return Elément de Menu situé à gauche
+	 */
+	private Selectionnable chercherSelectionnableAGauche() {
 		Selectionnable elementASelectionner = null;
 		ArrayList<Selectionnable> selectionnables = getSelectionnables();
-		for(Selectionnable selectionnable : selectionnables){
+		for (Selectionnable selectionnable : selectionnables) {
 			//il doit être à gauche
-			if(selectionnable.x < elementSelectionne.x){
-				if(elementASelectionner != null){
+			if (selectionnable.x < elementSelectionne.x) {
+				if (elementASelectionner != null) {
 					//on prend le plus proche en abscisse
-					if(selectionnable.x > elementASelectionner.x){
+					if (selectionnable.x > elementASelectionner.x) {
 						//on prend le plus proche en ordonnée
-						if( Math.abs(selectionnable.y - elementSelectionne.y) <= Math.abs(elementASelectionner.y - elementSelectionne.y) ){
+						if ( Math.abs(selectionnable.y - elementSelectionne.y) <= Math.abs(elementASelectionner.y - elementSelectionne.y) ) {
 							elementASelectionner = selectionnable;
 						}
 					}
-				}else{
+				} else {
 					elementASelectionner = selectionnable;
 				}
 			}
@@ -145,21 +182,25 @@ public abstract class Menu {
 		return elementASelectionner;
 	}
 	
-	public Selectionnable chercherSelectionnableADroite(){
+	/**
+	 * Calculer quel est l'Elément de Menu Sélectionnable situé à droite de celui-ci
+	 * @return Elément de Menu situé à droite
+	 */
+	private Selectionnable chercherSelectionnableADroite() {
 		Selectionnable elementASelectionner = null;
 		ArrayList<Selectionnable> selectionnables = getSelectionnables();
-		for(Selectionnable selectionnable : selectionnables){
+		for (Selectionnable selectionnable : selectionnables) {
 			//il doit être à droite
-			if(selectionnable.x > elementSelectionne.x){
-				if(elementASelectionner != null){
+			if (selectionnable.x > elementSelectionne.x) {
+				if (elementASelectionner != null) {
 					//on prend le plus proche en abscisse
-					if(selectionnable.x < elementASelectionner.x){
+					if (selectionnable.x < elementASelectionner.x) {
 						//on prend le plus proche en ordonnée
-						if( Math.abs(selectionnable.y - elementSelectionne.y) <= Math.abs(elementASelectionner.y - elementSelectionne.y) ){
+						if ( Math.abs(selectionnable.y - elementSelectionne.y) <= Math.abs(elementASelectionner.y - elementSelectionne.y) ) {
 							elementASelectionner = selectionnable;
 						}
 					}
-				}else{
+				} else {
 					elementASelectionner = selectionnable;
 				}
 			}

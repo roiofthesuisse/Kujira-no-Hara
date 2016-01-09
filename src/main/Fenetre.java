@@ -21,6 +21,7 @@ import bibliothequeMenu.MenuTitre;
 import map.LecteurMap;
 import map.Map;
 import menu.LecteurMenu;
+import utilitaire.GestionClavier;
 
 /**
  * La Fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.

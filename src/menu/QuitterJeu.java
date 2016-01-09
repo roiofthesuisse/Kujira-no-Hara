@@ -2,12 +2,20 @@ package menu;
 
 import main.Fenetre;
 
-public class QuitterJeu extends ComportementElementDeMenu{
+/**
+ * Eteindre le jeu.
+ */
+public class QuitterJeu extends ComportementElementDeMenu {
 	
-	public QuitterJeu(){}
+	/**
+	 * Constructeur vide
+	 */
+	public QuitterJeu() {
+		
+	}
 	
 	@Override
-	public void executer() {
+	public final void executer() {
 		Fenetre fenetre = this.element.menu.lecteur.fenetre;
 		fenetre.fermer();
 	}

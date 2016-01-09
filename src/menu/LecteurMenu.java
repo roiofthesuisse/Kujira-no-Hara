@@ -3,9 +3,9 @@ package menu;
 import java.awt.image.BufferedImage;
 
 import main.Fenetre;
-import main.GestionClavier;
 import main.Lecteur;
 import map.LecteurMap;
+import utilitaire.GestionClavier;
 
 /**
  * Le Lecteur de Menu a pour rôle de produire l'image à afficher à l'écran s'il s'agit d'un Menu.

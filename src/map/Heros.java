@@ -12,7 +12,7 @@ import conditions.ConditionStopEvent;
 import conditions.ConditionToucheAction;
 import main.Arme;
 import main.Fenetre;
-import main.GestionClavier;
+import utilitaire.GestionClavier;
 
 /**
  * Event particulier qui est déplacé par le joueur à l'aide du clavier

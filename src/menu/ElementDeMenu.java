@@ -28,7 +28,7 @@ public class ElementDeMenu extends Selectionnable {
 	 * Lancer le comportement de l'Elément au survol
 	 */
 	@Override
-	public void executerLeComportementALArrivee() {
+	public final void executerLeComportementALArrivee() {
 		this.selectionne = true;
 	}
 	

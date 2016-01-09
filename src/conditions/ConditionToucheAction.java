@@ -1,7 +1,7 @@
 package conditions;
 
-import main.GestionClavier;
 import map.LecteurMap;
+import utilitaire.GestionClavier;
 
 /**
  * La touche action est pressée.
