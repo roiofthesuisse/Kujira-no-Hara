@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import main.Fenetre;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.Math;
 
 /**
  * Une Map est un décor rectangulaire constitué de briques issues du Tileset.
@@ -65,7 +66,7 @@ public class Map {
 		this.directionDebutHeros = directionDebutHeros;
 		
 		//chargement du tileset
-		this.tileset = new Tileset(nomTileset);
+			this.tileset = new Tileset(nomTileset);
 		
 		//on dessine la couche de décor inférieure, qui sera sous le héros et les évènements
 			creerImageDuDecorEnDessousDuHeros();
@@ -91,8 +92,8 @@ public class Map {
 			for (int i = 0; i<largeur; i++) {
 				for (int j = 0; j<hauteur; j++) {
 					try {
-						int carreau = layer0[i][j];
-						imageCoucheSousHeros = this.lecteur.dessinerCarreau(imageCoucheSousHeros, i, j, carreau, tileset);
+						int numeroCarreau = layer0[i][j];
+						imageCoucheSousHeros = this.lecteur.dessinerCarreau(imageCoucheSousHeros, i, j, numeroCarreau, tileset);
 					} catch (NumberFormatException e) {
 						//case vide
 					}
@@ -115,9 +116,9 @@ public class Map {
 			for (int i = 0; i<largeur; i++) {
 				for (int j = 0; j<hauteur; j++) {
 					try {
-						int carreau = layer1[i][j];
-						if (carreau>=0) {
-							imageCoucheSurHeros = this.lecteur.dessinerCarreau(imageCoucheSurHeros, i, j, carreau, tileset);
+						int numeroCarreau = layer1[i][j];
+						if (numeroCarreau>=0) {
+							imageCoucheSurHeros = this.lecteur.dessinerCarreau(imageCoucheSurHeros, i, j, numeroCarreau, tileset);
 						}
 					} catch (NumberFormatException e) {
 						//case vide

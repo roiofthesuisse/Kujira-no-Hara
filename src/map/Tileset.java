@@ -16,9 +16,10 @@ public class Tileset {
 	public static final int LARGEUR_TILESET = 8; //chaque ligne de Tileset contient 8 carreaux
 	
 	public String nom;
-	public BufferedImage image;
+	private BufferedImage image;
 	public boolean[] passabilite;
 	int[] altitude; //0:sol 1:objetSurSol 2:objetSurObjetSurSol 3:heros 4:objetSurHeros 5:ObjetSurObjetSurHeros
+	public BufferedImage[] carreaux;
 	
 	/**
 	 * Constructeur explicite
@@ -28,9 +29,17 @@ public class Tileset {
 		this.nom = nomTileset;
 		try {
 			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Tilesets\\"+nomTileset));
-			int tailleTileset = (image.getHeight()/Fenetre.TAILLE_D_UN_CARREAU) * 8;
+			int nombreDeLignesTileset = (image.getHeight()/Fenetre.TAILLE_D_UN_CARREAU);
+			int nombreDeCarreauxTileset = nombreDeLignesTileset * LARGEUR_TILESET;
 			
-			this.passabilite = new boolean[tailleTileset];
+			this.carreaux = new BufferedImage[nombreDeCarreauxTileset];
+			for (int i = 0; i<LARGEUR_TILESET; i++) {
+				for (int j = 0; j<nombreDeLignesTileset; j++) {
+					carreaux[LARGEUR_TILESET*j + i] = this.image.getSubimage(i*Fenetre.TAILLE_D_UN_CARREAU, j*Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
+				}
+			}
+			
+			this.passabilite = new boolean[nombreDeCarreauxTileset];
 			//par défaut les passabilités sont vraie pour la case 0, faux pour les autres
 			passabilite[0] = true;
 			//passabilités obtenues par le fichier csv du tileset
@@ -52,8 +61,8 @@ public class Tileset {
 			}
 			
 			//TODO extraire les altitudes d'un fichier JSON
-			this.altitude = new int[tailleTileset];
-			for (int i = 0; i<tailleTileset; i++) {
+			this.altitude = new int[nombreDeCarreauxTileset];
+			for (int i = 0; i<nombreDeCarreauxTileset; i++) {
 				altitude[i] = 0;
 			}
 		} catch (Exception e) {

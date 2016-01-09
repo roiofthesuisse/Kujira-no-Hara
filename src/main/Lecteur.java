@@ -105,16 +105,9 @@ public abstract class Lecteur {
 	 * @return écran sur lequel on a superposé l'image2
 	 */
 	public final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y) {
-		BufferedImage image1 = ecran;
-		int largeur = image1.getWidth();
-		int hauteur = image1.getHeight();
-		BufferedImage image3 = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
-		Graphics2D g2d = image3.createGraphics();
-		g2d.drawImage(image1, null, 0, 0);
-		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));
+		Graphics2D g2d = (Graphics2D) ecran.createGraphics();
 		g2d.drawImage(image2, null, x, y);
-		g2d.dispose();
-		return image3;
+		return ecran;
 	}
 	
 	/***

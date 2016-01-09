@@ -22,4 +22,14 @@ public abstract class Math {
 		}
 		return a;
 	}
+	
+	/**
+	 * Pourcentage
+	 * @param a partie
+	 * @param b tout
+	 * @return pourcentage de la partie sur le tout
+	 */
+	public static long pourcentage(final long a, final long b) {
+		return a*100/b;
+	}
 }

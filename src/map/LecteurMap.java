@@ -324,14 +324,12 @@ public class LecteurMap extends Lecteur {
 	 * @param ecran sur lequel on doit dessiner un carreau
 	 * @param xEcran position x où dessiner le carreau à l'écran
 	 * @param yEcran position y où dessiner le carreau à l'écran
-	 * @param carreau numéro du carreau à dessiner
+	 * @param numeroCarreau numéro du carreau à dessiner
 	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
 	 * @return écran sur lequel on a dessiné le carreau demandé
 	 */
-	public final BufferedImage dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int carreau, final Tileset tilesetUtilise) {
-		final int xTileset = carreau % Tileset.LARGEUR_TILESET;
-		final int yTileset = carreau / Tileset.LARGEUR_TILESET;
-		final BufferedImage dessinCarreau = tilesetUtilise.image.getSubimage(xTileset*Fenetre.TAILLE_D_UN_CARREAU, yTileset*Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
+	public final BufferedImage dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise) {
+		final BufferedImage dessinCarreau = tilesetUtilise.carreaux[numeroCarreau];
 		return superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
 	}
 
