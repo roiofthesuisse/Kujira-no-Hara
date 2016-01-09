@@ -9,5 +9,5 @@ Le but de ce projet est d'aller au dela des limites du jeu actuel, développé s
 
 Dans le but d'obtenir :
 * un déplacement pixel par pixel
-* des bodyboxes rectangulaires de taille variable
+* des bodyboxes rectangulaires et de taille variable
 * plus de fluidité
