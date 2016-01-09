@@ -1,4 +1,4 @@
-# Kujira-no-Hara
+# Kujira no Hara
 Ce projet est une version Java du jeu vidéo Kujira no Hara.
 [Site officiel du jeu](http://www.roiofthesuisse.byethost7.com/kujiranohara.php)
 
