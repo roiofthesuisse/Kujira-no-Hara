@@ -66,7 +66,7 @@ public class LecteurMap extends Lecteur {
 		//ouverture du tileset
 		try {
 			if (tilesetActuel == null) {
-				tilesetActuel = new Tileset(map.tileset.nom);
+				tilesetActuel = this.map!=null && this.map.tileset!=null ? this.map.tileset : new Tileset(map.tileset.nom);
 			}
 		} catch (Exception e) {
 			System.out.println("Erreur lors de l'ouverture du tileset :");
@@ -361,6 +361,8 @@ public class LecteurMap extends Lecteur {
 		nouvelleMap.lecteur = this;
 		this.fenetre.futurLecteur = this;
 		this.allume = false;
+		
+		//on détruit le Tileset actuel si le prochain n'est pas le même
 		if (tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) {
 			this.tilesetActuel = null;
 		}

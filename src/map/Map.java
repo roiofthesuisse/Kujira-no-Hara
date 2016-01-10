@@ -66,12 +66,27 @@ public class Map {
 		this.directionDebutHeros = directionDebutHeros;
 		
 		//chargement du tileset
-			try {
-				this.tileset = new Tileset(nomTileset);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			//si jamais le Tileset est le même, pas la peine de le recréer
+			final Tileset tilesetActuel = ((LecteurMap) Fenetre.getFenetre().lecteur).tilesetActuel;
+			if (this.nomTileset.equals(tilesetActuel.nom)) {
+				this.tileset = tilesetActuel;
+				System.out.println("Le Tileset n'a pas changé, on garde le même.");
+			} else {
+				//impossible de convertir le Lecteur en LecteurMap car c'est un LecteurMenu
+				//ou bien
+				//le Lecteur actuel est null
+				throw new Exception("Le Tileset a changé.");
 			}
+		} catch (Exception e1) {
+			try {
+				System.out.println("Le Tileset a changé, il faut le recharger.");
+				this.tileset = new Tileset(this.nomTileset);
+			} catch (IOException e2) {
+				System.err.println("Erreur lors de la création du Tileset :");
+				e2.printStackTrace();
+			}
+		}
 		
 		//on dessine la couche de décor inférieure, qui sera sous le héros et les évènements
 			creerImageDuDecorEnDessousDuHeros();

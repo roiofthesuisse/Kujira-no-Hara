@@ -20,12 +20,23 @@ public class Tileset {
 	//constantes
 	public static final int LARGEUR_TILESET = 8; //chaque ligne de Tileset contient 8 carreaux
 	
+	/** nom du fichier JSON du Tileset */
 	public final String nom;
+	/** nom de l'image du Tileset */
 	private final String nomImage;
+	/** image complète du Tileset */
 	private final BufferedImage image;
+	/** Peut-on marcher sur cette case ? Ou bien est-ce un obstacle ? */
 	public final boolean[] passabilite;
-	public final int[] altitude; //0:sol 1:objetSurSol 2:objetSurObjetSurSol 3:heros 4:objetSurHeros 5:ObjetSurObjetSurHeros
+	/** Altitude d'affichage du carreau (0:sol, 2:héros) */
+	public final int[] altitude; 
+	/** carreaux découpés dans l'image du Tileset */
 	public final BufferedImage[] carreaux;
+	
+	private final String nomImagePanorama;
+	public BufferedImage imagePanorama;
+	private final String nomImageBrouillard;
+	public BufferedImage imageBrouillard;
 	
 	/**
 	 * Constructeur explicite
@@ -42,7 +53,6 @@ public class Tileset {
 		this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Tilesets\\"+this.nomImage));
 		final int nombreDeLignesTileset = (image.getHeight()/Fenetre.TAILLE_D_UN_CARREAU);
 		final int nombreDeCarreauxTileset = nombreDeLignesTileset * LARGEUR_TILESET;
-		System.out.println("nombreDeCarreauxTileset:"+nombreDeCarreauxTileset);
 		
 		//découpage des carreaux
 		this.carreaux = new BufferedImage[nombreDeCarreauxTileset];
@@ -60,7 +70,7 @@ public class Tileset {
 				this.passabilite[i] = ((Integer) jsonPassabilite.get(i)) == 0;
 			}
 		} catch (JSONException e) {
-			System.err.println("Incompatibilité entre le tableau des passabilités du Tileset JSON et de l'image du Tileset.");
+			System.err.println("Incompatibilité entre le tableau des passabilités du Tileset JSON et de l'image du Tileset : "+this.nom);
 			e.printStackTrace();
 		}
 		
@@ -72,13 +82,28 @@ public class Tileset {
 				this.altitude[i] = (Integer) jsonAltitude.get(i);
 			}
 		} catch (JSONException e) {
-			System.err.println("Incompatibilité entre le tableau des altitudes du Tileset JSON et de l'image du Tileset.");
+			System.err.println("Incompatibilité entre le tableau des altitudes du Tileset JSON et de l'image du Tileset : "+this.nom);
 			e.printStackTrace();
 		}
 		
-		//TODO panorama
+		//panorama
+		this.nomImagePanorama = jsonTileset.getString("panorama");
+		try {
+			this.imagePanorama = ImageIO.read(new File(".\\ressources\\Graphics\\Panoramas\\"+this.nomImagePanorama));
+		} catch (IOException e) {
+			System.err.println("Pas d'image de panorama pour le Tileset : "+this.nom);
+			this.imagePanorama = null;
+		}
 		
-		//TODO brouillard
+		//brouillard
+		//TODO opacité du brouillard, couleur, mode de superposition...
+		this.nomImageBrouillard = jsonTileset.getString("brouillard");
+		try {
+			this.imageBrouillard = ImageIO.read(new File(".\\ressources\\Graphics\\Fogs\\"+this.nomImageBrouillard));
+		} catch (IOException e) {
+			System.err.println("Pas d'image de brouillard pour le Tileset : "+this.nom);
+			this.imageBrouillard = null;
+		}
 		
 		//TODO autotiles
 		
