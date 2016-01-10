@@ -36,6 +36,8 @@ public class Map {
 	public int yDebutHeros;
 	public int directionDebutHeros;
 	public boolean[][] casePassable;
+	public final boolean defilementCameraX;
+	public final boolean defilementCameraY;
 	
 	/**
 	 * Constructeur explicite
@@ -58,6 +60,8 @@ public class Map {
 		this.nomTileset = jsonMap.getString("tileset");
 		this.largeur = jsonMap.getInt("largeur");
 		this.hauteur = jsonMap.getInt("hauteur");
+		this.defilementCameraX = largeur>(Fenetre.LARGEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU);
+		this.defilementCameraY = hauteur>(Fenetre.HAUTEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU);
 		this.layer0 = recupererCouche(jsonMap, 0);
 		this.layer1 = recupererCouche(jsonMap, 1);
 		this.layer2 = recupererCouche(jsonMap, 2);
@@ -73,12 +77,14 @@ public class Map {
 				this.tileset = tilesetActuel;
 				System.out.println("Le Tileset n'a pas changé, on garde le même.");
 			} else {
-				//impossible de convertir le Lecteur en LecteurMap car c'est un LecteurMenu
-				//ou bien
-				//le Lecteur actuel est null
 				throw new Exception("Le Tileset a changé.");
 			}
 		} catch (Exception e1) {
+			//impossible de convertir le Lecteur en LecteurMap car c'est un LecteurMenu
+			//ou bien
+			//le Lecteur actuel est null
+			//ou bien
+			//le Tileset a changé
 			try {
 				System.out.println("Le Tileset a changé, il faut le recharger.");
 				this.tileset = new Tileset(this.nomTileset);

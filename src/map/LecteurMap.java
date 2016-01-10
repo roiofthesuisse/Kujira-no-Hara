@@ -77,9 +77,15 @@ public class LecteurMap extends Lecteur {
 		final int xCamera = calculerXCamera();
 		final int yCamera = calculerYCamera();
 		ecran = superposerImages(ecran, map.imageCoucheSousHeros, -xCamera, -yCamera);
-		
+
 		//lecture des commandes event
+		if (yCamera==0 && this.map.numero==0) {
+			System.err.println("2");
+		}
 		continuerLaLectureDesPagesDeCommandesEvent();
+		if (yCamera==0 && this.map.numero==0) {
+			System.err.println("3");
+		}
 		
 		//déplacements des évènements
 		if (!this.stopEvent) {
@@ -90,7 +96,7 @@ public class LecteurMap extends Lecteur {
 		if (!this.stopEvent) {
 			animerLesEvents();
 		}
-		
+
 		//DEBUG pour voir la hitbox de l'attaque du héros
 		//ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 		
@@ -108,7 +114,7 @@ public class LecteurMap extends Lecteur {
 			ecran = superposerImages(ecran, messageActuel.image, X_AFFICHAGE_MESSAGE, Y_AFFICHAGE_MESSAGE);
 		}
 		
-		//supprimer events dont la variable "supprimé" est à true
+		//supprimer events dont l'attribut "supprimé" est à true
 		supprimerLesEventsASupprimer();
 		
 		return ecran;
@@ -426,7 +432,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private int calculerXCamera() {
 		final int largeurMap = map.largeur;
-		if ( largeurMap < (Fenetre.LARGEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU) ) {
+		if ( !this.map.defilementCameraX ) {
 			//map très petite, défilement inutile
 			return 0;
 		} else {
@@ -448,7 +454,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private int calculerYCamera() {
 		final int hauteurMap = map.hauteur;
-		if ( hauteurMap < (Fenetre.HAUTEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU) ) { 
+		if ( !this.map.defilementCameraY ) { 
 			//map très petite, défilement inutile
 			return 0;
 		} else {

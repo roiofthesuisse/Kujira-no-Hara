@@ -37,7 +37,7 @@ public class MenuTitre extends Menu {
 		this.elements = new ArrayList<ElementDeMenu>();
 		
 		//afficher l'image de fond du menu-titre
-		
+		/*
 		try {
 			BufferedImage imageFond;
 			imageFond = ImageIO.read(new File("./ressources/Graphics/Titles/ecran-titre kujira immudelki.png"));
@@ -46,7 +46,7 @@ public class MenuTitre extends Menu {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		*/
 	}
 
 	@Override
