@@ -2,6 +2,7 @@ package map;
 
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -65,7 +66,12 @@ public class Map {
 		this.directionDebutHeros = directionDebutHeros;
 		
 		//chargement du tileset
-			this.tileset = new Tileset(nomTileset);
+			try {
+				this.tileset = new Tileset(nomTileset);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 		//on dessine la couche de décor inférieure, qui sera sous le héros et les évènements
 			creerImageDuDecorEnDessousDuHeros();

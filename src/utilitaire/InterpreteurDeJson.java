@@ -34,6 +34,16 @@ public abstract class InterpreteurDeJson {
 	public static JSONObject ouvrirJsonMap(final int numero) throws FileNotFoundException {
 		return ouvrirJson(""+numero, ".\\ressources\\Data\\Maps\\");
 	}
+	
+	/**
+	 * Charger un Tileset au format JSON.
+	 * @param nom du Tileset à charger
+	 * @return objet JSON contenant la description du Tileset
+	 * @throws FileNotFoundException fichier JSON introuvable
+	 */
+	public static JSONObject ouvrirJsonTileset(final String nom) throws FileNotFoundException {
+		return ouvrirJson(""+nom, ".\\ressources\\Data\\Tilesets\\");
+	}
 
 	/**
 	 * Charger un Event générique au format JSON.
