@@ -43,6 +43,9 @@ public class Event implements Comparable<Event> {
 	public BufferedImage imageActuelle = null;
 	/** l'Event est-il en train d'avancer en ce moment même ? (utile pour l'animation) */
 	public boolean avance = false;
+	/** L'Event avançait-il à la frame précédente ? (utile pour l'animation) */
+	protected boolean avancaitALaFramePrecedente = false;
+	
 	/** 
 	 * Ces paramètres sont remplis automatiquement au chargement de la page.
 	 */

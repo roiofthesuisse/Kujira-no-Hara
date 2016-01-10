@@ -218,12 +218,15 @@ public class LecteurMap extends Lecteur {
 		try {
 			for (Event event : this.map.events) {
 				final boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
+				//cas où l'Event est animé à l'arrêt
 				if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
 					event.animation = (event.animation+1)%4;
 				}
-				if (event.avance && event.animeEnMouvementActuel && passerALAnimationSuivante) {
+				//cas où l'Event est vraiment en mouvement
+				if ((event.avance||event.avancaitALaFramePrecedente) && event.animeEnMouvementActuel && passerALAnimationSuivante) {
 					event.animation = (event.animation+1)%4;
 				}
+				event.avancaitALaFramePrecedente = event.avance;
 			}
 		} catch (Exception e) {
 			System.out.println("erreur lors de l'animation des évènements dans la boucle d'affichage de la map :");
