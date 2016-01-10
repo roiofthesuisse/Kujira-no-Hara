@@ -102,6 +102,8 @@ public class Heros extends Event {
 	
 	@Override
 	public final void deplacer() {
+		final boolean avancaitALaFramePrecedente = this.avance;
+		
 		if (animationAttaque > 0) {
 			//pas de déplacement si animation d'attaque
 			this.animation = Fenetre.getPartieActuelle().getArmeEquipee().framesDAnimation[animationAttaque-1];
@@ -135,7 +137,7 @@ public class Heros extends Event {
 					this.x += pageActive.vitesse;
 				}
 			}
-			if (ilYADeplacement) {
+			if (ilYADeplacement || avancaitALaFramePrecedente) { //le avancaitALaFramePrecedente permet d'animer le Héros même s'il marche face à un mur
 				this.avance = true;
 				//on profite du déplacement pour remettre le héros dans la bonne direction
 				this.map.lecteur.mettreHerosDansLaBonneDirection();
