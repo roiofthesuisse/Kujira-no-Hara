@@ -6,10 +6,10 @@ Le but de ce projet est d'aller au dela des limites du jeu actuel, développé s
 * le déplacement case par case
 * bodyboxes toutes carrées et de taille 32 pixels
 * lag
-* incompatibilité linux, mac (et éventuelles futures versions de Windows)
+* incompatibilité Linux, Mac (et éventuelles futures versions de Windows)
 
 Dans le but d'obtenir :
 * un déplacement pixel par pixel
 * des bodyboxes rectangulaires et de taille variable
 * plus de fluidité
-* portabilité linux, mac, futurs Windows
+* portabilité vers Linux, Mac, futurs Windows
