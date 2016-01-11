@@ -3,7 +3,7 @@ package utilitaire;
 /**
  * Classe utilitaire qui contient des fonctions mathématiques.
  */
-public abstract class Math {
+public abstract class Maths {
 	/**
 	 * Modulo
 	 * @param a nombre à diviser

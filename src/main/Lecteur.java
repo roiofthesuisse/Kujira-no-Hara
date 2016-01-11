@@ -116,6 +116,9 @@ public abstract class Lecteur {
 		if (this instanceof LecteurMap) {
 			return ((LecteurMap) this).map.nomBGM;
 		} else if (this instanceof LecteurMenu) {
+			if(((LecteurMenu) this).menu==null){
+				System.err.println("Le menu est null pour le lecteur");
+			}
 			return ((LecteurMenu) this).menu.nomBGM;
 		}
 		return null;

@@ -17,9 +17,13 @@ public class LecteurMenu extends Lecteur {
 	/**
 	 * Constructeur explicite
 	 * @param fenetre dans laquelle on doit afficher le Menu
+	 * @param menu que va lire ce Lecteur
 	 * @param lecteurMapMemorise Lecteur de la Map sur laquelle on se trouvait avant d'entrer dans le Menu
 	 */
-	public LecteurMenu(final Fenetre fenetre, final LecteurMap lecteurMapMemorise) {
+	public LecteurMenu(final Fenetre fenetre, final Menu menu, final LecteurMap lecteurMapMemorise) {
+		this.menu = menu;
+		menu.lecteur = this; //on prévient le Lecteur qu'il a un Menu
+		
 		this.fenetre = fenetre;
 		this.lecteurMapMemorise = lecteurMapMemorise;
 		this.allume = true; //TODO est-ce utile ?
@@ -66,16 +70,10 @@ public class LecteurMenu extends Lecteur {
 	/**
 	 * Ouvrir un autre Menu.
 	 * @warning cette méthode ne doit être appelée que par le nouveau Lecteur !
-	 * @param nouveauMenu Menu à afficher à la place de celui-ci
 	 */
-	public final void changerMenu(final Menu nouveauMenu) {
-		this.menu = nouveauMenu;
-		nouveauMenu.lecteur = this;
-		
-		//TODO les Menus doivent se passer le LecteurMap mémorisé entre eux !
-		
-		this.fenetre.futurLecteur = this;
-		this.allume = false;
+	public final void changerMenu() {
+		Fenetre.getFenetre().futurLecteur = this;
+		Fenetre.getFenetre().lecteur.allume = false;
 	}
 
 	@Override

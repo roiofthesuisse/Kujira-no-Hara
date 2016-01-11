@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import map.Event;
 import map.Map;
-import utilitaire.Math;
+import utilitaire.Maths;
 
 /**
  * Une Partie est l'ensemble des informations liées à l'avancée du joueur dans le jeu.
@@ -109,7 +109,7 @@ public final class Partie {
 			return;
 		}
 		//on équipe l'arme suivante
-		this.idArmeEquipee = Math.modulo(this.idArmeEquipee + 1, this.idArmesPossedees.size());
+		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee + 1, this.idArmesPossedees.size());
 		//affichage console
 		if (this.getArmeEquipee()!=null) {
 			System.out.println("arme suivante : "+this.getArmeEquipee().nom);
@@ -131,7 +131,7 @@ public final class Partie {
 			return;
 		}
 		//on équipe l'arme précédente
-		this.idArmeEquipee = Math.modulo(this.idArmeEquipee - 1, idArmesPossedees.size());
+		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee - 1, idArmesPossedees.size());
 		//affichage console
 		System.out.println("arme précédente : "+ this.getArmeEquipee().nom);
 	}

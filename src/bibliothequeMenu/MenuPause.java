@@ -3,7 +3,6 @@ package bibliothequeMenu;
 import java.util.ArrayList;
 
 import menu.ElementDeMenu;
-import menu.LecteurMenu;
 import menu.Menu;
 import menu.QuitterJeu;
 import menu.RevenirAuJeu;
@@ -16,11 +15,8 @@ public class MenuPause extends Menu {
 	
 	/**
 	 * Constructeur explicite
-	 * @param lecteur du Menu
 	 */
-	public MenuPause(final LecteurMenu lecteur) {
-		this.lecteur = lecteur;
-		
+	public MenuPause() {
 		this.textes = new ArrayList<Texte>();
 		final Texte retour = new Texte("Revenir au jeu", 290, 320, 0, true, 0, null, new RevenirAuJeu(), this);
 		this.textes.add(retour);

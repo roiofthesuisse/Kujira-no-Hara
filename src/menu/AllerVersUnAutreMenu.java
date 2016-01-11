@@ -1,5 +1,8 @@
 package menu;
 
+import main.Fenetre;
+import map.LecteurMap;
+
 /**
  * Passer à un autre Menu
  */
@@ -17,7 +20,9 @@ public class AllerVersUnAutreMenu extends ComportementElementDeMenu {
 	@Override
 	public final void executer() {
 		//FIXME TODO changerMenu() devrait être appelée par le nouveau Lecteur
-		this.element.menu.lecteur.changerMenu(nouveauMenu);
+		final LecteurMap lecteurMapMemorise = this.element.menu.lecteur.lecteurMapMemorise;
+		final LecteurMenu nouveauLecteur = new LecteurMenu(Fenetre.getFenetre(), this.nouveauMenu, lecteurMapMemorise);
+		nouveauLecteur.changerMenu();
 	}
 
 }

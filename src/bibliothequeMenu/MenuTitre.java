@@ -9,7 +9,6 @@ import javax.imageio.ImageIO;
 
 import menu.AllerVersUnAutreMenu;
 import menu.ElementDeMenu;
-import menu.LecteurMenu;
 import menu.Menu;
 import menu.QuitterJeu;
 import menu.Texte;
@@ -21,12 +20,10 @@ public class MenuTitre extends Menu {
 	
 	/**
 	 * Constructeur explicite
-	 * @param lecteur du Menu
 	 */
-	public MenuTitre(final LecteurMenu lecteur) {
-		this.lecteur = lecteur;
+	public MenuTitre() {
 		this.textes = new ArrayList<Texte>();
-		final Texte demarrer = new Texte("Démarrer", 290, 320, 0, true, 0, null, new AllerVersUnAutreMenu(new MenuNouvellePartie(this.lecteur)), this);
+		final Texte demarrer = new Texte("Démarrer", 290, 320, 0, true, 0, null, new AllerVersUnAutreMenu(new MenuNouvellePartie()), this);
 		final Texte bonus = new Texte("Bonus", 290, 350, 0, true, 0, null, null, this);
 		final Texte quitter = new Texte("Quitter", 290, 380, 0, true, 0, null, new QuitterJeu(), this);
 		this.textes.add(demarrer);

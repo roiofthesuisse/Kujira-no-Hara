@@ -51,6 +51,7 @@ public class Map {
 	public Map(final int numero, final LecteurMap lecteur, final int xDebutHerosArg, final int yDebutHerosArg, final int directionDebutHeros) throws FileNotFoundException {
 		this.numero = numero;
 		this.lecteur = lecteur;
+		lecteur.map = this; //on prévient le Lecteur qu'il a une Map
 		
 		//la map est un fichier JSON
 		JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(numero);

@@ -79,14 +79,7 @@ public class LecteurMap extends Lecteur {
 		ecran = superposerImages(ecran, map.imageCoucheSousHeros, -xCamera, -yCamera);
 
 		//lecture des commandes event
-		if (yCamera==0 && this.map.numero==0) {
-			System.err.println("2");
-		}
 		continuerLaLectureDesPagesDeCommandesEvent();
-		//TODO FIXME on ne devrait jamais avoir un "3" seul affiché dans err
-		if (yCamera==0 && this.map.numero==0) {
-			System.err.println("3");
-		}
 		
 		//déplacements des évènements
 		if (!this.stopEvent) {
@@ -365,10 +358,8 @@ public class LecteurMap extends Lecteur {
 	 * @param nouvelleMap sur laquelle le Héros voyage
 	 */
 	public final void changerMap(final Map nouvelleMap) {
-		this.map = nouvelleMap; 
-		nouvelleMap.lecteur = this;
-		this.fenetre.futurLecteur = this;
-		this.allume = false;
+		Fenetre.getFenetre().futurLecteur = this;
+		Fenetre.getFenetre().lecteur.allume = false;
 		
 		//on détruit le Tileset actuel si le prochain n'est pas le même
 		if (tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) {
@@ -381,10 +372,11 @@ public class LecteurMap extends Lecteur {
 	 * On quitte la Map temporairement (elle est mémorisée) pour parcourir le Menu.
 	 */
 	public final void ouvrirLeMenu() {
-		final LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, this);
-		final Menu menu = new MenuPause(lecteurMenu);
+		final Menu menuPause = new MenuPause();
+		final LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, menuPause, this);
+		
 		this.fenetre.futurLecteur = lecteurMenu;
-		lecteurMenu.menu = menu;
+		lecteurMenu.menu = menuPause;
 		this.allume = false;
 	}
 

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import main.Fenetre;
 import map.LecteurMap;
 import map.Map;
 
@@ -40,7 +41,8 @@ public class ChangerDeMap extends CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		final LecteurMap nouveauLecteur = commandes.get(0).page.event.map.lecteur;
+		//final LecteurMap nouveauLecteur = commandes.get(0).page.event.map.lecteur;
+		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre());
 		final int directionHeros = this.page.event.map.heros.direction;
 		try {
 			nouveauLecteur.changerMap(new Map(numeroNouvelleMap, nouveauLecteur, xDebutHeros, yDebutHeros, directionHeros));

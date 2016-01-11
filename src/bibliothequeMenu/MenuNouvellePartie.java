@@ -2,6 +2,7 @@ package bibliothequeMenu;
 
 import java.util.ArrayList;
 
+import main.Fenetre;
 import menu.ElementDeMenu;
 import menu.LecteurMenu;
 import menu.Menu;
@@ -15,10 +16,8 @@ public class MenuNouvellePartie extends Menu {
 
 	/**
 	 * Constructeur explicite
-	 * @param lecteur de Menu qui va lire celui-ci
 	 */
-	public MenuNouvellePartie(final LecteurMenu lecteur) {
-		this.lecteur = lecteur;
+	public MenuNouvellePartie() {
 		this.textes = new ArrayList<Texte>();
 		final Texte phrase = new Texte("tadam", 290, 300, 0, false, 0, null, null, this);
 		final Texte choix1 = new Texte("1", 290, 330, 0, true, 0, null, new OuvrirNouvellePartie(), this);
@@ -33,8 +32,9 @@ public class MenuNouvellePartie extends Menu {
 	
 	@Override
 	public final void quitter() {
-		//FIXME TODO changerMenu() devrait être appelée par le nouveau Lecteur
-		this.lecteur.changerMenu(new MenuTitre(this.lecteur));
+		final Menu menuTitre = new MenuTitre();
+		final LecteurMenu nouveauLecteur = new LecteurMenu(Fenetre.getFenetre(), menuTitre, null);
+		nouveauLecteur.changerMenu();
 	}
 
 }
