@@ -16,6 +16,7 @@ public class AllerVersUnAutreMenu extends ComportementElementDeMenu {
 	
 	@Override
 	public final void executer() {
+		//FIXME TODO changerMenu() devrait être appelée par le nouveau Lecteur
 		this.element.menu.lecteur.changerMenu(nouveauMenu);
 	}
 

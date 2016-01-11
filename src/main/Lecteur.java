@@ -1,12 +1,10 @@
 package main;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
 import javax.imageio.ImageIO;
 
@@ -19,7 +17,7 @@ import menu.LecteurMenu;
  * Le rôle du lecteur est d'afficher dans la fenêtre la succession des écrans au cours du temps.
  */
 public abstract class Lecteur {
-	public BufferedImage ecranAtuel;
+	private BufferedImage ecranAtuel;
 	public Fenetre fenetre = null;
 	/**
 	 * Durée minimale d'une frame (en millisecondes).
@@ -29,9 +27,9 @@ public abstract class Lecteur {
 	private static final long DUREE_FRAME = 30;
 	public static final int TYPE_DES_IMAGES = BufferedImage.TYPE_INT_ARGB;
 	/**
-	 * Est-ce que le lecteur est allumé ?
-	 * Si le lecteur est allumé, l'affichage est actualisé sans cesse.
-	 * Si le lecteur est éteint, l'affichage arrête sa boucle, et la fenêtre attend un nouveau lecteur.
+	 * Est-ce que le Lecteur est allumé ?
+	 * Si le Lecteur est allumé, l'affichage de l'écran est actualisé en continu.
+	 * Si le Lecteur est éteint, l'affichage arrête sa boucle, et la Fenêtre doit démarrer un nouveau Lecteur.
 	 */
 	public boolean allume = true;
 	public int frameActuelle = 0;
@@ -126,6 +124,7 @@ public abstract class Lecteur {
 	/**
 	 * Démarrer le Lecteur.
 	 * Le Lecteur est allumé, la musique est lue, un écran est affiché à chaque frame.
+	 * Si jamais "allume" est mis à false, le Lecteur s'arrête et la Fenetre devra lancer le prochain Lecteur.
 	 */
 	public final void demarrer() {
 		this.allume = true;
@@ -133,23 +132,27 @@ public abstract class Lecteur {
 		System.out.println("Un nouveau "+typeLecteur+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm(), 1.0f);
 		while (this.allume) {
-			Date d1 = new Date();
+			long t1 = System.currentTimeMillis();
 			this.ecranAtuel = calculerAffichage();
-			Date d2 = new Date();
-			long dureeEffectiveDeLaFrame = d2.getTime()-d1.getTime();
+			long t2 = System.currentTimeMillis();
+			long dureeEffectiveDeLaFrame = t2-t1;
 			if (dureeEffectiveDeLaFrame < Lecteur.DUREE_FRAME) {
 				//si l'affichage a pris moins de temps que la durée attendue, on attend que la frame se termine
 				try {
 					Thread.sleep(Lecteur.DUREE_FRAME-dureeEffectiveDeLaFrame);
 				} catch (InterruptedException e) {
-					System.out.println("La boucle de lecture du jeu dans Lecteur.demarrer() fait de la merde.");
+					System.err.println("La boucle de lecture du jeu dans Lecteur.demarrer() n'a pas réussi son sleep().");
 					e.printStackTrace();
 				}
+			} else {
+				//dépassement de la durée de frame normale ! pas bien !
+				System.err.println("La frame "+this.frameActuelle+" a mis beaucoup de temps à être calculée : "+dureeEffectiveDeLaFrame+" ms");
 			}
 			this.fenetre.actualiserAffichage(this.ecranAtuel);
 			this.frameActuelle++;
-			//System.out.println("dureeEffectiveDeLaFrame : " + dureeEffectiveDeLaFrame);
 		}
+		//si on est ici, c'est qu'une Commande Event a éteint le Lecteur
+		//la Fenêtre va devoir le remplacer par le futur Lecteur (si elle en a un de rechange)
 		System.out.println("Le "+typeLecteur+" actuel vient d'être arrêté à la frame "+this.frameActuelle);
 	}
 	

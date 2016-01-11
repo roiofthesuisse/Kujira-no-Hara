@@ -83,6 +83,7 @@ public class LecteurMap extends Lecteur {
 			System.err.println("2");
 		}
 		continuerLaLectureDesPagesDeCommandesEvent();
+		//TODO FIXME on ne devrait jamais avoir un "3" seul affiché dans err
 		if (yCamera==0 && this.map.numero==0) {
 			System.err.println("3");
 		}
@@ -359,11 +360,12 @@ public class LecteurMap extends Lecteur {
 	}
 	
 	/**
-	 * Ouvre une autre map (dans un nouveau LecteurMap).
+	 * Ouvre une autre Map (dans un nouveau LecteurMap).
+	 * @warning cette méthode ne doit être appelée que par le nouveau Lecteur !
 	 * @param nouvelleMap sur laquelle le Héros voyage
 	 */
 	public final void changerMap(final Map nouvelleMap) {
-		this.map = nouvelleMap;
+		this.map = nouvelleMap; 
 		nouvelleMap.lecteur = this;
 		this.fenetre.futurLecteur = this;
 		this.allume = false;
@@ -408,7 +410,7 @@ public class LecteurMap extends Lecteur {
 	}
 	
 	/**
-	 * Tourner le Héros dans la bonne Direction selon l'entrée clavier
+	 * Tourner le Héros dans la bonne Direction selon l'entrée clavier.
 	 */
 	public final void mettreHerosDansLaBonneDirection() {
 		final Heros heros = map.heros;
@@ -532,7 +534,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * utiliser objet secondaire
+	 * Utiliser l'objet secondaire.
 	 */
 	public void objet() {
 		//TODO

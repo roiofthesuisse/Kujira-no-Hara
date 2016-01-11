@@ -33,6 +33,7 @@ public class MenuNouvellePartie extends Menu {
 	
 	@Override
 	public final void quitter() {
+		//FIXME TODO changerMenu() devrait être appelée par le nouveau Lecteur
 		this.lecteur.changerMenu(new MenuTitre(this.lecteur));
 	}
 

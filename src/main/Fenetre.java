@@ -111,22 +111,30 @@ public final class Fenetre extends JFrame implements KeyListener {
 	}
 	
 	/**
-	 * La fenêtre confie l'affichage d'un menu/map à un lecteur de menu/map.
-	 * Si jamais un futur lecteur est désigné, on effectue le remplacement.
+	 * La Fenêtre confie l'affichage d'un Menu/Map à un Lecteur.
+	 * Si jamais le Lecteur actuel est éteint et qu'un futur Lecteur est désigné, on effectue le remplacement.
+	 * Si aucun futur Lecteur n'est désigné, la Fenêtre se ferme.
 	 */
 	public static void demarrerAffichage() {
 		while (!maFenetre.quitterLeJeu) {
-			maFenetre.lecteur.demarrer();
-			while (maFenetre.futurLecteur == null && !maFenetre.quitterLeJeu) {
-				//TODO il ne devrait pas y avoir de boucle vide, mais un système de Threads...
-				try {
-					Thread.sleep(1);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+			//on lance le Lecteur
+			maFenetre.lecteur.demarrer(); //boucle tant que le Lecteur est allumé
+			
+			//si on est ici, c'est que le Lecteur a été éteint par une Commande Event
+			//y en a-t-il un autre après ?
+			if (maFenetre.futurLecteur!=null) {
+				if (!maFenetre.quitterLeJeu) {
+					//on passe au Lecteur suivant
+					maFenetre.lecteur = maFenetre.futurLecteur;
+					maFenetre.futurLecteur = null;
 				}
+			} else {
+				//pas de Lecteur à suivre
+				//on éteint le jeu
+				maFenetre.quitterLeJeu = true;
 			}
-			maFenetre.lecteur = maFenetre.futurLecteur;
 		}
+		//le jeu a été éteint ou bien il n'y a plus de Lecteur à suivre
 	}
 	
 	/**
@@ -186,7 +194,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 			System.err.println("Impossible de charger la map numero "+partie.numeroMap);
 			e.printStackTrace();
 		}
-		this.lecteur.allume = false;
+		this.lecteur.allume = false; //TODO est-ce utile ?
 	}
 	
 	/**

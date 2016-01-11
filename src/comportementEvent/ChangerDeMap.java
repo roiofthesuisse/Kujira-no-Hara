@@ -40,10 +40,10 @@ public class ChangerDeMap extends CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		final LecteurMap lecteur = commandes.get(0).page.event.map.lecteur;
+		final LecteurMap nouveauLecteur = commandes.get(0).page.event.map.lecteur;
 		final int directionHeros = this.page.event.map.heros.direction;
 		try {
-			lecteur.changerMap(new Map(numeroNouvelleMap, lecteur, xDebutHeros, yDebutHeros, directionHeros));
+			nouveauLecteur.changerMap(new Map(numeroNouvelleMap, nouveauLecteur, xDebutHeros, yDebutHeros, directionHeros));
 		} catch (FileNotFoundException e) {
 			System.err.println("Impossible de charger la map numero "+numeroNouvelleMap);
 			e.printStackTrace();

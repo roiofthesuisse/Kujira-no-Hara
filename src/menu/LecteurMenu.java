@@ -22,7 +22,7 @@ public class LecteurMenu extends Lecteur {
 	public LecteurMenu(final Fenetre fenetre, final LecteurMap lecteurMapMemorise) {
 		this.fenetre = fenetre;
 		this.lecteurMapMemorise = lecteurMapMemorise;
-		this.allume = true;
+		this.allume = true; //TODO est-ce utile ?
 	}
 	
 	/**
@@ -64,12 +64,16 @@ public class LecteurMenu extends Lecteur {
 	}
 	
 	/**
-	 * Ouvrir un autre Menu
+	 * Ouvrir un autre Menu.
+	 * @warning cette méthode ne doit être appelée que par le nouveau Lecteur !
 	 * @param nouveauMenu Menu à afficher à la place de celui-ci
 	 */
 	public final void changerMenu(final Menu nouveauMenu) {
 		this.menu = nouveauMenu;
 		nouveauMenu.lecteur = this;
+		
+		//TODO les Menus doivent se passer le LecteurMap mémorisé entre eux !
+		
 		this.fenetre.futurLecteur = this;
 		this.allume = false;
 	}
