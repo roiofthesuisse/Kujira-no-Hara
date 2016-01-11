@@ -57,12 +57,10 @@ public abstract class Lecteur {
 	 * @return un rectangle noir
 	 */
 	public final BufferedImage ecranNoir() {
-		int largeur = Fenetre.LARGEUR_ECRAN;
-		int hauteur = Fenetre.HAUTEUR_ECRAN;
-		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
+		BufferedImage image = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Lecteur.TYPE_DES_IMAGES);
 		Graphics2D graphics = image.createGraphics();
 		graphics.setPaint(Color.black);
-		graphics.fillRect(0, 0, largeur, hauteur);
+		graphics.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
 		return image;
 	}
 	
@@ -74,7 +72,7 @@ public abstract class Lecteur {
 	 */
 	public final BufferedImage imageVide(final int largeur, final int hauteur) {
 		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
-		Color couleur = new Color(0, 0, 0, 0);
+		final Color couleur = new Color(0, 0, 0, 0);
 		Graphics2D graphics = image.createGraphics();
 		graphics.setPaint(couleur);
 		graphics.fillRect(0, 0, largeur, hauteur);
@@ -116,7 +114,7 @@ public abstract class Lecteur {
 		if (this instanceof LecteurMap) {
 			return ((LecteurMap) this).map.nomBGM;
 		} else if (this instanceof LecteurMenu) {
-			if(((LecteurMenu) this).menu==null){
+			if (((LecteurMenu) this).menu==null) {
 				System.err.println("Le menu est null pour le lecteur");
 			}
 			return ((LecteurMenu) this).menu.nomBGM;
@@ -131,14 +129,17 @@ public abstract class Lecteur {
 	 */
 	public final void demarrer() {
 		this.allume = true;
-		String typeLecteur = this.getClass().getName().equals(LecteurMap.class.getName()) ? "LecteurMap" : "LecteurMenu";
+		final String typeLecteur = this.getClass().getName().equals(LecteurMap.class.getName()) ? "LecteurMap" : "LecteurMenu";
 		System.out.println("Un nouveau "+typeLecteur+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm(), 1.0f);
+		
+		long t1, t2;
+		long dureeEffectiveDeLaFrame;
 		while (this.allume) {
-			long t1 = System.currentTimeMillis();
+			t1 = System.currentTimeMillis();
 			this.ecranAtuel = calculerAffichage();
-			long t2 = System.currentTimeMillis();
-			long dureeEffectiveDeLaFrame = t2-t1;
+			t2 = System.currentTimeMillis();
+			dureeEffectiveDeLaFrame = t2-t1;
 			if (dureeEffectiveDeLaFrame < Lecteur.DUREE_FRAME) {
 				//si l'affichage a pris moins de temps que la durée attendue, on attend que la frame se termine
 				try {
@@ -147,9 +148,6 @@ public abstract class Lecteur {
 					System.err.println("La boucle de lecture du jeu dans Lecteur.demarrer() n'a pas réussi son sleep().");
 					e.printStackTrace();
 				}
-			} else {
-				//dépassement de la durée de frame normale ! pas bien !
-				System.err.println("La frame "+this.frameActuelle+" a mis beaucoup de temps à être calculée : "+dureeEffectiveDeLaFrame+" ms");
 			}
 			this.fenetre.actualiserAffichage(this.ecranAtuel);
 			this.frameActuelle++;

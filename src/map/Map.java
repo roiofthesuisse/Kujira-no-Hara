@@ -16,6 +16,12 @@ import utilitaire.InterpreteurDeJson;
  * Le Heros et les Events se déplacent dedans.
  */
 public class Map {
+	//constantes
+	private static final int NOMBRE_ALTITUDES = 6;
+	private static final int NOMBRE_ALTITUDES_SOUS_HEROS = 2;
+	private static final int NOMBRE_ALTITUDES_SUR_HEROS = NOMBRE_ALTITUDES - NOMBRE_ALTITUDES_SOUS_HEROS;
+	private static final int NOMBRE_LAYERS = 3;
+	
 	public final int numero;
 	public LecteurMap lecteur;
 	public String nom;
@@ -25,9 +31,10 @@ public class Map {
 	public Tileset tileset; //image contenant les decors
 	public final int largeur;
 	public final int hauteur;
-	public int[][] layer0; //couche du sol
-	public int[][] layer1; //couche de decor 1
-	public int[][] layer2; //couche de decor 2
+	public final int[][] layer0; //couche du sol
+	public final int[][] layer1; //couche de decor 1
+	public final int[][] layer2; //couche de decor 2
+	public final int[][][] layers;
 	public BufferedImage imageCoucheSousHeros;
 	public BufferedImage imageCoucheSurHeros;
 	public ArrayList<Event> events;
@@ -54,7 +61,7 @@ public class Map {
 		lecteur.map = this; //on prévient le Lecteur qu'il a une Map
 		
 		//la map est un fichier JSON
-		JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(numero);
+		final JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(numero);
 		
 		this.nomBGM = jsonMap.getString("bgm");
 		this.nomBGS = jsonMap.getString("bgs");
@@ -66,6 +73,7 @@ public class Map {
 		this.layer0 = recupererCouche(jsonMap, 0);
 		this.layer1 = recupererCouche(jsonMap, 1);
 		this.layer2 = recupererCouche(jsonMap, 2);
+		this.layers = new int[][][] {this.layer0, this.layer1, this.layer2};
 		this.xDebutHeros = xDebutHerosArg;
 		this.yDebutHeros = yDebutHerosArg;
 		this.directionDebutHeros = directionDebutHeros;
@@ -113,23 +121,33 @@ public class Map {
 	 * On affiche en premier le décor arrière.
 	 */
 	private void creerImageDuDecorEnDessousDuHeros() {
-		// TODO prendre en compte toutes les couches 1 2 3 et les altitudes du tileset
-		try {
-			this.imageCoucheSousHeros = lecteur.imageVide(largeur*Fenetre.TAILLE_D_UN_CARREAU, hauteur*Fenetre.TAILLE_D_UN_CARREAU);
+			final BufferedImage[] couches = new BufferedImage[NOMBRE_ALTITUDES_SOUS_HEROS];
+			for (int i = 0; i<NOMBRE_ALTITUDES_SOUS_HEROS; i++) {
+				couches[i] = lecteur.imageVide(largeur*Fenetre.TAILLE_D_UN_CARREAU, hauteur*Fenetre.TAILLE_D_UN_CARREAU);
+			}
+			
+			int numeroCarreau;
+			int altitudeCarreau;
 			for (int i = 0; i<largeur; i++) {
 				for (int j = 0; j<hauteur; j++) {
-					try {
-						int numeroCarreau = layer0[i][j];
-						imageCoucheSousHeros = this.lecteur.dessinerCarreau(imageCoucheSousHeros, i, j, numeroCarreau, tileset);
-					} catch (NumberFormatException e) {
-						//case vide
+					for (int k = 0; k<NOMBRE_LAYERS; k++) {
+						final int[][] layer = layers[k];
+						try {
+							numeroCarreau = layer[i][j];
+							altitudeCarreau = this.tileset.altitude[numeroCarreau];
+							if (altitudeCarreau<NOMBRE_ALTITUDES_SOUS_HEROS) {
+								couches[altitudeCarreau] = this.lecteur.dessinerCarreau(couches[altitudeCarreau], i, j, numeroCarreau, tileset);
+							}
+						} catch (ArrayIndexOutOfBoundsException e) {
+							//case vide
+						}
 					}
 				}
 			}
-		} catch (Exception e) {
-			System.out.println("Erreur lors de la lecture de la map :");
-			e.printStackTrace();
-		}
+			for (int i = 1; i<NOMBRE_ALTITUDES_SOUS_HEROS; i++) {
+				couches[0] = this.lecteur.superposerImages(couches[0], couches[i], 0, 0);
+			}
+			this.imageCoucheSousHeros = couches[0];
 	}
 
 	/**
@@ -137,25 +155,33 @@ public class Map {
 	 * On affiche en dernier le décor supérieur.
 	 */
 	private void creerImageDuDecorAuDessusDuHeros() {
-		//TODO prendre en compte toutes les couches 1 2 3 et les altitudes du tileset
-		try {
-			this.imageCoucheSurHeros = lecteur.imageVide(largeur*Fenetre.TAILLE_D_UN_CARREAU, hauteur*Fenetre.TAILLE_D_UN_CARREAU);
-			for (int i = 0; i<largeur; i++) {
-				for (int j = 0; j<hauteur; j++) {
+		final BufferedImage[] couches = new BufferedImage[NOMBRE_ALTITUDES_SUR_HEROS];
+		for (int i = 0; i<NOMBRE_ALTITUDES_SUR_HEROS; i++) {
+			couches[i] = lecteur.imageVide(largeur*Fenetre.TAILLE_D_UN_CARREAU, hauteur*Fenetre.TAILLE_D_UN_CARREAU);
+		}
+		
+		int numeroCarreau;
+		int altitudeCarreau;
+		for (int i = 0; i<largeur; i++) {
+			for (int j = 0; j<hauteur; j++) {
+				for (int k = 0; k<NOMBRE_LAYERS; k++) {
+					final int[][] layer = layers[k];
 					try {
-						int numeroCarreau = layer1[i][j];
-						if (numeroCarreau>=0) {
-							imageCoucheSurHeros = this.lecteur.dessinerCarreau(imageCoucheSurHeros, i, j, numeroCarreau, tileset);
+						numeroCarreau = layer[i][j];
+						altitudeCarreau = this.tileset.altitude[numeroCarreau];
+						if (altitudeCarreau>=NOMBRE_ALTITUDES_SOUS_HEROS) {
+							couches[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS] = this.lecteur.dessinerCarreau(couches[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS], i, j, numeroCarreau, tileset);
 						}
-					} catch (NumberFormatException e) {
+					} catch (ArrayIndexOutOfBoundsException e) {
 						//case vide
 					}
 				}
 			}
-		} catch (Exception e) {
-			System.out.println("Erreur lors de la lecture de la map :");
-			e.printStackTrace();
 		}
+		for (int i = 1; i<NOMBRE_ALTITUDES_SUR_HEROS; i++) {
+			couches[0] = this.lecteur.superposerImages(couches[0], couches[i], 0, 0);
+		}
+		this.imageCoucheSurHeros = couches[0];
 	}
 
 	/**
@@ -169,13 +195,13 @@ public class Map {
 			this.heros = new Heros(this, this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros);
 			this.events.add(heros);
 			//puis les autres
-			JSONArray jsonEvents = jsonMap.getJSONArray("events");
+			final JSONArray jsonEvents = jsonMap.getJSONArray("events");
 			for (Object ev : jsonEvents) {
-				JSONObject jsonEvent = (JSONObject) ev;
+				final JSONObject jsonEvent = (JSONObject) ev;
 				//récupération des données dans le JSON
-				String nomEvent = jsonEvent.getString("nom");
-				int xEvent = jsonEvent.getInt("x");
-				int yEvent = jsonEvent.getInt("y");
+				final String nomEvent = jsonEvent.getString("nom");
+				final int xEvent = jsonEvent.getInt("x");
+				final int yEvent = jsonEvent.getInt("y");
 				//instanciation de l'event
 				Event event;
 				try {
@@ -183,11 +209,11 @@ public class Map {
 					try{
 					*/
 					//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
-					JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
-					int largeurHitbox = jsonEventGenerique.getInt("largeur");
-					int hauteurHitbox = jsonEventGenerique.getInt("hauteur");
-					int direction = Event.Direction.obtenirDirectionViaJson(jsonEventGenerique);
-					JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
+					final JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
+					final int largeurHitbox = jsonEventGenerique.getInt("largeur");
+					final int hauteurHitbox = jsonEventGenerique.getInt("hauteur");
+					final int direction = Event.Direction.obtenirDirectionViaJson(jsonEventGenerique);
+					final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
 					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
 					/*
 					}catch(Exception e2){
@@ -200,10 +226,10 @@ public class Map {
 					*/
 				} catch (Exception e3) {
 					//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
-					int largeurHitbox = jsonEvent.getInt("largeur");
-					int hauteurHitbox = jsonEvent.getInt("hauteur");
-					int direction = Event.Direction.obtenirDirectionViaJson(jsonEvent);
-					JSONArray jsonPages = jsonEvent.getJSONArray("pages");
+					final int largeurHitbox = jsonEvent.getInt("largeur");
+					final int hauteurHitbox = jsonEvent.getInt("hauteur");
+					final int direction = Event.Direction.obtenirDirectionViaJson(jsonEvent);
+					final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
 					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
 				}
 				this.events.add(event);
@@ -227,10 +253,6 @@ public class Map {
 	 * Création d'un tableau pour connaitre les passabilités de la Map plus rapidement par la suite.
 	 */
 	private void creerListeDesCasesPassables() {
-		ArrayList<int[][]> layers = new ArrayList<int[][]>();
-		layers.add(this.layer0);
-		layers.add(this.layer1);
-		layers.add(this.layer2);
 		this.casePassable = new boolean[this.largeur][this.hauteur];
 		boolean passable;
 		int numeroDeLaCaseDansLeTileset;
@@ -238,8 +260,8 @@ public class Map {
 			for (int j = 0; j<this.hauteur; j++) {
 				passable = true;
 				this.casePassable[i][j] = true;
-				for (int k = 0; k<3&&passable; k++) { //si on en trouve une de non passable, on ne cherche pas les autres couches
-					int[][] layer = layers.get(k);
+				for (int k = 0; k<NOMBRE_LAYERS&&passable; k++) { //si on en trouve une de non passable, on ne cherche pas les autres couches
+					final int[][] layer = layers[k];
 					numeroDeLaCaseDansLeTileset = layer[i][j];
 					if (numeroDeLaCaseDansLeTileset!=-1 && !this.tileset.passabilite[numeroDeLaCaseDansLeTileset]) {
 						this.casePassable[i][j] = false;
@@ -257,8 +279,8 @@ public class Map {
 	 * @return un tableau bidimentionnel contenant le décor situé sur cette couche
 	 */
 	private int[][] recupererCouche(final JSONObject jsonMap, final int numeroCouche) {
-		int[][] couche = new int[largeur][hauteur];
-		JSONArray array = jsonMap.getJSONArray("couche"+numeroCouche);
+		final int[][] couche = new int[largeur][hauteur];
+		final JSONArray array = jsonMap.getJSONArray("couche"+numeroCouche);
 		JSONArray ligne;
 		for (int j = 0; j<hauteur; j++) {
 			ligne = (JSONArray) array.get(j);

@@ -64,7 +64,7 @@ public class Tileset {
 		
 		//lecture des passabilités
 		this.passabilite = new boolean[nombreDeCarreauxTileset];
-		JSONArray jsonPassabilite = jsonTileset.getJSONArray("passabilite");
+		final JSONArray jsonPassabilite = jsonTileset.getJSONArray("passabilite");
 		try {
 			for (int i = 0; i<nombreDeCarreauxTileset; i++ ) {
 				this.passabilite[i] = ((Integer) jsonPassabilite.get(i)) == 0;
@@ -76,7 +76,7 @@ public class Tileset {
 		
 		//lecture des altitudes
 		this.altitude = new int[nombreDeCarreauxTileset];
-		JSONArray jsonAltitude = jsonTileset.getJSONArray("altitude");
+		final JSONArray jsonAltitude = jsonTileset.getJSONArray("altitude");
 		try {
 			for (int i = 0; i<nombreDeCarreauxTileset; i++ ) {
 				this.altitude[i] = (Integer) jsonAltitude.get(i);

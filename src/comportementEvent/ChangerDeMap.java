@@ -41,7 +41,6 @@ public class ChangerDeMap extends CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		//final LecteurMap nouveauLecteur = commandes.get(0).page.event.map.lecteur;
 		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre());
 		final int directionHeros = this.page.event.map.heros.direction;
 		try {
