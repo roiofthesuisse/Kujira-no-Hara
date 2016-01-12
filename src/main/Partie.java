@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import map.Event;
 import map.Map;
@@ -17,8 +18,9 @@ public final class Partie {
 	public int directionHeros;
 	public int vie;
 	public int vieMax;
-	public boolean[] interrupteurs;
-	public int[] variables;
+	public final boolean[] interrupteurs;
+	public final HashMap<String, Boolean> interrupteursLocaux;
+	public final int[] variables;
 	public boolean[] quetesFaites;
 	private int idArmeEquipee = -1;
 	public ArrayList<Integer> idArmesPossedees = new ArrayList<Integer>();
@@ -35,6 +37,7 @@ public final class Partie {
 		this.vie = 6;
 		this.vieMax = 6;
 		this.interrupteurs = new boolean[100];
+		this.interrupteursLocaux = new HashMap<String, Boolean>();
 		this.variables = new int[100];
 		this.quetesFaites = new boolean[100];
 		Arme.initialiserLesArmesDuJeu();
@@ -50,6 +53,7 @@ public final class Partie {
 	 * @param vieMax niveau maximal possible d'énergie vitale du Héros en reprenant la Partie
 	 */
 	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax) {
+		this();
 		this.numeroMap = numeroMap;
 		this.xHeros = xHeros;
 		this.yHeros = yHeros;
