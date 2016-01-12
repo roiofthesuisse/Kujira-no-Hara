@@ -21,6 +21,7 @@ public class Event implements Comparable<Event> {
 	public static final int FREQUENCE_PAR_DEFAUT = 4;
 	private static final int HAUTEUR_HITBOX_PAR_DEFAUT = 32;
 	private static final int LARGEUR_HITBOX_PAR_DEFAUT = 32;
+	public static final int NOMBRE_INTERRUPTEURS_LOCAUX = 4;
 	
 	/** Map à laquelle cet Event appartient */
 	public Map map;
@@ -65,10 +66,8 @@ public class Event implements Comparable<Event> {
 	int offsetY = 0; 
 	public ArrayList<PageDeComportement> pages;
 	public PageDeComportement pageActive = null;
-	public boolean interrupteurLocalA = false;
-	public boolean interrupteurLocalB = false;
-	public boolean interrupteurLocalC = false;
-	public boolean interrupteurLocalD = false;
+	public boolean[] interrupteursLocaux = new boolean[NOMBRE_INTERRUPTEURS_LOCAUX];
+	
 	/**
 	 * Lorsque ce marqueur est à true, on considère l'event comme supprimé.
 	 * Ce n'est qu'un simple marqueur : l'event n'est réellement supprimé qu'après la boucle for sur les events.

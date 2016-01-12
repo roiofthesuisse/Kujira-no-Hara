@@ -24,12 +24,11 @@ public class ConditionInterrupteurLocal extends Condition {
 	
 	@Override
 	public final boolean estVerifiee() {
-		switch(numeroInterrupteur) {
-			case 0 : return eventConcerne.interrupteurLocalA==valeurQuIlEstCenseAvoir;
-			case 1 : return eventConcerne.interrupteurLocalB==valeurQuIlEstCenseAvoir;
-			case 2 : return eventConcerne.interrupteurLocalC==valeurQuIlEstCenseAvoir;
-			default : return eventConcerne.interrupteurLocalD==valeurQuIlEstCenseAvoir;
+		if (numeroInterrupteur>=0 && numeroInterrupteur<Event.NOMBRE_INTERRUPTEURS_LOCAUX) {
+			return eventConcerne.interrupteursLocaux[numeroInterrupteur]==valeurQuIlEstCenseAvoir;
 		}
+		System.err.println("L'interrupteur local numéro "+numeroInterrupteur+" n'existe pas !");
+		return false;
 	}
 
 }
