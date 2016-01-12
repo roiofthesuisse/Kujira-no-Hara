@@ -23,7 +23,7 @@ public class ConditionInterrupteur extends Condition {
 	
 	@Override
 	public final boolean estVerifiee() {
-		return Fenetre.getPartieActuelle().interrupteurs.contains(numeroInterrupteur) == valeurQuIlEstCenseAvoir;
+		return Fenetre.getPartieActuelle().interrupteurs[numeroInterrupteur] == valeurQuIlEstCenseAvoir;
 	}
 
 }

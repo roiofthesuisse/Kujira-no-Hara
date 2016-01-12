@@ -17,7 +17,7 @@ public final class Partie {
 	public int directionHeros;
 	public int vie;
 	public int vieMax;
-	public final ArrayList<Integer> interrupteurs;
+	public final boolean[] interrupteurs;
 	public final ArrayList<String> interrupteursLocaux;
 	public final int[] variables;
 	public boolean[] quetesFaites;
@@ -35,7 +35,7 @@ public final class Partie {
 		this.directionHeros = Event.Direction.BAS;
 		this.vie = 6;
 		this.vieMax = 6;
-		this.interrupteurs = new ArrayList<Integer>();
+		this.interrupteurs = new boolean[100];
 		this.interrupteursLocaux = new ArrayList<String>();
 		this.variables = new int[100];
 		this.quetesFaites = new boolean[100];

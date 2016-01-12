@@ -23,16 +23,7 @@ public class ModifierInterrupteur extends CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		ArrayList<Integer> interrupteurs = Fenetre.getPartieActuelle().interrupteurs;
-		if (valeurADonner) {
-			if (!interrupteurs.contains(numeroInterrupteur)) {
-				interrupteurs.add(numeroInterrupteur);
-			}
-		} else {
-			if (interrupteurs.contains(numeroInterrupteur)) {
-				interrupteurs.remove(new Integer(numeroInterrupteur)); //ici c'est important de mettre un Integer au lieu d'un int
-			}
-		}
+		Fenetre.getPartieActuelle().interrupteurs[numeroInterrupteur] = valeurADonner;
 		return curseurActuel+1;
 	}
 
