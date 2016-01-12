@@ -30,7 +30,17 @@ public class ModifierInterrupteurLocal extends CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
 		String code = "m"+this.numeroMap+"e"+this.numeroEvent+"i"+this.numeroInterrupteurLocal;
-		Fenetre.getPartieActuelle().interrupteursLocaux.put(code, valeurADonner);
+		ArrayList<String> interrupteursLocaux = Fenetre.getPartieActuelle().interrupteursLocaux;
+		if (valeurADonner) {
+			if (!interrupteursLocaux.contains(code)) {
+				Fenetre.getPartieActuelle().interrupteursLocaux.add(code);
+			}
+		} else {
+			if (interrupteursLocaux.contains(code)) {
+				Fenetre.getPartieActuelle().interrupteursLocaux.remove(code);
+			}
+		}
+		
 		return curseurActuel+1;
 	}
 

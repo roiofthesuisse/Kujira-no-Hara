@@ -28,7 +28,7 @@ public class ConditionInterrupteurLocal extends Condition {
 	@Override
 	public final boolean estVerifiee() {
 		String code = "m"+this.numeroMap+"e"+this.numeroEvent+"i"+this.numeroInterrupteurLocal;
-		return Fenetre.getPartieActuelle().interrupteursLocaux.get(code) == valeurQuIlEstCenseAvoir;
+		return Fenetre.getPartieActuelle().interrupteursLocaux.contains(code) == valeurQuIlEstCenseAvoir;
 	}
 
 }

@@ -1,7 +1,6 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import map.Event;
 import map.Map;
@@ -18,8 +17,8 @@ public final class Partie {
 	public int directionHeros;
 	public int vie;
 	public int vieMax;
-	public final boolean[] interrupteurs;
-	public final HashMap<String, Boolean> interrupteursLocaux;
+	public final ArrayList<Integer> interrupteurs;
+	public final ArrayList<String> interrupteursLocaux;
 	public final int[] variables;
 	public boolean[] quetesFaites;
 	private int idArmeEquipee = -1;
@@ -36,8 +35,8 @@ public final class Partie {
 		this.directionHeros = Event.Direction.BAS;
 		this.vie = 6;
 		this.vieMax = 6;
-		this.interrupteurs = new boolean[100];
-		this.interrupteursLocaux = new HashMap<String, Boolean>();
+		this.interrupteurs = new ArrayList<Integer>();
+		this.interrupteursLocaux = new ArrayList<String>();
 		this.variables = new int[100];
 		this.quetesFaites = new boolean[100];
 		Arme.initialiserLesArmesDuJeu();
