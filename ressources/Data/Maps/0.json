@@ -84,8 +84,6 @@
 			"nom": "mouton",
 			"x": 15,
 			"y": 11,
-			"largeur": 32,
-			"hauteur": 32,
 			"pages": [
 				{
 					"conditions": [
@@ -105,12 +103,7 @@
 					],
 					
 					"image": "mouton character.png",
-					"animeALArret": false,
-					"animeEnMouvement": true,
 					"traversable": true,
-					"auDessusDeTout": false,
-					"vitesse": 4,
-					"frequence": 4,
 					"deplacement": [
 						{
 							"nom": "Avancer",
@@ -132,8 +125,6 @@
 			"nom": "teleporteur",
 			"x": 20,
 			"y": 11,
-			"largeur": 32,
-			"hauteur": 32,
 			"pages": [
 				{
 					"conditions": [
@@ -151,15 +142,8 @@
 					],
 					
 					"image": "",
-					"animeALArret": false,
 					"animeEnMouvement": false,
-					"traversable": true,
-					"auDessusDeTout": false,
-					"vitesse": 4,
-					"frequence": 4,
-					"deplacement": [],
-					"repeterLeDeplacement": false,
-					"ignorerLesMouvementsImpossibles": false
+					"traversable": true
 				}
 			]
 		},
@@ -171,18 +155,77 @@
 			"hauteur": 16,
 			"pages": [
 				{
-					"conditions": [],
-					"commandes": [],
-					"image": "rectangle vert.png",
-					"animeALArret": false,
-					"animeEnMouvement": false,
-					"traversable": false,
-					"auDessusDeTout": false,
-					"vitesse": 4,
-					"frequence": 4,
-					"deplacement": [],
-					"repeterLeDeplacement": false,
-					"ignorerLesMouvementsImpossibles": false
+					"image": "rectangle vert.png"
+				}
+			]
+		},
+		{
+			"nom": "interrupteur",
+			"x": 18,
+			"y": 13,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "ArriveeAuContact"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "ModifierVariable",
+							"numeroVariable": 42,
+							"operationAFaire": "ajouter",
+							"operationAFaire2": "valeur brute",
+							"valeurADonner": 1,
+							"valeurADonner2": 0
+						},
+						{
+							"nom": "JouerEffetSonore",
+							"nomFichierSonore": "tambourin.ogg"
+						},
+						{
+							"nom": "ModifierInterrupteurLocal",
+							"numeroInterrupteurLocal": 0,
+							"valeurADonner": true
+						}
+					],
+					"image": "bouton character.png",
+					"directionInitiale": 0,
+					"traversable": true
+				},
+				{
+					"conditions": [
+						{
+							"nom": "ArriveeAuContact"
+						},
+						{
+							"nom": "InterrupteurLocal",
+							"numeroInterrupteurLocal": 0,
+							"valeurQuIlEstCenseAvoir": true
+						}
+					],
+					"commandes": [
+						{
+							"nom": "ModifierVariable",
+							"numeroVariable": 42,
+							"operationAFaire": "rendre egal a",
+							"operationAFaire2": "valeur brute",
+							"valeurADonner": 0,
+							"valeurADonner2": 0
+						},
+						{
+							"nom": "JouerEffetSonore",
+							"nomFichierSonore": "tambourin.ogg"
+						},
+						{
+							"nom": "ModifierInterrupteurLocal",
+							"numeroInterrupteurLocal": 0,
+							"valeurADonner": false
+						}
+					],
+					"image": "bouton character.png",
+					"directionInitiale": 3,
+					"traversable": true
 				}
 			]
 		}

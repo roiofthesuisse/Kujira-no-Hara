@@ -1,6 +1,7 @@
 package conditions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import comportementEvent.CommandeEvent;
 

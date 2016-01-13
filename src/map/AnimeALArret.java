@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import comportementEvent.CommandeEvent;
 
 /**
- * Activer ou désactiver l'animation à l'arrêt d'un Event
+ * Activer ou désactiver l'animation à l'arrêt d'un Event.
+ * La modification se fait sur la propriété actuelle de l'Event, et non sur la Page.
  */
 public class AnimeALArret extends CommandeEvent {
 	private boolean valeur;
@@ -20,7 +21,7 @@ public class AnimeALArret extends CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		this.page.animeALArret = this.valeur;
+		this.page.event.animeALArretActuel = this.valeur;
 		return curseurActuel+1;
 	}
 

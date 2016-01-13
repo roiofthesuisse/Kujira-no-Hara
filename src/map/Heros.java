@@ -21,7 +21,7 @@ public class Heros extends Event {
 	//constantes
 	private static final int LARGEUR_HEROS = 24;
 	private static final int HAUTEUR_HEROS = 24;
-	private static final int VITESSE_HEROS_PAR_DEFAUT = 4;
+	public static final int VITESSE_HEROS_PAR_DEFAUT = 4;
 	public static final String NOM_IMAGE_HEROS = "Jiyounasu character.png";
 	/**
 	 * L'animation d'attaque vaut 0 si le héros n'attaque pas.
@@ -51,9 +51,7 @@ public class Heros extends Event {
 		//pages
 			//page 0 : marche normale
 				final ArrayList<Condition> conditions0 = null;
-				final PageDeComportement page0 = new PageDeComportement(conditions0, null, NOM_IMAGE_HEROS, null);
-				page0.animeEnMouvement = true;
-				page0.vitesse = VITESSE_HEROS_PAR_DEFAUT;
+				final PageDeComportement page0 = new PageDeComportement(conditions0, null, NOM_IMAGE_HEROS);
 				pages.add(page0);
 			//page 1 : déclenchement animation attaque épée
 				final ArrayList<Condition> conditions1 = new ArrayList<Condition>();
@@ -64,13 +62,13 @@ public class Heros extends Event {
 				final ArrayList<CommandeEvent> commandes1 = new ArrayList<CommandeEvent>();
 				commandes1.add( new DemarrerAnimationAttaque());
 				final String nomImageHerosEpee = Arme.getArme(0).nomImageAttaque;
-				final PageDeComportement page1 = new PageDeComportement(conditions1, commandes1, nomImageHerosEpee, null);
+				final PageDeComportement page1 = new PageDeComportement(conditions1, commandes1, nomImageHerosEpee);
 				pages.add(page1);
 			//page 2 : animation attaque épée
 				final ArrayList<Condition> conditions2 = new ArrayList<Condition>();
 				conditions2.add(new ConditionAnimationAttaque());
 				conditions2.add(new ConditionArmeEquipee(0));
-				final PageDeComportement page2 = new PageDeComportement(conditions2, null, nomImageHerosEpee, null);
+				final PageDeComportement page2 = new PageDeComportement(conditions2, null, nomImageHerosEpee);
 				pages.add(page2);
 			//page 3 : déclenchement animation attaque éventail
 				final ArrayList<Condition> conditions3 = new ArrayList<Condition>();
@@ -80,13 +78,13 @@ public class Heros extends Event {
 				final ArrayList<CommandeEvent> commandes3 = new ArrayList<CommandeEvent>();
 				commandes3.add( new DemarrerAnimationAttaque());
 				final String nomImageHerosEventail = Arme.getArme(1).nomImageAttaque;
-				final PageDeComportement page3 = new PageDeComportement(conditions3, commandes3, nomImageHerosEventail, null);
+				final PageDeComportement page3 = new PageDeComportement(conditions3, commandes3, nomImageHerosEventail);
 				pages.add(page3);
 			//page 4 : animation attaque éventail
 				final ArrayList<Condition> conditions4 = new ArrayList<Condition>();
 				conditions4.add(new ConditionAnimationAttaque());
 				conditions4.add(new ConditionArmeEquipee(1));
-				final PageDeComportement page4 = new PageDeComportement(conditions4, null, nomImageHerosEventail, null);
+				final PageDeComportement page4 = new PageDeComportement(conditions4, null, nomImageHerosEventail);
 				pages.add(page4);
 		//fin pages
 		return pages;

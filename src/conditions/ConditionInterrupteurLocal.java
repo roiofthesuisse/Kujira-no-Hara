@@ -1,5 +1,7 @@
 package conditions;
 
+import java.util.HashMap;
+
 import main.Fenetre;
 
 /**
@@ -7,8 +9,8 @@ import main.Fenetre;
  */
 public class ConditionInterrupteurLocal extends Condition {
 	boolean valeurQuIlEstCenseAvoir;
-	private final int numeroMap;
-	private final int numeroEvent;
+	private final Integer numeroMap;
+	private final Integer numeroEvent;
 	private final int numeroInterrupteurLocal;
 	
 	/**
@@ -18,16 +20,28 @@ public class ConditionInterrupteurLocal extends Condition {
 	 * @param numeroInterrupteurLocal à vérifier (0 A ; 1 B ; 2 C ; 3 D)
 	 * @param valeur booléenne attendue
 	 */
-	public ConditionInterrupteurLocal(final int numeroMap, final int numeroEvent, final int numeroInterrupteurLocal, final boolean valeur) {
+	public ConditionInterrupteurLocal(final Integer numeroMap, final Integer numeroEvent, final int numeroInterrupteurLocal, final boolean valeur) {
 		this.numeroMap = numeroMap;
 		this.numeroEvent = numeroEvent;
 		this.numeroInterrupteurLocal = numeroInterrupteurLocal;
 		this.valeurQuIlEstCenseAvoir = valeur;
 	}
 	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionInterrupteurLocal(final HashMap<String, Object> parametres) {
+		this( parametres.containsKey("numeroMap") ? (int) parametres.get("numeroMap") : null,
+			parametres.containsKey("numeroEvent") ? (int) parametres.get("numeroEvent") : null,
+			(int) parametres.get("numeroInterrupteurLocal"),
+			(boolean) parametres.get("valeurQuIlEstCenseAvoir")
+		);
+	}
+	
 	@Override
 	public final boolean estVerifiee() {
-		String code = "m"+this.numeroMap+"e"+this.numeroEvent+"i"+this.numeroInterrupteurLocal;
+		final String code = "m"+this.numeroMap+"e"+this.numeroEvent+"i"+this.numeroInterrupteurLocal;
 		return Fenetre.getPartieActuelle().interrupteursLocaux.contains(code) == valeurQuIlEstCenseAvoir;
 	}
 

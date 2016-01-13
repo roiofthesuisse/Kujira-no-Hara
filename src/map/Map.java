@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import main.Fenetre;
@@ -205,30 +206,51 @@ public class Map {
 				//instanciation de l'event
 				Event event;
 				try {
-					/*
-					try{
-					*/
 					//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
 					final JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
-					final int largeurHitbox = jsonEventGenerique.getInt("largeur");
-					final int hauteurHitbox = jsonEventGenerique.getInt("hauteur");
-					final int direction = Event.Direction.obtenirDirectionViaJson(jsonEventGenerique);
+					int largeurHitbox;
+					try {
+						largeurHitbox = jsonEventGenerique.getInt("largeur");
+					} catch (JSONException e2) {
+						largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
+					}
+					int hauteurHitbox;
+					try {
+					hauteurHitbox = jsonEventGenerique.getInt("hauteur");
+					} catch (JSONException e2) {
+						hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
+					}
+					
+					int direction;
+					try {
+						direction = jsonEvent.getInt("direction");
+					} catch (Exception e1) {
+						direction = Event.Direction.BAS; //direction par défaut
+					}
+					
 					final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
 					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
-					/*
-					}catch(Exception e2){
-						e2.printStackTrace();
-						//on essaye de le créer à partir de la bibliothèque Java
-						Class<?> classeEvent = Class.forName("bibliothequeEvent."+nomEvent);
-						Constructor<?> constructeurEvent = classeEvent.getConstructor(this.getClass(), Integer.class, Integer.class);
-						event = (Event) constructeurEvent.newInstance(this, xEvent, yEvent);
-					}
-					*/
 				} catch (Exception e3) {
 					//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
-					final int largeurHitbox = jsonEvent.getInt("largeur");
-					final int hauteurHitbox = jsonEvent.getInt("hauteur");
-					final int direction = Event.Direction.obtenirDirectionViaJson(jsonEvent);
+					int largeurHitbox;
+					try {
+						largeurHitbox = jsonEvent.getInt("largeur");
+					} catch (JSONException e2) {
+						largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
+					}
+					int hauteurHitbox;
+					try {
+						hauteurHitbox = jsonEvent.getInt("hauteur");
+					} catch (JSONException e2) {
+						hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
+					}
+					int direction;
+					try {
+						direction = jsonEvent.getInt("direction");
+					} catch (Exception e1) {
+						direction = Event.Direction.BAS; //direction par défaut
+					}
+					
 					final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
 					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
 				}

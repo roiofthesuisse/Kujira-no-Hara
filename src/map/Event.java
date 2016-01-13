@@ -19,8 +19,14 @@ public class Event implements Comparable<Event> {
 	//constantes
 	public static final int VITESSE_PAR_DEFAUT = 4;
 	public static final int FREQUENCE_PAR_DEFAUT = 4;
-	private static final int HAUTEUR_HITBOX_PAR_DEFAUT = 32;
-	private static final int LARGEUR_HITBOX_PAR_DEFAUT = 32;
+	public static final int LARGEUR_HITBOX_PAR_DEFAUT = Fenetre.TAILLE_D_UN_CARREAU;
+	public static final int HAUTEUR_HITBOX_PAR_DEFAUT = Fenetre.TAILLE_D_UN_CARREAU;
+	public static final boolean ANIME_A_L_ARRET_PAR_DEFAUT = false;
+	public static final boolean ANIME_EN_MOUVEMENT_PAR_DEFAUT = true;
+	public static final boolean TRAVERSABLE_PAR_DEFAUT = false;
+	public static final boolean AU_DESSUS_DE_TOUT_PAR_DEFAUT = false;
+	public static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAUT = false;
+	public static final boolean IGNORER_LES_MOUVEMENTS_IMPOSSIBLES_PAR_DEFAUT = true;
 	
 	/** Map à laquelle cet Event appartient */
 	public Map map;
@@ -38,13 +44,16 @@ public class Event implements Comparable<Event> {
 	/** toutes les combien de frames l'Event change-t-il d'animation ? */
 	public int frequenceActuelle = FREQUENCE_PAR_DEFAUT; //1:trèsAgité 2:agité 4:normal 8:mou 16:trèsMou
 	
-	public int direction = Event.Direction.BAS;
-	public int animation = 0;
+	public int direction;
+	public int animation;
+	
 	public BufferedImage imageActuelle = null;
 	/** l'Event est-il en train d'avancer en ce moment même ? (utile pour l'animation) */
 	public boolean avance = false;
 	/** L'Event avançait-il à la frame précédente ? (utile pour l'animation) */
 	protected boolean avancaitALaFramePrecedente = false;
+	/**  L'Event est-il au contact du Héros ? (utile pour la Condition ArriveeAuContact */
+	public boolean estAuContactDuHeros = false;
 	
 	/** 
 	 * Ces paramètres sont remplis automatiquement au chargement de la page.
@@ -80,21 +89,6 @@ public class Event implements Comparable<Event> {
 		public static final int GAUCHE = 1;
 		public static final int DROITE = 2;
 		public static final int HAUT = 3;
-		
-		/**
-		 * Méthode pratique pour récupérer la direction d'un Event décrit par un JSON.
-		 * @param jsonEvent object JSON décrivant l'évènement
-		 * @return direction initiale de l'évènement
-		 */
-		public static int obtenirDirectionViaJson(final JSONObject jsonEvent) {
-			int dir;
-			try {
-				dir = jsonEvent.getInt("direction");
-			} catch (Exception e1) {
-				dir = Event.Direction.BAS; //direction par défaut
-			}
-			return dir;
-		}
 	}
 	
 	/**
@@ -307,10 +301,15 @@ public class Event implements Comparable<Event> {
 				final CommandeEvent mouvementActuel = deplacementActuel.get(0);
 				final String typeMouvement = mouvementActuel.getClass().getName();
 				switch(typeMouvement) {
-					case "comportementEvent.Avancer" : deplacer((Avancer) mouvementActuel); break;
-					case "comportementEvent.AvancerAleatoirement" : deplacer((Avancer) mouvementActuel); break;
+					case "comportementEvent.Avancer" : 
+						deplacer((Avancer) mouvementActuel); 
+						break;
+					case "comportementEvent.AvancerAleatoirement" : 
+						deplacer((Avancer) mouvementActuel); 
+						break;
 					//TODO dans le futur, ajouter les autres types de mouvements ici
-					default : break;
+					default : 
+						break;
 				}
 			} catch (NullPointerException e1) {
 				//pas de déplacement pour cet event
@@ -454,6 +453,10 @@ public class Event implements Comparable<Event> {
 	private void attribuerLesProprietesActuelles(final PageDeComportement page) {
 		//apparence
 		this.imageActuelle = page.image;
+		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
+			this.direction = page.directionInitiale;
+		}
+		
 		//propriétés
 		this.vitesseActuelle = page.vitesse;
 		this.frequenceActuelle = page.frequence;

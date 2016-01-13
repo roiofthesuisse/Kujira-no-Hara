@@ -1,6 +1,7 @@
 package comportementEvent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 import main.Fenetre;
@@ -8,30 +9,31 @@ import main.Partie;
 
 /**
  * Modifier la valeur d'une variable
+ * TODO rendre cette classe abstraite et utiliser l'héritage pour traiter tous les cas séparément
  */
 public class ModifierVariable extends CommandeEvent {
-	int numeroVariable;
-	int operationAFaire;
-	int operationAFaire2;
-	int valeurADonner;
-	int valeurADonner2;
+	final int numeroVariable;
+	final String operationAFaire;
+	final String operationAFaire2;
+	final int valeurADonner;
+	final int valeurADonner2;
 	
 	/**
 	 * Opération à effectuer sur la variable
 	 */
-	public static final int RENDRE_EGAL_A = 0;
-	public static final int AJOUTER = 1;
-	public static final int RETIRER = 2;
-	public static final int MULTIPLIER = 3;
-	public static final int DIVISER = 4;
-	public static final int MODULO = 5;
+	public static final String RENDRE_EGAL_A = "rendre egal a";
+	public static final String AJOUTER = "ajouter";
+	public static final String RETIRER = "retirer";
+	public static final String MULTIPLIER = "multiplier";
+	public static final String DIVISER = "diviser";
+	public static final String MODULO = "modulo";
 	
 	/**
 	 * Provenance de la valeur modificatrice
 	 */
-	public static final int VALEUR_BRUTE = 0;
-	public static final int CONTENU_DE_LA_VARIABLE = 1;
-	public static final int NOMBRE_ALEATOIRE = 2;
+	public static final String VALEUR_BRUTE = "valeur brute";
+	public static final String CONTENU_DE_LA_VARIABLE = "contenu de la variable";
+	public static final String NOMBRE_ALEATOIRE = "nombre aleatoire";
 	
 	/**
 	 * Constructeur explicite
@@ -42,12 +44,25 @@ public class ModifierVariable extends CommandeEvent {
 	 * @param valeurADonner valeur brute, numéro de la variable, ou borne inférieure aléatoire
 	 * @param valeurADonner2 éventuelle borne supérieure aléatoire
 	 */
-	public ModifierVariable(final int numeroVariable, final int operationAFaire, final int operationAFaire2, final int valeurADonner, final int valeurADonner2) {
+	public ModifierVariable(final int numeroVariable, final String operationAFaire, final String operationAFaire2, final int valeurADonner, final int valeurADonner2) {
 		this.numeroVariable = numeroVariable;
 		this.operationAFaire = operationAFaire;
 		this.operationAFaire2 = operationAFaire2;
 		this.valeurADonner = valeurADonner;
 		this.valeurADonner2 = valeurADonner2;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ModifierVariable(final HashMap<String, Object> parametres) {
+		this( (int) parametres.get("numeroVariable"),
+			(String) parametres.get("operationAFaire"),
+			(String) parametres.get("operationAFaire2"),
+			(int) parametres.get("valeurADonner"),
+			(int) parametres.get("valeurADonner2")
+		);
 	}
 	
 	@Override
@@ -56,20 +71,41 @@ public class ModifierVariable extends CommandeEvent {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		//operationAFaire2 donne la provenance de la valeur modificatrice
 		switch (operationAFaire2) {
-			case VALEUR_BRUTE : valeur = valeurADonner; break;
-			case CONTENU_DE_LA_VARIABLE : valeur = partieActuelle.variables[valeurADonner]; break;
-			case NOMBRE_ALEATOIRE : valeur = (new Random()).nextInt(valeurADonner2-valeurADonner)+valeurADonner; break;
-			default: valeur = 0; break;
+			case VALEUR_BRUTE : 
+				valeur = valeurADonner; 
+				break;
+			case CONTENU_DE_LA_VARIABLE : 
+				valeur = partieActuelle.variables[valeurADonner]; 
+				break;
+			case NOMBRE_ALEATOIRE : 
+				valeur = (new Random()).nextInt(valeurADonner2-valeurADonner)+valeurADonner; 
+				break;
+			default: 
+				valeur = 0; 
+				break;
 		}
 		//operationAFaire donne le type d'opération à effectuer
 		switch (operationAFaire) {
-			case RENDRE_EGAL_A : partieActuelle.variables[numeroVariable] = valeur; break;
-			case AJOUTER : partieActuelle.variables[numeroVariable] += valeur; break;
-			case RETIRER : partieActuelle.variables[numeroVariable] -= valeur; break;
-			case MULTIPLIER : partieActuelle.variables[numeroVariable] *= valeur; break;
-			case DIVISER : partieActuelle.variables[numeroVariable] /= valeur; break;
-			case MODULO : partieActuelle.variables[numeroVariable] %= valeur; break;
-			default: break;
+			case RENDRE_EGAL_A : 
+				partieActuelle.variables[numeroVariable] = valeur; 
+				break;
+			case AJOUTER : 
+				partieActuelle.variables[numeroVariable] += valeur; 
+				break;
+			case RETIRER : 
+				partieActuelle.variables[numeroVariable] -= valeur; 
+				break;
+			case MULTIPLIER : 
+				partieActuelle.variables[numeroVariable] *= valeur; 
+				break;
+			case DIVISER : 
+				partieActuelle.variables[numeroVariable] /= valeur; 
+				break;
+			case MODULO : 
+				partieActuelle.variables[numeroVariable] %= valeur; 
+				break;
+			default: 
+				break;
 		}
 		return curseurActuel+1;
 	}

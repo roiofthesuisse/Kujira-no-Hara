@@ -165,7 +165,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private void continuerLaLectureDesPagesDeCommandesEvent() {
 		for (Event event : this.map.events) {
-			if (!event.equals(this.map.heros)) { //le héros est calculé en dernier
+			if (!event.equals(this.map.heros)) { //le Héros est calculé en dernier
 				if (!event.supprime) {
 					if (event.pageActive == null || event.pageActive.commandes==null) {
 						event.activerUnePage();
@@ -176,7 +176,7 @@ public class LecteurMap extends Lecteur {
 				}
 			}
 		}
-		//le héros est calculé en dernier pour éviter les problèmes d'épée
+		//le Héros est calculé en dernier pour éviter les problèmes d'épée
 		final Event event = this.map.heros;
 		if (!event.supprime) {
 			if (event.pageActive == null || event.pageActive.commandes==null) {

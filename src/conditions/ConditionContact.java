@@ -13,9 +13,18 @@ public class ConditionContact extends Condition {
 	
 	@Override
 	public final boolean estVerifiee() {
+		//TODO delete this method
+		return estVerifieeInterne();
+	}
+	
+	/**
+	 * Méthode utilisée en interne, et dont estVerifiee() est l'ambassadrice publique.
+	 * @return true si le Héros est au contact de cet Event, sinon false
+	 */
+	private boolean estVerifieeInterne() {
 		try {
-			int pageActive = this.page.event.pageActive.numero;
-			int cettePage = this.page.numero;
+			final int pageActive = this.page.event.pageActive.numero;
+			final int cettePage = this.page.numero;
 			//il faut d'abord que la page ne soit pas ouverte
 			if (pageActive==cettePage) {
 				return false;
@@ -24,16 +33,16 @@ public class ConditionContact extends Condition {
 			//pas de page active
 		}
 		
-		Event event = page.event;
-		Heros heros = event.map.heros;
-		int xmin1 = heros.x;
-		int xmax1 = heros.x+heros.largeurHitbox;
-		int ymin1 = heros.y;
-		int ymax1 = heros.y+heros.hauteurHitbox;
-		int xmin2 = event.x;
-		int xmax2 = event.x+event.largeurHitbox;
-		int ymin2 = event.y;
-		int ymax2 = event.y+event.hauteurHitbox;
+		final Event event = page.event;
+		final Heros heros = event.map.heros;
+		final int xmin1 = heros.x;
+		final int xmax1 = heros.x+heros.largeurHitbox;
+		final int ymin1 = heros.y;
+		final int ymax1 = heros.y+heros.hauteurHitbox;
+		final int xmin2 = event.x;
+		final int xmax2 = event.x+event.largeurHitbox;
+		final int ymin2 = event.y;
+		final int ymax2 = event.y+event.hauteurHitbox;
 		//deux interprétations très différentes selon la traversabilité de l'event
 		if (event.traversableActuel) {
 			//genre une dalle au sol
@@ -59,4 +68,5 @@ public class ConditionContact extends Condition {
 				);	
 		}
 	}
+	
 }
