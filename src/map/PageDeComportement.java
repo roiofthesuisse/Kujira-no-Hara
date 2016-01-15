@@ -81,7 +81,7 @@ public class PageDeComportement {
 		
 		//propriétés de l'Event pour cette Page
 		this.vitesse = Heros.VITESSE_HEROS_PAR_DEFAUT;
-		this.frequence = Heros.FREQUENCE_PAR_DEFAUT;
+		this.frequence = Heros.FREQUENCE_HEROS_PAR_DEFAUT;
 		this.animeALArret = false;
 		this.animeEnMouvement = true;
 		this.traversable = false;

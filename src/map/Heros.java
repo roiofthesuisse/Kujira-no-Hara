@@ -22,6 +22,7 @@ public class Heros extends Event {
 	private static final int LARGEUR_HEROS = 24;
 	private static final int HAUTEUR_HEROS = 24;
 	public static final int VITESSE_HEROS_PAR_DEFAUT = 4;
+	public static final int FREQUENCE_HEROS_PAR_DEFAUT = 4;
 	public static final String NOM_IMAGE_HEROS = "Jiyounasu character.png";
 	/**
 	 * L'animation d'attaque vaut 0 si le héros n'attaque pas.
