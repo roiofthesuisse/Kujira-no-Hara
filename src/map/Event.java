@@ -53,7 +53,9 @@ public class Event implements Comparable<Event> {
 	/** L'Event avançait-il à la frame précédente ? (utile pour l'animation) */
 	protected boolean avancaitALaFramePrecedente = false;
 	/**  L'Event est-il au contact du Héros ? (utile pour la Condition ArriveeAuContact */
-	public boolean estAuContactDuHeros = false;
+	public boolean estAuContactDuHerosMaintenant = false;
+	public boolean estAuContactDuHerosAvant = false;
+	public int frameDuContact;
 	
 	/** 
 	 * Ces paramètres sont remplis automatiquement au chargement de la page.

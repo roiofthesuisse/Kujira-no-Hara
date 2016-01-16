@@ -1,5 +1,7 @@
 package conditions;
 
+import map.Event;
+
 /**
  * Est-ce que le Héros vient d'entrer en contact avec l'Event ?
  * Le contact a deux sens :
@@ -10,24 +12,21 @@ public class ConditionArriveeAuContact extends Condition {
 
 	@Override
 	public final boolean estVerifiee() {
-		//l'Event est au contact du Héros maintenant
-		final ConditionContact conditionContactMaintenant = new ConditionContact();
-		conditionContactMaintenant.page = this.page;
-		conditionContactMaintenant.numero = this.numero;
-		final boolean reponse = conditionContactMaintenant.estVerifiee();
-		
-		//mais l'Event n'était pas encore au contact du Héros à la frame d'avant
-		if (!this.page.event.estAuContactDuHeros) {
-			this.page.event.estAuContactDuHeros = reponse;
-			if (reponse) {
-				System.out.println("ConditionArriveeAuContact"); //TODO retirer
-			}
-			return reponse;
+		final Event event = this.page.event;
+		if ( event.frameDuContact != event.map.lecteur.frameActuelle ) {
+			//on n'est pas à jour ! on calcule s'il y a contact :
+			final ConditionContact conditionContactMaintenant = new ConditionContact();
+			conditionContactMaintenant.page = this.page;
+			conditionContactMaintenant.numero = this.numero;
+			final boolean leHerosEstAuContactDeLEventMaintenant = conditionContactMaintenant.estVerifiee();
+			
+			event.estAuContactDuHerosAvant = event.estAuContactDuHerosMaintenant;
+			event.estAuContactDuHerosMaintenant = leHerosEstAuContactDeLEventMaintenant;
+			event.frameDuContact = event.map.lecteur.frameActuelle;
 		}
 		
-		//ici l'Event était déjà au contact du Héros, donc ce n'est pas une arrivée
-		this.page.event.estAuContactDuHeros = reponse;
-		return false;
+		//on est à jour
+		return event.estAuContactDuHerosMaintenant && !event.estAuContactDuHerosAvant;
 	}
 
 }
