@@ -81,6 +81,7 @@ public class ModifierVariable extends CommandeEvent {
 				valeur = (new Random()).nextInt(valeurADonner2-valeurADonner)+valeurADonner; 
 				break;
 			default: 
+				System.err.println("ModifierVariable.executer() : valeur inconnue pour operationAFaire2");
 				valeur = 0; 
 				break;
 		}
@@ -105,6 +106,7 @@ public class ModifierVariable extends CommandeEvent {
 				partieActuelle.variables[numeroVariable] %= valeur; 
 				break;
 			default: 
+				System.err.println("ModifierVariable.executer() : valeur inconnue pour operationAFaire");
 				break;
 		}
 		return curseurActuel+1;
