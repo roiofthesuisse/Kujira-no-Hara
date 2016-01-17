@@ -256,17 +256,13 @@ public class Map {
 				}
 				this.events.add(event);
 			}
-			//events.add( new Panneau(this,2,7) );
-			//events.add( new DarumaAleatoire(this,1,1) );
-			//events.add( new Algue(this,2,8) );
-			//events.add( new DarumaAleatoire(this,3,7) );
-			//events.add( new DarumaAleatoire(this,3,8) );
 		} catch (Exception e3) {
 			System.err.println("Erreur lors de la constitution de la liste des events :");
 			e3.printStackTrace();
 		}
 		//numérotation des events
-		for (int i = 0; i<this.events.size(); i++) {
+		final int nombreDEvents = this.events.size();
+		for (int i = 0; i<nombreDEvents; i++) {
 			this.events.get(i).numero = i;
 		}
 	}

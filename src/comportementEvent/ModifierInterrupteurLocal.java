@@ -57,7 +57,7 @@ public class ModifierInterrupteurLocal extends CommandeEvent {
 		}
 		//null signifie "cet Event"
 		if (this.numeroEvent==null) {
-			this.numeroMap = this.page.event.numero;
+			this.numeroEvent = this.page.event.numero;
 		}
 		
 		final String code = "m"+this.numeroMap+"e"+this.numeroEvent+"i"+this.numeroInterrupteurLocal;
@@ -71,7 +71,6 @@ public class ModifierInterrupteurLocal extends CommandeEvent {
 				Fenetre.getPartieActuelle().interrupteursLocaux.remove(code);
 			}
 		}
-		
 		return curseurActuel+1;
 	}
 

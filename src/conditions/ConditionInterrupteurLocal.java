@@ -9,8 +9,8 @@ import main.Fenetre;
  */
 public class ConditionInterrupteurLocal extends Condition {
 	boolean valeurQuIlEstCenseAvoir;
-	private final Integer numeroMap;
-	private final Integer numeroEvent;
+	private Integer numeroMap;
+	private Integer numeroEvent;
 	private final int numeroInterrupteurLocal;
 	
 	/**
@@ -41,8 +41,18 @@ public class ConditionInterrupteurLocal extends Condition {
 	
 	@Override
 	public final boolean estVerifiee() {
+		//null signifie "cette Map"
+		if (this.numeroMap==null) {
+			this.numeroMap = this.page.event.map.numero;
+		}
+		//null signifie "cet Event"
+		if (this.numeroEvent==null) {
+			this.numeroEvent = this.page.event.numero;
+		}
 		final String code = "m"+this.numeroMap+"e"+this.numeroEvent+"i"+this.numeroInterrupteurLocal;
-		return Fenetre.getPartieActuelle().interrupteursLocaux.contains(code) == valeurQuIlEstCenseAvoir;
+		
+		final boolean reponse = Fenetre.getPartieActuelle().interrupteursLocaux.contains(code) == valeurQuIlEstCenseAvoir;
+		return reponse;
 	}
 
 }
