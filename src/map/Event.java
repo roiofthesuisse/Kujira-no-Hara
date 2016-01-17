@@ -44,6 +44,9 @@ public class Event implements Comparable<Event> {
 	/** toutes les combien de frames l'Event change-t-il d'animation ? */
 	public int frequenceActuelle = FREQUENCE_PAR_DEFAUT; //1:trèsAgité 2:agité 4:normal 8:mou 16:trèsMou
 	
+	/** un Event peut être déplacé par une Commande Event externe à son déplacement naturel nominal */
+	public ArrayList<CommandeEvent> deplacementForce;
+	
 	public int direction;
 	public int animation;
 	
@@ -62,7 +65,7 @@ public class Event implements Comparable<Event> {
 	 */
 	public boolean animeALArretActuel = false;
 	public boolean animeEnMouvementActuel = true;
-	public ArrayList<CommandeEvent> deplacementActuel;
+	public ArrayList<CommandeEvent> deplacementNaturelActuel;
 	public boolean repeterLeDeplacementActuel = true;
 	public boolean ignorerLesMouvementsImpossiblesActuel = false;
 	public boolean traversableActuel = false;
@@ -294,30 +297,54 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Déplacement naturel, inscrit dans la liste des déplacements de la page de l'event
+	 * Faire faire un mouvement à l'Event.
+	 * Ce mouvement est soit issu du déplacement naturel de l'Event, soit de son éventuel déplacement forcé.
 	 */
 	public void deplacer() {
-		//si page active peut être nulle, le deplacementActuel est celui de la dernière page qui a été activée
-		if (pageActive!=null || (deplacementActuel!=null&&deplacementActuel.size()>0) ) {
-			try {
-				final CommandeEvent mouvementActuel = deplacementActuel.get(0);
-				final String typeMouvement = mouvementActuel.getClass().getName();
-				switch(typeMouvement) {
-					case "comportementEvent.Avancer" : 
-						deplacer((Avancer) mouvementActuel); 
-						break;
-					case "comportementEvent.AvancerAleatoirement" : 
-						deplacer((Avancer) mouvementActuel); 
-						break;
-					//TODO dans le futur, ajouter les autres types de mouvements ici
-					default : 
-						break;
-				}
-			} catch (NullPointerException e1) {
-				//pas de déplacement pour cet event
-			} catch (IndexOutOfBoundsException e2) {
-				//le déplacement ne contient aucune commande
+		if (this.deplacementForce!=null && this.deplacementForce.size()>=0) {
+			//il y a un déplacement forcé
+			executerLeDeplacement(this.deplacementForce);
+		} else {
+			//pas de déplacement forcé : on execute le déplacement naturel
+			if (pageActive!=null || (deplacementNaturelActuel!=null&&deplacementNaturelActuel.size()>0)) {
+				//TODO actuellement le déplacement naturel est ainsi choisi :
+				//"si la page active est nulle, le deplacementActuel est celui de la dernière page qui a été activée"
+				//mais le déplacement naturel doit être choisi de la même façon que l'apparence et les propriétés,
+				//c'est-à-dire en comptant les conditions d'activation, SAUF Parole/Contact/ArrivéeAuContact.			
+				
+				//il y a un déplacement naturel
+				executerLeDeplacement(this.deplacementNaturelActuel);
 			}
+		}
+	}
+	
+	/**
+	 * Executer un à un les mouvements du déplacement naturel de l'Event.
+	 * Le déplacement naturel figure dans la description de l'Event dès sa création.
+	 */
+	private void executerLeDeplacement(ArrayList<CommandeEvent> deplacement) {
+		try {
+			final CommandeEvent mouvementActuel = deplacement.get(0);
+			final String typeMouvement = mouvementActuel.getClass().getName();
+			//TODO on ne devrait pas faire de switch !
+			//il faut utiliser la programmation orientée objet,
+			//c'est-à-dire faire mouvementActuel.executer()
+			//et déporter une partie du code de executerLeMouvement() dedans.
+			switch(typeMouvement) {
+				case "comportementEvent.Avancer" : 
+					executerLeMouvement((Avancer) mouvementActuel, deplacement); 
+					break;
+				case "comportementEvent.AvancerAleatoirement" : 
+					executerLeMouvement((Avancer) mouvementActuel, deplacement); 
+					break;
+				//autres mouvements...
+				default : 
+					break;
+			}
+		} catch (NullPointerException e1) {
+			//pas de déplacement pour cet event
+		} catch (IndexOutOfBoundsException e2) {
+			//le déplacement ne contient aucune commande
 		}
 	}
 	
@@ -325,30 +352,45 @@ public class Event implements Comparable<Event> {
 	 * Déplace l'Event pour son déplacement naturel ou pour un déplacement forcé.
 	 * Vu qu'on utilise "deplacementActuel", un déplacement forcé devra être inséré artificiellement dans la liste.
 	 * @param mouvementActuel mouvement à executer
+	 * @param deplacement deplacement dont est issu le mouvement (soit déplacement naturel, soit déplacement forcé)
 	 */
-	public void deplacer(final Avancer mouvementActuel) {
+	@Deprecated 
+	public final void executerLeMouvement(final Avancer mouvementActuel, final ArrayList<CommandeEvent> deplacement) {
 		try {
 			final int sens = ((Avancer) mouvementActuel).getDirection();
 			if ( deplacementPossible(sens) ) {
 				this.avance = true;
 				//déplacement :
 				switch (sens) {
-					case Direction.BAS : this.y += vitesseActuelle; break;
-					case Direction.GAUCHE : this.x -= vitesseActuelle; break;
-					case Direction.DROITE : this.x += vitesseActuelle; break;
-					case Direction.HAUT : this.y -= vitesseActuelle; break;
+					case Direction.BAS : 
+						this.y += this.vitesseActuelle; 
+						break;
+					case Direction.GAUCHE : 
+						this.x -= this.vitesseActuelle; 
+						break;
+					case Direction.DROITE : 
+						this.x += this.vitesseActuelle; 
+						break;
+					case Direction.HAUT : 
+						this.y -= this.vitesseActuelle; 
+						break;
 				}
 				((Avancer) mouvementActuel).ceQuiAEteFait += vitesseActuelle;
 				//*ancien emplacement de l'animation*
 				//quelle sera la commande suivante ?
 				if ( ((Avancer) mouvementActuel).ceQuiAEteFait >= ((Avancer) mouvementActuel).nombreDeCarreaux*Fenetre.TAILLE_D_UN_CARREAU) {
+					//TODO créer un objet "Deplacement" 
+					//qui contient une liste de Commandes Event "mouvements"
+					//et les deux attributs booléens "repeterDeplacement" et "ignorerLesMouvementsImpossibles"
+					
+					//TODO puis, ici, remplacer le "repeterLeDeplacementActuel" par "deplacement.repeterDeplacement"
 					if (repeterLeDeplacementActuel) {
 						//on le réinitialise et on le met en bout de file
 						((Avancer) mouvementActuel).reinitialiser();
-						deplacementActuel.add(mouvementActuel);
+						deplacement.add(mouvementActuel);
 					}
 					//on passe au mouvement suivant
-					deplacementActuel.remove(0);
+					deplacement.remove(0);
 				}
 			} else {
 				this.avance = false;
@@ -356,10 +398,10 @@ public class Event implements Comparable<Event> {
 					if (repeterLeDeplacementActuel) {
 						//on le réinitialise et on le met en bout de file
 						((Avancer) mouvementActuel).reinitialiser();
-						deplacementActuel.add(mouvementActuel);
+						deplacement.add(mouvementActuel);
 					}
 					//on passe au mouvement suivant
-					deplacementActuel.remove(0);
+					deplacement.remove(0);
 				}
 			}
 			
@@ -467,7 +509,7 @@ public class Event implements Comparable<Event> {
 		this.animeEnMouvementActuel = page.animeEnMouvement;
 		this.traversableActuel = page.traversable;
 		//déplacement
-		this.deplacementActuel = page.deplacement;
+		this.deplacementNaturelActuel = page.deplacementNaturel;
 		this.repeterLeDeplacementActuel = page.repeterLeDeplacement;
 		this.ignorerLesMouvementsImpossiblesActuel = page.ignorerLesMouvementsImpossibles;
 	}

@@ -56,7 +56,7 @@ public class PageDeComportement {
 	public int frequence;
 	
 	//mouvement
-	public final ArrayList<CommandeEvent> deplacement;
+	public final ArrayList<CommandeEvent> deplacementNaturel;
 	public boolean repeterLeDeplacement;
 	public boolean ignorerLesMouvementsImpossibles;
 
@@ -89,7 +89,7 @@ public class PageDeComportement {
 		
 		
 		//déplacement de l'Event pour cette Page
-		this.deplacement = null;
+		this.deplacementNaturel = null;
 		this.repeterLeDeplacement = false;
 		this.ignorerLesMouvementsImpossibles = true;
 		
@@ -244,7 +244,7 @@ public class PageDeComportement {
 		}
 		
 		//mouvement de l'event lors de cette page
-		this.deplacement = new ArrayList<CommandeEvent>();
+		this.deplacementNaturel = new ArrayList<CommandeEvent>();
 		try {
 			for (Object actionDeplacementJSON : pageJSON.getJSONArray("deplacement")) {
 				try {
@@ -262,7 +262,7 @@ public class PageDeComportement {
 					}
 					final Constructor<?> constructeurActionDeplacement = classeActionDeplacement.getConstructor(HashMap.class);
 					final CommandeEvent actionDeplacement = (CommandeEvent) constructeurActionDeplacement.newInstance(parametres);
-					deplacement.add(actionDeplacement);
+					deplacementNaturel.add(actionDeplacement);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
