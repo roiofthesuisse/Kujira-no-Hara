@@ -17,5 +17,9 @@ public class ConditionSinon extends Condition {
 	public final boolean estVerifiee() {
 		return false;
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
+	}
 
 }

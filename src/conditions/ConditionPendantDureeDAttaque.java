@@ -23,6 +23,10 @@ public class ConditionPendantDureeDAttaque extends Condition {
 		final boolean reponse = animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
 		return reponse;
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return true;
+	}
 
 }
 

@@ -449,43 +449,67 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Active la page de l'event qui vérifie toutes les conditions de déclenchement.
-	 * S'il y a plusieurs pages valides, on prend la dernière.
+	 * Active la Page de l'Event qui vérifie toutes les Conditions de déclenchement.
+	 * S'il y a plusieurs Pages valides, on prend la dernière.
+	 * Les Commandes Event de la Page choisie seront executées.
 	 */
 	public final void activerUnePage() {
 		PageDeComportement pageQuOnChoisitEnRemplacement = null;
+		boolean onATrouveLaPageActive = false;
+		boolean cettePageConvientPourLesCommandes = true;
 		try {
-			boolean onATrouveLaPageActive = false;
 			for (int i = pages.size()-1; i>=0 && !onATrouveLaPageActive; i--) {
 				final PageDeComportement page = pages.get(i);
-				boolean cettePageConvient = true;
+				cettePageConvientPourLesCommandes = true;
+				boolean cettePageConvientPourLApparence = true;
 				try {
 					//si une condition est fausse, la page ne convient pas
-					for (int j = 0; j<page.conditions.size() && cettePageConvient; j++) {
+					for (int j = 0; j<page.conditions.size() && cettePageConvientPourLApparence; j++) {
 						final Condition cond = page.conditions.get(j);
+						//if(this instanceof Heros && i==1){
+						//	System.out.println("condition "+j+" "+cond.getClass().getName());
+						//}
 						if (!cond.estVerifiee()) {
-							cettePageConvient = false;
+							//if(this instanceof Heros && i==1){
+							//	System.out.println("pas verifiee");
+							//}
+							//la Condition n'est pas vérifiée
+							cettePageConvientPourLesCommandes = false;
+							if (!cond.estLieeAuHeros()) {
+								cettePageConvientPourLApparence = false;
+							}
+						}else{
+							//if(this instanceof Heros && i==1){
+							//	System.out.println("verifiee");
+							//}
 						}
 					}
 				} catch (NullPointerException e1) {
 					//pas de conditions pour cette page
 				}
-				if (cettePageConvient) {
-					onATrouveLaPageActive = true;
+				if (cettePageConvientPourLApparence) {
 					pageQuOnChoisitEnRemplacement = page;
+					onATrouveLaPageActive = true;
 				}
 			}
 		} catch (NullPointerException e2) {
-			//pas de pages pour cet event
+			//pas de Pages pour cet Event
+			System.err.println("L'event "+this.numero+" n'a pas de pages.");
 		}
-		//on ne change la page que si c'est une page différente
-		if ( this.pageActive==null || pageQuOnChoisitEnRemplacement==null || (this.pageActive.numero!=pageQuOnChoisitEnRemplacement.numero) ) {
-			//changement de page
-			this.pageActive = pageQuOnChoisitEnRemplacement;
+		
+		if (!onATrouveLaPageActive) {
+			//aucune Page ne correspond, l'Event n'est pas affiché
+			this.pageActive = null;
+			viderLesProprietesActuelles();
+			return;
+		} else {
+			//une Page correspond au moins pour les Conditions non liées au Héros, on donne son apparence à l'Event
+			attribuerLesProprietesActuelles(pageQuOnChoisitEnRemplacement);
 			
-			//on donne à l'évent toutes les propriétés de la page
-			if (this.pageActive != null) {
-				attribuerLesProprietesActuelles(pageActive);
+			this.pageActive = null;
+			if (cettePageConvientPourLesCommandes) {
+				//même les Conditions liées au Héros correspondent, on execute la Page
+				this.pageActive = pageQuOnChoisitEnRemplacement;
 			}
 		}
 	}
@@ -512,6 +536,29 @@ public class Event implements Comparable<Event> {
 		this.deplacementNaturelActuel = page.deplacementNaturel;
 		this.repeterLeDeplacementActuel = page.repeterLeDeplacement;
 		this.ignorerLesMouvementsImpossiblesActuel = page.ignorerLesMouvementsImpossibles;
+	}
+	
+	/**
+	 * Faire disparaître l'Event à l'écran.
+	 */
+	private void viderLesProprietesActuelles() {
+		//apparence
+		this.imageActuelle = null;
+		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
+			this.direction = Event.Direction.BAS;
+		}
+		
+		//propriétés
+		this.vitesseActuelle = Event.VITESSE_PAR_DEFAUT;
+		this.frequenceActuelle = Event.FREQUENCE_PAR_DEFAUT;
+		this.animeALArretActuel = false;
+		this.auDessusDeToutActuel = false;
+		this.animeEnMouvementActuel = false;
+		this.traversableActuel = true;
+		//déplacement
+		this.deplacementNaturelActuel = null;
+		this.repeterLeDeplacementActuel = false;
+		this.ignorerLesMouvementsImpossiblesActuel = true;
 	}
 	
 }

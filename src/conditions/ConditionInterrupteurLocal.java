@@ -54,5 +54,9 @@ public class ConditionInterrupteurLocal extends Condition {
 		final boolean reponse = Fenetre.getPartieActuelle().interrupteursLocaux.contains(code) == valeurQuIlEstCenseAvoir;
 		return reponse;
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
+	}
 
 }

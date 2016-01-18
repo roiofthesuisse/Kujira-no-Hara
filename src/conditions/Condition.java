@@ -1,7 +1,6 @@
 package conditions;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import comportementEvent.CommandeEvent;
 
@@ -47,4 +46,11 @@ public abstract class Condition extends CommandeEvent {
 			return nouveauCurseur+1;
 		}
 	}
+	
+	/** 
+	 * Est-ce que la Condition demande un mouvement particulier du Héros ?
+	 * Contact, ArrivéeAuContact, Parler... 
+	 * @return false si la Condition est à considérer pour l'apparence d'un Event, false sinon
+	 */
+	public abstract boolean estLieeAuHeros();
 }

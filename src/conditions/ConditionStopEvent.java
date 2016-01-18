@@ -18,5 +18,9 @@ public class ConditionStopEvent extends Condition {
 	public final boolean estVerifiee() {
 		return page.event.map.lecteur.stopEvent == valeurQuIlEstCenseAvoir;
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
+	}
 
 }

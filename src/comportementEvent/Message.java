@@ -41,14 +41,14 @@ public class Message extends CommandeEvent {
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		LecteurMap lecteur = this.page.event.map.lecteur;
+		final LecteurMap lecteur = this.page.event.map.lecteur;
 		lecteur.normaliserApparenceDuHerosAvantMessage();
 		//si le message à afficher est différent du message affiché, on change !
 		if ( lecteur.messageActuel==null || !lecteur.messageActuel.equals(texte) ) {
 			lecteur.messageActuel = this;
 			try {
 				BufferedImage imageMessage = ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\parchotexte.png"));
-				Texte t = new Texte(texte);
+				final Texte t = new Texte(texte);
 				imageMessage = lecteur.superposerImages(imageMessage, t.texteToImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
 				this.image = imageMessage;
 				//lecteur.stopEvent = true; //TODO à enlever, gestion via la condition parler

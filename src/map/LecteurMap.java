@@ -39,8 +39,8 @@ public class LecteurMap extends Lecteur {
 	/** message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
 	
-	/** n'est vrai que durant l'action de l'appui, se remet à false tout de suite */
-	public boolean toucheActionPressee = false;
+	/** frame où le joueur a appuyé sur la touche action */
+	public int frameDAppuiDeLaToucheAction;
 	
 	/**
 	 * Constructeur explicite
@@ -252,7 +252,7 @@ public class LecteurMap extends Lecteur {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("Erreur lors du déplacement des évènements :");
+			System.err.println("Erreur lors du déplacement des évènements :");
 			e.printStackTrace();
 		}
 	}
@@ -508,7 +508,7 @@ public class LecteurMap extends Lecteur {
 	 * Attaquer ou parler (suivant si gentil ou méchant)
 	 */
 	public final void action() {
-		this.toucheActionPressee = true;
+		this.frameDAppuiDeLaToucheAction = this.frameActuelle;
 	}
 
 	/**

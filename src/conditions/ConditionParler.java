@@ -7,6 +7,7 @@ import map.Heros;
  * Le Héros colle l'event et regarde vers lui.
  */
 public class ConditionParler extends Condition {
+	public boolean lieeAuHeros = true;
 	public static int distanceMaxParole = 4; //au dela de cette distance en pixels, le dialogue ne se déclenche pas
 	
 	@Override
@@ -106,6 +107,10 @@ public class ConditionParler extends Condition {
 		}
 		System.out.println("ConditionParler.estVerifiee() n'a pas trouvé de cas correspondant.");
 		return false;
+	}
+	
+	public final boolean estLieeAuHeros() {
+		return true;
 	}
 
 }

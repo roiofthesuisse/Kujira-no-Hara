@@ -4,25 +4,6 @@
 	"hauteur": 32,
 	"pages": [
 		{
-			"conditions": [],
-			"commandes": [],
-			
-			"image": "daruma character.png",
-			"animeALArret": false,
-			"animeEnMouvement": false,
-			"traversable": false,
-			"auDessusDeTout": false,
-			"vitesse": 2,
-			"frequence": 4,
-			"deplacement": [
-				{
-					"nom": "AvancerAleatoirement"
-				}
-			],
-			"repeterLeDeplacement": true,
-			"ignorerLesMouvementsImpossibles": true
-		},
-		{
 			"conditions": [
 				{
 					"nom": "Parler"
@@ -65,9 +46,13 @@
 			"auDessusDeTout": false,
 			"vitesse": 2,
 			"frequence": 4,
-			"deplacement": [],
+			"deplacement": [
+				{
+					"nom": "AvancerAleatoirement"
+				}
+			],
 			"repeterLeDeplacement": true,
-			"ignorerLesMouvementsImpossibles": false
+			"ignorerLesMouvementsImpossibles": true
 		}
 	]
 }

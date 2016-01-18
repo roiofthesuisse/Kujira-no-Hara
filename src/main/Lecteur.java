@@ -130,6 +130,7 @@ public abstract class Lecteur {
 	public final void demarrer() {
 		this.allume = true;
 		final String typeLecteur = this.getClass().getName().equals(LecteurMap.class.getName()) ? "LecteurMap" : "LecteurMenu";
+		System.out.println("-------------------------------------------------------------");
 		System.out.println("Un nouveau "+typeLecteur+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm(), 1.0f);
 		

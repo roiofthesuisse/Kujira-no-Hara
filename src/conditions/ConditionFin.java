@@ -17,5 +17,9 @@ public class ConditionFin extends Condition {
 	public final boolean estVerifiee() {
 		return true;
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
+	}
 
 }

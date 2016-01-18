@@ -9,6 +9,7 @@ import map.Event;
  * - si l'Event n'est pas traversable, le contact signifie que le Héros et l'Event se touchent par un côté de la Hitbox.
  */
 public class ConditionArriveeAuContact extends Condition {
+	public boolean lieeAuHeros = true;
 
 	@Override
 	public final boolean estVerifiee() {
@@ -27,6 +28,10 @@ public class ConditionArriveeAuContact extends Condition {
 		
 		//on est à jour
 		return event.estAuContactDuHerosMaintenant && !event.estAuContactDuHerosAvant;
+	}
+	
+	public final boolean estLieeAuHeros() {
+		return true;
 	}
 
 }

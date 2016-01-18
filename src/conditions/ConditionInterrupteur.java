@@ -25,5 +25,9 @@ public class ConditionInterrupteur extends Condition {
 	public final boolean estVerifiee() {
 		return Fenetre.getPartieActuelle().interrupteurs[numeroInterrupteur] == valeurQuIlEstCenseAvoir;
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
+	}
 
 }

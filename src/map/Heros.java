@@ -51,8 +51,7 @@ public class Heros extends Event {
 		
 		//pages
 			//page 0 : marche normale
-				final ArrayList<Condition> conditions0 = null;
-				final PageDeComportement page0 = new PageDeComportement(conditions0, null, NOM_IMAGE_HEROS);
+				final PageDeComportement page0 = new PageDeComportement(null, null, NOM_IMAGE_HEROS);
 				pages.add(page0);
 			//page 1 : déclenchement animation attaque épée
 				final ArrayList<Condition> conditions1 = new ArrayList<Condition>();

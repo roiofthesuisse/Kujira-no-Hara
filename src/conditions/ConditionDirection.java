@@ -23,5 +23,9 @@ public class ConditionDirection extends Condition {
 	public final boolean estVerifiee() {
 		return eventConcerne.direction==directionVoulue;
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
+	}
 
 }

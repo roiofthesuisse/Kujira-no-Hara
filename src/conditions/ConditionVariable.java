@@ -48,5 +48,9 @@ public class ConditionVariable extends Condition {
 			default : return false;
 		}
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
+	}
 
 }

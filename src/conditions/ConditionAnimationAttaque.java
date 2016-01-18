@@ -17,5 +17,9 @@ public class ConditionAnimationAttaque extends Condition {
 		boolean reponse = (this.page.event.map.heros.animationAttaque > 0);
 		return reponse;
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
+	}
 
 }

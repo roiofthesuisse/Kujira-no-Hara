@@ -29,5 +29,9 @@ public class ConditionDansZoneDAttaque extends Condition {
 			return false;
 		}
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return true;
+	}
 
 }

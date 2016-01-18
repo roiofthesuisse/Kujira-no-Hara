@@ -6,7 +6,7 @@ import map.Event;
 import map.PageDeComportement;
 
 /**
- * Vérifier qu'il n'y a pas d'interlocuteur potentiel autour du Héros
+ * Vérifier qu'il n'y a pas d'interlocuteur potentiel autour du Héros.
  */
 public class ConditionPasDInterlocuteurAutour extends Condition {
 	
@@ -27,6 +27,10 @@ public class ConditionPasDInterlocuteurAutour extends Condition {
 			}
 		}
 		return true;
+	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
 	}
 
 }

@@ -10,13 +10,11 @@ import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
-import map.Event.Direction;
 
 /**
  * Un Event peut avoir plusieurs comportements. Chaque comportement est décrit par une Page de comportements.
@@ -30,7 +28,7 @@ public class PageDeComportement {
 	/** ce flag est automatiquement mis à true si contient une page avec une condition Parler */
 	private boolean sOuvreParParole = false;
 	
-	/** conditions de déclenchement */
+	/** conditions de déclenchement de la Page */
 	public final ArrayList<Condition> conditions;
 	
 	/** liste de commandes à executer dans l'ordre si les conditions sont vérifiées */
@@ -62,15 +60,13 @@ public class PageDeComportement {
 
 	
 	/**
-	 * Constructeur explicite de la Page de comportement.
-	 * @warning constructeur à n'utiliser que pour le Héros
-	 * @param conditions de déclenchement de la page
+	 * Constructeur explicite
+	 * @Warning constructeur à n'utiliser que pour le Héros
+	 * @param conditions de déclenchement de la Page
 	 * @param commandes à executer si la page est déclenchée
 	 * @param nomImage nom du fichier image pour l'apparence
 	 */
-	public PageDeComportement(final ArrayList<Condition> conditions, final ArrayList<CommandeEvent> commandes, 
-			final String nomImage) {
-		
+	public PageDeComportement(final ArrayList<Condition> conditions, final ArrayList<CommandeEvent> commandes, final String nomImage) {
 		//Conditions de déclenchement de la Page
 		this.conditions = conditions;
 		//Commandes Event de la Page
@@ -102,10 +98,9 @@ public class PageDeComportement {
 			this.image = null;
 			e.printStackTrace();
 		}
-		//on précise si c'est une page qui s'ouvre en parlant à l'évent
+		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
 		if (conditions!=null) {
 			for (Condition cond : conditions) {
-				//TODO dans le futur il y aura aussi la condition "arrivée sur la case" en plus de "parler" :
 				if (cond.getClass().getName().equals("conditions.ConditionParler")) {
 					this.sOuvreParParole = true;
 				}
@@ -114,6 +109,7 @@ public class PageDeComportement {
 	}
 	
 	/**
+	 * Constructeur générique
 	 * La page de comportement est créée à partir du fichier JSON.
 	 * @param pageJSON objet JSON décrivant la page de comportements
 	 */
@@ -148,7 +144,6 @@ public class PageDeComportement {
 						final Constructor<?> constructeurCondition = classeCondition.getConstructor(parametres.getClass());
 						final Condition condition = (Condition) constructeurCondition.newInstance(parametres);
 						conditions.add(condition);
-					
 					}
 					
 				} catch (Exception e1) {
@@ -288,10 +283,9 @@ public class PageDeComportement {
 			//l'image d'apparence n'existe pas
 			//e.printStackTrace();
 		}
-		//on précise si c'est une page qui s'ouvre en parlant à l'event
+		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
 		if (conditions!=null) {
 			for (Condition cond : conditions) {
-				//TODO dans le futur il y aura aussi la condition "arrivée sur la case" en plus de "parler" :
 				if (cond.getClass().getName().equals("conditions.ConditionParler")) {
 					this.sOuvreParParole = true;
 				}

@@ -25,5 +25,9 @@ public class ConditionArmeEquipee extends Condition {
 		}
 		return false; //aucune arme possédée
 	}
+	
+	public final boolean estLieeAuHeros() {
+		return false;
+	}
 
 }
