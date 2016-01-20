@@ -20,13 +20,18 @@ public class ConditionPendantDureeDAttaque extends Condition {
 	public final boolean estVerifiee() {
 		final int animationAttaqueActuelle = this.page.event.map.heros.animationAttaque;
 		final Arme armeActuelle = Fenetre.getPartieActuelle().getArmeEquipee();
-		if(armeActuelle!=null){
+		if (armeActuelle!=null) {
 			return animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
-		}else{
+		} else {
 			return false;
 		}
 	}
 	
+	/**
+	 * C'est une Condition qui implique une proximité avec le Héros.
+	 * En effet, elle sert de signal du coup donné par le Héros à un Event avec une Arme.
+	 * @return true 
+	 */
 	public final boolean estLieeAuHeros() {
 		return true;
 	}

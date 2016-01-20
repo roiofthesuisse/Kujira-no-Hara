@@ -6,8 +6,8 @@ import map.Event;
  * Est-ce que l'Event regarde dans cette Direction ?
  */
 public class ConditionDirection extends Condition {
-	Event eventConcerne;
-	int directionVoulue;
+	private final Event eventConcerne;
+	private final int directionVoulue;
 	
 	/**
 	 * Constructeur explicite
@@ -24,6 +24,10 @@ public class ConditionDirection extends Condition {
 		return eventConcerne.direction==directionVoulue;
 	}
 	
+	/**
+	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * @return false 
+	 */
 	public final boolean estLieeAuHeros() {
 		return false;
 	}

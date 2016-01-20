@@ -26,6 +26,10 @@ public class ConditionInterrupteur extends Condition {
 		return Fenetre.getPartieActuelle().interrupteurs[numeroInterrupteur] == valeurQuIlEstCenseAvoir;
 	}
 	
+	/**
+	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * @return false 
+	 */
 	public final boolean estLieeAuHeros() {
 		return false;
 	}

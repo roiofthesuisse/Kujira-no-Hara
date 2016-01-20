@@ -26,6 +26,10 @@ public class ConditionArmeEquipee extends Condition {
 		return false; //aucune arme possédée
 	}
 	
+	/**
+	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * @return false 
+	 */
 	public final boolean estLieeAuHeros() {
 		return false;
 	}

@@ -9,7 +9,7 @@ import comportementEvent.CommandeEvent;
  */
 public abstract class Condition extends CommandeEvent {
 	public int numero; //le numéro de condition est le même que le numéro de fin de condition qui correspond
-	
+
 	/**
 	 * La Condition est elle vérifiée là maintenant ?
 	 * @return true si vérifiée, false si non vérifiée

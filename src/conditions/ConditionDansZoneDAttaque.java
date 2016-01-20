@@ -30,6 +30,10 @@ public class ConditionDansZoneDAttaque extends Condition {
 		}
 	}
 	
+	/**
+	 * C'est une Condition qui implique une proximité avec le Héros.
+	 * @return true 
+	 */
 	public final boolean estLieeAuHeros() {
 		return true;
 	}

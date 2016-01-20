@@ -18,6 +18,10 @@ public class ConditionSinon extends Condition {
 		return false;
 	}
 	
+	/**
+	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * @return false 
+	 */
 	public final boolean estLieeAuHeros() {
 		return false;
 	}

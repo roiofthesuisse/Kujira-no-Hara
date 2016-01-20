@@ -19,6 +19,10 @@ public class ConditionStopEvent extends Condition {
 		return page.event.map.lecteur.stopEvent == valeurQuIlEstCenseAvoir;
 	}
 	
+	/**
+	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * @return false 
+	 */
 	public final boolean estLieeAuHeros() {
 		return false;
 	}
