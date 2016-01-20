@@ -80,7 +80,7 @@ public class LecteurMap extends Lecteur {
 
 		//lecture des commandes event
 		continuerLaLectureDesPagesDeCommandesEvent();
-		
+
 		//déplacements des évènements
 		if (!this.stopEvent) {
 			deplacerLesEvents();

@@ -8,6 +8,7 @@ import conditions.Condition;
 import conditions.ConditionAnimationAttaque;
 import conditions.ConditionArmeEquipee;
 import conditions.ConditionPasDInterlocuteurAutour;
+import conditions.ConditionPendantDureeDAttaque;
 import conditions.ConditionStopEvent;
 import conditions.ConditionToucheAction;
 import main.Arme;

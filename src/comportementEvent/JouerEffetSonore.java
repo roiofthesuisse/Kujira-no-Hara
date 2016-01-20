@@ -29,7 +29,6 @@ public class JouerEffetSonore extends CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
 		LecteurAudio.playSe(nomFichierSonore);
-		System.out.println("JouerEffetSonore");
 		return curseurActuel+1;
 	}
 

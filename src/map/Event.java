@@ -462,31 +462,27 @@ public class Event implements Comparable<Event> {
 				final PageDeComportement page = pages.get(i);
 				cettePageConvientPourLesCommandes = true;
 				boolean cettePageConvientPourLApparence = true;
-				try {
-					//si une condition est fausse, la page ne convient pas
+				if (page.conditions!=null && page.conditions.size()>0) {
+					//la Page a des Conditions de déclenchement, on les analyse
+
+					//si une Condition est fausse, la Page ne convient pas
 					for (int j = 0; j<page.conditions.size() && cettePageConvientPourLApparence; j++) {
 						final Condition cond = page.conditions.get(j);
-						//if(this instanceof Heros && i==1){
-						//	System.out.println("condition "+j+" "+cond.getClass().getName());
-						//}
 						if (!cond.estVerifiee()) {
-							//if(this instanceof Heros && i==1){
-							//	System.out.println("pas verifiee");
-							//}
 							//la Condition n'est pas vérifiée
 							cettePageConvientPourLesCommandes = false;
 							if (!cond.estLieeAuHeros()) {
 								cettePageConvientPourLApparence = false;
 							}
-						}else{
-							//if(this instanceof Heros && i==1){
-							//	System.out.println("verifiee");
-							//}
 						}
 					}
-				} catch (NullPointerException e1) {
-					//pas de conditions pour cette page
+				} else {
+					//pas de conditions pour cette Page, donc la Page est choisie
+					cettePageConvientPourLesCommandes = true;
+					cettePageConvientPourLApparence = true;
 				}
+				
+				//si une Page exigible a été trouvée, pas besoin d'essayer les autres Pages
 				if (cettePageConvientPourLApparence) {
 					pageQuOnChoisitEnRemplacement = page;
 					onATrouveLaPageActive = true;
@@ -494,11 +490,11 @@ public class Event implements Comparable<Event> {
 			}
 		} catch (NullPointerException e2) {
 			//pas de Pages pour cet Event
-			System.err.println("L'event "+this.numero+" n'a pas de pages.");
+			System.err.println("L'event "+this.numero+" ("+this.nom+") n'a pas de pages.");
+			e2.printStackTrace();
 		}
-		
 		if (!onATrouveLaPageActive) {
-			//aucune Page ne correspond, l'Event n'est pas affiché
+			//aucune Page ne convient, l'Event n'est pas affiché
 			this.pageActive = null;
 			viderLesProprietesActuelles();
 			return;

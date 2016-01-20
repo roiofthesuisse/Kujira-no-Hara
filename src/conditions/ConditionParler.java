@@ -12,6 +12,15 @@ public class ConditionParler extends Condition {
 	
 	@Override
 	public final boolean estVerifiee() {
+		//1) pour Parler, premièrement, il faut appuyer sur la touche action :
+		final ConditionToucheAction conditionToucheAction = new ConditionToucheAction();
+		conditionToucheAction.page = this.page;
+		if (!conditionToucheAction.estVerifiee()) {
+			return false;
+		}
+		
+		//2) deuxièmement, il faut être situé face à son interlocuteur :
+		
 		int pageActive;
 		try {
 			pageActive = this.page.event.pageActive.numero;

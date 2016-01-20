@@ -20,8 +20,11 @@ public class ConditionPendantDureeDAttaque extends Condition {
 	public final boolean estVerifiee() {
 		final int animationAttaqueActuelle = this.page.event.map.heros.animationAttaque;
 		final Arme armeActuelle = Fenetre.getPartieActuelle().getArmeEquipee();
-		final boolean reponse = animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
-		return reponse;
+		if(armeActuelle!=null){
+			return animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
+		}else{
+			return false;
+		}
 	}
 	
 	public final boolean estLieeAuHeros() {
