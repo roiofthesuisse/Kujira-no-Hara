@@ -4,23 +4,25 @@ package utilitaire;
  * Classe utilitaire qui contient des fonctions mathématiques.
  */
 public abstract class Maths {
+	
 	/**
 	 * Modulo
 	 * @param a nombre à diviser
 	 * @param b diviseur
 	 * @return reste de la division de a par b
 	 */
-	public static int modulo(int a, final int b) {
+	public static int modulo(final int a, final int b) {
+		int c = a;
 		if (b<=0) {
 			return -1;
 		}
-		while (a<0) {
-			a += b;
+		while (c<0) {
+			c += b;
 		}
-		while (a>=b) {
-			a -= b;
+		while (c>=b) {
+			c -= b;
 		}
-		return a;
+		return c;
 	}
 	
 	/**
@@ -32,4 +34,5 @@ public abstract class Maths {
 	public static long pourcentage(final long a, final long b) {
 		return a*100/b;
 	}
+	
 }

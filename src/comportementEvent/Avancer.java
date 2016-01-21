@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Fenetre;
+import map.Deplacement;
 import map.Event;
+import map.Event.Direction;
 
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases
@@ -49,6 +51,8 @@ public class Avancer extends CommandeEvent {
 		ceQuiAEteFait = 0;
 	}
 
+	//TODO cette méthode doit ajouter un Mouvement dans le Déplacement forcé, rien d'autre
+	//le LecteurMap prendra le relais
 	@Override
 	public int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
 		final Event event = this.page.event;
@@ -60,4 +64,64 @@ public class Avancer extends CommandeEvent {
 		event.deplacer();
 		return curseurActuel;
 	}
+	
+	/**
+	 * Déplace l'Event pour son déplacement naturel ou pour un déplacement forcé.
+	 * Vu qu'on utilise "deplacementActuel", un déplacement forcé devra être inséré artificiellement dans la liste.
+	 * @param event qui doit avancer
+	 * @param deplacement deplacement dont est issu le mouvement (soit déplacement naturel, soit déplacement forcé)
+	 */
+	public final void executerLeMouvement(final Event event, final Deplacement deplacement) {
+		try {
+			final int sens = this.getDirection();
+			if ( event.mouvementPossible(sens) ) {
+				event.avance = true;
+				//déplacement :
+				switch (sens) {
+					case Direction.BAS : 
+						event.y += event.vitesseActuelle; 
+						break;
+					case Direction.GAUCHE : 
+						event.x -= event.vitesseActuelle; 
+						break;
+					case Direction.DROITE : 
+						event.x += event.vitesseActuelle; 
+						break;
+					case Direction.HAUT : 
+						event.y -= event.vitesseActuelle; 
+						break;
+				}
+				this.ceQuiAEteFait += event.vitesseActuelle;
+				//*ancien emplacement de l'animation*
+				//quelle sera la commande suivante ?
+				if ( this.ceQuiAEteFait >= this.nombreDeCarreaux*Fenetre.TAILLE_D_UN_CARREAU ) {
+					if (deplacement.repeterLeDeplacement) {
+						//on le réinitialise et on le met en bout de file
+						this.reinitialiser();
+						deplacement.mouvements.add(this);
+					}
+					//on passe au mouvement suivant
+					deplacement.mouvements.remove(0);
+				}
+			} else {
+				event.avance = false;
+				if (deplacement.ignorerLesMouvementsImpossibles) {
+					if (deplacement.repeterLeDeplacement) {
+						//on le réinitialise et on le met en bout de file
+						this.reinitialiser();
+						deplacement.mouvements.add(this);
+					}
+					//on passe au mouvement suivant
+					deplacement.mouvements.remove(0);
+				}
+			}
+			
+		} catch (NullPointerException e1) {
+			//pas de mouvement pour cet évènement
+		} catch (Exception e) {
+			System.out.println("Erreur lors du mouvement de l'évènement :");
+			e.printStackTrace();
+		}
+	}
+	
 }

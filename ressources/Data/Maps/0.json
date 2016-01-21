@@ -104,20 +104,22 @@
 					
 					"image": "mouton character.png",
 					"traversable": true,
-					"deplacement": [
-						{
-							"nom": "Avancer",
-							"direction": 1,
-							"nombreDeCarreaux": 1
-						},
-						{
-							"nom": "Avancer",
-							"direction": 2,
-							"nombreDeCarreaux": 1
-						}
-					],
-					"repeterLeDeplacement": true,
-					"ignorerLesMouvementsImpossibles": false
+					"deplacement": {
+						"mouvements": [
+							{
+								"nom": "Avancer",
+								"direction": 1,
+								"nombreDeCarreaux": 1
+							},
+							{
+								"nom": "Avancer",
+								"direction": 2,
+								"nombreDeCarreaux": 1
+							}
+						],
+						"repeterLeDeplacement": true,
+						"ignorerLesMouvementsImpossibles": false
+					}
 				}
 			]
 		},

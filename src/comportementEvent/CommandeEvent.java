@@ -3,7 +3,6 @@ package comportementEvent;
 import java.util.ArrayList;
 
 import map.PageDeComportement;
-import utilitaire.GenerateurAleatoire;
 
 /**
  * Chaque Page de comportement d'un Event contient des Commandes.
@@ -12,8 +11,7 @@ import utilitaire.GenerateurAleatoire;
  */
 public abstract class CommandeEvent {
 	String nom;
-	public PageDeComportement page; //une commande event connait sa page 
-	public static GenerateurAleatoire rand = new GenerateurAleatoire();
+	public PageDeComportement page; //une Commande Event connaît la Page à laquelle elle appartient
 	
 	/**
 	 * Execute la Commande totalement ou partiellement.
