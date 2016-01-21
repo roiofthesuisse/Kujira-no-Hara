@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import main.Fenetre;
@@ -193,76 +192,19 @@ public class Map {
 		try {
 			this.events = new ArrayList<Event>();
 			//d'abord le héros
-			this.heros = new Heros(this, this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros);
+			this.heros = new Heros(this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros);
 			this.events.add(heros);
 			//puis les autres
 			final JSONArray jsonEvents = jsonMap.getJSONArray("events");
-			for (Object ev : jsonEvents) {
-				final JSONObject jsonEvent = (JSONObject) ev;
-				//récupération des données dans le JSON
-				final String nomEvent = jsonEvent.getString("nom");
-				final int xEvent = jsonEvent.getInt("x");
-				final int yEvent = jsonEvent.getInt("y");
-				//instanciation de l'event
-				Event event;
-				try {
-					//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
-					final JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
-					int largeurHitbox;
-					try {
-						largeurHitbox = jsonEventGenerique.getInt("largeur");
-					} catch (JSONException e2) {
-						largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
-					}
-					int hauteurHitbox;
-					try {
-					hauteurHitbox = jsonEventGenerique.getInt("hauteur");
-					} catch (JSONException e2) {
-						hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
-					}
-					
-					int direction;
-					try {
-						direction = jsonEvent.getInt("direction");
-					} catch (Exception e1) {
-						direction = Event.Direction.BAS; //direction par défaut
-					}
-					
-					final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
-				} catch (Exception e3) {
-					//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
-					int largeurHitbox;
-					try {
-						largeurHitbox = jsonEvent.getInt("largeur");
-					} catch (JSONException e2) {
-						largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
-					}
-					int hauteurHitbox;
-					try {
-						hauteurHitbox = jsonEvent.getInt("hauteur");
-					} catch (JSONException e2) {
-						hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
-					}
-					int direction;
-					try {
-						direction = jsonEvent.getInt("direction");
-					} catch (Exception e1) {
-						direction = Event.Direction.BAS; //direction par défaut
-					}
-					
-					final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-					event = new Event(this, xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
-				}
-				this.events.add(event);
-			}
+			InterpreteurDeJson.recupererLesEvents(this.events, jsonEvents);
 		} catch (Exception e3) {
 			System.err.println("Erreur lors de la constitution de la liste des events :");
 			e3.printStackTrace();
 		}
-		//numérotation des events
+		//numérotation des Events
 		final int nombreDEvents = this.events.size();
 		for (int i = 0; i<nombreDEvents; i++) {
+			this.events.get(i).map = this;
 			this.events.get(i).numero = i;
 		}
 	}

@@ -3,12 +3,14 @@ package comportementEvent;
 import java.util.HashMap;
 
 import map.Event.Direction;
+import utilitaire.GenerateurAleatoire;
 
 /**
  * Déplacer un Event dans une Direction aléatoire et d'un certain nombre de cases
  */
 public class AvancerAleatoirement extends Avancer {	
 	public static final int NOMBRE_DE_DIRECTIONS_POSSIBLES = 4; 
+	private static GenerateurAleatoire rand = new GenerateurAleatoire();
 	
 	/** 
 	 * Constructeur explicite 

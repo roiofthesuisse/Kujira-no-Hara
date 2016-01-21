@@ -8,7 +8,6 @@ import conditions.Condition;
 import conditions.ConditionAnimationAttaque;
 import conditions.ConditionArmeEquipee;
 import conditions.ConditionPasDInterlocuteurAutour;
-import conditions.ConditionPendantDureeDAttaque;
 import conditions.ConditionStopEvent;
 import conditions.ConditionToucheAction;
 import main.Arme;
@@ -34,13 +33,12 @@ public class Heros extends Event {
 
 	/**
 	 * Constructeur explicite
-	 * @param map sur laquelle le Héros se trouve actuellement
 	 * @param x position x du Héros sur la Map
 	 * @param y position y du Héros sur la Map
 	 * @param direction dans laquelle l Héros regarde
 	 */
-	public Heros(final Map map, final int x, final int y, final int direction) {
-		super(map, x, y, direction, "heros", creerPages(), LARGEUR_HEROS, HAUTEUR_HEROS);
+	public Heros(final int x, final int y, final int direction) {
+		super(x, y, direction, "heros", creerPages(), LARGEUR_HEROS, HAUTEUR_HEROS);
 	}
 	
 	/**
@@ -52,7 +50,7 @@ public class Heros extends Event {
 		
 		//pages
 			//page 0 : marche normale
-				final PageDeComportement page0 = new PageDeComportement(null, null, NOM_IMAGE_HEROS);
+				final PageDeComportement page0 = new PageDeComportement(0, null, null, NOM_IMAGE_HEROS);
 				pages.add(page0);
 			//page 1 : déclenchement animation attaque épée
 				final ArrayList<Condition> conditions1 = new ArrayList<Condition>();
@@ -63,13 +61,13 @@ public class Heros extends Event {
 				final ArrayList<CommandeEvent> commandes1 = new ArrayList<CommandeEvent>();
 				commandes1.add( new DemarrerAnimationAttaque());
 				final String nomImageHerosEpee = Arme.getArme(0).nomImageAttaque;
-				final PageDeComportement page1 = new PageDeComportement(conditions1, commandes1, nomImageHerosEpee);
+				final PageDeComportement page1 = new PageDeComportement(1, conditions1, commandes1, nomImageHerosEpee);
 				pages.add(page1);
 			//page 2 : animation attaque épée
 				final ArrayList<Condition> conditions2 = new ArrayList<Condition>();
 				conditions2.add(new ConditionAnimationAttaque());
 				conditions2.add(new ConditionArmeEquipee(0));
-				final PageDeComportement page2 = new PageDeComportement(conditions2, null, nomImageHerosEpee);
+				final PageDeComportement page2 = new PageDeComportement(2, conditions2, null, nomImageHerosEpee);
 				pages.add(page2);
 			//page 3 : déclenchement animation attaque éventail
 				final ArrayList<Condition> conditions3 = new ArrayList<Condition>();
@@ -79,24 +77,16 @@ public class Heros extends Event {
 				final ArrayList<CommandeEvent> commandes3 = new ArrayList<CommandeEvent>();
 				commandes3.add( new DemarrerAnimationAttaque());
 				final String nomImageHerosEventail = Arme.getArme(1).nomImageAttaque;
-				final PageDeComportement page3 = new PageDeComportement(conditions3, commandes3, nomImageHerosEventail);
+				final PageDeComportement page3 = new PageDeComportement(3, conditions3, commandes3, nomImageHerosEventail);
 				pages.add(page3);
 			//page 4 : animation attaque éventail
 				final ArrayList<Condition> conditions4 = new ArrayList<Condition>();
 				conditions4.add(new ConditionAnimationAttaque());
 				conditions4.add(new ConditionArmeEquipee(1));
-				final PageDeComportement page4 = new PageDeComportement(conditions4, null, nomImageHerosEventail);
+				final PageDeComportement page4 = new PageDeComportement(4, conditions4, null, nomImageHerosEventail);
 				pages.add(page4);
 		//fin pages
 		return pages;
-	}
-	
-	@Override
-	public final boolean deplacementPossible(final int sens) {
-		if (this.animationAttaque>0) { //le héros n'avance pas s'il est en animation d'attaque
-			return false;
-		}
-		return super.deplacementPossible(sens);
 	}
 	
 	@Override
@@ -106,30 +96,33 @@ public class Heros extends Event {
 			this.animation = Fenetre.getPartieActuelle().getArmeEquipee().framesDAnimation[animationAttaque-1];
 			
 			animationAttaque--;
+		} else if (this.deplacementForce!=null) {
+			//il y a un déplacement forcé
+			this.deplacementForce.executerLePremierMouvement(this);
 		} else {
 			//déplacement selon les touches et les obstacles rencontrés
 			boolean ilYADeplacement = false;
 			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) && !touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
-				if ( deplacementPossible(Event.Direction.HAUT) ) {
+				if ( mouvementPossible(Event.Direction.HAUT) ) {
 					ilYADeplacement = true;
 					this.y -= pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.BAS) && !touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ) {
-				if ( deplacementPossible(Event.Direction.BAS) ) {
+				if ( mouvementPossible(Event.Direction.BAS) ) {
 					ilYADeplacement = true;
 					this.y += pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) && !touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ) {
-				if ( deplacementPossible(Event.Direction.GAUCHE) ) {
+				if ( mouvementPossible(Event.Direction.GAUCHE) ) {
 					ilYADeplacement = true;
 					this.x -= pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) && !touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
-				if ( deplacementPossible(Event.Direction.DROITE) ) {
+				if ( mouvementPossible(Event.Direction.DROITE) ) {
 					ilYADeplacement = true;
 					this.x += pageActive.vitesse;
 				}

@@ -3,10 +3,7 @@ package map;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 
@@ -15,6 +12,8 @@ import org.json.JSONObject;
 
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
+import conditions.ConditionParler;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * Un Event peut avoir plusieurs comportements. Chaque comportement est décrit par une Page de comportements.
@@ -24,7 +23,7 @@ public class PageDeComportement {
 	/** event auquel appartient la page */
 	public Event event;
 	/** numero de la page */
-	public int numero;
+	public final int numero;
 	/** ce flag est automatiquement mis à true si contient une page avec une condition Parler */
 	private boolean sOuvreParParole = false;
 	
@@ -54,19 +53,20 @@ public class PageDeComportement {
 	public int frequence;
 	
 	//mouvement
-	public final ArrayList<CommandeEvent> deplacementNaturel;
-	public boolean repeterLeDeplacement;
-	public boolean ignorerLesMouvementsImpossibles;
+	public Deplacement deplacementNaturel;
 
 	
 	/**
 	 * Constructeur explicite
 	 * @Warning constructeur à n'utiliser que pour le Héros
+	 * @param numero de la Page
 	 * @param conditions de déclenchement de la Page
 	 * @param commandes à executer si la page est déclenchée
 	 * @param nomImage nom du fichier image pour l'apparence
 	 */
-	public PageDeComportement(final ArrayList<Condition> conditions, final ArrayList<CommandeEvent> commandes, final String nomImage) {
+	public PageDeComportement(final int numero, final ArrayList<Condition> conditions, final ArrayList<CommandeEvent> commandes, final String nomImage) {
+		this.numero = numero;
+		
 		//Conditions de déclenchement de la Page
 		this.conditions = conditions;
 		//Commandes Event de la Page
@@ -86,9 +86,6 @@ public class PageDeComportement {
 		
 		//déplacement de l'Event pour cette Page
 		this.deplacementNaturel = null;
-		this.repeterLeDeplacement = false;
-		this.ignorerLesMouvementsImpossibles = true;
-		
 		
 		//ouverture de l'image d'apparence
 		try {
@@ -111,47 +108,16 @@ public class PageDeComportement {
 	/**
 	 * Constructeur générique
 	 * La page de comportement est créée à partir du fichier JSON.
+	 * @param numero de la Page
 	 * @param pageJSON objet JSON décrivant la page de comportements
 	 */
-	public PageDeComportement(final JSONObject pageJSON) {
+	public PageDeComportement(final int numero, final JSONObject pageJSON) {
+		this.numero = numero;
+		
 		//conditions de déclenchement de la page
 		final ArrayList<Condition> conditions = new ArrayList<Condition>();
 		try {
-			for (Object conditionJSON : pageJSON.getJSONArray("conditions")) {
-				try {
-					final Class<?> classeCondition = Class.forName("conditions.Condition"+((JSONObject) conditionJSON).get("nom"));
-					try {
-						//cas d'une Condition sans paramètres
-						
-						final Constructor<?> constructeurCondition = classeCondition.getConstructor();
-						final Condition condition = (Condition) constructeurCondition.newInstance();
-						conditions.add(condition);
-						
-					} catch (NoSuchMethodException e0) {
-						//cas d'une Condition utilisant des paramètres
-						
-						final Iterator<String> parametresNoms = ((JSONObject) conditionJSON).keys();
-						String parametreNom; //nom du paramètre pour instancier la Condition
-						Object parametreValeur; //valeur du paramètre pour instancier la Condition
-						final HashMap<String, Object> parametres = new HashMap<String, Object>();
-						while (parametresNoms.hasNext()) {
-							parametreNom = parametresNoms.next();
-							if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
-								parametreValeur = ((JSONObject) conditionJSON).get(parametreNom);
-								parametres.put( parametreNom, parametreValeur );
-							}
-						}
-						final Constructor<?> constructeurCondition = classeCondition.getConstructor(parametres.getClass());
-						final Condition condition = (Condition) constructeurCondition.newInstance(parametres);
-						conditions.add(condition);
-					}
-					
-				} catch (Exception e1) {
-					System.err.println("Erreur lors de l'instanciation de la Condition :");
-					e1.printStackTrace();
-				}
-			}
-			
+			InterpreteurDeJson.recupererLesConditions(conditions, pageJSON.getJSONArray("conditions"));
 		} catch (JSONException e2) {
 			//pas de Conditions de déclenchement pour cette Page
 		}
@@ -160,27 +126,7 @@ public class PageDeComportement {
 		//commandes de la page
 		final ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
 		try {
-			for (Object commandeJSON : pageJSON.getJSONArray("commandes")) {
-				try {
-					final Class<?> classeCommande = Class.forName("comportementEvent."+((JSONObject) commandeJSON).get("nom"));
-					final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
-					String parametreNom; //nom du paramètre pour instancier la Commande Event
-					Object parametreValeur; //valeur du paramètre pour instancier la Commande Event
-					final HashMap<String, Object> parametres = new HashMap<String, Object>();
-					while (parametresNoms.hasNext()) {
-						parametreNom = parametresNoms.next();
-						if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
-							parametreValeur = ((JSONObject) commandeJSON).get(parametreNom);
-							parametres.put( parametreNom, parametreValeur );
-						}
-					}
-					final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
-					final CommandeEvent commande = (CommandeEvent) constructeurCommande.newInstance(parametres);
-					commandes.add(commande);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
+			InterpreteurDeJson.recupererLesCommandes(commandes, pageJSON.getJSONArray("commandes"));
 		} catch (JSONException e2) {
 			//pas de Commandes Event pour cette Page
 		}
@@ -229,51 +175,21 @@ public class PageDeComportement {
 		
 		try {
 			this.vitesse = (int) pageJSON.get("vitesse");
-		} catch (JSONException e1) {
+		} catch (JSONException e) {
 			this.vitesse = Event.VITESSE_PAR_DEFAUT;
 		}
 		try {
 			this.frequence = (int) pageJSON.get("frequence");
-		} catch (JSONException e1) {
+		} catch (JSONException e) {
 			this.frequence = Event.FREQUENCE_PAR_DEFAUT;
 		}
 		
 		//mouvement de l'event lors de cette page
-		this.deplacementNaturel = new ArrayList<CommandeEvent>();
 		try {
-			for (Object actionDeplacementJSON : pageJSON.getJSONArray("deplacement")) {
-				try {
-					final Class<?> classeActionDeplacement = Class.forName("comportementEvent."+((JSONObject) actionDeplacementJSON).get("nom"));
-					final Iterator<String> parametresNoms = ((JSONObject) actionDeplacementJSON).keys();
-					String parametreNom;
-					Object parametreValeur;
-					final HashMap<String, Object> parametres = new HashMap<String, Object>();
-					while (parametresNoms.hasNext()) {
-						parametreNom = parametresNoms.next();
-						if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
-							parametreValeur = ((JSONObject) actionDeplacementJSON).get(parametreNom);
-							parametres.put(parametreNom, parametreValeur);
-						}
-					}
-					final Constructor<?> constructeurActionDeplacement = classeActionDeplacement.getConstructor(HashMap.class);
-					final CommandeEvent actionDeplacement = (CommandeEvent) constructeurActionDeplacement.newInstance(parametres);
-					deplacementNaturel.add(actionDeplacement);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
-		} catch (JSONException e2) {
+			this.deplacementNaturel = new Deplacement(pageJSON.getJSONObject("deplacement"));
+		} catch (Exception e) {
 			//pas de déplacement pour cette Page
-		}
-		try {
-			this.repeterLeDeplacement = (boolean) pageJSON.get("repeterLeDeplacement");
-		} catch (JSONException e2) {
-			this.repeterLeDeplacement = Event.REPETER_LE_DEPLACEMENT_PAR_DEFAUT;
-		}
-		try {
-			this.ignorerLesMouvementsImpossibles = (boolean) pageJSON.get("ignorerLesMouvementsImpossibles");
-		} catch (JSONException e2) {
-			this.ignorerLesMouvementsImpossibles = Event.IGNORER_LES_MOUVEMENTS_IMPOSSIBLES_PAR_DEFAUT;
+			this.deplacementNaturel = null;
 		}
 		
 		//ouverture de l'image d'apparence
@@ -285,8 +201,8 @@ public class PageDeComportement {
 		}
 		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
 		if (conditions!=null) {
-			for (Condition cond : conditions) {
-				if (cond.getClass().getName().equals("conditions.ConditionParler")) {
+			for (Condition cond : conditions) { //TODO s'arrêter dès que true trouvé
+				if (cond instanceof ConditionParler) {
 					this.sOuvreParParole = true;
 				}
 			}
