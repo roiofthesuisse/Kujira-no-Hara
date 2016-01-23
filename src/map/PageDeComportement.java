@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import comportementEvent.CommandeEvent;
 import conditions.Condition;
 import conditions.ConditionParler;
+import main.Fenetre;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -41,6 +42,7 @@ public class PageDeComportement {
 	//apparence
 	public String nomImage;
 	public BufferedImage image;
+	public boolean estPetit; //si < 32, considéré au sol
 	public int directionInitiale;
 	public int animationInitiale;
 	
@@ -54,7 +56,6 @@ public class PageDeComportement {
 	
 	//mouvement
 	public Deplacement deplacementNaturel;
-
 	
 	/**
 	 * Constructeur explicite
@@ -95,6 +96,8 @@ public class PageDeComportement {
 			this.image = null;
 			e.printStackTrace();
 		}
+		this.estPetit = false;
+		
 		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
 		if (conditions!=null) {
 			for (Condition cond : conditions) {
@@ -195,8 +198,10 @@ public class PageDeComportement {
 		//ouverture de l'image d'apparence
 		try {
 			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomImage));
+			this.estPetit = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Fenetre.TAILLE_D_UN_CARREAU;
 		} catch (IOException e) {
 			//l'image d'apparence n'existe pas
+			this.estPetit = true;
 			//e.printStackTrace();
 		}
 		//on précise si c'est une Page qui s'ouvre en parlant à l'Event

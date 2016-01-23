@@ -20,6 +20,7 @@ public class Event implements Comparable<Event> {
 	public static final int FREQUENCE_PAR_DEFAUT = 4;
 	public static final int LARGEUR_HITBOX_PAR_DEFAUT = Fenetre.TAILLE_D_UN_CARREAU;
 	public static final int HAUTEUR_HITBOX_PAR_DEFAUT = Fenetre.TAILLE_D_UN_CARREAU;
+	public static final int NOMBRE_DE_VIGNETTES_PAR_IMAGE = 4;
 	public static final boolean ANIME_A_L_ARRET_PAR_DEFAUT = false;
 	public static final boolean ANIME_EN_MOUVEMENT_PAR_DEFAUT = true;
 	public static final boolean TRAVERSABLE_PAR_DEFAUT = false;
@@ -47,6 +48,7 @@ public class Event implements Comparable<Event> {
 	public Deplacement deplacementForce = null;
 	
 	public BufferedImage imageActuelle = null;
+	private boolean estPetitActuel; //si image < 32, considéré comme au sol
 	public int direction;
 	public int animation;
 	
@@ -288,30 +290,37 @@ public class Event implements Comparable<Event> {
 	 * Permet de dire si un event est devant ou derrière un autre en terme d'affichage.
 	 */
 	public final int compareTo(final Event e) {
-		if (auDessusDeToutActuel) {
+		final int eEstDevant = -1;
+		final int thisEstDevant = 1;
+		if (this.auDessusDeToutActuel) {
 			if (e.auDessusDeToutActuel) {
 				//les deux sont au dessus de tout, on applique la logique inversée
-				if (y > e.y) {
-					return -1;
+				if (this.y > e.y) {
+					return eEstDevant;
 				}
-				if (y < e.y) {
-					return 1;
+				if (this.y < e.y) {
+					return thisEstDevant;
 				}
 			} else {
-				//this est plus grand
-				return 1;
+				return thisEstDevant;
 			}
 		} else {
 			if (e.auDessusDeToutActuel) {
-				//e est plus grand
-				return -1;
+				return eEstDevant;
 			} else {
-				//aucun n'est au dessus de tout, on applique la logique normale
-				if (y > e.y) {
-					return 1;
+				//y'en a-t-il un au sol ?
+				if (this.estPetitActuel && !e.estPetitActuel) {
+					return eEstDevant;
+				} else if (e.estPetitActuel && !this.estPetitActuel) {
+					return thisEstDevant;
 				}
-				if (y < e.y) {
-					return -1;
+				
+				//aucun n'est au dessus de tout, on applique la logique normale
+				if (this.y > e.y) {
+					return thisEstDevant;
+				}
+				if (this.y < e.y) {
+					return eEstDevant;
 				}
 			}
 		}
@@ -390,6 +399,7 @@ public class Event implements Comparable<Event> {
 		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
 			this.direction = page.directionInitiale;
 		}
+		estPetitActuel = page.estPetit;
 		
 		//propriétés
 		this.vitesseActuelle = page.vitesse;
@@ -398,6 +408,7 @@ public class Event implements Comparable<Event> {
 		this.auDessusDeToutActuel = page.auDessusDeTout;
 		this.animeEnMouvementActuel = page.animeEnMouvement;
 		this.traversableActuel = page.traversable;
+		
 		//déplacement
 		this.deplacementNaturelActuel = page.deplacementNaturel;
 	}
@@ -411,6 +422,7 @@ public class Event implements Comparable<Event> {
 		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
 			this.direction = Event.Direction.BAS;
 		}
+		estPetitActuel = true;
 		
 		//propriétés
 		this.vitesseActuelle = Event.VITESSE_PAR_DEFAUT;
@@ -419,6 +431,7 @@ public class Event implements Comparable<Event> {
 		this.auDessusDeToutActuel = false;
 		this.animeEnMouvementActuel = false;
 		this.traversableActuel = true;
+	
 		//déplacement
 		this.deplacementNaturelActuel = null;
 	}
