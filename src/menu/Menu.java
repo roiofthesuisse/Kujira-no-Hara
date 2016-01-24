@@ -1,6 +1,11 @@
 package menu;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 import son.LecteurAudio;
 
@@ -8,9 +13,14 @@ import son.LecteurAudio;
  * Un Menu est constitué d'images et de Textes, éventuellement Sélectionnables.
  */
 public abstract class Menu {
+	//constantes
+	protected static final BufferedImage ICONE_VIDE = chargerIconeVide();
+	
 	public LecteurMenu lecteur;
-	public ArrayList<Texte> textes;
-	public ArrayList<ElementDeMenu> elements;
+	public BufferedImage fond;
+	public final ArrayList<Texte> textes = new ArrayList<Texte>();
+	public final ArrayList<ElementDeMenu> elements = new ArrayList<ElementDeMenu>();
+	private ArrayList<Selectionnable> selectionnables;
 	public Selectionnable elementSelectionne;
 	public String nomBGM;
 	
@@ -18,7 +28,7 @@ public abstract class Menu {
 	 * Quitter ce Menu.
 	 */
 	public abstract void quitter();
-	
+
 	/**
 	 * Confirmer l'Elément de Menu sélectionné.
 	 */
@@ -35,7 +45,7 @@ public abstract class Menu {
 	 * Sélectionner l'Elément Sélectionnable situé juste au dessus.
 	 */
 	public final void selectionnerElementEnHaut() {
-		Selectionnable elementASelectionner = chercherSelectionnableAuDessus();
+		final Selectionnable elementASelectionner = chercherSelectionnableAuDessus();
 		selectionner(elementASelectionner);
 	}
 
@@ -43,7 +53,7 @@ public abstract class Menu {
 	 * Sélectionner l'Elément Sélectionnable situé juste en dessous.
 	 */
 	public final void selectionnerElementEnBas() {
-		Selectionnable elementASelectionner = chercherSelectionnableEnDessous();
+		final Selectionnable elementASelectionner = chercherSelectionnableEnDessous();
 		selectionner(elementASelectionner);
 	}
 	
@@ -51,7 +61,7 @@ public abstract class Menu {
 	 * Sélectionner l'Elément Sélectionnable situé juste à gauche.
 	 */
 	public final void selectionnerElementAGauche() {
-		Selectionnable elementASelectionner = chercherSelectionnableAGauche();
+		final Selectionnable elementASelectionner = chercherSelectionnableAGauche();
 		selectionner(elementASelectionner);
 	}
 	
@@ -59,7 +69,7 @@ public abstract class Menu {
 	 * Sélectionner l'Elément Sélectionnable situé juste à droite.
 	 */
 	public final void selectionnerElementADroite() {
-		Selectionnable elementASelectionner = chercherSelectionnableADroite();
+		final Selectionnable elementASelectionner = chercherSelectionnableADroite();
 		selectionner(elementASelectionner);
 	}
 	
@@ -70,7 +80,9 @@ public abstract class Menu {
 	public final void selectionner(final Selectionnable elementASelectionner) {
 		if (elementASelectionner != null) {
 			//bruit de déplacement du curseur
-			if (this.elementSelectionne!=null && !elementASelectionner.equals(this.elementSelectionne)) {
+			if (this.elementSelectionne!=null 
+				&& (elementASelectionner.x!=this.elementSelectionne.x || elementASelectionner.y!=this.elementSelectionne.y)
+			) {
 				LecteurAudio.playSe("DeplacementCurseur.wav");
 			}
 			//désélection du précédent
@@ -80,28 +92,33 @@ public abstract class Menu {
 			//sélection du nouveau
 			this.elementSelectionne = elementASelectionner;
 			elementASelectionner.selectionne = true;
+			
 			//déclenchement du comportement
 			elementASelectionner.executerLeComportementALArrivee();
 		}
 	}
 	
 	/**
-	 * Obtenir la liste des Eléments Sélectionnables.
+	 * Obtenir la liste des Eléments Sélectionnables de ce Menu.
 	 * @return liste des Sélectionnables
 	 */
 	public final ArrayList<Selectionnable> getSelectionnables() {
-		ArrayList<Selectionnable> selectionnables = new ArrayList<Selectionnable>();
-		for (Texte t : this.textes) {
-			if (t.selectionnable) {
-				selectionnables.add(t);
+		if (this.selectionnables==null) {
+			//on ne l'a pas encore créée
+			this.selectionnables = new ArrayList<Selectionnable>();
+			for (Texte t : this.textes) {
+				if (t.selectionnable) {
+					this.selectionnables.add(t);
+				}
+			}
+			for (ElementDeMenu e : this.elements) {
+				if (e.selectionnable) {
+					this.selectionnables.add(e);
+				}
 			}
 		}
-		for (ElementDeMenu e : this.elements) {
-			if (e.selectionnable) {
-				selectionnables.add(e);
-			}
-		}
-		return selectionnables;
+		//on l'a créée
+		return this.selectionnables;
 	}
 	
 	/**
@@ -110,20 +127,17 @@ public abstract class Menu {
 	 */
 	private Selectionnable chercherSelectionnableAuDessus() {
 		Selectionnable elementASelectionner = null;
-		ArrayList<Selectionnable> selectionnables = getSelectionnables();
-		for (Selectionnable selectionnable : selectionnables) {
-			//il doit être au dessus
-			if (selectionnable.y < elementSelectionne.y) {
-				if (elementASelectionner != null) {
-					//on prend le plus proche en ordonnée
-					if (selectionnable.y > elementASelectionner.y) {
-						//on prend le plus proche en abscisse
-						if ( Math.abs(selectionnable.x - elementSelectionne.x) <= Math.abs(elementASelectionner.x - elementSelectionne.x) ) {
-							elementASelectionner = selectionnable;
-						}
-					}
-				} else {
-					elementASelectionner = selectionnable;
+		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
+		int deltaY;
+		Integer deltaYMin = null;
+		for (Selectionnable s : lesSelectionnables) {
+			if ( Math.abs(this.elementSelectionne.x-s.x) <= 2*this.elementSelectionne.largeur 
+				&& this.elementSelectionne.y > s.y
+			) {
+				deltaY = Math.abs(this.elementSelectionne.y-s.y);
+				if (deltaYMin==null || deltaY<deltaYMin) {
+					elementASelectionner = s;
+					deltaYMin = deltaY; //on mémorise le plus proche rencontré
 				}
 			}
 		}
@@ -136,20 +150,17 @@ public abstract class Menu {
 	 */
 	private Selectionnable chercherSelectionnableEnDessous() {
 		Selectionnable elementASelectionner = null;
-		ArrayList<Selectionnable> selectionnables = getSelectionnables();
-		for (Selectionnable selectionnable : selectionnables) {
-			//il doit être en dessous
-			if (selectionnable.y > elementSelectionne.y) {
-				if (elementASelectionner != null) {
-					//on prend le plus proche en ordonnée
-					if (selectionnable.y < elementASelectionner.y) {
-						//on prend le plus proche en abscisse
-						if ( Math.abs(selectionnable.x - elementSelectionne.x) <= Math.abs(elementASelectionner.x - elementSelectionne.x) ) {
-							elementASelectionner = selectionnable;
-						}
-					}
-				} else {
-					elementASelectionner = selectionnable;
+		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
+		int deltaY;
+		Integer deltaYMin = null;
+		for (Selectionnable s : lesSelectionnables) {
+			if ( Math.abs(this.elementSelectionne.x-s.x) <= 2*this.elementSelectionne.largeur 
+				&& this.elementSelectionne.y < s.y
+			) {
+				deltaY = Math.abs(this.elementSelectionne.y-s.y);
+				if (deltaYMin==null || deltaY<deltaYMin) {
+					elementASelectionner = s;
+					deltaYMin = deltaY; //on mémorise le plus proche rencontré
 				}
 			}
 		}
@@ -162,20 +173,17 @@ public abstract class Menu {
 	 */
 	private Selectionnable chercherSelectionnableAGauche() {
 		Selectionnable elementASelectionner = null;
-		ArrayList<Selectionnable> selectionnables = getSelectionnables();
-		for (Selectionnable selectionnable : selectionnables) {
-			//il doit être à gauche
-			if (selectionnable.x < elementSelectionne.x) {
-				if (elementASelectionner != null) {
-					//on prend le plus proche en abscisse
-					if (selectionnable.x > elementASelectionner.x) {
-						//on prend le plus proche en ordonnée
-						if ( Math.abs(selectionnable.y - elementSelectionne.y) <= Math.abs(elementASelectionner.y - elementSelectionne.y) ) {
-							elementASelectionner = selectionnable;
-						}
-					}
-				} else {
-					elementASelectionner = selectionnable;
+		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
+		int deltaX;
+		Integer deltaXMin = null;
+		for (Selectionnable s : lesSelectionnables) {
+			if ( Math.abs(this.elementSelectionne.y-s.y) <= 2*this.elementSelectionne.hauteur 
+				&& this.elementSelectionne.x > s.x
+			) {
+				deltaX = Math.abs(this.elementSelectionne.x-s.x);
+				if (deltaXMin==null || deltaX<deltaXMin) {
+					elementASelectionner = s;
+					deltaXMin = deltaX; //on mémorise le plus proche rencontré
 				}
 			}
 		}
@@ -188,24 +196,34 @@ public abstract class Menu {
 	 */
 	private Selectionnable chercherSelectionnableADroite() {
 		Selectionnable elementASelectionner = null;
-		ArrayList<Selectionnable> selectionnables = getSelectionnables();
-		for (Selectionnable selectionnable : selectionnables) {
-			//il doit être à droite
-			if (selectionnable.x > elementSelectionne.x) {
-				if (elementASelectionner != null) {
-					//on prend le plus proche en abscisse
-					if (selectionnable.x < elementASelectionner.x) {
-						//on prend le plus proche en ordonnée
-						if ( Math.abs(selectionnable.y - elementSelectionne.y) <= Math.abs(elementASelectionner.y - elementSelectionne.y) ) {
-							elementASelectionner = selectionnable;
-						}
-					}
-				} else {
-					elementASelectionner = selectionnable;
+		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
+		int deltaX;
+		Integer deltaXMin = null;
+		for (Selectionnable s : lesSelectionnables) {
+			if ( Math.abs(this.elementSelectionne.y-s.y) <= 2*this.elementSelectionne.hauteur 
+				&& this.elementSelectionne.x < s.x
+			) {
+				deltaX = Math.abs(this.elementSelectionne.x-s.x);
+				if (deltaXMin==null || deltaX<deltaXMin) {
+					elementASelectionner = s;
+					deltaXMin = deltaX; //on mémorise le plus proche rencontré
 				}
 			}
 		}
 		return elementASelectionner;
+	}
+	
+	/**
+	 * Icone vide pour les objets non possédés dans les Menus
+	 * @return image d'icône vide
+	 */
+	private static BufferedImage chargerIconeVide() {
+		try {
+			return ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\icone vide32.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 }

@@ -34,36 +34,56 @@ public class LecteurMenu extends Lecteur {
 	 * @return écran
 	 */
 	public final BufferedImage calculerAffichage() {
-		BufferedImage image = ecranNoir();
-		//affichage des éléments de menu
-		for (ElementDeMenu element : menu.elements) {
-			image = superposerImages(image, element.image, element.x, element.y);
+		BufferedImage ecran = ecranNoir();
+		
+		//image de fond
+		if (this.menu.fond != null) {
+			ecran = superposerImages(ecran, this.menu.fond, 0, 0);
 		}
+
 		//affichage de la sélection
 		final Selectionnable selectionnable = menu.elementSelectionne;
 		if (selectionnable!=null && selectionnable.selectionnable && selectionnable.selectionne) {
 			final BufferedImage selection = selectionnable.creerImageDeSelection();
-			image = superposerImages(image, selection, selectionnable.x-ElementDeMenu.CONTOUR, selectionnable.y-ElementDeMenu.CONTOUR);
+			ecran = superposerImages(ecran, selection, selectionnable.x-ElementDeMenu.CONTOUR, selectionnable.y-ElementDeMenu.CONTOUR);
+		}
+		
+		//affichage des éléments de menu
+		for (ElementDeMenu element : menu.elements) {
+			ecran = superposerImages(ecran, element.image, element.x, element.y);
 		}
 
 		//affichage des textes
 		for (Texte texte : menu.textes) {
 			final BufferedImage imgtxt = texte.texteToImage();			
-			image = superposerImages(image, imgtxt, texte.x, texte.y);
+			ecran = superposerImages(ecran, imgtxt, texte.x, texte.y);
 		}
-		return image;
+		return ecran;
 	}
 
 	@Override
 	public final void keyPressed(final Integer keycode) {
 		switch(keycode) {
-			case GestionClavier.ToucheRole.ACTION : menu.confirmer(); break;
-			case GestionClavier.ToucheRole.HAUT : menu.selectionnerElementEnHaut(); break; //z
-			case GestionClavier.ToucheRole.GAUCHE : menu.selectionnerElementAGauche(); break; //q
-			case GestionClavier.ToucheRole.BAS : menu.selectionnerElementEnBas(); break; //s
-			case GestionClavier.ToucheRole.DROITE : menu.selectionnerElementADroite(); break; //d
-			case GestionClavier.ToucheRole.RETOUR : menu.quitter(); break; //o
-			default : break;
+			case GestionClavier.ToucheRole.ACTION : 
+				menu.confirmer(); 
+				break;
+			case GestionClavier.ToucheRole.HAUT : 
+				menu.selectionnerElementEnHaut(); 
+				break;
+			case GestionClavier.ToucheRole.GAUCHE : 
+				menu.selectionnerElementAGauche(); 
+				break;
+			case GestionClavier.ToucheRole.BAS : 
+				menu.selectionnerElementEnBas(); 
+				break;
+			case GestionClavier.ToucheRole.DROITE : 
+				menu.selectionnerElementADroite(); 
+				break;
+			case GestionClavier.ToucheRole.RETOUR : 
+				menu.quitter(); 
+				break; //o
+			default : 
+				break;
 		}
 	}
 	

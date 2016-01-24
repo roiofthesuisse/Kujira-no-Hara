@@ -1,9 +1,6 @@
 package bibliothequeMenu;
 
-import java.util.ArrayList;
-
 import main.Fenetre;
-import menu.ElementDeMenu;
 import menu.LecteurMenu;
 import menu.Menu;
 import menu.OuvrirNouvellePartie;
@@ -18,16 +15,17 @@ public class MenuNouvellePartie extends Menu {
 	 * Constructeur explicite
 	 */
 	public MenuNouvellePartie() {
-		this.textes = new ArrayList<Texte>();
-		final Texte phrase = new Texte("tadam", 290, 300, 0, false, 0, null, null, this);
-		final Texte choix1 = new Texte("1", 290, 330, 0, true, 0, null, new OuvrirNouvellePartie(), this);
-		final Texte choix2 = new Texte("2", 290, 360, 0, true, 0, null, new OuvrirNouvellePartie(), this);
+		//textes
+		final Texte phrase = new Texte("tadam", 290, 300, false, null, null, this);
+		final Texte choix1 = new Texte("1", 290, 330, true, null, new OuvrirNouvellePartie(), this);
+		final Texte choix2 = new Texte("2", 290, 360, true, null, new OuvrirNouvellePartie(), this);
 		this.textes.add(phrase);
 		this.textes.add(choix1);
 		this.textes.add(choix2);
 		selectionner(choix1);
 		
-		this.elements = new ArrayList<ElementDeMenu>();
+		//elements
+		//...
 	}
 	
 	@Override

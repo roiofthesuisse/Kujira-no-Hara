@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import main.Lecteur;
+import map.Event.Direction;
 
 /**
  * Tout ce qui est Sélectionnable (surlignage jaune) dans un Menu ou un Message.
@@ -15,11 +16,13 @@ public abstract class Selectionnable {
 	public Menu menu;
 	public boolean selectionnable = true;
 	public boolean selectionne = false;
-	public ComportementElementDeMenu comportementSelection;
-	public ComportementElementDeMenu comportementConfirmation;
+	protected ComportementElementDeMenu comportementSelection;
+	protected ComportementElementDeMenu comportementConfirmation;
 	public BufferedImage image;
 	public int x;
 	public int y;
+	public int hauteur;
+	public int largeur;
 	
 	/**
 	 * Lorsqu'on survole l'élément, il peut déclencher une action.
@@ -123,6 +126,40 @@ public abstract class Selectionnable {
 	public final void confirmer() {
 		if (this.comportementConfirmation != null) {
 			this.comportementConfirmation.executer();
+		}
+	}
+	
+	/**
+	 * Calcule dans quelle direction il faut aller à partir de "this" pour rejoindre "s".
+	 * @param s autre Sélectionnable à atteindre
+	 * @return direction approximative dans laquelle "s" se trouve par rapport à "this"
+	 */
+	public final int calculerDirectionRelative(final Selectionnable s) {
+		//il ne faut pas que ce soit le même
+		if (this.equals(s)) {
+			return -1;
+		}
+		
+		final int xRelatif = s.x - this.x;
+		final int yRelatif = s.y - this.y;
+		if (xRelatif >= yRelatif) {
+			//haut-droite
+			if (yRelatif >= -xRelatif) {
+				//bas-droite
+				return Direction.DROITE;
+			} else {
+				//haut-gauche
+				return Direction.HAUT;
+			}
+		} else {
+			//bas-gauche
+			if (yRelatif >= -xRelatif) {
+				//bas-droite
+				return Direction.BAS;
+			} else {
+				//haut-gauche
+				return Direction.GAUCHE;
+			}
 		}
 	}
 }
