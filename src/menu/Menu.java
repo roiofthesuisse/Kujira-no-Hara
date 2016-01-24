@@ -14,7 +14,9 @@ import son.LecteurAudio;
  */
 public abstract class Menu {
 	//constantes
-	protected static final BufferedImage ICONE_VIDE = chargerIconeVide();
+	protected static final BufferedImage ICONE_VIDE = chargerIconeVide(); 
+	//TODO utiliser un constructeur largeur;hauteur au lieu d'une icone vide
+	//un rectangle fictif est plus rapide à superposer qu'une image vide
 	
 	public LecteurMenu lecteur;
 	public BufferedImage fond;
