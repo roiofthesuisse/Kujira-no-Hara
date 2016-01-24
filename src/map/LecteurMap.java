@@ -3,9 +3,13 @@ package map;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+import javax.imageio.ImageIO;
 
 import bibliothequeMenu.MenuPause;
 import comportementEvent.Message;
@@ -22,8 +26,10 @@ import utilitaire.GestionClavier.ToucheRole;
  */
 public class LecteurMap extends Lecteur {
 	//constantes
-	private static final int X_AFFICHAGE_ARME = 612;
+	private static final int X_AFFICHAGE_ARME = 563;
 	private static final int Y_AFFICHAGE_ARME = 4;
+	private static final int X_AFFICHAGE_OBJET = 612;
+	private static final int Y_AFFICHAGE_OBJET = 4;
 	private static final int X_AFFICHAGE_MESSAGE = 76;
 	private static final int Y_AFFICHAGE_MESSAGE = 320;
 	
@@ -38,6 +44,9 @@ public class LecteurMap extends Lecteur {
 	
 	/** message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
+	
+	/**  */
+	public static final BufferedImage HUD_TOUCHES = chargerImageHudTouches();
 	
 	/** frame où le joueur a appuyé sur la touche action */
 	public int frameDAppuiDeLaToucheAction;
@@ -121,7 +130,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private BufferedImage dessinerLesJauges(BufferedImage ecran) {
 		//touches
-		//ecran = superposerImages(ecran, hudTouches, 496, 0);
+		ecran = superposerImages(ecran, HUD_TOUCHES, 0, 0);
 		
 		//icone de l'arme equipée
 		try {
@@ -129,6 +138,13 @@ public class LecteurMap extends Lecteur {
 		} catch (NullPointerException e) {
 			//pas d'arme équipée
 		}
+		
+		//TODO icone de l'objet équipé
+		/*
+		try
+			X_AFFICHAGE_OBJET
+			Y_AFFICHAGE_OBJETn, 
+		*/
 		return ecran;
 	}
 
@@ -530,6 +546,15 @@ public class LecteurMap extends Lecteur {
 	 */
 	public void objet() {
 		//TODO
+	}
+	
+	public static BufferedImage chargerImageHudTouches(){
+		try {
+			return ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\carre arme kujira.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 }
