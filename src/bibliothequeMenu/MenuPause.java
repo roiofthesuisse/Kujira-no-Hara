@@ -56,6 +56,19 @@ public class MenuPause extends Menu {
 			e.printStackTrace();
 		}
 		
+		try {
+			final ElementDeMenu flecheGauche = new ElementDeMenu("Pictures", "fleche gauche.png", 10, 235, true, null, null, this);
+			this.elements.add(flecheGauche);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			final ElementDeMenu flecheDroite = new ElementDeMenu("Pictures", "fleche droite.png", 610, 235, true, null, null, this);
+			this.elements.add(flecheDroite);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		
 		final ElementDeMenu perle1 = new ElementDeMenu(ICONE_VIDE, 325, 160, true, null, null, this);
 		this.elements.add(perle1);

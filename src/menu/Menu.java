@@ -123,6 +123,8 @@ public abstract class Menu {
 		return this.selectionnables;
 	}
 	
+	//TODO factoriser les 4 méthodes de recherche de Sélectionnable car elles sont similaires
+	
 	/**
 	 * Calculer quel est l'Elément de Menu Sélectionnable situé au dessus de celui-ci
 	 * @return Elément de Menu situé au dessus
@@ -130,16 +132,20 @@ public abstract class Menu {
 	private Selectionnable chercherSelectionnableAuDessus() {
 		Selectionnable elementASelectionner = null;
 		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
+		int deltaX;
 		int deltaY;
-		Integer deltaYMin = null;
+		int distance;
+		Integer distanceMin = null;
 		for (Selectionnable s : lesSelectionnables) {
 			if ( Math.abs(this.elementSelectionne.x-s.x) <= 2*this.elementSelectionne.largeur 
 				&& this.elementSelectionne.y > s.y
 			) {
-				deltaY = Math.abs(this.elementSelectionne.y-s.y);
-				if (deltaYMin==null || deltaY<deltaYMin) {
+				deltaX = this.elementSelectionne.x-s.x;
+				deltaY = this.elementSelectionne.y-s.y;
+				distance = deltaX*deltaX + deltaY*deltaY;
+				if (distanceMin==null || distance<distanceMin) {
 					elementASelectionner = s;
-					deltaYMin = deltaY; //on mémorise le plus proche rencontré
+					distanceMin = distance; //on mémorise le plus proche rencontré
 				}
 			}
 		}
@@ -153,16 +159,20 @@ public abstract class Menu {
 	private Selectionnable chercherSelectionnableEnDessous() {
 		Selectionnable elementASelectionner = null;
 		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
+		int deltaX;
 		int deltaY;
-		Integer deltaYMin = null;
+		int distance;
+		Integer distanceMin = null;
 		for (Selectionnable s : lesSelectionnables) {
 			if ( Math.abs(this.elementSelectionne.x-s.x) <= 2*this.elementSelectionne.largeur 
 				&& this.elementSelectionne.y < s.y
 			) {
-				deltaY = Math.abs(this.elementSelectionne.y-s.y);
-				if (deltaYMin==null || deltaY<deltaYMin) {
+				deltaX = this.elementSelectionne.x-s.x;
+				deltaY = this.elementSelectionne.y-s.y;
+				distance = deltaX*deltaX + deltaY*deltaY;
+				if (distanceMin==null || distance<distanceMin) {
 					elementASelectionner = s;
-					deltaYMin = deltaY; //on mémorise le plus proche rencontré
+					distanceMin = distance; //on mémorise le plus proche rencontré
 				}
 			}
 		}
@@ -177,15 +187,19 @@ public abstract class Menu {
 		Selectionnable elementASelectionner = null;
 		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
 		int deltaX;
-		Integer deltaXMin = null;
+		int deltaY;
+		int distance;
+		Integer distanceMin = null;
 		for (Selectionnable s : lesSelectionnables) {
 			if ( Math.abs(this.elementSelectionne.y-s.y) <= 2*this.elementSelectionne.hauteur 
 				&& this.elementSelectionne.x > s.x
 			) {
-				deltaX = Math.abs(this.elementSelectionne.x-s.x);
-				if (deltaXMin==null || deltaX<deltaXMin) {
+				deltaX = this.elementSelectionne.x-s.x;
+				deltaY = this.elementSelectionne.y-s.y;
+				distance = deltaX*deltaX + deltaY*deltaY;
+				if (distanceMin==null || distance<distanceMin) {
 					elementASelectionner = s;
-					deltaXMin = deltaX; //on mémorise le plus proche rencontré
+					distanceMin = distance; //on mémorise le plus proche rencontré
 				}
 			}
 		}
@@ -200,15 +214,19 @@ public abstract class Menu {
 		Selectionnable elementASelectionner = null;
 		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
 		int deltaX;
-		Integer deltaXMin = null;
+		int deltaY;
+		int distance;
+		Integer distanceMin = null;
 		for (Selectionnable s : lesSelectionnables) {
 			if ( Math.abs(this.elementSelectionne.y-s.y) <= 2*this.elementSelectionne.hauteur 
 				&& this.elementSelectionne.x < s.x
 			) {
-				deltaX = Math.abs(this.elementSelectionne.x-s.x);
-				if (deltaXMin==null || deltaX<deltaXMin) {
+				deltaX = this.elementSelectionne.x-s.x;
+				deltaY = this.elementSelectionne.y-s.y;
+				distance = deltaX*deltaX + deltaY*deltaY;
+				if (distanceMin==null || distance<distanceMin) {
 					elementASelectionner = s;
-					deltaXMin = deltaX; //on mémorise le plus proche rencontré
+					distanceMin = distance; //on mémorise le plus proche rencontré
 				}
 			}
 		}
