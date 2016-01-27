@@ -64,7 +64,7 @@ public class ElementDeMenu extends Selectionnable {
 		} else {
 			//l'Elément est un rectangle vide
 			this.image = null;
-			int[] dimensionsImageVide = (int[]) apparence;
+			final int[] dimensionsImageVide = (int[]) apparence;
 			this.largeur = dimensionsImageVide[0];
 			this.hauteur = dimensionsImageVide[1];
 		}

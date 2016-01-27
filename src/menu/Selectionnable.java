@@ -33,8 +33,15 @@ public abstract class Selectionnable {
 	 * @return image contenant le surlignage jaune adapté au Sélectionnable
 	 */
 	public final BufferedImage creerImageDeSelection() {
-		final int largeur = image.getWidth() + 2*ElementDeMenu.CONTOUR;
-		final int hauteur = image.getHeight() + 2*ElementDeMenu.CONTOUR;
+		int largeur;
+		int hauteur;
+		if (this.image!=null) {
+			largeur = this.image.getWidth() + 2*ElementDeMenu.CONTOUR;
+			hauteur = this.image.getHeight() + 2*ElementDeMenu.CONTOUR;
+		} else {
+			largeur = this.largeur + 2*ElementDeMenu.CONTOUR;
+			hauteur = this.hauteur + 2*ElementDeMenu.CONTOUR;
+		}
 		final BufferedImage selection = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
 		for (int i = 0; i<largeur; i++) {
 			for (int j = 0; j<hauteur; j++) {

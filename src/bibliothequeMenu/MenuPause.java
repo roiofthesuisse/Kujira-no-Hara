@@ -47,7 +47,7 @@ public class MenuPause extends Menu {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		final ElementDeMenu argent = new ElementDeMenu(85, 315, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		final ElementDeMenu argent = new ElementDeMenu(75, 315, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
 		this.elements.add(argent);
 		try {
 			final ElementDeMenu objets = new ElementDeMenu("Icons", "menu coffre icon.png", 85, 390, true, null, null, this);
@@ -70,17 +70,17 @@ public class MenuPause extends Menu {
 		}
 		
 		
-		final ElementDeMenu perle1 = new ElementDeMenu(325, 160, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		final ElementDeMenu perle1 = new ElementDeMenu(320, 160, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
 		this.elements.add(perle1);
-		final ElementDeMenu perle2 = new ElementDeMenu(430, 160, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		final ElementDeMenu perle2 = new ElementDeMenu(425, 160, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
 		this.elements.add(perle2);
-		final ElementDeMenu perle3 = new ElementDeMenu(490, 240, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		final ElementDeMenu perle3 = new ElementDeMenu(485, 240, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
 		this.elements.add(perle3);
-		final ElementDeMenu perle4 = new ElementDeMenu(325, 310, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		final ElementDeMenu perle4 = new ElementDeMenu(320, 310, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
 		this.elements.add(perle4);
-		final ElementDeMenu perle5 = new ElementDeMenu(430, 310, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		final ElementDeMenu perle5 = new ElementDeMenu(425, 310, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
 		this.elements.add(perle5);
-		final ElementDeMenu perle6 = new ElementDeMenu(265, 240, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		final ElementDeMenu perle6 = new ElementDeMenu(260, 240, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
 		this.elements.add(perle6);
 		
 		selectionner(perle1);

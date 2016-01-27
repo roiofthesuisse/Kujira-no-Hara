@@ -95,6 +95,8 @@ public class Texte extends Selectionnable {
 	 */
 	public Texte(final String contenu) {
 		this.contenu = contenu;
+		this.taille = Texte.TAILLE_MOYENNE;
+		this.opacite = Texte.OPACITE_MAXIMALE;
 	}
 	
 	/**
@@ -104,7 +106,10 @@ public class Texte extends Selectionnable {
 	public final BufferedImage texteToImage() {
         final String[] texts = this.contenu.split("\\\\n");
         final int nombreLignes = texts.length;
-
+        if (nombreLignes <= 0) {
+        	return null;
+        }
+        
         BufferedImage img = new BufferedImage(1, 1, Lecteur.TYPE_DES_IMAGES);
         Graphics2D g2d = img.createGraphics();
         final Font font = new Font("Arial", Font.PLAIN, this.taille);
@@ -114,7 +119,7 @@ public class Texte extends Selectionnable {
         final int height = fm.getHeight();
         g2d.dispose();
         
-        final int hauteurTotaleImage = (height+Texte.INTERLIGNE)*nombreLignes-Texte.INTERLIGNE; //on retire l'interligne inutile tout à la fin
+        final int hauteurTotaleImage = (height + Texte.INTERLIGNE)*nombreLignes - Texte.INTERLIGNE; //on retire l'interligne inutile tout à la fin
         img = new BufferedImage(width, hauteurTotaleImage, Lecteur.TYPE_DES_IMAGES);
         g2d = img.createGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);

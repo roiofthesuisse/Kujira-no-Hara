@@ -2,13 +2,14 @@ package comportementEvent;
 
 import java.util.HashMap;
 
+import main.Fenetre;
 import map.Event.Direction;
 import utilitaire.GenerateurAleatoire;
 
 /**
  * Déplacer un Event dans une Direction aléatoire et d'un certain nombre de cases
  */
-public class AvancerAleatoirement extends Avancer {	
+public class AvancerAleatoirement extends Avancer implements Mouvement {	
 	public static final int NOMBRE_DE_DIRECTIONS_POSSIBLES = 4; 
 	private static GenerateurAleatoire rand = new GenerateurAleatoire();
 	
@@ -16,7 +17,7 @@ public class AvancerAleatoirement extends Avancer {
 	 * Constructeur explicite 
 	 */
 	public AvancerAleatoirement() {
-		super(rand.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES), 1);
+		super(rand.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES), Fenetre.TAILLE_D_UN_CARREAU);
 	}
 	
 	/**

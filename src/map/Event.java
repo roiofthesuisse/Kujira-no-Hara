@@ -56,6 +56,8 @@ public class Event implements Comparable<Event> {
 	public boolean avance = false;
 	/** L'Event avançait-il à la frame précédente ? (utile pour l'animation) */
 	protected boolean avancaitALaFramePrecedente = false;
+	/** l'Event est-il en train de sauter en ce moment même ? (utile pour l'animation) */
+	public boolean saute = false;
 	
 	/**  L'Event est-il au contact du Héros ? (utile pour la Condition ArriveeAuContact */
 	public boolean estAuContactDuHerosMaintenant = false;
@@ -200,89 +202,6 @@ public class Event implements Comparable<Event> {
 				this.deplacementNaturelActuel.executerLePremierMouvement(this);
 			}
 		}
-	}
-	
-	/**
-	 * Le mouvement dans cette Direction est-il possible ?
-	 * @param sens Direction dans laquelle l'Event compte avancer
-	 * @return si le mouvement est possible oui ou non
-	 */
-	//TODO déporter cette méthode dans l'interface "Mouvement"
-	//chaque Mouvement (pas, saut...) sait comment calculer sa possibilité
-	public final boolean mouvementPossible(final int sens) {
-		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
-		if (this instanceof Heros && ((Heros) this).animationAttaque > 0) { 
-			return false;
-		}
-		
-		//si l'Event est lui-même traversable, il peut faire son mouvement
-		if (this.traversableActuel) {
-			return true;
-		}
-		
-		boolean reponse = true;
-		int xAInspecter = this.x; //pour le décor
-		int yAInspecter = this.y;
-		int xAInspecter2 = this.x; //pour le décor, deuxième case à vérifier si entre deux cases
-		int yAInspecter2 = this.y;
-		int xAInspecter3 = this.x; //pour les events
-		int yAInspecter3 = this.y;
-		switch(sens) {
-		case Event.Direction.BAS : 
-			yAInspecter += this.hauteurHitbox;   
-			yAInspecter2 += this.hauteurHitbox;   
-			xAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
-			yAInspecter3 += this.vitesseActuelle; 
-			break;
-		case Event.Direction.GAUCHE : 
-			xAInspecter -= this.vitesseActuelle; 
-			xAInspecter2 -= this.vitesseActuelle; 
-			yAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
-			xAInspecter3 -= this.vitesseActuelle; 
-			break;
-		case Event.Direction.DROITE : 
-			xAInspecter += this.largeurHitbox;   
-			xAInspecter2 += this.largeurHitbox;   
-			yAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
-			xAInspecter3 += this.vitesseActuelle; 
-			break;
-		case Event.Direction.HAUT : 
-			yAInspecter -= this.vitesseActuelle; 
-			yAInspecter2 -= this.vitesseActuelle; 
-			xAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
-			yAInspecter3 -= this.vitesseActuelle; 
-			break;
-		default : 
-			break;
-		}
-		try {
-			//si rencontre avec un élément de décor non passable -> false
-			if (!this.map.casePassable[xAInspecter/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter/Fenetre.TAILLE_D_UN_CARREAU]) {
-				return false;
-			}
-			if ((sens==Direction.BAS||sens==Direction.HAUT) && ((this.x+this.largeurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(this.x/Fenetre.TAILLE_D_UN_CARREAU)) && !this.map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
-				return false;
-			}
-			if ((sens==Direction.GAUCHE||sens==Direction.DROITE) && ((this.y+this.hauteurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(this.y/Fenetre.TAILLE_D_UN_CARREAU)) && !this.map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
-				return false;
-			}
-			//voilà
-			
-			//si rencontre avec un autre évènement non traversable -> false
-			for (Event autreEvent : this.map.events) {
-				if (this.numero != autreEvent.numero 
-					&& !autreEvent.traversableActuel
-					&& Hitbox.lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, this.largeurHitbox, this.hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
-				) {
-					return false;
-				}
-			}
-		} catch (Exception e) {
-			//on sort de la map !
-			e.printStackTrace();
-			reponse = true;
-		}
-		return reponse;
 	}
 
 	@Override

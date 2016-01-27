@@ -2,6 +2,7 @@ package map;
 
 import java.util.ArrayList;
 
+import comportementEvent.Avancer;
 import comportementEvent.CommandeEvent;
 import comportementEvent.DemarrerAnimationAttaque;
 import conditions.Condition;
@@ -104,25 +105,25 @@ public class Heros extends Event {
 			boolean ilYADeplacement = false;
 			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) && !touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
-				if ( mouvementPossible(Event.Direction.HAUT) ) {
+				if ( new Avancer(Event.Direction.HAUT, pageActive.vitesse).mouvementPossible(this) ) {
 					ilYADeplacement = true;
 					this.y -= pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.BAS) && !touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ) {
-				if ( mouvementPossible(Event.Direction.BAS) ) {
+				if ( new Avancer(Event.Direction.BAS, pageActive.vitesse).mouvementPossible(this) ) {
 					ilYADeplacement = true;
 					this.y += pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) && !touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ) {
-				if ( mouvementPossible(Event.Direction.GAUCHE) ) {
+				if ( new Avancer(Event.Direction.GAUCHE, pageActive.vitesse).mouvementPossible(this) ) {
 					ilYADeplacement = true;
 					this.x -= pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) && !touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
-				if ( mouvementPossible(Event.Direction.DROITE) ) {
+				if ( new Avancer(Event.Direction.DROITE, pageActive.vitesse).mouvementPossible(this) ) {
 					ilYADeplacement = true;
 					this.x += pageActive.vitesse;
 				}

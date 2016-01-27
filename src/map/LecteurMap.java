@@ -232,6 +232,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private void animerLesEvents() {
 		try {
+			//TODO if( event.saute )
 			for (Event event : this.map.events) {
 				final boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
 				//cas où l'Event est animé à l'arrêt
