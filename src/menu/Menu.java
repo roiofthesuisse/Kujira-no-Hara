@@ -1,11 +1,7 @@
 package menu;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
 
 import map.Event;
 import son.LecteurAudio;
@@ -15,9 +11,8 @@ import son.LecteurAudio;
  */
 public abstract class Menu {
 	//constantes
-	protected static final BufferedImage ICONE_VIDE = chargerIconeVide(); 
-	//TODO utiliser un constructeur largeur;hauteur au lieu d'une icone vide
-	//un rectangle fictif est plus rapide à superposer qu'une image vide
+	protected static final int LARGEUR_ELEMENT_PAR_DEFAUT = 48;
+	protected static final int HAUTEUR_ELEMENT_PAR_DEFAUT = 32;
 	
 	public LecteurMenu lecteur;
 	public BufferedImage fond;
@@ -151,19 +146,6 @@ public abstract class Menu {
 			}
 		}
 		return elementASelectionner;
-	}
-	
-	/**
-	 * Icone vide pour les objets non possédés dans les Menus
-	 * @return image d'icône vide
-	 */
-	private static BufferedImage chargerIconeVide() {
-		try {
-			return ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\icone vide32.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
 	}
 	
 }

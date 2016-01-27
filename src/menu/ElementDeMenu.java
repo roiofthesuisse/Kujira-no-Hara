@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 public class ElementDeMenu extends Selectionnable {
 	
 	/**
-	 * Constructeur explicite
+	 * Constructeur explicite (avec image comme apparence)
 	 * @param dossierImage nom du dossier où se trouve l'image
 	 * @param nomImage nom de l'image
 	 * @param x position x à l'écran
@@ -29,8 +29,23 @@ public class ElementDeMenu extends Selectionnable {
 	}
 	
 	/**
+	 * Constructeur explicite (avec rectangle vide comme apparence)
+	 * @param x position x à l'écran
+	 * @param y y position y à l'écran
+	 * @param largeur de l'Elément
+	 * @param hauteur de l'Elément
+	 * @param selectionnable peut-on le sélectionner ?
+	 * @param comportementSelection comportement au survol
+	 * @param comportementConfirmation comportement à la validation
+	 * @param menu auquel appartient l'Elément
+	 */
+	public ElementDeMenu(final int x, final int y, final int largeur, final int hauteur, final boolean selectionnable, final ComportementElementDeMenu comportementSelection, final ComportementElementDeMenu comportementConfirmation, final Menu menu) {
+		this(new int[]{largeur, hauteur}, x, y, selectionnable, comportementSelection, comportementConfirmation, menu);
+	}
+	
+	/**
 	 * Constructeur explicite
-	 * @param image apparence de l'Elément de Menu
+	 * @param apparence de l'Elément de Menu : une BufferedImage ou bien un tableau (largeur,hauteur) représentant une image vide
 	 * @param x position x à l'écran
 	 * @param y position y à l'écran
 	 * @param selectionnable peut-on le sélectionner ?
@@ -38,22 +53,21 @@ public class ElementDeMenu extends Selectionnable {
 	 * @param comportementConfirmation comportement à la validation
 	 * @param menu auquel appartient l'Elément
 	 */
-	public ElementDeMenu(final BufferedImage image, final int x, final int y, final boolean selectionnable, final ComportementElementDeMenu comportementSelection, final ComportementElementDeMenu comportementConfirmation, final Menu menu) {
+	private ElementDeMenu(final Object apparence, final int x, final int y, final boolean selectionnable, final ComportementElementDeMenu comportementSelection, final ComportementElementDeMenu comportementConfirmation, final Menu menu) {
 		this.menu = menu;
 		
-		try {
-			this.image = image;
+		if (apparence instanceof BufferedImage) {
+			//l'Elément a une image comme apparence
+			this.image = (BufferedImage) apparence;
 			this.largeur = this.image.getWidth();
 			this.hauteur = this.image.getHeight();
-		} catch (Exception e) {
-			//impossible de charger l'image de fond
+		} else {
+			//l'Elément est un rectangle vide
 			this.image = null;
-			this.largeur = 0;
-			this.hauteur = 0;
-			e.printStackTrace();
+			int[] dimensionsImageVide = (int[]) apparence;
+			this.largeur = dimensionsImageVide[0];
+			this.hauteur = dimensionsImageVide[1];
 		}
-		this.largeur = this.image.getWidth();
-		this.hauteur = this.image.getHeight();
 		this.x = x;
 		this.y = y;
 		this.selectionnable = selectionnable;
