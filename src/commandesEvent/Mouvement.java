@@ -7,6 +7,7 @@ import map.Event;
  * Toute CommandeEvent qui provoque le Mouvement d'un Event doit implémenter cette interface.
  */
 public interface Mouvement {
+	//TODO attrbut event : l'Event à déplacer (qui n'est pas forcément celui qui donne l'ordre)
 	
 	/**
 	 * Procéder aux modifications de données permettant au LecteurMap d'afficher l'Event au bon endroit.

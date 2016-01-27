@@ -58,6 +58,8 @@ public class Event implements Comparable<Event> {
 	protected boolean avancaitALaFramePrecedente = false;
 	/** l'Event est-il en train de sauter en ce moment même ? (utile pour l'animation) */
 	public boolean saute = false;
+	public int coordonneeApparenteXLorsDuSaut; //en pixels
+	public int coordonneeApparenteYLorsDuSaut; //en pixels
 	
 	/**  L'Event est-il au contact du Héros ? (utile pour la Condition ArriveeAuContact */
 	public boolean estAuContactDuHerosMaintenant = false;

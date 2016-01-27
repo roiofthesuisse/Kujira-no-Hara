@@ -23,6 +23,7 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	private int yEventApresSaut;
 	public int etapes;
 	public int etapesFaites;
+	private int direction;
 	
 	/**
 	 * Constructeur explicite
@@ -32,6 +33,25 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	public Sauter(final int x, final int y) {
 		this.x = x;
 		this.y = y;
+		if (x>y) {
+			//haut droite
+			if (y>=-x) {
+				//bas droite
+				this.direction = Event.Direction.DROITE;
+			} else {
+				//haut gauche
+				this.direction = Event.Direction.HAUT;
+			}
+		} else {
+			//bas gauche
+			if (y>-x) {
+				//bas droite
+				this.direction = Event.Direction.BAS;
+			} else {
+				//haut gauche
+				this.direction = Event.Direction.GAUCHE;
+			}
+		}
 	}
 	
 	/**
@@ -54,7 +74,7 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	//le LecteurMap prendra le relais
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		final Event event = this.page.event;
+		final Event event = this.page.event.map.heros;
 		if (!event.saute) {
 			//le mouvement n'a pas commencé
 			event.saute = true;
@@ -64,6 +84,7 @@ public class Sauter extends CommandeEvent implements Mouvement {
 			this.yEventApresSaut = yEventAvantSaut + this.y*Fenetre.TAILLE_D_UN_CARREAU;
 			this.etapes = NOMBRE_D_ETAPES_POUR_LE_SAUT_SUR_PLACE + ((Double) Math.sqrt(x*x+y+y)).intValue();
 			this.etapesFaites = 0;
+			this.etapes = 30; //TODO
 		}
 		
 		if (etapesFaites>=etapes) {
@@ -72,7 +93,12 @@ public class Sauter extends CommandeEvent implements Mouvement {
 		}
 		
 		//le mouvement est en cours
+		event.direction = this.direction;
+		event.x = this.xEventApresSaut;
+		event.y = this.yEventApresSaut;
+		System.err.println("Sauter.executer() : deplacer()");
 		event.deplacer();
+		this.etapesFaites++;
 		return curseurActuel;
 	}
 	
@@ -83,29 +109,24 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	 * @param deplacement deplacement dont est issu le mouvement (soit déplacement naturel, soit déplacement forcé)
 	 */
 	public final void executerLeMouvement(final Event event, final Deplacement deplacement) {
-		/*
-		try {
 			if ( this.mouvementPossible(event) ) {
 				event.saute = true;
 				//déplacement :
-				switch (sens) {
-					case Direction.BAS : 
-						event.y += event.vitesseActuelle; 
-						break;
-					case Direction.GAUCHE : 
-						event.x -= event.vitesseActuelle; 
-						break;
-					case Direction.DROITE : 
-						event.x += event.vitesseActuelle; 
-						break;
-					case Direction.HAUT : 
-						event.y -= event.vitesseActuelle; 
-						break;
-				}
-				this.ceQuiAEteFait += event.vitesseActuelle;
-				//*ancien emplacement de l'animation*
+				final double t = (double) etapesFaites /(double) etapes;
+				final int x0 = xEventAvantSaut;
+				final int y0 = yEventAvantSaut;
+				final int xf = xEventApresSaut;
+				final int yf = yEventApresSaut;
+				final double xDroite = (1-t)*x0+t*xf;
+				final double yDroite = (1-t)*y0+t*yf;
+				final double yParabole = -(xDroite-x0)*(xDroite-xf) / (x0+xf); //on divise par (x0+xf) pour avoir une dérivée de 1 au départ
+				event.coordonneeApparenteXLorsDuSaut = (int) (xDroite * Fenetre.TAILLE_D_UN_CARREAU);
+				event.coordonneeApparenteYLorsDuSaut = (int) ((yParabole+yDroite) * Fenetre.TAILLE_D_UN_CARREAU);
+				System.out.println(event.coordonneeApparenteXLorsDuSaut);
+				System.out.println(event.coordonneeApparenteYLorsDuSaut);
+				
 				//quelle sera la commande suivante ?
-				if ( this.ceQuiAEteFait >= this.nombreDeCarreaux*Fenetre.TAILLE_D_UN_CARREAU ) {
+				if (etapesFaites>=etapes) {
 					if (deplacement.repeterLeDeplacement) {
 						//on le réinitialise et on le met en bout de file
 						this.reinitialiser();
@@ -115,7 +136,7 @@ public class Sauter extends CommandeEvent implements Mouvement {
 					deplacement.mouvements.remove(0);
 				}
 			} else {
-				event.avance = false;
+				event.saute = false;
 				if (deplacement.ignorerLesMouvementsImpossibles) {
 					if (deplacement.repeterLeDeplacement) {
 						//on le réinitialise et on le met en bout de file
@@ -126,14 +147,6 @@ public class Sauter extends CommandeEvent implements Mouvement {
 					deplacement.mouvements.remove(0);
 				}
 			}
-			
-		} catch (NullPointerException e1) {
-			//pas de mouvement pour cet évènement
-		} catch (Exception e) {
-			System.out.println("Erreur lors du mouvement de l'évènement :");
-			e.printStackTrace();
-		}
-		*/
 	}
 	
 	public boolean mouvementPossible(Event e){

@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import commandesEvent.Avancer;
 import commandesEvent.CommandeEvent;
+import commandesEvent.Mouvement;
 
 /**
  * Un Déplacement est un ensemble de mouvements subits par un Event.
@@ -65,10 +66,9 @@ public class Deplacement {
 	 * @param event qui doit être déplacé
 	 */
 	public final void executerLePremierMouvement(final Event event) {
-		//TODO faire de event un attribut de Deplacement
-		//TODO utiliser une interface générale "Mouvement" 
+		//TODO faire de event un attribut de Deplacement ou de Mouvement
 		//qui a une méthode executerLeMouvement()
 		//et caster par l'interface
-		((Avancer) this.mouvements.get(0)).executerLeMouvement(event, this);
+		((Mouvement) this.mouvements.get(0)).executerLeMouvement(event, this);
 	}
 }
