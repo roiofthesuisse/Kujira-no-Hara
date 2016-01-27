@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 
 import main.Fenetre;
 import main.Lecteur;
+import map.Event;
 import map.LecteurMap;
 import utilitaire.GestionClavier;
 
@@ -68,16 +69,16 @@ public class LecteurMenu extends Lecteur {
 				menu.confirmer(); 
 				break;
 			case GestionClavier.ToucheRole.HAUT : 
-				menu.selectionnerElementEnHaut(); 
-				break;
-			case GestionClavier.ToucheRole.GAUCHE : 
-				menu.selectionnerElementAGauche(); 
+				menu.selectionnerElementDansLaDirection(Event.Direction.HAUT); 
 				break;
 			case GestionClavier.ToucheRole.BAS : 
-				menu.selectionnerElementEnBas(); 
+				menu.selectionnerElementDansLaDirection(Event.Direction.BAS);
+				break;
+			case GestionClavier.ToucheRole.GAUCHE : 
+				menu.selectionnerElementDansLaDirection(Event.Direction.GAUCHE);
 				break;
 			case GestionClavier.ToucheRole.DROITE : 
-				menu.selectionnerElementADroite(); 
+				menu.selectionnerElementDansLaDirection(Event.Direction.DROITE);
 				break;
 			case GestionClavier.ToucheRole.RETOUR : 
 				menu.quitter(); 

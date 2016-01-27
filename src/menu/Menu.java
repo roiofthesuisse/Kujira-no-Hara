@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
+import map.Event;
 import son.LecteurAudio;
 
 /**
@@ -44,34 +45,11 @@ public abstract class Menu {
 	}
 	
 	/**
-	 * Sélectionner l'Elément Sélectionnable situé juste au dessus.
+	 * Sélectionner l'Elément Sélectionnable situé dans cette direction
+	 * @param direction dans laquelle on recherche un nouvel Elément à sélectionner
 	 */
-	public final void selectionnerElementEnHaut() {
-		final Selectionnable elementASelectionner = chercherSelectionnableAuDessus();
-		selectionner(elementASelectionner);
-	}
-
-	/**
-	 * Sélectionner l'Elément Sélectionnable situé juste en dessous.
-	 */
-	public final void selectionnerElementEnBas() {
-		final Selectionnable elementASelectionner = chercherSelectionnableEnDessous();
-		selectionner(elementASelectionner);
-	}
-	
-	/**
-	 * Sélectionner l'Elément Sélectionnable situé juste à gauche.
-	 */
-	public final void selectionnerElementAGauche() {
-		final Selectionnable elementASelectionner = chercherSelectionnableAGauche();
-		selectionner(elementASelectionner);
-	}
-	
-	/**
-	 * Sélectionner l'Elément Sélectionnable situé juste à droite.
-	 */
-	public final void selectionnerElementADroite() {
-		final Selectionnable elementASelectionner = chercherSelectionnableADroite();
+	public final void selectionnerElementDansLaDirection(final int direction) {
+		final Selectionnable elementASelectionner = chercherSelectionnableDansLaDirection(direction);
 		selectionner(elementASelectionner);
 	}
 	
@@ -123,40 +101,38 @@ public abstract class Menu {
 		return this.selectionnables;
 	}
 	
-	//TODO factoriser les 4 méthodes de recherche de Sélectionnable car elles sont similaires
-	
 	/**
-	 * Calculer quel est l'Elément de Menu Sélectionnable situé au dessus de celui-ci
-	 * @return Elément de Menu situé au dessus
+	 * Vérifie si l'Elément (x2,y2) est situé dans la bonne direction par rapport à l'Elément de référence (x1,y1).
+	 * @param direction dans laquelle il faut que l'Elément testé se situe (par rapport à l'Elément de référence) pour être valide
+	 * @param x1 coordonnée x de l'Elément de référence
+	 * @param y1 coordonnée y de l'Elément de référence
+	 * @param x2 coordonnée x de l'Elément testé
+	 * @param y2 coordonnée y de l'Elément testé
+	 * @param largeur tolérée pour l'écart avec la direction voulue
+	 * @param hauteur tolérée pour l'écart avec la direction voulue
+	 * @return true si l'Elément testé est dans la bonne direction
 	 */
-	private Selectionnable chercherSelectionnableAuDessus() {
-		Selectionnable elementASelectionner = null;
-		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
-		int deltaX;
-		int deltaY;
-		int distance;
-		Integer distanceMin = null;
-		for (Selectionnable s : lesSelectionnables) {
-			if ( Math.abs(this.elementSelectionne.x-s.x) <= 2*this.elementSelectionne.largeur 
-				&& this.elementSelectionne.y > s.y
-			) {
-				deltaX = this.elementSelectionne.x-s.x;
-				deltaY = this.elementSelectionne.y-s.y;
-				distance = deltaX*deltaX + deltaY*deltaY;
-				if (distanceMin==null || distance<distanceMin) {
-					elementASelectionner = s;
-					distanceMin = distance; //on mémorise le plus proche rencontré
-				}
-			}
+	private Boolean estCandidatALaSelection(final int direction, final int x1, final int y1, final int x2, final int y2, final int largeur, final int hauteur) {
+		switch(direction) {
+			case Event.Direction.HAUT :
+				return (Math.abs(x2-x1) <= 2*largeur) && (y2 > y1);
+			case Event.Direction.BAS :
+				return (Math.abs(x2-x1) <= 2*largeur) && (y2 < y1);
+			case Event.Direction.GAUCHE :
+				return (Math.abs(y2-y1) <= 2*hauteur) && (x2 > x1);
+			case Event.Direction.DROITE :
+				return (Math.abs(y2-y1) <= 2*hauteur) && (x2 < x1);
+			default :
+				return false;
 		}
-		return elementASelectionner;
 	}
 	
 	/**
-	 * Calculer quel est l'Elément de Menu Sélectionnable situé en dessous de celui-ci
-	 * @return Elément de Menu situé en dessous
+	 * Calculer quel est l'Elément de Menu Sélectionnable situé dans une certaine direction par rapport à celui-ci
+	 * @param direction dans laquelle on doit rechercher un Elément à sélectionner
+	 * @return Elément de Menu situé dans cette direction
 	 */
-	private Selectionnable chercherSelectionnableEnDessous() {
+	private Selectionnable chercherSelectionnableDansLaDirection(final int direction) {
 		Selectionnable elementASelectionner = null;
 		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
 		int deltaX;
@@ -164,63 +140,7 @@ public abstract class Menu {
 		int distance;
 		Integer distanceMin = null;
 		for (Selectionnable s : lesSelectionnables) {
-			if ( Math.abs(this.elementSelectionne.x-s.x) <= 2*this.elementSelectionne.largeur 
-				&& this.elementSelectionne.y < s.y
-			) {
-				deltaX = this.elementSelectionne.x-s.x;
-				deltaY = this.elementSelectionne.y-s.y;
-				distance = deltaX*deltaX + deltaY*deltaY;
-				if (distanceMin==null || distance<distanceMin) {
-					elementASelectionner = s;
-					distanceMin = distance; //on mémorise le plus proche rencontré
-				}
-			}
-		}
-		return elementASelectionner;
-	}
-	
-	/**
-	 * Calculer quel est l'Elément de Menu Sélectionnable situé à gauche de celui-ci
-	 * @return Elément de Menu situé à gauche
-	 */
-	private Selectionnable chercherSelectionnableAGauche() {
-		Selectionnable elementASelectionner = null;
-		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
-		int deltaX;
-		int deltaY;
-		int distance;
-		Integer distanceMin = null;
-		for (Selectionnable s : lesSelectionnables) {
-			if ( Math.abs(this.elementSelectionne.y-s.y) <= 2*this.elementSelectionne.hauteur 
-				&& this.elementSelectionne.x > s.x
-			) {
-				deltaX = this.elementSelectionne.x-s.x;
-				deltaY = this.elementSelectionne.y-s.y;
-				distance = deltaX*deltaX + deltaY*deltaY;
-				if (distanceMin==null || distance<distanceMin) {
-					elementASelectionner = s;
-					distanceMin = distance; //on mémorise le plus proche rencontré
-				}
-			}
-		}
-		return elementASelectionner;
-	}
-	
-	/**
-	 * Calculer quel est l'Elément de Menu Sélectionnable situé à droite de celui-ci
-	 * @return Elément de Menu situé à droite
-	 */
-	private Selectionnable chercherSelectionnableADroite() {
-		Selectionnable elementASelectionner = null;
-		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
-		int deltaX;
-		int deltaY;
-		int distance;
-		Integer distanceMin = null;
-		for (Selectionnable s : lesSelectionnables) {
-			if ( Math.abs(this.elementSelectionne.y-s.y) <= 2*this.elementSelectionne.hauteur 
-				&& this.elementSelectionne.x < s.x
-			) {
+			if ( estCandidatALaSelection(direction, s.x, s.y, this.elementSelectionne.x, this.elementSelectionne.y, this.elementSelectionne.largeur, this.elementSelectionne.hauteur) ) {
 				deltaX = this.elementSelectionne.x-s.x;
 				deltaY = this.elementSelectionne.y-s.y;
 				distance = deltaX*deltaX + deltaY*deltaY;
