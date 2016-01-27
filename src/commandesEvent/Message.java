@@ -1,4 +1,4 @@
-package comportementEvent;
+package commandesEvent;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -1,4 +1,4 @@
-package menu;
+package commandesMenu;
 
 import main.Fenetre;
 import main.Partie;
@@ -6,7 +6,7 @@ import main.Partie;
 /**
  * Charger une Partie dans le menu dédié
  */
-public class ChargerPartie extends ComportementElementDeMenu {
+public class ChargerPartie extends CommandeMenu {
 	private final int numeroDeSauvegarde;
 	
 	/**

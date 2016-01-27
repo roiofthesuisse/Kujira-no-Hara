@@ -5,9 +5,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import commandesMenu.RevenirAuJeu;
 import menu.ElementDeMenu;
 import menu.Menu;
-import menu.RevenirAuJeu;
 import menu.Texte;
 
 /**
@@ -84,11 +84,6 @@ public class MenuPause extends Menu {
 		this.elements.add(perle6);
 		
 		selectionner(perle1);
-	}
-
-	@Override
-	public final void quitter() {
-		new RevenirAuJeu().executer();
 	}
 
 }

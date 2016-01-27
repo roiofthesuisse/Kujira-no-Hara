@@ -1,4 +1,4 @@
-package comportementEvent;
+package commandesEvent;
 
 import map.Deplacement;
 import map.Event;

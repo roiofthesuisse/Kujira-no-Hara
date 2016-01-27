@@ -1,11 +1,11 @@
-package menu;
+package commandesMenu;
 
 import main.Fenetre;
 
 /**
  * Eteindre le jeu.
  */
-public class QuitterJeu extends ComportementElementDeMenu {
+public class QuitterJeu extends CommandeMenu {
 	
 	/**
 	 * Constructeur vide

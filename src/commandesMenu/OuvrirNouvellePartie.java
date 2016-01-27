@@ -1,11 +1,11 @@
-package menu;
+package commandesMenu;
 
 import main.Fenetre;
 
 /**
  * Créer une nouvelle Partie vierge et y jouer
  */
-public class OuvrirNouvellePartie extends ComportementElementDeMenu {
+public class OuvrirNouvellePartie extends CommandeMenu {
 	
 	@Override
 	public final void executer() {

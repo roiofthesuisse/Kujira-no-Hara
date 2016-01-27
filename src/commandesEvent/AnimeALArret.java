@@ -1,8 +1,6 @@
-package map;
+package commandesEvent;
 
 import java.util.ArrayList;
-
-import comportementEvent.CommandeEvent;
 
 /**
  * Activer ou désactiver l'animation à l'arrêt d'un Event.

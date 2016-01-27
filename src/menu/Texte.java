@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
+import commandesMenu.CommandeMenu;
 import main.Lecteur;
 
 /**
@@ -36,7 +37,7 @@ public class Texte extends Selectionnable {
 	 * @param c2 c2 comportement à la confirmation
 	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ComportementElementDeMenu c1, final ComportementElementDeMenu c2, final Menu menu) {
+	public Texte(final String contenu, final int xDebut, final int yDebut, final boolean selectionnable, final CommandeMenu c1, final CommandeMenu c2, final Menu menu) {
 		this(contenu, xDebut, yDebut, Texte.TAILLE_MOYENNE, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, menu);
 	}
 	
@@ -51,7 +52,7 @@ public class Texte extends Selectionnable {
 	 * @param c2 comportement à la confirmation
 	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final ComportementElementDeMenu c1, final ComportementElementDeMenu c2, final Menu menu) {
+	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final CommandeMenu c1, final CommandeMenu c2, final Menu menu) {
 		this(contenu, xDebut, yDebut, taille, selectionnable, OPACITE_MAXIMALE, c1, c2, menu);
 	}
 	
@@ -67,7 +68,7 @@ public class Texte extends Selectionnable {
 	 * @param c2 comportement à la confirmation
 	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final int opacite, final ComportementElementDeMenu c1, final ComportementElementDeMenu c2, final Menu menu) {
+	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final int opacite, final CommandeMenu c1, final CommandeMenu c2, final Menu menu) {
 		this.menu = menu;
 		this.selectionnable = selectionnable;
 		this.comportementSelection = c1;

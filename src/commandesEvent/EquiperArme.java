@@ -1,4 +1,4 @@
-package comportementEvent;
+package commandesEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;

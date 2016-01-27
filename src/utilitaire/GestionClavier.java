@@ -33,8 +33,9 @@ public abstract class GestionClavier {
 		public static final int GAUCHE = ToucheCode.Q;
 		public static final int DROITE = ToucheCode.D;
 		public static final int ARME_SUIVANTE = ToucheCode.O;
-		public static final int RETOUR = ToucheCode.O;
+		public static final int PAGE_MENU_SUIVANTE = ToucheCode.O;
 		public static final int ARME_PRECEDENTE = ToucheCode.L;
+		public static final int PAGE_MENU_PRECEDENTE = ToucheCode.L;
 		public static final int ACTION_SECONDAIRE = ToucheCode.M;
 		public static final int MENU = ToucheCode.ENTREE;
 	}

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import comportementEvent.CommandeEvent;
+import commandesEvent.CommandeEvent;
 import conditions.Condition;
 import main.Fenetre;
 

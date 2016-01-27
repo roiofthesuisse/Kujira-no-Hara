@@ -21,11 +21,9 @@ public abstract class Menu {
 	private ArrayList<Selectionnable> selectionnables;
 	public Selectionnable elementSelectionne;
 	public String nomBGM;
-	
-	/**
-	 * Quitter ce Menu.
-	 */
-	public abstract void quitter();
+	public Menu menuSuivant;
+	public Menu menuPrecedent;
+	public Menu menuParent;
 
 	/**
 	 * Confirmer l'Elément de Menu sélectionné.

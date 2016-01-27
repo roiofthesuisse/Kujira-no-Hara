@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import menu.AllerVersUnAutreMenu;
+import commandesMenu.AllerVersUnAutreMenu;
+import commandesMenu.QuitterJeu;
 import menu.ElementDeMenu;
 import menu.Menu;
-import menu.QuitterJeu;
 import menu.Texte;
 
 /**
@@ -22,7 +22,7 @@ public class MenuTitre extends Menu {
 	 * Constructeur explicite
 	 */
 	public MenuTitre() {
-		final Texte demarrer = new Texte("Démarrer", 290, 320, true, null, new AllerVersUnAutreMenu(new MenuNouvellePartie()), this);
+		final Texte demarrer = new Texte("Démarrer", 290, 320, true, null, new AllerVersUnAutreMenu(new MenuNouvellePartie(this)), this);
 		final Texte bonus = new Texte("Bonus", 290, 350, true, null, null, this);
 		final Texte quitter = new Texte("Quitter", 290, 380, true, null, new QuitterJeu(), this);
 		this.textes.add(demarrer);
@@ -44,11 +44,6 @@ public class MenuTitre extends Menu {
 		
 		//elements
 		//...
-	}
-
-	@Override
-	public final void quitter() {
-		this.lecteur.fenetre.dispose();
 	}
 
 }

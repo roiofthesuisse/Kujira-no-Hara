@@ -12,7 +12,7 @@ import java.util.Comparator;
 import javax.imageio.ImageIO;
 
 import bibliothequeMenu.MenuPause;
-import comportementEvent.Message;
+import commandesEvent.Message;
 import main.Fenetre;
 import main.Lecteur;
 import menu.LecteurMenu;
@@ -237,11 +237,11 @@ public class LecteurMap extends Lecteur {
 				final boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
 				//cas où l'Event est animé à l'arrêt
 				if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
-					event.animation = (event.animation+1)%4;
+					event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
 				}
 				//cas où l'Event est vraiment en mouvement
 				if ((event.avance||event.avancaitALaFramePrecedente) && event.animeEnMouvementActuel && passerALAnimationSuivante) {
-					event.animation = (event.animation+1)%4;
+					event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
 				}
 				event.avancaitALaFramePrecedente = event.avance;
 			}
@@ -532,14 +532,18 @@ public class LecteurMap extends Lecteur {
 	 * Transmettre à la Partie le changement d'Arme ordonné à la Fenêtre
 	 */
 	public final void equiperArmeSuivante() {
-		Fenetre.getPartieActuelle().equiperArmeSuivante();
+		if (!this.stopEvent) { //on ne change pas d'Arme lorsqu'on lit un Message
+			Fenetre.getPartieActuelle().equiperArmeSuivante();
+		}
 	}
 	
 	/**
 	 * Transmettre à la Partie le changement d'Arme ordonné à la Fenêtre
 	 */
 	public final void equiperArmePrecedente() {
-		Fenetre.getPartieActuelle().equiperArmePrecedente();
+		if (!this.stopEvent) { //on ne change pas d'Arme lorsqu'on lit un Message
+			Fenetre.getPartieActuelle().equiperArmePrecedente();
+		}
 	}
 
 	/**
@@ -549,7 +553,11 @@ public class LecteurMap extends Lecteur {
 		//TODO
 	}
 	
-	public static BufferedImage chargerImageHudTouches(){
+	/**
+	 * Charge le petit carré blanc qui entoure l'Arme dans le HUD à l'écran.
+	 * @return image constitutive du HUD
+	 */
+	public static BufferedImage chargerImageHudTouches() {
 		try {
 			return ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\carre arme kujira.png"));
 		} catch (IOException e) {

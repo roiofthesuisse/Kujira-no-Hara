@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import comportementEvent.CommandeEvent;
+import commandesEvent.CommandeEvent;
 import conditions.Condition;
 import map.Event;
 
@@ -116,7 +116,7 @@ public abstract class InterpreteurDeJson {
 	public static void recupererLesCommandes(final ArrayList<CommandeEvent> commandes, final JSONArray commandesJSON) {
 		for (Object commandeJSON : commandesJSON) {
 			try {
-				final Class<?> classeCommande = Class.forName("comportementEvent."+((JSONObject) commandeJSON).get("nom"));
+				final Class<?> classeCommande = Class.forName("commandesEvent."+((JSONObject) commandeJSON).get("nom"));
 				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
 				String parametreNom; //nom du paramètre pour instancier la Commande Event
 				Object parametreValeur; //valeur du paramètre pour instancier la Commande Event

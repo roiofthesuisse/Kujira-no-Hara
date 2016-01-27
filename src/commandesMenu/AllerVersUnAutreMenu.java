@@ -1,12 +1,14 @@
-package menu;
+package commandesMenu;
 
 import main.Fenetre;
 import map.LecteurMap;
+import menu.LecteurMenu;
+import menu.Menu;
 
 /**
  * Passer à un autre Menu
  */
-public class AllerVersUnAutreMenu extends ComportementElementDeMenu {
+public class AllerVersUnAutreMenu extends CommandeMenu {
 	public Menu nouveauMenu;
 	
 	/**

@@ -1,9 +1,7 @@
 package bibliothequeMenu;
 
-import main.Fenetre;
-import menu.LecteurMenu;
+import commandesMenu.OuvrirNouvellePartie;
 import menu.Menu;
-import menu.OuvrirNouvellePartie;
 import menu.Texte;
 
 /**
@@ -13,8 +11,11 @@ public class MenuNouvellePartie extends Menu {
 
 	/**
 	 * Constructeur explicite
+	 * @param menuParent vers lequel revenir si annulation
 	 */
-	public MenuNouvellePartie() {
+	public MenuNouvellePartie(final Menu menuParent) {
+		this.menuParent = menuParent;
+		
 		//textes
 		final Texte phrase = new Texte("tadam", 290, 300, false, null, null, this);
 		final Texte choix1 = new Texte("1", 290, 330, true, null, new OuvrirNouvellePartie(), this);
@@ -26,13 +27,6 @@ public class MenuNouvellePartie extends Menu {
 		
 		//elements
 		//...
-	}
-	
-	@Override
-	public final void quitter() {
-		final Menu menuTitre = new MenuTitre();
-		final LecteurMenu nouveauLecteur = new LecteurMenu(Fenetre.getFenetre(), menuTitre, null);
-		nouveauLecteur.changerMenu();
 	}
 
 }

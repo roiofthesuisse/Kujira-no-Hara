@@ -2,7 +2,7 @@ package conditions;
 
 import java.util.ArrayList;
 
-import comportementEvent.CommandeEvent;
+import commandesEvent.CommandeEvent;
 
 /**
  * Une Condition peut servir à définir le moment de déclenchement d'une Page, ou faire partie du code Event.

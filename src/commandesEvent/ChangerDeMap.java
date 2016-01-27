@@ -1,4 +1,4 @@
-package comportementEvent;
+package commandesEvent;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

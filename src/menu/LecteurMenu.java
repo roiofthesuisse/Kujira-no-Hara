@@ -2,6 +2,7 @@ package menu;
 
 import java.awt.image.BufferedImage;
 
+import commandesMenu.RevenirAuJeu;
 import main.Fenetre;
 import main.Lecteur;
 import map.Event;
@@ -80,9 +81,15 @@ public class LecteurMenu extends Lecteur {
 			case GestionClavier.ToucheRole.DROITE : 
 				menu.selectionnerElementDansLaDirection(Event.Direction.DROITE);
 				break;
-			case GestionClavier.ToucheRole.RETOUR : 
-				menu.quitter(); 
-				break; //o
+			case GestionClavier.ToucheRole.PAGE_MENU_SUIVANTE : 
+				allerAuMenuSuivant();
+				break;
+			case GestionClavier.ToucheRole.PAGE_MENU_PRECEDENTE : 
+				allerAuMenuPrecedent();
+				break;
+			case GestionClavier.ToucheRole.MENU : 
+				allerAuMenuParentOuRevenirAuJeu();
+				break;
 			default : 
 				break;
 		}
@@ -95,6 +102,39 @@ public class LecteurMenu extends Lecteur {
 	public final void changerMenu() {
 		Fenetre.getFenetre().futurLecteur = this;
 		Fenetre.getFenetre().lecteur.allume = false;
+	}
+	
+	/**
+	 * Changer de Menu pour aller au Menu suivant.
+	 */
+	public final void allerAuMenuSuivant() {
+		if (this.menu.menuSuivant!=null) {
+			new LecteurMenu(this.fenetre, this.menu.menuSuivant, this.lecteurMapMemorise).changerMenu();
+		}
+	}
+	
+	/**
+	 * Changer de Menu pour aller au Menu précédent.
+	 */
+	public final void allerAuMenuPrecedent() {
+		if (this.menu.menuPrecedent!=null) {
+			new LecteurMenu(this.fenetre, this.menu.menuPrecedent, this.lecteurMapMemorise).changerMenu();
+		}
+	}
+	
+	/**
+	 * Changer de Menu pour aller au Menu parent ou bien revenir au jeu.
+	 */
+	public final void allerAuMenuParentOuRevenirAuJeu() {
+		if (this.menu.menuParent!=null) {
+			//revenir au Menu parent
+			new LecteurMenu(this.fenetre, this.menu.menuParent, this.lecteurMapMemorise).changerMenu();
+		} else if (this.lecteurMapMemorise!=null) {
+			//revenir au jeu
+			new RevenirAuJeu(this).executer();
+		} else {
+			this.fenetre.dispose();
+		}
 	}
 
 	@Override

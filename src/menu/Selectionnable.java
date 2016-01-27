@@ -3,6 +3,7 @@ package menu;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
+import commandesMenu.CommandeMenu;
 import main.Lecteur;
 
 /**
@@ -11,12 +12,20 @@ import main.Lecteur;
 public abstract class Selectionnable {
 	//constantes
 	public static final int CONTOUR = 16;
+	private static final int COULEUR_CENTRE_SELECTION_R = 255;
+	private static final int COULEUR_CENTRE_SELECTION_G = 255;
+	private static final int COULEUR_CENTRE_SELECTION_B = 120;
+	private static final int COULEUR_CENTRE_SELECTION_A = 175;
+	private static final int COULEUR_CONTOUR_SELECTION_R = 255;
+	private static final int COULEUR_CONTOUR_SELECTION_G = 150;
+	private static final int COULEUR_CONTOUR_SELECTION_B = 0;
+	private static final int COULEUR_CONTOUR_SELECTION_A = 0;
 	
 	public Menu menu;
 	public boolean selectionnable = true;
 	public boolean selectionne = false;
-	protected ComportementElementDeMenu comportementSelection;
-	protected ComportementElementDeMenu comportementConfirmation;
+	protected CommandeMenu comportementSelection;
+	protected CommandeMenu comportementConfirmation;
 	public BufferedImage image;
 	public int x;
 	public int y;
@@ -52,15 +61,15 @@ public abstract class Selectionnable {
 				b = 0;
 				a = 0;
 				//couleur au centre de la sélection
-				r1 = 255;
-				g1 = 255;
-				b1 = 120;
-				a1 = 175;
+				r1 = COULEUR_CENTRE_SELECTION_R;
+				g1 = COULEUR_CENTRE_SELECTION_G;
+				b1 = COULEUR_CENTRE_SELECTION_B;
+				a1 = COULEUR_CENTRE_SELECTION_A;
 				//couleur à l'extérieur de la sélection
-				r2 = 255;
-				g2 = 150;
-				b2 = 0;
-				a2 = 0; 
+				r2 = COULEUR_CONTOUR_SELECTION_R;
+				g2 = COULEUR_CONTOUR_SELECTION_G;
+				b2 = COULEUR_CONTOUR_SELECTION_B;
+				a2 = COULEUR_CONTOUR_SELECTION_A; 
 				double rate = 0.0, hypotenuse = 0.0;
 				//calcul du taux "rate" d'éloignement avec le centre de la sélection
 				if (i>=ElementDeMenu.CONTOUR && i<=largeur-ElementDeMenu.CONTOUR) {

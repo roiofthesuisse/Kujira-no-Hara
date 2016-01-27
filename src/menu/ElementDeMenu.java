@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import commandesMenu.CommandeMenu;
+
 /**
  * Un Menu est composé d'Eléments de Menu
  */
@@ -23,7 +25,7 @@ public class ElementDeMenu extends Selectionnable {
 	 * @param menu auquel appartient l'Elément
 	 * @throws IOException 
 	 */
-	public ElementDeMenu(final String dossierImage, final String nomImage, final int x, final int y, final boolean selectionnable, final ComportementElementDeMenu comportementSelection, final ComportementElementDeMenu comportementConfirmation, final Menu menu) throws IOException {
+	public ElementDeMenu(final String dossierImage, final String nomImage, final int x, final int y, final boolean selectionnable, final CommandeMenu comportementSelection, final CommandeMenu comportementConfirmation, final Menu menu) throws IOException {
 		this(ImageIO.read(new File(".\\ressources\\Graphics\\"+dossierImage+"\\"+nomImage)),
 				x, y, selectionnable, comportementSelection, comportementConfirmation, menu);
 	}
@@ -39,7 +41,7 @@ public class ElementDeMenu extends Selectionnable {
 	 * @param comportementConfirmation comportement à la validation
 	 * @param menu auquel appartient l'Elément
 	 */
-	public ElementDeMenu(final int x, final int y, final int largeur, final int hauteur, final boolean selectionnable, final ComportementElementDeMenu comportementSelection, final ComportementElementDeMenu comportementConfirmation, final Menu menu) {
+	public ElementDeMenu(final int x, final int y, final int largeur, final int hauteur, final boolean selectionnable, final CommandeMenu comportementSelection, final CommandeMenu comportementConfirmation, final Menu menu) {
 		this(new int[]{largeur, hauteur}, x, y, selectionnable, comportementSelection, comportementConfirmation, menu);
 	}
 	
@@ -53,7 +55,7 @@ public class ElementDeMenu extends Selectionnable {
 	 * @param comportementConfirmation comportement à la validation
 	 * @param menu auquel appartient l'Elément
 	 */
-	private ElementDeMenu(final Object apparence, final int x, final int y, final boolean selectionnable, final ComportementElementDeMenu comportementSelection, final ComportementElementDeMenu comportementConfirmation, final Menu menu) {
+	private ElementDeMenu(final Object apparence, final int x, final int y, final boolean selectionnable, final CommandeMenu comportementSelection, final CommandeMenu comportementConfirmation, final Menu menu) {
 		this.menu = menu;
 		
 		if (apparence instanceof BufferedImage) {

@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import comportementEvent.CommandeEvent;
+import commandesEvent.CommandeEvent;
 import conditions.Condition;
 import conditions.ConditionParler;
 import main.Fenetre;
