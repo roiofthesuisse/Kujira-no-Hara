@@ -36,10 +36,11 @@ public class Heros extends Event {
 	 * Constructeur explicite
 	 * @param x position x du Héros sur la Map
 	 * @param y position y du Héros sur la Map
-	 * @param direction dans laquelle l Héros regarde
+	 * @param directionEnDebutDeMap directiondu Héros au début de la Map
 	 */
-	public Heros(final int x, final int y, final int direction) {
-		super(x, y, direction, "heros", creerPages(), LARGEUR_HEROS, HAUTEUR_HEROS);
+	public Heros(final int x, final int y, final int directionEnDebutDeMap) {
+		super(x, y, "heros", 0, creerPages(), LARGEUR_HEROS, HAUTEUR_HEROS);
+		this.direction = directionEnDebutDeMap;
 	}
 	
 	/**

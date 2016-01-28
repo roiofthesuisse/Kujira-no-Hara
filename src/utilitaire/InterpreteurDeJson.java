@@ -147,6 +147,7 @@ public abstract class InterpreteurDeJson {
 			final JSONObject jsonEvent = (JSONObject) ev;
 			//récupération des données dans le JSON
 			final String nomEvent = jsonEvent.getString("nom");
+			final Integer id = jsonEvent.getInt("id");
 			final int xEvent = jsonEvent.getInt("x");
 			final int yEvent = jsonEvent.getInt("y");
 			//instanciation de l'event
@@ -166,16 +167,9 @@ public abstract class InterpreteurDeJson {
 				} catch (JSONException e2) {
 					hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
 				}
-				
-				int direction;
-				try {
-					direction = jsonEvent.getInt("direction");
-				} catch (Exception e1) {
-					direction = Event.Direction.BAS; //direction par défaut
-				}
 
 				final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-				event = new Event(xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
+				event = new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox);
 			} catch (Exception e3) {
 				//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
 				int largeurHitbox;
@@ -190,15 +184,9 @@ public abstract class InterpreteurDeJson {
 				} catch (JSONException e2) {
 					hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
 				}
-				int direction;
-				try {
-					direction = jsonEvent.getInt("direction");
-				} catch (Exception e1) {
-					direction = Event.Direction.BAS; //direction par défaut
-				}
 
 				final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-				event = new Event(xEvent, yEvent, direction, nomEvent, jsonPages, largeurHitbox, hauteurHitbox);
+				event = new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox);
 			}
 			events.add(event);
 		}

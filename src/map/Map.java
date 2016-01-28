@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -38,6 +39,7 @@ public class Map {
 	public BufferedImage imageCoucheSousHeros;
 	public BufferedImage imageCoucheSurHeros;
 	public ArrayList<Event> events;
+	public HashMap<Integer, Event> eventsHash;
 	public Heros heros;
 	public int xDebutHeros;
 	public int yDebutHeros;
@@ -191,9 +193,11 @@ public class Map {
 	private void importerLesEvenements(final JSONObject jsonMap) {
 		try {
 			this.events = new ArrayList<Event>();
+			this.eventsHash = new HashMap<Integer, Event>();
 			//d'abord le héros
 			this.heros = new Heros(this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros);
 			this.events.add(heros);
+			this.eventsHash.put(0, heros);
 			//puis les autres
 			final JSONArray jsonEvents = jsonMap.getJSONArray("events");
 			InterpreteurDeJson.recupererLesEvents(this.events, jsonEvents);
@@ -206,6 +210,7 @@ public class Map {
 		for (int i = 0; i<nombreDEvents; i++) {
 			this.events.get(i).map = this;
 			this.events.get(i).numero = i;
+			this.eventsHash.put(this.events.get(i).id, this.events.get(i));
 		}
 	}
 

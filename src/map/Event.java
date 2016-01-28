@@ -32,6 +32,8 @@ public class Event implements Comparable<Event> {
 	public Map map;
 	/** nom de l'Event */
 	public String nom;
+	/** identifiant de l'Event */
+	public Integer id;
 	/** numéro de l'Event sur la Map */
 	public int numero;
 	/** distance entre le bord gauche de la map et le bord gauche de la Hitbox de l'Event */
@@ -106,16 +108,16 @@ public class Event implements Comparable<Event> {
 	 * Constructeur explicite de l'Event
 	 * @param x numero du carreau où se trouve l'Event, en abscisse, de gauche à droite
 	 * @param y numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
-	 * @param direction de l'Event
 	 * @param nom de l'Event
+	 * @param id identifiant numérique de l'Event
 	 * @param pages ensemble de Pages décrivant le comportement de l'Event
 	 * @param largeurHitbox largeur de la boîte de collision
 	 * @param hauteurHitbox hauteur de la boîte de collision
 	 */
-	protected Event(final Integer x, final Integer y, final Integer direction, final String nom, final ArrayList<PageDeComportement> pages, final int largeurHitbox, final int hauteurHitbox) {
+	protected Event(final Integer x, final Integer y, final String nom, final Integer id, final ArrayList<PageDeComportement> pages, final int largeurHitbox, final int hauteurHitbox) {
 		this.x = x * Fenetre.TAILLE_D_UN_CARREAU;
 		this.y = y * Fenetre.TAILLE_D_UN_CARREAU;
-		this.direction = direction;
+		this.id = id;
 		this.nom = nom;
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
@@ -130,14 +132,14 @@ public class Event implements Comparable<Event> {
 	 * Constructeur de l'Event utilisant un tableau de pages JSON
 	 * @param x numero du carreau où se trouve l'Event, en abscisse, de gauche à droite
 	 * @param y numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
-	 * @param direction de l'Event
 	 * @param nom de l'Event
+	 * @param id identifiant numérique de l'Event
 	 * @param tableauDesPages tableau JSON contenant les Pages de comportement
 	 * @param largeurHitbox largeur de la boîte de collision
 	 * @param hauteurHitbox hauteur de la boîte de collision
 	 */
-	public Event(final Integer x, final Integer y, final Integer direction, final String nom, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox) {
-		this(x, y, direction, nom, creerListeDesPagesViaJson(tableauDesPages), largeurHitbox, hauteurHitbox);
+	public Event(final Integer x, final Integer y, final String nom, final Integer id, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox) {
+		this(x, y, nom, id, creerListeDesPagesViaJson(tableauDesPages), largeurHitbox, hauteurHitbox);
 	}
 
 	/**
