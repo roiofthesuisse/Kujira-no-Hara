@@ -63,7 +63,6 @@ public class Avancer extends CommandeEvent implements Mouvement {
 	 */
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		System.out.println("Avancer.executer()");
 		final Event event = this.getEventADeplacer();
 		this.reinitialiser();
 		event.deplacementForce.mouvements.add(this);

@@ -62,6 +62,7 @@ public class Event implements Comparable<Event> {
 	public boolean saute = false;
 	public int coordonneeApparenteXLorsDuSaut; //en pixels
 	public int coordonneeApparenteYLorsDuSaut; //en pixels
+	public int directionLorsDuSaut;
 	
 	/**  L'Event est-il au contact du Héros ? (utile pour la Condition ArriveeAuContact */
 	public boolean estAuContactDuHerosMaintenant = false;

@@ -29,7 +29,7 @@ public final class Partie {
 	 */
 	private Partie() {
 		//TODO valeurs à importer depuis un JSON
-		this.numeroMap = 0;
+		this.numeroMap = 1;
 		this.xHeros = 5;
 		this.yHeros = 5;
 		this.directionHeros = Event.Direction.BAS;

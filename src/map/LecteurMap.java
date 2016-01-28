@@ -319,21 +319,27 @@ public class LecteurMap extends Lecteur {
 			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)
 			final int largeur = eventImage.getWidth() / 4;
 			final int hauteur = eventImage.getHeight() / 4;
+			int direction;
 			final int animation;
-			final int positionX;
-			final int positionY;
+			int positionX;
+			int positionY;
 			if (event.saute) {
 				//l'Event est en train de sauter
+				direction = event.directionLorsDuSaut;
 				animation = 0;
 				positionX = event.coordonneeApparenteXLorsDuSaut;
 				positionY = event.coordonneeApparenteYLorsDuSaut;
 			} else {
 				//l'Event ne Saute pas
+				direction = event.direction;
 				animation = event.animation;
-				positionX = event.x + event.largeurHitbox/2 - largeur/2;
-				positionY = event.y + event.hauteurHitbox - hauteur + event.offsetY;
+				positionX = event.x;
+				positionY = event.y;
 			}
-			final int direction = event.direction;
+			//ajustement selon la taille de l'image
+			positionX += event.largeurHitbox/2 - largeur/2;
+			positionY += event.hauteurHitbox - hauteur + event.offsetY;
+			
 			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
 			return superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);
 			/*

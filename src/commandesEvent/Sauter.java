@@ -74,37 +74,16 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	public void reinitialiser() {
 		//TODO
 	}
-
-	//TODO cette méthode doit ajouter un Mouvement dans le Déplacement forcé, rien d'autre
-	//le LecteurMap prendra le relais
+	
+	/**
+	 * Ajouter ce Mouvement à la liste des Mouvements forcés pour cet Event.
+	 */
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		final Event event = this.page.event.map.heros;
-		if (!event.saute) {
-			//le mouvement n'a pas commencé
-			event.saute = true;
-			this.xEventAvantSaut = event.x;
-			this.yEventAvantSaut = event.y;
-			this.xEventApresSaut = xEventAvantSaut + this.x*Fenetre.TAILLE_D_UN_CARREAU;
-			this.yEventApresSaut = yEventAvantSaut + this.y*Fenetre.TAILLE_D_UN_CARREAU;
-			this.etapes = NOMBRE_D_ETAPES_POUR_LE_SAUT_SUR_PLACE + ((Double) Math.sqrt(x*x+y+y)).intValue();
-			this.etapesFaites = 0;
-			this.etapes = 30; //TODO
-		}
-		
-		if (etapesFaites>=etapes) {
-			event.saute = false; //le mouvement est terminé
-			return curseurActuel+1;
-		}
-		
-		//le mouvement est en cours
-		event.direction = this.direction;
-		event.x = this.xEventApresSaut;
-		event.y = this.yEventApresSaut;
-		System.err.println("Sauter.executer() : deplacer()");
-		event.deplacer();
-		this.etapesFaites++;
-		return curseurActuel;
+		final Event event = this.getEventADeplacer();
+		this.reinitialiser();
+		event.deplacementForce.mouvements.add(this);
+		return curseurActuel+1;
 	}
 	
 	/**
@@ -115,23 +94,39 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	public final void executerLeMouvement(final Deplacement deplacement) {
 		final Event event = this.getEventADeplacer();
 		if ( this.mouvementPossible() ) {
-			event.saute = true;
+			
+			if (!event.saute) {
+				//le mouvement n'a pas encore commencé, on initialise
+				event.saute = true;
+				this.xEventAvantSaut = event.x;
+				this.yEventAvantSaut = event.y;
+				this.xEventApresSaut = xEventAvantSaut + this.x*Fenetre.TAILLE_D_UN_CARREAU;
+				this.yEventApresSaut = yEventAvantSaut + this.y*Fenetre.TAILLE_D_UN_CARREAU;
+				this.etapes = NOMBRE_D_ETAPES_POUR_LE_SAUT_SUR_PLACE + (int) Math.round((Double) Math.sqrt(x*x+y+y));
+				this.etapesFaites = 0;
+				this.etapes = 12; //TODO
+			}
+			
 			//déplacement :
 			final double t = (double) etapesFaites /(double) etapes;
 			final int x0 = xEventAvantSaut;
 			final int y0 = yEventAvantSaut;
 			final int xf = xEventApresSaut;
 			final int yf = yEventApresSaut;
-			final double xDroite = (1-t)*x0+t*xf;
-			final double yDroite = (1-t)*y0+t*yf;
-			final double yParabole = -(xDroite-x0)*(xDroite-xf) / (x0+xf); //on divise par (x0+xf) pour avoir une dérivée de 1 au départ
-			event.coordonneeApparenteXLorsDuSaut = (int) (xDroite * Fenetre.TAILLE_D_UN_CARREAU);
-			event.coordonneeApparenteYLorsDuSaut = (int) ((yParabole+yDroite) * Fenetre.TAILLE_D_UN_CARREAU);
-			System.out.println(event.coordonneeApparenteXLorsDuSaut);
-			System.out.println(event.coordonneeApparenteYLorsDuSaut);
-			
-			//quelle sera la commande suivante ?
+			final int xDroite = (int) Math.round( (1-t)*x0 + t*xf );
+			final int yDroite = (int) Math.round( (1-t)*y0 + t*yf );
+			final int yParabole = (int) Math.round(Fenetre.TAILLE_D_UN_CARREAU*(xDroite-x0)*(xDroite-xf) / (x0+xf)); //on divise par (x0+xf) pour avoir une dérivée de 1 au départ
+			event.coordonneeApparenteXLorsDuSaut = (int) xDroite;
+			event.coordonneeApparenteYLorsDuSaut = (int) (yParabole + yDroite);
+			event.directionLorsDuSaut = this.direction;
+			this.etapesFaites++;
+
 			if (etapesFaites>=etapes) {
+				//le mouvement est terminé
+				event.saute = false;
+				event.x = this.xEventApresSaut;
+				event.y = this.yEventApresSaut;
+				//quelle sera la commande suivante ?
 				if (deplacement.repeterLeDeplacement) {
 					//on le réinitialise et on le met en bout de file
 					this.reinitialiser();
