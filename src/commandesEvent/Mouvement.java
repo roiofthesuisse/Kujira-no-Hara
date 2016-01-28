@@ -7,20 +7,23 @@ import map.Event;
  * Toute CommandeEvent qui provoque le Mouvement d'un Event doit implémenter cette interface.
  */
 public interface Mouvement {
-	//TODO attrbut event : l'Event à déplacer (qui n'est pas forcément celui qui donne l'ordre)
 	
 	/**
 	 * Procéder aux modifications de données permettant au LecteurMap d'afficher l'Event au bon endroit.
-	 * @param event qui se déplace
 	 * @param deplacement dont fait partie ce mouvement
 	 */
-	void executerLeMouvement(final Event event, final Deplacement deplacement);
+	void executerLeMouvement(final Deplacement deplacement);
 	
 	/**
 	 * Le Mouvement est-il possible sur cette Map ?
-	 * @param event à déplacer
 	 * @return true si le Mouvement est possible
 	 */
-	boolean mouvementPossible(Event event);
+	boolean mouvementPossible();
 	
+	/**
+	 * Tout Mouvement déplace un Event.
+	 * Cet Event doit être accessible par les classes qui implémentent Mouvement.
+	 * @return l'Event qui va être déplacé
+	 */
+	Event getEventADeplacer();
 }

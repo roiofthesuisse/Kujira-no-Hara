@@ -122,6 +122,7 @@ public class Event implements Comparable<Event> {
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
 		this.hauteurHitbox = hauteurHitbox;
+		this.deplacementForce = new Deplacement(new ArrayList<CommandeEvent>(), true, false);
 		initialiserLesPages();
 		if (pages!=null && pages.size()>=1) {
 			attribuerLesProprietesActuelles(pages.get(0)); //par défaut, propriétés de la première page
@@ -139,19 +140,20 @@ public class Event implements Comparable<Event> {
 	 * @param hauteurHitbox hauteur de la boîte de collision
 	 */
 	public Event(final Integer x, final Integer y, final String nom, final Integer id, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox) {
-		this(x, y, nom, id, creerListeDesPagesViaJson(tableauDesPages), largeurHitbox, hauteurHitbox);
+		this(x, y, nom, id, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox);
 	}
 
 	/**
 	 * Prend le tableau JSON des pages et crée la liste des Pages avec.
+	 * @param idEvent identifiant de l'Event
 	 * @param tableauDesPages au format JSON
 	 * @return liste des Pages de l'Event
 	 */
-	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(final JSONArray tableauDesPages) {
+	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(final JSONArray tableauDesPages, final Integer idEvent) {
 		final ArrayList<PageDeComportement> listeDesPages = new ArrayList<PageDeComportement>();
 		int i = 0;
 		for (Object pageJSON : tableauDesPages) {
-			listeDesPages.add( new PageDeComportement(i, (JSONObject) pageJSON) );
+			listeDesPages.add( new PageDeComportement(i, (JSONObject) pageJSON, idEvent) );
 			i++;
 		}
 		return listeDesPages;
@@ -196,14 +198,18 @@ public class Event implements Comparable<Event> {
 	 * Ce mouvement est soit issu du déplacement naturel de l'Event, soit de son éventuel déplacement forcé.
 	 */
 	public void deplacer() {
-		if (this.deplacementForce!=null) {
-			//il y a un déplacement forcé
-			this.deplacementForce.executerLePremierMouvement(this);
+		if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
+			//il y a un Déplacement forcé
+			this.deplacementForce.executerLePremierMouvement();
 		} else {
-			//pas de déplacement forcé : on execute le déplacement naturel
-			if (deplacementNaturelActuel!=null) {
-				//il y a un déplacement naturel
-				this.deplacementNaturelActuel.executerLePremierMouvement(this);
+			//pas de Déplacement forcé : on execute le Déplacement naturel
+			if (deplacementNaturelActuel!=null && this.deplacementNaturelActuel.mouvements.size()>0) {
+				//il y a un Déplacement naturel
+				this.deplacementNaturelActuel.executerLePremierMouvement();
+			} else {
+				//pas de Déplacement du tout
+				this.avance = false;
+				this.saute = false;
 			}
 		}
 	}

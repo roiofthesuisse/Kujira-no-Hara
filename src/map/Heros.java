@@ -98,44 +98,44 @@ public class Heros extends Event {
 			this.animation = Fenetre.getPartieActuelle().getArmeEquipee().framesDAnimation[animationAttaque-1];
 			
 			animationAttaque--;
-		} else if (this.deplacementForce!=null) {
+		} else if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
 			//il y a un déplacement forcé
-			this.deplacementForce.executerLePremierMouvement(this);
+			this.deplacementForce.executerLePremierMouvement();
 		} else {
 			//déplacement selon les touches et les obstacles rencontrés
 			boolean ilYADeplacement = false;
 			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) && !touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
-				if ( new Avancer(Event.Direction.HAUT, pageActive.vitesse).mouvementPossible(this) ) {
+				if ( new Avancer(0, Event.Direction.HAUT, pageActive.vitesse).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.y -= pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.BAS) && !touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ) {
-				if ( new Avancer(Event.Direction.BAS, pageActive.vitesse).mouvementPossible(this) ) {
+				if ( new Avancer(0, Event.Direction.BAS, pageActive.vitesse).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.y += pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) && !touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ) {
-				if ( new Avancer(Event.Direction.GAUCHE, pageActive.vitesse).mouvementPossible(this) ) {
+				if ( new Avancer(0, Event.Direction.GAUCHE, pageActive.vitesse).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.x -= pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) && !touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
-				if ( new Avancer(Event.Direction.DROITE, pageActive.vitesse).mouvementPossible(this) ) {
+				if ( new Avancer(0, Event.Direction.DROITE, pageActive.vitesse).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.x += pageActive.vitesse;
 				}
 			}
 			if (ilYADeplacement) {
 				this.avance = true;
-				//on profite du déplacement pour remettre le héros dans la bonne direction
+				//on profite du déplacement pour remettre le Héros dans la bonne direction
 				this.map.lecteur.mettreHerosDansLaBonneDirection();
 			} else {
 				this.avance = false;
-				//le héros n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
+				//le Héros n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
 				this.animation = 0;
 			}
 		}

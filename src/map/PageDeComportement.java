@@ -113,8 +113,9 @@ public class PageDeComportement {
 	 * La page de comportement est créée à partir du fichier JSON.
 	 * @param numero de la Page
 	 * @param pageJSON objet JSON décrivant la page de comportements
+	 * @param idEvent identifiant de l'Event
 	 */
-	public PageDeComportement(final int numero, final JSONObject pageJSON) {
+	public PageDeComportement(final int numero, final JSONObject pageJSON, final Integer idEvent) {
 		this.numero = numero;
 		
 		//conditions de déclenchement de la page
@@ -189,7 +190,7 @@ public class PageDeComportement {
 		
 		//mouvement de l'event lors de cette page
 		try {
-			this.deplacementNaturel = new Deplacement(pageJSON.getJSONObject("deplacement"));
+			this.deplacementNaturel = new Deplacement(idEvent, pageJSON.getJSONObject("deplacement"));
 		} catch (Exception e) {
 			//pas de déplacement pour cette Page
 			this.deplacementNaturel = null;

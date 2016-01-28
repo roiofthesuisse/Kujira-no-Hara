@@ -105,6 +105,7 @@
 					"commandes": [
 						{
 							"nom": "Sauter",
+							"idEventADeplacer": 0,
 							"x": -2,
 							"y": -2
 						}
@@ -112,6 +113,44 @@
 					"image": "bouton character.png",
 					"directionInitiale": 0,
 					"traversable": true
+				}
+			]
+		},
+		{
+			"nom": "deplaceur",
+			"id": 4,
+			"x": 15,
+			"y": 10,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "ArriveeAuContact"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "Avancer",
+							"idEventADeplacer": 5,
+							"direction": 2,
+							"nombreDeCarreaux": 1
+						}
+					],
+					"image": "bouton character.png",
+					"directionInitiale": 0,
+					"traversable": true
+				}
+			]
+		},
+		{
+			"nom": "mouton",
+			"id": 5,
+			"x": 15,
+			"y": 9,
+			"pages": [
+				{
+					"image": "mouton character.png",
+					"directionInitiale": 2
 				}
 			]
 		}

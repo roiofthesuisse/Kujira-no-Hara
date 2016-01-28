@@ -8,22 +8,26 @@ import map.Deplacement;
 import map.Event;
 import map.Heros;
 import map.Hitbox;
+import map.LecteurMap;
 import map.Event.Direction;
 
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases
  */
 public class Avancer extends CommandeEvent implements Mouvement {
+	protected Integer idEventADeplacer; //Integer car clé d'une HashMap
 	protected int direction;
 	public int nombreDePixels;
 	public int ceQuiAEteFait = 0; //avancée en pixel, doit atteindre nombreDeCarreaux*32
 	
 	/**
 	 * Constructeur explicite
+	 * @param idEventADeplacer identifiant de l'Event qui subira le Mouvement
 	 * @param direction dans laquelle l'Event doit avancer
 	 * @param nombreDePixels distance parcourue
 	 */
-	public Avancer(final int direction, final int nombreDePixels) {
+	public Avancer(final int idEventADeplacer, final int direction, final int nombreDePixels) {
+		this.idEventADeplacer = idEventADeplacer;
 		this.direction = direction;
 		this.nombreDePixels = nombreDePixels;
 	}
@@ -33,7 +37,8 @@ public class Avancer extends CommandeEvent implements Mouvement {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Avancer(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("direction"), 
+		this( (int) parametres.get("idEventADeplacer"),
+			  (int) parametres.get("direction"), 
 			  (int) parametres.get("nombreDeCarreaux")*Fenetre.TAILLE_D_UN_CARREAU );
 	}
 	
@@ -52,31 +57,29 @@ public class Avancer extends CommandeEvent implements Mouvement {
 	public void reinitialiser() {
 		ceQuiAEteFait = 0;
 	}
-
-	//TODO cette méthode doit ajouter un Mouvement dans le Déplacement forcé, rien d'autre
-	//le LecteurMap prendra le relais
+	
+	/**
+	 * Ajouter ce Mouvement à la liste des Mouvements forcés pour cet Event.
+	 */
 	@Override
-	public int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		final Event event = this.page.event;
-		if (ceQuiAEteFait >= nombreDePixels) {
-			event.avance = false; //le mouvement est terminé
-			return curseurActuel+1;
-		}
-		event.avance = true; //le mouvement est en cours
-		event.deplacer();
-		return curseurActuel;
+	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
+		System.out.println("Avancer.executer()");
+		final Event event = this.getEventADeplacer();
+		this.reinitialiser();
+		event.deplacementForce.mouvements.add(this);
+		return curseurActuel+1;
 	}
 	
 	/**
 	 * Déplace l'Event pour son déplacement naturel ou pour un déplacement forcé.
 	 * Vu qu'on utilise "deplacementActuel", un déplacement forcé devra être inséré artificiellement dans la liste.
-	 * @param event qui doit avancer
 	 * @param deplacement deplacement dont est issu le mouvement (soit déplacement naturel, soit déplacement forcé)
 	 */
-	public final void executerLeMouvement(final Event event, final Deplacement deplacement) {
+	public final void executerLeMouvement(final Deplacement deplacement) {
 		try {
+			final Event event = this.getEventADeplacer();
 			final int sens = this.getDirection();
-			if ( this.mouvementPossible(event) ) {
+			if ( this.mouvementPossible() ) {
 				event.avance = true;
 				//déplacement :
 				switch (sens) {
@@ -128,12 +131,10 @@ public class Avancer extends CommandeEvent implements Mouvement {
 	
 	/**
 	 * Le mouvement dans cette Direction est-il possible ?
-	 * @param event qui va devoir faire le mouvement
 	 * @return si le mouvement est possible oui ou non
 	 */
-	//TODO déporter cette méthode dans l'interface "Mouvement"
-	//chaque Mouvement (pas, saut...) sait comment calculer sa possibilité
-	public final boolean mouvementPossible(final Event event) {
+	public final boolean mouvementPossible() {
+		final Event event = this.getEventADeplacer();
 		final int sens = this.getDirection();
 		
 		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
@@ -209,6 +210,14 @@ public class Avancer extends CommandeEvent implements Mouvement {
 			reponse = true;
 		}
 		return reponse;
+	}
+	
+	/**
+	 * Tout Mouvement déplace un Event de la Map en particulier.
+	 * @return Event qui va être déplacé
+	 */
+	public final Event getEventADeplacer() {
+		return ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
 	}
 	
 }

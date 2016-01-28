@@ -15,9 +15,10 @@ public class AvancerAleatoirement extends Avancer implements Mouvement {
 	
 	/** 
 	 * Constructeur explicite 
+	 * @param idEventADeplacer identifiant de l'Event qui subira le Mouvement
 	 */
-	public AvancerAleatoirement() {
-		super(rand.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES), Fenetre.TAILLE_D_UN_CARREAU);
+	public AvancerAleatoirement(final Integer idEventADeplacer) {
+		super(idEventADeplacer, rand.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES), Fenetre.TAILLE_D_UN_CARREAU);
 	}
 	
 	/**
@@ -25,7 +26,7 @@ public class AvancerAleatoirement extends Avancer implements Mouvement {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AvancerAleatoirement(final HashMap<String, Object> parametres) {
-		this();
+		this( (int) parametres.get("idEventADeplacer") );
 	}
 	
 	@Override

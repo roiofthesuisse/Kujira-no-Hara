@@ -8,12 +8,11 @@ import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import commandesEvent.Avancer;
 import commandesEvent.CommandeEvent;
 import commandesEvent.Mouvement;
 
 /**
- * Un Déplacement est un ensemble de mouvements subits par un Event.
+ * Un Déplacement est un ensemble de mouvements subis par un Event.
  * Selon son utilisation, le Déplacement pourra être naturel (situé dans la description JSON de l'Event)
  * ou forcé (provoqué par des Commandes Event).
  */
@@ -23,10 +22,23 @@ public class Deplacement {
 	public boolean repeterLeDeplacement = true;
 	
 	/**
+	 * Constructeur explicite
+	 * @param mouvements liste des Mouvements constitutifs du Déplacement
+	 * @param ignorerLesMouvementsImpossibles si le Mouvement est impossible, passe-t-on au suivant ?
+	 * @param repeterLeDeplacement faut-il répéter le Déplacement à partir du début une fois qu'il est terminé ?
+	 */
+	public Deplacement(final ArrayList<CommandeEvent> mouvements, final boolean ignorerLesMouvementsImpossibles, final boolean repeterLeDeplacement) {
+		this.mouvements = mouvements;
+		this.ignorerLesMouvementsImpossibles = ignorerLesMouvementsImpossibles;
+		this.repeterLeDeplacement = repeterLeDeplacement;
+	}
+	
+	/**
 	 * Constructeur générique
+	 * @param idEvent identifiant de l'Event à déplacer
 	 * @param deplacementJSON fichier JSON décrivant le Déplacement
 	 */
-	public Deplacement(final JSONObject deplacementJSON) {		
+	public Deplacement(final Integer idEvent, final JSONObject deplacementJSON) {
 		this.mouvements = new ArrayList<CommandeEvent>();
 		for (Object actionDeplacementJSON : deplacementJSON.getJSONArray("mouvements")) {
 			try {
@@ -42,6 +54,7 @@ public class Deplacement {
 						parametres.put(parametreNom, parametreValeur);
 					}
 				}
+				parametres.put("idEventADeplacer", idEvent);
 				final Constructor<?> constructeurActionDeplacement = classeActionDeplacement.getConstructor(HashMap.class);
 				final CommandeEvent actionDeplacement = (CommandeEvent) constructeurActionDeplacement.newInstance(parametres);
 				this.mouvements.add(actionDeplacement);
@@ -63,12 +76,8 @@ public class Deplacement {
 	
 	/**
 	 * Executer le premier Mouvement du Déplacement.
-	 * @param event qui doit être déplacé
 	 */
-	public final void executerLePremierMouvement(final Event event) {
-		//TODO faire de event un attribut de Deplacement ou de Mouvement
-		//qui a une méthode executerLeMouvement()
-		//et caster par l'interface
-		((Mouvement) this.mouvements.get(0)).executerLeMouvement(event, this);
+	public final void executerLePremierMouvement() {
+		((Mouvement) this.mouvements.get(0)).executerLeMouvement(this);
 	}
 }
