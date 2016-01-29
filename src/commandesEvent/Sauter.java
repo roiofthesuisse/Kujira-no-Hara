@@ -102,9 +102,11 @@ public class Sauter extends CommandeEvent implements Mouvement {
 				this.yEventAvantSaut = event.y;
 				this.xEventApresSaut = xEventAvantSaut + this.x*Fenetre.TAILLE_D_UN_CARREAU;
 				this.yEventApresSaut = yEventAvantSaut + this.y*Fenetre.TAILLE_D_UN_CARREAU;
-				this.etapes = NOMBRE_D_ETAPES_POUR_LE_SAUT_SUR_PLACE + (int) Math.round((Double) Math.sqrt(x*x+y+y));
 				this.etapesFaites = 0;
-				this.etapes = 12; //TODO
+				this.etapes = 12; //TODO 12 pour distance==0, plus ensuite (affine)
+				if (this.x==0 && this.y==0) {
+					this.direction = event.direction;
+				}
 			}
 			
 			//déplacement :
@@ -115,7 +117,9 @@ public class Sauter extends CommandeEvent implements Mouvement {
 			final int yf = yEventApresSaut;
 			final int xDroite = (int) Math.round( (1-t)*x0 + t*xf );
 			final int yDroite = (int) Math.round( (1-t)*y0 + t*yf );
-			final int yParabole = (int) Math.round(Fenetre.TAILLE_D_UN_CARREAU*(xDroite-x0)*(xDroite-xf) / (x0+xf)); //on divise par (x0+xf) pour avoir une dérivée de 1 au départ
+			//final int yParabole = (int) Math.round(Fenetre.TAILLE_D_UN_CARREAU*(xDroite-x0)*(xDroite-xf) / (x0+xf)); //on divise par (x0+xf) pour avoir une dérivée de 1 au départ
+			final double distance = (int) Math.round( Math.sqrt((xf-x0)*(xf-x0) + (yf-y0)*(yf-y0)) );
+			final int yParabole = (int) Math.round( 2*(distance+2*Fenetre.TAILLE_D_UN_CARREAU)*(t*t-t) );
 			event.coordonneeApparenteXLorsDuSaut = (int) xDroite;
 			event.coordonneeApparenteYLorsDuSaut = (int) (yParabole + yDroite);
 			event.directionLorsDuSaut = this.direction;
@@ -126,6 +130,9 @@ public class Sauter extends CommandeEvent implements Mouvement {
 				event.saute = false;
 				event.x = this.xEventApresSaut;
 				event.y = this.yEventApresSaut;
+				if (this.x!=0 || this.y!=0) {
+					event.direction = this.direction; //on garde la direction prise à cause du saut
+				}
 				//quelle sera la commande suivante ?
 				if (deplacement.repeterLeDeplacement) {
 					//on le réinitialise et on le met en bout de file
