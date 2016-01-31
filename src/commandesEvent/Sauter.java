@@ -14,7 +14,8 @@ import map.LecteurMap;
 //TODO cas du saut absolu ? par exemple : sauter vers la case (3;5)
 public class Sauter extends CommandeEvent implements Mouvement {
 	//constantes
-	private static final int NOMBRE_D_ETAPES_POUR_LE_SAUT_SUR_PLACE = 8;
+	private static final int DUREE_DU_SAUT_SUR_PLACE = 10;
+	private static final int DUREE_DU_SAUT_PAR_CASE = 2;
 	
 	private Integer idEventADeplacer; //Integer car clé d'une HashMap
 	private int xEventAvantSaut;
@@ -23,8 +24,8 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	private int y;
 	private int xEventApresSaut;
 	private int yEventApresSaut;
-	public int etapes;
-	public int etapesFaites;
+	private int etapes;
+	private int etapesFaites;
 	private int direction;
 	
 	/**
@@ -94,6 +95,11 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	public final void executerLeMouvement(final Deplacement deplacement) {
 		final Event event = this.getEventADeplacer();
 		if ( this.mouvementPossible() ) {
+			final int x0 = xEventAvantSaut;
+			final int y0 = yEventAvantSaut;
+			final int xf = xEventApresSaut;
+			final int yf = yEventApresSaut;
+			final double distance = (int) Math.round( Math.sqrt((xf-x0)*(xf-x0) + (yf-y0)*(yf-y0)) );
 			
 			if (!event.saute) {
 				//le mouvement n'a pas encore commencé, on initialise
@@ -103,7 +109,8 @@ public class Sauter extends CommandeEvent implements Mouvement {
 				this.xEventApresSaut = xEventAvantSaut + this.x*Fenetre.TAILLE_D_UN_CARREAU;
 				this.yEventApresSaut = yEventAvantSaut + this.y*Fenetre.TAILLE_D_UN_CARREAU;
 				this.etapesFaites = 0;
-				this.etapes = 12; //TODO 12 pour distance==0, plus ensuite (affine)
+				this.etapes = DUREE_DU_SAUT_SUR_PLACE + DUREE_DU_SAUT_PAR_CASE*((int) (distance/Fenetre.TAILLE_D_UN_CARREAU));
+				System.out.println("etapes:"+etapes);
 				if (this.x==0 && this.y==0) {
 					this.direction = event.direction;
 				}
@@ -111,14 +118,10 @@ public class Sauter extends CommandeEvent implements Mouvement {
 			
 			//déplacement :
 			final double t = (double) etapesFaites /(double) etapes;
-			final int x0 = xEventAvantSaut;
-			final int y0 = yEventAvantSaut;
-			final int xf = xEventApresSaut;
-			final int yf = yEventApresSaut;
+			
 			final int xDroite = (int) Math.round( (1-t)*x0 + t*xf );
 			final int yDroite = (int) Math.round( (1-t)*y0 + t*yf );
-			//final int yParabole = (int) Math.round(Fenetre.TAILLE_D_UN_CARREAU*(xDroite-x0)*(xDroite-xf) / (x0+xf)); //on divise par (x0+xf) pour avoir une dérivée de 1 au départ
-			final double distance = (int) Math.round( Math.sqrt((xf-x0)*(xf-x0) + (yf-y0)*(yf-y0)) );
+			
 			final int yParabole = (int) Math.round( 2*(distance+2*Fenetre.TAILLE_D_UN_CARREAU)*(t*t-t) );
 			event.coordonneeApparenteXLorsDuSaut = (int) xDroite;
 			event.coordonneeApparenteYLorsDuSaut = (int) (yParabole + yDroite);
