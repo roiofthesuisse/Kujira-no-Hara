@@ -15,7 +15,7 @@ import map.LecteurMap;
 public class Sauter extends CommandeEvent implements Mouvement {
 	//constantes
 	private static final int DUREE_DU_SAUT_SUR_PLACE = 10;
-	private static final int DUREE_DU_SAUT_PAR_CASE = 2;
+	private static final int DUREE_DU_SAUT_PAR_CASE = 1;
 	
 	private Integer idEventADeplacer; //Integer car clé d'une HashMap
 	private int xEventAvantSaut;
@@ -27,6 +27,7 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	private int etapes;
 	private int etapesFaites;
 	private int direction;
+	private Integer distance = null;
 	
 	/**
 	 * Constructeur explicite
@@ -73,7 +74,7 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	 * Si la Page de comportement doit être rejouée, il faut réinitialiser cette Commande.
 	 */
 	public void reinitialiser() {
-		//TODO
+		//rien
 	}
 	
 	/**
@@ -95,12 +96,7 @@ public class Sauter extends CommandeEvent implements Mouvement {
 	public final void executerLeMouvement(final Deplacement deplacement) {
 		final Event event = this.getEventADeplacer();
 		if ( this.mouvementPossible() ) {
-			final int x0 = xEventAvantSaut;
-			final int y0 = yEventAvantSaut;
-			final int xf = xEventApresSaut;
-			final int yf = yEventApresSaut;
-			final double distance = (int) Math.round( Math.sqrt((xf-x0)*(xf-x0) + (yf-y0)*(yf-y0)) );
-			
+
 			if (!event.saute) {
 				//le mouvement n'a pas encore commencé, on initialise
 				event.saute = true;
@@ -108,6 +104,7 @@ public class Sauter extends CommandeEvent implements Mouvement {
 				this.yEventAvantSaut = event.y;
 				this.xEventApresSaut = xEventAvantSaut + this.x*Fenetre.TAILLE_D_UN_CARREAU;
 				this.yEventApresSaut = yEventAvantSaut + this.y*Fenetre.TAILLE_D_UN_CARREAU;
+				calculerDistance();
 				this.etapesFaites = 0;
 				this.etapes = DUREE_DU_SAUT_SUR_PLACE + DUREE_DU_SAUT_PAR_CASE*((int) (distance/Fenetre.TAILLE_D_UN_CARREAU));
 				System.out.println("etapes:"+etapes);
@@ -115,14 +112,18 @@ public class Sauter extends CommandeEvent implements Mouvement {
 					this.direction = event.direction;
 				}
 			}
-			
+
 			//déplacement :
 			final double t = (double) etapesFaites /(double) etapes;
+			final int x0 = xEventAvantSaut;
+			final int y0 = yEventAvantSaut;
+			final int xf = xEventApresSaut;
+			final int yf = yEventApresSaut;
 			
 			final int xDroite = (int) Math.round( (1-t)*x0 + t*xf );
 			final int yDroite = (int) Math.round( (1-t)*y0 + t*yf );
 			
-			final int yParabole = (int) Math.round( 2*(distance+2*Fenetre.TAILLE_D_UN_CARREAU)*(t*t-t) );
+			final int yParabole = (int) Math.round( 1.5*(distance+2*Fenetre.TAILLE_D_UN_CARREAU)*(t*t-t) );
 			event.coordonneeApparenteXLorsDuSaut = (int) xDroite;
 			event.coordonneeApparenteYLorsDuSaut = (int) (yParabole + yDroite);
 			event.directionLorsDuSaut = this.direction;
@@ -156,6 +157,17 @@ public class Sauter extends CommandeEvent implements Mouvement {
 				//on passe au mouvement suivant
 				deplacement.mouvements.remove(0);
 			}
+		}
+	}
+	
+	/**
+	 * Initialiser la valeur de la distance parcourue au sol.
+	 */
+	private void calculerDistance() {
+		if (this.distance == null) {
+			final int deltaX = this.xEventApresSaut - this.xEventAvantSaut;
+			final int deltaY = yEventApresSaut - yEventAvantSaut;
+			this.distance = (int) Math.round( Math.sqrt(deltaX*deltaX + deltaY*deltaY) );
 		}
 	}
 	
