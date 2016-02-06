@@ -20,7 +20,7 @@ import utilitaire.InterpreteurDeJson;
  * Un Event peut avoir plusieurs comportements. Chaque comportement est décrit par une Page de comportements.
  * La Page est déclenchée si certaines Conditions sont vérifiées, ses Commandes sont alors executées.
  */
-public class PageDeComportement {
+public class PageEvent {
 	/** event auquel appartient la page */
 	public Event event;
 	/** numero de la page */
@@ -65,7 +65,7 @@ public class PageDeComportement {
 	 * @param commandes à executer si la page est déclenchée
 	 * @param nomImage nom du fichier image pour l'apparence
 	 */
-	public PageDeComportement(final int numero, final ArrayList<Condition> conditions, final ArrayList<CommandeEvent> commandes, final String nomImage) {
+	public PageEvent(final int numero, final ArrayList<Condition> conditions, final ArrayList<CommandeEvent> commandes, final String nomImage) {
 		this.numero = numero;
 		
 		//Conditions de déclenchement de la Page
@@ -115,7 +115,7 @@ public class PageDeComportement {
 	 * @param pageJSON objet JSON décrivant la page de comportements
 	 * @param idEvent identifiant de l'Event
 	 */
-	public PageDeComportement(final int numero, final JSONObject pageJSON, final Integer idEvent) {
+	public PageEvent(final int numero, final JSONObject pageJSON, final Integer idEvent) {
 		this.numero = numero;
 		
 		//conditions de déclenchement de la page

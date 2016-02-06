@@ -86,8 +86,8 @@ public class Event implements Comparable<Event> {
 	 * En effet, décaler l'affichage dans les trois autres directions est possible en modifiant l'image.
 	 */
 	int offsetY = 0; 
-	public ArrayList<PageDeComportement> pages;
-	public PageDeComportement pageActive = null;
+	public ArrayList<PageEvent> pages;
+	public PageEvent pageActive = null;
 	
 	/**
 	 * Lorsque ce marqueur est à true, on considère l'event comme supprimé.
@@ -115,7 +115,7 @@ public class Event implements Comparable<Event> {
 	 * @param largeurHitbox largeur de la boîte de collision
 	 * @param hauteurHitbox hauteur de la boîte de collision
 	 */
-	protected Event(final Integer x, final Integer y, final String nom, final Integer id, final ArrayList<PageDeComportement> pages, final int largeurHitbox, final int hauteurHitbox) {
+	protected Event(final Integer x, final Integer y, final String nom, final Integer id, final ArrayList<PageEvent> pages, final int largeurHitbox, final int hauteurHitbox) {
 		this.x = x * Fenetre.TAILLE_D_UN_CARREAU;
 		this.y = y * Fenetre.TAILLE_D_UN_CARREAU;
 		this.id = id;
@@ -150,11 +150,11 @@ public class Event implements Comparable<Event> {
 	 * @param tableauDesPages au format JSON
 	 * @return liste des Pages de l'Event
 	 */
-	private static ArrayList<PageDeComportement> creerListeDesPagesViaJson(final JSONArray tableauDesPages, final Integer idEvent) {
-		final ArrayList<PageDeComportement> listeDesPages = new ArrayList<PageDeComportement>();
+	private static ArrayList<PageEvent> creerListeDesPagesViaJson(final JSONArray tableauDesPages, final Integer idEvent) {
+		final ArrayList<PageEvent> listeDesPages = new ArrayList<PageEvent>();
 		int i = 0;
 		for (Object pageJSON : tableauDesPages) {
-			listeDesPages.add( new PageDeComportement(i, (JSONObject) pageJSON, idEvent) );
+			listeDesPages.add( new PageEvent(i, (JSONObject) pageJSON, idEvent) );
 			i++;
 		}
 		return listeDesPages;
@@ -166,7 +166,7 @@ public class Event implements Comparable<Event> {
 	protected final void initialiserLesPages() {
 		int numeroCondition = 0;
 		try {
-			for (PageDeComportement page : this.pages) {
+			for (PageEvent page : this.pages) {
 				page.event = this;
 				if (page!=null) {
 					//numérotation des conditions et on apprend aux conditions qui est leur page
@@ -263,12 +263,12 @@ public class Event implements Comparable<Event> {
 	 * Les Commandes Event de la Page choisie seront executées.
 	 */
 	public final void activerUnePage() {
-		PageDeComportement pageQuOnChoisitEnRemplacement = null;
+		PageEvent pageQuOnChoisitEnRemplacement = null;
 		boolean onATrouveLaPageActive = false;
 		boolean cettePageConvientPourLesCommandes = true;
 		try {
 			for (int i = pages.size()-1; i>=0 && !onATrouveLaPageActive; i--) {
-				final PageDeComportement page = pages.get(i);
+				final PageEvent page = pages.get(i);
 				cettePageConvientPourLesCommandes = true;
 				boolean cettePageConvientPourLApparence = true;
 				if (page.conditions!=null && page.conditions.size()>0) {
@@ -323,7 +323,7 @@ public class Event implements Comparable<Event> {
 	 * On assigne les propriétés actuelles en utilisant celles d'une Page donnée.
 	 * @param page dont on récupère les propriétés pour les donner à l'Event
 	 */
-	private void attribuerLesProprietesActuelles(final PageDeComportement page) {
+	private void attribuerLesProprietesActuelles(final PageEvent page) {
 		//apparence
 		this.imageActuelle = page.image;
 		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page

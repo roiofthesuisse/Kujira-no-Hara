@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 import commandesMenu.AllerVersUnAutreMenu;
 import commandesMenu.QuitterJeu;
-import menu.ElementDeMenu;
+import menu.Element;
 import menu.Menu;
 import menu.Texte;
 

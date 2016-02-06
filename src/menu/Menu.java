@@ -17,7 +17,7 @@ public abstract class Menu {
 	public LecteurMenu lecteur;
 	public BufferedImage fond;
 	public final ArrayList<Texte> textes = new ArrayList<Texte>();
-	public final ArrayList<ElementDeMenu> elements = new ArrayList<ElementDeMenu>();
+	public final ArrayList<Element> elements = new ArrayList<Element>();
 	private ArrayList<Selectionnable> selectionnables;
 	public Selectionnable elementSelectionne;
 	public String nomBGM;
@@ -84,7 +84,7 @@ public abstract class Menu {
 					this.selectionnables.add(t);
 				}
 			}
-			for (ElementDeMenu e : this.elements) {
+			for (Element e : this.elements) {
 				if (e.selectionnable) {
 					this.selectionnables.add(e);
 				}

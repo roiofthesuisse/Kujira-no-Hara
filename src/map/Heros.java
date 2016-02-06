@@ -47,12 +47,12 @@ public class Heros extends Event {
 	 * Fabriquer les Pages de comportement du Héros
 	 * @return liste des Pages de comportement du Héros
 	 */
-	public static ArrayList<PageDeComportement> creerPages() {
-		final ArrayList<PageDeComportement> pages = new  ArrayList<PageDeComportement>();
+	public static ArrayList<PageEvent> creerPages() {
+		final ArrayList<PageEvent> pages = new  ArrayList<PageEvent>();
 		
 		//pages
 			//page 0 : marche normale
-				final PageDeComportement page0 = new PageDeComportement(0, null, null, NOM_IMAGE_HEROS);
+				final PageEvent page0 = new PageEvent(0, null, null, NOM_IMAGE_HEROS);
 				pages.add(page0);
 			//page 1 : déclenchement animation attaque épée
 				final ArrayList<Condition> conditions1 = new ArrayList<Condition>();
@@ -63,13 +63,13 @@ public class Heros extends Event {
 				final ArrayList<CommandeEvent> commandes1 = new ArrayList<CommandeEvent>();
 				commandes1.add( new DemarrerAnimationAttaque());
 				final String nomImageHerosEpee = Arme.getArme(0).nomImageAttaque;
-				final PageDeComportement page1 = new PageDeComportement(1, conditions1, commandes1, nomImageHerosEpee);
+				final PageEvent page1 = new PageEvent(1, conditions1, commandes1, nomImageHerosEpee);
 				pages.add(page1);
 			//page 2 : animation attaque épée
 				final ArrayList<Condition> conditions2 = new ArrayList<Condition>();
 				conditions2.add(new ConditionAnimationAttaque());
 				conditions2.add(new ConditionArmeEquipee(0));
-				final PageDeComportement page2 = new PageDeComportement(2, conditions2, null, nomImageHerosEpee);
+				final PageEvent page2 = new PageEvent(2, conditions2, null, nomImageHerosEpee);
 				pages.add(page2);
 			//page 3 : déclenchement animation attaque éventail
 				final ArrayList<Condition> conditions3 = new ArrayList<Condition>();
@@ -79,13 +79,13 @@ public class Heros extends Event {
 				final ArrayList<CommandeEvent> commandes3 = new ArrayList<CommandeEvent>();
 				commandes3.add( new DemarrerAnimationAttaque());
 				final String nomImageHerosEventail = Arme.getArme(1).nomImageAttaque;
-				final PageDeComportement page3 = new PageDeComportement(3, conditions3, commandes3, nomImageHerosEventail);
+				final PageEvent page3 = new PageEvent(3, conditions3, commandes3, nomImageHerosEventail);
 				pages.add(page3);
 			//page 4 : animation attaque éventail
 				final ArrayList<Condition> conditions4 = new ArrayList<Condition>();
 				conditions4.add(new ConditionAnimationAttaque());
 				conditions4.add(new ConditionArmeEquipee(1));
-				final PageDeComportement page4 = new PageDeComportement(4, conditions4, null, nomImageHerosEventail);
+				final PageEvent page4 = new PageEvent(4, conditions4, null, nomImageHerosEventail);
 				pages.add(page4);
 		//fin pages
 		return pages;

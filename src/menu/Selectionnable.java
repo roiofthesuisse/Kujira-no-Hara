@@ -45,11 +45,11 @@ public abstract class Selectionnable {
 		int largeur;
 		int hauteur;
 		if (this.image!=null) {
-			largeur = this.image.getWidth() + 2*ElementDeMenu.CONTOUR;
-			hauteur = this.image.getHeight() + 2*ElementDeMenu.CONTOUR;
+			largeur = this.image.getWidth() + 2*Element.CONTOUR;
+			hauteur = this.image.getHeight() + 2*Element.CONTOUR;
 		} else {
-			largeur = this.largeur + 2*ElementDeMenu.CONTOUR;
-			hauteur = this.hauteur + 2*ElementDeMenu.CONTOUR;
+			largeur = this.largeur + 2*Element.CONTOUR;
+			hauteur = this.hauteur + 2*Element.CONTOUR;
 		}
 		final BufferedImage selection = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
 		for (int i = 0; i<largeur; i++) {
@@ -72,55 +72,55 @@ public abstract class Selectionnable {
 				a2 = COULEUR_CONTOUR_SELECTION_A; 
 				double rate = 0.0, hypotenuse = 0.0;
 				//calcul du taux "rate" d'éloignement avec le centre de la sélection
-				if (i>=ElementDeMenu.CONTOUR && i<=largeur-ElementDeMenu.CONTOUR) {
+				if (i>=Element.CONTOUR && i<=largeur-Element.CONTOUR) {
 					//centre centre
-					if (j>=ElementDeMenu.CONTOUR && j<=hauteur-ElementDeMenu.CONTOUR) {
+					if (j>=Element.CONTOUR && j<=hauteur-Element.CONTOUR) {
 						rate = 1.0;
 					}
 					//centre haut
-					if (j<ElementDeMenu.CONTOUR) {
-						rate = (double) (j) / (double) (ElementDeMenu.CONTOUR);
+					if (j<Element.CONTOUR) {
+						rate = (double) (j) / (double) (Element.CONTOUR);
 					}
 					//centre bas
-					if (j>hauteur-ElementDeMenu.CONTOUR) {
-						rate = (double) (hauteur-j) / (double) ElementDeMenu.CONTOUR;
+					if (j>hauteur-Element.CONTOUR) {
+						rate = (double) (hauteur-j) / (double) Element.CONTOUR;
 					}
 				} else {
-					if (i<ElementDeMenu.CONTOUR) {
+					if (i<Element.CONTOUR) {
 						//gauche centre
-						if (j>=ElementDeMenu.CONTOUR && j<=hauteur-ElementDeMenu.CONTOUR) {
-							rate = (double) (i) / (double) ElementDeMenu.CONTOUR;
+						if (j>=Element.CONTOUR && j<=hauteur-Element.CONTOUR) {
+							rate = (double) (i) / (double) Element.CONTOUR;
 						}
 						//gauche haut
-						if (j<ElementDeMenu.CONTOUR) {
-							hypotenuse = Math.sqrt( Math.pow(i-ElementDeMenu.CONTOUR, 2) + Math.pow(j-ElementDeMenu.CONTOUR, 2) );
+						if (j<Element.CONTOUR) {
+							hypotenuse = Math.sqrt( Math.pow(i-Element.CONTOUR, 2) + Math.pow(j-Element.CONTOUR, 2) );
 						}
 						//gauche bas
-						if (j>hauteur-ElementDeMenu.CONTOUR) {
-							hypotenuse = Math.sqrt( Math.pow(i-ElementDeMenu.CONTOUR, 2) + Math.pow(j-(hauteur-ElementDeMenu.CONTOUR), 2) );
+						if (j>hauteur-Element.CONTOUR) {
+							hypotenuse = Math.sqrt( Math.pow(i-Element.CONTOUR, 2) + Math.pow(j-(hauteur-Element.CONTOUR), 2) );
 						}
 					} else {
-						if (i>largeur-ElementDeMenu.CONTOUR) {
+						if (i>largeur-Element.CONTOUR) {
 							//droite centre
-							if (j>=ElementDeMenu.CONTOUR && j<=hauteur-ElementDeMenu.CONTOUR) {
-								rate = (double) (largeur-i) / (double) ElementDeMenu.CONTOUR;
+							if (j>=Element.CONTOUR && j<=hauteur-Element.CONTOUR) {
+								rate = (double) (largeur-i) / (double) Element.CONTOUR;
 							}
 							//droite haut
-							if (j<ElementDeMenu.CONTOUR) {
-								hypotenuse = Math.sqrt( Math.pow(i-(largeur-ElementDeMenu.CONTOUR), 2) + Math.pow(j-ElementDeMenu.CONTOUR, 2) );
+							if (j<Element.CONTOUR) {
+								hypotenuse = Math.sqrt( Math.pow(i-(largeur-Element.CONTOUR), 2) + Math.pow(j-Element.CONTOUR, 2) );
 							}
 							//droite bas
-							if (j>hauteur-ElementDeMenu.CONTOUR) {
-								hypotenuse = Math.sqrt( Math.pow(i-(largeur-ElementDeMenu.CONTOUR), 2) + Math.pow(j-(hauteur-ElementDeMenu.CONTOUR), 2) );
+							if (j>hauteur-Element.CONTOUR) {
+								hypotenuse = Math.sqrt( Math.pow(i-(largeur-Element.CONTOUR), 2) + Math.pow(j-(hauteur-Element.CONTOUR), 2) );
 							}
 						}
 					}
 				}
 				if (hypotenuse!=0) {
-					if (hypotenuse>ElementDeMenu.CONTOUR) {
+					if (hypotenuse>Element.CONTOUR) {
 						rate = 0;
 					} else {
-						rate = 1.0-hypotenuse/(double) ElementDeMenu.CONTOUR;
+						rate = 1.0-hypotenuse/(double) Element.CONTOUR;
 					}
 				}
 				//calcul de la couleur en fonction du taux "rate" d'éloignement du centre de la sélection

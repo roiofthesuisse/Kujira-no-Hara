@@ -47,11 +47,11 @@ public class LecteurMenu extends Lecteur {
 		final Selectionnable selectionnable = menu.elementSelectionne;
 		if (selectionnable!=null && selectionnable.selectionnable && selectionnable.selectionne) {
 			final BufferedImage selection = selectionnable.creerImageDeSelection();
-			ecran = superposerImages(ecran, selection, selectionnable.x-ElementDeMenu.CONTOUR, selectionnable.y-ElementDeMenu.CONTOUR);
+			ecran = superposerImages(ecran, selection, selectionnable.x-Element.CONTOUR, selectionnable.y-Element.CONTOUR);
 		}
 		
 		//affichage des éléments de menu
-		for (ElementDeMenu element : menu.elements) {
+		for (Element element : menu.elements) {
 			ecran = superposerImages(ecran, element.image, element.x, element.y);
 		}
 

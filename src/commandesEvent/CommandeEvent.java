@@ -2,7 +2,7 @@ package commandesEvent;
 
 import java.util.ArrayList;
 
-import map.PageDeComportement;
+import map.PageEvent;
 
 /**
  * Chaque Page de comportement d'un Event contient des Commandes.
@@ -10,8 +10,7 @@ import map.PageDeComportement;
  * Lorsque la Commande est considérée comme terminée, le curseur se déplace à la Commande suivante.
  */
 public abstract class CommandeEvent {
-	String nom;
-	public PageDeComportement page; //une Commande Event connaît la Page à laquelle elle appartient
+	public PageEvent page; //une Commande Event connaît la Page à laquelle elle appartient
 	
 	/**
 	 * Execute la Commande totalement ou partiellement.
