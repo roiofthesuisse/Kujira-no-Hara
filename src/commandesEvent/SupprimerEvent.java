@@ -25,7 +25,7 @@ public class SupprimerEvent extends CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		int numeroEventASupprimer = this.page.event.numero;
+		final int numeroEventASupprimer = this.page.event.numero;
 		this.page.event.pageActive = null;
 		this.page.event.map.supprimerEvenement(numeroEventASupprimer);
 		return curseurActuel+1;

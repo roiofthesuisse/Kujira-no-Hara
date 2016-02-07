@@ -36,14 +36,14 @@ public class ModifierApparence extends CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
-		ArrayList<Event> events = this.page.event.map.events;
+		final ArrayList<Event> events = this.page.event.map.events;
 		if (eventId == -1) {
 			eventId = this.page.event.numero; //c'est l'évènement qui donne l'ordre qui change d'apparence
 		}
 		for (Event e : events) {
 			if (e.numero == eventId) {
 				try {
-					BufferedImage image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomNouvelleImage));
+					final BufferedImage image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomNouvelleImage));
 					e.imageActuelle = image;
 				} catch (IOException err) {
 					System.out.println("Erreur lors de l'ouverture de l'image durant modification d'apparence d'event :");
