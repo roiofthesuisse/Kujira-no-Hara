@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import jeu.Partie;
 import main.Fenetre;
-import main.Partie;
 
 /**
  * Une hitbox peut être assignée à une arme afin de calculer sa portée et son étendue.
@@ -32,7 +32,7 @@ public class Hitbox {
 	 */
 	public static boolean estDansZoneDAttaque(final Event e, final Heros h) {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
-		final boolean estCeQueLeHerosAUneArme = (partieActuelle.idArmesPossedees.size() > 0) && partieActuelle.getArmeEquipee()!=null;
+		final boolean estCeQueLeHerosAUneArme = (partieActuelle.nombreDArmesPossedees > 0) && partieActuelle.getArmeEquipee()!=null;
 		if (estCeQueLeHerosAUneArme) {
 			//on calcule les bords de la zone d'attaque en fonction de l'orientation du héros
 			final int[] coord = calculerCoordonneesAbsolues(h);

@@ -1,7 +1,7 @@
 package commandesMenu;
 
+import jeu.Partie;
 import main.Fenetre;
-import main.Partie;
 
 /**
  * Charger une Partie dans le menu dédié

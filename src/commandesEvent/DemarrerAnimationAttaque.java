@@ -2,8 +2,8 @@ package commandesEvent;
 
 import java.util.ArrayList;
 
+import jeu.Arme;
 import son.LecteurAudio;
-import main.Arme;
 import main.Fenetre;
 import map.Heros;
 

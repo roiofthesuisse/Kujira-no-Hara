@@ -2,8 +2,8 @@ package commandesEvent;
 
 import java.util.ArrayList;
 
+import jeu.Partie;
 import main.Fenetre;
-import main.Partie;
 import map.Event;
 
 /**

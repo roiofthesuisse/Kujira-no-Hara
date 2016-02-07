@@ -19,7 +19,7 @@ public class ConditionDansZoneDAttaque extends Condition {
 	
 	@Override
 	public final boolean estVerifiee() {
-		final boolean estCeQueLeHerosAUneArme = (Fenetre.getPartieActuelle().idArmesPossedees.size() > 0);
+		final boolean estCeQueLeHerosAUneArme = (Fenetre.getPartieActuelle().nombreDArmesPossedees > 0);
 		if (estCeQueLeHerosAUneArme) {
 			final Heros heros = this.page.event.map.heros;
 			final Event event = this.page.event;

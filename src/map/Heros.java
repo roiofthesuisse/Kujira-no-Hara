@@ -11,7 +11,7 @@ import conditions.ConditionArmeEquipee;
 import conditions.ConditionPasDInterlocuteurAutour;
 import conditions.ConditionStopEvent;
 import conditions.ConditionToucheAction;
-import main.Arme;
+import jeu.Arme;
 import main.Fenetre;
 import utilitaire.GestionClavier;
 

@@ -3,8 +3,8 @@ package commandesEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import jeu.Partie;
 import main.Fenetre;
-import main.Partie;
 
 /**
  * Ajouter une nouvelle Arme au Heros
@@ -31,8 +31,9 @@ public class AjouterArme extends CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
-		if (!partieActuelle.idArmesPossedees.contains(idArme)) {
-			partieActuelle.idArmesPossedees.add(idArme);
+		if (!partieActuelle.armesPossedees[idArme]) {
+			partieActuelle.armesPossedees[idArme] = true;
+			partieActuelle.nombreDArmesPossedees++;
 		}
 		return curseurActuel+1;
 	}

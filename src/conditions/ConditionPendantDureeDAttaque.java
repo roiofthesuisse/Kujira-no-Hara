@@ -1,6 +1,6 @@
 package conditions;
 
-import main.Arme;
+import jeu.Arme;
 import main.Fenetre;
 
 /**

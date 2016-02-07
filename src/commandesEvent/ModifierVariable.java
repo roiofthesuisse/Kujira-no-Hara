@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import jeu.Partie;
 import main.Fenetre;
-import main.Partie;
 
 /**
  * Modifier la valeur d'une variable

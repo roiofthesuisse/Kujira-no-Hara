@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.embed.swing.JFXPanel;
+import jeu.Partie;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;

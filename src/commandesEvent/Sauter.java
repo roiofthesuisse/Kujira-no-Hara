@@ -107,7 +107,6 @@ public class Sauter extends CommandeEvent implements Mouvement {
 				calculerDistance();
 				this.etapesFaites = 0;
 				this.etapes = DUREE_DU_SAUT_SUR_PLACE + DUREE_DU_SAUT_PAR_CASE*((int) (distance/Fenetre.TAILLE_D_UN_CARREAU));
-				System.out.println("etapes:"+etapes);
 				if (this.x==0 && this.y==0) {
 					this.direction = event.direction;
 				}

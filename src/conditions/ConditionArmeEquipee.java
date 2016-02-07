@@ -1,7 +1,7 @@
 package conditions;
 
+import jeu.Partie;
 import main.Fenetre;
-import main.Partie;
 
 /**
  * Vérifier si le Héros a équipé cette Arme
@@ -20,7 +20,7 @@ public class ConditionArmeEquipee extends Condition {
 	@Override
 	public final boolean estVerifiee() {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
-		if (partieActuelle.idArmesPossedees.size()>0) {
+		if (partieActuelle.nombreDArmesPossedees > 0) {
 			return partieActuelle.getArmeEquipee().id == this.idArme;
 		}
 		return false; //aucune arme possédée

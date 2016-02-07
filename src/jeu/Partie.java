@@ -1,4 +1,4 @@
-package main;
+package jeu;
 
 import java.util.ArrayList;
 
@@ -17,28 +17,44 @@ public final class Partie {
 	public int directionHeros;
 	public int vie;
 	public int vieMax;
+	
 	public final boolean[] interrupteurs;
 	public final ArrayList<String> interrupteursLocaux;
 	public final int[] variables;
+	
+	/** combien possède-t-on d'Objet numéro i ? */
+	public int[] objetsPossedes;
+	/** la Quête numéro i a-t-elle été faite ? */
 	public boolean[] quetesFaites;
-	private int idArmeEquipee = -1;
-	public ArrayList<Integer> idArmesPossedees = new ArrayList<Integer>();
+	/** possède-t-on l'Arme numéro i ? */
+	public boolean[] armesPossedees;
+	public int nombreDArmesPossedees;
+	
+	public int idArmeEquipee;
+	
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge
 	 */
 	private Partie() {
-		//TODO valeurs à importer depuis un JSON
+		//TODO valeurs à importer depuis un JSON "depart.json"
 		this.numeroMap = 1;
 		this.xHeros = 5;
 		this.yHeros = 5;
 		this.directionHeros = Event.Direction.BAS;
 		this.vie = 6;
 		this.vieMax = 6;
+		
 		this.interrupteurs = new boolean[100];
 		this.interrupteursLocaux = new ArrayList<String>();
 		this.variables = new int[100];
+		
 		this.quetesFaites = new boolean[100];
+		this.objetsPossedes = new int[100];
+		this.armesPossedees = new boolean[10];
+		this.nombreDArmesPossedees = 0;
+		
+		this.idArmeEquipee = -1;
 		Arme.initialiserLesArmesDuJeu();
 	}
 	
@@ -50,8 +66,15 @@ public final class Partie {
 	 * @param directionHeros direction dans laquelle se trouve le Heros en reprenant la Partie
 	 * @param vie niveau d'énergie vitale du Héros en reprenant la Partie
 	 * @param vieMax niveau maximal possible d'énergie vitale du Héros en reprenant la Partie
+	 * ----------------------------------------------------------------------------------------
+	 * @param objetsPossedes combien possède-t-on d'Objet numéro i ?
+	 * @param quetesFaites la Quête numéro i a-t-elle été faite ?
+	 * @param armesPossedees possède-t-on l'Arme numéro i ?
+	 * @param nombreDArmesPossedees combien a-t-on d'Armes ?
+	 * ---------------------------------------------------------------------------------------- 
+	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
 	 */
-	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax) {
+	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int[] objetsPossedes, final boolean[] quetesFaites, final boolean[] armesPossedees, final int nombreDArmesPossedees) {
 		this();
 		this.numeroMap = numeroMap;
 		this.xHeros = xHeros;
@@ -59,6 +82,13 @@ public final class Partie {
 		this.directionHeros = directionHeros;
 		this.vie = vie;
 		this.vieMax = vieMax;
+		
+		this.objetsPossedes = objetsPossedes;
+		this.quetesFaites = quetesFaites;
+		this.armesPossedees = armesPossedees;
+		this.nombreDArmesPossedees = nombreDArmesPossedees;
+		
+		this.idArmeEquipee = idArmeEquipee;
 	}
 	
 	/**
@@ -92,7 +122,7 @@ public final class Partie {
 	 * @param idArme identifiant de l'Arme à équiper
 	 */
 	public void equiperArme(final int idArme) {
-		if (this.idArmesPossedees.contains(idArme)) {
+		if (this.armesPossedees[idArme]) {
 			this.idArmeEquipee = idArme;
 		}
 	}
@@ -101,18 +131,17 @@ public final class Partie {
 	 * Equiper l'Arme suivante dans la liste des Armes possédées par le Héros
 	 */
 	public void equiperArmeSuivante() {
-		final int nombreDArmesPossedees = this.idArmesPossedees.size();
-		//pas d'armes possédées
+		//pas d'Armes possédées
 		if (nombreDArmesPossedees<=0) {
 			return;
 		}
-		//si pas d'arme équipée, on équipe la dernière possédée
+		//si pas d'Arme équipée, on équipe la dernière possédée
 		if (idArmeEquipee<0) {
 			idArmeEquipee += nombreDArmesPossedees-1;
 			return;
 		}
-		//on équipe l'arme suivante
-		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee + 1, this.idArmesPossedees.size());
+		//on équipe l'Arme suivante
+		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee + 1, nombreDArmesPossedees);
 		//affichage console
 		if (this.getArmeEquipee()!=null) {
 			System.out.println("arme suivante : "+this.getArmeEquipee().nom);
@@ -122,19 +151,18 @@ public final class Partie {
 	/**
 	 * Equiper l'Arme précédente dans la liste des Armes possédées par le Héros
 	 */
-	public void equiperArmePrecedente() {
-		final int nombreDArmesPossedees = this.idArmesPossedees.size();
-		//pas d'armes possédées
+	public void equiperArmePrecedente() {		
+		//pas d'Armes possédées
 		if (nombreDArmesPossedees<=0) {
 			return;
 		}
-		//si pas d'arme équipée, on équipe la dernière possédée
+		//si pas d'Arme équipée, on équipe la dernière possédée
 		if (idArmeEquipee<0) {
 			idArmeEquipee += nombreDArmesPossedees-1;
 			return;
 		}
-		//on équipe l'arme précédente
-		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee - 1, idArmesPossedees.size());
+		//on équipe l'Arme précédente
+		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee - 1, nombreDArmesPossedees);
 		//affichage console
 		System.out.println("arme précédente : "+ this.getArmeEquipee().nom);
 	}
