@@ -12,7 +12,7 @@ import java.util.Comparator;
 import javax.imageio.ImageIO;
 
 import bibliothequeMenu.MenuPause;
-import commandesEvent.Message;
+import commandes.Message;
 import main.Fenetre;
 import main.Lecteur;
 import menu.LecteurMenu;

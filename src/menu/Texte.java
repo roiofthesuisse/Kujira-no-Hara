@@ -6,14 +6,15 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
-import commandesMenu.CommandeMenu;
+import commandes.CommandeMenu;
 import main.Lecteur;
 
 /**
  * Un Texte peut être sélectionnable, avoir un comportement au survol et à la confirmation.
  */
-public class Texte extends Selectionnable {
+public class Texte extends ElementDeMenu {
 	//constantes
 	private static final Color COULEUR_PAR_DEFAUT = new Color(50, 0, 150);
 	private static final Color COULEUR_PAR_DEFAUT2 = new Color(150, 0, 50);
@@ -37,7 +38,7 @@ public class Texte extends Selectionnable {
 	 * @param c2 c2 comportement à la confirmation
 	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final boolean selectionnable, final CommandeMenu c1, final CommandeMenu c2, final Menu menu) {
+	public Texte(final String contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ArrayList<CommandeMenu> c1, final ArrayList<CommandeMenu> c2, final Menu menu) {
 		this(contenu, xDebut, yDebut, Texte.TAILLE_MOYENNE, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, menu);
 	}
 	
@@ -46,13 +47,13 @@ public class Texte extends Selectionnable {
 	 * @param contenu du Texte
 	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
 	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
+	 * @param taille de la police
 	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
-	 * @param opacite transparence
 	 * @param c1 comportement au survol
 	 * @param c2 comportement à la confirmation
 	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final CommandeMenu c1, final CommandeMenu c2, final Menu menu) {
+	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final ArrayList<CommandeMenu> c1, final ArrayList<CommandeMenu> c2, final Menu menu) {
 		this(contenu, xDebut, yDebut, taille, selectionnable, OPACITE_MAXIMALE, c1, c2, menu);
 	}
 	
@@ -68,16 +69,20 @@ public class Texte extends Selectionnable {
 	 * @param c2 comportement à la confirmation
 	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final int opacite, final CommandeMenu c1, final CommandeMenu c2, final Menu menu) {
+	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final int opacite, final ArrayList<CommandeMenu> c1, final ArrayList<CommandeMenu> c2, final Menu menu) {
 		this.menu = menu;
 		this.selectionnable = selectionnable;
 		this.comportementSelection = c1;
-		if (comportementSelection!=null) {
-			comportementSelection.element = this;
+		if (comportementSelection!=null && comportementSelection.size()>0) {
+			for (CommandeMenu commande : comportementSelection) {
+				commande.setElement(this);
+			}
 		}
 		this.comportementConfirmation = c2;
-		if (comportementConfirmation!=null) {
-			comportementConfirmation.element = this;
+		if (comportementConfirmation!=null && comportementConfirmation.size()>0) {
+			for (CommandeMenu commande : comportementConfirmation) {
+				commande.setElement(this);
+			}
 		}
 		this.contenu = contenu;
 		this.x = xDebut;
@@ -160,8 +165,10 @@ public class Texte extends Selectionnable {
 
 	@Override
 	public final void executerLeComportementALArrivee() { //lorsque la sélection arrive sur ce texte
-		if ( comportementSelection!=null ) {
-			comportementSelection.executer();
+		if ( comportementSelection!=null && comportementSelection.size()>0) {
+			for (CommandeMenu commande : comportementSelection) {
+				commande.executer();
+			}
 		}
 	}
 	

@@ -2,17 +2,19 @@ package conditions;
 
 import java.util.ArrayList;
 
+import commandes.CommandeEvent;
 import map.Event;
 import map.PageEvent;
 
 /**
  * Vérifier qu'il n'y a pas d'interlocuteur potentiel autour du Héros.
  */
-public class ConditionPasDInterlocuteurAutour extends Condition {
+public class ConditionPasDInterlocuteurAutour extends Condition implements CommandeEvent {
+	private PageEvent page;
 	
 	@Override
 	public final boolean estVerifiee() {
-		final ArrayList<Event> events = this.page.event.map.events;
+		final ArrayList<Event> events = ((CommandeEvent) this).getPage().event.map.events;
 		for (Event event : events) {
 			if (event.pages!=null) {
 				for (PageEvent page : event.pages) {
@@ -36,6 +38,16 @@ public class ConditionPasDInterlocuteurAutour extends Condition {
 	 */
 	public final boolean estLieeAuHeros() {
 		return false;
+	}
+
+	@Override
+	public final PageEvent getPage() {
+		return this.page;
+	}
+
+	@Override
+	public final void setPage(final PageEvent page) {
+		this.page = page;
 	}
 
 }

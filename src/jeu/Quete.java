@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import main.Fenetre;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -115,7 +116,7 @@ public class Quete {
 	 * Obtenir l'icône de cette Quête lorsqu'elle n'a pas encore été faite par le joueur.
 	 * @return icône de la Quête non faite
 	 */
-	public final BufferedImage getIconeQuetePasFaite() {
+	private BufferedImage getIconeQuetePasFaite() {
 		if (this.iconeQuetePasFaite == null) {
 			if (ICONES_MEMORISEES.containsKey(this.nomIconeQuetePasFaite)) {
 				this.iconeQuetePasFaite = ICONES_MEMORISEES.get(this.nomIconeQuetePasFaite);
@@ -138,7 +139,7 @@ public class Quete {
 	 * Obtenir l'icône de cette Quête lorsqu'elle a été faite par le joueur.
 	 * @return icône de la Quête faite
 	 */
-	public final BufferedImage getIconeQueteFaite() {
+	private BufferedImage getIconeQueteFaite() {
 		if (this.iconeQueteFaite == null) {
 			if (ICONES_MEMORISEES.containsKey(this.nomIconeQueteFaite)) {
 				this.iconeQueteFaite = ICONES_MEMORISEES.get(this.nomIconeQueteFaite);
@@ -155,6 +156,18 @@ public class Quete {
 			}
 		}
 		return this.iconeQueteFaite;
+	}
+	
+	/**
+	 * Obtenir l'icône de la Quête.
+	 * @return icône de la Quête faite ou non faite, selon si la Quête est fait ou non.
+	 */
+	public final BufferedImage getIcone() {
+		if (Fenetre.getPartieActuelle().quetesFaites[this.numero]) {
+			return this.getIconeQueteFaite();
+		} else {
+			return this.getIconeQuetePasFaite();
+		}
 	}
 		
 }

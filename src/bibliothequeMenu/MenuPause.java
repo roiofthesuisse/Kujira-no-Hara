@@ -2,11 +2,14 @@ package bibliothequeMenu;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import commandesMenu.RevenirAuJeu;
-import menu.Element;
+import conditions.Condition;
+import conditions.ConditionObjetPossede;
+import jeu.Objet;
+import menu.Image;
 import menu.Menu;
 import menu.Texte;
 
@@ -32,56 +35,58 @@ public class MenuPause extends Menu {
 		final Texte description = new Texte("", 27, 66, false, null, null, this);
 		this.textes.add(description);
 		
-		
+		this.xTexteDescriptif = 30;
+		this.xTexteDescriptif = 65;
+		this.largeurTexteDescriptif = 475;
+
 		
 		//elements
 		try {
-			final Element courrier = new Element("Icons", "menu lettre icon.png", 85, 165, true, null, null, this);
-			this.elements.add(courrier);
+			final Image courrier = new Image("Icons", "menu lettre icon.png", 85, 165, null, true, null, null, this);
+			this.images.add(courrier);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		try {
-			final Element quetes = new Element("Icons", "cristal de baleine icon.png", 85, 240, true, null, null, this);
-			this.elements.add(quetes);
+			final Image quetes = new Image("Icons", "cristal de baleine icon.png", 85, 240, null, true, null, null, this);
+			this.images.add(quetes);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		final Element argent = new Element(75, 315, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
-		this.elements.add(argent);
+		final Image argent = new Image(75, 315, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		this.images.add(argent);
 		try {
-			final Element objets = new Element("Icons", "menu coffre icon.png", 85, 390, true, null, null, this);
-			this.elements.add(objets);
+			final Image objets = new Image("Icons", "menu coffre icon.png", 85, 390, null, true, null, null, this);
+			this.images.add(objets);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		try {
-			final Element flecheGauche = new Element("Pictures", "fleche gauche.png", 10, 235, true, null, null, this);
-			this.elements.add(flecheGauche);
+			final Image flecheGauche = new Image("Pictures", "fleche gauche.png", 10, 235, null, true, null, null, this);
+			this.images.add(flecheGauche);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		try {
-			final Element flecheDroite = new Element("Pictures", "fleche droite.png", 610, 235, true, null, null, this);
-			this.elements.add(flecheDroite);
+			final Image flecheDroite = new Image("Pictures", "fleche droite.png", 610, 235, null, true, null, null, this);
+			this.images.add(flecheDroite);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		final Element perle1 = new Element(320, 160, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
-		this.elements.add(perle1);
-		final Element perle2 = new Element(425, 160, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
-		this.elements.add(perle2);
-		final Element perle3 = new Element(485, 240, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
-		this.elements.add(perle3);
-		final Element perle4 = new Element(320, 310, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
-		this.elements.add(perle4);
-		final Element perle5 = new Element(425, 310, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
-		this.elements.add(perle5);
-		final Element perle6 = new Element(260, 240, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
-		this.elements.add(perle6);
+
+		final Image perle1 = new Image(Objet.objetsDuJeuHash.get("Perle rouge"), 320, 160, true, this);
+		this.images.add(perle1);
+		final Image perle2 = new Image(425, 160, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		this.images.add(perle2);
+		final Image perle3 = new Image(485, 240, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		this.images.add(perle3);
+		final Image perle4 = new Image(320, 310, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		this.images.add(perle4);
+		final Image perle5 = new Image(425, 310, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		this.images.add(perle5);
+		final Image perle6 = new Image(260, 240, LARGEUR_ELEMENT_PAR_DEFAUT, HAUTEUR_ELEMENT_PAR_DEFAUT, true, null, null, this);
+		this.images.add(perle6);
 		
 		selectionner(perle1);
 	}

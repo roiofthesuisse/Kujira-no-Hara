@@ -2,9 +2,9 @@ package map;
 
 import java.util.ArrayList;
 
-import commandesEvent.Avancer;
-import commandesEvent.CommandeEvent;
-import commandesEvent.DemarrerAnimationAttaque;
+import commandes.Avancer;
+import commandes.CommandeEvent;
+import commandes.DemarrerAnimationAttaque;
 import conditions.Condition;
 import conditions.ConditionAnimationAttaque;
 import conditions.ConditionArmeEquipee;

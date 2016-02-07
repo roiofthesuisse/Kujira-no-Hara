@@ -1,6 +1,8 @@
 package conditions;
 
+import commandes.CommandeEvent;
 import map.Event;
+import map.PageEvent;
 
 /**
  * Est-ce que le Héros vient d'entrer en contact avec l'Event ?
@@ -8,15 +10,16 @@ import map.Event;
  * - si l'Event est traversable, le contact signifie que le Héros est majoritairement superposé à lui ;
  * - si l'Event n'est pas traversable, le contact signifie que le Héros et l'Event se touchent par un côté de la Hitbox.
  */
-public class ConditionArriveeAuContact extends Condition {
+public class ConditionArriveeAuContact extends Condition  implements CommandeEvent {
+	private PageEvent page;
 
 	@Override
 	public final boolean estVerifiee() {
-		final Event event = this.page.event;
+		final Event event = ((CommandeEvent) this).getPage().event;
 		if ( event.frameDuContact != event.map.lecteur.frameActuelle ) {
 			//on n'est pas à jour ! on calcule s'il y a contact :
 			final ConditionContact conditionContactMaintenant = new ConditionContact();
-			conditionContactMaintenant.page = this.page;
+			((CommandeEvent) conditionContactMaintenant).setPage(((CommandeEvent) this).getPage());
 			conditionContactMaintenant.numero = this.numero;
 			final boolean leHerosEstAuContactDeLEventMaintenant = conditionContactMaintenant.estVerifiee();
 			
@@ -35,6 +38,16 @@ public class ConditionArriveeAuContact extends Condition {
 	 */
 	public final boolean estLieeAuHeros() {
 		return true;
+	}
+
+	@Override
+	public final PageEvent getPage() {
+		return this.page;
+	}
+
+	@Override
+	public final void setPage(final PageEvent page) {
+		this.page = page;
 	}
 
 }

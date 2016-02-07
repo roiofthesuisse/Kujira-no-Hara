@@ -1,19 +1,24 @@
 package conditions;
 
+import commandes.CommandeEvent;
 import map.Event;
 import map.Heros;
+import map.PageEvent;
 
 /**
  * Le Héros colle l'event et regarde vers lui.
  */
-public class ConditionParler extends Condition {
+public class ConditionParler extends Condition implements CommandeEvent {
+	private PageEvent page;
+	
+	//constantes
 	public static final int DISTANCE_MAX_PAROLE = 4; //au dela de cette distance en pixels, le dialogue ne se déclenche pas
 	
 	@Override
 	public final boolean estVerifiee() {
 		//1) pour Parler, premièrement, il faut appuyer sur la touche action :
 		final ConditionToucheAction conditionToucheAction = new ConditionToucheAction();
-		conditionToucheAction.page = this.page;
+		((CommandeEvent) conditionToucheAction).setPage( ((CommandeEvent) this).getPage() );
 		if (!conditionToucheAction.estVerifiee()) {
 			return false;
 		}
@@ -22,15 +27,15 @@ public class ConditionParler extends Condition {
 		
 		int pageActive;
 		try {
-			pageActive = this.page.event.pageActive.numero;
+			pageActive = ((CommandeEvent) this).getPage().event.pageActive.numero;
 		} catch (NullPointerException e) {
 			//pas de page actuelle pour le lecteur
 			pageActive = -1;
 		}
-		final int cettePage = this.page.numero;
+		final int cettePage = ((CommandeEvent) this).getPage().numero;
 		//il faut d'abord que la page ne soit pas ouverte
 		if (pageActive!=cettePage) { //TODO vérifier si cette condition est utile
-			final Event event = page.event;
+			final Event event = ((CommandeEvent) this).getPage().event;
 			final Heros heros = event.map.heros;
 			final int xmin1 = heros.x;
 			final int xmax1 = heros.x+heros.largeurHitbox;
@@ -123,6 +128,16 @@ public class ConditionParler extends Condition {
 	 */
 	public final boolean estLieeAuHeros() {
 		return true;
+	}
+
+	@Override
+	public final PageEvent getPage() {
+		return this.page;
+	}
+
+	@Override
+	public final void setPage(final PageEvent page) {
+		this.page = page;
 	}
 
 }

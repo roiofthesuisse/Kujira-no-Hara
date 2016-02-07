@@ -2,12 +2,16 @@ package conditions;
 
 import java.util.HashMap;
 
+import commandes.CommandeEvent;
 import main.Fenetre;
+import map.PageEvent;
 
 /**
  * Condition pour vérifier la valeur d'un interrupteur local d'un Event
  */
-public class ConditionInterrupteurLocal extends Condition {
+public class ConditionInterrupteurLocal extends Condition  implements CommandeEvent {
+	private PageEvent page;
+	
 	boolean valeurQuIlEstCenseAvoir;
 	private Integer numeroMap;
 	private Integer numeroEvent;
@@ -42,12 +46,12 @@ public class ConditionInterrupteurLocal extends Condition {
 	@Override
 	public final boolean estVerifiee() {
 		//null signifie "cette Map"
-		if (this.numeroMap==null) {
-			this.numeroMap = this.page.event.map.numero;
+		if (this.numeroMap == null) {
+			this.numeroMap = ((CommandeEvent) this).getPage().event.map.numero;
 		}
 		//null signifie "cet Event"
-		if (this.numeroEvent==null) {
-			this.numeroEvent = this.page.event.numero;
+		if (this.numeroEvent == null) {
+			this.numeroEvent = ((CommandeEvent) this).getPage().event.numero;
 		}
 		final String code = "m"+this.numeroMap+"e"+this.numeroEvent+"i"+this.numeroInterrupteurLocal;
 		
@@ -61,6 +65,16 @@ public class ConditionInterrupteurLocal extends Condition {
 	 */
 	public final boolean estLieeAuHeros() {
 		return false;
+	}
+
+	@Override
+	public final PageEvent getPage() {
+		return this.page;
+	}
+
+	@Override
+	public final void setPage(final PageEvent page) {
+		this.page = page;
 	}
 
 }

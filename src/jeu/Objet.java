@@ -13,7 +13,10 @@ import javax.imageio.ImageIO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import commandesMenu.CommandeMenu;
+import commandes.AfficherDescription;
+import commandes.CommandeMenu;
+import conditions.Condition;
+import conditions.ConditionObjetPossede;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -22,7 +25,7 @@ import utilitaire.InterpreteurDeJson;
 public class Objet {
 	//constantes
 	public static Objet[] objetsDuJeu;
-	public static HashMap<String, Objet> objetsDuJeuHash = new HashMap<String, Objet>();
+	public static HashMap<String, Objet> objetsDuJeuHash = new HashMap<String, Objet>();;
 	
 	public final Integer numero; //Integer car clé d'une HashMap
 	public final String nom;
@@ -101,6 +104,7 @@ public class Objet {
 			
 			objetsDuJeu = new Objet[objets.size()];
 			objets.toArray(objetsDuJeu);
+			//System.out.println("Objets créés : " + objetsDuJeu.length);
 			return objetsDuJeu.length;
 			
 		} catch (FileNotFoundException e) {
@@ -116,7 +120,7 @@ public class Objet {
 	 * Obtenir l'icône de cet Objet.
 	 * @return icône de l'Objet
 	 */
-	public final BufferedImage getIconeQuetePasFaite() {
+	public final BufferedImage getIcone() {
 		if (this.icone == null) {
 			try {
 				this.icone = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\"+nomIcone));
@@ -127,5 +131,35 @@ public class Objet {
 			}
 		}
 		return this.icone;
+	}
+	
+	/**
+	 * Fabriquer une liste de Conditions vérifiant la possession de cet Objet.
+	 * @return liste de Conditions destinée au Menu
+	 */
+	public final ArrayList<Condition> getConditions() {
+		final ArrayList<Condition> conditions = new ArrayList<Condition>();
+		conditions.add(new ConditionObjetPossede(this.numero));
+		return conditions;
+	}
+	
+	/**
+	 * Liste de Commandes de Menu associée à l'Objet.
+	 * Si l'Objet est sélectionné dans le Menu, la description de l'Objet est affichée.
+	 * @return liste de Commandes destinée au Menu
+	 */
+	public final ArrayList<CommandeMenu> getComportementSelection() {
+		final ArrayList<CommandeMenu> comportementSelection = new ArrayList<CommandeMenu>();
+		comportementSelection.add(new AfficherDescription(this.description));
+		return comportementSelection;
+	}
+	
+	/**
+	 * Liste de Commandes de Menu associée à l'Objet.
+	 * Si l'Objet est validé dans le Menu, il est consommé.
+	 * @return effet de l'Objet
+	 */
+	public final ArrayList<CommandeMenu> getComportementConfirmation() {
+		return this.effet;
 	}
 }

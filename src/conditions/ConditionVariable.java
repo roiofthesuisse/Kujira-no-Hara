@@ -1,14 +1,21 @@
 package conditions;
 
+import commandes.CommandeEvent;
+import commandes.CommandeMenu;
 import main.Fenetre;
+import map.PageEvent;
+import menu.ElementDeMenu;
 
 /**
  * Vérifier la valeur d'une variable
  */
-public class ConditionVariable extends Condition {
-	int numeroVariable;
-	int typeInegalite;
-	int valeurQuIlEstCenseAvoir;
+public class ConditionVariable extends Condition implements CommandeEvent, CommandeMenu {
+	private PageEvent page;
+	private ElementDeMenu element;
+	
+	private int numeroVariable;
+	private int typeInegalite;
+	private int valeurQuIlEstCenseAvoir;
 	
 	
 	/**
@@ -55,6 +62,26 @@ public class ConditionVariable extends Condition {
 	 */
 	public final boolean estLieeAuHeros() {
 		return false;
+	}
+
+	@Override
+	public final ElementDeMenu getElement() {
+		return this.element;
+	}
+
+	@Override
+	public final void setElement(final ElementDeMenu element) {
+		this.element = element;
+	}
+
+	@Override
+	public final PageEvent getPage() {
+		return this.page;
+	}
+
+	@Override
+	public final void setPage(final PageEvent page) {
+		this.page = page;
 	}
 
 }

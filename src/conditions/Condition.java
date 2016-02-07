@@ -2,12 +2,14 @@ package conditions;
 
 import java.util.ArrayList;
 
-import commandesEvent.CommandeEvent;
+import commandes.CommandeEvent;
+import commandes.CommandeMenu;
+import main.Commande;
 
 /**
  * Une Condition peut servir à définir le moment de déclenchement d'une Page, ou faire partie du code Event.
  */
-public abstract class Condition extends CommandeEvent {
+public abstract class Condition {
 	public int numero; //le numéro de condition est le même que le numéro de fin de condition qui correspond
 
 	/**
@@ -23,7 +25,7 @@ public abstract class Condition extends CommandeEvent {
 	 * @param commandes liste des Commandes de la Page
 	 * @return nouvelle position du curseur
 	 */
-	public final int executer(final int curseurActuel, final ArrayList<CommandeEvent> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
 		if ( estVerifiee() ) {
 			return curseurActuel+1;
 		} else {
@@ -37,7 +39,12 @@ public abstract class Condition extends CommandeEvent {
 						onATrouveLaFinDeSi = true;
 					}
 				} catch (IndexOutOfBoundsException e) {
-					System.out.println("L'évènement n°"+this.page.event.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
+					if (this instanceof CommandeEvent) {
+						System.out.println("L'évènement n°"+((CommandeEvent) this).getPage().event.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
+					}
+					if (this instanceof CommandeMenu) {
+						System.out.println("L'élément de menu n°"+((CommandeMenu) this).getElement().numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
+					}
 					e.printStackTrace();
 				} catch (Exception e) {
 					//pas une condition
@@ -53,4 +60,12 @@ public abstract class Condition extends CommandeEvent {
 	 * @return false si la Condition est à considérer pour l'apparence d'un Event, false sinon
 	 */
 	public abstract boolean estLieeAuHeros();
+	
+	/**
+	 * Les Commandes de Menu sont instantannées et donc n'utilisent pas de curseur.
+	 * Cette méthode, exigée par CommandeMenu, est la même pour toutes les Conditions.
+	 */
+	public void executer() {
+		//rien
+	}
 }

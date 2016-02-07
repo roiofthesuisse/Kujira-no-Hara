@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import commandesEvent.CommandeEvent;
+import commandes.CommandeEvent;
 import conditions.Condition;
 import main.Fenetre;
 
@@ -173,7 +173,7 @@ public class Event implements Comparable<Event> {
 					try {
 						for (Condition cond : page.conditions) {
 							cond.numero = numeroCondition;
-							cond.page = page;
+							((CommandeEvent) cond).setPage(page);
 							numeroCondition++;
 						}
 					} catch (NullPointerException e1) {
@@ -182,7 +182,7 @@ public class Event implements Comparable<Event> {
 					//on apprend aux commandes qui est leur page
 					try {
 						for (CommandeEvent comm : page.commandes) {
-							comm.page = page;
+							((CommandeEvent) comm).setPage(page);
 						}
 					} catch (NullPointerException e2) {
 						//pas de commandes dans cette page

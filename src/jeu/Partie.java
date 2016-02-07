@@ -41,7 +41,6 @@ public final class Partie {
 	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
 	private Partie() throws FileNotFoundException {
-		//TODO valeurs à importer depuis un JSON "depart.json"
 		final JSONObject jsonNouvellePartie = InterpreteurDeJson.ouvrirJsonNouvellePartie();
 		
 		this.numeroMap = jsonNouvellePartie.getInt("numeroMap");
@@ -61,6 +60,7 @@ public final class Partie {
 		this.nombreDArmesPossedees = 0;
 		
 		this.idArmeEquipee = -1;
+		System.out.println("Partie chargée.");
 	}
 	
 	/**

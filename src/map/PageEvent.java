@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import commandesEvent.CommandeEvent;
+import commandes.CommandeEvent;
 import conditions.Condition;
 import conditions.ConditionParler;
 import main.Fenetre;
@@ -21,26 +21,26 @@ import utilitaire.InterpreteurDeJson;
  * La Page est déclenchée si certaines Conditions sont vérifiées, ses Commandes sont alors executées.
  */
 public class PageEvent {
-	/** event auquel appartient la page */
+	/** Event auquel appartient la Page */
 	public Event event;
-	/** numero de la page */
+	/** numero de la Page */
 	public final int numero;
-	/** ce flag est automatiquement mis à true si contient une page avec une condition Parler */
+	/** ce flag est automatiquement mis à true si contient une Page avec une condition Parler */
 	private boolean sOuvreParParole = false;
 	
-	/** conditions de déclenchement de la Page */
+	/** Conditions de déclenchement de la Page */
 	public final ArrayList<Condition> conditions;
 	
-	/** liste de commandes à executer dans l'ordre si les conditions sont vérifiées */
+	/** liste de Commandes à executer dans l'ordre si les Conditions sont vérifiées */
 	public final ArrayList<CommandeEvent> commandes;
-	 /**
-	  * Le curseur indique quelle commande executer.
-	  * Il se déplace incrémentalement, mais on peut lui faire faire des sauts.
-	  */
+	/**
+	 * Le curseur indique quelle Commande executer.
+	 * Il se déplace incrémentalement, mais on peut lui faire faire des sauts.
+	 */
 	public int curseurCommandes = 0;
 	
 	//apparence
-	public String nomImage;
+	private String nomImage;
 	public BufferedImage image;
 	public boolean estPetit; //si < 32, considéré au sol
 	public int directionInitiale;
@@ -130,7 +130,7 @@ public class PageEvent {
 		//commandes de la page
 		final ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
 		try {
-			InterpreteurDeJson.recupererLesCommandes(commandes, pageJSON.getJSONArray("commandes"));
+			InterpreteurDeJson.recupererLesCommandes(commandes, pageJSON.getJSONArray("commandes"), this);
 		} catch (JSONException e2) {
 			//pas de Commandes Event pour cette Page
 		}
@@ -207,9 +207,10 @@ public class PageEvent {
 		}
 		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
 		if (conditions!=null) {
-			for (Condition cond : conditions) { //TODO s'arrêter dès que true trouvé
+			for (Condition cond : conditions) { 
 				if (cond instanceof ConditionParler) {
 					this.sOuvreParParole = true;
+					return; //s'arrêter dès que true trouvé
 				}
 			}
 		}

@@ -8,8 +8,8 @@ import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import commandesEvent.CommandeEvent;
-import commandesEvent.Mouvement;
+import commandes.CommandeEvent;
+import commandes.Mouvement;
 
 /**
  * Un Déplacement est un ensemble de mouvements subis par un Event.
@@ -42,7 +42,7 @@ public class Deplacement {
 		this.mouvements = new ArrayList<CommandeEvent>();
 		for (Object actionDeplacementJSON : deplacementJSON.getJSONArray("mouvements")) {
 			try {
-				final Class<?> classeActionDeplacement = Class.forName("commandesEvent."+((JSONObject) actionDeplacementJSON).get("nom"));
+				final Class<?> classeActionDeplacement = Class.forName("commandes."+((JSONObject) actionDeplacementJSON).get("nom"));
 				final Iterator<String> parametresNoms = ((JSONObject) actionDeplacementJSON).keys();
 				String parametreNom;
 				Object parametreValeur;

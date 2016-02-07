@@ -17,9 +17,13 @@ public abstract class Menu {
 	public LecteurMenu lecteur;
 	public BufferedImage fond;
 	public final ArrayList<Texte> textes = new ArrayList<Texte>();
-	public final ArrayList<Element> elements = new ArrayList<Element>();
-	private ArrayList<Selectionnable> selectionnables;
-	public Selectionnable elementSelectionne;
+	public Texte texteDescriptif;
+	public int xTexteDescriptif;
+	public int yTexteDescriptif;
+	public int largeurTexteDescriptif;
+	public final ArrayList<Image> images = new ArrayList<Image>();
+	private ArrayList<ElementDeMenu> selectionnables;
+	public ElementDeMenu elementSelectionne;
 	public String nomBGM;
 	public Menu menuSuivant;
 	public Menu menuPrecedent;
@@ -42,7 +46,7 @@ public abstract class Menu {
 	 * @param direction dans laquelle on recherche un nouvel Elément à sélectionner
 	 */
 	public final void selectionnerElementDansLaDirection(final int direction) {
-		final Selectionnable elementASelectionner = chercherSelectionnableDansLaDirection(direction);
+		final ElementDeMenu elementASelectionner = chercherSelectionnableDansLaDirection(direction);
 		selectionner(elementASelectionner);
 	}
 	
@@ -50,7 +54,7 @@ public abstract class Menu {
 	 * Sélectionner cet Elément de Menu.
 	 * @param elementASelectionner nouvel Element sélectionné
 	 */
-	public final void selectionner(final Selectionnable elementASelectionner) {
+	public final void selectionner(final ElementDeMenu elementASelectionner) {
 		if (elementASelectionner != null) {
 			//bruit de déplacement du curseur
 			if (this.elementSelectionne!=null 
@@ -75,16 +79,16 @@ public abstract class Menu {
 	 * Obtenir la liste des Eléments Sélectionnables de ce Menu.
 	 * @return liste des Sélectionnables
 	 */
-	public final ArrayList<Selectionnable> getSelectionnables() {
+	public final ArrayList<ElementDeMenu> getSelectionnables() {
 		if (this.selectionnables==null) {
 			//on ne l'a pas encore créée
-			this.selectionnables = new ArrayList<Selectionnable>();
+			this.selectionnables = new ArrayList<ElementDeMenu>();
 			for (Texte t : this.textes) {
 				if (t.selectionnable) {
 					this.selectionnables.add(t);
 				}
 			}
-			for (Element e : this.elements) {
+			for (Image e : this.images) {
 				if (e.selectionnable) {
 					this.selectionnables.add(e);
 				}
@@ -125,14 +129,14 @@ public abstract class Menu {
 	 * @param direction dans laquelle on doit rechercher un Elément à sélectionner
 	 * @return Elément de Menu situé dans cette direction
 	 */
-	private Selectionnable chercherSelectionnableDansLaDirection(final int direction) {
-		Selectionnable elementASelectionner = null;
-		final ArrayList<Selectionnable> lesSelectionnables = getSelectionnables();
+	private ElementDeMenu chercherSelectionnableDansLaDirection(final int direction) {
+		ElementDeMenu elementASelectionner = null;
+		final ArrayList<ElementDeMenu> lesSelectionnables = getSelectionnables();
 		int deltaX;
 		int deltaY;
 		int distance;
 		Integer distanceMin = null;
-		for (Selectionnable s : lesSelectionnables) {
+		for (ElementDeMenu s : lesSelectionnables) {
 			if ( estCandidatALaSelection(direction, s.x, s.y, this.elementSelectionne.x, this.elementSelectionne.y, this.elementSelectionne.largeur, this.elementSelectionne.hauteur) ) {
 				deltaX = this.elementSelectionne.x-s.x;
 				deltaY = this.elementSelectionne.y-s.y;

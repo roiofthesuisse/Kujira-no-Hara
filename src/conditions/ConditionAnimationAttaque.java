@@ -1,9 +1,13 @@
 package conditions;
 
+import commandes.CommandeEvent;
+import map.PageEvent;
+
 /**
  * Si une animation d'attaque est en cours.
  */
-public class ConditionAnimationAttaque extends Condition {
+public class ConditionAnimationAttaque extends Condition implements CommandeEvent {
+	private PageEvent page;
 	
 	/**
 	 * Constructeur vide
@@ -14,7 +18,7 @@ public class ConditionAnimationAttaque extends Condition {
 	
 	@Override
 	public final boolean estVerifiee() {
-		final boolean reponse = (this.page.event.map.heros.animationAttaque > 0);
+		final boolean reponse = (((CommandeEvent) this).getPage().event.map.heros.animationAttaque > 0);
 		return reponse;
 	}
 	
@@ -24,6 +28,16 @@ public class ConditionAnimationAttaque extends Condition {
 	 */
 	public final boolean estLieeAuHeros() {
 		return false;
+	}
+
+	@Override
+	public final PageEvent getPage() {
+		return this.page;
+	}
+
+	@Override
+	public final void setPage(final PageEvent page) {
+		this.page = page;
 	}
 
 }

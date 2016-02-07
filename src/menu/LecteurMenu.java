@@ -2,7 +2,8 @@ package menu;
 
 import java.awt.image.BufferedImage;
 
-import commandesMenu.RevenirAuJeu;
+import commandes.RevenirAuJeu;
+import conditions.Condition;
 import main.Fenetre;
 import main.Lecteur;
 import map.Event;
@@ -44,15 +45,17 @@ public class LecteurMenu extends Lecteur {
 		}
 
 		//affichage de la sélection
-		final Selectionnable selectionnable = menu.elementSelectionne;
+		final ElementDeMenu selectionnable = menu.elementSelectionne;
 		if (selectionnable!=null && selectionnable.selectionnable && selectionnable.selectionne) {
 			final BufferedImage selection = selectionnable.creerImageDeSelection();
-			ecran = superposerImages(ecran, selection, selectionnable.x-Element.CONTOUR, selectionnable.y-Element.CONTOUR);
+			ecran = superposerImages(ecran, selection, selectionnable.x-Image.CONTOUR, selectionnable.y-Image.CONTOUR);
 		}
 		
 		//affichage des éléments de menu
-		for (Element element : menu.elements) {
-			ecran = superposerImages(ecran, element.image, element.x, element.y);
+		for (Image element : menu.images) {
+			if (ilFautAfficherLElement(element)) {
+				ecran = superposerImages(ecran, element.image, element.x, element.y);
+			}
 		}
 
 		//affichage des textes
@@ -60,6 +63,15 @@ public class LecteurMenu extends Lecteur {
 			final BufferedImage imgtxt = texte.texteToImage();			
 			ecran = superposerImages(ecran, imgtxt, texte.x, texte.y);
 		}
+		
+		//afficher le Texte descriptif
+		if (this.menu.texteDescriptif != null && !this.menu.texteDescriptif.contenu.equals("")) {
+			ecran = superposerImages(ecran, this.menu.texteDescriptif.image, this.menu.xTexteDescriptif, this.menu.yTexteDescriptif);
+		}
+		
+		//afficher les listes
+		//TODO
+		
 		return ecran;
 	}
 
@@ -135,6 +147,26 @@ public class LecteurMenu extends Lecteur {
 		} else {
 			this.fenetre.dispose();
 		}
+	}
+	
+	/**
+	 * Faut-il afficher l'Element ? Ses Conditions sont-elles toutes vérifiées ?
+	 * @param element à examiner
+	 * @return true s'il faut afficher l'Element, false sinon
+	 */
+	private boolean ilFautAfficherLElement(final Image element) {
+		if (element.conditions==null || element.conditions.size()<=0) {
+			//pas de contrainte particulière sur l'affichage
+			return true;
+		}
+		
+		//on essaye toutes les Conditions
+		for (Condition condition : element.conditions) {
+			if (!condition.estVerifiee()) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Override

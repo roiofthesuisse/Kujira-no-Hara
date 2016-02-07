@@ -7,9 +7,10 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import commandesMenu.AllerVersUnAutreMenu;
-import commandesMenu.QuitterJeu;
-import menu.Element;
+import commandes.AllerVersUnAutreMenu;
+import commandes.CommandeMenu;
+import commandes.QuitterJeu;
+import menu.Image;
 import menu.Menu;
 import menu.Texte;
 
@@ -22,25 +23,32 @@ public class MenuTitre extends Menu {
 	 * Constructeur explicite
 	 */
 	public MenuTitre() {
-		final Texte demarrer = new Texte("Démarrer", 290, 320, true, null, new AllerVersUnAutreMenu(new MenuNouvellePartie(this)), this);
-		final Texte bonus = new Texte("Bonus", 290, 350, true, null, null, this);
-		final Texte quitter = new Texte("Quitter", 290, 380, true, null, new QuitterJeu(), this);
-		this.textes.add(demarrer);
-		this.textes.add(bonus);
-		this.textes.add(quitter);
-		selectionner(demarrer);
+		//Textes du Menu
+		final ArrayList<CommandeMenu> commandesDemarrer = new ArrayList<CommandeMenu>();
+		commandesDemarrer.add( new AllerVersUnAutreMenu(new MenuNouvellePartie(this)) );
+		final Texte texteDemarrer = new Texte("Démarrer", 290, 320, true, null, commandesDemarrer, this);
+		this.textes.add(texteDemarrer);
+		
+		final Texte texteBonus = new Texte("Bonus", 290, 350, true, null, null, this);
+		this.textes.add(texteBonus);
+		
+		final ArrayList<CommandeMenu> commandesQuitter = new ArrayList<CommandeMenu>();
+		commandesQuitter.add( new QuitterJeu() );
+		final Texte texteQuitter = new Texte("Quitter", 290, 380, true, null, commandesQuitter, this);
+		this.textes.add(texteQuitter);
+		
+		//sélectionner un Elément
+		selectionner(texteDemarrer);
 		
 		//afficher l'image de fond du menu-titre
 		/*
 		try {
-			BufferedImage imageFond;
-			imageFond = ImageIO.read(new File("./ressources/Graphics/Titles/ecran-titre kujira immudelki.png"));
-			final ElementDeMenu fond = new ElementDeMenu(imageFond, 0, 0, false, this);
-			elements.add(fond);
+			final Image fond = new Image("Titles", "ecran-titre kujira immudelki.png", 0, 0, false, null, null, this);
+			this.images.add(fond);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		*/
+		 */
 		
 		//elements
 		//...

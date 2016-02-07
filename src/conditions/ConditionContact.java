@@ -1,7 +1,9 @@
 package conditions;
 
+import commandes.CommandeEvent;
 import map.Event;
 import map.Heros;
+import map.PageEvent;
 
 /**
  * Est-ce que le Héros est en contact avec l'Event ?
@@ -9,8 +11,8 @@ import map.Heros;
  * - si l'Event est traversable, le contact signifie que le Héros est majoritairement superposé à lui ;
  * - si l'Event n'est pas traversable, le contact signifie que le Héros et l'Event se touchent par un côté de la Hitbox.
  */
-public class ConditionContact extends Condition {
-	public boolean lieeAuHeros = true;
+public class ConditionContact extends Condition  implements CommandeEvent {
+	private PageEvent page;
 	
 	@Override
 	public final boolean estVerifiee() {
@@ -24,8 +26,8 @@ public class ConditionContact extends Condition {
 	 */
 	private boolean estVerifieeInterne() {
 		try {
-			final int pageActive = this.page.event.pageActive.numero;
-			final int cettePage = this.page.numero;
+			final int pageActive = ((CommandeEvent) this).getPage().event.pageActive.numero;
+			final int cettePage = ((CommandeEvent) this).getPage().numero;
 			//il faut d'abord que la page ne soit pas ouverte
 			if (pageActive==cettePage) {
 				return false;
@@ -34,7 +36,7 @@ public class ConditionContact extends Condition {
 			//pas de page active
 		}
 		
-		final Event event = page.event;
+		final Event event = ((CommandeEvent) this).getPage().event;
 		final Heros heros = event.map.heros;
 		final int xmin1 = heros.x;
 		final int xmax1 = heros.x+heros.largeurHitbox;
@@ -76,6 +78,16 @@ public class ConditionContact extends Condition {
 	 */
 	public final boolean estLieeAuHeros() {
 		return true;
+	}
+
+	@Override
+	public final PageEvent getPage() {
+		return this.page;
+	}
+
+	@Override
+	public final void setPage(final PageEvent page) {
+		this.page = page;
 	}
 	
 }

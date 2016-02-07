@@ -12,10 +12,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import commandesEvent.CommandeEvent;
-import commandesMenu.CommandeMenu;
+import commandes.CommandeEvent;
+import commandes.CommandeMenu;
 import conditions.Condition;
 import map.Event;
+import map.PageEvent;
 
 /**
  * Classe utilitaire pour transformer les fichiers JSON en objets JSON.
@@ -152,11 +153,12 @@ public abstract class InterpreteurDeJson {
 	 * Traduit les Commandes depuis le format JSON et les range dans la liste des Commandes de la Page.
 	 * @param commandes liste des Commandes de la Page.
 	 * @param commandesJSON tableau JSON contenant les Commandes au format JSON
+	 * @param page qui contient ces Commandes Event
 	 */
-	public static void recupererLesCommandes(final ArrayList<CommandeEvent> commandes, final JSONArray commandesJSON) {
+	public static void recupererLesCommandes(final ArrayList<CommandeEvent> commandes, final JSONArray commandesJSON, final PageEvent page) {
 		for (Object commandeJSON : commandesJSON) {
 			try {
-				final Class<?> classeCommande = Class.forName("commandesEvent."+((JSONObject) commandeJSON).get("nom"));
+				final Class<?> classeCommande = Class.forName("commandes."+((JSONObject) commandeJSON).get("nom"));
 				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
 				String parametreNom; //nom du paramètre pour instancier la Commande Event
 				Object parametreValeur; //valeur du paramètre pour instancier la Commande Event
@@ -170,6 +172,7 @@ public abstract class InterpreteurDeJson {
 				}
 				final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
 				final CommandeEvent commande = (CommandeEvent) constructeurCommande.newInstance(parametres);
+				commande.setPage(page);
 				commandes.add(commande);
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -185,7 +188,7 @@ public abstract class InterpreteurDeJson {
 	public static void recupererLesCommandesMenu(final ArrayList<CommandeMenu> commandes, final JSONArray commandesJSON) {
 		for (Object commandeJSON : commandesJSON) {
 			try {
-				final Class<?> classeCommande = Class.forName("commandesMenu."+((JSONObject) commandeJSON).get("nom"));
+				final Class<?> classeCommande = Class.forName("commandes."+((JSONObject) commandeJSON).get("nom"));
 				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
 				String parametreNom; //nom du paramètre pour instancier la Commande Event
 				Object parametreValeur; //valeur du paramètre pour instancier la Commande Event
