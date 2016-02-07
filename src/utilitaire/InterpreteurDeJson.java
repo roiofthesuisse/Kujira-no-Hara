@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import commandesEvent.CommandeEvent;
+import commandesMenu.CommandeMenu;
 import conditions.Condition;
 import map.Event;
 
@@ -33,6 +34,45 @@ public abstract class InterpreteurDeJson {
 		final String contenuFichierJson = scanner.useDelimiter("\\Z").next();
 		scanner.close();
 		return new JSONObject(contenuFichierJson);
+	}
+	
+	/**
+	 * Charger le paramétrage d'une nouvelle Partie au format JSON.
+	 * @return objet JSON contenant le paramétrage d'une nouvelle Partie
+	 * @throws FileNotFoundException fichier JSON introuvable
+	 */
+	public static JSONObject ouvrirJsonNouvellePartie() throws FileNotFoundException {
+		return ouvrirJson("nouvellePartie", ".\\ressources\\Data\\");
+	}
+	
+	/**
+	 * Charger la liste des Quêtes du jeu au format JSON.
+	 * @return objet JSON contenant la liste des Quêtes du jeu
+	 * @throws FileNotFoundException fichier JSON introuvable
+	 */
+	public static JSONArray ouvrirJsonQuetes() throws FileNotFoundException {
+		final JSONObject jsonQuetes = ouvrirJson("quetes", ".\\ressources\\Data\\");
+		return jsonQuetes.getJSONArray("quetes");
+	}
+	
+	/**
+	 * Charger la liste des Objets du jeu au format JSON.
+	 * @return objet JSON contenant la liste des Objets du jeu
+	 * @throws FileNotFoundException fichier JSON introuvable
+	 */
+	public static JSONArray ouvrirJsonObjets() throws FileNotFoundException {
+		final JSONObject jsonObjets = ouvrirJson("objets", ".\\ressources\\Data\\");
+		return jsonObjets.getJSONArray("objets");
+	}
+	
+	/**
+	 * Charger la liste des Armes du jeu au format JSON.
+	 * @return objet JSON contenant la liste des Armes du jeu
+	 * @throws FileNotFoundException fichier JSON introuvable
+	 */
+	public static JSONArray ouvrirJsonArmes() throws FileNotFoundException {
+		final JSONObject jsonArmes = ouvrirJson("armes", ".\\ressources\\Data\\");
+		return jsonArmes.getJSONArray("armes");
 	}
 	
 	/**
@@ -130,6 +170,35 @@ public abstract class InterpreteurDeJson {
 				}
 				final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
 				final CommandeEvent commande = (CommandeEvent) constructeurCommande.newInstance(parametres);
+				commandes.add(commande);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * Traduit les CommandesMenu depuis le format JSON et les range dans la liste des CommandesMenu de l'Element.
+	 * @param commandes liste des Commandes de l'Element.
+	 * @param commandesJSON tableau JSON contenant les CommandesMenu au format JSON
+	 */
+	public static void recupererLesCommandesMenu(final ArrayList<CommandeMenu> commandes, final JSONArray commandesJSON) {
+		for (Object commandeJSON : commandesJSON) {
+			try {
+				final Class<?> classeCommande = Class.forName("commandesMenu."+((JSONObject) commandeJSON).get("nom"));
+				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
+				String parametreNom; //nom du paramètre pour instancier la Commande Event
+				Object parametreValeur; //valeur du paramètre pour instancier la Commande Event
+				final HashMap<String, Object> parametres = new HashMap<String, Object>();
+				while (parametresNoms.hasNext()) {
+					parametreNom = parametresNoms.next();
+					if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+						parametreValeur = ((JSONObject) commandeJSON).get(parametreNom);
+						parametres.put( parametreNom, parametreValeur );
+					}
+				}
+				final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
+				final CommandeMenu commande = (CommandeMenu) constructeurCommande.newInstance(parametres);
 				commandes.add(commande);
 			} catch (Exception e1) {
 				e1.printStackTrace();

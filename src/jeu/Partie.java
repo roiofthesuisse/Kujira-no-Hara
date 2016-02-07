@@ -1,9 +1,12 @@
 package jeu;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import map.Event;
+import org.json.JSONObject;
+
 import map.Map;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 
 /**
@@ -35,27 +38,29 @@ public final class Partie {
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge
+	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	private Partie() {
+	private Partie() throws FileNotFoundException {
 		//TODO valeurs à importer depuis un JSON "depart.json"
-		this.numeroMap = 1;
-		this.xHeros = 5;
-		this.yHeros = 5;
-		this.directionHeros = Event.Direction.BAS;
-		this.vie = 6;
-		this.vieMax = 6;
+		final JSONObject jsonNouvellePartie = InterpreteurDeJson.ouvrirJsonNouvellePartie();
 		
-		this.interrupteurs = new boolean[100];
+		this.numeroMap = jsonNouvellePartie.getInt("numeroMap");
+		this.xHeros = jsonNouvellePartie.getInt("xHeros");
+		this.yHeros = jsonNouvellePartie.getInt("yHeros");
+		this.directionHeros = jsonNouvellePartie.getInt("directionHeros");
+		this.vie = jsonNouvellePartie.getInt("vie");
+		this.vieMax = jsonNouvellePartie.getInt("vieMax");
+		
+		this.interrupteurs = new boolean[ jsonNouvellePartie.getInt("nombreDInterrupteurs") ];
 		this.interrupteursLocaux = new ArrayList<String>();
-		this.variables = new int[100];
+		this.variables = new int[ jsonNouvellePartie.getInt("nombreDeVariables") ];
 		
-		this.quetesFaites = new boolean[100];
-		this.objetsPossedes = new int[100];
-		this.armesPossedees = new boolean[10];
+		this.quetesFaites = new boolean[ Quete.chargerLesQuetesDuJeu() ];
+		this.objetsPossedes = new int[ Objet.chargerLesObjetsDuJeu() ];
+		this.armesPossedees = new boolean[ Arme.chargerLesArmesDuJeu() ];
 		this.nombreDArmesPossedees = 0;
 		
 		this.idArmeEquipee = -1;
-		Arme.initialiserLesArmesDuJeu();
 	}
 	
 	/**
@@ -73,8 +78,9 @@ public final class Partie {
 	 * @param nombreDArmesPossedees combien a-t-on d'Armes ?
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
+	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int[] objetsPossedes, final boolean[] quetesFaites, final boolean[] armesPossedees, final int nombreDArmesPossedees) {
+	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int[] objetsPossedes, final boolean[] quetesFaites, final boolean[] armesPossedees, final int nombreDArmesPossedees) throws FileNotFoundException {
 		this();
 		this.numeroMap = numeroMap;
 		this.xHeros = xHeros;
@@ -94,8 +100,9 @@ public final class Partie {
 	/**
 	 * Génère une nouvelle Partie vierge.
 	 * @return une nouvelle partie
+	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	public static Partie creerNouvellePartie() {
+	public static Partie creerNouvellePartie() throws FileNotFoundException {
 		return new Partie();
 	}
 	

@@ -186,7 +186,12 @@ public final class Fenetre extends JFrame implements KeyListener {
 	 */
 	public void ouvrirLaPartie() {
 		if (this.partie == null) {
-			this.partie = Partie.creerNouvellePartie();
+			try {
+				this.partie = Partie.creerNouvellePartie();
+			} catch (FileNotFoundException e) {
+				System.err.println("Impossible de charger la partie.");
+				e.printStackTrace();
+			}
 		}
 		this.futurLecteur = new LecteurMap(this);
 		try {

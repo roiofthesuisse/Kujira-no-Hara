@@ -2,29 +2,27 @@ package jeu;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 
-import main.Fenetre;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import map.Hitbox;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * Le Héros peut utiliser un certain nombre d'Armes contre les Events ennemis.
  */
 public class Arme {
 	//constantes
-	public static final int ID_EPEE = 0;
-	public static final Hitbox ZONE_ATTAQUE_EPEE = new Hitbox(24, 48);
-	public static final int FRAME_DEBUT_COUP_EPEE = 1;
-	public static final int FRAME_FIN_COUP_EPEE = 5;
-	public static final int[] FRAMES_ANIMATION_EPEE = {3, 2, 2, 1, 1, 0, 0};
-	
-	public static final int ID_EVENTAIL = 1;
-	public static final Hitbox ZONE_ATTAQUE_EVENTAIL = new Hitbox(5*Fenetre.TAILLE_D_UN_CARREAU, 16);
-	public static final int FRAME_DEBUT_COUP_EVENTAIL = 3;
-	public static final int FRAME_FIN_COUP_EVENTAIL = 7;
-	public static final int[] FRAMES_ANIMATION_EVENTAIL = {0, 0, 0, 1, 1, 1, 0, 0};
+	private static Arme[] armesDuJeu;
+	public static HashMap<String, Arme> armesDuJeuHash = new HashMap<String, Arme>();
 	
 	/**
 	 * Chaque arme possède un id propre. 
@@ -40,8 +38,7 @@ public class Arme {
 	 * Pour faire rester une image plus longtemps à l'écran, l'ajouter plusieurs fois à la liste.
 	 * La dernière image de la liste est affichée en premier, car l'affichage est décrémentaire.
 	 */
-	public int[] framesDAnimation;
-	private static Arme[] armesDuJeu = new Arme[10];
+	public Integer[] framesDAnimation;
 	public Hitbox hitbox;
 	/**
 	 * A partir de cette frame d'animation, l'attaque commence à avoir un effet.
@@ -65,8 +62,8 @@ public class Arme {
 	 * @param frameFinCoup frame de l'animation d'attaque où le coup est terminé
 	 * @param nomIcone nom du fichier image de l'icone de l'Arme
 	 */
-	public Arme(final int id, final String nom, final String nomImageAttaque, final String nomEffetSonoreAttaque, 
-			final int[] framesDAnimation, final Hitbox hitbox, final int frameDebutCoup, 
+	private Arme(final int id, final String nom, final String nomImageAttaque, final String nomEffetSonoreAttaque, 
+			final Integer[] framesDAnimation, final Hitbox hitbox, final int frameDebutCoup, 
 			final int frameFinCoup, final String nomIcone) {
 		this.id = id;
 		this.nom = nom;
@@ -82,9 +79,23 @@ public class Arme {
 			//erreur lors du chargement de l'icone
 			e.printStackTrace();
 		}
-		
-		//on ajoute l'arme à la liste des armes
-		armesDuJeu[id] = this;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public Arme(final HashMap<String, Object> parametres) {
+		this( (int) parametres.get("numero"), 
+			(String) parametres.get("nom"),
+			(String) parametres.get("nomImageAttaque"),
+			(String) parametres.get("nomEffetSonoreAttaque"),
+			(Integer[]) parametres.get("framesDAnimation"),
+			new Hitbox((int) parametres.get("portee"), (int) parametres.get("etendue")),
+			(int) parametres.get("frameDebutCoup"),
+			(int) parametres.get("frameFinCoup"),
+			(String) parametres.get("nomIcone")
+		);
 	}
 	
 	/**
@@ -98,21 +109,60 @@ public class Arme {
 			return null;
 		}
 	}
-	
+
 	/**
-	 * initialiser la liste des armes du jeu
+	 * Charger les Armes du jeu via JSON.
+	 * @return nombre de Armes dans le jeu
 	 */
-	public static void initialiserLesArmesDuJeu() {
-		//TODO importer les armes du jeu à partir d'un fichier texte plutôt qu'avec des constantes
-		
-		//épée
-		Arme.armesDuJeu[ID_EPEE] = new Arme(ID_EPEE, "epee", "Jiyounasu AttaqueEpee character.png", "Epee.wav", FRAMES_ANIMATION_EPEE, ZONE_ATTAQUE_EPEE, FRAME_DEBUT_COUP_EPEE, FRAME_FIN_COUP_EPEE, "epee2 icon.png");
+	public static int chargerLesArmesDuJeu() {
+		try {
+			final JSONArray jsonArmes = InterpreteurDeJson.ouvrirJsonArmes();
+			final ArrayList<Arme> armes = new ArrayList<Arme>();
+			int i = 0;
+			for (Object objectArme : jsonArmes) {
+				final JSONObject jsonArme = (JSONObject) objectArme;
+				
+				final HashMap<String, Object> parametres = new HashMap<String, Object>();
+				parametres.put("numero", i);
+				
+				final Iterator<String> jsonParametres = jsonArme.keys();
+				while (jsonParametres.hasNext()) {
+					final String parametre = jsonParametres.next();
+					
+					if ("framesDAnimation".equals(parametre)) {
+						//paramètre : framesDAnimation
+						final JSONArray jsonArrayframesDAnimation = jsonArme.getJSONArray("framesDAnimation");
+						final ArrayList<Integer> framesDAnimationListe = new ArrayList<Integer>();
+						for (Object frameObject : jsonArrayframesDAnimation) {
+							framesDAnimationListe.add((Integer) frameObject);
+						}
+						
+						final Integer[] framesDAnimation = new Integer[framesDAnimationListe.size()];
+						framesDAnimationListe.toArray(framesDAnimation);
+						parametres.put("framesDAnimation", framesDAnimation);
+					} else {
+						//autres paramètres
+						parametres.put(parametre, jsonArme.get(parametre));
+					}
+				}
+				
+				final Arme arme = new Arme(parametres);
+				armes.add(arme);
+				armesDuJeuHash.put(arme.nom, arme);
+				i++;
+			}
 			
-		//eventail
-		Arme.armesDuJeu[ID_EVENTAIL] = new Arme(ID_EVENTAIL, "eventail", "Jiyounasu Eventail character.png", "Eventail.mp3", FRAMES_ANIMATION_EVENTAIL, ZONE_ATTAQUE_EVENTAIL, FRAME_DEBUT_COUP_EVENTAIL, FRAME_FIN_COUP_EVENTAIL, "eventail icon.png");
+			armesDuJeu = new Arme[armes.size()];
+			armes.toArray(armesDuJeu);
+			return armesDuJeu.length;
 			
-		//autre
-			//TODO autres armes
+		} catch (FileNotFoundException e) {
+			//problème lors de l'ouverture du fichier JSON
+			System.err.println("Impossible de charger les quêtes du jeu.");
+			e.printStackTrace();
+			armesDuJeu = null;
+			return 0;
+		}
 	}
 	
 }

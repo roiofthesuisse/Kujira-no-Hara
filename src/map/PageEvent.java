@@ -101,7 +101,7 @@ public class PageEvent {
 		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
 		if (conditions!=null) {
 			for (Condition cond : conditions) {
-				if (cond.getClass().getName().equals("conditions.ConditionParler")) {
+				if (cond.getClass().getName().equals( ConditionParler.class.getName() )) {
 					this.sOuvreParParole = true;
 				}
 			}
