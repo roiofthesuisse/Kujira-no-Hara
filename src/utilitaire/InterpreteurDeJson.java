@@ -14,6 +14,7 @@ import org.json.JSONObject;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
+import commandes.Mouvement;
 import conditions.Condition;
 import map.Event;
 import map.PageEvent;
@@ -262,6 +263,33 @@ public abstract class InterpreteurDeJson {
 			}
 			events.add(event);
 		}
+	}
+	
+	public static Mouvement recupererUnMouvement(JSONObject mouvementJSON){
+			
+			Class<?> classeMouvement;
+			Mouvement mouvement = null;
+			try {
+				classeMouvement = Class.forName("commandes."+(String)((JSONObject) mouvementJSON).get("nom"));
+				final Iterator<String> parametresNoms = ((JSONObject) mouvementJSON).keys();
+				String parametreNom; //nom du paramètre pour instancier le mouvement
+				Object parametreValeur; //valeur du paramètre pour instancier le mouvement
+				final HashMap<String, Object> parametres = new HashMap<String, Object>();
+				while (parametresNoms.hasNext()) {
+					parametreNom = parametresNoms.next();
+					if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+						parametreValeur = ((JSONObject) mouvementJSON).get(parametreNom);
+						parametres.put( parametreNom, parametreValeur );
+					}
+				}
+				final Constructor<?> constructeurMouvement = classeMouvement.getConstructor(parametres.getClass());
+				mouvement = (Mouvement) constructeurMouvement.newInstance(parametres);
+				//mouvement.setPage(page);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			return mouvement;
 	}
 	
 }

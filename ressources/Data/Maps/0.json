@@ -238,6 +238,36 @@
 					"traversable": true
 				}
 			]
+		},
+		{
+			"nom": "mouton",
+			"id": 9,
+			"x": 10,
+			"y": 10,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "MouvementPossible",
+							"mouvement": 
+							{
+								"nom": "Avancer",
+								"idEventADeplacer" :1,
+								"direction": 1,
+								"nombreDeCarreaux": 1
+							}
+						}
+					],
+					"commandes": [
+						{
+							"nom": "JouerEffetSonore",
+							"nomFichierSonore": "tambourin.ogg"
+						},
+					],
+					"image": "mouton character.png",
+					"traversable": true
+				}
+			]
 		}
 	]
 }
