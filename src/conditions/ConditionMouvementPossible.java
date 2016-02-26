@@ -1,9 +1,7 @@
 package conditions;
 
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import commandes.CommandeEvent;
@@ -11,42 +9,52 @@ import commandes.Mouvement;
 import map.PageEvent;
 import utilitaire.InterpreteurDeJson;
 
-public class ConditionMouvementPossible extends Condition implements CommandeEvent{
-	
+/**
+ * Vérifie si ce Mouvement est possible.
+ * L'Event considéré est mentionné dans l'objet Mouvement.
+ */
+public class ConditionMouvementPossible extends Condition implements CommandeEvent {
 	private PageEvent page;
 	
-	Mouvement mouvement;
+	private Mouvement mouvement;
 
-	public ConditionMouvementPossible(Mouvement mouvement) {
+	/**
+	 * Constructeur explicite
+	 * @param mouvement dont il faut vérifier la faisabilité
+	 */
+	public ConditionMouvementPossible(final Mouvement mouvement) {
 		this.mouvement = mouvement;
 	}
 	
-	public ConditionMouvementPossible(final HashMap<String, Object> parametres) throws JSONException, FileNotFoundException {
-		this(InterpreteurDeJson.recupererUnMouvement((JSONObject)parametres.get("mouvement")));
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionMouvementPossible(final HashMap<String, Object> parametres) {
+		this(InterpreteurDeJson.recupererUnMouvement((JSONObject) parametres.get("mouvement")));
 	}
 
 	@Override
-	public boolean estVerifiee() {
-		// TODO Auto-generated method stub
+	public final boolean estVerifiee() {
+		return mouvement.mouvementPossible();
+	}
+
+	/**
+	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * @return false 
+	 */
+	public final boolean estLieeAuHeros() {
 		return false;
 	}
 
 	@Override
-	public boolean estLieeAuHeros() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public PageEvent getPage() {
-		// TODO Auto-generated method stub
+	public final PageEvent getPage() {
 		return page;
 	}
 
 	@Override
-	public void setPage(PageEvent page) {
+	public final void setPage(final PageEvent page) {
 		this.page = page;
-		
 	}
 
 }

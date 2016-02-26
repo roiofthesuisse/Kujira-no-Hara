@@ -8,7 +8,7 @@ import map.PageEvent;
 import menu.ElementDeMenu;
 
 /**
- * Vérifier si le Héros a équipé cette Arme
+ * Vérifie si le Héros a équipé cette Arme.
  */
 public class ConditionArmeEquipee extends Condition implements CommandeEvent, CommandeMenu {
 	private PageEvent page;
