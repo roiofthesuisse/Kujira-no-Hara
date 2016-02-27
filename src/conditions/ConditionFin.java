@@ -1,5 +1,7 @@
 package conditions;
 
+import java.util.HashMap;
+
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import map.PageEvent;
@@ -18,6 +20,14 @@ public class ConditionFin extends Condition implements CommandeEvent, CommandeMe
 	 */
 	public ConditionFin(final int numero) {
 		this.numero = numero;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionFin(final HashMap<String, Object> parametres) {
+		this((int) parametres.get("numero"));
 	}
 	
 	@Override

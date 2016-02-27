@@ -159,7 +159,14 @@ public abstract class InterpreteurDeJson {
 	public static void recupererLesCommandes(final ArrayList<CommandeEvent> commandes, final JSONArray commandesJSON, final PageEvent page) {
 		for (Object commandeJSON : commandesJSON) {
 			try {
-				final Class<?> classeCommande = Class.forName("commandes."+((JSONObject) commandeJSON).get("nom"));
+				Class<?> classeCommande;
+				try {
+					//la Commande est juste une Commande du package "commandes"
+					classeCommande = Class.forName("commandes."+((JSONObject) commandeJSON).get("nom"));
+				} catch (ClassNotFoundException e0) {
+					//la Commande est une Condition du package "conditions"
+					classeCommande = Class.forName("conditions."+((JSONObject) commandeJSON).get("nom"));
+				}
 				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
 				String parametreNom; //nom du paramètre pour instancier la Commande Event
 				Object parametreValeur; //valeur du paramètre pour instancier la Commande Event

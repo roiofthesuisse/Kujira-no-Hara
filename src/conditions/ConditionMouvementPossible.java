@@ -21,9 +21,11 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	/**
 	 * Constructeur explicite
 	 * @param mouvement dont il faut vérifier la faisabilité
+	 * @param numeroCondition numéro de la condition
 	 */
-	public ConditionMouvementPossible(final Mouvement mouvement) {
+	public ConditionMouvementPossible(final Mouvement mouvement, final int numeroCondition) {
 		this.mouvement = mouvement;
+		this.numero = numeroCondition;
 	}
 	
 	/**
@@ -31,7 +33,8 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionMouvementPossible(final HashMap<String, Object> parametres) {
-		this(InterpreteurDeJson.recupererUnMouvement((JSONObject) parametres.get("mouvement")));
+		this(InterpreteurDeJson.recupererUnMouvement((JSONObject) parametres.get("mouvement")),
+				(int) parametres.get("numero"));
 	}
 
 	@Override

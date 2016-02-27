@@ -240,33 +240,36 @@
 			]
 		},
 		{
-			"nom": "mouton",
+			"nom": "moutonBis",
 			"id": 9,
 			"x": 10,
 			"y": 10,
 			"pages": [
 				{
-					"conditions": [
+					"commandes": [
 						{
-							"nom": "MouvementPossible",
+							"nom": "ConditionMouvementPossible",
+							"numero": 1,
 							"mouvement": {
 								"nom": "Avancer",
 								"idEventADeplacer": 9,
 								"direction": 1,
 								"nombreDeCarreaux": 1
 							}
-						}
-					],
-					"commandes": [
-						{
-							"nom": "JouerEffetSonore",
-							"nomFichierSonore": "tambourin.ogg"
 						},
 						{
 							"nom": "Avancer",
 							"idEventADeplacer": 9,
 							"direction": 1,
 							"nombreDeCarreaux": 1
+						},
+						{
+							"nom": "JouerEffetSonore",
+							"nomFichierSonore": "tambourin.ogg"
+						},
+						{
+							"nom": "ConditionFin",
+							"numero": 1
 						}
 					],
 					"image": "mouton character.png"

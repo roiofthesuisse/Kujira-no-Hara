@@ -18,11 +18,13 @@ import map.Event.Direction;
  */
 public class Avancer implements CommandeEvent, Mouvement {
 	private PageEvent page;
+	private boolean estTermine;
+	private boolean estCommence;
 	
 	protected Integer idEventADeplacer; //Integer car clé d'une HashMap
 	protected int direction;
 	public int nombreDePixels;
-	public int ceQuiAEteFait = 0; //avancée en pixel, doit atteindre nombreDeCarreaux*32
+	public int ceQuiAEteFait; //avancée en pixel, doit atteindre nombreDeCarreaux*32
 	
 	/**
 	 * Constructeur explicite
@@ -59,7 +61,9 @@ public class Avancer implements CommandeEvent, Mouvement {
 	 * Réinitialiser un mouvement le déclare non fait, et change la direction en cas de mouvement aléatoire.
 	 */
 	public void reinitialiser() {
-		ceQuiAEteFait = 0;
+		this.estCommence = false;
+		this.estTermine = false;
+		this.ceQuiAEteFait = 0;
 	}
 	
 	/**
@@ -67,10 +71,20 @@ public class Avancer implements CommandeEvent, Mouvement {
 	 */
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
-		final Event event = this.getEventADeplacer();
-		this.reinitialiser();
-		event.deplacementForce.mouvements.add(this);
-		return curseurActuel+1;
+		if (!this.estCommence) {
+			//le Mouvement n'a pas encore été ajouté à la liste des Mouvements forcés
+			final Event event = this.getEventADeplacer();
+			event.deplacementForce.mouvements.add(this);
+		}
+		
+		if (this.isTermine()) {
+			//le Mouvement est terminé, on passe à la CommandeEvent suivante
+			this.reinitialiser();
+			return curseurActuel+1;
+		} else {
+			//le Mouvement n'est pas terminé, on attend avant de passer à la CommandeEvent suivante
+			return curseurActuel;
+		}
 	}
 	
 	/**
@@ -100,9 +114,10 @@ public class Avancer implements CommandeEvent, Mouvement {
 						break;
 				}
 				this.ceQuiAEteFait += event.vitesseActuelle;
-				//*ancien emplacement de l'animation*
 				//quelle sera la commande suivante ?
 				if ( this.ceQuiAEteFait >= this.nombreDePixels ) {
+					//le Mouvement est terminé
+					this.setTermine();
 					if (deplacement.repeterLeDeplacement) {
 						//on le réinitialise et on le met en bout de file
 						this.reinitialiser();
@@ -114,6 +129,8 @@ public class Avancer implements CommandeEvent, Mouvement {
 			} else {
 				event.avance = false;
 				if (deplacement.ignorerLesMouvementsImpossibles) {
+					//on ignore ce Mouvement impossible et on passe au suivant
+					this.setTermine();
 					if (deplacement.repeterLeDeplacement) {
 						//on le réinitialise et on le met en bout de file
 						this.reinitialiser();
@@ -231,6 +248,16 @@ public class Avancer implements CommandeEvent, Mouvement {
 	@Override
 	public final void setPage(final PageEvent page) {
 		this.page = page;
+	}
+
+	@Override
+	public final boolean isTermine() {
+		return this.estTermine;
+	}
+	
+	@Override
+	public final void setTermine() {
+		this.estTermine = true;
 	}
 	
 }

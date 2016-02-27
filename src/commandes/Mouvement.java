@@ -26,4 +26,17 @@ public interface Mouvement {
 	 * @return l'Event qui va être déplacé
 	 */
 	Event getEventADeplacer();
+	
+	/**
+	 * Le Mouvement est-il terminé sur la Map ?
+	 * Utile à savoir pour passer à la CommandeEvent suivante.
+	 * @return true si le Mouvement est terminé
+	 */
+	boolean isTermine();
+	
+	/**
+	 * Prévenir le Mouvement qu'il a été terminé sur la Map.
+	 */
+	void setTermine();
+
 }

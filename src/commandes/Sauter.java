@@ -16,6 +16,8 @@ import map.PageEvent;
 //TODO cas du saut absolu ? par exemple : sauter vers la case (3;5)
 public class Sauter implements CommandeEvent, Mouvement {
 	private PageEvent page;
+	private boolean estTermine;
+	private boolean estCommence;
 	
 	//constantes
 	private static final int DUREE_DU_SAUT_SUR_PLACE = 10;
@@ -29,7 +31,7 @@ public class Sauter implements CommandeEvent, Mouvement {
 	private int xEventApresSaut;
 	private int yEventApresSaut;
 	private int etapes;
-	private int etapesFaites;
+	private int ceQuiAEteFait;
 	private int direction;
 	private Integer distance = null;
 	
@@ -77,8 +79,10 @@ public class Sauter implements CommandeEvent, Mouvement {
 	/**
 	 * Si la Page de comportement doit être rejouée, il faut réinitialiser cette Commande.
 	 */
-	public void reinitialiser() {
-		//rien
+	public final void reinitialiser() {
+		this.estCommence = false;
+		this.estTermine = false;
+		this.ceQuiAEteFait = 0;
 	}
 	
 	/**
@@ -86,10 +90,20 @@ public class Sauter implements CommandeEvent, Mouvement {
 	 */
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
-		final Event event = this.getEventADeplacer();
-		this.reinitialiser();
-		event.deplacementForce.mouvements.add(this);
-		return curseurActuel+1;
+		if (!this.estCommence) {
+			//le Mouvement n'a pas encore été ajouté à la liste des Mouvements forcés
+			final Event event = this.getEventADeplacer();
+			event.deplacementForce.mouvements.add(this);
+		}
+		
+		if (this.isTermine()) {
+			//le Mouvement est terminé, on passe à la CommandeEvent suivante
+			this.reinitialiser();
+			return curseurActuel+1;
+		} else {
+			//le Mouvement n'est pas terminé, on attend avant de passer à la CommandeEvent suivante
+			return curseurActuel;
+		}
 	}
 	
 	/**
@@ -109,7 +123,7 @@ public class Sauter implements CommandeEvent, Mouvement {
 				this.xEventApresSaut = xEventAvantSaut + this.x*Fenetre.TAILLE_D_UN_CARREAU;
 				this.yEventApresSaut = yEventAvantSaut + this.y*Fenetre.TAILLE_D_UN_CARREAU;
 				calculerDistance();
-				this.etapesFaites = 0;
+				this.ceQuiAEteFait = 0;
 				this.etapes = DUREE_DU_SAUT_SUR_PLACE + DUREE_DU_SAUT_PAR_CASE*((int) (distance/Fenetre.TAILLE_D_UN_CARREAU));
 				if (this.x==0 && this.y==0) {
 					this.direction = event.direction;
@@ -117,7 +131,7 @@ public class Sauter implements CommandeEvent, Mouvement {
 			}
 
 			//déplacement :
-			final double t = (double) etapesFaites /(double) etapes;
+			final double t = (double) ceQuiAEteFait /(double) etapes;
 			final int x0 = xEventAvantSaut;
 			final int y0 = yEventAvantSaut;
 			final int xf = xEventApresSaut;
@@ -130,9 +144,9 @@ public class Sauter implements CommandeEvent, Mouvement {
 			event.coordonneeApparenteXLorsDuSaut = (int) xDroite;
 			event.coordonneeApparenteYLorsDuSaut = (int) (yParabole + yDroite);
 			event.directionLorsDuSaut = this.direction;
-			this.etapesFaites++;
+			this.ceQuiAEteFait++;
 
-			if (etapesFaites>=etapes) {
+			if (ceQuiAEteFait>=etapes) {
 				//le mouvement est terminé
 				event.saute = false;
 				event.x = this.xEventApresSaut;
@@ -140,6 +154,8 @@ public class Sauter implements CommandeEvent, Mouvement {
 				if (this.x!=0 || this.y!=0) {
 					event.direction = this.direction; //on garde la direction prise à cause du saut
 				}
+				
+				this.setTermine();
 				//quelle sera la commande suivante ?
 				if (deplacement.repeterLeDeplacement) {
 					//on le réinitialise et on le met en bout de file
@@ -152,6 +168,8 @@ public class Sauter implements CommandeEvent, Mouvement {
 		} else {
 			event.saute = false;
 			if (deplacement.ignorerLesMouvementsImpossibles) {
+				//on ignore ce Mouvement impossible et on passe au suivant
+				this.setTermine();
 				if (deplacement.repeterLeDeplacement) {
 					//on le réinitialise et on le met en bout de file
 					this.reinitialiser();
@@ -199,6 +217,16 @@ public class Sauter implements CommandeEvent, Mouvement {
 	@Override
 	public final void setPage(final PageEvent page) {
 		this.page = page;
+	}
+	
+	@Override
+	public final boolean isTermine() {
+		return this.estTermine;
+	}
+	
+	@Override
+	public final void setTermine() {
+		this.estTermine = true;
 	}
 	
 }
