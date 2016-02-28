@@ -1,27 +1,23 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import main.Commande;
-import map.PageEvent;
+import map.Deplacement;
+import map.Event;
 
 /**
  * Attendre un certain nombre de frames avant d'executer la Commande suivante
  */
-public class Attendre implements CommandeEvent {
-	private PageEvent page;
-	
-	private int nombreDeFrames; //nombre de frames qu'il faut attendre
-	private int ceQuiAEteFait; //nombre de frames qu'on a déjà attendu
+public class Attendre extends Mouvement implements CommandeEvent {
 	
 	/**
 	 * Constructeur explicite
 	 * @param nombreDeFrames qu'il faut attendre
 	 */
-	public Attendre(final int nombreDeFrames) {
+	public Attendre(final Integer idEventADeplacer, final int nombreDeFrames) {
+		this.idEventADeplacer = idEventADeplacer;
 		this.ceQuiAEteFait = 0;
-		this.nombreDeFrames = nombreDeFrames;
+		this.etapes = nombreDeFrames;
 	}
 	
 	/**
@@ -29,35 +25,34 @@ public class Attendre implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Attendre(final HashMap<String, Object> parametres) {
-		this( (Integer) parametres.get("nombreDeFrames") );
-	}
-	
-	/**
-	 * Si la Page de comportement doit être rejouée, il faut réinitialiser cette Commande.
-	 */
-	public final void reinitialiser() {
-		this.ceQuiAEteFait = 0;
-	}
-	
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
-		if (this.ceQuiAEteFait>=this.nombreDeFrames) {
-			reinitialiser();
-			return curseurActuel+1;
-		} else {
-			this.ceQuiAEteFait++;
-			return curseurActuel;
-		}
-	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
+		this( null, //l'Event qui attend est toujours celui qui appelle la commande Attendre
+				(Integer) parametres.get("nombreDeFrames") );
 	}
 
 	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
+	public final boolean mouvementPossible() {
+		return true;
 	}
 
+	@Override
+	protected final void calculDuMouvement(final Event event) {
+		//une frame s'écoule
+		this.ceQuiAEteFait++;
+	}
+
+	@Override
+	protected void terminerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+		//rien
+	}
+
+	@Override
+	protected void ignorerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+		//rien
+	}
+
+	@Override
+	protected void reinitialiserSpecifique() {
+		// rien
+	}
+	
 }

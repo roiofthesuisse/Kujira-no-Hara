@@ -7,10 +7,9 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import commandes.CommandeMenu;
 import conditions.Condition;
-import conditions.ConditionObjetPossede;
 import jeu.Objet;
+import main.Commande;
 
 /**
  * Un Menu est composé d'Images.
@@ -33,7 +32,7 @@ public class Image extends ElementDeMenu {
 	 * @param menu auquel appartient l'Elément
 	 * @throws IOException 
 	 */
-	public Image(final String dossierImage, final String nomImage, final int x, final int y, final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<CommandeMenu> comportementSelection, final ArrayList<CommandeMenu> comportementConfirmation, final Menu menu) throws IOException {
+	public Image(final String dossierImage, final String nomImage, final int x, final int y, final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final Menu menu) throws IOException {
 		this(ImageIO.read(new File(".\\ressources\\Graphics\\"+dossierImage+"\\"+nomImage)),
 				x, y, conditions, selectionnable, comportementSelection, comportementConfirmation, menu);
 	}
@@ -50,7 +49,7 @@ public class Image extends ElementDeMenu {
 	 * @param menu auquel appartient l'Elément
 	 */
 	//TODO supprimer
-	public Image(final int x, final int y, final int largeur, final int hauteur, final boolean selectionnable, final ArrayList<CommandeMenu> comportementSelection, final ArrayList<CommandeMenu> comportementConfirmation, final Menu menu) {
+	public Image(final int x, final int y, final int largeur, final int hauteur, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final Menu menu) {
 		this(new int[]{largeur, hauteur}, x, y, null, selectionnable, comportementSelection, comportementConfirmation, menu);
 	}
 	
@@ -65,7 +64,7 @@ public class Image extends ElementDeMenu {
 	 * @param comportementConfirmation comportement à la validation
 	 * @param menu auquel appartient l'Image
 	 */
-	private Image(final Object apparence, final int x, final int y, final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<CommandeMenu> comportementSelection, final ArrayList<CommandeMenu> comportementConfirmation, final Menu menu) {
+	private Image(final Object apparence, final int x, final int y, final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final Menu menu) {
 		this.menu = menu;
 		
 		if (apparence instanceof BufferedImage) {

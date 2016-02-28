@@ -3,7 +3,6 @@ package map;
 import java.util.ArrayList;
 
 import commandes.Avancer;
-import commandes.CommandeEvent;
 import commandes.DemarrerAnimationAttaque;
 import conditions.Condition;
 import conditions.ConditionAnimationAttaque;
@@ -12,6 +11,7 @@ import conditions.ConditionPasDInterlocuteurAutour;
 import conditions.ConditionStopEvent;
 import conditions.ConditionToucheAction;
 import jeu.Arme;
+import main.Commande;
 import main.Fenetre;
 import utilitaire.GestionClavier;
 
@@ -60,7 +60,7 @@ public class Heros extends Event {
 				conditions1.add(new ConditionToucheAction());
 				conditions1.add(new ConditionStopEvent(false));
 				conditions1.add(new ConditionPasDInterlocuteurAutour());
-				final ArrayList<CommandeEvent> commandes1 = new ArrayList<CommandeEvent>();
+				final ArrayList<Commande> commandes1 = new ArrayList<Commande>();
 				commandes1.add( new DemarrerAnimationAttaque());
 				final String nomImageHerosEpee = Arme.getArme(0).nomImageAttaque;
 				final PageEvent page1 = new PageEvent(1, conditions1, commandes1, nomImageHerosEpee);
@@ -76,7 +76,7 @@ public class Heros extends Event {
 				conditions3.add(new ConditionArmeEquipee(1));
 				conditions3.add(new ConditionToucheAction());
 				conditions3.add(new ConditionStopEvent(false));
-				final ArrayList<CommandeEvent> commandes3 = new ArrayList<CommandeEvent>();
+				final ArrayList<Commande> commandes3 = new ArrayList<Commande>();
 				commandes3.add( new DemarrerAnimationAttaque());
 				final String nomImageHerosEventail = Arme.getArme(1).nomImageAttaque;
 				final PageEvent page3 = new PageEvent(3, conditions3, commandes3, nomImageHerosEventail);

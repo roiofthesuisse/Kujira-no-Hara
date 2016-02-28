@@ -9,14 +9,11 @@ import javax.imageio.ImageIO;
 
 import main.Commande;
 import map.Event;
-import map.PageEvent;
 
 /**
  * Changer l'apparence d'un Event
  */
-public class ModifierApparence implements CommandeEvent {
-	PageEvent page;
-	
+public class ModifierApparence extends Commande implements CommandeEvent {
 	int eventId;
 	String nomNouvelleImage;
 	
@@ -39,7 +36,7 @@ public class ModifierApparence implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final ArrayList<Event> events = this.page.event.map.events;
 		if (eventId == -1) {
 			eventId = this.page.event.numero; //c'est l'évènement qui donne l'ordre qui change d'apparence
@@ -56,16 +53,6 @@ public class ModifierApparence implements CommandeEvent {
 			}
 		}
 		return curseurActuel+1;
-	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

@@ -5,14 +5,11 @@ import java.util.HashMap;
 
 import main.Commande;
 import main.Fenetre;
-import map.PageEvent;
 
 /**
  * Modifier la valeur d'un interrupteur
  */
-public class ModifierInterrupteurLocal implements CommandeEvent {
-	private PageEvent page;
-	
+public class ModifierInterrupteurLocal extends Commande implements CommandeEvent {
 	final boolean valeurADonner;
 	Integer numeroMap;
 	Integer numeroEvent;
@@ -54,7 +51,7 @@ public class ModifierInterrupteurLocal implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		//null signifie "cette Map"
 		if (this.numeroMap==null) {
 			this.numeroMap = this.page.event.map.numero;
@@ -77,15 +74,5 @@ public class ModifierInterrupteurLocal implements CommandeEvent {
 		}
 		return curseurActuel+1;
 	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
 
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
-	}
-	
 }

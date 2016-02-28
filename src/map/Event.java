@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import commandes.CommandeEvent;
+import commandes.Mouvement;
 import conditions.Condition;
+import main.Commande;
 import main.Fenetre;
 
 /**
@@ -123,7 +124,7 @@ public class Event implements Comparable<Event> {
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
 		this.hauteurHitbox = hauteurHitbox;
-		this.deplacementForce = new Deplacement(new ArrayList<CommandeEvent>(), true, false);
+		this.deplacementForce = new Deplacement(new ArrayList<Mouvement>(), true, false);
 		initialiserLesPages();
 		if (pages!=null && pages.size()>=1) {
 			attribuerLesProprietesActuelles(pages.get(0)); //par défaut, propriétés de la première page
@@ -173,7 +174,7 @@ public class Event implements Comparable<Event> {
 					try {
 						for (Condition cond : page.conditions) {
 							cond.numero = numeroCondition;
-							((CommandeEvent) cond).setPage(page);
+							cond.page = page;
 							numeroCondition++;
 						}
 					} catch (NullPointerException e1) {
@@ -181,8 +182,8 @@ public class Event implements Comparable<Event> {
 					}
 					//on apprend aux commandes qui est leur page
 					try {
-						for (CommandeEvent comm : page.commandes) {
-							((CommandeEvent) comm).setPage(page);
+						for (Commande comm : page.commandes) {
+							comm.page = page;
 						}
 					} catch (NullPointerException e2) {
 						//pas de commandes dans cette page

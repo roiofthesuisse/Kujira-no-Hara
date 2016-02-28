@@ -6,13 +6,11 @@ import java.util.HashMap;
 import jeu.Objet;
 import main.Commande;
 import main.Fenetre;
-import menu.ElementDeMenu;
 
 /**
  * Retirer un certain nombre d'Objets au joueur.
  */
-public class RetirerObjet implements CommandeMenu {
-	private ElementDeMenu element;
+public class RetirerObjet extends Commande implements CommandeMenu {
 	private Object identifiantObjet;
 	private int numeroObjet;
 	private final int quantite;
@@ -58,19 +56,8 @@ public class RetirerObjet implements CommandeMenu {
 		}
 	}
 	
-
 	@Override
-	public final ElementDeMenu getElement() {
-		return this.element;
-	}
-
-	@Override
-	public final void setElement(final ElementDeMenu element) {
-		this.element = element;
-	}
-	
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.executer();
 		return curseurActuel+1;
 	}

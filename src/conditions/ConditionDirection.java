@@ -2,14 +2,11 @@ package conditions;
 
 import commandes.CommandeEvent;
 import map.Event;
-import map.PageEvent;
 
 /**
  * Est-ce que l'Event regarde dans cette Direction ?
  */
 public class ConditionDirection extends Condition implements CommandeEvent {
-	private PageEvent page;
-	
 	private final Event eventConcerne;
 	private final int directionVoulue;
 	
@@ -35,15 +32,5 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	public final boolean estLieeAuHeros() {
 		return false;
 	}
-
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
-	}
-
+	
 }

@@ -7,13 +7,11 @@ import jeu.Arme;
 import jeu.Partie;
 import main.Commande;
 import main.Fenetre;
-import map.PageEvent;
 
 /**
  * Ajouter une nouvelle Arme au Heros
  */
-public class AjouterArme implements CommandeEvent {
-	private PageEvent page;
+public class AjouterArme extends Commande implements CommandeEvent {
 	int idArme;
 	
 	/**
@@ -39,23 +37,13 @@ public class AjouterArme implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		if (!partieActuelle.armesPossedees[idArme]) {
 			partieActuelle.armesPossedees[idArme] = true;
 			partieActuelle.nombreDArmesPossedees++;
 		}
 		return curseurActuel+1;
-	}
-
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

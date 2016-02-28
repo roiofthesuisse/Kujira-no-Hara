@@ -3,14 +3,11 @@ package conditions;
 import commandes.CommandeEvent;
 import map.Event;
 import map.Heros;
-import map.PageEvent;
 
 /**
  * Le Héros colle l'event et regarde vers lui.
  */
 public class ConditionParler extends Condition implements CommandeEvent {
-	private PageEvent page;
-	
 	//constantes
 	public static final int DISTANCE_MAX_PAROLE = 4; //au dela de cette distance en pixels, le dialogue ne se déclenche pas
 	
@@ -18,7 +15,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 	public final boolean estVerifiee() {
 		//1) pour Parler, premièrement, il faut appuyer sur la touche action :
 		final ConditionToucheAction conditionToucheAction = new ConditionToucheAction();
-		((CommandeEvent) conditionToucheAction).setPage( ((CommandeEvent) this).getPage() );
+		conditionToucheAction.page = this.page;
 		if (!conditionToucheAction.estVerifiee()) {
 			return false;
 		}
@@ -27,15 +24,15 @@ public class ConditionParler extends Condition implements CommandeEvent {
 		
 		int pageActive;
 		try {
-			pageActive = ((CommandeEvent) this).getPage().event.pageActive.numero;
+			pageActive = this.page.event.pageActive.numero;
 		} catch (NullPointerException e) {
 			//pas de page actuelle pour le lecteur
 			pageActive = -1;
 		}
-		final int cettePage = ((CommandeEvent) this).getPage().numero;
+		final int cettePage = this.page.numero;
 		//il faut d'abord que la page ne soit pas ouverte
 		if (pageActive!=cettePage) { //TODO vérifier si cette condition est utile
-			final Event event = ((CommandeEvent) this).getPage().event;
+			final Event event = this.page.event;
 			final Heros heros = event.map.heros;
 			final int xmin1 = heros.x;
 			final int xmax1 = heros.x+heros.largeurHitbox;
@@ -128,16 +125,6 @@ public class ConditionParler extends Condition implements CommandeEvent {
 	 */
 	public final boolean estLieeAuHeros() {
 		return true;
-	}
-
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

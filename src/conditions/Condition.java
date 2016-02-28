@@ -9,7 +9,7 @@ import main.Commande;
 /**
  * Une Condition peut servir à définir le moment de déclenchement d'une Page, ou faire partie du code Event.
  */
-public abstract class Condition {
+public abstract class Condition extends Commande {
 	public int numero; //le numéro de condition est le même que le numéro de fin de condition qui correspond
 
 	/**
@@ -25,7 +25,7 @@ public abstract class Condition {
 	 * @param commandes liste des Commandes de la Page
 	 * @return nouvelle position du curseur
 	 */
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		if ( estVerifiee() ) {
 			return curseurActuel+1;
 		} else {
@@ -40,10 +40,10 @@ public abstract class Condition {
 					}
 				} catch (IndexOutOfBoundsException e) {
 					if (this instanceof CommandeEvent) {
-						System.out.println("L'évènement n°"+((CommandeEvent) this).getPage().event.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
+						System.out.println("L'évènement n°"+this.page.event.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
 					}
 					if (this instanceof CommandeMenu) {
-						System.out.println("L'élément de menu n°"+((CommandeMenu) this).getElement().numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
+						System.out.println("L'élément de menu n°"+this.element.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
 					}
 					e.printStackTrace();
 				} catch (Exception e) {

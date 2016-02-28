@@ -10,9 +10,9 @@ import javax.imageio.ImageIO;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import commandes.CommandeEvent;
 import conditions.Condition;
 import conditions.ConditionParler;
+import main.Commande;
 import main.Fenetre;
 import utilitaire.InterpreteurDeJson;
 
@@ -32,7 +32,7 @@ public class PageEvent {
 	public final ArrayList<Condition> conditions;
 	
 	/** liste de Commandes à executer dans l'ordre si les Conditions sont vérifiées */
-	public final ArrayList<CommandeEvent> commandes;
+	public final ArrayList<Commande> commandes;
 	/**
 	 * Le curseur indique quelle Commande executer.
 	 * Il se déplace incrémentalement, mais on peut lui faire faire des sauts.
@@ -65,7 +65,7 @@ public class PageEvent {
 	 * @param commandes à executer si la page est déclenchée
 	 * @param nomImage nom du fichier image pour l'apparence
 	 */
-	public PageEvent(final int numero, final ArrayList<Condition> conditions, final ArrayList<CommandeEvent> commandes, final String nomImage) {
+	public PageEvent(final int numero, final ArrayList<Condition> conditions, final ArrayList<Commande> commandes, final String nomImage) {
 		this.numero = numero;
 		
 		//Conditions de déclenchement de la Page
@@ -128,9 +128,9 @@ public class PageEvent {
 		this.conditions = conditions;
 		
 		//commandes de la page
-		final ArrayList<CommandeEvent> commandes = new ArrayList<CommandeEvent>();
+		final ArrayList<Commande> commandes = new ArrayList<Commande>();
 		try {
-			InterpreteurDeJson.recupererLesCommandes(commandes, pageJSON.getJSONArray("commandes"), this);
+			InterpreteurDeJson.recupererLesCommandesEvent(commandes, pageJSON.getJSONArray("commandes"), this);
 		} catch (JSONException e2) {
 			//pas de Commandes Event pour cette Page
 		}
@@ -190,7 +190,7 @@ public class PageEvent {
 		
 		//mouvement de l'event lors de cette page
 		try {
-			this.deplacementNaturel = new Deplacement(idEvent, pageJSON.getJSONObject("deplacement"));
+			this.deplacementNaturel = new Deplacement(idEvent, pageJSON.getJSONObject("deplacement"), this);
 		} catch (Exception e) {
 			//pas de déplacement pour cette Page
 			this.deplacementNaturel = null;
@@ -238,7 +238,7 @@ public class PageEvent {
 				boolean onAvanceDansLesCommandes = true;
 				while (onAvanceDansLesCommandes) {
 					final int ancienCurseur = curseurCommandes;
-					curseurCommandes = this.commandes.get(curseurCommandes).executer(curseurCommandes, commandes);
+					curseurCommandes = ((Commande) this.commandes.get(curseurCommandes)).executer(curseurCommandes, commandes);
 					if (curseurCommandes==ancienCurseur) { 
 						//le curseur n'a pas changé, c'est donc une commande qui prend du temps
 						onAvanceDansLesCommandes = false;

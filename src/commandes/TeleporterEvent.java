@@ -6,14 +6,11 @@ import jeu.Partie;
 import main.Commande;
 import main.Fenetre;
 import map.Event;
-import map.PageEvent;
 
 /**
  * Placer un Event ailleurs sur la Map
  */
-public class TeleporterEvent implements CommandeEvent {
-	private PageEvent page;
-	
+public class TeleporterEvent extends Commande implements CommandeEvent {
 	private int nouveauX;
 	private int nouveauY;
 	private boolean utiliserVariables; //false:valeurs true:variables 
@@ -31,8 +28,8 @@ public class TeleporterEvent implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
-		final Event cetEvent = ((CommandeEvent) commandes.get(0)).getPage().event; //TODO pourquoi pas tout simplement "his" ?
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		final Event cetEvent = commandes.get(0).page.event; //TODO pourquoi pas tout simplement "this" ?
 		if (utiliserVariables) {
 			final Partie partieActuelle = Fenetre.getPartieActuelle();
 			cetEvent.x = partieActuelle.variables[nouveauX]*Fenetre.TAILLE_D_UN_CARREAU;
@@ -42,16 +39,6 @@ public class TeleporterEvent implements CommandeEvent {
 			cetEvent.y = nouveauY*Fenetre.TAILLE_D_UN_CARREAU;
 		}
 		return curseurActuel+1;
-	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

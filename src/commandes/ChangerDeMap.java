@@ -8,14 +8,11 @@ import main.Commande;
 import main.Fenetre;
 import map.LecteurMap;
 import map.Map;
-import map.PageEvent;
 
 /**
  * Le Heros est téléporté sur une autre Map.
  */
-public class ChangerDeMap implements CommandeEvent {
-	private PageEvent page;
-	
+public class ChangerDeMap extends Commande implements CommandeEvent {
 	private final int numeroNouvelleMap;
 	private final int xDebutHeros;
 	private final int yDebutHeros;
@@ -44,7 +41,7 @@ public class ChangerDeMap implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre());
 		final int directionHeros = this.page.event.map.heros.direction;
 		try {
@@ -54,16 +51,6 @@ public class ChangerDeMap implements CommandeEvent {
 			e.printStackTrace();
 		}
 		return curseurActuel+1;
-	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

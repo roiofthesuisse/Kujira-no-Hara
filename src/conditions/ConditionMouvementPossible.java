@@ -6,7 +6,6 @@ import org.json.JSONObject;
 
 import commandes.CommandeEvent;
 import commandes.Mouvement;
-import map.PageEvent;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -14,8 +13,6 @@ import utilitaire.InterpreteurDeJson;
  * L'Event considéré est mentionné dans l'objet Mouvement.
  */
 public class ConditionMouvementPossible extends Condition implements CommandeEvent {
-	private PageEvent page;
-	
 	private Mouvement mouvement;
 
 	/**
@@ -33,13 +30,14 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionMouvementPossible(final HashMap<String, Object> parametres) {
-		this(InterpreteurDeJson.recupererUnMouvement((JSONObject) parametres.get("mouvement")),
+		this(InterpreteurDeJson.recupererUnMouvement((JSONObject) parametres.get("mouvement"), null),
 				(int) parametres.get("numero"));
 	}
 
 	@Override
 	public final boolean estVerifiee() {
-		return mouvement.mouvementPossible();
+		this.mouvement.page = this.page; //on informe le Mouvement de sa Page
+		return this.mouvement.mouvementPossible();
 	}
 
 	/**
@@ -49,15 +47,5 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	public final boolean estLieeAuHeros() {
 		return false;
 	}
-
-	@Override
-	public final PageEvent getPage() {
-		return page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
-	}
-
+	
 }

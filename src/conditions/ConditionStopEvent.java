@@ -1,14 +1,11 @@
 package conditions;
 
 import commandes.CommandeEvent;
-import map.PageEvent;
 
 /**
  * Vérifier si le Lecteur de Map a figé tous les Events.
  */
 public class ConditionStopEvent extends Condition implements CommandeEvent {
-	private PageEvent page;
-	
 	boolean valeurQuIlEstCenseAvoir;
 	
 	/**
@@ -21,7 +18,7 @@ public class ConditionStopEvent extends Condition implements CommandeEvent {
 	
 	@Override
 	public final boolean estVerifiee() {
-		return ((CommandeEvent) this).getPage().event.map.lecteur.stopEvent == valeurQuIlEstCenseAvoir;
+		return this.page.event.map.lecteur.stopEvent == valeurQuIlEstCenseAvoir;
 	}
 	
 	/**
@@ -30,16 +27,6 @@ public class ConditionStopEvent extends Condition implements CommandeEvent {
 	 */
 	public final boolean estLieeAuHeros() {
 		return false;
-	}
-
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

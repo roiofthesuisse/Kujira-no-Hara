@@ -27,12 +27,11 @@ public class AvancerAleatoirement extends Avancer {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AvancerAleatoirement(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("idEventADeplacer") );
+		this( parametres.containsKey("idEventADeplacer") ? (int) parametres.get("idEventADeplacer") : null );
 	}
 	
 	@Override
-	public final void reinitialiser() {
-		super.reinitialiser();
+	public final void reinitialiserSpecifique() {
 		final int nouvelleDirection = rand.nextInt(4);
 		//ne pas faire demi-tour, ça donne l'impression que l'Event ne sait pas où il va
 		if ( (direction==Direction.BAS && nouvelleDirection!=Direction.HAUT) 

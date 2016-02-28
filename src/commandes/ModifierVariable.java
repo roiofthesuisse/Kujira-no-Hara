@@ -7,15 +7,12 @@ import java.util.Random;
 import jeu.Partie;
 import main.Commande;
 import main.Fenetre;
-import map.PageEvent;
 
 /**
  * Modifier la valeur d'une variable
  * TODO rendre cette classe abstraite et utiliser l'héritage pour traiter tous les cas séparément
  */
-public class ModifierVariable implements CommandeEvent {
-	private PageEvent page;
-	
+public class ModifierVariable extends Commande implements CommandeEvent {
 	final int numeroVariable;
 	final String operationAFaire;
 	final String operationAFaire2;
@@ -70,7 +67,7 @@ public class ModifierVariable implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		int valeur;
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		//operationAFaire2 donne la provenance de la valeur modificatrice
@@ -114,16 +111,6 @@ public class ModifierVariable implements CommandeEvent {
 				break;
 		}
 		return curseurActuel+1;
-	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

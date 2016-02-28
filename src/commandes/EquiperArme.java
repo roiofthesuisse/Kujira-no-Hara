@@ -5,14 +5,11 @@ import java.util.HashMap;
 
 import main.Commande;
 import main.Fenetre;
-import map.PageEvent;
 
 /**
  * Equiper le Heros avec une Arme qu'il possède
  */
-public class EquiperArme implements CommandeEvent {
-	private PageEvent page;
-	
+public class EquiperArme extends Commande implements CommandeEvent {
 	int idArme;
 	
 	/**
@@ -32,19 +29,9 @@ public class EquiperArme implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		Fenetre.getPartieActuelle().equiperArme(this.idArme);
 		return curseurActuel+1;
-	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

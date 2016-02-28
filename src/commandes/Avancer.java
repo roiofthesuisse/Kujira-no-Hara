@@ -1,29 +1,19 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import main.Commande;
 import main.Fenetre;
 import map.Deplacement;
 import map.Event;
 import map.Heros;
 import map.Hitbox;
-import map.LecteurMap;
-import map.PageEvent;
 import map.Event.Direction;
 
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases
  */
-public class Avancer implements CommandeEvent, Mouvement {
-	private PageEvent page;
-	private boolean estTermine;
-	private boolean estCommence;
-	
-	protected Integer idEventADeplacer; //Integer car clé d'une HashMap
+public class Avancer extends Mouvement {	
 	protected int direction;
-	public int nombreDePixels;
 	public int ceQuiAEteFait; //avancée en pixel, doit atteindre nombreDeCarreaux*32
 	
 	/**
@@ -32,10 +22,10 @@ public class Avancer implements CommandeEvent, Mouvement {
 	 * @param direction dans laquelle l'Event doit avancer
 	 * @param nombreDePixels distance parcourue
 	 */
-	public Avancer(final int idEventADeplacer, final int direction, final int nombreDePixels) {
+	public Avancer(final Integer idEventADeplacer, final int direction, final int nombreDePixels) {
 		this.idEventADeplacer = idEventADeplacer;
 		this.direction = direction;
-		this.nombreDePixels = nombreDePixels;
+		this.etapes = nombreDePixels;
 	}
 	
 	/**
@@ -43,7 +33,7 @@ public class Avancer implements CommandeEvent, Mouvement {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Avancer(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("idEventADeplacer"),
+		this( parametres.containsKey("idEventADeplacer") ? (int) parametres.get("idEventADeplacer") : null,
 			  (int) parametres.get("direction"), 
 			  (int) parametres.get("nombreDeCarreaux")*Fenetre.TAILLE_D_UN_CARREAU );
 	}
@@ -57,102 +47,37 @@ public class Avancer implements CommandeEvent, Mouvement {
 	}
 	
 	/**
-	 * Si la Page de comportement doit être rejouée, il faut réinitialiser cette Commande.
-	 * Réinitialiser un mouvement le déclare non fait, et change la direction en cas de mouvement aléatoire.
-	 */
-	public void reinitialiser() {
-		this.estCommence = false;
-		this.estTermine = false;
-		this.ceQuiAEteFait = 0;
-	}
-	
-	/**
-	 * Ajouter ce Mouvement à la liste des Mouvements forcés pour cet Event.
-	 */
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
-		if (!this.estCommence) {
-			//le Mouvement n'a pas encore été ajouté à la liste des Mouvements forcés
-			final Event event = this.getEventADeplacer();
-			event.deplacementForce.mouvements.add(this);
-		}
-		
-		if (this.isTermine()) {
-			//le Mouvement est terminé, on passe à la CommandeEvent suivante
-			this.reinitialiser();
-			return curseurActuel+1;
-		} else {
-			//le Mouvement n'est pas terminé, on attend avant de passer à la CommandeEvent suivante
-			return curseurActuel;
-		}
-	}
-	
-	/**
 	 * Déplace l'Event pour son déplacement naturel ou pour un déplacement forcé.
 	 * Vu qu'on utilise "deplacementActuel", un déplacement forcé devra être inséré artificiellement dans la liste.
 	 * @param deplacement deplacement dont est issu le mouvement (soit déplacement naturel, soit déplacement forcé)
 	 */
-	public final void executerLeMouvement(final Deplacement deplacement) {
-		try {
-			final Event event = this.getEventADeplacer();
-			final int sens = this.getDirection();
-			if ( this.mouvementPossible() ) {
-				event.avance = true;
-				//déplacement :
-				switch (sens) {
-					case Direction.BAS : 
-						event.y += event.vitesseActuelle; 
-						break;
-					case Direction.GAUCHE : 
-						event.x -= event.vitesseActuelle; 
-						break;
-					case Direction.DROITE : 
-						event.x += event.vitesseActuelle; 
-						break;
-					case Direction.HAUT : 
-						event.y -= event.vitesseActuelle; 
-						break;
-				}
-				this.ceQuiAEteFait += event.vitesseActuelle;
-				//quelle sera la commande suivante ?
-				if ( this.ceQuiAEteFait >= this.nombreDePixels ) {
-					//le Mouvement est terminé
-					this.setTermine();
-					if (deplacement.repeterLeDeplacement) {
-						//on le réinitialise et on le met en bout de file
-						this.reinitialiser();
-						deplacement.mouvements.add(this);
-					}
-					//on passe au mouvement suivant
-					deplacement.mouvements.remove(0);
-				}
-			} else {
-				event.avance = false;
-				if (deplacement.ignorerLesMouvementsImpossibles) {
-					//on ignore ce Mouvement impossible et on passe au suivant
-					this.setTermine();
-					if (deplacement.repeterLeDeplacement) {
-						//on le réinitialise et on le met en bout de file
-						this.reinitialiser();
-						deplacement.mouvements.add(this);
-					}
-					//on passe au mouvement suivant
-					deplacement.mouvements.remove(0);
-				}
-			}
-			
-		} catch (NullPointerException e1) {
-			//pas de mouvement pour cet évènement
-		} catch (Exception e) {
-			System.out.println("Erreur lors du mouvement de l'évènement :");
-			e.printStackTrace();
+	@Override
+	public final void calculDuMouvement(final Event event) {
+		final int sens = this.getDirection();
+		event.avance = true;
+		//déplacement :
+		switch (sens) {
+			case Direction.BAS : 
+				event.y += event.vitesseActuelle; 
+				break;
+			case Direction.GAUCHE : 
+				event.x -= event.vitesseActuelle; 
+				break;
+			case Direction.DROITE : 
+				event.x += event.vitesseActuelle; 
+				break;
+			case Direction.HAUT : 
+				event.y -= event.vitesseActuelle; 
+				break;
 		}
+		this.ceQuiAEteFait += event.vitesseActuelle;
 	}
 	
 	/**
 	 * Le mouvement dans cette Direction est-il possible ?
 	 * @return si le mouvement est possible oui ou non
 	 */
+	@Override
 	public final boolean mouvementPossible() {
 		final Event event = this.getEventADeplacer();
 		final int sens = this.getDirection();
@@ -231,33 +156,20 @@ public class Avancer implements CommandeEvent, Mouvement {
 		}
 		return reponse;
 	}
-	
-	/**
-	 * Tout Mouvement déplace un Event de la Map en particulier.
-	 * @return Event qui va être déplacé
-	 */
-	public final Event getEventADeplacer() {
-		return ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
-	}
-	
+
 	@Override
-	public final PageEvent getPage() {
-		return this.page;
+	protected final void terminerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+		event.avance = false;
 	}
 
 	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
+	protected final void ignorerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+		event.avance = false;
 	}
 
 	@Override
-	public final boolean isTermine() {
-		return this.estTermine;
-	}
-	
-	@Override
-	public final void setTermine() {
-		this.estTermine = true;
+	protected void reinitialiserSpecifique() {
+		// rien
 	}
 	
 }

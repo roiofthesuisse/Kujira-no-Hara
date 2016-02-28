@@ -4,14 +4,11 @@ import java.util.ArrayList;
 
 import main.Commande;
 import main.Fenetre;
-import map.PageEvent;
 
 /**
  * Modifier la valeur d'un interrupteur
  */
-public class ModifierInterrupteur implements CommandeEvent {
-	private PageEvent page;
-	
+public class ModifierInterrupteur extends Commande implements CommandeEvent {
 	int numeroInterrupteur;
 	boolean valeurADonner;
 	
@@ -26,19 +23,9 @@ public class ModifierInterrupteur implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		Fenetre.getPartieActuelle().interrupteurs[numeroInterrupteur] = valeurADonner;
 		return curseurActuel+1;
-	}
-
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

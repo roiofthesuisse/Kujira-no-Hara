@@ -10,16 +10,13 @@ import javax.imageio.ImageIO;
 
 import main.Commande;
 import map.LecteurMap;
-import map.PageEvent;
 import menu.Texte;
 import utilitaire.GestionClavier;
 
 /**
  * Afficher un Message dans une boîte de dialogue
  */
-public class Message implements CommandeEvent {
-	PageEvent page;
-	
+public class Message extends Commande implements CommandeEvent {
 	//constantes
 	private static final int MARGE_DU_TEXTE = 24;
 	
@@ -44,7 +41,7 @@ public class Message implements CommandeEvent {
 	}
 
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final LecteurMap lecteur = this.page.event.map.lecteur;
 		lecteur.normaliserApparenceDuHerosAvantMessage();
 		//si le message à afficher est différent du message affiché, on change !
@@ -77,16 +74,6 @@ public class Message implements CommandeEvent {
 			//on laisse le message ouvert
 			return curseurActuel;
 		}
-	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

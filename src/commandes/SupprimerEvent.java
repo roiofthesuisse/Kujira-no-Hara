@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import map.PageEvent;
 
 /**
  * Supprimer un Event de la Map
  */
-public class SupprimerEvent implements CommandeEvent {
-	private PageEvent page;
+public class SupprimerEvent extends Commande implements CommandeEvent {
 	
 	/**
 	 * Constructeur vide
@@ -28,21 +26,11 @@ public class SupprimerEvent implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final int numeroEventASupprimer = this.page.event.numero;
 		this.page.event.pageActive = null;
 		this.page.event.map.supprimerEvenement(numeroEventASupprimer);
 		return curseurActuel+1;
-	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

@@ -4,15 +4,11 @@ import java.util.HashMap;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
-import map.PageEvent;
-import menu.ElementDeMenu;
 
 /**
  * Balise "fin" de la Condition située parmi les Commandes Event.
  */
 public class ConditionFin extends Condition implements CommandeEvent, CommandeMenu {
-	private PageEvent page;
-	private ElementDeMenu element;
 
 	/**
 	 * Constructeur explicite
@@ -41,26 +37,6 @@ public class ConditionFin extends Condition implements CommandeEvent, CommandeMe
 	 */
 	public final boolean estLieeAuHeros() {
 		return false;
-	}
-	
-	@Override
-	public final ElementDeMenu getElement() {
-		return this.element;
-	}
-
-	@Override
-	public final void setElement(final ElementDeMenu element) {
-		this.element = element;
-	}
-
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

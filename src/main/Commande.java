@@ -2,11 +2,19 @@ package main;
 
 import java.util.ArrayList;
 
+import map.PageEvent;
+import menu.ElementDeMenu;
+
 /**
  * Une Commande modifie l'état du jeu.
  * Elle peut être lancée par une Page d'Event, ou par un Elément de Menu.
  */
-public interface Commande {
+public abstract class Commande {
+	/** [CommandeEvent] Eventuelle Page d'Event qui a appelé cette Commande */
+	public PageEvent page;
+	/** [CommandeMenu] Element de Menu qui a appelé cette Commande de Menu */
+	public ElementDeMenu element;
+	
 	/**
 	 * Execute la Commande totalement ou partiellement.
 	 * Le curseur peut être inchangé (attendre n frames...) ;
@@ -16,5 +24,5 @@ public interface Commande {
 	 * @param commandes liste des Commandes de la Page de comportement en train d'être lue
 	 * @return nouvelle position du curseur après l'execution totale ou partielle de la Commande
 	 */
-	int executer(int curseurActuel, ArrayList<? extends Commande> commandes);
+	public abstract int executer(int curseurActuel, ArrayList<Commande> commandes);
 }

@@ -1,15 +1,12 @@
 package map;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import commandes.CommandeEvent;
 import commandes.Mouvement;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * Un Déplacement est un ensemble de mouvements subis par un Event.
@@ -17,7 +14,7 @@ import commandes.Mouvement;
  * ou forcé (provoqué par des Commandes Event).
  */
 public class Deplacement {
-	public final ArrayList<CommandeEvent> mouvements;
+	public final ArrayList<Mouvement> mouvements;
 	public boolean ignorerLesMouvementsImpossibles = false;
 	public boolean repeterLeDeplacement = true;
 	
@@ -27,7 +24,7 @@ public class Deplacement {
 	 * @param ignorerLesMouvementsImpossibles si le Mouvement est impossible, passe-t-on au suivant ?
 	 * @param repeterLeDeplacement faut-il répéter le Déplacement à partir du début une fois qu'il est terminé ?
 	 */
-	public Deplacement(final ArrayList<CommandeEvent> mouvements, final boolean ignorerLesMouvementsImpossibles, final boolean repeterLeDeplacement) {
+	public Deplacement(final ArrayList<Mouvement> mouvements, final boolean ignorerLesMouvementsImpossibles, final boolean repeterLeDeplacement) {
 		this.mouvements = mouvements;
 		this.ignorerLesMouvementsImpossibles = ignorerLesMouvementsImpossibles;
 		this.repeterLeDeplacement = repeterLeDeplacement;
@@ -37,31 +34,14 @@ public class Deplacement {
 	 * Constructeur générique
 	 * @param idEvent identifiant de l'Event à déplacer
 	 * @param deplacementJSON fichier JSON décrivant le Déplacement
+	 * @param page de l'Event qui contient le Mouvement
 	 */
-	public Deplacement(final Integer idEvent, final JSONObject deplacementJSON) {
-		this.mouvements = new ArrayList<CommandeEvent>();
+	public Deplacement(final Integer idEvent, final JSONObject deplacementJSON, final PageEvent page) {
+		this.mouvements = new ArrayList<Mouvement>();
 		for (Object actionDeplacementJSON : deplacementJSON.getJSONArray("mouvements")) {
-			try {
-				final Class<?> classeActionDeplacement = Class.forName("commandes."+((JSONObject) actionDeplacementJSON).get("nom"));
-				final Iterator<String> parametresNoms = ((JSONObject) actionDeplacementJSON).keys();
-				String parametreNom;
-				Object parametreValeur;
-				final HashMap<String, Object> parametres = new HashMap<String, Object>();
-				while (parametresNoms.hasNext()) {
-					parametreNom = parametresNoms.next();
-					if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
-						parametreValeur = ((JSONObject) actionDeplacementJSON).get(parametreNom);
-						parametres.put(parametreNom, parametreValeur);
-					}
-				}
-				parametres.put("idEventADeplacer", idEvent);
-				final Constructor<?> constructeurActionDeplacement = classeActionDeplacement.getConstructor(HashMap.class);
-				final CommandeEvent actionDeplacement = (CommandeEvent) constructeurActionDeplacement.newInstance(parametres);
-				this.mouvements.add(actionDeplacement);
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
+			this.mouvements.add( InterpreteurDeJson.recupererUnMouvement((JSONObject) actionDeplacementJSON, page) );
 		}
+		
 		try {
 			this.repeterLeDeplacement = (boolean) deplacementJSON.get("repeterLeDeplacement");
 		} catch (JSONException e2) {

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import commandes.CommandeMenu;
+import main.Commande;
 import main.Lecteur;
 
 /**
@@ -27,8 +27,8 @@ public abstract class ElementDeMenu {
 	public int numero;
 	public boolean selectionnable = true;
 	public boolean selectionne = false;
-	protected ArrayList<CommandeMenu> comportementSelection;
-	protected ArrayList<CommandeMenu> comportementConfirmation;
+	protected ArrayList<Commande> comportementSelection;
+	protected ArrayList<Commande> comportementConfirmation;
 	public BufferedImage image;
 	public int x;
 	public int y;
@@ -144,7 +144,7 @@ public abstract class ElementDeMenu {
 	public final void confirmer() {
 		if (this.comportementConfirmation != null && this.comportementConfirmation.size()>0) {
 			int i = 0;
-			for (CommandeMenu commande : this.comportementConfirmation) {
+			for (Commande commande : this.comportementConfirmation) {
 				i = commande.executer(i, this.comportementConfirmation);
 			}
 		}

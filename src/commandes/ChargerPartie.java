@@ -5,13 +5,11 @@ import java.util.ArrayList;
 import jeu.Partie;
 import main.Commande;
 import main.Fenetre;
-import menu.ElementDeMenu;
 
 /**
  * Charger une Partie dans le menu dédié
  */
-public class ChargerPartie implements CommandeMenu {
-	private ElementDeMenu element;
+public class ChargerPartie extends Commande implements CommandeMenu {
 	private final int numeroDeSauvegarde;
 	
 	/**
@@ -29,19 +27,9 @@ public class ChargerPartie implements CommandeMenu {
 		fenetre.setPartieActuelle( Partie.chargerPartie(this.numeroDeSauvegarde) );
 		fenetre.ouvrirLaPartie();
 	}
-
-	@Override
-	public final ElementDeMenu getElement() {
-		return this.element;
-	}
-
-	@Override
-	public final void setElement(final ElementDeMenu element) {
-		this.element = element;
-	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.executer();
 		return curseurActuel+1;
 	}

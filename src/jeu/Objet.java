@@ -17,6 +17,7 @@ import commandes.AfficherDescription;
 import commandes.CommandeMenu;
 import conditions.Condition;
 import conditions.ConditionObjetPossede;
+import main.Commande;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -32,7 +33,7 @@ public class Objet {
 	private final String nomIcone;
 	private BufferedImage icone;
 	public final String description;
-	public final ArrayList<CommandeMenu> effet;
+	public final ArrayList<Commande> effet;
 	
 	/**
 	 * Constructeur explicite
@@ -42,7 +43,7 @@ public class Objet {
 	 * @param description de l'Objet
 	 * @param effet de l'Objet lorsqu'on le consomme
 	 */
-	private Objet(final int numero, final String nom, final String nomIcone, final String description, final ArrayList<CommandeMenu> effet) {
+	private Objet(final int numero, final String nom, final String nomIcone, final String description, final ArrayList<Commande> effet) {
 		this.numero = numero;
 		this.nom = nom;
 		this.nomIcone = nomIcone;
@@ -60,7 +61,7 @@ public class Objet {
 			(String) parametres.get("nom"),
 			(String) parametres.get("nomIcone"),
 			(String) parametres.get("description"),
-			(ArrayList<CommandeMenu>) parametres.get("effet")
+			(ArrayList<Commande>) parametres.get("effet")
 		);
 	}
 
@@ -148,8 +149,8 @@ public class Objet {
 	 * Si l'Objet est sélectionné dans le Menu, la description de l'Objet est affichée.
 	 * @return liste de Commandes destinée au Menu
 	 */
-	public final ArrayList<CommandeMenu> getComportementSelection() {
-		final ArrayList<CommandeMenu> comportementSelection = new ArrayList<CommandeMenu>();
+	public final ArrayList<Commande> getComportementSelection() {
+		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
 		comportementSelection.add(new AfficherDescription(this.description));
 		return comportementSelection;
 	}
@@ -159,7 +160,7 @@ public class Objet {
 	 * Si l'Objet est validé dans le Menu, il est consommé.
 	 * @return effet de l'Objet
 	 */
-	public final ArrayList<CommandeMenu> getComportementConfirmation() {
+	public final ArrayList<Commande> getComportementConfirmation() {
 		return this.effet;
 	}
 }

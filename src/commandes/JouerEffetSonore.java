@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import map.PageEvent;
 import son.LecteurAudio;
 
 /**
  * Jouer un effet sonore.
  */
-public class JouerEffetSonore implements CommandeEvent {
-	private PageEvent page;
-	
+public class JouerEffetSonore extends Commande implements CommandeEvent {
 	private final String nomFichierSonore;
 	
 	/**
@@ -31,19 +28,9 @@ public class JouerEffetSonore implements CommandeEvent {
 	}
 	
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<? extends Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		LecteurAudio.playSe(nomFichierSonore);
 		return curseurActuel+1;
-	}
-	
-	@Override
-	public final PageEvent getPage() {
-		return this.page;
-	}
-
-	@Override
-	public final void setPage(final PageEvent page) {
-		this.page = page;
 	}
 
 }

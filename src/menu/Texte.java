@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import commandes.CommandeMenu;
+import main.Commande;
 import main.Lecteur;
 
 /**
@@ -38,7 +39,7 @@ public class Texte extends ElementDeMenu {
 	 * @param c2 c2 comportement à la confirmation
 	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ArrayList<CommandeMenu> c1, final ArrayList<CommandeMenu> c2, final Menu menu) {
+	public Texte(final String contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final Menu menu) {
 		this(contenu, xDebut, yDebut, Texte.TAILLE_MOYENNE, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, menu);
 	}
 	
@@ -53,7 +54,7 @@ public class Texte extends ElementDeMenu {
 	 * @param c2 comportement à la confirmation
 	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final ArrayList<CommandeMenu> c1, final ArrayList<CommandeMenu> c2, final Menu menu) {
+	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final Menu menu) {
 		this(contenu, xDebut, yDebut, taille, selectionnable, OPACITE_MAXIMALE, c1, c2, menu);
 	}
 	
@@ -69,19 +70,19 @@ public class Texte extends ElementDeMenu {
 	 * @param c2 comportement à la confirmation
 	 * @param menu auquel le Texte appartient
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final int opacite, final ArrayList<CommandeMenu> c1, final ArrayList<CommandeMenu> c2, final Menu menu) {
+	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final Menu menu) {
 		this.menu = menu;
 		this.selectionnable = selectionnable;
 		this.comportementSelection = c1;
 		if (comportementSelection!=null && comportementSelection.size()>0) {
-			for (CommandeMenu commande : comportementSelection) {
-				commande.setElement(this);
+			for (Commande commande : comportementSelection) {
+				commande.element = this;
 			}
 		}
 		this.comportementConfirmation = c2;
 		if (comportementConfirmation!=null && comportementConfirmation.size()>0) {
-			for (CommandeMenu commande : comportementConfirmation) {
-				commande.setElement(this);
+			for (Commande commande : comportementConfirmation) {
+				commande.element = this;
 			}
 		}
 		this.contenu = contenu;
@@ -166,8 +167,8 @@ public class Texte extends ElementDeMenu {
 	@Override
 	public final void executerLeComportementALArrivee() { //lorsque la sélection arrive sur ce texte
 		if ( comportementSelection!=null && comportementSelection.size()>0) {
-			for (CommandeMenu commande : comportementSelection) {
-				commande.executer();
+			for (Commande commande : comportementSelection) {
+				((CommandeMenu) commande).executer();
 			}
 		}
 	}

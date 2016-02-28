@@ -16,6 +16,7 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import commandes.Mouvement;
 import conditions.Condition;
+import main.Commande;
 import map.Event;
 import map.PageEvent;
 
@@ -156,16 +157,17 @@ public abstract class InterpreteurDeJson {
 	 * @param commandesJSON tableau JSON contenant les Commandes au format JSON
 	 * @param page qui contient ces Commandes Event
 	 */
-	public static void recupererLesCommandes(final ArrayList<CommandeEvent> commandes, final JSONArray commandesJSON, final PageEvent page) {
+	public static void recupererLesCommandesEvent(final ArrayList<Commande> commandes, final JSONArray commandesJSON, final PageEvent page) {
 		for (Object commandeJSON : commandesJSON) {
 			try {
 				Class<?> classeCommande;
+				final String nomClasseCommande = ((JSONObject) commandeJSON).getString("nom");
 				try {
 					//la Commande est juste une Commande du package "commandes"
-					classeCommande = Class.forName("commandes."+((JSONObject) commandeJSON).get("nom"));
+					classeCommande = Class.forName("commandes." + nomClasseCommande);
 				} catch (ClassNotFoundException e0) {
 					//la Commande est une Condition du package "conditions"
-					classeCommande = Class.forName("conditions."+((JSONObject) commandeJSON).get("nom"));
+					classeCommande = Class.forName("conditions." + nomClasseCommande);
 				}
 				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
 				String parametreNom; //nom du paramètre pour instancier la Commande Event
@@ -179,10 +181,16 @@ public abstract class InterpreteurDeJson {
 					}
 				}
 				final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
-				final CommandeEvent commande = (CommandeEvent) constructeurCommande.newInstance(parametres);
-				commande.setPage(page);
-				commandes.add(commande);
+				final Commande commande = (Commande) constructeurCommande.newInstance(parametres);
+				commande.page = page;
+				//on vérifie que c'est bien une CommandeEvent
+				if (commande instanceof CommandeEvent) {
+					commandes.add(commande);
+				} else {
+					System.err.println("La commande "+nomClasseCommande+"n'est pas une CommandeEvent !");
+				}
 			} catch (Exception e1) {
+				System.err.println("Impossible de traduire l'objet JSON en CommandeEvent.");
 				e1.printStackTrace();
 			}
 		}
@@ -196,7 +204,8 @@ public abstract class InterpreteurDeJson {
 	public static void recupererLesCommandesMenu(final ArrayList<CommandeMenu> commandes, final JSONArray commandesJSON) {
 		for (Object commandeJSON : commandesJSON) {
 			try {
-				final Class<?> classeCommande = Class.forName("commandes."+((JSONObject) commandeJSON).get("nom"));
+				final String nomClasseCommande = ((JSONObject) commandeJSON).getString("nom");
+				final Class<?> classeCommande = Class.forName("commandes." + nomClasseCommande);
 				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
 				String parametreNom; //nom du paramètre pour instancier la Commande Event
 				Object parametreValeur; //valeur du paramètre pour instancier la Commande Event
@@ -210,8 +219,14 @@ public abstract class InterpreteurDeJson {
 				}
 				final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
 				final CommandeMenu commande = (CommandeMenu) constructeurCommande.newInstance(parametres);
-				commandes.add(commande);
+				//on vérifie que c'est bien une CommandeMenu
+				if (commande instanceof CommandeMenu) {
+					commandes.add(commande);
+				} else {
+					System.err.println("La commande "+nomClasseCommande+" n'est pas une CommandeMenu !");
+				}
 			} catch (Exception e1) {
+				System.err.println("Impossible de traduire l'objet JSON en CommandeMenu.");
 				e1.printStackTrace();
 			}
 		}
@@ -275,13 +290,15 @@ public abstract class InterpreteurDeJson {
 	/**
 	 * Traduit un objet JSON représentant un Mouvement en un vrai objet Mouvement.
 	 * @param mouvementJSON objet JSON représentant un Mouvement
+	 * @param page de l'Event qui contient le Mouvement
 	 * @return un objet Mouvement
 	 */
-	public static Mouvement recupererUnMouvement(final JSONObject mouvementJSON) {
+	public static Mouvement recupererUnMouvement(final JSONObject mouvementJSON, final PageEvent page) {
 		Class<?> classeMouvement;
+		final String nomClasseMouvement = ((JSONObject) mouvementJSON).getString("nom");
 		Mouvement mouvement = null;
 		try {
-			classeMouvement = Class.forName("commandes."+(String) ((JSONObject) mouvementJSON).get("nom"));
+			classeMouvement = Class.forName("commandes." + nomClasseMouvement);
 			final Iterator<String> parametresNoms = ((JSONObject) mouvementJSON).keys();
 			String parametreNom; //nom du paramètre pour instancier le mouvement
 			Object parametreValeur; //valeur du paramètre pour instancier le mouvement
@@ -295,9 +312,9 @@ public abstract class InterpreteurDeJson {
 			}
 			final Constructor<?> constructeurMouvement = classeMouvement.getConstructor(parametres.getClass());
 			mouvement = (Mouvement) constructeurMouvement.newInstance(parametres);
-			//mouvement.setPage(page);
+			mouvement.page = page;
 		} catch (Exception e) {
-			System.err.println("Impossible de traduire l'objet JSON en Mouvement.");
+			System.err.println("Impossible de traduire l'objet JSON en Mouvement "+nomClasseMouvement);
 			e.printStackTrace();
 		}
 		return mouvement;
