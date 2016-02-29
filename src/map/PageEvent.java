@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import commandes.Deplacement;
 import conditions.Condition;
 import conditions.ConditionParler;
 import main.Commande;
@@ -190,7 +191,7 @@ public class PageEvent {
 		
 		//mouvement de l'event lors de cette page
 		try {
-			this.deplacementNaturel = new Deplacement(idEvent, pageJSON.getJSONObject("deplacement"), this);
+			this.deplacementNaturel = new Deplacement(idEvent, pageJSON.getJSONObject("deplacement"), this );
 		} catch (Exception e) {
 			//pas de déplacement pour cette Page
 			this.deplacementNaturel = null;

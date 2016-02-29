@@ -1,9 +1,8 @@
-package commandes;
+package mouvements;
 
 import java.util.HashMap;
 
 import main.Fenetre;
-import map.Deplacement;
 import map.Event;
 
 /**
@@ -30,8 +29,7 @@ public class Sauter extends Mouvement {
 	 * @param x nombre de cases de déplacement en horizontal
 	 * @param y nombre de cases de déplacement en vertical
 	 */
-	public Sauter(final Integer idEventADeplacer, final int x, final int y) {
-		this.idEventADeplacer = idEventADeplacer;
+	public Sauter(final int x, final int y) {
 		this.x = x;
 		this.y = y;
 		if (x>y) {
@@ -60,14 +58,13 @@ public class Sauter extends Mouvement {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Sauter(final HashMap<String, Object> parametres) {
-		this( parametres.containsKey("idEventADeplacer") ? (int) parametres.get("idEventADeplacer") : null,
-			  (int) parametres.get("x"), 
+		this( (int) parametres.get("x"), 
 			  (int) parametres.get("y") );
 	}
 	
-	/**
-	 * Déplace l'Event pour son déplacement naturel ou pour un déplacement forcé.
-	 * Vu qu'on utilise "deplacementActuel", un déplacement forcé devra être inséré artificiellement dans la liste.
+	/** 
+	 * Applique l'effet du Mouvement sur la Map et les Events.
+	 * Puis incrémente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	public final void calculDuMouvement(final Event event) {
@@ -124,7 +121,7 @@ public class Sauter extends Mouvement {
 	}
 
 	@Override
-	protected final void terminerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+	protected final void terminerLeMouvementSpecifique(final Event event) {
 		event.saute = false;
 		event.x = this.xEventApresSaut;
 		event.y = this.yEventApresSaut;
@@ -134,7 +131,7 @@ public class Sauter extends Mouvement {
 	}
 
 	@Override
-	protected final void ignorerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+	protected final void ignorerLeMouvementSpecifique(final Event event) {
 		event.saute = false;
 	}
 

@@ -104,10 +104,16 @@
 					],
 					"commandes": [
 						{
-							"nom": "Sauter",
+							"nom": "Deplacement",
 							"idEventADeplacer": 0,
-							"x": 8,
-							"y": 0
+							"mouvements": [
+								{
+									"nom": "Sauter",
+									"x": 8,
+									"y": 0
+								}
+							],
+							"attendreLaFinDuDeplacement": true
 						}
 					],
 					"image": "bouton character.png",
@@ -130,10 +136,16 @@
 					],
 					"commandes": [
 						{
-							"nom": "Avancer",
+							"nom": "Deplacement",
 							"idEventADeplacer": 5,
-							"direction": 2,
-							"nombreDeCarreaux": 1
+							"mouvements": [
+								{
+									"nom": "Avancer",
+									"direction": 2,
+									"nombreDeCarreaux": 1
+								}
+							],
+							"attendreLaFinDuDeplacement": true
 						}
 					],
 					"image": "bouton character.png",

@@ -91,14 +91,11 @@ public class LecteurMap extends Lecteur {
 		continuerLaLectureDesPagesDeCommandesEvent();
 
 		//déplacements des évènements
-		if (!this.stopEvent) {
-			deplacerLesEvents();
-		}
+		deplacerLesEvents();
+		
 		
 		//animation des évènements
-		if (!this.stopEvent) {
-			animerLesEvents();
-		}
+		animerLesEvents();
 
 		//DEBUG pour voir la hitbox de l'attaque du héros
 		//ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
@@ -231,6 +228,9 @@ public class LecteurMap extends Lecteur {
 	 * Donne la bonne valeur à l'attribut "animation" avant d'envoyer l'event à l'affichage.
 	 */
 	private void animerLesEvents() {
+		if (this.stopEvent) {
+			return;
+		}
 		try {
 			//TODO if( event.saute )
 			for (Event event : this.map.events) {
@@ -256,6 +256,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private void deplacerLesEvents() {
 		try {
+			//animer la marche du Héros si touche pressée
 			final ArrayList<Integer> touchesPressees = this.fenetre.touchesPressees;
 			if ( touchesPressees.contains(ToucheRole.HAUT)
 			|| touchesPressees.contains(ToucheRole.GAUCHE) 
@@ -263,6 +264,8 @@ public class LecteurMap extends Lecteur {
 			|| touchesPressees.contains(ToucheRole.DROITE) ) {
 				map.heros.avance = true;
 			}
+			
+			//déplacer chaque Event
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
 					event.deplacer(); //on effectue le déplacement si possible (pas d'obstacles rencontrés)

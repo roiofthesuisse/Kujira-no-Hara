@@ -1,8 +1,8 @@
-package commandes;
+package mouvements;
 
 import java.util.HashMap;
 
-import map.Deplacement;
+import commandes.CommandeEvent;
 import map.Event;
 
 /**
@@ -14,9 +14,7 @@ public class Attendre extends Mouvement implements CommandeEvent {
 	 * Constructeur explicite
 	 * @param nombreDeFrames qu'il faut attendre
 	 */
-	public Attendre(final Integer idEventADeplacer, final int nombreDeFrames) {
-		this.idEventADeplacer = idEventADeplacer;
-		this.ceQuiAEteFait = 0;
+	public Attendre(final int nombreDeFrames) {
 		this.etapes = nombreDeFrames;
 	}
 	
@@ -25,8 +23,7 @@ public class Attendre extends Mouvement implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Attendre(final HashMap<String, Object> parametres) {
-		this( null, //l'Event qui attend est toujours celui qui appelle la commande Attendre
-				(Integer) parametres.get("nombreDeFrames") );
+		this( (Integer) parametres.get("nombreDeFrames") );
 	}
 
 	@Override
@@ -34,6 +31,11 @@ public class Attendre extends Mouvement implements CommandeEvent {
 		return true;
 	}
 
+	/** 
+	 * Applique l'effet du Mouvement sur la Map et les Events.
+	 * Puis incrémente le compteur "ceQuiAEteFait".
+	 * @param event subissant le Mouvement
+	 */
 	@Override
 	protected final void calculDuMouvement(final Event event) {
 		//une frame s'écoule
@@ -41,18 +43,18 @@ public class Attendre extends Mouvement implements CommandeEvent {
 	}
 
 	@Override
-	protected void terminerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+	protected void terminerLeMouvementSpecifique(final Event event) {
 		//rien
 	}
 
 	@Override
-	protected void ignorerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+	protected void ignorerLeMouvementSpecifique(final Event event) {
 		//rien
 	}
 
 	@Override
 	protected void reinitialiserSpecifique() {
-		// rien
+		//rien
 	}
 	
 }

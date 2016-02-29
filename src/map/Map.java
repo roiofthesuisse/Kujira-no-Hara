@@ -38,7 +38,9 @@ public class Map {
 	public final int[][][] layers;
 	public BufferedImage imageCoucheSousHeros;
 	public BufferedImage imageCoucheSurHeros;
+	/** liste des Events rangés par coordonnée y */
 	public ArrayList<Event> events;
+	/** hashmap des Events rangés par id, 0 pour le Héros */
 	public HashMap<Integer, Event> eventsHash;
 	public Heros heros;
 	public int xDebutHeros;

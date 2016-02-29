@@ -2,8 +2,8 @@ package map;
 
 import java.util.ArrayList;
 
-import commandes.Avancer;
 import commandes.DemarrerAnimationAttaque;
+import commandes.Deplacement;
 import conditions.Condition;
 import conditions.ConditionAnimationAttaque;
 import conditions.ConditionArmeEquipee;
@@ -13,6 +13,8 @@ import conditions.ConditionToucheAction;
 import jeu.Arme;
 import main.Commande;
 import main.Fenetre;
+import mouvements.Avancer;
+import mouvements.Mouvement;
 import utilitaire.GestionClavier;
 
 /**
@@ -25,6 +27,7 @@ public class Heros extends Event {
 	public static final int VITESSE_HEROS_PAR_DEFAUT = 4;
 	public static final int FREQUENCE_HEROS_PAR_DEFAUT = 4;
 	public static final String NOM_IMAGE_HEROS = "Jiyounasu character.png";
+	
 	/**
 	 * L'animation d'attaque vaut 0 si le héros n'attaque pas.
 	 * Au début d'une attaque, elle est mise au maximum (longueur de l'animation de l'attaque).
@@ -106,25 +109,25 @@ public class Heros extends Event {
 			boolean ilYADeplacement = false;
 			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) && !touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
-				if ( new Avancer(0, Event.Direction.HAUT, pageActive.vitesse).mouvementPossible() ) {
+				if ( unPasVers(Event.Direction.HAUT).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.y -= pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.BAS) && !touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ) {
-				if ( new Avancer(0, Event.Direction.BAS, pageActive.vitesse).mouvementPossible() ) {
+				if ( unPasVers(Event.Direction.BAS).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.y += pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) && !touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ) {
-				if ( new Avancer(0, Event.Direction.GAUCHE, pageActive.vitesse).mouvementPossible() ) {
+				if ( unPasVers(Event.Direction.GAUCHE).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.x -= pageActive.vitesse;
 				}
 			}
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) && !touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
-				if ( new Avancer(0, Event.Direction.DROITE, pageActive.vitesse).mouvementPossible() ) {
+				if ( unPasVers(Event.Direction.DROITE).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.x += pageActive.vitesse;
 				}
@@ -139,6 +142,17 @@ public class Heros extends Event {
 				this.animation = 0;
 			}
 		}
+	}
+	
+	/**
+	 * Créer un pas dans la direction voulue.
+	 * @param dir direction du pas
+	 * @return un pas dans la direction demandée
+	 */
+	private Mouvement unPasVers(final int dir) {
+		final Mouvement pas = new Avancer(dir, pageActive.vitesse);
+		pas.deplacement = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false);
+		return pas;
 	}
 	
 }

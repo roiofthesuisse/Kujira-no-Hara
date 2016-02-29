@@ -14,11 +14,11 @@ import org.json.JSONObject;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
-import commandes.Mouvement;
 import conditions.Condition;
 import main.Commande;
 import map.Event;
 import map.PageEvent;
+import mouvements.Mouvement;
 
 /**
  * Classe utilitaire pour transformer les fichiers JSON en objets JSON.
@@ -30,13 +30,21 @@ public abstract class InterpreteurDeJson {
 	 * @param adresse du fichier JSON à charger
 	 * @return objet JSON
 	 * @throws FileNotFoundException fichier JSON introuvable
+	 * @throws JSONException Erreur de syntaxe dans le fichier JSON
 	 */
-	private static JSONObject ouvrirJson(final String nomFichier, final String adresse) throws FileNotFoundException {
+	private static JSONObject ouvrirJson(final String nomFichier, final String adresse) throws FileNotFoundException, JSONException {
 		final String nomFichierJson = adresse+nomFichier+".json";
 		final Scanner scanner = new Scanner(new File(nomFichierJson));
 		final String contenuFichierJson = scanner.useDelimiter("\\Z").next();
 		scanner.close();
-		return new JSONObject(contenuFichierJson);
+		try {
+			final JSONObject jsonObject = new JSONObject(contenuFichierJson);
+			return jsonObject;
+		} catch (JSONException e) {
+			System.err.println("Erreur de syntaxe dans le fichier JSON "+nomFichier);
+			e.printStackTrace();
+			throw e;
+		}
 	}
 	
 	/**
@@ -290,15 +298,14 @@ public abstract class InterpreteurDeJson {
 	/**
 	 * Traduit un objet JSON représentant un Mouvement en un vrai objet Mouvement.
 	 * @param mouvementJSON objet JSON représentant un Mouvement
-	 * @param page de l'Event qui contient le Mouvement
 	 * @return un objet Mouvement
 	 */
-	public static Mouvement recupererUnMouvement(final JSONObject mouvementJSON, final PageEvent page) {
+	public static Mouvement recupererUnMouvement(final JSONObject mouvementJSON) {
 		Class<?> classeMouvement;
 		final String nomClasseMouvement = ((JSONObject) mouvementJSON).getString("nom");
 		Mouvement mouvement = null;
 		try {
-			classeMouvement = Class.forName("commandes." + nomClasseMouvement);
+			classeMouvement = Class.forName("mouvements." + nomClasseMouvement);
 			final Iterator<String> parametresNoms = ((JSONObject) mouvementJSON).keys();
 			String parametreNom; //nom du paramètre pour instancier le mouvement
 			Object parametreValeur; //valeur du paramètre pour instancier le mouvement
@@ -312,12 +319,26 @@ public abstract class InterpreteurDeJson {
 			}
 			final Constructor<?> constructeurMouvement = classeMouvement.getConstructor(parametres.getClass());
 			mouvement = (Mouvement) constructeurMouvement.newInstance(parametres);
-			mouvement.page = page;
 		} catch (Exception e) {
 			System.err.println("Impossible de traduire l'objet JSON en Mouvement "+nomClasseMouvement);
 			e.printStackTrace();
 		}
 		return mouvement;
+	}
+	
+	/**
+	 * Traduit un JSONArray représentant les Mouvements en une liste de Mouvements.
+	 * @param mouvementsJSON JSONArray représentant les Mouvements
+	 * @return liste des Mouvements
+	 */
+	public static ArrayList<Mouvement> recupererLesMouvements(final JSONArray mouvementsJSON) {
+		final ArrayList<Mouvement> mouvements = new ArrayList<Mouvement>();
+		for (Object object : mouvementsJSON) {
+			final JSONObject mouvementJson = (JSONObject) object;
+			final Mouvement mouvement = recupererUnMouvement(mouvementJson);
+			mouvements.add(mouvement);
+		}
+		return mouvements;
 	}
 	
 }

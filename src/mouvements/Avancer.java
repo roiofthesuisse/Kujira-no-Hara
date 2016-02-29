@@ -1,9 +1,8 @@
-package commandes;
+package mouvements;
 
 import java.util.HashMap;
 
 import main.Fenetre;
-import map.Deplacement;
 import map.Event;
 import map.Heros;
 import map.Hitbox;
@@ -14,16 +13,13 @@ import map.Event.Direction;
  */
 public class Avancer extends Mouvement {	
 	protected int direction;
-	public int ceQuiAEteFait; //avancée en pixel, doit atteindre nombreDeCarreaux*32
 	
 	/**
 	 * Constructeur explicite
-	 * @param idEventADeplacer identifiant de l'Event qui subira le Mouvement
 	 * @param direction dans laquelle l'Event doit avancer
 	 * @param nombreDePixels distance parcourue
 	 */
-	public Avancer(final Integer idEventADeplacer, final int direction, final int nombreDePixels) {
-		this.idEventADeplacer = idEventADeplacer;
+	public Avancer(final int direction, final int nombreDePixels) {
 		this.direction = direction;
 		this.etapes = nombreDePixels;
 	}
@@ -33,8 +29,7 @@ public class Avancer extends Mouvement {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Avancer(final HashMap<String, Object> parametres) {
-		this( parametres.containsKey("idEventADeplacer") ? (int) parametres.get("idEventADeplacer") : null,
-			  (int) parametres.get("direction"), 
+		this( (int) parametres.get("direction"), 
 			  (int) parametres.get("nombreDeCarreaux")*Fenetre.TAILLE_D_UN_CARREAU );
 	}
 	
@@ -46,10 +41,10 @@ public class Avancer extends Mouvement {
 		return direction;
 	}
 	
-	/**
-	 * Déplace l'Event pour son déplacement naturel ou pour un déplacement forcé.
-	 * Vu qu'on utilise "deplacementActuel", un déplacement forcé devra être inséré artificiellement dans la liste.
-	 * @param deplacement deplacement dont est issu le mouvement (soit déplacement naturel, soit déplacement forcé)
+	/** 
+	 * Applique l'effet du Mouvement sur la Map et les Events.
+	 * Puis incrémente le compteur "ceQuiAEteFait".
+	 * @param event subissant le Mouvement
 	 */
 	@Override
 	public final void calculDuMouvement(final Event event) {
@@ -79,7 +74,7 @@ public class Avancer extends Mouvement {
 	 */
 	@Override
 	public final boolean mouvementPossible() {
-		final Event event = this.getEventADeplacer();
+		final Event event = this.deplacement.getEventADeplacer();
 		final int sens = this.getDirection();
 		
 		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
@@ -158,12 +153,12 @@ public class Avancer extends Mouvement {
 	}
 
 	@Override
-	protected final void terminerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+	protected final void terminerLeMouvementSpecifique(final Event event) {
 		event.avance = false;
 	}
 
 	@Override
-	protected final void ignorerLeMouvementSpecifique(final Event event, final Deplacement deplacement) {
+	protected final void ignorerLeMouvementSpecifique(final Event event) {
 		event.avance = false;
 	}
 

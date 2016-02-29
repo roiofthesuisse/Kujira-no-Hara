@@ -102,8 +102,14 @@
 							"texte": "lalala"
 						},
 						{
-							"nom": "Attendre",
-							"nombreDeFrames": 5
+							"nom": "Deplacement",
+							"mouvements": [
+								{
+									"nom": "Attendre",
+									"nombreDeFrames": 5
+								}
+							],
+							"attendreLaFinDuDeplacement": true
 						}
 					],
 					
@@ -258,10 +264,16 @@
 							}
 						},
 						{
-							"nom": "Avancer",
+							"nom": "Deplacement",
 							"idEventADeplacer": 9,
-							"direction": 1,
-							"nombreDeCarreaux": 1
+							"mouvements": [
+								{
+									"nom": "Avancer",
+									"direction": 1,
+									"nombreDeCarreaux": 1
+								}
+							],
+							"attendreLaFinDuDeplacement": true
 						},
 						{
 							"nom": "JouerEffetSonore",

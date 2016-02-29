@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 
 import commandes.CommandeEvent;
-import commandes.Mouvement;
+import mouvements.Mouvement;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -30,13 +30,12 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionMouvementPossible(final HashMap<String, Object> parametres) {
-		this(InterpreteurDeJson.recupererUnMouvement((JSONObject) parametres.get("mouvement"), null),
+		this(InterpreteurDeJson.recupererUnMouvement((JSONObject) parametres.get("mouvement")),
 				(int) parametres.get("numero"));
 	}
 
 	@Override
 	public final boolean estVerifiee() {
-		this.mouvement.page = this.page; //on informe le Mouvement de sa Page
 		return this.mouvement.mouvementPossible();
 	}
 

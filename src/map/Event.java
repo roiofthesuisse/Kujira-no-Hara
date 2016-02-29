@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import commandes.Mouvement;
+import commandes.Deplacement;
 import conditions.Condition;
 import main.Commande;
 import main.Fenetre;
+import mouvements.Mouvement;
 
 /**
  * Un Event est un élément actif du décor, voire interactif.
@@ -28,6 +29,7 @@ public class Event implements Comparable<Event> {
 	public static final boolean AU_DESSUS_DE_TOUT_PAR_DEFAUT = false;
 	public static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAUT = false;
 	public static final boolean IGNORER_LES_MOUVEMENTS_IMPOSSIBLES_PAR_DEFAUT = true;
+	public static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT = false;
 	
 	/** Map à laquelle cet Event appartient */
 	public Map map;
@@ -124,7 +126,7 @@ public class Event implements Comparable<Event> {
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
 		this.hauteurHitbox = hauteurHitbox;
-		this.deplacementForce = new Deplacement(new ArrayList<Mouvement>(), true, false);
+		this.deplacementForce = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false);
 		initialiserLesPages();
 		if (pages!=null && pages.size()>=1) {
 			attribuerLesProprietesActuelles(pages.get(0)); //par défaut, propriétés de la première page
