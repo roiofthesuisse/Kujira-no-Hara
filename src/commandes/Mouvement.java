@@ -14,7 +14,7 @@ import map.LecteurMap;
 public abstract class Mouvement extends Commande implements CommandeEvent {
 	/** id de l'Event qui va être déplacé durant ce Mouvement */
 	protected Integer idEventADeplacer; //Integer car clé d'une HashMap, et null lorsque "cet Event"
-	/** Le Mouvement est-il commencé ? */
+	/** Le Mouvement a-t-il été ajouté à la liste des Mouvements forcés ? */
 	protected boolean commence;
 	/** Le Mouvement est-il terminé ? */
 	protected boolean termine;
@@ -49,6 +49,7 @@ public abstract class Mouvement extends Commande implements CommandeEvent {
 			//le Mouvement n'a pas encore été ajouté à la liste des Mouvements forcés
 			final Event event = this.getEventADeplacer();
 			event.deplacementForce.mouvements.add(this);
+			this.commence = true;
 		}
 		
 		if (this.termine) {
