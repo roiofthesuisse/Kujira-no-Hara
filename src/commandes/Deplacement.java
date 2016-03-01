@@ -40,12 +40,13 @@ public class Deplacement extends Commande implements CommandeEvent {
 	 * @param repeterLeDeplacement faut-il rejouer le Déplacement lorsqu'on l'a terminé ?
 	 * @param attendreLaFinDuDeplacement faut-il attendre la fin du Déplacement pour passer à la Commande suivante ?
 	 */
-	public Deplacement(final Integer idEventADeplacer, final ArrayList<Mouvement> mouvements, final boolean ignorerLesMouvementsImpossibles, final boolean repeterLeDeplacement, final boolean attendreLaFinDuDeplacement) {
+	public Deplacement(final Integer idEventADeplacer, final ArrayList<Mouvement> mouvements, final boolean ignorerLesMouvementsImpossibles, final boolean repeterLeDeplacement, final boolean attendreLaFinDuDeplacement, final PageEvent page) {
 		this.idEventADeplacer = idEventADeplacer;
 		this.mouvements = mouvements;
 		this.ignorerLesMouvementsImpossibles = ignorerLesMouvementsImpossibles;
 		this.repeterLeDeplacement = repeterLeDeplacement;
 		this.attendreLaFinDuDeplacement = attendreLaFinDuDeplacement;
+		this.page = page;
 		
 		//on apprend aux Mouvements le Déplacement dont ils font partie
 		for (Mouvement mouvement : this.mouvements) {
@@ -56,16 +57,16 @@ public class Deplacement extends Commande implements CommandeEvent {
 	//TODO utiliser l'un des autres constructeurs
 	/**
 	 * Constructeur batard
-	 * @param idEvent identifiant de l'Event à déplacer, null signifie "cet Event", 0 le Héros
 	 * @param deplacementJSON fichier JSON décrivant le Déplacement
 	 * @param page de l'Event qui contient le Mouvement
 	 */
-	public Deplacement(final Integer idEvent, final JSONObject deplacementJSON, final PageEvent page) {
-		this(idEvent, 
+	public Deplacement(final JSONObject deplacementJSON, final PageEvent page) {
+		this( deplacementJSON.has("idEventADeplacer") ? (Integer) deplacementJSON.get("idEventADeplacer") : null, 
 			creerListeDesMouvements(deplacementJSON, page), 
 			deplacementJSON.has("ignorerLesMouvementsImpossibles") ? (boolean) deplacementJSON.get("ignorerLesMouvementsImpossibles") : Event.IGNORER_LES_MOUVEMENTS_IMPOSSIBLES_PAR_DEFAUT, 
 			deplacementJSON.has("repeterLeDeplacement") ? (boolean) deplacementJSON.get("repeterLeDeplacement") : Event.REPETER_LE_DEPLACEMENT_PAR_DEFAUT,
-			deplacementJSON.has("attendreLaFinDuDeplacement") ? (boolean) deplacementJSON.get("attendreLaFinDuDeplacement") : Event.ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT	
+			deplacementJSON.has("attendreLaFinDuDeplacement") ? (boolean) deplacementJSON.get("attendreLaFinDuDeplacement") : Event.ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT,
+			page
 		);
 	}
 	
@@ -78,7 +79,8 @@ public class Deplacement extends Commande implements CommandeEvent {
 			InterpreteurDeJson.recupererLesMouvements((JSONArray) parametres.get("mouvements")),
 			parametres.containsKey("ignorerLesMouvementsImpossibles") ? (boolean) parametres.get("ignorerLesMouvementsImpossibles") : Event.IGNORER_LES_MOUVEMENTS_IMPOSSIBLES_PAR_DEFAUT,
 			parametres.containsKey("repeterLeDeplacement") ? (boolean) parametres.get("repeterLeDeplacement") : Event.REPETER_LE_DEPLACEMENT_PAR_DEFAUT,
-			parametres.containsKey("attendreLaFinDuDeplacement") ? (boolean) parametres.get("attendreLaFinDuDeplacement") : Event.ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT
+			parametres.containsKey("attendreLaFinDuDeplacement") ? (boolean) parametres.get("attendreLaFinDuDeplacement") : Event.ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT,
+			parametres.containsKey("page") ? (PageEvent) parametres.get("page") : null
 		);
 	}
 	
@@ -104,6 +106,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		//on ajoute à la liste les Mouvements reçus
 		final Event event = this.getEventADeplacer();
+		this.page = event.pageActive; //TODO plutôt la page active de l'Event qui appelle la Commande
 		for (Mouvement mvt : this.mouvements) {
 			mvt.reinitialiser();
 			event.deplacementForce.mouvements.add(mvt);

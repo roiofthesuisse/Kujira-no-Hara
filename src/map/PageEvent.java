@@ -191,7 +191,7 @@ public class PageEvent {
 		
 		//mouvement de l'event lors de cette page
 		try {
-			this.deplacementNaturel = new Deplacement(idEvent, pageJSON.getJSONObject("deplacement"), this );
+			this.deplacementNaturel = new Deplacement(pageJSON.getJSONObject("deplacement"), this );
 		} catch (Exception e) {
 			//pas de déplacement pour cette Page
 			this.deplacementNaturel = null;
@@ -239,7 +239,9 @@ public class PageEvent {
 				boolean onAvanceDansLesCommandes = true;
 				while (onAvanceDansLesCommandes) {
 					final int ancienCurseur = curseurCommandes;
-					curseurCommandes = ((Commande) this.commandes.get(curseurCommandes)).executer(curseurCommandes, commandes);
+					final Commande commande = this.commandes.get(curseurCommandes);
+					commande.page = this; //on apprend à la Commande depuis quelle Page elle est appelée
+					curseurCommandes = commande.executer(curseurCommandes, commandes);
 					if (curseurCommandes==ancienCurseur) { 
 						//le curseur n'a pas changé, c'est donc une commande qui prend du temps
 						onAvanceDansLesCommandes = false;

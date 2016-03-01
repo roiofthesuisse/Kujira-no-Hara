@@ -126,7 +126,7 @@ public class Event implements Comparable<Event> {
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
 		this.hauteurHitbox = hauteurHitbox;
-		this.deplacementForce = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false);
+		this.deplacementForce = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false, null);
 		initialiserLesPages();
 		if (pages!=null && pages.size()>=1) {
 			attribuerLesProprietesActuelles(pages.get(0)); //par défaut, propriétés de la première page

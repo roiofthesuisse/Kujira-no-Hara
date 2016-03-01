@@ -5,23 +5,22 @@ import java.util.HashMap;
 import org.json.JSONObject;
 
 import commandes.CommandeEvent;
-import mouvements.Mouvement;
-import utilitaire.InterpreteurDeJson;
+import commandes.Deplacement;
 
 /**
  * Vérifie si ce Mouvement est possible.
  * L'Event considéré est mentionné dans l'objet Mouvement.
  */
 public class ConditionMouvementPossible extends Condition implements CommandeEvent {
-	private Mouvement mouvement;
+	private Deplacement deplacement;
 
 	/**
 	 * Constructeur explicite
-	 * @param mouvement dont il faut vérifier la faisabilité
+	 * @param deplacement qui ne contient qu'un Mouvement, ainsi que l'id de l'Event à déplacer
 	 * @param numeroCondition numéro de la condition
 	 */
-	public ConditionMouvementPossible(final Mouvement mouvement, final int numeroCondition) {
-		this.mouvement = mouvement;
+	public ConditionMouvementPossible(final Deplacement deplacement, final int numeroCondition) {
+		this.deplacement = deplacement;
 		this.numero = numeroCondition;
 	}
 	
@@ -30,13 +29,14 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionMouvementPossible(final HashMap<String, Object> parametres) {
-		this(InterpreteurDeJson.recupererUnMouvement((JSONObject) parametres.get("mouvement")),
+		this( new Deplacement((JSONObject) parametres.get("deplacement"), null),
 				(int) parametres.get("numero"));
 	}
 
 	@Override
 	public final boolean estVerifiee() {
-		return this.mouvement.mouvementPossible();
+		this.deplacement.page = this.page;
+		return this.deplacement.mouvements.get(0).mouvementPossible();
 	}
 
 	/**
