@@ -140,4 +140,9 @@ public class Sauter extends Mouvement {
 		//rien
 	}
 	
+	@Override
+	public final String toString() {
+		return "Sauter de "+this.x+" en X et de "+this.y+" en Y";
+	}
+	
 }

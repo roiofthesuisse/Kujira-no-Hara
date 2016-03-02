@@ -7,8 +7,6 @@ import map.Event;
  * Toute CommandeEvent qui provoque le Mouvement d'un Event doit implémenter cette interface.
  */
 public abstract class Mouvement {
-	/** Le Mouvement est-il terminé ? */
-	protected boolean termine;
 	/** Nombre d'étapes du Mouvement qui ont été faites */
 	protected int ceQuiAEteFait;
 	/** Nombre d'étapes à faire */
@@ -25,7 +23,6 @@ public abstract class Mouvement {
 		this.reinitialiserSpecifique();
 		
 		//rénitialisation commune à tous les Mouvements
-		this.termine = false;
 		this.ceQuiAEteFait = 0;
 	}
 	
@@ -38,11 +35,12 @@ public abstract class Mouvement {
 	/**
 	 * Procéder aux modifications de données permettant au LecteurMap d'afficher l'Event au bon endroit.
 	 * Méthode appelée lors de l'exécution des Déplacements.
-	 * @param deplacement dont fait partie ce mouvement
+	 * @param deplacement (naturel ou forcé d'un Event) dont fait partie ce Mouvement
 	 */
 	public final void executerLeMouvement(final Deplacement deplacement) {
 		try {
 			final Event event = this.deplacement.getEventADeplacer();
+
 			if ( this.mouvementPossible() ) {
 				//appliquer l'effet du Mouvement sur la Map et les Events
 				calculDuMouvement(event);
@@ -86,14 +84,18 @@ public abstract class Mouvement {
 		terminerLeMouvementSpecifique(event); //dépend du type de Mouvement
 		
 		//finalisation commune à tous les Mouvements
-		this.termine = true;
+		this.reinitialiser();
 		//si le Déplacement est perpétuel, on remet ce Mouvement en fin de liste
 		if (this.deplacement.repeterLeDeplacement) {
-			this.deplacement.mouvements.add(this);
+			event.deplacementForce.mouvements.add(this);
 		}
 		//on retire ce Mouvement de la liste
-		if (this.deplacement.mouvements.size() >= 1) {
-			this.deplacement.mouvements.remove(0);
+		if (event.deplacementForce.mouvements.size() >= 1) {
+			event.deplacementForce.mouvements.remove(0);
+		} else {
+			//cas théoriquement impossible
+			System.err.println("Impossible de retirer le premier Mouvement du Déplacement forcé "
+					+ "de l'Event " + event.numero + " (" + event.nom + ")");
 		}
 	}
 	
@@ -126,4 +128,9 @@ public abstract class Mouvement {
 	 */
 	protected abstract void ignorerLeMouvementSpecifique(final Event event);
 	
+	/**
+	 * Décrire le Mouvement textuellement
+	 * @return description du Mouvement
+	 */
+	public abstract String toString();
 }

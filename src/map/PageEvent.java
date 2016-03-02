@@ -56,7 +56,7 @@ public class PageEvent {
 	public int frequence;
 	
 	//mouvement
-	public Deplacement deplacementNaturel;
+	public Deplacement deplacementNaturel = null;
 	
 	/**
 	 * Constructeur explicite
@@ -191,7 +191,8 @@ public class PageEvent {
 		
 		//mouvement de l'event lors de cette page
 		try {
-			this.deplacementNaturel = new Deplacement(pageJSON.getJSONObject("deplacement"), this );
+			this.deplacementNaturel = (Deplacement) InterpreteurDeJson.recupererUneCommande(pageJSON.getJSONObject("deplacement"));
+			this.deplacementNaturel.page = this; //on apprend au Déplacement quelle est sa Page
 		} catch (Exception e) {
 			//pas de déplacement pour cette Page
 			this.deplacementNaturel = null;

@@ -151,7 +151,8 @@ public class Heros extends Event {
 	 */
 	private Mouvement unPasVers(final int dir) {
 		final Mouvement pas = new Avancer(dir, pageActive.vitesse);
-		pas.deplacement = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false, this.pageActive);
+		pas.deplacement = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false);
+		pas.deplacement.page = this.pageActive; //on apprend au Déplacement quelle est sa Page
 		return pas;
 	}
 	

@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import commandes.CommandeEvent;
 import commandes.Deplacement;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * Vérifie si ce Mouvement est possible.
@@ -29,13 +30,13 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionMouvementPossible(final HashMap<String, Object> parametres) {
-		this( new Deplacement((JSONObject) parametres.get("deplacement"), null),
-				(int) parametres.get("numero"));
+		this( (Deplacement) InterpreteurDeJson.recupererUneCommande( (JSONObject) parametres.get("deplacement") ),
+			(int) parametres.get("numero"));
 	}
 
 	@Override
 	public final boolean estVerifiee() {
-		this.deplacement.page = this.page;
+		this.deplacement.page = this.page; //on apprend au Déplacement quelle est sa Page
 		return this.deplacement.mouvements.get(0).mouvementPossible();
 	}
 

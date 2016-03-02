@@ -49,6 +49,7 @@ public class Avancer extends Mouvement {
 	@Override
 	public final void calculDuMouvement(final Event event) {
 		final int sens = this.getDirection();
+		
 		event.avance = true;
 		//déplacement :
 		switch (sens) {
@@ -165,6 +166,11 @@ public class Avancer extends Mouvement {
 	@Override
 	protected void reinitialiserSpecifique() {
 		// rien
+	}
+	
+	@Override
+	public final String toString() {
+		return "Avancer "+this.etapes+" pixels vers "+this.direction;
 	}
 	
 }

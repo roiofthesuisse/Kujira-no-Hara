@@ -57,4 +57,9 @@ public class Attendre extends Mouvement implements CommandeEvent {
 		//rien
 	}
 	
+	@Override
+	public final String toString() {
+		return "Attendre "+this.etapes+" frames";
+	}
+	
 }

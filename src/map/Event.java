@@ -29,7 +29,7 @@ public class Event implements Comparable<Event> {
 	public static final boolean AU_DESSUS_DE_TOUT_PAR_DEFAUT = false;
 	public static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAUT = false;
 	public static final boolean IGNORER_LES_MOUVEMENTS_IMPOSSIBLES_PAR_DEFAUT = true;
-	public static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT = false;
+	public static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT = true;
 	
 	/** Map à laquelle cet Event appartient */
 	public Map map;
@@ -50,7 +50,7 @@ public class Event implements Comparable<Event> {
 	public int frequenceActuelle = FREQUENCE_PAR_DEFAUT; //1:trèsAgité 2:agité 4:normal 8:mou 16:trèsMou
 	
 	/** un Event peut être déplacé par une Commande Event externe à son déplacement naturel nominal */
-	public Deplacement deplacementForce = null;
+	public Deplacement deplacementForce;
 	
 	public BufferedImage imageActuelle = null;
 	private boolean estPetitActuel; //si image < 32, considéré comme au sol
@@ -126,7 +126,7 @@ public class Event implements Comparable<Event> {
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
 		this.hauteurHitbox = hauteurHitbox;
-		this.deplacementForce = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false, null);
+		this.deplacementForce = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false);
 		initialiserLesPages();
 		if (pages!=null && pages.size()>=1) {
 			attribuerLesProprietesActuelles(pages.get(0)); //par défaut, propriétés de la première page

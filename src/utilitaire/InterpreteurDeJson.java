@@ -167,40 +167,52 @@ public abstract class InterpreteurDeJson {
 	 */
 	public static void recupererLesCommandesEvent(final ArrayList<Commande> commandes, final JSONArray commandesJSON, final PageEvent page) {
 		for (Object commandeJSON : commandesJSON) {
-			try {
-				Class<?> classeCommande;
-				final String nomClasseCommande = ((JSONObject) commandeJSON).getString("nom");
-				try {
-					//la Commande est juste une Commande du package "commandes"
-					classeCommande = Class.forName("commandes." + nomClasseCommande);
-				} catch (ClassNotFoundException e0) {
-					//la Commande est une Condition du package "conditions"
-					classeCommande = Class.forName("conditions." + nomClasseCommande);
-				}
-				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
-				String parametreNom; //nom du paramètre pour instancier la Commande Event
-				Object parametreValeur; //valeur du paramètre pour instancier la Commande Event
-				final HashMap<String, Object> parametres = new HashMap<String, Object>();
-				while (parametresNoms.hasNext()) {
-					parametreNom = parametresNoms.next();
-					if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
-						parametreValeur = ((JSONObject) commandeJSON).get(parametreNom);
-						parametres.put( parametreNom, parametreValeur );
-					}
-				}
-				final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
-				final Commande commande = (Commande) constructeurCommande.newInstance(parametres);
+			final Commande commande = recupererUneCommande( (JSONObject) commandeJSON );
+			if (commande != null) {
 				commande.page = page;
 				//on vérifie que c'est bien une CommandeEvent
 				if (commande instanceof CommandeEvent) {
 					commandes.add(commande);
 				} else {
-					System.err.println("La commande "+nomClasseCommande+"n'est pas une CommandeEvent !");
+					System.err.println("La commande "+commande.getClass().getName()+"n'est pas une CommandeEvent !");
 				}
-			} catch (Exception e1) {
-				System.err.println("Impossible de traduire l'objet JSON en CommandeEvent.");
-				e1.printStackTrace();
 			}
+		}
+	}
+	/**
+	 * Traduit un objet JSON représentant une Commande en vrai objet Commande.
+	 * @param commandeJson objet JSON représentant une Commande
+	 * @return objet Commande
+	 */
+	public static Commande recupererUneCommande(final JSONObject commandeJson) {
+		try {
+			Class<?> classeCommande;
+			final String nomClasseCommande = commandeJson.getString("nom");
+			try {
+				//la Commande est juste une Commande du package "commandes"
+				classeCommande = Class.forName("commandes." + nomClasseCommande);
+			} catch (ClassNotFoundException e0) {
+				//la Commande est une Condition du package "conditions"
+				classeCommande = Class.forName("conditions." + nomClasseCommande);
+			}
+			final Iterator<String> parametresNoms = commandeJson.keys();
+			String parametreNom; //nom du paramètre pour instancier la Commande Event
+			Object parametreValeur; //valeur du paramètre pour instancier la Commande Event
+			final HashMap<String, Object> parametres = new HashMap<String, Object>();
+			while (parametresNoms.hasNext()) {
+				parametreNom = parametresNoms.next();
+				if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+					parametreValeur = commandeJson.get(parametreNom);
+					parametres.put( parametreNom, parametreValeur );
+				}
+			}
+			final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
+			final Commande commande = (Commande) constructeurCommande.newInstance(parametres);
+			return commande;
+		} catch (Exception e1) {
+			System.err.println("Impossible de traduire l'objet JSON en CommandeEvent.");
+			e1.printStackTrace();
+			return null;
 		}
 	}
 	
@@ -209,6 +221,7 @@ public abstract class InterpreteurDeJson {
 	 * @param commandes liste des Commandes de l'Element.
 	 * @param commandesJSON tableau JSON contenant les CommandesMenu au format JSON
 	 */
+	//TODO duplication de code : factoriser la partie commune !
 	public static void recupererLesCommandesMenu(final ArrayList<CommandeMenu> commandes, final JSONArray commandesJSON) {
 		for (Object commandeJSON : commandesJSON) {
 			try {
@@ -300,7 +313,7 @@ public abstract class InterpreteurDeJson {
 	 * @param mouvementJSON objet JSON représentant un Mouvement
 	 * @return un objet Mouvement
 	 */
-	public static Mouvement recupererUnMouvement(final JSONObject mouvementJSON) {
+	private static Mouvement recupererUnMouvement(final JSONObject mouvementJSON) {
 		Class<?> classeMouvement;
 		final String nomClasseMouvement = ((JSONObject) mouvementJSON).getString("nom");
 		Mouvement mouvement = null;
