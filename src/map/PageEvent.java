@@ -193,6 +193,7 @@ public class PageEvent {
 		try {
 			this.deplacementNaturel = (Deplacement) InterpreteurDeJson.recupererUneCommande(pageJSON.getJSONObject("deplacement"));
 			this.deplacementNaturel.page = this; //on apprend au Déplacement quelle est sa Page
+			this.deplacementNaturel.naturel = true; //pour le distinguer des Déplacements forcés
 		} catch (Exception e) {
 			//pas de déplacement pour cette Page
 			this.deplacementNaturel = null;

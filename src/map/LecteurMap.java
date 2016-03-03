@@ -93,7 +93,6 @@ public class LecteurMap extends Lecteur {
 		//déplacements des évènements
 		deplacerLesEvents();
 		
-		
 		//animation des évènements
 		animerLesEvents();
 

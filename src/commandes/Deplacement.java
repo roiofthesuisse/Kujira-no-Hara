@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import main.Commande;
 import main.Fenetre;
 import map.Event;
 import map.LecteurMap;
-import map.PageEvent;
 import mouvements.Attendre;
 import mouvements.Mouvement;
 import utilitaire.InterpreteurDeJson;
@@ -46,6 +44,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 	/** faut-il attendre la fin du Déplacement pour passer à la Commande suivante ? */
 	public boolean attendreLaFinDuDeplacement = false;
 	private boolean aEteAjouteAuxDeplacementsForces = false;
+	public boolean naturel = false;
 	
 	/**
 	 * Constructeur explicite
@@ -94,7 +93,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 		final Event event = this.getEventADeplacer();
 		
 		if (!this.aEteAjouteAuxDeplacementsForces) {
-			this.page = event.pageActive; //on apprend au Déplacement quelle est sa Page //TODO plutôt la page active de l'Event qui appelle la Commande
+			this.page = commandes.get(curseurActuel).page; //page de l'Event qui a ordonné ce Déplacement
 			
 			//interrompre l'ancier Déplacement forcé de l'Event
 			event.deplacementForce.mouvements = new ArrayList<Mouvement>();
@@ -149,9 +148,6 @@ public class Deplacement extends Commande implements CommandeEvent {
 			return ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
 		} else {
 			//aucun numéro n'a été spécifié, on déplace l'Event qui a lancé la Commande
-			if(this.page == null){
-				System.out.println("premierMouvement de l'Event qui ne dit pas sa page : "+this.mouvements.get(0).getClass().getName());//TODO retirer
-			}
 			return this.page.event;
 		}
 	}

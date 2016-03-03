@@ -44,7 +44,7 @@ public abstract class Mouvement {
 			if ( this.mouvementPossible() ) {
 				//appliquer l'effet du Mouvement sur la Map et les Events
 				calculDuMouvement(event);
-				
+
 				//quelle sera la commande suivante ?
 				if ( this.ceQuiAEteFait >= this.etapes ) {
 					//déclarer le Mouvement comme terminé (car il est réellement terminé)
@@ -85,17 +85,28 @@ public abstract class Mouvement {
 		
 		//finalisation commune à tous les Mouvements
 		this.reinitialiser();
+		
+		//est-on dans un Déplacement naturel ou forcé ?
+		Deplacement deplacementNaturelOuForce;
+		if (this.deplacement.naturel) {
+			deplacementNaturelOuForce = event.deplacementNaturelActuel;
+		} else {
+			deplacementNaturelOuForce = event.deplacementForce;
+		}
+		
 		//si le Déplacement est perpétuel, on remet ce Mouvement en fin de liste
 		if (this.deplacement.repeterLeDeplacement) {
-			event.deplacementForce.mouvements.add(this);
+			deplacementNaturelOuForce.mouvements.add(this);
 		}
+		
 		//on retire ce Mouvement de la liste
-		if (event.deplacementForce.mouvements.size() >= 1) {
-			event.deplacementForce.mouvements.remove(0);
+		if (deplacementNaturelOuForce.mouvements.size() >= 1) {
+			deplacementNaturelOuForce.mouvements.remove(0);
 		} else {
 			//cas théoriquement impossible
-			System.err.println("Impossible de retirer le premier Mouvement du Déplacement forcé "
-					+ "de l'Event " + event.numero + " (" + event.nom + ")");
+			System.err.println("Impossible de retirer le premier Mouvement " + this.toString() 
+			+ " du Déplacement " + (this.deplacement.naturel ? "naturel" : "forcé")
+			+ " de l'Event " + event.numero + " (" + event.nom + ")");
 		}
 	}
 	

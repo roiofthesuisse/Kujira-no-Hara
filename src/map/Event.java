@@ -198,8 +198,8 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Faire faire un mouvement à l'Event.
-	 * Ce mouvement est soit issu du déplacement naturel de l'Event, soit de son éventuel déplacement forcé.
+	 * Faire faire un Mouvement à l'Event.
+	 * Ce Mouvement est soit issu du Déplacement naturel de l'Event, soit de son éventuel Déplacement forcé.
 	 */
 	public void deplacer() {
 		if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
@@ -220,7 +220,7 @@ public class Event implements Comparable<Event> {
 
 	@Override
 	/**
-	 * Permet de dire si un event est devant ou derrière un autre en terme d'affichage.
+	 * Permet de dire si un Event est devant ou derrière un autre en terme d'affichage.
 	 */
 	public final int compareTo(final Event e) {
 		final int eEstDevant = -1;
