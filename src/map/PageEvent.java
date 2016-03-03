@@ -228,6 +228,7 @@ public class PageEvent {
 		//si la page est une page "Parler", elle active le stopEvent qui fige tous les events
 		if (sOuvreParParole) {
 			this.event.map.lecteur.stopEvent = true;
+			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
 		}
 		//lecture des commandes event
 		if (commandes!=null) {

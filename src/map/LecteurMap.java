@@ -40,7 +40,8 @@ public class LecteurMap extends Lecteur {
 	public Comparator<Event> comparateur;
 	
 	/** si true, les évènements n'avancent plus naturellement (seuls mouvements forcés autorisés) */
-	public boolean stopEvent = false; 
+	public boolean stopEvent = false;
+	public Event eventQuiALanceStopEvent;
 	
 	/** message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
@@ -172,24 +173,30 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Activer une page si l'event n'a aucune page activée.
-	 * Sinon, continuer de lire la page de commandes active de l'event.
+	 * Lire la Page active de chaque Event de la Map.
 	 */
 	private void continuerLaLectureDesPagesDeCommandesEvent() {
+		//en cas de stopEvent, seul l'Event qui a figé tout le monde est lu
+		if (stopEvent) {
+			activerUnePageEtLExecuter(this.eventQuiALanceStopEvent);
+			return;
+		}
+		
+		//lire tous les Events de la Map (sauf le Héros)
 		for (Event event : this.map.events) {
 			if (!event.equals(this.map.heros)) { //le Héros est calculé en dernier
-				if (!event.supprime) {
-					if (event.pageActive == null || event.pageActive.commandes==null) {
-						event.activerUnePage();
-					}
-					if (event.pageActive != null) {
-						event.pageActive.executer();
-					}
-				}
+				activerUnePageEtLExecuter(event);
 			}
 		}
 		//le Héros est calculé en dernier pour éviter les problèmes d'épée
-		final Event event = this.map.heros;
+		activerUnePageEtLExecuter(this.map.heros);
+	}
+	
+	/**
+	 * Activer une Page (si aucune n'est activée) de l'Event (s'il n'est pas supprimé et l'exécuter.
+	 * @param event dont il faut activer une Page et l'exécuter
+	 */
+	private void activerUnePageEtLExecuter(final Event event) {
 		if (!event.supprime) {
 			if (event.pageActive == null || event.pageActive.commandes==null) {
 				event.activerUnePage();
@@ -228,10 +235,11 @@ public class LecteurMap extends Lecteur {
 	 */
 	private void animerLesEvents() {
 		if (this.stopEvent) {
-			return;
+			return; //pas d'animation en cas de stopEvent
 		}
+		
 		try {
-			//TODO if( event.saute )
+			//TODO if( ! event.saute )
 			for (Event event : this.map.events) {
 				final boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
 				//cas où l'Event est animé à l'arrêt
@@ -254,6 +262,12 @@ public class LecteurMap extends Lecteur {
 	 * Donne la bonne valeur aux positions x et y avant d'envoyer l'Event à l'affichage.
 	 */
 	private void deplacerLesEvents() {
+		//en cas de stopEvent, on ne déplace que l'Event qui a figé tout le monde
+		if (stopEvent) {
+			this.eventQuiALanceStopEvent.deplacer();
+			return;
+		}
+		
 		try {
 			//animer la marche du Héros si touche pressée
 			final ArrayList<Integer> touchesPressees = this.fenetre.touchesPressees;
@@ -408,12 +422,14 @@ public class LecteurMap extends Lecteur {
 	 * On quitte la Map temporairement (elle est mémorisée) pour parcourir le Menu.
 	 */
 	public final void ouvrirLeMenu() {
-		final Menu menuPause = new MenuPause();
-		final LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, menuPause, this);
-		
-		this.fenetre.futurLecteur = lecteurMenu;
-		lecteurMenu.menu = menuPause;
-		this.allume = false;
+		if (!stopEvent) { //impossible d'ouvrir le Menu en cas de stopEvent
+			final Menu menuPause = new MenuPause();
+			final LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, menuPause, this);
+			
+			this.fenetre.futurLecteur = lecteurMenu;
+			lecteurMenu.menu = menuPause;
+			this.allume = false;
+		}
 	}
 
 	@Override
