@@ -137,10 +137,22 @@ public class Avancer extends Mouvement {
 			//voilà
 			
 			//si rencontre avec un autre évènement non traversable -> false
+			int xmin1 = xAInspecter3;
+			int xmax1 = xAInspecter3 + event.largeurHitbox;
+			int ymin1 = yAInspecter3;
+			int ymax1 = yAInspecter3 + event.hauteurHitbox;
+			int xmin2;
+			int xmax2;
+			int ymin2;
+			int ymax2;
 			for (Event autreEvent : event.map.events) {
+				xmin2 = autreEvent.x;
+				xmax2 = autreEvent.x + autreEvent.largeurHitbox;
+				ymin2 = autreEvent.y;
+				ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
 				if (event.numero != autreEvent.numero 
 					&& !autreEvent.traversableActuel
-					&& Hitbox.lesHitboxesSeChevauchent(xAInspecter3, yAInspecter3, event.largeurHitbox, event.hauteurHitbox, autreEvent.x, autreEvent.y, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
+					&& Hitbox.lesDeuxRectanglesSeChevauchent(xmin1, xmax1, ymin1, ymax1, xmin2, xmax2, ymin2, ymax2, event.largeurHitbox, event.hauteurHitbox, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
 				) {
 					return false;
 				}

@@ -335,36 +335,29 @@ public class LecteurMap extends Lecteur {
 			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)
 			final int largeur = eventImage.getWidth() / 4;
 			final int hauteur = eventImage.getHeight() / 4;
+			int positionX = event.xImage();
+			int positionY = event.yImage();
+			
 			int direction;
 			final int animation;
-			int positionX;
-			int positionY;
 			if (event.saute) {
 				//l'Event est en train de sauter
 				direction = event.directionLorsDuSaut;
 				animation = 0;
-				positionX = event.coordonneeApparenteXLorsDuSaut;
-				positionY = event.coordonneeApparenteYLorsDuSaut;
 			} else {
 				//l'Event ne Saute pas
 				direction = event.direction;
 				animation = event.animation;
-				positionX = event.x;
-				positionY = event.y;
-			}
-			//ajustement selon la taille de l'image
-			positionX += event.largeurHitbox/2 - largeur/2;
-			positionY += event.hauteurHitbox - hauteur + event.offsetY;
+			}			
 			
-			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
-			return superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);
-			/*
-			//DEBUG pour visualiser les collisions
+			//DEBUG pour visualiser les collisions //TODO commenter
 			Graphics2D graphics = ecran.createGraphics();
 			graphics.setPaint(Color.blue);
 			graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
-			return ecran;
-			*/
+			//voilà
+			
+			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
+			return superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);		
 		} else {
 			//l'event n'a pas d'image
 			return ecran;

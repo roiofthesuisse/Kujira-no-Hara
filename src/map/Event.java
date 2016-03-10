@@ -39,9 +39,9 @@ public class Event implements Comparable<Event> {
 	public Integer id;
 	/** numéro de l'Event sur la Map */
 	public int numero;
-	/** distance entre le bord gauche de la map et le bord gauche de la Hitbox de l'Event */
+	/** distance entre le bord gauche de l'écran et le corps de l'Event */
 	public int x; //en pixels
-	/** distance entre le bord haut de la map et le bord haut de la Hitbox de l'Event */
+	/** distance entre le bord haut de l'écran et le corps de l'Event */
 	public int y; //en pixels
 	
 	/** de combien de pixels avance l'Event à chaque pas ? */
@@ -367,6 +367,28 @@ public class Event implements Comparable<Event> {
 	
 		//déplacement
 		this.deplacementNaturelActuel = null;
+	}
+	
+	public int xImage() {
+		int xBase;
+		if (this.saute) {
+			xBase = this.coordonneeApparenteXLorsDuSaut;
+		} else {
+			xBase = this.x;
+		}
+		int largeurVignette = this.imageActuelle.getWidth()/4;
+		return xBase + (this.largeurHitbox - largeurVignette)/2;
+	}
+	
+	public int yImage() {
+		int yBase;
+		if (this.saute) {
+			yBase = this.coordonneeApparenteYLorsDuSaut;
+		} else {
+			yBase = this.y;
+		}
+		int hauteurVignette = this.imageActuelle.getHeight()/4;
+		return yBase + this.hauteurHitbox - hauteurVignette + this.offsetY;
 	}
 	
 }

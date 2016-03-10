@@ -125,37 +125,32 @@ public class Hitbox {
 		//on enregistre
 		LecteurMap.sauvegarderImage(img);
 	}
-	
+
 	/**
-	 * Est-ce que cet Event pourra aller à cet endroit dans le futur, 
-	 * sachant qu'un autre Event se trouve à tel endroit ?
-	 * @param xFutur position x de l'Event dans le futur
-	 * @param yFutur position y de l'Event dans le futur
-	 * @param largHitbox largeur de la boîte de collision de cet Event
-	 * @param hautHitbox hauteur de la boîte de collision de cet Event
-	 * @param xAutre position x actuelle de l'autre Event
-	 * @param yAutre position y actuelle de l'autre Event
-	 * @param largHitboxAutre largeur de la boîte de collision de l'autre Event
-	 * @param hautHitboxAutre hauteur de la boîte de collision de l'autre Event
-	 * @return true si les deux Events vont se marcher dessus, false s'ils vont rester distants
+	 * Calcule si deux rectangles sont proches. 
+	 * S'ils ne sont pas proches, ils ne peuvent pas se croiser.
+	 * Utile pour éliminer des cas lors des calculs de collisions.
+	 * @param x1 coordonnée x minimale du rectangle 1
+	 * @param y1 coordonnée y minimale du rectangle 1
+	 * @param largeur1 largeur du rectangle 1
+	 * @param hauteur1 hauteur du rectangle 1
+	 * @param x2 coordonnée x minimale du rectangle 2
+	 * @param y2 coordonnée y minimale du rectangle 2
+	 * @param largeur2 largeur du rectangle 2
+	 * @param hauteur2 hauteur du rectangle 2
+	 * @return true si les rectancles ont une chance de se croiser, false s'ils sont trop éloignés pour que ce soit possible.
 	 */
-	public static boolean lesHitboxesSeChevauchent(final int xFutur, final int yFutur, final int largHitbox, final int hautHitbox, final int xAutre, final int yAutre, final int largHitboxAutre, final int hautHitboxAutre) {
-		final int deltaX = (xFutur-xAutre);
-		final int deltaY = (yFutur-yAutre);
-		final int rayon = (Math.max(largHitbox, hautHitbox)+Math.max(largHitboxAutre, hautHitboxAutre));
-		if (deltaX*deltaX+deltaY*deltaY > rayon*rayon/2) {
-			return false; //si les deux events sont trop éloignés l'un de l'autre, il n'y a pas de collision
-		} else { 
-			final int x1min = xFutur;
-			final int x1max = xFutur+largHitbox;
-			final int x2min = xAutre;
-			final int x2max = xAutre+largHitboxAutre;
-			final int y1min = yFutur;
-			final int y1max = yFutur+hautHitbox;
-			final int y2min = yAutre;
-			final int y2max = yAutre+hautHitboxAutre;
-			return lesDeuxRectanglesSeChevauchent(x1min, x1max, y1min, y1max, x2min, x2max, y2min, y2max, largHitbox, hautHitbox, largHitboxAutre, hautHitboxAutre);
-		}
+	private static boolean lesRectanglesSontProches(final int x1, final int y1, final int largeur1, final int hauteur1, final int x2, final int y2, final int largeur2, final int hauteur2) {
+		final int deltaX = x2 - x1;
+		final int deltaY = y2 - y1;
+		final int distance = deltaX*deltaX + deltaY*deltaY;
+		
+		final int diagonale1 = largeur1*largeur1 + hauteur1*hauteur1;
+		final int diagonale2 = largeur2*largeur2 + hauteur2*hauteur2;
+		if (distance < diagonale1 || distance < diagonale2) {
+			return true;
+		}		
+		return false;
 	}
 	
 	/**
@@ -175,6 +170,11 @@ public class Hitbox {
 	 * @return true si les rectangles se chevauchent, false sinon
 	 */
 	public static final boolean lesDeuxRectanglesSeChevauchent(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max, final int largHitbox, final int hautHitbox, final int largHitboxAutre, final int hautHitboxAutre) {
+		//si les deux rectangles sont très éloignés, il ne peut pas y avoir collision
+		if (!lesRectanglesSontProches(x1min, y1min, largHitbox, hautHitbox, x2min, y2min, largHitboxAutre, hautHitboxAutre)) {
+			return false;
+		}
+		
 		//premier cas : deux coins se chevauchent
 		boolean deuxCoinsSeChevauchent = ((x1min<=x2min && x2min<x1max && x1max<=x2max)
 										 	||(x2min<=x1min && x1min<x2max && x2max<=x1max))
