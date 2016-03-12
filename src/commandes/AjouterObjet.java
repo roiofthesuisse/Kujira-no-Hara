@@ -46,7 +46,7 @@ public class AjouterObjet extends Commande implements CommandeEvent, CommandeMen
 			this.numeroObjet = Objet.objetsDuJeuHash.get((String) identifiantObjet).numero;
 		}
 		
-		//on procède à la suppression
+		//on procède à l'ajout
 		final int[] objetsPossedes = Fenetre.getPartieActuelle().objetsPossedes;
 		objetsPossedes[this.numeroObjet] += quantite;
 	}

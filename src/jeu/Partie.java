@@ -20,6 +20,7 @@ public final class Partie {
 	public int directionHeros;
 	public int vie;
 	public int vieMax;
+	public int argent;
 	
 	public final boolean[] interrupteurs;
 	public final ArrayList<String> interrupteursLocaux;
