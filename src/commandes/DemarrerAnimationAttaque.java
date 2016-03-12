@@ -1,6 +1,7 @@
 package commandes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import jeu.Arme;
 import son.LecteurAudio;
@@ -18,6 +19,14 @@ public class DemarrerAnimationAttaque extends Commande implements CommandeEvent 
 	 */
 	public DemarrerAnimationAttaque() {
 		
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public DemarrerAnimationAttaque(final HashMap<String, Object> parametres) {
+		this();
 	}
 	
 	@Override

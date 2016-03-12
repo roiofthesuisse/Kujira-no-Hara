@@ -33,7 +33,7 @@ public final class Partie {
 	public boolean[] armesPossedees;
 	public int nombreDArmesPossedees;
 	
-	public int idArmeEquipee;
+	private int idArmeEquipee;
 	
 	
 	/**

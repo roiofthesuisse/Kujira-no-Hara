@@ -1,9 +1,15 @@
 package conditions;
 
+import java.util.HashMap;
+
+import org.json.JSONObject;
+
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
+import commandes.Deplacement;
 import jeu.Partie;
 import main.Fenetre;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * Vérifie si le Héros a équipé cette Arme.
@@ -17,6 +23,14 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	 */
 	public ConditionArmeEquipee(final int idArme) {
 		this.idArme = idArme;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionArmeEquipee(final HashMap<String, Object> parametres) {
+		this( (int) parametres.get("idArme") );
 	}
 	
 	@Override

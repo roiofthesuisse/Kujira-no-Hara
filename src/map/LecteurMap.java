@@ -98,7 +98,7 @@ public class LecteurMap extends Lecteur {
 		animerLesEvents();
 
 		//DEBUG pour voir la hitbox de l'attaque du héros
-		//ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
+		ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 		
 		//on dessine les évènements
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera);
@@ -155,17 +155,19 @@ public class LecteurMap extends Lecteur {
 	@SuppressWarnings("unused")
 	private BufferedImage dessinerLaHitboxDuHeros(BufferedImage ecran, final int xCamera, final int yCamera) {
 		try {
-			final int[] coord = Hitbox.calculerCoordonneesAbsolues(this.map.heros);
-			final int xminHitbox = coord[0];
-			final int xmaxHitbox = coord[1];
-			final int yminHitbox = coord[2];
-			final int ymaxHitbox = coord[3];
-			final Graphics2D graphics = ecran.createGraphics();
-			graphics.setPaint(Color.magenta);
-			graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, yminHitbox-yCamera);
-			graphics.drawLine(xminHitbox-xCamera, ymaxHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
-			graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xminHitbox-xCamera, ymaxHitbox-yCamera);
-			graphics.drawLine(xmaxHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
+			if (Fenetre.getPartieActuelle().getArmeEquipee() != null) {
+				final int[] coord = Hitbox.calculerCoordonneesAbsolues(this.map.heros);
+				final int xminHitbox = coord[0];
+				final int xmaxHitbox = coord[1];
+				final int yminHitbox = coord[2];
+				final int ymaxHitbox = coord[3];
+				final Graphics2D graphics = ecran.createGraphics();
+				graphics.setPaint(Color.magenta);
+				graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, yminHitbox-yCamera);
+				graphics.drawLine(xminHitbox-xCamera, ymaxHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
+				graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xminHitbox-xCamera, ymaxHitbox-yCamera);
+				graphics.drawLine(xmaxHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

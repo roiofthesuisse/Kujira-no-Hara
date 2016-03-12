@@ -1,5 +1,7 @@
 package conditions;
 
+import java.util.HashMap;
+
 import commandes.CommandeEvent;
 
 /**
@@ -14,6 +16,14 @@ public class ConditionStopEvent extends Condition implements CommandeEvent {
 	 */
 	public ConditionStopEvent(final boolean valeur) {
 		this.valeurQuIlEstCenseAvoir = valeur;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionStopEvent(final HashMap<String, Object> parametres) {
+		this( (boolean) parametres.get("valeur") );
 	}
 	
 	@Override

@@ -40,13 +40,15 @@ public class Hitbox {
 			final int xmaxHitbox = coord[1];
 			final int yminHitbox = coord[2];
 			final int ymaxHitbox = coord[3];
+			final int largeurHitbox = xmaxHitbox - xminHitbox;
+			final int hauteurHitbox = ymaxHitbox - yminHitbox;
 			
 			final int xminEvent = e.x;
 			final int xmaxEvent = e.x + e.largeurHitbox;
 			final int yminEvent = e.y;
 			final int ymaxEvent = e.y + e.hauteurHitbox;
 			//calcul du croisement entre la bodybox de l'event et la hitbox de l'arme
-			return lesDeuxRectanglesSeChevauchent(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, 1, 2, 3, 4); //1,2,3,4 étant différents, tous les types de croisements seront testés
+			return lesDeuxRectanglesSeChevauchent(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, largeurHitbox, hauteurHitbox, e.largeurHitbox, e.hauteurHitbox);
 		}
 		return false;
 	}

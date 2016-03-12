@@ -268,25 +268,10 @@ public abstract class InterpreteurDeJson {
 			final int yEvent = jsonEvent.getInt("y");
 			//instanciation de l'event
 			Event event;
-			try {
-				//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
-				final JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
-				int largeurHitbox;
-				try {
-					largeurHitbox = jsonEventGenerique.getInt("largeur");
-				} catch (JSONException e2) {
-					largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
-				}
-				int hauteurHitbox;
-				try {
-				hauteurHitbox = jsonEventGenerique.getInt("hauteur");
-				} catch (JSONException e2) {
-					hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
-				}
 
-				final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-				event = new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox);
-			} catch (Exception e3) {
+			//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
+			event = creerEventGenerique(id, nomEvent, xEvent, yEvent);
+			if (event == null) {
 				//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
 				int largeurHitbox;
 				try {
@@ -305,6 +290,39 @@ public abstract class InterpreteurDeJson {
 				event = new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox);
 			}
 			events.add(event);
+		}
+	}
+	
+	/**
+	 * Créer un Event générique à partir de sa description JSON.
+	 * @param id de l'Event à créer
+	 * @param nomEvent nom de l'Event à créer
+	 * @param xEvent position x de l'Event
+	 * @param yEvent position y de l'Event
+	 * @return un Event créé
+	 */
+	public static Event creerEventGenerique(final int id, final String nomEvent, final int xEvent, final int yEvent) {
+		try {
+			final JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
+			int largeurHitbox;
+			try {
+				largeurHitbox = jsonEventGenerique.getInt("largeur");
+			} catch (JSONException e2) {
+				largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
+			}
+			int hauteurHitbox;
+			try {
+			hauteurHitbox = jsonEventGenerique.getInt("hauteur");
+			} catch (JSONException e2) {
+				hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
+			}
+	
+			final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
+			return new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox);
+		} catch (FileNotFoundException e1) {
+			//System.err.println("Impossible de trouver le fichier JSON pour contruire l'Event générique");
+			//e1.printStackTrace();
+			return null;
 		}
 	}
 	

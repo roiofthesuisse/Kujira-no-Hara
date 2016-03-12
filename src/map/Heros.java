@@ -16,6 +16,7 @@ import main.Fenetre;
 import mouvements.Avancer;
 import mouvements.Mouvement;
 import utilitaire.GestionClavier;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * Event particulier qui est déplacé par le joueur à l'aide du clavier
@@ -42,6 +43,7 @@ public class Heros extends Event {
 	 * @param directionEnDebutDeMap directiondu Héros au début de la Map
 	 */
 	public Heros(final int x, final int y, final int directionEnDebutDeMap) {
+		//super(x, y, MODELE.nom, MODELE.id, MODELE.pages, MODELE.largeurHitbox, MODELE.hauteurHitbox);
 		super(x, y, "heros", 0, creerPages(), LARGEUR_HEROS, HAUTEUR_HEROS);
 		this.direction = directionEnDebutDeMap;
 	}
