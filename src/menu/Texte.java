@@ -28,6 +28,7 @@ public class Texte extends ElementDeMenu {
 	public String contenu;
 	public int taille;
 	public int opacite;
+	public Color couleurForcee = null;
 
 	/**
 	 * Constructeur implicite (opacité maximale, taille moyenne) pour les Menus
@@ -139,8 +140,16 @@ public class Texte extends ElementDeMenu {
         g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
         g2d.setFont(font);
         fm = g2d.getFontMetrics();
-        g2d.setColor(Texte.COULEUR_PAR_DEFAUT);
-        for (int i = 0; i<nombreLignes; i++) { //on écrit chaque ligne
+        
+        //si aucune couleur forcée, couleur par défaut
+        if (this.couleurForcee == null) {
+        	g2d.setColor(Texte.COULEUR_PAR_DEFAUT);
+        } else {
+        	g2d.setColor(this.couleurForcee);
+        }
+        
+        //on écrit chaque ligne
+        for (int i = 0; i<nombreLignes; i++) { 
         	int largeurALaquelleOnEcrit = 0;
         	final int hauteurALaquelleOnEcrit = i*(this.taille+Texte.INTERLIGNE) + fm.getAscent();
         	final String ligne = texts[i].trim();

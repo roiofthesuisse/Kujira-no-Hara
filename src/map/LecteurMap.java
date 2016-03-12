@@ -17,6 +17,7 @@ import main.Fenetre;
 import main.Lecteur;
 import menu.LecteurMenu;
 import menu.Menu;
+import menu.Texte;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 
@@ -30,8 +31,11 @@ public class LecteurMap extends Lecteur {
 	private static final int Y_AFFICHAGE_ARME = 4;
 	private static final int X_AFFICHAGE_OBJET = 612;
 	private static final int Y_AFFICHAGE_OBJET = 4;
+	private static final int X_AFFICHAGE_ARGENT = 4;
+	private static final int Y_AFFICHAGE_ARGENT = 450;
 	private static final int X_AFFICHAGE_MESSAGE = 76;
 	private static final int Y_AFFICHAGE_MESSAGE = 320;
+	private static final int ESPACEMENT_ICONES = 4;
 	
 	public Map map;
 	public Tileset tilesetActuel = null;
@@ -46,8 +50,9 @@ public class LecteurMap extends Lecteur {
 	/** message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
 	
-	/**  */
+	/** icônes de jauges */
 	public static final BufferedImage HUD_TOUCHES = chargerImageHudTouches();
+	public static final BufferedImage HUD_ARGENT = chargerImageHudArgent();
 	
 	/** frame où le joueur a appuyé sur la touche action */
 	public int frameDAppuiDeLaToucheAction;
@@ -142,6 +147,17 @@ public class LecteurMap extends Lecteur {
 			X_AFFICHAGE_OBJET
 			Y_AFFICHAGE_OBJETn, 
 		*/
+		
+		//argent
+		final int argent = Fenetre.getPartieActuelle().argent;
+		if (argent > 0) {
+			ecran = superposerImages(ecran, HUD_ARGENT, X_AFFICHAGE_ARGENT, Y_AFFICHAGE_ARGENT);
+			final Texte texte = new Texte("" + argent);
+			texte.couleurForcee = Color.white;
+			final BufferedImage texteImage = texte.texteToImage();
+			ecran = superposerImages(ecran, texteImage, X_AFFICHAGE_ARGENT+HUD_ARGENT.getWidth()+ESPACEMENT_ICONES, Y_AFFICHAGE_ARGENT);
+		}
+		
 		return ecran;
 	}
 
@@ -590,6 +606,19 @@ public class LecteurMap extends Lecteur {
 	public static BufferedImage chargerImageHudTouches() {
 		try {
 			return ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\carre arme kujira.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * Charge l'icône de l'argent.
+	 * @return image constitutive du HUD
+	 */
+	public static BufferedImage chargerImageHudArgent() {
+		try {
+			return ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\ecaille icon.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;

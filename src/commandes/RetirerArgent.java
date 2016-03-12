@@ -3,6 +3,7 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import jeu.Partie;
 import main.Commande;
 import main.Fenetre;
 
@@ -30,7 +31,13 @@ public class RetirerArgent extends Commande implements CommandeEvent, CommandeMe
 	
 	@Override
 	public final void executer() {
-		Fenetre.getPartieActuelle().argent -= quantite;
+		final Partie partie = Fenetre.getPartieActuelle();
+		partie.argent -= quantite;
+		
+		//on ne peut pas avoir de l'argent négatif
+		if (partie.argent < 0) {
+			partie.argent = 0;
+		}
 	}
 	
 	@Override
