@@ -9,7 +9,7 @@ import map.Hitbox;
 import map.Event.Direction;
 
 /**
- * Déplacer un Event dans une Direction et d'un certain nombre de cases
+ * Déplacer un Event dans une Direction et d'un certain nombre de cases.
  */
 public class Avancer extends Mouvement {	
 	protected int direction;
@@ -74,7 +74,7 @@ public class Avancer extends Mouvement {
 	 * @return si le mouvement est possible oui ou non
 	 */
 	@Override
-	public final boolean mouvementPossible() {
+	public boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		final int sens = this.getDirection();
 		

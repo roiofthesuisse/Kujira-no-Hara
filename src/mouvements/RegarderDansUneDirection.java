@@ -9,11 +9,7 @@ import map.Event;
  */
 public class RegarderDansUneDirection extends Mouvement {
 	
-	protected int direction;
-	
-	public final int getDirection() {
-		return direction;
-	}
+	private int direction;
 
 	/**
 	 * Constructeur explicite
@@ -34,12 +30,12 @@ public class RegarderDansUneDirection extends Mouvement {
 
 	@Override
 	protected void reinitialiserSpecifique() {
-		// Le mouvement n'est pas rejoué
+		// rien
 	}
 
 	@Override
 	public boolean mouvementPossible() {
-		// C'est toujours possible de regarder dans une direction
+		// Regarder dans une direction est toujours possible.
 		return true;
 	}
 
@@ -49,7 +45,7 @@ public class RegarderDansUneDirection extends Mouvement {
 	 */
 	@Override
 	protected final void calculDuMouvement(final Event event) {
-		event.direction = this.getDirection();
+		event.direction = this.direction;
 	}
 
 	@Override
@@ -65,7 +61,7 @@ public class RegarderDansUneDirection extends Mouvement {
 
 	@Override
 	public String toString() {
-		return "Regarder dans la direction " + this.getDirection();
+		return "Regarder dans la direction " + this.direction;
 	}
 
 }
