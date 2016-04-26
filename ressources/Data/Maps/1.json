@@ -165,6 +165,58 @@
 					"directionInitiale": 2
 				}
 			]
+		},
+		{
+			"nom": "moutonBis",
+			"id": 6,
+			"x": 6,
+			"y": 10,
+			"pages": [
+				{
+					"image": "mouton character.png",
+					"directionInitiale": 1,
+					"traversable": true,
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "PasEnAvant",
+								"direction": 3
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"nom": "darumaDirection",
+			"id": 7,
+			"x": 3,
+			"y": 3,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "Contact"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "Deplacement",
+							"idEventADeplacer": 7,
+							"mouvements": [
+								{
+									"nom": "RegarderDansUneDirection",
+									"direction": 3
+								}
+							]
+						}
+					],
+					"image": "daruma character.png",
+					"directionInitiale": 2,
+					"traversable": true
+				}
+			]
 		}
 	]
 }
