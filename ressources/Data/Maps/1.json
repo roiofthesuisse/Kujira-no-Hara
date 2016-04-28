@@ -202,7 +202,6 @@
 					"commandes": [
 						{
 							"nom": "Deplacement",
-							"idEventADeplacer": 7,
 							"mouvements": [
 								{
 									"nom": "RegarderDansUneDirection",
@@ -214,6 +213,29 @@
 					"image": "daruma character.png",
 					"directionInitiale": 2,
 					"traversable": false
+				}
+			]
+		},
+		{
+			"nom": "moutonSuiveur",
+			"id": 8,
+			"x": 15,
+			"y": 1,
+			"pages": [
+				{
+					"image": "mouton character.png",
+					"directionInitiale": 0,
+					"traversable": false,
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "AvancerVersEvent",
+								"idEventSuivi": 1
+							}
+						],
+						"repeterLeDeplacement": true
+					}
 				}
 			]
 		}
