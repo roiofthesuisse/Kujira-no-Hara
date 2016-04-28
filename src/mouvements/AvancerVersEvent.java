@@ -13,6 +13,8 @@ import map.LecteurMap;
 public class AvancerVersEvent extends Avancer {
 	
 	private int idEventSuivi;
+	/** La direction a-t-elle été décidée ? Si oui on n'y touche plus */
+	private boolean directionDecidee;
 
 	/**
 	 * Constructeur explicite
@@ -20,7 +22,8 @@ public class AvancerVersEvent extends Avancer {
 	 */
 	public AvancerVersEvent(final int idEventSuivi) {
 		super(-1, Fenetre.TAILLE_D_UN_CARREAU);
-		this.idEventSuivi = idEventSuivi;	
+		this.idEventSuivi = idEventSuivi;
+		this.directionDecidee = false;
 	}
 
 	/**
@@ -37,19 +40,22 @@ public class AvancerVersEvent extends Avancer {
 	 */
 	@Override
 	public final boolean mouvementPossible() {
-		final Event eventSuiveur = this.deplacement.getEventADeplacer();
-		final Event eventSuivi = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventSuivi);
-		int distanceVerticale = eventSuiveur.y - eventSuivi.y;
-		int distanceHorizontale = eventSuiveur.x - eventSuivi.x;
+		if (!this.directionDecidee) {
+			final Event eventSuiveur = this.deplacement.getEventADeplacer();
+			final Event eventSuivi = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventSuivi);
+			final int distanceVerticale = eventSuiveur.y - eventSuivi.y;
+			final int distanceHorizontale = eventSuiveur.x - eventSuivi.x;
+			this.calculerDirection(distanceVerticale, distanceHorizontale);
+			this.directionDecidee = true;
+		}
 		
-		this.calculerDirection(distanceVerticale, distanceHorizontale);
 		return super.mouvementPossible();
 	}
 	
 	/**
-	 * Donne une direction au mouvement en fonction de la position des deux event
-	 * @param distanceVerticale difference entre la coordonnée y de l'event suiveur et de l'event suivi
-	 * @param distanceHorizontale difference entre la coordonnée x de l'event suiveur et de l'event suivi
+	 * Donne une direction au Mouvement en fonction de la position des deux Events.
+	 * @param distanceVerticale difference entre la coordonnée y de l'Event suiveur et de l'Event suivi
+	 * @param distanceHorizontale difference entre la coordonnée x de l'Event suiveur et de l'Event suivi
 	 */
 	private void calculerDirection(final int distanceVerticale, final int distanceHorizontale) {
 		if (Math.abs(distanceVerticale) > Math.abs(distanceHorizontale)) {
@@ -65,6 +71,12 @@ public class AvancerVersEvent extends Avancer {
 				this.direction = Direction.GAUCHE;
 			}
 		}
+	}
+	
+	@Override
+	protected final void reinitialiserSpecifique() {
+		super.reinitialiserSpecifique();
+		this.directionDecidee = false;
 	}
 	
 }
