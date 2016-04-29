@@ -219,8 +219,8 @@
 		{
 			"nom": "moutonSuiveur",
 			"id": 8,
-			"x": 15,
-			"y": 1,
+			"x": 8,
+			"y": 8,
 			"pages": [
 				{
 					"image": "mouton character.png",
@@ -230,9 +230,42 @@
 						"nom": "Deplacement",
 						"mouvements": [
 							{
-								"nom": "AvancerVersEvent",
-								"idEventSuivi": 1
-							}
+								"nom": "AvancerEnFonctionDUnEvent",
+								"idEventObserve": 1,
+								"sens" : 1
+							},
+							{
+								"nom": "Attendre",
+								"nombreDeFrames": 10
+ 							}
+						],
+						"repeterLeDeplacement": true
+					}
+				}
+			]
+		},
+		{
+			"nom": "darumaFuyard",
+			"id": 9,
+			"x": 9,
+			"y": 9,
+			"pages": [
+				{
+					"image": "daruma character.png",
+					"directionInitiale": 0,
+					"traversable": false,
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "AvancerEnFonctionDUnEvent",
+								"idEventObserve": 0,
+								"sens": 2
+							},
+							{
+								"nom": "Attendre",
+								"nombreDeFrames": 10
+ 							}
 						],
 						"repeterLeDeplacement": true
 					}
