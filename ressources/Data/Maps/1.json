@@ -232,7 +232,7 @@
 							{
 								"nom": "AvancerEnFonctionDUnEvent",
 								"idEventObserve": 1,
-								"sens" : 1
+								"sens" : "suivre"
 							},
 							{
 								"nom": "Attendre",
@@ -260,7 +260,7 @@
 							{
 								"nom": "AvancerEnFonctionDUnEvent",
 								"idEventObserve": 0,
-								"sens": 2
+								"sens": "fuir"
 							},
 							{
 								"nom": "Attendre",
@@ -269,6 +269,38 @@
 						],
 						"repeterLeDeplacement": true
 					}
+				}
+			]
+		},
+		{
+			"nom": "trampolineAbsolu",
+			"id": 10,
+			"x": 10,
+			"y": 1,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "ArriveeAuContact"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "Deplacement",
+							"idEventADeplacer": 0,
+							"mouvements": [
+								{
+									"nom": "SautAbsolu",
+									"xDestination": 10,
+									"yDestination": 6
+								}
+							],
+							"attendreLaFinDuDeplacement": true
+						}
+					],
+					"image": "bouton character.png",
+					"directionInitiale": 0,
+					"traversable": true
 				}
 			]
 		}

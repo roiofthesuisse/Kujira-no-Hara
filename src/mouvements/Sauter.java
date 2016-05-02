@@ -16,8 +16,8 @@ public class Sauter extends Mouvement {
 	
 	private int xEventAvantSaut;
 	private int yEventAvantSaut;
-	private int x;
-	private int y;
+	protected int x;
+	protected int y;
 	private int xEventApresSaut;
 	private int yEventApresSaut;
 	private int direction;
@@ -25,7 +25,6 @@ public class Sauter extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param idEventADeplacer identifiant de l'Event qui subira le Mouvement
 	 * @param x nombre de cases de déplacement en horizontal
 	 * @param y nombre de cases de déplacement en vertical
 	 */
@@ -115,7 +114,7 @@ public class Sauter extends Mouvement {
 	 * Le Mouvement est-il possible pour cet Event ?
 	 * @return true si le Mouvement est possible, false sinon
 	 */
-	public final boolean mouvementPossible() {
+	public boolean mouvementPossible() {
 		//TODO à faire
 		return true;
 	}

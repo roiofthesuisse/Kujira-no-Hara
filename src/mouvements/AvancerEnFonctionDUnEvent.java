@@ -13,8 +13,8 @@ import map.LecteurMap;
 public class AvancerEnFonctionDUnEvent extends Avancer {
 	
 	private int idEventObserve;
-	/** sens = 1 lorsque l'Event suit l'Event observé, sens = 2 lorsque l'Event fuit l'Event observé*/
-	private int sens;
+	/** sens : "suivre" ou "fuir" l'event observé */
+	private String sens;
 	private int directionPossibleVerticale;
 	private int directionPossibleHorizontale;
 	/** La direction a-t-elle été décidée ? Si oui on n'y touche plus */
@@ -25,7 +25,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	 * @param idEventObserve : id de l'Event en fonction duquel l'Event à déplacer avance
 	 * @param sens : l'event s'approche ou s'éloigne
 	 */
-	public AvancerEnFonctionDUnEvent(final int idEventObserve, final int sens) {
+	public AvancerEnFonctionDUnEvent(final int idEventObserve, final String sens) {
 		super(-1, Fenetre.TAILLE_D_UN_CARREAU);
 		this.idEventObserve = idEventObserve;	
 		this.sens = sens;
@@ -37,7 +37,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AvancerEnFonctionDUnEvent(final HashMap<String, Object> parametres) {
-		this((int) parametres.get("idEventObserve"), (int) parametres.get("sens"));
+		this((int) parametres.get("idEventObserve"), (String) parametres.get("sens"));
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 			int distanceHorizontale = eventObservateur.x - eventObserve.x;
 			
 			calculerDirection(distanceVerticale, distanceHorizontale);
-			if (this.sens == 2) { // l'Event fuit
+			if ("fuir".equals(this.sens)) { // l'Event fuit
 				prendreDirectionOpposee();
 			} 
 			if (!super.mouvementPossible()) {
@@ -111,12 +111,12 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	private void essayerAutreDirection(){
 		if (this.direction == Direction.HAUT || this.direction == Direction.BAS) {
 			this.direction = directionPossibleHorizontale;
-			if (this.sens == 2) { // l'Event fuit
+			if ("fuir".equals(this.sens)) { // l'Event fuit
 				prendreDirectionOpposee();
 			} 
 		} else if (this.direction == Direction.GAUCHE || this.direction == Direction.DROITE) {
 			this.direction = directionPossibleVerticale;
-			if (this.sens == 2) { // l'Event fuit
+			if ("fuir".equals(this.sens)) { // l'Event fuit
 				prendreDirectionOpposee();
 			} 
 		}	
