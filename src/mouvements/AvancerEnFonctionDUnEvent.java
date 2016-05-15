@@ -13,8 +13,12 @@ import map.LecteurMap;
 public class AvancerEnFonctionDUnEvent extends Avancer {
 	
 	private int idEventObserve;
-	/** sens : "suivre" ou "fuir" l'event observé */
-	private String sens;
+	
+	private Sens sens;
+	/** "suivre" ou "fuir" l'Event observé */
+	private enum Sens {
+		SUIVRE, FUIR
+	};
 	private int directionPossibleVerticale;
 	private int directionPossibleHorizontale;
 	/** La direction a-t-elle été décidée ? Si oui on n'y touche plus */
@@ -28,7 +32,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	public AvancerEnFonctionDUnEvent(final int idEventObserve, final String sens) {
 		super(-1, Fenetre.TAILLE_D_UN_CARREAU);
 		this.idEventObserve = idEventObserve;	
-		this.sens = sens;
+		this.sens = sens.equals("fuir") ? Sens.FUIR : Sens.SUIVRE;
 		this.directionDecidee = false;
 	}
 
@@ -49,11 +53,11 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 		if (!this.directionDecidee) {
 			final Event eventObservateur = this.deplacement.getEventADeplacer();
 			final Event eventObserve = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventObserve);
-			int distanceVerticale = eventObservateur.y - eventObserve.y;
-			int distanceHorizontale = eventObservateur.x - eventObserve.x;
+			final int distanceVerticale = eventObservateur.y - eventObserve.y;
+			final int distanceHorizontale = eventObservateur.x - eventObserve.x;
 			
 			calculerDirection(distanceVerticale, distanceHorizontale);
-			if ("fuir".equals(this.sens)) { // l'Event fuit
+			if (this.sens == Sens.FUIR) { // l'Event fuit
 				prendreDirectionOpposee();
 			} 
 			if (!super.mouvementPossible()) {
@@ -66,8 +70,8 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	
 	/**
 	 * Détermine la direction du Mouvement pour suivre l'event observé
-	 * @param distanceVerticale
-	 * @param distanceHorizontale
+	 * @param distanceVerticale difference entre le y destination et le y actuel
+	 * @param distanceHorizontale difference entre le x destination et le x actuel
 	 */
 	private void calculerDirection(final int distanceVerticale, final int distanceHorizontale) {
 		if (distanceVerticale < 0) {
@@ -91,7 +95,6 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	/**
 	 * Inverse la direction du Mouvement
 	 * Utile pour les Event qui fuient
-	 * @return direction opposée à la direction donnée en paramètre
 	 */
 	private void prendreDirectionOpposee() {
 		if (this.direction == Direction.BAS) {
@@ -106,20 +109,17 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	}
 	
 	/**
-	 * Si le Mouvement est impossible dans la direction calculée, une autre direction est proposée
+	 * Si le Mouvement est impossible dans la direction calculée, une autre direction est proposée.
 	 */
-	private void essayerAutreDirection(){
+	private void essayerAutreDirection() {
 		if (this.direction == Direction.HAUT || this.direction == Direction.BAS) {
-			this.direction = directionPossibleHorizontale;
-			if ("fuir".equals(this.sens)) { // l'Event fuit
-				prendreDirectionOpposee();
-			} 
-		} else if (this.direction == Direction.GAUCHE || this.direction == Direction.DROITE) {
-			this.direction = directionPossibleVerticale;
-			if ("fuir".equals(this.sens)) { // l'Event fuit
-				prendreDirectionOpposee();
-			} 
-		}	
+			this.direction = directionPossibleHorizontale;	 
+		} else {
+			this.direction = directionPossibleVerticale; 
+		}
+		if (this.sens == Sens.FUIR) { // si l'Event fuit
+			prendreDirectionOpposee();
+		}
 	}
 	
 	@Override
