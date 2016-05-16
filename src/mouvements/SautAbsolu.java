@@ -18,7 +18,7 @@ public class SautAbsolu extends Sauter {
 	 * @param xDestination : coordonnée x de la case destination (en nombre de carreaux)
 	 * @param yDestination : coordonnée y de la case destination (en nombre de carreaux)
 	 */
-	public SautAbsolu(int xDestination, int yDestination) {
+	public SautAbsolu(final int xDestination, final int yDestination) {
 		super(0, 0);
 		this.xDestination = xDestination;
 		this.yDestination = yDestination;
@@ -29,7 +29,7 @@ public class SautAbsolu extends Sauter {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public SautAbsolu(final HashMap<String, Object> parametres) {
-		this((int) parametres.get("xDestination"),(int) parametres.get("yDestination"));
+		this((int) parametres.get("xDestination"), (int) parametres.get("yDestination"));
 	}
 	
 	/**
@@ -40,6 +40,7 @@ public class SautAbsolu extends Sauter {
 		final Event eventADeplacer = this.deplacement.getEventADeplacer();
 		this.x = this.xDestination - (eventADeplacer.x/Fenetre.TAILLE_D_UN_CARREAU);
 		this.y = this.yDestination - (eventADeplacer.y/Fenetre.TAILLE_D_UN_CARREAU);
+		calculerDirectionSaut();
 		return super.mouvementPossible();
 	}
 

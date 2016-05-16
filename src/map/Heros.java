@@ -27,6 +27,11 @@ public class Heros extends Event {
 	private static final int HAUTEUR_HEROS = 24;
 	public static final int VITESSE_HEROS_PAR_DEFAUT = 4;
 	public static final int FREQUENCE_HEROS_PAR_DEFAUT = 4;
+	public static final boolean ANIME_A_L_ARRET_HEROS_PAR_DEFAUT = false;
+	public static final boolean ANIME_EN_MOUVEMENT_HEROS_PAR_DEFAUT = true;
+	public static final boolean TRAVERSABLE_HEROS_PAR_DEFAUT = false;
+	public static final boolean DIRECTION_FIXE_HEROS_PAR_DEFAUT = false;
+	public static final boolean AU_DESSUS_DE_TOUT_HEROS_PAR_DEFAUT = false;
 	public static final String NOM_IMAGE_HEROS = "Jiyounasu character.png";
 	
 	/**
@@ -137,7 +142,7 @@ public class Heros extends Event {
 			if (ilYADeplacement) {
 				this.avance = true;
 				//on profite du déplacement pour remettre le Héros dans la bonne direction
-				this.map.lecteur.mettreHerosDansLaBonneDirection();
+				this.mettreDansLaBonneDirection();
 			} else {
 				this.avance = false;
 				//le Héros n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
@@ -156,6 +161,25 @@ public class Heros extends Event {
 		pas.deplacement = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false);
 		pas.deplacement.page = this.pageActive; //on apprend au Déplacement quelle est sa Page
 		return pas;
+	}
+	
+	/**
+	 * Tourner le Héros dans la bonne Direction selon l'entrée clavier.
+	 */
+	public final void mettreDansLaBonneDirection() {
+		final Heros heros = map.heros;
+		if (!this.map.lecteur.stopEvent && heros.animationAttaque<=0) {
+			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
+			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
+				heros.direction = Event.Direction.GAUCHE;
+			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ) {
+				heros.direction = Event.Direction.DROITE;
+			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
+				heros.direction = Event.Direction.BAS;
+			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ) {
+				heros.direction = Event.Direction.HAUT;
+			}
+		}
 	}
 	
 }

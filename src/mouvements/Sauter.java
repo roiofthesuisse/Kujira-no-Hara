@@ -20,7 +20,7 @@ public class Sauter extends Mouvement {
 	protected int y;
 	private int xEventApresSaut;
 	private int yEventApresSaut;
-	private int direction;
+	protected int direction;
 	private Integer distance = null;
 	
 	/**
@@ -31,25 +31,7 @@ public class Sauter extends Mouvement {
 	public Sauter(final int x, final int y) {
 		this.x = x;
 		this.y = y;
-		if (x>y) {
-			//haut droite
-			if (y>=-x) {
-				//bas droite
-				this.direction = Event.Direction.DROITE;
-			} else {
-				//haut gauche
-				this.direction = Event.Direction.HAUT;
-			}
-		} else {
-			//bas gauche
-			if (y>-x) {
-				//bas droite
-				this.direction = Event.Direction.BAS;
-			} else {
-				//haut gauche
-				this.direction = Event.Direction.GAUCHE;
-			}
-		}
+		calculerDirectionSaut();
 	}
 	
 	/**
@@ -59,6 +41,31 @@ public class Sauter extends Mouvement {
 	public Sauter(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("x"), 
 			  (int) parametres.get("y") );
+	}
+	
+	/**
+	 * La direction du Saut est calculée selon le x et le y du Saut.
+	 */
+	protected final void calculerDirectionSaut() {
+		if (this.x > this.y) {
+			//haut droite
+			if (this.y >= -this.x) {
+				//bas droite
+				this.direction = Event.Direction.DROITE;
+			} else {
+				//haut gauche
+				this.direction = Event.Direction.HAUT;
+			}
+		} else {
+			//bas gauche
+			if (this.y > -this.x) {
+				//bas droite
+				this.direction = Event.Direction.BAS;
+			} else {
+				//haut gauche
+				this.direction = Event.Direction.GAUCHE;
+			}
+		}
 	}
 	
 	/** 
@@ -95,7 +102,6 @@ public class Sauter extends Mouvement {
 		final int yParabole = (int) Math.round( 1.5*(distance+2*Fenetre.TAILLE_D_UN_CARREAU)*(t*t-t) );
 		event.coordonneeApparenteXLorsDuSaut = (int) xDroite;
 		event.coordonneeApparenteYLorsDuSaut = (int) (yParabole + yDroite);
-		event.directionLorsDuSaut = this.direction;
 		this.ceQuiAEteFait++;
 	}
 	
@@ -137,6 +143,11 @@ public class Sauter extends Mouvement {
 	@Override
 	protected void reinitialiserSpecifique() {
 		//rien
+	}
+	
+	@Override
+	public final int getDirectionImposee() {
+		return this.direction;
 	}
 	
 	@Override

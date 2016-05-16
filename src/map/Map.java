@@ -38,6 +38,7 @@ public class Map {
 	public final int[][][] layers;
 	public BufferedImage imageCoucheSousHeros;
 	public BufferedImage imageCoucheSurHeros;
+	public Brouillard brouillard;
 	/** liste des Events rangés par coordonnée y */
 	public ArrayList<Event> events;
 	/** hashmap des Events rangés par id, 0 pour le Héros */

@@ -168,6 +168,5 @@ public class Deplacement extends Commande implements CommandeEvent {
 			premierMouvement.executerLeMouvement(this);
 		}
 	}
-	
-	
+
 }

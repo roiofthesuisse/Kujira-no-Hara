@@ -54,6 +54,10 @@ public abstract class Mouvement {
 				//déclarer le Mouvement comme terminé (car ignoré)
 				ignorerLeMouvement(event);
 			}
+			
+			//même si le Mouvement est avorté, le changement de direction a lieu
+			mettreEventDansLaDirectionDuMouvement();
+			
 		} catch (Exception e) {
 			System.err.println("Erreur lors du mouvement de l'évènement :");
 			e.printStackTrace();
@@ -127,7 +131,7 @@ public abstract class Mouvement {
 		
 		//interruption commune à tous les Mouvements
 		if (this.deplacement.ignorerLesMouvementsImpossibles) {
-			//on ignore ce Mouvement impossible et on passe au suivantk
+			//on ignore ce Mouvement impossible et on passe au suivant
 			terminerLeMouvement(event);
 		}
 	}
@@ -144,4 +148,24 @@ public abstract class Mouvement {
 	 * @return description du Mouvement
 	 */
 	public abstract String toString();
+	
+	/**
+	 * Pendant le Mouvement, l'Event est suceptible de changer de direction.
+	 * Il faut tourner l'Event dans la direction dictée par le Mouvement.
+	 */
+	public final void mettreEventDansLaDirectionDuMouvement() {
+		final Event event = this.deplacement.getEventADeplacer();
+		if (!event.directionFixeActuelle) {
+			final int directionImposee = this.getDirectionImposee();
+			if (directionImposee != -1) {
+				event.direction = directionImposee;
+			}
+		}
+	}
+	
+	/**
+	 * Quelle est la direction imposée par le Mouvement à l'Event ?
+	 * @return direction imposée par le Mouvement à l'Event ou -1 si aucune.
+	 */
+	public abstract int getDirectionImposee();
 }

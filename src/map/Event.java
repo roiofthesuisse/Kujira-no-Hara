@@ -20,12 +20,15 @@ public class Event implements Comparable<Event> {
 	//constantes
 	public static final int VITESSE_PAR_DEFAUT = 4;
 	public static final int FREQUENCE_PAR_DEFAUT = 4;
+	public static final int DIRECTION_PAR_DEFAUT = Event.Direction.BAS;
 	public static final int LARGEUR_HITBOX_PAR_DEFAUT = Fenetre.TAILLE_D_UN_CARREAU;
 	public static final int HAUTEUR_HITBOX_PAR_DEFAUT = Fenetre.TAILLE_D_UN_CARREAU;
 	public static final int NOMBRE_DE_VIGNETTES_PAR_IMAGE = 4;
 	public static final boolean ANIME_A_L_ARRET_PAR_DEFAUT = false;
 	public static final boolean ANIME_EN_MOUVEMENT_PAR_DEFAUT = true;
-	public static final boolean TRAVERSABLE_PAR_DEFAUT = false;
+	public static final boolean TRAVERSABLE_PAR_DEFAUT = false; //si une Page est active
+	public static final boolean TRAVERSABLE_SI_VIDE = true; //si aucune Page active
+	public static final boolean DIRECTION_FIXE_PAR_DEFAUT = false;
 	public static final boolean AU_DESSUS_DE_TOUT_PAR_DEFAUT = false;
 	public static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAUT = false;
 	public static final boolean IGNORER_LES_MOUVEMENTS_IMPOSSIBLES_PAR_DEFAUT = true;
@@ -65,7 +68,6 @@ public class Event implements Comparable<Event> {
 	public boolean saute = false;
 	public int coordonneeApparenteXLorsDuSaut; //en pixels
 	public int coordonneeApparenteYLorsDuSaut; //en pixels
-	public int directionLorsDuSaut;
 	
 	/**  L'Event est-il au contact du Héros ? (utile pour la Condition ArriveeAuContact */
 	public boolean estAuContactDuHerosMaintenant = false;
@@ -75,10 +77,11 @@ public class Event implements Comparable<Event> {
 	/** 
 	 * Ces paramètres sont remplis automatiquement au chargement de la page.
 	 */
-	public boolean animeALArretActuel = false;
-	public boolean animeEnMouvementActuel = true;
-	public boolean traversableActuel = false;
-	public boolean auDessusDeToutActuel = false;
+	public boolean animeALArretActuel;
+	public boolean animeEnMouvementActuel;
+	public boolean traversableActuel;
+	public boolean directionFixeActuelle;
+	public boolean auDessusDeToutActuel;
 	public Deplacement deplacementNaturelActuel;
 	
 	public int largeurHitbox = LARGEUR_HITBOX_PAR_DEFAUT;
@@ -200,6 +203,7 @@ public class Event implements Comparable<Event> {
 	/**
 	 * Faire faire un Mouvement à l'Event.
 	 * Ce Mouvement est soit issu du Déplacement naturel de l'Event, soit de son éventuel Déplacement forcé.
+	 * @Warning Cette méthode est overridée pour le Héros.
 	 */
 	public void deplacer() {
 		if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
@@ -341,6 +345,7 @@ public class Event implements Comparable<Event> {
 		this.auDessusDeToutActuel = page.auDessusDeTout;
 		this.animeEnMouvementActuel = page.animeEnMouvement;
 		this.traversableActuel = page.traversable;
+		this.directionFixeActuelle = page.directionFixe;
 		
 		//déplacement
 		this.deplacementNaturelActuel = page.deplacementNaturel;
@@ -353,41 +358,50 @@ public class Event implements Comparable<Event> {
 		//apparence
 		this.imageActuelle = null;
 		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
-			this.direction = Event.Direction.BAS;
+			this.direction = Event.DIRECTION_PAR_DEFAUT;
 		}
 		estPetitActuel = true;
 		
 		//propriétés
 		this.vitesseActuelle = Event.VITESSE_PAR_DEFAUT;
 		this.frequenceActuelle = Event.FREQUENCE_PAR_DEFAUT;
-		this.animeALArretActuel = false;
-		this.auDessusDeToutActuel = false;
-		this.animeEnMouvementActuel = false;
-		this.traversableActuel = true;
+		this.animeALArretActuel = Event.ANIME_A_L_ARRET_PAR_DEFAUT;
+		this.auDessusDeToutActuel = Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
+		this.animeEnMouvementActuel = Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
+		this.traversableActuel = Event.TRAVERSABLE_SI_VIDE;
+		this.directionFixeActuelle = Event.DIRECTION_FIXE_PAR_DEFAUT;
 	
 		//déplacement
 		this.deplacementNaturelActuel = null;
 	}
 	
-	public int xImage() {
+	/**
+	 * Où afficher l'Event ?
+	 * @return position x de l'image de l'Event
+	 */
+	public final int xImage() {
 		int xBase;
 		if (this.saute) {
 			xBase = this.coordonneeApparenteXLorsDuSaut;
 		} else {
 			xBase = this.x;
 		}
-		int largeurVignette = this.imageActuelle.getWidth()/4;
+		final int largeurVignette = this.imageActuelle.getWidth()/4;
 		return xBase + (this.largeurHitbox - largeurVignette)/2;
 	}
 	
-	public int yImage() {
+	/**
+	 * Où afficher l'Event ?
+	 * @return position y de l'image de l'Event
+	 */
+	public final int yImage() {
 		int yBase;
 		if (this.saute) {
 			yBase = this.coordonneeApparenteYLorsDuSaut;
 		} else {
 			yBase = this.y;
 		}
-		int hauteurVignette = this.imageActuelle.getHeight()/4;
+		final int hauteurVignette = this.imageActuelle.getHeight()/4;
 		return yBase + this.hauteurHitbox - hauteurVignette + this.offsetY;
 	}
 	

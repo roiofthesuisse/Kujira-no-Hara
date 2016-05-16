@@ -51,6 +51,7 @@ public class PageEvent {
 	public boolean animeALArret;
 	public boolean animeEnMouvement;
 	public boolean traversable;
+	public boolean directionFixe;
 	public boolean auDessusDeTout;
 	public int vitesse;
 	public int frequence;
@@ -80,10 +81,11 @@ public class PageEvent {
 		//propriétés de l'Event pour cette Page
 		this.vitesse = Heros.VITESSE_HEROS_PAR_DEFAUT;
 		this.frequence = Heros.FREQUENCE_HEROS_PAR_DEFAUT;
-		this.animeALArret = false;
-		this.animeEnMouvement = true;
-		this.traversable = false;
-		this.auDessusDeTout = false;
+		this.animeALArret = Heros.ANIME_A_L_ARRET_HEROS_PAR_DEFAUT;
+		this.animeEnMouvement = Heros.ANIME_EN_MOUVEMENT_HEROS_PAR_DEFAUT;
+		this.traversable = Heros.TRAVERSABLE_HEROS_PAR_DEFAUT;
+		this.directionFixe = Heros.DIRECTION_FIXE_HEROS_PAR_DEFAUT;
+		this.auDessusDeTout = Heros.AU_DESSUS_DE_TOUT_HEROS_PAR_DEFAUT;
 		
 		
 		//déplacement de l'Event pour cette Page
@@ -171,6 +173,11 @@ public class PageEvent {
 			this.traversable = (boolean) pageJSON.get("traversable");
 		} catch (JSONException e) {
 			this.traversable = Event.TRAVERSABLE_PAR_DEFAUT;
+		}
+		try {
+			this.directionFixe = (boolean) pageJSON.get("directionFixe");
+		} catch (JSONException e) {
+			this.directionFixe = Event.DIRECTION_FIXE_PAR_DEFAUT;
 		}
 		try {
 			this.auDessusDeTout = (boolean) pageJSON.get("auDessusDeTout");

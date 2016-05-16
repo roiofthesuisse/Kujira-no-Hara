@@ -111,6 +111,9 @@ public class LecteurMap extends Lecteur {
 		//ajouter imageCoucheSurHeros à l'écran
 		ecran = superposerImages(ecran, map.imageCoucheSurHeros, -xCamera, -yCamera);
 		
+		//brouillard
+		//ecran = dessinerBrouillard(ecran, map.brouillard);
+		
 		//ajouter les jauges
 		ecran = dessinerLesJauges(ecran);
 		
@@ -353,18 +356,16 @@ public class LecteurMap extends Lecteur {
 			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)
 			final int largeur = eventImage.getWidth() / 4;
 			final int hauteur = eventImage.getHeight() / 4;
-			int positionX = event.xImage();
-			int positionY = event.yImage();
+			final int positionX = event.xImage();
+			final int positionY = event.yImage();
 			
-			int direction;
+			final int direction = event.direction;
 			final int animation;
 			if (event.saute) {
 				//l'Event est en train de sauter
-				direction = event.directionLorsDuSaut;
 				animation = 0;
 			} else {
 				//l'Event ne Saute pas
-				direction = event.direction;
 				animation = event.animation;
 			}			
 			
@@ -446,7 +447,7 @@ public class LecteurMap extends Lecteur {
 	@Override
 	public final void keyReleased(final Integer keycode) {
 		remettreAZeroLAnimationDuHeros(); //s'il s'est arrêté
-		mettreHerosDansLaBonneDirection();
+		this.map.heros.mettreDansLaBonneDirection();
 	}
 	
 	/**
@@ -461,25 +462,6 @@ public class LecteurMap extends Lecteur {
 		&& !touchesPressees.contains(GestionClavier.ToucheRole.DROITE)) {
 			heros.avance = false;
 			heros.animation = 0;
-		}
-	}
-	
-	/**
-	 * Tourner le Héros dans la bonne Direction selon l'entrée clavier.
-	 */
-	public final void mettreHerosDansLaBonneDirection() {
-		final Heros heros = map.heros;
-		if (!stopEvent && heros.animationAttaque<=0) {
-			final ArrayList<Integer> touchesPressees = fenetre.touchesPressees;
-			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
-				heros.direction = Event.Direction.GAUCHE;
-			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ) {
-				heros.direction = Event.Direction.DROITE;
-			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
-				heros.direction = Event.Direction.BAS;
-			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ) {
-				heros.direction = Event.Direction.HAUT;
-			}
 		}
 	}
 	
@@ -539,7 +521,7 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers le haut
 	 */
 	public final void haut() {
-		this.mettreHerosDansLaBonneDirection();
+		this.map.heros.mettreDansLaBonneDirection();
 		this.map.heros.avance = true;
 	}
 
@@ -547,7 +529,7 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers la gauche
 	 */
 	public final void gauche() {
-		this.mettreHerosDansLaBonneDirection();
+		this.map.heros.mettreDansLaBonneDirection();
 		this.map.heros.avance = true;
 	}
 
@@ -555,7 +537,7 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers le bas
 	 */
 	public final void bas() {
-		this.mettreHerosDansLaBonneDirection();
+		this.map.heros.mettreDansLaBonneDirection();
 		this.map.heros.avance = true;
 	}
 
@@ -563,7 +545,7 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers la droite
 	 */
 	public final void droite() {
-		this.mettreHerosDansLaBonneDirection();
+		this.map.heros.mettreDansLaBonneDirection();
 		this.map.heros.avance = true;
 	}
 	

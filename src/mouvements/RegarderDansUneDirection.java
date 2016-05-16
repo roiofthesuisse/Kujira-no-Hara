@@ -34,7 +34,7 @@ public class RegarderDansUneDirection extends Mouvement {
 	}
 
 	@Override
-	public boolean mouvementPossible() {
+	public final boolean mouvementPossible() {
 		// Regarder dans une direction est toujours possible.
 		return true;
 	}
@@ -45,22 +45,27 @@ public class RegarderDansUneDirection extends Mouvement {
 	 */
 	@Override
 	protected final void calculDuMouvement(final Event event) {
-		event.direction = this.direction;
+		//rien car le travail est fait par la méthode getDirectionImposee()
 	}
 
 	@Override
-	protected void terminerLeMouvementSpecifique(Event event) {
+	protected void terminerLeMouvementSpecifique(final Event event) {
 		// Mouvement non spécifique	
 	}
 
 	@Override
-	protected void ignorerLeMouvementSpecifique(Event event) {
+	protected void ignorerLeMouvementSpecifique(final Event event) {
 		// Mouvement non spécifique
 		
 	}
+	
+	@Override
+	public final int getDirectionImposee() {
+		return this.direction;
+	}
 
 	@Override
-	public String toString() {
+	public final String toString() {
 		return "Regarder dans la direction " + this.direction;
 	}
 

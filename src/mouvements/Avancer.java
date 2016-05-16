@@ -33,14 +33,6 @@ public class Avancer extends Mouvement {
 			  (int) parametres.get("nombreDeCarreaux")*Fenetre.TAILLE_D_UN_CARREAU );
 	}
 	
-	/**
-	 * Obtenir la Direction du mouvement
-	 * @return la Direction du mouvement
-	 */
-	public final int getDirection() {
-		return direction;
-	}
-	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
 	 * Puis incrémente le compteur "ceQuiAEteFait".
@@ -48,7 +40,7 @@ public class Avancer extends Mouvement {
 	 */
 	@Override
 	public final void calculDuMouvement(final Event event) {
-		final int sens = this.getDirection();
+		final int sens = this.direction;
 		
 		event.avance = true;
 		//déplacement :
@@ -76,7 +68,6 @@ public class Avancer extends Mouvement {
 	@Override
 	public boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
-		final int sens = this.getDirection();
 		
 		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
@@ -95,7 +86,7 @@ public class Avancer extends Mouvement {
 		int yAInspecter2 = event.y;
 		int xAInspecter3 = event.x; //pour les events
 		int yAInspecter3 = event.y;
-		switch(sens) {
+		switch(this.direction) {
 		case Event.Direction.BAS : 
 			yAInspecter += event.hauteurHitbox;   
 			yAInspecter2 += event.hauteurHitbox;   
@@ -128,10 +119,10 @@ public class Avancer extends Mouvement {
 			if (!event.map.casePassable[xAInspecter/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter/Fenetre.TAILLE_D_UN_CARREAU]) {
 				return false;
 			}
-			if ((sens==Direction.BAS||sens==Direction.HAUT) && ((event.x+event.largeurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(event.x/Fenetre.TAILLE_D_UN_CARREAU)) && !event.map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
+			if ((this.direction==Direction.BAS||this.direction==Direction.HAUT) && ((event.x+event.largeurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(event.x/Fenetre.TAILLE_D_UN_CARREAU)) && !event.map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
 				return false;
 			}
-			if ((sens==Direction.GAUCHE||sens==Direction.DROITE) && ((event.y+event.hauteurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(event.y/Fenetre.TAILLE_D_UN_CARREAU)) && !event.map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
+			if ((this.direction==Direction.GAUCHE||this.direction==Direction.DROITE) && ((event.y+event.hauteurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(event.y/Fenetre.TAILLE_D_UN_CARREAU)) && !event.map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
 				return false;
 			}
 			//voilà
@@ -178,6 +169,11 @@ public class Avancer extends Mouvement {
 	@Override
 	protected void reinitialiserSpecifique() {
 		// rien
+	}
+	
+	@Override
+	public final int getDirectionImposee() {
+		return this.direction;
 	}
 	
 	@Override
