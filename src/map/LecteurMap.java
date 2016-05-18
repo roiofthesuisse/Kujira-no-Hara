@@ -112,7 +112,7 @@ public class LecteurMap extends Lecteur {
 		ecran = superposerImages(ecran, map.imageCoucheSurHeros, -xCamera, -yCamera);
 		
 		//brouillard
-		//ecran = dessinerBrouillard(ecran, map.brouillard);
+		ecran = dessinerLeBrouillard(ecran, map.brouillard, xCamera, yCamera);
 		
 		//ajouter les jauges
 		ecran = dessinerLesJauges(ecran);
@@ -325,6 +325,14 @@ public class LecteurMap extends Lecteur {
 				i--;
 			}
 		}
+	}
+	
+	private BufferedImage dessinerLeBrouillard(BufferedImage ecran, final Brouillard brouillard, final int xCamera, final int yCamera) {
+		if (brouillard==null || brouillard.image==null || brouillard.opacite<=0) {
+			//pas de Brouillard
+			return ecran;
+		}
+		return superposerImages(ecran, brouillard.image, -xCamera, -yCamera);		
 	}
 
 	/**
