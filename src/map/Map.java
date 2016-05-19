@@ -1,15 +1,19 @@
 package map;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.imageio.ImageIO;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import main.Fenetre;
+import utilitaire.Graphismes;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -119,6 +123,10 @@ public class Map {
 			
 		//création de la liste des cases passables
 			creerListeDesCasesPassables();
+			
+		//création du Brouillard
+			this.brouillard = Brouillard.creerBrouillardAPartirDeJson(jsonMap);
+
 	}
 
 	/**
@@ -150,7 +158,7 @@ public class Map {
 				}
 			}
 			for (int i = 1; i<NOMBRE_ALTITUDES_SOUS_HEROS; i++) {
-				couches[0] = this.lecteur.superposerImages(couches[0], couches[i], 0, 0);
+				couches[0] = Graphismes.superposerImages(couches[0], couches[i], 0, 0);
 			}
 			this.imageCoucheSousHeros = couches[0];
 	}
@@ -184,7 +192,7 @@ public class Map {
 			}
 		}
 		for (int i = 1; i<NOMBRE_ALTITUDES_SUR_HEROS; i++) {
-			couches[0] = this.lecteur.superposerImages(couches[0], couches[i], 0, 0);
+			couches[0] = Graphismes.superposerImages(couches[0], couches[i], 0, 0);
 		}
 		this.imageCoucheSurHeros = couches[0];
 	}

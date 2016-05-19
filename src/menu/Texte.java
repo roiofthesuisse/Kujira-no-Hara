@@ -24,6 +24,7 @@ public class Texte extends ElementDeMenu {
 	public static final int TAILLE_GRANDE = 28;
 	private static final int INTERLIGNE = 8;
 	private static final int OPACITE_MAXIMALE = 100;
+	private static final String POLICE = "arial"; //"roiofthesuisse";
 	
 	public String contenu;
 	public int taille;
@@ -120,7 +121,7 @@ public class Texte extends ElementDeMenu {
         
         BufferedImage img = new BufferedImage(1, 1, Lecteur.TYPE_DES_IMAGES);
         Graphics2D g2d = img.createGraphics();
-        final Font font = new Font("Arial", Font.PLAIN, this.taille);
+        final Font font = new Font(POLICE, Font.PLAIN, this.taille);
         g2d.setFont(font);
         FontMetrics fm = g2d.getFontMetrics();
         final int width = fm.stringWidth(texts[0])+Texte.MARGE_A_DROITE;

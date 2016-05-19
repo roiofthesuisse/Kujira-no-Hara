@@ -12,6 +12,7 @@ import main.Commande;
 import map.LecteurMap;
 import menu.Texte;
 import utilitaire.GestionClavier;
+import utilitaire.Graphismes;
 
 /**
  * Afficher un Message dans une boîte de dialogue
@@ -50,7 +51,7 @@ public class Message extends Commande implements CommandeEvent {
 			try {
 				BufferedImage imageMessage = ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\parchotexte.png"));
 				final Texte t = new Texte(texte);
-				imageMessage = lecteur.superposerImages(imageMessage, t.texteToImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
+				imageMessage = Graphismes.superposerImages(imageMessage, t.texteToImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
 				this.image = imageMessage;
 				//lecteur.stopEvent = true; //TODO à enlever, gestion via la condition parler
 			} catch (IOException e) {

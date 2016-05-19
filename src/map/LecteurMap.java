@@ -20,6 +20,7 @@ import menu.Menu;
 import menu.Texte;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
+import utilitaire.Graphismes;
 
 /**
  * Le Lecteur de map affiche la Map et les Events.
@@ -91,7 +92,7 @@ public class LecteurMap extends Lecteur {
 		//on dessine la map
 		final int xCamera = calculerXCamera();
 		final int yCamera = calculerYCamera();
-		ecran = superposerImages(ecran, map.imageCoucheSousHeros, -xCamera, -yCamera);
+		ecran = Graphismes.superposerImages(ecran, map.imageCoucheSousHeros, -xCamera, -yCamera);
 
 		//lecture des commandes event
 		continuerLaLectureDesPagesDeCommandesEvent();
@@ -109,7 +110,7 @@ public class LecteurMap extends Lecteur {
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera);
 		
 		//ajouter imageCoucheSurHeros à l'écran
-		ecran = superposerImages(ecran, map.imageCoucheSurHeros, -xCamera, -yCamera);
+		ecran = Graphismes.superposerImages(ecran, map.imageCoucheSurHeros, -xCamera, -yCamera);
 		
 		//brouillard
 		ecran = dessinerLeBrouillard(ecran, map.brouillard, xCamera, yCamera);
@@ -119,7 +120,7 @@ public class LecteurMap extends Lecteur {
 		
 		//on affiche le message
 		if (messageActuel!=null) {
-			ecran = superposerImages(ecran, messageActuel.image, X_AFFICHAGE_MESSAGE, Y_AFFICHAGE_MESSAGE);
+			ecran = Graphismes.superposerImages(ecran, messageActuel.image, X_AFFICHAGE_MESSAGE, Y_AFFICHAGE_MESSAGE);
 		}
 		
 		//supprimer events dont l'attribut "supprimé" est à true
@@ -135,11 +136,11 @@ public class LecteurMap extends Lecteur {
 	 */
 	private BufferedImage dessinerLesJauges(BufferedImage ecran) {
 		//touches
-		ecran = superposerImages(ecran, HUD_TOUCHES, 0, 0);
+		ecran = Graphismes.superposerImages(ecran, HUD_TOUCHES, 0, 0);
 		
 		//icone de l'arme equipée
 		try {
-			ecran = superposerImages(ecran, Fenetre.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
+			ecran = Graphismes.superposerImages(ecran, Fenetre.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
 		} catch (NullPointerException e) {
 			//pas d'arme équipée
 		}
@@ -154,11 +155,11 @@ public class LecteurMap extends Lecteur {
 		//argent
 		final int argent = Fenetre.getPartieActuelle().argent;
 		if (argent > 0) {
-			ecran = superposerImages(ecran, HUD_ARGENT, X_AFFICHAGE_ARGENT, Y_AFFICHAGE_ARGENT);
+			ecran = Graphismes.superposerImages(ecran, HUD_ARGENT, X_AFFICHAGE_ARGENT, Y_AFFICHAGE_ARGENT);
 			final Texte texte = new Texte("" + argent);
 			texte.couleurForcee = Color.white;
 			final BufferedImage texteImage = texte.texteToImage();
-			ecran = superposerImages(ecran, texteImage, X_AFFICHAGE_ARGENT+HUD_ARGENT.getWidth()+ESPACEMENT_ICONES, Y_AFFICHAGE_ARGENT);
+			ecran = Graphismes.superposerImages(ecran, texteImage, X_AFFICHAGE_ARGENT+HUD_ARGENT.getWidth()+ESPACEMENT_ICONES, Y_AFFICHAGE_ARGENT);
 		}
 		
 		return ecran;
@@ -327,12 +328,52 @@ public class LecteurMap extends Lecteur {
 		}
 	}
 	
+	/**
+	 * Dessiner le Brouillard au dessus de la Map et ses Events.
+	 * @param ecran sur lequel on dessine
+	 * @param brouillard informations sur le Brouillard
+	 * @param xCamera position x de la caméra
+	 * @param yCamera position y de la caméra
+	 * @return écran sur lequel on a dessiné le Brouillard
+	 */
 	private BufferedImage dessinerLeBrouillard(BufferedImage ecran, final Brouillard brouillard, final int xCamera, final int yCamera) {
-		if (brouillard==null || brouillard.image==null || brouillard.opacite<=0) {
+		if (brouillard == null || brouillard.image == null || brouillard.opacite <= 0) {
 			//pas de Brouillard
 			return ecran;
 		}
-		return superposerImages(ecran, brouillard.image, -xCamera, -yCamera);		
+		
+		final int largeurEcran = ecran.getWidth();
+		final int hauteurEcran = ecran.getWidth();
+		final int decalageX = brouillard.defilementX * (this.frameActuelle % brouillard.largeur);
+		final int decalageY = brouillard.defilementY * (this.frameActuelle % brouillard.hauteur); 
+		int imin = (xCamera - decalageX) / brouillard.largeur;
+		int imax = (xCamera + largeurEcran - decalageX) / brouillard.largeur;
+		int jmin = (yCamera - decalageY) / brouillard.hauteur;
+		int jmax = (yCamera + hauteurEcran - decalageY) / brouillard.hauteur;
+		if (Brouillard.calculerAffichage(imin, brouillard.largeur, decalageX, xCamera) >= 0) {
+			imin--;
+		}
+		if (Brouillard.calculerAffichage(imax, brouillard.largeur, decalageX, xCamera) <= largeurEcran) {
+			imax++;
+		}
+		if (Brouillard.calculerAffichage(jmin, brouillard.hauteur, decalageY, yCamera) >= 0) {
+			jmin--;
+		}
+		if (Brouillard.calculerAffichage(jmax, brouillard.largeur, decalageY, yCamera) <= hauteurEcran) {
+			jmax++;
+		}
+		for (int i = imin; i<imax; i++) {
+			for (int j = jmin; j<jmax; j++) {
+				ecran = Graphismes.superposerImages(
+					ecran, 
+					brouillard.image, 
+					Brouillard.calculerAffichage(i, brouillard.largeur, decalageX, xCamera), 
+					Brouillard.calculerAffichage(j, brouillard.hauteur, decalageY, yCamera),
+					brouillard.opacite
+				);	
+			}
+		}
+		return ecran;
 	}
 
 	/**
@@ -384,7 +425,7 @@ public class LecteurMap extends Lecteur {
 			//voilà
 			
 			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
-			return superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);		
+			return Graphismes.superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);		
 		} else {
 			//l'event n'a pas d'image
 			return ecran;
@@ -403,7 +444,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	public final BufferedImage dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise) {
 		final BufferedImage dessinCarreau = tilesetUtilise.carreaux[numeroCarreau];
-		return superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
+		return Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
 	}
 
 	@Override

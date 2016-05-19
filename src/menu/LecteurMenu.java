@@ -9,6 +9,7 @@ import main.Lecteur;
 import map.Event;
 import map.LecteurMap;
 import utilitaire.GestionClavier;
+import utilitaire.Graphismes;
 
 /**
  * Le Lecteur de Menu a pour rôle de produire l'image à afficher à l'écran s'il s'agit d'un Menu.
@@ -41,32 +42,32 @@ public class LecteurMenu extends Lecteur {
 		
 		//image de fond
 		if (this.menu.fond != null) {
-			ecran = superposerImages(ecran, this.menu.fond, 0, 0);
+			ecran = Graphismes.superposerImages(ecran, this.menu.fond, 0, 0);
 		}
 
 		//affichage de la sélection
 		final ElementDeMenu selectionnable = menu.elementSelectionne;
 		if (selectionnable!=null && selectionnable.selectionnable && selectionnable.selectionne) {
 			final BufferedImage selection = selectionnable.creerImageDeSelection();
-			ecran = superposerImages(ecran, selection, selectionnable.x-Image.CONTOUR, selectionnable.y-Image.CONTOUR);
+			ecran = Graphismes.superposerImages(ecran, selection, selectionnable.x-Image.CONTOUR, selectionnable.y-Image.CONTOUR);
 		}
 		
 		//affichage des éléments de menu
 		for (Image element : menu.images) {
 			if (ilFautAfficherLElement(element)) {
-				ecran = superposerImages(ecran, element.image, element.x, element.y);
+				ecran = Graphismes.superposerImages(ecran, element.image, element.x, element.y);
 			}
 		}
 
 		//affichage des textes
 		for (Texte texte : menu.textes) {
 			final BufferedImage imgtxt = texte.texteToImage();			
-			ecran = superposerImages(ecran, imgtxt, texte.x, texte.y);
+			ecran = Graphismes.superposerImages(ecran, imgtxt, texte.x, texte.y);
 		}
 		
 		//afficher le Texte descriptif
 		if (this.menu.texteDescriptif != null && !this.menu.texteDescriptif.contenu.equals("")) {
-			ecran = superposerImages(ecran, this.menu.texteDescriptif.image, this.menu.xTexteDescriptif, this.menu.yTexteDescriptif);
+			ecran = Graphismes.superposerImages(ecran, this.menu.texteDescriptif.image, this.menu.xTexteDescriptif, this.menu.yTexteDescriptif);
 		}
 		
 		//afficher les listes

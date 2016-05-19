@@ -1,6 +1,8 @@
 package main;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
+import java.awt.Composite;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -16,7 +18,7 @@ import menu.LecteurMenu;
  * Le lecteur peut être un lecteur de menu ou un lecteur de map.
  * Le rôle du lecteur est d'afficher dans la fenêtre la succession des écrans au cours du temps.
  */
-public abstract class Lecteur {
+public abstract class Lecteur {	
 	private BufferedImage ecranAtuel;
 	public Fenetre fenetre = null;
 	/**
@@ -90,20 +92,6 @@ public abstract class Lecteur {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	/**
-	 * Superposer deux images
-	 * @param ecran image de fond, sur laquelle on va superposer l'autre
-	 * @param image2 image du dessus, superposée sur l'écran
-	 * @param x position x où on superpose l'image2
-	 * @param y position y où on superpose l'image2
-	 * @return écran sur lequel on a superposé l'image2
-	 */
-	public final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y) {
-		Graphics2D g2d = (Graphics2D) ecran.createGraphics();
-		g2d.drawImage(image2, null, x, y);
-		return ecran;
 	}
 	
 	/***
