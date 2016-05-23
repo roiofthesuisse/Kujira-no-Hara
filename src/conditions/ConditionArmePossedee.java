@@ -8,16 +8,16 @@ import jeu.Partie;
 import main.Fenetre;
 
 /**
- * Vérifie si le Héros a équipé cette Arme.
+ * Vérifie si le Héros possède cette Arme.
  */
-public class ConditionArmeEquipee extends Condition implements CommandeEvent, CommandeMenu {
+public class ConditionArmePossedee extends Condition implements CommandeEvent, CommandeMenu {
 	public int idArme;
 	
 	/**
 	 * Constructeur explicite
 	 * @param idArme identifiant de l'Arme à vérifier
 	 */
-	public ConditionArmeEquipee(final int idArme) {
+	public ConditionArmePossedee(final int idArme) {
 		this.idArme = idArme;
 	}
 	
@@ -25,7 +25,7 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public ConditionArmeEquipee(final HashMap<String, Object> parametres) {
+	public ConditionArmePossedee(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("idArme") );
 	}
 	
@@ -33,7 +33,7 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	public final boolean estVerifiee() {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		if (partieActuelle.nombreDArmesPossedees > 0) {
-			return partieActuelle.getArmeEquipee().id == this.idArme;
+			return partieActuelle.armesPossedees[this.idArme];
 		}
 		return false; //aucune arme possédée
 	}
