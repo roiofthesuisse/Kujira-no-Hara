@@ -292,6 +292,44 @@
 					"image": "mouton character.png"
 				}
 			]
+		},
+		{
+			"nom": "deplaceurDeHeros",
+			"id": 8,
+			"x": 3,
+			"y": 14,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "ArriveeAuContact"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "Deplacement",
+							"idEventADeplacer": 0,
+							"mouvements": [
+								{
+									"nom": "Avancer",
+									"direction": 2,
+									"nombreDeCarreaux": 10
+								}
+							],
+							"ignorerLesMouvementsImpossibles": true,
+							"repeterLeDeplacement": false,
+							"attendreLaFinDuDeplacement": true
+						},
+						{
+							"nom": "JouerEffetSonore",
+							"nomFichierSonore": "tambourin.ogg"
+						}
+					],
+					"image": "bouton character.png",
+					"directionInitiale": 0,
+					"traversable": true
+				}
+			]
 		}
 	]
 }
