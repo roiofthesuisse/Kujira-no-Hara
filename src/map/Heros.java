@@ -16,7 +16,6 @@ import main.Fenetre;
 import mouvements.Avancer;
 import mouvements.Mouvement;
 import utilitaire.GestionClavier;
-import utilitaire.InterpreteurDeJson;
 
 /**
  * Event particulier qui est déplacé par le joueur à l'aide du clavier
@@ -59,7 +58,7 @@ public class Heros extends Event {
 	 */
 	public static ArrayList<PageEvent> creerPages() {
 		final ArrayList<PageEvent> pages = new  ArrayList<PageEvent>();
-		
+		//TODO le Héros devrait être créé à partir d'un fichier JSON
 		//pages
 			//page 0 : marche normale
 				final PageEvent page0 = new PageEvent(0, null, null, NOM_IMAGE_HEROS);
@@ -165,10 +164,14 @@ public class Heros extends Event {
 	
 	/**
 	 * Tourner le Héros dans la bonne Direction selon l'entrée clavier.
+	 * Il faut qu'à ce moment le Héros soit libre de ses Mouvements.
 	 */
 	public final void mettreDansLaBonneDirection() {
 		final Heros heros = map.heros;
-		if (!this.map.lecteur.stopEvent && heros.animationAttaque<=0) {
+		if (!this.map.lecteur.stopEvent //pas de gel des Events
+				&& heros.animationAttaque<=0 //pas en attaque
+				&& (this.deplacementForce==null || this.deplacementForce.mouvements.size()<=0) //pas de Déplacement forcé
+		) {
 			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
 				heros.direction = Event.Direction.GAUCHE;
