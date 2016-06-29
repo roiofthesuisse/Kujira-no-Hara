@@ -1,5 +1,7 @@
 package conditions;
 
+import java.util.HashMap;
+
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
@@ -14,6 +16,14 @@ public class ConditionSinon extends Condition implements CommandeEvent, Commande
 	 */
 	public ConditionSinon(final int numero) {
 		this.numero = numero;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionSinon(final HashMap<String, Object> parametres) {
+		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1);
 	}
 	
 	@Override

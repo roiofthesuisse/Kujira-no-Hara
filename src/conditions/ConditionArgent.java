@@ -24,10 +24,12 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	
 	/**
 	 * Constructeur explicite
+	 * @param numero de la Condition
 	 * @param quantite d'argent à posséder
 	 * @param inegalite à utiliser pour comparer l'argent
 	 */
-	public ConditionArgent(final Integer quantite, final String inegalite) {
+	public ConditionArgent(final int numero, final Integer quantite, final String inegalite) {
+		this.numero = numero;
 		this.quantite = quantite;
 		switch(inegalite) {
 		case PLUS_OU_AUTANT: 
@@ -53,9 +55,10 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionArgent(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("quantite"),
-				(String) parametres.get("inegalite")
-			);
+		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
+			(int) parametres.get("quantite"),
+			(String) parametres.get("inegalite")
+		);
 	}
 	
 	@Override

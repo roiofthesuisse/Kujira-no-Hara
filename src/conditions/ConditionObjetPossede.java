@@ -1,5 +1,7 @@
 package conditions;
 
+import java.util.HashMap;
+
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import jeu.Objet;
@@ -12,7 +14,8 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	private int numeroObjet;
 	
 	/**
-	 * Constructeur explicite
+	 * Constructeur partiel
+	 * Réservé aux Conditions de Pages et Menus
 	 * @param objet identifiant de l'Objet : numéro ou nom
 	 */
 	public ConditionObjetPossede(final Object objet) {
@@ -22,7 +25,30 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 			this.numeroObjet = Objet.objetsDuJeuHash.get((String) objet).numero;
 		}
 	}
+	
+	/**
+	 * Constructeur explicite
+	 * @param numero de la Condition
+	 * @param objet identifiant de l'Objet : numéro ou nom
+	 */
+	public ConditionObjetPossede(final int numero, final Object objet) {
+		this.numero = numero;
+		try {
+			this.numeroObjet = (Integer) objet;
+		} catch (Exception e) {
+			this.numeroObjet = Objet.objetsDuJeuHash.get((String) objet).numero;
+		}
+	}
 		
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionObjetPossede(final HashMap<String, Object> parametres) {
+		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
+			parametres.get("objet")
+		);
+	}
 	
 	@Override
 	public final boolean estVerifiee() {

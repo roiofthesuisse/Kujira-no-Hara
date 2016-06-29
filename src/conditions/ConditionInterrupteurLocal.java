@@ -16,12 +16,14 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	
 	/**
 	 * Constructeur explicite
+	 * @param numero de la Condition
 	 * @param numeroMap numero de la Map où se trouve l'interrupteur local à vérifier
 	 * @param numeroEvent numéro de l'Event auquel appartient l'interrupteur local à vérifier
 	 * @param numeroInterrupteurLocal à vérifier (0 A ; 1 B ; 2 C ; 3 D)
 	 * @param valeur booléenne attendue
 	 */
-	public ConditionInterrupteurLocal(final Integer numeroMap, final Integer numeroEvent, final int numeroInterrupteurLocal, final boolean valeur) {
+	public ConditionInterrupteurLocal(final int numero, final Integer numeroMap, final Integer numeroEvent, final int numeroInterrupteurLocal, final boolean valeur) {
+		this.numero = numero;
 		this.numeroMap = numeroMap;
 		this.numeroEvent = numeroEvent;
 		this.numeroInterrupteurLocal = numeroInterrupteurLocal;
@@ -33,7 +35,8 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionInterrupteurLocal(final HashMap<String, Object> parametres) {
-		this( parametres.containsKey("numeroMap") ? (int) parametres.get("numeroMap") : null,
+		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
+			parametres.containsKey("numeroMap") ? (int) parametres.get("numeroMap") : null,
 			parametres.containsKey("numeroEvent") ? (int) parametres.get("numeroEvent") : null,
 			(int) parametres.get("numeroInterrupteurLocal"),
 			(boolean) parametres.get("valeurQuIlEstCenseAvoir")

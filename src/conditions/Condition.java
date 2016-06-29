@@ -10,7 +10,7 @@ import main.Commande;
  * Une Condition peut servir à définir le moment de déclenchement d'une Page, ou faire partie du code Event.
  */
 public abstract class Condition extends Commande {
-	public int numero; //le numéro de condition est le même que le numéro de fin de condition qui correspond
+	public int numero = -1; //le numéro de condition est le même que le numéro de fin de condition qui correspond
 
 	/**
 	 * La Condition est elle vérifiée là maintenant ?
@@ -26,6 +26,11 @@ public abstract class Condition extends Commande {
 	 * @return nouvelle position du curseur
 	 */
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		//une Condition doit avoir un numéro pour être exécutée comme Commande Event
+		if (this.numero == -1) {
+			System.err.println("La condition "+this.getClass().getName()+" n'a pas de numéro !");
+		}
+		
 		if ( estVerifiee() ) {
 			return curseurActuel+1;
 		} else {

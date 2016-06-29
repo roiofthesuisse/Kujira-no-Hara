@@ -12,12 +12,14 @@ import main.Fenetre;
  */
 public class ConditionArmePossedee extends Condition implements CommandeEvent, CommandeMenu {
 	public int idArme;
-	
+
 	/**
 	 * Constructeur explicite
+	 * @param numero de la Condition
 	 * @param idArme identifiant de l'Arme à vérifier
 	 */
-	public ConditionArmePossedee(final int idArme) {
+	public ConditionArmePossedee(final int numero, final int idArme) {
+		this.numero = numero;
 		this.idArme = idArme;
 	}
 	
@@ -26,7 +28,9 @@ public class ConditionArmePossedee extends Condition implements CommandeEvent, C
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionArmePossedee(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("idArme") );
+		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
+			(int) parametres.get("idArme") 
+		);
 	}
 	
 	@Override

@@ -12,7 +12,6 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	private int typeInegalite;
 	private int valeurQuIlEstCenseAvoir;
 	
-	
 	/**
 	 *  Types de comparaisons
 	 */
@@ -25,16 +24,16 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	
 	/**
 	 * Utiliser les constantes situées dans la classe pour définir le type de comparaison.
+	 * @param numero de la Condition
 	 * @param numeroVariable numéro de la variable
 	 * @param inegalite 0 egal ; 1 superieur large ; 2 inferieur large ; 3 superieur strict ; 4 inferieur strict ; 5 différent
 	 * @param valeur comparative
-	 * @param numero de la condition
 	 */
-	public ConditionVariable(final int numeroVariable, final int inegalite, final int valeur, final int numero) {
+	public ConditionVariable(final int numero, final int numeroVariable, final int inegalite, final int valeur) {
+		this.numero = numero;
 		this.numeroVariable = numeroVariable;
 		this.typeInegalite = inegalite;
 		this.valeurQuIlEstCenseAvoir = valeur;
-		this.numero = numero;
 	}
 	
 	@Override

@@ -11,10 +11,20 @@ public class ConditionStopEvent extends Condition implements CommandeEvent {
 	boolean valeurQuIlEstCenseAvoir;
 	
 	/**
-	 * Constructeur explicite
+	 * Constructeur partiel
+	 * Réservé aux Conditions de Pages et Menus
 	 * @param valeur attendue
 	 */
 	public ConditionStopEvent(final boolean valeur) {
+		this.valeurQuIlEstCenseAvoir = valeur;
+	}
+	
+	/**
+	 * Constructeur explicite
+	 * @param numero de la Condition
+	 * @param valeur attendue
+	 */
+	public ConditionStopEvent(final int numero, final boolean valeur) {
 		this.valeurQuIlEstCenseAvoir = valeur;
 	}
 	
@@ -23,7 +33,9 @@ public class ConditionStopEvent extends Condition implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionStopEvent(final HashMap<String, Object> parametres) {
-		this( (boolean) parametres.get("valeur") );
+		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
+			(boolean) parametres.get("valeur") 
+		);
 	}
 	
 	@Override

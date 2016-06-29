@@ -9,9 +9,17 @@ public class ConditionAnimationAttaque extends Condition implements CommandeEven
 	
 	/**
 	 * Constructeur vide
+	 * Réservé aux Conditions de Pages 
 	 */
 	public ConditionAnimationAttaque() {
-		
+	}
+	
+	/**
+	 * Constructeur explicite
+	 * @param numero de la Condition
+	 */
+	public ConditionAnimationAttaque(final int numero) {
+		this.numero = numero;
 	}
 	
 	@Override

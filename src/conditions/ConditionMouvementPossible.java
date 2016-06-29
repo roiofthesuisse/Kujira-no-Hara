@@ -17,12 +17,12 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 
 	/**
 	 * Constructeur explicite
+	 * @param numero de la condition
 	 * @param deplacement qui ne contient qu'un Mouvement, ainsi que l'id de l'Event à déplacer
-	 * @param numeroCondition numéro de la condition
 	 */
-	public ConditionMouvementPossible(final Deplacement deplacement, final int numeroCondition) {
+	public ConditionMouvementPossible(final int numero, final Deplacement deplacement) {
+		this.numero = numero;
 		this.deplacement = deplacement;
-		this.numero = numeroCondition;
 	}
 	
 	/**
@@ -30,8 +30,9 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionMouvementPossible(final HashMap<String, Object> parametres) {
-		this( (Deplacement) InterpreteurDeJson.recupererUneCommande( (JSONObject) parametres.get("deplacement") ),
-			(int) parametres.get("numero"));
+		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
+			(Deplacement) InterpreteurDeJson.recupererUneCommande( (JSONObject) parametres.get("deplacement") )
+		);
 	}
 
 	@Override
