@@ -36,7 +36,7 @@ public class BoucleSortir extends Commande implements CommandeEvent, CommandeMen
 			}
 		}
 		//la fin de Boucle n'a pas été trouvée
-		System.err.println("La fin de boucle numéro "+numero+" n'a pas été trouvée !");
+		System.err.println("La fin de la boucle numéro "+numero+" n'a pas été trouvée !");
 		return curseurActuel+1;
 	}
 	

@@ -19,7 +19,9 @@ import utilitaire.Graphismes;
  */
 public class Message extends Commande implements CommandeEvent {
 	//constantes
-	private static final int MARGE_DU_TEXTE = 24;
+	protected static final int MARGE_DU_TEXTE = 24;
+	protected static final String NOM_IMAGE_BOITE_MESSAGE = ".\\ressources\\Graphics\\Pictures\\parchotexte.png";
+	protected static final BufferedImage IMAGE_BOITE_MESSAGE = chargerImageDeFondDeLaBoiteMessage();
 	
 	public String texte;
 	public BufferedImage image;
@@ -45,22 +47,15 @@ public class Message extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final LecteurMap lecteur = this.page.event.map.lecteur;
 		lecteur.normaliserApparenceDuHerosAvantMessage();
-		//si le message à afficher est différent du message affiché, on change !
-		if ( lecteur.messageActuel==null || !lecteur.messageActuel.equals(texte) ) {
+		//si le Message à afficher est différent du Message affiché, on change !
+		if ( lecteur.messageActuel==null 
+				|| !lecteur.messageActuel.texte.equals(this.texte) 
+				|| siChoixLeCurseurATIlBouge()
+		) {
 			lecteur.messageActuel = this;
-			try {
-				BufferedImage imageMessage = ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\parchotexte.png"));
-				final Texte t = new Texte(texte);
-				imageMessage = Graphismes.superposerImages(imageMessage, t.texteToImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
-				this.image = imageMessage;
-				//lecteur.stopEvent = true; //TODO à enlever, gestion via la condition parler
-			} catch (IOException e) {
-				System.out.println("impossible d'ouvrir l'image");
-				e.printStackTrace();
-			}
-			
+			this.image = produireImageDuMessage();			
 		}
-		//si la touche action est relachée, la prochaine fois qu'elle sera pressé sera une nouvelle input
+		//si la touche action est relachée, la prochaine fois qu'elle sera pressée sera une nouvelle input
 		if ( !lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION) ) {
 			leRelachementDeToucheAEuLieu = true;
 		}
@@ -70,11 +65,66 @@ public class Message extends Commande implements CommandeEvent {
 			lecteur.messageActuel = null;
 			//lecteur.stopEvent = false; //TODO à enlever, gestion via la condition parler
 			leRelachementDeToucheAEuLieu = false;
-			return curseurActuel+1;
+			return redirectionSelonLeChoix(curseurActuel, commandes);
 		} else {
 			//on laisse le message ouvert
 			return curseurActuel;
 		}
 	}
 
+	/**
+	 * Charge l'image de fond de la boîte de dialogue.
+	 * @return image de fond de la boîte de dialogue
+	 */
+	private static BufferedImage chargerImageDeFondDeLaBoiteMessage() {
+		try {
+			final BufferedImage imageMessage = ImageIO.read(new File(NOM_IMAGE_BOITE_MESSAGE));
+			return imageMessage;
+		} catch (IOException e) {
+			System.out.println("impossible d'ouvrir l'image");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * Fabrique l'image du Message à partir de l'image de la boîte de dialogue et du texte.
+	 * Méthode dérivée par la classe Choix.
+	 * @return image du Message
+	 */
+	protected BufferedImage produireImageDuMessage() {
+		BufferedImage imageMessage = new BufferedImage(
+				IMAGE_BOITE_MESSAGE.getWidth(), 
+				IMAGE_BOITE_MESSAGE.getWidth(), 
+				IMAGE_BOITE_MESSAGE.getType()
+		);
+		
+		// Ajout de l'image de boîte de dialogue
+		imageMessage = Graphismes.superposerImages(imageMessage, IMAGE_BOITE_MESSAGE, 0, 0);
+		
+		// Ajout du texte
+		final Texte t = new Texte(texte);
+		imageMessage = Graphismes.superposerImages(imageMessage, t.texteToImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
+		return imageMessage;
+	}
+	
+	/**
+	 * Ce n'est pas un Choix, juste un Message Normal, donc le curseur n'a pas changé.
+	 * On n'a jamais besoin de remplacer l'image du Message.
+	 * Méthode dérivée par la classe Choix.
+	 * @return false
+	 */
+	protected boolean siChoixLeCurseurATIlBouge() {
+		return false;
+	}
+	
+	/**
+	 * Ce n'est pas un Choix, juste un Message Normal, donc la Commande suivante est juste après.
+	 * Méthode dérivée par la classe Choix.
+	 * @param curseurActuel
+	 * @return curseur incrémenté
+	 */
+	protected int redirectionSelonLeChoix(final int curseurActuel, final ArrayList<Commande> commandes) {
+		return curseurActuel+1;
+	}
 }

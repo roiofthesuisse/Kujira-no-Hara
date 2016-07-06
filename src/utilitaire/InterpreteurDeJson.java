@@ -372,4 +372,18 @@ public abstract class InterpreteurDeJson {
 		return mouvements;
 	}
 	
+	/**
+	 * Traduit un JSONArray représentant les alternatives d'un Choix en une liste de Strings.
+	 * @param alternativesJSON JSONArray représentant les alternatives
+	 * @return liste des Strings
+	 */
+	public static ArrayList<String> recupererLesAlternativesDUnChoix(final JSONArray alternativesJSON) {
+		final ArrayList<String> alternatives = new ArrayList<String>();
+		for (Object object : alternativesJSON) {
+			final String alternative = (String) object;
+			alternatives.add(alternative);
+		}
+		return alternatives;
+	}
+	
 }

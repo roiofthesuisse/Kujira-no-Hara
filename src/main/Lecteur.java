@@ -1,8 +1,6 @@
 package main;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
-import java.awt.Composite;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -34,6 +32,11 @@ public abstract class Lecteur {
 	 * Si le Lecteur est éteint, l'affichage arrête sa boucle, et la Fenêtre doit démarrer un nouveau Lecteur.
 	 */
 	public boolean allume = true;
+	/** 
+	 * Numéro de la frame en cours.
+	 * Une frame est une image affichée à l'écran pendant une courte durée.
+	 * A chaque nouveau Lecteur, on repart de 0.
+	 */
 	public int frameActuelle = 0;
 
 	/**
