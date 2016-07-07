@@ -22,7 +22,7 @@ public class Texte extends ElementDeMenu {
 	public static final int MARGE_A_DROITE = 4; //pour ne pas que le côté droit du texte ne soit coupé
 	public static final int TAILLE_MOYENNE = 18;
 	public static final int TAILLE_GRANDE = 28;
-	private static final int INTERLIGNE = 8;
+	public static final int INTERLIGNE = 8;
 	private static final int OPACITE_MAXIMALE = 100;
 	private static final String POLICE = "arial"; //"roiofthesuisse";
 	
@@ -106,13 +106,14 @@ public class Texte extends ElementDeMenu {
 		this.contenu = contenu;
 		this.taille = Texte.TAILLE_MOYENNE;
 		this.opacite = Texte.OPACITE_MAXIMALE;
+		this.image = this.texteToImage();
 	}
 	
 	/**
 	 * Convertir un Texte en image
 	 * @return le Texte sous forme d'image
 	 */
-	public final BufferedImage texteToImage() {
+	private BufferedImage texteToImage() {
         final String[] texts = this.contenu.split("\\\\n");
         final int nombreLignes = texts.length;
         if (nombreLignes <= 0) {
@@ -170,7 +171,7 @@ public class Texte extends ElementDeMenu {
         	}
         }
         g2d.dispose();
-        
+	        
         return img;
 	}
 

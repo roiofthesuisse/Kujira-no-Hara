@@ -13,6 +13,8 @@ public abstract class Menu {
 	//constantes
 	protected static final int LARGEUR_ELEMENT_PAR_DEFAUT = 48;
 	protected static final int HAUTEUR_ELEMENT_PAR_DEFAUT = 32;
+	public static final String BRUIT_DEPLACEMENT_CURSEUR = "DeplacementCurseur.wav";
+	public static final String BRUIT_CONFIRMER_SELECTION = "Confirmer.wav";
 	
 	public LecteurMenu lecteur;
 	public BufferedImage fond;
@@ -34,7 +36,7 @@ public abstract class Menu {
 	 */
 	public final void confirmer() {
 		if (elementSelectionne != null) {
-			LecteurAudio.playSe("Confirmer.wav");
+			LecteurAudio.playSe(BRUIT_CONFIRMER_SELECTION);
 			elementSelectionne.confirmer();
 		} else {
 			System.out.println("l'élément sélectionné de ce menu est null.");
@@ -60,7 +62,7 @@ public abstract class Menu {
 			if (this.elementSelectionne!=null 
 				&& (elementASelectionner.x!=this.elementSelectionne.x || elementASelectionner.y!=this.elementSelectionne.y)
 			) {
-				LecteurAudio.playSe("DeplacementCurseur.wav");
+				LecteurAudio.playSe(BRUIT_DEPLACEMENT_CURSEUR);
 			}
 			//désélection du précédent
 			if (this.elementSelectionne != null) {

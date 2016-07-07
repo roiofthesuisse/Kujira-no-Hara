@@ -84,19 +84,6 @@ public abstract class Lecteur {
 		return image;
 	}
 	
-	/**
-	 * Enregistrer une image dans l'ordinateur
-	 * @param image à enregistrer
-	 */
-	public static void sauvegarderImage(final BufferedImage image) {
-		try {
-			File outputfile = new File("C:/Users/RoiOfTheSuisse/Pictures/saved.png");
-			ImageIO.write(image, "png", outputfile);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	/***
 	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Manu ou la Map
 	 * @return nom du BGM à jouer

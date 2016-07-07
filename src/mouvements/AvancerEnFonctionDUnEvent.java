@@ -73,7 +73,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	 * @param distanceVerticale difference entre le y destination et le y actuel
 	 * @param distanceHorizontale difference entre le x destination et le x actuel
 	 */
-	private void calculerDirection(final int distanceVerticale, final int distanceHorizontale) {
+	public final void calculerDirection(final int distanceVerticale, final int distanceHorizontale) {
 		if (distanceVerticale < 0) {
 			this.directionPossibleVerticale = Direction.BAS;
 		} else {

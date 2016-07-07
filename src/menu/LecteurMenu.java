@@ -61,7 +61,7 @@ public class LecteurMenu extends Lecteur {
 
 		//affichage des textes
 		for (Texte texte : menu.textes) {
-			final BufferedImage imgtxt = texte.texteToImage();			
+			final BufferedImage imgtxt = texte.image;			
 			ecran = Graphismes.superposerImages(ecran, imgtxt, texte.x, texte.y);
 		}
 		

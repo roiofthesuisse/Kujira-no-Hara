@@ -9,7 +9,7 @@ import map.Event;
  */
 public class RegarderDansUneDirection extends Mouvement {
 	
-	private int direction;
+	protected int direction;
 
 	/**
 	 * Constructeur explicite
@@ -59,8 +59,11 @@ public class RegarderDansUneDirection extends Mouvement {
 		
 	}
 	
+	/**
+	 * Cette méthode est dérivée dans la classe RegarderunEvent.
+	 */
 	@Override
-	public final int getDirectionImposee() {
+	public int getDirectionImposee() {
 		return this.direction;
 	}
 

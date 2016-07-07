@@ -4,10 +4,13 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 
 import main.Commande;
+import menu.Menu;
 import menu.Texte;
+import son.LecteurAudio;
 import utilitaire.Graphismes;
 import utilitaire.InterpreteurDeJson;
 
@@ -25,7 +28,7 @@ public class Choix extends Message {
 
 	private int positionCurseurAffichee = -1;
 	public int positionCurseurChoisie = 0;
-	public ArrayList<BufferedImage> imagesAlternatives = new ArrayList<BufferedImage>();
+	public ArrayList<BufferedImage> imageDesSelectionsPossibles = null;
 	 
 	/**
 	 * Constructeur explicite
@@ -57,26 +60,64 @@ public class Choix extends Message {
 	 */
 	@Override
 	protected final BufferedImage produireImageDuMessage() {
-		//TODO factoriser partiellement avec la méthode mère
-		BufferedImage imageMessage = new BufferedImage(
-				IMAGE_BOITE_MESSAGE.getWidth(), 
-				IMAGE_BOITE_MESSAGE.getWidth(), 
-				IMAGE_BOITE_MESSAGE.getType()
-		);
+		if (this.imageDesSelectionsPossibles == null) {
+			BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE);
+			
+			// Texte de base
+			final Texte texteDeBase = new Texte(this.texte);
+			
+			// On ajoute les alternatives à l'image de base
+			final ArrayList<Texte> alternativesTexte = new ArrayList<Texte>();
+			final ArrayList<BufferedImage> imagesAlternatives = new ArrayList<BufferedImage>();
+			
+			final int nombreDeLignesDuTexte;
+			if (this.texte == null || this.texte.equals("")) {
+				nombreDeLignesDuTexte = 0; 
+			} else {
+				nombreDeLignesDuTexte = 1 + StringUtils.countMatches(this.texte, "\n");
+			}
+			final int hauteurLigne = Texte.TAILLE_MOYENNE + Texte.INTERLIGNE;
+			final int hauteurTexte = nombreDeLignesDuTexte * hauteurLigne;
+			for (int i = 0; i < this.alternatives.size(); i++) {
+				final String alternativeString = alternatives.get(i);
+				alternativesTexte.add( new Texte(alternativeString) );
+				imagesAlternatives.add( alternativesTexte.get(i).image );
+				imageDesAlternatives = Graphismes.superposerImages(
+						imageDesAlternatives, 
+						imagesAlternatives.get(i), 
+						MARGE_DU_TEXTE, 
+						MARGE_DU_TEXTE + hauteurTexte + i*hauteurLigne
+				);
+			}
+			
+			// Différentes sélections possibles
+			this.imageDesSelectionsPossibles = new ArrayList<BufferedImage>();
+			for (int i = 0; i < this.alternatives.size(); i++) {
+				final BufferedImage surlignage = alternativesTexte.get(i).creerImageDeSelection();
+				BufferedImage selectionPossible = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);
+				selectionPossible = Graphismes.superposerImages(
+						selectionPossible, 
+						surlignage, 
+						MARGE_DU_TEXTE - Texte.CONTOUR, 
+						MARGE_DU_TEXTE + hauteurTexte + i*hauteurLigne - Texte.CONTOUR
+				);
+				selectionPossible = Graphismes.superposerImages(
+						selectionPossible, 
+						texteDeBase.image, 
+						MARGE_DU_TEXTE, 
+						MARGE_DU_TEXTE
+				);
+				selectionPossible = Graphismes.superposerImages(
+						selectionPossible, 
+						imageDesAlternatives, //toutes les alternatives sur la même image
+						0, 
+						0
+				);
+				this.imageDesSelectionsPossibles.add(selectionPossible);
+			}
+		}
 		
-		// Ajout de l'image de boîte de dialogue
-		imageMessage = Graphismes.superposerImages(imageMessage, IMAGE_BOITE_MESSAGE, 0, 0);
-		
-		// Ajout du texte
-		final Texte t = new Texte(texte);
-		imageMessage = Graphismes.superposerImages(IMAGE_BOITE_MESSAGE, t.texteToImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
-		
-		//TODO fabriquer l'image de base avec le texte et les différentes alternatives, sans sélection
-		//...
-		//TODO fabriquer les images avec les différentes sélections possibles
-		//...
-		
-		return imageMessage;
+		return this.imageDesSelectionsPossibles.get(this.positionCurseurAffichee);
 	}
 	/**
 	 * Le curseur du Choix a-t-il bougé ?
@@ -103,6 +144,7 @@ public class Choix extends Message {
 						&& alternative.numeroAlternative == positionCurseurAffichee
 				) {
 					//c'est l'alternative choisie par le joueur !
+					LecteurAudio.playSe(Menu.BRUIT_CONFIRMER_SELECTION);
 					return i+1;
 				}
 			}

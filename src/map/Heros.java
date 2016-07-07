@@ -169,8 +169,8 @@ public class Heros extends Event {
 	public final void mettreDansLaBonneDirection() {
 		final Heros heros = map.heros;
 		if (!this.map.lecteur.stopEvent //pas de gel des Events
-				&& heros.animationAttaque<=0 //pas en attaque
-				&& (this.deplacementForce==null || this.deplacementForce.mouvements.size()<=0) //pas de Déplacement forcé
+				&& heros.animationAttaque <= 0 //pas en attaque
+				&& (this.deplacementForce == null || this.deplacementForce.mouvements.size() <= 0) //pas de Déplacement forcé
 		) {
 			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
 			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {

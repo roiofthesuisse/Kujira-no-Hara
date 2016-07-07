@@ -43,7 +43,7 @@ public class ChoixAlternative extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		for (int i = 0; i < commandes.size(); i++) {
 			final Commande commande = commandes.get(i);
-			if (commande instanceof BoucleFin) {
+			if (commande instanceof ChoixFin) {
 				final ChoixFin finDeChoix = (ChoixFin) commande;
 				if (finDeChoix.numero == this.numeroChoix) {
 					//la fin de ce Choix a été trouvée

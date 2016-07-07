@@ -46,7 +46,7 @@ public class Message extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final LecteurMap lecteur = this.page.event.map.lecteur;
-		lecteur.normaliserApparenceDuHerosAvantMessage();
+		lecteur.normaliserApparenceDesInterlocuteursAvantMessage(this.page.event);
 		//si le Message à afficher est différent du Message affiché, on change !
 		if ( lecteur.messageActuel==null 
 				|| !lecteur.messageActuel.texte.equals(this.texte) 
@@ -93,18 +93,12 @@ public class Message extends Commande implements CommandeEvent {
 	 * @return image du Message
 	 */
 	protected BufferedImage produireImageDuMessage() {
-		BufferedImage imageMessage = new BufferedImage(
-				IMAGE_BOITE_MESSAGE.getWidth(), 
-				IMAGE_BOITE_MESSAGE.getWidth(), 
-				IMAGE_BOITE_MESSAGE.getType()
-		);
-		
-		// Ajout de l'image de boîte de dialogue
-		imageMessage = Graphismes.superposerImages(imageMessage, IMAGE_BOITE_MESSAGE, 0, 0);
+		// Partir de la boîte de dialogue vide
+		BufferedImage imageMessage = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);
 		
 		// Ajout du texte
 		final Texte t = new Texte(texte);
-		imageMessage = Graphismes.superposerImages(imageMessage, t.texteToImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
+		imageMessage = Graphismes.superposerImages(imageMessage, t.image, MARGE_DU_TEXTE, MARGE_DU_TEXTE);
 		return imageMessage;
 	}
 	

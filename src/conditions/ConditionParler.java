@@ -49,7 +49,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 					if ( Math.abs(ymin1-ymax2) > DISTANCE_MAX_PAROLE ) {
 						return false;
 					} else {
-						if ( heros.largeurHitbox < event.largeurHitbox ) { 
+						if ( heros.largeurHitbox <= event.largeurHitbox ) { 
 							//la longueur de contact est supérieure à la moitié de la taille du héros
 							final boolean grandeSurfaceDeContact =
 								((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) 
@@ -66,7 +66,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 					if ( Math.abs(xmin1-xmax2) > DISTANCE_MAX_PAROLE ) {
 						return false;
 					} else {
-						if ( heros.hauteurHitbox < event.hauteurHitbox ) { 
+						if ( heros.hauteurHitbox <= event.hauteurHitbox ) { 
 							//la longueur de contact est supérieure à la moitié de la taille du héros
 							final boolean grandeSurfaceDeContact =
 								((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) 
@@ -83,7 +83,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 					if ( Math.abs(xmax1-xmin2) > DISTANCE_MAX_PAROLE ) {
 						return false;
 					} else {
-						if ( heros.hauteurHitbox < event.hauteurHitbox ) { 
+						if ( heros.hauteurHitbox <= event.hauteurHitbox ) { 
 							//la longueur de contact est supérieure à la moitié de la taille du héros
 							final boolean grandeSurfaceDeContact =
 								((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) 
@@ -100,7 +100,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 					if ( Math.abs(ymax1-ymin2) > DISTANCE_MAX_PAROLE ) {
 						return false;
 					} else {
-						if ( heros.largeurHitbox < event.largeurHitbox ) {
+						if ( heros.largeurHitbox <= event.largeurHitbox ) {
 							//la longueur de contact est supérieure à la moitié de la taille du héros
 							final boolean grandeSurfaceDeContact =
 								((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) 

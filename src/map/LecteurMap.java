@@ -12,15 +12,19 @@ import java.util.Comparator;
 import javax.imageio.ImageIO;
 
 import bibliothequeMenu.MenuPause;
+import commandes.Choix;
 import commandes.Message;
 import main.Fenetre;
 import main.Lecteur;
 import menu.LecteurMenu;
 import menu.Menu;
 import menu.Texte;
+import mouvements.RegarderUnEvent;
+import son.LecteurAudio;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.Graphismes;
+import utilitaire.Maths;
 
 /**
  * Le Lecteur de map affiche la Map et les Events.
@@ -158,7 +162,7 @@ public class LecteurMap extends Lecteur {
 			ecran = Graphismes.superposerImages(ecran, HUD_ARGENT, X_AFFICHAGE_ARGENT, Y_AFFICHAGE_ARGENT);
 			final Texte texte = new Texte("" + argent);
 			texte.couleurForcee = Color.white;
-			final BufferedImage texteImage = texte.texteToImage();
+			final BufferedImage texteImage = texte.image;
 			ecran = Graphismes.superposerImages(ecran, texteImage, X_AFFICHAGE_ARGENT+HUD_ARGENT.getWidth()+ESPACEMENT_ICONES, Y_AFFICHAGE_ARGENT);
 		}
 		
@@ -387,7 +391,7 @@ public class LecteurMap extends Lecteur {
 		
 		img.setRGB(map.heros.x, map.heros.y, Color.red.getRGB());
 		img.setRGB(map.events.get(1).x, map.events.get(1).y, Color.blue.getRGB());
-		sauvegarderImage(img);
+		Graphismes.sauvegarderImage(img, "collision");
 	}
 
 	/**
@@ -560,18 +564,43 @@ public class LecteurMap extends Lecteur {
 	
 	/**
 	 * Le Héros arrête son animation pour écouter un Message.
+	 * @param event avec lequel le Héros discute
 	 */
-	public final void normaliserApparenceDuHerosAvantMessage() {
-		this.map.heros.animation = 0;
-		this.map.heros.animationAttaque = 0;
+	public final void normaliserApparenceDesInterlocuteursAvantMessage(final Event event) {
+		// Normaliser le Héros
+		final Heros heros = this.map.heros;
+		// Le Héros arrête son animation
+		if (!heros.animeALArretActuel) {
+			heros.animation = 0;
+		}
+		// Le Héros arrête son attaque
+		heros.animationAttaque = 0;
+				
+		// Normaliser l'intelocuteur
+		// L'interlocuteur arrête son animation
+		if (!event.animeALArretActuel) {
+			event.animation = 0;
+		}
+		// L'interlocuteur se tourne vers le Héros
+		if (!event.directionFixeActuelle) {
+			event.direction = RegarderUnEvent.calculerDirectionDeRegard(event, heros);
+		}
 	}
 	
 	/**
 	 * Déplacer le Héros vers le haut
 	 */
 	public final void haut() {
-		this.map.heros.mettreDansLaBonneDirection();
-		this.map.heros.avance = true;
+		if (this.map.lecteur.stopEvent && this.messageActuel instanceof Choix) {
+			//les touches directionnelles servent à effectuer le Choix
+			final Choix choix = (Choix) messageActuel;
+			choix.positionCurseurChoisie = Maths.modulo(choix.positionCurseurChoisie - 1, choix.alternatives.size());
+			LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
+		} else {
+			//les touches directionnelles servent à faire avancer le Héros
+			this.map.heros.mettreDansLaBonneDirection();
+			this.map.heros.avance = true;
+		}
 	}
 
 	/**
@@ -586,8 +615,16 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers le bas
 	 */
 	public final void bas() {
-		this.map.heros.mettreDansLaBonneDirection();
-		this.map.heros.avance = true;
+		if (this.map.lecteur.stopEvent && this.messageActuel instanceof Choix) {
+			//les touches directionnelles servent à effectuer le Choix
+			final Choix choix = (Choix) messageActuel;
+			choix.positionCurseurChoisie = Maths.modulo(choix.positionCurseurChoisie + 1, choix.alternatives.size());
+			LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
+		} else {
+			//les touches directionnelles servent à faire avancer le Héros
+			this.map.heros.mettreDansLaBonneDirection();
+			this.map.heros.avance = true;
+		}
 	}
 
 	/**

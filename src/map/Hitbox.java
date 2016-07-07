@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 
 import jeu.Partie;
 import main.Fenetre;
+import utilitaire.Graphismes;
 
 /**
  * Une hitbox peut être assignée à une arme afin de calculer sa portée et son étendue.
@@ -125,7 +126,7 @@ public class Hitbox {
 		graphics.fillRect(x2min, y2min, x2max-x2min, y2max-y2min);
 		
 		//on enregistre
-		LecteurMap.sauvegarderImage(img);
+		Graphismes.sauvegarderImage(img, "croisements");
 	}
 
 	/**

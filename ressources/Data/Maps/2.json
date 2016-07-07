@@ -112,6 +112,48 @@
 						],
 						"repeterLeDeplacement": true
 					},
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "Choix",
+							"numero": 0,
+							"texte": "Mon joli choix :",
+							"alternatives": [
+								"alternative 1",
+								"alternative 2"
+							]
+						},
+						{
+							"nom": "ChoixAlternative",
+							"numero": 0,
+							"alternative": 0
+						},
+						{
+							"nom": "Message",
+							"texte": "Vous avez pris l'alternative 1"
+						},
+						{
+							"nom": "ChoixAlternative",
+							"numero": 0,
+							"alternative": 1
+						},
+						{
+							"nom": "Message",
+							"texte": "Vous avez pris l'alternative 2"
+						},
+						{
+							"nom": "ChoixFin",
+							"numero": 0
+						},
+						{
+							"nom": "Message",
+							"texte": "Excellent choix !"
+						}
+					],
 					"traversable": false,
 					"animeEnMouvement": true,
 					"animeALArret": false
