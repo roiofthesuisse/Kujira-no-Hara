@@ -14,15 +14,6 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	
 	@Override
 	public final boolean estVerifiee() {
-		//TODO delete this method
-		return estVerifieeInterne();
-	}
-	
-	/**
-	 * Méthode utilisée en interne, et dont estVerifiee() est l'ambassadrice publique.
-	 * @return true si le Héros est au contact de cet Event, sinon false
-	 */
-	private boolean estVerifieeInterne() {
 		try {
 			final int pageActive = this.page.event.pageActive.numero;
 			final int cettePage = this.page.numero;

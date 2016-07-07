@@ -63,7 +63,6 @@ public class Message extends Commande implements CommandeEvent {
 		if (leRelachementDeToucheAEuLieu && lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION)) {
 			//on ferme le message
 			lecteur.messageActuel = null;
-			//lecteur.stopEvent = false; //TODO à enlever, gestion via la condition parler
 			leRelachementDeToucheAEuLieu = false;
 			return redirectionSelonLeChoix(curseurActuel, commandes);
 		} else {

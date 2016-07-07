@@ -8,7 +8,6 @@ import map.Event;
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases
  */
-//TODO cas du saut absolu ? par exemple : sauter vers la case (3;5)
 public class Sauter extends Mouvement {
 	//constantes
 	private static final int DUREE_DU_SAUT_SUR_PLACE = 10;

@@ -5,8 +5,8 @@ package son;
  */
 public abstract class LecteurAudio {
 	public static Musique bgmEnCours = null;
-	//TODO bgs
-	//TODO me
+	//TODO bgs, pareil que bgm
+	//TODO me, pareil que se, sauf qu'il mute le bgm
 	
 	/**
 	 * Jouer un effet sonore.

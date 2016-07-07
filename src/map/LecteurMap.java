@@ -34,8 +34,8 @@ public class LecteurMap extends Lecteur {
 	//constantes
 	private static final int X_AFFICHAGE_ARME = 563;
 	private static final int Y_AFFICHAGE_ARME = 4;
-	private static final int X_AFFICHAGE_OBJET = 612;
-	private static final int Y_AFFICHAGE_OBJET = 4;
+	private static final int X_AFFICHAGE_ACCESSOIRE = 612;
+	private static final int Y_AFFICHAGE_ACCESSOIRE = 4;
 	private static final int X_AFFICHAGE_ARGENT = 4;
 	private static final int Y_AFFICHAGE_ARGENT = 450;
 	private static final int X_AFFICHAGE_MESSAGE = 76;
@@ -149,7 +149,7 @@ public class LecteurMap extends Lecteur {
 			//pas d'arme équipée
 		}
 		
-		//TODO icone de l'objet équipé
+		//TODO icone de l'accessoire équipé
 		/*
 		try
 			X_AFFICHAGE_OBJET
@@ -462,7 +462,7 @@ public class LecteurMap extends Lecteur {
 			case GestionClavier.ToucheRole.ARME_SUIVANTE : this.equiperArmeSuivante(); break;
 			case GestionClavier.ToucheRole.ACTION : this.action(); break;
 			case GestionClavier.ToucheRole.ARME_PRECEDENTE : this.equiperArmePrecedente(); break;
-			case GestionClavier.ToucheRole.ACTION_SECONDAIRE : this.objet(); break;
+			case GestionClavier.ToucheRole.ACTION_SECONDAIRE : this.accessoire(); break;
 			default : break;
 		}
 	}
@@ -663,7 +663,7 @@ public class LecteurMap extends Lecteur {
 	/**
 	 * Utiliser l'objet secondaire.
 	 */
-	public void objet() {
+	public void accessoire() {
 		//TODO
 	}
 	

@@ -24,7 +24,6 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 	
 	@Override
 	public final void executer() {
-		//FIXME TODO changerMenu() devrait être appelée par le nouveau Lecteur
 		final LecteurMap lecteurMapMemorise = this.element.menu.lecteur.lecteurMapMemorise;
 		final LecteurMenu nouveauLecteur = new LecteurMenu(Fenetre.getFenetre(), this.nouveauMenu, lecteurMapMemorise);
 		nouveauLecteur.changerMenu();
