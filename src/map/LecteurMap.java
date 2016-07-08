@@ -160,8 +160,7 @@ public class LecteurMap extends Lecteur {
 		final int argent = Fenetre.getPartieActuelle().argent;
 		if (argent > 0) {
 			ecran = Graphismes.superposerImages(ecran, HUD_ARGENT, X_AFFICHAGE_ARGENT, Y_AFFICHAGE_ARGENT);
-			final Texte texte = new Texte("" + argent);
-			texte.couleurForcee = Color.white;
+			final Texte texte = new Texte(new Integer(argent).toString(), Color.white);
 			final BufferedImage texteImage = texte.image;
 			ecran = Graphismes.superposerImages(ecran, texteImage, X_AFFICHAGE_ARGENT+HUD_ARGENT.getWidth()+ESPACEMENT_ICONES, Y_AFFICHAGE_ARGENT);
 		}

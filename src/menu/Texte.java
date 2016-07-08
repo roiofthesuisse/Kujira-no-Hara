@@ -99,10 +99,20 @@ public class Texte extends ElementDeMenu {
 	}
 	
 	/**
-	 * Constructeur explicite pour les Messages d'un Event
+	 * Constructeur implicite pour les Messages d'un Event
 	 * @param contenu du Texte
 	 */
 	public Texte(final String contenu) {
+		this(contenu, COULEUR_PAR_DEFAUT);
+	}
+	
+	/**
+	 * Constructeur explicite pour les Messages d'un Event
+	 * @param contenu du Texte
+	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
+	 */
+	public Texte(final String contenu, final Color couleurForcee) {
+		this.couleurForcee = couleurForcee;
 		this.contenu = contenu;
 		this.taille = Texte.TAILLE_MOYENNE;
 		this.opacite = Texte.OPACITE_MAXIMALE;
