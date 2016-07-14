@@ -253,6 +253,53 @@
 					"image": "daruma character.png",
 					"directionInitiale": 0,
 					"traversable": false,
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "ConditionInterrupteurLocal",
+							"numero": 33,
+							"numeroInterrupteurLocal": 0,
+							"valeurQuIlEstCenseAvoir": true
+						},
+						{
+							"nom": "AutoriserMenu",
+							"autoriser": true
+						},
+						{
+							"nom": "ModifierInterrupteurLocal",
+							"numeroInterrupteurLocal": 0,
+							"valeurADonner": false
+						},
+						{
+							"nom": "Message",
+							"texte": "Menu autorisé !"
+						},
+						{
+							"nom": "ConditionSinon",
+							"numero": 33
+						},
+						{
+							"nom": "AutoriserMenu",
+							"autoriser": false
+						},
+						{
+							"nom": "ModifierInterrupteurLocal",
+							"numeroInterrupteurLocal": 0,
+							"valeurADonner": true
+						},
+						{
+							"nom": "Message",
+							"texte": "Menu interdit !"
+						},
+						{
+							"nom": "ConditionFin",
+							"numero": 33
+						}
+					],
 					"deplacement": {
 						"nom": "Deplacement",
 						"mouvements": [

@@ -55,6 +55,9 @@ public class LecteurMap extends Lecteur {
 	/** message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
 	
+	/** Autoriser ou interdire l'accès au Menu depuis la Map ? */
+	public boolean autoriserMenu = true;
+	
 	/** icônes de jauges */
 	public static final BufferedImage HUD_TOUCHES = chargerImageHudTouches();
 	public static final BufferedImage HUD_ARGENT = chargerImageHudArgent();
@@ -486,7 +489,7 @@ public class LecteurMap extends Lecteur {
 	 * On quitte la Map temporairement (elle est mémorisée) pour parcourir le Menu.
 	 */
 	public final void ouvrirLeMenu() {
-		if (!stopEvent) { //impossible d'ouvrir le Menu en cas de stopEvent
+		if (!this.stopEvent && this.autoriserMenu) { //impossible d'ouvrir le Menu en cas de stopEvent ou de Menu interdit
 			final Menu menuPause = new MenuPause();
 			final LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, menuPause, this);
 			
