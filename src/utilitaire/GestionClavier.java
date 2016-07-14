@@ -1,7 +1,5 @@
 package utilitaire;
 
-import main.Lecteur;
-
 /**
  * Enumération des touches utilisées par le jeu
  */
@@ -10,34 +8,79 @@ public abstract class GestionClavier {
 	/**
 	 * Association entre les touches du clavier et leur keycode
 	 */
-	public abstract class ToucheCode {
-		public static final int Z = 90;
-		public static final int Q = 81;
-		public static final int S = 83;
-		public static final int D = 68;
-		public static final int ESPACE = 32;
-		public static final int ENTREE = 10;
-		public static final int O = 79;
-		public static final int K = 75;
-		public static final int L = 76;
-		public static final int M = 77;
+	private enum ToucheClavier {
+		Z(90, "Z"),
+		Q(81, "Q"),
+		S(83, "S"),
+		D(68, "D"),
+		ESPACE(32, "ESPACE"),
+		ENTREE(10, "ENTREE"),
+		O(79, "O"),
+		K(75, "K"),
+		L(76, "L"),
+		M(77, "M");
+		
+		public final int keycode;
+		public final String nom;
+		
+		private ToucheClavier(int keycode, String nom) {
+			this.keycode = keycode;
+			this.nom = nom;
+		}
 	}
 	
 	/**
 	 * Association entre les touches du clavier et leur rôle
 	 */
-	public abstract class ToucheRole {
-		public static final int ACTION = ToucheCode.K;
-		public static final int HAUT = ToucheCode.Z;
-		public static final int BAS = ToucheCode.S;
-		public static final int GAUCHE = ToucheCode.Q;
-		public static final int DROITE = ToucheCode.D;
-		public static final int ARME_SUIVANTE = ToucheCode.O;
-		public static final int PAGE_MENU_SUIVANTE = ToucheCode.O;
-		public static final int ARME_PRECEDENTE = ToucheCode.L;
-		public static final int PAGE_MENU_PRECEDENTE = ToucheCode.L;
-		public static final int ACTION_SECONDAIRE = ToucheCode.M;
-		public static final int MENU = ToucheCode.ENTREE;
+	public enum ToucheRole {
+		ACTION(ToucheClavier.K, "ACTION"),
+		HAUT(ToucheClavier.Z, "HAUT"),
+		BAS(ToucheClavier.S, "BAS"),
+		GAUCHE(ToucheClavier.Q, "GAUCHE"),
+		DROITE(ToucheClavier.D, "DROITE"),
+		ARME_SUIVANTE(ToucheClavier.O, "ARME_SUIVANTE"),
+		PAGE_MENU_SUIVANTE(ToucheClavier.O, "PAGE_MENU_SUIVANTE"),
+		ARME_PRECEDENTE(ToucheClavier.L, "ARME_PRECEDENTE"),
+		PAGE_MENU_PRECEDENTE(ToucheClavier.L, "PAGE_MENU_PRECEDENTE"),
+		ACTION_SECONDAIRE(ToucheClavier.M, "ACTION_SECONDAIRE"),
+		MENU(ToucheClavier.ENTREE, "MENU");
+		
+		public final ToucheClavier touche;
+		public boolean pressee = false;
+		private final String nom;
+		
+		private ToucheRole(ToucheClavier touche, String nom) {
+			this.touche = touche;
+			this.nom = nom;
+		}
+		
+		/**
+		 * Obtenir une Touche à partir de son keycode.
+		 * @param keycode de la Touche
+		 * @return Touche qui a ce keycode
+		 */
+		public static ToucheRole getToucheRole(int keycode) {
+			for (ToucheRole role : ToucheRole.values()) {
+				if (keycode == role.touche.keycode) {
+					return role;
+				}
+			}
+			return null;
+		}
+		
+		/**
+		 * Obtenir une Touche à partir de son nom.
+		 * @param nom de la Touche
+		 * @return Touche qui porte ce nom
+		 */
+		public static ToucheRole getToucheRole(String nom) {
+			for (ToucheRole role : ToucheRole.values()) {
+				if (role.nom.equals(nom) || role.touche.nom.equals(nom)) {
+					return role;
+				}
+			}
+			return null;
+		}
 	}
 	
 	/**
@@ -46,41 +89,13 @@ public abstract class GestionClavier {
 	 * @return true si la touche est utile, false sinon
 	 */
 	public static final boolean toucheConnue(final int keycode) {
-		switch(keycode) {
-			case ToucheCode.Z : return true;
-			case ToucheCode.Q : return true;
-			case ToucheCode.S : return true;
-			case ToucheCode.D : return true;
-			case ToucheCode.ESPACE : return true;
-			case ToucheCode.ENTREE : return true;
-			case ToucheCode.O : return true;
-			case ToucheCode.K : return true;
-			case ToucheCode.L : return true;
-			case ToucheCode.M : return true;
-			default : System.out.println("une touche inconnue a été pressée : "+keycode); return false;
-		}
-	}
-	
-	/**
-	 * On actualise la liste des touches qui sont pressées actuellement.
-	 * @param keycode numéro de la touche qui a été pressée
-	 * @param lecteur qui doit agir en fonction de la touche pressée
-	 */
-	public static void keyPressed(final int keycode, final Lecteur lecteur) {
-		if (toucheConnue(keycode)) {
-			lecteur.keyPressed(keycode);
-		}
-	}
-
-	/**
-	 * On actualise la liste des touches qui sont pressées actuellement.
-	 * @param keycode numéro de la touche relachée
-	 * @param lecteur qui doit agir en fonction de la touche relachée 
-	 */
-	public static void keyReleased(final Integer keycode, final Lecteur lecteur) {
-		if (toucheConnue(keycode)) {
-			lecteur.keyReleased(keycode);
-		}
+		for (ToucheClavier c : ToucheClavier.values()) {
+	    	if (c.keycode == keycode) {
+	        	return true;
+	        }
+	    }
+		System.out.println("une touche inconnue a été pressée : "+keycode); 
+		return false;
 	}
 	
 }

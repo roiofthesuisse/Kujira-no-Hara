@@ -10,6 +10,7 @@ import map.Event;
 import map.LecteurMap;
 import utilitaire.GestionClavier;
 import utilitaire.Graphismes;
+import utilitaire.GestionClavier.ToucheRole;
 
 /**
  * Le Lecteur de Menu a pour rôle de produire l'image à afficher à l'écran s'il s'agit d'un Menu.
@@ -77,33 +78,34 @@ public class LecteurMenu extends Lecteur {
 	}
 
 	@Override
-	public final void keyPressed(final Integer keycode) {
-		switch(keycode) {
-			case GestionClavier.ToucheRole.ACTION : 
+	public final void keyPressed(ToucheRole touchePressee) {
+		switch(touchePressee) {
+			case ACTION : 
 				menu.confirmer(); 
 				break;
-			case GestionClavier.ToucheRole.HAUT : 
+			case HAUT : 
 				menu.selectionnerElementDansLaDirection(Event.Direction.HAUT); 
 				break;
-			case GestionClavier.ToucheRole.BAS : 
+			case BAS : 
 				menu.selectionnerElementDansLaDirection(Event.Direction.BAS);
 				break;
-			case GestionClavier.ToucheRole.GAUCHE : 
+			case GAUCHE : 
 				menu.selectionnerElementDansLaDirection(Event.Direction.GAUCHE);
 				break;
-			case GestionClavier.ToucheRole.DROITE : 
+			case DROITE : 
 				menu.selectionnerElementDansLaDirection(Event.Direction.DROITE);
 				break;
-			case GestionClavier.ToucheRole.PAGE_MENU_SUIVANTE : 
+			case PAGE_MENU_SUIVANTE : 
 				allerAuMenuSuivant();
 				break;
-			case GestionClavier.ToucheRole.PAGE_MENU_PRECEDENTE : 
+			case PAGE_MENU_PRECEDENTE : 
 				allerAuMenuPrecedent();
 				break;
-			case GestionClavier.ToucheRole.MENU : 
+			case MENU : 
 				allerAuMenuParentOuRevenirAuJeu();
 				break;
 			default : 
+				// touche inconnue
 				break;
 		}
 	}
@@ -171,7 +173,7 @@ public class LecteurMenu extends Lecteur {
 	}
 
 	@Override
-	public void keyReleased(final Integer keycode) {
+	public void keyReleased(ToucheRole toucheRelachee) {
 		// TODO Auto-generated method stub
 		
 	}

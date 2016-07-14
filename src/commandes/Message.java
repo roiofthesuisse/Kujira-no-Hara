@@ -56,11 +56,11 @@ public class Message extends Commande implements CommandeEvent {
 			this.image = produireImageDuMessage();			
 		}
 		//si la touche action est relachée, la prochaine fois qu'elle sera pressée sera une nouvelle input
-		if ( !lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION) ) {
+		if ( !GestionClavier.ToucheRole.ACTION.pressee ) {
 			leRelachementDeToucheAEuLieu = true;
 		}
 		//et cette nouvelle input servira à fermer le message
-		if (leRelachementDeToucheAEuLieu && lecteur.fenetre.touchesPressees.contains(GestionClavier.ToucheRole.ACTION)) {
+		if ( leRelachementDeToucheAEuLieu && GestionClavier.ToucheRole.ACTION.pressee ) {
 			//on ferme le message
 			lecteur.messageActuel = null;
 			leRelachementDeToucheAEuLieu = false;

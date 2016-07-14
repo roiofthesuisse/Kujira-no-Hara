@@ -9,13 +9,14 @@ import conditions.ConditionAnimationAttaque;
 import conditions.ConditionArmeEquipee;
 import conditions.ConditionPasDInterlocuteurAutour;
 import conditions.ConditionStopEvent;
-import conditions.ConditionToucheAction;
+import conditions.ConditionTouche;
 import jeu.Arme;
 import main.Commande;
 import main.Fenetre;
 import mouvements.Avancer;
 import mouvements.Mouvement;
 import utilitaire.GestionClavier;
+import utilitaire.GestionClavier.ToucheRole;
 
 /**
  * Event particulier qui est déplacé par le joueur à l'aide du clavier
@@ -66,7 +67,7 @@ public class Heros extends Event {
 			//page 1 : déclenchement animation attaque épée
 				final ArrayList<Condition> conditions1 = new ArrayList<Condition>();
 				conditions1.add(new ConditionArmeEquipee(0));
-				conditions1.add(new ConditionToucheAction());
+				conditions1.add(new ConditionTouche(GestionClavier.ToucheRole.ACTION));
 				conditions1.add(new ConditionStopEvent(false));
 				conditions1.add(new ConditionPasDInterlocuteurAutour());
 				final ArrayList<Commande> commandes1 = new ArrayList<Commande>();
@@ -83,7 +84,7 @@ public class Heros extends Event {
 			//page 3 : déclenchement animation attaque éventail
 				final ArrayList<Condition> conditions3 = new ArrayList<Condition>();
 				conditions3.add(new ConditionArmeEquipee(1));
-				conditions3.add(new ConditionToucheAction());
+				conditions3.add(new ConditionTouche(GestionClavier.ToucheRole.ACTION));
 				conditions3.add(new ConditionStopEvent(false));
 				final ArrayList<Commande> commandes3 = new ArrayList<Commande>();
 				commandes3.add( new DemarrerAnimationAttaque());
@@ -113,26 +114,25 @@ public class Heros extends Event {
 		} else {
 			//déplacement selon les touches et les obstacles rencontrés
 			boolean ilYADeplacement = false;
-			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
-			if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) && !touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
+			if ( GestionClavier.ToucheRole.HAUT.pressee && !GestionClavier.ToucheRole.BAS.pressee ) {
 				if ( unPasVers(Event.Direction.HAUT).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.y -= pageActive.vitesse;
 				}
 			}
-			if ( touchesPressees.contains(GestionClavier.ToucheRole.BAS) && !touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ) {
+			if ( GestionClavier.ToucheRole.BAS.pressee && !GestionClavier.ToucheRole.HAUT.pressee ) {
 				if ( unPasVers(Event.Direction.BAS).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.y += pageActive.vitesse;
 				}
 			}
-			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) && !touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ) {
+			if ( GestionClavier.ToucheRole.GAUCHE.pressee && !GestionClavier.ToucheRole.DROITE.pressee ) {
 				if ( unPasVers(Event.Direction.GAUCHE).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.x -= pageActive.vitesse;
 				}
 			}
-			if ( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) && !touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
+			if ( GestionClavier.ToucheRole.DROITE.pressee && !GestionClavier.ToucheRole.GAUCHE.pressee ) {
 				if ( unPasVers(Event.Direction.DROITE).mouvementPossible() ) {
 					ilYADeplacement = true;
 					this.x += pageActive.vitesse;
@@ -172,14 +172,13 @@ public class Heros extends Event {
 				&& heros.animationAttaque <= 0 //pas en attaque
 				&& (this.deplacementForce == null || this.deplacementForce.mouvements.size() <= 0) //pas de Déplacement forcé
 		) {
-			final ArrayList<Integer> touchesPressees = this.map.lecteur.fenetre.touchesPressees;
-			if ( touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) ) {
+			if ( GestionClavier.ToucheRole.GAUCHE.pressee ) {
 				heros.direction = Event.Direction.GAUCHE;
-			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.DROITE) ) {
+			} else if ( GestionClavier.ToucheRole.DROITE.pressee ) {
 				heros.direction = Event.Direction.DROITE;
-			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.BAS) ) {
+			} else if ( GestionClavier.ToucheRole.BAS.pressee ) {
 				heros.direction = Event.Direction.BAS;
-			} else if ( touchesPressees.contains(GestionClavier.ToucheRole.HAUT) ) {
+			} else if ( GestionClavier.ToucheRole.HAUT.pressee ) {
 				heros.direction = Event.Direction.HAUT;
 			}
 		}

@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javafx.embed.swing.JFXPanel;
 import jeu.Partie;
@@ -41,7 +42,6 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public Lecteur lecteur = null;
 	private Partie partie = null;
 	public Lecteur futurLecteur = null;
-	public ArrayList<Integer> touchesPressees = null;
 	public boolean quitterLeJeu = false;
 	
 	/**
@@ -53,7 +53,6 @@ public final class Fenetre extends JFrame implements KeyListener {
 		final MenuTitre menuTitre = new MenuTitre();
 		this.lecteur = new LecteurMenu(this, menuTitre, null);
 
-		this.touchesPressees = new ArrayList<Integer>();
 		this.addKeyListener(this);
 		
 		//démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
@@ -162,18 +161,22 @@ public final class Fenetre extends JFrame implements KeyListener {
 	
 	@Override
 	public void keyPressed(final KeyEvent event) {
-		final Integer keyCode = event.getKeyCode();
-		if (!this.touchesPressees.contains(keyCode)) {
-			this.touchesPressees.add(keyCode);
-			GestionClavier.keyPressed(keyCode, this.lecteur);
+		final Integer keycode = event.getKeyCode();
+		final GestionClavier.ToucheRole touchePressee = GestionClavier.ToucheRole.getToucheRole(keycode);
+		if (touchePressee!=null && !touchePressee.pressee) {
+			touchePressee.pressee = true;
+			this.lecteur.keyPressed(touchePressee);
 		}
 	}
 
 	@Override
 	public void keyReleased(final KeyEvent event) {
-		final Integer keyCode = event.getKeyCode();
-		this.touchesPressees.remove(keyCode);
-		GestionClavier.keyReleased(keyCode, this.lecteur);
+		final Integer keycode = event.getKeyCode();
+		final GestionClavier.ToucheRole toucheRelachee = GestionClavier.ToucheRole.getToucheRole(keycode);
+		if (toucheRelachee!=null && toucheRelachee.pressee) {
+			toucheRelachee.pressee = false;
+			this.lecteur.keyReleased(toucheRelachee);
+		}
 	}
 
 	@Override

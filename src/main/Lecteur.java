@@ -3,12 +3,8 @@ package main;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
 import son.LecteurAudio;
+import utilitaire.GestionClavier.ToucheRole;
 import map.LecteurMap;
 import menu.LecteurMenu;
 
@@ -47,15 +43,17 @@ public abstract class Lecteur {
 	
 	/**
 	 * Prévenir le Lecteur qu'une touche a été pressée, pour qu'il en déduise une action à faire.
-	 * @param keycode numéro de la touche pressée
+	 * La touche envoyée ne dois pas être nulle !
+	 * @param touchePressee touche pressée
 	 */
-	public abstract void keyPressed(Integer keycode);
+	public abstract void keyPressed(ToucheRole touchePressee);
 	
 	/**
 	 * Prévenir le Lecteur qu'une touche a été relachée, pour qu'il en déduise une action à faire.
-	 * @param keycode numéro de la touche relachée
+	 * La touche envoyée ne dois pas être nulle !
+	 * @param toucheRelachee touche relachée
 	 */
-	public abstract void keyReleased(Integer keycode);
+	public abstract void keyReleased(ToucheRole toucheRelachee);
 	
 	/**
 	 * Produire un rectangle noir pour l'afficher comme écran

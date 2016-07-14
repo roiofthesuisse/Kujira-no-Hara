@@ -5,9 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
@@ -62,8 +62,15 @@ public class LecteurMap extends Lecteur {
 	public static final BufferedImage HUD_TOUCHES = chargerImageHudTouches();
 	public static final BufferedImage HUD_ARGENT = chargerImageHudArgent();
 	
-	/** frame où le joueur a appuyé sur la touche action */
-	public int frameDAppuiDeLaToucheAction;
+	/** mémorisation de la frame où le joueur a appuyé sur telle ou telle touche */
+	public HashMap<ToucheRole, Integer> frameDAppuiSurLaTouche = initialiserLesAppuisSurLesTouches();
+	public static final HashMap<ToucheRole, Integer> initialiserLesAppuisSurLesTouches() {
+		HashMap<ToucheRole, Integer> frames = new HashMap<ToucheRole,Integer>();
+		for (ToucheRole role : ToucheRole.values()){
+			frames.put(role, 0);
+		}
+		return frames;
+	}
 	
 	/**
 	 * Constructeur explicite
@@ -298,11 +305,10 @@ public class LecteurMap extends Lecteur {
 		
 		try {
 			//animer la marche du Héros si touche pressée
-			final ArrayList<Integer> touchesPressees = this.fenetre.touchesPressees;
-			if ( touchesPressees.contains(ToucheRole.HAUT)
-			|| touchesPressees.contains(ToucheRole.GAUCHE) 
-			|| touchesPressees.contains(ToucheRole.BAS) 
-			|| touchesPressees.contains(ToucheRole.DROITE) ) {
+			if ( GestionClavier.ToucheRole.HAUT.pressee
+			  || GestionClavier.ToucheRole.GAUCHE.pressee
+			  || GestionClavier.ToucheRole.BAS.pressee
+			  || GestionClavier.ToucheRole.DROITE.pressee ) {
 				map.heros.avance = true;
 			}
 			
@@ -454,18 +460,20 @@ public class LecteurMap extends Lecteur {
 	}
 
 	@Override
-	public final void keyPressed(final Integer keycode) {
-		switch(keycode) {
-			case GestionClavier.ToucheRole.MENU : this.ouvrirLeMenu(); break;
-			case GestionClavier.ToucheRole.HAUT : this.haut(); break;
-			case GestionClavier.ToucheRole.GAUCHE : this.gauche(); break;
-			case GestionClavier.ToucheRole.BAS : this.bas(); break;
-			case GestionClavier.ToucheRole.DROITE : this.droite(); break;
-			case GestionClavier.ToucheRole.ARME_SUIVANTE : this.equiperArmeSuivante(); break;
-			case GestionClavier.ToucheRole.ACTION : this.action(); break;
-			case GestionClavier.ToucheRole.ARME_PRECEDENTE : this.equiperArmePrecedente(); break;
-			case GestionClavier.ToucheRole.ACTION_SECONDAIRE : this.accessoire(); break;
-			default : break;
+	public final void keyPressed(ToucheRole touchePressee) {
+		this.frameDAppuiSurLaTouche.put(touchePressee, (Integer) this.frameActuelle); // mémorisation de la frame d'appui
+		// action spécifique selon la touche
+		switch (touchePressee) {
+			case MENU : this.ouvrirLeMenu(); break;
+			case HAUT : this.haut(); break;
+			case GAUCHE : this.gauche(); break;
+			case BAS : this.bas(); break;
+			case DROITE : this.droite(); break;
+			case ARME_SUIVANTE : this.equiperArmeSuivante(); break;
+			case ACTION : this.action(); break;
+			case ARME_PRECEDENTE : this.equiperArmePrecedente(); break;
+			case ACTION_SECONDAIRE : this.accessoire(); break;
+			default : break; // touche inconnue
 		}
 	}
 	
@@ -500,7 +508,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	@Override
-	public final void keyReleased(final Integer keycode) {
+	public final void keyReleased(ToucheRole toucheRelachee) {
 		remettreAZeroLAnimationDuHeros(); //s'il s'est arrêté
 		this.map.heros.mettreDansLaBonneDirection();
 	}
@@ -509,12 +517,11 @@ public class LecteurMap extends Lecteur {
 	 * Lorsque le Héros s'arrête de marcher, on arrête son animation.
 	 */
 	public final void remettreAZeroLAnimationDuHeros() {
-		final ArrayList<Integer> touchesPressees = fenetre.touchesPressees;
 		final Event heros = map.heros;
-		if (!touchesPressees.contains(GestionClavier.ToucheRole.BAS) 
-		&& !touchesPressees.contains(GestionClavier.ToucheRole.HAUT) 
-		&& !touchesPressees.contains(GestionClavier.ToucheRole.GAUCHE) 
-		&& !touchesPressees.contains(GestionClavier.ToucheRole.DROITE)) {
+		if (!GestionClavier.ToucheRole.BAS.pressee
+		 && !GestionClavier.ToucheRole.HAUT.pressee
+		 && !GestionClavier.ToucheRole.GAUCHE.pressee
+		 && !GestionClavier.ToucheRole.DROITE.pressee) {
 			heros.avance = false;
 			heros.animation = 0;
 		}
@@ -641,7 +648,6 @@ public class LecteurMap extends Lecteur {
 	 * Attaquer ou parler (suivant si gentil ou méchant)
 	 */
 	public final void action() {
-		this.frameDAppuiDeLaToucheAction = this.frameActuelle;
 	}
 
 	/**

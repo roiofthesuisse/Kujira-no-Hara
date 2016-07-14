@@ -3,6 +3,7 @@ package conditions;
 import commandes.CommandeEvent;
 import map.Event;
 import map.Heros;
+import utilitaire.GestionClavier;
 
 /**
  * Le Héros colle l'event et regarde vers lui.
@@ -14,7 +15,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 	@Override
 	public final boolean estVerifiee() {
 		//1) pour Parler, premièrement, il faut appuyer sur la touche action :
-		final ConditionToucheAction conditionToucheAction = new ConditionToucheAction();
+		final ConditionTouche conditionToucheAction = new ConditionTouche(GestionClavier.ToucheRole.ACTION);
 		conditionToucheAction.page = this.page;
 		if (!conditionToucheAction.estVerifiee()) {
 			return false;
