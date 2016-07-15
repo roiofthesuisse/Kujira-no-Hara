@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.json.JSONObject;
 
+import jeu.Quete.EtatQuete;
 import map.Map;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
@@ -29,7 +30,7 @@ public final class Partie {
 	/** combien possède-t-on d'Objet numéro i ? */
 	public int[] objetsPossedes;
 	/** la Quête numéro i a-t-elle été faite ? */
-	public boolean[] quetesFaites;
+	public EtatQuete[] quetesEtat;
 	/** possède-t-on l'Arme numéro i ? */
 	public boolean[] armesPossedees;
 	public int nombreDArmesPossedees;
@@ -55,7 +56,10 @@ public final class Partie {
 		this.interrupteursLocaux = new ArrayList<String>();
 		this.variables = new int[ jsonNouvellePartie.getInt("nombreDeVariables") ];
 		
-		this.quetesFaites = new boolean[ Quete.chargerLesQuetesDuJeu() ];
+		this.quetesEtat = new EtatQuete[ Quete.chargerLesQuetesDuJeu() ];
+		for(int i=0; i<quetesEtat.length; i++){
+			quetesEtat[i] = EtatQuete.INCONNUE;
+		}
 		this.objetsPossedes = new int[ Objet.chargerLesObjetsDuJeu() ];
 		this.armesPossedees = new boolean[ Arme.chargerLesArmesDuJeu() ];
 		this.nombreDArmesPossedees = 0;
@@ -81,7 +85,7 @@ public final class Partie {
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
 	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int[] objetsPossedes, final boolean[] quetesFaites, final boolean[] armesPossedees, final int nombreDArmesPossedees) throws FileNotFoundException {
+	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int[] objetsPossedes, final EtatQuete[] quetesEtat, final boolean[] armesPossedees, final int nombreDArmesPossedees) throws FileNotFoundException {
 		this();
 		this.numeroMap = numeroMap;
 		this.xHeros = xHeros;
@@ -91,7 +95,7 @@ public final class Partie {
 		this.vieMax = vieMax;
 		
 		this.objetsPossedes = objetsPossedes;
-		this.quetesFaites = quetesFaites;
+		this.quetesEtat = quetesEtat;
 		this.armesPossedees = armesPossedees;
 		this.nombreDArmesPossedees = nombreDArmesPossedees;
 		

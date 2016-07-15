@@ -18,6 +18,7 @@ import utilitaire.InterpreteurDeJson;
 
 /**
  * Le joueur doit réussir des Quêtes durant le jeu.
+ * Cette classe est une description inerte de la Quête, indépendante de l'action du joueur.
  */
 public class Quete {
 	//constantes
@@ -36,6 +37,25 @@ public class Quete {
 	private BufferedImage iconeQueteFaite;
 	public int xCarte;
 	public int yCarte;
+	
+	public static enum EtatQuete {
+		INCONNUE("INCONNUE"), CONNUE("CONNUE"), FAITE("FAITE");
+		
+		private String nom;
+		
+		EtatQuete (String nom) {
+			this.nom = nom;
+		}
+		
+		public EtatQuete getEtat(String nom){
+			for (EtatQuete etat : values()){
+				if (etat.nom.equals(nom)) {
+					return etat;
+				}
+			}
+			return null;
+		}
+	}
 	
 	/**
 	 * Constructeur explicite
@@ -163,7 +183,7 @@ public class Quete {
 	 * @return icône de la Quête faite ou non faite, selon si la Quête est fait ou non.
 	 */
 	public final BufferedImage getIcone() {
-		if (Fenetre.getPartieActuelle().quetesFaites[this.numero]) {
+		if (Quete.EtatQuete.FAITE.equals( Fenetre.getPartieActuelle().quetesEtat[this.numero]) ) {
 			return this.getIconeQueteFaite();
 		} else {
 			return this.getIconeQuetePasFaite();
