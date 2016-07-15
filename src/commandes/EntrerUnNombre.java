@@ -24,8 +24,7 @@ public class EntrerUnNombre extends Message {
 	private int[] chiffresRentres;
 	private Texte[] chiffresRentresTexte;
 	
-	private int positionCurseurAffichee = -1;
-	public int positionCurseurChoisie = 0;
+	public int positionCurseur = 0;
 	public boolean reactualiserLImage = true;
 	
 	private final BufferedImage surlignage;
@@ -69,36 +68,34 @@ public class EntrerUnNombre extends Message {
 	 */
 	@Override
 	protected final BufferedImage produireImageDuMessage() {
-		if (this.reactualiserLImage) {
-			this.reactualiserLImage = false;
-			
-			// Texte de base
-			final Texte texteDeBase = new Texte(this.texte);
-			final int hauteurTexte = calculerHauteurTexte();
-			
-			// Superposition
-			imageDuMessage = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);
-			
+		this.reactualiserLImage = false;
+		
+		// Texte de base
+		final Texte texteDeBase = new Texte(this.texte);
+		final int hauteurTexte = calculerHauteurTexte();
+		
+		// Superposition
+		imageDuMessage = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);
+		
+		imageDuMessage = Graphismes.superposerImages(
+				imageDuMessage, 
+				surlignage, 
+				MARGE_DU_TEXTE - Texte.CONTOUR + 2*positionCurseur*largeurChiffre, 
+				MARGE_DU_TEXTE + hauteurTexte - Texte.CONTOUR
+		);
+		imageDuMessage = Graphismes.superposerImages(
+				imageDuMessage, 
+				texteDeBase.image, 
+				MARGE_DU_TEXTE, 
+				MARGE_DU_TEXTE
+		);
+		for (int i=0; i<chiffresRentres.length; i++) {
 			imageDuMessage = Graphismes.superposerImages(
 					imageDuMessage, 
-					surlignage, 
-					MARGE_DU_TEXTE - Texte.CONTOUR + 2*positionCurseurChoisie*largeurChiffre, 
-					MARGE_DU_TEXTE + hauteurTexte - Texte.CONTOUR
+					chiffresRentresTexte[i].image, 
+					MARGE_DU_TEXTE + 2*i*largeurChiffre, 
+					MARGE_DU_TEXTE + hauteurTexte
 			);
-			imageDuMessage = Graphismes.superposerImages(
-					imageDuMessage, 
-					texteDeBase.image, 
-					MARGE_DU_TEXTE, 
-					MARGE_DU_TEXTE
-			);
-			for (int i=0; i<chiffresRentres.length; i++) {
-				imageDuMessage = Graphismes.superposerImages(
-						imageDuMessage, 
-						chiffresRentresTexte[i].image, 
-						MARGE_DU_TEXTE + 2*i*largeurChiffre, 
-						MARGE_DU_TEXTE + hauteurTexte
-				);
-			}
 		}
 		return imageDuMessage;
 	}
@@ -115,8 +112,8 @@ public class EntrerUnNombre extends Message {
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
 	public void haut() {
-		this.chiffresRentres[positionCurseurChoisie] = Maths.modulo(this.chiffresRentres[positionCurseurChoisie]+1, 10);
-		this.chiffresRentresTexte[positionCurseurChoisie] = new Texte( "" + chiffresRentres[positionCurseurChoisie] );
+		this.chiffresRentres[positionCurseur] = Maths.modulo(this.chiffresRentres[positionCurseur]+1, 10);
+		this.chiffresRentresTexte[positionCurseur] = new Texte( "" + chiffresRentres[positionCurseur] );
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
 	}
@@ -124,8 +121,8 @@ public class EntrerUnNombre extends Message {
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
 	public void bas() {
-		this.chiffresRentres[positionCurseurChoisie] = Maths.modulo(this.chiffresRentres[positionCurseurChoisie]-1, 10);
-		this.chiffresRentresTexte[positionCurseurChoisie] = new Texte( "" + chiffresRentres[positionCurseurChoisie] );
+		this.chiffresRentres[positionCurseur] = Maths.modulo(this.chiffresRentres[positionCurseur]-1, 10);
+		this.chiffresRentresTexte[positionCurseur] = new Texte( "" + chiffresRentres[positionCurseur] );
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
 	}
@@ -133,7 +130,7 @@ public class EntrerUnNombre extends Message {
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
 	public void gauche() {
-		this.positionCurseurChoisie = Maths.modulo(positionCurseurChoisie - 1, this.chiffresRentres.length);
+		this.positionCurseur = Maths.modulo(positionCurseur - 1, this.chiffresRentres.length);
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
 	}
@@ -141,7 +138,7 @@ public class EntrerUnNombre extends Message {
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
 	public void droite() {
-		this.positionCurseurChoisie = Maths.modulo(positionCurseurChoisie + 1, this.chiffresRentres.length);
+		this.positionCurseur = Maths.modulo(positionCurseur + 1, this.chiffresRentres.length);
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
 	}

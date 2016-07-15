@@ -12,8 +12,6 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 import bibliothequeMenu.MenuPause;
-import commandes.Choix;
-import commandes.EntrerUnNombre;
 import commandes.Message;
 import main.Fenetre;
 import main.Lecteur;
@@ -21,11 +19,9 @@ import menu.LecteurMenu;
 import menu.Menu;
 import menu.Texte;
 import mouvements.RegarderUnEvent;
-import son.LecteurAudio;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.Graphismes;
-import utilitaire.Maths;
 
 /**
  * Le Lecteur de map affiche la Map et les Events.
@@ -275,7 +271,6 @@ public class LecteurMap extends Lecteur {
 		}
 		
 		try {
-			//TODO if( ! event.saute )
 			for (Event event : this.map.events) {
 				final boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
 				//cas où l'Event est animé à l'arrêt

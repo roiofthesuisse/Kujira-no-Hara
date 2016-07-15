@@ -210,6 +210,62 @@
 					"traversable": false
 				}
 			]
+		},
+		{
+			"nom": "moutonBoiteMessage",
+			"id": 5,
+			"x": 14,
+			"y": 9,
+			"pages": [
+				{
+					"image": "mouton character.png",
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "AfficherBoiteMessage",
+							"afficher": false
+						},
+						{
+							"nom": "Message",
+							"texte": "Boîte message désactivée."
+						}
+					],
+					"directionInitiale": 0,
+					"traversable": false
+				}
+			]
+		},
+		{
+			"nom": "moutonBoiteMessage",
+			"id": 6,
+			"x": 13,
+			"y": 9,
+			"pages": [
+				{
+					"image": "mouton character.png",
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "AfficherBoiteMessage",
+							"afficher": true
+						},
+						{
+							"nom": "Message",
+							"texte": "Boîte message activée."
+						}
+					],
+					"directionInitiale": 0,
+					"traversable": false
+				}
+			]
 		}
 	]
 }

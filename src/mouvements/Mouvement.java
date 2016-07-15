@@ -53,6 +53,7 @@ public abstract class Mouvement {
 			} else {
 				//déclarer le Mouvement comme terminé (car ignoré)
 				ignorerLeMouvement(event);
+				event.avance = false;
 			}
 			
 			//même si le Mouvement est avorté, le changement de direction a lieu

@@ -60,55 +60,53 @@ public class Choix extends Message {
 	 */
 	@Override
 	protected final BufferedImage produireImageDuMessage() {
-		if (this.imageDesSelectionsPossibles == null) {
-			BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE);
-			
-			// Texte de base
-			final Texte texteDeBase = new Texte(this.texte);
-			
-			// On ajoute les alternatives à l'image de base
-			final ArrayList<Texte> alternativesTexte = new ArrayList<Texte>();
-			final ArrayList<BufferedImage> imagesAlternatives = new ArrayList<BufferedImage>();
-			
-			final int hauteurLigne = Texte.TAILLE_MOYENNE + Texte.INTERLIGNE;
-			final int hauteurTexte = this.calculerHauteurTexte();
-			for (int i = 0; i < this.alternatives.size(); i++) {
-				final String alternativeString = alternatives.get(i);
-				alternativesTexte.add( new Texte(alternativeString) );
-				imagesAlternatives.add( alternativesTexte.get(i).image );
-				imageDesAlternatives = Graphismes.superposerImages(
-						imageDesAlternatives, 
-						imagesAlternatives.get(i), 
-						MARGE_DU_TEXTE, 
-						MARGE_DU_TEXTE + hauteurTexte + i*hauteurLigne
-				);
-			}
-			
-			// Différentes sélections possibles
-			this.imageDesSelectionsPossibles = new ArrayList<BufferedImage>();
-			for (int i = 0; i < this.alternatives.size(); i++) {
-				final BufferedImage surlignage = alternativesTexte.get(i).creerImageDeSelection();
-				BufferedImage selectionPossible = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);
-				selectionPossible = Graphismes.superposerImages(
-						selectionPossible, 
-						surlignage, 
-						MARGE_DU_TEXTE - Texte.CONTOUR, 
-						MARGE_DU_TEXTE + hauteurTexte + i*hauteurLigne - Texte.CONTOUR
-				);
-				selectionPossible = Graphismes.superposerImages(
-						selectionPossible, 
-						texteDeBase.image, 
-						MARGE_DU_TEXTE, 
-						MARGE_DU_TEXTE
-				);
-				selectionPossible = Graphismes.superposerImages(
-						selectionPossible, 
-						imageDesAlternatives, //toutes les alternatives sur la même image
-						0, 
-						0
-				);
-				this.imageDesSelectionsPossibles.add(selectionPossible);
-			}
+		BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE);
+		
+		// Texte de base
+		final Texte texteDeBase = new Texte(this.texte);
+		
+		// On ajoute les alternatives à l'image de base
+		final ArrayList<Texte> alternativesTexte = new ArrayList<Texte>();
+		final ArrayList<BufferedImage> imagesAlternatives = new ArrayList<BufferedImage>();
+		
+		final int hauteurLigne = Texte.TAILLE_MOYENNE + Texte.INTERLIGNE;
+		final int hauteurTexte = this.calculerHauteurTexte();
+		for (int i = 0; i < this.alternatives.size(); i++) {
+			final String alternativeString = alternatives.get(i);
+			alternativesTexte.add( new Texte(alternativeString) );
+			imagesAlternatives.add( alternativesTexte.get(i).image );
+			imageDesAlternatives = Graphismes.superposerImages(
+					imageDesAlternatives, 
+					imagesAlternatives.get(i), 
+					MARGE_DU_TEXTE, 
+					MARGE_DU_TEXTE + hauteurTexte + i*hauteurLigne
+			);
+		}
+		
+		// Différentes sélections possibles
+		this.imageDesSelectionsPossibles = new ArrayList<BufferedImage>();
+		for (int i = 0; i < this.alternatives.size(); i++) {
+			final BufferedImage surlignage = alternativesTexte.get(i).creerImageDeSelection();
+			BufferedImage selectionPossible = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);				
+			selectionPossible = Graphismes.superposerImages(
+					selectionPossible, 
+					surlignage, 
+					MARGE_DU_TEXTE - Texte.CONTOUR, 
+					MARGE_DU_TEXTE + hauteurTexte + i*hauteurLigne - Texte.CONTOUR
+			);
+			selectionPossible = Graphismes.superposerImages(
+					selectionPossible, 
+					texteDeBase.image, 
+					MARGE_DU_TEXTE, 
+					MARGE_DU_TEXTE
+			);
+			selectionPossible = Graphismes.superposerImages(
+					selectionPossible, 
+					imageDesAlternatives, //toutes les alternatives sur la même image
+					0, 
+					0
+			);
+			this.imageDesSelectionsPossibles.add(selectionPossible);
 		}
 		
 		return this.imageDesSelectionsPossibles.get(this.positionCurseurAffichee);
@@ -121,7 +119,7 @@ public class Choix extends Message {
 	 */
 	@Override
 	protected final boolean siChoixLeCurseurATIlBouge() {
-		final boolean reponse = positionCurseurAffichee != positionCurseurChoisie;
+		final boolean reponse = (positionCurseurAffichee != positionCurseurChoisie) || this.imageDesSelectionsPossibles == null;
 		positionCurseurAffichee = positionCurseurChoisie;
 		return reponse;
 	}

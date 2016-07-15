@@ -34,6 +34,11 @@ public abstract class Lecteur {
 	 * A chaque nouveau Lecteur, on repart de 0.
 	 */
 	public int frameActuelle = 0;
+	
+	/**
+	 * Afficher ou masquer la boîte des Messages.
+	 */
+	public static boolean afficherBoiteMessage = true;
 
 	/**
 	 * Le rôle d'un Lecteur est de calculer l'écran à afficher dans la Fenêtre.

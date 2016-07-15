@@ -13,7 +13,6 @@ import org.apache.commons.lang3.StringUtils;
 import main.Commande;
 import map.LecteurMap;
 import menu.Texte;
-import utilitaire.GestionClavier;
 import utilitaire.Graphismes;
 
 /**
@@ -23,11 +22,14 @@ public class Message extends Commande implements CommandeEvent {
 	//constantes
 	protected static final int MARGE_DU_TEXTE = 24;
 	protected static final String NOM_IMAGE_BOITE_MESSAGE = ".\\ressources\\Graphics\\Pictures\\parchotexte.png";
-	protected static final BufferedImage IMAGE_BOITE_MESSAGE = chargerImageDeFondDeLaBoiteMessage();
+	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage();
+	protected static final BufferedImage IMAGE_BOITE_MESSAGE_VIDE = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE_PLEINE);
+	protected static BufferedImage IMAGE_BOITE_MESSAGE = IMAGE_BOITE_MESSAGE_PLEINE;
 	
 	public String texte;
 	public BufferedImage image;
 	private boolean touchePresseePourQuitterLeMessage = false;
+	private boolean premiereFrameDAffichageDuMessage = true;
 	
 	/**
 	 * Constructeur explicite
@@ -54,9 +56,10 @@ public class Message extends Commande implements CommandeEvent {
 		if ( lecteur.messageActuel==null 
 				|| !lecteur.messageActuel.texte.equals(this.texte) 
 				|| siChoixLeCurseurATIlBouge()
+				|| this.premiereFrameDAffichageDuMessage
 		) {
 			lecteur.messageActuel = this;
-			this.image = produireImageDuMessage();			
+			this.image = produireImageDuMessage();
 		}
 		
 		//fermer le message
@@ -64,9 +67,11 @@ public class Message extends Commande implements CommandeEvent {
 			//on ferme le message
 			lecteur.messageActuel = null;
 			this.touchePresseePourQuitterLeMessage = false;
+			this.premiereFrameDAffichageDuMessage = true;
 			return redirectionSelonLeChoix(curseurActuel, commandes);
 		} else {
 			//on laisse le message ouvert
+			this.premiereFrameDAffichageDuMessage = false;
 			return curseurActuel;
 		}
 	}
@@ -92,7 +97,7 @@ public class Message extends Commande implements CommandeEvent {
 	 * @return image du Message
 	 */
 	protected BufferedImage produireImageDuMessage() {
-		// Partir de la boîte de dialogue vide
+		// Partir de la boîte de dialogue
 		BufferedImage imageMessage = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);
 		
 		// Ajout du texte
