@@ -8,7 +8,7 @@ public abstract class GestionClavier {
 	/**
 	 * Association entre les touches du clavier et leur keycode
 	 */
-	private enum ToucheClavier {
+	private static enum ToucheClavier {
 		Z(90, "Z"),
 		Q(81, "Q"),
 		S(83, "S"),
@@ -32,7 +32,7 @@ public abstract class GestionClavier {
 	/**
 	 * Association entre les touches du clavier et leur rôle
 	 */
-	public enum ToucheRole {
+	public static enum ToucheRole {
 		ACTION(ToucheClavier.K, "ACTION"),
 		HAUT(ToucheClavier.Z, "HAUT"),
 		BAS(ToucheClavier.S, "BAS"),

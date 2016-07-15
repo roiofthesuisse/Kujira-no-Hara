@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 
 import bibliothequeMenu.MenuPause;
 import commandes.Choix;
+import commandes.EntrerUnNombre;
 import commandes.Message;
 import main.Fenetre;
 import main.Lecteur;
@@ -600,11 +601,9 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers le haut
 	 */
 	public final void haut() {
-		if (this.map.lecteur.stopEvent && this.messageActuel instanceof Choix) {
-			//les touches directionnelles servent à effectuer le Choix
-			final Choix choix = (Choix) messageActuel;
-			choix.positionCurseurChoisie = Maths.modulo(choix.positionCurseurChoisie - 1, choix.alternatives.size());
-			LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
+		if (this.stopEvent && this.messageActuel!=null) {
+			//les touches directionnelles servent au Message/Choix/EntrerUnNombre
+			this.messageActuel.haut();
 		} else {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
@@ -616,19 +615,23 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers la gauche
 	 */
 	public final void gauche() {
-		this.map.heros.mettreDansLaBonneDirection();
-		this.map.heros.avance = true;
+		if (this.stopEvent && this.messageActuel!=null) {
+			//les touches servent au Message/Choix/EntrerUnNombre
+			this.messageActuel.gauche();
+		} else {
+			//les touches directionnelles servent à faire avancer le Héros
+			this.map.heros.mettreDansLaBonneDirection();
+			this.map.heros.avance = true;
+		}
 	}
 
 	/**
 	 * Déplacer le Héros vers le bas
 	 */
 	public final void bas() {
-		if (this.map.lecteur.stopEvent && this.messageActuel instanceof Choix) {
-			//les touches directionnelles servent à effectuer le Choix
-			final Choix choix = (Choix) messageActuel;
-			choix.positionCurseurChoisie = Maths.modulo(choix.positionCurseurChoisie + 1, choix.alternatives.size());
-			LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
+		if (this.stopEvent && this.messageActuel!=null) {
+			//les touches servent au Message/Choix/EntrerUnNombre
+			this.messageActuel.bas();
 		} else {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
@@ -640,14 +643,24 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers la droite
 	 */
 	public final void droite() {
-		this.map.heros.mettreDansLaBonneDirection();
-		this.map.heros.avance = true;
+		if (this.stopEvent && this.messageActuel!=null) {
+			//les touches servent au Message/Choix/EntrerUnNombre
+			this.messageActuel.droite();
+		} else {
+			//les touches directionnelles servent à faire avancer le Héros
+			this.map.heros.mettreDansLaBonneDirection();
+			this.map.heros.avance = true;
+		}
 	}
 	
 	/**
 	 * Attaquer ou parler (suivant si gentil ou méchant)
 	 */
 	public final void action() {
+		if (this.stopEvent && this.messageActuel!=null) {
+			//les touches servent au Message/Choix/EntrerUnNombre
+			this.messageActuel.action();
+		}
 	}
 
 	/**

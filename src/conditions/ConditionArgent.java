@@ -10,13 +10,26 @@ import main.Fenetre;
  * Le joueur possède-t-il assez d'argent ?
  */
 public class ConditionArgent extends Condition implements CommandeEvent, CommandeMenu {
-	private static final String PLUS_OU_AUTANT = ">=";
-	private static final String PLUS_STRICTEMENT = ">";
-	private static final String MOINS_OU_AUTANT = "<=";
-	private static final String MOINS_STRICTEMENT = "<";
+
 	/** Inégalités possibles pour comparer l'argent */
-	private enum Inegalite {
-		PLUS_OU_AUTANT, PLUS_STRICTEMENT, MOINS_OU_AUTANT, MOINS_STRICTEMENT
+	private static enum Inegalite {
+		PLUS_OU_AUTANT(">="), PLUS_STRICTEMENT(">"), MOINS_OU_AUTANT("<="), MOINS_STRICTEMENT("<");
+		
+		public String symbole;
+		
+		private Inegalite(String symbole) {
+			this.symbole = symbole;
+		}
+		
+		public static Inegalite getInegalite(String symbole) {
+			for (Inegalite inegalite : Inegalite.values()) {
+				if (inegalite.symbole.equals(symbole)) {
+					return inegalite;
+				}
+			}
+			System.err.println("Cette inegalité n'a pas été trouvée : "+symbole);
+			return null;
+		}
 	}
 	
 	private int quantite;
@@ -26,28 +39,12 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	 * Constructeur explicite
 	 * @param numero de la Condition
 	 * @param quantite d'argent à posséder
-	 * @param inegalite à utiliser pour comparer l'argent
+	 * @param symbole de l'Inégalité à utiliser pour comparer l'argent
 	 */
-	public ConditionArgent(final int numero, final Integer quantite, final String inegalite) {
+	public ConditionArgent(final int numero, final Integer quantite, final String symbole) {
 		this.numero = numero;
 		this.quantite = quantite;
-		switch(inegalite) {
-		case PLUS_OU_AUTANT: 
-			this.inegalite = Inegalite.PLUS_OU_AUTANT;
-			break;
-		case PLUS_STRICTEMENT: 
-			this.inegalite = Inegalite.PLUS_STRICTEMENT;
-			break;
-		case MOINS_OU_AUTANT: 
-			this.inegalite = Inegalite.MOINS_OU_AUTANT;
-			break;
-		case MOINS_STRICTEMENT: 
-			this.inegalite = Inegalite.MOINS_STRICTEMENT;
-			break;
-		default: 
-			this.inegalite = Inegalite.PLUS_OU_AUTANT;
-			break;
-		}
+		this.inegalite = Inegalite.getInegalite(symbole);
 	}
 	
 	/**
@@ -64,18 +61,17 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	@Override
 	public final boolean estVerifiee() {
 		switch(this.inegalite) {
-		case PLUS_OU_AUTANT:
-			return Fenetre.getPartieActuelle().argent >= this.quantite;
-		case PLUS_STRICTEMENT:
-			return Fenetre.getPartieActuelle().argent > this.quantite;
-		case MOINS_STRICTEMENT:
-			return Fenetre.getPartieActuelle().argent < this.quantite;
-		case MOINS_OU_AUTANT:
-			return Fenetre.getPartieActuelle().argent <= this.quantite;
-		default:
-			return Fenetre.getPartieActuelle().argent >= this.quantite;
+			case PLUS_OU_AUTANT:
+				return Fenetre.getPartieActuelle().argent >= this.quantite;
+			case PLUS_STRICTEMENT:
+				return Fenetre.getPartieActuelle().argent > this.quantite;
+			case MOINS_STRICTEMENT:
+				return Fenetre.getPartieActuelle().argent < this.quantite;
+			case MOINS_OU_AUTANT:
+				return Fenetre.getPartieActuelle().argent <= this.quantite;
+			default:
+				return Fenetre.getPartieActuelle().argent >= this.quantite;
 		}
-		
 	}
 
 	@Override

@@ -16,7 +16,6 @@ import main.Fenetre;
 import mouvements.Avancer;
 import mouvements.Mouvement;
 import utilitaire.GestionClavier;
-import utilitaire.GestionClavier.ToucheRole;
 
 /**
  * Event particulier qui est déplacé par le joueur à l'aide du clavier

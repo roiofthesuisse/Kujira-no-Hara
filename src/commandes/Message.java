@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.lang3.StringUtils;
+
 import main.Commande;
 import map.LecteurMap;
 import menu.Texte;
@@ -25,7 +27,7 @@ public class Message extends Commande implements CommandeEvent {
 	
 	public String texte;
 	public BufferedImage image;
-	public boolean leRelachementDeToucheAEuLieu = false;
+	private boolean touchePresseePourQuitterLeMessage = false;
 	
 	/**
 	 * Constructeur explicite
@@ -33,6 +35,7 @@ public class Message extends Commande implements CommandeEvent {
 	 */
 	public Message(final String texte) {
 		this.texte = texte;
+		this.touchePresseePourQuitterLeMessage = false;
 	}
 	
 	/**
@@ -55,15 +58,12 @@ public class Message extends Commande implements CommandeEvent {
 			lecteur.messageActuel = this;
 			this.image = produireImageDuMessage();			
 		}
-		//si la touche action est relachée, la prochaine fois qu'elle sera pressée sera une nouvelle input
-		if ( !GestionClavier.ToucheRole.ACTION.pressee ) {
-			leRelachementDeToucheAEuLieu = true;
-		}
-		//et cette nouvelle input servira à fermer le message
-		if ( leRelachementDeToucheAEuLieu && GestionClavier.ToucheRole.ACTION.pressee ) {
+		
+		//fermer le message
+		if ( this.touchePresseePourQuitterLeMessage ) {
 			//on ferme le message
 			lecteur.messageActuel = null;
-			leRelachementDeToucheAEuLieu = false;
+			this.touchePresseePourQuitterLeMessage = false;
 			return redirectionSelonLeChoix(curseurActuel, commandes);
 		} else {
 			//on laisse le message ouvert
@@ -119,5 +119,42 @@ public class Message extends Commande implements CommandeEvent {
 	 */
 	protected int redirectionSelonLeChoix(final int curseurActuel, final ArrayList<Commande> commandes) {
 		return curseurActuel+1;
+	}
+	
+	protected final int calculerHauteurTexte() {
+		final int nombreDeLignesDuTexte;
+		if (this.texte == null || this.texte.equals("")) {
+			nombreDeLignesDuTexte = 0; 
+		} else {
+			nombreDeLignesDuTexte = 1 + StringUtils.countMatches(this.texte, "\n");
+		}
+		final int hauteurLigne = Texte.TAILLE_MOYENNE + Texte.INTERLIGNE;
+		final int hauteurTexte = nombreDeLignesDuTexte * hauteurLigne;
+		return hauteurTexte;
+	}
+	
+	/** Le Joueur appuie sur la touche pendant le Message */
+	public void haut() {
+		// rien
+	}
+	
+	/** Le Joueur appuie sur la touche pendant le Message */
+	public void bas() {
+		// rien
+	}
+	
+	/** Le Joueur appuie sur la touche pendant le Message */
+	public void gauche() {
+		// rien
+	}
+	
+	/** Le Joueur appuie sur la touche pendant le Message */
+	public void droite() {
+		// rien
+	}
+	
+	/** Le Joueur appuie sur la touche pendant le Message */
+	public void action() {
+		this.touchePresseePourQuitterLeMessage = true;
 	}
 }

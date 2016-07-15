@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 
 import main.Commande;
@@ -13,6 +12,7 @@ import menu.Texte;
 import son.LecteurAudio;
 import utilitaire.Graphismes;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.Maths;
 
 /**
  * Un Choix donne la possibilité au joueur de choisir jusqu'à quatre alternatives.
@@ -70,14 +70,8 @@ public class Choix extends Message {
 			final ArrayList<Texte> alternativesTexte = new ArrayList<Texte>();
 			final ArrayList<BufferedImage> imagesAlternatives = new ArrayList<BufferedImage>();
 			
-			final int nombreDeLignesDuTexte;
-			if (this.texte == null || this.texte.equals("")) {
-				nombreDeLignesDuTexte = 0; 
-			} else {
-				nombreDeLignesDuTexte = 1 + StringUtils.countMatches(this.texte, "\n");
-			}
 			final int hauteurLigne = Texte.TAILLE_MOYENNE + Texte.INTERLIGNE;
-			final int hauteurTexte = nombreDeLignesDuTexte * hauteurLigne;
+			final int hauteurTexte = this.calculerHauteurTexte();
 			for (int i = 0; i < this.alternatives.size(); i++) {
 				final String alternativeString = alternatives.get(i);
 				alternativesTexte.add( new Texte(alternativeString) );
@@ -119,6 +113,7 @@ public class Choix extends Message {
 		
 		return this.imageDesSelectionsPossibles.get(this.positionCurseurAffichee);
 	}
+	
 	/**
 	 * Le curseur du Choix a-t-il bougé ?
 	 * Si oui il faut remplacer l'image de Message affichée.
@@ -154,4 +149,19 @@ public class Choix extends Message {
 				+ " du choix numéro " + numero + " n'a pas été trouvée !");
 		return curseurActuel+1;
 	}
+	
+	/** Le Joueur appuie sur la touche pendant le Message */
+	@Override
+	public void haut() {
+		this.positionCurseurChoisie = Maths.modulo(this.positionCurseurChoisie - 1, this.alternatives.size());
+		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
+	}
+	
+	/** Le Joueur appuie sur la touche pendant le Message */
+	@Override
+	public void bas() {
+		this.positionCurseurChoisie = Maths.modulo(this.positionCurseurChoisie + 1, this.alternatives.size());
+		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
+	}
+	
 }
