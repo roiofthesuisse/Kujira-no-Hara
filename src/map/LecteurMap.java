@@ -596,10 +596,10 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers le haut
 	 */
 	public final void haut() {
-		if (this.stopEvent && this.messageActuel!=null) {
+		if (this.messageActuel!=null) {
 			//les touches directionnelles servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.haut();
-		} else {
+		} else if(!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -610,10 +610,10 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers la gauche
 	 */
 	public final void gauche() {
-		if (this.stopEvent && this.messageActuel!=null) {
+		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.gauche();
-		} else {
+		} else if(!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -624,10 +624,10 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers le bas
 	 */
 	public final void bas() {
-		if (this.stopEvent && this.messageActuel!=null) {
+		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.bas();
-		} else {
+		} else if(!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -638,10 +638,10 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers la droite
 	 */
 	public final void droite() {
-		if (this.stopEvent && this.messageActuel!=null) {
+		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.droite();
-		} else {
+		} else if(!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -652,7 +652,7 @@ public class LecteurMap extends Lecteur {
 	 * Attaquer ou parler (suivant si gentil ou méchant)
 	 */
 	public final void action() {
-		if (this.stopEvent && this.messageActuel!=null) {
+		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.action();
 		}

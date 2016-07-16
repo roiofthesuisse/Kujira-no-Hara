@@ -3,6 +3,7 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import commandes.CommandeEvent;
 import jeu.Arme;
 import son.LecteurAudio;
 import main.Commande;
@@ -31,13 +32,13 @@ public class DemarrerAnimationAttaque extends Commande implements CommandeEvent 
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		if (this.page == null) {
-			System.out.println("page nulle");
-		}
 		final Heros heros = this.page.event.map.heros;
-		final Arme armeActuelle = Fenetre.getPartieActuelle().getArmeEquipee();
-		heros.animationAttaque = armeActuelle.framesDAnimation.length;
-		LecteurAudio.playSe(armeActuelle.nomEffetSonoreAttaque);
+		// pas d'attaque si Mouvement forcé en cours
+		if (heros.deplacementForce==null || heros.deplacementForce.mouvements.size()<=0) {
+			final Arme armeActuelle = Fenetre.getPartieActuelle().getArmeEquipee();
+			heros.animationAttaque = armeActuelle.framesDAnimation.length;
+			LecteurAudio.playSe(armeActuelle.nomEffetSonoreAttaque);
+		}
 		return curseurActuel+1;
 	}
 
