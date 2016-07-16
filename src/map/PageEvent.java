@@ -60,58 +60,6 @@ public class PageEvent {
 	public Deplacement deplacementNaturel = null;
 	
 	/**
-	 * Constructeur explicite
-	 * @Warning constructeur à n'utiliser que pour le Héros
-	 * @param numero de la Page
-	 * @param conditions de déclenchement de la Page
-	 * @param commandes à executer si la page est déclenchée
-	 * @param nomImage nom du fichier image pour l'apparence
-	 */
-	public PageEvent(final int numero, final ArrayList<Condition> conditions, final ArrayList<Commande> commandes, final String nomImage) {
-		this.numero = numero;
-		
-		//Conditions de déclenchement de la Page
-		this.conditions = conditions;
-		//Commandes Event de la Page
-		this.commandes = commandes;
-		
-		//apparence de l'Event pour cette Page
-		this.nomImage = nomImage;
-		
-		//propriétés de l'Event pour cette Page
-		this.vitesse = Heros.VITESSE_HEROS_PAR_DEFAUT;
-		this.frequence = Heros.FREQUENCE_HEROS_PAR_DEFAUT;
-		this.animeALArret = Heros.ANIME_A_L_ARRET_HEROS_PAR_DEFAUT;
-		this.animeEnMouvement = Heros.ANIME_EN_MOUVEMENT_HEROS_PAR_DEFAUT;
-		this.traversable = Heros.TRAVERSABLE_HEROS_PAR_DEFAUT;
-		this.directionFixe = Heros.DIRECTION_FIXE_HEROS_PAR_DEFAUT;
-		this.auDessusDeTout = Heros.AU_DESSUS_DE_TOUT_HEROS_PAR_DEFAUT;
-		
-		
-		//déplacement de l'Event pour cette Page
-		this.deplacementNaturel = null;
-		
-		//ouverture de l'image d'apparence
-		try {
-			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomImage));
-		} catch (IOException e) {
-			//l'image d'apparence n'existe pas
-			this.image = null;
-			e.printStackTrace();
-		}
-		this.estPetit = false;
-		
-		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
-		if (conditions!=null) {
-			for (Condition cond : conditions) {
-				if (cond.getClass().getName().equals( ConditionParler.class.getName() )) {
-					this.sOuvreParParole = true;
-				}
-			}
-		}
-	}
-	
-	/**
 	 * Constructeur générique
 	 * La page de comportement est créée à partir du fichier JSON.
 	 * @param numero de la Page

@@ -312,7 +312,7 @@ public abstract class InterpreteurDeJson {
 			}
 			int hauteurHitbox;
 			try {
-			hauteurHitbox = jsonEventGenerique.getInt("hauteur");
+				hauteurHitbox = jsonEventGenerique.getInt("hauteur");
 			} catch (JSONException e2) {
 				hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
 			}

@@ -156,7 +156,7 @@ public class Event implements Comparable<Event> {
 	 * @param tableauDesPages au format JSON
 	 * @return liste des Pages de l'Event
 	 */
-	private static ArrayList<PageEvent> creerListeDesPagesViaJson(final JSONArray tableauDesPages, final Integer idEvent) {
+	protected static ArrayList<PageEvent> creerListeDesPagesViaJson(final JSONArray tableauDesPages, final Integer idEvent) {
 		final ArrayList<PageEvent> listeDesPages = new ArrayList<PageEvent>();
 		int i = 0;
 		for (Object pageJSON : tableauDesPages) {
@@ -317,12 +317,15 @@ public class Event implements Comparable<Event> {
 		} else {
 			//une Page correspond au moins pour les Conditions non liées au Héros, on donne son apparence à l'Event
 			attribuerLesProprietesActuelles(pageQuOnChoisitEnRemplacement);
-			
 			this.pageActive = null;
 			if (cettePageConvientPourLesCommandes) {
 				//même les Conditions liées au Héros correspondent, on execute la Page
+				
 				this.pageActive = pageQuOnChoisitEnRemplacement;
 			}
+		}
+		if(this instanceof Heros && this.pageActive == null ){
+			System.out.println("page active nulle à la fin du choix");
 		}
 	}
 

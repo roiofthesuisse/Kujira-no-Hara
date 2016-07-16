@@ -26,7 +26,7 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionTouche(final HashMap<String, Object> parametres) {
-		this( parametres.get("touche") != null ? GestionClavier.ToucheRole.getToucheRole((String) parametres.get("touche")) : null);
+		this( parametres.containsKey("touche") ? GestionClavier.ToucheRole.getToucheRole((String) parametres.get("touche")) : null);
 	}
 	
 	@Override

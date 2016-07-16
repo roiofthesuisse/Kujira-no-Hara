@@ -1,37 +1,23 @@
 package map;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import commandes.DemarrerAnimationAttaque;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import commandes.Deplacement;
-import conditions.Condition;
-import conditions.ConditionAnimationAttaque;
-import conditions.ConditionArmeEquipee;
-import conditions.ConditionPasDInterlocuteurAutour;
-import conditions.ConditionStopEvent;
-import conditions.ConditionTouche;
-import jeu.Arme;
-import main.Commande;
 import main.Fenetre;
 import mouvements.Avancer;
 import mouvements.Mouvement;
 import utilitaire.GestionClavier;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * Event particulier qui est déplacé par le joueur à l'aide du clavier
  */
 public class Heros extends Event {
-	//constantes
-	private static final int LARGEUR_HEROS = 24;
-	private static final int HAUTEUR_HEROS = 24;
-	public static final int VITESSE_HEROS_PAR_DEFAUT = 4;
-	public static final int FREQUENCE_HEROS_PAR_DEFAUT = 4;
-	public static final boolean ANIME_A_L_ARRET_HEROS_PAR_DEFAUT = false;
-	public static final boolean ANIME_EN_MOUVEMENT_HEROS_PAR_DEFAUT = true;
-	public static final boolean TRAVERSABLE_HEROS_PAR_DEFAUT = false;
-	public static final boolean DIRECTION_FIXE_HEROS_PAR_DEFAUT = false;
-	public static final boolean AU_DESSUS_DE_TOUT_HEROS_PAR_DEFAUT = false;
-	public static final String NOM_IMAGE_HEROS = "Jiyounasu character.png";
+	public static final Event MODELE = creerModele();
 	
 	/**
 	 * L'animation d'attaque vaut 0 si le héros n'attaque pas.
@@ -45,59 +31,33 @@ public class Heros extends Event {
 	 * @param x position x du Héros sur la Map
 	 * @param y position y du Héros sur la Map
 	 * @param directionEnDebutDeMap directiondu Héros au début de la Map
+	 * @throws FileNotFoundException 
 	 */
-	public Heros(final int x, final int y, final int directionEnDebutDeMap) {
-		//super(x, y, MODELE.nom, MODELE.id, MODELE.pages, MODELE.largeurHitbox, MODELE.hauteurHitbox);
-		super(x, y, "heros", 0, creerPages(), LARGEUR_HEROS, HAUTEUR_HEROS);
+	public Heros(final int x, final int y, final int directionEnDebutDeMap) throws FileNotFoundException {
+		super(x, y, MODELE.nom, MODELE.id, MODELE.pages, MODELE.largeurHitbox, MODELE.hauteurHitbox);
 		this.direction = directionEnDebutDeMap;
 	}
 	
 	/**
-	 * Fabriquer les Pages de comportement du Héros
-	 * @return liste des Pages de comportement du Héros
+	 * Le Héros est créé à partir d'un modèle.
+	 * Ce modèle est un Event générique.
+	 * @return Event modèle qui sert à la création du Héros
 	 */
-	public static ArrayList<PageEvent> creerPages() {
-		final ArrayList<PageEvent> pages = new  ArrayList<PageEvent>();
-		//TODO le Héros devrait être créé à partir d'un fichier JSON
-		//pages
-			//page 0 : marche normale
-				final PageEvent page0 = new PageEvent(0, null, null, NOM_IMAGE_HEROS);
-				pages.add(page0);
-			//page 1 : déclenchement animation attaque épée
-				final ArrayList<Condition> conditions1 = new ArrayList<Condition>();
-				conditions1.add(new ConditionArmeEquipee(0));
-				conditions1.add(new ConditionTouche(GestionClavier.ToucheRole.ACTION));
-				conditions1.add(new ConditionStopEvent(false));
-				conditions1.add(new ConditionPasDInterlocuteurAutour());
-				final ArrayList<Commande> commandes1 = new ArrayList<Commande>();
-				commandes1.add( new DemarrerAnimationAttaque());
-				final String nomImageHerosEpee = Arme.getArme(0).nomImageAttaque;
-				final PageEvent page1 = new PageEvent(1, conditions1, commandes1, nomImageHerosEpee);
-				pages.add(page1);
-			//page 2 : animation attaque épée
-				final ArrayList<Condition> conditions2 = new ArrayList<Condition>();
-				conditions2.add(new ConditionAnimationAttaque());
-				conditions2.add(new ConditionArmeEquipee(0));
-				final PageEvent page2 = new PageEvent(2, conditions2, null, nomImageHerosEpee);
-				pages.add(page2);
-			//page 3 : déclenchement animation attaque éventail
-				final ArrayList<Condition> conditions3 = new ArrayList<Condition>();
-				conditions3.add(new ConditionArmeEquipee(1));
-				conditions3.add(new ConditionTouche(GestionClavier.ToucheRole.ACTION));
-				conditions3.add(new ConditionStopEvent(false));
-				final ArrayList<Commande> commandes3 = new ArrayList<Commande>();
-				commandes3.add( new DemarrerAnimationAttaque());
-				final String nomImageHerosEventail = Arme.getArme(1).nomImageAttaque;
-				final PageEvent page3 = new PageEvent(3, conditions3, commandes3, nomImageHerosEventail);
-				pages.add(page3);
-			//page 4 : animation attaque éventail
-				final ArrayList<Condition> conditions4 = new ArrayList<Condition>();
-				conditions4.add(new ConditionAnimationAttaque());
-				conditions4.add(new ConditionArmeEquipee(1));
-				final PageEvent page4 = new PageEvent(4, conditions4, null, nomImageHerosEventail);
-				pages.add(page4);
-		//fin pages
-		return pages;
+	private static final Event creerModele() {
+		JSONObject jsonEventGenerique = null;
+		try {
+			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique("Heros");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		int largeur = jsonEventGenerique.has("largeur") ? (int) jsonEventGenerique.get("largeur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
+		int hauteur = jsonEventGenerique.has("hauteur") ? (int) jsonEventGenerique.get("hauteur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
+		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
+		final ArrayList<PageEvent> pages = creerListeDesPagesViaJson(jsonPages, 0);
+		
+		final Event modele = new Event (0, 0, "heros", 0, pages, largeur, hauteur);
+		return modele;
 	}
 	
 	@Override
@@ -155,6 +115,9 @@ public class Heros extends Event {
 	 * @return un pas dans la direction demandée
 	 */
 	private Mouvement unPasVers(final int dir) {
+		if(this.pageActive == null){
+			this.activerUnePage();
+		}
 		final Mouvement pas = new Avancer(dir, pageActive.vitesse);
 		pas.deplacement = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false);
 		pas.deplacement.page = this.pageActive; //on apprend au Déplacement quelle est sa Page
