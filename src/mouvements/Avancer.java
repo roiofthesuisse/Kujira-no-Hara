@@ -172,13 +172,28 @@ public class Avancer extends Mouvement {
 	}
 	
 	@Override
-	public final int getDirectionImposee() {
+	public int getDirectionImposee() {
 		return this.direction;
 	}
 	
 	@Override
 	public final String toString() {
 		return "Avancer "+this.etapes+" pixels vers "+this.direction;
+	}
+	
+	/**
+	 * Inverse la direction du Mouvement
+	 */
+	protected void prendreDirectionOpposee() {
+		if (this.direction == Direction.BAS) {
+			this.direction = Direction.HAUT;
+		} else if (this.direction == Direction.HAUT) {
+			this.direction = Direction.BAS;
+		} else if (this.direction == Direction.GAUCHE) {
+			this.direction = Direction.DROITE;
+		} else if (this.direction == Direction.DROITE) {
+			this.direction = Direction.GAUCHE;
+		}
 	}
 	
 }

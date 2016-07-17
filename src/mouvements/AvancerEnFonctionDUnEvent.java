@@ -93,22 +93,6 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	}
 	
 	/**
-	 * Inverse la direction du Mouvement
-	 * Utile pour les Event qui fuient
-	 */
-	private void prendreDirectionOpposee() {
-		if (this.direction == Direction.BAS) {
-			this.direction = Direction.HAUT;
-		} else if (this.direction == Direction.HAUT) {
-			this.direction = Direction.BAS;
-		} else if (this.direction == Direction.GAUCHE) {
-			this.direction = Direction.DROITE;
-		} else if (this.direction == Direction.DROITE) {
-			this.direction = Direction.GAUCHE;
-		}
-	}
-	
-	/**
 	 * Si le Mouvement est impossible dans la direction calculée, une autre direction est proposée.
 	 */
 	private void essayerAutreDirection() {
