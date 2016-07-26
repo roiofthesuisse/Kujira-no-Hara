@@ -40,23 +40,7 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	
 	@Override
 	public final boolean estVerifiee() {
-		switch(this.inegalite) {
-			case AUTANT:
-				return Fenetre.getPartieActuelle().argent == this.quantite;
-			case PLUS_OU_AUTANT:
-				return Fenetre.getPartieActuelle().argent >= this.quantite;
-			case PLUS_STRICTEMENT:
-				return Fenetre.getPartieActuelle().argent > this.quantite;
-			case MOINS_STRICTEMENT:
-				return Fenetre.getPartieActuelle().argent < this.quantite;
-			case MOINS_OU_AUTANT:
-				return Fenetre.getPartieActuelle().argent <= this.quantite;
-			case DIFFERENT:
-				return Fenetre.getPartieActuelle().argent != this.quantite;
-			default:
-				System.err.println("Inégalité inconnue : " + inegalite.symbole);
-				return Fenetre.getPartieActuelle().argent >= this.quantite;
-		}
+		return inegalite.comparer(Fenetre.getPartieActuelle().argent, this.quantite);
 	}
 
 	@Override

@@ -10,7 +10,7 @@ import utilitaire.Maths.Inegalite;
  */
 public class ConditionVariable extends Condition implements CommandeEvent, CommandeMenu {
 	private int numeroVariable;
-	private Inegalite typeInegalite;
+	private Inegalite inegalite;
 	private int valeurQuIlEstCenseAvoir;
 	
 	/**
@@ -23,22 +23,14 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	public ConditionVariable(final int numero, final int numeroVariable, final String symboleInegalite, final int valeur) {
 		this.numero = numero;
 		this.numeroVariable = numeroVariable;
-		this.typeInegalite = Inegalite.getInegalite(symboleInegalite);
+		this.inegalite = Inegalite.getInegalite(symboleInegalite);
 		this.valeurQuIlEstCenseAvoir = valeur;
 	}
 	
 	@Override
 	public final boolean estVerifiee() {
 		final int[] variables = Fenetre.getPartieActuelle().variables;
-		switch (typeInegalite) {
-			case AUTANT : return variables[numeroVariable]==valeurQuIlEstCenseAvoir;
-			case PLUS_OU_AUTANT : return variables[numeroVariable]>=valeurQuIlEstCenseAvoir;
-			case MOINS_OU_AUTANT : return variables[numeroVariable]<=valeurQuIlEstCenseAvoir;
-			case PLUS_STRICTEMENT : return variables[numeroVariable]>valeurQuIlEstCenseAvoir;
-			case MOINS_STRICTEMENT : return variables[numeroVariable]<valeurQuIlEstCenseAvoir;
-			case DIFFERENT : return variables[numeroVariable]!=valeurQuIlEstCenseAvoir;
-			default : return false;
-		}
+		return inegalite.comparer(variables[numeroVariable], valeurQuIlEstCenseAvoir);
 	}
 	
 	/**

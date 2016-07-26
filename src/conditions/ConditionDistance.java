@@ -63,23 +63,7 @@ public class ConditionDistance extends Condition {
 		int deltaY = event1.y - event2.y;
 		double distanceReelle = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
 		
-		switch(this.inegalite) {
-		case MOINS_OU_AUTANT:	
-			return distanceReelle <= distanceVoulue;
-		case MOINS_STRICTEMENT:	
-			return distanceReelle < distanceVoulue;
-		case PLUS_OU_AUTANT:	
-			return distanceReelle >= distanceVoulue;
-		case PLUS_STRICTEMENT:	
-			return distanceReelle > distanceVoulue;
-		case AUTANT:	
-			return distanceReelle == distanceVoulue;
-		case DIFFERENT:	
-			return distanceReelle != distanceVoulue;
-		default:
-			System.err.println("Inegalité inconnue : " + this.inegalite.symbole);
-			return false;
-		}
+		return inegalite.comparer(distanceReelle, distanceVoulue);
 	}
 
 	@Override
