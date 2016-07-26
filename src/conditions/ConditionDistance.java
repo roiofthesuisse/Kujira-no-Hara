@@ -4,22 +4,29 @@ import java.util.HashMap;
 
 import main.Fenetre;
 import map.Event;
+import utilitaire.Maths.Inegalite;
 
+/**
+ * Condition sur la distance qui sépare deux Events sur la Map.
+ */
 public class ConditionDistance extends Condition {
 	private final Integer idEvent1;
 	private final Integer idEvent2;
-	private final int distance;
+	private final int distanceVoulue;
+	private final Inegalite inegalite;
 	
 	/**
 	 * Constructeur explicite
 	 * @param idEvent1 identifiant de l'Event 1
 	 * @param idEvent2 identifiant de l'Event 2
 	 * @param distance entre les deux Events (en carreaux)
+	 * @param symboleInegalite pour la comparaison
 	 */
-	public ConditionDistance(final Integer idEvent1, final Integer idEvent2, final int distance) {
+	public ConditionDistance(final Integer idEvent1, final Integer idEvent2, final int distance, final String symboleInegalite) {
 		this.idEvent1 = idEvent1;
 		this.idEvent2 = idEvent2;
-		this.distance = distance*Fenetre.TAILLE_D_UN_CARREAU;
+		this.distanceVoulue = distance*Fenetre.TAILLE_D_UN_CARREAU;
+		this.inegalite = Inegalite.getInegalite(symboleInegalite);
 	}
 	
 	/**
@@ -29,12 +36,13 @@ public class ConditionDistance extends Condition {
 	public ConditionDistance(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("idEvent1") ? (Integer) parametres.get("idEvent1") : null,
 			 parametres.containsKey("idEvent2") ? (Integer) parametres.get("idEvent2") : null,
-			 (int) parametres.get("distance")
+			 (int) parametres.get("distance"),
+			 parametres.containsKey("inegalite") ? (String) parametres.get("inegalite") : "<="
 		);
 	}
 	
 	@Override
-	public boolean estVerifiee() {
+	public final boolean estVerifiee() {
 		final Event event1;
 		final Event event2;
 		if (idEvent1 == null) {
@@ -53,11 +61,29 @@ public class ConditionDistance extends Condition {
 		}
 		int deltaX = event1.x - event2.x;
 		int deltaY = event1.y - event2.y;
-		return Math.sqrt(deltaX*deltaX + deltaY*deltaY) <= distance;
+		double distanceReelle = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
+		
+		switch(this.inegalite) {
+		case MOINS_OU_AUTANT:	
+			return distanceReelle <= distanceVoulue;
+		case MOINS_STRICTEMENT:	
+			return distanceReelle < distanceVoulue;
+		case PLUS_OU_AUTANT:	
+			return distanceReelle >= distanceVoulue;
+		case PLUS_STRICTEMENT:	
+			return distanceReelle > distanceVoulue;
+		case AUTANT:	
+			return distanceReelle == distanceVoulue;
+		case DIFFERENT:	
+			return distanceReelle != distanceVoulue;
+		default:
+			System.err.println("Inegalité inconnue : " + this.inegalite.symbole);
+			return false;
+		}
 	}
 
 	@Override
-	public boolean estLieeAuHeros() {
+	public final boolean estLieeAuHeros() {
 		return true;
 	}
 

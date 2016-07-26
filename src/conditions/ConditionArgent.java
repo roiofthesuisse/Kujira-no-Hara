@@ -5,33 +5,13 @@ import java.util.HashMap;
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import main.Fenetre;
+import utilitaire.Maths.Inegalite;
 
 /**
  * Le joueur possède-t-il assez d'argent ?
  */
 public class ConditionArgent extends Condition implements CommandeEvent, CommandeMenu {
 
-	/** Inégalités possibles pour comparer l'argent */
-	private static enum Inegalite {
-		PLUS_OU_AUTANT(">="), PLUS_STRICTEMENT(">"), MOINS_OU_AUTANT("<="), MOINS_STRICTEMENT("<");
-		
-		public String symbole;
-		
-		private Inegalite(String symbole) {
-			this.symbole = symbole;
-		}
-		
-		public static Inegalite getInegalite(String symbole) {
-			for (Inegalite inegalite : Inegalite.values()) {
-				if (inegalite.symbole.equals(symbole)) {
-					return inegalite;
-				}
-			}
-			System.err.println("Cette inegalité n'a pas été trouvée : "+symbole);
-			return null;
-		}
-	}
-	
 	private int quantite;
 	private Inegalite inegalite;
 	
@@ -61,6 +41,8 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	@Override
 	public final boolean estVerifiee() {
 		switch(this.inegalite) {
+			case AUTANT:
+				return Fenetre.getPartieActuelle().argent == this.quantite;
 			case PLUS_OU_AUTANT:
 				return Fenetre.getPartieActuelle().argent >= this.quantite;
 			case PLUS_STRICTEMENT:
@@ -69,7 +51,10 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 				return Fenetre.getPartieActuelle().argent < this.quantite;
 			case MOINS_OU_AUTANT:
 				return Fenetre.getPartieActuelle().argent <= this.quantite;
+			case DIFFERENT:
+				return Fenetre.getPartieActuelle().argent != this.quantite;
 			default:
+				System.err.println("Inégalité inconnue : " + inegalite.symbole);
 				return Fenetre.getPartieActuelle().argent >= this.quantite;
 		}
 	}

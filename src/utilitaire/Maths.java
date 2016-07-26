@@ -35,4 +35,36 @@ public abstract class Maths {
 		return a*100/b;
 	}
 	
+	/** 
+	 * Inégalités possibles pour comparer des valeurs 
+	 */
+	public enum Inegalite {
+		PLUS_OU_AUTANT(">="), PLUS_STRICTEMENT(">"), MOINS_OU_AUTANT("<="), MOINS_STRICTEMENT("<"), AUTANT("=="), DIFFERENT("!=");
+		
+		public String symbole;
+		
+		/**
+		 * Constructeur explicite
+		 * @param symbole mathématique de comparaison
+		 */
+		Inegalite(final String symbole) {
+			this.symbole = symbole;
+		}
+		
+		/**
+		 * Accesseur statique
+		 * @param symbole mathématique de comparaison
+		 * @return une des Inégalités possibles
+		 */
+		public static Inegalite getInegalite(final String symbole) {
+			for (Inegalite inegalite : Inegalite.values()) {
+				if (inegalite.symbole.equals(symbole)) {
+					return inegalite;
+				}
+			}
+			System.err.println("Cette inegalité n'a pas été trouvée : "+symbole);
+			return null;
+		}
+	}
+	
 }
