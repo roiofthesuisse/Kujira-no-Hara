@@ -599,7 +599,7 @@ public class LecteurMap extends Lecteur {
 		if (this.messageActuel!=null) {
 			//les touches directionnelles servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.haut();
-		} else if(!this.stopEvent) {
+		} else if (!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -613,7 +613,7 @@ public class LecteurMap extends Lecteur {
 		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.gauche();
-		} else if(!this.stopEvent) {
+		} else if (!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -627,7 +627,7 @@ public class LecteurMap extends Lecteur {
 		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.bas();
-		} else if(!this.stopEvent) {
+		} else if (!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -641,7 +641,7 @@ public class LecteurMap extends Lecteur {
 		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.droite();
-		} else if(!this.stopEvent) {
+		} else if (!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
 			this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;

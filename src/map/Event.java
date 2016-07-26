@@ -218,6 +218,7 @@ public class Event implements Comparable<Event> {
 				//pas de Déplacement du tout
 				this.avance = false;
 				this.saute = false;
+				this.animation = 0; //l'event ne bouge plus, on arrête son animation
 			}
 		}
 	}
@@ -324,7 +325,7 @@ public class Event implements Comparable<Event> {
 				this.pageActive = pageQuOnChoisitEnRemplacement;
 			}
 		}
-		if(this instanceof Heros && this.pageActive == null ){
+		if (this instanceof Heros && this.pageActive == null) {
 			System.out.println("page active nulle à la fin du choix");
 		}
 	}
