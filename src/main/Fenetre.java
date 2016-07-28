@@ -18,11 +18,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import bibliothequeMenu.MenuTitre;
 import map.LecteurMap;
 import map.Map;
 import menu.LecteurMenu;
+import menu.Menu;
 import utilitaire.GestionClavier;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * La Fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.
@@ -49,7 +50,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	private Fenetre() {
 		super(titre);
 		this.labelEcran = new JLabel();
-		final MenuTitre menuTitre = new MenuTitre();
+		final Menu menuTitre = InterpreteurDeJson.creerMenuDepuisJson("Titre", null); //new MenuTitre();
 		this.lecteur = new LecteurMenu(this, menuTitre, null);
 
 		this.addKeyListener(this);

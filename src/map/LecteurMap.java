@@ -11,12 +11,11 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
-import bibliothequeMenu.MenuPause;
 import commandes.Message;
+import commandes.OuvrirMenu;
+import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
-import menu.LecteurMenu;
-import menu.Menu;
 import menu.Texte;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
@@ -494,12 +493,8 @@ public class LecteurMap extends Lecteur {
 	 */
 	public final void ouvrirLeMenu() {
 		if (!this.stopEvent && this.autoriserMenu) { //impossible d'ouvrir le Menu en cas de stopEvent ou de Menu interdit
-			final Menu menuPause = new MenuPause();
-			final LecteurMenu lecteurMenu = new LecteurMenu(this.fenetre, menuPause, this);
-			
-			this.fenetre.futurLecteur = lecteurMenu;
-			lecteurMenu.menu = menuPause;
-			this.allume = false;
+			final Commande menuPause = new OuvrirMenu("Pause");
+			menuPause.executer(0, null);
 		}
 	}
 

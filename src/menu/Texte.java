@@ -8,7 +8,6 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import commandes.CommandeMenu;
 import main.Commande;
 import main.Lecteur;
 
@@ -20,8 +19,45 @@ public class Texte extends ElementDeMenu {
 	private static final Color COULEUR_PAR_DEFAUT = new Color(50, 0, 150);
 	private static final Color COULEUR_PAR_DEFAUT2 = new Color(150, 0, 50);
 	public static final int MARGE_A_DROITE = 4; //pour ne pas que le côté droit du texte ne soit coupé
+	
+	/**
+	 * Taille de la police
+	 */
+	public enum Taille {
+		MOYENNE("MOYENNE", 18), GRANDE("GRANDE", 28);
+		
+		public final String nom;
+		public final int pixels;
+		
+		/** 
+		 * Constructeur explicite
+		 * @param nom désignant cette taille
+		 * @param pixels hauteur de la police en pixels
+		 */
+		Taille(final String nom, final int pixels) {
+			this.nom = nom;
+			this.pixels = pixels;
+		}
+		
+		/**
+		 * Obtenir un objet Taille à partir de son nom.
+		 * @param nom désignant une Taille
+		 * @return Taille correspondante
+		 */
+		public static Taille getTailleParNom(final String nom) {
+			for (Taille taille : Taille.values()) {
+				if (taille.nom.equals(nom)) {
+					return taille;
+				}
+			}
+			return Taille.MOYENNE;
+		}
+	}
+	
 	public static final int TAILLE_MOYENNE = 18;
 	public static final int TAILLE_GRANDE = 28;
+	
+	
 	public static final int INTERLIGNE = 8;
 	private static final int OPACITE_MAXIMALE = 100;
 	private static final String POLICE = "arial"; //"roiofthesuisse";
@@ -39,10 +75,10 @@ public class Texte extends ElementDeMenu {
 	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
 	 * @param c1 c1 comportement au survol
 	 * @param c2 c2 comportement à la confirmation
-	 * @param menu auquel le Texte appartient
+	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final Menu menu) {
-		this(contenu, xDebut, yDebut, Texte.TAILLE_MOYENNE, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, menu);
+	public Texte(final String contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+		this(contenu, xDebut, yDebut, Taille.MOYENNE, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, id);
 	}
 	
 	/**
@@ -54,10 +90,10 @@ public class Texte extends ElementDeMenu {
 	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
 	 * @param c1 comportement au survol
 	 * @param c2 comportement à la confirmation
-	 * @param menu auquel le Texte appartient
+	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final Menu menu) {
-		this(contenu, xDebut, yDebut, taille, selectionnable, OPACITE_MAXIMALE, c1, c2, menu);
+	public Texte(final String contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+		this(contenu, xDebut, yDebut, taille, selectionnable, OPACITE_MAXIMALE, c1, c2, id);
 	}
 	
 	/**
@@ -70,18 +106,16 @@ public class Texte extends ElementDeMenu {
 	 * @param opacite transparence
 	 * @param c1 comportement au survol
 	 * @param c2 comportement à la confirmation
-	 * @param menu auquel le Texte appartient
+	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final int taille, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final Menu menu) {
-		this.menu = menu;
-		this.selectionnable = selectionnable;
-		this.comportementSelection = c1;
+	public Texte(final String contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+		super(id, selectionnable, xDebut, yDebut, c1, c2);
+		
 		if (comportementSelection!=null && comportementSelection.size()>0) {
 			for (Commande commande : comportementSelection) {
 				commande.element = this;
 			}
 		}
-		this.comportementConfirmation = c2;
 		if (comportementConfirmation!=null && comportementConfirmation.size()>0) {
 			for (Commande commande : comportementConfirmation) {
 				commande.element = this;
@@ -90,7 +124,7 @@ public class Texte extends ElementDeMenu {
 		this.contenu = contenu;
 		this.x = xDebut;
 		this.y = yDebut;
-		this.taille = taille;
+		this.taille = taille.pixels;
 		this.opacite = opacite;
 		this.image = texteToImage();
 
@@ -112,6 +146,8 @@ public class Texte extends ElementDeMenu {
 	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
 	 */
 	public Texte(final String contenu, final Color couleurForcee) {
+		super(0, false, 0, 0, null, null); //on se fout de la gueule de la classe mère
+		
 		this.couleurForcee = couleurForcee;
 		this.contenu = contenu;
 		this.taille = Texte.TAILLE_MOYENNE;
@@ -188,8 +224,9 @@ public class Texte extends ElementDeMenu {
 	@Override
 	public final void executerLeComportementALArrivee() { //lorsque la sélection arrive sur ce texte
 		if ( comportementSelection!=null && comportementSelection.size()>0) {
+			int i = 0;
 			for (Commande commande : comportementSelection) {
-				((CommandeMenu) commande).executer();
+				i = commande.executer(i, comportementSelection);
 			}
 		}
 	}

@@ -2,14 +2,16 @@ package menu;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import map.Event;
 import son.LecteurAudio;
 
 /**
  * Un Menu est constitué d'images et de Textes, éventuellement Sélectionnables.
+ * Le Menu préexiste à son Lecteur. Le Menu ne connaîtra son Lecteur que lorsque le Lecteur sera instancié.
  */
-public abstract class Menu {
+public class Menu {
 	//constantes
 	protected static final int LARGEUR_ELEMENT_PAR_DEFAUT = 48;
 	protected static final int HAUTEUR_ELEMENT_PAR_DEFAUT = 32;
@@ -18,12 +20,10 @@ public abstract class Menu {
 	
 	public LecteurMenu lecteur;
 	public BufferedImage fond;
-	public final ArrayList<Texte> textes = new ArrayList<Texte>();
+	public ArrayList<Texte> textes;
 	public Texte texteDescriptif;
-	public int xTexteDescriptif;
-	public int yTexteDescriptif;
-	public int largeurTexteDescriptif;
-	public final ArrayList<Image> images = new ArrayList<Image>();
+	public  ArrayList<Image> images;
+	public HashMap<Integer, ElementDeMenu> elements;
 	private ArrayList<ElementDeMenu> selectionnables;
 	public ElementDeMenu elementSelectionne;
 	public String nomBGM;
@@ -31,6 +31,37 @@ public abstract class Menu {
 	public Menu menuPrecedent;
 	public Menu menuParent;
 
+	/**
+	 * Constructeur explicite
+	 * @param fond image de fond du Menu
+	 * @param textes du Menu
+	 * @param images du Menu
+	 * @param selectionInitiale ElementDeMenu sélectionné au début
+	 * @param menuParent Menu qui a appelé ce Menu
+	 */
+	public Menu(final BufferedImage fond, final ArrayList<Texte> textes, final ArrayList<Image> images, final ElementDeMenu selectionInitiale, final int idTexteDescriptif, final Menu menuParent) {
+		this.fond = fond;
+		
+		this.elements = new HashMap<Integer, ElementDeMenu>();
+		this.textes = textes;
+		for (Texte texte : textes) {
+			texte.menu = this;
+			this.elements.put((Integer) texte.id, texte);
+		}
+		this.images = images;
+		for (Image image : images) {
+			image.menu = this;
+			this.elements.put((Integer) image.id, image);
+		}
+		
+		this.texteDescriptif = (Texte) this.elements.get((Integer) idTexteDescriptif);
+		
+		this.elementSelectionne = selectionInitiale;
+		selectionInitiale.selectionne = true;
+		
+		this.menuParent = menuParent;
+	}
+	
 	/**
 	 * Confirmer l'Elément de Menu sélectionné.
 	 */

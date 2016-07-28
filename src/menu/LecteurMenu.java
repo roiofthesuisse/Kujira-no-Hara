@@ -67,7 +67,7 @@ public class LecteurMenu extends Lecteur {
 		
 		//afficher le Texte descriptif
 		if (this.menu.texteDescriptif != null && !this.menu.texteDescriptif.contenu.equals("")) {
-			ecran = Graphismes.superposerImages(ecran, this.menu.texteDescriptif.image, this.menu.xTexteDescriptif, this.menu.yTexteDescriptif);
+			ecran = Graphismes.superposerImages(ecran, this.menu.texteDescriptif.image, this.menu.texteDescriptif.x, this.menu.texteDescriptif.y);
 		}
 		
 		//afficher les listes

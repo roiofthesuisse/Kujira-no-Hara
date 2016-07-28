@@ -48,7 +48,7 @@ public abstract class Condition extends Commande {
 						System.out.println("L'évènement n°"+this.page.event.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
 					}
 					if (this instanceof CommandeMenu) {
-						System.out.println("L'élément de menu n°"+this.element.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
+						System.out.println("L'élément de menu n°"+this.element.id+" n'a pas trouvé sa fin de condition "+this.numero+" :");
 					}
 					e.printStackTrace();
 				} catch (Exception e) {

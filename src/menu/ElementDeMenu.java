@@ -24,11 +24,11 @@ public abstract class ElementDeMenu {
 	private static final int COULEUR_CONTOUR_SELECTION_A = 0;
 	
 	public Menu menu;
-	public int numero;
-	public boolean selectionnable = true;
+	public final int id;
+	public final boolean selectionnable;
 	public boolean selectionne = false;
-	protected ArrayList<Commande> comportementSelection;
-	protected ArrayList<Commande> comportementConfirmation;
+	protected final ArrayList<Commande> comportementSelection;
+	protected final ArrayList<Commande> comportementConfirmation;
 	/** l'élément de Menu peut être une image */
 	public BufferedImage image;
 	/** surlignage de l'image lors de la Sélection */
@@ -37,6 +37,20 @@ public abstract class ElementDeMenu {
 	public int y;
 	public int hauteur;
 	public int largeur;
+	
+	/**
+	 * Constructeur pour obliger l'affectation
+	 * @param id identifiant de l'ElementDeMenu
+	 */
+	protected ElementDeMenu(final int id, final boolean selectionnable, final int x, final int y, ArrayList<Commande> comportementSelection,
+	final ArrayList<Commande> comportementConfirmation) {
+		this.id = id;
+		this.selectionnable = selectionnable;
+		this.x = x;
+		this.y = y;
+		this.comportementSelection = comportementSelection;
+		this.comportementConfirmation = comportementConfirmation;
+	}
 	
 	/**
 	 * Lorsqu'on survole l'élément, il peut déclencher une action.
@@ -151,7 +165,7 @@ public abstract class ElementDeMenu {
 		if (this.comportementConfirmation != null && this.comportementConfirmation.size()>0) {
 			int i = 0;
 			for (Commande commande : this.comportementConfirmation) {
-				i = commande.executer(i, this.comportementConfirmation);
+				i = commande.executer(i, comportementConfirmation);
 			}
 		}
 	}

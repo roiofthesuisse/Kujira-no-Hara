@@ -3,9 +3,6 @@ package commandes;
 import java.util.ArrayList;
 
 import main.Commande;
-import main.Fenetre;
-import menu.LecteurMenu;
-import menu.Texte;
 
 /**
  * Afficher la description de l'Elément sélectionné dans le Menu.
@@ -23,7 +20,7 @@ public class AfficherDescription extends Commande implements CommandeMenu {
 	
 	@Override
 	public final void executer() {
-		((LecteurMenu) Fenetre.getFenetre().lecteur).menu.texteDescriptif = new Texte(description);
+		this.element.menu.texteDescriptif.contenu = description;
 	}
 	
 	@Override

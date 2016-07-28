@@ -29,12 +29,12 @@ public class Image extends ElementDeMenu {
 	 * @param selectionnable peut-on le sélectionner ?
 	 * @param comportementSelection comportement au survol
 	 * @param comportementConfirmation comportement à la validation
-	 * @param menu auquel appartient l'Elément
+	 * @param id identifiant de l'ElementDeMenu
 	 * @throws IOException 
 	 */
-	public Image(final String dossierImage, final String nomImage, final int x, final int y, final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final Menu menu) throws IOException {
+	public Image(final String dossierImage, final String nomImage, final int x, final int y, final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final int id) throws IOException {
 		this(ImageIO.read(new File(".\\ressources\\Graphics\\"+dossierImage+"\\"+nomImage)),
-				x, y, conditions, selectionnable, comportementSelection, comportementConfirmation, menu);
+				x, y, conditions, selectionnable, comportementSelection, comportementConfirmation, id);
 	}
 	
 	/**
@@ -46,11 +46,11 @@ public class Image extends ElementDeMenu {
 	 * @param selectionnable peut-on le sélectionner ?
 	 * @param comportementSelection comportement au survol
 	 * @param comportementConfirmation comportement à la validation
-	 * @param menu auquel appartient l'Elément
+	 * @param id identifiant de l'ElementDeMenu
 	 */
 	//TODO supprimer
-	public Image(final int x, final int y, final int largeur, final int hauteur, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final Menu menu) {
-		this(new int[]{largeur, hauteur}, x, y, null, selectionnable, comportementSelection, comportementConfirmation, menu);
+	public Image(final int x, final int y, final int largeur, final int hauteur, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final int id) {
+		this(new int[]{largeur, hauteur}, x, y, null, selectionnable, comportementSelection, comportementConfirmation, id);
 	}
 	
 	/**
@@ -62,10 +62,10 @@ public class Image extends ElementDeMenu {
 	 * @param selectionnable peut-on le sélectionner ?
 	 * @param comportementSelection comportement au survol
 	 * @param comportementConfirmation comportement à la validation
-	 * @param menu auquel appartient l'Image
+	 * @param id identifiant de l'ElementDeMenu
 	 */
-	private Image(final Object apparence, final int x, final int y, final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final Menu menu) {
-		this.menu = menu;
+	private Image(final Object apparence, final int x, final int y, final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final int id) {
+		super(id, selectionnable, x, y, comportementSelection, comportementConfirmation);
 		
 		if (apparence instanceof BufferedImage) {
 			//l'Elément a une image comme apparence
@@ -79,13 +79,7 @@ public class Image extends ElementDeMenu {
 			this.largeur = dimensionsImageVide[0];
 			this.hauteur = dimensionsImageVide[1];
 		}
-		this.x = x;
-		this.y = y;
 		this.conditions = conditions;
-		this.selectionnable = selectionnable;
-		this.comportementSelection = comportementSelection;
-		this.comportementConfirmation = comportementConfirmation;
-		
 		this.selectionne = false;
 	}
 	
@@ -97,10 +91,16 @@ public class Image extends ElementDeMenu {
 	 * @param x position x à l'écran
 	 * @param y position y à l'écran
 	 * @param selectionnable peut-on le sélectionner ?
-	 * @param menu auquel appartient l'Image
+	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Image(final Objet objet, final int x, final int y, final boolean selectionnable, final Menu menu) {
-		this(objet.getIcone(), x, y, objet.getConditions(), selectionnable, objet.getComportementSelection(), objet.getComportementConfirmation(), menu);
+	public Image(final Objet objet, final int x, final int y, final boolean selectionnable, final int id) {
+		this(objet.getIcone(), x, y, objet.getConditions(), selectionnable, objet.getComportementSelection(), objet.getComportementConfirmation(), id);
+		for (Commande commande : comportementSelection) {
+			commande.element = this;
+		}
+		for (Commande commande : comportementConfirmation) {
+			commande.element = this;
+		}
 	}
 
 	/**

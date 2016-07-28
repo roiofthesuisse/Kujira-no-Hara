@@ -61,7 +61,7 @@ public class Objet {
 			(String) parametres.get("nom"),
 			(String) parametres.get("nomIcone"),
 			(String) parametres.get("description"),
-			(ArrayList<Commande>) parametres.get("effet")
+			(ArrayList<Commande>) parametres.get("effet") //TODO à revoir, je doute que ça marche
 		);
 	}
 
@@ -88,7 +88,7 @@ public class Objet {
 						//paramètre : effet
 						final ArrayList<CommandeMenu> effet = new ArrayList<CommandeMenu>();
 						final JSONArray jsonEffet = jsonObjet.getJSONArray("effet");
-						InterpreteurDeJson.recupererLesCommandesMenu(effet, jsonEffet);
+						InterpreteurDeJson.recupererLesCommandesMenu(effet, jsonEffet, null);
 						parametresObjet.put("effet", effet);
 					} else {
 						//autres paramètres

@@ -1,12 +1,16 @@
 package utilitaire;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
+
+import javax.imageio.ImageIO;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,9 +19,15 @@ import org.json.JSONObject;
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import conditions.Condition;
+import jeu.Objet;
 import main.Commande;
 import map.Event;
 import map.PageEvent;
+import menu.ElementDeMenu;
+import menu.Image;
+import menu.Menu;
+import menu.Texte;
+import menu.Texte.Taille;
 import mouvements.Mouvement;
 
 /**
@@ -179,6 +189,28 @@ public abstract class InterpreteurDeJson {
 			}
 		}
 	}
+	
+	/**
+	 * Traduit les Commandes depuis le format JSON et les range dans la liste des Commandes de la Page.
+	 * @param commandes liste des Commandes de la Page.
+	 * @param commandesJSON tableau JSON contenant les Commandes au format JSON
+	 * @param element qui contient ces Commandes Menu
+	 */
+	public static void recupererLesCommandesMenu(final ArrayList<CommandeMenu> commandes, final JSONArray commandesJSON, final ElementDeMenu element) {
+		for (Object commandeJSON : commandesJSON) {
+			final Commande commande = recupererUneCommande( (JSONObject) commandeJSON );
+			if (commande != null) {
+				//on vérifie que c'est bien une CommandeMenu
+				if (commande instanceof CommandeMenu) {
+					commande.element = element;
+					commandes.add((CommandeMenu) commande);
+				} else {
+					System.err.println("La commande "+commande.getClass().getName()+"n'est pas une CommandeMenu !");
+				}
+			}
+		}
+	}
+	
 	/**
 	 * Traduit un objet JSON représentant une Commande en vrai objet Commande.
 	 * @param commandeJson objet JSON représentant une Commande
@@ -221,8 +253,7 @@ public abstract class InterpreteurDeJson {
 	 * @param commandes liste des Commandes de l'Element.
 	 * @param commandesJSON tableau JSON contenant les CommandesMenu au format JSON
 	 */
-	//TODO duplication de code : factoriser la partie commune !
-	public static void recupererLesCommandesMenu(final ArrayList<CommandeMenu> commandes, final JSONArray commandesJSON) {
+	public static void recupererLesCommandes(final ArrayList<Commande> commandes, final JSONArray commandesJSON) {
 		for (Object commandeJSON : commandesJSON) {
 			try {
 				final String nomClasseCommande = ((JSONObject) commandeJSON).getString("nom");
@@ -239,13 +270,8 @@ public abstract class InterpreteurDeJson {
 					}
 				}
 				final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
-				final CommandeMenu commande = (CommandeMenu) constructeurCommande.newInstance(parametres);
-				//on vérifie que c'est bien une CommandeMenu
-				if (commande instanceof CommandeMenu) {
-					commandes.add(commande);
-				} else {
-					System.err.println("La commande "+nomClasseCommande+" n'est pas une CommandeMenu !");
-				}
+				final Commande commande = (Commande) constructeurCommande.newInstance(parametres);
+				commandes.add(commande);
 			} catch (Exception e1) {
 				System.err.println("Impossible de traduire l'objet JSON en CommandeMenu.");
 				e1.printStackTrace();
@@ -384,6 +410,114 @@ public abstract class InterpreteurDeJson {
 			alternatives.add(alternative);
 		}
 		return alternatives;
+	}
+	
+	/**
+	 * Crée un objet Menu à partir d'un fichier JSON.
+	 * @param nom du fichier JSON décrivant le Menu
+	 * @param menuParent éventuel Menu qui a appelé ce Menu
+	 * @return Menu instancié
+	 */
+	public static Menu creerMenuDepuisJson(final String nom, final Menu menuParent) {
+		try {
+			final JSONObject jsonObject = InterpreteurDeJson.ouvrirJson(nom, ".\\ressources\\Data\\Menus\\");
+			
+			// Identifiant de l'ElementDeMenu déjà sélectionné par défaut
+			final int idSelectionInitiale = jsonObject.has("selectionInitiale") ? (int) jsonObject.get("selectionInitiale") : 0;
+			
+			// Identifiant de l'ElementDeMenu contenant les descriptions d'Objects
+			final int idDescription = jsonObject.has("idDescription") ? (int) jsonObject.get("idDescription") : -1;
+			
+			// Image de fond du Menu
+			BufferedImage fond = null;
+			if (jsonObject.has("fond")) {
+				final String nomFond = (String) jsonObject.get("fond");
+				try {
+					fond = ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\"+nomFond));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			ElementDeMenu selectionInitiale = null;
+			final JSONArray jsonElements = jsonObject.getJSONArray("elements");
+			final ArrayList<Texte> textes = new ArrayList<Texte>();
+			final ArrayList<Image> images = new ArrayList<Image>();
+			for (Object objetElement : jsonElements) {
+				final JSONObject jsonElement = (JSONObject) objetElement;
+				ElementDeMenu element = null;
+				
+				final int id = (int) jsonElement.get("id");
+				final int x = (int) jsonElement.get("x");
+				final int y = (int) jsonElement.get("y");
+				
+				final String type = (String) jsonElement.get("type");
+				if ("Objet".equals(type)) {
+					// L'ElementDeMenu est un icône d'Objet
+					final String nomObjet = (String) jsonElement.get("nom");
+					
+					final Objet objet = Objet.objetsDuJeuHash.get(nomObjet);
+					final Image imageObjet = new Image(objet, x, y, true, id);
+					
+					images.add(imageObjet);
+					element = imageObjet;
+				} else {
+					
+					final boolean selectionnable = (boolean) jsonElement.get("selectionnable");
+					
+					final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
+					final ArrayList<Commande> commandesAuSurvol = new ArrayList<Commande>();
+					recupererLesCommandes(commandesAuSurvol, jsonCommandesSurvol);
+					
+					final JSONArray jsonCommandesConfirmation = jsonElement.getJSONArray("commandesConfirmation");
+					final ArrayList<Commande> commandesALaConfirmation = new ArrayList<Commande>();
+					recupererLesCommandes(commandesALaConfirmation, jsonCommandesConfirmation);
+
+					if ("Texte".equals(type)) {
+						// L'ElementDeMenu est un Texte
+						final String contenu = (String) jsonElement.get("contenu");
+						final String taille = jsonElement.has("taille") ? (String) jsonElement.get("taille") : null;
+						
+						final Texte texte = new Texte(contenu, x, y, Taille.getTailleParNom(taille), selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
+						textes.add(texte);
+						element = texte;
+						
+					} else if ("Image".equals(type)) {
+						// L'ElementDeMenu est une Image
+						final String dossier = (String) jsonElement.get("dossier");
+						final String fichier = (String) jsonElement.get("fichier");
+	
+						final JSONArray jsonConditions = jsonElement.getJSONArray("conditions");
+						final ArrayList<Condition> conditions = new ArrayList<Condition>();
+						recupererLesConditions(conditions, jsonConditions);
+						
+						Image image;
+						try {
+							image = new Image(dossier, fichier, x, y, conditions, selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
+							images.add(image);
+							element = image;
+						} catch (IOException e) {
+							System.err.println("Impossible d'ouvrir l'image : "+dossier+"/"+fichier);
+							e.printStackTrace();
+						}
+						
+					} else  {
+						System.err.println("Type inconnu pour un élement de menu  : "+type);
+					}
+				}
+				
+				if (id == idSelectionInitiale) {
+					selectionInitiale = element;
+				}
+			}
+
+			return new Menu(fond, textes, images, selectionInitiale, idDescription, menuParent);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }
