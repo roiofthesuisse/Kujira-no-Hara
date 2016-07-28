@@ -163,7 +163,10 @@ public class Avancer extends Mouvement {
 
 	@Override
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
-		event.avance = false;
+		if (!event.animeALArretActuel && !event.avancaitALaFramePrecedente && !event.avance) {
+			//l'event ne bouge plus depuis 2 frames, on arrête son animation
+			event.animation = 0; 
+		}
 	}
 
 	@Override

@@ -63,7 +63,7 @@ public class Event implements Comparable<Event> {
 	/** l'Event est-il en train d'avancer en ce moment même ? (utile pour l'animation) */
 	public boolean avance = false;
 	/** L'Event avançait-il à la frame précédente ? (utile pour l'animation) */
-	protected boolean avancaitALaFramePrecedente = false;
+	public boolean avancaitALaFramePrecedente = false;
 	/** l'Event est-il en train de sauter en ce moment même ? (utile pour l'animation) */
 	public boolean saute = false;
 	public int coordonneeApparenteXLorsDuSaut; //en pixels
@@ -218,7 +218,10 @@ public class Event implements Comparable<Event> {
 				//pas de Déplacement du tout
 				this.avance = false;
 				this.saute = false;
-				this.animation = 0; //l'event ne bouge plus, on arrête son animation
+				if (!this.animeALArretActuel && !this.avancaitALaFramePrecedente && !this.avance) {
+					//l'event ne bouge plus depuis 2 frames, on arrête son animation
+					this.animation = 0;
+				}
 			}
 		}
 	}
