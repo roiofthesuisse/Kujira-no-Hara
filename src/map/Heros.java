@@ -104,7 +104,9 @@ public class Heros extends Event {
 			} else {
 				this.avance = false;
 				//le Héros n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
-				this.animation = 0;
+				if (!this.avancaitALaFramePrecedente && !this.avance && !this.animeALArretActuel) {
+					this.animation = 0;
+				}
 			}
 		}
 	}
