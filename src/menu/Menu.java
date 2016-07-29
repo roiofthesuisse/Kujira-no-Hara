@@ -57,7 +57,7 @@ public class Menu {
 		this.texteDescriptif = (Texte) this.elements.get((Integer) idTexteDescriptif);
 		
 		this.elementSelectionne = selectionInitiale;
-		selectionInitiale.selectionne = true;
+		selectionInitiale.selectionner();
 		
 		this.menuParent = menuParent;
 	}
@@ -97,14 +97,11 @@ public class Menu {
 			}
 			//désélection du précédent
 			if (this.elementSelectionne != null) {
-				this.elementSelectionne.selectionne = false;
+				this.elementSelectionne.deselectionner();
 			}
 			//sélection du nouveau
 			this.elementSelectionne = elementASelectionner;
-			elementASelectionner.selectionne = true;
-			
-			//déclenchement du comportement
-			elementASelectionner.executerLeComportementALArrivee();
+			elementASelectionner.selectionner();
 		}
 	}
 	

@@ -159,7 +159,7 @@ public class Texte extends ElementDeMenu {
 	 * Convertir un Texte en image
 	 * @return le Texte sous forme d'image
 	 */
-	private BufferedImage texteToImage() {
+	public final BufferedImage texteToImage() {
         final String[] texts = this.contenu.split("\\\\n");
         final int nombreLignes = texts.length;
         if (nombreLignes <= 0) {
@@ -219,16 +219,6 @@ public class Texte extends ElementDeMenu {
         g2d.dispose();
 	        
         return img;
-	}
-
-	@Override
-	public final void executerLeComportementALArrivee() { //lorsque la sélection arrive sur ce texte
-		if ( comportementSelection!=null && comportementSelection.size()>0) {
-			int i = 0;
-			for (Commande commande : comportementSelection) {
-				i = commande.executer(i, comportementSelection);
-			}
-		}
 	}
 	
 }

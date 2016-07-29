@@ -80,7 +80,7 @@ public class Image extends ElementDeMenu {
 			this.hauteur = dimensionsImageVide[1];
 		}
 		this.conditions = conditions;
-		this.selectionne = false;
+		deselectionner();
 	}
 	
 	/**
@@ -103,13 +103,6 @@ public class Image extends ElementDeMenu {
 		}
 	}
 
-	/**
-	 * Lancer le comportement de l'Elément au survol.
-	 */
-	@Override
-	public final void executerLeComportementALArrivee() {
-		this.selectionne = true;
-	}
 	
 	/**
 	 * Lancer le comportement de l'Element à la sélection ou à l'annulation

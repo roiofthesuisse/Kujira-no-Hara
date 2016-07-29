@@ -52,10 +52,28 @@ public abstract class ElementDeMenu {
 		this.comportementConfirmation = comportementConfirmation;
 	}
 	
+	public final void selectionner() {
+		this.selectionne = true;
+		//TODO désélectionner le précédent ?
+		
+		executerLeComportementALArrivee();
+	}
+	
+	public final void deselectionner() {
+		this.selectionne = false;
+	}
+	
 	/**
 	 * Lorsqu'on survole l'élément, il peut déclencher une action.
 	 */
-	public abstract void executerLeComportementALArrivee();
+	private final void executerLeComportementALArrivee() {
+		if ( comportementSelection!=null && comportementSelection.size()>0) {
+			int i = 0;
+			for (Commande commande : comportementSelection) {
+				i = commande.executer(i, comportementSelection);
+			}
+		}
+	}
 	
 	/**
 	 * Lorsqu'il est sélectionné, le Sélectionnable est surligné en jaune.
