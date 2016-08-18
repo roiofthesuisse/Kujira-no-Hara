@@ -43,7 +43,8 @@ public class PageEvent {
 	//apparence
 	private String nomImage;
 	public BufferedImage image;
-	public boolean estPetit; //si < 32, considéré au sol
+	/** par défaut, si image < 32px, l'Event est considéré comme plat (au sol) */
+	public Boolean plat; //
 	public int directionInitiale;
 	public int animationInitiale;
 	
@@ -132,6 +133,11 @@ public class PageEvent {
 		} catch (JSONException e) {
 			this.auDessusDeTout = Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
 		}
+		try {
+			this.plat = (boolean) pageJSON.get("plat");
+		} catch (JSONException e) {
+			this.plat = null; //si non précisé, sera décidé selon la taille de son image
+		}
 		
 		try {
 			this.vitesse = (int) pageJSON.get("vitesse");
@@ -157,12 +163,16 @@ public class PageEvent {
 		//ouverture de l'image d'apparence
 		try {
 			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomImage));
-			this.estPetit = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Fenetre.TAILLE_D_UN_CARREAU;
+			if (this.plat == null) {
+				// par défaut, si non précisé, si l'event est petit il est considéré comme plat
+				this.plat = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Fenetre.TAILLE_D_UN_CARREAU;
+			}
 		} catch (IOException e) {
 			//l'image d'apparence n'existe pas
-			this.estPetit = true;
+			this.plat = true;
 			//e.printStackTrace();
-		}
+		}		
+		
 		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
 		if (conditions!=null) {
 			for (Condition cond : conditions) { 

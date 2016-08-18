@@ -56,7 +56,8 @@ public class Event implements Comparable<Event> {
 	public Deplacement deplacementForce;
 	
 	public BufferedImage imageActuelle = null;
-	private boolean estPetitActuel; //si image < 32, considéré comme au sol
+	/** par défaut, si image < 32px, l'Event est considéré comme plat (au sol) */
+	public boolean platActuel;
 	public int direction;
 	public int animation;
 	
@@ -250,9 +251,9 @@ public class Event implements Comparable<Event> {
 				return eEstDevant;
 			} else {
 				//y'en a-t-il un au sol ?
-				if (this.estPetitActuel && !e.estPetitActuel) {
+				if (this.platActuel && !e.platActuel) {
 					return eEstDevant;
-				} else if (e.estPetitActuel && !this.estPetitActuel) {
+				} else if (e.platActuel && !this.platActuel) {
 					return thisEstDevant;
 				}
 				
@@ -340,7 +341,7 @@ public class Event implements Comparable<Event> {
 		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
 			this.direction = page.directionInitiale;
 		}
-		estPetitActuel = page.estPetit;
+		this.platActuel = page.plat;
 		
 		//propriétés
 		this.vitesseActuelle = page.vitesse;
@@ -364,7 +365,7 @@ public class Event implements Comparable<Event> {
 		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
 			this.direction = Event.DIRECTION_PAR_DEFAUT;
 		}
-		estPetitActuel = true;
+		this.platActuel = true;
 		
 		//propriétés
 		this.vitesseActuelle = Event.VITESSE_PAR_DEFAUT;
