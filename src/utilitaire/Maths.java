@@ -1,9 +1,13 @@
 package utilitaire;
 
+import java.util.Random;
+
 /**
  * Classe utilitaire qui contient des fonctions mathématiques.
  */
 public abstract class Maths {
+	/** Générateur de nombres aléatoires */
+	public static Random generateurAleatoire = new Random();
 	
 	/**
 	 * Modulo

@@ -39,7 +39,7 @@ public abstract class Lecteur {
 	 * Afficher ou masquer la boîte des Messages.
 	 */
 	public static boolean afficherBoiteMessage = true;
-
+	
 	/**
 	 * Le rôle d'un Lecteur est de calculer l'écran à afficher dans la Fenêtre.
 	 * @return écran à afficher maintenant

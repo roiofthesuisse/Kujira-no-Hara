@@ -7,6 +7,8 @@ import org.json.JSONObject;
 
 import jeu.Quete.EtatQuete;
 import map.Map;
+import map.Meteo;
+import map.MeteoPluie;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 
@@ -36,6 +38,9 @@ public final class Partie {
 	public int nombreDArmesPossedees;
 	
 	private int idArmeEquipee;
+	
+	/** effet météorologique en cours */
+	public Meteo meteo = null;
 	
 	
 	/**

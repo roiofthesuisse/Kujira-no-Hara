@@ -37,6 +37,9 @@ public class LecteurMap extends Lecteur {
 	private static final int X_AFFICHAGE_MESSAGE = 76;
 	private static final int Y_AFFICHAGE_MESSAGE = 320;
 	private static final int ESPACEMENT_ICONES = 4;
+	/** icônes de jauges */
+	public static final BufferedImage HUD_TOUCHES = chargerImageHudTouches();
+	public static final BufferedImage HUD_ARGENT = chargerImageHudArgent();
 	
 	public Map map;
 	public Tileset tilesetActuel = null;
@@ -54,15 +57,15 @@ public class LecteurMap extends Lecteur {
 	/** Autoriser ou interdire l'accès au Menu depuis la Map ? */
 	public boolean autoriserMenu = true;
 	
-	/** icônes de jauges */
-	public static final BufferedImage HUD_TOUCHES = chargerImageHudTouches();
-	public static final BufferedImage HUD_ARGENT = chargerImageHudArgent();
-	
 	/** mémorisation de la frame où le joueur a appuyé sur telle ou telle touche */
 	public HashMap<ToucheRole, Integer> frameDAppuiSurLaTouche = initialiserLesAppuisSurLesTouches();
+	/**
+	 * Initialiser le tableau de mémorisation des frames d'appui sur les touches.
+	 * @return tableau initialisé associant chaque touche à la frame d'appui
+	 */
 	public static final HashMap<ToucheRole, Integer> initialiserLesAppuisSurLesTouches() {
-		HashMap<ToucheRole, Integer> frames = new HashMap<ToucheRole,Integer>();
-		for (ToucheRole role : ToucheRole.values()){
+		final HashMap<ToucheRole, Integer> frames = new HashMap<ToucheRole,Integer>();
+		for (ToucheRole role : ToucheRole.values()) {
 			frames.put(role, 0);
 		}
 		return frames;
@@ -122,6 +125,9 @@ public class LecteurMap extends Lecteur {
 		//ajouter imageCoucheSurHeros à l'écran
 		ecran = Graphismes.superposerImages(ecran, map.imageCoucheSurHeros, -xCamera, -yCamera);
 		
+		//météo
+		ecran = dessinerMeteo(ecran);
+		
 		//brouillard
 		ecran = dessinerLeBrouillard(ecran, map.brouillard, xCamera, yCamera);
 		
@@ -136,6 +142,19 @@ public class LecteurMap extends Lecteur {
 		//supprimer events dont l'attribut "supprimé" est à true
 		supprimerLesEventsASupprimer();
 		
+		return ecran;
+	}
+
+	/**
+	 * Dessiner à l'écran les effets météorologiques.
+	 * @param ecran sur lequel on dessine
+	 * @return écran avec la météo
+	 */
+	private BufferedImage dessinerMeteo(BufferedImage ecran) {
+		final Meteo meteo = Fenetre.getPartieActuelle().meteo;
+		if (meteo != null) {
+			ecran = Graphismes.superposerImages(ecran, meteo.calculerImage(this.frameActuelle), 0, 0);
+		}
 		return ecran;
 	}
 
