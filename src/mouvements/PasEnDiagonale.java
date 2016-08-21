@@ -2,29 +2,29 @@ package mouvements;
 
 import java.util.HashMap;
 
+import main.Fenetre;
 import map.Event;
 
 /**
  * Déplacer un Event d'un pas en diagonale
  */
 public class PasEnDiagonale extends Mouvement {
-	
 	int directionVerticale;
 	int directionHorizontale;
+	/** partie du mouvement effectuée pendant 1 frame selon X */
 	public Avancer pixelVertical;
+	/** partie du mouvement effectuée pendant 1 frame selon Y */
 	public Avancer pixelHorizontal;
 
 	/**
 	 * Constructeur explicite
-	 * @param directionVerticale : composante verticale de la diagonale
-	 * @param directionHorizontale : composante horizontale de la diagonale 
+	 * @param directionVerticale composante verticale de la diagonale
+	 * @param directionHorizontale composante horizontale de la diagonale 
 	 */
-	public PasEnDiagonale(int directionVerticale, int directionHorizontale) {
+	public PasEnDiagonale(final int directionVerticale, final int directionHorizontale) {
 		this.directionVerticale = directionVerticale;
 		this.directionHorizontale = directionHorizontale;
-		this.etapes = 4;
-		this.pixelVertical = new Avancer(directionVerticale,1);
-		this.pixelHorizontal = new Avancer(directionHorizontale,1);
+		this.etapes = Fenetre.TAILLE_D_UN_CARREAU;
 	}
 	
 	/**
@@ -43,13 +43,11 @@ public class PasEnDiagonale extends Mouvement {
 	 */
 	@Override
 	public final void calculDuMouvement(final Event event) {
-		event.deplacementForce.mouvements.add(pixelHorizontal);
-		event.deplacementForce.mouvements.add(pixelVertical);
+		//on applique les conséquences des deux Mouvements fictifs
 		pixelVertical.calculDuMouvement(event);
 		pixelHorizontal.calculDuMouvement(event);
-		pixelHorizontal.executerLeMouvement(event.deplacementForce);
-		pixelVertical.executerLeMouvement(event.deplacementForce);
-		this.ceQuiAEteFait += 1;
+		
+		this.ceQuiAEteFait += event.vitesseActuelle;
 	}
 
 	@Override
@@ -62,34 +60,47 @@ public class PasEnDiagonale extends Mouvement {
 	 * @return si le mouvement est possible oui ou non
 	 */
 	@Override
-	public boolean mouvementPossible() {
+	public final boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
+		
+		//on décompose ce Mouvement en deux Mouvements fictifs pour vérifier s'il est possible
+		this.pixelVertical = new Avancer(directionVerticale, event.vitesseActuelle);
+		this.pixelHorizontal = new Avancer(directionHorizontale, event.vitesseActuelle);
 		pixelVertical.deplacement = event.deplacementForce;
 		pixelHorizontal.deplacement = event.deplacementForce;
 		pixelVertical.deplacement.idEventADeplacer = event.id;
 		pixelHorizontal.deplacement.idEventADeplacer = event.id;
+		
 		return (pixelHorizontal.mouvementPossible() && pixelVertical.mouvementPossible());
 	}
 
 	@Override
-	protected void terminerLeMouvementSpecifique(Event event) {
-		// rien
+	protected final void terminerLeMouvementSpecifique(final Event event) {
+		event.avance = false;
 	}
 
 	@Override
-	protected void ignorerLeMouvementSpecifique(Event event) {
-		// rien
-		
+	protected final void ignorerLeMouvementSpecifique(final Event event) {
+		if (!event.animeALArretActuel && !event.avancaitALaFramePrecedente && !event.avance) {
+			//l'event ne bouge plus depuis 2 frames, on arrête son animation
+			event.animation = 0; 
+		}
 	}
 
 	@Override
-	public String toString() {
+	public final String toString() {
 		return "Un pas en diagonale vers "+this.directionVerticale+" et "+this.directionHorizontale;
 	}
 
 	@Override
-	public int getDirectionImposee() {
-		return -1;
+	public final int getDirectionImposee() {
+		if (this.deplacement.getEventADeplacer().direction == this.directionVerticale) {
+			//si l'Event regarde déjà dans une des deux directions de la diagonale, on prend celle-ci
+			return this.directionVerticale;
+		} else {
+			//sinon par défaut on prend la composante horizontale de la diagonale
+			return this.directionHorizontale;
+		}
 	}
 	
 }
