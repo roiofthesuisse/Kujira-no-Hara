@@ -9,7 +9,7 @@ import son.LecteurAudio;
 /**
  * Jouer un effet sonore.
  */
-public class JouerEffetSonore extends Commande implements CommandeEvent {
+public class JouerEffetSonore extends Commande implements CommandeEvent, CommandeMenu {
 	private final String nomFichierSonore;
 	
 	/**
@@ -31,6 +31,11 @@ public class JouerEffetSonore extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		LecteurAudio.playSe(nomFichierSonore);
 		return curseurActuel+1;
+	}
+
+	@Override
+	public final void executer() {
+		executer(0, null);
 	}
 
 }
