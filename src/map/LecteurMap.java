@@ -16,6 +16,7 @@ import commandes.OuvrirMenu;
 import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
+import map.meteo.Meteo;
 import menu.Texte;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;

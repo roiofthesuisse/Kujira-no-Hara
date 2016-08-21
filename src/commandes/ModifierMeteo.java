@@ -5,14 +5,16 @@ import java.util.HashMap;
 
 import main.Commande;
 import main.Fenetre;
-import map.Meteo;
-import map.MeteoPluie;
+import map.meteo.Meteo;
+import map.meteo.Neige;
+import map.meteo.Pluie;
+import map.meteo.TypeDeMeteo;
 
 /**
  * Changer l'effet météorologique actuel de la Map.
  */
 public class ModifierMeteo extends Commande implements CommandeEvent {	
-	private final Meteo.TypeDeMeteo typeDeMeteo;
+	private final TypeDeMeteo typeDeMeteo;
 	private int intensite;
 	
 	/**
@@ -21,7 +23,7 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 	 * @param intensite de l'intempérie souhaitée
 	 */
 	public ModifierMeteo(final String nom, final int intensite) {
-		this.typeDeMeteo = Meteo.TypeDeMeteo.obtenirParNom(nom);
+		this.typeDeMeteo = TypeDeMeteo.obtenirParNom(nom);
 		this.intensite = intensite;
 	}
 	
@@ -41,10 +43,10 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 		
 		switch (this.typeDeMeteo) {
 		case PLUIE:
-			nouvelleMeteo = new MeteoPluie(this.intensite);
+			nouvelleMeteo = new Pluie(this.intensite);
 			break;
 		case NEIGE:
-			//TODO
+			nouvelleMeteo = new Neige(this.intensite);
 			break;
 		default:
 			break;

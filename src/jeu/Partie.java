@@ -7,8 +7,8 @@ import org.json.JSONObject;
 
 import jeu.Quete.EtatQuete;
 import map.Map;
-import map.Meteo;
-import map.MeteoPluie;
+import map.meteo.Meteo;
+import map.meteo.Pluie;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 
