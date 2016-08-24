@@ -6,7 +6,7 @@ import commandes.CommandeEvent;
 import map.Event;
 
 /**
- * Attendre un certain nombre de frames avant d'executer la Commande suivante
+ * Attendre un certain nombre de frames avant d'executer la Commande suivante.
  */
 public class Attendre extends Mouvement implements CommandeEvent {
 	

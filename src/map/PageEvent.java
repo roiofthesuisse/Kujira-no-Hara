@@ -77,16 +77,24 @@ public class PageEvent {
 		} catch (JSONException e2) {
 			//pas de Conditions de déclenchement pour cette Page
 		}
+		//on apprend aux Conditions qui est leur Page
 		this.conditions = conditions;
+		for (Condition condition : conditions) {
+			condition.page = this;
+		}
 		
 		//commandes de la page
 		final ArrayList<Commande> commandes = new ArrayList<Commande>();
 		try {
-			InterpreteurDeJson.recupererLesCommandesEvent(commandes, pageJSON.getJSONArray("commandes"), this);
+			InterpreteurDeJson.recupererLesCommandesEvent(commandes, pageJSON.getJSONArray("commandes"));
 		} catch (JSONException e2) {
 			//pas de Commandes Event pour cette Page
 		}
 		this.commandes = commandes;
+		//on apprend aux Commandes qui est leur Page
+		for (Commande commande : commandes) {
+			commande.page = this;
+		}
 		
 		
 		//apparence de l'event lors de cette page
@@ -175,10 +183,12 @@ public class PageEvent {
 		
 		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
 		if (conditions!=null) {
-			for (Condition cond : conditions) { 
+			boolean onATrouveUneConditionParler = false;
+			for (int i = 0; i<conditions.size() && !onATrouveUneConditionParler; i++) {
+				final Condition cond = conditions.get(i);
 				if (cond instanceof ConditionParler) {
 					this.sOuvreParParole = true;
-					return; //s'arrêter dès que true trouvé
+					onATrouveUneConditionParler = true; //s'arrêter dès que true trouvé
 				}
 			}
 		}
@@ -190,12 +200,12 @@ public class PageEvent {
 	 * On va donc lire les commandes une par une avec un curseur.
 	 */
 	public final void executer() {
-		//si la page est une page "Parler", elle active le stopEvent qui fige tous les events
+		//si la page est une page "Parler", elle active le stopEvent qui fige tous les Events
 		if (sOuvreParParole) {
 			this.event.map.lecteur.stopEvent = true;
 			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
 		}
-		//lecture des commandes event
+		//lecture des Commandes event
 		if (commandes!=null) {
 			try {
 				if (curseurCommandes >= commandes.size()) {

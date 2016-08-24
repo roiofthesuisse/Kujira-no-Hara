@@ -60,7 +60,7 @@ public class Choix extends Message {
 	 */
 	@Override
 	protected final BufferedImage produireImageDuMessage() {
-		BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE);
+		BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(Message.imageBoiteMessage);
 		
 		// Texte de base
 		final Texte texteDeBase = new Texte(this.texte);
@@ -87,7 +87,7 @@ public class Choix extends Message {
 		this.imageDesSelectionsPossibles = new ArrayList<BufferedImage>();
 		for (int i = 0; i < this.alternatives.size(); i++) {
 			final BufferedImage surlignage = alternativesTexte.get(i).creerImageDeSelection();
-			BufferedImage selectionPossible = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);				
+			BufferedImage selectionPossible = Graphismes.clonerUneImage(imageBoiteMessage);				
 			selectionPossible = Graphismes.superposerImages(
 					selectionPossible, 
 					surlignage, 
@@ -150,14 +150,14 @@ public class Choix extends Message {
 	
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
-	public void haut() {
+	public final void haut() {
 		this.positionCurseurChoisie = Maths.modulo(this.positionCurseurChoisie - 1, this.alternatives.size());
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
 	}
 	
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
-	public void bas() {
+	public final void bas() {
 		this.positionCurseurChoisie = Maths.modulo(this.positionCurseurChoisie + 1, this.alternatives.size());
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
 	}

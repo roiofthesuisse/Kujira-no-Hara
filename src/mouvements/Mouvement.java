@@ -99,13 +99,37 @@ public abstract class Mouvement {
 			deplacementNaturelOuForce = event.deplacementForce;
 		}
 		
+		//on regarde si la Page n'a pas changé,
+		//car on ne remet pas en bout de file un Mouvement naturel issu d'une autre Page 
+		final Integer pageAvant = this.deplacement.page.numero;
+		Integer pageMaintenant;
+		if (event.pageActive != null) {
+			pageMaintenant = event.pageActive.numero;
+		} else if (event.pageDApparence != null) {
+			pageMaintenant = event.pageDApparence.numero;
+		} else {
+			pageMaintenant = null;
+		}
+		final boolean laPageEstToujoursLaMeme = pageAvant.equals(pageMaintenant);
+		
+		
 		//si le Déplacement est perpétuel, on remet ce Mouvement en fin de liste
 		if (this.deplacement.repeterLeDeplacement) {
-			deplacementNaturelOuForce.mouvements.add(this);
+			if (!this.deplacement.naturel //un Mouvement forcé perpétuel ne s'arrête pas même si la Page de l'Event change
+			|| laPageEstToujoursLaMeme) { //un Mouvement naturel perpétuel s'arrête si la Page change
+				deplacementNaturelOuForce.mouvements.add(this);
+			} else {
+				System.err.println("On ne remet pas en bout de file le Mouvement "+this.getClass().getName()
+						+" car la Page de l'Event "+this.deplacement.page.event.numero+" ("
+						+this.deplacement.page.event.nom+") a changé : de "+pageAvant+" vers "+pageMaintenant);
+			}
+
 		}
 		
 		//on retire ce Mouvement de la liste
-		if (deplacementNaturelOuForce.mouvements.size() >= 1) {
+		if (laPageEstToujoursLaMeme 
+				&& deplacementNaturelOuForce.mouvements.size() >= 1
+				&& deplacementNaturelOuForce.mouvements.get(0).equals(this)) {
 			deplacementNaturelOuForce.mouvements.remove(0);
 		} else {
 			//cas théoriquement impossible
