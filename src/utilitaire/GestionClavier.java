@@ -8,7 +8,7 @@ public abstract class GestionClavier {
 	/**
 	 * Association entre les touches du clavier et leur keycode
 	 */
-	private static enum ToucheClavier {
+	private enum ToucheClavier {
 		Z(90, "Z"),
 		Q(81, "Q"),
 		S(83, "S"),
@@ -23,7 +23,12 @@ public abstract class GestionClavier {
 		public final int keycode;
 		public final String nom;
 		
-		private ToucheClavier(int keycode, String nom) {
+		/**
+		 * Constructeur explicite
+		 * @param keycode code officiel représentant la touche du clavier
+		 * @param nom écrit sur la touche du clavier
+		 */
+		ToucheClavier(final int keycode, final String nom) {
 			this.keycode = keycode;
 			this.nom = nom;
 		}
@@ -32,7 +37,7 @@ public abstract class GestionClavier {
 	/**
 	 * Association entre les touches du clavier et leur rôle
 	 */
-	public static enum ToucheRole {
+	public enum ToucheRole {
 		ACTION(ToucheClavier.K, "ACTION"),
 		HAUT(ToucheClavier.Z, "HAUT"),
 		BAS(ToucheClavier.S, "BAS"),
@@ -49,7 +54,12 @@ public abstract class GestionClavier {
 		public boolean pressee = false;
 		private final String nom;
 		
-		private ToucheRole(ToucheClavier touche, String nom) {
+		/**
+		 * Constructeur explicite
+		 * @param touche du clavier
+		 * @param nom du rôle associé à la touche
+		 */
+		ToucheRole(final ToucheClavier touche, final String nom) {
 			this.touche = touche;
 			this.nom = nom;
 		}
@@ -59,7 +69,7 @@ public abstract class GestionClavier {
 		 * @param keycode de la Touche
 		 * @return Touche qui a ce keycode
 		 */
-		public static ToucheRole getToucheRole(int keycode) {
+		public static ToucheRole getToucheRole(final int keycode) {
 			for (ToucheRole role : ToucheRole.values()) {
 				if (keycode == role.touche.keycode) {
 					return role;
@@ -73,7 +83,7 @@ public abstract class GestionClavier {
 		 * @param nom de la Touche
 		 * @return Touche qui porte ce nom
 		 */
-		public static ToucheRole getToucheRole(String nom) {
+		public static ToucheRole getToucheRole(final String nom) {
 			for (ToucheRole role : ToucheRole.values()) {
 				if (role.nom.equals(nom) || role.touche.nom.equals(nom)) {
 					return role;
