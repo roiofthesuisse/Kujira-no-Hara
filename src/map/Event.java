@@ -94,13 +94,18 @@ public class Event implements Comparable<Event> {
 	 */
 	int offsetY = 0; 
 	public ArrayList<PageEvent> pages;
+	/** Page dont on va lire les Commandes Event car toutes ses Conditions sont remplies */
 	public PageEvent pageActive = null;
+	/** Page dont on utilise l'apparence car les Conditions non liées au contact sont remplies */
+	public PageEvent pageDApparence = null;
 	
 	/**
 	 * Lorsque ce marqueur est à true, on considère l'event comme supprimé.
 	 * Ce n'est qu'un simple marqueur : l'event n'est réellement supprimé qu'après la boucle for sur les events.
 	 */
 	public boolean supprime = false;
+	/** Flag pour n'afficher qu'une seule fois le message d'erreur comme quoi l'Event s'est fait la malle */
+	public boolean sortiDeLaMap = false;
 	
 	/**
 	 * Tout Event regarde dans une Direction.
@@ -130,7 +135,7 @@ public class Event implements Comparable<Event> {
 		this.pages = pages;
 		this.largeurHitbox = largeurHitbox;
 		this.hauteurHitbox = hauteurHitbox;
-		this.deplacementForce = new Deplacement(0, new ArrayList<Mouvement>(), true, false, false);
+		this.deplacementForce = new Deplacement(null, new ArrayList<Mouvement>(), true, false, false);
 		initialiserLesPages();
 		if (pages!=null && pages.size()>=1) {
 			attribuerLesProprietesActuelles(pages.get(0)); //par défaut, propriétés de la première page
@@ -185,6 +190,7 @@ public class Event implements Comparable<Event> {
 						}
 					} catch (NullPointerException e1) {
 						//pas de conditions pour déclencher cette page
+						System.err.println("La page "+page.numero+" de l'event "+this.nom+" ("+this.numero+") n'a pas besoin de conditions pour se déclencher.");
 					}
 					//on apprend aux commandes qui est leur page
 					try {
@@ -193,11 +199,13 @@ public class Event implements Comparable<Event> {
 						}
 					} catch (NullPointerException e2) {
 						//pas de commandes dans cette page
+						System.err.println("La page "+page.numero+" de l'event "+this.nom+" ("+this.numero+") n'a pas de commandes.");
 					}
 				}
 			}
 		} catch (NullPointerException e3) {
 			//pas de pages dans cet event
+			System.err.println("L'envent "+this.nom+" ("+this.numero+") n'a pas de pages.");
 		}
 	}
 
@@ -210,6 +218,7 @@ public class Event implements Comparable<Event> {
 		if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
 			//il y a un Déplacement forcé
 			this.deplacementForce.executerLePremierMouvement();
+			
 		} else {
 			//pas de Déplacement forcé : on execute le Déplacement naturel
 			if (deplacementNaturelActuel!=null && this.deplacementNaturelActuel.mouvements.size()>0) {
@@ -272,17 +281,21 @@ public class Event implements Comparable<Event> {
 	/**
 	 * Active la Page de l'Event qui vérifie toutes les Conditions de déclenchement.
 	 * S'il y a plusieurs Pages valides, on prend la dernière.
-	 * Les Commandes Event de la Page choisie seront executées.
+	 * Les Commandes Event de la Page active choisie seront executées.
+	 * L'apparence de la Page d'apparence choisie sera utilisée.
 	 */
 	public final void activerUnePage() {
 		PageEvent pageQuOnChoisitEnRemplacement = null;
-		boolean onATrouveLaPageActive = false;
-		boolean cettePageConvientPourLesCommandes = true;
+		boolean onATrouveLaPageDApparence = false;
+		boolean onATrouveLaPageActive = true;
 		try {
-			for (int i = pages.size()-1; i>=0 && !onATrouveLaPageActive; i--) {
+			for (int i = pages.size()-1; i>=0 && !onATrouveLaPageDApparence; i--) {
 				final PageEvent page = pages.get(i);
-				cettePageConvientPourLesCommandes = true;
+				
+				//par défaut une Page est valide, elle sera invalidée si une Condition est fausse
+				onATrouveLaPageActive = true;
 				boolean cettePageConvientPourLApparence = true;
+				
 				if (page.conditions!=null && page.conditions.size()>0) {
 					//la Page a des Conditions de déclenchement, on les analyse
 
@@ -291,22 +304,22 @@ public class Event implements Comparable<Event> {
 						final Condition cond = page.conditions.get(j);
 						if (!cond.estVerifiee()) {
 							//la Condition n'est pas vérifiée
-							cettePageConvientPourLesCommandes = false;
+							onATrouveLaPageActive = false;
 							if (!cond.estLieeAuHeros()) {
 								cettePageConvientPourLApparence = false;
 							}
 						}
 					}
 				} else {
-					//pas de conditions pour cette Page, donc la Page est choisie
-					cettePageConvientPourLesCommandes = true;
+					//aucune condition nécessaire pour cette Page, donc la Page est choisie
+					onATrouveLaPageActive = true;
 					cettePageConvientPourLApparence = true;
 				}
 				
-				//si une Page exigible a été trouvée, pas besoin d'essayer les autres Pages
+				//si une Page eligible a été trouvée, pas besoin d'essayer les autres Pages
 				if (cettePageConvientPourLApparence) {
 					pageQuOnChoisitEnRemplacement = page;
-					onATrouveLaPageActive = true;
+					onATrouveLaPageDApparence = true;
 				}
 			}
 		} catch (NullPointerException e2) {
@@ -314,18 +327,19 @@ public class Event implements Comparable<Event> {
 			System.err.println("L'event "+this.numero+" ("+this.nom+") n'a pas de pages.");
 			e2.printStackTrace();
 		}
-		if (!onATrouveLaPageActive) {
+		if (!onATrouveLaPageDApparence) {
 			//aucune Page ne convient, l'Event n'est pas affiché
 			this.pageActive = null;
+			this.pageDApparence = null;
 			viderLesProprietesActuelles();
 			return;
 		} else {
 			//une Page correspond au moins pour les Conditions non liées au Héros, on donne son apparence à l'Event
-			attribuerLesProprietesActuelles(pageQuOnChoisitEnRemplacement);
 			this.pageActive = null;
-			if (cettePageConvientPourLesCommandes) {
+			this.pageDApparence = pageQuOnChoisitEnRemplacement;
+			attribuerLesProprietesActuelles(this.pageDApparence);
+			if (onATrouveLaPageActive) {
 				//même les Conditions liées au Héros correspondent, on execute la Page
-				
 				this.pageActive = pageQuOnChoisitEnRemplacement;
 			}
 		}

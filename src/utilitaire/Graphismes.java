@@ -9,7 +9,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Graphismes {
+/**
+ * CLasse utilitaire pour les opérations graphiques récurrentes.
+ */
+public abstract class Graphismes {
 	public static final int OPACITE_MAXIMALE = 255;
 	
 	/**

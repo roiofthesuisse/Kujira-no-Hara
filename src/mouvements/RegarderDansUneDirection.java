@@ -56,11 +56,10 @@ public class RegarderDansUneDirection extends Mouvement {
 	@Override
 	protected void ignorerLeMouvementSpecifique(final Event event) {
 		// Mouvement non spécifique
-		
 	}
 	
 	/**
-	 * Cette méthode est dérivée dans la classe RegarderunEvent.
+	 * Cette méthode est dérivée dans la classe RegarderUnEvent.
 	 */
 	@Override
 	public int getDirectionImposee() {

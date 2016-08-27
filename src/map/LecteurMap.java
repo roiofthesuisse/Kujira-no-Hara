@@ -227,7 +227,7 @@ public class LecteurMap extends Lecteur {
 	 * Lire la Page active de chaque Event de la Map.
 	 */
 	private void continuerLaLectureDesPagesDeCommandesEvent() {
-		//en cas de stopEvent, seul l'Event qui a figé tout le monde est lu
+		//en cas de stopEvent, seul l'Event qui a figé tout le monde est lu (Commandes)
 		if (stopEvent) {
 			activerUnePageEtLExecuter(this.eventQuiALanceStopEvent);
 			return;
@@ -310,14 +310,9 @@ public class LecteurMap extends Lecteur {
 	
 	/**
 	 * Donne la bonne valeur aux positions x et y avant d'envoyer l'Event à l'affichage.
+	 * En cas de stopEvent, seuls les Mouvements commandités par l'Event qui a figé tout sont lus.
 	 */
 	private void deplacerLesEvents() {
-		//en cas de stopEvent, on ne déplace que l'Event qui a figé tout le monde
-		if (stopEvent) {
-			this.eventQuiALanceStopEvent.deplacer();
-			return;
-		}
-		
 		try {
 			//animer la marche du Héros si touche pressée
 			if ( GestionClavier.ToucheRole.HAUT.pressee
@@ -519,9 +514,8 @@ public class LecteurMap extends Lecteur {
 	}
 
 	@Override
-	public final void keyReleased(ToucheRole toucheRelachee) {
+	public final void keyReleased(final ToucheRole toucheRelachee) {
 		remettreAZeroLAnimationDuHeros(); //s'il s'est arrêté
-		this.map.heros.mettreDansLaBonneDirection();
 	}
 	
 	/**
@@ -616,7 +610,7 @@ public class LecteurMap extends Lecteur {
 			this.messageActuel.haut();
 		} else if (!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
-			this.map.heros.mettreDansLaBonneDirection();
+			//this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
@@ -630,7 +624,7 @@ public class LecteurMap extends Lecteur {
 			this.messageActuel.gauche();
 		} else if (!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
-			this.map.heros.mettreDansLaBonneDirection();
+			//this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
@@ -644,7 +638,7 @@ public class LecteurMap extends Lecteur {
 			this.messageActuel.bas();
 		} else if (!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
-			this.map.heros.mettreDansLaBonneDirection();
+			//this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
@@ -658,7 +652,7 @@ public class LecteurMap extends Lecteur {
 			this.messageActuel.droite();
 		} else if (!this.stopEvent) {
 			//les touches directionnelles servent à faire avancer le Héros
-			this.map.heros.mettreDansLaBonneDirection();
+			//this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}

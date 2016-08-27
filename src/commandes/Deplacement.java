@@ -9,7 +9,6 @@ import main.Commande;
 import main.Fenetre;
 import map.Event;
 import map.LecteurMap;
-import mouvements.Attendre;
 import mouvements.Mouvement;
 import utilitaire.InterpreteurDeJson;
 
@@ -44,6 +43,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 	/** faut-il attendre la fin du Déplacement pour passer à la Commande suivante ? */
 	public boolean attendreLaFinDuDeplacement = false;
 	private boolean aEteAjouteAuxDeplacementsForces = false;
+	/** le Mouvement est-il naturel ? (cette valeur est réassignée lors de l'instanciation de la Page) */
 	public boolean naturel = false;
 	
 	/**
@@ -93,15 +93,14 @@ public class Deplacement extends Commande implements CommandeEvent {
 		final Event event = this.getEventADeplacer();
 		
 		if (!this.aEteAjouteAuxDeplacementsForces) {
-			this.page = commandes.get(curseurActuel).page; //page de l'Event qui a ordonné ce Déplacement
-			
-			//interrompre l'ancier Déplacement forcé de l'Event
+			//interrompre l'ancien Déplacement forcé de l'Event
 			event.deplacementForce.mouvements = new ArrayList<Mouvement>();
 			
 			//à la place, on ajoute dans la liste les nouveaux Mouvements forcés
 			for (Mouvement mvt : this.mouvements) {
 				mvt.reinitialiser();
 				event.deplacementForce.mouvements.add(mvt);
+				event.deplacementForce.page = this.page; //on indique le commanditaire de ce Déplacement
 			}
 			//les nouvelles caractéristiques de Déplacement sont assignées au Déplacement forcé
 			event.deplacementForce.attendreLaFinDuDeplacement = this.attendreLaFinDuDeplacement;
@@ -143,7 +142,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 	 * @return Event qui va être déplacé
 	 */
 	public final Event getEventADeplacer() {
-		if (this.idEventADeplacer !=null) {
+		if (this.idEventADeplacer != null) {
 			//un numéro d'Event à déplacer a été spécifié dans le JSON
 			return ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
 		} else {
@@ -162,9 +161,20 @@ public class Deplacement extends Commande implements CommandeEvent {
 
 		final Mouvement premierMouvement = this.mouvements.get(0);
 		
+		final LecteurMap lecteurMap = (LecteurMap) Fenetre.getFenetre().lecteur;
 		//si le stopEvent est activé, on n'effectue pas les Mouvements
 		//sauf s'il s'agit d'Attendre
-		if (!((LecteurMap) Fenetre.getFenetre().lecteur).stopEvent || premierMouvement instanceof Attendre) {
+		if (lecteurMap.stopEvent) {
+			//les Mouvements sont bloqués
+			
+			final int idBloqueur = lecteurMap.eventQuiALanceStopEvent.id;
+			final int idCommanditaireDeCeDeplacement = this.page.event.id;
+			if (!this.naturel && idBloqueur == idCommanditaireDeCeDeplacement) {
+				//on effectue toutefois les Mouvements commandités par le bloqueur
+				premierMouvement.executerLeMouvement(this);
+			}
+		} else {
+			// les Mouvements ne sont pas bloqués
 			premierMouvement.executerLeMouvement(this);
 		}
 	}

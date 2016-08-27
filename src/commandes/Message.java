@@ -24,7 +24,7 @@ public class Message extends Commande implements CommandeEvent {
 	protected static final String NOM_IMAGE_BOITE_MESSAGE = ".\\ressources\\Graphics\\Pictures\\parchotexte.png";
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage();
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_VIDE = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE_PLEINE);
-	protected static BufferedImage IMAGE_BOITE_MESSAGE = IMAGE_BOITE_MESSAGE_PLEINE;
+	protected static BufferedImage imageBoiteMessage = IMAGE_BOITE_MESSAGE_PLEINE;
 	
 	public String texte;
 	public BufferedImage image;
@@ -98,7 +98,7 @@ public class Message extends Commande implements CommandeEvent {
 	 */
 	protected BufferedImage produireImageDuMessage() {
 		// Partir de la boîte de dialogue
-		BufferedImage imageMessage = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);
+		BufferedImage imageMessage = Graphismes.clonerUneImage(Message.imageBoiteMessage);
 		
 		// Ajout du texte
 		final Texte t = new Texte(texte);

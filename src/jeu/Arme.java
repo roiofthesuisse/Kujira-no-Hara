@@ -30,7 +30,6 @@ public class Arme {
 	 */
 	public final int id;
 	public final String nom;
-	public final String nomImageAttaque;
 	public final String nomEffetSonoreAttaque;
 	public BufferedImage icone;
 	/**
@@ -54,7 +53,6 @@ public class Arme {
 	/**
 	 * @param id chaque Arme a un identifiant
 	 * @param nom chaque Arme a un nom
-	 * @param nomImageAttaque nom de l'image du Héros utilisant cette l'Arme
 	 * @param nomEffetSonoreAttaque nom du fichier sonore joué lors de l'utilisation
 	 * @param framesDAnimation séquence des vignettes à afficher lors de l'animation d'attaque
 	 * @param hitbox zone d'attaque qu'on peut atteindre
@@ -62,12 +60,11 @@ public class Arme {
 	 * @param frameFinCoup frame de l'animation d'attaque où le coup est terminé
 	 * @param nomIcone nom du fichier image de l'icone de l'Arme
 	 */
-	private Arme(final int id, final String nom, final String nomImageAttaque, final String nomEffetSonoreAttaque, 
+	private Arme(final int id, final String nom, final String nomEffetSonoreAttaque, 
 			final Integer[] framesDAnimation, final Hitbox hitbox, final int frameDebutCoup, 
 			final int frameFinCoup, final String nomIcone) {
 		this.id = id;
 		this.nom = nom;
-		this.nomImageAttaque = nomImageAttaque;
 		this.nomEffetSonoreAttaque = nomEffetSonoreAttaque;
 		this.framesDAnimation = framesDAnimation;
 		this.hitbox = hitbox;
@@ -88,7 +85,6 @@ public class Arme {
 	public Arme(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
 			(String) parametres.get("nom"),
-			(String) parametres.get("nomImageAttaque"),
 			(String) parametres.get("nomEffetSonoreAttaque"),
 			(Integer[]) parametres.get("framesDAnimation"),
 			new Hitbox((int) parametres.get("portee"), (int) parametres.get("etendue")),

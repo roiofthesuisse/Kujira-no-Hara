@@ -179,10 +179,10 @@ public class Hitbox {
 		}
 		
 		//premier cas : deux coins se chevauchent
-		boolean deuxCoinsSeChevauchent = ((x1min<=x2min && x2min<x1max && x1max<=x2max)
-										 	||(x2min<=x1min && x1min<x2max && x2max<=x1max))
-									  && ((y1min<=y2min && y2min<y1max && y1max<=y2max)
-											||(y2min<=y1min && y1min<y2max && y2max<=y1max));
+		final boolean deuxCoinsSeChevauchent = ((x1min<=x2min && x2min<x1max && x1max<=x2max)
+											  ||(x2min<=x1min && x1min<x2max && x2max<=x1max))
+										    && ((y1min<=y2min && y2min<y1max && y1max<=y2max)
+										      ||(y2min<=y1min && y1min<y2max && y2max<=y1max));
 		if (deuxCoinsSeChevauchent) {
 			return true; 
 		}
@@ -195,8 +195,8 @@ public class Hitbox {
 		
 		if (largHitbox!=largHitboxAutre) { //si deux events n'ont pas la même largeur, ils peuvent se chevaucher par arête horizontale
 			//deuxième cas : deux cotés de chevauchent
-			boolean deuxCotesSeChevauchent = ((x1min<=x2min && x2max<=x1max)&&((y2min<=y1min && y1min<y2max && y2max<=y1max)||(y1min<=y2min && y2min<y1max && y1max<=y2max)))
-										  || ((x2min<=x1min && x1max<=x2max)&&((y1min<=y2min && y2min<y1max && y1max<=y2max)||(y2min<=y1min && y1min<y2max && y2max<=y1max)));
+			final boolean deuxCotesSeChevauchent = ((x1min<=x2min && x2max<=x1max)&&((y2min<=y1min && y1min<y2max && y2max<=y1max)||(y1min<=y2min && y2min<y1max && y1max<=y2max)))
+												|| ((x2min<=x1min && x1max<=x2max)&&((y1min<=y2min && y2min<y1max && y1max<=y2max)||(y2min<=y1min && y1min<y2max && y2max<=y1max)));
 											//autre méthode pour résultat identique :
 										   /*(((x2min<x1min && x1min<x2max)||(x2min<x1max && x1max<x2max)) 
 											&& ((y2min<y1min && y1min<y2max)||(y2min<y1max && y1max<y2max)))
@@ -208,17 +208,25 @@ public class Hitbox {
 		}
 		if (hautHitbox!=hautHitboxAutre) { //si deux events n'ont pas la même hauteur, ils peuvent se chevaucher par arête verticale
 			//deuxième cas : deux cotés de chevauchent
-			boolean deuxCotesSeChevauchent = ((y1min<=y2min && y2max<=y1max)&&((x2min<=x1min && x1min<x2max && x2max<=x1max)||(x1min<=x2min && x2min<x1max && x1max<=x2max)))
-										  || ((y2min<=y1min && y1max<=y2max)&&((x1min<=x2min && x2min<x1max && x1max<=x2max)||(x2min<=x1min && x1min<x2max && x2max<=x1max)));
+			final boolean deuxCotesSeChevauchent = ((y1min<=y2min && y2max<=y1max)&&((x2min<=x1min && x1min<x2max && x2max<=x1max)||(x1min<=x2min && x2min<x1max && x1max<=x2max)))
+												|| ((y2min<=y1min && y1max<=y2max)&&((x1min<=x2min && x2min<x1max && x1max<=x2max)||(x2min<=x1min && x1min<x2max && x2max<=x1max)));
 			if (deuxCotesSeChevauchent) {
 				return true;
 			}
 		}
 		
 		//troisième cas : une hitbox incluse dans l'autre (pfff faut vraiment le faire exprès lol)
-		boolean unInclusDansLAutre = ((x1min<=x2min && x2max<=x1max)&&(y1min<=y2min && y2max<=y1max))
-								   ||((x2min<=x1min && x1max<=x2max)&&(y2min<=y1min && y1max<=y2max));
-		return unInclusDansLAutre;
+		final boolean unInclusDansLAutre = ((x1min<=x2min && x2max<=x1max)&&(y1min<=y2min && y2max<=y1max))
+										|| ((x2min<=x1min && x1max<=x2max)&&(y2min<=y1min && y1max<=y2max));
+		if (unInclusDansLAutre) {
+			return true;
+		}
+		
+		// quatrième cas : superposition en croix
+		final boolean superpositionEnCroix = ((x2min<=x1min && x1max<=x2max)&&(y1min<=y2min && y2max<=y1max))
+										  || ((x1min<=x2min && x2max<=x1max)&&(y2min<=y1min && y1max<=y2max));
+		
+		return superpositionEnCroix;
 	}
 	
 }

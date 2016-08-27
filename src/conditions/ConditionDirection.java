@@ -35,7 +35,7 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	 */
 	public ConditionDirection(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
-			parametres.get("idEventConcerne") != null ? (int) parametres.get("idEventConcerne") : null,
+			(Integer) (parametres.get("idEventConcerne") != null ?  parametres.get("idEventConcerne") : null),
 			(int) parametres.get("direction")
 		);
 	}
@@ -44,17 +44,19 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	public final boolean estVerifiee() {
 		final Map map = this.page.event.map;
 		Event eventConcerne;
-		if (idEventConcerne == 0) {
-			//le Héros
-			eventConcerne = map.heros;
-		} else if (idEventConcerne == null) {
+		
+		if (idEventConcerne == null) {
 			//cet Event
 			eventConcerne = this.page.event;
+		} else if (idEventConcerne == 0) {
+			//le Héros
+			eventConcerne = map.heros;
 		} else {
 			//un Event particulier
 			eventConcerne = map.eventsHash.get((Integer) idEventConcerne);
 		}
-		
+		System.out.println("event concerne:"+eventConcerne.nom);
+		System.out.println("directionPresente:"+eventConcerne.direction+" directionVoulue:"+directionVoulue);
 		return eventConcerne.direction == directionVoulue;
 	}
 	

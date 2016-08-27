@@ -88,7 +88,7 @@ public class Objet {
 						//paramètre : effet
 						final ArrayList<CommandeMenu> effet = new ArrayList<CommandeMenu>();
 						final JSONArray jsonEffet = jsonObjet.getJSONArray("effet");
-						InterpreteurDeJson.recupererLesCommandesMenu(effet, jsonEffet, null);
+						InterpreteurDeJson.recupererLesCommandesMenu(effet, jsonEffet);
 						parametresObjet.put("effet", effet);
 					} else {
 						//autres paramètres

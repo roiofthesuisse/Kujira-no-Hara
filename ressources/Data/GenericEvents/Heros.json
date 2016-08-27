@@ -91,4 +91,108 @@
 			"frequence": 4
 		}
 	]
+{
+	"nom": "Heros",
+	"largeur": 24,
+	"hauteur": 24,
+	"pages": [
+		{
+			"image": "Jiyounasu character.png",
+			"vitesse": 4,
+			"frequence": 4,
+			"deplacement": {
+				"nom": "Deplacement",
+				"mouvements": [
+					{
+						"nom": "SuivreLesTouchesDirectionnelles"
+					}
+				],
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": true
+			}
+		},
+		{
+			"conditions": [
+				{
+					"nom": "ArmeEquipee",
+					"idArme": 0
+				},
+				{
+					"nom": "Touche",
+					"touche": "ACTION"
+				},
+				{
+					"nom": "StopEvent",
+					"valeur": false
+				},
+				{
+					"nom": "PasDInterlocuteurAutour"
+				}
+			],
+			"commandes": [
+				{
+					"nom": "DemarrerAnimationAttaque"
+				}
+			],
+			"image": "Jiyounasu character.png",
+			"vitesse": 4,
+			"frequence": 4
+		},
+		{
+			"conditions": [
+				{
+					"nom": "AnimationAttaque"
+				},
+				{
+					"nom": "ArmeEquipee",
+					"idArme": 0
+				}
+			],
+			"image": "Jiyounasu AttaqueEpee character.png",
+			"vitesse": 4,
+			"frequence": 4
+		},
+		{
+			"conditions": [
+				{
+					"nom": "ArmeEquipee",
+					"idArme": 1
+				},
+				{
+					"nom": "Touche",
+					"touche": "ACTION"
+				},
+				{
+					"nom": "StopEvent",
+					"valeur": false
+				},
+				{
+					"nom": "PasDInterlocuteurAutour"
+				}
+			],			
+			"commandes": [
+				{
+					"nom": "DemarrerAnimationAttaque"
+				}
+			],
+			"image": "Jiyounasu character.png",
+			"vitesse": 4,
+			"frequence": 4
+		},
+		{
+			"conditions": [
+				{
+					"nom": "AnimationAttaque"
+				},
+				{
+					"nom": "ArmeEquipee",
+					"idArme": 1
+				}
+			],
+			"image": "Jiyounasu Eventail character.png",
+			"vitesse": 4,
+			"frequence": 4
+		}
+	]
 }

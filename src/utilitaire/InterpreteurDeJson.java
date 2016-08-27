@@ -22,7 +22,6 @@ import conditions.Condition;
 import jeu.Objet;
 import main.Commande;
 import map.Event;
-import map.PageEvent;
 import menu.ElementDeMenu;
 import menu.Image;
 import menu.Menu;
@@ -173,36 +172,32 @@ public abstract class InterpreteurDeJson {
 	 * Traduit les Commandes depuis le format JSON et les range dans la liste des Commandes de la Page.
 	 * @param commandes liste des Commandes de la Page.
 	 * @param commandesJSON tableau JSON contenant les Commandes au format JSON
-	 * @param page qui contient ces Commandes Event
 	 */
-	public static void recupererLesCommandesEvent(final ArrayList<Commande> commandes, final JSONArray commandesJSON, final PageEvent page) {
+	public static void recupererLesCommandesEvent(final ArrayList<Commande> commandes, final JSONArray commandesJSON) {
 		for (Object commandeJSON : commandesJSON) {
 			final Commande commande = recupererUneCommande( (JSONObject) commandeJSON );
 			if (commande != null) {
-				commande.page = page;
 				//on vérifie que c'est bien une CommandeEvent
 				if (commande instanceof CommandeEvent) {
 					commandes.add(commande);
 				} else {
-					System.err.println("La commande "+commande.getClass().getName()+"n'est pas une CommandeEvent !");
+					System.err.println("La commande "+commande.getClass().getName()+" n'est pas une CommandeEvent !");
 				}
 			}
 		}
 	}
 	
 	/**
-	 * Traduit les Commandes depuis le format JSON et les range dans la liste des Commandes de la Page.
+	 * Traduit les Commandes depuis le format JSON et les range dans la liste des Commandes de l'Element de Menu.
 	 * @param commandes liste des Commandes de la Page.
 	 * @param commandesJSON tableau JSON contenant les Commandes au format JSON
-	 * @param element qui contient ces Commandes Menu
 	 */
-	public static void recupererLesCommandesMenu(final ArrayList<CommandeMenu> commandes, final JSONArray commandesJSON, final ElementDeMenu element) {
+	public static void recupererLesCommandesMenu(final ArrayList<CommandeMenu> commandes, final JSONArray commandesJSON) {
 		for (Object commandeJSON : commandesJSON) {
 			final Commande commande = recupererUneCommande( (JSONObject) commandeJSON );
 			if (commande != null) {
 				//on vérifie que c'est bien une CommandeMenu
 				if (commande instanceof CommandeMenu) {
-					commande.element = element;
 					commandes.add((CommandeMenu) commande);
 				} else {
 					System.err.println("La commande "+commande.getClass().getName()+"n'est pas une CommandeMenu !");

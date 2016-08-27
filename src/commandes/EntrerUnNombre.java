@@ -18,6 +18,9 @@ import utilitaire.Maths;
  * S'affiche comme un Message, mais avec un curseur à déplacer.
  */
 public class EntrerUnNombre extends Message {
+	/** base décimale */
+	private static final int NOMBRE_DE_CHIFFRES = 10;
+	
 	/** Numéro de la Variable qui mémorise le code */
 	public int numeroDeVariable;
 	/** Tableau des chiffres rentrés par le joueur */
@@ -43,7 +46,7 @@ public class EntrerUnNombre extends Message {
 		this.numeroDeVariable = numeroDeVariable;
 		this.chiffresRentres = new int[tailleDuNombre];
 		this.chiffresRentresTexte = new Texte[tailleDuNombre];
-		for (int i=0; i<tailleDuNombre; i++) {
+		for (int i = 0; i<tailleDuNombre; i++) {
 			chiffresRentresTexte[i] = new Texte("0");
 		}
 		this.surlignage = chiffresRentresTexte[0].creerImageDeSelection();
@@ -75,7 +78,7 @@ public class EntrerUnNombre extends Message {
 		final int hauteurTexte = calculerHauteurTexte();
 		
 		// Superposition
-		imageDuMessage = Graphismes.clonerUneImage(IMAGE_BOITE_MESSAGE);
+		imageDuMessage = Graphismes.clonerUneImage(Message.imageBoiteMessage);
 		
 		imageDuMessage = Graphismes.superposerImages(
 				imageDuMessage, 
@@ -89,7 +92,7 @@ public class EntrerUnNombre extends Message {
 				MARGE_DU_TEXTE, 
 				MARGE_DU_TEXTE
 		);
-		for (int i=0; i<chiffresRentres.length; i++) {
+		for (int i = 0; i<chiffresRentres.length; i++) {
 			imageDuMessage = Graphismes.superposerImages(
 					imageDuMessage, 
 					chiffresRentresTexte[i].image, 
@@ -111,8 +114,8 @@ public class EntrerUnNombre extends Message {
 	
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
-	public void haut() {
-		this.chiffresRentres[positionCurseur] = Maths.modulo(this.chiffresRentres[positionCurseur]+1, 10);
+	public final void haut() {
+		this.chiffresRentres[positionCurseur] = Maths.modulo(this.chiffresRentres[positionCurseur]+1, NOMBRE_DE_CHIFFRES);
 		this.chiffresRentresTexte[positionCurseur] = new Texte( "" + chiffresRentres[positionCurseur] );
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
@@ -120,8 +123,8 @@ public class EntrerUnNombre extends Message {
 	
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
-	public void bas() {
-		this.chiffresRentres[positionCurseur] = Maths.modulo(this.chiffresRentres[positionCurseur]-1, 10);
+	public final void bas() {
+		this.chiffresRentres[positionCurseur] = Maths.modulo(this.chiffresRentres[positionCurseur]-1, NOMBRE_DE_CHIFFRES);
 		this.chiffresRentresTexte[positionCurseur] = new Texte( "" + chiffresRentres[positionCurseur] );
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
@@ -129,7 +132,7 @@ public class EntrerUnNombre extends Message {
 	
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
-	public void gauche() {
+	public final void gauche() {
 		this.positionCurseur = Maths.modulo(positionCurseur - 1, this.chiffresRentres.length);
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
@@ -137,7 +140,7 @@ public class EntrerUnNombre extends Message {
 	
 	/** Le Joueur appuie sur la touche pendant le Message */
 	@Override
-	public void droite() {
+	public final void droite() {
 		this.positionCurseur = Maths.modulo(positionCurseur + 1, this.chiffresRentres.length);
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
@@ -146,8 +149,8 @@ public class EntrerUnNombre extends Message {
 	@Override
 	protected final int redirectionSelonLeChoix(final int curseurActuel, final ArrayList<Commande> commandes) {
 		int nombre = 0;
-		for (int i=this.chiffresRentres.length-1; i>=0; i--) {
-			nombre *= 10;
+		for (int i = this.chiffresRentres.length-1; i >= 0; i--) {
+			nombre *= NOMBRE_DE_CHIFFRES;
 			nombre += this.chiffresRentres[i];
 		}
 		//on modifie la valeur de la variable
