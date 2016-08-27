@@ -149,8 +149,12 @@ public class Avancer extends Mouvement {
 				}
 			}
 		} catch (Exception e) {
-			//on sort de la map !
-			e.printStackTrace();
+			//l'Event sort de la Map !
+			if (!event.sortiDeLaMap) { //on n'affiche le message d'erreur qu'une fois
+				System.err.println("L'event "+event.numero+" ("+event.nom+") est sorti de la map !");
+			}
+			event.sortiDeLaMap = true;
+			
 			reponse = true;
 		}
 		return reponse;
