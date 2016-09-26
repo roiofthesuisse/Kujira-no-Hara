@@ -10,6 +10,7 @@ import main.Fenetre;
 import map.Event;
 import map.LecteurMap;
 import mouvements.Mouvement;
+import mouvements.RegarderDansUneDirection;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -92,13 +93,31 @@ public class Deplacement extends Commande implements CommandeEvent {
 		
 		final Event event = this.getEventADeplacer();
 		
+		//TODO retirer
+		if(event.nom.equals("herosDirectionAleatoire")){
+			System.out.println("Deplacement.executer (transvasement des Mvts depuis le Depl Commande vers le Depl forcé");
+			for (Mouvement mvt : this.mouvements) {
+				System.out.println(mvt.getClass().getName());
+			}
+		}
+		
 		if (!this.aEteAjouteAuxDeplacementsForces) {
+			System.out.println("hahaha");
 			//interrompre l'ancien Déplacement forcé de l'Event
+			if(event.deplacementForce.mouvements != null && event.deplacementForce.mouvements.size() >= 1){
+				System.err.println("Le déplacement de l'event "+this.idEventADeplacer+" a été interrompu et remplacé.");
+			}
 			event.deplacementForce.mouvements = new ArrayList<Mouvement>();
 			
 			//à la place, on ajoute dans la liste les nouveaux Mouvements forcés
 			for (Mouvement mvt : this.mouvements) {
 				mvt.reinitialiser();
+				
+				//TODO retirer
+				if(event.nom.equals("herosDirectionAleatoire") && mvt instanceof RegarderDansUneDirection){
+					System.out.println("Deplacement.executer");
+				}
+				
 				event.deplacementForce.mouvements.add(mvt);
 				event.deplacementForce.page = this.page; //on indique le commanditaire de ce Déplacement
 			}
@@ -160,6 +179,11 @@ public class Deplacement extends Commande implements CommandeEvent {
 		// Nous nous trouvons actuellement dans le Déplacement forcé ou naturel d'un Event.
 
 		final Mouvement premierMouvement = this.mouvements.get(0);
+		
+		//TODO retirer
+		if(this.getEventADeplacer().nom.equals("herosDirectionAleatoire") && premierMouvement instanceof RegarderDansUneDirection){
+			System.out.println("executerLePremierMouvement");
+		}
 		
 		final LecteurMap lecteurMap = (LecteurMap) Fenetre.getFenetre().lecteur;
 		//si le stopEvent est activé, on n'effectue pas les Mouvements

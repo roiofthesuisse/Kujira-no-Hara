@@ -36,6 +36,10 @@ public class RegarderDansUneDirection extends Mouvement {
 	@Override
 	public final boolean mouvementPossible() {
 		// Regarder dans une direction est toujours possible.
+		
+		//TODO retirer
+		System.out.println("test mvt possible");
+		
 		return true;
 	}
 

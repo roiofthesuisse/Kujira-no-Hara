@@ -18,6 +18,8 @@ import main.Fenetre;
 import main.Lecteur;
 import map.meteo.Meteo;
 import menu.Texte;
+import mouvements.Mouvement;
+import mouvements.RegarderDansUneDirection;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
@@ -324,6 +326,22 @@ public class LecteurMap extends Lecteur {
 			
 			//déplacer chaque Event
 			for (Event event : this.map.events) {
+				
+				//TODO retirer 
+				if(event.nom.equals("herosDirectionAleatoire") ){
+					if(event.deplacementForce.mouvements != null){
+						System.out.println("deplForce!=null");
+						if(event.deplacementForce.mouvements.size() >= 1){
+							for(Mouvement mvt : event.deplacementForce.mouvements){
+								System.out.println(mvt.getClass().getName());
+							}
+							if(event.deplacementForce.mouvements.get(0) instanceof RegarderDansUneDirection){
+								System.out.println("deplacerLesEvents");
+							}
+						}
+					}
+				}
+				
 				if (!event.supprime) {
 					event.deplacer(); //on effectue le déplacement si possible (pas d'obstacles rencontrés)
 				}
