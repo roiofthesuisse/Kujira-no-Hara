@@ -14,7 +14,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	@Override
 	public final boolean estVerifiee() {
 		final Event event = this.page.event;
-		if ( event.frameDuContact != event.map.lecteur.frameActuelle ) {
+	//	if ( event.frameDuContact != frame) {
 			//on n'est pas à jour ! on calcule s'il y a contact :
 			final ConditionContact conditionContactMaintenant = new ConditionContact();
 			conditionContactMaintenant.page = this.page;
@@ -23,8 +23,8 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 			
 			event.estAuContactDuHerosAvant = event.estAuContactDuHerosMaintenant;
 			event.estAuContactDuHerosMaintenant = leHerosEstAuContactDeLEventMaintenant;
-			event.frameDuContact = event.map.lecteur.frameActuelle;
-		}
+	//		event.frameDuContact = frame;
+	//	}
 		
 		//on est à jour
 		return event.estAuContactDuHerosMaintenant && !event.estAuContactDuHerosAvant;

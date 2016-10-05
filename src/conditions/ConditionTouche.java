@@ -11,14 +11,14 @@ import utilitaire.GestionClavier;
  */
 public class ConditionTouche extends Condition implements CommandeEvent {
 	
-	private final GestionClavier.ToucheRole touche;
+	private final GestionClavier.ToucheRole toucheRole;
 	
 	/** 
 	 * Constructeur explicite
 	 * @param touche à vérifier 
 	 */
 	public ConditionTouche(GestionClavier.ToucheRole touche) {
-		this.touche = touche;
+		this.toucheRole = touche;
 	}
 	
 	/**
@@ -33,8 +33,8 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	public final boolean estVerifiee() {
 		final LecteurMap lecteur = this.page.event.map.lecteur;
 		if (lecteur.frameActuelle > 1) { //pour éviter que l'Epée se déclenche en début de Map
-			final Integer frameDAppui = lecteur.frameDAppuiSurLaTouche.get(touche);
-			if(frameDAppui != null && frameDAppui + 1 == lecteur.frameActuelle) {
+			final Integer frameDAppui = this.toucheRole.touche.frameDAppui;
+			if (frameDAppui != null && frameDAppui + 1 == lecteur.frameActuelle) {
 				return true;
 			}
 		}

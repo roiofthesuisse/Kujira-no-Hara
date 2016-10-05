@@ -13,7 +13,7 @@ public abstract class Condition extends Commande {
 	public int numero = -1; //le numéro de condition est le même que le numéro de fin de condition qui correspond
 
 	/**
-	 * La Condition est elle vérifiée là maintenant ?
+	 * La Condition est elle vérifiée ?
 	 * @return true si vérifiée, false si non vérifiée
 	 */
 	public abstract boolean estVerifiee();

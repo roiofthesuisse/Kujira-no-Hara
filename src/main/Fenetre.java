@@ -4,10 +4,15 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import javafx.embed.swing.JFXPanel;
@@ -43,6 +48,8 @@ public final class Fenetre extends JFrame implements KeyListener {
 	private Partie partie = null;
 	public Lecteur futurLecteur = null;
 	public boolean quitterLeJeu = false;
+	
+	public ArrayList<String> mesuresDePerformance = new ArrayList<String>();
 	
 	/**
 	 * Constructeur explicite
@@ -91,6 +98,12 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public static void ouvrirFenetre() {
 		final Fenetre fenetre = getFenetre();
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fenetre.addWindowListener(new java.awt.event.WindowAdapter() {
+		    @Override
+		    public void windowClosing(final java.awt.event.WindowEvent windowEvent) {
+		        fenetre.fermer(); //exécuter la méthode fermer() lorsqu'on ferme la Fenêtre
+		    }
+		});
 		final Insets marges = obtenirLesMarges();
 		final int margeHorizontale = marges.left+marges.right;
 		final int margeVerticale = marges.top+marges.bottom;
@@ -163,8 +176,10 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public void keyPressed(final KeyEvent event) {
 		final Integer keycode = event.getKeyCode();
 		final GestionClavier.ToucheRole touchePressee = GestionClavier.ToucheRole.getToucheRole(keycode);
-		if (touchePressee!=null && !touchePressee.pressee) {
-			touchePressee.pressee = true;
+		if (touchePressee!=null && !touchePressee.touche.enfoncee) {
+			touchePressee.touche.enfoncee = true;
+			touchePressee.touche.frameDAppui = (Integer) this.lecteur.frameActuelle; // mémorisation de la frame d'appui
+			
 			this.lecteur.keyPressed(touchePressee);
 		}
 	}
@@ -173,8 +188,10 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public void keyReleased(final KeyEvent event) {
 		final Integer keycode = event.getKeyCode();
 		final GestionClavier.ToucheRole toucheRelachee = GestionClavier.ToucheRole.getToucheRole(keycode);
-		if (toucheRelachee!=null && toucheRelachee.pressee) {
-			toucheRelachee.pressee = false;
+		if (toucheRelachee!=null && toucheRelachee.touche.enfoncee) {
+			toucheRelachee.touche.enfoncee = false;
+			toucheRelachee.touche.frameDAppui = null;
+			
 			this.lecteur.keyReleased(toucheRelachee);
 		}
 	}
@@ -210,7 +227,20 @@ public final class Fenetre extends JFrame implements KeyListener {
 	 * Fermer la Fenêtre et quitter le jeu
 	 */
 	public void fermer() {
+		exporterCsv();
 		System.exit(0);
+	}
+	
+	/**
+	 * Exporter les mesures de performances en tant que fichier CSV.
+	 */
+	private void exporterCsv() {
+		final Path file = Paths.get("C:/Users/RoiOfTheSuisse/Documents/kujira-perf2.csv");
+		try {
+			Files.write(file, this.mesuresDePerformance, Charset.forName("UTF-8"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -228,4 +258,5 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public void setPartieActuelle(final Partie partieActuelle) {
 		this.partie = partieActuelle;
 	}
+
 }

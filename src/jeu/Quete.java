@@ -38,22 +38,34 @@ public class Quete {
 	public int xCarte;
 	public int yCarte;
 	
-	public static enum EtatQuete {
+	/**
+	 * Une Quête peut se présenter sous différents Etats de complétion au fil du jeu.
+	 */
+	public enum EtatQuete {
 		INCONNUE("INCONNUE"), CONNUE("CONNUE"), FAITE("FAITE");
 		
 		private String nom;
 		
-		EtatQuete (String nom) {
+		/**
+		 * Constructeur explicite
+		 * @param nom de l'Etat de Quête
+		 */
+		EtatQuete(final String nom) {
 			this.nom = nom;
 		}
 		
-		public EtatQuete getEtat(String nom){
-			for (EtatQuete etat : values()){
+		/**
+		 * Obtenir un Etat de Quête à partir de son nom.
+		 * @param nom de l'Etat de Quête
+		 * @return Etat de Quête
+		 */
+		public static EtatQuete getEtat(final String nom) {
+			for (EtatQuete etat : values()) {
 				if (etat.nom.equals(nom)) {
 					return etat;
 				}
 			}
-			return null;
+			return INCONNUE;
 		}
 	}
 	

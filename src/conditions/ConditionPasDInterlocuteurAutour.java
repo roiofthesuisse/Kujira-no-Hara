@@ -19,7 +19,8 @@ public class ConditionPasDInterlocuteurAutour extends Condition implements Comma
 				for (PageEvent page : event.pages) {
 					if (page.conditions!=null) {
 						for (Condition condition : page.conditions) {
-							if ( condition.getClass().getName().equals(ConditionParler.class.getName()) && condition.estVerifiee() ) {
+							if ( condition.getClass().getName().equals(ConditionParler.class.getName()) 
+									&& condition.estVerifiee() ) {
 								return false;
 							}
 						}

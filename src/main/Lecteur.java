@@ -15,21 +15,25 @@ import menu.LecteurMenu;
 public abstract class Lecteur {	
 	private BufferedImage ecranAtuel;
 	public Fenetre fenetre = null;
+	
 	/**
 	 * Durée minimale d'une frame (en millisecondes).
 	 * Il est interdit qu'une frame dure moins longtemps, afin que l'animation soit compréhensible.
 	 * La frame peut durer plus longtemps si l'ordinateur a du mal à faire tourner le bousin.
 	 */
 	private static final long DUREE_FRAME = 30;
+	
 	public static final int TYPE_DES_IMAGES = BufferedImage.TYPE_INT_ARGB;
+	
 	/**
 	 * Est-ce que le Lecteur est allumé ?
 	 * Si le Lecteur est allumé, l'affichage de l'écran est actualisé en continu.
 	 * Si le Lecteur est éteint, l'affichage arrête sa boucle, et la Fenêtre doit démarrer un nouveau Lecteur.
 	 */
 	public boolean allume = true;
+	
 	/** 
-	 * Numéro de la frame en cours.
+	 * Numéro de la frame en cours (en temps réel).
 	 * Une frame est une image affichée à l'écran pendant une courte durée.
 	 * A chaque nouveau Lecteur, on repart de 0.
 	 */
@@ -42,9 +46,10 @@ public abstract class Lecteur {
 	
 	/**
 	 * Le rôle d'un Lecteur est de calculer l'écran à afficher dans la Fenêtre.
+	 * @param frame de l'écran à calculer
 	 * @return écran à afficher maintenant
 	 */
-	public abstract  BufferedImage calculerAffichage();
+	public abstract  BufferedImage calculerAffichage(final int frame);
 	
 	/**
 	 * Prévenir le Lecteur qu'une touche a été pressée, pour qu'il en déduise une action à faire.
@@ -87,6 +92,14 @@ public abstract class Lecteur {
 		return image;
 	}
 	
+	/**
+	 * Produire un rectangle vide pour l'afficher comme écran
+	 * @return un rectangle vide
+	 */
+	public final BufferedImage ecranVide() {
+		return imageVide(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
+	}
+	
 	/***
 	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Manu ou la Map
 	 * @return nom du BGM à jouer
@@ -114,12 +127,13 @@ public abstract class Lecteur {
 		System.out.println("-------------------------------------------------------------");
 		System.out.println("Un nouveau "+typeLecteur+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm(), 1.0f);
+		//TODO LecteurAudio.playBgs(getNomBgs(), 1.0f);
 		
 		long t1, t2;
 		long dureeEffectiveDeLaFrame;
 		while (this.allume) {
 			t1 = System.currentTimeMillis();
-			this.ecranAtuel = calculerAffichage();
+			this.ecranAtuel = calculerAffichage(this.frameActuelle);
 			t2 = System.currentTimeMillis();
 			dureeEffectiveDeLaFrame = t2-t1;
 			if (dureeEffectiveDeLaFrame < Lecteur.DUREE_FRAME) {

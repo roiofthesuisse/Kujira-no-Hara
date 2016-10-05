@@ -35,6 +35,7 @@ public class ChoixFin  extends Commande implements CommandeEvent {
 	 * @param commandes liste des Commandes de la Page
 	 * @return nouvelle position du curseur
 	 */
+	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		return curseurActuel+1;
 	}

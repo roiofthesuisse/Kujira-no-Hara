@@ -18,8 +18,6 @@ import main.Fenetre;
 import main.Lecteur;
 import map.meteo.Meteo;
 import menu.Texte;
-import mouvements.Mouvement;
-import mouvements.RegarderDansUneDirection;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
@@ -60,20 +58,6 @@ public class LecteurMap extends Lecteur {
 	/** Autoriser ou interdire l'accès au Menu depuis la Map ? */
 	public boolean autoriserMenu = true;
 	
-	/** mémorisation de la frame où le joueur a appuyé sur telle ou telle touche */
-	public HashMap<ToucheRole, Integer> frameDAppuiSurLaTouche = initialiserLesAppuisSurLesTouches();
-	/**
-	 * Initialiser le tableau de mémorisation des frames d'appui sur les touches.
-	 * @return tableau initialisé associant chaque touche à la frame d'appui
-	 */
-	public static final HashMap<ToucheRole, Integer> initialiserLesAppuisSurLesTouches() {
-		final HashMap<ToucheRole, Integer> frames = new HashMap<ToucheRole,Integer>();
-		for (ToucheRole role : ToucheRole.values()) {
-			frames.put(role, 0);
-		}
-		return frames;
-	}
-	
 	/**
 	 * Constructeur explicite
 	 * @param fenetre dont ce Lecteur assure l'affichage
@@ -89,10 +73,13 @@ public class LecteurMap extends Lecteur {
 	
 	/**
 	 * A chaque frame, calcule l'écran à afficher, avec le décor et les Events dessus.
+	 * @param frame dont l'écran est calculé
 	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
 	 * @return écran représentant la Map
 	 */
-	public final BufferedImage calculerAffichage() {
+	public final BufferedImage calculerAffichage(final int frame) {
+		final long t0 = System.currentTimeMillis(); //mesure de performances
+		
 		BufferedImage ecran = ecranNoir();
 		
 		//ouverture du tileset
@@ -117,7 +104,7 @@ public class LecteurMap extends Lecteur {
 		deplacerLesEvents();
 		
 		//animation des évènements
-		animerLesEvents();
+		animerLesEvents(frame);
 
 		//DEBUG pour voir la hitbox de l'attaque du héros
 		ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
@@ -129,10 +116,10 @@ public class LecteurMap extends Lecteur {
 		ecran = Graphismes.superposerImages(ecran, map.imageCoucheSurHeros, -xCamera, -yCamera);
 		
 		//météo
-		ecran = dessinerMeteo(ecran);
+		ecran = dessinerMeteo(ecran, frame);
 		
 		//brouillard
-		ecran = dessinerLeBrouillard(ecran, map.brouillard, xCamera, yCamera);
+		ecran = dessinerLeBrouillard(ecran, map.brouillard, xCamera, yCamera, frame);
 		
 		//ajouter les jauges
 		ecran = dessinerLesJauges(ecran);
@@ -145,18 +132,22 @@ public class LecteurMap extends Lecteur {
 		//supprimer events dont l'attribut "supprimé" est à true
 		supprimerLesEventsASupprimer();
 		
+		final long t1 = System.currentTimeMillis(); //mesure de performances
+		
+		this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
 		return ecran;
 	}
 
 	/**
 	 * Dessiner à l'écran les effets météorologiques.
 	 * @param ecran sur lequel on dessine
+	 * @param frame de l'effet météorologique
 	 * @return écran avec la météo
 	 */
-	private BufferedImage dessinerMeteo(BufferedImage ecran) {
+	private BufferedImage dessinerMeteo(BufferedImage ecran, final int frame) {
 		final Meteo meteo = Fenetre.getPartieActuelle().meteo;
 		if (meteo != null) {
-			ecran = Graphismes.superposerImages(ecran, meteo.calculerImage(this.frameActuelle), 0, 0);
+			ecran = Graphismes.superposerImages(ecran, meteo.calculerImage(frame), 0, 0);
 		}
 		return ecran;
 	}
@@ -285,15 +276,16 @@ public class LecteurMap extends Lecteur {
 
 	/**
 	 * Donne la bonne valeur à l'attribut "animation" avant d'envoyer l'event à l'affichage.
+	 * @param frame d'animation des Events
 	 */
-	private void animerLesEvents() {
+	private void animerLesEvents(final int frame) {
 		if (this.stopEvent) {
 			return; //pas d'animation en cas de stopEvent
 		}
 		
 		try {
 			for (Event event : this.map.events) {
-				final boolean passerALAnimationSuivante = (this.map.lecteur.frameActuelle%event.frequenceActuelle==0);
+				final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle == 0);
 				//cas où l'Event est animé à l'arrêt
 				if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
 					event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
@@ -317,10 +309,10 @@ public class LecteurMap extends Lecteur {
 	private void deplacerLesEvents() {
 		try {
 			//animer la marche du Héros si touche pressée
-			if ( GestionClavier.ToucheRole.HAUT.pressee
-			  || GestionClavier.ToucheRole.GAUCHE.pressee
-			  || GestionClavier.ToucheRole.BAS.pressee
-			  || GestionClavier.ToucheRole.DROITE.pressee ) {
+			if ( GestionClavier.ToucheRole.HAUT.touche.enfoncee
+			  || GestionClavier.ToucheRole.GAUCHE.touche.enfoncee
+			  || GestionClavier.ToucheRole.BAS.touche.enfoncee
+			  || GestionClavier.ToucheRole.DROITE.touche.enfoncee ) {
 				map.heros.avance = true;
 			}
 			
@@ -328,6 +320,7 @@ public class LecteurMap extends Lecteur {
 			for (Event event : this.map.events) {
 				
 				//TODO retirer 
+				/*
 				if(event.nom.equals("herosDirectionAleatoire") ){
 					if(event.deplacementForce.mouvements != null){
 						System.out.println("deplForce!=null");
@@ -341,6 +334,7 @@ public class LecteurMap extends Lecteur {
 						}
 					}
 				}
+				*/
 				
 				if (!event.supprime) {
 					event.deplacer(); //on effectue le déplacement si possible (pas d'obstacles rencontrés)
@@ -374,9 +368,10 @@ public class LecteurMap extends Lecteur {
 	 * @param brouillard informations sur le Brouillard
 	 * @param xCamera position x de la caméra
 	 * @param yCamera position y de la caméra
+	 * @param frame d'animation du Brouillard
 	 * @return écran sur lequel on a dessiné le Brouillard
 	 */
-	private BufferedImage dessinerLeBrouillard(BufferedImage ecran, final Brouillard brouillard, final int xCamera, final int yCamera) {
+	private BufferedImage dessinerLeBrouillard(BufferedImage ecran, final Brouillard brouillard, final int xCamera, final int yCamera, final int frame) {
 		if (brouillard == null || brouillard.image == null || brouillard.opacite <= 0) {
 			//pas de Brouillard
 			return ecran;
@@ -384,8 +379,8 @@ public class LecteurMap extends Lecteur {
 		
 		final int largeurEcran = ecran.getWidth();
 		final int hauteurEcran = ecran.getWidth();
-		final int decalageX = brouillard.defilementX * (this.frameActuelle % brouillard.largeur);
-		final int decalageY = brouillard.defilementY * (this.frameActuelle % brouillard.hauteur); 
+		final int decalageX = brouillard.defilementX * (frame % brouillard.largeur);
+		final int decalageY = brouillard.defilementY * (frame % brouillard.hauteur); 
 		int imin = (xCamera - decalageX) / brouillard.largeur;
 		int imax = (xCamera + largeurEcran - decalageX) / brouillard.largeur;
 		int jmin = (yCamera - decalageY) / brouillard.hauteur;
@@ -489,7 +484,6 @@ public class LecteurMap extends Lecteur {
 
 	@Override
 	public final void keyPressed(ToucheRole touchePressee) {
-		this.frameDAppuiSurLaTouche.put(touchePressee, (Integer) this.frameActuelle); // mémorisation de la frame d'appui
 		// action spécifique selon la touche
 		switch (touchePressee) {
 			case MENU : this.ouvrirLeMenu(); break;
@@ -541,10 +535,10 @@ public class LecteurMap extends Lecteur {
 	 */
 	public final void remettreAZeroLAnimationDuHeros() {
 		final Event heros = map.heros;
-		if (!GestionClavier.ToucheRole.BAS.pressee
-		 && !GestionClavier.ToucheRole.HAUT.pressee
-		 && !GestionClavier.ToucheRole.GAUCHE.pressee
-		 && !GestionClavier.ToucheRole.DROITE.pressee) {
+		if (!GestionClavier.ToucheRole.BAS.touche.enfoncee
+		 && !GestionClavier.ToucheRole.HAUT.touche.enfoncee
+		 && !GestionClavier.ToucheRole.GAUCHE.touche.enfoncee
+		 && !GestionClavier.ToucheRole.DROITE.touche.enfoncee) {
 			heros.avance = false;
 			heros.animation = 0;
 		}

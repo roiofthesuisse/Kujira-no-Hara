@@ -8,7 +8,7 @@ public abstract class GestionClavier {
 	/**
 	 * Association entre les touches du clavier et leur keycode
 	 */
-	private enum ToucheClavier {
+	public enum ToucheClavier {
 		Z(90, "Z"),
 		Q(81, "Q"),
 		S(83, "S"),
@@ -22,6 +22,8 @@ public abstract class GestionClavier {
 		
 		public final int keycode;
 		public final String nom;
+		public Integer frameDAppui = null;
+		public boolean enfoncee = false;
 		
 		/**
 		 * Constructeur explicite
@@ -51,7 +53,6 @@ public abstract class GestionClavier {
 		MENU(ToucheClavier.ENTREE, "MENU");
 		
 		public final ToucheClavier touche;
-		public boolean pressee = false;
 		private final String nom;
 		
 		/**

@@ -35,9 +35,10 @@ public class LecteurMenu extends Lecteur {
 	
 	/**
 	 * Constituer l'image de l'écran, avec tous les éléments du Menu
+	 * @param frame de l'écran calculé
 	 * @return écran
 	 */
-	public final BufferedImage calculerAffichage() {
+	public final BufferedImage calculerAffichage(final int frame) {
 		BufferedImage ecran = ecranNoir();
 		
 		//image de fond
