@@ -5,10 +5,9 @@ import java.util.ArrayList;
 
 import org.json.JSONObject;
 
-import jeu.Quete.EtatQuete;
+import jeu.Quete.AvancementQuete;
 import map.Map;
 import map.meteo.Meteo;
-import map.meteo.Pluie;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 
@@ -32,7 +31,7 @@ public final class Partie {
 	/** combien possède-t-on d'Objet numéro i ? */
 	public int[] objetsPossedes;
 	/** la Quête numéro i a-t-elle été faite ? */
-	public EtatQuete[] quetesEtat;
+	public AvancementQuete[] avancementDesQuetes;
 	/** possède-t-on l'Arme numéro i ? */
 	public boolean[] armesPossedees;
 	public int nombreDArmesPossedees;
@@ -61,9 +60,9 @@ public final class Partie {
 		this.interrupteursLocaux = new ArrayList<String>();
 		this.variables = new int[ jsonNouvellePartie.getInt("nombreDeVariables") ];
 		
-		this.quetesEtat = new EtatQuete[ Quete.chargerLesQuetesDuJeu() ];
-		for(int i=0; i<quetesEtat.length; i++){
-			quetesEtat[i] = EtatQuete.INCONNUE;
+		this.avancementDesQuetes = new AvancementQuete[ Quete.chargerLesQuetesDuJeu() ];
+		for (int i = 0; i<avancementDesQuetes.length; i++) {
+			avancementDesQuetes[i] = AvancementQuete.INCONNUE;
 		}
 		this.objetsPossedes = new int[ Objet.chargerLesObjetsDuJeu() ];
 		this.armesPossedees = new boolean[ Arme.chargerLesArmesDuJeu() ];
@@ -83,14 +82,14 @@ public final class Partie {
 	 * @param vieMax niveau maximal possible d'énergie vitale du Héros en reprenant la Partie
 	 * ----------------------------------------------------------------------------------------
 	 * @param objetsPossedes combien possède-t-on d'Objet numéro i ?
-	 * @param quetesFaites la Quête numéro i a-t-elle été faite ?
+	 * @param avancementDesQuetes la Quête numéro i a-t-elle été faite ?
 	 * @param armesPossedees possède-t-on l'Arme numéro i ?
 	 * @param nombreDArmesPossedees combien a-t-on d'Armes ?
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
 	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int[] objetsPossedes, final EtatQuete[] quetesEtat, final boolean[] armesPossedees, final int nombreDArmesPossedees) throws FileNotFoundException {
+	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int[] objetsPossedes, final AvancementQuete[] avancementDesQuetes, final boolean[] armesPossedees, final int nombreDArmesPossedees) throws FileNotFoundException {
 		this();
 		this.numeroMap = numeroMap;
 		this.xHeros = xHeros;
@@ -100,7 +99,7 @@ public final class Partie {
 		this.vieMax = vieMax;
 		
 		this.objetsPossedes = objetsPossedes;
-		this.quetesEtat = quetesEtat;
+		this.avancementDesQuetes = avancementDesQuetes;
 		this.armesPossedees = armesPossedees;
 		this.nombreDArmesPossedees = nombreDArmesPossedees;
 		

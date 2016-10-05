@@ -5,7 +5,7 @@ import java.util.HashMap;
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import jeu.Partie;
-import jeu.Quete.EtatQuete;
+import jeu.Quete.AvancementQuete;
 import main.Fenetre;
 
 /**
@@ -13,18 +13,18 @@ import main.Fenetre;
  */
 public class ConditionEtatQuete extends Condition implements CommandeEvent, CommandeMenu {
 	public int idQuete;
-	private EtatQuete etatVoulu;
+	private AvancementQuete avancementVoulu;
 
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
 	 * @param idQuete identifiant de la Quête à vérifier
-	 * @param etatVoulu Etat de complétion attendu pour cette Quête 
+	 * @param avancementVoulu Etat de complétion attendu pour cette Quête 
 	 */
-	public ConditionEtatQuete(final int numero, final int idQuete, final EtatQuete etatVoulu) {
+	public ConditionEtatQuete(final int numero, final int idQuete, final AvancementQuete avancementVoulu) {
 		this.numero = numero;
 		this.idQuete = idQuete;
-		this.etatVoulu = etatVoulu;
+		this.avancementVoulu = avancementVoulu;
 	}
 	
 	/**
@@ -34,16 +34,16 @@ public class ConditionEtatQuete extends Condition implements CommandeEvent, Comm
 	public ConditionEtatQuete(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
 			(int) parametres.get("idQuete"),
-			EtatQuete.getEtat( (String) parametres.get("etat") )
+			AvancementQuete.getEtat( (String) parametres.get("etat") )
 		);
 	}
 	
 	@Override
 	public final boolean estVerifiee() {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
-		final EtatQuete etatReel = partieActuelle.quetesEtat[idQuete];
-		return etatReel.equals(this.etatVoulu) 
-		|| (etatVoulu.equals(EtatQuete.CONNUE) && etatReel.equals(EtatQuete.FAITE)); //une quête faite est connue
+		final AvancementQuete avancementReel = partieActuelle.avancementDesQuetes[idQuete];
+		return avancementReel.equals(this.avancementVoulu) 
+		|| (avancementVoulu.equals(AvancementQuete.CONNUE) && avancementReel.equals(AvancementQuete.FAITE)); //une quête faite est connue
 	}
 	
 	/**

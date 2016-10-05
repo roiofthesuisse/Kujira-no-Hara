@@ -39,9 +39,9 @@ public class Quete {
 	public int yCarte;
 	
 	/**
-	 * Une Quête peut se présenter sous différents Etats de complétion au fil du jeu.
+	 * Une Quête peut se présenter sous différents niveaux d'Avancement au fil du jeu.
 	 */
-	public enum EtatQuete {
+	public enum AvancementQuete {
 		INCONNUE("INCONNUE"), CONNUE("CONNUE"), FAITE("FAITE");
 		
 		private String nom;
@@ -50,17 +50,17 @@ public class Quete {
 		 * Constructeur explicite
 		 * @param nom de l'Etat de Quête
 		 */
-		EtatQuete(final String nom) {
+		AvancementQuete(final String nom) {
 			this.nom = nom;
 		}
 		
 		/**
-		 * Obtenir un Etat de Quête à partir de son nom.
+		 * Obtenir un Avancement de Quête à partir de son nom.
 		 * @param nom de l'Etat de Quête
 		 * @return Etat de Quête
 		 */
-		public static EtatQuete getEtat(final String nom) {
-			for (EtatQuete etat : values()) {
+		public static AvancementQuete getEtat(final String nom) {
+			for (AvancementQuete etat : values()) {
 				if (etat.nom.equals(nom)) {
 					return etat;
 				}
@@ -195,7 +195,7 @@ public class Quete {
 	 * @return icône de la Quête faite ou non faite, selon si la Quête est fait ou non.
 	 */
 	public final BufferedImage getIcone() {
-		if (Quete.EtatQuete.FAITE.equals( Fenetre.getPartieActuelle().quetesEtat[this.numero]) ) {
+		if (Quete.AvancementQuete.FAITE.equals( Fenetre.getPartieActuelle().avancementDesQuetes[this.numero]) ) {
 			return this.getIconeQueteFaite();
 		} else {
 			return this.getIconeQuetePasFaite();
