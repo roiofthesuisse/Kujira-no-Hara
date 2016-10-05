@@ -40,12 +40,7 @@ public abstract class Mouvement {
 	public final void executerLeMouvement(final Deplacement deplacement) {
 		try {
 			final Event event = this.deplacement.getEventADeplacer();
-			
-			//TODO retirer
-			if(event.nom.equals("herosDirectionAleatoire") && this instanceof RegarderDansUneDirection){
-				System.out.println("executerLeMouvement");
-			}
-			
+
 			if ( this.mouvementPossible() ) {
 				//appliquer l'effet du Mouvement sur la Map et les Events
 				calculDuMouvement(event);

@@ -34,8 +34,8 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionDirection(final HashMap<String, Object> parametres) {
-		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
-			(Integer) (parametres.get("idEventConcerne") != null ?  parametres.get("idEventConcerne") : null),
+		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
+			(parametres.containsKey("idEventConcerne") ? (Integer) parametres.get("idEventConcerne") : null),
 			(int) parametres.get("direction")
 		);
 	}
@@ -55,8 +55,6 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 			//un Event particulier
 			eventConcerne = map.eventsHash.get((Integer) idEventConcerne);
 		}
-		System.out.println("event concerne:"+eventConcerne.nom);
-		System.out.println("directionPresente:"+eventConcerne.direction+" directionVoulue:"+directionVoulue);
 		return eventConcerne.direction == directionVoulue;
 	}
 	

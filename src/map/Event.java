@@ -98,6 +98,8 @@ public class Event implements Comparable<Event> {
 	public PageEvent pageActive = null;
 	/** Page dont on utilise l'apparence car les Conditions non liées au contact sont remplies */
 	public PageEvent pageDApparence = null;
+	public int numeroDeLaDernierePageDApparence = -1;
+	public boolean ilYAEuChangementDePageDApparence = true;
 	
 	/**
 	 * Lorsque ce marqueur est à true, on considère l'event comme supprimé.
@@ -331,13 +333,23 @@ public class Event implements Comparable<Event> {
 			//aucune Page ne convient, l'Event n'est pas affiché
 			this.pageActive = null;
 			this.pageDApparence = null;
-			viderLesProprietesActuelles();
+			viderLesProprietesActuelles();		
 			return;
 		} else {
 			//une Page correspond au moins pour les Conditions non liées au Héros, on donne son apparence à l'Event
 			this.pageActive = null;
 			this.pageDApparence = pageQuOnChoisitEnRemplacement;
+			
+			//il est important de noter un véritable changement de Page (non vide)
+			//en effet cela implique de réinitialiser la direction initiale de l'Event
+			if (this.pageDApparence.numero != this.numeroDeLaDernierePageDApparence) {
+				this.ilYAEuChangementDePageDApparence = true;
+				this.numeroDeLaDernierePageDApparence = this.pageDApparence.numero;
+			} else {
+				this.ilYAEuChangementDePageDApparence = false;
+			}
 			attribuerLesProprietesActuelles(this.pageDApparence);
+			
 			if (onATrouveLaPageActive) {
 				//même les Conditions liées au Héros correspondent, on execute la Page
 				this.pageActive = pageQuOnChoisitEnRemplacement;
@@ -352,7 +364,8 @@ public class Event implements Comparable<Event> {
 	private void attribuerLesProprietesActuelles(final PageEvent page) {
 		//apparence
 		this.imageActuelle = page.image;
-		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
+		if ( ilYAEuChangementDePageDApparence //on ne réinitialise pas la direction initiale sans changement de Page
+				&& !(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
 			this.direction = page.directionInitiale;
 		}
 		this.platActuel = page.plat;
@@ -376,9 +389,6 @@ public class Event implements Comparable<Event> {
 	private void viderLesProprietesActuelles() {
 		//apparence
 		this.imageActuelle = null;
-		if (!(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
-			this.direction = Event.DIRECTION_PAR_DEFAUT;
-		}
 		this.platActuel = true;
 		
 		//propriétés

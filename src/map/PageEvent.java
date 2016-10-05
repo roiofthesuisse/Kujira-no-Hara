@@ -106,7 +106,7 @@ public class PageEvent {
 		try {
 			this.directionInitiale = (int) pageJSON.get("directionInitiale");
 		} catch (JSONException e) {
-			this.directionInitiale = Event.Direction.BAS;
+			this.directionInitiale = Event.DIRECTION_PAR_DEFAUT;
 		}
 		try {
 			this.animationInitiale = (int) pageJSON.get("animationInitiale");
