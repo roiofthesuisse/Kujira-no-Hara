@@ -364,21 +364,22 @@ public class Event implements Comparable<Event> {
 	private void attribuerLesProprietesActuelles(final PageEvent page) {
 		//apparence
 		this.imageActuelle = page.image;
-		if ( ilYAEuChangementDePageDApparence //on ne réinitialise pas la direction initiale sans changement de Page
-				&& !(this instanceof Heros) ) { //le Héros n'est pas redirigé aux changements de Page
+		
+		if (!(this instanceof Heros) //le Héros n'est pas redirigé aux changements de Page
+		&& ilYAEuChangementDePageDApparence) { //on ne réinitialise pas les propriétés sans vrai changement de Page 
 			this.direction = page.directionInitiale;
+		
+			//propriétés
+			this.vitesseActuelle = page.vitesse;
+			this.frequenceActuelle = page.frequence;
+			this.animeALArretActuel = page.animeALArret;
+			this.auDessusDeToutActuel = page.auDessusDeTout;
+			this.animeEnMouvementActuel = page.animeEnMouvement;
+			this.traversableActuel = page.traversable;
+			this.directionFixeActuelle = page.directionFixe;
+			this.platActuel = page.plat;
+			
 		}
-		this.platActuel = page.plat;
-		
-		//propriétés
-		this.vitesseActuelle = page.vitesse;
-		this.frequenceActuelle = page.frequence;
-		this.animeALArretActuel = page.animeALArret;
-		this.auDessusDeToutActuel = page.auDessusDeTout;
-		this.animeEnMouvementActuel = page.animeEnMouvement;
-		this.traversableActuel = page.traversable;
-		this.directionFixeActuelle = page.directionFixe;
-		
 		//déplacement
 		this.deplacementNaturelActuel = page.deplacementNaturel;
 	}
@@ -389,17 +390,19 @@ public class Event implements Comparable<Event> {
 	private void viderLesProprietesActuelles() {
 		//apparence
 		this.imageActuelle = null;
-		this.platActuel = true;
 		
-		//propriétés
-		this.vitesseActuelle = Event.VITESSE_PAR_DEFAUT;
-		this.frequenceActuelle = Event.FREQUENCE_PAR_DEFAUT;
-		this.animeALArretActuel = Event.ANIME_A_L_ARRET_PAR_DEFAUT;
-		this.auDessusDeToutActuel = Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
-		this.animeEnMouvementActuel = Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
-		this.traversableActuel = Event.TRAVERSABLE_SI_VIDE;
-		this.directionFixeActuelle = Event.DIRECTION_FIXE_PAR_DEFAUT;
-	
+		if (!(this instanceof Heros) //le Héros n'est pas redirigé aux changements de Page
+		&& ilYAEuChangementDePageDApparence) { //on ne réinitialise pas les propriétés sans vrai changement de Page 
+			//propriétés
+			this.vitesseActuelle = Event.VITESSE_PAR_DEFAUT;
+			this.frequenceActuelle = Event.FREQUENCE_PAR_DEFAUT;
+			this.animeALArretActuel = Event.ANIME_A_L_ARRET_PAR_DEFAUT;
+			this.auDessusDeToutActuel = Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
+			this.animeEnMouvementActuel = Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
+			this.traversableActuel = Event.TRAVERSABLE_SI_VIDE;
+			this.directionFixeActuelle = Event.DIRECTION_FIXE_PAR_DEFAUT;
+			this.platActuel = true;
+		}
 		//déplacement
 		this.deplacementNaturelActuel = null;
 	}
