@@ -463,6 +463,35 @@ public class LecteurMap extends Lecteur {
 		final BufferedImage dessinCarreau = tilesetUtilise.carreaux[numeroCarreau];
 		return Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
 	}
+	
+	/**
+	 * Dessiner à l'écran un carreau issu d'un autotile.
+	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
+	 * @param ecran sur lequel on doit dessiner un carreau
+	 * @param xEcran position x où dessiner le carreau à l'écran
+	 * @param yEcran position y où dessiner le carreau à l'écran
+	 * @param numeroCarreau numéro de l'autotile (numéro négatif)
+	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
+	 * @param layer couche de décor à laquelle appartient le carreau
+	 * @return écran sur lequel on a dessiné le carreau demandé
+	 */
+	public final BufferedImage dessinerAutotile(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise, int[][] layer) {
+		final BufferedImage dessinCarreau;
+			final boolean autotileAnime = tilesetUtilise.cetAutotileEstAnime(numeroCarreau);
+			if (autotileAnime) {
+				this.map.contientDesAutotilesAnimes = true;
+			}
+			final boolean connectionHaut = yEcran == 0 
+					|| layer[xEcran][yEcran-1] == numeroCarreau;
+			final boolean connectionBas = yEcran == this.map.hauteur-1 
+					|| layer[xEcran][yEcran+1] == numeroCarreau;
+			final boolean connectionGauche = xEcran==0 
+					|| layer[xEcran-1][yEcran] == numeroCarreau;
+			final boolean connectionDroite = xEcran==this.map.largeur-1 
+					|| layer[xEcran+1][yEcran] == numeroCarreau;
+			dessinCarreau = tilesetUtilise.calculerAutotile(numeroCarreau, tilesetUtilise, autotileAnime, connectionBas, connectionGauche, connectionDroite, connectionHaut);
+			return Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
+	}
 
 	@Override
 	public final void keyPressed(ToucheRole touchePressee) {

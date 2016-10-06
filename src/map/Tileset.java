@@ -109,4 +109,31 @@ public class Tileset {
 		
 		//TODO type de terrain
 	}
+
+	/**
+	 * Savoir s'il s'agit d'un autotile animé ou pas.
+	 * @param numeroCarreau numéro de l'autotile au sein du Tileset (négatif)
+	 * @return true si animé, false sinon
+	 */
+	public boolean cetAutotileEstAnime(int numeroCarreau) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/**
+	 * Calculer le carreau d'autotile selon les carreaux alentours.
+	 * @param numeroCarreau
+	 * @param tilesetUtilise
+	 * @param autotileAnime
+	 * @param connectionBas
+	 * @param connectionGauche
+	 * @param connectionDroite
+	 * @param connectionHaut
+	 * @return
+	 */
+	public BufferedImage calculerAutotile(int numeroCarreau, Tileset tilesetUtilise, boolean autotileAnime,
+			boolean connectionBas, boolean connectionGauche, boolean connectionDroite, boolean connectionHaut) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -19,9 +19,13 @@ import utilitaire.InterpreteurDeJson;
  */
 public class Map {
 	//constantes
+	/** Chaque carreau du Tileset possède une altitude intrinsèque */
 	private static final int NOMBRE_ALTITUDES = 6;
+	/** Certaines altitudes sont affichées sous le Héros */
 	private static final int NOMBRE_ALTITUDES_SOUS_HEROS = 2;
+	/** Certaines altitudes sont affichées au dessus du Héros */
 	private static final int NOMBRE_ALTITUDES_SUR_HEROS = NOMBRE_ALTITUDES - NOMBRE_ALTITUDES_SOUS_HEROS;
+	/** Le décor est constitué de 3 couches, afin de pouvoir superposer plusieurs carreaux au même endroit de la Map */
 	private static final int NOMBRE_LAYERS = 3;
 	
 	public final int numero;
@@ -39,6 +43,7 @@ public class Map {
 	public final int[][][] layers;
 	public BufferedImage imageCoucheSousHeros;
 	public BufferedImage imageCoucheSurHeros;
+	public boolean contientDesAutotilesAnimes;
 	public Brouillard brouillard;
 	/** liste des Events rangés par coordonnée y */
 	public ArrayList<Event> events;
