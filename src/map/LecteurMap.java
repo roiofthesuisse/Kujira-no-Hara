@@ -477,20 +477,20 @@ public class LecteurMap extends Lecteur {
 	 */
 	public final BufferedImage dessinerAutotile(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise, int[][] layer) {
 		final BufferedImage dessinCarreau;
-			final boolean autotileAnime = tilesetUtilise.cetAutotileEstAnime(numeroCarreau);
-			if (autotileAnime) {
-				this.map.contientDesAutotilesAnimes = true;
-			}
-			final boolean connectionHaut = yEcran == 0 
-					|| layer[xEcran][yEcran-1] == numeroCarreau;
-			final boolean connectionBas = yEcran == this.map.hauteur-1 
-					|| layer[xEcran][yEcran+1] == numeroCarreau;
-			final boolean connectionGauche = xEcran==0 
-					|| layer[xEcran-1][yEcran] == numeroCarreau;
-			final boolean connectionDroite = xEcran==this.map.largeur-1 
-					|| layer[xEcran+1][yEcran] == numeroCarreau;
-			dessinCarreau = tilesetUtilise.calculerAutotile(numeroCarreau, tilesetUtilise, autotileAnime, connectionBas, connectionGauche, connectionDroite, connectionHaut);
-			return Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
+		final boolean autotileAnime = tilesetUtilise.cetAutotileEstAnime(numeroCarreau);
+		if (autotileAnime) {
+			this.map.contientDesAutotilesAnimes = true;
+		}
+		final boolean connectionHaut = yEcran == 0 
+				|| layer[xEcran][yEcran-1] == numeroCarreau;
+		final boolean connectionBas = yEcran == this.map.hauteur-1 
+				|| layer[xEcran][yEcran+1] == numeroCarreau;
+		final boolean connectionGauche = xEcran==0 
+				|| layer[xEcran-1][yEcran] == numeroCarreau;
+		final boolean connectionDroite = xEcran==this.map.largeur-1 
+				|| layer[xEcran+1][yEcran] == numeroCarreau;
+		dessinCarreau = tilesetUtilise.calculerAutotile(numeroCarreau, tilesetUtilise, autotileAnime, connectionBas, connectionGauche, connectionDroite, connectionHaut);
+		return Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
 	}
 
 	@Override

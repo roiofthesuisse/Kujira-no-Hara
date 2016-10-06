@@ -1,6 +1,7 @@
 package conditions;
 
 import commandes.CommandeEvent;
+import main.Fenetre;
 import map.Event;
 
 /**
@@ -14,7 +15,8 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	@Override
 	public final boolean estVerifiee() {
 		final Event event = this.page.event;
-	//	if ( event.frameDuContact != frame) {
+		final int frameActuelle = Fenetre.getFenetre().lecteur.frameActuelle;
+		if ( event.frameDuContact != frameActuelle) {
 			//on n'est pas à jour ! on calcule s'il y a contact :
 			final ConditionContact conditionContactMaintenant = new ConditionContact();
 			conditionContactMaintenant.page = this.page;
@@ -23,8 +25,8 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 			
 			event.estAuContactDuHerosAvant = event.estAuContactDuHerosMaintenant;
 			event.estAuContactDuHerosMaintenant = leHerosEstAuContactDeLEventMaintenant;
-	//		event.frameDuContact = frame;
-	//	}
+			event.frameDuContact = frameActuelle;
+		}
 		
 		//on est à jour
 		return event.estAuContactDuHerosMaintenant && !event.estAuContactDuHerosAvant;

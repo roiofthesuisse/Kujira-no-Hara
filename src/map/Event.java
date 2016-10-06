@@ -33,6 +33,8 @@ public class Event implements Comparable<Event> {
 	public static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAUT = false;
 	public static final boolean IGNORER_LES_MOUVEMENTS_IMPOSSIBLES_PAR_DEFAUT = true;
 	public static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT = true;
+	public static final boolean PLAT_PAR_DEFAUT = false;
+	public static final boolean PLAT_SI_VIDE = true;
 	
 	/** Map à laquelle cet Event appartient */
 	public Map map;
@@ -57,7 +59,7 @@ public class Event implements Comparable<Event> {
 	
 	public BufferedImage imageActuelle = null;
 	/** par défaut, si image < 32px, l'Event est considéré comme plat (au sol) */
-	public boolean platActuel;
+	public boolean platActuel = PLAT_PAR_DEFAUT;
 	public int direction;
 	public int animation;
 	
@@ -78,11 +80,11 @@ public class Event implements Comparable<Event> {
 	/** 
 	 * Ces paramètres sont remplis automatiquement au chargement de la page.
 	 */
-	public boolean animeALArretActuel;
-	public boolean animeEnMouvementActuel;
-	public boolean traversableActuel;
-	public boolean directionFixeActuelle;
-	public boolean auDessusDeToutActuel;
+	public boolean animeALArretActuel = ANIME_A_L_ARRET_PAR_DEFAUT;
+	public boolean animeEnMouvementActuel = ANIME_EN_MOUVEMENT_PAR_DEFAUT;
+	public boolean traversableActuel = TRAVERSABLE_PAR_DEFAUT;
+	public boolean directionFixeActuelle = DIRECTION_FIXE_PAR_DEFAUT;
+	public boolean auDessusDeToutActuel = AU_DESSUS_DE_TOUT_PAR_DEFAUT;
 	public Deplacement deplacementNaturelActuel;
 	
 	public int largeurHitbox = LARGEUR_HITBOX_PAR_DEFAUT;
@@ -392,7 +394,7 @@ public class Event implements Comparable<Event> {
 		this.imageActuelle = null;
 		
 		if (!(this instanceof Heros) //le Héros n'est pas redirigé aux changements de Page
-		&& ilYAEuChangementDePageDApparence) { //on ne réinitialise pas les propriétés sans vrai changement de Page 
+		&& ilYAEuChangementDePageDApparence ) { //on ne réinitialise pas les propriétés sans vrai changement de Page 
 			//propriétés
 			this.vitesseActuelle = Event.VITESSE_PAR_DEFAUT;
 			this.frequenceActuelle = Event.FREQUENCE_PAR_DEFAUT;
@@ -401,7 +403,7 @@ public class Event implements Comparable<Event> {
 			this.animeEnMouvementActuel = Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
 			this.traversableActuel = Event.TRAVERSABLE_SI_VIDE;
 			this.directionFixeActuelle = Event.DIRECTION_FIXE_PAR_DEFAUT;
-			this.platActuel = true;
+			this.platActuel = PLAT_SI_VIDE;
 		}
 		//déplacement
 		this.deplacementNaturelActuel = null;
