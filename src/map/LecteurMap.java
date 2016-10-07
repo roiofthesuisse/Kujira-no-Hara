@@ -475,21 +475,31 @@ public class LecteurMap extends Lecteur {
 	 * @param layer couche de décor à laquelle appartient le carreau
 	 * @return écran sur lequel on a dessiné le carreau demandé
 	 */
-	public final BufferedImage dessinerAutotile(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise, int[][] layer) {
-		final BufferedImage dessinCarreau;
-		final boolean autotileAnime = tilesetUtilise.cetAutotileEstAnime(numeroCarreau);
-		if (autotileAnime) {
+	public final BufferedImage dessinerAutotile(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, 
+			final Tileset tilesetUtilise, final int[][] layer) {
+		Autotile autotile = tilesetUtilise.autotiles.get(numeroCarreau);
+		if (autotile.anime) {
 			this.map.contientDesAutotilesAnimes = true;
 		}
+		int numeroVoisin;
+		numeroVoisin = layer[xEcran][yEcran-1];
 		final boolean connectionHaut = yEcran == 0 
-				|| layer[xEcran][yEcran-1] == numeroCarreau;
+				|| numeroVoisin == numeroCarreau
+				|| autotile.cousins.contains(numeroVoisin);
+		numeroVoisin = layer[xEcran][yEcran+1];
 		final boolean connectionBas = yEcran == this.map.hauteur-1 
-				|| layer[xEcran][yEcran+1] == numeroCarreau;
+				|| numeroVoisin == numeroCarreau
+				|| autotile.cousins.contains(numeroVoisin);
+		numeroVoisin = layer[xEcran-1][yEcran];
 		final boolean connectionGauche = xEcran==0 
-				|| layer[xEcran-1][yEcran] == numeroCarreau;
+				|| numeroVoisin == numeroCarreau
+				|| autotile.cousins.contains(numeroVoisin);
+		numeroVoisin = layer[xEcran+1][yEcran];
 		final boolean connectionDroite = xEcran==this.map.largeur-1 
-				|| layer[xEcran+1][yEcran] == numeroCarreau;
-		dessinCarreau = tilesetUtilise.calculerAutotile(numeroCarreau, tilesetUtilise, autotileAnime, connectionBas, connectionGauche, connectionDroite, connectionHaut);
+				|| numeroVoisin == numeroCarreau
+				|| autotile.cousins.contains(numeroVoisin);
+		final BufferedImage dessinCarreau = tilesetUtilise.calculerAutotile(numeroCarreau, connectionBas, connectionGauche, connectionDroite, 
+				connectionHaut);
 		return Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
 	}
 

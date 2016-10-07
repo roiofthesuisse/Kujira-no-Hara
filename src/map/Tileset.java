@@ -38,7 +38,7 @@ public class Tileset {
 	public BufferedImage imagePanorama;
 	private final String nomImageBrouillard;
 	public BufferedImage imageBrouillard;
-	private HashMap<Integer, Autotile> autotiles;
+	public HashMap<Integer, Autotile> autotiles;
 	
 	/**
 	 * Constructeur explicite
@@ -113,15 +113,6 @@ public class Tileset {
 	}
 
 	/**
-	 * Savoir s'il s'agit d'un autotile animé ou pas.
-	 * @param numeroCarreau numéro de l'autotile au sein du Tileset (négatif)
-	 * @return true si animé, false sinon
-	 */
-	public boolean cetAutotileEstAnime(int numeroCarreau) {
-		return this.autotiles.get(numeroCarreau).anime;
-	}
-
-	/**
 	 * Calculer le carreau d'autotile selon les carreaux alentours.
 	 * @param numeroCarreau
 	 * @param tilesetUtilise
@@ -132,9 +123,9 @@ public class Tileset {
 	 * @param connectionHaut
 	 * @return
 	 */
-	public BufferedImage calculerAutotile(int numeroCarreau, Tileset tilesetUtilise, boolean autotileAnime,
+	public BufferedImage calculerAutotile(int numeroCarreau,
 			boolean connectionBas, boolean connectionGauche, boolean connectionDroite, boolean connectionHaut) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.autotiles.get(numeroCarreau).calculerAutotile(
+				 connectionBas,  connectionGauche,  connectionDroite,  connectionHaut);
 	}
 }
