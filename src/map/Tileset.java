@@ -3,6 +3,7 @@ package map;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
@@ -37,6 +38,7 @@ public class Tileset {
 	public BufferedImage imagePanorama;
 	private final String nomImageBrouillard;
 	public BufferedImage imageBrouillard;
+	private HashMap<Integer, Autotile> autotiles;
 	
 	/**
 	 * Constructeur explicite
@@ -116,8 +118,7 @@ public class Tileset {
 	 * @return true si animé, false sinon
 	 */
 	public boolean cetAutotileEstAnime(int numeroCarreau) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.autotiles.get(numeroCarreau).anime;
 	}
 
 	/**

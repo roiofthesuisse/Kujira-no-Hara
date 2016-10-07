@@ -274,7 +274,7 @@ public class Map {
 	}
 
 	/**
-	 * Inscrire l'Event dans la liste des Events en attente de suppression
+	 * Inscrire l'Event dans la liste des Events en attente de suppression.
 	 * L'Event sera supprimé à la fin de la boucle d'affichage.
 	 * @param numeroEventASupprimer numéro de l'Event qu'il faut inscrire à la suppression
 	 * @return booléen pour savoir si l'Event à supprimer a bien été trouvé dans la liste des évènements
