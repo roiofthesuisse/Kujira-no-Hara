@@ -8,7 +8,7 @@ import map.Event;
 /**
  * Déplacer un Event d'un pas en diagonale
  */
-public class PasEnDiagonale extends Mouvement {
+public class PasEnDiagonale extends Avancer {
 	int directionVerticale;
 	int directionHorizontale;
 	/** partie du mouvement effectuée pendant 1 frame selon X */
@@ -20,11 +20,12 @@ public class PasEnDiagonale extends Mouvement {
 	 * Constructeur explicite
 	 * @param directionVerticale composante verticale de la diagonale
 	 * @param directionHorizontale composante horizontale de la diagonale 
+	 * @param nombreDePixels distance parcourue
 	 */
-	public PasEnDiagonale(final int directionVerticale, final int directionHorizontale) {
+	public PasEnDiagonale(final int directionVerticale, final int directionHorizontale, final int nombreDePixels) {
+		super(-1, nombreDePixels);
 		this.directionVerticale = directionVerticale;
 		this.directionHorizontale = directionHorizontale;
-		this.etapes = Fenetre.TAILLE_D_UN_CARREAU;
 	}
 	
 	/**
@@ -33,7 +34,9 @@ public class PasEnDiagonale extends Mouvement {
 	 */
 	public PasEnDiagonale(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("directionVerticale"),
-			  (int) parametres.get("directionHorizontale"));
+			  (int) parametres.get("directionHorizontale"),
+			  (parametres.containsKey("nombreDeCarreaux") ? (int) parametres.get("parametres") : 1) * Fenetre.TAILLE_D_UN_CARREAU
+		);
 	}
 	
 	/** 
@@ -48,11 +51,6 @@ public class PasEnDiagonale extends Mouvement {
 		pixelHorizontal.calculDuMouvement(event);
 		
 		this.ceQuiAEteFait += event.vitesseActuelle;
-	}
-
-	@Override
-	protected void reinitialiserSpecifique() {
-		// rien	
 	}
 
 	/**
@@ -72,19 +70,6 @@ public class PasEnDiagonale extends Mouvement {
 		pixelHorizontal.deplacement.idEventADeplacer = event.id;
 		
 		return (pixelHorizontal.mouvementPossible() && pixelVertical.mouvementPossible());
-	}
-
-	@Override
-	protected final void terminerLeMouvementSpecifique(final Event event) {
-		event.avance = false;
-	}
-
-	@Override
-	protected final void ignorerLeMouvementSpecifique(final Event event) {
-		if (!event.animeALArretActuel && !event.avancaitALaFramePrecedente && !event.avance) {
-			//l'event ne bouge plus depuis 2 frames, on arrête son animation
-			event.animation = 0; 
-		}
 	}
 
 	@Override

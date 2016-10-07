@@ -50,20 +50,24 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	 */
 	@Override
 	public final boolean mouvementPossible() {
-		if (!this.directionDecidee) {
+		if (!this.directionDecidee) { //ne calculer la direction qu'une seule fois par pas
+			//calcul de la direction à prendre
 			final Event eventObservateur = this.deplacement.getEventADeplacer();
 			final Event eventObserve = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventObserve);
 			final int distanceVerticale = eventObservateur.y - eventObserve.y;
 			final int distanceHorizontale = eventObservateur.x - eventObserve.x;
-			
 			calculerDirection(distanceVerticale, distanceHorizontale);
-			if (this.sens == Sens.FUIR) { // l'Event fuit
-				prendreDirectionOpposee();
+			
+			//si l'Event fuit on inverse la direction
+			if (this.sens == Sens.FUIR) {
+				this.direction = calculerDirectionOpposee(this.direction);
 			} 
+			
 			if (!super.mouvementPossible()) {
 				essayerAutreDirection();
 			}
-			this.directionDecidee = true;
+			
+			this.directionDecidee = true; 
 		}
 		return super.mouvementPossible();
 	}
@@ -101,8 +105,9 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 		} else {
 			this.direction = directionPossibleVerticale; 
 		}
-		if (this.sens == Sens.FUIR) { // si l'Event fuit
-			prendreDirectionOpposee();
+		//si l'Event fuit on prend la direction opposée
+		if (this.sens == Sens.FUIR) {
+			this.direction = calculerDirectionOpposee(this.direction);
 		}
 	}
 	

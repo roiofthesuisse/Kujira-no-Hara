@@ -39,12 +39,11 @@ public class Avancer extends Mouvement {
 	 * @param event subissant le Mouvement
 	 */
 	@Override
-	public final void calculDuMouvement(final Event event) {
-		final int sens = this.direction;
-		
+	public void calculDuMouvement(final Event event) {
 		event.avance = true;
+		
 		//déplacement :
-		switch (sens) {
+		switch (this.direction) {
 			case Direction.BAS : 
 				event.y += event.vitesseActuelle; 
 				break;
@@ -184,23 +183,27 @@ public class Avancer extends Mouvement {
 	}
 	
 	@Override
-	public final String toString() {
+	public String toString() {
 		return "Avancer "+this.etapes+" pixels vers "+this.direction;
 	}
 	
 	/**
-	 * Inverse la direction du Mouvement
+	 * Calcule la direction opposée.
+	 * @param dir direction à inverser
+	 * @return direction opposée
 	 */
-	protected void prendreDirectionOpposee() {
-		if (this.direction == Direction.BAS) {
-			this.direction = Direction.HAUT;
-		} else if (this.direction == Direction.HAUT) {
-			this.direction = Direction.BAS;
-		} else if (this.direction == Direction.GAUCHE) {
-			this.direction = Direction.DROITE;
-		} else if (this.direction == Direction.DROITE) {
-			this.direction = Direction.GAUCHE;
+	protected final int calculerDirectionOpposee(final int dir) {
+		switch(dir) {
+			case Direction.BAS:
+				return Direction.HAUT;
+			case Direction.HAUT:
+				return Direction.BAS;
+			case Direction.GAUCHE:
+				return Direction.DROITE;
+			case Direction.DROITE:
+				return Direction.GAUCHE;
 		}
+		return -1;
 	}
 	
 }
