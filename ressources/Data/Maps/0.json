@@ -269,10 +269,6 @@
 							}
 						},
 						{
-							"nom": "JouerEffetSonore",
-							"nomFichierSonore": "tambourin.ogg"
-						},
-						{
 							"nom": "Deplacement",
 							"idEventADeplacer": 9,
 							"mouvements": [
@@ -282,15 +278,9 @@
 									"nombreDeCarreaux": 1
 								}
 							],
+							"ignorerLesMouvementsImpossibles": true,
+							"repeterLeDeplacement": false,
 							"attendreLaFinDuDeplacement": true
-						},
-						{
-							"nom": "ConditionSinon",
-							"numero": 1
-						},
-						{
-							"nom": "JouerEffetSonore",
-							"nomFichierSonore": "tambourin.ogg"
 						},
 						{
 							"nom": "ConditionFin",
@@ -303,7 +293,7 @@
 		},
 		{
 			"nom": "deplaceurDeHeros",
-			"id": 8,
+			"id": 10,
 			"x": 3,
 			"y": 14,
 			"pages": [
@@ -341,7 +331,7 @@
 		},
 		{
 			"nom": "stopPluie",
-			"id": 9,
+			"id": 11,
 			"x": 0,
 			"y": 0,
 			"pages": [

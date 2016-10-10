@@ -210,7 +210,7 @@ public class Map {
 			//d'abord le héros
 			this.heros = new Heros(this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros);
 			this.events.add(heros);
-			this.eventsHash.put(0, heros);
+			//this.eventsHash.put(0, heros);
 			//puis les autres
 			final JSONArray jsonEvents = jsonMap.getJSONArray("events");
 			InterpreteurDeJson.recupererLesEvents(this.events, jsonEvents);
@@ -220,10 +220,15 @@ public class Map {
 		}
 		//numérotation des Events
 		final int nombreDEvents = this.events.size();
+		Event event;
 		for (int i = 0; i<nombreDEvents; i++) {
-			this.events.get(i).map = this;
-			this.events.get(i).numero = i;
-			this.eventsHash.put(this.events.get(i).id, this.events.get(i));
+			event = this.events.get(i);
+			event.map = this;
+			event.numero = i;
+			if (this.eventsHash.containsKey(event.id)) { //la numérotation des Events comporte un doublon !
+				System.err.println("Un autre event porte déjà le numéro : " + event.id);
+			}
+			this.eventsHash.put(event.id, event);
 		}
 	}
 

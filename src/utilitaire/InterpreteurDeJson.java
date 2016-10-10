@@ -200,7 +200,7 @@ public abstract class InterpreteurDeJson {
 				if (commande instanceof CommandeMenu) {
 					commandes.add((CommandeMenu) commande);
 				} else {
-					System.err.println("La commande "+commande.getClass().getName()+"n'est pas une CommandeMenu !");
+					System.err.println("La commande "+commande.getClass().getName()+" n'est pas une CommandeMenu !");
 				}
 			}
 		}

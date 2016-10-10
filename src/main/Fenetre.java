@@ -4,7 +4,6 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -175,6 +174,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	@Override
 	public void keyPressed(final KeyEvent event) {
 		final Integer keycode = event.getKeyCode();
+		this.mesuresDePerformance.add("press;"+keycode+";"+System.currentTimeMillis());
 		final GestionClavier.ToucheRole touchePressee = GestionClavier.ToucheRole.getToucheRole(keycode);
 		if (touchePressee!=null && !touchePressee.touche.enfoncee) {
 			touchePressee.touche.enfoncee = true;
@@ -187,6 +187,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	@Override
 	public void keyReleased(final KeyEvent event) {
 		final Integer keycode = event.getKeyCode();
+		this.mesuresDePerformance.add("release;"+keycode+";"+System.currentTimeMillis());
 		final GestionClavier.ToucheRole toucheRelachee = GestionClavier.ToucheRole.getToucheRole(keycode);
 		if (toucheRelachee!=null && toucheRelachee.touche.enfoncee) {
 			toucheRelachee.touche.enfoncee = false;

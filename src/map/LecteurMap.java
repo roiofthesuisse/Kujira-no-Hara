@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
+import commandes.Deplacement;
 import commandes.Message;
 import commandes.OuvrirMenu;
 import main.Commande;
@@ -18,6 +19,7 @@ import main.Fenetre;
 import main.Lecteur;
 import map.meteo.Meteo;
 import menu.Texte;
+import mouvements.Mouvement;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
@@ -78,7 +80,7 @@ public class LecteurMap extends Lecteur {
 	 * @return écran représentant la Map
 	 */
 	public final BufferedImage calculerAffichage(final int frame) {
-		final long t0 = System.currentTimeMillis(); //mesure de performances
+		//final long t0 = System.currentTimeMillis(); //mesure de performances
 		
 		BufferedImage ecran = ecranNoir();
 		
@@ -132,9 +134,9 @@ public class LecteurMap extends Lecteur {
 		//supprimer events dont l'attribut "supprimé" est à true
 		supprimerLesEventsASupprimer();
 		
-		final long t1 = System.currentTimeMillis(); //mesure de performances
+		//final long t1 = System.currentTimeMillis(); //mesure de performances
 		
-		this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
+		//this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
 		return ecran;
 	}
 

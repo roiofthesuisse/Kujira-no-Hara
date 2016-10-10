@@ -38,7 +38,8 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	@Override
 	public final boolean estVerifiee() {
 		this.deplacement.page = this.page; //on apprend au Déplacement quelle est sa Page
-		return this.deplacement.mouvements.get(0).mouvementPossible();
+		final boolean resultat = this.deplacement.mouvements.get(0).mouvementPossible();
+		return resultat;
 	}
 
 	/**
