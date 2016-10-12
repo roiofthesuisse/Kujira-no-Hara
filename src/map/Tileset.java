@@ -112,20 +112,4 @@ public class Tileset {
 		//TODO type de terrain
 	}
 
-	/**
-	 * Calculer le carreau d'autotile selon les carreaux alentours.
-	 * @param numeroCarreau
-	 * @param tilesetUtilise
-	 * @param autotileAnime
-	 * @param connectionBas
-	 * @param connectionGauche
-	 * @param connectionDroite
-	 * @param connectionHaut
-	 * @return
-	 */
-	public BufferedImage calculerAutotile(int numeroCarreau,
-			boolean connectionBas, boolean connectionGauche, boolean connectionDroite, boolean connectionHaut) {
-		return this.autotiles.get(numeroCarreau).calculerAutotile(
-				 connectionBas,  connectionGauche,  connectionDroite,  connectionHaut);
-	}
 }

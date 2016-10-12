@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import main.Fenetre;
 import utilitaire.Graphismes;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.Maths;
 
 /**
  * Une Map est un décor rectangulaire constitué de briques issues du Tileset.
@@ -41,8 +42,12 @@ public class Map {
 	public final int[][] layer1; //couche de decor 1
 	public final int[][] layer2; //couche de decor 2
 	public final int[][][] layers;
-	public BufferedImage imageCoucheSousHeros;
-	public BufferedImage imageCoucheSurHeros;
+	private BufferedImage imageCoucheSousHeros;
+	private BufferedImage imageCoucheSurHeros;
+	/** en cas d'Autotile animé */
+	private BufferedImage[] imagesCoucheSousHeros = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME]; 
+	/** en cas d'Autotile animé */
+	private BufferedImage[] imagesCoucheSurHeros = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME]; 
 	public boolean contientDesAutotilesAnimes;
 	public Brouillard brouillard;
 	/** liste des Events rangés par coordonnée y */
@@ -56,6 +61,8 @@ public class Map {
 	public boolean[][] casePassable;
 	public final boolean defilementCameraX;
 	public final boolean defilementCameraY;
+	/** numéro de la vignette d'animation des Autotiles de la Map */
+	private int vignetteAutotileActuelle = 0;
 	
 	/**
 	 * Constructeur explicite
@@ -163,6 +170,11 @@ public class Map {
 				couches[0] = Graphismes.superposerImages(couches[0], couches[i], 0, 0);
 			}
 			this.imageCoucheSousHeros = couches[0];
+			
+			//TODO des images différentes dans chaque vignette selon l'autotile animé
+			for (int i = 0; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {
+				this.imagesCoucheSousHeros[i] = this.imageCoucheSousHeros;
+			}
 	}
 
 	/**
@@ -197,6 +209,11 @@ public class Map {
 			couches[0] = Graphismes.superposerImages(couches[0], couches[i], 0, 0);
 		}
 		this.imageCoucheSurHeros = couches[0];
+		
+		//TODO des images différentes dans chaque vignette selon l'autotile animé
+		for (int i = 0; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {
+			this.imagesCoucheSurHeros[i] = this.imageCoucheSurHeros;
+		}
 	}
 
 	/**
@@ -293,6 +310,17 @@ public class Map {
 		}
 		System.out.println("L'évènement à supprimer numéro "+numeroEventASupprimer+" n'a pas été trouvé dans la liste.");
 		return false;
+	}
+
+	public BufferedImage getImageCoucheSurHeros(final int frameActuelle) {
+		return this.imagesCoucheSurHeros[this.vignetteAutotileActuelle]; //la vignette a déjà été calculée lors du décor inférieur
+	}
+
+	public BufferedImage getImageCoucheSousHeros(final int frameActuelle) {
+		if (this.contientDesAutotilesAnimes) {
+			this.vignetteAutotileActuelle  = Maths.modulo(frameActuelle, Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME);
+		}
+		return this.imagesCoucheSousHeros[this.vignetteAutotileActuelle];
 	}
 	
 }

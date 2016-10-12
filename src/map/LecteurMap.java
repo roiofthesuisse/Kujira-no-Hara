@@ -7,11 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
-import commandes.Deplacement;
 import commandes.Message;
 import commandes.OuvrirMenu;
 import main.Commande;
@@ -19,11 +17,11 @@ import main.Fenetre;
 import main.Lecteur;
 import map.meteo.Meteo;
 import menu.Texte;
-import mouvements.Mouvement;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.Graphismes;
+import utilitaire.Maths;
 
 /**
  * Le Lecteur de map affiche la Map et les Events.
@@ -94,11 +92,13 @@ public class LecteurMap extends Lecteur {
 			e.printStackTrace();
 		}
 		
-		//on dessine la map
+		//calcul de la position de la caméra par rapport à la Map
 		final int xCamera = calculerXCamera();
 		final int yCamera = calculerYCamera();
-		ecran = Graphismes.superposerImages(ecran, map.imageCoucheSousHeros, -xCamera, -yCamera);
-
+		
+		//on dessine le décor inférieur
+		ecran = dessinerDecorInferieur(ecran, xCamera, yCamera, frame);
+				
 		//lecture des commandes event
 		continuerLaLectureDesPagesDeCommandesEvent();
 
@@ -115,7 +115,7 @@ public class LecteurMap extends Lecteur {
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera);
 		
 		//ajouter imageCoucheSurHeros à l'écran
-		ecran = Graphismes.superposerImages(ecran, map.imageCoucheSurHeros, -xCamera, -yCamera);
+		ecran = dessinerDecorSuperieur(ecran, xCamera, yCamera, frame);
 		
 		//météo
 		ecran = dessinerMeteo(ecran, frame);
@@ -137,6 +137,16 @@ public class LecteurMap extends Lecteur {
 		//final long t1 = System.currentTimeMillis(); //mesure de performances
 		
 		//this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
+		return ecran;
+	}
+
+	private BufferedImage dessinerDecorSuperieur(BufferedImage ecran, final int xCamera, final int yCamera, final int frame) {
+		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheSurHeros(frame), -xCamera, -yCamera);
+		return ecran;
+	}
+
+	private BufferedImage dessinerDecorInferieur(BufferedImage ecran, final int xCamera, final int yCamera, final int frame) {
+		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheSousHeros(frame), -xCamera, -yCamera);
 		return ecran;
 	}
 
@@ -478,30 +488,16 @@ public class LecteurMap extends Lecteur {
 	 * @return écran sur lequel on a dessiné le carreau demandé
 	 */
 	public final BufferedImage dessinerAutotile(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, 
-			final Tileset tilesetUtilise, final int[][] layer) {
-		Autotile autotile = tilesetUtilise.autotiles.get(numeroCarreau);
+			final Tileset tilesetUtilise, final int xCarreau, final int yCarreau, final int[][] layer) {
+		final Autotile autotile = tilesetUtilise.autotiles.get(numeroCarreau);
+		
+		// On prévient la Map qu'elle aura un décor animé
 		if (autotile.anime) {
 			this.map.contientDesAutotilesAnimes = true;
 		}
-		int numeroVoisin;
-		numeroVoisin = layer[xEcran][yEcran-1];
-		final boolean connectionHaut = yEcran == 0 
-				|| numeroVoisin == numeroCarreau
-				|| autotile.cousins.contains(numeroVoisin);
-		numeroVoisin = layer[xEcran][yEcran+1];
-		final boolean connectionBas = yEcran == this.map.hauteur-1 
-				|| numeroVoisin == numeroCarreau
-				|| autotile.cousins.contains(numeroVoisin);
-		numeroVoisin = layer[xEcran-1][yEcran];
-		final boolean connectionGauche = xEcran==0 
-				|| numeroVoisin == numeroCarreau
-				|| autotile.cousins.contains(numeroVoisin);
-		numeroVoisin = layer[xEcran+1][yEcran];
-		final boolean connectionDroite = xEcran==this.map.largeur-1 
-				|| numeroVoisin == numeroCarreau
-				|| autotile.cousins.contains(numeroVoisin);
-		final BufferedImage dessinCarreau = tilesetUtilise.calculerAutotile(numeroCarreau, connectionBas, connectionGauche, connectionDroite, 
-				connectionHaut);
+
+		final BufferedImage dessinCarreau = autotile.calculerAutotile(xCarreau, yCarreau, this.map.largeur, this.map.hauteur, numeroCarreau, layer);
+		
 		return Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
 	}
 
