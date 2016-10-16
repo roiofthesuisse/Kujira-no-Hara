@@ -68,7 +68,7 @@ public class PasEnDiagonale extends Avancer {
 		pixelHorizontal.deplacement = event.deplacementForce;
 		pixelVertical.deplacement.idEventADeplacer = event.id;
 		pixelHorizontal.deplacement.idEventADeplacer = event.id;
-		
+
 		return (pixelHorizontal.mouvementPossible() && pixelVertical.mouvementPossible());
 	}
 

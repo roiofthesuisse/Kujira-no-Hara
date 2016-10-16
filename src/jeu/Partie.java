@@ -35,8 +35,12 @@ public final class Partie {
 	/** possède-t-on l'Arme numéro i ? */
 	public boolean[] armesPossedees;
 	public int nombreDArmesPossedees;
+	/** possède-t-on le gadget numéro i ? */
+	public boolean[] gadgetsPossedes;
+	public int nombreDeGadgetsPossedes;
 	
 	private int idArmeEquipee;
+	private int idGadgetEquipe; //TODO faire en sorte qu'il soit plus souligné en jaune
 	
 	/** effet météorologique en cours */
 	public Meteo meteo = null;
