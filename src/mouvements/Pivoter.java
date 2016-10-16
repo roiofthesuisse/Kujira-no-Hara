@@ -9,10 +9,14 @@ import map.Event.Direction;
  * Faire pivoter un Event d'un certain angle.
  */
 public class Pivoter extends Mouvement {
-
+	//constantes
+	private static final int ANGLE_DROIT_HORAIRE = 90;
+	private static final int ANGLE_DROIT_ANTIHORAIRE = -90;
+	private static final int ANGLE_DEMI_TOUR = 180;
+	
 	private int angle;
 	private int direction;
-
+	
 	/**
 	 * Constructeur explicite
 	 * @param angle du pivot
@@ -20,6 +24,9 @@ public class Pivoter extends Mouvement {
 	public Pivoter(final int angle) {
 		this.direction = -1;
 		this.angle = angle;
+		
+		this.etapes = 1;
+		this.ceQuiAEteFait = 0;
 	}
 
 	/**
@@ -36,44 +43,45 @@ public class Pivoter extends Mouvement {
 	}
 
 	@Override
-	public boolean mouvementPossible() {
+	public final boolean mouvementPossible() {
 		return true;
 	}
 
 	@Override
-	protected void calculDuMouvement(Event event) {
+	protected final void calculDuMouvement(final Event event) {
 		// rien car le travail est fait par la méthode getDirectionImposee()
+		this.ceQuiAEteFait++;
 	}
 
 	@Override
-	protected void terminerLeMouvementSpecifique(Event event) {
+	protected void terminerLeMouvementSpecifique(final Event event) {
 		// Mouvement non spécifique
 
 	}
 
 	@Override
-	protected void ignorerLeMouvementSpecifique(Event event) {
+	protected void ignorerLeMouvementSpecifique(final Event event) {
 		// Mouvement non spécifique
 
 	}
 
 	@Override
-	public String toString() {
+	public final String toString() {
 		return "Pivoter d'un angle de " + angle + " degrés";
 	}
 
 	@Override
-	public int getDirectionImposee() {
+	public final int getDirectionImposee() {
 		final Event event = this.deplacement.getEventADeplacer();
 		this.direction = event.direction;
 		switch (this.angle) {
-		case (90):
+		case (ANGLE_DROIT_HORAIRE):
 			pivoter90degres();
 			break;
-		case(180):
+		case(ANGLE_DEMI_TOUR):
 			prendreDirectionOpposee();
 			break;
-		case(-90):
+		case(ANGLE_DROIT_ANTIHORAIRE):
 			pivoterMoins90degres();
 			break;
 		default:
@@ -85,7 +93,7 @@ public class Pivoter extends Mouvement {
 	/**
 	 * Inverse la direction du Mouvement
 	 */
-	protected void prendreDirectionOpposee() {
+	private void prendreDirectionOpposee() {
 		switch (this.direction) {
 		case (Direction.BAS):
 			this.direction = Direction.HAUT;

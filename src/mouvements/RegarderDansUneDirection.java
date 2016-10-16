@@ -17,6 +17,8 @@ public class RegarderDansUneDirection extends Mouvement {
 	 */
 	public RegarderDansUneDirection(final int direction) {
 		this.direction = direction;
+		this.etapes = 1;
+		this.ceQuiAEteFait = 0;
 	}
 	
 	/**
@@ -46,6 +48,7 @@ public class RegarderDansUneDirection extends Mouvement {
 	@Override
 	protected final void calculDuMouvement(final Event event) {
 		//rien car le travail est fait par la méthode getDirectionImposee()
+		this.ceQuiAEteFait++;
 	}
 
 	@Override

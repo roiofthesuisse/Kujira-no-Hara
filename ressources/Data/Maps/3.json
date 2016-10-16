@@ -113,8 +113,7 @@
 							"nom": "Deplacement",
 							"mouvements": [
 								{
-									"nom": "RegarderDansUneDirection",
-									"direction": 2
+									"nom": "RegarderDansUneDirectionAleatoire"
 								}
 							],
 							"ignorerLesMouvementsImpossibles": true,
@@ -159,6 +158,30 @@
 					"animeEnMouvement": true,
 					"directionFixe": false,
 					"vitesse": 2
+				}
+			]
+		},
+		{
+			"nom": "herosPivot",
+			"id": 4,
+			"x": 10,
+			"y": 8,
+			"pages": [
+				{
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "Pivoter",
+								"angle": -90
+							}
+						],
+						"repeterLeDeplacement": true
+					},
+					"image": "Jiyounasu character.png",
+					"traversable": false,
+					"animeEnMouvement": true,
+					"directionInitiale": 2
 				}
 			]
 		}
