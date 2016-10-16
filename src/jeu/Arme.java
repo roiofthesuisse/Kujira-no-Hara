@@ -25,13 +25,14 @@ public class Arme {
 	public static HashMap<String, Arme> armesDuJeuHash = new HashMap<String, Arme>();
 	
 	/**
-	 * Chaque arme possède un id propre. 
+	 * Chaque Arme possède un id propre. 
 	 * 0 pour l'épée, 1 pour la torche etc.
 	 */
 	public final int id;
-	public final String nom;
-	public final String nomEffetSonoreAttaque;
+	public String nom;
+	public String nomEffetSonoreAttaque;
 	public BufferedImage icone;
+	
 	/**
 	 * L'animation d'attaque est composée de plusieurs images.
 	 * Pour faire rester une image plus longtemps à l'écran, l'ajouter plusieurs fois à la liste.
@@ -154,7 +155,7 @@ public class Arme {
 			
 		} catch (FileNotFoundException e) {
 			//problème lors de l'ouverture du fichier JSON
-			System.err.println("Impossible de charger les quêtes du jeu.");
+			System.err.println("Impossible de charger les armes du jeu.");
 			e.printStackTrace();
 			armesDuJeu = null;
 			return 0;

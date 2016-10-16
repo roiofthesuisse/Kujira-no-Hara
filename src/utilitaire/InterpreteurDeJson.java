@@ -96,6 +96,16 @@ public abstract class InterpreteurDeJson {
 	}
 	
 	/**
+	 * Charger la liste des Gadgets du jeu au format JSON.
+	 * @return objet JSON contenant la liste des Gadgets du jeu
+	 * @throws FileNotFoundException fichier JSON introuvable
+	 */
+	public static JSONArray ouvrirJsonGadgets() throws FileNotFoundException {
+		final JSONObject jsonGadgets = ouvrirJson("gadgets", ".\\ressources\\Data\\");
+		return jsonGadgets.getJSONArray("gadgets");
+	}
+	
+	/**
 	 * Charger une Map au format JSON.
 	 * @param numero de la Map à charger
 	 * @return objet JSON contenant la description de la Map
