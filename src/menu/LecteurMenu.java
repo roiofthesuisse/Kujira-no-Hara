@@ -178,4 +178,9 @@ public class LecteurMenu extends Lecteur {
 		
 	}
 	
+	@Override
+	protected final String typeDeLecteur() {
+		return "LecteurMenu";
+	}
+	
 }

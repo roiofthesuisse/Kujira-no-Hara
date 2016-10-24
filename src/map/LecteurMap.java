@@ -707,5 +707,10 @@ public class LecteurMap extends Lecteur {
 			return null;
 		}
 	}
+
+	@Override
+	protected final String typeDeLecteur() {
+		return "LecteurMap";
+	}
 	
 }

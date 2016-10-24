@@ -123,9 +123,8 @@ public abstract class Lecteur {
 	 */
 	public final void demarrer() {
 		this.allume = true;
-		final String typeLecteur = this instanceof LecteurMap ? "LecteurMap" : "LecteurMenu";
 		System.out.println("-------------------------------------------------------------");
-		System.out.println("Un nouveau "+typeLecteur+" vient d'être démarré.");
+		System.out.println("Un nouveau "+this.typeDeLecteur()+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm(), 0.5f);
 		//TODO LecteurAudio.playBgs(getNomBgs(), 1.0f);
 		
@@ -150,7 +149,13 @@ public abstract class Lecteur {
 		}
 		//si on est ici, c'est qu'une Commande Event a éteint le Lecteur
 		//la Fenêtre va devoir le remplacer par le futur Lecteur (si elle en a un de rechange)
-		System.out.println("Le "+typeLecteur+" actuel vient d'être arrêté à la frame "+this.frameActuelle);
+		System.out.println("Le "+typeDeLecteur()+" actuel vient d'être arrêté à la frame "+this.frameActuelle);
 	}
+
+	/**
+	 * Quel est le type de ce Lecteur ?
+	 * @return LecteurMap ou LecteurMenu
+	 */
+	protected abstract String typeDeLecteur();
 	
 }
