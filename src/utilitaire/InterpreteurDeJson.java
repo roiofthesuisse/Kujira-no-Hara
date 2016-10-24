@@ -21,6 +21,7 @@ import commandes.CommandeMenu;
 import conditions.Condition;
 import jeu.Objet;
 import main.Commande;
+import map.Autotile;
 import map.Event;
 import menu.ElementDeMenu;
 import menu.Image;
@@ -523,6 +524,52 @@ public abstract class InterpreteurDeJson {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	/**
+	 * Charger les Autotiles d'un Tileset.
+	 * @param jsonTileset objet JSON représentant un Tileset
+	 * @return Autotiles de ce Tileset
+	 */
+	public static HashMap<Integer, Autotile> chargerAutotiles(final JSONObject jsonTileset) {
+		final HashMap<Integer, Autotile> autotiles = new HashMap<Integer, Autotile>();
+		final JSONArray jsonAutotiles = jsonTileset.getJSONArray("autotiles");
+		for (Object autotileObject : jsonAutotiles) {
+			try {
+				final JSONObject jsonAutotile = (JSONObject) autotileObject;
+				final int numeroAutotile = (int) jsonAutotile.get("numero");
+				final boolean passabiliteAutotile = ((int) jsonAutotile.get("passabilite") == 0);
+				final int altitudeAutotile = (int) jsonAutotile.get("altitude");
+				final String nomImageAutotile = (String) jsonAutotile.get("nomImage");
+				
+				//cousins
+				final ArrayList<Integer> cousinsAutotile = new ArrayList<Integer>();
+				try {
+					final JSONArray jsonCousins = jsonAutotile.getJSONArray("cousins");
+					if (jsonCousins != null) {
+						for (Object cousinObject : jsonCousins) {
+							cousinsAutotile.add((Integer) cousinObject);
+						}
+					}
+				} catch (JSONException e) {
+					System.err.println("L'autotile "+nomImageAutotile+" n'a pas de cousins.");
+					//e.printStackTrace();
+				}
+				
+				Autotile autotile;
+				try {
+					autotile = new Autotile(nomImageAutotile, passabiliteAutotile, altitudeAutotile, cousinsAutotile);
+					autotiles.put(numeroAutotile, autotile);
+				} catch (IOException e) {
+					System.err.println("Impossible d'instancier l'autotile : "+nomImageAutotile);
+					e.printStackTrace();
+				}
+			} catch (JSONException e) {
+				System.err.println("Impossible de lire le JSON de l'autotile");
+				e.printStackTrace();
+			}
+		}
+		return autotiles;
 	}
 	
 }

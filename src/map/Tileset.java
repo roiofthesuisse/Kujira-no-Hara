@@ -107,7 +107,8 @@ public class Tileset {
 			this.imageBrouillard = null;
 		}
 		
-		//TODO autotiles
+		//autotiles
+		this.autotiles = InterpreteurDeJson.chargerAutotiles(jsonTileset);
 		
 		//TODO type de terrain
 	}

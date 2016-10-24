@@ -46,7 +46,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		final int directionHeros = this.page.event.map.heros.direction;
 		try {
 			nouveauLecteur.changerMap(new Map(numeroNouvelleMap, nouveauLecteur, xDebutHeros, yDebutHeros, directionHeros));
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			System.err.println("Impossible de charger la map numero "+numeroNouvelleMap);
 			e.printStackTrace();
 		}

@@ -21,7 +21,6 @@ import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.Graphismes;
-import utilitaire.Maths;
 
 /**
  * Le Lecteur de map affiche la Map et les Events.
@@ -459,46 +458,6 @@ public class LecteurMap extends Lecteur {
 			//l'event n'a pas d'image
 			return ecran;
 		}
-	}
-	
-	/**
-	 * Dessine à l'écran un carreau du Tileset aux coordonnées (xEcran;yEcran).
-	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
-	 * @param ecran sur lequel on doit dessiner un carreau
-	 * @param xEcran position x où dessiner le carreau à l'écran
-	 * @param yEcran position y où dessiner le carreau à l'écran
-	 * @param numeroCarreau numéro du carreau à dessiner
-	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
-	 * @return écran sur lequel on a dessiné le carreau demandé
-	 */
-	public final BufferedImage dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise) {
-		final BufferedImage dessinCarreau = tilesetUtilise.carreaux[numeroCarreau];
-		return Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
-	}
-	
-	/**
-	 * Dessiner à l'écran un carreau issu d'un autotile.
-	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
-	 * @param ecran sur lequel on doit dessiner un carreau
-	 * @param xEcran position x où dessiner le carreau à l'écran
-	 * @param yEcran position y où dessiner le carreau à l'écran
-	 * @param numeroCarreau numéro de l'autotile (numéro négatif)
-	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
-	 * @param layer couche de décor à laquelle appartient le carreau
-	 * @return écran sur lequel on a dessiné le carreau demandé
-	 */
-	public final BufferedImage dessinerAutotile(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, 
-			final Tileset tilesetUtilise, final int xCarreau, final int yCarreau, final int[][] layer) {
-		final Autotile autotile = tilesetUtilise.autotiles.get(numeroCarreau);
-		
-		// On prévient la Map qu'elle aura un décor animé
-		if (autotile.anime) {
-			this.map.contientDesAutotilesAnimes = true;
-		}
-
-		final BufferedImage dessinCarreau = autotile.calculerAutotile(xCarreau, yCarreau, this.map.largeur, this.map.hauteur, numeroCarreau, layer);
-		
-		return Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
 	}
 
 	@Override

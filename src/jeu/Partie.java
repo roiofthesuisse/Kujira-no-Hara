@@ -52,27 +52,34 @@ public final class Partie {
 	 */
 	private Partie() throws FileNotFoundException {
 		final JSONObject jsonNouvellePartie = InterpreteurDeJson.ouvrirJsonNouvellePartie();
-		
+		// Position du Héros
 		this.numeroMap = jsonNouvellePartie.getInt("numeroMap");
 		this.xHeros = jsonNouvellePartie.getInt("xHeros");
 		this.yHeros = jsonNouvellePartie.getInt("yHeros");
 		this.directionHeros = jsonNouvellePartie.getInt("directionHeros");
+		// Vie
 		this.vie = jsonNouvellePartie.getInt("vie");
 		this.vieMax = jsonNouvellePartie.getInt("vieMax");
-		
+		// Interrupteurs et Variables
 		this.interrupteurs = new boolean[ jsonNouvellePartie.getInt("nombreDInterrupteurs") ];
 		this.interrupteursLocaux = new ArrayList<String>();
 		this.variables = new int[ jsonNouvellePartie.getInt("nombreDeVariables") ];
-		
+		// Quêtes
 		this.avancementDesQuetes = new AvancementQuete[ Quete.chargerLesQuetesDuJeu() ];
 		for (int i = 0; i<avancementDesQuetes.length; i++) {
 			avancementDesQuetes[i] = AvancementQuete.INCONNUE;
 		}
+		// Objets
 		this.objetsPossedes = new int[ Objet.chargerLesObjetsDuJeu() ];
+		// Armes
 		this.armesPossedees = new boolean[ Arme.chargerLesArmesDuJeu() ];
 		this.nombreDArmesPossedees = 0;
-		
 		this.idArmeEquipee = -1;
+		// Gadgets
+		this.gadgetsPossedes = new boolean[ Gadget.chargerLesGadgetsDuJeu() ];
+		this.nombreDeGadgetsPossedes = 0;
+		this.idGadgetEquipe = -1;
+		
 		System.out.println("Partie chargée.");
 	}
 	

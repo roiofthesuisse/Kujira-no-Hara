@@ -14,6 +14,7 @@ import javax.imageio.ImageIO;
  */
 public abstract class Graphismes {
 	public static final int OPACITE_MAXIMALE = 255;
+	public static Graphics2D graphismes;
 	
 	/**
 	 * Superposer deux images
@@ -36,10 +37,15 @@ public abstract class Graphismes {
 	 * @param opacite transparence de l'image2 entre 0 et 255
 	 * @return écran sur lequel on a superposé l'image2
 	 */
-	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite) {
+	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite) {	
+		//si le support est null, on renvoie la surcouche
+		if (ecran == null) {
+			return clonerUneImage(image2);
+		}
+		
+		final Graphics2D g2d = (Graphics2D) ecran.createGraphics();
 		//TODO final ModeDeSuperposition mode
 		//s'inspirer de http://www.java2s.com/Code/Java/2D-Graphics-GUI/BlendCompositeDemo.htm
-		final Graphics2D g2d = (Graphics2D) ecran.createGraphics();
 		
 		//transparence
 		if (opacite < OPACITE_MAXIMALE) {
