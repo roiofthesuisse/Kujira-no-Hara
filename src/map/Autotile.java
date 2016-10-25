@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 
 import main.Fenetre;
 import main.Lecteur;
+import utilitaire.Graphismes;
 
 /**
  * Un Autotile est un carreau liable. 
@@ -147,9 +148,8 @@ public class Autotile {
 		final Graphics2D g2d = (Graphics2D) resultat.createGraphics();
 		int xMorceauChoisi = 0;
 		int yMorceauChoisi = 0;
-		g2d.drawImage(resultat, 0, 0, TAILLE_MORCEAU, TAILLE_MORCEAU, 
+		g2d.drawImage(this.image, 0, 0, TAILLE_MORCEAU, TAILLE_MORCEAU, 
 				xMorceauChoisi, yMorceauChoisi, xMorceauChoisi+TAILLE_MORCEAU, yMorceauChoisi+TAILLE_MORCEAU, null);
-		
 		//TODO calculer le morceau à choisir dans l'image de l'autotile en fonction des connexions
 		
 		
