@@ -23,25 +23,94 @@ public class Autotile {
 	public static final int HAUTEUR_AUTOTILE = 4*Fenetre.TAILLE_D_UN_CARREAU;
 	public static final int TAILLE_MORCEAU = Fenetre.TAILLE_D_UN_CARREAU/2;
 	
-	//quart bas gauche
-	public static final int X_COIN_SORTANT_BAS_GAUCHE = 0;
-	public static final int Y_COIN_SORTANT_BAS_GAUCHE = 7;
-	
 	//quart haut gauche
 	public static final int X_PLEIN_HAUT_GAUCHE = 2;
 	public static final int Y_PLEIN_HAUT_GAUCHE = 4;
+	public static final int X_PLEIN_HAUT_GAUCHE_VIDE_A_DROITE = 4;
+	public static final int Y_PLEIN_HAUT_GAUCHE_VIDE_A_DROITE = 4;
+	public static final int X_PLEIN_HAUT_GAUCHE_VIDE_EN_BAS = 2;
+	public static final int Y_PLEIN_HAUT_GAUCHE_VIDE_EN_BAS = 6;
+	public static final int X_PLEIN_HAUT_GAUCHE_VIDE_EN_BAS_ET_A_DROITE = 4;
+	public static final int Y_PLEIN_HAUT_GAUCHE_VIDE_EN_BAS_ET_A_DROITE = 6;
 	public static final int X_COIN_RENTRANT_HAUT_GAUCHE = 4;
 	public static final int Y_COIN_RENTRANT_HAUT_GAUCHE = 0;
-	public static final int X_BORD_VERTICAL_HAUT_GAUCHE = 0;
-	public static final int Y_BORD_VERTICAL_HAUT_GAUCHE = 4;
-	public static final int X_BORD_HORIZONTAL_HAUT_GAUCHE = 2;
-	public static final int Y_BORD_HORIZONTAL_HAUT_GAUCHE = 2;
+	public static final int X_BORD_VERTICAL_HAUT_GAUCHE_LOIN_D_UN_COIN = 0;
+	public static final int Y_BORD_VERTICAL_HAUT_GAUCHE_LOIN_D_UN_COIN = 4;
+	public static final int X_BORD_VERTICAL_HAUT_GAUCHE_PRES_D_UN_COIN = 0;
+	public static final int Y_BORD_VERTICAL_HAUT_GAUCHE_PRES_D_UN_COIN = 6;
+	public static final int X_BORD_HORIZONTAL_HAUT_GAUCHE_LOIN_D_UN_COIN = 2;
+	public static final int Y_BORD_HORIZONTAL_HAUT_GAUCHE_LOIN_D_UN_COIN = 2;
+	public static final int X_BORD_HORIZONTAL_HAUT_GAUCHE_PRES_D_UN_COIN = 4;
+	public static final int Y_BORD_HORIZONTAL_HAUT_GAUCHE_PRES_D_UN_COIN = 2;
 	public static final int X_COIN_SORTANT_HAUT_GAUCHE = 0;
 	public static final int Y_COIN_SORTANT_HAUT_GAUCHE = 2;
 	
 	//quart haut droite
+	public static final int X_PLEIN_HAUT_DROITE = 3;
+	public static final int Y_PLEIN_HAUT_DROITE = 4;
+	public static final int X_PLEIN_HAUT_DROITE_VIDE_A_GAUCHE = 1;
+	public static final int Y_PLEIN_HAUT_DROITE_VIDE_A_GAUCHE = 4;
+	public static final int X_PLEIN_HAUT_DROITE_VIDE_EN_BAS = 3;
+	public static final int Y_PLEIN_HAUT_DROITE_VIDE_EN_BAS = 6;
+	public static final int X_PLEIN_HAUT_DROITE_VIDE_EN_BAS_ET_A_GAUCHE = 1;
+	public static final int Y_PLEIN_HAUT_DROITE_VIDE_EN_BAS_ET_A_GAUCHE = 6;
+	public static final int X_COIN_RENTRANT_HAUT_DROITE = 5;
+	public static final int Y_COIN_RENTRANT_HAUT_DROITE = 0;
+	public static final int X_BORD_VERTICAL_HAUT_DROITE_LOIN_D_UN_COIN = 5;
+	public static final int Y_BORD_VERTICAL_HAUT_DROITE_LOIN_D_UN_COIN = 4;
+	public static final int X_BORD_VERTICAL_HAUT_DROITE_PRES_D_UN_COIN = 5;
+	public static final int Y_BORD_VERTICAL_HAUT_DROITE_PRES_D_UN_COIN = 6;
+	public static final int X_BORD_HORIZONTAL_HAUT_DROITE_LOIN_D_UN_COIN = 3;
+	public static final int Y_BORD_HORIZONTAL_HAUT_DROITE_LOIN_D_UN_COIN = 2;
+	public static final int X_BORD_HORIZONTAL_HAUT_DROITE_PRES_D_UN_COIN = 1;
+	public static final int Y_BORD_HORIZONTAL_HAUT_DROITE_PRES_D_UN_COIN = 2;
 	public static final int X_COIN_SORTANT_HAUT_DROITE = 5;
 	public static final int Y_COIN_SORTANT_HAUT_DROITE = 2;
+	
+	//quart bas gauche
+	public static final int X_PLEIN_BAS_GAUCHE = 2;
+	public static final int Y_PLEIN_BAS_GAUCHE = 5;
+	public static final int X_PLEIN_BAS_GAUCHE_VIDE_A_DROITE = 4;
+	public static final int Y_PLEIN_BAS_GAUCHE_VIDE_A_DROITE = 5;
+	public static final int X_PLEIN_BAS_GAUCHE_VIDE_EN_HAUT = 2;
+	public static final int Y_PLEIN_BAS_GAUCHE_VIDE_EN_HAUT = 3;
+	public static final int X_PLEIN_BAS_GAUCHE_VIDE_EN_HAUT_ET_A_DROITE = 4;
+	public static final int Y_PLEIN_BAS_GAUCHE_VIDE_EN_HAUT_ET_A_DROITE = 3;
+	public static final int X_COIN_RENTRANT_BAS_GAUCHE = 4;
+	public static final int Y_COIN_RENTRANT_BAS_GAUCHE = 1;
+	public static final int X_BORD_VERTICAL_BAS_GAUCHE_LOIN_D_UN_COIN = 0;
+	public static final int Y_BORD_VERTICAL_BAS_GAUCHE_LOIN_D_UN_COIN = 5;
+	public static final int X_BORD_VERTICAL_BAS_GAUCHE_PRES_D_UN_COIN = 0;
+	public static final int Y_BORD_VERTICAL_BAS_GAUCHE_PRES_D_UN_COIN = 3;
+	public static final int X_BORD_HORIZONTAL_BAS_GAUCHE_LOIN_D_UN_COIN = 2;
+	public static final int Y_BORD_HORIZONTAL_BAS_GAUCHE_LOIN_D_UN_COIN = 7;
+	public static final int X_BORD_HORIZONTAL_BAS_GAUCHE_PRES_D_UN_COIN = 4;
+	public static final int Y_BORD_HORIZONTAL_BAS_GAUCHE_PRES_D_UN_COIN = 7;
+	public static final int X_COIN_SORTANT_BAS_GAUCHE = 0;
+	public static final int Y_COIN_SORTANT_BAS_GAUCHE = 7;
+	
+	//quart bas droite
+	public static final int X_PLEIN_BAS_DROITE = 3;
+	public static final int Y_PLEIN_BAS_DROITE = 5;
+	public static final int X_PLEIN_BAS_DROITE_VIDE_A_GAUCHE = 1;
+	public static final int Y_PLEIN_BAS_DROITE_VIDE_A_GAUCHE = 5;
+	public static final int X_PLEIN_BAS_DROITE_VIDE_EN_HAUT = 3;
+	public static final int Y_PLEIN_BAS_DROITE_VIDE_EN_HAUT = 3;
+	public static final int X_PLEIN_BAS_DROITE_VIDE_EN_HAUT_ET_A_GAUCHE = 1;
+	public static final int Y_PLEIN_BAS_DROITE_VIDE_EN_HAUT_ET_A_GAUCHE = 3;
+	public static final int X_COIN_RENTRANT_BAS_DROITE = 5;
+	public static final int Y_COIN_RENTRANT_BAS_DROITE = 1;
+	public static final int X_BORD_VERTICAL_BAS_DROITE_LOIN_D_UN_COIN = 5;
+	public static final int Y_BORD_VERTICAL_BAS_DROITE_LOIN_D_UN_COIN = 5;
+	public static final int X_BORD_VERTICAL_BAS_DROITE_PRES_D_UN_COIN = 5;
+	public static final int Y_BORD_VERTICAL_BAS_DROITE_PRES_D_UN_COIN = 3;
+	public static final int X_BORD_HORIZONTAL_BAS_DROITE_LOIN_D_UN_COIN = 3;
+	public static final int Y_BORD_HORIZONTAL_BAS_DROITE_LOIN_D_UN_COIN = 7;
+	public static final int X_BORD_HORIZONTAL_BAS_DROITE_PRES_D_UN_COIN = 1;
+	public static final int Y_BORD_HORIZONTAL_BAS_DROITE_PRES_D_UN_COIN = 7;
+	public static final int X_COIN_SORTANT_BAS_DROITE = 5;
+	public static final int Y_COIN_SORTANT_BAS_DROITE = 7;
+	
 	
 	private String nomImage;
 	private BufferedImage image;
@@ -172,20 +241,47 @@ public class Autotile {
 		if (connexionHaut) {
 			if (connexionGauche) {
 				if (connexionHautGauche) {
-					xMorceauChoisi = X_PLEIN_HAUT_GAUCHE;
-					yMorceauChoisi = Y_PLEIN_HAUT_GAUCHE;
+					if (connexionDroite) {
+						if (connexionBas) {
+							xMorceauChoisi = X_PLEIN_HAUT_GAUCHE;
+							yMorceauChoisi = Y_PLEIN_HAUT_GAUCHE;
+						} else {
+							xMorceauChoisi = X_PLEIN_HAUT_GAUCHE_VIDE_A_DROITE;
+							yMorceauChoisi = Y_PLEIN_HAUT_GAUCHE_VIDE_A_DROITE;
+						}
+					} else {
+						if (connexionBas) {
+							xMorceauChoisi = X_PLEIN_HAUT_GAUCHE_VIDE_EN_BAS;
+							yMorceauChoisi = Y_PLEIN_HAUT_GAUCHE_VIDE_EN_BAS;
+						} else {
+							xMorceauChoisi = X_PLEIN_HAUT_GAUCHE_VIDE_EN_BAS_ET_A_DROITE;
+							yMorceauChoisi = Y_PLEIN_HAUT_GAUCHE_VIDE_EN_BAS_ET_A_DROITE;
+						}
+					}
 				} else {
 					xMorceauChoisi = X_COIN_RENTRANT_HAUT_GAUCHE;
 					yMorceauChoisi = Y_COIN_RENTRANT_HAUT_GAUCHE;
 				}
 			} else {
-				xMorceauChoisi = X_BORD_VERTICAL_HAUT_GAUCHE;
-				yMorceauChoisi = Y_BORD_VERTICAL_HAUT_GAUCHE;
+				if (connexionBas) {
+					xMorceauChoisi = X_BORD_VERTICAL_HAUT_GAUCHE_LOIN_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_VERTICAL_HAUT_GAUCHE_LOIN_D_UN_COIN;
+				} else {
+					xMorceauChoisi = X_BORD_VERTICAL_HAUT_GAUCHE_PRES_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_VERTICAL_HAUT_GAUCHE_PRES_D_UN_COIN;
+				}
+				
 			}
 		} else {
 			if (connexionGauche) {
-				xMorceauChoisi = X_BORD_HORIZONTAL_HAUT_GAUCHE;
-				yMorceauChoisi = Y_BORD_HORIZONTAL_HAUT_GAUCHE;
+				if (connexionDroite) {
+					xMorceauChoisi = X_BORD_HORIZONTAL_HAUT_GAUCHE_LOIN_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_HORIZONTAL_HAUT_GAUCHE_LOIN_D_UN_COIN;
+				} else {
+					xMorceauChoisi = X_BORD_HORIZONTAL_HAUT_GAUCHE_PRES_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_HORIZONTAL_HAUT_GAUCHE_PRES_D_UN_COIN;
+				}
+				
 			} else {
 				xMorceauChoisi = X_COIN_SORTANT_HAUT_GAUCHE;
 				yMorceauChoisi = Y_COIN_SORTANT_HAUT_GAUCHE;
@@ -199,20 +295,45 @@ public class Autotile {
 		if (connexionHaut) {
 			if (connexionDroite) {
 				if (connexionHautDroite) {
-					xMorceauChoisi = 3;
-					yMorceauChoisi = 4;
+					if (connexionGauche) {
+						if (connexionBas) {
+							xMorceauChoisi = X_PLEIN_HAUT_DROITE;
+							yMorceauChoisi = Y_PLEIN_HAUT_DROITE;
+						} else {
+							xMorceauChoisi = X_PLEIN_HAUT_DROITE_VIDE_EN_BAS;
+							yMorceauChoisi = Y_PLEIN_HAUT_DROITE_VIDE_EN_BAS;
+						}
+					} else {
+						if (connexionBas) {
+							xMorceauChoisi = X_PLEIN_HAUT_DROITE_VIDE_A_GAUCHE;
+							yMorceauChoisi = Y_PLEIN_HAUT_DROITE_VIDE_A_GAUCHE;
+						} else {
+							xMorceauChoisi = X_PLEIN_HAUT_DROITE_VIDE_EN_BAS_ET_A_GAUCHE;
+							yMorceauChoisi = Y_PLEIN_HAUT_DROITE_VIDE_EN_BAS_ET_A_GAUCHE;
+						}
+					}
 				} else {
-					xMorceauChoisi = 5;
-					yMorceauChoisi = 0;
+					xMorceauChoisi = X_COIN_RENTRANT_HAUT_DROITE;
+					yMorceauChoisi = Y_COIN_RENTRANT_HAUT_DROITE;
 				}
 			} else {
-				xMorceauChoisi = 5;
-				yMorceauChoisi = 4;
+				if (connexionBas) {
+					xMorceauChoisi = X_BORD_VERTICAL_HAUT_DROITE_LOIN_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_VERTICAL_HAUT_DROITE_LOIN_D_UN_COIN;
+				} else {
+					xMorceauChoisi = X_BORD_VERTICAL_HAUT_DROITE_PRES_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_VERTICAL_HAUT_DROITE_PRES_D_UN_COIN;
+				}
 			}
 		} else {
 			if (connexionDroite) {
-				xMorceauChoisi = 3;
-				yMorceauChoisi = 2;
+				if (connexionGauche) {
+					xMorceauChoisi = X_BORD_HORIZONTAL_HAUT_DROITE_LOIN_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_HORIZONTAL_HAUT_DROITE_LOIN_D_UN_COIN;
+				} else {
+					xMorceauChoisi = X_BORD_HORIZONTAL_HAUT_DROITE_PRES_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_HORIZONTAL_HAUT_DROITE_PRES_D_UN_COIN;
+				}
 			} else {
 				xMorceauChoisi = X_COIN_SORTANT_HAUT_DROITE;
 				yMorceauChoisi = Y_COIN_SORTANT_HAUT_DROITE;
@@ -226,20 +347,45 @@ public class Autotile {
 		if (connexionBas) {
 			if (connexionGauche) {
 				if (connexionBasGauche) {
-					xMorceauChoisi = 2;
-					yMorceauChoisi = 5;
+					if (connexionDroite) {
+						if (connexionHaut) {
+							xMorceauChoisi = X_PLEIN_BAS_GAUCHE;
+							yMorceauChoisi = Y_PLEIN_BAS_GAUCHE;
+						} else {
+							xMorceauChoisi = X_PLEIN_BAS_GAUCHE_VIDE_EN_HAUT;
+							yMorceauChoisi = Y_PLEIN_BAS_GAUCHE_VIDE_EN_HAUT;
+						}
+					} else {
+						if (connexionHaut) {
+							xMorceauChoisi = X_PLEIN_BAS_GAUCHE_VIDE_A_DROITE;
+							yMorceauChoisi = Y_PLEIN_BAS_GAUCHE_VIDE_A_DROITE;
+						} else {
+							xMorceauChoisi = X_PLEIN_BAS_GAUCHE_VIDE_EN_HAUT_ET_A_DROITE;
+							yMorceauChoisi = Y_PLEIN_BAS_GAUCHE_VIDE_EN_HAUT_ET_A_DROITE;
+						}
+					}
 				} else {
-					xMorceauChoisi = 4;
-					yMorceauChoisi = 1;
+					xMorceauChoisi = X_COIN_RENTRANT_BAS_GAUCHE;
+					yMorceauChoisi = Y_COIN_RENTRANT_BAS_GAUCHE;
 				}
 			} else {
-				xMorceauChoisi = 0;
-				yMorceauChoisi = 5;
+				if (connexionHaut) {
+					xMorceauChoisi = X_BORD_VERTICAL_BAS_GAUCHE_LOIN_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_VERTICAL_BAS_GAUCHE_LOIN_D_UN_COIN;
+				} else {
+					xMorceauChoisi = X_BORD_VERTICAL_BAS_GAUCHE_PRES_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_VERTICAL_BAS_GAUCHE_PRES_D_UN_COIN;
+				}
 			}
 		} else {
 			if (connexionGauche) {
-				xMorceauChoisi = 2;
-				yMorceauChoisi = 7;
+				if (connexionDroite) {
+					xMorceauChoisi = X_BORD_HORIZONTAL_BAS_GAUCHE_LOIN_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_HORIZONTAL_BAS_GAUCHE_LOIN_D_UN_COIN;
+				} else {
+					xMorceauChoisi = X_BORD_HORIZONTAL_BAS_GAUCHE_PRES_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_HORIZONTAL_BAS_GAUCHE_PRES_D_UN_COIN;
+				}
 			} else {
 				xMorceauChoisi = X_COIN_SORTANT_BAS_GAUCHE;
 				yMorceauChoisi = Y_COIN_SORTANT_BAS_GAUCHE;
@@ -253,23 +399,49 @@ public class Autotile {
 		if (connexionBas) {
 			if (connexionDroite) {
 				if (connexionBasDroite) {
-					xMorceauChoisi = 3;
-					yMorceauChoisi = 5;
+					if (connexionGauche) {
+						if (connexionHaut) {
+							xMorceauChoisi = X_PLEIN_BAS_DROITE;
+							yMorceauChoisi = Y_PLEIN_BAS_DROITE;
+						} else {
+							xMorceauChoisi = X_PLEIN_BAS_DROITE_VIDE_EN_HAUT;
+							yMorceauChoisi = Y_PLEIN_BAS_DROITE_VIDE_EN_HAUT;
+						}
+					} else {
+						if (connexionHaut) {
+							xMorceauChoisi = X_PLEIN_BAS_DROITE_VIDE_A_GAUCHE;
+							yMorceauChoisi = Y_PLEIN_BAS_DROITE_VIDE_A_GAUCHE;
+						} else {
+							xMorceauChoisi = X_PLEIN_BAS_DROITE_VIDE_EN_HAUT_ET_A_GAUCHE;
+							yMorceauChoisi = Y_PLEIN_BAS_DROITE_VIDE_EN_HAUT_ET_A_GAUCHE;
+						}
+					}
 				} else {
-					xMorceauChoisi = 5;
-					yMorceauChoisi = 1;
+					xMorceauChoisi = X_COIN_RENTRANT_BAS_DROITE;
+					yMorceauChoisi = Y_COIN_RENTRANT_BAS_DROITE;
 				}
 			} else {
-				xMorceauChoisi = 5;
-				yMorceauChoisi = 5;
+				if (connexionHaut) {
+					xMorceauChoisi = X_BORD_VERTICAL_BAS_DROITE_LOIN_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_VERTICAL_BAS_DROITE_LOIN_D_UN_COIN;
+				} else {
+					xMorceauChoisi = X_BORD_VERTICAL_BAS_DROITE_PRES_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_VERTICAL_BAS_DROITE_PRES_D_UN_COIN;
+				}
+				
 			}
 		} else {
 			if (connexionDroite) {
-				xMorceauChoisi = 3;
-				yMorceauChoisi = 7;
+				if (connexionGauche) {
+					xMorceauChoisi = X_BORD_HORIZONTAL_BAS_DROITE_LOIN_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_HORIZONTAL_BAS_DROITE_LOIN_D_UN_COIN;
+				} else {
+					xMorceauChoisi = X_BORD_HORIZONTAL_BAS_DROITE_PRES_D_UN_COIN;
+					yMorceauChoisi = Y_BORD_HORIZONTAL_BAS_DROITE_PRES_D_UN_COIN;
+				}
 			} else {
-				xMorceauChoisi = 5;
-				yMorceauChoisi = 7;
+				xMorceauChoisi = X_COIN_SORTANT_BAS_DROITE;
+				yMorceauChoisi = Y_COIN_SORTANT_BAS_DROITE;
 			}
 		}
 		g2d.drawImage(this.image, TAILLE_MORCEAU, TAILLE_MORCEAU, 2*TAILLE_MORCEAU, 2*TAILLE_MORCEAU, 
