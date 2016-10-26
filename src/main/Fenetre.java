@@ -56,7 +56,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	private Fenetre() {
 		super(titre);
 		this.labelEcran = new JLabel();
-		final Menu menuTitre = InterpreteurDeJson.creerMenuDepuisJson("Titre", null); //new MenuTitre();
+		final Menu menuTitre = InterpreteurDeJson.creerMenuDepuisJson("Titre", null);
 		this.lecteur = new LecteurMenu(this, menuTitre, null);
 
 		this.addKeyListener(this);

@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 
 import main.Fenetre;
 import main.Lecteur;
-import utilitaire.Graphismes;
 
 /**
  * Un Autotile est un carreau liable. 
@@ -63,14 +62,14 @@ public class Autotile {
 	}
 	
 	/**
-	 * Calculer l'apparence du carreau en fonction de son voisinnage.
-	 * @param xEcran
-	 * @param yEcran
-	 * @param largeurMap
-	 * @param hauteurMap
-	 * @param numeroCarreau
-	 * @param layer
-	 * @return carreau avec la bonne apparence
+	 * Calculer l'apparence du carreau liable en fonction de son voisinnage.
+	 * @param xEcran coordonnee x de la case en nombre de carreaux
+	 * @param yEcran coordonnee y de la case en nombre de carreaux
+	 * @param largeurMap largeur de la Map en nombre de carreaux
+	 * @param hauteurMap hauteur de la Map en nombre de carreaux
+	 * @param numeroCarreau numéro de ce carreau de décor issu du Tileset
+	 * @param layer une des trois couches de décor de l'éditeur de Maps
+	 * @return carreau liable avec la bonne apparence
 	 */
 	public BufferedImage calculerAutotile(final int xEcran, final int yEcran, final int largeurMap, final int hauteurMap, final int numeroCarreau, final int[][] layer) {
 		// On veut déterminer les connexions du carreau
@@ -146,12 +145,116 @@ public class Autotile {
 		
 		BufferedImage resultat = new BufferedImage(Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Lecteur.TYPE_DES_IMAGES);
 		final Graphics2D g2d = (Graphics2D) resultat.createGraphics();
-		int xMorceauChoisi = 0;
-		int yMorceauChoisi = 0;
-		g2d.drawImage(this.image, 0, 0, TAILLE_MORCEAU, TAILLE_MORCEAU, 
-				xMorceauChoisi, yMorceauChoisi, xMorceauChoisi+TAILLE_MORCEAU, yMorceauChoisi+TAILLE_MORCEAU, null);
-		//TODO calculer le morceau à choisir dans l'image de l'autotile en fonction des connexions
+		int xMorceauChoisi;
+		int yMorceauChoisi;
 		
+		//quart haut-gauche du carreau
+		if (connexionHaut) {
+			if (connexionGauche) {
+				if (connexionHautGauche) {
+					xMorceauChoisi = 2;
+					yMorceauChoisi = 4;
+				} else {
+					xMorceauChoisi = 4;
+					yMorceauChoisi = 0;
+				}
+			} else {
+				xMorceauChoisi = 0;
+				yMorceauChoisi = 4;
+			}
+		} else {
+			if (connexionGauche) {
+				xMorceauChoisi = 2;
+				yMorceauChoisi = 2;
+			} else {
+				xMorceauChoisi = 0;
+				yMorceauChoisi = 2;
+			}
+		}
+		g2d.drawImage(this.image, 0, 0, TAILLE_MORCEAU, TAILLE_MORCEAU, 
+				xMorceauChoisi*TAILLE_MORCEAU, yMorceauChoisi*TAILLE_MORCEAU, 
+				(xMorceauChoisi+1)*TAILLE_MORCEAU, (yMorceauChoisi+1)*TAILLE_MORCEAU, null);
+		
+		//quart haut-droite du carreau
+		if (connexionHaut) {
+			if (connexionDroite) {
+				if (connexionHautDroite) {
+					xMorceauChoisi = 3;
+					yMorceauChoisi = 4;
+				} else {
+					xMorceauChoisi = 5;
+					yMorceauChoisi = 0;
+				}
+			} else {
+				xMorceauChoisi = 5;
+				yMorceauChoisi = 4;
+			}
+		} else {
+			if (connexionDroite) {
+				xMorceauChoisi = 3;
+				yMorceauChoisi = 2;
+			} else {
+				xMorceauChoisi = 5;
+				yMorceauChoisi = 2;
+			}
+		}
+		g2d.drawImage(this.image, 0, TAILLE_MORCEAU, TAILLE_MORCEAU, 2*TAILLE_MORCEAU, 
+				xMorceauChoisi*TAILLE_MORCEAU, yMorceauChoisi*TAILLE_MORCEAU, 
+				(xMorceauChoisi+1)*TAILLE_MORCEAU, (yMorceauChoisi+1)*TAILLE_MORCEAU, null);
+		
+		//quart bas-gauche du carreau
+		if (connexionBas) {
+			if (connexionGauche) {
+				if (connexionBasGauche) {
+					xMorceauChoisi = 2;
+					yMorceauChoisi = 5;
+				} else {
+					xMorceauChoisi = 4;
+					yMorceauChoisi = 1;
+				}
+			} else {
+				xMorceauChoisi = 0;
+				yMorceauChoisi = 5;
+			}
+		} else {
+			if (connexionGauche) {
+				xMorceauChoisi = 2;
+				yMorceauChoisi = 7;
+			} else {
+				xMorceauChoisi = 0;
+				yMorceauChoisi = 7;
+			}
+		}
+		g2d.drawImage(this.image, TAILLE_MORCEAU, 0, 2*TAILLE_MORCEAU, TAILLE_MORCEAU, 
+				xMorceauChoisi*TAILLE_MORCEAU, yMorceauChoisi*TAILLE_MORCEAU, 
+				(xMorceauChoisi+1)*TAILLE_MORCEAU, (yMorceauChoisi+1)*TAILLE_MORCEAU, null);
+		
+		//quart bas-gauche du carreau
+		if (connexionBas) {
+			if (connexionDroite) {
+				if (connexionBasDroite) {
+					xMorceauChoisi = 3;
+					yMorceauChoisi = 5;
+				} else {
+					xMorceauChoisi = 5;
+					yMorceauChoisi = 1;
+				}
+			} else {
+				xMorceauChoisi = 5;
+				yMorceauChoisi = 5;
+			}
+		} else {
+			if (connexionDroite) {
+				xMorceauChoisi = 3;
+				yMorceauChoisi = 7;
+			} else {
+				xMorceauChoisi = 5;
+				yMorceauChoisi = 7;
+			}
+		}
+		g2d.drawImage(this.image, TAILLE_MORCEAU, TAILLE_MORCEAU, 2*TAILLE_MORCEAU, 2*TAILLE_MORCEAU, 
+				xMorceauChoisi*TAILLE_MORCEAU, yMorceauChoisi*TAILLE_MORCEAU, 
+				(xMorceauChoisi+1)*TAILLE_MORCEAU, (yMorceauChoisi+1)*TAILLE_MORCEAU, null);
 		
 		return resultat;
 	}
