@@ -28,9 +28,9 @@ public class Tileset {
 	/** image complète du Tileset */
 	private final BufferedImage image;
 	/** Peut-on marcher sur cette case ? Ou bien est-ce un obstacle ? */
-	public final boolean[] passabilite;
+	private final boolean[] passabilite;
 	/** Altitude d'affichage du carreau (0:sol, 2:héros) */
-	public final int[] altitude; 
+	private final int[] altitude; 
 	/** carreaux découpés dans l'image du Tileset */
 	public final BufferedImage[] carreaux;
 	
@@ -111,6 +111,34 @@ public class Tileset {
 		this.autotiles = InterpreteurDeJson.chargerAutotiles(jsonTileset);
 		
 		//TODO type de terrain
+	}
+	
+	/**
+	 * La case de décor est-elle un obstacle ?
+	 * @param numeroDeLaCaseDansLeTileset numérotation du Tileset
+	 * @return true si obstacle, false si passable
+	 */
+	public final boolean laCaseEstUnObstacle(final int numeroDeLaCaseDansLeTileset) {
+		if (numeroDeLaCaseDansLeTileset >= 0) { //case normale
+			return !this.passabilite[numeroDeLaCaseDansLeTileset]; 
+		} else if (numeroDeLaCaseDansLeTileset < -1) { //autotile
+			return !this.autotiles.get((Integer) numeroDeLaCaseDansLeTileset).passabilite;
+		} else { //case vide
+			return false;
+		}
+	}
+	
+	/**
+	 * Récupère l'altitude associée à ce carreau de Tileset.
+	 * @param numeroCarreau dans le Tileset
+	 * @return true si obstacle, false si passable
+	 */
+	public final int altitudeDeLaCase(final int numeroCarreau) {
+		if (numeroCarreau >= -1) { //case normale
+			return this.altitude[numeroCarreau];
+		} else { //autotile
+			return this.autotiles.get(numeroCarreau).altitude;
+		}
 	}
 
 }

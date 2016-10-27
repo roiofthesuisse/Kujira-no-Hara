@@ -156,7 +156,7 @@ public class Map {
 					final int[][] layer = layers[k];
 					try {
 						numeroCarreau = layer[i][j];
-						altitudeCarreau = altitudeDeLaCase(numeroCarreau);
+						altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
 						if (altitudeCarreau<NOMBRE_ALTITUDES_SOUS_HEROS) {
 							if (numeroCarreau >= 0) { //case normale
 								couche = couches[altitudeCarreau];
@@ -208,7 +208,7 @@ public class Map {
 					final int[][] layer = layers[k];
 					try {
 						numeroCarreau = layer[i][j];
-						altitudeCarreau = altitudeDeLaCase(numeroCarreau);
+						altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
 						if (altitudeCarreau >= NOMBRE_ALTITUDES_SOUS_HEROS) {
 							if (numeroCarreau >= 0) { //case normale
 								couche = couches[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS];
@@ -324,40 +324,12 @@ public class Map {
 				for (int k = 0; (k<NOMBRE_LAYERS && passable); k++) { //si on en trouve une de non passable, on ne cherche pas les autres couches
 					final int[][] layer = layers[k];
 					numeroDeLaCaseDansLeTileset = layer[i][j];
-					if (laCaseEstUnObstacle(numeroDeLaCaseDansLeTileset)) {
+					if (this.tileset.laCaseEstUnObstacle(numeroDeLaCaseDansLeTileset)) {
 						this.casePassable[i][j] = false;
 						passable = false;
 					}
 				}
 			}
-		}
-	}
-
-	/**
-	 * La case de décor est-elle un obstacle ?
-	 * @param numeroDeLaCaseDansLeTileset numérotation du Tileset
-	 * @return true si obstacle, false si passable
-	 */
-	private boolean laCaseEstUnObstacle(final int numeroDeLaCaseDansLeTileset) {
-		if (numeroDeLaCaseDansLeTileset >= 0) { //case normale
-			return !this.tileset.passabilite[numeroDeLaCaseDansLeTileset]; 
-		} else if (numeroDeLaCaseDansLeTileset < -1) { //autotile
-			return !this.tileset.autotiles.get((Integer) numeroDeLaCaseDansLeTileset).passabilite;
-		} else { //case vide
-			return false;
-		}
-	}
-
-	/**
-	 * Récupère l'altitude associée à ce carreau de Tileset.
-	 * @param numeroCarreau dans le Tileset
-	 * @return true si obstacle, false si passable
-	 */
-	private int altitudeDeLaCase(final int numeroCarreau) {
-		if (numeroCarreau >= -1) { //case normale
-			return this.tileset.altitude[numeroCarreau];
-		} else { //autotile
-			return this.tileset.autotiles.get(numeroCarreau).altitude;
 		}
 	}
 
