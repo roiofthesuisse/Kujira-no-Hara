@@ -23,6 +23,7 @@ import jeu.Objet;
 import main.Commande;
 import map.Autotile;
 import map.Event;
+import map.Tileset;
 import menu.ElementDeMenu;
 import menu.Image;
 import menu.Menu;
@@ -529,9 +530,10 @@ public abstract class InterpreteurDeJson {
 	/**
 	 * Charger les Autotiles d'un Tileset.
 	 * @param jsonTileset objet JSON représentant un Tileset
+	 * @param tileset auquel appartiennent les Autotiles
 	 * @return Autotiles de ce Tileset
 	 */
-	public static HashMap<Integer, Autotile> chargerAutotiles(final JSONObject jsonTileset) {
+	public static HashMap<Integer, Autotile> chargerAutotiles(final JSONObject jsonTileset, final Tileset tileset) {
 		final HashMap<Integer, Autotile> autotiles = new HashMap<Integer, Autotile>();
 		final JSONArray jsonAutotiles = jsonTileset.getJSONArray("autotiles");
 		for (Object autotileObject : jsonAutotiles) {
@@ -558,7 +560,7 @@ public abstract class InterpreteurDeJson {
 				
 				Autotile autotile;
 				try {
-					autotile = new Autotile(nomImageAutotile, passabiliteAutotile, altitudeAutotile, cousinsAutotile);
+					autotile = new Autotile(numeroAutotile, nomImageAutotile, passabiliteAutotile, altitudeAutotile, cousinsAutotile, tileset);
 					autotiles.put(numeroAutotile, autotile);
 				} catch (IOException e) {
 					System.err.println("Impossible d'instancier l'autotile : "+nomImageAutotile);

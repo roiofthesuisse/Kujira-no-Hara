@@ -12,7 +12,6 @@ import org.json.JSONObject;
 import main.Fenetre;
 import utilitaire.Graphismes;
 import utilitaire.InterpreteurDeJson;
-import utilitaire.Maths;
 
 /**
  * Une Map est un décor rectangulaire constitué de briques issues du Tileset.
@@ -59,8 +58,6 @@ public class Map {
 	public boolean[][] casePassable;
 	public final boolean defilementCameraX;
 	public final boolean defilementCameraY;
-	/** numéro de la vignette d'animation des Autotiles de la Map */
-	private int vignetteAutotileActuelle = 0;
 	
 	/**
 	 * Constructeur explicite
@@ -150,6 +147,7 @@ public class Map {
 		int numeroCarreau;
 		int altitudeCarreau;
 		BufferedImage couche;
+		BufferedImage[] coucheAnimee;
 		for (int i = 0; i<largeur; i++) {
 			for (int j = 0; j<hauteur; j++) {
 				for (int k = 0; k<NOMBRE_LAYERS; k++) {
@@ -158,16 +156,15 @@ public class Map {
 						numeroCarreau = layer[i][j];
 						altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
 						if (altitudeCarreau<NOMBRE_ALTITUDES_SOUS_HEROS) {
-							if (numeroCarreau >= 0) { //case normale
+							if (numeroCarreau >= 0) { 
+								//case normale
 								couche = couches[altitudeCarreau];
 								dessinerCarreau(couche, i, j, numeroCarreau, tileset);
-							} else if (numeroCarreau < -1) { //autotile
-								for (int v = 0; v<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; v++) {
-									//TODO
-									//couche = couchesAutotile[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS][v];
-									couche = couches[altitudeCarreau];
-									dessinerAutotile(couche, i, j, numeroCarreau, tileset, layer);
-								}
+							} else if (numeroCarreau < -1) { 
+								//autotile
+								couche = couches[altitudeCarreau];
+								coucheAnimee = couchesAutotile[altitudeCarreau];
+								dessinerAutotile(couche, coucheAnimee, i, j, numeroCarreau, tileset, layer);
 							}
 						}
 					} catch (ArrayIndexOutOfBoundsException e) {
@@ -202,6 +199,7 @@ public class Map {
 		int numeroCarreau;
 		int altitudeCarreau;
 		BufferedImage couche;
+		BufferedImage[] coucheAnimee;
 		for (int i = 0; i<largeur; i++) {
 			for (int j = 0; j<hauteur; j++) {
 				for (int k = 0; k<NOMBRE_LAYERS; k++) {
@@ -210,16 +208,15 @@ public class Map {
 						numeroCarreau = layer[i][j];
 						altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
 						if (altitudeCarreau >= NOMBRE_ALTITUDES_SOUS_HEROS) {
-							if (numeroCarreau >= 0) { //case normale
+							if (numeroCarreau >= 0) { 
+								//case normale
 								couche = couches[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS];
 								dessinerCarreau(couche, i, j, numeroCarreau, tileset);
-							} else if (numeroCarreau < -1) { //autotile
-								for (int v = 0; v < Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; v++) {
-									//TODO
-									//couche = couchesAutotile[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS][v];
-									couche = couches[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS];
-									dessinerAutotile(couche, i, j, numeroCarreau, tileset, layer);
-								}
+							} else if (numeroCarreau < -1) { 
+								//autotile
+								coucheAnimee = couchesAutotile[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS];
+								couche = couches[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS];
+								dessinerAutotile(couche, coucheAnimee, i, j, numeroCarreau, tileset, layer);
 							}
 						}
 					} catch (ArrayIndexOutOfBoundsException e) {
@@ -257,14 +254,15 @@ public class Map {
 	/**
 	 * Dessiner à l'écran un carreau issu d'un autotile.
 	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
-	 * @param ecran sur lequel on doit dessiner un carreau
+	 * @param decor supérieur ou inférieur de la Map, sur lequel on doit dessiner un carreau
+	 * @param decorAnime partie animée du décor (à peindre dans le cas d'un Autotile animé)
 	 * @param x coordonnée x du carreau sur la Map
 	 * @param y coordonnée y du carreau sur la Map
 	 * @param numeroCarreau numéro de l'autotile (numéro négatif)
 	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
 	 * @param layer couche de décor à laquelle appartient le carreau
 	 */
-	public final void dessinerAutotile(final BufferedImage ecran, final int x, final int y,
+	public final void dessinerAutotile(final BufferedImage decor, final BufferedImage[] decorAnime, final int x, final int y,
 			final int numeroCarreau, final Tileset tilesetUtilise, final int[][] layer) {
 		final Autotile autotile = tilesetUtilise.autotiles.get(numeroCarreau);
 		
@@ -272,9 +270,17 @@ public class Map {
 		if (autotile.anime) {
 			this.contientDesAutotilesAnimes = true;
 		}
-
-		final BufferedImage dessinCarreau = autotile.calculerAutotile(x, y, this.largeur, this.hauteur, numeroCarreau, layer);
-		Graphismes.superposerImages(ecran, dessinCarreau, x*Fenetre.TAILLE_D_UN_CARREAU, y*Fenetre.TAILLE_D_UN_CARREAU);
+		
+		final BufferedImage[] dessinCarreau = autotile.calculerAutotile(x, y, this.largeur, this.hauteur, numeroCarreau, layer);
+		if (autotile.anime) {
+			//décor animé : on dessine les 4 étapes de l'animation du décor
+			for (int i = 0; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {
+				Graphismes.superposerImages(decorAnime[i], dessinCarreau[i], x*Fenetre.TAILLE_D_UN_CARREAU, y*Fenetre.TAILLE_D_UN_CARREAU);
+			}
+		} else {
+			//décor fixe
+			Graphismes.superposerImages(decor, dessinCarreau[0], x*Fenetre.TAILLE_D_UN_CARREAU, y*Fenetre.TAILLE_D_UN_CARREAU);
+		}
 	}
 
 	/**
@@ -375,15 +381,24 @@ public class Map {
 		return false;
 	}
 
-	public final BufferedImage getImageCoucheSurHeros(final int frameActuelle) {
-		return this.imagesCoucheSurHeros[this.vignetteAutotileActuelle]; //la vignette a déjà été calculée lors du décor inférieur
+	/**
+	 * Obtenir le décor à afficher par dessus le Héros.
+	 * Ce décor est composé du décor fixe et d'éventuels autotiles animés.
+	 * @param vignetteAutotileActuelle vignette de l'Autotile à afficher
+	 * @return décor supérieur, avec l'autotile dépendant de la frame
+	 */
+	public final BufferedImage getImageCoucheSurHeros(final int vignetteAutotileActuelle) {
+		return this.imagesCoucheSurHeros[vignetteAutotileActuelle];
 	}
 
-	public final BufferedImage getImageCoucheSousHeros(final int frameActuelle) {
-		if (this.contientDesAutotilesAnimes) {
-			this.vignetteAutotileActuelle  = Maths.modulo(frameActuelle, Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME);
-		}
-		return this.imagesCoucheSousHeros[this.vignetteAutotileActuelle];
+	/**
+	 * Obtenir le décor à afficher en dessous du Héros.
+	 * Ce décor est composé du décor fixe et d'éventuels autotiles animés.
+	 * @param vignetteAutotileActuelle frame actuelle du Lecteur
+	 * @return décor inférieur, avec l'autotile dépendant de la frame
+	 */
+	public final BufferedImage getImageCoucheSousHeros(final int vignetteAutotileActuelle) {
+		return this.imagesCoucheSousHeros[vignetteAutotileActuelle];
 	}
 	
 }

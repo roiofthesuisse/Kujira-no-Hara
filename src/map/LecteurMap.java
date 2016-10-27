@@ -28,6 +28,8 @@ import utilitaire.Graphismes;
  */
 public class LecteurMap extends Lecteur {
 	//constantes
+
+	//jauges
 	private static final int X_AFFICHAGE_ARME = 563;
 	private static final int Y_AFFICHAGE_ARME = 4;
 	private static final int X_AFFICHAGE_ACCESSOIRE = 612;
@@ -37,7 +39,7 @@ public class LecteurMap extends Lecteur {
 	private static final int X_AFFICHAGE_MESSAGE = 76;
 	private static final int Y_AFFICHAGE_MESSAGE = 320;
 	private static final int ESPACEMENT_ICONES = 4;
-	/** icônes de jauges */
+	//icônes de jauges
 	public static final BufferedImage HUD_TOUCHES = chargerImageHudTouches();
 	public static final BufferedImage HUD_ARGENT = chargerImageHudArgent();
 	
@@ -95,8 +97,12 @@ public class LecteurMap extends Lecteur {
 		final int xCamera = calculerXCamera();
 		final int yCamera = calculerYCamera();
 		
+		int vignetteAutotileActuelle = 0;
+		if (this.map.contientDesAutotilesAnimes) {
+			vignetteAutotileActuelle = this.frameActuelle % Autotile.FREQUENCE_ANIMATION_AUTOTILE;
+		}
 		//on dessine le décor inférieur
-		ecran = dessinerDecorInferieur(ecran, xCamera, yCamera, frame);
+		ecran = dessinerDecorInferieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
 				
 		//lecture des commandes event
 		continuerLaLectureDesPagesDeCommandesEvent();
@@ -114,7 +120,7 @@ public class LecteurMap extends Lecteur {
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera);
 		
 		//ajouter imageCoucheSurHeros à l'écran
-		ecran = dessinerDecorSuperieur(ecran, xCamera, yCamera, frame);
+		ecran = dessinerDecorSuperieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
 		
 		//météo
 		ecran = dessinerMeteo(ecran, frame);
@@ -139,13 +145,29 @@ public class LecteurMap extends Lecteur {
 		return ecran;
 	}
 
-	private BufferedImage dessinerDecorSuperieur(BufferedImage ecran, final int xCamera, final int yCamera, final int frame) {
-		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheSurHeros(frame), -xCamera, -yCamera);
+	/**
+	 * Dessiner à l'écran le décor situé au dessus du Héros.
+	 * @param ecran sur lequel dessiner le décor
+	 * @param xCamera position x de la caméra
+	 * @param yCamera position y de la caméra
+	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile animé
+	 * @return écran avec le décor supérieur peint
+	 */
+	private BufferedImage dessinerDecorSuperieur(BufferedImage ecran, final int xCamera, final int yCamera, final int vignetteAutotile) {
+		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheSurHeros(vignetteAutotile), -xCamera, -yCamera);
 		return ecran;
 	}
 
-	private BufferedImage dessinerDecorInferieur(BufferedImage ecran, final int xCamera, final int yCamera, final int frame) {
-		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheSousHeros(frame), -xCamera, -yCamera);
+	/**
+	 * Dessiner à l'écran le décor situé en dessous du Héros.
+	 * @param ecran sur lequel dessiner le décor
+	 * @param xCamera position x de la caméra
+	 * @param yCamera position y de la caméra
+	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile animé
+	 * @return écran avec le décor inférieur peint
+	 */
+	private BufferedImage dessinerDecorInferieur(BufferedImage ecran, final int xCamera, final int yCamera, final int vignetteAutotile) {
+		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheSousHeros(vignetteAutotile), -xCamera, -yCamera);
 		return ecran;
 	}
 
