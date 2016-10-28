@@ -21,6 +21,7 @@ import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.Graphismes;
+import utilitaire.Maths;
 
 /**
  * Le Lecteur de map affiche la Map et les Events.
@@ -45,6 +46,8 @@ public class LecteurMap extends Lecteur {
 	
 	public Map map;
 	public Tileset tilesetActuel = null;
+	/** vignette actuelle pour l'animation des Autotiles animés de la Map */
+	private int vignetteAutotileActuelle = 0;
 	
 	/** permet de trier les events selon leur coordonnée y pour l'affichage */
 	public Comparator<Event> comparateur;
@@ -97,11 +100,8 @@ public class LecteurMap extends Lecteur {
 		final int xCamera = calculerXCamera();
 		final int yCamera = calculerYCamera();
 		
-		int vignetteAutotileActuelle = 0;
-		if (this.map.contientDesAutotilesAnimes) {
-			vignetteAutotileActuelle = this.frameActuelle % Autotile.FREQUENCE_ANIMATION_AUTOTILE;
-		}
 		//on dessine le décor inférieur
+		animerLesAutotiles();
 		ecran = dessinerDecorInferieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
 				
 		//lecture des commandes event
@@ -143,6 +143,16 @@ public class LecteurMap extends Lecteur {
 		
 		//this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
 		return ecran;
+	}
+
+	/**
+	 * Les Autotiles animés ont plusieurs vignettes d'animation. De temps en temps, il faut changer de vignette.
+	 */
+	private void animerLesAutotiles() {
+		if (this.map.contientDesAutotilesAnimes && (this.frameActuelle % Autotile.FREQUENCE_ANIMATION_AUTOTILE == 0)) {
+			vignetteAutotileActuelle += 1;
+			vignetteAutotileActuelle = Maths.modulo(vignetteAutotileActuelle, Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME);
+		}
 	}
 
 	/**

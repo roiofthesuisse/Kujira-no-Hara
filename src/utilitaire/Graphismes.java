@@ -38,12 +38,6 @@ public abstract class Graphismes {
 	 * @return écran sur lequel on a superposé l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite) {	
-		//si le support est null, on renvoie la surcouche
-		if (ecran == null) {
-			System.err.println("Attention : superposition sur une image nulle !"); //WARN
-			return clonerUneImage(image2);
-		}
-		
 		final Graphics2D g2d = (Graphics2D) ecran.createGraphics();
 		//TODO final ModeDeSuperposition mode
 		//s'inspirer de http://www.java2s.com/Code/Java/2D-Graphics-GUI/BlendCompositeDemo.htm

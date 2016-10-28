@@ -138,12 +138,19 @@ public class Map {
 	 * On affiche en premier le décor arrière.
 	 */
 	private void creerImageDuDecorEnDessousDuHeros() {
+		//on initialise les images des couches
 		final BufferedImage[] couches = new BufferedImage[NOMBRE_ALTITUDES_SOUS_HEROS];
 		final BufferedImage[][] couchesAutotile = new BufferedImage[NOMBRE_ALTITUDES_SOUS_HEROS][Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
+		final int largeurPixel = largeur*Fenetre.TAILLE_D_UN_CARREAU;
+		final int hauteurPixel = hauteur*Fenetre.TAILLE_D_UN_CARREAU;
 		for (int i = 0; i<NOMBRE_ALTITUDES_SOUS_HEROS; i++) {
-			couches[i] = lecteur.imageVide(largeur*Fenetre.TAILLE_D_UN_CARREAU, hauteur*Fenetre.TAILLE_D_UN_CARREAU);
+			couches[i] = lecteur.imageVide(largeurPixel, hauteurPixel);
+			for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
+				couchesAutotile[i][j] = lecteur.imageVide(largeurPixel, hauteurPixel);
+			}
 		}
 		
+		//on dessine les carreaux sur les couches
 		int numeroCarreau;
 		int altitudeCarreau;
 		BufferedImage couche;
@@ -177,8 +184,10 @@ public class Map {
 		
 		//assemblage des différentes altitudes
 		for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
+			if (this.imagesCoucheSousHeros[j] == null) {
+				this.imagesCoucheSousHeros[j] = Graphismes.clonerUneImage(couches[0]);
+			}
 			for (int i = 0; i<NOMBRE_ALTITUDES_SOUS_HEROS; i++) {
-				//TODO ne pas superposer sur une image nulle, faire un clonage
 				this.imagesCoucheSousHeros[j] = Graphismes.superposerImages(this.imagesCoucheSousHeros[j], couches[i], 0, 0);
 				this.imagesCoucheSousHeros[j] = Graphismes.superposerImages(this.imagesCoucheSousHeros[j], couchesAutotile[i][j], 0, 0);
 			}
@@ -190,12 +199,19 @@ public class Map {
 	 * On affiche en dernier le décor supérieur.
 	 */
 	private void creerImageDuDecorAuDessusDuHeros() {
+		//on initialise les images des couches
 		final BufferedImage[] couches = new BufferedImage[NOMBRE_ALTITUDES_SUR_HEROS];
 		final BufferedImage[][] couchesAutotile = new BufferedImage[NOMBRE_ALTITUDES_SUR_HEROS][Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
+		final int largeurPixel = largeur*Fenetre.TAILLE_D_UN_CARREAU;
+		final int hauteurPixel = hauteur*Fenetre.TAILLE_D_UN_CARREAU;
 		for (int i = 0; i<NOMBRE_ALTITUDES_SUR_HEROS; i++) {
-			couches[i] = lecteur.imageVide(largeur*Fenetre.TAILLE_D_UN_CARREAU, hauteur*Fenetre.TAILLE_D_UN_CARREAU);
+			couches[i] = lecteur.imageVide(largeurPixel, hauteurPixel);
+			for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
+				couchesAutotile[i][j] = lecteur.imageVide(largeurPixel, hauteurPixel);
+			}
 		}
 		
+		//on dessine les carreaux sur les couches
 		int numeroCarreau;
 		int altitudeCarreau;
 		BufferedImage couche;
@@ -229,8 +245,10 @@ public class Map {
 		
 		//assemblage des différentes altitudes
 		for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
-			for (int i = 0; i<NOMBRE_ALTITUDES_SUR_HEROS; i++) {
-				//TODO ne pas superposer sur une image nulle, faire un clonage
+			if (this.imagesCoucheSurHeros[j] == null) {
+				this.imagesCoucheSurHeros[j] = Graphismes.clonerUneImage(couches[0]);
+			}
+			for (int i = 1; i<NOMBRE_ALTITUDES_SUR_HEROS; i++) {
 				this.imagesCoucheSurHeros[j] = Graphismes.superposerImages(this.imagesCoucheSurHeros[j], couches[i], 0, 0);
 				this.imagesCoucheSurHeros[j] = Graphismes.superposerImages(this.imagesCoucheSurHeros[j], couchesAutotile[i][j], 0, 0);
 			}
@@ -271,7 +289,9 @@ public class Map {
 			this.contientDesAutotilesAnimes = true;
 		}
 		
+		//on calcule l'apparence du carreau Autotile
 		final BufferedImage[] dessinCarreau = autotile.calculerAutotile(x, y, this.largeur, this.hauteur, numeroCarreau, layer);
+		
 		if (autotile.anime) {
 			//décor animé : on dessine les 4 étapes de l'animation du décor
 			for (int i = 0; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {

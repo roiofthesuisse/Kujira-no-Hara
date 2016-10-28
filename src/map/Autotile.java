@@ -14,17 +14,24 @@ import main.Lecteur;
 /**
  * Un Autotile est un carreau liable. 
  * Selon la nature de ses voisins, il prendra une apparence différente.
+ * Un Autotile peut être animé. Il est alors constitué de plusieurs vignettes qui se succèderont dans le temps.
  */
 public class Autotile {
 	// Constantes
 	/** fréquence d'animation des autotiles animés (eau, etc.) */
-	public static final int FREQUENCE_ANIMATION_AUTOTILE = 4;
-	
+	public static final int FREQUENCE_ANIMATION_AUTOTILE = 10;
+	/** largeur standard pour une image d'Autotile fixe */
 	public static final int LARGEUR_AUTOTILE_FIXE = 3*Fenetre.TAILLE_D_UN_CARREAU;
+	/** nombre de vignettes qui composent l'animation d'un Autotile */
 	public static final int NOMBRE_VIGNETTES_AUTOTILE_ANIME = 4;
+	/** largeur standard pour une image d'Autotile animé */
 	public static final int LARGEUR_AUTOTILE_ANIME = NOMBRE_VIGNETTES_AUTOTILE_ANIME*LARGEUR_AUTOTILE_FIXE;
+	/** hauteur standard pour une image d'Autotile */
 	public static final int HAUTEUR_AUTOTILE = 4*Fenetre.TAILLE_D_UN_CARREAU;
+	/** l'Autotile est composé de 4 quarts */
 	public static final int TAILLE_MORCEAU = Fenetre.TAILLE_D_UN_CARREAU/2;
+	/** décalage pour aller piocher dans la vignette d'animation suivante (en nombre de quarts de carreaux) */
+	public static final int DECALAGE_VIGNETTE_SUIVANTE = 6;
 	
 	//quart haut gauche
 	public static final int X_PLEIN_HAUT_GAUCHE = 2;
@@ -241,46 +248,54 @@ public class Autotile {
 			connexionBasDroite = fautIlLierCeCarreauASonVoisin(numeroCarreau, numeroVoisin);
 		}
 		
+		//choix de l'apparence de chaque quart du carreau
+		final int[] morceauChoisi1 = choisirLeQuartHautGaucheDuCarreau(connexionHaut, connexionGauche, connexionHautGauche, connexionDroite, connexionBas);
+		final int[] morceauChoisi2 = choisirLeQuartHautDroiteDuCarreau(connexionHaut, connexionDroite, connexionHautDroite, connexionGauche, connexionBas);
+		final int[] morceauChoisi3 = choisirLeQuartBasGaucheDuCarreau(connexionBas, connexionGauche, connexionBasGauche, connexionDroite, connexionHaut);
+		final int[] morceauChoisi4 = choisirLeQuartBasDroiteDuCarreau(connexionBas, connexionDroite, connexionBasDroite, connexionGauche, connexionHaut);
+		
+		//fabrication du carreau en dessinant chaque quart
 		final BufferedImage[] resultats = new BufferedImage[NOMBRE_VIGNETTES_AUTOTILE_ANIME];
 		for (int i = 0; (this.anime&&i<NOMBRE_VIGNETTES_AUTOTILE_ANIME)||(!this.anime&&i<=0); i++) {
 			final BufferedImage resultat = new BufferedImage(Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Lecteur.TYPE_DES_IMAGES);
 			final Graphics2D g2d = (Graphics2D) resultat.createGraphics();
-			int[] morceauChoisi;
-			
+
 			//quart haut-gauche du carreau
-			morceauChoisi = choisirLeQuartHautGaucheDuCarreau(connexionHaut, connexionGauche, connexionHautGauche, connexionDroite, connexionBas);
 			g2d.drawImage(this.image, 
 					0, 0, 
 					TAILLE_MORCEAU, TAILLE_MORCEAU, 
-					morceauChoisi[0]*TAILLE_MORCEAU, morceauChoisi[1]*TAILLE_MORCEAU, 
-					(morceauChoisi[0]+1)*TAILLE_MORCEAU, (morceauChoisi[1]+1)*TAILLE_MORCEAU, 
+					morceauChoisi1[0]*TAILLE_MORCEAU, morceauChoisi1[1]*TAILLE_MORCEAU, 
+					(morceauChoisi1[0]+1)*TAILLE_MORCEAU, (morceauChoisi1[1]+1)*TAILLE_MORCEAU, 
 					null);
 			
 			//quart haut-droite du carreau
-			morceauChoisi = choisirLeQuartHautDroiteDuCarreau(connexionHaut, connexionDroite, connexionHautDroite, connexionGauche, connexionBas);
 			g2d.drawImage(this.image, 
 					TAILLE_MORCEAU, 0, 
 					2*TAILLE_MORCEAU, TAILLE_MORCEAU, 
-					morceauChoisi[0]*TAILLE_MORCEAU, morceauChoisi[1]*TAILLE_MORCEAU, 
-					(morceauChoisi[0]+1)*TAILLE_MORCEAU, (morceauChoisi[1]+1)*TAILLE_MORCEAU, 
+					morceauChoisi2[0]*TAILLE_MORCEAU, morceauChoisi2[1]*TAILLE_MORCEAU, 
+					(morceauChoisi2[0]+1)*TAILLE_MORCEAU, (morceauChoisi2[1]+1)*TAILLE_MORCEAU, 
 					null);
 			
 			//quart bas-gauche du carreau
-			morceauChoisi = choisirLeQuartBasGaucheDuCarreau(connexionBas, connexionGauche, connexionBasGauche, connexionDroite, connexionHaut);
 			g2d.drawImage(this.image, 
 					0, TAILLE_MORCEAU, 
 					TAILLE_MORCEAU, 2*TAILLE_MORCEAU, 
-					morceauChoisi[0]*TAILLE_MORCEAU, morceauChoisi[1]*TAILLE_MORCEAU, 
-					(morceauChoisi[0]+1)*TAILLE_MORCEAU, (morceauChoisi[1]+1)*TAILLE_MORCEAU, 
+					morceauChoisi3[0]*TAILLE_MORCEAU, morceauChoisi3[1]*TAILLE_MORCEAU, 
+					(morceauChoisi3[0]+1)*TAILLE_MORCEAU, (morceauChoisi3[1]+1)*TAILLE_MORCEAU, 
 					null);
 			
 			//quart bas-droite du carreau
-			morceauChoisi = choisirLeQuartBasDroiteDuCarreau(connexionBas, connexionDroite, connexionBasDroite, connexionGauche, connexionHaut);
 			g2d.drawImage(this.image, TAILLE_MORCEAU, TAILLE_MORCEAU, 2*TAILLE_MORCEAU, 2*TAILLE_MORCEAU, 
-					morceauChoisi[0]*TAILLE_MORCEAU, morceauChoisi[1]*TAILLE_MORCEAU, 
-					(morceauChoisi[0]+1)*TAILLE_MORCEAU, (morceauChoisi[1]+1)*TAILLE_MORCEAU, null);
+					morceauChoisi4[0]*TAILLE_MORCEAU, morceauChoisi4[1]*TAILLE_MORCEAU, 
+					(morceauChoisi4[0]+1)*TAILLE_MORCEAU, (morceauChoisi4[1]+1)*TAILLE_MORCEAU, null);
 			
 			resultats[i] = resultat;
+			
+			//préparation du tour de boucle suivant : on peint la vignette suivante
+			morceauChoisi1[0] += DECALAGE_VIGNETTE_SUIVANTE;
+			morceauChoisi2[0] += DECALAGE_VIGNETTE_SUIVANTE;
+			morceauChoisi3[0] += DECALAGE_VIGNETTE_SUIVANTE;
+			morceauChoisi4[0] += DECALAGE_VIGNETTE_SUIVANTE;
 		}
 		
 		return resultats;
