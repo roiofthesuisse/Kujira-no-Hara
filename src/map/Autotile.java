@@ -145,12 +145,12 @@ public class Autotile {
 		} else if (largeurAutotile == LARGEUR_AUTOTILE_ANIME) {
 			this.anime = true;
 		} else {
-			System.err.println("L'Autotile n'a pas la bonne taille : "+largeurAutotile);
+			System.err.println("L'Autotile "+nomImage+" n'a pas la bonne largeur : "+largeurAutotile);
 			throw new IOException();
 		}
 		final int hauteurAutotile = this.image.getHeight();
 		if (hauteurAutotile != HAUTEUR_AUTOTILE) {
-			System.err.println("L'Autotile n'a pas la bonne taille : "+largeurAutotile);
+			System.err.println("L'Autotile "+nomImage+" n'a pas la bonne hauteur : "+hauteurAutotile);
 			throw new IOException();
 		}
 
