@@ -174,7 +174,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	@Override
 	public void keyPressed(final KeyEvent event) {
 		final Integer keycode = event.getKeyCode();
-		this.mesuresDePerformance.add("press;"+keycode+";"+System.currentTimeMillis());
+		//this.mesuresDePerformance.add("press;"+keycode+";"+System.currentTimeMillis());
 		final GestionClavier.ToucheRole touchePressee = GestionClavier.ToucheRole.getToucheRole(keycode);
 		if (touchePressee!=null && !touchePressee.touche.enfoncee) {
 			touchePressee.touche.enfoncee = true;
@@ -187,7 +187,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	@Override
 	public void keyReleased(final KeyEvent event) {
 		final Integer keycode = event.getKeyCode();
-		this.mesuresDePerformance.add("release;"+keycode+";"+System.currentTimeMillis());
+		//this.mesuresDePerformance.add("release;"+keycode+";"+System.currentTimeMillis());
 		final GestionClavier.ToucheRole toucheRelachee = GestionClavier.ToucheRole.getToucheRole(keycode);
 		if (toucheRelachee!=null && toucheRelachee.touche.enfoncee) {
 			toucheRelachee.touche.enfoncee = false;

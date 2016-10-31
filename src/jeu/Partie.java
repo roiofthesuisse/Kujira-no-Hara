@@ -40,7 +40,7 @@ public final class Partie {
 	public int nombreDeGadgetsPossedes;
 	
 	private int idArmeEquipee;
-	private int idGadgetEquipe; //TODO faire en sorte qu'il soit plus souligné en jaune
+	private int idGadgetEquipe;
 	
 	/** effet météorologique en cours */
 	public Meteo meteo = null;
@@ -100,7 +100,7 @@ public final class Partie {
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
 	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int[] objetsPossedes, final AvancementQuete[] avancementDesQuetes, final boolean[] armesPossedees, final int nombreDArmesPossedees) throws FileNotFoundException {
+	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int idGadgetEquipe, final int[] objetsPossedes, final AvancementQuete[] avancementDesQuetes, final boolean[] armesPossedees, final int nombreDArmesPossedees) throws FileNotFoundException {
 		this();
 		this.numeroMap = numeroMap;
 		this.xHeros = xHeros;
@@ -115,6 +115,7 @@ public final class Partie {
 		this.nombreDArmesPossedees = nombreDArmesPossedees;
 		
 		this.idArmeEquipee = idArmeEquipee;
+		this.idGadgetEquipe = idGadgetEquipe;
 	}
 	
 	/**
@@ -134,6 +135,24 @@ public final class Partie {
 	public static Partie chargerPartie(final int numeroSauvegarde) {
 		//TODO créer un objet Partie à partir d'un fichier de sauvegarde
 		return null;
+	}
+	
+	/**
+	 * Connaitre le Gadget actuellement équipé
+	 * @return Gadget équipé
+	 */
+	public Gadget getGadgetEquipe() {
+		return Gadget.getGadget(this.idGadgetEquipe);
+	}
+	
+	/**
+	 * Equiper un Gadget au Heros
+	 * @param idGadget identifiant du Gadget à équiper
+	 */
+	public void equiperGadget(final int idGadget) {
+		if (this.gadgetsPossedes[idGadget]) {
+			this.idGadgetEquipe = idGadget;
+		}
 	}
 	
 	/**
