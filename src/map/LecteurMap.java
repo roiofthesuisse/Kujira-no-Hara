@@ -33,8 +33,8 @@ public class LecteurMap extends Lecteur {
 	//jauges
 	private static final int X_AFFICHAGE_ARME = 563;
 	private static final int Y_AFFICHAGE_ARME = 4;
-	private static final int X_AFFICHAGE_ACCESSOIRE = 612;
-	private static final int Y_AFFICHAGE_ACCESSOIRE = 4;
+	private static final int X_AFFICHAGE_GADGET = 612;
+	private static final int Y_AFFICHAGE_GADGET = 4;
 	private static final int X_AFFICHAGE_ARGENT = 4;
 	private static final int Y_AFFICHAGE_ARGENT = 450;
 	private static final int X_AFFICHAGE_MESSAGE = 76;
@@ -61,6 +61,11 @@ public class LecteurMap extends Lecteur {
 	
 	/** Autoriser ou interdire l'accès au Menu depuis la Map ? */
 	public boolean autoriserMenu = true;
+	
+	/** Défilement X de la caméra */
+	public int defilementX;
+	/** Défilement Y de la caméra */
+	public int defilementY;
 	
 	/**
 	 * Constructeur explicite
@@ -140,8 +145,8 @@ public class LecteurMap extends Lecteur {
 		supprimerLesEventsASupprimer();
 		
 		//final long t1 = System.currentTimeMillis(); //mesure de performances
-		
 		//this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
+		
 		return ecran;
 	}
 
@@ -204,19 +209,19 @@ public class LecteurMap extends Lecteur {
 		//touches
 		ecran = Graphismes.superposerImages(ecran, HUD_TOUCHES, 0, 0);
 		
-		//icone de l'arme equipée
+		//icone de l'Arme equipée
 		try {
 			ecran = Graphismes.superposerImages(ecran, Fenetre.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
 		} catch (NullPointerException e) {
-			//pas d'arme équipée
+			//pas d'Arme équipée
 		}
 		
-		//TODO icone de l'accessoire équipé
-		/*
-		try
-			X_AFFICHAGE_OBJET
-			Y_AFFICHAGE_OBJETn, 
-		*/
+		//icone du Gadget équipé
+		try {
+			ecran = Graphismes.superposerImages(ecran, Fenetre.getPartieActuelle().getGadgetEquipe().icone, X_AFFICHAGE_GADGET, Y_AFFICHAGE_GADGET);
+		} catch (NullPointerException e) {
+			//pas de Gadget équipé
+		}
 		
 		//argent
 		final int argent = Fenetre.getPartieActuelle().argent;
