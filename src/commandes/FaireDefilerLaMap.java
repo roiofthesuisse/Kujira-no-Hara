@@ -1,6 +1,7 @@
 package commandes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import main.Commande;
 import main.Fenetre;
@@ -10,6 +11,9 @@ import map.LecteurMap;
  * Faire défiler la Map dans une direction donnée, pour la décentrer du Héros.
  */
 public class FaireDefilerLaMap  extends Commande implements CommandeEvent {
+	//constantes
+	public static final int VITESSE_DEFILEMENT_PAR_DEFAUT = 4;
+	
 	private final int nombreDePixels;
 	private final int vitesse;
 	private final int direction;
@@ -29,7 +33,16 @@ public class FaireDefilerLaMap  extends Commande implements CommandeEvent {
 		this.direction = direction;
 	}
 	
-	//TODO construteur paramétrique
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public FaireDefilerLaMap(final HashMap<String, Object> parametres) {
+		this( (int) parametres.get("nombreDeCarreaux"),
+			parametres.containsKey("vitesse") ? (int) parametres.get("vitesse") : VITESSE_DEFILEMENT_PAR_DEFAUT,
+			(int) parametres.get("direction")
+		);
+	}
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {

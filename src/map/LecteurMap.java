@@ -572,11 +572,11 @@ public class LecteurMap extends Lecteur {
 			//grande map, défilement possible
 			final int xCamera = map.heros.x - Fenetre.LARGEUR_ECRAN/2;
 			if (xCamera<0) { //caméra ne déborde pas de la map à gauche
-				return 0;
+				return 0 + (this.defilementX>0 ? this.defilementX : 0);
 			} else if (xCamera+Fenetre.LARGEUR_ECRAN > largeurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map à droite
-				return largeurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN;
+				return largeurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN + (this.defilementX<0 ? this.defilementX : 0);
 			} else {
-				return xCamera;
+				return xCamera + this.defilementX;
 			}
 		}
 	}
@@ -594,11 +594,11 @@ public class LecteurMap extends Lecteur {
 			//grande map, défilement possible
 			final int yCamera = map.heros.y - Fenetre.HAUTEUR_ECRAN/2;
 			if (yCamera<0) { //caméra ne déborde pas de la map en haut
-				return 0;
+				return 0 + (this.defilementY>0 ? this.defilementY : 0);
 			} else if (yCamera+Fenetre.HAUTEUR_ECRAN > hauteurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map en bas
-				return hauteurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.HAUTEUR_ECRAN;
+				return hauteurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.HAUTEUR_ECRAN + (this.defilementY<0 ? this.defilementY : 0);
 			} else {
-				return yCamera;
+				return yCamera + this.defilementY;
 			}
 		}
 	}
