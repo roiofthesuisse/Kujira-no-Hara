@@ -4,6 +4,9 @@ package son;
  * Classe utilitaire chargée de lire les fichiers audio du jeu.
  */
 public abstract class LecteurAudio {
+	//constantes
+	public static final float VOLUME_MAXIMAL = 1.0f;
+	
 	public static Musique bgmEnCours = null;
 	//TODO bgs, pareil que bgm
 	//TODO me, pareil que se, sauf qu'il mute le bgm

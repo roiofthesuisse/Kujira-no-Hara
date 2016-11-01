@@ -1,7 +1,5 @@
 package main;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import son.LecteurAudio;
 import utilitaire.GestionClavier.ToucheRole;
@@ -21,7 +19,7 @@ public abstract class Lecteur {
 	 * Il est interdit qu'une frame dure moins longtemps, afin que l'animation soit compréhensible.
 	 * La frame peut durer plus longtemps si l'ordinateur a du mal à faire tourner le bousin.
 	 */
-	private static final long DUREE_FRAME = 30;
+	public static final long DUREE_FRAME = 30;
 	
 	public static final int TYPE_DES_IMAGES = BufferedImage.TYPE_INT_ARGB;
 	
@@ -65,41 +63,6 @@ public abstract class Lecteur {
 	 */
 	public abstract void keyReleased(ToucheRole toucheRelachee);
 	
-	/**
-	 * Produire un rectangle noir pour l'afficher comme écran
-	 * @return un rectangle noir
-	 */
-	public final BufferedImage ecranNoir() {
-		BufferedImage image = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Lecteur.TYPE_DES_IMAGES);
-		Graphics2D graphics = image.createGraphics();
-		graphics.setPaint(Color.black);
-		graphics.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
-		return image;
-	}
-	
-	/**
-	 * Produire un rectangle vide
-	 * @param largeur du rectangle
-	 * @param hauteur du rectangle
-	 * @return un rectangle sans couleur
-	 */
-	public final BufferedImage imageVide(final int largeur, final int hauteur) {
-		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
-		final Color couleur = new Color(0, 0, 0, 0);
-		Graphics2D graphics = image.createGraphics();
-		graphics.setPaint(couleur);
-		graphics.fillRect(0, 0, largeur, hauteur);
-		return image;
-	}
-	
-	/**
-	 * Produire un rectangle vide pour l'afficher comme écran
-	 * @return un rectangle vide
-	 */
-	public final BufferedImage ecranVide() {
-		return imageVide(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
-	}
-	
 	/***
 	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Manu ou la Map
 	 * @return nom du BGM à jouer
@@ -125,7 +88,7 @@ public abstract class Lecteur {
 		this.allume = true;
 		System.out.println("-------------------------------------------------------------");
 		System.out.println("Un nouveau "+this.typeDeLecteur()+" vient d'être démarré.");
-		LecteurAudio.playBgm(getNomBgm(), 0.5f);
+		LecteurAudio.playBgm(getNomBgm(), LecteurAudio.VOLUME_MAXIMAL);
 		//TODO LecteurAudio.playBgs(getNomBgs(), 1.0f);
 		
 		long t1, t2;

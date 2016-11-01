@@ -148,9 +148,9 @@ public class Map {
 		final int largeurPixel = largeur*Fenetre.TAILLE_D_UN_CARREAU;
 		final int hauteurPixel = hauteur*Fenetre.TAILLE_D_UN_CARREAU;
 		for (int i = 0; i<NOMBRE_ALTITUDES_SOUS_HEROS; i++) {
-			couches[i] = lecteur.imageVide(largeurPixel, hauteurPixel);
+			couches[i] = Graphismes.imageVide(largeurPixel, hauteurPixel);
 			for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
-				couchesAutotile[i][j] = lecteur.imageVide(largeurPixel, hauteurPixel);
+				couchesAutotile[i][j] = Graphismes.imageVide(largeurPixel, hauteurPixel);
 			}
 		}
 		
@@ -209,9 +209,9 @@ public class Map {
 		final int largeurPixel = largeur*Fenetre.TAILLE_D_UN_CARREAU;
 		final int hauteurPixel = hauteur*Fenetre.TAILLE_D_UN_CARREAU;
 		for (int i = 0; i<NOMBRE_ALTITUDES_SUR_HEROS; i++) {
-			couches[i] = lecteur.imageVide(largeurPixel, hauteurPixel);
+			couches[i] = Graphismes.imageVide(largeurPixel, hauteurPixel);
 			for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
-				couchesAutotile[i][j] = lecteur.imageVide(largeurPixel, hauteurPixel);
+				couchesAutotile[i][j] = Graphismes.imageVide(largeurPixel, hauteurPixel);
 			}
 		}
 		

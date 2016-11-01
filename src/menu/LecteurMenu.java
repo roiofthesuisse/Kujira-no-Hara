@@ -39,7 +39,7 @@ public class LecteurMenu extends Lecteur {
 	 * @return écran
 	 */
 	public final BufferedImage calculerAffichage(final int frame) {
-		BufferedImage ecran = ecranNoir();
+		BufferedImage ecran = Graphismes.ecranNoir();
 		
 		//image de fond
 		if (this.menu.fond != null) {

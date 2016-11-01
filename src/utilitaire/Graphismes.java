@@ -1,6 +1,7 @@
 package utilitaire;
 
 import java.awt.AlphaComposite;
+import java.awt.Color;
 import java.awt.Composite;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -8,6 +9,9 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+
+import main.Fenetre;
+import main.Lecteur;
 
 /**
  * CLasse utilitaire pour les opérations graphiques récurrentes.
@@ -52,6 +56,41 @@ public abstract class Graphismes {
 		
 		g2d.drawImage(image2, null, x, y);
 		return ecran;
+	}
+	
+	/**
+	 * Produire un rectangle noir pour l'afficher comme écran
+	 * @return un rectangle noir
+	 */
+	public static BufferedImage ecranNoir() {
+		BufferedImage image = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Lecteur.TYPE_DES_IMAGES);
+		Graphics2D graphics = image.createGraphics();
+		graphics.setPaint(Color.black);
+		graphics.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
+		return image;
+	}
+	
+	/**
+	 * Produire un rectangle vide
+	 * @param largeur du rectangle
+	 * @param hauteur du rectangle
+	 * @return un rectangle sans couleur
+	 */
+	public static BufferedImage imageVide(final int largeur, final int hauteur) {
+		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
+		final Color couleur = new Color(0, 0, 0, 0);
+		Graphics2D graphics = image.createGraphics();
+		graphics.setPaint(couleur);
+		graphics.fillRect(0, 0, largeur, hauteur);
+		return image;
+	}
+	
+	/**
+	 * Produire un rectangle vide pour l'afficher comme écran
+	 * @return un rectangle vide
+	 */
+	public static BufferedImage ecranVide() {
+		return imageVide(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
 	}
 	
 	/**

@@ -89,7 +89,7 @@ public class LecteurMap extends Lecteur {
 	public final BufferedImage calculerAffichage(final int frame) {
 		//final long t0 = System.currentTimeMillis(); //mesure de performances
 		
-		BufferedImage ecran = ecranNoir();
+		BufferedImage ecran = Graphismes.ecranNoir();
 		
 		//ouverture du tileset
 		try {
