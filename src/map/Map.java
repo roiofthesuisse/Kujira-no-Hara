@@ -35,7 +35,9 @@ public class Map {
 	public String nomBGS; //fond sonore
 	public String nomTileset;
 	public Tileset tileset; //image contenant les decors
+	/** largeur de la Map (en nombre de cases) */
 	public final int largeur;
+	/** hauteur de la Map (en nombre de cases) */
 	public final int hauteur;
 	public final int[][] layer0; //couche du sol
 	public final int[][] layer1; //couche de decor 1
@@ -51,6 +53,8 @@ public class Map {
 	public ArrayList<Event> events;
 	/** hashmap des Events rangés par id, 0 pour le Héros */
 	public HashMap<Integer, Event> eventsHash;
+	/** liste des Events à ajouter au tour suivant */
+	public ArrayList<Event> eventsAAjouter = new ArrayList<Event>();
 	public Heros heros;
 	public int xDebutHeros;
 	public int yDebutHeros;
@@ -312,12 +316,12 @@ public class Map {
 			this.events = new ArrayList<Event>();
 			this.eventsHash = new HashMap<Integer, Event>();
 			//d'abord le héros
-			this.heros = new Heros(this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros);
+			this.heros = new Heros(this.xDebutHeros * Fenetre.TAILLE_D_UN_CARREAU, this.yDebutHeros * Fenetre.TAILLE_D_UN_CARREAU, this.directionDebutHeros, this);
 			this.events.add(heros);
 			//this.eventsHash.put(0, heros);
 			//puis les autres
 			final JSONArray jsonEvents = jsonMap.getJSONArray("events");
-			InterpreteurDeJson.recupererLesEvents(this.events, jsonEvents);
+			InterpreteurDeJson.recupererLesEvents(this.events, jsonEvents, this);
 		} catch (Exception e3) {
 			System.err.println("Erreur lors de la constitution de la liste des events :");
 			e3.printStackTrace();
@@ -419,6 +423,90 @@ public class Map {
 	 */
 	public final BufferedImage getImageCoucheSousHeros(final int vignetteAutotileActuelle) {
 		return this.imagesCoucheSousHeros[vignetteAutotileActuelle];
+	}
+	
+	/**
+	 * Calcule si on peut poser un Event sur la Map à cet endroit-là.
+	 * Ne pas utiliser cette méthode si l'Event à poser est traversable, car la réponse est forcément oui.
+	 * @param xmin position x (en pixels) de l'Event qu'on veut poser
+	 * @param ymin position y (en pixels) de l'Event qu'on veut poser
+	 * @param largeurHitbox largeur de l'Event à poser
+	 * @param hauteurHitbox hauteur de l'Event à poser
+	 * @param numeroEvent numéro de l'Event à poser
+	 * @return true si on peut poser un nouvel Event ici, false sinon
+	 */
+	public final boolean calculerSiLaPlaceEstLibre(final int xmin, final int ymin, final int largeurHitbox, final int hauteurHitbox, final int numeroEvent) {
+		final int xmax = xmin + largeurHitbox;
+		final int ymax = ymin + hauteurHitbox;
+		
+		try {
+			//aucun des 4 coins de l'Event de doivent être sur une case non passable
+			if (!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU]) {
+				return false;
+			}
+			if (!this.casePassable[(xmax-1)/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU]) {
+				return false;
+			}
+			if (!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][(ymax-1)/Fenetre.TAILLE_D_UN_CARREAU]) {
+				return false;
+			}
+			if (!this.casePassable[(xmax-1)/Fenetre.TAILLE_D_UN_CARREAU][(ymax-1)/Fenetre.TAILLE_D_UN_CARREAU]) {
+				return false;
+			}
+		} catch (Exception e) {
+			//l'Event sort de la Map !
+			final Event event = this.eventsHash.get((Integer) numeroEvent);
+			if (!event.sortiDeLaMap) { //on n'affiche le message d'erreur qu'une fois
+				System.err.println("L'event "+event.numero+" ("+event.nom+") est sorti de la map !");
+			}
+			event.sortiDeLaMap = true;
+		}
+			
+		//si rencontre avec un autre Event non traversable -> false
+		int xmin2;
+		int xmax2;
+		int ymin2;
+		int ymax2;
+		for (Event autreEvent : this.events) {
+			xmin2 = autreEvent.x;
+			xmax2 = autreEvent.x + autreEvent.largeurHitbox;
+			ymin2 = autreEvent.y;
+			ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
+			if (numeroEvent != autreEvent.numero 
+				&& !autreEvent.traversableActuel
+				&& Hitbox.lesDeuxRectanglesSeChevauchent(xmin, xmax, ymin, ymax, 
+						xmin2, xmax2, ymin2, ymax2, 
+						largeurHitbox, hauteurHitbox, 
+						autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
+			) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	
+	/**
+	 * Inventer un id pour un nouvel Event de eventHash.
+	 * @return id inédit
+	 */
+	public final int calculerNouvelIdPourEventsHash() {
+		//on invente un tout nouvel id
+		boolean lIdEstDejaPris;
+		final int nombreDEvents = this.events.size();
+		for (int nouvelId = 0;; nouvelId++) {
+			lIdEstDejaPris = false;
+			for (int i = 0; i<nombreDEvents && !lIdEstDejaPris; i++) {
+				if (this.events.get(i).id == nouvelId) {
+					lIdEstDejaPris = true;
+				}
+			}
+			if (!lIdEstDejaPris) {
+				System.out.println("Le nouvel id d'event choisi est "+nouvelId);
+				return nouvelId;
+			}
+		}
 	}
 	
 }

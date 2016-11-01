@@ -5,7 +5,6 @@ import java.util.HashMap;
 import main.Fenetre;
 import map.Event;
 import map.Heros;
-import map.Hitbox;
 import map.Event.Direction;
 
 /**
@@ -78,85 +77,26 @@ public class Avancer extends Mouvement {
 			return true;
 		}
 		
-		boolean reponse = true;
-		int xAInspecter = event.x; //pour le décor
+		//collisions avec le décor et les autres Events
+		int xAInspecter = event.x;
 		int yAInspecter = event.y;
-		int xAInspecter2 = event.x; //pour le décor, deuxième case à vérifier si entre deux cases
-		int yAInspecter2 = event.y;
-		int xAInspecter3 = event.x; //pour les events
-		int yAInspecter3 = event.y;
 		switch(this.direction) {
 		case Event.Direction.BAS : 
-			yAInspecter += event.hauteurHitbox;   
-			yAInspecter2 += event.hauteurHitbox;   
-			xAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
-			yAInspecter3 += event.vitesseActuelle; 
+			yAInspecter += event.vitesseActuelle; 
 			break;
 		case Event.Direction.GAUCHE : 
 			xAInspecter -= event.vitesseActuelle; 
-			xAInspecter2 -= event.vitesseActuelle; 
-			yAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
-			xAInspecter3 -= event.vitesseActuelle; 
 			break;
 		case Event.Direction.DROITE : 
-			xAInspecter += event.largeurHitbox;   
-			xAInspecter2 += event.largeurHitbox;   
-			yAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
-			xAInspecter3 += event.vitesseActuelle; 
+			xAInspecter += event.vitesseActuelle; 
 			break;
 		case Event.Direction.HAUT : 
 			yAInspecter -= event.vitesseActuelle; 
-			yAInspecter2 -= event.vitesseActuelle; 
-			xAInspecter2 += Fenetre.TAILLE_D_UN_CARREAU; 
-			yAInspecter3 -= event.vitesseActuelle; 
 			break;
 		default : 
 			break;
 		}
-		try {
-			//si rencontre avec un élément de décor non passable -> false
-			if (!event.map.casePassable[xAInspecter/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter/Fenetre.TAILLE_D_UN_CARREAU]) {
-				return false;
-			}
-			if ((this.direction==Direction.BAS||this.direction==Direction.HAUT) && ((event.x+event.largeurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(event.x/Fenetre.TAILLE_D_UN_CARREAU)) && !event.map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
-				return false;
-			}
-			if ((this.direction==Direction.GAUCHE||this.direction==Direction.DROITE) && ((event.y+event.hauteurHitbox-1)/Fenetre.TAILLE_D_UN_CARREAU!=(event.y/Fenetre.TAILLE_D_UN_CARREAU)) && !event.map.casePassable[xAInspecter2/Fenetre.TAILLE_D_UN_CARREAU][yAInspecter2/Fenetre.TAILLE_D_UN_CARREAU]) {
-				return false;
-			}
-			//voilà
-			
-			//si rencontre avec un autre évènement non traversable -> false
-			int xmin1 = xAInspecter3;
-			int xmax1 = xAInspecter3 + event.largeurHitbox;
-			int ymin1 = yAInspecter3;
-			int ymax1 = yAInspecter3 + event.hauteurHitbox;
-			int xmin2;
-			int xmax2;
-			int ymin2;
-			int ymax2;
-			for (Event autreEvent : event.map.events) {
-				xmin2 = autreEvent.x;
-				xmax2 = autreEvent.x + autreEvent.largeurHitbox;
-				ymin2 = autreEvent.y;
-				ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
-				if (event.numero != autreEvent.numero 
-					&& !autreEvent.traversableActuel
-					&& Hitbox.lesDeuxRectanglesSeChevauchent(xmin1, xmax1, ymin1, ymax1, xmin2, xmax2, ymin2, ymax2, event.largeurHitbox, event.hauteurHitbox, autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
-				) {
-					return false;
-				}
-			}
-		} catch (Exception e) {
-			//l'Event sort de la Map !
-			if (!event.sortiDeLaMap) { //on n'affiche le message d'erreur qu'une fois
-				System.err.println("L'event "+event.numero+" ("+event.nom+") est sorti de la map !");
-			}
-			event.sortiDeLaMap = true;
-			
-			reponse = true;
-		}
-		return reponse;
+		return event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.numero);
 	}
 
 	@Override
@@ -166,6 +106,9 @@ public class Avancer extends Mouvement {
 
 	@Override
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
+		//même si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
+		mettreEventDansLaDirectionDuMouvement();
+		
 		if (!event.animeALArretActuel && !event.avancaitALaFramePrecedente && !event.avance) {
 			//l'event ne bouge plus depuis 2 frames, on arrête son animation
 			event.animation = 0; 

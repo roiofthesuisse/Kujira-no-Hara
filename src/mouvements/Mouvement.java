@@ -50,14 +50,13 @@ public abstract class Mouvement {
 					//déclarer le Mouvement comme terminé (car il est réellement terminé)
 					terminerLeMouvement(event);
 				}
+				
+				mettreEventDansLaDirectionDuMouvement();
 			} else {
 				//déclarer le Mouvement comme terminé (car ignoré)
 				ignorerLeMouvement(event);
 				event.avance = false;
 			}
-			
-			//même si le Mouvement est avorté, le changement de direction a lieu
-			mettreEventDansLaDirectionDuMouvement();
 			
 		} catch (Exception e) {
 			System.err.println("Erreur lors du mouvement de l'évènement :");

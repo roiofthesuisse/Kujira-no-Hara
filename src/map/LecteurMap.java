@@ -144,6 +144,8 @@ public class LecteurMap extends Lecteur {
 		//supprimer events dont l'attribut "supprimé" est à true
 		supprimerLesEventsASupprimer();
 		
+		ajouterLesEventsAAjouter();
+		
 		//final long t1 = System.currentTimeMillis(); //mesure de performances
 		//this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
 		
@@ -289,7 +291,7 @@ public class LecteurMap extends Lecteur {
 	 * @param event dont il faut activer une Page et l'exécuter
 	 */
 	private void activerUnePageEtLExecuter(final Event event) {
-		if (!event.supprime) {
+		if (!event.supprime && !event.saute) {
 			if (event.pageActive == null || event.pageActive.commandes==null) {
 				event.activerUnePage();
 			}
@@ -383,12 +385,43 @@ public class LecteurMap extends Lecteur {
 	 */
 	private void supprimerLesEventsASupprimer() {
 		int nombreDEvents = this.map.events.size();
+		Event eventAsupprimer;
 		for (int i = 0; i<nombreDEvents; i++) {
-			if (this.map.events.get(i).supprime) {
+			eventAsupprimer = this.map.events.get(i);
+			if (eventAsupprimer.supprime) {
 				this.map.events.remove(i);
+				System.out.println("Suppression de l'event "+eventAsupprimer.nom);
+				System.out.println("Nombre d'events sur la map : "+this.map.events.size());
 				nombreDEvents--;
 				i--;
 			}
+		}
+	}
+	
+	/**
+	 * Ajouter les nouveaux Events à ajouter à la Map pour le tour suivant.
+	 */
+	private void ajouterLesEventsAAjouter() {
+		int nombreDEvents = this.map.eventsAAjouter.size();
+		Event eventAajouter;
+		for (int i = 0; i<nombreDEvents; i++) {
+			eventAajouter = this.map.eventsAAjouter.get(i);
+			
+			//on l'ajoute au hash des Events avec un numéro
+			if (eventAajouter.id < 0) {
+				eventAajouter.id = this.map.calculerNouvelIdPourEventsHash();
+			}
+			this.map.eventsHash.put(eventAajouter.id, eventAajouter);
+			
+			//on l'ajoute à la liste des Events
+			this.map.events.add(eventAajouter);
+			eventAajouter.numero = this.map.events.size();
+			
+			System.out.println("Ajout de l'event "+eventAajouter.nom);
+			System.out.println("Nombre d'events sur la map : "+this.map.events.size());
+			this.map.eventsAAjouter.remove(eventAajouter);
+			nombreDEvents--;
+			i--;
 		}
 	}
 	

@@ -166,10 +166,10 @@ public class Hitbox {
 	 * @param x2max coordonnée x maximale du rectangle 2
 	 * @param y2min coordonnée y minimale du rectangle 2
 	 * @param y2max coordonnée y maximale du rectangle 2
-	 * @param largHitbox largeur du rectangle 1 (non recalculé pour les parformances)
-	 * @param hautHitbox hauteur du rectangle 1 (non recalculé pour les parformances)
-	 * @param largHitboxAutre largeur du rectangle 2 (non recalculé pour les parformances)
-	 * @param hautHitboxAutre hauteur du rectangle 2 (non recalculé pour les parformances)
+	 * @param largHitbox largeur du rectangle 1 (non recalculé pour les performances)
+	 * @param hautHitbox hauteur du rectangle 1 (non recalculé pour les performances)
+	 * @param largHitboxAutre largeur du rectangle 2 (non recalculé pour les performances)
+	 * @param hautHitboxAutre hauteur du rectangle 2 (non recalculé pour les performances)
 	 * @return true si les rectangles se chevauchent, false sinon
 	 */
 	public static final boolean lesDeuxRectanglesSeChevauchent(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max, final int largHitbox, final int hautHitbox, final int largHitboxAutre, final int hautHitboxAutre) {

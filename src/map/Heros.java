@@ -24,13 +24,14 @@ public class Heros extends Event {
 
 	/**
 	 * Constructeur explicite
-	 * @param x position x du Héros sur la Map
-	 * @param y position y du Héros sur la Map
+	 * @param x position x (en pixels) du Héros sur la Map
+	 * @param y position y (en pixels) du Héros sur la Map
 	 * @param directionEnDebutDeMap directiondu Héros au début de la Map
+	 * @param map courante du Héros
 	 * @throws FileNotFoundException 
 	 */
-	public Heros(final int x, final int y, final int directionEnDebutDeMap) throws FileNotFoundException {
-		super(x, y, MODELE.nom, MODELE.id, MODELE.pages, MODELE.largeurHitbox, MODELE.hauteurHitbox);
+	public Heros(final int x, final int y, final int directionEnDebutDeMap, final Map map) throws FileNotFoundException {
+		super(x, y, MODELE.nom, MODELE.id, MODELE.pages, MODELE.largeurHitbox, MODELE.hauteurHitbox, map);
 		this.direction = directionEnDebutDeMap;
 	}
 	
@@ -52,7 +53,7 @@ public class Heros extends Event {
 		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
 		final ArrayList<PageEvent> pages = creerListeDesPagesViaJson(jsonPages, 0);
 		
-		final Event modele = new Event(0, 0, "heros", 0, pages, largeur, hauteur);
+		final Event modele = new Event(0, 0, "heros", 0, pages, largeur, hauteur, null);
 		return modele;
 	}
 	

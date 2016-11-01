@@ -23,6 +23,7 @@ import jeu.Objet;
 import main.Commande;
 import map.Autotile;
 import map.Event;
+import map.Map;
 import map.Tileset;
 import menu.ElementDeMenu;
 import menu.Image;
@@ -290,8 +291,9 @@ public abstract class InterpreteurDeJson {
 	 * Traduit les Events depuis le format JSON et les range dans la liste des Events de la Map.
 	 * @param events liste des Events de la Map
 	 * @param eventsJSON tableau JSON contenant les Events au format JSON
+	 * @param map des Events
 	 */
-	public static void recupererLesEvents(final ArrayList<Event> events, final JSONArray eventsJSON) {
+	public static void recupererLesEvents(final ArrayList<Event> events, final JSONArray eventsJSON, final Map map) {
 		for (Object ev : eventsJSON) {
 			final JSONObject jsonEvent = (JSONObject) ev;
 			//récupération des données dans le JSON
@@ -303,7 +305,7 @@ public abstract class InterpreteurDeJson {
 			Event event;
 
 			//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
-			event = creerEventGenerique(id, nomEvent, xEvent, yEvent);
+			event = creerEventGenerique(id, nomEvent, xEvent, yEvent, map);
 			if (event == null) {
 				//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
 				int largeurHitbox;
@@ -320,7 +322,7 @@ public abstract class InterpreteurDeJson {
 				}
 
 				final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-				event = new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox);
+				event = new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
 			}
 			events.add(event);
 		}
@@ -332,9 +334,10 @@ public abstract class InterpreteurDeJson {
 	 * @param nomEvent nom de l'Event à créer
 	 * @param xEvent position x de l'Event
 	 * @param yEvent position y de l'Event
+	 * @param map de l'Event
 	 * @return un Event créé
 	 */
-	public static Event creerEventGenerique(final int id, final String nomEvent, final int xEvent, final int yEvent) {
+	public static Event creerEventGenerique(final int id, final String nomEvent, final int xEvent, final int yEvent, final Map map) {
 		try {
 			final JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
 			int largeurHitbox;
@@ -351,9 +354,9 @@ public abstract class InterpreteurDeJson {
 			}
 	
 			final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-			return new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox);
+			return new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
 		} catch (FileNotFoundException e1) {
-			//System.err.println("Impossible de trouver le fichier JSON pour contruire l'Event générique");
+			//System.err.println("Impossible de trouver le fichier JSON pour contruire l'Event générique "+nomEvent);
 			//e1.printStackTrace();
 			return null;
 		}

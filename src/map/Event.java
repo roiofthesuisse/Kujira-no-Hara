@@ -40,14 +40,14 @@ public class Event implements Comparable<Event> {
 	public Map map;
 	/** nom de l'Event */
 	public String nom;
-	/** identifiant de l'Event */
+	/** identifiant de l'Event pour les Mouvements, tels qu'écrits dans les fichiers JSON */
 	public Integer id;
-	/** numéro de l'Event sur la Map */
+	/** numéro unique de l'Event dans la gestion de la Map, assignés automatiquement */
 	public int numero;
-	/** distance entre le bord gauche de l'écran et le corps de l'Event */
-	public int x; //en pixels
-	/** distance entre le bord haut de l'écran et le corps de l'Event */
-	public int y; //en pixels
+	/** distance (en pixels) entre le bord gauche de l'écran et le corps de l'Event */
+	public int x;
+	/** distance (en pixels) entre le bord haut de l'écran et le corps de l'Event */
+	public int y;
 	
 	/** de combien de pixels avance l'Event à chaque pas ? */
 	public int vitesseActuelle = VITESSE_PAR_DEFAUT; //1:trèsLent 2:lent 4:normal 8:rapide 16:trèsrapide 32:trèstrèsRapide
@@ -123,20 +123,22 @@ public class Event implements Comparable<Event> {
 	
 	/**
 	 * Constructeur explicite de l'Event
-	 * @param x numero du carreau où se trouve l'Event, en abscisse, de gauche à droite
-	 * @param y numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
+	 * @param x position x (en pixels) où se trouve l'Event, en abscisse, de gauche à droite
+	 * @param y position x (en pixels) numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
 	 * @param nom de l'Event
 	 * @param id identifiant numérique de l'Event
 	 * @param pages ensemble de Pages décrivant le comportement de l'Event
 	 * @param largeurHitbox largeur de la boîte de collision
 	 * @param hauteurHitbox hauteur de la boîte de collision
+	 * @param map de l'Event
 	 */
-	protected Event(final Integer x, final Integer y, final String nom, final Integer id, final ArrayList<PageEvent> pages, final int largeurHitbox, final int hauteurHitbox) {
-		this.x = x * Fenetre.TAILLE_D_UN_CARREAU;
-		this.y = y * Fenetre.TAILLE_D_UN_CARREAU;
+	public Event(final Integer x, final Integer y, final String nom, final Integer id, final ArrayList<PageEvent> pages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
+		this.x = x;
+		this.y = y;
 		this.id = id;
 		this.nom = nom;
 		this.pages = pages;
+		this.map = map;
 		this.largeurHitbox = largeurHitbox;
 		this.hauteurHitbox = hauteurHitbox;
 		this.deplacementForce = new Deplacement(null, new ArrayList<Mouvement>(), true, false, false);
@@ -155,9 +157,10 @@ public class Event implements Comparable<Event> {
 	 * @param tableauDesPages tableau JSON contenant les Pages de comportement
 	 * @param largeurHitbox largeur de la boîte de collision
 	 * @param hauteurHitbox hauteur de la boîte de collision
+	 * @param map de l'Event
 	 */
-	public Event(final Integer x, final Integer y, final String nom, final Integer id, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox) {
-		this(x, y, nom, id, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox);
+	public Event(final Integer x, final Integer y, final String nom, final Integer id, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
+		this(x * Fenetre.TAILLE_D_UN_CARREAU, y * Fenetre.TAILLE_D_UN_CARREAU, nom, id, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox, map);
 	}
 
 	/**
