@@ -301,13 +301,21 @@ public abstract class InterpreteurDeJson {
 			final Integer id = jsonEvent.getInt("id");
 			final int xEvent = jsonEvent.getInt("x");
 			final int yEvent = jsonEvent.getInt("y");
+			int offsetY;
+			try {
+				offsetY = jsonEvent.getInt("offsetY");
+			} catch (JSONException e2) {
+				offsetY = 0;
+			}
+			
 			//instanciation de l'event
 			Event event;
 
 			//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
-			event = creerEventGenerique(id, nomEvent, xEvent, yEvent, map);
+			event = creerEventGenerique(id, nomEvent, xEvent, yEvent, offsetY, map);
+			
+			//si l'Event n'est pas générique, on le construit à partir de sa description dans la page JSON
 			if (event == null) {
-				//l'event n'est pas générique, on le construit à partir de sa description dans la page JSON
 				int largeurHitbox;
 				try {
 					largeurHitbox = jsonEvent.getInt("largeur");
@@ -322,7 +330,7 @@ public abstract class InterpreteurDeJson {
 				}
 
 				final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-				event = new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
+				event = new Event(xEvent, yEvent, offsetY, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
 			}
 			events.add(event);
 		}
@@ -334,10 +342,11 @@ public abstract class InterpreteurDeJson {
 	 * @param nomEvent nom de l'Event à créer
 	 * @param xEvent position x de l'Event
 	 * @param yEvent position y de l'Event
+	 * @param offsetYEvent si on veut afficher l'Event plus bas que sa case réelle
 	 * @param map de l'Event
 	 * @return un Event créé
 	 */
-	public static Event creerEventGenerique(final int id, final String nomEvent, final int xEvent, final int yEvent, final Map map) {
+	public static Event creerEventGenerique(final int id, final String nomEvent, final int xEvent, final int yEvent, final int offsetYEvent, final Map map) {
 		try {
 			final JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
 			int largeurHitbox;
@@ -354,7 +363,7 @@ public abstract class InterpreteurDeJson {
 			}
 	
 			final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-			return new Event(xEvent, yEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
+			return new Event(xEvent, yEvent, offsetYEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
 		} catch (FileNotFoundException e1) {
 			//System.err.println("Impossible de trouver le fichier JSON pour contruire l'Event générique "+nomEvent);
 			//e1.printStackTrace();

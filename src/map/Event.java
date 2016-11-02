@@ -125,6 +125,7 @@ public class Event implements Comparable<Event> {
 	 * Constructeur explicite de l'Event
 	 * @param x position x (en pixels) où se trouve l'Event, en abscisse, de gauche à droite
 	 * @param y position x (en pixels) numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
+	 * @param offsetY si on veut afficher l'Event plus bas que sa case réelle
 	 * @param nom de l'Event
 	 * @param id identifiant numérique de l'Event
 	 * @param pages ensemble de Pages décrivant le comportement de l'Event
@@ -132,9 +133,10 @@ public class Event implements Comparable<Event> {
 	 * @param hauteurHitbox hauteur de la boîte de collision
 	 * @param map de l'Event
 	 */
-	public Event(final Integer x, final Integer y, final String nom, final Integer id, final ArrayList<PageEvent> pages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
+	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, final ArrayList<PageEvent> pages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
 		this.x = x;
 		this.y = y;
+		this.offsetY = offsetY;
 		this.id = id;
 		this.nom = nom;
 		this.pages = pages;
@@ -152,6 +154,7 @@ public class Event implements Comparable<Event> {
 	 * Constructeur de l'Event utilisant un tableau de pages JSON
 	 * @param x numero du carreau où se trouve l'Event, en abscisse, de gauche à droite
 	 * @param y numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
+	 * @param offsetY si on veut afficher l'Event plus bas que sa case réelle
 	 * @param nom de l'Event
 	 * @param id identifiant numérique de l'Event
 	 * @param tableauDesPages tableau JSON contenant les Pages de comportement
@@ -159,8 +162,8 @@ public class Event implements Comparable<Event> {
 	 * @param hauteurHitbox hauteur de la boîte de collision
 	 * @param map de l'Event
 	 */
-	public Event(final Integer x, final Integer y, final String nom, final Integer id, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
-		this(x * Fenetre.TAILLE_D_UN_CARREAU, y * Fenetre.TAILLE_D_UN_CARREAU, nom, id, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox, map);
+	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
+		this(x * Fenetre.TAILLE_D_UN_CARREAU, y * Fenetre.TAILLE_D_UN_CARREAU, offsetY, nom, id, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox, map);
 	}
 
 	/**

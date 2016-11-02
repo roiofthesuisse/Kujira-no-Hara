@@ -174,7 +174,7 @@ public class Sauter extends Mouvement {
 	 * @param event qui saute
 	 */
 	private void reserverLaPlaceDArrivee(final Event event) {
-		final Event reservation = InterpreteurDeJson.creerEventGenerique(-1, NOM_EVENT_RESERVATION_PLACE_D_ARRIVEE, this.xEventApresSaut, this.yEventApresSaut, event.map);
+		final Event reservation = InterpreteurDeJson.creerEventGenerique(-1, NOM_EVENT_RESERVATION_PLACE_D_ARRIVEE, this.xEventApresSaut, this.yEventApresSaut, 0, event.map);
 		event.map.eventsAAjouter.add(reservation);
 		this.eventDeReservation = reservation;
 	}
