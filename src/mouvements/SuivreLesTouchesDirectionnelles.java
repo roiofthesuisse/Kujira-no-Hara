@@ -98,6 +98,10 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	@Override
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
 		event.avance = false;
+		
+		//même si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
+		mettreEventDansLaDirectionDuMouvement();
+		
 		//l'Event n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
 		if (!event.avancaitALaFramePrecedente && !event.avance && !event.animeALArretActuel) {
 			event.animation = 0;

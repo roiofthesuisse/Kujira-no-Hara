@@ -278,6 +278,49 @@
 					"animeEnMouvement": true
 				}
 			]
+		},
+		{
+			"nom": "moutonAfficherImage",
+			"id": 8,
+			"x": 12,
+			"y": 10,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "AfficherImage",
+							"nomImage": "trollface.png",
+							"numero": 15,
+							"centre": true,
+							"x": 320,
+							"y": 240
+						},
+						{
+							"nom": "Deplacement",
+							"mouvements": [
+								{
+									"nom": "Attendre",
+									"nombreDeFrames": 20
+								}							
+							],
+							"repeterLeDeplacement": false,
+							"attendreLaFinDuDeplacement": true
+						},
+						{
+							"nom": "EffacerImage",
+							"numero": 15
+						}
+					],
+					"image": "mouton character.png",
+					"traversable": false,
+					"animeEnMouvement": true
+				}
+			]
 		}
 	]
 }

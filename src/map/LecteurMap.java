@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
@@ -67,9 +66,6 @@ public class LecteurMap extends Lecteur {
 	public int defilementX;
 	/** Défilement Y de la caméra */
 	public int defilementY;
-	
-	/** Images à afficher par dessus l'écran */
-	public HashMap<Integer, Picture> images = new HashMap<Integer, Picture>();
 	
 	/**
 	 * Constructeur explicite
@@ -135,13 +131,15 @@ public class LecteurMap extends Lecteur {
 		ecran = dessinerMeteo(ecran, frame);
 		
 		//brouillard
-		ecran = dessinerLeBrouillard(ecran, map.brouillard, xCamera, yCamera, frame);
+		if (map.brouillard != null) {
+			ecran = map.brouillard.dessinerLeBrouillard(ecran, xCamera, yCamera, frame);
+		}
 		
 		//ajouter les jauges
 		ecran = dessinerLesJauges(ecran);
 		
 		//afficher les images
-		//TODO
+		ecran = Picture.dessinerLesImages(ecran);
 		
 		//on affiche le message
 		if (messageActuel!=null) {
@@ -432,54 +430,7 @@ public class LecteurMap extends Lecteur {
 		}
 	}
 	
-	/**
-	 * Dessiner le Brouillard au dessus de la Map et ses Events.
-	 * @param ecran sur lequel on dessine
-	 * @param brouillard informations sur le Brouillard
-	 * @param xCamera position x de la caméra
-	 * @param yCamera position y de la caméra
-	 * @param frame d'animation du Brouillard
-	 * @return écran sur lequel on a dessiné le Brouillard
-	 */
-	private BufferedImage dessinerLeBrouillard(BufferedImage ecran, final Brouillard brouillard, final int xCamera, final int yCamera, final int frame) {
-		if (brouillard == null || brouillard.image == null || brouillard.opacite <= 0) {
-			//pas de Brouillard
-			return ecran;
-		}
-		
-		final int largeurEcran = ecran.getWidth();
-		final int hauteurEcran = ecran.getWidth();
-		final int decalageX = brouillard.defilementX * (frame % brouillard.largeur);
-		final int decalageY = brouillard.defilementY * (frame % brouillard.hauteur); 
-		int imin = (xCamera - decalageX) / brouillard.largeur;
-		int imax = (xCamera + largeurEcran - decalageX) / brouillard.largeur;
-		int jmin = (yCamera - decalageY) / brouillard.hauteur;
-		int jmax = (yCamera + hauteurEcran - decalageY) / brouillard.hauteur;
-		if (Brouillard.calculerAffichage(imin, brouillard.largeur, decalageX, xCamera) >= 0) {
-			imin--;
-		}
-		if (Brouillard.calculerAffichage(imax, brouillard.largeur, decalageX, xCamera) <= largeurEcran) {
-			imax++;
-		}
-		if (Brouillard.calculerAffichage(jmin, brouillard.hauteur, decalageY, yCamera) >= 0) {
-			jmin--;
-		}
-		if (Brouillard.calculerAffichage(jmax, brouillard.largeur, decalageY, yCamera) <= hauteurEcran) {
-			jmax++;
-		}
-		for (int i = imin; i<imax; i++) {
-			for (int j = jmin; j<jmax; j++) {
-				ecran = Graphismes.superposerImages(
-					ecran, 
-					brouillard.image, 
-					Brouillard.calculerAffichage(i, brouillard.largeur, decalageX, xCamera), 
-					Brouillard.calculerAffichage(j, brouillard.hauteur, decalageY, yCamera),
-					brouillard.opacite
-				);	
-			}
-		}
-		return ecran;
-	}
+	
 
 	/**
 	 * Faire une capture d'écran des collisions

@@ -2,11 +2,13 @@ package jeu;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.json.JSONObject;
 
 import jeu.Quete.AvancementQuete;
 import map.Map;
+import map.Picture;
 import map.meteo.Meteo;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
@@ -44,6 +46,8 @@ public final class Partie {
 	
 	/** effet météorologique en cours */
 	public Meteo meteo = null;
+	/** Images à afficher par dessus l'écran */
+	public HashMap<Integer, Picture> images = new HashMap<Integer, Picture>();
 	
 	
 	/**

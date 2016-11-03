@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import utilitaire.Graphismes;
+
 /**
  * Le Brouillard est une image ajoutée en transparence par dessus la Map et ses Events.
  * Son intérêt est d'enrichir l'ambiance colorimétrique du décor.
@@ -130,6 +132,54 @@ public final class Brouillard {
 	}
 	
 	/**
+	 * Dessiner le Brouillard au dessus de la Map et ses Events.
+	 * @param ecran sur lequel on dessine
+	 * @param xCamera position x de la caméra
+	 * @param yCamera position y de la caméra
+	 * @param frame d'animation du Brouillard
+	 * @return écran sur lequel on a dessiné le Brouillard
+	 */
+	public BufferedImage dessinerLeBrouillard(BufferedImage ecran, final int xCamera, final int yCamera, final int frame) {
+		if (this.image == null || this.opacite <= 0) {
+			//pas de Brouillard
+			return ecran;
+		}
+		
+		final int largeurEcran = ecran.getWidth();
+		final int hauteurEcran = ecran.getWidth();
+		final int decalageX = this.defilementX * (frame % this.largeur);
+		final int decalageY = this.defilementY * (frame % this.hauteur); 
+		int imin = (xCamera - decalageX) / this.largeur;
+		int imax = (xCamera + largeurEcran - decalageX) / this.largeur;
+		int jmin = (yCamera - decalageY) / this.hauteur;
+		int jmax = (yCamera + hauteurEcran - decalageY) / this.hauteur;
+		if (Brouillard.calculerAffichage(imin, this.largeur, decalageX, xCamera) >= 0) {
+			imin--;
+		}
+		if (Brouillard.calculerAffichage(imax, this.largeur, decalageX, xCamera) <= largeurEcran) {
+			imax++;
+		}
+		if (Brouillard.calculerAffichage(jmin, this.hauteur, decalageY, yCamera) >= 0) {
+			jmin--;
+		}
+		if (Brouillard.calculerAffichage(jmax, this.largeur, decalageY, yCamera) <= hauteurEcran) {
+			jmax++;
+		}
+		for (int i = imin; i<imax; i++) {
+			for (int j = jmin; j<jmax; j++) {
+				ecran = Graphismes.superposerImages(
+					ecran, 
+					this.image, 
+					Brouillard.calculerAffichage(i, this.largeur, decalageX, xCamera), 
+					Brouillard.calculerAffichage(j, this.hauteur, decalageY, yCamera),
+					this.opacite
+				);	
+			}
+		}
+		return ecran;
+	}
+	
+	/**
 	 * Calcule la position où dessiner l'image du Brouillard.
 	 * @param numeroVignette l'écran est recouvert plusieurs fois avec l'image du Brouillard si elle est petite
 	 * @param tailleBrouillard taille de l'image du Brouillard
@@ -140,4 +190,5 @@ public final class Brouillard {
 	public static int calculerAffichage(final int numeroVignette, final int tailleBrouillard, final int decalageTemporel, final int positionCamera) {
 		return numeroVignette*tailleBrouillard + decalageTemporel - positionCamera;
 	}
+
 }
