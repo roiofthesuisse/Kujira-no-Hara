@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
@@ -66,6 +67,9 @@ public class LecteurMap extends Lecteur {
 	public int defilementX;
 	/** Défilement Y de la caméra */
 	public int defilementY;
+	
+	/** Images à afficher par dessus l'écran */
+	public HashMap<Integer, Picture> images = new HashMap<Integer, Picture>();
 	
 	/**
 	 * Constructeur explicite
@@ -135,6 +139,9 @@ public class LecteurMap extends Lecteur {
 		
 		//ajouter les jauges
 		ecran = dessinerLesJauges(ecran);
+		
+		//afficher les images
+		//TODO
 		
 		//on affiche le message
 		if (messageActuel!=null) {
