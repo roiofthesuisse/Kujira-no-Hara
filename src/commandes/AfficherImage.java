@@ -51,7 +51,7 @@ public class AfficherImage extends Commande implements CommandeEvent {
 				parametres.containsKey("y") ? (int) parametres.get("y") : 0,
 				parametres.containsKey("zoomX") ? (int) parametres.get("zoomX") : PAS_D_HOMOTHETIE,
 				parametres.containsKey("zoomY") ? (int) parametres.get("zoomY") : PAS_D_HOMOTHETIE,
-				parametres.containsKey("zoomY") ? (int) parametres.get("opacite") : Graphismes.OPACITE_MAXIMALE
+				parametres.containsKey("opacite") ? (int) parametres.get("opacite") : Graphismes.OPACITE_MAXIMALE
 		);
 	}
 	

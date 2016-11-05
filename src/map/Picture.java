@@ -64,8 +64,7 @@ public class Picture {
 				xAffichage -= picture.image.getWidth()/2;
 				yAffichage -= picture.image.getHeight()/2;
 			}
-			
-			ecran = Graphismes.superposerImages(ecran, picture.image, xAffichage, yAffichage);
+			ecran = Graphismes.superposerImages(ecran, picture.image, xAffichage, yAffichage, picture.opacite);
 		}
 		return ecran;
 	}
