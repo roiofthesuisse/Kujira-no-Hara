@@ -62,7 +62,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 			(String) parametres.get("operationAFaire"),
 			(String) parametres.get("operationAFaire2"),
 			(int) parametres.get("valeurADonner"),
-			(int) parametres.get("valeurADonner2")
+			parametres.containsKey("valeurADonner2") ? (int) parametres.get("valeurADonner2") : -1
 		);
 	}
 	

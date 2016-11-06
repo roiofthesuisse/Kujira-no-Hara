@@ -8,13 +8,14 @@ import main.Commande;
 import main.Fenetre;
 import map.Picture;
 import utilitaire.Graphismes;
+import utilitaire.Graphismes.ModeDeFusion;
 
 /**
  * Afficher une image par dessus l'écran.
  */
 public class AfficherImage extends Commande implements CommandeEvent {
 	//constantes
-	private static final int PAS_D_HOMOTHETIE = 100;
+	public static final int PAS_D_HOMOTHETIE = 100;
 	
 	private Picture picture;
 	
@@ -23,15 +24,17 @@ public class AfficherImage extends Commande implements CommandeEvent {
 	 * @param nomImage nom de l'image à afficher
 	 * @param numero de l'image à afficher
 	 * @param centre son origine est-elle son centre ? sinon, son origine est son coin haut-gauche
+	 * @param variables les coordonnées sont stockées dans des variables 
 	 * @param x coordonnée d'affichage à l'écran (en pixels)
 	 * @param y coordonnée d'affichage à l'écran (en pixels)
 	 * @param zoomX étirement horizontal (en pourcents)
 	 * @param zoomY étirement vertical (en pourcents)
 	 * @param opacite de l'image (sur 255)
+	 * @param modeDeFusion de la superposition d'images
 	 */
-	public AfficherImage(final String nomImage, final int numero, final boolean centre, final int x, final int y, final int zoomX, final int zoomY, final int opacite) {
+	public AfficherImage(final String nomImage, final int numero, final boolean centre, final boolean variables, final int x, final int y, final int zoomX, final int zoomY, final int opacite, final ModeDeFusion modeDeFusion) {
 		try {
-			this.picture = new Picture(nomImage, numero, centre, x, y, zoomX, zoomY, opacite);
+			this.picture = new Picture(nomImage, numero, centre, variables, x, y, zoomX, zoomY, opacite, modeDeFusion);
 		} catch (IOException e) {
 			this.picture = null;
 			System.err.println("Impossible d'ouvrir l'image "+nomImage);
@@ -47,11 +50,13 @@ public class AfficherImage extends Commande implements CommandeEvent {
 		this( (String) parametres.get("nomImage"),
 				(int) parametres.get("numero"),
 				parametres.containsKey("centre") ? (boolean) parametres.get("centre") : false,
+				parametres.containsKey("variables") ? (boolean) parametres.get("variables") : false,
 				parametres.containsKey("x") ? (int) parametres.get("x") : 0,
 				parametres.containsKey("y") ? (int) parametres.get("y") : 0,
 				parametres.containsKey("zoomX") ? (int) parametres.get("zoomX") : PAS_D_HOMOTHETIE,
 				parametres.containsKey("zoomY") ? (int) parametres.get("zoomY") : PAS_D_HOMOTHETIE,
-				parametres.containsKey("opacite") ? (int) parametres.get("opacite") : Graphismes.OPACITE_MAXIMALE
+				parametres.containsKey("opacite") ? (int) parametres.get("opacite") : Graphismes.OPACITE_MAXIMALE,
+				ModeDeFusion.parNom(parametres.get("modeDeFusion"))
 		);
 	}
 	

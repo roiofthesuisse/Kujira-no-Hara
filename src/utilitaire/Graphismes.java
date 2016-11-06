@@ -4,6 +4,7 @@ import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Composite;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +20,37 @@ import main.Lecteur;
 public abstract class Graphismes {
 	public static final int OPACITE_MAXIMALE = 255;
 	public static Graphics2D graphismes;
+	
+	/**
+	 * Façon dont les images sont superposées.
+	 */
+	public enum ModeDeFusion {
+		NORMAL("normal"), ADDITION("addition"), SOUSTRACTION("soustraction");
+		
+		public String nom;
+		
+		/**
+		 * Constructeur explicite
+		 * @param nom du mode de fusion
+		 */
+		ModeDeFusion(final String nom) {
+			this.nom = nom;
+		}
+		
+		/**
+		 * Obtenir le mode de fusion à partir de son nom
+		 * @param nom du mode de fusion
+		 * @return mode de fusion qui porte ce nom
+		 */
+		public static ModeDeFusion parNom(final Object nom) {
+			for (ModeDeFusion mode : ModeDeFusion.values()) {
+				if (mode.nom.equals(nom)) {
+					return mode;
+				}
+			}
+			return ModeDeFusion.NORMAL;
+		}
+	}
 	
 	/**
 	 * Superposer deux images
@@ -55,6 +87,8 @@ public abstract class Graphismes {
 		}
 		
 		g2d.drawImage(image2, null, x, y);
+		g2d.dispose();
+		
 		return ecran;
 	}
 	
@@ -64,9 +98,10 @@ public abstract class Graphismes {
 	 */
 	public static BufferedImage ecranNoir() {
 		BufferedImage image = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Lecteur.TYPE_DES_IMAGES);
-		Graphics2D graphics = image.createGraphics();
-		graphics.setPaint(Color.black);
-		graphics.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
+		Graphics2D g2d = image.createGraphics();
+		g2d.setPaint(Color.black);
+		g2d.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
+		g2d.dispose();
 		return image;
 	}
 	
@@ -79,9 +114,10 @@ public abstract class Graphismes {
 	public static BufferedImage imageVide(final int largeur, final int hauteur) {
 		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
 		final Color couleur = new Color(0, 0, 0, 0);
-		Graphics2D graphics = image.createGraphics();
-		graphics.setPaint(couleur);
-		graphics.fillRect(0, 0, largeur, hauteur);
+		Graphics2D g2d = image.createGraphics();
+		g2d.setPaint(couleur);
+		g2d.fillRect(0, 0, largeur, hauteur);
+		g2d.dispose();
 		return image;
 	}
 	
@@ -133,5 +169,23 @@ public abstract class Graphismes {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Redimensionner une image.
+	 * @param image à redimensionner
+	 * @param largeur de la nouvelle image
+	 * @param hauteur de la nouvelle image
+	 * @return image redimensionnée
+	 */
+	public static BufferedImage redimensionner(final BufferedImage image, final int largeur, final int hauteur) {
+		final Image tmp = image.getScaledInstance(largeur, hauteur, Image.SCALE_SMOOTH);
+	    final BufferedImage imageRedimensionnee = new BufferedImage(largeur, hauteur, BufferedImage.TYPE_INT_ARGB);
+
+	    final Graphics2D g2d = imageRedimensionnee.createGraphics();
+	    g2d.drawImage(tmp, 0, 0, null);
+	    g2d.dispose();
+
+	    return imageRedimensionnee;
+	}  
 
 }
