@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Composite;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +20,9 @@ import main.Lecteur;
  * CLasse utilitaire pour les opérations graphiques récurrentes.
  */
 public abstract class Graphismes {
+	//constantes
+	public static final int PAS_D_HOMOTHETIE = 100;
+	public static final int PAS_DE_ROTATION = 0;
 	public static final int OPACITE_MAXIMALE = 255;
 	public static Graphics2D graphismes;
 	
@@ -73,7 +78,21 @@ public abstract class Graphismes {
 	 * @param opacite transparence de l'image2 entre 0 et 255
 	 * @return écran sur lequel on a superposé l'image2
 	 */
-	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite) {	
+	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite) {
+		return superposerImages(ecran, image2, x, y, opacite, PAS_DE_ROTATION);
+	}
+	
+	/**
+	 * Superposer deux images
+	 * @param ecran image de fond, sur laquelle on va superposer l'autre
+	 * @param image2 image du dessus, superposée sur l'écran
+	 * @param x position x où on superpose l'image2
+	 * @param y position y où on superpose l'image2
+	 * @param opacite transparence de l'image2 entre 0 et 255
+	 * @param angle de rotation de l'image
+	 * @return écran sur lequel on a superposé l'image2
+	 */
+	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite, final int angle) {
 		final Graphics2D g2d = (Graphics2D) ecran.createGraphics();
 		//TODO final ModeDeSuperposition mode
 		//s'inspirer de http://www.java2s.com/Code/Java/2D-Graphics-GUI/BlendCompositeDemo.htm
@@ -86,7 +105,18 @@ public abstract class Graphismes {
 			g2d.setComposite(comp);
 		}
 		
-		g2d.drawImage(image2, null, x, y);
+		if (angle == PAS_DE_ROTATION) {
+			g2d.drawImage(image2, null, x, y);
+		} else {
+			//rotation de l'image
+			final double rotationRequired = Math.toRadians(angle);
+			final double locationX = image2.getWidth() / 2;
+			final double locationY = image2.getHeight() / 2;
+			final AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
+			final AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+
+			g2d.drawImage(op.filter(image2, null), x, y, null);
+		}
 		g2d.dispose();
 		
 		return ecran;
