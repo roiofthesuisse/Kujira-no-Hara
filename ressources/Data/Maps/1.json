@@ -433,6 +433,34 @@
 					"animeEnMouvement": false
 				}
 			]
+		},
+		{
+			"nom": "darumaRebondissant",
+			"id": 14,
+			"x": 2,
+			"y": 10,
+			"pages": [
+				{
+					"image": "demon lave character.png",
+					"directionInitiale": 0,
+					"traversable": false,
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "SauterVersEvent",
+								"idEventObserve": 0,
+								"nombreDeCases": 2
+							},
+							{
+								"nom": "Attendre",
+								"nombreDeFrames": 10
+ 							}
+						],
+						"repeterLeDeplacement": true
+					}
+				}
+			]
 		}
 	]
 }
