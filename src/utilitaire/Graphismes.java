@@ -108,14 +108,24 @@ public abstract class Graphismes {
 		if (angle == PAS_DE_ROTATION) {
 			g2d.drawImage(image2, null, x, y);
 		} else {
+			System.out.println("x:"+x+" y:"+y);
 			//rotation de l'image
-			final double rotationRequired = Math.toRadians(angle);
-			final double locationX = image2.getWidth() / 2;
-			final double locationY = image2.getHeight() / 2;
-			final AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
+			final double angleRadians = Math.toRadians(angle);
+			final double centreRotationX = image2.getWidth() / 2;
+			final double centreRotationY = image2.getHeight() / 2;
+			
+			final AffineTransform tx = new AffineTransform();
+			tx.translate(centreRotationX, centreRotationY);
+			tx.rotate(angleRadians, centreRotationX, centreRotationY);
+			tx.translate(-centreRotationX, -centreRotationY);
 			final AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-
-			g2d.drawImage(op.filter(image2, null), x, y, null);
+			final BufferedImage imagePivotee = op.filter(image2, null);
+			final int nouvelleLargeur = imagePivotee.getWidth();
+			final int nouvelleHauteur = imagePivotee.getHeight();
+			final int nouveauX = x + (int) centreRotationX - nouvelleLargeur/2;
+			final int nouveauY = y + (int) centreRotationY - nouvelleHauteur/2;
+			System.out.println("x':"+nouveauX+" y':"+nouveauY);
+			g2d.drawImage(imagePivotee, nouveauX, nouveauY, null);
 		}
 		g2d.dispose();
 		
