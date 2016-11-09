@@ -104,6 +104,9 @@ public class LecteurMenu extends Lecteur {
 			case MENU : 
 				allerAuMenuParentOuRevenirAuJeu();
 				break;
+			case CAPTURE_D_ECRAN : 
+				this.faireUneCaptureDEcran(); 
+				break;
 			default : 
 				// touche inconnue
 				break;

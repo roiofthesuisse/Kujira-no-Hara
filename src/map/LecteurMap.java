@@ -501,6 +501,7 @@ public class LecteurMap extends Lecteur {
 			case ACTION : this.action(); break;
 			case ARME_PRECEDENTE : this.equiperArmePrecedente(); break;
 			case ACTION_SECONDAIRE : this.accessoire(); break;
+			case CAPTURE_D_ECRAN : this.faireUneCaptureDEcran(); break;
 			default : break; // touche inconnue
 		}
 	}

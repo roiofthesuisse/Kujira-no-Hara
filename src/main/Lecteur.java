@@ -1,8 +1,11 @@
 package main;
 
 import java.awt.image.BufferedImage;
+import java.util.Date;
+
 import son.LecteurAudio;
 import utilitaire.GestionClavier.ToucheRole;
+import utilitaire.Graphismes;
 import map.LecteurMap;
 import menu.LecteurMenu;
 
@@ -62,6 +65,15 @@ public abstract class Lecteur {
 	 * @param toucheRelachee touche relachée
 	 */
 	public abstract void keyReleased(ToucheRole toucheRelachee);
+	
+	/**
+	 * Faire une capture de l'écran actuel.
+	 */
+	protected final void faireUneCaptureDEcran() {
+		final String nomImage = "capture ecran kujira "+new Date().getTime();
+		System.out.println("Capture d'écran : "+nomImage);
+		Graphismes.sauvegarderImage(this.ecranAtuel, nomImage);
+	}
 	
 	/***
 	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Manu ou la Map

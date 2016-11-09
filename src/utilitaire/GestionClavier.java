@@ -14,6 +14,7 @@ public abstract class GestionClavier {
 		S(83, "S"),
 		D(68, "D"),
 		ESPACE(32, "ESPACE"),
+		C(67, "C"),
 		ENTREE(10, "ENTREE"),
 		O(79, "O"),
 		K(75, "K"),
@@ -50,7 +51,8 @@ public abstract class GestionClavier {
 		ARME_PRECEDENTE(ToucheClavier.L, "ARME_PRECEDENTE"),
 		PAGE_MENU_PRECEDENTE(ToucheClavier.L, "PAGE_MENU_PRECEDENTE"),
 		ACTION_SECONDAIRE(ToucheClavier.M, "ACTION_SECONDAIRE"),
-		MENU(ToucheClavier.ENTREE, "MENU");
+		MENU(ToucheClavier.ENTREE, "MENU"),
+		CAPTURE_D_ECRAN(ToucheClavier.C, "CAPTURE_D_ECRAN");
 		
 		public final ToucheClavier touche;
 		private final String nom;
@@ -76,6 +78,7 @@ public abstract class GestionClavier {
 					return role;
 				}
 			}
+			System.err.println("une touche inconnue a été pressée : "+keycode); 
 			return null;
 		}
 		
@@ -90,6 +93,7 @@ public abstract class GestionClavier {
 					return role;
 				}
 			}
+			System.err.println("une touche inconnue a été mentionnée : "+nom); 
 			return null;
 		}
 	}
@@ -105,7 +109,7 @@ public abstract class GestionClavier {
 	        	return true;
 	        }
 	    }
-		System.out.println("une touche inconnue a été pressée : "+keycode); 
+		System.err.println("une touche inconnue a été pressée : "+keycode); 
 		return false;
 	}
 	
