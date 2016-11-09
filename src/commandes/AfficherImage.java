@@ -110,7 +110,7 @@ public class AfficherImage extends Commande implements CommandeEvent {
 		//mode de fusion
 		//TODO
 		
-		final Picture picture = new Picture(this.image, this.numero, xAffichage, yAffichage, zoomX, zoomY, this.opacite, this.modeDeFusion, this.angle);
+		final Picture picture = new Picture(this.image, this.numero, xAffichage, yAffichage, centre, zoomX, zoomY, this.opacite, this.modeDeFusion, this.angle);
 		Fenetre.getPartieActuelle().images.put(picture.numero, picture);
 		
 		return curseurActuel+1;

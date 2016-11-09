@@ -126,7 +126,6 @@ public abstract class Graphismes {
 		if (angle == PAS_DE_ROTATION) {
 			g2d.drawImage(image2, null, x, y);
 		} else {
-			System.out.println("x:"+x+" y:"+y);
 			//rotation de l'image
 			final double angleRadians = Math.toRadians(angle);
 			final double centreRotationX = image2.getWidth() / 2;
