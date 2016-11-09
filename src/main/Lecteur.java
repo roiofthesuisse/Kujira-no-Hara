@@ -69,7 +69,7 @@ public abstract class Lecteur {
 	/**
 	 * Faire une capture de l'écran actuel.
 	 */
-	protected final void faireUneCaptureDEcran() {
+	public final void faireUneCaptureDEcran() {
 		final String nomImage = "capture ecran kujira "+new Date().getTime();
 		System.out.println("Capture d'écran : "+nomImage);
 		Graphismes.sauvegarderImage(this.ecranAtuel, nomImage);
