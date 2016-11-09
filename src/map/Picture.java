@@ -11,21 +11,21 @@ import utilitaire.Graphismes.ModeDeFusion;
  */
 public class Picture {
 	public BufferedImage image;
-	public Integer numero;
+	public Integer numero; //Integer car utilisé comme clé d'une HashMap
 	/** coordonnée x d'affichage par rapport au coin de l'écran */
 	public int x;
 	/** coordonnée y d'affichage par rapport au coin de l'écran */
 	public int y;
 	/** la nouvelle origine est-elle le centre de l'image ? */
-	private boolean centre;
+	public boolean centre;
 	/** zoom horizontal (en pourcents)*/
-	private int zoomX;
+	public int zoomX;
 	/** zoom vertical (en pourcents)*/
-	private int zoomY;
-	private int opacite;
-	private ModeDeFusion modeDeFusion;
+	public int zoomY;
+	public int opacite;
+	public ModeDeFusion modeDeFusion;
 	/** angle de rotation de l'image */
-	private int angle;
+	public int angle;
 	
 	/**
 	 * Constructeur explicite

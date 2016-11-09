@@ -141,7 +141,6 @@ public abstract class Graphismes {
 			final int nouvelleHauteur = imagePivotee.getHeight();
 			final int nouveauX = x + (int) centreRotationX - nouvelleLargeur/2;
 			final int nouveauY = y + (int) centreRotationY - nouvelleHauteur/2;
-			System.out.println("x':"+nouveauX+" y':"+nouveauY);
 			g2d.drawImage(imagePivotee, nouveauX, nouveauY, null);
 		}
 		g2d.dispose();
