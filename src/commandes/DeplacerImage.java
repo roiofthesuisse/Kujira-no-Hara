@@ -7,6 +7,11 @@ import main.Commande;
 import utilitaire.Graphismes;
 import utilitaire.Graphismes.ModeDeFusion;
 
+/**
+ * Démarrer une transition progressive de l'état actuel de l'image vers un état d'arrivée.
+ * Cette transition peut concerner le position de l'image, son opacité, son zoom, son angle.
+ * Il est également possible de changer de mode de fusion, mais ce changement sera immédiat.
+ */
 public class DeplacerImage extends Commande implements CommandeEvent {
 	/** numéro de l'image à déplacer */
 	private int numero;
@@ -34,7 +39,21 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 	private ModeDeFusion modeDeFusion;
 	private int angleFin;
 	
-	public DeplacerImage(final int numero, final int nombreDeFrames, final boolean centre, final boolean variables, final int x, final int y, 
+	/**
+	 * Constructeur explicite
+	 * @param numero de l'image à modifier
+	 * @param nombreDeFrames durée de la transition
+	 * @param centre l'origine pour les nouvelles coordonnées de l'image est elle son centre ?
+	 * @param variables les nouvelles coordonnées sont-elles stockées dans des variables ?
+	 * @param x coordonnée d'arrivée
+	 * @param y coordonnée d'arrivée
+	 * @param zoomX zoom d'arrivée
+	 * @param zoomY zoom d'arrivée
+	 * @param opacite opacité d'arrivée
+	 * @param modeDeFusion d'arrivée
+	 * @param angle d'arrivée
+	 */
+	private DeplacerImage(final int numero, final int nombreDeFrames, final boolean centre, final boolean variables, final int x, final int y, 
 			final int zoomX, final int zoomY, final int opacite, final ModeDeFusion modeDeFusion, final int angle) {
 		this.numero = numero;
 		this.centre = centre;
@@ -71,8 +90,10 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 	}
 
 	@Override
-	public int executer(int curseurActuel, ArrayList<Commande> commandes) {
-
+	public int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		
+		
+		//TODO
 
 		if (this.dejaFait < this.nombreDeFrames) {
 			//pas fini

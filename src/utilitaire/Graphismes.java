@@ -24,6 +24,7 @@ public abstract class Graphismes {
 	public static final int PAS_D_HOMOTHETIE = 100;
 	public static final int PAS_DE_ROTATION = 0;
 	public static final int OPACITE_MAXIMALE = 255;
+	private static final boolean ORIGINE_HAUT_GAUCHE = false;
 	public static Graphics2D graphismes;
 	
 	/**
@@ -79,7 +80,7 @@ public abstract class Graphismes {
 	 * @return écran sur lequel on a superposé l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite) {
-		return superposerImages(ecran, image2, x, y, opacite, PAS_DE_ROTATION);
+		return superposerImages(ecran, image2, x, y, ORIGINE_HAUT_GAUCHE, PAS_D_HOMOTHETIE, PAS_D_HOMOTHETIE, opacite, PAS_DE_ROTATION);
 	}
 	
 	/**
@@ -88,11 +89,15 @@ public abstract class Graphismes {
 	 * @param image2 image du dessus, superposée sur l'écran
 	 * @param x position x où on superpose l'image2
 	 * @param y position y où on superpose l'image2
+	 * @param centre l'origine de l'image est-elle son centre ?
+	 * @param zoomX zoom horizontal (en pourcents)
+	 * @param zoomY zoom vertical (en pourcents)
 	 * @param opacite transparence de l'image2 entre 0 et 255
 	 * @param angle de rotation de l'image
 	 * @return écran sur lequel on a superposé l'image2
 	 */
-	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite, final int angle) {
+	public static final BufferedImage superposerImages(BufferedImage ecran, BufferedImage image2, int x, int y, 
+			final boolean centre, final int zoomX, final int zoomY, final int opacite, final int angle) {
 		final Graphics2D g2d = (Graphics2D) ecran.createGraphics();
 		//TODO final ModeDeSuperposition mode
 		//s'inspirer de http://www.java2s.com/Code/Java/2D-Graphics-GUI/BlendCompositeDemo.htm
@@ -103,6 +108,19 @@ public abstract class Graphismes {
 			final float alpha = (float) opacite/OPACITE_MAXIMALE;
 	        final Composite comp = AlphaComposite.getInstance(rule, alpha);
 			g2d.setComposite(comp);
+		}
+		
+		//zoom
+		if (zoomX != Graphismes.PAS_D_HOMOTHETIE || zoomY != Graphismes.PAS_D_HOMOTHETIE) {
+			final int largeur = image2.getWidth() * zoomX / 100;
+			final int hauteur = image2.getHeight() * zoomY / 100;
+			image2 = Graphismes.redimensionner(image2, largeur, hauteur);
+		}
+		//origine
+		if (centre) {
+			//l'origine de l'image est son centre
+			x -= image2.getWidth()/2;
+			y -= image2.getHeight()/2;
 		}
 		
 		if (angle == PAS_DE_ROTATION) {

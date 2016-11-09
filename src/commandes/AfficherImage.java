@@ -106,25 +106,11 @@ public class AfficherImage extends Commande implements CommandeEvent {
 			xAffichage = this.x;
 			yAffichage = this.y;
 		}
-		
-		//zoom
-		if (this.zoomX != Graphismes.PAS_D_HOMOTHETIE || this.zoomY != Graphismes.PAS_D_HOMOTHETIE) {
-			final int largeur = this.image.getWidth() * this.zoomX / 100;
-			final int hauteur = this.image.getHeight() * this.zoomY / 100;
-			this.image = Graphismes.redimensionner(this.image, largeur, hauteur);
-		}
-		
-		//origine
-		if (this.centre) {
-			//l'origine de l'image est son centre
-			xAffichage -= this.image.getWidth()/2;
-			yAffichage -= this.image.getHeight()/2;
-		}
-		
+
 		//mode de fusion
 		//TODO
 		
-		final Picture picture = new Picture(this.image, this.numero, xAffichage, yAffichage, this.opacite, this.modeDeFusion, this.angle);
+		final Picture picture = new Picture(this.image, this.numero, xAffichage, yAffichage, zoomX, zoomY, this.opacite, this.modeDeFusion, this.angle);
 		Fenetre.getPartieActuelle().images.put(picture.numero, picture);
 		
 		return curseurActuel+1;
