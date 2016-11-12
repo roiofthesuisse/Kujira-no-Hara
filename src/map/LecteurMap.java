@@ -424,7 +424,7 @@ public class LecteurMap extends Lecteur {
 			
 			System.out.println("Ajout de l'event "+eventAajouter.nom);
 			System.out.println("Nombre d'events sur la map : "+this.map.events.size());
-			this.map.eventsAAjouter.remove(eventAajouter);
+			this.map.eventsAAjouter.remove(i);
 			nombreDEvents--;
 			i--;
 		}

@@ -1,5 +1,8 @@
 package mouvements;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import main.Fenetre;
@@ -40,48 +43,85 @@ public class SauterVersEvent extends Sauter {
 	}
 
 	/**
+	 * Cases possibles pour l'arrivée du saut.
+	 */
+	private final class Carreau implements Comparable<Carreau> {
+		int x;
+		int y;
+		int distanceAuCarre;
+		
+		/**
+		 * Constructeur explicite
+		 * @param x coordonnée x en carreaux
+		 * @param y coordonnée y en carreaux
+		 * @param distanceAuCarre distance entre le carreau et l'Event observé.
+		 */
+		private Carreau(final int x, final int y, final int distanceAuCarre) {
+			this.x = x;
+			this.y = y;
+			this.distanceAuCarre = distanceAuCarre;
+		}
+
+		@Override
+		public int compareTo(final Carreau carreau2) {
+			return this.distanceAuCarre - carreau2.distanceAuCarre;
+		}
+	}
+	
+	/**
 	 * Le mouvement dans cette Direction est-il possible ?
 	 * @return si le mouvement est possible oui ou non
 	 */
 	@Override
 	public final boolean mouvementPossible() {
-		//if (!this.directionDecidee) { //ne calculer la direction qu'une seule fois par pas
-			//calcul de la direction à prendre
-			final Event eventObservateur = this.deplacement.getEventADeplacer();
-			final Event eventObserve = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventObserve);
-			int distanceVerticale;
-			int distanceHorizontale;
-			System.out.println(nombreDeCases);
-			for(int i=0;i<nombreDeCases;i++){
-				distanceVerticale = eventObservateur.y - eventObserve.y;
-				distanceHorizontale = eventObservateur.x - eventObserve.x;
-				System.out.println("x="+x+" y="+y);
-				calculerDirection(distanceVerticale, distanceHorizontale);
-				switch(this.direction){
-				case Direction.BAS:
-					this.y += 1;
-					System.out.println("case bas y ="+y);
-					break;
-				case Direction.HAUT:
-					this.y -= 1;
-					break;
-				case Direction.GAUCHE:
-					this.x -= 1;
-					System.out.println("case gauche x ="+x);
-					break;
-				case Direction.DROITE:
-					this.x += 1;
-					break;
-				}
-				if (!super.mouvementPossible()) {
-					essayerAutreDirection();
+		final Event eventObservateur = this.deplacement.getEventADeplacer();
+		final Event eventObserve = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventObserve);
+		final ArrayList<Carreau> listeDeCarreaux = new ArrayList<Carreau>();
+		
+		final int signeX, signeY;
+		int distanceVerticale = eventObservateur.y - eventObserve.y;
+		int distanceHorizontale = eventObservateur.x - eventObserve.x;
+		calculerDirection(distanceVerticale, distanceHorizontale);
+		if (this.directionPossibleVerticale==Direction.BAS) {
+			signeY = 1;
+		} else {
+			signeY = -1;
+		}
+		if (this.directionPossibleHorizontale==Direction.DROITE) {
+			signeX = 1;
+		} else {
+			signeX = -1;
+		}
+		for (int i = 0; i <= this.nombreDeCases; i++) {
+			int j = this.nombreDeCases - i;
+			int deltaXSauteurArrivee = signeX*i*Fenetre.TAILLE_D_UN_CARREAU;
+			int deltaYSauteurArrivee = signeY*j*Fenetre.TAILLE_D_UN_CARREAU;
+			int xArrivee = eventObservateur.x + deltaXSauteurArrivee;
+			int yArrivee = eventObservateur.y + deltaYSauteurArrivee;
+			int deltaXArriveeCible = eventObserve.x - xArrivee;
+			int deltaYArriveeCible = eventObserve.y - yArrivee;
+			// On n'ajoute le carreau dans la liste que si l'arrivée se trouve entre le sauteur et la cible
+			if (deltaXSauteurArrivee * deltaXArriveeCible >= 0 && deltaYSauteurArrivee * deltaYArriveeCible >= 0) {
+				int distanceAuCarre = deltaXArriveeCible * deltaXArriveeCible + deltaYArriveeCible * deltaYArriveeCible;
+				Carreau carreau = new Carreau(i, j, distanceAuCarre);
+				listeDeCarreaux.add(carreau);
+			}
+		}
+		int tailleListe = listeDeCarreaux.size();
+		// Si aucune case ne convient, on ne saute pas
+		if (tailleListe > 0) {
+			Collections.sort(listeDeCarreaux);
+			for (int i = 0; i < tailleListe; i++) {
+				this.x = signeX * listeDeCarreaux.get(i).x;
+				this.y = signeY * listeDeCarreaux.get(i).y;
+				if (super.mouvementPossible()) {
+					return true;
 				}
 			}
-			
-			//this.directionDecidee = true; 
-		//}
-		return super.mouvementPossible();
+		}
+		return false;
 	}
+
 	/**
 	 * Détermine la direction du Mouvement pour suivre l'event observé
 	 * @param distanceVerticale difference entre le y destination et le y actuel
