@@ -151,6 +151,7 @@ public class LecteurMenu extends Lecteur {
 			//revenir au jeu
 			new RevenirAuJeu(this).executer();
 		} else {
+			//quitte le jeu
 			this.fenetre.dispose();
 		}
 	}

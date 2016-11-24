@@ -152,8 +152,8 @@ public class Event implements Comparable<Event> {
 	
 	/**
 	 * Constructeur de l'Event utilisant un tableau de pages JSON
-	 * @param x numero du carreau où se trouve l'Event, en abscisse, de gauche à droite
-	 * @param y numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
+	 * @param x coordonnée x (en pixels) où se trouve l'Event, en abscisse, de gauche à droite
+	 * @param y coordonnée y (en pixels) où se trouve l'Event, en ordonnée, de haut en bas
 	 * @param offsetY si on veut afficher l'Event plus bas que sa case réelle
 	 * @param nom de l'Event
 	 * @param id identifiant numérique de l'Event
@@ -163,7 +163,7 @@ public class Event implements Comparable<Event> {
 	 * @param map de l'Event
 	 */
 	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
-		this(x * Fenetre.TAILLE_D_UN_CARREAU, y * Fenetre.TAILLE_D_UN_CARREAU, offsetY, nom, id, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox, map);
+		this(x, y, offsetY, nom, id, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox, map);
 	}
 
 	/**

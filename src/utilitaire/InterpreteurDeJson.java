@@ -21,6 +21,7 @@ import commandes.CommandeMenu;
 import conditions.Condition;
 import jeu.Objet;
 import main.Commande;
+import main.Fenetre;
 import map.Autotile;
 import map.Event;
 import map.Map;
@@ -299,8 +300,8 @@ public abstract class InterpreteurDeJson {
 			//récupération des données dans le JSON
 			final String nomEvent = jsonEvent.getString("nom");
 			final Integer id = jsonEvent.getInt("id");
-			final int xEvent = jsonEvent.getInt("x");
-			final int yEvent = jsonEvent.getInt("y");
+			final int xEvent = jsonEvent.getInt("x") * Fenetre.TAILLE_D_UN_CARREAU;
+			final int yEvent = jsonEvent.getInt("y") * Fenetre.TAILLE_D_UN_CARREAU;
 			int offsetY;
 			try {
 				offsetY = jsonEvent.getInt("offsetY");
@@ -340,8 +341,8 @@ public abstract class InterpreteurDeJson {
 	 * Créer un Event générique à partir de sa description JSON.
 	 * @param id de l'Event à créer
 	 * @param nomEvent nom de l'Event à créer
-	 * @param xEvent position x de l'Event
-	 * @param yEvent position y de l'Event
+	 * @param xEvent (en pixels) position x de l'Event
+	 * @param yEvent (en pixels) position y de l'Event
 	 * @param offsetYEvent si on veut afficher l'Event plus bas que sa case réelle
 	 * @param map de l'Event
 	 * @return un Event créé

@@ -14,7 +14,7 @@ import utilitaire.InterpreteurDeJson;
 /**
  * Ouvrir un Menu.
  */
-public class OuvrirMenu extends Commande implements CommandeEvent {
+public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu {
 	final String nom;
 	
 	/**
@@ -51,6 +51,12 @@ public class OuvrirMenu extends Commande implements CommandeEvent {
 		}
 		nouveauLecteur.changerMenu();
 		return curseurActuel+1;
+	}
+
+	@Override
+	public void executer() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
