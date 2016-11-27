@@ -120,6 +120,33 @@
 					"traversable": true
 				}
 			]
+		},
+		{
+			"nom": "tremblementDeTerre",
+			"id": 4,
+			"x": 10,
+			"y": 10,
+			"pages": [
+				{
+					"conditions": [
+						{
+							"nom": "ArriveeAuContact"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "TremblementDeTerre",
+							"vitesse": 0.05,
+							"nombreDeFrames": 20,
+							"intensite": 10
+						}
+					],
+					
+					"image": "bouton character.png",
+					"animeEnMouvement": false,
+					"traversable": true
+				}
+			]
 		}
 	]
 }

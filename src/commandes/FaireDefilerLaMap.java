@@ -10,7 +10,7 @@ import map.LecteurMap;
 /**
  * Faire défiler la Map dans une direction donnée, pour la décentrer du Héros.
  */
-public class FaireDefilerLaMap  extends Commande implements CommandeEvent {
+public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 	//constantes
 	public static final int VITESSE_DEFILEMENT_PAR_DEFAUT = 4;
 	

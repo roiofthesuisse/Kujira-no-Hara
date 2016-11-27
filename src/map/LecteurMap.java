@@ -66,6 +66,8 @@ public class LecteurMap extends Lecteur {
 	public int defilementX;
 	/** Défilement Y de la caméra */
 	public int defilementY;
+	/** Décalage (en pixels) de l'écran à cause du tremblement de terre */
+	public int tremblementDeTerre;
 	
 	/**
 	 * Constructeur explicite
@@ -559,16 +561,21 @@ public class LecteurMap extends Lecteur {
 		final int largeurMap = map.largeur;
 		if ( !this.map.defilementCameraX ) {
 			//map très petite, défilement inutile
-			return 0;
+			return this.tremblementDeTerre;
 		} else {
 			//grande map, défilement possible
 			final int xCamera = map.heros.x - Fenetre.LARGEUR_ECRAN/2;
 			if (xCamera<0) { //caméra ne déborde pas de la map à gauche
-				return 0 + (this.defilementX>0 ? this.defilementX : 0);
+				return (this.defilementX>0 ? this.defilementX : 0) 
+						+ this.tremblementDeTerre;
 			} else if (xCamera+Fenetre.LARGEUR_ECRAN > largeurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map à droite
-				return largeurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN + (this.defilementX<0 ? this.defilementX : 0);
+				return largeurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN 
+						+ (this.defilementX<0 ? this.defilementX : 0) 
+						+ this.tremblementDeTerre;
 			} else {
-				return xCamera + this.defilementX;
+				return xCamera 
+						+ this.defilementX 
+						+ this.tremblementDeTerre;
 			}
 		}
 	}
