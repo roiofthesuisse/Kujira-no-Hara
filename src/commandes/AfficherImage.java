@@ -11,8 +11,8 @@ import javax.imageio.ImageIO;
 import main.Commande;
 import main.Fenetre;
 import map.Picture;
-import utilitaire.Graphismes;
-import utilitaire.Graphismes.ModeDeFusion;
+import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Afficher une image par dessus l'écran.
@@ -106,9 +106,6 @@ public class AfficherImage extends Commande implements CommandeEvent {
 			xAffichage = this.x;
 			yAffichage = this.y;
 		}
-
-		//mode de fusion
-		//TODO
 		
 		final Picture picture = new Picture(this.image, this.numero, xAffichage, yAffichage, centre, zoomX, zoomY, this.opacite, this.modeDeFusion, this.angle);
 		Fenetre.getPartieActuelle().images.put(picture.numero, picture);

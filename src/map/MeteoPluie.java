@@ -9,8 +9,8 @@ import javax.imageio.ImageIO;
 
 import main.Fenetre;
 import main.Lecteur;
-import utilitaire.Graphismes;
 import utilitaire.Maths;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Il pleut sur la Map.

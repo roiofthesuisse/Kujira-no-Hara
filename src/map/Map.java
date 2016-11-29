@@ -10,8 +10,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import main.Fenetre;
-import utilitaire.Graphismes;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Une Map est un décor rectangulaire constitué de briques issues du Tileset.

@@ -13,7 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import main.Commande;
 import map.LecteurMap;
 import menu.Texte;
-import utilitaire.Graphismes;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Afficher un Message dans une boîte de dialogue

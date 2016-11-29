@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 import jeu.Partie;
 import main.Fenetre;
-import utilitaire.Graphismes;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Une hitbox peut être assignée à une arme afin de calculer sa portée et son étendue.

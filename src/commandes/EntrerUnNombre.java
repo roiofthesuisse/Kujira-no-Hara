@@ -9,8 +9,8 @@ import main.Fenetre;
 import menu.Menu;
 import menu.Texte;
 import son.LecteurAudio;
-import utilitaire.Graphismes;
 import utilitaire.Maths;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * La saisie de nombre donne la possibilité au joueur d'écrire un nombre demandé par le jeu.

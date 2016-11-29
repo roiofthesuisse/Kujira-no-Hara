@@ -20,7 +20,7 @@ import menu.Texte;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
-import utilitaire.Graphismes;
+import utilitaire.graphismes.Graphismes;
 import utilitaire.Maths;
 
 /**

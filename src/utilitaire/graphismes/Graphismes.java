@@ -1,6 +1,5 @@
-package utilitaire;
+package utilitaire.graphismes;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Composite;
 import java.awt.Graphics2D;
@@ -26,38 +25,7 @@ public abstract class Graphismes {
 	public static final int OPACITE_MAXIMALE = 255;
 	private static final boolean ORIGINE_HAUT_GAUCHE = false;
 	public static Graphics2D graphismes;
-	
-	/**
-	 * Façon dont les images sont superposées.
-	 */
-	public enum ModeDeFusion {
-		NORMAL("normal"), ADDITION("addition"), SOUSTRACTION("soustraction");
-		
-		public String nom;
-		
-		/**
-		 * Constructeur explicite
-		 * @param nom du mode de fusion
-		 */
-		ModeDeFusion(final String nom) {
-			this.nom = nom;
-		}
-		
-		/**
-		 * Obtenir le mode de fusion à partir de son nom
-		 * @param nom du mode de fusion
-		 * @return mode de fusion qui porte ce nom
-		 */
-		public static ModeDeFusion parNom(final Object nom) {
-			for (ModeDeFusion mode : ModeDeFusion.values()) {
-				if (mode.nom.equals(nom)) {
-					return mode;
-				}
-			}
-			return ModeDeFusion.NORMAL;
-		}
-	}
-	
+
 	/**
 	 * Superposer deux images
 	 * @param ecran image de fond, sur laquelle on va superposer l'autre
@@ -80,7 +48,7 @@ public abstract class Graphismes {
 	 * @return écran sur lequel on a superposé l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite) {
-		return superposerImages(ecran, image2, x, y, ORIGINE_HAUT_GAUCHE, PAS_D_HOMOTHETIE, PAS_D_HOMOTHETIE, opacite, PAS_DE_ROTATION);
+		return superposerImages(ecran, image2, x, y, ORIGINE_HAUT_GAUCHE, PAS_D_HOMOTHETIE, PAS_D_HOMOTHETIE, opacite, ModeDeFusion.NORMAL, PAS_DE_ROTATION);
 	}
 	
 	/**
@@ -93,20 +61,19 @@ public abstract class Graphismes {
 	 * @param zoomX zoom horizontal (en pourcents)
 	 * @param zoomY zoom vertical (en pourcents)
 	 * @param opacite transparence de l'image2 entre 0 et 255
+	 * @param modeDeFusion façon dont on superpose les deux images
 	 * @param angle de rotation de l'image
 	 * @return écran sur lequel on a superposé l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, BufferedImage image2, int x, int y, 
-			final boolean centre, final int zoomX, final int zoomY, final int opacite, final int angle) {
+			final boolean centre, final int zoomX, final int zoomY, final int opacite, final ModeDeFusion modeDeFusion, 
+			final int angle) {
 		final Graphics2D g2d = (Graphics2D) ecran.createGraphics();
-		//TODO final ModeDeSuperposition mode
-		//s'inspirer de http://www.java2s.com/Code/Java/2D-Graphics-GUI/BlendCompositeDemo.htm
 		
-		//transparence
-		if (opacite < OPACITE_MAXIMALE) {
-			final int rule = AlphaComposite.SRC_OVER;
+		//transparence et mode de fusion
+		if (opacite < OPACITE_MAXIMALE || !ModeDeFusion.NORMAL.equals(modeDeFusion)) {
 			final float alpha = (float) opacite/OPACITE_MAXIMALE;
-	        final Composite comp = AlphaComposite.getInstance(rule, alpha);
+	        final Composite comp = MonComposite.creerComposite(modeDeFusion, alpha);
 			g2d.setComposite(comp);
 		}
 		

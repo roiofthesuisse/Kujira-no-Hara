@@ -8,8 +8,8 @@ import main.Fenetre;
 import main.Lecteur;
 import map.Event;
 import map.LecteurMap;
-import utilitaire.Graphismes;
 import utilitaire.GestionClavier.ToucheRole;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Le Lecteur de Menu a pour rôle de produire l'image à afficher à l'écran s'il s'agit d'un Menu.

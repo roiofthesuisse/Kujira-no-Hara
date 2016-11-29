@@ -6,7 +6,7 @@ import java.util.HashMap;
 import main.Commande;
 import main.Fenetre;
 import map.Picture;
-import utilitaire.Graphismes.ModeDeFusion;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Démarrer une transition progressive de l'état actuel de l'image vers un état d'arrivée.

@@ -5,7 +5,7 @@ import java.util.Date;
 
 import son.LecteurAudio;
 import utilitaire.GestionClavier.ToucheRole;
-import utilitaire.Graphismes;
+import utilitaire.graphismes.Graphismes;
 import map.LecteurMap;
 import menu.LecteurMenu;
 

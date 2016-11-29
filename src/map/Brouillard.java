@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import utilitaire.Graphismes;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Le Brouillard est une image ajoutée en transparence par dessus la Map et ses Events.

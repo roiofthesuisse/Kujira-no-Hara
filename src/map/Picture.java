@@ -3,8 +3,8 @@ package map;
 import java.awt.image.BufferedImage;
 
 import main.Fenetre;
-import utilitaire.Graphismes;
-import utilitaire.Graphismes.ModeDeFusion;
+import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Image à afficher à l'écran et ses paramètres.
@@ -61,7 +61,7 @@ public class Picture {
 	 */
 	public static BufferedImage dessinerLesImages(BufferedImage ecran) {
 		for (Picture picture : Fenetre.getPartieActuelle().images.values()) {
-			ecran = Graphismes.superposerImages(ecran, picture.image, picture.x, picture.y, picture.centre, picture.zoomX, picture.zoomY, picture.opacite, picture.angle);
+			ecran = Graphismes.superposerImages(ecran, picture.image, picture.x, picture.y, picture.centre, picture.zoomX, picture.zoomY, picture.opacite, picture.modeDeFusion, picture.angle);
 		}
 		return ecran;
 	}
