@@ -27,6 +27,12 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		
 		final Event event = this.page.event;
 		final Heros heros = event.map.heros;
+		
+		//pas de contact si l'un des deux saute
+		if (heros.saute || event.saute) {
+			return false;
+		}
+		
 		final int xmin1 = heros.x;
 		final int xmax1 = heros.x+heros.largeurHitbox;
 		final int ymin1 = heros.y;
