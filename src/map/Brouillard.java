@@ -3,15 +3,13 @@ package map;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Le Brouillard est une image ajoutée en transparence par dessus la Map et ses Events.
@@ -23,24 +21,8 @@ public final class Brouillard {
 	public int largeur;
 	public int hauteur;
 	public int opacite;
-	
-	/** Il y a trois façons de superposer une image à un support : 
-	 * normal (moyennage), 
-	 * addition des valeurs RGB des pixels, 
-	 * soustraction des valeurs RGB des pixels 
-	 */
-	public enum ModeDeSuperposition {
-		NORMAL("normal"), ADDITION("addition"), SOUSTRACTION("soustraction");
-		public String nom;
-		/**
-		 * Constructeur explicite
-		 * @param nom du mode de superposition
-		 */
-		ModeDeSuperposition(final String nom) {
-			this.nom = nom;
-		}
-	};
-	public final ModeDeSuperposition mode;
+
+	public final ModeDeFusion mode;
 	
 	//TODO arrêter le défilement en cas de StopEvent ?
 	public final int defilementX;
@@ -57,11 +39,11 @@ public final class Brouillard {
 	 * @param zoom taux d'aggrandissement de l'image (en pourcents)
 	 * @throws IOException l'image n'a pas pu être chargée
 	 */
-	private Brouillard(final String nomImage, final int opacite, final ModeDeSuperposition mode, final int defilementX, final int defilementY, final long zoom) {
+	private Brouillard(final String nomImage, final int opacite, final ModeDeFusion mode, final int defilementX, final int defilementY, final long zoom) {
 		this.zoom = zoom;
 		this.nomImage = nomImage;
 		try {
-			this.image = redimensionnerImage(ImageIO.read(new File(".\\ressources\\Graphics\\Fogs\\"+this.nomImage)), zoom);
+			this.image = redimensionnerImage(Graphismes.ouvrirImage("Fogs", this.nomImage), zoom);
 			this.largeur = this.image.getWidth();
 			this.hauteur = this.image.getHeight();
 		} catch (IOException e) {
@@ -123,7 +105,9 @@ public final class Brouillard {
 			} catch (JSONException e) {
 				//pas de zoom
 			}
-			return new Brouillard(nomImage, opacite, ModeDeSuperposition.NORMAL, defilementX, defilementY, zoom);
+			final String nomModeDeFusion = brouillardJson.has("modeDeFusion") ? brouillardJson.getString("modeDeFusion") : null;
+
+			return new Brouillard(nomImage, opacite, ModeDeFusion.parNom(nomModeDeFusion), defilementX, defilementY, zoom);
 		} catch (JSONException e) {
 			//pas de brouillard
 			System.err.println("Pas de Brouillard pour cette Map.");
@@ -172,7 +156,12 @@ public final class Brouillard {
 					this.image, 
 					Brouillard.calculerAffichage(i, this.largeur, decalageX, xCamera), 
 					Brouillard.calculerAffichage(j, this.hauteur, decalageY, yCamera),
-					this.opacite
+					false,
+					Graphismes.PAS_D_HOMOTHETIE, //le zoom a déjà été pris en compte
+					Graphismes.PAS_D_HOMOTHETIE, //le zoom a déjà été pris en compte
+					this.opacite, 
+					this.mode,
+					Graphismes.PAS_DE_ROTATION
 				);	
 			}
 		}

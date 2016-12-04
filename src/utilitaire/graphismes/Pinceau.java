@@ -6,10 +6,10 @@ package utilitaire.graphismes;
  */
 public abstract class Pinceau {
 	public static final int VALEUR_MAXIMALE = 255;
-	private static final int ROUGE = 0;
-	private static final int VERT = 1;
-	private static final int BLEU = 2;
-	private static final int ALPHA = 3;
+	private static final int ALPHA = 0;
+	private static final int ROUGE = 1;
+	private static final int VERT = 2;
+	private static final int BLEU = 3;
 	
 	/**
 	 * Peindre un pixel de l'image à superposer sur l'image support.
@@ -30,22 +30,47 @@ public abstract class Pinceau {
                 return new Pinceau() {
                     @Override
                     public void peindre(final int[] src, final int[] dst, final int[] result) {
-                        result[ROUGE] = Math.min(VALEUR_MAXIMALE, src[ROUGE] + dst[ROUGE]);
-                        result[VERT] = Math.min(VALEUR_MAXIMALE, src[VERT] + dst[VERT]);
-                        result[BLEU] = Math.min(VALEUR_MAXIMALE, src[BLEU] + dst[BLEU]);
-                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, src[ALPHA] + dst[ALPHA]);
+                    	final float opaciteLocale = src[ALPHA] / VALEUR_MAXIMALE;
+                    	result[ROUGE] = Math.min(VALEUR_MAXIMALE, (int) (src[ROUGE]*opaciteLocale) + dst[ROUGE]);
+                        result[VERT] = Math.min(VALEUR_MAXIMALE, (int) (src[VERT]*opaciteLocale) + dst[VERT]);
+                        result[BLEU] = Math.min(VALEUR_MAXIMALE, (int) (src[BLEU]*opaciteLocale) + dst[BLEU]);
+                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, dst[ALPHA]);
+                    }
+                };
+            case ADDITION_NEGATIF:
+                return new Pinceau() {
+                    @Override
+                    public void peindre(final int[] src, final int[] dst, final int[] result) {
+                    	final float opaciteLocale = src[ALPHA] / VALEUR_MAXIMALE;
+                    	result[ROUGE] = Math.min(VALEUR_MAXIMALE, (int) ((VALEUR_MAXIMALE-src[ROUGE])*opaciteLocale) + dst[ROUGE]);
+                        result[VERT] = Math.min(VALEUR_MAXIMALE, (int) ((VALEUR_MAXIMALE-src[VERT])*opaciteLocale) + dst[VERT]);
+                        result[BLEU] = Math.min(VALEUR_MAXIMALE, (int) ((VALEUR_MAXIMALE-src[BLEU])*opaciteLocale) + dst[BLEU]);
+                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, dst[ALPHA]);
                     }
                 };
             case SOUSTRACTION:
                 return new Pinceau() {
                     @Override
                     public void peindre(final int[] src, final int[] dst, final int[] result) {
-                    	result[ROUGE] = Math.max(0, dst[ROUGE] - src[ROUGE]);
-                        result[VERT] = Math.max(0, dst[VERT] - src[VERT]);
-                        result[BLEU] = Math.max(0, dst[BLEU] - src[BLEU]);
-                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, src[ALPHA] + dst[ALPHA]);
+                    	final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
+                    	result[ROUGE] = Math.max(0, (int) (dst[ROUGE] - src[ROUGE]*opaciteLocale));
+                        result[VERT] = Math.max(0, (int) (dst[VERT] - src[VERT]*opaciteLocale));
+                        result[BLEU] = Math.max(0, (int) (dst[BLEU] - src[BLEU]*opaciteLocale));
+                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, dst[ALPHA]);
                     }
                 };
+            case SOUSTRACTION_NEGATIF:
+                return new Pinceau() {
+                    @Override
+                    public void peindre(final int[] src, final int[] dst, final int[] result) {
+                    	final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
+                    	result[ROUGE] = Math.max(0, (int) (dst[ROUGE] - (VALEUR_MAXIMALE-src[ROUGE])*opaciteLocale));
+                        result[VERT] = Math.max(0, (int) (dst[VERT] - (VALEUR_MAXIMALE-src[VERT])*opaciteLocale));
+                        result[BLEU] = Math.max(0, (int) (dst[BLEU] - (VALEUR_MAXIMALE-src[BLEU])*opaciteLocale));
+                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, dst[ALPHA]);
+                    }
+                };
+            //TODO negatif
             default:
             	System.err.println("Blender non défini pour le mode de fusion : "+composite.modeDeFusion.nom);
             	return null;

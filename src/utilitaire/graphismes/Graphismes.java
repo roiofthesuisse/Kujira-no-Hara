@@ -2,7 +2,10 @@ package utilitaire.graphismes;
 
 import java.awt.Color;
 import java.awt.Composite;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
@@ -20,11 +23,18 @@ import main.Lecteur;
  */
 public abstract class Graphismes {
 	//constantes
+	/** Valeur (en pourcents) représentant l'absence d'homothétie */
 	public static final int PAS_D_HOMOTHETIE = 100;
+	/** Valeur (en degrés) représentant l'absence de rotation */
 	public static final int PAS_DE_ROTATION = 0;
+	/** Valeur (sur 255) représentant l'absence de transparence */
 	public static final int OPACITE_MAXIMALE = 255;
+	/** L'origine de l'image est son coin haut-gauche et non son centre */
 	private static final boolean ORIGINE_HAUT_GAUCHE = false;
 	public static Graphics2D graphismes;
+	/** Unique configuration autorisée pour le format des images */
+	private static final GraphicsConfiguration CONFIGURATION = GraphicsEnvironment.
+			getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
 
 	/**
 	 * Superposer deux images
@@ -209,6 +219,42 @@ public abstract class Graphismes {
 	    g2d.dispose();
 
 	    return imageRedimensionnee;
-	}  
+	}
+
+    /**
+     * Charer une image du dossier de ressources.
+     * @param dossier sous-dossier du dossier Picture où se trouve l'image
+     * @param nom de l'image
+     * @return image chargée, compatible avec la configuration officielle
+     * @throws IOException impossible d'ouvrir l'image
+     */
+    public static BufferedImage ouvrirImage(final String dossier, final String nom) throws IOException {
+    	try {
+			return convertirEnImageCompatible(ImageIO.read(new File(".\\ressources\\Graphics\\"+dossier+"\\"+nom)));
+		} catch (IOException e) {
+			System.err.println("Impossible d'ouvrir l'image : "+dossier+"/"+nom);
+			e.printStackTrace();
+			throw e;
+		}
+    }
+    
+    /**
+	 * Convertir une image qui n'est pas dans la bonne configuration.
+	 * @param image dans une autre configuration
+	 * @return image dans la configuration officielle
+	 */
+    private static BufferedImage convertirEnImageCompatible(final BufferedImage image) {
+        if (image.getColorModel().equals(CONFIGURATION.getColorModel())) {
+            return image;
+        }
+
+        final BufferedImage compatibleImage = CONFIGURATION.createCompatibleImage(
+                image.getWidth(), image.getHeight(), image.getTransparency());
+        final Graphics g = compatibleImage.getGraphics();
+        g.drawImage(image, 0, 0, null);
+        g.dispose();
+
+        return compatibleImage;
+    }
 
 }

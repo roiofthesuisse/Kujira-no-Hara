@@ -3,7 +3,11 @@ package utilitaire.graphismes;
 import java.awt.AlphaComposite;
 import java.awt.Composite;
 import java.awt.CompositeContext;
+import java.awt.Graphics;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
 import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 
 /**
@@ -39,7 +43,11 @@ public final class MonComposite implements Composite {
 	}
 
 	@Override
-	public CompositeContext createContext(final ColorModel srcColorModel, final ColorModel dstColorModel, final RenderingHints hints) {
+	public CompositeContext createContext(ColorModel srcColorModel, final ColorModel dstColorModel, final RenderingHints hints) {
+		if (!srcColorModel.equals(dstColorModel)) {
+			System.err.println("Attention : les modèles de couleurs sont différents pour les deux images !\n"
+					+"Chargez les images avec Graphismes.ouvrirImage() afin d'assurer la compatibilité.");
+		}
 		return new ContexteDeComposite(this);
 	}
 
