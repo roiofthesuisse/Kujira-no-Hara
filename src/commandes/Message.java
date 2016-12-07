@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import main.Commande;
 import map.LecteurMap;
@@ -17,6 +19,7 @@ import utilitaire.graphismes.Graphismes;
  */
 public class Message extends Commande implements CommandeEvent {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Message.class);
 	protected static final int MARGE_DU_TEXTE = 24;
 	protected static final String NOM_IMAGE_BOITE_MESSAGE = "parchotexte.png";
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage();
@@ -81,8 +84,7 @@ public class Message extends Commande implements CommandeEvent {
 		try {
 			return Graphismes.ouvrirImage("Pictures", NOM_IMAGE_BOITE_MESSAGE);
 		} catch (IOException e) {
-			System.out.println("impossible d'ouvrir l'image");
-			e.printStackTrace();
+			LOG.error("impossible d'ouvrir l'image "+NOM_IMAGE_BOITE_MESSAGE, e);
 			return null;
 		}
 	}

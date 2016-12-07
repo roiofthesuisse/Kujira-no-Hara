@@ -3,6 +3,9 @@ package main;
 import java.awt.image.BufferedImage;
 import java.util.Date;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import son.LecteurAudio;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
@@ -14,6 +17,8 @@ import menu.LecteurMenu;
  * Le rôle du lecteur est d'afficher dans la fenêtre la succession des écrans au cours du temps.
  */
 public abstract class Lecteur {	
+	protected static final Logger LOG = LogManager.getLogger(Lecteur.class);
+	
 	private BufferedImage ecranAtuel;
 	public Fenetre fenetre = null;
 	
@@ -71,7 +76,7 @@ public abstract class Lecteur {
 	 */
 	public final void faireUneCaptureDEcran() {
 		final String nomImage = "capture ecran kujira "+new Date().getTime();
-		System.out.println("Capture d'écran : "+nomImage);
+		LOG.info("Capture d'écran : "+nomImage);
 		Graphismes.sauvegarderImage(this.ecranAtuel, nomImage);
 	}
 	
@@ -84,7 +89,7 @@ public abstract class Lecteur {
 			return ((LecteurMap) this).map.nomBGM;
 		} else if (this instanceof LecteurMenu) {
 			if (((LecteurMenu) this).menu==null) {
-				System.err.println("Le menu est null pour le lecteur");
+				LOG.error("Le menu est null pour le lecteur");
 			}
 			return ((LecteurMenu) this).menu.nomBGM;
 		}
@@ -98,8 +103,8 @@ public abstract class Lecteur {
 	 */
 	public final void demarrer() {
 		this.allume = true;
-		System.out.println("-------------------------------------------------------------");
-		System.out.println("Un nouveau "+this.typeDeLecteur()+" vient d'être démarré.");
+		LOG.info("-------------------------------------------------------------");
+		LOG.info("Un nouveau "+this.typeDeLecteur()+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm(), LecteurAudio.VOLUME_MAXIMAL);
 		//TODO LecteurAudio.playBgs(getNomBgs(), 1.0f);
 		
@@ -115,8 +120,7 @@ public abstract class Lecteur {
 				try {
 					Thread.sleep(Lecteur.DUREE_FRAME-dureeEffectiveDeLaFrame);
 				} catch (InterruptedException e) {
-					System.err.println("La boucle de lecture du jeu dans Lecteur.demarrer() n'a pas réussi son sleep().");
-					e.printStackTrace();
+					LOG.error("La boucle de lecture du jeu dans Lecteur.demarrer() n'a pas réussi son sleep().", e);
 				}
 			}
 			this.fenetre.actualiserAffichage(this.ecranAtuel);
@@ -124,7 +128,7 @@ public abstract class Lecteur {
 		}
 		//si on est ici, c'est qu'une Commande Event a éteint le Lecteur
 		//la Fenêtre va devoir le remplacer par le futur Lecteur (si elle en a un de rechange)
-		System.out.println("Le "+typeDeLecteur()+" actuel vient d'être arrêté à la frame "+this.frameActuelle);
+		LOG.info("Le "+typeDeLecteur()+" actuel vient d'être arrêté à la frame "+this.frameActuelle);
 	}
 
 	/**

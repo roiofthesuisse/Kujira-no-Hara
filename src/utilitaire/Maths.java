@@ -2,10 +2,15 @@ package utilitaire;
 
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Classe utilitaire qui contient des fonctions mathématiques.
  */
 public abstract class Maths {
+	private static final Logger LOG = LogManager.getLogger(Maths.class);
+	
 	/** Générateur de nombres aléatoires */
 	public static Random generateurAleatoire = new Random();
 	
@@ -66,7 +71,7 @@ public abstract class Maths {
 					return inegalite;
 				}
 			}
-			System.err.println("Cette inegalité n'a pas été trouvée : "+symbole);
+			LOG.error("Cette inegalité n'a pas été trouvée : "+symbole);
 			return null;
 		}
 		
@@ -91,7 +96,7 @@ public abstract class Maths {
 			case DIFFERENT:
 				return valeur1 != valeur2;
 			default:
-				System.err.println("Inégalité inconnue : " + this.symbole);
+				LOG.error("Inégalité inconnue : " + this.symbole);
 				return false;
 			}
 		}

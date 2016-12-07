@@ -1,9 +1,13 @@
 package utilitaire;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Enumération des touches utilisées par le jeu
  */
 public abstract class GestionClavier {
+	private static final Logger LOG = LogManager.getLogger(GestionClavier.class);
 	
 	/**
 	 * Association entre les touches du clavier et leur keycode
@@ -78,7 +82,7 @@ public abstract class GestionClavier {
 					return role;
 				}
 			}
-			System.err.println("une touche inconnue a été pressée : "+keycode); 
+			LOG.warn("une touche inconnue a été pressée : "+keycode); 
 			return null;
 		}
 		
@@ -93,7 +97,7 @@ public abstract class GestionClavier {
 					return role;
 				}
 			}
-			System.err.println("une touche inconnue a été mentionnée : "+nom); 
+			LOG.error("une touche inconnue a été mentionnée : "+nom); 
 			return null;
 		}
 	}
@@ -109,7 +113,7 @@ public abstract class GestionClavier {
 	        	return true;
 	        }
 	    }
-		System.err.println("une touche inconnue a été pressée : "+keycode); 
+		LOG.warn("une touche inconnue a été pressée : "+keycode); 
 		return false;
 	}
 	

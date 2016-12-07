@@ -2,6 +2,9 @@ package commandes;
 
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import jeu.Partie;
 import main.Commande;
 import main.Fenetre;
@@ -10,6 +13,8 @@ import main.Fenetre;
  * Charger une Partie dans le menu dédié
  */
 public class ChargerPartie extends Commande implements CommandeMenu {
+	private static final Logger LOG = LogManager.getLogger(ChargerPartie.class);
+	
 	private final int numeroDeSauvegarde;
 	
 	/**
@@ -23,7 +28,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 	@Override
 	public final void executer() {
 		final Fenetre fenetre = this.element.menu.lecteur.fenetre;
-		System.out.println("chargement de la partie numero "+numeroDeSauvegarde);
+		LOG.info("chargement de la partie numero "+numeroDeSauvegarde);
 		fenetre.setPartieActuelle( Partie.chargerPartie(this.numeroDeSauvegarde) );
 		fenetre.ouvrirLaPartie();
 	}

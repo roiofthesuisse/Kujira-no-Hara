@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,6 +38,8 @@ import utilitaire.graphismes.Graphismes;
  * Classe utilitaire pour transformer les fichiers JSON en objets JSON.
  */
 public abstract class InterpreteurDeJson {
+	private static final Logger LOG = LogManager.getLogger(InterpreteurDeJson.class);
+	
 	/**
 	 * Charger un objet JSON quelconque
 	 * @param nomFichier nom du fichier JSON à charger
@@ -53,8 +57,7 @@ public abstract class InterpreteurDeJson {
 			final JSONObject jsonObject = new JSONObject(contenuFichierJson);
 			return jsonObject;
 		} catch (JSONException e) {
-			System.err.println("Erreur de syntaxe dans le fichier JSON "+nomFichier);
-			e.printStackTrace();
+			LOG.error("Erreur de syntaxe dans le fichier JSON "+nomFichier, e);
 			throw e;
 		}
 	}
@@ -175,8 +178,7 @@ public abstract class InterpreteurDeJson {
 				}
 				
 			} catch (Exception e1) {
-				System.err.println("Erreur lors de l'instanciation de la Condition :");
-				e1.printStackTrace();
+				LOG.error("Erreur lors de l'instanciation de la Condition :", e1);
 			}
 		}
 	}
@@ -194,7 +196,7 @@ public abstract class InterpreteurDeJson {
 				if (commande instanceof CommandeEvent) {
 					commandes.add(commande);
 				} else {
-					System.err.println("La commande "+commande.getClass().getName()+" n'est pas une CommandeEvent !");
+					LOG.error("La commande "+commande.getClass().getName()+" n'est pas une CommandeEvent !");
 				}
 			}
 		}
@@ -213,7 +215,7 @@ public abstract class InterpreteurDeJson {
 				if (commande instanceof CommandeMenu) {
 					commandes.add((CommandeMenu) commande);
 				} else {
-					System.err.println("La commande "+commande.getClass().getName()+" n'est pas une CommandeMenu !");
+					LOG.error("La commande "+commande.getClass().getName()+" n'est pas une CommandeMenu !");
 				}
 			}
 		}
@@ -250,8 +252,7 @@ public abstract class InterpreteurDeJson {
 			final Commande commande = (Commande) constructeurCommande.newInstance(parametres);
 			return commande;
 		} catch (Exception e1) {
-			System.err.println("Impossible de traduire l'objet JSON en CommandeEvent.");
-			e1.printStackTrace();
+			LOG.error("Impossible de traduire l'objet JSON en CommandeEvent.", e1);
 			return null;
 		}
 	}
@@ -281,8 +282,7 @@ public abstract class InterpreteurDeJson {
 				final Commande commande = (Commande) constructeurCommande.newInstance(parametres);
 				commandes.add(commande);
 			} catch (Exception e1) {
-				System.err.println("Impossible de traduire l'objet JSON en CommandeMenu.");
-				e1.printStackTrace();
+				LOG.error("Impossible de traduire l'objet JSON en CommandeMenu.", e1);
 			}
 		}
 	}
@@ -365,8 +365,7 @@ public abstract class InterpreteurDeJson {
 			final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
 			return new Event(xEvent, yEvent, offsetYEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
 		} catch (FileNotFoundException e1) {
-			//System.err.println("Impossible de trouver le fichier JSON pour contruire l'Event générique "+nomEvent);
-			//e1.printStackTrace();
+			LOG.trace("Impossible de trouver le fichier JSON pour contruire l'Event générique "+nomEvent, e1);
 			return null;
 		}
 	}
@@ -396,8 +395,7 @@ public abstract class InterpreteurDeJson {
 			final Constructor<?> constructeurMouvement = classeMouvement.getConstructor(parametres.getClass());
 			mouvement = (Mouvement) constructeurMouvement.newInstance(parametres);
 		} catch (Exception e) {
-			System.err.println("Impossible de traduire l'objet JSON en Mouvement "+nomClasseMouvement);
-			e.printStackTrace();
+			LOG.error("Impossible de traduire l'objet JSON en Mouvement "+nomClasseMouvement, e);
 		}
 		return mouvement;
 	}
@@ -516,12 +514,11 @@ public abstract class InterpreteurDeJson {
 							images.add(image);
 							element = image;
 						} catch (IOException e) {
-							System.err.println("Impossible d'ouvrir l'image : "+dossier+"/"+fichier);
-							e.printStackTrace();
+							LOG.error("Impossible d'ouvrir l'image : "+dossier+"/"+fichier, e);
 						}
 						
 					} else  {
-						System.err.println("Type inconnu pour un élement de menu  : "+type);
+						LOG.error("Type inconnu pour un élement de menu  : "+type);
 					}
 				}
 				
@@ -566,8 +563,7 @@ public abstract class InterpreteurDeJson {
 						}
 					}
 				} catch (JSONException e) {
-					System.err.println("L'autotile "+nomImageAutotile+" n'a pas de cousins.");
-					//e.printStackTrace();
+					LOG.warn("L'autotile "+nomImageAutotile+" n'a pas de cousins.");
 				}
 				
 				Autotile autotile;
@@ -575,12 +571,10 @@ public abstract class InterpreteurDeJson {
 					autotile = new Autotile(numeroAutotile, nomImageAutotile, passabiliteAutotile, altitudeAutotile, cousinsAutotile, tileset);
 					autotiles.put(numeroAutotile, autotile);
 				} catch (IOException e) {
-					System.err.println("Impossible d'instancier l'autotile : "+nomImageAutotile);
-					e.printStackTrace();
+					LOG.error("Impossible d'instancier l'autotile : "+nomImageAutotile, e);
 				}
 			} catch (JSONException e) {
-				System.err.println("Impossible de lire le JSON de l'autotile");
-				e.printStackTrace();
+				LOG.error("Impossible de lire le JSON de l'autotile", e);
 			}
 		}
 		return autotiles;

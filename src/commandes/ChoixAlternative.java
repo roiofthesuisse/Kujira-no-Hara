@@ -3,12 +3,17 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 
 /**
  * Une des différentes Alternatives du Choix.
  */
 public class ChoixAlternative extends Commande implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(ChoixAlternative.class);
+	
 	/** Numéro du Choix */
 	public int numeroChoix;
 	/** Numéro d'Alternative au sein du Choix */
@@ -53,7 +58,7 @@ public class ChoixAlternative extends Commande implements CommandeEvent {
 			}
 		}
 		//la fin de Boucle n'a pas été trouvée
-		System.err.println("La fin du choix numéro "+numeroChoix+" n'a pas été trouvée !");
+		LOG.error("La fin du choix numéro "+numeroChoix+" n'a pas été trouvée !");
 		return curseurActuel+1;
 	}
 

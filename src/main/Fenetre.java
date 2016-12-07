@@ -20,6 +20,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import map.LecteurMap;
 import map.Map;
 import menu.LecteurMenu;
@@ -34,6 +37,7 @@ import utilitaire.graphismes.Graphismes;
 @SuppressWarnings("serial")
 public final class Fenetre extends JFrame implements KeyListener {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Fenetre.class);
 	public static final int TAILLE_D_UN_CARREAU = 32;
 	public static final int LARGEUR_ECRAN = 640;
 	public static final int HAUTEUR_ECRAN = 480;
@@ -210,7 +214,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 			try {
 				this.partie = Partie.creerNouvellePartie();
 			} catch (FileNotFoundException e) {
-				System.err.println("Impossible de charger la partie.");
+				LOG.error("Impossible de charger la partie.");
 				e.printStackTrace();
 			}
 		}
@@ -218,7 +222,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 		try {
 			((LecteurMap) futurLecteur).map = new Map(this.partie.numeroMap, (LecteurMap) this.futurLecteur, this.partie.xHeros, this.partie.yHeros, this.partie.directionHeros);
 		} catch (FileNotFoundException e) {
-			System.err.println("Impossible de charger la map numero "+partie.numeroMap);
+			LOG.error("Impossible de charger la map numero "+partie.numeroMap);
 			e.printStackTrace();
 		}
 		this.lecteur.allume = false; //TODO est-ce utile ?

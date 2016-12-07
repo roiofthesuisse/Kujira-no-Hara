@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,6 +21,7 @@ import utilitaire.graphismes.Graphismes;
  */
 public class Map {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Map.class);
 	/** Chaque carreau du Tileset possède une altitude intrinsèque */
 	private static final int NOMBRE_ALTITUDES = 6;
 	/** Certaines altitudes sont affichées sous le Héros */
@@ -101,7 +104,7 @@ public class Map {
 			final Tileset tilesetActuel = ((LecteurMap) Fenetre.getFenetre().lecteur).tilesetActuel;
 			if (this.nomTileset.equals(tilesetActuel.nom)) {
 				this.tileset = tilesetActuel;
-				System.out.println("Le Tileset n'a pas changé, on garde le même.");
+				LOG.info("Le Tileset n'a pas changé, on garde le même.");
 			} else {
 				throw new Exception("Le Tileset a changé.");
 			}
@@ -112,11 +115,10 @@ public class Map {
 			//ou bien
 			//le Tileset a changé
 			try {
-				System.out.println("Le Tileset a changé, il faut le recharger.");
+				LOG.info("Le Tileset a changé, il faut le recharger.");
 				this.tileset = new Tileset(this.nomTileset);
 			} catch (IOException e2) {
-				System.err.println("Erreur lors de la création du Tileset :");
-				e2.printStackTrace();
+				LOG.error("Erreur lors de la création du Tileset :", e2);
 			}
 		}
 		
@@ -180,7 +182,7 @@ public class Map {
 						}
 					} catch (ArrayIndexOutOfBoundsException e) {
 						//case vide
-						//System.err.println(e);
+						LOG.trace("case vide");
 					}
 				}
 			}
@@ -241,7 +243,7 @@ public class Map {
 						}
 					} catch (ArrayIndexOutOfBoundsException e) {
 						//case vide
-						//System.err.println(e);
+						LOG.trace("case vide");
 					}
 				}
 			}
@@ -323,8 +325,7 @@ public class Map {
 			final JSONArray jsonEvents = jsonMap.getJSONArray("events");
 			InterpreteurDeJson.recupererLesEvents(this.events, jsonEvents, this);
 		} catch (Exception e3) {
-			System.err.println("Erreur lors de la constitution de la liste des events :");
-			e3.printStackTrace();
+			LOG.error("Erreur lors de la constitution de la liste des events :", e3);
 		}
 		//numérotation des Events
 		final int nombreDEvents = this.events.size();
@@ -334,7 +335,7 @@ public class Map {
 			event.map = this;
 			event.numero = i;
 			if (this.eventsHash.containsKey(event.id)) { //la numérotation des Events comporte un doublon !
-				System.err.println("Un autre event porte déjà le numéro : " + event.id);
+				LOG.error("Un autre event porte déjà le numéro : " + event.id);
 			}
 			this.eventsHash.put(event.id, event);
 		}
@@ -401,7 +402,7 @@ public class Map {
 				return true;
 			}
 		}
-		System.out.println("L'évènement à supprimer numéro "+numeroEventASupprimer+" n'a pas été trouvé dans la liste.");
+		LOG.warn("L'évènement à supprimer numéro "+numeroEventASupprimer+" n'a pas été trouvé dans la liste.");
 		return false;
 	}
 
@@ -457,7 +458,8 @@ public class Map {
 			//l'Event sort de la Map !
 			final Event event = this.eventsHash.get((Integer) numeroEvent);
 			if (!event.sortiDeLaMap) { //on n'affiche le message d'erreur qu'une fois
-				System.err.println("L'event "+event.numero+" ("+event.nom+") est sorti de la map !");
+				LOG.warn("L'event "+event.numero+" ("+event.nom+") est sorti de la map !");
+				LOG.trace(e);
 			}
 			event.sortiDeLaMap = true;
 		}
@@ -503,7 +505,7 @@ public class Map {
 				}
 			}
 			if (!lIdEstDejaPris) {
-				System.out.println("Le nouvel id d'event choisi est "+nouvelId);
+				LOG.debug("Le nouvel id d'event choisi est "+nouvelId);
 				return nouvelId;
 			}
 		}

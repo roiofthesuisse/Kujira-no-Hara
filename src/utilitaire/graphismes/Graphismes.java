@@ -15,6 +15,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Fenetre;
 import main.Lecteur;
 
@@ -23,6 +26,7 @@ import main.Lecteur;
  */
 public abstract class Graphismes {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Graphismes.class);
 	/** Valeur (en pourcents) représentant l'absence d'homothétie */
 	public static final int PAS_D_HOMOTHETIE = 100;
 	/** Valeur (en degrés) représentant l'absence de rotation */
@@ -247,10 +251,10 @@ public abstract class Graphismes {
 			return convertirEnImageCompatible(ImageIO.read(new File(".\\ressources\\Graphics\\"+dossier+"\\"+nom)));
 		} catch (IOException e) {
 			if (nom!=null && !nom.equals("")) {
-				System.err.println("Impossible d'ouvrir l'image : "+dossier+"/"+nom);
+				LOG.error("Impossible d'ouvrir l'image : "+dossier+"/"+nom);
 				e.printStackTrace();
 			} else {
-				System.err.println("Pas d'image pour ce "+dossier);
+				LOG.warn("Pas d'image pour ce "+dossier);
 			}
 			throw e;
 		}

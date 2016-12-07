@@ -1,5 +1,8 @@
 package mouvements;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import commandes.Deplacement;
 import map.Event;
 
@@ -7,6 +10,8 @@ import map.Event;
  * Toute CommandeEvent qui provoque le Mouvement d'un Event doit implémenter cette interface.
  */
 public abstract class Mouvement {
+	private static final Logger LOG = LogManager.getLogger(Mouvement.class);
+	
 	/** Nombre d'étapes du Mouvement qui ont été faites */
 	protected int ceQuiAEteFait;
 	/** Nombre d'étapes à faire */
@@ -59,8 +64,7 @@ public abstract class Mouvement {
 			}
 			
 		} catch (Exception e) {
-			System.err.println("Erreur lors du mouvement de l'évènement :");
-			e.printStackTrace();
+			LOG.error("Erreur lors du mouvement de l'évènement :", e);
 		}
 	}
 	
@@ -118,7 +122,7 @@ public abstract class Mouvement {
 			|| laPageEstToujoursLaMeme) { //un Mouvement naturel perpétuel s'arrête si la Page change
 				deplacementNaturelOuForce.mouvements.add(this);
 			} else {
-				System.err.println("On ne remet pas en bout de file le Mouvement "+this.getClass().getName()
+				LOG.warn("On ne remet pas en bout de file le Mouvement "+this.getClass().getName()
 						+" car la Page de l'Event "+this.deplacement.page.event.numero+" ("
 						+this.deplacement.page.event.nom+") a changé : de "+pageAvant+" vers "+pageMaintenant);
 			}
@@ -132,7 +136,7 @@ public abstract class Mouvement {
 			deplacementNaturelOuForce.mouvements.remove(0);
 		} else {
 			//cas théoriquement impossible
-			System.err.println("Impossible de retirer le premier Mouvement " + this.toString() 
+			LOG.error("Impossible de retirer le premier Mouvement " + this.toString() 
 			+ " du Déplacement " + (this.deplacement.naturel ? "naturel" : "forcé")
 			+ " de l'Event " + event.numero + " (" + event.nom + ")");
 		}

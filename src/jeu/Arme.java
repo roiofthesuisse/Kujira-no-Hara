@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,6 +21,7 @@ import utilitaire.graphismes.Graphismes;
  */
 public class Arme {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Arme.class);
 	private static Arme[] armesDuJeu;
 	public static HashMap<String, Arme> armesDuJeuHash = new HashMap<String, Arme>();
 	
@@ -153,8 +156,7 @@ public class Arme {
 			
 		} catch (FileNotFoundException e) {
 			//problème lors de l'ouverture du fichier JSON
-			System.err.println("Impossible de charger les armes du jeu.");
-			e.printStackTrace();
+			LOG.error("Impossible de charger les armes du jeu.", e);
 			armesDuJeu = null;
 			return 0;
 		}

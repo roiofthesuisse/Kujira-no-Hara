@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -18,6 +20,7 @@ import utilitaire.graphismes.Graphismes;
  */
 public class Gadget {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Gadget.class);
 	private static Gadget[] gadgetsDuJeu;
 	public static HashMap<String, Gadget> gadgetsDuJeuHash = new HashMap<String, Gadget>();
 	
@@ -102,8 +105,7 @@ public class Gadget {
 			
 		} catch (FileNotFoundException e) {
 			//problème lors de l'ouverture du fichier JSON
-			System.err.println("Impossible de charger les gadgets du jeu.");
-			e.printStackTrace();
+			LOG.error("Impossible de charger les gadgets du jeu.", e);
 			gadgetsDuJeu = null;
 			return 0;
 		}

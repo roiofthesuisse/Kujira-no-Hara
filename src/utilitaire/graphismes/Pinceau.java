@@ -1,10 +1,14 @@
 package utilitaire.graphismes;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Le Pinceau va peindre un pixel de l'image à superposer sur l'image support.
  * La façon dont le pixel sera peint dépend du Composite utilisé.
  */
 public abstract class Pinceau {
+	private static final Logger LOG = LogManager.getLogger(Pinceau.class);
 	public static final int VALEUR_MAXIMALE = 255;
 	private static final int ALPHA = 0;
 	private static final int ROUGE = 1;
@@ -72,7 +76,7 @@ public abstract class Pinceau {
                 };
             //TODO negatif
             default:
-            	System.err.println("Blender non défini pour le mode de fusion : "+composite.modeDeFusion.nom);
+            	LOG.error("Blender non défini pour le mode de fusion : "+composite.modeDeFusion.nom);
             	return null;
         }
     }

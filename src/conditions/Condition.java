@@ -2,6 +2,9 @@ package conditions;
 
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import main.Commande;
@@ -10,6 +13,8 @@ import main.Commande;
  * Une Condition peut servir à définir le moment de déclenchement d'une Page, ou faire partie du code Event.
  */
 public abstract class Condition extends Commande {
+	private static final Logger LOG = LogManager.getLogger(Condition.class);
+	
 	public int numero = -1; //le numéro de condition est le même que le numéro de fin de condition qui correspond
 
 	/**
@@ -28,7 +33,7 @@ public abstract class Condition extends Commande {
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		//une Condition doit avoir un numéro pour être exécutée comme Commande Event
 		if (this.numero == -1) {
-			System.err.println("La condition "+this.getClass().getName()+" n'a pas de numéro !");
+			LOG.error("La condition "+this.getClass().getName()+" n'a pas de numéro !");
 		}
 		
 		if ( estVerifiee() ) {
@@ -45,12 +50,11 @@ public abstract class Condition extends Commande {
 					}
 				} catch (IndexOutOfBoundsException e) {
 					if (this instanceof CommandeEvent) {
-						System.out.println("L'évènement n°"+this.page.event.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :");
+						LOG.error("L'évènement n°"+this.page.event.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :", e);
 					}
 					if (this instanceof CommandeMenu) {
-						System.out.println("L'élément de menu n°"+this.element.id+" n'a pas trouvé sa fin de condition "+this.numero+" :");
+						LOG.error("L'élément de menu n°"+this.element.id+" n'a pas trouvé sa fin de condition "+this.numero+" :", e);
 					}
-					e.printStackTrace();
 				} catch (Exception e) {
 					//pas une condition
 				}

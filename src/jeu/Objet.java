@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,6 +25,7 @@ import utilitaire.graphismes.Graphismes;
  */
 public class Objet {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Objet.class);
 	public static Objet[] objetsDuJeu;
 	public static HashMap<String, Objet> objetsDuJeuHash = new HashMap<String, Objet>();;
 	
@@ -103,13 +106,12 @@ public class Objet {
 			
 			objetsDuJeu = new Objet[objets.size()];
 			objets.toArray(objetsDuJeu);
-			//System.out.println("Objets créés : " + objetsDuJeu.length);
+			LOG.debug("Objets créés : " + objetsDuJeu.length);
 			return objetsDuJeu.length;
 			
 		} catch (FileNotFoundException e) {
 			//problème lors de l'ouverture du fichier JSON
-			System.err.println("Impossible de charger les objets du jeu.");
-			e.printStackTrace();
+			LOG.error("Impossible de charger les objets du jeu.", e);
 			objetsDuJeu = null;
 			return 0;
 		}

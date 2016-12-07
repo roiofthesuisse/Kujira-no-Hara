@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,6 +22,7 @@ import utilitaire.graphismes.Graphismes;
  */
 public class Quete {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Quete.class);
 	public static final String NOM_ICONE_QUETE_PAS_FAITE_PAR_DEFAUT = "quete a faire icon.png";
 	public static final String NOM_ICONE_QUETE_FAITE_PAR_DEFAUT = "quete faite icon.png";
 	public static final HashMap<String, BufferedImage> ICONES_MEMORISEES = new HashMap<String, BufferedImage>();
@@ -135,8 +138,7 @@ public class Quete {
 			
 		} catch (FileNotFoundException e) {
 			//problème lors de l'ouverture du fichier JSON
-			System.err.println("Impossible de charger les quêtes du jeu.");
-			e.printStackTrace();
+			LOG.error("Impossible de charger les quêtes du jeu.", e);
 			quetesDuJeu = null;
 			return 0;
 		}
@@ -158,7 +160,7 @@ public class Quete {
 					//l'image d'apparence n'existe pas
 					this.iconeQuetePasFaite = null;
 					ICONES_MEMORISEES.put(this.nomIconeQuetePasFaite, null);
-					System.err.println("Impossible de trouver l'icône de Quete : " + this.nomIconeQuetePasFaite);
+					LOG.error("Impossible de trouver l'icône de Quete : " + this.nomIconeQuetePasFaite);
 				}
 			}
 		}
@@ -181,7 +183,7 @@ public class Quete {
 					//l'image d'apparence n'existe pas
 					this.iconeQueteFaite = null;
 					ICONES_MEMORISEES.put(this.nomIconeQueteFaite, null);
-					System.err.println("Impossible de trouver l'icône de Quete : " + this.nomIconeQueteFaite);
+					LOG.error("Impossible de trouver l'icône de Quete : " + this.nomIconeQueteFaite);
 				}
 			}
 		}

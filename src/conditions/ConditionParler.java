@@ -1,5 +1,8 @@
 package conditions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import commandes.CommandeEvent;
 import map.Event;
 import map.Heros;
@@ -10,6 +13,7 @@ import utilitaire.GestionClavier;
  */
 public class ConditionParler extends Condition implements CommandeEvent {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(ConditionParler.class);
 	public static final int DISTANCE_MAX_PAROLE = 4; //au dela de cette distance en pixels, le dialogue ne se déclenche pas
 	
 	@Override
@@ -116,7 +120,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 					}
 			}
 		}
-		System.out.println("ConditionParler.estVerifiee() n'a pas trouvé de cas correspondant.");
+		LOG.debug("ConditionParler.estVerifiee() n'a pas trouvé de cas correspondant.");
 		return false;
 	}
 	

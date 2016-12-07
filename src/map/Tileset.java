@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,6 +19,7 @@ import utilitaire.graphismes.Graphismes;
  */
 public class Tileset {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Tileset.class);
 	public static final int LARGEUR_TILESET = 8; //chaque ligne de Tileset contient 8 carreaux
 	
 	/** nom du fichier JSON du Tileset */
@@ -70,8 +73,7 @@ public class Tileset {
 				this.passabilite[i] = ((Integer) jsonPassabilite.get(i)) == 0;
 			}
 		} catch (JSONException e) {
-			System.err.println("Incompatibilité entre le tableau des passabilités du Tileset JSON et de l'image du Tileset : "+this.nom);
-			e.printStackTrace();
+			LOG.error("Incompatibilité entre le tableau des passabilités du Tileset JSON et de l'image du Tileset : "+this.nom, e);
 		}
 		
 		//lecture des altitudes
@@ -82,8 +84,7 @@ public class Tileset {
 				this.altitude[i] = (Integer) jsonAltitude.get(i);
 			}
 		} catch (JSONException e) {
-			System.err.println("Incompatibilité entre le tableau des altitudes du Tileset JSON et de l'image du Tileset : "+this.nom);
-			e.printStackTrace();
+			LOG.error("Incompatibilité entre le tableau des altitudes du Tileset JSON et de l'image du Tileset : "+this.nom, e);
 		}
 		
 		//panorama
@@ -91,7 +92,7 @@ public class Tileset {
 		try {
 			this.imagePanorama = Graphismes.ouvrirImage("Panoramas", this.nomImagePanorama);
 		} catch (IOException e) {
-			System.err.println("Pas d'image de panorama pour le Tileset : "+this.nom);
+			LOG.warn("Pas d'image de panorama pour le Tileset : "+this.nom);
 			this.imagePanorama = null;
 		}
 		
@@ -101,7 +102,7 @@ public class Tileset {
 		try {
 			this.imageBrouillard = Graphismes.ouvrirImage("Fogs", this.nomImageBrouillard);
 		} catch (IOException e) {
-			System.err.println("Pas d'image de brouillard pour le Tileset : "+this.nom);
+			LOG.warn("Pas d'image de brouillard pour le Tileset : "+this.nom);
 			this.imageBrouillard = null;
 		}
 		

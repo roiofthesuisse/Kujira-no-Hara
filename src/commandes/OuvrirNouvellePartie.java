@@ -3,6 +3,9 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import main.Fenetre;
 
@@ -10,6 +13,7 @@ import main.Fenetre;
  * Créer une nouvelle Partie vierge et y jouer
  */
 public class OuvrirNouvellePartie extends Commande implements CommandeMenu {
+	private static final Logger LOG = LogManager.getLogger(OuvrirNouvellePartie.class);
 	
 	/**
 	 * Constructeur vide
@@ -29,7 +33,7 @@ public class OuvrirNouvellePartie extends Commande implements CommandeMenu {
 	@Override
 	public final void executer() {
 		final Fenetre fenetre = this.element.menu.lecteur.fenetre;
-		System.out.println("nouvelle partie");
+		LOG.info("nouvelle partie");
 		fenetre.setPartieActuelle(null);
 		fenetre.ouvrirLaPartie();
 	}

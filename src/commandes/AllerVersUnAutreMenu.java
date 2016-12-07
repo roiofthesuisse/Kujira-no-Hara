@@ -3,6 +3,9 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import main.Fenetre;
 import map.LecteurMap;
@@ -14,6 +17,8 @@ import utilitaire.InterpreteurDeJson;
  * Passer à un autre Menu
  */
 public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
+	private static final Logger LOG = LogManager.getLogger(AllerVersUnAutreMenu.class);
+	
 	private final String nomMenu;
 	public Menu nouveauMenu;
 	
@@ -36,7 +41,7 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 	@Override
 	public final void executer() {
 		this.nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nomMenu, this.element.menu);
-		System.out.println(this.nomMenu);
+		LOG.info(this.nomMenu);
 		
 		final LecteurMap lecteurMapMemorise = this.element.menu.lecteur.lecteurMapMemorise;
 		final LecteurMenu nouveauLecteur = new LecteurMenu(Fenetre.getFenetre(), this.nouveauMenu, lecteurMapMemorise);

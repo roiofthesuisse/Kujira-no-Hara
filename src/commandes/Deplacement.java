@@ -3,6 +3,8 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 
 import main.Commande;
@@ -32,6 +34,8 @@ import utilitaire.InterpreteurDeJson;
  * </p>
  */
 public class Deplacement extends Commande implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(Deplacement.class);
+	
 	/** id de l'Event qui va être déplacé durant ce Mouvement */
 	public Integer idEventADeplacer; //Integer car clé d'une HashMap, et null lorsque "cet Event"
 	/** Mouvements constitutifs de ce Déplacement */
@@ -95,7 +99,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 		if (!this.aEteAjouteAuxDeplacementsForces) {
 			//interrompre l'ancien Déplacement forcé de l'Event
 			if (event.deplacementForce.mouvements != null && event.deplacementForce.mouvements.size() >= 1) {
-				System.err.println("Le déplacement de l'event "+this.idEventADeplacer+" a été interrompu et remplacé.");
+				LOG.warn("Le déplacement de l'event "+this.idEventADeplacer+" a été interrompu et remplacé.");
 			}
 			event.deplacementForce.mouvements = new ArrayList<Mouvement>();
 			

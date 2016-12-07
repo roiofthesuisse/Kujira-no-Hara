@@ -1,12 +1,18 @@
 package commandes;
 
 import java.util.ArrayList;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 
 /**
  * Une Boucle répète indéfiniment les Commandes qu'elle contient.
  */
 public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
+	private static final Logger LOG = LogManager.getLogger(BoucleFin.class);
+	
 	public int numero; //le numéro de Boucle est le même que le numéro de fin de Boucle qui correspond
 
 	/**
@@ -37,7 +43,7 @@ public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 			}
 		}
 		//le début de Boucle n'a pas été trouvé
-		System.err.println("Le début de boucle numéro "+numero+" n'a pas été trouvé !");
+		LOG.error("Le début de boucle numéro "+numero+" n'a pas été trouvé !");
 		return curseurActuel+1;
 	}
 	

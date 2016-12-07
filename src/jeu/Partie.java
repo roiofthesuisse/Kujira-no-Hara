@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import jeu.Quete.AvancementQuete;
@@ -17,6 +19,8 @@ import utilitaire.Maths;
  * Une Partie est l'ensemble des informations liées à l'avancée du joueur dans le jeu.
  */
 public final class Partie {
+	private static final Logger LOG = LogManager.getLogger(Partie.class);
+	
 	public int numeroMap;
 	public Map map;
 	public int xHeros;
@@ -84,7 +88,7 @@ public final class Partie {
 		this.nombreDeGadgetsPossedes = 0;
 		this.idGadgetEquipe = -1;
 		
-		System.out.println("Partie chargée.");
+		LOG.info("Partie chargée.");
 	}
 	
 	/**
@@ -194,7 +198,7 @@ public final class Partie {
 		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee + 1, nombreDArmesPossedees);
 		//affichage console
 		if (this.getArmeEquipee()!=null) {
-			System.out.println("arme suivante : "+this.getArmeEquipee().nom);
+			LOG.info("arme suivante : "+this.getArmeEquipee().nom);
 		}
 	}
 	
@@ -214,7 +218,7 @@ public final class Partie {
 		//on équipe l'Arme précédente
 		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee - 1, nombreDArmesPossedees);
 		//affichage console
-		System.out.println("arme précédente : "+ this.getArmeEquipee().nom);
+		LOG.info("arme précédente : "+ this.getArmeEquipee().nom);
 	}
 	
 }

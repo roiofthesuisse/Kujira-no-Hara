@@ -11,6 +11,9 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.jcraft.jogg.Packet;
 import com.jcraft.jogg.Page;
 import com.jcraft.jogg.StreamState;
@@ -27,7 +30,9 @@ import com.jcraft.jorbis.Info;
  * @author kevin glass
  */
 public class OggClip {
+	private static final Logger LOG = LogManager.getLogger(OggClip.class);
 	private static final int BUFSIZE = 4096 * 2;
+	
 	private int convsize = BUFSIZE * 2;
 	private byte[] convbuffer = new byte[convsize];
 	private SyncState oy;
@@ -340,7 +345,7 @@ public class OggClip {
 			setBalance(balance);
 			setGain(gain);
 		} catch (Exception ee) {
-			System.out.println(ee);
+			LOG.error("Erreur de manipulation du fichier OGG", ee);
 		}
 	}
 
@@ -493,11 +498,9 @@ public class OggClip {
 					int result = oy.pageout(og);
 					if (result == 0)
 						break; // need more data
-					if (result == -1) { // missing or corrupt data at this page
+					if (result == -1) { //missing or corrupt data at this page
 						// position
-						// System.err.println("Corrupt or missing data in
-						// bitstream;
-						// continuing...");
+						LOG.error("Corrupt or missing data in bitstream. Continuing...");
 					} else {
 						os.pagein(og);
 
@@ -520,8 +523,7 @@ public class OggClip {
 								// no reason to complain; already complained
 								// above
 
-								// System.err.println("no reason to complain;
-								// already complained above");
+								LOG.warn("no reason to complain, already complained above");
 							} else {
 								// we have a packet. Decode it
 								int samples;

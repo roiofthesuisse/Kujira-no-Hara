@@ -96,8 +96,7 @@ public class LecteurMap extends Lecteur {
 				tilesetActuel = this.map!=null && this.map.tileset!=null ? this.map.tileset : new Tileset(map.tileset.nom);
 			}
 		} catch (Exception e) {
-			System.out.println("Erreur lors de l'ouverture du tileset :");
-			e.printStackTrace();
+			LOG.error("Erreur lors de l'ouverture du tileset :", e);
 		}
 		
 		//calcul de la position de la caméra par rapport à la Map
@@ -322,8 +321,7 @@ public class LecteurMap extends Lecteur {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("Erreur lors du dessin des évènements :");
-			e.printStackTrace();
+			LOG.error("Erreur lors du dessin des évènements :", e);
 		}
 		return ecran;
 	}
@@ -351,8 +349,7 @@ public class LecteurMap extends Lecteur {
 				event.avancaitALaFramePrecedente = event.avance;
 			}
 		} catch (Exception e) {
-			System.out.println("erreur lors de l'animation des évènements dans la boucle d'affichage de la map :");
-			e.printStackTrace();
+			LOG.error("erreur lors de l'animation des évènements dans la boucle d'affichage de la map :", e);
 		}
 	}
 	
@@ -377,8 +374,7 @@ public class LecteurMap extends Lecteur {
 				}
 			}
 		} catch (Exception e) {
-			System.err.println("Erreur lors du déplacement des évènements :");
-			e.printStackTrace();
+			LOG.error("Erreur lors du déplacement des évènements :", e);
 		}
 	}
 
@@ -394,8 +390,8 @@ public class LecteurMap extends Lecteur {
 			eventAsupprimer = this.map.events.get(i);
 			if (eventAsupprimer.supprime) {
 				this.map.events.remove(i);
-				System.out.println("Suppression de l'event "+eventAsupprimer.nom);
-				System.out.println("Nombre d'events sur la map : "+this.map.events.size());
+				LOG.info("Suppression de l'event "+eventAsupprimer.nom);
+				LOG.debug("Nombre d'events sur la map : "+this.map.events.size());
 				nombreDEvents--;
 				i--;
 			}
@@ -421,8 +417,8 @@ public class LecteurMap extends Lecteur {
 			this.map.events.add(eventAajouter);
 			eventAajouter.numero = this.map.events.size();
 			
-			System.out.println("Ajout de l'event "+eventAajouter.nom);
-			System.out.println("Nombre d'events sur la map : "+this.map.events.size());
+			LOG.info("Ajout de l'event "+eventAajouter.nom);
+			LOG.debug("Nombre d'events sur la map : "+this.map.events.size());
 			this.map.eventsAAjouter.remove(i);
 			nombreDEvents--;
 			i--;

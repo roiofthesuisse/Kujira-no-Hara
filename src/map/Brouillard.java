@@ -5,6 +5,8 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,6 +18,8 @@ import utilitaire.graphismes.ModeDeFusion;
  * Son intérêt est d'enrichir l'ambiance colorimétrique du décor.
  */
 public final class Brouillard {
+	private static final Logger LOG = LogManager.getLogger(Brouillard.class);
+	
 	public final String nomImage;
 	public BufferedImage image;
 	public int largeur;
@@ -110,7 +114,7 @@ public final class Brouillard {
 			return new Brouillard(nomImage, opacite, ModeDeFusion.parNom(nomModeDeFusion), defilementX, defilementY, zoom);
 		} catch (JSONException e) {
 			//pas de brouillard
-			System.err.println("Pas de Brouillard pour cette Map.");
+			LOG.info("Pas de Brouillard pour cette Map.");
 			return null;
 		}
 	}

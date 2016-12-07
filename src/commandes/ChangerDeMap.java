@@ -3,6 +3,9 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import main.Fenetre;
 import map.LecteurMap;
@@ -12,6 +15,8 @@ import map.Map;
  * Le Heros est téléporté sur une autre Map.
  */
 public class ChangerDeMap extends Commande implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(ChangerDeMap.class);
+	
 	private final int numeroNouvelleMap;
 	private final int xDebutHeros;
 	private final int yDebutHeros;
@@ -46,8 +51,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		try {
 			nouveauLecteur.changerMap(new Map(numeroNouvelleMap, nouveauLecteur, xDebutHeros, yDebutHeros, directionHeros));
 		} catch (Exception e) {
-			System.err.println("Impossible de charger la map numero "+numeroNouvelleMap);
-			e.printStackTrace();
+			LOG.error("Impossible de charger la map numero "+numeroNouvelleMap, e);
 		}
 		return curseurActuel+1;
 	}

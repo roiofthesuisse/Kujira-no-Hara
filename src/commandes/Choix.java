@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 
 import main.Commande;
@@ -20,6 +22,8 @@ import utilitaire.graphismes.Graphismes;
  * Selon la sélection du joueur, un embranchement différent du code Event est utilisé.
  */
 public class Choix extends Message {
+	private static final Logger LOG = LogManager.getLogger(Choix.class);
+	
 	/** Numéro du Choix */
 	public int numero;
 	
@@ -143,7 +147,7 @@ public class Choix extends Message {
 			}
 		}
 		//le début de Boucle n'a pas été trouvé
-		System.err.println("L'alternative " + positionCurseurAffichee
+		LOG.error("L'alternative " + positionCurseurAffichee
 				+ " du choix numéro " + numero + " n'a pas été trouvée !");
 		return curseurActuel+1;
 	}

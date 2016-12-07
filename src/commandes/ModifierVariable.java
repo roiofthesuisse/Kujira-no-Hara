@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import jeu.Partie;
 import main.Commande;
 import main.Fenetre;
@@ -13,6 +16,8 @@ import main.Fenetre;
  * TODO rendre cette classe abstraite et utiliser l'héritage pour traiter tous les cas séparément
  */
 public class ModifierVariable extends Commande implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(ModifierVariable.class);
+	
 	final int numeroVariable;
 	final String operationAFaire;
 	final String operationAFaire2;
@@ -82,7 +87,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 				valeur = (new Random()).nextInt(valeurADonner2-valeurADonner)+valeurADonner; 
 				break;
 			default: 
-				System.err.println("ModifierVariable.executer() : valeur inconnue pour operationAFaire2");
+				LOG.error("ModifierVariable.executer() : valeur inconnue pour operationAFaire2");
 				valeur = 0; 
 				break;
 		}
@@ -107,7 +112,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 				partieActuelle.variables[numeroVariable] %= valeur; 
 				break;
 			default: 
-				System.err.println("ModifierVariable.executer() : valeur inconnue pour operationAFaire");
+				LOG.error("ModifierVariable.executer() : valeur inconnue pour operationAFaire");
 				break;
 		}
 		return curseurActuel+1;

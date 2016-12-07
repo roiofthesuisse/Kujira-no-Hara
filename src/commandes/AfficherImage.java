@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import main.Fenetre;
 import map.Picture;
@@ -15,6 +18,8 @@ import utilitaire.graphismes.ModeDeFusion;
  * Afficher une image par dessus l'écran.
  */
 public class AfficherImage extends Commande implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(AfficherImage.class);
+	
 	private String nomImage;
 	public BufferedImage image;
 	/** numéro de l'image à déplacer */
@@ -86,8 +91,7 @@ public class AfficherImage extends Commande implements CommandeEvent {
 		try {
 			this.image = Graphismes.ouvrirImage("Pictures", this.nomImage);
 		} catch (IOException e) {
-			System.err.println("Impossible d'ouvrir l'image "+nomImage);
-			e.printStackTrace();
+			LOG.error("Impossible d'ouvrir l'image "+nomImage, e);
 			return curseurActuel+1;
 		}
 		

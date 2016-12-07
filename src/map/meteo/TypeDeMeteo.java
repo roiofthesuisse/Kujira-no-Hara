@@ -1,10 +1,15 @@
 package map.meteo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /** 
  * Différentes sortes d'intempéries 
  */
 public enum TypeDeMeteo {
 	PLUIE("pluie"), NEIGE("neige"), RIEN("rien");
+	
+	private static final Logger LOG = LogManager.getLogger(TypeDeMeteo.class);
 	
 	private String nom;
 	
@@ -27,7 +32,7 @@ public enum TypeDeMeteo {
 				return type;
 			}
 		}
-		System.err.println("Effet météorologique inconnu : "+nom);
+		LOG.error("Effet météorologique inconnu : "+nom);
 		return TypeDeMeteo.RIEN;
 	}
 }

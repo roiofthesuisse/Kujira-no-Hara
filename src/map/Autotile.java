@@ -5,6 +5,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Fenetre;
 import main.Lecteur;
 import utilitaire.graphismes.Graphismes;
@@ -16,6 +19,7 @@ import utilitaire.graphismes.Graphismes;
  */
 public class Autotile {
 	// Constantes
+	private static final Logger LOG = LogManager.getLogger(Autotile.class);
 	/** fréquence d'animation des autotiles animés (eau, etc.) */
 	public static final int FREQUENCE_ANIMATION_AUTOTILE = 10;
 	/** largeur standard pour une image d'Autotile fixe */
@@ -150,12 +154,12 @@ public class Autotile {
 		} else if (largeurAutotile == LARGEUR_AUTOTILE_ANIME) {
 			this.anime = true;
 		} else {
-			System.err.println("L'Autotile "+nomImage+" n'a pas la bonne largeur : "+largeurAutotile);
+			LOG.error("L'Autotile "+nomImage+" n'a pas la bonne largeur : "+largeurAutotile);
 			throw new IOException();
 		}
 		final int hauteurAutotile = this.image.getHeight();
 		if (hauteurAutotile != HAUTEUR_AUTOTILE) {
-			System.err.println("L'Autotile "+nomImage+" n'a pas la bonne hauteur : "+hauteurAutotile);
+			LOG.error("L'Autotile "+nomImage+" n'a pas la bonne hauteur : "+hauteurAutotile);
 			throw new IOException();
 		}
 

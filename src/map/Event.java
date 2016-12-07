@@ -3,6 +3,8 @@ package map;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,6 +22,7 @@ import utilitaire.graphismes.ModeDeFusion;
  */
 public class Event implements Comparable<Event> {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Event.class);
 	public static final int VITESSE_PAR_DEFAUT = 4;
 	public static final int FREQUENCE_PAR_DEFAUT = 4;
 	public static final int DIRECTION_PAR_DEFAUT = Event.Direction.BAS;
@@ -205,7 +208,7 @@ public class Event implements Comparable<Event> {
 						}
 					} catch (NullPointerException e1) {
 						//pas de conditions pour déclencher cette page
-						System.err.println("La page "+page.numero+" de l'event "+this.nom+" ("+this.numero+") n'a pas besoin de conditions pour se déclencher.");
+						LOG.warn("La page "+page.numero+" de l'event "+this.nom+" ("+this.numero+") n'a pas besoin de conditions pour se déclencher.");
 					}
 					//on apprend aux commandes qui est leur page
 					try {
@@ -214,13 +217,13 @@ public class Event implements Comparable<Event> {
 						}
 					} catch (NullPointerException e2) {
 						//pas de commandes dans cette page
-						System.err.println("La page "+page.numero+" de l'event "+this.nom+" ("+this.numero+") n'a pas de commandes.");
+						LOG.warn("La page "+page.numero+" de l'event "+this.nom+" ("+this.numero+") n'a pas de commandes.");
 					}
 				}
 			}
 		} catch (NullPointerException e3) {
 			//pas de pages dans cet event
-			System.err.println("L'envent "+this.nom+" ("+this.numero+") n'a pas de pages.");
+			LOG.error("L'envent "+this.nom+" ("+this.numero+") n'a pas de pages.");
 		}
 	}
 
@@ -339,7 +342,7 @@ public class Event implements Comparable<Event> {
 			}
 		} catch (NullPointerException e2) {
 			//pas de Pages pour cet Event
-			System.err.println("L'event "+this.numero+" ("+this.nom+") n'a pas de pages.");
+			LOG.warn("L'event "+this.numero+" ("+this.nom+") n'a pas de pages.");
 			e2.printStackTrace();
 		}
 		if (!onATrouveLaPageDApparence) {

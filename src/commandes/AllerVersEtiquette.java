@@ -3,12 +3,17 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 
 /**
  * Une des différentes Alternatives du Choix.
  */
 public class AllerVersEtiquette extends Commande implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(AllerVersEtiquette.class);
+	
 	/** Nom de l'Etiquette */
 	public String nom;
 	
@@ -48,7 +53,7 @@ public class AllerVersEtiquette extends Commande implements CommandeEvent {
 			}
 		}
 		//la fin de Boucle n'a pas été trouvée
-		System.err.println("L'étiquette "+nom+" n'a pas été trouvée !");
+		LOG.error("L'étiquette "+nom+" n'a pas été trouvée !");
 		return curseurActuel+1;
 	}
 

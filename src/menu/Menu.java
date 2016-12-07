@@ -4,6 +4,9 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import map.Event;
 import son.LecteurAudio;
 
@@ -13,6 +16,7 @@ import son.LecteurAudio;
  */
 public class Menu {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Menu.class);
 	protected static final int LARGEUR_ELEMENT_PAR_DEFAUT = 48;
 	protected static final int HAUTEUR_ELEMENT_PAR_DEFAUT = 32;
 	public static final String BRUIT_DEPLACEMENT_CURSEUR = "DeplacementCurseur.wav";
@@ -70,7 +74,7 @@ public class Menu {
 			LecteurAudio.playSe(BRUIT_CONFIRMER_SELECTION);
 			elementSelectionne.confirmer();
 		} else {
-			System.out.println("l'élément sélectionné de ce menu est null.");
+			LOG.error("l'élément sélectionné de ce menu est null.");
 		}
 	}
 	

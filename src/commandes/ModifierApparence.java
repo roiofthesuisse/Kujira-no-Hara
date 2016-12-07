@@ -3,6 +3,9 @@ package commandes;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import map.Event;
 import utilitaire.graphismes.Graphismes;
@@ -11,6 +14,8 @@ import utilitaire.graphismes.Graphismes;
  * Changer l'apparence d'un Event
  */
 public class ModifierApparence extends Commande implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(ModifierApparence.class);
+	
 	int eventId;
 	String nomNouvelleImage;
 	
@@ -43,8 +48,7 @@ public class ModifierApparence extends Commande implements CommandeEvent {
 				try {
 					e.imageActuelle = Graphismes.ouvrirImage("Characters", nomNouvelleImage);
 				} catch (IOException err) {
-					System.out.println("Erreur lors de l'ouverture de l'image durant modification d'apparence d'event :");
-					err.printStackTrace();
+					LOG.error("Erreur lors de l'ouverture de l'image durant modification d'apparence d'event :", err);
 				}
 			}
 		}
