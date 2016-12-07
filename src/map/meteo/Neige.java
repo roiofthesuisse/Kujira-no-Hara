@@ -1,10 +1,7 @@
 package map.meteo;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import main.Fenetre;
 import main.Lecteur;
@@ -95,7 +92,7 @@ public class Neige extends Meteo {
 	 */
 	private static BufferedImage chargerImageFlocon1() {
 		try {
-			return ImageIO.read(new File(".\\ressources\\Graphics\\Meteo\\flocon.png"));
+			return Graphismes.ouvrirImage("Meteo", "flocon.png");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -108,7 +105,7 @@ public class Neige extends Meteo {
 	 */
 	private static BufferedImage chargerImageFlocon2() {
 		try {
-			return ImageIO.read(new File(".\\ressources\\Graphics\\Meteo\\flocon2.png"));
+			return Graphismes.ouvrirImage("Meteo", "flocon2.png");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;

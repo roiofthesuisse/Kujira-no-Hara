@@ -1,11 +1,8 @@
 package map;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-
-import javax.imageio.ImageIO;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,6 +10,7 @@ import org.json.JSONObject;
 
 import main.Fenetre;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Le Tileset associe à chaque brique de décor une passabilité et une altitude.
@@ -52,7 +50,7 @@ public class Tileset {
 		
 		//image du tileset
 		this.nomImage = jsonTileset.getString("nomImage");
-		this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Tilesets\\"+this.nomImage));
+		this.image = Graphismes.ouvrirImage("Tilesets", this.nomImage);
 		final int nombreDeLignesTileset = (image.getHeight()/Fenetre.TAILLE_D_UN_CARREAU);
 		final int nombreDeCarreauxTileset = nombreDeLignesTileset * LARGEUR_TILESET;
 		
@@ -91,7 +89,7 @@ public class Tileset {
 		//panorama
 		this.nomImagePanorama = jsonTileset.getString("panorama");
 		try {
-			this.imagePanorama = ImageIO.read(new File(".\\ressources\\Graphics\\Panoramas\\"+this.nomImagePanorama));
+			this.imagePanorama = Graphismes.ouvrirImage("Panoramas", this.nomImagePanorama);
 		} catch (IOException e) {
 			System.err.println("Pas d'image de panorama pour le Tileset : "+this.nom);
 			this.imagePanorama = null;
@@ -101,7 +99,7 @@ public class Tileset {
 		//TODO opacité du brouillard, couleur, mode de superposition...
 		this.nomImageBrouillard = jsonTileset.getString("brouillard");
 		try {
-			this.imageBrouillard = ImageIO.read(new File(".\\ressources\\Graphics\\Fogs\\"+this.nomImageBrouillard));
+			this.imageBrouillard = Graphismes.ouvrirImage("Fogs", this.nomImageBrouillard);
 		} catch (IOException e) {
 			System.err.println("Pas d'image de brouillard pour le Tileset : "+this.nom);
 			this.imageBrouillard = null;

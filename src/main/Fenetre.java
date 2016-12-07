@@ -5,7 +5,6 @@ import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 import javafx.embed.swing.JFXPanel;
 import jeu.Partie;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,6 +26,7 @@ import menu.LecteurMenu;
 import menu.Menu;
 import utilitaire.GestionClavier;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * La Fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.
@@ -109,8 +108,8 @@ public final class Fenetre extends JFrame implements KeyListener {
 		fenetre.setSize(LARGEUR_ECRAN+margeHorizontale, HAUTEUR_ECRAN+margeVerticale);
 		try {
 			final ArrayList<Image> icones = new ArrayList<Image>();
-			final BufferedImage iconePetite = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\baleine icone.png"));
-			final BufferedImage iconeGrande = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\baleine icone grand.png"));
+			final BufferedImage iconePetite = Graphismes.ouvrirImage("Icons", "baleine icone.png");
+			final BufferedImage iconeGrande = Graphismes.ouvrirImage("Icons", "baleine icone grand.png");
 			icones.add(iconePetite);
 			icones.add(iconeGrande);
 			fenetre.setIconImages(icones);

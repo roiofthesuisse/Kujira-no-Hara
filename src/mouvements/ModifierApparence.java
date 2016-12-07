@@ -1,12 +1,9 @@
 package mouvements;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.HashMap;
 
-import javax.imageio.ImageIO;
-
 import map.Event;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * <p>Modifier l'apparence d'un Event.</p>
@@ -59,8 +56,7 @@ public class ModifierApparence extends Mouvement {
 	protected final void calculDuMouvement(final Event event) {
 		if (this.nouvelleImage != null) {
 			try {
-				final BufferedImage image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+this.nouvelleImage));
-				event.imageActuelle = image;
+				event.imageActuelle = Graphismes.ouvrirImage("Characters", this.nouvelleImage);
 			} catch (Exception e) {
 				System.err.println("Impossible d'ouvrir l'image d'apparence : "+this.nouvelleImage);
 				event.imageActuelle = null;

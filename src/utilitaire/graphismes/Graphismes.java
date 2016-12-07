@@ -58,7 +58,21 @@ public abstract class Graphismes {
 	 * @return écran sur lequel on a superposé l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite) {
-		return superposerImages(ecran, image2, x, y, ORIGINE_HAUT_GAUCHE, PAS_D_HOMOTHETIE, PAS_D_HOMOTHETIE, opacite, ModeDeFusion.NORMAL, PAS_DE_ROTATION);
+		return superposerImages(ecran, image2, x, y, opacite, ModeDeFusion.NORMAL);
+	}
+	
+	/**
+	 * Superposer deux images
+	 * @param ecran image de fond, sur laquelle on va superposer l'autre
+	 * @param image2 image du dessus, superposée sur l'écran
+	 * @param x position x où on superpose l'image2
+	 * @param y position y où on superpose l'image2
+	 * @param opacite transparence de l'image2 entre 0 et 255
+	 * @param modeDeFusion façon dont on superpose les deux images
+	 * @return écran sur lequel on a superposé l'image2
+	 */
+	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x, final int y, final int opacite, final ModeDeFusion modeDeFusion) {
+		return superposerImages(ecran, image2, x, y, ORIGINE_HAUT_GAUCHE, PAS_D_HOMOTHETIE, PAS_D_HOMOTHETIE, opacite, modeDeFusion, PAS_DE_ROTATION);
 	}
 	
 	/**
@@ -232,8 +246,12 @@ public abstract class Graphismes {
     	try {
 			return convertirEnImageCompatible(ImageIO.read(new File(".\\ressources\\Graphics\\"+dossier+"\\"+nom)));
 		} catch (IOException e) {
-			System.err.println("Impossible d'ouvrir l'image : "+dossier+"/"+nom);
-			e.printStackTrace();
+			if (nom!=null && !nom.equals("")) {
+				System.err.println("Impossible d'ouvrir l'image : "+dossier+"/"+nom);
+				e.printStackTrace();
+			} else {
+				System.err.println("Pas d'image pour ce "+dossier);
+			}
 			throw e;
 		}
     }

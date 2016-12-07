@@ -1,12 +1,9 @@
 package commandes;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import javax.imageio.ImageIO;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -21,7 +18,7 @@ import utilitaire.graphismes.Graphismes;
 public class Message extends Commande implements CommandeEvent {
 	//constantes
 	protected static final int MARGE_DU_TEXTE = 24;
-	protected static final String NOM_IMAGE_BOITE_MESSAGE = ".\\ressources\\Graphics\\Pictures\\parchotexte.png";
+	protected static final String NOM_IMAGE_BOITE_MESSAGE = "parchotexte.png";
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage();
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_VIDE = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE_PLEINE);
 	protected static BufferedImage imageBoiteMessage = IMAGE_BOITE_MESSAGE_PLEINE;
@@ -82,8 +79,7 @@ public class Message extends Commande implements CommandeEvent {
 	 */
 	private static BufferedImage chargerImageDeFondDeLaBoiteMessage() {
 		try {
-			final BufferedImage imageMessage = ImageIO.read(new File(NOM_IMAGE_BOITE_MESSAGE));
-			return imageMessage;
+			return Graphismes.ouvrirImage("Pictures", NOM_IMAGE_BOITE_MESSAGE);
 		} catch (IOException e) {
 			System.out.println("impossible d'ouvrir l'image");
 			e.printStackTrace();

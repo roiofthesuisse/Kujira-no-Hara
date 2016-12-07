@@ -1,14 +1,11 @@
 package jeu;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-
-import javax.imageio.ImageIO;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,6 +16,7 @@ import conditions.Condition;
 import conditions.ConditionObjetPossede;
 import main.Commande;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Le joueur collecte des Objets.
@@ -124,7 +122,7 @@ public class Objet {
 	public final BufferedImage getIcone() {
 		if (this.icone == null) {
 			try {
-				this.icone = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\"+nomIcone));
+				this.icone = Graphismes.ouvrirImage("Icons", nomIcone);
 			} catch (IOException e) {
 				//l'image d'apparence n'existe pas
 				System.out.println("Impossible de charger l'icone pour l'Objet : " + this.nomIcone);

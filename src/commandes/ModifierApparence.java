@@ -1,14 +1,11 @@
 package commandes;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-
 import main.Commande;
 import map.Event;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Changer l'apparence d'un Event
@@ -44,8 +41,7 @@ public class ModifierApparence extends Commande implements CommandeEvent {
 		for (Event e : events) {
 			if (e.numero == eventId) {
 				try {
-					final BufferedImage image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomNouvelleImage));
-					e.imageActuelle = image;
+					e.imageActuelle = Graphismes.ouvrirImage("Characters", nomNouvelleImage);
 				} catch (IOException err) {
 					System.out.println("Erreur lors de l'ouverture de l'image durant modification d'apparence d'event :");
 					err.printStackTrace();

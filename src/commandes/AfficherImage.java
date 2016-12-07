@@ -1,12 +1,9 @@
 package commandes;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import javax.imageio.ImageIO;
 
 import main.Commande;
 import main.Fenetre;
@@ -87,7 +84,7 @@ public class AfficherImage extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		try {
-			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\"+this.nomImage));
+			this.image = Graphismes.ouvrirImage("Pictures", this.nomImage);
 		} catch (IOException e) {
 			System.err.println("Impossible d'ouvrir l'image "+nomImage);
 			e.printStackTrace();

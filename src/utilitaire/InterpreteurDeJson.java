@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
 
-import javax.imageio.ImageIO;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,6 +30,7 @@ import menu.Menu;
 import menu.Texte;
 import menu.Texte.Taille;
 import mouvements.Mouvement;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Classe utilitaire pour transformer les fichiers JSON en objets JSON.
@@ -453,7 +452,7 @@ public abstract class InterpreteurDeJson {
 			if (jsonObject.has("fond")) {
 				final String nomFond = (String) jsonObject.get("fond");
 				try {
-					fond = ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\"+nomFond));
+					fond = Graphismes.ouvrirImage("Pictures", nomFond);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

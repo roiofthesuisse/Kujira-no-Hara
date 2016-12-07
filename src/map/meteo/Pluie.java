@@ -1,10 +1,7 @@
 package map.meteo;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import main.Fenetre;
 import main.Lecteur;
@@ -126,7 +123,7 @@ public class Pluie extends Meteo {
 	 */
 	private static BufferedImage chargerImageGoutte1() {
 		try {
-			return ImageIO.read(new File(".\\ressources\\Graphics\\Meteo\\pluie.png"));
+			return Graphismes.ouvrirImage("Meteo", "pluie.png");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -139,7 +136,7 @@ public class Pluie extends Meteo {
 	 */
 	private static BufferedImage chargerImageGoutte2() {
 		try {
-			return ImageIO.read(new File(".\\ressources\\Graphics\\Meteo\\pluie2.png"));
+			return Graphismes.ouvrirImage("Meteo", "pluie2.png");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -152,7 +149,7 @@ public class Pluie extends Meteo {
 	 */
 	private static BufferedImage chargerImageEclaboussure1() {
 		try {
-			return ImageIO.read(new File(".\\ressources\\Graphics\\Meteo\\eclaboussure1.png"));
+			return Graphismes.ouvrirImage("Meteo", "eclaboussure1.png");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -165,7 +162,7 @@ public class Pluie extends Meteo {
 	 */
 	private static BufferedImage chargerImageEclaboussure2() {
 		try {
-			return ImageIO.read(new File(".\\ressources\\Graphics\\Meteo\\eclaboussure2.png"));
+			return Graphismes.ouvrirImage("Meteo", "eclaboussure2.png");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;

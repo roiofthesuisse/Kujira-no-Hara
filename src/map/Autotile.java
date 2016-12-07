@@ -2,14 +2,12 @@ package map;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-
 import main.Fenetre;
 import main.Lecteur;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Un Autotile est un carreau liable. 
@@ -145,7 +143,7 @@ public class Autotile {
 		this.numero = numero;
 		
 		this.nomImage = nomImage;
-		this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Autotile\\"+this.nomImage));
+		this.image = Graphismes.ouvrirImage("Autotile", this.nomImage);
 		final int largeurAutotile = this.image.getWidth();
 		if (largeurAutotile == LARGEUR_AUTOTILE_FIXE) {
 			this.anime = false;

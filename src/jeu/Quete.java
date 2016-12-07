@@ -1,20 +1,18 @@
 package jeu;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import javax.imageio.ImageIO;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import main.Fenetre;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Le joueur doit réussir des Quêtes durant le jeu.
@@ -154,7 +152,7 @@ public class Quete {
 				this.iconeQuetePasFaite = ICONES_MEMORISEES.get(this.nomIconeQuetePasFaite);
 			} else {
 				try {
-					this.iconeQuetePasFaite = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\"+this.nomIconeQuetePasFaite));
+					this.iconeQuetePasFaite = Graphismes.ouvrirImage("Icons", this.nomIconeQuetePasFaite);
 					ICONES_MEMORISEES.put(this.nomIconeQuetePasFaite, this.iconeQuetePasFaite);
 				} catch (IOException e) {
 					//l'image d'apparence n'existe pas
@@ -177,7 +175,7 @@ public class Quete {
 				this.iconeQueteFaite = ICONES_MEMORISEES.get(this.nomIconeQueteFaite);
 			} else {
 				try {
-					this.iconeQueteFaite = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\"+this.nomIconeQueteFaite));
+					this.iconeQueteFaite = Graphismes.ouvrirImage("Icons", this.nomIconeQueteFaite);
 					ICONES_MEMORISEES.put(nomIconeQueteFaite, this.iconeQueteFaite);
 				} catch (IOException e) {
 					//l'image d'apparence n'existe pas

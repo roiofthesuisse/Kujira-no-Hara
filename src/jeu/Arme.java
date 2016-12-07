@@ -1,20 +1,18 @@
 package jeu;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import javax.imageio.ImageIO;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import map.Hitbox;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Le Héros peut utiliser un certain nombre d'Armes contre les Events ennemis.
@@ -72,7 +70,7 @@ public class Arme {
 		this.frameDebutCoup = frameDebutCoup;
 		this.frameFinCoup = frameFinCoup;
 		try {
-			this.icone = ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\"+nomIcone));
+			this.icone = Graphismes.ouvrirImage("Icons", nomIcone);
 		} catch (IOException e) {
 			//erreur lors du chargement de l'icone
 			e.printStackTrace();

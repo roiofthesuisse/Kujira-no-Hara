@@ -1,15 +1,13 @@
 package menu;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
 
 import conditions.Condition;
 import jeu.Objet;
 import main.Commande;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Un Menu est composé d'Images.
@@ -32,9 +30,20 @@ public class Image extends ElementDeMenu {
 	 * @param id identifiant de l'ElementDeMenu
 	 * @throws IOException 
 	 */
-	public Image(final String dossierImage, final String nomImage, final int x, final int y, final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final int id) throws IOException {
-		this(ImageIO.read(new File(".\\ressources\\Graphics\\"+dossierImage+"\\"+nomImage)),
-				x, y, conditions, selectionnable, comportementSelection, comportementConfirmation, id);
+	public Image(final String dossierImage, final String nomImage, final int x, final int y, 
+			final ArrayList<Condition> conditions, final boolean selectionnable, 
+			final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, 
+			final int id) throws IOException {
+		this(
+				Graphismes.ouvrirImage(dossierImage, nomImage), 
+				x, 
+				y, 
+				conditions, 
+				selectionnable, 
+				comportementSelection, 
+				comportementConfirmation, 
+				id
+		);
 	}
 	
 	/**

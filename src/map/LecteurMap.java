@@ -3,12 +3,9 @@ package map;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
-
-import javax.imageio.ImageIO;
 
 import commandes.Message;
 import commandes.OuvrirMenu;
@@ -483,7 +480,7 @@ public class LecteurMap extends Lecteur {
 			//voilà
 			
 			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
-			return Graphismes.superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera);		
+			return Graphismes.superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera, event.opaciteActuelle, event.modeDeFusionActuel);
 		} else {
 			//l'event n'a pas d'image
 			return ecran;
@@ -724,7 +721,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	public static BufferedImage chargerImageHudTouches() {
 		try {
-			return ImageIO.read(new File(".\\ressources\\Graphics\\Pictures\\carre arme kujira.png"));
+			return Graphismes.ouvrirImage("Pictures", "carre arme kujira.png");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -737,7 +734,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	public static BufferedImage chargerImageHudArgent() {
 		try {
-			return ImageIO.read(new File(".\\ressources\\Graphics\\Icons\\ecaille icon.png"));
+			return Graphismes.ouvrirImage("Icons", "ecaille icon.png");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
