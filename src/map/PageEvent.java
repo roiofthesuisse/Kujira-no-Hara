@@ -1,11 +1,8 @@
 package map;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,6 +13,8 @@ import conditions.ConditionParler;
 import main.Commande;
 import main.Fenetre;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Un Event peut avoir plusieurs comportements. Chaque comportement est décrit par une Page de comportements.
@@ -54,6 +53,8 @@ public class PageEvent {
 	public boolean traversable;
 	public boolean directionFixe;
 	public boolean auDessusDeTout;
+	public int opacite;
+	public ModeDeFusion modeDeFusion;
 	public int vitesse;
 	public int frequence;
 	
@@ -146,6 +147,16 @@ public class PageEvent {
 		} catch (JSONException e) {
 			this.plat = null; //si non précisé, sera décidé selon la taille de son image
 		}
+		try {
+			this.modeDeFusion = ModeDeFusion.parNom(pageJSON.get("modeDeFusion"));
+		} catch (JSONException e) {
+			this.modeDeFusion = ModeDeFusion.NORMAL;
+		}
+		try {
+			this.opacite = (int) pageJSON.get("opacite");
+		} catch (JSONException e) {
+			this.opacite = Graphismes.OPACITE_MAXIMALE;
+		}
 		
 		try {
 			this.vitesse = (int) pageJSON.get("vitesse");
@@ -170,7 +181,7 @@ public class PageEvent {
 		
 		//ouverture de l'image d'apparence
 		try {
-			this.image = ImageIO.read(new File(".\\ressources\\Graphics\\Characters\\"+nomImage));
+			this.image = Graphismes.ouvrirImage("Characters", nomImage);
 			if (this.plat == null) {
 				// par défaut, si non précisé, si l'event est petit il est considéré comme plat
 				this.plat = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Fenetre.TAILLE_D_UN_CARREAU;

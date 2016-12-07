@@ -11,6 +11,8 @@ import conditions.Condition;
 import main.Commande;
 import main.Fenetre;
 import mouvements.Mouvement;
+import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Un Event est un élément actif du décor, voire interactif.
@@ -58,7 +60,9 @@ public class Event implements Comparable<Event> {
 	public Deplacement deplacementForce;
 	
 	public BufferedImage imageActuelle = null;
-	/** par défaut, si image < 32px, l'Event est considéré comme plat (au sol) */
+	public int opaciteActuelle = Graphismes.OPACITE_MAXIMALE;
+	public ModeDeFusion modeDeFusionActuel = ModeDeFusion.NORMAL;
+	/** par défaut, si l'image est plus petite que 32px, l'Event est considéré comme plat (au sol) */
 	public boolean platActuel = PLAT_PAR_DEFAUT;
 	public int direction;
 	public int animation;
@@ -133,7 +137,8 @@ public class Event implements Comparable<Event> {
 	 * @param hauteurHitbox hauteur de la boîte de collision
 	 * @param map de l'Event
 	 */
-	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, final ArrayList<PageEvent> pages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
+	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, 
+			final ArrayList<PageEvent> pages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
 		this.x = x;
 		this.y = y;
 		this.offsetY = offsetY;
@@ -386,7 +391,8 @@ public class Event implements Comparable<Event> {
 			this.traversableActuel = page.traversable;
 			this.directionFixeActuelle = page.directionFixe;
 			this.platActuel = page.plat;
-			
+			this.opaciteActuelle = page.opacite;
+			this.modeDeFusionActuel = page.modeDeFusion;
 		}
 		//déplacement
 		this.deplacementNaturelActuel = page.deplacementNaturel;
@@ -409,7 +415,9 @@ public class Event implements Comparable<Event> {
 			this.animeEnMouvementActuel = Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
 			this.traversableActuel = Event.TRAVERSABLE_SI_VIDE;
 			this.directionFixeActuelle = Event.DIRECTION_FIXE_PAR_DEFAUT;
-			this.platActuel = PLAT_SI_VIDE;
+			this.platActuel = Event.PLAT_SI_VIDE;
+			this.opaciteActuelle = Graphismes.OPACITE_MAXIMALE;
+			this.modeDeFusionActuel = ModeDeFusion.NORMAL;
 		}
 		//déplacement
 		this.deplacementNaturelActuel = null;
