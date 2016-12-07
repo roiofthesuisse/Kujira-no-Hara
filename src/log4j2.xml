@@ -4,7 +4,12 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %msg (%C{1}:%L)%n" />
         </Console>
-        <File name="MyFile" fileName="kujira.log" immediateFlush="false" append="false">
+        <File 
+	        name="MyFile" 
+	        fileName="C:\\Users\\RoiOfTheSuisse\\Documents\\kujira_logs\\kujira.log" 
+	        immediateFlush="false" 
+	        append="false"
+        >
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %msg (%C{1}:%L)%n" />
         </File>
     </Appenders>
