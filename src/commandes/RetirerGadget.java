@@ -10,7 +10,7 @@ import main.Fenetre;
 /**
  * Retirer un Gadget au joueur.
  */
-public class RetirerGadget extends Commande implements CommandeEvent {
+public class RetirerGadget extends Commande implements CommandeEvent, CommandeMenu {
 	private int idGadget;
 	
 	/**
@@ -29,6 +29,7 @@ public class RetirerGadget extends Commande implements CommandeEvent {
 		this( (int) parametres.get("idGadget") );
 	}
 	
+	@Override
 	public final void executer() {
 		//on procède à la suppression
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
