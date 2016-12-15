@@ -46,7 +46,7 @@ public final class Partie {
 	public int nombreDeGadgetsPossedes;
 	
 	private int idArmeEquipee;
-	private int idGadgetEquipe;
+	public int idGadgetEquipe;
 	
 	/** effet météorologique en cours */
 	public Meteo meteo = null;

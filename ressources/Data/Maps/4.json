@@ -147,6 +147,38 @@
 					"traversable": true
 				}
 			]
-		}
+		},
+		{
+			"nom": "moutonRetireGadget",
+			"id": 5,
+			"x": 13,
+			"y": 9,
+			"pages": [
+				{
+					"image": "mouton character.png",
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "Message",
+							"texte": "Tu ne mérites pas ces bottes de 7 lieues !!!"
+						},
+						{
+							"nom": "RetirerGadget",
+							"idGadget": 0
+						},
+						{
+							"nom": "RetirerArgent",
+							"quantite": 1
+						}
+					],
+					"directionInitiale": 0,
+					"traversable": false
+				}
+			]
+		},
 	]
 }
