@@ -45,7 +45,7 @@ public final class Partie {
 	public boolean[] gadgetsPossedes;
 	public int nombreDeGadgetsPossedes;
 	
-	private int idArmeEquipee;
+	public int idArmeEquipee;
 	public int idGadgetEquipe;
 	
 	/** effet météorologique en cours */

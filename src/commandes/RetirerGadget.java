@@ -39,7 +39,7 @@ public class RetirerGadget extends Commande implements CommandeEvent, CommandeMe
 			partieActuelle.nombreDeGadgetsPossedes--;
 			partieActuelle.idGadgetEquipe = -1; // -1 pour signifier qu'aucun Gadget n'est équipé
 		}
-			}
+	}
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
