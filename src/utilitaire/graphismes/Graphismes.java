@@ -123,12 +123,17 @@ public abstract class Graphismes {
 		} else {
 			//rotation de l'image
 			final double angleRadians = Math.toRadians(angle);
+			
+			//TODO la translation avant la rotation n'est pas forcément la même après la rotation, car la taille de l'image a changé
 			final double centreRotationX = image2.getWidth() / 2;
 			final double centreRotationY = image2.getHeight() / 2;
 			
 			final AffineTransform tx = new AffineTransform();
-			tx.translate(centreRotationX, centreRotationY);
-			tx.rotate(angleRadians, centreRotationX, centreRotationY);
+			//TODO inutile de faire des translate car rotate(angle, x, y); fait la même chose
+			tx.translate(centreRotationX, centreRotationY); 
+			//TODO utiliser plutôt la méthode tx.rotate(angleRadians); et voir si l'image est tronquée
+			tx.rotate(angleRadians, centreRotationX, centreRotationY); 
+			//TODO inutile de faire des translate car rotate(angle, x, y); fait la même chose
 			tx.translate(-centreRotationX, -centreRotationY);
 			final AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 			final BufferedImage imagePivotee = op.filter(image2, null);
