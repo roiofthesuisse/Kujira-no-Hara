@@ -20,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 
 import main.Fenetre;
 import main.Lecteur;
+import utilitaire.Maths;
 
 /**
  * CLasse utilitaire pour les opérations graphiques récurrentes.
@@ -124,23 +125,36 @@ public abstract class Graphismes {
 			//rotation de l'image
 			final double angleRadians = Math.toRadians(angle);
 			
-			//TODO la translation avant la rotation n'est pas forcément la même après la rotation, car la taille de l'image a changé
-			final double centreRotationX = image2.getWidth() / 2;
-			final double centreRotationY = image2.getHeight() / 2;
+			// La translation avant la rotation n'est pas forcément la même après la rotation, car la taille de l'image a changé
+			final double preTranslationX = image2.getWidth() / 2;
+			final double preTranslationY = image2.getHeight() / 2;
 			
+			// On pivote les coins de l'image pour connaître la nouvelle largeur/hauteur
+			int[][] coins = new int[][]{{x, y}, 
+				{x+image2.getWidth(), y}, 
+				{x, y+image2.getHeight()}, 
+				{x+image2.getWidth(), y+image2.getHeight()}};
+			int[][] coinsPivotes = new int[4][2];
+			for(int i = 0; i<4; i++){
+				coinsPivotes[i][0] = (int) (coins[i][0]*Math.cos(angleRadians)-coins[i][1]*Math.sin(angleRadians));
+				coinsPivotes[i][1] = (int) (coins[i][0]*Math.sin(angleRadians)-coins[i][1]*Math.cos(angleRadians));
+			}
+			int nouvelleLargeur = Maths.max(coinsPivotes[0][0], coinsPivotes[1][0], coinsPivotes[2][0], coinsPivotes[3][0])
+					- Maths.min(coinsPivotes[0][0], coinsPivotes[1][0], coinsPivotes[2][0], coinsPivotes[3][0]);
+			int nouvelleHauteur = Maths.max(coinsPivotes[0][1], coinsPivotes[1][1], coinsPivotes[2][1], coinsPivotes[3][1])
+					- Maths.min(coinsPivotes[0][1], coinsPivotes[1][1], coinsPivotes[2][1], coinsPivotes[3][1]);
+			int postTranslationX = nouvelleLargeur/2;
+			int postTranslationY = nouvelleHauteur/2;
+			
+			// Rotation de l'image
 			final AffineTransform tx = new AffineTransform();
-			//TODO inutile de faire des translate car rotate(angle, x, y); fait la même chose
-			tx.translate(centreRotationX, centreRotationY); 
-			//TODO utiliser plutôt la méthode tx.rotate(angleRadians); et voir si l'image est tronquée
-			tx.rotate(angleRadians, centreRotationX, centreRotationY); 
-			//TODO inutile de faire des translate car rotate(angle, x, y); fait la même chose
-			tx.translate(-centreRotationX, -centreRotationY);
+			tx.translate(postTranslationX, postTranslationY); // étape 3 : on la redécale sur son coin
+			tx.rotate(angleRadians); // étape 2 : on la tourne
+			tx.translate(-preTranslationX, -preTranslationY); // étape 1 : on décale l'image sur son centre
 			final AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 			final BufferedImage imagePivotee = op.filter(image2, null);
-			final int nouvelleLargeur = imagePivotee.getWidth();
-			final int nouvelleHauteur = imagePivotee.getHeight();
-			final int nouveauX = x + (int) centreRotationX - nouvelleLargeur/2;
-			final int nouveauY = y + (int) centreRotationY - nouvelleHauteur/2;
+			final int nouveauX = x + (int) preTranslationX - postTranslationX;
+			final int nouveauY = y + (int) preTranslationY - postTranslationY;
 			g2d.drawImage(imagePivotee, nouveauX, nouveauY, null);
 		}
 		g2d.dispose();
