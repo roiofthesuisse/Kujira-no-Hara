@@ -1,6 +1,7 @@
 package commandes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,6 +25,14 @@ public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 	}
 	
 	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public BoucleFin(final HashMap<String, Object> parametres) {
+		this( (int) parametres.get("numero") );
+	}
+	
+	/**
 	 * Une Boucle est une Commande Event, elle peut être executée pour faire des sauts de curseur.
 	 * Son execution est instantanée.
 	 * @param curseurActuel position du curseur avant l'execution
@@ -38,7 +47,7 @@ public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 				final Boucle debutDeBoucle = (Boucle) commande;
 				if (debutDeBoucle.numero == this.numero) {
 					//le début de Boucle a été trouvé
-					return i+1;
+					return i;
 				}
 			}
 		}
