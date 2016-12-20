@@ -10,7 +10,7 @@ import main.Fenetre;
 /**
  * Retirer un certain nombre d'Objets au joueur.
  */
-public class RetirerObjet extends Commande implements CommandeMenu {
+public class RetirerObjet extends Commande implements CommandeMenu, CommandeEvent {
 	private Object identifiantObjet;
 	private int numeroObjet;
 	private final int quantite;

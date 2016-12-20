@@ -1,6 +1,7 @@
 package commandes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import main.Commande;
 import main.Fenetre;
@@ -20,6 +21,16 @@ public class ModifierInterrupteur extends Commande implements CommandeEvent {
 	public ModifierInterrupteur(final int numero, final boolean valeur) {
 		numeroInterrupteur = numero;
 		valeurADonner = valeur;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ModifierInterrupteur(final HashMap<String, Object> parametres) {
+		this( (int) parametres.get("numeroInterrupteur"),
+			(boolean) parametres.get("valeur")
+		);
 	}
 	
 	@Override
