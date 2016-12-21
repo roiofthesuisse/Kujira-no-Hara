@@ -45,7 +45,7 @@ public class Quete {
 	public enum AvancementQuete {
 		INCONNUE("INCONNUE"), CONNUE("CONNUE"), FAITE("FAITE");
 		
-		private String nom;
+		public String nom;
 		
 		/**
 		 * Constructeur explicite

@@ -3,6 +3,7 @@ package commandes;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.security.MessageDigest;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -11,12 +12,19 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import jeu.Partie;
+import jeu.Quete.AvancementQuete;
+import main.Commande;
+import main.Fenetre;
+import map.Map;
 
 /**
  * Sauvegarder la Partie ainsi que l'état de la Map actuelle dans un fichier externe crypté.
  */
-public class Sauvegarder implements CommandeMenu {
+public class Sauvegarder extends Commande implements CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(Sauvegarder.class);
 	private static final String CLE_CRYPTAGE_SAUVEGARDE = "t0p_k3k";
 	private static final int NOMBRE_OCTETS_HASH = 16;
@@ -76,12 +84,85 @@ public class Sauvegarder implements CommandeMenu {
 		
 		// Partie
 		JSONObject jsonPartie = new JSONObject();
-		//TODO
+		Partie partie = Fenetre.getPartieActuelle();
+		jsonPartie.put("vie", partie.vie);
+		jsonPartie.put("vieMax", partie.vieMax);
+		jsonPartie.put("argent", partie.argent);
+		//armes
+		JSONArray armesPossedees = new JSONArray();
+		for (int i = 0; i<partie.armesPossedees.length; i++) {
+			if (partie.armesPossedees[i]) {
+				armesPossedees.put(i);
+			}
+		}
+		jsonPartie.put("armesPossedees", armesPossedees);
+		//gadgets
+		JSONArray gadgetsPossedes = new JSONArray();
+		for (int i = 0; i<partie.gadgetsPossedes.length; i++) {
+			if (partie.gadgetsPossedes[i]) {
+				gadgetsPossedes.put(i);
+			}
+		}
+		jsonPartie.put("gadgetsPossedes", gadgetsPossedes);
+		//interrupteurs
+		JSONArray interrupteurs = new JSONArray();
+		for (int i = 0; i<partie.interrupteurs.length; i++) {
+			if (partie.interrupteurs[i]) {
+				interrupteurs.put(i);
+			}
+		}
+		jsonPartie.put("interrupteurs", interrupteurs);
+		//variables
+		JSONArray variables = new JSONArray();
+		for (int i = 0; i<partie.variables.length; i++) {
+			if (partie.variables[i] != 0) {
+				JSONObject variable = new JSONObject();
+				variable.put("numero", i);
+				variable.put("valeur", partie.variables[i]);
+				variables.put(variable);
+			}
+		}
+		jsonPartie.put("variables", variables);
+		//interrupteurs locaux
+		JSONArray interrupteursLocaux = new JSONArray();
+		for (int i = 0; i<partie.interrupteursLocaux.size(); i++) {
+			String code = partie.interrupteursLocaux.get(i); // code de la forme mXXXeXXXiXXX (map, event, interrupteur)
+			interrupteursLocaux.put(code);
+		}
+		jsonPartie.put("interrupteursLocaux", interrupteursLocaux);
+		//objets
+		JSONArray objetsPossedes = new JSONArray();
+		for (int i = 0; i<partie.objetsPossedes.length; i++) {
+			if (partie.objetsPossedes[i] != 0) {
+				JSONObject objet = new JSONObject();
+				objet.put("numero", i);
+				objet.put("quantite", partie.objetsPossedes[i]);
+				objetsPossedes.put(objet);
+			}
+		}
+		jsonPartie.put("objetsPossedes", objetsPossedes);
+		//quêtes
+		JSONArray avancementQuetes = new JSONArray();
+		for (int i = 0; i<partie.avancementDesQuetes.length; i++) {
+			if (!partie.avancementDesQuetes[i].equals(AvancementQuete.INCONNUE)) {
+				JSONObject quete = new JSONObject();
+				quete.put("numero", i);
+				quete.put("avancement", partie.avancementDesQuetes[i].nom);
+				avancementQuetes.put(quete);
+			}
+		}
+		jsonPartie.put("avancementQuetes", avancementQuetes);
+		
+		
 		jsonSauvegarde.put("partie", jsonPartie);
+		
 		
 		// Etat de la Map
 		JSONObject jsonEtatMap = new JSONObject();
-		//TODO
+		Map map = this.element.menu.lecteur.lecteurMapMemorise.map;
+		jsonEtatMap.put("numero", map.numero);
+		//TODO pour tous les events : x, y, direction, apparence, vitesse, frequence, proprietesActuelles, pageActive, curseur, mouvements
+		//TODO images (état de déplacement, ce qui est fait)
 		jsonSauvegarde.put("etatMap", jsonEtatMap);
 		
 		return jsonSauvegarde;
@@ -121,6 +202,12 @@ public class Sauvegarder implements CommandeMenu {
 			LOG.error("Impossible de crypter le texte.", e);
 			return jsonStringSauvegarde;
 		}
+	}
+
+	@Override
+	public int executer(int curseurActuel, ArrayList<Commande> commandes) {
+		executer();
+		return curseurActuel+1;
 	}
 	
 }
