@@ -1,13 +1,27 @@
 package jeu;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
+import commandes.Sauvegarder;
 import jeu.Quete.AvancementQuete;
 import map.Map;
 import map.Picture;
@@ -137,13 +151,19 @@ public final class Partie {
 	
 	/**
 	 * Charger une partie à l'aide d'un fichier de sauvegarde.
-	 * @param numeroSauvegarde numéro de la partie sauvegardée
+	 * @param jsonPartie partie au format json
 	 * @return une partie sauvegardée
 	 */
-	public static Partie chargerPartie(final int numeroSauvegarde) {
-		//TODO créer un objet Partie à partir d'un fichier de sauvegarde
-		return null;
+	public static Partie chargerPartie(final String jsonPartie) {
+		final Partie partie;
+        
+        //TODO construire la partie avec JSON
+
+		
+		return partie;
 	}
+	
+
 	
 	/**
 	 * Connaitre le Gadget actuellement équipé

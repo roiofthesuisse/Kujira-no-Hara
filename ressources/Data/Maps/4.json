@@ -180,5 +180,33 @@
 				}
 			]
 		},
+		{
+			"nom": "moutonSauvegarde",
+			"id": 6,
+			"x": 10,
+			"y": 12,
+			"pages": [
+				{
+					"image": "mouton character.png",
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "Message",
+							"texte": "Partie sauvegardée."
+						},
+						{
+							"nom": "Sauvegarder",
+							"numeroSauvegarde": 0
+						}
+					],
+					"directionInitiale": 0,
+					"traversable": false
+				}
+			]
+		}
 	]
 }
