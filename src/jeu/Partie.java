@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import jeu.Quete.AvancementQuete;
+import main.Fenetre;
 import map.Map;
 import map.Picture;
 import map.meteo.Meteo;
@@ -21,19 +22,23 @@ import utilitaire.Maths;
  */
 public final class Partie {
 	private static final Logger LOG = LogManager.getLogger(Partie.class);
+	private static final int NOMBRE_D_INTERRUPTEURS = 100;
+	private static final int NOMBRE_DE_VARIABLES = 100;
 	
 	public int numeroMap;
 	public Map map;
+	/** coordonnée x (en pixels) */
 	public int xHeros;
+	/** coordonnée y (en pixels) */
 	public int yHeros;
 	public int directionHeros;
 	public int vie;
 	public int vieMax;
 	public int argent;
 	
-	public final boolean[] interrupteurs;
-	public final ArrayList<String> interrupteursLocaux;
-	public final int[] variables;
+	public final boolean[] interrupteurs = new boolean[NOMBRE_D_INTERRUPTEURS];
+	public final ArrayList<String> interrupteursLocaux = new ArrayList<String>();
+	public final int[] variables = new int[NOMBRE_DE_VARIABLES];
 	
 	/** combien possède-t-on d'Objet numéro i ? */
 	public int[] objetsPossedes;
@@ -63,16 +68,12 @@ public final class Partie {
 		final JSONObject jsonNouvellePartie = InterpreteurDeJson.ouvrirJsonNouvellePartie();
 		// Position du Héros
 		this.numeroMap = jsonNouvellePartie.getInt("numeroMap");
-		this.xHeros = jsonNouvellePartie.getInt("xHeros");
-		this.yHeros = jsonNouvellePartie.getInt("yHeros");
+		this.xHeros = jsonNouvellePartie.getInt("xHeros")*Fenetre.TAILLE_D_UN_CARREAU;
+		this.yHeros = jsonNouvellePartie.getInt("yHeros")*Fenetre.TAILLE_D_UN_CARREAU;
 		this.directionHeros = jsonNouvellePartie.getInt("directionHeros");
 		// Vie
 		this.vie = jsonNouvellePartie.getInt("vie");
 		this.vieMax = jsonNouvellePartie.getInt("vieMax");
-		// Interrupteurs et Variables
-		this.interrupteurs = new boolean[ jsonNouvellePartie.getInt("nombreDInterrupteurs") ];
-		this.interrupteursLocaux = new ArrayList<String>();
-		this.variables = new int[ jsonNouvellePartie.getInt("nombreDeVariables") ];
 		// Quêtes
 		this.avancementDesQuetes = new AvancementQuete[ Quete.chargerLesQuetesDuJeu() ];
 		for (int i = 0; i<avancementDesQuetes.length; i++) {
@@ -95,8 +96,8 @@ public final class Partie {
 	/**
 	 * Constructeur explicite
 	 * @param numeroMap numéro de la Map où se trouve le Héros en reprenant la Partie
-	 * @param xHeros coordonnée x du Héros en reprenant la Partie
-	 * @param yHeros coordonnée y du Héros en reprenant la Partie
+	 * @param xHeros coordonnée x du Héros (en pixels) en reprenant la Partie
+	 * @param yHeros coordonnée y du Héros (en pixels) en reprenant la Partie
 	 * @param directionHeros direction dans laquelle se trouve le Heros en reprenant la Partie
 	 * @param vie niveau d'énergie vitale du Héros en reprenant la Partie
 	 * @param vieMax niveau maximal possible d'énergie vitale du Héros en reprenant la Partie
@@ -105,6 +106,9 @@ public final class Partie {
 	 * @param avancementDesQuetes la Quête numéro i a-t-elle été faite ?
 	 * @param armesPossedees possède-t-on l'Arme numéro i ?
 	 * @param gadgetsPossedes possède-t-on le Gadget numéro i ?
+	 * @param interrupteurs état des interrupteurs du jeu
+	 * @param variables état des variables locaux du jeu
+	 * @param interrupteursLocaux état des interrupteurs locaux du jeu
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
 	 * @param idGadgetEquipe identifiant du Gadget actuel équipé
@@ -112,7 +116,8 @@ public final class Partie {
 	 */
 	public Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, 
 			final int vieMax, final int idArmeEquipee, final int idGadgetEquipe, final JSONArray objetsPossedes, 
-			final JSONArray avancementDesQuetes, final JSONArray armesPossedees, final JSONArray gadgetsPossedes) 
+			final JSONArray avancementDesQuetes, final JSONArray armesPossedees, final JSONArray gadgetsPossedes, 
+			final JSONArray interrupteurs, final JSONArray variables, final JSONArray interrupteursLocaux) 
 	throws FileNotFoundException {
 		this();
 		this.numeroMap = numeroMap;
@@ -123,26 +128,26 @@ public final class Partie {
 		this.vieMax = vieMax; //TODO faire ça pour tous les Events de la Map
 		
 		//objets
-		int[] tableauObjetsPossedes = new int[Objet.objetsDuJeu.length];
+		final int[] tableauObjetsPossedes = new int[Objet.objetsDuJeu.length];
 		for (Object o : objetsPossedes) {
-			JSONObject objetPossede = (JSONObject) o;
+			final JSONObject objetPossede = (JSONObject) o;
 			tableauObjetsPossedes[objetPossede.getInt("numero")] = objetPossede.getInt("quantite");
 		}
 		this.objetsPossedes = tableauObjetsPossedes;
 		
 		//quêtes
-		AvancementQuete[] tableauAvancementDesQuetes = new AvancementQuete[Quete.quetesDuJeu.length];
+		final AvancementQuete[] tableauAvancementDesQuetes = new AvancementQuete[Quete.quetesDuJeu.length];
 		for (Object o : avancementDesQuetes) {
-			JSONObject avancementQuete = (JSONObject) o;
+			final JSONObject avancementQuete = (JSONObject) o;
 			tableauAvancementDesQuetes[avancementQuete.getInt("numero")] = AvancementQuete.getEtat(avancementQuete.getString("avancement"));
 		}
 		this.avancementDesQuetes = tableauAvancementDesQuetes;
 		
 		//armes
-		boolean[] tableauArmesPossedees = new boolean[Arme.chargerLesArmesDuJeu()];
+		final boolean[] tableauArmesPossedees = new boolean[Arme.chargerLesArmesDuJeu()];
 		int nombreDArmesPossedees = 0;
 		for (Object o : armesPossedees) {
-			int armePossedee = (Integer) o;
+			final int armePossedee = (Integer) o;
 			tableauArmesPossedees[armePossedee] = true;
 			nombreDArmesPossedees++;
 		}
@@ -150,16 +155,32 @@ public final class Partie {
 		this.nombreDArmesPossedees = nombreDArmesPossedees;
 		
 		//gadgets
-		boolean[] tableauDesGadgetsPossedes = new boolean[Gadget.chargerLesGadgetsDuJeu()];
+		final boolean[] tableauDesGadgetsPossedes = new boolean[Gadget.chargerLesGadgetsDuJeu()];
 		int nombreDeGadgetsPossedes = 0;
 		for (Object o : gadgetsPossedes) {
-			int gadgetPossede = (Integer) o;
+			final int gadgetPossede = (Integer) o;
 			tableauDesGadgetsPossedes[gadgetPossede] = true;
 			nombreDeGadgetsPossedes++;
 		}
 		this.gadgetsPossedes = tableauDesGadgetsPossedes;
 		this.nombreDeGadgetsPossedes = nombreDeGadgetsPossedes;
 		
+		//interrupteurs
+		for (Object o : interrupteurs) {
+			final int interrupteurActif = (Integer) o;
+			this.interrupteurs[interrupteurActif] = true;
+		}
+		//variables
+		for (Object o : variables) {
+			final JSONObject variable = (JSONObject) o;
+			this.variables[variable.getInt("numero")] = variable.getInt("valeur");
+		}
+		//interrupteurs locaux
+		for (Object o : interrupteursLocaux) {
+			final String code = (String) o;
+			this.interrupteursLocaux.add(code);
+		}
+				
 		this.idArmeEquipee = idArmeEquipee;
 		this.idGadgetEquipe = idGadgetEquipe;
 	}

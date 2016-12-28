@@ -102,20 +102,30 @@ public abstract class Maths {
 		}
 	}
 
-	public static int max(int... nombres) {
+	/**
+	 * Maximum
+	 * @param nombres en entrée
+	 * @return plus grand des nombres
+	 */
+	public static int max(final int... nombres) {
 		int max = nombres[0];
-		for(int i : nombres){
-			if(i>max) {
+		for (int i : nombres) {
+			if (i>max) {
 				max = i;
 			}
 		}
 		return max;
 	}
 	
-	public static int min(int... nombres) {
+	/**
+	 * Minimum
+	 * @param nombres en entrée
+	 * @return plus petit des nombres
+	 */
+	public static int min(final int... nombres) {
 		int min = nombres[0];
-		for(int i : nombres){
-			if(i<min) {
+		for (int i : nombres) {
+			if (i<min) {
 				min = i;
 			}
 		}

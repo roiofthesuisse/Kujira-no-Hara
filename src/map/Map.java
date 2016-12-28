@@ -59,7 +59,9 @@ public class Map {
 	/** liste des Events à ajouter au tour suivant */
 	public ArrayList<Event> eventsAAjouter = new ArrayList<Event>();
 	public Heros heros;
+	/** coordonnée x (en pixels) */
 	public int xDebutHeros;
+	/** coordonnée y (en pixels) */
 	public int yDebutHeros;
 	public int directionDebutHeros;
 	public boolean[][] casePassable;
@@ -70,8 +72,8 @@ public class Map {
 	 * Constructeur explicite
 	 * @param numero de la Map, c'est-à-dire numéro du fichier map (au format JSON) à charger
 	 * @param lecteur de la Map
-	 * @param xDebutHerosArg position x du Heros à son arrivée sur la Map
-	 * @param yDebutHerosArg position y du Heros à son arrivée sur la Map
+	 * @param xDebutHerosArg position x du Heros (en pixels) à son arrivée sur la Map
+	 * @param yDebutHerosArg position y du Heros (en pixels) à son arrivée sur la Map
 	 * @param directionDebutHeros direction du Heros à son arrivée sur la Map
 	 * @throws FileNotFoundException 
 	 */
@@ -318,7 +320,7 @@ public class Map {
 			this.events = new ArrayList<Event>();
 			this.eventsHash = new HashMap<Integer, Event>();
 			//d'abord le héros
-			this.heros = new Heros(this.xDebutHeros * Fenetre.TAILLE_D_UN_CARREAU, this.yDebutHeros * Fenetre.TAILLE_D_UN_CARREAU, this.directionDebutHeros, this);
+			this.heros = new Heros(this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros, this);
 			this.events.add(heros);
 			//this.eventsHash.put(0, heros);
 			//puis les autres

@@ -24,8 +24,8 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * @param numeroNouvelleMap numéro de la nouvelle Map
-	 * @param xDebutHeros coordonnée x du Héros à son arrivée sur la Map
-	 * @param yDebutHeros coordonnée y du Héros à son arrivée sur la Map
+	 * @param xDebutHeros coordonnée x du Héros (en pixels) à son arrivée sur la Map
+	 * @param yDebutHeros coordonnée y du Héros (en pixels) à son arrivée sur la Map
 	 */
 	public ChangerDeMap(final int numeroNouvelleMap, final int xDebutHeros, final int yDebutHeros) {
 		this.numeroNouvelleMap = numeroNouvelleMap;
@@ -39,8 +39,8 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	 */
 	public ChangerDeMap(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numeroNouvelleMap"), 
-			(int) parametres.get("xDebutHeros"),
-			(int) parametres.get("yDebutHeros")
+			(int) parametres.get("xDebutHeros") * Fenetre.TAILLE_D_UN_CARREAU,
+			(int) parametres.get("yDebutHeros") * Fenetre.TAILLE_D_UN_CARREAU
 		);
 	}
 	

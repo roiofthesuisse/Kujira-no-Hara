@@ -1,17 +1,14 @@
 package commandes;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.logging.log4j.LogManager;
@@ -38,18 +35,30 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 		this.numeroDeSauvegarde = numeroDeSauvegarde;
 	}
 	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ChargerPartie(final HashMap<String, Object> parametres) {
+		this( (int) parametres.get("numeroSauvegarde") );
+	}
+	
 	@Override
 	public final void executer() {
 		final Fenetre fenetre = this.element.menu.lecteur.fenetre;
 		LOG.info("chargement de la partie numero "+this.numeroDeSauvegarde);
 		
 		try {
-			final byte[] bytesCryptes = Files.readAllBytes(Paths.get("./saves/save"+this.numeroDeSauvegarde+".txt"));
-			final String partieDecryptee = decrypter(bytesCryptes, construireCleDeCryptage());
-			final JSONObject jsonSauvegarde = new JSONObject(partieDecryptee);
-			final JSONObject jsonEtatMap = (JSONObject) jsonSauvegarde.get("etatMap");
+			final Path path = Paths.get("./saves/save"+this.numeroDeSauvegarde+".txt");
+			final byte[] bytesCryptes = Files.readAllBytes(path);
+			
+			final byte[] partieDecryptee = decrypter(bytesCryptes, construireCleDeCryptage());			
+			
+			LOG.debug(partieDecryptee);
+			final JSONObject jsonSauvegarde = new JSONObject(new String(partieDecryptee));
 			final JSONObject jsonAvancement = (JSONObject) jsonSauvegarde.get("partie");
-			Partie partie = new Partie(
+			final JSONObject jsonEtatMap = (JSONObject) jsonSauvegarde.get("etatMap");
+			final Partie partie = new Partie(
 					jsonEtatMap.getInt("numero"),
 					jsonEtatMap.getInt("xHeros"),
 					jsonEtatMap.getInt("yHeros"),
@@ -59,9 +68,12 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 					jsonAvancement.getInt("idArmeEquipee"),
 					jsonAvancement.getInt("idGadgetEquipe"),
 					jsonAvancement.getJSONArray("objetsPossedes"), // int[]
-					jsonAvancement.getJSONArray("avancementDesQuetes"), // AvancementQuete[]
+					jsonAvancement.getJSONArray("avancementQuetes"), // AvancementQuete[]
 					jsonAvancement.getJSONArray("armesPossedees"), // boolean[] 
-					jsonAvancement.getJSONArray("gadgetsPossedes") // boolean[] 
+					jsonAvancement.getJSONArray("gadgetsPossedes"), // boolean[] 
+					jsonAvancement.getJSONArray("interrupteurs"),
+					jsonAvancement.getJSONArray("variables"),
+					jsonAvancement.getJSONArray("interrupteursLocaux")
 			);
 			fenetre.setPartieActuelle(partie);
 			fenetre.ouvrirLaPartie();
@@ -70,6 +82,23 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 		}
 	}
 	
+	/**
+	 * Retirer les ZZZZ inutiles à la fin du fichier.
+	 * @param partieDecryptee0 fichier avec des ZZZ
+	 * @return fichier sans les ZZZ
+	 */
+	private byte[] retirerLAppendice(final byte[] partieDecryptee0) {
+		int tailleDuFichier = partieDecryptee0.length;
+		while (partieDecryptee0[tailleDuFichier-1] == 'Z') {
+			tailleDuFichier--;
+		}
+		final byte[] partieDecryptee = new byte[tailleDuFichier];
+		for (int i = 0; i<tailleDuFichier; i++) {
+			partieDecryptee[i] = partieDecryptee0[i];
+		}
+		return partieDecryptee;
+	}
+
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.executer();
@@ -82,22 +111,28 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 	 * @param cle de décryptage
 	 * @return texte décrypté
 	 */
-	private String decrypter(final byte[] bytesCryptes, final SecretKeySpec cle) {
+	private byte[] decrypter(final byte[] bytesCryptes, final SecretKeySpec cle) {
 		try {
-			final Cipher aesCipher = Cipher.getInstance("AES");
-			aesCipher.init(Cipher.DECRYPT_MODE, cle);
-	        final byte[] texteDecrypte = aesCipher.doFinal(bytesCryptes);
-	        return new String(texteDecrypte, StandardCharsets.UTF_8);
-		} catch (NoSuchAlgorithmException e) {
-			LOG.error("Algorithme de décryptage inconnu !", e);
-		} catch (NoSuchPaddingException e) {
+			LOG.debug(new String(bytesCryptes));
+			
+			// Hashage de la clé
+			final SecretKeySpec cleHashee = construireCleDeCryptage();
+			
+			// Décryptage du texte avec la clé hashée
+			final Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+            final byte[] ivByte = new byte[cipher.getBlockSize()];
+            final IvParameterSpec ivParamsSpec = new IvParameterSpec(ivByte);
+            cipher.init(Cipher.DECRYPT_MODE, cleHashee, ivParamsSpec);
+            final byte[] original = cipher.doFinal(bytesCryptes);
+			
+			LOG.debug(new String(original));
+			
+			// On retire les ZZZZ à la fin
+			return retirerLAppendice(original);
+			
+		} catch (Exception e) {
 			LOG.error(e);
-		} catch (InvalidKeyException e) {
-			LOG.error("Mauvaise clé de décryptage !", e);
-		} catch (IllegalBlockSizeException e) {
-			LOG.error("Bloc de taille incorrecte !", e);
-		} catch (BadPaddingException e) {
-			LOG.error(e);
+			e.printStackTrace();
 		}
 		return null;
 	}
