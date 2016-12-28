@@ -46,8 +46,24 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 		try {
 			final byte[] bytesCryptes = Files.readAllBytes(Paths.get("./saves/save"+this.numeroDeSauvegarde+".txt"));
 			final String partieDecryptee = decrypter(bytesCryptes, construireCleDeCryptage());
-			final JSONObject jsonPartie = new JSONObject(partieDecryptee);
-			fenetre.setPartieActuelle( Partie.chargerPartie(jsonPartie) );
+			final JSONObject jsonSauvegarde = new JSONObject(partieDecryptee);
+			final JSONObject jsonEtatMap = (JSONObject) jsonSauvegarde.get("etatMap");
+			final JSONObject jsonAvancement = (JSONObject) jsonSauvegarde.get("partie");
+			Partie partie = new Partie(
+					jsonEtatMap.getInt("numero"),
+					jsonEtatMap.getInt("xHeros"),
+					jsonEtatMap.getInt("yHeros"),
+					jsonEtatMap.getInt("directionHeros"),
+					jsonAvancement.getInt("vie"),
+					jsonAvancement.getInt("vieMax"),
+					jsonAvancement.getInt("idArmeEquipee"),
+					jsonAvancement.getInt("idGadgetEquipe"),
+					jsonAvancement.getJSONArray("objetsPossedes"), // int[]
+					jsonAvancement.getJSONArray("avancementDesQuetes"), // AvancementQuete[]
+					jsonAvancement.getJSONArray("armesPossedees"), // boolean[] 
+					jsonAvancement.getJSONArray("gadgetsPossedes") // boolean[] 
+			);
+			fenetre.setPartieActuelle(partie);
 			fenetre.ouvrirLaPartie();
 		} catch (IOException e) {
 			LOG.error("Impossible d'ouvrir le fichier de partie numero "+this.numeroDeSauvegarde, e);
@@ -72,22 +88,16 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 			aesCipher.init(Cipher.DECRYPT_MODE, cle);
 	        final byte[] texteDecrypte = aesCipher.doFinal(bytesCryptes);
 	        return new String(texteDecrypte, StandardCharsets.UTF_8);
-	        
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error("Algorithme de décryptage inconnu !", e);
 		} catch (NoSuchPaddingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error(e);
 		} catch (InvalidKeyException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error("Mauvaise clé de décryptage !", e);
 		} catch (IllegalBlockSizeException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error("Bloc de taille incorrecte !", e);
 		} catch (BadPaddingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error(e);
 		}
 		return null;
 	}

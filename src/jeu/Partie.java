@@ -1,27 +1,14 @@
 package jeu;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.SecretKeySpec;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
-import commandes.Sauvegarder;
 import jeu.Quete.AvancementQuete;
 import map.Map;
 import map.Picture;
@@ -117,28 +104,61 @@ public final class Partie {
 	 * @param objetsPossedes combien possède-t-on d'Objet numéro i ?
 	 * @param avancementDesQuetes la Quête numéro i a-t-elle été faite ?
 	 * @param armesPossedees possède-t-on l'Arme numéro i ?
-	 * @param nombreDArmesPossedees combien a-t-on d'Armes ?
+	 * @param gadgetsPossedes possède-t-on le Gadget numéro i ?
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
 	 * @param idGadgetEquipe identifiant du Gadget actuel équipé
 	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, 
-			final int vieMax, final int idArmeEquipee, final int idGadgetEquipe, final int[] objetsPossedes, 
-			final AvancementQuete[] avancementDesQuetes, final boolean[] armesPossedees, final int nombreDArmesPossedees) 
+	public Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, 
+			final int vieMax, final int idArmeEquipee, final int idGadgetEquipe, final JSONArray objetsPossedes, 
+			final JSONArray avancementDesQuetes, final JSONArray armesPossedees, final JSONArray gadgetsPossedes) 
 	throws FileNotFoundException {
 		this();
 		this.numeroMap = numeroMap;
-		this.xHeros = xHeros;
-		this.yHeros = yHeros;
-		this.directionHeros = directionHeros;
-		this.vie = vie;
-		this.vieMax = vieMax;
+		this.xHeros = xHeros; //TODO faire ça pour tous les Events de la Map
+		this.yHeros = yHeros; //TODO faire ça pour tous les Events de la Map
+		this.directionHeros = directionHeros; //TODO faire ça pour tous les Events de la Map
+		this.vie = vie; //TODO faire ça pour tous les Events de la Map
+		this.vieMax = vieMax; //TODO faire ça pour tous les Events de la Map
 		
-		this.objetsPossedes = objetsPossedes;
-		this.avancementDesQuetes = avancementDesQuetes;
-		this.armesPossedees = armesPossedees;
+		//objets
+		int[] tableauObjetsPossedes = new int[Objet.objetsDuJeu.length];
+		for (Object o : objetsPossedes) {
+			JSONObject objetPossede = (JSONObject) o;
+			tableauObjetsPossedes[objetPossede.getInt("numero")] = objetPossede.getInt("quantite");
+		}
+		this.objetsPossedes = tableauObjetsPossedes;
+		
+		//quêtes
+		AvancementQuete[] tableauAvancementDesQuetes = new AvancementQuete[Quete.quetesDuJeu.length];
+		for (Object o : avancementDesQuetes) {
+			JSONObject avancementQuete = (JSONObject) o;
+			tableauAvancementDesQuetes[avancementQuete.getInt("numero")] = AvancementQuete.getEtat(avancementQuete.getString("avancement"));
+		}
+		this.avancementDesQuetes = tableauAvancementDesQuetes;
+		
+		//armes
+		boolean[] tableauArmesPossedees = new boolean[Arme.chargerLesArmesDuJeu()];
+		int nombreDArmesPossedees = 0;
+		for (Object o : armesPossedees) {
+			int armePossedee = (Integer) o;
+			tableauArmesPossedees[armePossedee] = true;
+			nombreDArmesPossedees++;
+		}
+		this.armesPossedees = tableauArmesPossedees; 
 		this.nombreDArmesPossedees = nombreDArmesPossedees;
+		
+		//gadgets
+		boolean[] tableauDesGadgetsPossedes = new boolean[Gadget.chargerLesGadgetsDuJeu()];
+		int nombreDeGadgetsPossedes = 0;
+		for (Object o : gadgetsPossedes) {
+			int gadgetPossede = (Integer) o;
+			tableauDesGadgetsPossedes[gadgetPossede] = true;
+			nombreDeGadgetsPossedes++;
+		}
+		this.gadgetsPossedes = tableauDesGadgetsPossedes;
+		this.nombreDeGadgetsPossedes = nombreDeGadgetsPossedes;
 		
 		this.idArmeEquipee = idArmeEquipee;
 		this.idGadgetEquipe = idGadgetEquipe;
@@ -152,28 +172,6 @@ public final class Partie {
 	public static Partie creerNouvellePartie() throws FileNotFoundException {
 		return new Partie();
 	}
-	
-	/**
-	 * Charger une partie à l'aide d'un fichier de sauvegarde.
-	 * @param jsonSauvegarde partie au format json
-	 * @return une partie sauvegardée
-	 */
-	public static Partie chargerPartie(final JSONObject jsonSauvegarde) {
-		final JSONObject jsonEtatMap = (JSONObject) jsonSauvegarde.get("etatMap");
-		final JSONObject jsonAvancement = (JSONObject) jsonSauvegarde.get("partie");
-		final Partie partie = new Partie(
-				jsonEtatMap.getInt("numero"),
-				jsonEtatMap.getInt("xHeros"),
-				jsonEtatMap.getInt("yHeros"),
-				jsonEtatMap.getInt("directionHeros"),
-				jsonAvancement.getInt("vie")
-				
-				
-		);
-		return partie;
-	}
-	
-
 	
 	/**
 	 * Connaitre le Gadget actuellement équipé

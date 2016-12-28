@@ -84,7 +84,9 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 		jsonPartie.put("vie", partie.vie);
 		jsonPartie.put("vieMax", partie.vieMax);
 		jsonPartie.put("argent", partie.argent);
+		
 		//armes
+		jsonPartie.put("idArmeEquipee", partie.idArmeEquipee);
 		final JSONArray armesPossedees = new JSONArray();
 		for (int i = 0; i<partie.armesPossedees.length; i++) {
 			if (partie.armesPossedees[i]) {
@@ -92,7 +94,9 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 			}
 		}
 		jsonPartie.put("armesPossedees", armesPossedees);
+		
 		//gadgets
+		jsonPartie.put("idGadgetEquipe", partie.idGadgetEquipe);
 		final JSONArray gadgetsPossedes = new JSONArray();
 		for (int i = 0; i<partie.gadgetsPossedes.length; i++) {
 			if (partie.gadgetsPossedes[i]) {
@@ -100,6 +104,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 			}
 		}
 		jsonPartie.put("gadgetsPossedes", gadgetsPossedes);
+		
 		//interrupteurs
 		final JSONArray interrupteurs = new JSONArray();
 		for (int i = 0; i<partie.interrupteurs.length; i++) {
@@ -108,6 +113,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 			}
 		}
 		jsonPartie.put("interrupteurs", interrupteurs);
+		
 		//variables
 		final JSONArray variables = new JSONArray();
 		for (int i = 0; i<partie.variables.length; i++) {
@@ -119,6 +125,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 			}
 		}
 		jsonPartie.put("variables", variables);
+		
 		//interrupteurs locaux
 		final JSONArray interrupteursLocaux = new JSONArray();
 		for (int i = 0; i<partie.interrupteursLocaux.size(); i++) {
@@ -126,6 +133,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 			interrupteursLocaux.put(code);
 		}
 		jsonPartie.put("interrupteursLocaux", interrupteursLocaux);
+		
 		//objets
 		final JSONArray objetsPossedes = new JSONArray();
 		for (int i = 0; i<partie.objetsPossedes.length; i++) {
@@ -137,6 +145,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 			}
 		}
 		jsonPartie.put("objetsPossedes", objetsPossedes);
+		
 		//quêtes
 		final JSONArray avancementQuetes = new JSONArray();
 		for (int i = 0; i<partie.avancementDesQuetes.length; i++) {
