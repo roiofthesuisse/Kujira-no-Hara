@@ -120,9 +120,13 @@ public final class Partie {
 	 * @param nombreDArmesPossedees combien a-t-on d'Armes ?
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
+	 * @param idGadgetEquipe identifiant du Gadget actuel équipé
 	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, final int vieMax, final int idArmeEquipee, final int idGadgetEquipe, final int[] objetsPossedes, final AvancementQuete[] avancementDesQuetes, final boolean[] armesPossedees, final int nombreDArmesPossedees) throws FileNotFoundException {
+	private Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, 
+			final int vieMax, final int idArmeEquipee, final int idGadgetEquipe, final int[] objetsPossedes, 
+			final AvancementQuete[] avancementDesQuetes, final boolean[] armesPossedees, final int nombreDArmesPossedees) 
+	throws FileNotFoundException {
 		this();
 		this.numeroMap = numeroMap;
 		this.xHeros = xHeros;
@@ -151,15 +155,21 @@ public final class Partie {
 	
 	/**
 	 * Charger une partie à l'aide d'un fichier de sauvegarde.
-	 * @param jsonPartie partie au format json
+	 * @param jsonSauvegarde partie au format json
 	 * @return une partie sauvegardée
 	 */
-	public static Partie chargerPartie(final String jsonPartie) {
-		final Partie partie;
-        
-        //TODO construire la partie avec JSON
-
-		
+	public static Partie chargerPartie(final JSONObject jsonSauvegarde) {
+		final JSONObject jsonEtatMap = (JSONObject) jsonSauvegarde.get("etatMap");
+		final JSONObject jsonAvancement = (JSONObject) jsonSauvegarde.get("partie");
+		final Partie partie = new Partie(
+				jsonEtatMap.getInt("numero"),
+				jsonEtatMap.getInt("xHeros"),
+				jsonEtatMap.getInt("yHeros"),
+				jsonEtatMap.getInt("directionHeros"),
+				jsonAvancement.getInt("vie")
+				
+				
+		);
 		return partie;
 	}
 	

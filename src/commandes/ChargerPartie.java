@@ -16,6 +16,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
 
 import jeu.Partie;
 import main.Commande;
@@ -44,8 +45,9 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 		
 		try {
 			final byte[] bytesCryptes = Files.readAllBytes(Paths.get("./saves/save"+this.numeroDeSauvegarde+".txt"));
-			final String jsonPartieDecryptee = decrypter(bytesCryptes, construireCleDeCryptage());
-			fenetre.setPartieActuelle( Partie.chargerPartie(jsonPartieDecryptee) );
+			final String partieDecryptee = decrypter(bytesCryptes, construireCleDeCryptage());
+			final JSONObject jsonPartie = new JSONObject(partieDecryptee);
+			fenetre.setPartieActuelle( Partie.chargerPartie(jsonPartie) );
 			fenetre.ouvrirLaPartie();
 		} catch (IOException e) {
 			LOG.error("Impossible d'ouvrir le fichier de partie numero "+this.numeroDeSauvegarde, e);
