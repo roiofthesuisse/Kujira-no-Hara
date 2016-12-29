@@ -13,6 +13,7 @@ import conditions.Condition;
 import main.Commande;
 import main.Fenetre;
 import mouvements.Mouvement;
+import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
@@ -454,6 +455,41 @@ public class Event implements Comparable<Event> {
 		}
 		final int hauteurVignette = this.imageActuelle.getHeight()/4;
 		return yBase + this.hauteurHitbox - hauteurVignette + this.offsetY;
+	}
+	
+	/**
+	 * Vérifier l'égalité entre deux Events.
+	 */
+	@Override
+	public final boolean equals(final Object o) {
+		if (o == null) {
+			return false;
+		}
+		if (!(o instanceof Event)) {
+			return false;
+		}
+		Event event2 = (Event) o;
+		if (this.hashCode() != event2.hashCode()) {
+			return false;
+		}
+		if (this.numero != event2.numero) {
+			return false;
+		}
+		if (this.id != event2.id) {
+			return false;
+		}
+		if (!this.nom.equals(event2.nom)) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * Hashcode pour rendre plus rapide la méthode equals().
+	 */
+	@Override
+	public final int hashCode() {
+		return Maths.NOMBRE_PREMIER1 + Maths.NOMBRE_PREMIER2 * this.numero + Maths.NOMBRE_PREMIER3 * this.numero;
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -65,6 +66,9 @@ public class LecteurMap extends Lecteur {
 	public int defilementY;
 	/** Décalage (en pixels) de l'écran à cause du tremblement de terre */
 	public int tremblementDeTerre;
+	
+	/** Pages de code commun à toutes les Maps */
+	private ArrayList<PageCommune> pagesCommunes = new ArrayList<PageCommune>(); //TODO récupérer depuis JSON
 	
 	/**
 	 * Constructeur explicite
@@ -287,6 +291,9 @@ public class LecteurMap extends Lecteur {
 		}
 		//le Héros est calculé en dernier pour éviter les problèmes d'épée
 		activerUnePageEtLExecuter(this.map.heros);
+		
+		//lire les PagesCommunes
+		lireLesPagesCommunes();
 	}
 	
 	/**
@@ -300,6 +307,22 @@ public class LecteurMap extends Lecteur {
 			}
 			if (event.pageActive != null) {
 				event.pageActive.executer();
+			}
+		}
+	}
+	
+	/**
+	 * Lire les Pages de code commun.
+	 */
+	private void lireLesPagesCommunes() {
+		if (this.pagesCommunes.size() > 0) {
+			for (PageCommune pageCommune : this.pagesCommunes) {
+				if (!pageCommune.active) {
+					pageCommune.essayerDActiver();
+				}
+				if (pageCommune.active) {
+					pageCommune.executer();
+				}
 			}
 		}
 	}

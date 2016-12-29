@@ -10,6 +10,9 @@ import org.apache.logging.log4j.Logger;
  */
 public abstract class Maths {
 	private static final Logger LOG = LogManager.getLogger(Maths.class);
+	public static final int NOMBRE_PREMIER1 = 7;
+	public static final int NOMBRE_PREMIER2 = 31;
+	public static final int NOMBRE_PREMIER3 = 41;
 	
 	/** Générateur de nombres aléatoires */
 	public static Random generateurAleatoire = new Random();
