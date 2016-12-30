@@ -65,6 +65,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 					jsonEtatMap.getInt("directionHeros"),
 					jsonAvancement.getInt("vie"),
 					jsonAvancement.getInt("vieMax"),
+					jsonAvancement.getInt("argent"),
 					jsonAvancement.getInt("idArmeEquipee"),
 					jsonAvancement.getInt("idGadgetEquipe"),
 					jsonAvancement.getJSONArray("objetsPossedes"), // int[]

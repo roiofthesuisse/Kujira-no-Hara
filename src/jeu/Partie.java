@@ -101,6 +101,7 @@ public final class Partie {
 	 * @param directionHeros direction dans laquelle se trouve le Heros en reprenant la Partie
 	 * @param vie niveau d'énergie vitale du Héros en reprenant la Partie
 	 * @param vieMax niveau maximal possible d'énergie vitale du Héros en reprenant la Partie
+	 * @param argent possédé
 	 * ----------------------------------------------------------------------------------------
 	 * @param objetsPossedes combien possède-t-on d'Objet numéro i ?
 	 * @param avancementDesQuetes la Quête numéro i a-t-elle été faite ?
@@ -115,7 +116,7 @@ public final class Partie {
 	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
 	public Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, 
-			final int vieMax, final int idArmeEquipee, final int idGadgetEquipe, final JSONArray objetsPossedes, 
+			final int vieMax, final int argent, final int idArmeEquipee, final int idGadgetEquipe, final JSONArray objetsPossedes, 
 			final JSONArray avancementDesQuetes, final JSONArray armesPossedees, final JSONArray gadgetsPossedes, 
 			final JSONArray interrupteurs, final JSONArray variables, final JSONArray interrupteursLocaux) 
 	throws FileNotFoundException {
@@ -126,6 +127,7 @@ public final class Partie {
 		this.directionHeros = directionHeros; //TODO faire ça pour tous les Events de la Map
 		this.vie = vie; //TODO faire ça pour tous les Events de la Map
 		this.vieMax = vieMax; //TODO faire ça pour tous les Events de la Map
+		this.argent = argent;
 		
 		//objets
 		final int[] tableauObjetsPossedes = new int[Objet.objetsDuJeu.length];
