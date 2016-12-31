@@ -18,6 +18,7 @@ import menu.Texte;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.Maths;
 
@@ -68,7 +69,7 @@ public class LecteurMap extends Lecteur {
 	public int tremblementDeTerre;
 	
 	/** Pages de code commun à toutes les Maps */
-	private ArrayList<PageCommune> pagesCommunes = new ArrayList<PageCommune>(); //TODO récupérer depuis JSON
+	private ArrayList<PageCommune> pagesCommunes = InterpreteurDeJson.recupererLesPagesCommunes();
 	
 	/**
 	 * Constructeur explicite

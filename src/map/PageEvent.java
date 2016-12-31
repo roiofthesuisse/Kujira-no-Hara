@@ -210,7 +210,7 @@ public class PageEvent {
 	 * C'est-à-dire que les conditions de déclenchement ont été réunies.
 	 * On va donc lire les commandes une par une avec un curseur.
 	 */
-	public final void executer() {
+	public void executer() {
 		//si la page est une page "Parler", elle active le stopEvent qui fige tous les Events
 		if (sOuvreParParole) {
 			this.event.map.lecteur.stopEvent = true;

@@ -175,6 +175,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 		jsonEtatMap.put("directionHeros", map.heros.direction);
 		//TODO pour tous les events : x, y, direction, apparence, vitesse, frequence, proprietesActuelles, pageActive, curseur, mouvements
 		//TODO images (état de déplacement, ce qui est fait)
+		//TODO brouillard
 		jsonSauvegarde.put("etatMap", jsonEtatMap);
 		
 		return jsonSauvegarde;

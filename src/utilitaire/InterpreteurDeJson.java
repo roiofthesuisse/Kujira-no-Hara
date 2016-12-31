@@ -25,6 +25,7 @@ import main.Fenetre;
 import map.Autotile;
 import map.Event;
 import map.Map;
+import map.PageCommune;
 import map.Tileset;
 import menu.ElementDeMenu;
 import menu.Image;
@@ -578,6 +579,32 @@ public abstract class InterpreteurDeJson {
 			}
 		}
 		return autotiles;
+	}
+
+	/**
+	 * Récupérer les Pages Communes décrites dans un fichier JSON.
+	 * @return Pages de code Event communes à toutes les Maps du jeu
+	 */
+	public static ArrayList<PageCommune> recupererLesPagesCommunes() {
+		ArrayList<PageCommune> pagesCommunes = new ArrayList<PageCommune>();
+		
+		try {
+			JSONObject jsonObjets = ouvrirJson("pagesCommunes", ".\\ressources\\Data\\");
+			JSONArray jsonPagesCommunes = jsonObjets.getJSONArray("pages");
+		
+			for (Object o : jsonPagesCommunes) {
+				JSONObject jsonPageCommune = (JSONObject) o;
+				PageCommune pageCommune = new PageCommune(jsonPageCommune);
+				pagesCommunes.add(pageCommune);
+			}
+
+		} catch (FileNotFoundException e) {
+			LOG.error("Impossible de trouver le fichier des pages communes !", e);
+		} catch (JSONException e) {
+			LOG.error("Impossible de lire le fichier JSON des pages communes !", e);
+		}
+		
+		return pagesCommunes;
 	}
 	
 }

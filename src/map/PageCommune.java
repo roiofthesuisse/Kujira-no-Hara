@@ -3,6 +3,7 @@ package map;
 import org.json.JSONObject;
 
 import conditions.Condition;
+import main.Commande;
 
 /**
  * Pages de code commun à toutes les Maps.
@@ -42,6 +43,33 @@ public class PageCommune extends PageEvent {
 		} else {
 			//aucune Condition nécessaire pour cette Page, donc la Page est activée
 			this.active = true;
+		}
+	}
+	
+	
+	@Override
+	public final void executer() {
+		if (commandes!=null) {
+			try {
+				if (curseurCommandes >= commandes.size()) {
+					curseurCommandes = 0;
+				}
+				boolean onAvanceDansLesCommandes = true;
+				while (onAvanceDansLesCommandes) {
+					final int ancienCurseur = curseurCommandes;
+					final Commande commande = this.commandes.get(curseurCommandes);
+					commande.page = this; //on apprend à la Commande depuis quelle Page elle est appelée
+					curseurCommandes = commande.executer(curseurCommandes, commandes);
+					if (curseurCommandes==ancienCurseur) { 
+						//le curseur n'a pas changé, c'est donc une commande qui prend du temps
+						onAvanceDansLesCommandes = false;
+					}
+				}
+			} catch (IndexOutOfBoundsException e) {
+				//on a fini la page
+				curseurCommandes = 0;
+				this.active = false;
+			}
 		}
 	}
 }
