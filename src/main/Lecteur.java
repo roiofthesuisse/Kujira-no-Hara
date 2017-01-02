@@ -1,15 +1,18 @@
 package main;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import son.LecteurAudio;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
 import map.LecteurMap;
+import map.PageCommune;
 import menu.LecteurMenu;
 
 /**
@@ -45,10 +48,12 @@ public abstract class Lecteur {
 	 */
 	public int frameActuelle = 0;
 	
-	/**
-	 * Afficher ou masquer la boîte des Messages.
-	 */
+	/** Afficher ou masquer la boîte des Messages. */
 	public static boolean afficherBoiteMessage = true;
+
+	/** Pages de code commun à toutes les Maps */
+	public ArrayList<PageCommune> pagesCommunes = InterpreteurDeJson.recupererLesPagesCommunes();
+	
 	
 	/**
 	 * Le rôle d'un Lecteur est de calculer l'écran à afficher dans la Fenêtre.

@@ -17,7 +17,8 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	 * Constructeur explicite
 	 * @param idArme identifiant de l'Arme à vérifier
 	 */
-	public ConditionArmeEquipee(final int idArme) {
+	public ConditionArmeEquipee(final int numero, final int idArme) {
+		this.numero = numero;
 		this.idArme = idArme;
 	}
 	
@@ -26,7 +27,10 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionArmeEquipee(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("idArme") );
+		this( 
+				parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
+				(int) parametres.get("idArme") 
+		);
 	}
 	
 	@Override

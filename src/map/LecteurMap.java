@@ -68,9 +68,6 @@ public class LecteurMap extends Lecteur {
 	/** Décalage (en pixels) de l'écran à cause du tremblement de terre */
 	public int tremblementDeTerre;
 	
-	/** Pages de code commun à toutes les Maps */
-	private ArrayList<PageCommune> pagesCommunes = InterpreteurDeJson.recupererLesPagesCommunes();
-	
 	/**
 	 * Constructeur explicite
 	 * @param fenetre dont ce Lecteur assure l'affichage
