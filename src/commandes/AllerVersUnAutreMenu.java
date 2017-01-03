@@ -37,20 +37,16 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 	public AllerVersUnAutreMenu(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("menu"));
 	}
-	
+
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nomMenu, this.element.menu);
 		LOG.info(this.nomMenu);
 		
 		final LecteurMap lecteurMapMemorise = this.element.menu.lecteur.lecteurMapMemorise;
 		final LecteurMenu nouveauLecteur = new LecteurMenu(Fenetre.getFenetre(), this.nouveauMenu, lecteurMapMemorise);
 		nouveauLecteur.changerMenu();
-	}
-
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+		
 		return curseurActuel+1;
 	}
 

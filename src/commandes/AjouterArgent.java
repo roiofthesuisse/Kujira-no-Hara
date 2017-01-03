@@ -29,13 +29,9 @@ public class AjouterArgent extends Commande implements CommandeEvent, CommandeMe
 	}
 	
 	@Override
-	public final void executer() {
-		Fenetre.getPartieActuelle().argent += quantite;
-	}
-	
-	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+		Fenetre.getPartieActuelle().argent += quantite;
+		
 		return curseurActuel+1;
 	}
 

@@ -30,7 +30,7 @@ public class RetirerArme extends Commande implements CommandeEvent, CommandeMenu
 	}
 	
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		//on procède à la suppression
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		final boolean[] armesPossedees = partieActuelle.armesPossedees;
@@ -39,11 +39,7 @@ public class RetirerArme extends Commande implements CommandeEvent, CommandeMenu
 			partieActuelle.nombreDArmesPossedees--;
 			partieActuelle.idArmeEquipee = -1; // -1 pour signifier qu'aucune Arme n'est équipée
 		}
-	}
-	
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+				
 		return curseurActuel+1;
 	}
 

@@ -24,15 +24,11 @@ public class CaptureDEcran extends Commande implements CommandeEvent, CommandeMe
 	public CaptureDEcran(final HashMap<String, Object> parametres) {
 		this();
 	}
-	
-	@Override
-	public final void executer() {
-		Fenetre.getFenetre().lecteur.faireUneCaptureDEcran();
-	}
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		executer();
+		Fenetre.getFenetre().lecteur.faireUneCaptureDEcran();
+		
 		return curseurActuel+1;
 	}
 

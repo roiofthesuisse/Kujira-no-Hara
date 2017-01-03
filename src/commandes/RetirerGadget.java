@@ -30,7 +30,7 @@ public class RetirerGadget extends Commande implements CommandeEvent, CommandeMe
 	}
 	
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		//on procède à la suppression
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		final boolean[] gadgetsPossedes = partieActuelle.gadgetsPossedes;
@@ -39,11 +39,6 @@ public class RetirerGadget extends Commande implements CommandeEvent, CommandeMe
 			partieActuelle.nombreDeGadgetsPossedes--;
 			partieActuelle.idGadgetEquipe = -1; // -1 pour signifier qu'aucun Gadget n'est équipé
 		}
-	}
-	
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
 		return curseurActuel+1;
 	}
 

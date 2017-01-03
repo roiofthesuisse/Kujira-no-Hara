@@ -37,7 +37,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Fenetre fenetre = Fenetre.getFenetre();
 		final Lecteur lecteur = fenetre.lecteur;
-		LecteurMenu nouveauLecteur;
+		final LecteurMenu nouveauLecteur;
 		final Menu nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nom, null); //pas de Menu parent car appelé depuis la Map
 		if (lecteur instanceof LecteurMenu) {
 			// Le Menu est ouvert depuis un autre Menu
@@ -51,12 +51,6 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 		}
 		nouveauLecteur.changerMenu();
 		return curseurActuel+1;
-	}
-
-	@Override
-	public void executer() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

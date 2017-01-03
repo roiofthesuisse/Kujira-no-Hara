@@ -37,15 +37,15 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 				(int) parametres.get("numeroPageCommune")
 		);
 	}
-	
+
 	@Override
-	public final void executer() {
-		final ArrayList<Commande> commandes = this.pageCommune.commandes;
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		final ArrayList<Commande> commandesInternes = this.pageCommune.commandes;
 		int nouveauCurseurInterne;
 		boolean commandeInstantanee = true;
 		try {
 			while (commandeInstantanee) {
-				nouveauCurseurInterne = this.pageCommune.commandes.get(curseurInterne).executer(curseurInterne, commandes);
+				nouveauCurseurInterne = this.pageCommune.commandes.get(curseurInterne).executer(curseurInterne, commandesInternes);
 				commandeInstantanee = (nouveauCurseurInterne != curseurInterne);
 				curseurInterne = nouveauCurseurInterne;
 			}
@@ -53,11 +53,6 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 			// la Page Commune a été lue en entier
 			LOG.trace("La page commune a été lue en entier.", e);
 		}
-	}
-
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		executer();
 		
 		if (this.curseurInterne >= this.pageCommune.commandes.size()) {
 			//fini

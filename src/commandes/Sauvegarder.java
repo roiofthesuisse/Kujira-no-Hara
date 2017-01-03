@@ -45,9 +45,9 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	public Sauvegarder(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numeroSauvegarde") );
 	}
-
+	
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final String filename = "./saves/save"+this.numeroSauvegarde+".txt";
 		try {
 				// Générer le fichier de sauvegarde
@@ -67,6 +67,8 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 		} catch (IOException e) {
 			LOG.error("Impossible de sauvegarder la partie dans le fichier "+filename, e);
 		}
+		
+		return curseurActuel+1;
 	}
 
 	/**
@@ -231,12 +233,6 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
         	text[i] = 'Z';
         }
         return text;
-	}
-
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		executer();
-		return curseurActuel+1;
 	}
 	
 }

@@ -29,13 +29,9 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		executer();
-		return curseurActuel+1;
-	}
-
-	@Override
-	public final void executer() {
 		LecteurAudio.playSe(nomFichierSonore);
+		
+		return curseurActuel+1;
 	}
 
 }

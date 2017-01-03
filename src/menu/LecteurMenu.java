@@ -78,7 +78,7 @@ public class LecteurMenu extends Lecteur {
 	}
 
 	@Override
-	public final void keyPressed(ToucheRole touchePressee) {
+	public final void keyPressed(final ToucheRole touchePressee) {
 		switch(touchePressee) {
 			case ACTION : 
 				menu.confirmer(); 
@@ -149,7 +149,7 @@ public class LecteurMenu extends Lecteur {
 			new LecteurMenu(this.fenetre, this.menu.menuParent, this.lecteurMapMemorise).changerMenu();
 		} else if (this.lecteurMapMemorise!=null) {
 			//revenir au jeu
-			new RevenirAuJeu(this).executer();
+			new RevenirAuJeu(this).executer(0, null);
 		} else {
 			//quitte le jeu
 			this.fenetre.dispose();
@@ -177,7 +177,7 @@ public class LecteurMenu extends Lecteur {
 	}
 
 	@Override
-	public void keyReleased(ToucheRole toucheRelachee) {
+	public void keyReleased(final ToucheRole toucheRelachee) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -34,9 +34,9 @@ public class AjouterObjet extends Commande implements CommandeEvent, CommandeMen
 			parametres.containsKey("quantite") ? (int) parametres.get("quantite") : 1 //ajouter 1 par défaut
 		);
 	}
-	
+
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		//on calcule le numéro de l'Objet
 		try {
 			//l'identifiant de l'Objet est son numéro
@@ -49,11 +49,7 @@ public class AjouterObjet extends Commande implements CommandeEvent, CommandeMen
 		//on procède à l'ajout
 		final int[] objetsPossedes = Fenetre.getPartieActuelle().objetsPossedes;
 		objetsPossedes[this.numeroObjet] += quantite;
-	}
-	
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+				
 		return curseurActuel+1;
 	}
 

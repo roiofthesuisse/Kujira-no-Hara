@@ -18,16 +18,12 @@ public class RevenirAuJeu extends Commande implements CommandeMenu {
 	public RevenirAuJeu(final LecteurMenu lecteurMenu) {
 		this.lecteurMenu = lecteurMenu;
 	}
-	
-	@Override
-	public final void executer() {
-		this.lecteurMenu.fenetre.futurLecteur = this.lecteurMenu.lecteurMapMemorise;
-		this.lecteurMenu.allume = false;
-	}
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+		this.lecteurMenu.fenetre.futurLecteur = this.lecteurMenu.lecteurMapMemorise;
+		this.lecteurMenu.allume = false;
+		
 		return curseurActuel+1;
 	}
 

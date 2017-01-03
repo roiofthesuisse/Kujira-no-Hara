@@ -25,15 +25,11 @@ public class QuitterJeu extends Commande implements CommandeMenu {
 	public QuitterJeu(final HashMap<String, Object> parametres) {
 		this();
 	}
-	
-	@Override
-	public final void executer() {
-		Fenetre.getFenetre().fermer();
-	}
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+		Fenetre.getFenetre().fermer();
+		
 		return curseurActuel+1;
 	}
 

@@ -27,14 +27,9 @@ public class FermerMenu extends Commande implements CommandeMenu {
 	}
 
 	@Override
-	public final void executer() {
-		this.executer(0, null);
-		
-	}
-
-	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.element.menu.lecteur.allerAuMenuParentOuRevenirAuJeu();
+		
 		return 0;
 	}
 

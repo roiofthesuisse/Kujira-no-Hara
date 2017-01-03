@@ -34,9 +34,9 @@ public class RetirerObjet extends Commande implements CommandeMenu, CommandeEven
 			parametres.containsKey("quantite") ? (int) parametres.get("quantite") : 1 //retirer 1 par défaut
 		);
 	}
-	
+
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		//on calcule le numéro de l'Objet
 		try {
 			//l'identifiant de l'Objet est son numéro
@@ -54,11 +54,6 @@ public class RetirerObjet extends Commande implements CommandeMenu, CommandeEven
 		if (objetsPossedes[this.numeroObjet] < 0) {
 			objetsPossedes[this.numeroObjet] = 0;
 		}
-	}
-	
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
 		return curseurActuel+1;
 	}
 

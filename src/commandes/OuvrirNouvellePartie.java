@@ -29,18 +29,14 @@ public class OuvrirNouvellePartie extends Commande implements CommandeMenu {
 	public OuvrirNouvellePartie(final HashMap<String, Object> parametres) {
 		this();
 	}
-	
+
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Fenetre fenetre = this.element.menu.lecteur.fenetre;
 		LOG.info("nouvelle partie");
 		fenetre.setPartieActuelle(null);
 		fenetre.ouvrirLaPartie();
-	}
-
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+		
 		return curseurActuel+1;
 	}
 	

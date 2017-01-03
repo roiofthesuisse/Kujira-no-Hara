@@ -42,9 +42,26 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 	public ChargerPartie(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numeroSauvegarde") );
 	}
-	
+
+	/**
+	 * Retirer les ZZZZ inutiles à la fin du fichier.
+	 * @param partieDecryptee0 fichier avec des ZZZ
+	 * @return fichier sans les ZZZ
+	 */
+	private byte[] retirerLAppendice(final byte[] partieDecryptee0) {
+		int tailleDuFichier = partieDecryptee0.length;
+		while (partieDecryptee0[tailleDuFichier-1] == 'Z') {
+			tailleDuFichier--;
+		}
+		final byte[] partieDecryptee = new byte[tailleDuFichier];
+		for (int i = 0; i<tailleDuFichier; i++) {
+			partieDecryptee[i] = partieDecryptee0[i];
+		}
+		return partieDecryptee;
+	}
+
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Fenetre fenetre = this.element.menu.lecteur.fenetre;
 		LOG.info("chargement de la partie numero "+this.numeroDeSauvegarde);
 		
@@ -81,28 +98,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 		} catch (IOException e) {
 			LOG.error("Impossible d'ouvrir le fichier de partie numero "+this.numeroDeSauvegarde, e);
 		}
-	}
-	
-	/**
-	 * Retirer les ZZZZ inutiles à la fin du fichier.
-	 * @param partieDecryptee0 fichier avec des ZZZ
-	 * @return fichier sans les ZZZ
-	 */
-	private byte[] retirerLAppendice(final byte[] partieDecryptee0) {
-		int tailleDuFichier = partieDecryptee0.length;
-		while (partieDecryptee0[tailleDuFichier-1] == 'Z') {
-			tailleDuFichier--;
-		}
-		final byte[] partieDecryptee = new byte[tailleDuFichier];
-		for (int i = 0; i<tailleDuFichier; i++) {
-			partieDecryptee[i] = partieDecryptee0[i];
-		}
-		return partieDecryptee;
-	}
-
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+		
 		return curseurActuel+1;
 	}
 	

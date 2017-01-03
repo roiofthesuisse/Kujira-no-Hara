@@ -30,7 +30,7 @@ public class RetirerArgent extends Commande implements CommandeEvent, CommandeMe
 	}
 	
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Partie partie = Fenetre.getPartieActuelle();
 		partie.argent -= quantite;
 		
@@ -38,11 +38,7 @@ public class RetirerArgent extends Commande implements CommandeEvent, CommandeMe
 		if (partie.argent < 0) {
 			partie.argent = 0;
 		}
-	}
-	
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+		
 		return curseurActuel+1;
 	}
 

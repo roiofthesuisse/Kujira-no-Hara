@@ -20,14 +20,10 @@ public class AfficherDescription extends Commande implements CommandeMenu {
 	}
 	
 	@Override
-	public final void executer() {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.element.menu.texteDescriptif.contenu = description;
 		this.element.menu.texteDescriptif.image = ((Texte) this.element.menu.texteDescriptif).texteToImage();
-	}
-	
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.executer();
+		
 		return curseurActuel+1;
 	}
 
