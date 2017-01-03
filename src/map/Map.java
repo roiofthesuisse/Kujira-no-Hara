@@ -443,7 +443,7 @@ public class Map {
 		final int ymax = ymin + hauteurHitbox;
 		
 		try {
-			//aucun des 4 coins de l'Event de doivent être sur une case non passable
+			//aucun des 4 coins de l'Event ne doivent être sur une case non passable
 			if (!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU]) {
 				return false;
 			}

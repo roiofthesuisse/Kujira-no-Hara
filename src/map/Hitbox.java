@@ -197,11 +197,6 @@ public class Hitbox {
 			//deuxième cas : deux cotés de chevauchent
 			final boolean deuxCotesSeChevauchent = ((x1min<=x2min && x2max<=x1max)&&((y2min<=y1min && y1min<y2max && y2max<=y1max)||(y1min<=y2min && y2min<y1max && y1max<=y2max)))
 												|| ((x2min<=x1min && x1max<=x2max)&&((y1min<=y2min && y2min<y1max && y1max<=y2max)||(y2min<=y1min && y1min<y2max && y2max<=y1max)));
-											//autre méthode pour résultat identique :
-										   /*(((x2min<x1min && x1min<x2max)||(x2min<x1max && x1max<x2max)) 
-											&& ((y2min<y1min && y1min<y2max)||(y2min<y1max && y1max<y2max)))
-										   ||(((x1min<x2min && x2min<x1max)||(x1min<x2max && x2max<x1max)) 
-											&& ((y1min<y2min && y2min<y1max)||(y1min<y2max && y2max<y1max)));*/
 			if (deuxCotesSeChevauchent) {
 				return true;
 			}

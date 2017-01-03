@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import main.Fenetre;
 import map.Event;
+import map.Heros;
+import map.Event.Direction;
 
 /**
  * Déplacer un Event d'un pas en diagonale
@@ -11,10 +13,6 @@ import map.Event;
 public class PasEnDiagonale extends Avancer {
 	int directionVerticale;
 	int directionHorizontale;
-	/** partie du mouvement effectuée pendant 1 frame selon X */
-	public Avancer pixelVertical;
-	/** partie du mouvement effectuée pendant 1 frame selon Y */
-	public Avancer pixelHorizontal;
 
 	/**
 	 * Constructeur explicite
@@ -46,10 +44,25 @@ public class PasEnDiagonale extends Avancer {
 	 */
 	@Override
 	public final void calculDuMouvement(final Event event) {
-		//on applique les conséquences des deux Mouvements fictifs
-		pixelVertical.calculDuMouvement(event);
-		pixelHorizontal.calculDuMouvement(event);
+		event.avance = true;
 		
+		//déplacement :
+		switch (this.directionHorizontale) {
+			case Direction.GAUCHE : 
+				event.x -= event.vitesseActuelle; 
+				break;
+			case Direction.DROITE : 
+				event.x += event.vitesseActuelle; 
+				break;
+		}
+		switch (this.directionVerticale) {
+			case Direction.BAS : 
+				event.y += event.vitesseActuelle; 
+				break;
+			case Direction.HAUT : 
+				event.y -= event.vitesseActuelle; 
+				break;
+		}
 		this.ceQuiAEteFait += event.vitesseActuelle;
 	}
 
@@ -61,15 +74,36 @@ public class PasEnDiagonale extends Avancer {
 	public final boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		
-		//on décompose ce Mouvement en deux Mouvements fictifs pour vérifier s'il est possible
-		this.pixelVertical = new Avancer(directionVerticale, event.vitesseActuelle);
-		this.pixelHorizontal = new Avancer(directionHorizontale, event.vitesseActuelle);
-		pixelVertical.deplacement = event.deplacementForce;
-		pixelHorizontal.deplacement = event.deplacementForce;
-		pixelVertical.deplacement.idEventADeplacer = event.id;
-		pixelHorizontal.deplacement.idEventADeplacer = event.id;
-
-		return (pixelHorizontal.mouvementPossible() && pixelVertical.mouvementPossible());
+		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
+		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
+			return false;
+		}
+		
+		//si l'Event est lui-même traversable, il peut faire son mouvement
+		if (event.traversableActuel) {
+			return true;
+		}
+		
+		//collisions avec le décor et les autres Events
+		int xAInspecter = event.x;
+		int yAInspecter = event.y;
+		switch (this.directionVerticale) {
+		case Event.Direction.BAS : 
+			yAInspecter += event.vitesseActuelle; 
+			break;
+		case Event.Direction.HAUT : 
+			yAInspecter -= event.vitesseActuelle; 
+			break;
+		}
+		switch (this.directionHorizontale) {
+		case Event.Direction.GAUCHE : 
+			xAInspecter -= event.vitesseActuelle; 
+			break;
+		case Event.Direction.DROITE : 
+			xAInspecter += event.vitesseActuelle; 
+			break;
+		}
+		return event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.numero);
 	}
 
 	@Override
