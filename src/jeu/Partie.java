@@ -89,7 +89,7 @@ public final class Partie {
 		this.gadgetsPossedes = new boolean[ Gadget.chargerLesGadgetsDuJeu() ];
 		this.nombreDeGadgetsPossedes = 0;
 		this.idGadgetEquipe = -1;
-		
+
 		LOG.info("Partie chargée.");
 	}
 	

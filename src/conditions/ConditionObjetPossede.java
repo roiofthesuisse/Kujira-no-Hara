@@ -11,7 +11,7 @@ import main.Fenetre;
  * Le joueur possède-t-il l'Objet ?
  */
 public class ConditionObjetPossede extends Condition implements CommandeEvent, CommandeMenu {
-	private int numeroObjet;
+	private Object objet;
 	
 	/**
 	 * Constructeur partiel
@@ -19,11 +19,7 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	 * @param objet identifiant de l'Objet : numéro ou nom
 	 */
 	public ConditionObjetPossede(final Object objet) {
-		try {
-			this.numeroObjet = (Integer) objet;
-		} catch (Exception e) {
-			this.numeroObjet = Objet.objetsDuJeuHash.get((String) objet).numero;
-		}
+		this(-1, objet);
 	}
 	
 	/**
@@ -33,11 +29,7 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	 */
 	public ConditionObjetPossede(final int numero, final Object objet) {
 		this.numero = numero;
-		try {
-			this.numeroObjet = (Integer) objet;
-		} catch (Exception e) {
-			this.numeroObjet = Objet.objetsDuJeuHash.get((String) objet).numero;
-		}
+		this.objet = objet;
 	}
 		
 	/**
@@ -52,7 +44,13 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	
 	@Override
 	public final boolean estVerifiee() {
-		return Fenetre.getPartieActuelle().objetsPossedes[this.numeroObjet] >= 1;
+		int numeroObjet;
+		try {
+			numeroObjet = (Integer) objet;
+		} catch (Exception e) {
+			numeroObjet = Objet.objetsDuJeuHash.get((String) objet).numero;
+		}
+		return Fenetre.getPartieActuelle().objetsPossedes[numeroObjet] >= 1;
 	}
 
 	@Override

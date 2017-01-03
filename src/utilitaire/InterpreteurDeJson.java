@@ -377,7 +377,7 @@ public abstract class InterpreteurDeJson {
 	 * @return un objet Mouvement
 	 */
 	private static Mouvement recupererUnMouvement(final JSONObject mouvementJSON) {
-		Class<?> classeMouvement;
+		final Class<?> classeMouvement;
 		final String nomClasseMouvement = ((JSONObject) mouvementJSON).getString("nom");
 		Mouvement mouvement = null;
 		try {
@@ -509,7 +509,7 @@ public abstract class InterpreteurDeJson {
 						final ArrayList<Condition> conditions = new ArrayList<Condition>();
 						recupererLesConditions(conditions, jsonConditions);
 						
-						Image image;
+						final Image image;
 						try {
 							image = new Image(dossier, fichier, x, y, conditions, selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
 							images.add(image);
@@ -567,7 +567,7 @@ public abstract class InterpreteurDeJson {
 					LOG.warn("L'autotile "+nomImageAutotile+" n'a pas de cousins.");
 				}
 				
-				Autotile autotile;
+				final Autotile autotile;
 				try {
 					autotile = new Autotile(numeroAutotile, nomImageAutotile, passabiliteAutotile, altitudeAutotile, cousinsAutotile, tileset);
 					autotiles.put(numeroAutotile, autotile);
@@ -586,15 +586,15 @@ public abstract class InterpreteurDeJson {
 	 * @return Pages de code Event communes à toutes les Maps du jeu
 	 */
 	public static ArrayList<PageCommune> recupererLesPagesCommunes() {
-		ArrayList<PageCommune> pagesCommunes = new ArrayList<PageCommune>();
+		final ArrayList<PageCommune> pagesCommunes = new ArrayList<PageCommune>();
 		
 		try {
-			JSONObject jsonObjets = ouvrirJson("pagesCommunes", ".\\ressources\\Data\\");
-			JSONArray jsonPagesCommunes = jsonObjets.getJSONArray("pages");
+			final JSONObject jsonObjets = ouvrirJson("pagesCommunes", ".\\ressources\\Data\\");
+			final JSONArray jsonPagesCommunes = jsonObjets.getJSONArray("pages");
 		
 			for (Object o : jsonPagesCommunes) {
-				JSONObject jsonPageCommune = (JSONObject) o;
-				PageCommune pageCommune = new PageCommune(jsonPageCommune);
+				final JSONObject jsonPageCommune = (JSONObject) o;
+				final PageCommune pageCommune = new PageCommune(jsonPageCommune);
 				pagesCommunes.add(pageCommune);
 			}
 

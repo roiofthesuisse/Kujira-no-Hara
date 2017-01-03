@@ -60,7 +60,7 @@ public abstract class Lecteur {
 	 * @param frame de l'écran à calculer
 	 * @return écran à afficher maintenant
 	 */
-	public abstract  BufferedImage calculerAffichage(final int frame);
+	public abstract  BufferedImage calculerAffichage(int frame);
 	
 	/**
 	 * Prévenir le Lecteur qu'une touche a été pressée, pour qu'il en déduise une action à faire.

@@ -163,7 +163,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 		
 		// Etat de la Map
 		final JSONObject jsonEtatMap = new JSONObject();
-		Map map;
+		final Map map;
 		if (this.element != null) {
 			map = this.element.menu.lecteur.lecteurMapMemorise.map;
 		} else {

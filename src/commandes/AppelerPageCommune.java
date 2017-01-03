@@ -3,25 +3,28 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
+import main.Fenetre;
 import map.PageCommune;
 
+/**
+ * Appeler une Page de code Commun.
+ */
 public class AppelerPageCommune extends Commande implements CommandeEvent, CommandeMenu {
-
+	private static final Logger LOG = LogManager.getLogger(AppelerPageCommune.class);
+	
 	private int curseurInterne;
 	private PageCommune pageCommune;
 	
 	/**
 	 * Constructeur explicite
+	 * @param numeroPageCommune numéro de la Page à appeler
 	 */
-	public AppelerPageCommune(int numeroPageCommune) {
-		if (this.element != null) {
-			// Menu
-			this.pageCommune = this.element.menu.lecteur.pagesCommunes.get(numeroPageCommune);
-		} else {
-			// Map
-			this.pageCommune = this.page.event.map.lecteur.pagesCommunes.get(numeroPageCommune);
-		}
+	public AppelerPageCommune(final int numeroPageCommune) {
+		this.pageCommune = Fenetre.getFenetre().lecteur.pagesCommunes.get(numeroPageCommune);
 		this.curseurInterne = 0;
 	}
 	
@@ -36,8 +39,8 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 	}
 	
 	@Override
-	public void executer() {
-		ArrayList<Commande> commandes = this.pageCommune.commandes;
+	public final void executer() {
+		final ArrayList<Commande> commandes = this.pageCommune.commandes;
 		int nouveauCurseurInterne;
 		boolean commandeInstantanee = true;
 		try {
@@ -48,12 +51,12 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 			}
 		} catch (Exception e) {
 			// la Page Commune a été lue en entier
-			e.printStackTrace();
+			LOG.trace("La page commune a été lue en entier.", e);
 		}
 	}
 
 	@Override
-	public int executer(int curseurActuel, ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		executer();
 		
 		if (this.curseurInterne >= this.pageCommune.commandes.size()) {
