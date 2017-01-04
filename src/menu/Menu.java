@@ -61,7 +61,7 @@ public class Menu {
 		this.texteDescriptif = (Texte) this.elements.get((Integer) idTexteDescriptif);
 		
 		this.elementSelectionne = selectionInitiale;
-		selectionInitiale.selectionner();
+		selectionInitiale.selectionne = true;
 		
 		this.menuParent = menuParent;
 	}
@@ -72,7 +72,7 @@ public class Menu {
 	public final void confirmer() {
 		if (elementSelectionne != null) {
 			LecteurAudio.playSe(BRUIT_CONFIRMER_SELECTION);
-			elementSelectionne.confirmer();
+			elementSelectionne.confirme = true;
 		} else {
 			LOG.error("l'élément sélectionné de ce menu est null.");
 		}
@@ -101,11 +101,11 @@ public class Menu {
 			}
 			//désélection du précédent
 			if (this.elementSelectionne != null) {
-				this.elementSelectionne.deselectionner();
+				this.elementSelectionne.selectionne = false;
 			}
 			//sélection du nouveau
 			this.elementSelectionne = elementASelectionner;
-			elementASelectionner.selectionner();
+			elementASelectionner.selectionne = true;
 		}
 	}
 	

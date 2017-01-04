@@ -111,8 +111,8 @@ public class Texte extends ElementDeMenu {
 	public Texte(final String contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
 		super(id, selectionnable, xDebut, yDebut, c1, c2);
 		
-		if (comportementSelection!=null && comportementSelection.size()>0) {
-			for (Commande commande : comportementSelection) {
+		if (comportementSurvol!=null && comportementSurvol.size()>0) {
+			for (Commande commande : comportementSurvol) {
 				commande.element = this;
 			}
 		}

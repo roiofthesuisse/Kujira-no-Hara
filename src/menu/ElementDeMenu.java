@@ -27,7 +27,8 @@ public abstract class ElementDeMenu {
 	public final int id;
 	public final boolean selectionnable;
 	public boolean selectionne = false;
-	protected final ArrayList<Commande> comportementSelection;
+	public boolean confirme = false;
+	protected final ArrayList<Commande> comportementSurvol;
 	protected final ArrayList<Commande> comportementConfirmation;
 	/** l'élément de Menu peut être une image */
 	public BufferedImage image;
@@ -48,31 +49,8 @@ public abstract class ElementDeMenu {
 		this.selectionnable = selectionnable;
 		this.x = x;
 		this.y = y;
-		this.comportementSelection = comportementSelection;
+		this.comportementSurvol = comportementSelection;
 		this.comportementConfirmation = comportementConfirmation;
-	}
-	
-	public final void selectionner() {
-		this.selectionne = true;
-		//TODO désélectionner le précédent ?
-		
-		executerLeComportementALArrivee();
-	}
-	
-	public final void deselectionner() {
-		this.selectionne = false;
-	}
-	
-	/**
-	 * Lorsqu'on survole l'élément, il peut déclencher une action.
-	 */
-	private final void executerLeComportementALArrivee() {
-		if ( comportementSelection!=null && comportementSelection.size()>0) {
-			int i = 0;
-			for (Commande commande : comportementSelection) {
-				i = commande.executer(i, comportementSelection);
-			}
-		}
 	}
 	
 	/**
@@ -174,18 +152,6 @@ public abstract class ElementDeMenu {
 			this.imageDeSelection = selection;
 		}
 		return this.imageDeSelection;
-	}
-	
-	/**
-	 * Valider ce choix
-	 */
-	public final void confirmer() {
-		if (this.comportementConfirmation != null && this.comportementConfirmation.size()>0) {
-			int i = 0;
-			for (Commande commande : this.comportementConfirmation) {
-				i = commande.executer(i, comportementConfirmation);
-			}
-		}
 	}
 	
 }

@@ -89,7 +89,7 @@ public class Image extends ElementDeMenu {
 			this.hauteur = dimensionsImageVide[1];
 		}
 		this.conditions = conditions;
-		deselectionner();
+		this.selectionne = false;
 	}
 	
 	/**
@@ -104,7 +104,7 @@ public class Image extends ElementDeMenu {
 	 */
 	public Image(final Objet objet, final int x, final int y, final boolean selectionnable, final int id) {
 		this(objet.getIcone(), x, y, objet.getConditions(), selectionnable, objet.getComportementSelection(), objet.getComportementConfirmation(), id);
-		for (Commande commande : comportementSelection) {
+		for (Commande commande : comportementSurvol) {
 			commande.element = this;
 		}
 		for (Commande commande : comportementConfirmation) {

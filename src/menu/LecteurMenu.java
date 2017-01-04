@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 
 import commandes.RevenirAuJeu;
 import conditions.Condition;
+import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
 import map.Event;
@@ -40,6 +41,27 @@ public class LecteurMenu extends Lecteur {
 	 */
 	public final BufferedImage calculerAffichage(final int frame) {
 		BufferedImage ecran = Graphismes.ecranNoir();
+		
+		//lecture des CommandesMenu
+		//TODO gérer les commandes non instantanées
+		ElementDeMenu elementConfirme = this.menu.elementSelectionne;
+		if (elementConfirme != null && elementConfirme.selectionnable && elementConfirme.selectionne) {
+			if (elementConfirme.confirme 
+					&& elementConfirme.comportementConfirmation != null && elementConfirme.comportementConfirmation.size()>0) {
+				//commandes à executer à la confirmation
+				int i = 0;
+				for (Commande commande : elementConfirme.comportementConfirmation) {
+					i = commande.executer(i, elementConfirme.comportementConfirmation);
+				}
+			} else if (elementConfirme.comportementSurvol != null && elementConfirme.comportementSurvol.size()>0) {
+				//commandes à executer au survol
+				int i = 0;
+				for (Commande commande : elementConfirme.comportementSurvol) {
+					i = commande.executer(i, elementConfirme.comportementSurvol);
+				}
+			}
+			elementConfirme.confirme = false;
+		}
 		
 		//image de fond
 		if (this.menu.fond != null) {
