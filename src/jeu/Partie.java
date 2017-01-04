@@ -60,6 +60,7 @@ public final class Partie {
 	public HashMap<Integer, Picture> images = new HashMap<Integer, Picture>();
 	
 	/** Mot de passe à saisir lettre par lettre via un Menu */
+	public final int tailleMaximaleDuMot = 10;
 	public String mot = "";
 	
 	

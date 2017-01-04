@@ -30,7 +30,9 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getPartieActuelle().mot += this.lettre;
+		if (Fenetre.getPartieActuelle().mot.length() < Fenetre.getPartieActuelle().tailleMaximaleDuMot) {
+			Fenetre.getPartieActuelle().mot += this.lettre;
+		}
 		return curseurActuel+1;
 	}
 

@@ -7,7 +7,7 @@ import main.Commande;
 import main.Fenetre;
 
 /**
- * Ajouter une lettre à la fin du mot de passe.
+ * Retirer la dernière lettre du mot de passe.
  */
 public class RetirerUneLettreAuMot extends Commande implements CommandeMenu {
 	
@@ -29,7 +29,7 @@ public class RetirerUneLettreAuMot extends Commande implements CommandeMenu {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final String mot = Fenetre.getPartieActuelle().mot;
-		if (mot.length()>0) {
+		if (mot.length() > 0) {
 			Fenetre.getPartieActuelle().mot += mot.substring(0, mot.length()-1);
 		}
 		return curseurActuel+1;
