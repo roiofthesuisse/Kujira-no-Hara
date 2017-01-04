@@ -34,16 +34,18 @@ public abstract class ElementDeMenu {
 	public final boolean selectionnable;
 	/** Cet ElementDeMenu est il selectionné ? */
 	public boolean selectionne = false;
-	/** Cet ElementDeMenu est il confirmé ? */
-	public boolean confirme = false;
+	/** Faut-il lire les Commandes de survol ? */
+	public boolean executionDesCommandesDeSurvol = false;
 	/** Commandes à executer au survol */
 	protected final ArrayList<Commande> comportementSurvol;
 	/** Curseur de l'execution des commandes à executer au survol */
-	private int curseurComportementSurvol = 0;
+	public int curseurComportementSurvol = 0;
+	/** Faut-il lire les Commandes de confirmation ? */
+	public boolean executionDesCommandesDeConfirmation = false;
 	/** Commandes à executer à la confirmation */
 	protected final ArrayList<Commande> comportementConfirmation;
 	/** Curseur de l'execution des commandes à executer à la confirmation */
-	private int curseurComportementConfirmation = 0;
+	public int curseurComportementConfirmation = 0;
 	
 	/** L'élément de Menu peut être une image */
 	public BufferedImage image;
@@ -185,7 +187,7 @@ public abstract class ElementDeMenu {
 			//fin de la lecture des commandes
 			LOG.trace("Fin de la lecture des commandes de confirmation de l'élément de menu.", e);
 			this.curseurComportementConfirmation = 0;
-			this.confirme = false; //ne lire qu'une seule fois
+			this.executionDesCommandesDeConfirmation = false; //ne lire qu'une seule fois
 		}
 	}
 
@@ -205,7 +207,7 @@ public abstract class ElementDeMenu {
 			//fin de la lecture des commandes
 			LOG.trace("Fin de la lecture des commandes de survol de l'élément de menu.", e);
 			this.curseurComportementSurvol = 0;
-			//TODO ne lire qu'une seule fois
+			this.executionDesCommandesDeSurvol = false;
 		}
 	}
 	

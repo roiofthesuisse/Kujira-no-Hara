@@ -44,15 +44,15 @@ public class LecteurMenu extends Lecteur {
 		//lecture des CommandesMenu
 		ElementDeMenu elementConfirme = this.menu.elementSelectionne;
 		if (elementConfirme != null && elementConfirme.selectionnable && elementConfirme.selectionne) {
-			if (elementConfirme.confirme 
+			if (elementConfirme.executionDesCommandesDeConfirmation
 					&& elementConfirme.comportementConfirmation != null && elementConfirme.comportementConfirmation.size()>0) {
 				// Commandes de confirmation
 				elementConfirme.executerLesCommandesDeConfirmation();
-			} else if (elementConfirme.comportementSurvol != null && elementConfirme.comportementSurvol.size()>0) {
+			} else if (elementConfirme.executionDesCommandesDeSurvol
+					&& elementConfirme.comportementSurvol != null && elementConfirme.comportementSurvol.size()>0) {
 				// Commandes de survol
 				elementConfirme.executerLesCommandesDeSurvol();
 			}
-			elementConfirme.confirme = false;
 		}
 		
 		//image de fond

@@ -70,11 +70,12 @@ public class Menu {
 	 * Confirmer l'Elément de Menu sélectionné.
 	 */
 	public final void confirmer() {
-		if (elementSelectionne != null) {
+		if (this.elementSelectionne != null) {
 			LecteurAudio.playSe(BRUIT_CONFIRMER_SELECTION);
-			elementSelectionne.confirme = true;
+			this.elementSelectionne.executionDesCommandesDeConfirmation = true;
+			this.elementSelectionne.curseurComportementConfirmation = 0;
 		} else {
-			LOG.error("l'élément sélectionné de ce menu est null.");
+			LOG.error("L'élément sélectionné de ce menu est null.");
 		}
 	}
 	
@@ -102,10 +103,14 @@ public class Menu {
 			//désélection du précédent
 			if (this.elementSelectionne != null) {
 				this.elementSelectionne.selectionne = false;
+				this.elementSelectionne.executionDesCommandesDeSurvol = false;
+				this.elementSelectionne.curseurComportementSurvol = 0;
 			}
 			//sélection du nouveau
 			this.elementSelectionne = elementASelectionner;
 			elementASelectionner.selectionne = true;
+			this.elementSelectionne.executionDesCommandesDeSurvol = true;
+			this.elementSelectionne.curseurComportementSurvol = 0;
 		}
 	}
 	
