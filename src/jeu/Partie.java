@@ -59,6 +59,9 @@ public final class Partie {
 	/** Images à afficher par dessus l'écran */
 	public HashMap<Integer, Picture> images = new HashMap<Integer, Picture>();
 	
+	/** Mot de passe à saisir lettre par lettre via un Menu */
+	public String mot = "";
+	
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge
