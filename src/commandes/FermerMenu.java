@@ -30,7 +30,7 @@ public class FermerMenu extends Commande implements CommandeMenu {
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.element.menu.lecteur.allerAuMenuParentOuRevenirAuJeu();
 		
-		return 0;
+		return curseurActuel+1;
 	}
 
 }

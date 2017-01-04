@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -18,7 +17,6 @@ import menu.Texte;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
-import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.Maths;
 

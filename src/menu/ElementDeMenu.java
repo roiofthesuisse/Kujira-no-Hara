@@ -59,9 +59,14 @@ public abstract class ElementDeMenu {
 	/**
 	 * Constructeur pour obliger l'affectation
 	 * @param id identifiant de l'ElementDeMenu
+	 * @param selectionnable peut-on sélectionner cet ElementDeMenu ?
+	 * @param x position sur l'écran
+	 * @param y position sur l'écran
+	 * @param comportementSelection CommandesMenu executées lors du survol
+	 * @param comportementConfirmation CommandesMenu executées lors de la confirmation
 	 */
-	protected ElementDeMenu(final int id, final boolean selectionnable, final int x, final int y, ArrayList<Commande> comportementSelection,
-	final ArrayList<Commande> comportementConfirmation) {
+	protected ElementDeMenu(final int id, final boolean selectionnable, final int x, final int y, 
+			final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation) {
 		this.id = id;
 		this.selectionnable = selectionnable;
 		this.x = x;
@@ -76,8 +81,8 @@ public abstract class ElementDeMenu {
 	 */
 	public final BufferedImage creerImageDeSelection() {
 		if (this.imageDeSelection == null) { //ne calculer qu'une seule fois l'image
-			int larg;
-			int haut;
+			final int larg;
+			final int haut;
 			if (this.image!=null) {
 				larg = this.image.getWidth() + 2*Image.CONTOUR;
 				haut = this.image.getHeight() + 2*Image.CONTOUR;
@@ -88,7 +93,8 @@ public abstract class ElementDeMenu {
 			final BufferedImage selection = new BufferedImage(larg, haut, Lecteur.TYPE_DES_IMAGES);
 			for (int i = 0; i<larg; i++) {
 				for (int j = 0; j<haut; j++) {
-					int r, g, b, a, r1, r2, g1, g2, b1, b2, a1, a2;
+					int r, g, b, a;
+					final int r1, r2, g1, g2, b1, b2, a1, a2;
 					//couleur du vide
 					r = 0;
 					g = 0;
@@ -175,15 +181,18 @@ public abstract class ElementDeMenu {
 	 * Commandes de Menu à executer à la confirmation de l'ElementDeMenu.
 	 */
 	public void executerLesCommandesDeConfirmation() {
+		LOG.info("Execution des commandes de confirmation de l'élément de menu.");
 		boolean commandeInstantanee = true;
 		int nouvelleValeurDuCurseur;
 		try {
 			while (commandeInstantanee) {
-				Commande commandeActuelle = this.comportementConfirmation.get(this.curseurComportementConfirmation);
+				final Commande commandeActuelle = this.comportementConfirmation.get(this.curseurComportementConfirmation);
+				LOG.debug("Commande de menu executée : "+commandeActuelle.getClass());
 				nouvelleValeurDuCurseur = commandeActuelle.executer(this.curseurComportementConfirmation, this.comportementConfirmation);
 				commandeInstantanee = (nouvelleValeurDuCurseur != this.curseurComportementConfirmation);
+				this.curseurComportementConfirmation = nouvelleValeurDuCurseur;
 			}
-		} catch(IndexOutOfBoundsException e) {
+		} catch (IndexOutOfBoundsException e) {
 			//fin de la lecture des commandes
 			LOG.trace("Fin de la lecture des commandes de confirmation de l'élément de menu.", e);
 			this.curseurComportementConfirmation = 0;
@@ -199,11 +208,12 @@ public abstract class ElementDeMenu {
 		int nouvelleValeurDuCurseur;
 		try {
 			while (commandeInstantanee) {
-				Commande commandeActuelle = this.comportementSurvol.get(this.curseurComportementSurvol);
+				final Commande commandeActuelle = this.comportementSurvol.get(this.curseurComportementSurvol);
 				nouvelleValeurDuCurseur = commandeActuelle.executer(this.curseurComportementSurvol, this.comportementSurvol);
 				commandeInstantanee = (nouvelleValeurDuCurseur != this.curseurComportementSurvol);
+				this.curseurComportementSurvol = nouvelleValeurDuCurseur;
 			}
-		} catch(IndexOutOfBoundsException e) {
+		} catch (IndexOutOfBoundsException e) {
 			//fin de la lecture des commandes
 			LOG.trace("Fin de la lecture des commandes de survol de l'élément de menu.", e);
 			this.curseurComportementSurvol = 0;

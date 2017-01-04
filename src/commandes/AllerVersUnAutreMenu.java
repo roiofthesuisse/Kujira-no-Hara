@@ -41,7 +41,7 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nomMenu, this.element.menu);
-		LOG.info(this.nomMenu);
+		LOG.info("Nom du nouveau menu : "+this.nomMenu);
 		
 		final LecteurMap lecteurMapMemorise = this.element.menu.lecteur.lecteurMapMemorise;
 		final LecteurMenu nouveauLecteur = new LecteurMenu(Fenetre.getFenetre(), this.nouveauMenu, lecteurMapMemorise);

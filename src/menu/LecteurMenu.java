@@ -42,7 +42,7 @@ public class LecteurMenu extends Lecteur {
 		BufferedImage ecran = Graphismes.ecranNoir();
 		
 		//lecture des CommandesMenu
-		ElementDeMenu elementConfirme = this.menu.elementSelectionne;
+		final ElementDeMenu elementConfirme = this.menu.elementSelectionne;
 		if (elementConfirme != null && elementConfirme.selectionnable && elementConfirme.selectionne) {
 			if (elementConfirme.executionDesCommandesDeConfirmation
 					&& elementConfirme.comportementConfirmation != null && elementConfirme.comportementConfirmation.size()>0) {
