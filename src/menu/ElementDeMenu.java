@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import main.Lecteur;
 
@@ -13,6 +16,7 @@ import main.Lecteur;
  */
 public abstract class ElementDeMenu {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(ElementDeMenu.class);
 	public static final int CONTOUR = 16;
 	private static final int COULEUR_CENTRE_SELECTION_R = 255;
 	private static final int COULEUR_CENTRE_SELECTION_G = 255;
@@ -25,14 +29,25 @@ public abstract class ElementDeMenu {
 	
 	public Menu menu;
 	public final int id;
+	
+	/** Cet ElementDeMenu est il Selectionnable ? */
 	public final boolean selectionnable;
+	/** Cet ElementDeMenu est il selectionné ? */
 	public boolean selectionne = false;
+	/** Cet ElementDeMenu est il confirmé ? */
 	public boolean confirme = false;
+	/** Commandes à executer au survol */
 	protected final ArrayList<Commande> comportementSurvol;
+	/** Curseur de l'execution des commandes à executer au survol */
+	private int curseurComportementSurvol = 0;
+	/** Commandes à executer à la confirmation */
 	protected final ArrayList<Commande> comportementConfirmation;
-	/** l'élément de Menu peut être une image */
+	/** Curseur de l'execution des commandes à executer à la confirmation */
+	private int curseurComportementConfirmation = 0;
+	
+	/** L'élément de Menu peut être une image */
 	public BufferedImage image;
-	/** surlignage de l'image lors de la Sélection */
+	/** Surlignage de l'image lors de la Sélection */
 	public BufferedImage imageDeSelection = null;
 	public int x;
 	public int y;
@@ -152,6 +167,46 @@ public abstract class ElementDeMenu {
 			this.imageDeSelection = selection;
 		}
 		return this.imageDeSelection;
+	}
+
+	/**
+	 * Commandes de Menu à executer à la confirmation de l'ElementDeMenu.
+	 */
+	public void executerLesCommandesDeConfirmation() {
+		boolean commandeInstantanee = true;
+		int nouvelleValeurDuCurseur;
+		try {
+			while (commandeInstantanee) {
+				Commande commandeActuelle = this.comportementConfirmation.get(this.curseurComportementConfirmation);
+				nouvelleValeurDuCurseur = commandeActuelle.executer(this.curseurComportementConfirmation, this.comportementConfirmation);
+				commandeInstantanee = (nouvelleValeurDuCurseur != this.curseurComportementConfirmation);
+			}
+		} catch(IndexOutOfBoundsException e) {
+			//fin de la lecture des commandes
+			LOG.trace("Fin de la lecture des commandes de confirmation de l'élément de menu.", e);
+			this.curseurComportementConfirmation = 0;
+			this.confirme = false; //ne lire qu'une seule fois
+		}
+	}
+
+	/**
+	 * Commandes de Menu à executer au survol de l'ElementDeMenu.
+	 */
+	public void executerLesCommandesDeSurvol() {
+		boolean commandeInstantanee = true;
+		int nouvelleValeurDuCurseur;
+		try {
+			while (commandeInstantanee) {
+				Commande commandeActuelle = this.comportementSurvol.get(this.curseurComportementSurvol);
+				nouvelleValeurDuCurseur = commandeActuelle.executer(this.curseurComportementSurvol, this.comportementSurvol);
+				commandeInstantanee = (nouvelleValeurDuCurseur != this.curseurComportementSurvol);
+			}
+		} catch(IndexOutOfBoundsException e) {
+			//fin de la lecture des commandes
+			LOG.trace("Fin de la lecture des commandes de survol de l'élément de menu.", e);
+			this.curseurComportementSurvol = 0;
+			//TODO ne lire qu'une seule fois
+		}
 	}
 	
 }
