@@ -15,14 +15,14 @@ import utilitaire.InterpreteurDeJson;
  * Ouvrir un Menu.
  */
 public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu {
-	final String nom;
+	final String nomMenu;
 	
 	/**
 	 * Constructeur explicite
-	 * @param nom du Menu
+	 * @param nomMenu du Menu
 	 */
-	public OuvrirMenu(final String nom) {
-		this.nom = nom;
+	public OuvrirMenu(final String nomMenu) {
+		this.nomMenu = nomMenu;
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public OuvrirMenu(final HashMap<String, Object> parametres) {
-		this( (String) parametres.get("nom") );
+		this( (String) parametres.get("nomMenu") );
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 		final Fenetre fenetre = Fenetre.getFenetre();
 		final Lecteur lecteur = fenetre.lecteur;
 		final LecteurMenu nouveauLecteur;
-		final Menu nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nom, null); //pas de Menu parent car appelé depuis la Map
+		final Menu nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nomMenu, null); //pas de Menu parent car appelé depuis la Map
 		if (lecteur instanceof LecteurMenu) {
 			// Le Menu est ouvert depuis un autre Menu
 			final LecteurMenu lecteurActuel = (LecteurMenu) lecteur;
