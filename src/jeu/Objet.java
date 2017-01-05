@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import commandes.AfficherDescription;
+import commandes.ModifierTexte;
 import commandes.CommandeMenu;
 import conditions.Condition;
 import conditions.ConditionObjetPossede;
@@ -151,7 +151,7 @@ public class Objet {
 	 */
 	public final ArrayList<Commande> getComportementSelection() {
 		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
-		comportementSelection.add(new AfficherDescription(this.description));
+		comportementSelection.add(new ModifierTexte(this.description));
 		return comportementSelection;
 	}
 	

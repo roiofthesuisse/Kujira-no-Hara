@@ -7,6 +7,7 @@ import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import main.Commande;
 import map.Event;
 import son.LecteurAudio;
 
@@ -30,6 +31,7 @@ public class Menu {
 	public HashMap<Integer, ElementDeMenu> elements;
 	private ArrayList<ElementDeMenu> selectionnables;
 	public ElementDeMenu elementSelectionne;
+	public ArrayList<Commande> comportementAnnulation;
 	public String nomBGM;
 	public Menu menuSuivant;
 	public Menu menuPrecedent;
@@ -41,9 +43,13 @@ public class Menu {
 	 * @param textes du Menu
 	 * @param images du Menu
 	 * @param selectionInitiale ElementDeMenu sélectionné au début
+	 * @param idTexteDescriptif identifiant de l'ElementDeMenu affichant les descriptions
 	 * @param menuParent Menu qui a appelé ce Menu
+	 * @param comportementAnnulation comportement du Menu à l'annulation
 	 */
-	public Menu(final BufferedImage fond, final ArrayList<Texte> textes, final ArrayList<Image> images, final ElementDeMenu selectionInitiale, final int idTexteDescriptif, final Menu menuParent) {
+	public Menu(final BufferedImage fond, final ArrayList<Texte> textes, final ArrayList<Image> images, 
+			final ElementDeMenu selectionInitiale, final int idTexteDescriptif, final Menu menuParent,
+			final ArrayList<Commande> comportementAnnulation) {
 		this.fond = fond;
 		
 		this.elements = new HashMap<Integer, ElementDeMenu>();
@@ -64,6 +70,8 @@ public class Menu {
 		selectionInitiale.selectionne = true;
 		
 		this.menuParent = menuParent;
+		
+		this.comportementAnnulation = comportementAnnulation;
 	}
 	
 	/**
@@ -187,6 +195,18 @@ public class Menu {
 			}
 		}
 		return elementASelectionner;
+	}
+	
+	
+	/**
+	 * Réatualiser tous les Textes du Menu.
+	 */
+	public void reactualiserTousLesTextes() {
+		for (ElementDeMenu element : this.elements.values()) {
+			if (element instanceof Texte) {
+				element.image = ((Texte) element).texteToImage();
+			}
+		}
 	}
 	
 }

@@ -1,5 +1,12 @@
 {
 	"fond": "menu option.png",
+	"idDescription": 1,
+	"selectionInitiale": 2,
+	"comportementAnnulation": [
+		{
+			"nom": "RetirerUneLettreAuMot"
+		}
+	],
 	"elements": [
 		{
 			"id": 0,
@@ -14,44 +21,69 @@
 			"id": 1,
 			"type": "Texte",
 			"contenu": "\\m",
-			"taille": "GRANDE",
-			"x": 100,
-			"y": 130,
+			"taille": "MOYENNE",
+			"x": 30,
+			"y": 68,
 			"selectionnable": false
 		},
 		{
 			"id": 2,
 			"type": "Texte",
 			"contenu": "A",
-			"taille": "GRANDE",
+			"taille": "MOYENNE",
 			"x": 100,
 			"y": 150,
 			"selectionnable": true,
-			"commandesSurvol": [],
-			"commandesConfirmation": []
+			"commandesConfirmation": [
+				{
+					"nom": "AjouterUneLettreAuMot",
+					"lettre": "A"
+				}
+			]
 		},
 		{
 			"id": 3,
 			"type": "Texte",
 			"contenu": "B",
-			"taille": "GRANDE",
+			"taille": "MOYENNE",
 			"x": 132,
 			"y": 150,
 			"selectionnable": true,
-			"commandesSurvol": [],
-			"commandesConfirmation": []
+			"commandesConfirmation": [
+				{
+					"nom": "AjouterUneLettreAuMot",
+					"lettre": "B"
+				}
+			]
 		},
 		{
 			"id": 4,
 			"type": "Texte",
 			"contenu": "C",
-			"taille": "GRANDE",
+			"taille": "MOYENNE",
 			"x": 164,
 			"y": 150,
 			"selectionnable": true,
-			"commandesSurvol": [],
-			"commandesConfirmation": []
+			"commandesConfirmation": [
+				{
+					"nom": "AjouterUneLettreAuMot",
+					"lettre": "C"
+				}
+			]
+		},
+		{
+			"id": 1000,
+			"type": "Texte",
+			"contenu": "Valider",
+			"taille": "MOYENNE",
+			"x": 100,
+			"y": 300,
+			"selectionnable": true,
+			"commandesConfirmation": [
+				{
+					"nom": "FermerMenu"
+				}
+			]
 		}
-	],
-	"selectionInitiale": 2	
+	]
 }

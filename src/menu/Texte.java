@@ -165,15 +165,18 @@ public class Texte extends ElementDeMenu {
 	 * @return le Texte sous forme d'image
 	 */
 	public final BufferedImage texteToImage() {
+		String texteAAfficher = this.contenu;
+		
 		//mot de passe
 		try {
-			this.contenu.replace("\\\\m", Fenetre.getPartieActuelle().mot);
+			LOG.debug(this.contenu);
+			texteAAfficher = texteAAfficher.replace("\\m", Fenetre.getPartieActuelle().mot);
 		} catch (NullPointerException e) {
 			LOG.warn("Impossible d'atteindre le mot mémorisé dans la Partie.");
 		}
 		
 		//découpage en lignes
-        final String[] texts = this.contenu.split("\\\\n");
+        final String[] texts = texteAAfficher.split("\\\\n");
         final int nombreLignes = texts.length;
         if (nombreLignes <= 0) {
         	return null;

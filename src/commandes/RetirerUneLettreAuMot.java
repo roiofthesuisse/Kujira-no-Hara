@@ -30,7 +30,8 @@ public class RetirerUneLettreAuMot extends Commande implements CommandeMenu {
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final String mot = Fenetre.getPartieActuelle().mot;
 		if (mot.length() > 0) {
-			Fenetre.getPartieActuelle().mot += mot.substring(0, mot.length()-1);
+			Fenetre.getPartieActuelle().mot = mot.substring(0, mot.length()-1);
+			this.element.menu.reactualiserTousLesTextes();
 		}
 		return curseurActuel+1;
 	}

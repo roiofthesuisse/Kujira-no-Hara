@@ -32,6 +32,7 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		if (Fenetre.getPartieActuelle().mot.length() < Fenetre.getPartieActuelle().tailleMaximaleDuMot) {
 			Fenetre.getPartieActuelle().mot += this.lettre;
+			this.element.menu.reactualiserTousLesTextes();
 		}
 		return curseurActuel+1;
 	}

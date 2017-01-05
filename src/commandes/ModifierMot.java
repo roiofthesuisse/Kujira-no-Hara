@@ -31,6 +31,7 @@ public class ModifierMot extends Commande implements CommandeMenu, CommandeEvent
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		Fenetre.getPartieActuelle().mot = this.nouveauMot;
+		this.element.menu.reactualiserTousLesTextes();
 		return curseurActuel+1;
 	}
 

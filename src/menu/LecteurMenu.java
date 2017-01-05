@@ -2,8 +2,8 @@ package menu;
 
 import java.awt.image.BufferedImage;
 
-import commandes.RevenirAuJeu;
 import conditions.Condition;
+import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
 import map.Event;
@@ -116,7 +116,7 @@ public class LecteurMenu extends Lecteur {
 				allerAuMenuPrecedent();
 				break;
 			case MENU : 
-				allerAuMenuParentOuRevenirAuJeu();
+				executerLeComportementDAnnulation();
 				break;
 			case CAPTURE_D_ECRAN : 
 				this.faireUneCaptureDEcran(); 
@@ -155,22 +155,6 @@ public class LecteurMenu extends Lecteur {
 	}
 	
 	/**
-	 * Changer de Menu pour aller au Menu parent ou bien revenir au jeu.
-	 */
-	public final void allerAuMenuParentOuRevenirAuJeu() {
-		if (this.menu.menuParent!=null) {
-			//revenir au Menu parent
-			new LecteurMenu(this.fenetre, this.menu.menuParent, this.lecteurMapMemorise).changerMenu();
-		} else if (this.lecteurMapMemorise!=null) {
-			//revenir au jeu
-			new RevenirAuJeu(this).executer(0, null);
-		} else {
-			//quitte le jeu
-			this.fenetre.dispose();
-		}
-	}
-	
-	/**
 	 * Faut-il afficher l'Element ? Ses Conditions sont-elles toutes vérifiées ?
 	 * @param element à examiner
 	 * @return true s'il faut afficher l'Element, false sinon
@@ -199,6 +183,16 @@ public class LecteurMenu extends Lecteur {
 	@Override
 	protected final String typeDeLecteur() {
 		return "LecteurMenu";
+	}
+	
+	/**
+	 * Commandes à executer lorsqu'on annule le Menu.
+	 */
+	private void executerLeComportementDAnnulation() {
+		int i = 0;
+		for (Commande commande : this.menu.comportementAnnulation) {
+			i = commande.executer(i, this.menu.comportementAnnulation);
+		}
 	}
 	
 }

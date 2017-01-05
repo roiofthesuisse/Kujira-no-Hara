@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
+import commandes.FermerMenu;
 import conditions.Condition;
 import jeu.Objet;
 import main.Commande;
@@ -456,96 +457,133 @@ public abstract class InterpreteurDeJson {
 					e.printStackTrace();
 				}
 			}
+			
+			// Comportement du Menu en cas d'annulation
+			final ArrayList<Commande> comportementAnnulation = new ArrayList<Commande>();
+			try {
+				final JSONArray jsonComportementAnnulation = jsonObject.getJSONArray("comportementAnnulation");
+				recupererLesCommandes(comportementAnnulation, jsonComportementAnnulation);
+			} catch (JSONException e) {
+				LOG.warn("Pas de comportement en cas d'annulation spécifié pour le menu "+nom+".\n"
+						+ "Comportement par défaut : revenir au menu parent ou revenir à la map.");
+				comportementAnnulation.add(new FermerMenu());
+			}
 
-			ElementDeMenu selectionInitiale = null;
+			// Eléments du Menu
 			final JSONArray jsonElements = jsonObject.getJSONArray("elements");
 			final ArrayList<Texte> textes = new ArrayList<Texte>();
 			final ArrayList<Image> images = new ArrayList<Image>();
-			for (Object objetElement : jsonElements) {
-				final JSONObject jsonElement = (JSONObject) objetElement;
-				ElementDeMenu element = null;
-				
-				final int id = (int) jsonElement.get("id");
-				final int x = (int) jsonElement.get("x");
-				final int y = (int) jsonElement.get("y");
-				
-				final String type = (String) jsonElement.get("type");
-				if ("Objet".equals(type)) {
-					// L'ElementDeMenu est un icône d'Objet
-					final String nomObjet = (String) jsonElement.get("nom");
-					
-					final Objet objet = Objet.objetsDuJeuHash.get(nomObjet);
-					final Image imageObjet = new Image(objet, x, y, true, id);
-					
-					images.add(imageObjet);
-					element = imageObjet;
-				} else {
-					
-					// L'ElementDeMenu est-il sélectionnable ?
-					final boolean selectionnable = (boolean) jsonElement.get("selectionnable");
-					
-					// CommandesMenu executées au survol de l'Elément de Menu
-					final ArrayList<Commande> commandesAuSurvol = new ArrayList<Commande>();
-					try {
-						final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
-						recupererLesCommandes(commandesAuSurvol, jsonCommandesSurvol);
-					} catch (JSONException e) {
-						LOG.warn("[Menu "+nom+"] Pas de commandes au survol pour l'élément de menu : "+id);
-					}
-					
-					// CommandesMenu executées à la confirmation de l'Elément de Menu
-					final ArrayList<Commande> commandesALaConfirmation = new ArrayList<Commande>();
-					try {
-						final JSONArray jsonCommandesConfirmation = jsonElement.getJSONArray("commandesConfirmation");
-						recupererLesCommandes(commandesALaConfirmation, jsonCommandesConfirmation);
-					} catch (JSONException e) {
-						LOG.warn("[Menu "+nom+"] Pas de commandes à la confirmation pour l'élément de menu : "+id);
-					}
+			final ElementDeMenu selectionInitiale = recupererLesElementsDeMenu(idSelectionInitiale, jsonElements, images, textes, nom);
 
-					if ("Texte".equals(type)) {
-						// L'ElementDeMenu est un Texte
-						final String contenu = (String) jsonElement.get("contenu");
-						final String taille = jsonElement.has("taille") ? (String) jsonElement.get("taille") : null;
-						
-						final Texte texte = new Texte(contenu, x, y, Taille.getTailleParNom(taille), selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
-						textes.add(texte);
-						element = texte;
-						
-					} else if ("Image".equals(type)) {
-						// L'ElementDeMenu est une Image
-						final String dossier = (String) jsonElement.get("dossier");
-						final String fichier = (String) jsonElement.get("fichier");
-	
-						final JSONArray jsonConditions = jsonElement.getJSONArray("conditions");
-						final ArrayList<Condition> conditions = new ArrayList<Condition>();
-						recupererLesConditions(conditions, jsonConditions);
-						
-						final Image image;
-						try {
-							image = new Image(dossier, fichier, x, y, conditions, selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
-							images.add(image);
-							element = image;
-						} catch (IOException e) {
-							LOG.error("Impossible d'ouvrir l'image : "+dossier+"/"+fichier, e);
-						}
-						
-					} else  {
-						LOG.error("Type inconnu pour un élement de menu  : "+type);
-					}
-				}
-				
-				if (id == idSelectionInitiale) {
-					selectionInitiale = element;
-				}
+			//instanciation
+			final Menu menu = new Menu(fond, textes, images, selectionInitiale, idDescription, menuParent, comportementAnnulation);
+		
+			//associer un ElementDeMenu arbitraire aux Commandes en cas d'annulation pour qu'elles trouvent leur Menu
+			for (Commande commande : menu.comportementAnnulation) {
+				commande.element = menu.elements.get(0);
 			}
-
-			return new Menu(fond, textes, images, selectionInitiale, idDescription, menuParent);
+			
+			return menu;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	/**
+	 * Récuperer les Elements du Menuà partir d'un tableau d'objets JSON.
+	 * @param idSelectionInitiale identifiant de l'ElementDeMenu sélectionné d'emblée
+	 * @param jsonElements tableau JSON des ElementsDeMenu
+	 * @param images liste des ElementsDeMenu graphiques
+	 * @param textes liste des ElementsDeMenu textuels
+	 * @param nom du Menu
+	 * @return ElementDeMenu sélectionné d'emblée
+	 */
+	private static ElementDeMenu recupererLesElementsDeMenu(final int idSelectionInitiale, final JSONArray jsonElements, 
+			final ArrayList<Image> images, final ArrayList<Texte> textes, final String nom) {
+		ElementDeMenu selectionInitiale = null;
+		
+		for (Object objetElement : jsonElements) {
+			final JSONObject jsonElement = (JSONObject) objetElement;
+			ElementDeMenu element = null;
+			
+			final int id = (int) jsonElement.get("id");
+			final int x = (int) jsonElement.get("x");
+			final int y = (int) jsonElement.get("y");
+			
+			final String type = (String) jsonElement.get("type");
+			if ("Objet".equals(type)) {
+				// L'ElementDeMenu est un icône d'Objet
+				final String nomObjet = (String) jsonElement.get("nom");
+				
+				final Objet objet = Objet.objetsDuJeuHash.get(nomObjet);
+				final Image imageObjet = new Image(objet, x, y, true, id);
+				
+				images.add(imageObjet);
+				element = imageObjet;
+			} else {
+				
+				// L'ElementDeMenu est-il sélectionnable ?
+				final boolean selectionnable = (boolean) jsonElement.get("selectionnable");
+				
+				// CommandesMenu executées au survol de l'Elément de Menu
+				final ArrayList<Commande> commandesAuSurvol = new ArrayList<Commande>();
+				try {
+					final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
+					recupererLesCommandes(commandesAuSurvol, jsonCommandesSurvol);
+				} catch (JSONException e) {
+					LOG.warn("[Menu "+nom+"] Pas de commandes au survol pour l'élément de menu : "+id);
+				}
+				
+				// CommandesMenu executées à la confirmation de l'Elément de Menu
+				final ArrayList<Commande> commandesALaConfirmation = new ArrayList<Commande>();
+				try {
+					final JSONArray jsonCommandesConfirmation = jsonElement.getJSONArray("commandesConfirmation");
+					recupererLesCommandes(commandesALaConfirmation, jsonCommandesConfirmation);
+				} catch (JSONException e) {
+					LOG.warn("[Menu "+nom+"] Pas de commandes à la confirmation pour l'élément de menu : "+id);
+				}
+
+				if ("Texte".equals(type)) {
+					// L'ElementDeMenu est un Texte
+					final String contenu = (String) jsonElement.get("contenu");
+					final String taille = jsonElement.has("taille") ? (String) jsonElement.get("taille") : null;
+					
+					final Texte texte = new Texte(contenu, x, y, Taille.getTailleParNom(taille), selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
+					textes.add(texte);
+					element = texte;
+					
+				} else if ("Image".equals(type)) {
+					// L'ElementDeMenu est une Image
+					final String dossier = (String) jsonElement.get("dossier");
+					final String fichier = (String) jsonElement.get("fichier");
+
+					final JSONArray jsonConditions = jsonElement.getJSONArray("conditions");
+					final ArrayList<Condition> conditions = new ArrayList<Condition>();
+					recupererLesConditions(conditions, jsonConditions);
+					
+					final Image image;
+					try {
+						image = new Image(dossier, fichier, x, y, conditions, selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
+						images.add(image);
+						element = image;
+					} catch (IOException e) {
+						LOG.error("Impossible d'ouvrir l'image : "+dossier+"/"+fichier, e);
+					}
+					
+				} else  {
+					LOG.error("Type inconnu pour un élement de menu  : "+type);
+				}
+			}
+			
+			if (id == idSelectionInitiale) {
+				selectionInitiale = element;
+			}
+		}
+		
+		return selectionInitiale;
 	}
 
 	/**

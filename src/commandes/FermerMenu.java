@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
+import menu.LecteurMenu;
 
 /**
  * Fermer le Menu actif.
@@ -28,7 +29,17 @@ public class FermerMenu extends Commande implements CommandeMenu {
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.element.menu.lecteur.allerAuMenuParentOuRevenirAuJeu();
+		final LecteurMenu lecteur = this.element.menu.lecteur;
+		if (lecteur.menu.menuParent!=null) {
+			//revenir au Menu parent
+			new LecteurMenu(lecteur.fenetre, lecteur.menu.menuParent, lecteur.lecteurMapMemorise).changerMenu();
+		} else if (lecteur.lecteurMapMemorise!=null) {
+			//revenir au jeu
+			new RevenirAuJeu(lecteur).executer(0, null);
+		} else {
+			//quitte le jeu
+			lecteur.fenetre.dispose();
+		}
 		
 		return curseurActuel+1;
 	}
