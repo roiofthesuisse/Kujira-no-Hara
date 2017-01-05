@@ -8,6 +8,9 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
@@ -17,6 +20,7 @@ import main.Lecteur;
  */
 public class Texte extends ElementDeMenu {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Texte.class);
 	private static final Color COULEUR_PAR_DEFAUT = new Color(50, 0, 150);
 	private static final Color COULEUR_PAR_DEFAUT2 = new Color(150, 0, 50);
 	public static final int MARGE_A_DROITE = 4; //pour ne pas que le côté droit du texte ne soit coupé
@@ -162,7 +166,11 @@ public class Texte extends ElementDeMenu {
 	 */
 	public final BufferedImage texteToImage() {
 		//mot de passe
-		this.contenu.replace("\\\\m", Fenetre.getPartieActuelle().mot);
+		try {
+			this.contenu.replace("\\\\m", Fenetre.getPartieActuelle().mot);
+		} catch (NullPointerException e) {
+			LOG.warn("Impossible d'atteindre le mot mémorisé dans la Partie.");
+		}
 		
 		//découpage en lignes
         final String[] texts = this.contenu.split("\\\\n");

@@ -481,15 +481,26 @@ public abstract class InterpreteurDeJson {
 					element = imageObjet;
 				} else {
 					
+					// L'ElementDeMenu est-il sélectionnable ?
 					final boolean selectionnable = (boolean) jsonElement.get("selectionnable");
 					
+					// CommandesMenu executées au survol de l'Elément de Menu
 					final ArrayList<Commande> commandesAuSurvol = new ArrayList<Commande>();
-					final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
-					recupererLesCommandes(commandesAuSurvol, jsonCommandesSurvol);
+					try {
+						final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
+						recupererLesCommandes(commandesAuSurvol, jsonCommandesSurvol);
+					} catch (JSONException e) {
+						LOG.warn("[Menu "+nom+"] Pas de commandes au survol pour l'élément de menu : "+id);
+					}
 					
+					// CommandesMenu executées à la confirmation de l'Elément de Menu
 					final ArrayList<Commande> commandesALaConfirmation = new ArrayList<Commande>();
-					final JSONArray jsonCommandesConfirmation = jsonElement.getJSONArray("commandesConfirmation");
-					recupererLesCommandes(commandesALaConfirmation, jsonCommandesConfirmation);
+					try {
+						final JSONArray jsonCommandesConfirmation = jsonElement.getJSONArray("commandesConfirmation");
+						recupererLesCommandes(commandesALaConfirmation, jsonCommandesConfirmation);
+					} catch (JSONException e) {
+						LOG.warn("[Menu "+nom+"] Pas de commandes à la confirmation pour l'élément de menu : "+id);
+					}
 
 					if ("Texte".equals(type)) {
 						// L'ElementDeMenu est un Texte
