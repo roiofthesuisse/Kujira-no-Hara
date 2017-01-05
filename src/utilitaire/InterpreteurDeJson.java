@@ -483,12 +483,12 @@ public abstract class InterpreteurDeJson {
 					
 					final boolean selectionnable = (boolean) jsonElement.get("selectionnable");
 					
-					final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
 					final ArrayList<Commande> commandesAuSurvol = new ArrayList<Commande>();
+					final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
 					recupererLesCommandes(commandesAuSurvol, jsonCommandesSurvol);
 					
-					final JSONArray jsonCommandesConfirmation = jsonElement.getJSONArray("commandesConfirmation");
 					final ArrayList<Commande> commandesALaConfirmation = new ArrayList<Commande>();
+					final JSONArray jsonCommandesConfirmation = jsonElement.getJSONArray("commandesConfirmation");
 					recupererLesCommandes(commandesALaConfirmation, jsonCommandesConfirmation);
 
 					if ("Texte".equals(type)) {

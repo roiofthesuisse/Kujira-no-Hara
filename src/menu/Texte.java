@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import main.Commande;
+import main.Fenetre;
 import main.Lecteur;
 
 /**
@@ -160,6 +161,10 @@ public class Texte extends ElementDeMenu {
 	 * @return le Texte sous forme d'image
 	 */
 	public final BufferedImage texteToImage() {
+		//mot de passe
+		this.contenu.replace("\\\\m", Fenetre.getPartieActuelle().mot);
+		
+		//découpage en lignes
         final String[] texts = this.contenu.split("\\\\n");
         final int nombreLignes = texts.length;
         if (nombreLignes <= 0) {
