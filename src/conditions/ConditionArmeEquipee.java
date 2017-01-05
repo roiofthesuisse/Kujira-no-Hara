@@ -15,6 +15,7 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	
 	/**
 	 * Constructeur explicite
+	 * @param numero de la Condition
 	 * @param idArme identifiant de l'Arme à vérifier
 	 */
 	public ConditionArmeEquipee(final int numero, final int idArme) {

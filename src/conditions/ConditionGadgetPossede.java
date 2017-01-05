@@ -8,38 +8,38 @@ import jeu.Partie;
 import main.Fenetre;
 
 /**
- * Vérifie si le Héros possède cette Arme.
+ * Vérifie si le Héros possède ce Gadget.
  */
-public class ConditionArmePossedee extends Condition implements CommandeEvent, CommandeMenu {
-	public int idArme;
+public class ConditionGadgetPossede extends Condition implements CommandeEvent, CommandeMenu {
+	public int idGadget;
 
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param idArme identifiant de l'Arme à vérifier
+	 * @param idGadget identifiant du Gadget à vérifier
 	 */
-	public ConditionArmePossedee(final int numero, final int idArme) {
+	public ConditionGadgetPossede(final int numero, final int idGadget) {
 		this.numero = numero;
-		this.idArme = idArme;
+		this.idGadget = idGadget;
 	}
 	
 	/**
 	 * Constructeur générique
 	 * @param parametres liste de paramètres issus de JSON
 	 */
-	public ConditionArmePossedee(final HashMap<String, Object> parametres) {
+	public ConditionGadgetPossede(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
-			(int) parametres.get("idArme") 
+			(int) parametres.get("idGadget") 
 		);
 	}
 	
 	@Override
 	public final boolean estVerifiee() {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
-		if (partieActuelle.nombreDArmesPossedees > 0) {
-			return partieActuelle.armesPossedees[this.idArme];
+		if (partieActuelle.nombreDeGadgetsPossedes > 0) {
+			return partieActuelle.gadgetsPossedes[this.idGadget];
 		}
-		return false; //aucune arme possédée
+		return false; //aucun Gadget possédé
 	}
 	
 	/**

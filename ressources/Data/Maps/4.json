@@ -255,6 +255,129 @@
 					"traversable": false
 				}
 			]
+		},
+		{
+			"nom": "darumaConditionArmePossedee",
+			"id": 9,
+			"x": 2,
+			"y": 3,
+			"pages": [
+				{
+					"image": "daruma character.png",
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "ConditionArmePossedee",
+							"numero": 1,
+							"idArme": 0
+						},
+						{
+							"nom": "Message",
+							"texte": "Tu possèdes l'arme numéro 0."
+						},
+						{
+							"nom": "ConditionSinon",
+							"numero": 1
+						},
+						{
+							"nom": "Message",
+							"texte": "Tu ne possèdes pas l'arme numéro 0."
+						},
+						{
+							"nom": "ConditionFin",
+							"numero": 1
+						}
+					],
+					"directionInitiale": 0,
+					"traversable": false
+				}
+			]
+		},
+		{
+			"nom": "darumaConditionGadgetEquipe",
+			"id": 10,
+			"x": 4,
+			"y": 3,
+			"pages": [
+				{
+					"image": "daruma character.png",
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "ConditionGadgetEquipe",
+							"numero": 2,
+							"idGadget": 0
+						},
+						{
+							"nom": "Message",
+							"texte": "Tu équipes le gadget numéro 0."
+						},
+						{
+							"nom": "ConditionSinon",
+							"numero": 2
+						},
+						{
+							"nom": "Message",
+							"texte": "Tu n'équipes pas le gadget numéro 0."
+						},
+						{
+							"nom": "ConditionFin",
+							"numero": 2
+						}
+					],
+					"directionInitiale": 0,
+					"traversable": false
+				}
+			]
+		},
+		{
+			"nom": "darumaConditionGadgetPossede",
+			"id": 11,
+			"x": 5,
+			"y": 5,
+			"pages": [
+				{
+					"image": "daruma character.png",
+					"conditions": [
+						{
+							"nom": "Parler"
+						}
+					],
+					"commandes": [
+						{
+							"nom": "ConditionGadgetPossede",
+							"numero": 3,
+							"idGadget": 0
+						},
+						{
+							"nom": "Message",
+							"texte": "Tu possèdes le gadget numéro 0."
+						},
+						{
+							"nom": "ConditionSinon",
+							"numero": 3
+						},
+						{
+							"nom": "Message",
+							"texte": "Tu ne possèdes pas le gadget numéro 0."
+						},
+						{
+							"nom": "ConditionFin",
+							"numero": 3
+						}
+					],
+					"directionInitiale": 0,
+					"traversable": false
+				}
+			]
 		}
 	]
 }
