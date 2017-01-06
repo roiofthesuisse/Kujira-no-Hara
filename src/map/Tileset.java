@@ -32,6 +32,8 @@ public class Tileset {
 	private final boolean[] passabilite;
 	/** Altitude d'affichage du carreau (0:sol, 2:héros) */
 	private final int[] altitude; 
+	/** Terrain du carreau */
+	private final int[] terrain; 
 	/** carreaux découpés dans l'image du Tileset */
 	public final BufferedImage[] carreaux;
 	
@@ -87,6 +89,17 @@ public class Tileset {
 			LOG.error("Incompatibilité entre le tableau des altitudes du Tileset JSON et de l'image du Tileset : "+this.nom, e);
 		}
 		
+		//lecture des terrains
+		this.terrain = new int[nombreDeCarreauxTileset];
+		final JSONArray jsonTerrain = jsonTileset.getJSONArray("terrain");
+		try {
+			for (int i = 0; i<nombreDeCarreauxTileset; i++ ) {
+				this.terrain[i] = (Integer) jsonTerrain.get(i);
+			}
+		} catch (JSONException e) {
+			LOG.error("Incompatibilité entre le tableau des terrains du Tileset JSON et de l'image du Tileset : "+this.nom, e);
+		}
+		
 		//panorama
 		this.nomImagePanorama = jsonTileset.getString("panorama");
 		try {
@@ -137,6 +150,14 @@ public class Tileset {
 			return this.altitude[numeroCarreau];
 		} else { //autotile
 			return this.autotiles.get(numeroCarreau).altitude;
+		}
+	}
+
+	public int terrainDeLaCase(int numeroCarreau) {
+		if (numeroCarreau >= -1) { //case normale
+			return this.terrain[numeroCarreau];
+		} else { //autotile
+			return this.autotiles.get(numeroCarreau).terrain;
 		}
 	}
 

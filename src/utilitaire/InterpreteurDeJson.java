@@ -601,6 +601,7 @@ public abstract class InterpreteurDeJson {
 				final int numeroAutotile = (int) jsonAutotile.get("numero");
 				final boolean passabiliteAutotile = ((int) jsonAutotile.get("passabilite") == 0);
 				final int altitudeAutotile = (int) jsonAutotile.get("altitude");
+				final int terrainAutotile = jsonAutotile.has("terrain") ? (int) jsonAutotile.get("terrain") : 0;
 				final String nomImageAutotile = (String) jsonAutotile.get("nomImage");
 				
 				//cousins
@@ -618,7 +619,7 @@ public abstract class InterpreteurDeJson {
 				
 				final Autotile autotile;
 				try {
-					autotile = new Autotile(numeroAutotile, nomImageAutotile, passabiliteAutotile, altitudeAutotile, cousinsAutotile, tileset);
+					autotile = new Autotile(numeroAutotile, nomImageAutotile, passabiliteAutotile, altitudeAutotile, terrainAutotile, cousinsAutotile, tileset);
 					autotiles.put(numeroAutotile, autotile);
 				} catch (IOException e) {
 					LOG.error("Impossible d'instancier l'autotile : "+nomImageAutotile, e);

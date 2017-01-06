@@ -129,6 +129,7 @@ public class Autotile {
 	private BufferedImage image;
 	public boolean passabilite;
 	public int altitude;
+	public int terrain;
 	public boolean anime;
 	public ArrayList<Integer> cousins;
 	
@@ -138,11 +139,12 @@ public class Autotile {
 	 * @param nomImage nom de l'image de l'Autotile
 	 * @param passabilite peut-on marcher sur cette case ?
 	 * @param altitude d'affichage dans le décor
+	 * @param terrain spécial qui peut avoir des propriétés particulières
 	 * @param cousins autres autotiles qui peuvent se lier à celui-ci
 	 * @param tileset auquel appartient cet Autotile
 	 * @throws IOException impossible de charger l'image de l'Autotile
 	 */
-	public Autotile(final int numero, final String nomImage, final boolean passabilite, final int altitude, final ArrayList<Integer> cousins, final Tileset tileset) throws IOException {
+	public Autotile(final int numero, final String nomImage, final boolean passabilite, final int altitude, final int terrain, final ArrayList<Integer> cousins, final Tileset tileset) throws IOException {
 		this.tileset = tileset;
 		this.numero = numero;
 		
@@ -165,6 +167,7 @@ public class Autotile {
 
 		this.passabilite = passabilite;
 		this.altitude = altitude;
+		this.terrain = terrain;
 		this.cousins = cousins;
 	}
 	
