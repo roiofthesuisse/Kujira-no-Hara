@@ -72,7 +72,11 @@ public class LecteurMenu extends Lecteur {
 		//affichage des éléments de menu
 		for (ImageMenu element : menu.images) {
 			if (element.ilFautAfficherCetElement()) {
-				ecran = Graphismes.superposerImages(ecran, element.image, element.x, element.y);
+				ecran = Graphismes.superposerImages(ecran, 
+						element.image, 
+						element.x + element.largeur/2 - element.image.getWidth()/2, 
+						element.y + element.hauteur/2 - element.image.getHeight()/2
+				);
 			}
 		}
 

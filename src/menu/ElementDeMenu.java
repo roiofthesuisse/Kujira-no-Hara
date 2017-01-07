@@ -83,13 +83,9 @@ public abstract class ElementDeMenu {
 		if (this.imageDeSelection == null) { //ne calculer qu'une seule fois l'image
 			final int larg;
 			final int haut;
-			if (this.image!=null) {
-				larg = this.image.getWidth() + 2*ImageMenu.CONTOUR;
-				haut = this.image.getHeight() + 2*ImageMenu.CONTOUR;
-			} else {
-				larg = this.largeur + 2*ImageMenu.CONTOUR;
-				haut = this.hauteur + 2*ImageMenu.CONTOUR;
-			}
+			//largeur et hauteur sont soit la taille de l'image, soit un rectangle de taille forcée par le JSON
+			larg = this.largeur + 2*ImageMenu.CONTOUR;
+			haut = this.hauteur + 2*ImageMenu.CONTOUR;
 			final BufferedImage selection = new BufferedImage(larg, haut, Lecteur.TYPE_DES_IMAGES);
 			for (int i = 0; i<larg; i++) {
 				for (int j = 0; j<haut; j++) {
