@@ -2,7 +2,6 @@ package menu;
 
 import java.awt.image.BufferedImage;
 
-import conditions.Condition;
 import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
@@ -44,14 +43,17 @@ public class LecteurMenu extends Lecteur {
 		//lecture des CommandesMenu
 		final ElementDeMenu elementConfirme = this.menu.elementSelectionne;
 		if (elementConfirme != null && elementConfirme.selectionnable && elementConfirme.selectionne) {
-			if (elementConfirme.executionDesCommandesDeConfirmation
-					&& elementConfirme.comportementConfirmation != null && elementConfirme.comportementConfirmation.size()>0) {
-				// Commandes de confirmation
-				elementConfirme.executerLesCommandesDeConfirmation();
-			} else if (elementConfirme.executionDesCommandesDeSurvol
-					&& elementConfirme.comportementSurvol != null && elementConfirme.comportementSurvol.size()>0) {
-				// Commandes de survol
-				elementConfirme.executerLesCommandesDeSurvol();
+			// on execute uniquement les Elements visibles
+			if (elementConfirme.ilFautAfficherCetElement()) {
+				if (elementConfirme.executionDesCommandesDeConfirmation
+						&& elementConfirme.comportementConfirmation != null && elementConfirme.comportementConfirmation.size()>0) {
+					// Commandes de confirmation
+					elementConfirme.executerLesCommandesDeConfirmation();
+				} else if (elementConfirme.executionDesCommandesDeSurvol
+						&& elementConfirme.comportementSurvol != null && elementConfirme.comportementSurvol.size()>0) {
+					// Commandes de survol
+					elementConfirme.executerLesCommandesDeSurvol();
+				}
 			}
 		}
 		
@@ -64,12 +66,12 @@ public class LecteurMenu extends Lecteur {
 		final ElementDeMenu selectionnable = menu.elementSelectionne;
 		if (selectionnable!=null && selectionnable.selectionnable && selectionnable.selectionne) {
 			final BufferedImage selection = selectionnable.creerImageDeSelection();
-			ecran = Graphismes.superposerImages(ecran, selection, selectionnable.x-Image.CONTOUR, selectionnable.y-Image.CONTOUR);
+			ecran = Graphismes.superposerImages(ecran, selection, selectionnable.x-ImageMenu.CONTOUR, selectionnable.y-ImageMenu.CONTOUR);
 		}
 		
 		//affichage des éléments de menu
-		for (Image element : menu.images) {
-			if (ilFautAfficherLElement(element)) {
+		for (ImageMenu element : menu.images) {
+			if (element.ilFautAfficherCetElement()) {
 				ecran = Graphismes.superposerImages(ecran, element.image, element.x, element.y);
 			}
 		}
@@ -152,26 +154,6 @@ public class LecteurMenu extends Lecteur {
 		if (this.menu.menuPrecedent!=null) {
 			new LecteurMenu(this.fenetre, this.menu.menuPrecedent, this.lecteurMapMemorise).changerMenu();
 		}
-	}
-	
-	/**
-	 * Faut-il afficher l'Element ? Ses Conditions sont-elles toutes vérifiées ?
-	 * @param element à examiner
-	 * @return true s'il faut afficher l'Element, false sinon
-	 */
-	private boolean ilFautAfficherLElement(final Image element) {
-		if (element.conditions==null || element.conditions.size()<=0) {
-			//pas de contrainte particulière sur l'affichage
-			return true;
-		}
-		
-		//on essaye toutes les Conditions
-		for (Condition condition : element.conditions) {
-			if (!condition.estVerifiee()) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 	@Override

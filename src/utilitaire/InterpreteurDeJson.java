@@ -29,7 +29,7 @@ import map.Map;
 import map.PageCommune;
 import map.Tileset;
 import menu.ElementDeMenu;
-import menu.Image;
+import menu.ImageMenu;
 import menu.Menu;
 import menu.Texte;
 import menu.Texte.Taille;
@@ -472,7 +472,7 @@ public abstract class InterpreteurDeJson {
 			// Eléments du Menu
 			final JSONArray jsonElements = jsonObject.getJSONArray("elements");
 			final ArrayList<Texte> textes = new ArrayList<Texte>();
-			final ArrayList<Image> images = new ArrayList<Image>();
+			final ArrayList<ImageMenu> images = new ArrayList<ImageMenu>();
 			final ElementDeMenu selectionInitiale = recupererLesElementsDeMenu(idSelectionInitiale, jsonElements, images, textes, nom);
 
 			//instanciation
@@ -502,7 +502,7 @@ public abstract class InterpreteurDeJson {
 	 * @return ElementDeMenu sélectionné d'emblée
 	 */
 	private static ElementDeMenu recupererLesElementsDeMenu(final int idSelectionInitiale, final JSONArray jsonElements, 
-			final ArrayList<Image> images, final ArrayList<Texte> textes, final String nom) {
+			final ArrayList<ImageMenu> images, final ArrayList<Texte> textes, final String nom) {
 		ElementDeMenu selectionInitiale = null;
 		
 		for (Object objetElement : jsonElements) {
@@ -512,6 +512,8 @@ public abstract class InterpreteurDeJson {
 			final int id = (int) jsonElement.get("id");
 			final int x = (int) jsonElement.get("x");
 			final int y = (int) jsonElement.get("y");
+			final int largeur = jsonElement.has("largeur") ? (int) jsonElement.get("largeur") : -1;
+			final int hauteur = jsonElement.has("hauteur") ? (int) jsonElement.get("hauteur") : -1;
 			
 			final String type = (String) jsonElement.get("type");
 			if ("Objet".equals(type)) {
@@ -519,7 +521,7 @@ public abstract class InterpreteurDeJson {
 				final String nomObjet = (String) jsonElement.get("nom");
 				
 				final Objet objet = Objet.objetsDuJeuHash.get(nomObjet);
-				final Image imageObjet = new Image(objet, x, y, true, id);
+				final ImageMenu imageObjet = new ImageMenu(objet, x, y, largeur, hauteur, true, id);
 				
 				images.add(imageObjet);
 				element = imageObjet;
@@ -564,9 +566,12 @@ public abstract class InterpreteurDeJson {
 					final ArrayList<Condition> conditions = new ArrayList<Condition>();
 					recupererLesConditions(conditions, jsonConditions);
 					
-					final Image image;
+					final ImageMenu image;
 					try {
-						image = new Image(dossier, fichier, x, y, conditions, selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
+						image = new ImageMenu(Graphismes.ouvrirImage(dossier, fichier), 
+								x, y, largeur, hauteur, 
+								conditions, selectionnable, commandesAuSurvol, commandesALaConfirmation, 
+								id);
 						images.add(image);
 						element = image;
 					} catch (IOException e) {

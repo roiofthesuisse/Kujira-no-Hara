@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import commandes.ModifierTexte;
 import commandes.CommandeMenu;
 import conditions.Condition;
+import conditions.ConditionFin;
 import conditions.ConditionObjetPossede;
 import main.Commande;
 import utilitaire.InterpreteurDeJson;
@@ -151,7 +152,9 @@ public class Objet {
 	 */
 	public final ArrayList<Commande> getComportementSelection() {
 		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
+		comportementSelection.add(new ConditionObjetPossede(1, this.numero));
 		comportementSelection.add(new ModifierTexte(this.description));
+		comportementSelection.add(new ConditionFin(1));
 		return comportementSelection;
 	}
 	

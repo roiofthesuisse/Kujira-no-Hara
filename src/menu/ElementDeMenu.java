@@ -84,11 +84,11 @@ public abstract class ElementDeMenu {
 			final int larg;
 			final int haut;
 			if (this.image!=null) {
-				larg = this.image.getWidth() + 2*Image.CONTOUR;
-				haut = this.image.getHeight() + 2*Image.CONTOUR;
+				larg = this.image.getWidth() + 2*ImageMenu.CONTOUR;
+				haut = this.image.getHeight() + 2*ImageMenu.CONTOUR;
 			} else {
-				larg = this.largeur + 2*Image.CONTOUR;
-				haut = this.hauteur + 2*Image.CONTOUR;
+				larg = this.largeur + 2*ImageMenu.CONTOUR;
+				haut = this.hauteur + 2*ImageMenu.CONTOUR;
 			}
 			final BufferedImage selection = new BufferedImage(larg, haut, Lecteur.TYPE_DES_IMAGES);
 			for (int i = 0; i<larg; i++) {
@@ -112,55 +112,55 @@ public abstract class ElementDeMenu {
 					a2 = COULEUR_CONTOUR_SELECTION_A; 
 					double rate = 0.0, hypotenuse = 0.0;
 					//calcul du taux "rate" d'éloignement avec le centre de la sélection
-					if (i>=Image.CONTOUR && i<=larg-Image.CONTOUR) {
+					if (i>=ImageMenu.CONTOUR && i<=larg-ImageMenu.CONTOUR) {
 						//centre centre
-						if (j>=Image.CONTOUR && j<=haut-Image.CONTOUR) {
+						if (j>=ImageMenu.CONTOUR && j<=haut-ImageMenu.CONTOUR) {
 							rate = 1.0;
 						}
 						//centre haut
-						if (j<Image.CONTOUR) {
-							rate = (double) (j) / (double) (Image.CONTOUR);
+						if (j<ImageMenu.CONTOUR) {
+							rate = (double) (j) / (double) (ImageMenu.CONTOUR);
 						}
 						//centre bas
-						if (j>haut-Image.CONTOUR) {
-							rate = (double) (haut-j) / (double) Image.CONTOUR;
+						if (j>haut-ImageMenu.CONTOUR) {
+							rate = (double) (haut-j) / (double) ImageMenu.CONTOUR;
 						}
 					} else {
-						if (i<Image.CONTOUR) {
+						if (i<ImageMenu.CONTOUR) {
 							//gauche centre
-							if (j>=Image.CONTOUR && j<=haut-Image.CONTOUR) {
-								rate = (double) (i) / (double) Image.CONTOUR;
+							if (j>=ImageMenu.CONTOUR && j<=haut-ImageMenu.CONTOUR) {
+								rate = (double) (i) / (double) ImageMenu.CONTOUR;
 							}
 							//gauche haut
-							if (j<Image.CONTOUR) {
-								hypotenuse = Math.sqrt( Math.pow(i-Image.CONTOUR, 2) + Math.pow(j-Image.CONTOUR, 2) );
+							if (j<ImageMenu.CONTOUR) {
+								hypotenuse = Math.sqrt( Math.pow(i-ImageMenu.CONTOUR, 2) + Math.pow(j-ImageMenu.CONTOUR, 2) );
 							}
 							//gauche bas
-							if (j>haut-Image.CONTOUR) {
-								hypotenuse = Math.sqrt( Math.pow(i-Image.CONTOUR, 2) + Math.pow(j-(haut-Image.CONTOUR), 2) );
+							if (j>haut-ImageMenu.CONTOUR) {
+								hypotenuse = Math.sqrt( Math.pow(i-ImageMenu.CONTOUR, 2) + Math.pow(j-(haut-ImageMenu.CONTOUR), 2) );
 							}
 						} else {
-							if (i>larg-Image.CONTOUR) {
+							if (i>larg-ImageMenu.CONTOUR) {
 								//droite centre
-								if (j>=Image.CONTOUR && j<=haut-Image.CONTOUR) {
-									rate = (double) (larg-i) / (double) Image.CONTOUR;
+								if (j>=ImageMenu.CONTOUR && j<=haut-ImageMenu.CONTOUR) {
+									rate = (double) (larg-i) / (double) ImageMenu.CONTOUR;
 								}
 								//droite haut
-								if (j<Image.CONTOUR) {
-									hypotenuse = Math.sqrt( Math.pow(i-(larg-Image.CONTOUR), 2) + Math.pow(j-Image.CONTOUR, 2) );
+								if (j<ImageMenu.CONTOUR) {
+									hypotenuse = Math.sqrt( Math.pow(i-(larg-ImageMenu.CONTOUR), 2) + Math.pow(j-ImageMenu.CONTOUR, 2) );
 								}
 								//droite bas
-								if (j>haut-Image.CONTOUR) {
-									hypotenuse = Math.sqrt( Math.pow(i-(larg-Image.CONTOUR), 2) + Math.pow(j-(haut-Image.CONTOUR), 2) );
+								if (j>haut-ImageMenu.CONTOUR) {
+									hypotenuse = Math.sqrt( Math.pow(i-(larg-ImageMenu.CONTOUR), 2) + Math.pow(j-(haut-ImageMenu.CONTOUR), 2) );
 								}
 							}
 						}
 					}
 					if (hypotenuse!=0) {
-						if (hypotenuse>Image.CONTOUR) {
+						if (hypotenuse>ImageMenu.CONTOUR) {
 							rate = 0;
 						} else {
-							rate = 1.0-hypotenuse/(double) Image.CONTOUR;
+							rate = 1.0-hypotenuse/(double) ImageMenu.CONTOUR;
 						}
 					}
 					//calcul de la couleur en fonction du taux "rate" d'éloignement du centre de la sélection
@@ -220,5 +220,11 @@ public abstract class ElementDeMenu {
 			this.executionDesCommandesDeSurvol = false;
 		}
 	}
+	
+	/**
+	 * Faut-il afficher l'Element ? Ses Conditions sont-elles toutes vérifiées ?
+	 * @return true s'il faut afficher l'Element, false sinon
+	 */
+	public abstract boolean ilFautAfficherCetElement();
 	
 }

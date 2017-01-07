@@ -15,7 +15,7 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	
 	/**
 	 * Constructeur partiel
-	 * Réservé aux Conditions de Pages et Menus
+	 * Réservé aux Conditions de Pages
 	 * @param objet identifiant de l'Objet : numéro ou nom
 	 */
 	public ConditionObjetPossede(final Object objet) {

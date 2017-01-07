@@ -27,7 +27,7 @@ public class Menu {
 	public BufferedImage fond;
 	public ArrayList<Texte> textes;
 	public Texte texteDescriptif;
-	public  ArrayList<Image> images;
+	public  ArrayList<ImageMenu> images;
 	public HashMap<Integer, ElementDeMenu> elements;
 	private ArrayList<ElementDeMenu> selectionnables;
 	public ElementDeMenu elementSelectionne;
@@ -47,7 +47,7 @@ public class Menu {
 	 * @param menuParent Menu qui a appelé ce Menu
 	 * @param comportementAnnulation comportement du Menu à l'annulation
 	 */
-	public Menu(final BufferedImage fond, final ArrayList<Texte> textes, final ArrayList<Image> images, 
+	public Menu(final BufferedImage fond, final ArrayList<Texte> textes, final ArrayList<ImageMenu> images, 
 			final ElementDeMenu selectionInitiale, final int idTexteDescriptif, final Menu menuParent,
 			final ArrayList<Commande> comportementAnnulation) {
 		this.fond = fond;
@@ -59,7 +59,7 @@ public class Menu {
 			this.elements.put((Integer) texte.id, texte);
 		}
 		this.images = images;
-		for (Image image : images) {
+		for (ImageMenu image : images) {
 			image.menu = this;
 			this.elements.put((Integer) image.id, image);
 		}
@@ -68,6 +68,7 @@ public class Menu {
 		
 		this.elementSelectionne = selectionInitiale;
 		selectionInitiale.selectionne = true;
+		selectionInitiale.executionDesCommandesDeSurvol = true;
 		
 		this.menuParent = menuParent;
 		
@@ -135,7 +136,7 @@ public class Menu {
 					this.selectionnables.add(t);
 				}
 			}
-			for (Image e : this.images) {
+			for (ImageMenu e : this.images) {
 				if (e.selectionnable) {
 					this.selectionnables.add(e);
 				}

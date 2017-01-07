@@ -169,7 +169,6 @@ public class Texte extends ElementDeMenu {
 		
 		//mot de passe
 		try {
-			LOG.debug(this.contenu);
 			texteAAfficher = texteAAfficher.replace("\\m", Fenetre.getPartieActuelle().mot);
 		} catch (NullPointerException e) {
 			LOG.warn("Impossible d'atteindre le mot mémorisé dans la Partie.");
@@ -235,6 +234,11 @@ public class Texte extends ElementDeMenu {
         g2d.dispose();
 	        
         return img;
+	}
+
+	@Override
+	public final boolean ilFautAfficherCetElement() {
+		return true;
 	}
 	
 }
