@@ -114,7 +114,7 @@ public class Texte extends ElementDeMenu {
 	 * @param id identifiant de l'ElementDeMenu
 	 */
 	public Texte(final String contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
-		super(id, selectionnable, xDebut, yDebut, c1, c2);
+		super(id, selectionnable, xDebut, yDebut, c1, c2, null);
 		
 		if (comportementSurvol!=null && comportementSurvol.size()>0) {
 			for (Commande commande : comportementSurvol) {
@@ -151,7 +151,7 @@ public class Texte extends ElementDeMenu {
 	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
 	 */
 	public Texte(final String contenu, final Color couleurForcee) {
-		super(0, false, 0, 0, null, null); //on se fout de la gueule de la classe mère
+		super(0, false, 0, 0, null, null, null); //on se fout de la gueule de la classe mère
 		
 		this.couleurForcee = couleurForcee;
 		this.contenu = contenu;
@@ -236,11 +236,6 @@ public class Texte extends ElementDeMenu {
         g2d.dispose();
 	        
         return img;
-	}
-
-	@Override
-	public final boolean ilFautAfficherCetElement() {
-		return true;
 	}
 	
 }

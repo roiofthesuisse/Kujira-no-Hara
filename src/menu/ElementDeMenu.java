@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import conditions.Condition;
 import main.Commande;
 import main.Lecteur;
 
@@ -47,6 +48,9 @@ public abstract class ElementDeMenu {
 	/** Curseur de l'execution des commandes à executer à la confirmation */
 	public int curseurComportementConfirmation = 0;
 	
+	/** Conditions d'affichage */
+	public final ArrayList<Condition> conditions;
+	
 	/** L'élément de Menu peut être une image */
 	public BufferedImage image;
 	/** Surlignage de l'image lors de la Sélection */
@@ -64,15 +68,18 @@ public abstract class ElementDeMenu {
 	 * @param y position sur l'écran
 	 * @param comportementSelection CommandesMenu executées lors du survol
 	 * @param comportementConfirmation CommandesMenu executées lors de la confirmation
+	 * @param conditions d'affichage
 	 */
 	protected ElementDeMenu(final int id, final boolean selectionnable, final int x, final int y, 
-			final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation) {
+			final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation,
+			final ArrayList<Condition> conditions) {
 		this.id = id;
 		this.selectionnable = selectionnable;
 		this.x = x;
 		this.y = y;
 		this.comportementSurvol = comportementSelection;
 		this.comportementConfirmation = comportementConfirmation;
+		this.conditions = conditions;
 	}
 	
 	/**
@@ -221,6 +228,19 @@ public abstract class ElementDeMenu {
 	 * Faut-il afficher l'Element ? Ses Conditions sont-elles toutes vérifiées ?
 	 * @return true s'il faut afficher l'Element, false sinon
 	 */
-	public abstract boolean ilFautAfficherCetElement();
+	public final boolean ilFautAfficherCetElement() {
+		if (this.conditions==null || this.conditions.size()<=0) {
+			//pas de contrainte particulière sur l'affichage
+			return true;
+		}
+		
+		//on essaye toutes les Conditions
+		for (Condition condition : this.conditions) {
+			if (!condition.estVerifiee()) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
 }

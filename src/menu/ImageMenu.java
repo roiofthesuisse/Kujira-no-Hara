@@ -11,9 +11,6 @@ import main.Commande;
  * Un Menu est composé d'Images.
  */
 public class ImageMenu extends ElementDeMenu {
-
-	/** Conditions d'affichage */
-	public final ArrayList<Condition> conditions;
 	
 	/**
 	 * Constructeur explicite
@@ -33,7 +30,7 @@ public class ImageMenu extends ElementDeMenu {
 			final ArrayList<Condition> conditions, final boolean selectionnable, 
 			final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, 
 			final int id) {
-		super(id, selectionnable, x, y, comportementSelection, comportementConfirmation);
+		super(id, selectionnable, x, y, comportementSelection, comportementConfirmation, conditions);
 		
 		if (apparence instanceof BufferedImage) {
 			//l'Elément a une image comme apparence
@@ -50,7 +47,6 @@ public class ImageMenu extends ElementDeMenu {
 			commande.element = this;
 		}
 		
-		this.conditions = conditions;
 		this.selectionne = false;
 	}
 	
@@ -74,22 +70,6 @@ public class ImageMenu extends ElementDeMenu {
 		for (Commande commande : comportementConfirmation) {
 			commande.element = this;
 		}
-	}
-	
-	@Override
-	public final boolean ilFautAfficherCetElement() {
-		if (this.conditions==null || this.conditions.size()<=0) {
-			//pas de contrainte particulière sur l'affichage
-			return true;
-		}
-		
-		//on essaye toutes les Conditions
-		for (Condition condition : this.conditions) {
-			if (!condition.estVerifiee()) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 }
