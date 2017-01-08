@@ -36,10 +36,7 @@ public class ConditionGadgetPossede extends Condition implements CommandeEvent, 
 	@Override
 	public final boolean estVerifiee() {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
-		if (partieActuelle.nombreDeGadgetsPossedes > 0) {
-			return partieActuelle.gadgetsPossedes[this.idGadget];
-		}
-		return false; //aucun Gadget possédé
+		return partieActuelle.gadgetsPossedes[this.idGadget];
 	}
 	
 	/**

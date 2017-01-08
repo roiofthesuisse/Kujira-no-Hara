@@ -36,10 +36,7 @@ public class ConditionArmePossedee extends Condition implements CommandeEvent, C
 	@Override
 	public final boolean estVerifiee() {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
-		if (partieActuelle.nombreDArmesPossedees > 0) {
-			return partieActuelle.armesPossedees[this.idArme];
-		}
-		return false; //aucune arme possédée
+		return partieActuelle.armesPossedees[this.idArme];
 	}
 	
 	/**
