@@ -476,8 +476,8 @@ public abstract class InterpreteurDeJson {
 			final ElementDeMenu selectionInitiale = recupererLesElementsDeMenu(idSelectionInitiale, jsonElements, images, textes, nom);
 
 			//instanciation
-			final Menu menu = new Menu(fond, textes, images, selectionInitiale, idDescription, menuParent, comportementAnnulation);
-		
+			final Menu menu = new Menu(fond, textes, images, selectionInitiale, idDescription, menuParent, comportementAnnulation);	
+			
 			//associer un ElementDeMenu arbitraire aux Commandes en cas d'annulation pour qu'elles trouvent leur Menu
 			for (Commande commande : menu.comportementAnnulation) {
 				commande.element = menu.elements.get(0);
@@ -526,7 +526,6 @@ public abstract class InterpreteurDeJson {
 				images.add(imageObjet);
 				element = imageObjet;
 			} else {
-				
 				// L'ElementDeMenu est-il sélectionnable ?
 				final boolean selectionnable = (boolean) jsonElement.get("selectionnable");
 				

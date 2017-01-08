@@ -32,8 +32,14 @@ public class FermerMenu extends Commande implements CommandeMenu {
 		final LecteurMenu lecteur = this.element.menu.lecteur;
 		if (lecteur.menu.menuParent!=null) {
 			//revenir au Menu parent
-			new LecteurMenu(lecteur.fenetre, lecteur.menu.menuParent, lecteur.lecteurMapMemorise).changerMenu();
-		} else if (lecteur.lecteurMapMemorise!=null) {
+			final LecteurMenu lecteurPourMenuParent = new LecteurMenu(
+					lecteur.fenetre, 
+					lecteur.menu.menuParent, 
+					lecteur.lecteurMapMemorise, 
+					lecteur.menu.menuParent.elementSelectionne.id
+			);
+			lecteurPourMenuParent.changerMenu();
+		} else if (lecteur.lecteurMapMemorise != null) {
 			//revenir au jeu
 			new RevenirAuJeu(lecteur).executer(0, null);
 		} else {

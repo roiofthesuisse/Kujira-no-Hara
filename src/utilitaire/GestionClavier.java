@@ -51,9 +51,9 @@ public abstract class GestionClavier {
 		GAUCHE(ToucheClavier.Q, "GAUCHE"),
 		DROITE(ToucheClavier.D, "DROITE"),
 		ARME_SUIVANTE(ToucheClavier.O, "ARME_SUIVANTE"),
-		PAGE_MENU_SUIVANTE(ToucheClavier.O, "PAGE_MENU_SUIVANTE"),
+		//PAGE_MENU_SUIVANTE(ToucheClavier.O, "PAGE_MENU_SUIVANTE"), //TODO ?
 		ARME_PRECEDENTE(ToucheClavier.L, "ARME_PRECEDENTE"),
-		PAGE_MENU_PRECEDENTE(ToucheClavier.L, "PAGE_MENU_PRECEDENTE"),
+		//PAGE_MENU_PRECEDENTE(ToucheClavier.L, "PAGE_MENU_PRECEDENTE"), //TODO ?
 		ACTION_SECONDAIRE(ToucheClavier.M, "ACTION_SECONDAIRE"),
 		MENU(ToucheClavier.ENTREE, "MENU"),
 		CAPTURE_D_ECRAN(ToucheClavier.C, "CAPTURE_D_ECRAN");

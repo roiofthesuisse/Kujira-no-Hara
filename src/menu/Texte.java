@@ -168,10 +168,12 @@ public class Texte extends ElementDeMenu {
 		String texteAAfficher = this.contenu;
 		
 		//mot de passe
-		try {
-			texteAAfficher = texteAAfficher.replace("\\m", Fenetre.getPartieActuelle().mot);
-		} catch (NullPointerException e) {
-			LOG.warn("Impossible d'atteindre le mot mémorisé dans la Partie.");
+		if (texteAAfficher.contains("\\m")) {
+			try {
+				texteAAfficher = texteAAfficher.replace("\\m", Fenetre.getPartieActuelle().mot);
+			} catch (NullPointerException e) {
+				LOG.error("Impossible d'atteindre le mot mémorisé dans la Partie.", e);
+			}
 		}
 		
 		//découpage en lignes

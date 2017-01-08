@@ -30,7 +30,9 @@ public class ImageMenu extends ElementDeMenu {
 	 */
 	public ImageMenu(final BufferedImage apparence, 
 			final int x, final int y, final int largeurForcee, final int hauteurForcee,
-			final ArrayList<Condition> conditions, final boolean selectionnable, final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, final int id) {
+			final ArrayList<Condition> conditions, final boolean selectionnable, 
+			final ArrayList<Commande> comportementSelection, final ArrayList<Commande> comportementConfirmation, 
+			final int id) {
 		super(id, selectionnable, x, y, comportementSelection, comportementConfirmation);
 		
 		if (apparence instanceof BufferedImage) {
@@ -39,6 +41,15 @@ public class ImageMenu extends ElementDeMenu {
 			this.largeur = largeurForcee>0 ? largeurForcee : this.image.getWidth();
 			this.hauteur = hauteurForcee>0 ? hauteurForcee : this.image.getHeight();
 		}
+		
+		//on associe les Commandes à leur ElementDeMenu
+		for (Commande commande : comportementSelection) {
+			commande.element = this;
+		}
+		for (Commande commande : comportementConfirmation) {
+			commande.element = this;
+		}
+		
 		this.conditions = conditions;
 		this.selectionne = false;
 	}

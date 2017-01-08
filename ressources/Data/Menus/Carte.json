@@ -1,0 +1,53 @@
+{
+	"fond": "menu option.png",
+	"idDescription":1,
+	"elements": [
+		{
+			"id": 0,
+			"type": "Texte",
+			"contenu": "CARTE",
+			"taille": "GRANDE",
+			"x": 152,
+			"y": 20,
+			"selectionnable": false
+		},
+		{
+			"id": 1,
+			"type": "Texte",
+			"contenu": "",
+			"x": 27,
+			"y": 66,
+			"selectionnable": false
+		},
+		{
+			"id": 2,
+			"type": "Image",
+			"dossier": "Pictures",
+			"fichier": "fleche gauche.png",
+			"x": 10,
+			"y": 235,
+			"conditions": [],
+			"selectionnable": true,
+			"commandesSurvol": [],
+			"commandesConfirmation": []
+		},
+		{
+			"id": 3,
+			"type": "Image",
+			"dossier": "Pictures",
+			"fichier": "fleche droite.png",
+			"x": 610,
+			"y": 235,
+			"conditions": [],
+			"selectionnable": true,
+			"commandesSurvol": [],
+			"commandesConfirmation": [
+				{
+					"nom": "AllerVersUnAutreMenu",
+					"menu": "Statut",
+					"selectionInitiale": 6
+				}
+			]
+		}
+	]
+}

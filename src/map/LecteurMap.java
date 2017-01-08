@@ -503,20 +503,40 @@ public class LecteurMap extends Lecteur {
 	}
 
 	@Override
-	public final void keyPressed(ToucheRole touchePressee) {
+	public final void keyPressed(final ToucheRole touchePressee) {
 		// action spécifique selon la touche
 		switch (touchePressee) {
-			case MENU : this.ouvrirLeMenu(); break;
-			case HAUT : this.haut(); break;
-			case GAUCHE : this.gauche(); break;
-			case BAS : this.bas(); break;
-			case DROITE : this.droite(); break;
-			case ARME_SUIVANTE : this.equiperArmeSuivante(); break;
-			case ACTION : this.action(); break;
-			case ARME_PRECEDENTE : this.equiperArmePrecedente(); break;
-			case ACTION_SECONDAIRE : this.accessoire(); break;
-			case CAPTURE_D_ECRAN : this.faireUneCaptureDEcran(); break;
-			default : break; // touche inconnue
+			case MENU : 
+				this.ouvrirLeMenu(); 
+				break;
+			case HAUT : 
+				this.haut(); 
+				break;
+			case GAUCHE : 
+				this.gauche(); 
+				break;
+			case BAS : 
+				this.bas(); 
+				break;
+			case DROITE : this.droite(); 
+				break;
+			case ARME_SUIVANTE : 
+				this.equiperArmeSuivante(); 
+				break;
+			case ACTION : 
+				this.action(); 
+				break;
+			case ARME_PRECEDENTE : 
+				this.equiperArmePrecedente(); 
+				break;
+			case ACTION_SECONDAIRE : 
+				//rien
+				break;
+			case CAPTURE_D_ECRAN : 
+				this.faireUneCaptureDEcran(); 
+				break;
+			default : 
+				break; // touche inconnue
 		}
 	}
 	
@@ -541,7 +561,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	public final void ouvrirLeMenu() {
 		if (!this.stopEvent && this.autoriserMenu) { //impossible d'ouvrir le Menu en cas de stopEvent ou de Menu interdit
-			final Commande menuPause = new OuvrirMenu("Pause");
+			final Commande menuPause = new OuvrirMenu("Statut", 0);
 			menuPause.executer(0, null);
 		}
 	}
@@ -721,13 +741,6 @@ public class LecteurMap extends Lecteur {
 		if (!this.stopEvent) { //on ne change pas d'Arme lorsqu'on lit un Message
 			Fenetre.getPartieActuelle().equiperArmePrecedente();
 		}
-	}
-
-	/**
-	 * Utiliser l'objet secondaire.
-	 */
-	public void accessoire() {
-		//TODO
 	}
 	
 	/**

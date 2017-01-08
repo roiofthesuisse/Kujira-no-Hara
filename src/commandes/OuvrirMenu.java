@@ -16,13 +16,16 @@ import utilitaire.InterpreteurDeJson;
  */
 public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu {
 	final String nomMenu;
+	final int selectionInitiale;
 	
 	/**
 	 * Constructeur explicite
 	 * @param nomMenu du Menu
+	 * @param selectionInitiale identifiant de l'ElementDeMenu à sélectionner au début
 	 */
-	public OuvrirMenu(final String nomMenu) {
+	public OuvrirMenu(final String nomMenu, final int selectionInitiale) {
 		this.nomMenu = nomMenu;
+		this.selectionInitiale = selectionInitiale;
 	}
 	
 	/**
@@ -30,7 +33,10 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public OuvrirMenu(final HashMap<String, Object> parametres) {
-		this( (String) parametres.get("nomMenu") );
+		this( 
+				(String) parametres.get("nomMenu"),
+				(int) parametres.get("selectionInitiale")
+		);
 	}
 
 	@Override
@@ -43,11 +49,11 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 			// Le Menu est ouvert depuis un autre Menu
 			final LecteurMenu lecteurActuel = (LecteurMenu) lecteur;
 			nouveauMenu.menuParent = lecteurActuel.menu;
-			nouveauLecteur = new LecteurMenu(fenetre, nouveauMenu, lecteurActuel.lecteurMapMemorise);
+			nouveauLecteur = new LecteurMenu(fenetre, nouveauMenu, lecteurActuel.lecteurMapMemorise, this.selectionInitiale);
 		} else {
 			// Le Menu est ouvert depuis une Map
 			final LecteurMap lecteurActuel = (LecteurMap) lecteur;
-			nouveauLecteur = new LecteurMenu(fenetre, nouveauMenu, lecteurActuel);
+			nouveauLecteur = new LecteurMenu(fenetre, nouveauMenu, lecteurActuel, this.selectionInitiale);
 		}
 		nouveauLecteur.changerMenu();
 		return curseurActuel+1;

@@ -22,10 +22,20 @@ public class LecteurMenu extends Lecteur {
 	 * @param fenetre dans laquelle on doit afficher le Menu
 	 * @param menu que va lire ce Lecteur
 	 * @param lecteurMapMemorise Lecteur de la Map sur laquelle on se trouvait avant d'entrer dans le Menu
+	 * @param selectionInitiale identifiant de l'ElementDeMenu sélectionné au début
 	 */
-	public LecteurMenu(final Fenetre fenetre, final Menu menu, final LecteurMap lecteurMapMemorise) {
+	public LecteurMenu(final Fenetre fenetre, final Menu menu, final LecteurMap lecteurMapMemorise, 
+			final Integer selectionInitiale) {
 		this.menu = menu;
 		menu.lecteur = this; //on prévient le Lecteur qu'il a un Menu
+		
+		final ElementDeMenu elementSelectionneInitialement = this.menu.elements.get(selectionInitiale);
+		if (elementSelectionneInitialement.selectionnable) {
+			this.menu.elementSelectionne = elementSelectionneInitialement;
+			elementSelectionneInitialement.selectionne = true;
+		} else {
+			LOG.error("Impossible de faire de l'élement de menu "+selectionInitiale+" la sélection initiale.");
+		}
 		
 		this.fenetre = fenetre;
 		this.lecteurMapMemorise = lecteurMapMemorise;
@@ -115,12 +125,12 @@ public class LecteurMenu extends Lecteur {
 			case DROITE : 
 				menu.selectionnerElementDansLaDirection(Event.Direction.DROITE);
 				break;
-			case PAGE_MENU_SUIVANTE : 
+			/*case PAGE_MENU_SUIVANTE : 
 				allerAuMenuSuivant();
 				break;
 			case PAGE_MENU_PRECEDENTE : 
 				allerAuMenuPrecedent();
-				break;
+				break;*/
 			case MENU : 
 				executerLeComportementDAnnulation();
 				break;
@@ -144,19 +154,21 @@ public class LecteurMenu extends Lecteur {
 	
 	/**
 	 * Changer de Menu pour aller au Menu suivant.
+	 * @param selectionInitiale identifiant de l'ElementDeMenu sélectionné au début
 	 */
-	public final void allerAuMenuSuivant() {
+	public final void allerAuMenuSuivant(final int selectionInitiale) {
 		if (this.menu.menuSuivant!=null) {
-			new LecteurMenu(this.fenetre, this.menu.menuSuivant, this.lecteurMapMemorise).changerMenu();
+			new LecteurMenu(this.fenetre, this.menu.menuSuivant, this.lecteurMapMemorise, selectionInitiale).changerMenu();
 		}
 	}
 	
 	/**
 	 * Changer de Menu pour aller au Menu précédent.
+	 * @param selectionInitiale identifiant de l'ElementDeMenu sélectionné au début
 	 */
-	public final void allerAuMenuPrecedent() {
+	public final void allerAuMenuPrecedent(final int selectionInitiale) {
 		if (this.menu.menuPrecedent!=null) {
-			new LecteurMenu(this.fenetre, this.menu.menuPrecedent, this.lecteurMapMemorise).changerMenu();
+			new LecteurMenu(this.fenetre, this.menu.menuPrecedent, this.lecteurMapMemorise, selectionInitiale).changerMenu();
 		}
 	}
 

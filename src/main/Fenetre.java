@@ -60,7 +60,18 @@ public final class Fenetre extends JFrame implements KeyListener {
 		super(titre);
 		this.labelEcran = new JLabel();
 		final Menu menuTitre = InterpreteurDeJson.creerMenuDepuisJson("Titre", null);
-		this.lecteur = new LecteurMenu(this, menuTitre, null);
+		
+		//la sélection initiale est ChargerPartie s'il y a déjà une sauvegarde, sinon nouvellePartie
+		int selectionInitiale = 0;
+		try {
+			final int nombreDeFichiersDeSauvegarde = (int) Files.list(Paths.get(".\\saves")).count();
+			if (nombreDeFichiersDeSauvegarde > 0) {
+				selectionInitiale = 1;
+			}
+		} catch (IOException e) {
+			LOG.error("Impossible de compter les fichiers de sauvegarde !", e);
+		}
+		this.lecteur = new LecteurMenu(this, menuTitre, null, selectionInitiale);
 
 		this.addKeyListener(this);
 		
