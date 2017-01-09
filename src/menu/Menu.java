@@ -93,8 +93,16 @@ public class Menu {
 	 * @param direction dans laquelle on recherche un nouvel Elément à sélectionner
 	 */
 	public final void selectionnerElementDansLaDirection(final int direction) {
-		final ElementDeMenu elementASelectionner = chercherSelectionnableDansLaDirection(direction);
-		selectionner(elementASelectionner);
+		ElementDeMenu elementASelectionner;
+		if (this.elementSelectionne.liste == null
+				// Si on est dans une Liste, on se déplace à l'intérieur de la Liste,
+				// à moins qu'on soit en bout de Liste, auquel cas on sort
+				|| (elementASelectionner = this.elementSelectionne.liste.selectionnerUnAutreElementDansLaListe(direction)) == null
+		) {
+			// ElementDeMenu indépendant
+			elementASelectionner = chercherSelectionnableDansLaDirection(direction);
+			selectionner(elementASelectionner);
+		}
 	}
 	
 	/**
@@ -109,12 +117,14 @@ public class Menu {
 			) {
 				LecteurAudio.playSe(BRUIT_DEPLACEMENT_CURSEUR);
 			}
+			
 			//désélection du précédent
 			if (this.elementSelectionne != null) {
 				this.elementSelectionne.selectionne = false;
 				this.elementSelectionne.executionDesCommandesDeSurvol = false;
 				this.elementSelectionne.curseurComportementSurvol = 0;
 			}
+			
 			//sélection du nouveau
 			this.elementSelectionne = elementASelectionner;
 			elementASelectionner.selectionne = true;

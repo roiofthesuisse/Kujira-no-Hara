@@ -51,6 +51,9 @@ public abstract class ElementDeMenu {
 	/** Conditions d'affichage */
 	public final ArrayList<Condition> conditions;
 	
+	/** L'ElementDeMenu appartient à une Liste */
+	public Liste liste = null;
+	
 	/** L'élément de Menu peut être une image */
 	public BufferedImage image;
 	/** Surlignage de l'image lors de la Sélection */
