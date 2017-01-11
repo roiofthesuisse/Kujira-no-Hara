@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,13 +19,14 @@ import conditions.Condition;
 import conditions.ConditionFin;
 import conditions.ConditionObjetPossede;
 import main.Commande;
+import menu.Listable;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
  * Le joueur collecte des Objets.
  */
-public class Objet {
+public class Objet implements Listable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Objet.class);
 	public static Objet[] objetsDuJeu;
@@ -36,6 +38,9 @@ public class Objet {
 	private BufferedImage icone;
 	public final String description;
 	public final ArrayList<Commande> effet;
+	
+	/** A afficher dans le cadre d'une Liste */
+	private HashMap<String, Object> informations;
 	
 	/**
 	 * Constructeur explicite
@@ -165,5 +170,10 @@ public class Objet {
 	 */
 	public final ArrayList<Commande> getComportementConfirmation() {
 		return this.effet;
+	}
+
+	@Override
+	public Map<String, Object> obtenirLesInformations() {
+		return this.informations;
 	}
 }

@@ -5,7 +5,7 @@ import map.Event.Direction;
 /**
  * Une Liste est un tableau d'ElementsDeMenu à plusieurs lignes et colonnes.
  */
-public class Liste {
+public class Liste<T extends Listable> {
 	/** Position x de la Liste */
 	private final int x;
 	/** Position y de la Liste */
@@ -20,7 +20,7 @@ public class Liste {
 	/** coordonnée verticale dans la Liste de l'ElementDeMenu sélectionné */
 	private int jElementSelectionne;
 	/** ElementsDeMenu de la Liste */
-	private ElementDeMenu[][] elements;
+	private ElementDeMenu[][] elements; //TODO remplir ce tableau
 	
 	public Liste(final int x, final int y, final int lignesAffichees, final int colonnesAffichees) {
 		this.x = x;
@@ -65,6 +65,9 @@ public class Liste {
 				this.jElementSelectionne++;
 				break;
 		}
+		
+		//TODO éventuellement masquer/afficher certains ElementsDeMenu en fonction du nombre de lignes/colonnes à afficher
+		
 		return this.elements[this.iElementSelectionne][this.jElementSelectionne];
 	}
 

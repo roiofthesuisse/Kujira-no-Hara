@@ -6,19 +6,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import menu.Listable;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
  * Le Héros peut utiliser un certain nombre de Gadgets sur la Map. 
  */
-public class Gadget {
+public class Gadget implements Listable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Gadget.class);
 	private static Gadget[] gadgetsDuJeu;
@@ -31,6 +33,9 @@ public class Gadget {
 	public final int id;
 	public String nom;
 	public BufferedImage icone;
+	
+	/** A afficher dans le cadre d'une Liste */
+	private HashMap<String, Object> informations;
 	
 	/**
 	 * Constructeur explicite
@@ -109,5 +114,10 @@ public class Gadget {
 			gadgetsDuJeu = null;
 			return 0;
 		}
+	}
+
+	@Override
+	public Map<String, Object> obtenirLesInformations() {
+		return this.informations;
 	}
 }

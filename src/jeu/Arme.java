@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,13 +14,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import map.Hitbox;
+import menu.Listable;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
  * Le Héros peut utiliser un certain nombre d'Armes contre les Events ennemis.
  */
-public class Arme {
+public class Arme implements Listable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Arme.class);
 	private static Arme[] armesDuJeu;
@@ -33,6 +35,9 @@ public class Arme {
 	public String nom;
 	public String nomEffetSonoreAttaque;
 	public BufferedImage icone;
+	
+	/** A afficher dans le cadre d'une Liste */
+	private HashMap<String, Object> informations;
 	
 	/**
 	 * L'animation d'attaque est composée de plusieurs images.
@@ -160,6 +165,11 @@ public class Arme {
 			armesDuJeu = null;
 			return 0;
 		}
+	}
+
+	@Override
+	public Map<String, Object> obtenirLesInformations() {
+		return this.informations;
 	}
 	
 }

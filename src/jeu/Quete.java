@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import main.Fenetre;
+import menu.Listable;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
@@ -20,7 +22,7 @@ import utilitaire.graphismes.Graphismes;
  * Le joueur doit réussir des Quêtes durant le jeu.
  * Cette classe est une description inerte de la Quête, indépendante de l'action du joueur.
  */
-public class Quete {
+public class Quete implements Listable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Quete.class);
 	public static final String NOM_ICONE_QUETE_PAS_FAITE_PAR_DEFAUT = "quete a faire icon.png";
@@ -38,6 +40,9 @@ public class Quete {
 	private BufferedImage iconeQueteFaite;
 	public int xCarte;
 	public int yCarte;
+	
+	/** A afficher dans le cadre d'une Liste */
+	private HashMap<String, Object> informations;
 	
 	/**
 	 * Une Quête peut se présenter sous différents niveaux d'Avancement au fil du jeu.
@@ -200,6 +205,11 @@ public class Quete {
 		} else {
 			return this.getIconeQuetePasFaite();
 		}
+	}
+
+	@Override
+	public Map<String, Object> obtenirLesInformations() {
+		return this.informations;
 	}
 		
 }

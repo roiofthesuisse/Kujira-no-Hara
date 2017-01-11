@@ -14,13 +14,14 @@ import main.Fenetre;
 import map.Map;
 import map.Picture;
 import map.meteo.Meteo;
+import menu.Listable;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 
 /**
  * Une Partie est l'ensemble des informations liées à l'avancée du joueur dans le jeu.
  */
-public final class Partie {
+public final class Partie implements Listable {
 	private static final Logger LOG = LogManager.getLogger(Partie.class);
 	private static final int NOMBRE_D_INTERRUPTEURS = 100;
 	private static final int NOMBRE_DE_VARIABLES = 100;
@@ -63,6 +64,8 @@ public final class Partie {
 	public final int tailleMaximaleDuMot = 10;
 	public String mot = "";
 	
+	/** A afficher dans le cadre d'une Liste */
+	private HashMap<String, Object> informations;
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge
@@ -274,6 +277,11 @@ public final class Partie {
 		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee - 1, nombreDArmesPossedees);
 		//affichage console
 		LOG.info("arme précédente : "+ this.getArmeEquipee().nom);
+	}
+
+	@Override
+	public java.util.Map<String, Object> obtenirLesInformations() {
+		return this.informations;
 	}
 	
 }

@@ -47,6 +47,8 @@ public abstract class ElementDeMenu {
 	protected final ArrayList<Commande> comportementConfirmation;
 	/** Curseur de l'execution des commandes à executer à la confirmation */
 	public int curseurComportementConfirmation = 0;
+	/** L'ElementDeMenu est-il masqué ? */
+	public boolean invisible = false;
 	
 	/** Conditions d'affichage */
 	public final ArrayList<Condition> conditions;
@@ -232,11 +234,16 @@ public abstract class ElementDeMenu {
 	 * @return true s'il faut afficher l'Element, false sinon
 	 */
 	public final boolean ilFautAfficherCetElement() {
+		// L'ElementDeMenu est-il masqué ?
+		if (this.invisible) {
+			return false;
+		}
+		
+		// Conditions d'affichage
 		if (this.conditions==null || this.conditions.size()<=0) {
 			//pas de contrainte particulière sur l'affichage
 			return true;
 		}
-		
 		//on essaye toutes les Conditions
 		for (Condition condition : this.conditions) {
 			if (!condition.estVerifiee()) {
