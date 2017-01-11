@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import main.Commande;
 import main.Fenetre;
 import menu.Listable;
 import utilitaire.InterpreteurDeJson;
@@ -40,9 +41,6 @@ public class Quete implements Listable {
 	private BufferedImage iconeQueteFaite;
 	public int xCarte;
 	public int yCarte;
-	
-	/** A afficher dans le cadre d'une Liste */
-	private HashMap<String, Object> informations;
 	
 	/**
 	 * Une Quête peut se présenter sous différents niveaux d'Avancement au fil du jeu.
@@ -208,8 +206,41 @@ public class Quete implements Listable {
 	}
 
 	@Override
-	public Map<String, Object> obtenirLesInformations() {
-		return this.informations;
+	public final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
+		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
+		if (possedes) {
+			// seulement les Quetes connues
+			final AvancementQuete[] avancements = Fenetre.getPartieActuelle().avancementDesQuetes;
+			for (int i = 0; i < avancements.length; i++) {
+				if (avancements[i].equals(AvancementQuete.CONNUE) || avancements[i].equals(AvancementQuete.FAITE)) {
+					listablesPossedes.put((Integer) i, quetesDuJeu[i]);
+				}
+			}
+		} else {
+			// toutes les Armes
+			for (Quete quete : quetesDuJeu) {
+				listablesPossedes.put((Integer) quete.numero, quete);
+			}
+		}
+		return listablesPossedes;
 	}
-		
+
+	@Override
+	public final BufferedImage construireImagePourListe(final ArrayList<String> information) {
+		// TODO Auto-generated method stub
+		return this.getIcone();
+	}
+
+	@Override
+	public final ArrayList<Commande> getComportementConfirmation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public final ArrayList<Commande> getComportementSelection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

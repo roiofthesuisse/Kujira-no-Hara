@@ -1,16 +1,24 @@
 package menu;
 
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Map;
+
+import main.Commande;
+
 
 /**
  * Un Listable peut avoir ses informations affichées dans une Liste.
  */
 public interface Listable {
+	/** Nom du package.dossier */
+	String PREFIXE_NOM_CLASSE = "jeu.";
 	
-	/**
-	 * Les informations qu'on peut afficher dans la Liste pour ce Listable.
-	 * Chaque type d'information a un nom et une valeur.
-	 * @return association clé-valeur
-	 */
-	public Map<String, Object> obtenirLesInformations();
+	Map<Integer, Listable> obtenirTousLesListables(Boolean possedes);
+	
+	BufferedImage construireImagePourListe(ArrayList<String> information);
+	
+	ArrayList<Commande> getComportementConfirmation();
+	
+	ArrayList<Commande> getComportementSelection();
 }

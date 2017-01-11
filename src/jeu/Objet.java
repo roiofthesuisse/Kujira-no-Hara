@@ -19,6 +19,7 @@ import conditions.Condition;
 import conditions.ConditionFin;
 import conditions.ConditionObjetPossede;
 import main.Commande;
+import main.Fenetre;
 import menu.Listable;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
@@ -38,9 +39,6 @@ public class Objet implements Listable {
 	private BufferedImage icone;
 	public final String description;
 	public final ArrayList<Commande> effet;
-	
-	/** A afficher dans le cadre d'une Liste */
-	private HashMap<String, Object> informations;
 	
 	/**
 	 * Constructeur explicite
@@ -173,7 +171,29 @@ public class Objet implements Listable {
 	}
 
 	@Override
-	public Map<String, Object> obtenirLesInformations() {
-		return this.informations;
+	public final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
+		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
+		if (possedes) {
+			// seulement les Objets possédées
+			final int[] objetsPossedes = Fenetre.getPartieActuelle().objetsPossedes;
+			for (int i = 0; i < objetsPossedes.length; i++) {
+				if (objetsPossedes[i]>0) {
+					listablesPossedes.put((Integer) i, objetsDuJeu[i]);
+				}
+			}
+		} else {
+			// toutes les Armes
+			for (Objet objet : objetsDuJeu) {
+				listablesPossedes.put((Integer) objet.numero, objet);
+			}
+		}
+		return listablesPossedes;
 	}
+
+	@Override
+	public final BufferedImage construireImagePourListe(final ArrayList<String> information) {
+		// TODO Auto-generated method stub
+		return this.getIcone();
+	}
+
 }

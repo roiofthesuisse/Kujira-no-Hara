@@ -89,10 +89,25 @@ public class LecteurMenu extends Lecteur {
 				);
 			}
 		}
+		
+		//afficher les listes
+		ImageMenu elementDeListe;
+		for (@SuppressWarnings("rawtypes") Liste liste : menu.listes) {
+			for (int i = 0; i<liste.elementsAffiches.length; i++) {
+				for (int j = 0; j<liste.elementsAffiches[i].length; j++) {
+					elementDeListe = liste.elementsAffiches[i][j];
+					if (elementDeListe != null) {
+					ecran = Graphismes.superposerImages(ecran, elementDeListe.image, elementDeListe.x, elementDeListe.y);
+					}
+				}
+			}
+			
+		}
 
 		//affichage des textes
+		BufferedImage imgtxt;
 		for (Texte texte : menu.textes) {
-			final BufferedImage imgtxt = texte.image;			
+			imgtxt = texte.image;			
 			ecran = Graphismes.superposerImages(ecran, imgtxt, texte.x, texte.y);
 		}
 		
@@ -100,9 +115,6 @@ public class LecteurMenu extends Lecteur {
 		if (this.menu.texteDescriptif != null && !this.menu.texteDescriptif.contenu.equals("")) {
 			ecran = Graphismes.superposerImages(ecran, this.menu.texteDescriptif.image, this.menu.texteDescriptif.x, this.menu.texteDescriptif.y);
 		}
-		
-		//afficher les listes
-		//TODO
 		
 		return ecran;
 	}

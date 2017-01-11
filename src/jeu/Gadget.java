@@ -13,6 +13,8 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import main.Commande;
+import main.Fenetre;
 import menu.Listable;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
@@ -33,9 +35,6 @@ public class Gadget implements Listable {
 	public final int id;
 	public String nom;
 	public BufferedImage icone;
-	
-	/** A afficher dans le cadre d'une Liste */
-	private HashMap<String, Object> informations;
 	
 	/**
 	 * Constructeur explicite
@@ -117,7 +116,41 @@ public class Gadget implements Listable {
 	}
 
 	@Override
-	public Map<String, Object> obtenirLesInformations() {
-		return this.informations;
+	public final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
+		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
+		if (possedes) {
+			// seulement les Gadgets possédées
+			final boolean[] gadgetsPossedes = Fenetre.getPartieActuelle().gadgetsPossedes;
+			for (int i = 0; i < gadgetsPossedes.length; i++) {
+				if (gadgetsPossedes[i]) {
+					listablesPossedes.put((Integer) i, gadgetsDuJeu[i]);
+				}
+			}
+		} else {
+			// toutes les Armes
+			for (Gadget gadget : gadgetsDuJeu) {
+				listablesPossedes.put((Integer) gadget.id, gadget);
+			}
+		}
+		return listablesPossedes;
 	}
+
+	@Override
+	public final BufferedImage construireImagePourListe(final ArrayList<String> information) {
+		// TODO Auto-generated method stub
+		return this.icone;
+	}
+
+	@Override
+	public final ArrayList<Commande> getComportementConfirmation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public final ArrayList<Commande> getComportementSelection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

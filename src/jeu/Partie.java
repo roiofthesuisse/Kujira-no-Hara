@@ -1,5 +1,6 @@
 package jeu;
 
+import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import jeu.Quete.AvancementQuete;
+import main.Commande;
 import main.Fenetre;
 import map.Map;
 import map.Picture;
@@ -63,9 +65,6 @@ public final class Partie implements Listable {
 	/** Mot de passe à saisir lettre par lettre via un Menu */
 	public final int tailleMaximaleDuMot = 10;
 	public String mot = "";
-	
-	/** A afficher dans le cadre d'une Liste */
-	private HashMap<String, Object> informations;
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge
@@ -280,8 +279,27 @@ public final class Partie implements Listable {
 	}
 
 	@Override
-	public java.util.Map<String, Object> obtenirLesInformations() {
-		return this.informations;
+	public java.util.Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BufferedImage construireImagePourListe(final ArrayList<String> information) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Commande> getComportementConfirmation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Commande> getComportementSelection() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

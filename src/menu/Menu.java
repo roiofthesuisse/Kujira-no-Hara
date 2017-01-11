@@ -28,6 +28,8 @@ public class Menu {
 	public ArrayList<Texte> textes;
 	public Texte texteDescriptif;
 	public  ArrayList<ImageMenu> images;
+	@SuppressWarnings("rawtypes")
+	public  ArrayList<Liste> listes;
 	public HashMap<Integer, ElementDeMenu> elements;
 	private ArrayList<ElementDeMenu> selectionnables;
 	public ElementDeMenu elementSelectionne;
@@ -42,26 +44,50 @@ public class Menu {
 	 * @param fond image de fond du Menu
 	 * @param textes du Menu
 	 * @param images du Menu
+	 * @param listes tableaux bidimensionnels d'ElementsDeMenu
 	 * @param selectionInitiale ElementDeMenu sélectionné au début
 	 * @param idTexteDescriptif identifiant de l'ElementDeMenu affichant les descriptions
 	 * @param menuParent Menu qui a appelé ce Menu
 	 * @param comportementAnnulation comportement du Menu à l'annulation
 	 */
+	@SuppressWarnings("unchecked")
 	public Menu(final BufferedImage fond, final ArrayList<Texte> textes, final ArrayList<ImageMenu> images, 
+			@SuppressWarnings("rawtypes") final ArrayList<Liste> listes,
 			final ElementDeMenu selectionInitiale, final int idTexteDescriptif, final Menu menuParent,
 			final ArrayList<Commande> comportementAnnulation) {
+		// Image de fond du menu
 		this.fond = fond;
 		
 		this.elements = new HashMap<Integer, ElementDeMenu>();
+		// Ajout des ElementsDeMenu de type Texte
 		this.textes = textes;
 		for (Texte texte : textes) {
 			texte.menu = this;
 			this.elements.put((Integer) texte.id, texte);
 		}
+		
+		// Ajout des ElementsDeMenu de type Image
 		this.images = images;
 		for (ImageMenu image : images) {
 			image.menu = this;
 			this.elements.put((Integer) image.id, image);
+		}
+		
+		// Ajout des ElementsDeMenu contenus dans une Liste
+		// chercher des identifiants libres pour les ElementsDeMenu de la Liste
+		int maxId = -1;
+		for (ElementDeMenu element : this.elements.values()) {
+			if (maxId < element.id) {
+				maxId = element.id;
+			}
+		}
+		this.listes = listes;
+		for (@SuppressWarnings("rawtypes") Liste liste : listes) {
+			for (ImageMenu image : (ArrayList<ImageMenu>) liste.elements) {
+				image.menu = this;
+				maxId++;
+				this.elements.put(new Integer(maxId), image);
+			}
 		}
 		
 		this.texteDescriptif = (Texte) this.elements.get((Integer) idTexteDescriptif);
@@ -93,16 +119,20 @@ public class Menu {
 	 * @param direction dans laquelle on recherche un nouvel Elément à sélectionner
 	 */
 	public final void selectionnerElementDansLaDirection(final int direction) {
+		LOG.debug("Déplacement depuis l'élement de menu "+this.elementSelectionne.id+" dans la direction "+direction);
 		ElementDeMenu elementASelectionner;
-		if (this.elementSelectionne.liste == null
-				// Si on est dans une Liste, on se déplace à l'intérieur de la Liste,
-				// à moins qu'on soit en bout de Liste, auquel cas on sort
-				|| (elementASelectionner = this.elementSelectionne.liste.selectionnerUnAutreElementDansLaListe(direction)) == null
-		) {
-			// ElementDeMenu indépendant
-			elementASelectionner = chercherSelectionnableDansLaDirection(direction);
-			selectionner(elementASelectionner);
+		if (this.elementSelectionne.liste != null) {
+			// L'ElementDeMenu est dans une Liste
+			elementASelectionner = this.elementSelectionne.liste.selectionnerUnAutreElementDansLaListe(direction);
+			if (elementASelectionner != null) {
+				// On reste dans la Liste
+				return;
+			}
+			// On sort de la Liste
 		}
+		// L'ElementDeMenu n'appartient pas à une Liste
+		elementASelectionner = chercherSelectionnableDansLaDirection(direction);
+		selectionner(elementASelectionner);
 	}
 	
 	/**
