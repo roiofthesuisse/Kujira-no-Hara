@@ -29,7 +29,7 @@ public abstract class ElementDeMenu {
 	private static final int COULEUR_CONTOUR_SELECTION_A = 0;
 	
 	public Menu menu;
-	public final int id;
+	public int id;
 	
 	/** Cet ElementDeMenu est il Selectionnable ? */
 	public final boolean selectionnable;

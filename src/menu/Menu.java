@@ -86,6 +86,7 @@ public class Menu {
 			for (ImageMenu image : (ArrayList<ImageMenu>) liste.elements) {
 				image.menu = this;
 				maxId++;
+				image.id = maxId;
 				this.elements.put(new Integer(maxId), image);
 			}
 		}
@@ -124,14 +125,15 @@ public class Menu {
 		if (this.elementSelectionne.liste != null) {
 			// L'ElementDeMenu est dans une Liste
 			elementASelectionner = this.elementSelectionne.liste.selectionnerUnAutreElementDansLaListe(direction);
-			if (elementASelectionner != null) {
-				// On reste dans la Liste
-				return;
+			if (elementASelectionner == null) {
+				// On sort de la Liste
+				elementASelectionner = chercherSelectionnableDansLaDirection(direction);
 			}
-			// On sort de la Liste
+			// On reste dans la Liste
+		} else {
+			// L'ElementDeMenu n'appartient pas à une Liste
+			elementASelectionner = chercherSelectionnableDansLaDirection(direction);
 		}
-		// L'ElementDeMenu n'appartient pas à une Liste
-		elementASelectionner = chercherSelectionnableDansLaDirection(direction);
 		selectionner(elementASelectionner);
 	}
 	

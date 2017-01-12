@@ -175,35 +175,52 @@ public class Liste<T extends Listable> {
 	 * @return ElementDeMenu à sélectionner, ou null si bord de Liste
 	 */
 	public ElementDeMenu selectionnerUnAutreElementDansLaListe(final int direction) {
+		final int ancienI = this.iElementSelectionne;
+		final int ancienJ = this.jElementSelectionne;
+		
+		// Déplacement du curseur dans le tableau
 		switch (direction) {
 			case Direction.GAUCHE :
-				if (this.iElementSelectionne==0) {
+				if (this.iElementSelectionne<=0) {
 					// on sort de la Liste
 					return null;
+				} else {
+					this.iElementSelectionne--;
 				}
-				this.iElementSelectionne--;
 				break;
 			case Direction.HAUT :
-				if (this.jElementSelectionne==0) {
+				if (this.jElementSelectionne<=0) {
 					// on sort de la Liste
 					return null;
+				} else {
+					this.jElementSelectionne--;
 				}
-				this.jElementSelectionne--;
 				break;
 			case Direction.DROITE :
-				if (this.iElementSelectionne==this.nombreDeLignesVisibles-1) {
+				if (this.iElementSelectionne>=this.nombreDeColonnes-1) {
 					// on sort de la Liste
 					return null;
+				} else {
+					this.iElementSelectionne++;
 				}
-				this.iElementSelectionne++;
 				break;
 			case Direction.BAS :
-				if (this.jElementSelectionne==this.nombreDeColonnes-1) {
+				if (this.jElementSelectionne>=this.nombreDeLignesVisibles-1) {
 					// on sort de la Liste
 					return null;
+				} else {
+					this.jElementSelectionne++;
 				}
-				this.jElementSelectionne++;
 				break;
+		}
+		LOG.debug("position du curseur dans la liste : "+ this.iElementSelectionne+";"+this.jElementSelectionne);
+		
+		//on ne fait finalement rien s'il n'y a pas d'ElementDeMenu dans cette case
+		final ElementDeMenu nouvelElementSelectionne = this.elementsAffiches[this.iElementSelectionne][this.jElementSelectionne];
+		if (nouvelElementSelectionne == null) {
+			this.iElementSelectionne = ancienI;
+			this.jElementSelectionne = ancienJ;
+			return null;
 		}
 		
 		// Eventuellement masquer/afficher certains ElementsDeMenu en fonction du nombre de lignes/colonnes à afficher
@@ -226,16 +243,18 @@ public class Liste<T extends Listable> {
 					idElement = i * this.nombreDeColonnes + j; 
 					if (idElement < this.elements.size()) {
 						element = this.elements.get(idElement);
-						this.elementsAffiches[i][j] = element;
 						element.invisible = false;
 						element.x = this.x + (this.largeurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
 						element.y = this.y + (this.largeurMaximaleElement+Texte.INTERLIGNE) * j;
+					} else {
+						element = null;
 					}
+					this.elementsAffiches[i][j] = element;
 				}
 			}
 		}
 		
-		return this.elementsAffiches[this.iElementSelectionne][this.jElementSelectionne];
+		return nouvelElementSelectionne;
 	}
 
 }
