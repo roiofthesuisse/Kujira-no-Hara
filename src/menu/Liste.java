@@ -33,9 +33,9 @@ public class Liste<T extends Listable> {
 	/** hauteur (en pixels) maximale pour l'image d'un des ElementsDeMenu de la Liste */
 	private int hauteurMaximaleElement;
 	
-	/** coordonnée horizontale dans la Liste de l'ElementDeMenu sélectionné */
+	/** ligne dans la Liste de l'ElementDeMenu sélectionné */
 	private int iElementSelectionne;
-	/** coordonnée verticale dans la Liste de l'ElementDeMenu sélectionné */
+	/** colonne dans la Liste de l'ElementDeMenu sélectionné */
 	private int jElementSelectionne;
 	/** première ligne visibles à l'écran */
 	private int premiereLigneVisible = 0;
@@ -71,11 +71,11 @@ public class Liste<T extends Listable> {
 		final int taille = elements.size();
 		int iElement, jElement;
 		ImageMenu element;
-		for (int i = 0; i<taille; i++) {
-			element = this.elements.get(i);
+		for (int n = 0; n<taille; n++) {
+			element = this.elements.get(n);
 			element.liste = this;
-			iElement = i / this.nombreDeColonnes;
-			jElement = i % this.nombreDeColonnes;
+			iElement = n / this.nombreDeColonnes;
+			jElement = n % this.nombreDeColonnes;
 			this.elementsAffiches[iElement][jElement] = element;
 			if (iElement>this.nombreDeLignesVisibles) {
 				element.invisible = true;
@@ -92,8 +92,8 @@ public class Liste<T extends Listable> {
 			for (int j = 0; j<this.nombreDeColonnes; j++) {
 				if (i * this.nombreDeColonnes + j < taille) {
 					element = this.elementsAffiches[i][j];
-					element.x = this.x + (this.largeurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
-					element.y = this.y + (this.largeurMaximaleElement+Texte.INTERLIGNE) * j;
+					element.x = this.x + (this.largeurMaximaleElement+Texte.INTERLIGNE) * j;
+					element.y = this.y + (this.largeurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
 				}
 			}
 		}
@@ -181,14 +181,6 @@ public class Liste<T extends Listable> {
 		// Déplacement du curseur dans le tableau
 		switch (direction) {
 			case Direction.GAUCHE :
-				if (this.iElementSelectionne<=0) {
-					// on sort de la Liste
-					return null;
-				} else {
-					this.iElementSelectionne--;
-				}
-				break;
-			case Direction.HAUT :
 				if (this.jElementSelectionne<=0) {
 					// on sort de la Liste
 					return null;
@@ -196,24 +188,31 @@ public class Liste<T extends Listable> {
 					this.jElementSelectionne--;
 				}
 				break;
-			case Direction.DROITE :
-				if (this.iElementSelectionne>=this.nombreDeColonnes-1) {
+			case Direction.HAUT :
+				if (this.iElementSelectionne<=0) {
 					// on sort de la Liste
 					return null;
 				} else {
-					this.iElementSelectionne++;
+					this.iElementSelectionne--;
 				}
 				break;
-			case Direction.BAS :
-				if (this.jElementSelectionne>=this.nombreDeLignesVisibles-1) {
+			case Direction.DROITE :
+				if (this.jElementSelectionne >= this.nombreDeColonnes-1) {
 					// on sort de la Liste
 					return null;
 				} else {
 					this.jElementSelectionne++;
 				}
 				break;
+			case Direction.BAS :
+				if (this.iElementSelectionne >= this.nombreDeLignesVisibles-1) {
+					// on sort de la Liste
+					return null;
+				} else {
+					this.iElementSelectionne++;
+				}
+				break;
 		}
-		LOG.debug("position du curseur dans la liste : "+ this.iElementSelectionne+";"+this.jElementSelectionne);
 		
 		//on ne fait finalement rien s'il n'y a pas d'ElementDeMenu dans cette case
 		final ElementDeMenu nouvelElementSelectionne = this.elementsAffiches[this.iElementSelectionne][this.jElementSelectionne];
@@ -222,6 +221,8 @@ public class Liste<T extends Listable> {
 			this.jElementSelectionne = ancienJ;
 			return null;
 		}
+		
+		LOG.debug("position du curseur dans la liste : ligne "+ this.iElementSelectionne+" colonne "+this.jElementSelectionne);
 		
 		// Eventuellement masquer/afficher certains ElementsDeMenu en fonction du nombre de lignes/colonnes à afficher
 		boolean decalageDuTableau = false;
@@ -240,12 +241,12 @@ public class Liste<T extends Listable> {
 			int idElement;
 			for (int i = this.premiereLigneVisible; i < this.premiereLigneVisible + this.nombreDeLignesVisibles; i++) {
 				for (int j = 0; j<this.nombreDeColonnes; j++) {
-					idElement = i * this.nombreDeColonnes + j; 
+					idElement = i * this.nombreDeColonnes + j;
 					if (idElement < this.elements.size()) {
 						element = this.elements.get(idElement);
 						element.invisible = false;
-						element.x = this.x + (this.largeurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
-						element.y = this.y + (this.largeurMaximaleElement+Texte.INTERLIGNE) * j;
+						element.x = this.x + (this.largeurMaximaleElement+Texte.INTERLIGNE) * j;
+						element.y = this.y + (this.largeurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
 					} else {
 						element = null;
 					}
