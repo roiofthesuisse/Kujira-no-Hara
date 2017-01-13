@@ -155,7 +155,7 @@ public class Objet implements Listable {
 	 */
 	public final ArrayList<Commande> getComportementSelection() {
 		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
-		comportementSelection.add(new ConditionObjetPossede(1, this.numero));
+		comportementSelection.add(new ConditionObjetPossede(1, this.numero)); //TODO utile malgré getConditions() ?
 		comportementSelection.add(new ModifierTexte(this.description));
 		comportementSelection.add(new ConditionFin(1));
 		return comportementSelection;

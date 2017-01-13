@@ -76,6 +76,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 			final JSONObject jsonAvancement = (JSONObject) jsonSauvegarde.get("partie");
 			final JSONObject jsonEtatMap = (JSONObject) jsonSauvegarde.get("etatMap");
 			final Partie partie = new Partie(
+					numeroDeSauvegarde,
 					jsonEtatMap.getInt("numero"),
 					jsonEtatMap.getInt("xHeros"),
 					jsonEtatMap.getInt("yHeros"),

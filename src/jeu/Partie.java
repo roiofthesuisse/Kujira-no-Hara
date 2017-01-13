@@ -10,6 +10,8 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import commandes.ChargerPartie;
+import conditions.Condition;
 import jeu.Quete.AvancementQuete;
 import main.Commande;
 import main.Fenetre;
@@ -28,6 +30,7 @@ public final class Partie implements Listable {
 	private static final int NOMBRE_D_INTERRUPTEURS = 100;
 	private static final int NOMBRE_DE_VARIABLES = 100;
 	
+	public int id;
 	public int numeroMap;
 	public Map map;
 	/** coordonnée x (en pixels) */
@@ -101,6 +104,7 @@ public final class Partie implements Listable {
 	
 	/**
 	 * Constructeur explicite
+	 * @param id du fichier de sauvegarde
 	 * @param numeroMap numéro de la Map où se trouve le Héros en reprenant la Partie
 	 * @param xHeros coordonnée x du Héros (en pixels) en reprenant la Partie
 	 * @param yHeros coordonnée y du Héros (en pixels) en reprenant la Partie
@@ -121,12 +125,13 @@ public final class Partie implements Listable {
 	 * @param idGadgetEquipe identifiant du Gadget actuel équipé
 	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	public Partie(final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, 
+	public Partie(final int id, final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, 
 			final int vieMax, final int argent, final int idArmeEquipee, final int idGadgetEquipe, final JSONArray objetsPossedes, 
 			final JSONArray avancementDesQuetes, final JSONArray armesPossedees, final JSONArray gadgetsPossedes, 
 			final JSONArray interrupteurs, final JSONArray variables, final JSONArray interrupteursLocaux) 
 	throws FileNotFoundException {
 		this();
+		this.id = id;
 		this.numeroMap = numeroMap;
 		this.xHeros = xHeros; //TODO faire ça pour tous les Events de la Map
 		this.yHeros = yHeros; //TODO faire ça pour tous les Events de la Map
@@ -281,6 +286,7 @@ public final class Partie implements Listable {
 	@Override
 	public java.util.Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
 		// TODO Auto-generated method stub
+		// ce sera des parties bidons, creuses (ou alors avec quelques données seulement), qui ne contiennent que le numéro de sauvegarde
 		return null;
 	}
 
@@ -289,17 +295,22 @@ public final class Partie implements Listable {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
-	public ArrayList<Commande> getComportementConfirmation() {
-		// TODO Auto-generated method stub
+	public ArrayList<Condition> getConditions() {
 		return null;
 	}
 
 	@Override
 	public ArrayList<Commande> getComportementSelection() {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public ArrayList<Commande> getComportementConfirmation() {
+		final ArrayList<Commande> comportementConfirmation = new ArrayList<Commande>();
+		comportementConfirmation.add(new ChargerPartie(this.id));
+		return comportementConfirmation;
 	}
 	
 }

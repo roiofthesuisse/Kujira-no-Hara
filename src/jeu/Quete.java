@@ -13,6 +13,9 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import commandes.ModifierTexte;
+import conditions.Condition;
+import conditions.ConditionEtatQuete;
 import main.Commande;
 import main.Fenetre;
 import menu.Listable;
@@ -32,7 +35,7 @@ public class Quete implements Listable {
 	public static Quete[] quetesDuJeu;
 	public static HashMap<String, Quete> quetesDuJeuHash = new HashMap<String, Quete>();
 	
-	public Integer numero; //Integer car clé d'une HashMap
+	public Integer id; //Integer car clé d'une HashMap
 	public String nom;
 	public String description;
 	private final String nomIconeQuetePasFaite;
@@ -75,7 +78,7 @@ public class Quete implements Listable {
 	
 	/**
 	 * Constructeur explicite
-	 * @param numero de la Quête
+	 * @param id de la Quête
 	 * @param nom de la Quête
 	 * @param description de la Quête
 	 * @param nomIconeQuetePasFaite nom de l'icône affichée lorsque la Quête n'est pas encore faite
@@ -83,8 +86,8 @@ public class Quete implements Listable {
 	 * @param xCarte position x sur la carte des Quêtes
 	 * @param yCarte position y sur la carte des Quêtes
 	 */
-	private Quete(final int numero, final String nom, final String description, final String nomIconeQuetePasFaite, final String nomIconeQueteFaite, final int xCarte, final int yCarte) {
-		this.numero = numero;
+	private Quete(final int id, final String nom, final String description, final String nomIconeQuetePasFaite, final String nomIconeQueteFaite, final int xCarte, final int yCarte) {
+		this.id = id;
 		this.nom = nom;
 		this.description = description;
 		this.nomIconeQuetePasFaite = nomIconeQuetePasFaite;
@@ -98,7 +101,7 @@ public class Quete implements Listable {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Quete(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("numero"), 
+		this( (int) parametres.get("id"), 
 			(String) parametres.get("nom"),
 			(String) parametres.get("description"),
 			(String) (parametres.containsKey("nomIconeQuetePasFaite") ? parametres.get("nomIconeQuetePasFaite") : NOM_ICONE_QUETE_PAS_FAITE_PAR_DEFAUT),
@@ -198,7 +201,7 @@ public class Quete implements Listable {
 	 * @return icône de la Quête faite ou non faite, selon si la Quête est fait ou non.
 	 */
 	public final BufferedImage getIcone() {
-		if (Quete.AvancementQuete.FAITE.equals( Fenetre.getPartieActuelle().avancementDesQuetes[this.numero]) ) {
+		if (Quete.AvancementQuete.FAITE.equals( Fenetre.getPartieActuelle().avancementDesQuetes[this.id]) ) {
 			return this.getIconeQueteFaite();
 		} else {
 			return this.getIconeQuetePasFaite();
@@ -219,7 +222,7 @@ public class Quete implements Listable {
 		} else {
 			// toutes les Armes
 			for (Quete quete : quetesDuJeu) {
-				listablesPossedes.put((Integer) quete.numero, quete);
+				listablesPossedes.put((Integer) quete.id, quete);
 			}
 		}
 		return listablesPossedes;
@@ -230,17 +233,24 @@ public class Quete implements Listable {
 		// TODO Auto-generated method stub
 		return this.getIcone();
 	}
+	
+	@Override
+	public final ArrayList<Condition> getConditions() {
+		ArrayList<Condition> conditions = new ArrayList<Condition>();
+		conditions.add(new ConditionEtatQuete(1, this.id, AvancementQuete.CONNUE));
+		return conditions;
+	}
 
 	@Override
 	public final ArrayList<Commande> getComportementConfirmation() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public final ArrayList<Commande> getComportementSelection() {
-		// TODO Auto-generated method stub
-		return null;
+		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
+		comportementSelection.add(new ModifierTexte(this.description));
+		return comportementSelection;
 	}
 
 }

@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Map;
 
+import conditions.Condition;
 import main.Commande;
 
 
@@ -17,6 +18,8 @@ public interface Listable {
 	Map<Integer, Listable> obtenirTousLesListables(Boolean possedes);
 	
 	BufferedImage construireImagePourListe(ArrayList<String> information);
+	
+	ArrayList<Condition> getConditions();
 	
 	ArrayList<Commande> getComportementConfirmation();
 	

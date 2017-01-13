@@ -13,6 +13,10 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import commandes.EquiperGadget;
+import commandes.ModifierTexte;
+import conditions.Condition;
+import conditions.ConditionGadgetPossede;
 import main.Commande;
 import main.Fenetre;
 import menu.Listable;
@@ -33,18 +37,21 @@ public class Gadget implements Listable {
 	 * 0 pour les bottes, 1 pour le panier, etc.
 	 */
 	public final int id;
-	public String nom;
+	public final String nom;
+	private final String description;
 	public BufferedImage icone;
 	
 	/**
 	 * Constructeur explicite
 	 * @param id chaque Gadget a un identifiant
 	 * @param nom chaque Gadget a un nom
+	 * @param description à afficher dans les Menus
 	 * @param nomIcone nom de l'image d'icone
 	 */
-	private Gadget(final int id, final String nom, final String nomIcone) {
+	private Gadget(final int id, final String nom, final String description, final String nomIcone) {
 		this.id = id;
 		this.nom = nom;
+		this.description = description;
 		try {
 			this.icone = Graphismes.ouvrirImage("Icons", nomIcone);
 		} catch (IOException e) {
@@ -60,6 +67,7 @@ public class Gadget implements Listable {
 	public Gadget(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
 			(String) parametres.get("nom"),
+			(String) parametres.get("description"),
 			(String) parametres.get("nomIcone")
 		);
 	}
@@ -140,17 +148,26 @@ public class Gadget implements Listable {
 		// TODO Auto-generated method stub
 		return this.icone;
 	}
+	
+	@Override
+	public final ArrayList<Condition> getConditions() {
+		ArrayList<Condition> conditions = new ArrayList<Condition>();
+		conditions.add(new ConditionGadgetPossede(1, this.id));
+		return conditions;
+	}
 
 	@Override
 	public final ArrayList<Commande> getComportementConfirmation() {
-		// TODO Auto-generated method stub
-		return null;
+		final ArrayList<Commande> comportementConfirmation = new ArrayList<Commande>();
+		comportementConfirmation.add(new ModifierTexte(this.description));
+		return comportementConfirmation;
 	}
 	
 	@Override
 	public final ArrayList<Commande> getComportementSelection() {
-		// TODO Auto-generated method stub
-		return null;
+		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
+		comportementSelection.add(new EquiperGadget(this.id));
+		return comportementSelection;
 	}
 
 }

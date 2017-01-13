@@ -13,6 +13,10 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import commandes.EquiperArme;
+import commandes.ModifierTexte;
+import conditions.Condition;
+import conditions.ConditionArmePossedee;
 import main.Commande;
 import main.Fenetre;
 import map.Hitbox;
@@ -35,6 +39,7 @@ public class Arme implements Listable {
 	 */
 	public final int id;
 	public String nom;
+	private final String description;
 	public String nomEffetSonoreAttaque;
 	public BufferedImage icone;
 	
@@ -59,6 +64,7 @@ public class Arme implements Listable {
 	/**
 	 * @param id chaque Arme a un identifiant
 	 * @param nom chaque Arme a un nom
+	 * @param description à afficher dans les Menus
 	 * @param nomEffetSonoreAttaque nom du fichier sonore joué lors de l'utilisation
 	 * @param framesDAnimation séquence des vignettes à afficher lors de l'animation d'attaque
 	 * @param hitbox zone d'attaque qu'on peut atteindre
@@ -66,11 +72,12 @@ public class Arme implements Listable {
 	 * @param frameFinCoup frame de l'animation d'attaque où le coup est terminé
 	 * @param nomIcone nom du fichier image de l'icone de l'Arme
 	 */
-	private Arme(final int id, final String nom, final String nomEffetSonoreAttaque, 
+	private Arme(final int id, final String nom, final String description, final String nomEffetSonoreAttaque, 
 			final Integer[] framesDAnimation, final Hitbox hitbox, final int frameDebutCoup, 
 			final int frameFinCoup, final String nomIcone) {
 		this.id = id;
 		this.nom = nom;
+		this.description = description;
 		this.nomEffetSonoreAttaque = nomEffetSonoreAttaque;
 		this.framesDAnimation = framesDAnimation;
 		this.hitbox = hitbox;
@@ -91,6 +98,7 @@ public class Arme implements Listable {
 	public Arme(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
 			(String) parametres.get("nom"),
+			(String) parametres.get("description"),
 			(String) parametres.get("nomEffetSonoreAttaque"),
 			(Integer[]) parametres.get("framesDAnimation"),
 			new Hitbox((int) parametres.get("portee"), (int) parametres.get("etendue")),
@@ -191,17 +199,26 @@ public class Arme implements Listable {
 		// TODO Auto-generated method stub
 		return this.icone;
 	}
-
+	
 	@Override
-	public final ArrayList<Commande> getComportementConfirmation() {
-		// TODO Auto-generated method stub
-		return null;
+	public final ArrayList<Condition> getConditions() {
+		ArrayList<Condition> conditions = new ArrayList<Condition>();
+		conditions.add(new ConditionArmePossedee(1, this.id));
+		return conditions;
 	}
 	
 	@Override
 	public final ArrayList<Commande> getComportementSelection() {
-		// TODO Auto-generated method stub
-		return null;
+		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
+		comportementSelection.add(new ModifierTexte(this.description));
+		return comportementSelection;
+	}
+
+	@Override
+	public final ArrayList<Commande> getComportementConfirmation() {
+		final ArrayList<Commande> comportementConfirmation = new ArrayList<Commande>();
+		comportementConfirmation.add(new EquiperArme(this.id));
+		return comportementConfirmation;
 	}
 	
 }
