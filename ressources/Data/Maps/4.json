@@ -405,6 +405,64 @@
 					"traversable": false
 				}
 			]
+		},
+		{
+			"nom": "colibriConditionsImbriquees",
+			"id": 13,
+			"x": 16,
+			"y": 12,
+			"pages": [
+				{
+					"image": "colibri vert character.png",
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "RegarderUnEvent",
+								"idEvent": 0
+							}
+						],
+						"repeterLeDeplacement": true
+					},
+					"conditions": [
+						{
+							"nom": "Ou",
+							"conditions": [
+								{
+									"nom": "Distance",
+									"idEvent1": 0,
+									"distance": 2,
+									"inegalite": "<="
+								},
+								{
+									"nom": "Distance",
+									"idEvent1": 0,
+									"distance": 7,
+									"inegalite": ">="
+								}
+							]
+						}
+					],
+					"commandes": [
+						{
+							"nom": "Deplacement",
+							"mouvements": [
+								{
+									"nom": "Sauter",
+									"x": 0,
+									"y": 0
+								}							
+							],
+							"repeterLeDeplacement": false,
+							"attendreLaFinDuDeplacement": true
+						}
+					],
+					"animeALArret": true,
+					"animeEnMouvement": true,
+					"vitesse": 4,
+					"frequence": 2
+				}
+			]
 		}
 	]
 }

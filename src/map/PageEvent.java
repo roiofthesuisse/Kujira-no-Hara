@@ -72,16 +72,14 @@ public class PageEvent {
 		this.numero = numero;
 		
 		//conditions de déclenchement de la page
-		final ArrayList<Condition> conditions = new ArrayList<Condition>();
+		this.conditions = new ArrayList<Condition>();
 		try {
-			InterpreteurDeJson.recupererLesConditions(conditions, pageJSON.getJSONArray("conditions"));
+			InterpreteurDeJson.recupererLesConditions(this.conditions, pageJSON.getJSONArray("conditions"));
+			for (Condition condition : this.conditions) {
+				condition.page = this;
+			}
 		} catch (JSONException e2) {
 			//pas de Conditions de déclenchement pour cette Page
-		}
-		//on apprend aux Conditions qui est leur Page
-		this.conditions = conditions;
-		for (Condition condition : conditions) {
-			condition.page = this;
 		}
 		
 		//commandes de la page

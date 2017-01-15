@@ -25,7 +25,7 @@ public class RegarderUnEvent extends RegarderDansUneDirection {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public RegarderUnEvent(final HashMap<String, Object> parametres) {
-		this((Integer) parametres.get("idEvent"));
+		this((int) parametres.get("idEvent"));
 	}
 	
 	/**
@@ -49,7 +49,7 @@ public class RegarderUnEvent extends RegarderDansUneDirection {
 	public static int calculerDirectionDeRegard(final Event a, final Event b) {
 		final int distanceVerticale = a.y - b.y;
 		final int distanceHorizontale = a.x - b.x;
-		int direction;
+		final int direction;
 		if (Math.abs(distanceVerticale) > Math.abs(distanceHorizontale)) {
 			if (distanceVerticale < 0) {
 				direction = Direction.BAS;

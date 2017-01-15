@@ -5,7 +5,6 @@ import java.util.HashMap;
 import main.Fenetre;
 import map.Event;
 import map.Heros;
-import map.PageEvent;
 import utilitaire.InterpreteurDeJson;
 
 /**

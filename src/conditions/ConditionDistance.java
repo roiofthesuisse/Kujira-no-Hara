@@ -59,9 +59,9 @@ public class ConditionDistance extends Condition {
 		} else {
 			event2 = this.page.event.map.eventsHash.get(idEvent2);
 		}
-		int deltaX = event1.x - event2.x;
-		int deltaY = event1.y - event2.y;
-		double distanceReelle = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
+		final int deltaX = event1.x - event2.x;
+		final int deltaY = event1.y - event2.y;
+		final double distanceReelle = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
 		
 		return inegalite.comparer(distanceReelle, distanceVoulue);
 	}

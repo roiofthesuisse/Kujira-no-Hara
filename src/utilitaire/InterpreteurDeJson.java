@@ -27,6 +27,7 @@ import map.Autotile;
 import map.Event;
 import map.Map;
 import map.PageCommune;
+import map.PageEvent;
 import map.Tileset;
 import menu.ElementDeMenu;
 import menu.ImageMenu;
@@ -152,6 +153,7 @@ public abstract class InterpreteurDeJson {
 	 * @param conditionsJSON tableau JSON contenant les Conditions au format JSON
 	 */
 	public static void recupererLesConditions(final ArrayList<Condition> conditions, final JSONArray conditionsJSON) {
+		
 		for (Object conditionJSON : conditionsJSON) {
 			try {
 				final Class<?> classeCondition = Class.forName("conditions.Condition"+((JSONObject) conditionJSON).get("nom"));
@@ -527,7 +529,9 @@ public abstract class InterpreteurDeJson {
 				listes.add(liste);
 					
 				// On sélectionne le premier de la Liste
-				selectionInitiale = (ElementDeMenu) liste.elements.get(0);
+				if (liste.elements != null && liste.elements.size()>0) {
+					selectionInitiale = (ElementDeMenu) liste.elements.get(0);
+				}
 
 			} else {
 				// L'ElementDeMenu n'est pas une Liste..
@@ -664,10 +668,14 @@ public abstract class InterpreteurDeJson {
 			} catch (JSONException e) {
 				informations = null;
 			}
-			
-			return new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles,
-					provenance, possedes, avec, tousSauf, informations);
-			
+			Liste liste = null;
+			try {
+				liste = new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles,
+						provenance, possedes, avec, tousSauf, informations);
+			} catch (Exception e) {
+				LOG.error("Impossible de créer la liste d'éléments pour le menu !", e);
+			}
+			return liste;
 		} catch (ClassNotFoundException e) {
 			LOG.error(natureDuListable+" n'est pas un Listable connu.", e);
 			return null;
