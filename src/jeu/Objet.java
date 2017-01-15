@@ -20,9 +20,12 @@ import conditions.ConditionFin;
 import conditions.ConditionObjetPossede;
 import main.Commande;
 import main.Fenetre;
+import main.Lecteur;
 import menu.Listable;
+import menu.Texte;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Le joueur collecte des Objets.
@@ -192,8 +195,18 @@ public class Objet implements Listable {
 
 	@Override
 	public final BufferedImage construireImagePourListe(final ArrayList<String> information) {
-		// TODO Auto-generated method stub
-		return this.getIcone();
+		final Texte texte = new Texte(this.nom+" : "+Fenetre.getPartieActuelle().objetsPossedes[this.numero]);
+		final BufferedImage imageTexte = texte.texteToImage();
+		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();
+		final int hauteur = Math.max(imageTexte.getHeight(), this.getIcone().getHeight());
+		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
+		image = Graphismes.superposerImages(image, this.getIcone(), 0, 0, false, 
+				Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
+				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
+		image = Graphismes.superposerImages(image, imageTexte, this.getIcone().getWidth()+Texte.MARGE_A_DROITE, 0, 
+				false, Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
+				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
+		return image;
 	}
 
 }

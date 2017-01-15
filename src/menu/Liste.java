@@ -28,6 +28,8 @@ public class Liste<T extends Listable> {
 	private final int nombreDeColonnes;
 	/** Nombre de lignes visibles à l'écran à la fois */
 	private final int nombreDeLignesVisibles;
+	/** Combien de lignes dans le tableau en tout ? */
+	private final int nombreDeLignesTotal;
 	/** largeur (en pixels) maximale pour l'image d'un des ElementsDeMenu de la Liste */
 	private int largeurMaximaleElement;
 	/** hauteur (en pixels) maximale pour l'image d'un des ElementsDeMenu de la Liste */
@@ -65,6 +67,7 @@ public class Liste<T extends Listable> {
 		this.nombreDeLignesVisibles = nombreDeLignesVisibles;
 		
 		this.elements = construireLesElements(provenance, possedes, avec, toutSauf, informations);
+		this.nombreDeLignesTotal = this.elements.size() / this.nombreDeColonnes + (this.elements.size() % this.nombreDeColonnes != 0 ? 1 : 0);
 		
 		// On remplit le tableau bidimensionnel avec le contenu de la liste
 		this.elementsAffiches = new ImageMenu[this.nombreDeLignesVisibles][this.nombreDeColonnes];
@@ -76,8 +79,9 @@ public class Liste<T extends Listable> {
 			element.liste = this;
 			iElement = n / this.nombreDeColonnes;
 			jElement = n % this.nombreDeColonnes;
-			this.elementsAffiches[iElement][jElement] = element;
-			if (iElement>this.nombreDeLignesVisibles) {
+			if (iElement < this.nombreDeLignesVisibles) {
+				this.elementsAffiches[iElement][jElement] = element;
+			} else {
 				element.invisible = true;
 			}
 			
@@ -92,8 +96,8 @@ public class Liste<T extends Listable> {
 			for (int j = 0; j<this.nombreDeColonnes; j++) {
 				if (i * this.nombreDeColonnes + j < taille) {
 					element = this.elementsAffiches[i][j];
-					element.x = this.x + (this.largeurMaximaleElement+Texte.INTERLIGNE) * j;
-					element.y = this.y + (this.largeurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
+					element.x = this.x + (this.largeurMaximaleElement+Texte.MARGE_A_DROITE) * j;
+					element.y = this.y + (this.hauteurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
 				}
 			}
 		}
@@ -205,7 +209,7 @@ public class Liste<T extends Listable> {
 				}
 				break;
 			case Direction.BAS :
-				if (this.iElementSelectionne >= this.nombreDeLignesVisibles-1) {
+				if (this.iElementSelectionne >= this.nombreDeLignesTotal-1) {
 					// on sort de la Liste
 					return null;
 				} else {
@@ -215,42 +219,46 @@ public class Liste<T extends Listable> {
 		}
 		
 		//on ne fait finalement rien s'il n'y a pas d'ElementDeMenu dans cette case
-		final ElementDeMenu nouvelElementSelectionne = this.elementsAffiches[this.iElementSelectionne][this.jElementSelectionne];
-		if (nouvelElementSelectionne == null) {
+		final ElementDeMenu nouvelElementSelectionne;
+		try {
+			nouvelElementSelectionne = this.elements.get(this.iElementSelectionne*this.nombreDeColonnes + this.jElementSelectionne);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			// on sort de la Liste
 			this.iElementSelectionne = ancienI;
 			this.jElementSelectionne = ancienJ;
 			return null;
 		}
-		
+
 		LOG.debug("position du curseur dans la liste : ligne "+ this.iElementSelectionne+" colonne "+this.jElementSelectionne);
 		
 		// Eventuellement masquer/afficher certains ElementsDeMenu en fonction du nombre de lignes/colonnes à afficher
 		boolean decalageDuTableau = false;
 		if (this.iElementSelectionne < this.premiereLigneVisible ) {
-			this.premiereLigneVisible = this.iElementSelectionne;
+			this.premiereLigneVisible--;
 			decalageDuTableau = true;
 		} else if (this.iElementSelectionne >= this.premiereLigneVisible + this.nombreDeLignesVisibles) {
-			this.premiereLigneVisible = this.iElementSelectionne - this.nombreDeLignesVisibles + 1;
+			this.premiereLigneVisible++;
 			decalageDuTableau = true;
 		}
 		if (decalageDuTableau) {
-			for (ElementDeMenu element : this.elements) {
-				element.invisible = true;
-			}
+			this.iElementSelectionne = ancienI;
+			this.jElementSelectionne = ancienJ;
+			
+			final int taille = this.elements.size();
+			int i, j;
 			ImageMenu element;
-			int idElement;
-			for (int i = this.premiereLigneVisible; i < this.premiereLigneVisible + this.nombreDeLignesVisibles; i++) {
-				for (int j = 0; j<this.nombreDeColonnes; j++) {
-					idElement = i * this.nombreDeColonnes + j;
-					if (idElement < this.elements.size()) {
-						element = this.elements.get(idElement);
-						element.invisible = false;
-						element.x = this.x + (this.largeurMaximaleElement+Texte.INTERLIGNE) * j;
-						element.y = this.y + (this.largeurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
-					} else {
-						element = null;
-					}
-					this.elementsAffiches[i][j] = element;
+			this.elementsAffiches = new ImageMenu[this.nombreDeLignesVisibles][this.nombreDeColonnes];
+			for (int n = 0; n < taille; n++) {
+				element = this.elements.get(n);
+				i = n / this.nombreDeColonnes;
+				j = n % this.nombreDeColonnes;
+				if (i>=this.premiereLigneVisible && i<this.premiereLigneVisible+this.nombreDeLignesVisibles) {
+					element.invisible = false;
+					element.x = this.x + (this.largeurMaximaleElement+Texte.MARGE_A_DROITE) * j;
+					element.y = this.y + (this.hauteurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
+					this.elementsAffiches[i - this.premiereLigneVisible][j] = element;
+				} else {
+					element.invisible = true;
 				}
 			}
 		}
