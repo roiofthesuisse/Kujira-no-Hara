@@ -283,15 +283,19 @@ public final class Partie implements Listable {
 		LOG.info("arme précédente : "+ this.getArmeEquipee().nom);
 	}
 
-	@Override
-	public java.util.Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
+	/**
+	 * Enumerer les Parties du jeu.
+	 * @param possedes non-applicable
+	 * @return association entre numero et Partie
+	 */
+	public static java.util.Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
 		// TODO Auto-generated method stub
 		// ce sera des parties bidons, creuses (ou alors avec quelques données seulement), qui ne contiennent que le numéro de sauvegarde
 		return null;
 	}
 
 	@Override
-	public BufferedImage construireImagePourListe(final ArrayList<String> information) {
+	public BufferedImage construireImagePourListe() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -312,5 +316,5 @@ public final class Partie implements Listable {
 		comportementConfirmation.add(new ChargerPartie(this.id));
 		return comportementConfirmation;
 	}
-	
+
 }

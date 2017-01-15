@@ -27,7 +27,6 @@ import map.Autotile;
 import map.Event;
 import map.Map;
 import map.PageCommune;
-import map.PageEvent;
 import map.Tileset;
 import menu.ElementDeMenu;
 import menu.ImageMenu;
@@ -656,22 +655,11 @@ public abstract class InterpreteurDeJson {
 			} catch (JSONException e) {
 				avec = null;
 			}
-			
-			final JSONArray jsonInformations;
-			ArrayList<String> informations = new ArrayList<String>();
-			try {
-				jsonInformations = jsonElement.getJSONArray("avec");
-				for (Object o : jsonInformations) {
-					informations.add((String) o);
-				}
-				
-			} catch (JSONException e) {
-				informations = null;
-			}
+
 			Liste liste = null;
 			try {
 				liste = new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles,
-						provenance, possedes, avec, tousSauf, informations);
+						provenance, possedes, avec, tousSauf);
 			} catch (Exception e) {
 				LOG.error("Impossible de créer la liste d'éléments pour le menu !", e);
 			}

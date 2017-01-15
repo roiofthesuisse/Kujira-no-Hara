@@ -16,7 +16,6 @@ import org.json.JSONObject;
 import commandes.ModifierTexte;
 import commandes.CommandeMenu;
 import conditions.Condition;
-import conditions.ConditionFin;
 import conditions.ConditionObjetPossede;
 import main.Commande;
 import main.Fenetre;
@@ -158,9 +157,7 @@ public class Objet implements Listable {
 	 */
 	public final ArrayList<Commande> getComportementSelection() {
 		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
-		comportementSelection.add(new ConditionObjetPossede(1, this.numero)); //TODO utile malgré getConditions() ?
 		comportementSelection.add(new ModifierTexte(this.description));
-		comportementSelection.add(new ConditionFin(1));
 		return comportementSelection;
 	}
 	
@@ -173,8 +170,12 @@ public class Objet implements Listable {
 		return this.effet;
 	}
 
-	@Override
-	public final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
+	/**
+	 * Enumerer les Objets du jeu.
+	 * @param possedes filtrer ou non sur les Objets possédés
+	 * @return association entre numero et Objet
+	 */
+	public static final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
 			// seulement les Objets possédées
@@ -194,7 +195,7 @@ public class Objet implements Listable {
 	}
 
 	@Override
-	public final BufferedImage construireImagePourListe(final ArrayList<String> information) {
+	public final BufferedImage construireImagePourListe() {
 		final Texte texte = new Texte(this.nom+" : "+Fenetre.getPartieActuelle().objetsPossedes[this.numero]);
 		final BufferedImage imageTexte = texte.texteToImage();
 		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();

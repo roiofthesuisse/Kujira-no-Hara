@@ -40,11 +40,15 @@ public class ImageMenu extends ElementDeMenu {
 		}
 		
 		//on associe les Commandes à leur ElementDeMenu
-		for (Commande commande : comportementSelection) {
-			commande.element = this;
+		if (comportementSelection != null && comportementSelection.size() > 0) {
+			for (Commande commande : comportementSelection) {
+				commande.element = this;
+			}
 		}
-		for (Commande commande : comportementConfirmation) {
-			commande.element = this;
+		if (comportementConfirmation != null && comportementConfirmation.size() > 0) {
+			for (Commande commande : comportementConfirmation) {
+				commande.element = this;
+			}
 		}
 		
 		this.selectionne = false;

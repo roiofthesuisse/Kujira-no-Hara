@@ -19,10 +19,13 @@ import conditions.Condition;
 import conditions.ConditionArmePossedee;
 import main.Commande;
 import main.Fenetre;
+import main.Lecteur;
 import map.Hitbox;
 import menu.Listable;
+import menu.Texte;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Le Héros peut utiliser un certain nombre d'Armes contre les Events ennemis.
@@ -174,8 +177,12 @@ public class Arme implements Listable {
 		}
 	}
 
-	@Override
-	public final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
+	/**
+	 * Enumerer les Armes du jeu.
+	 * @param possedes filtrer ou non sur les Armes possédées
+	 * @return association entre numero et Arme
+	 */
+	public static final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
 			// seulement les Armes possédées
@@ -195,14 +202,24 @@ public class Arme implements Listable {
 	}
 
 	@Override
-	public final BufferedImage construireImagePourListe(final ArrayList<String> information) {
-		// TODO Auto-generated method stub
-		return this.icone;
+	public final BufferedImage construireImagePourListe() {
+		final Texte texte = new Texte(this.nom);
+		final BufferedImage imageTexte = texte.texteToImage();
+		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.icone.getWidth();
+		final int hauteur = Math.max(imageTexte.getHeight(), this.icone.getHeight());
+		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
+		image = Graphismes.superposerImages(image, this.icone, 0, 0, false, 
+				Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
+				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
+		image = Graphismes.superposerImages(image, imageTexte, this.icone.getWidth()+Texte.MARGE_A_DROITE, 0, 
+				false, Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
+				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
+		return image;
 	}
 	
 	@Override
 	public final ArrayList<Condition> getConditions() {
-		ArrayList<Condition> conditions = new ArrayList<Condition>();
+		final ArrayList<Condition> conditions = new ArrayList<Condition>();
 		conditions.add(new ConditionArmePossedee(1, this.id));
 		return conditions;
 	}

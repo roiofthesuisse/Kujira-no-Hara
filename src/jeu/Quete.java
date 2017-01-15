@@ -18,9 +18,12 @@ import conditions.Condition;
 import conditions.ConditionEtatQuete;
 import main.Commande;
 import main.Fenetre;
+import main.Lecteur;
 import menu.Listable;
+import menu.Texte;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Le joueur doit réussir des Quêtes durant le jeu.
@@ -86,7 +89,8 @@ public class Quete implements Listable {
 	 * @param xCarte position x sur la carte des Quêtes
 	 * @param yCarte position y sur la carte des Quêtes
 	 */
-	private Quete(final int id, final String nom, final String description, final String nomIconeQuetePasFaite, final String nomIconeQueteFaite, final int xCarte, final int yCarte) {
+	private Quete(final int id, final String nom, final String description, final String nomIconeQuetePasFaite, 
+			final String nomIconeQueteFaite, final int xCarte, final int yCarte) {
 		this.id = id;
 		this.nom = nom;
 		this.description = description;
@@ -208,8 +212,12 @@ public class Quete implements Listable {
 		}
 	}
 
-	@Override
-	public final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
+	/**
+	 * Enumerer les Quêtes du jeu.
+	 * @param possedes filtrer ou non sur les Quêtes connues
+	 * @return association entre numero et Quête
+	 */
+	public static final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
 			// seulement les Quetes connues
@@ -229,14 +237,24 @@ public class Quete implements Listable {
 	}
 
 	@Override
-	public final BufferedImage construireImagePourListe(final ArrayList<String> information) {
-		// TODO Auto-generated method stub
-		return this.getIcone();
+	public final BufferedImage construireImagePourListe() {
+		final Texte texte = new Texte(this.nom);
+		final BufferedImage imageTexte = texte.texteToImage();
+		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();
+		final int hauteur = Math.max(imageTexte.getHeight(), this.getIcone().getHeight());
+		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
+		image = Graphismes.superposerImages(image, this.getIcone(), 0, 0, false, 
+				Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
+				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
+		image = Graphismes.superposerImages(image, imageTexte, this.getIcone().getWidth()+Texte.MARGE_A_DROITE, 0, 
+				false, Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
+				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
+		return image;
 	}
 	
 	@Override
 	public final ArrayList<Condition> getConditions() {
-		ArrayList<Condition> conditions = new ArrayList<Condition>();
+		final ArrayList<Condition> conditions = new ArrayList<Condition>();
 		conditions.add(new ConditionEtatQuete(1, this.id, AvancementQuete.CONNUE));
 		return conditions;
 	}
