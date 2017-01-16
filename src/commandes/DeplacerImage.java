@@ -16,6 +16,10 @@ import utilitaire.graphismes.ModeDeFusion;
 public class DeplacerImage extends Commande implements CommandeEvent {
 	/** Le déplacement d'image est instantané */
 	private static final int INSTANTANE = 0;
+	/** Par défaut, le déplacement n'est exécuté qu'une fois */
+	private static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAULT = false;
+	/** Par défaut, on n'attend pas la fin du déplacement avant de passer à la Commande suivante */
+	private static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAULT = false;
 	
 	/** numéro de l'image à déplacer */
 	private Integer numero; //Integer car utilisé comme clé d'une HashMap
@@ -44,6 +48,11 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 	private int angleDebut;
 	private Integer angleFin;
 	
+	/** Faut-il répéter en boucle le déplacement ? */
+	private final boolean repeterLeDeplacement;
+	/** Faut-il attendre la fin du déplacement pour passer à la Commande suivante ? */
+	private final boolean attendreLaFinDuDeplacement;
+	
 	/**
 	 * Constructeur explicite
 	 * @param numero de l'image à modifier
@@ -57,10 +66,13 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 	 * @param opacite opacité d'arrivée
 	 * @param modeDeFusion d'arrivée
 	 * @param angle d'arrivée
+	 * @param repeterLeDeplacement le déplacement boucle-t-il ?
+	 * @param attendreLaFinDuDeplacement faut-il passer à la Commande suivante immédiatement ?
 	 */
 	private DeplacerImage(final Integer numero, final int nombreDeFrames, final Boolean centre, 
 			final boolean variables, final Integer x, final Integer y, final Integer zoomX, final Integer zoomY, 
-			final Integer opacite, final ModeDeFusion modeDeFusion, final Integer angle) {
+			final Integer opacite, final ModeDeFusion modeDeFusion, final Integer angle, 
+			final boolean repeterLeDeplacement, final boolean attendreLaFinDuDeplacement) {
 		this.numero = numero;
 		this.centre = centre;
 		this.variables = variables;
@@ -71,6 +83,9 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 		this.opaciteFin = opacite;
 		this.modeDeFusion = modeDeFusion;
 		this.angleFin = angle;
+		
+		this.repeterLeDeplacement = repeterLeDeplacement;
+		this.attendreLaFinDuDeplacement = attendreLaFinDuDeplacement;
 		
 		this.nombreDeFrames = nombreDeFrames;
 		this.dejaFait = 0;
@@ -91,12 +106,17 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 				parametres.containsKey("zoomY") ? (int) parametres.get("zoomY") : null,
 				parametres.containsKey("opacite") ? (int) parametres.get("opacite") : null,
 				parametres.containsKey("modeDeFusion") ? ModeDeFusion.parNom(parametres.get("modeDeFusion")) : null,
-				parametres.containsKey("angle") ? (int) parametres.get("angle") : null
+				parametres.containsKey("angle") ? (int) parametres.get("angle") : null,
+				parametres.containsKey("repeterLeDeplacement") ? (boolean) parametres.get("repeterLeDeplacement") : REPETER_LE_DEPLACEMENT_PAR_DEFAULT,
+				parametres.containsKey("attendreLaFinDuDeplacement") ? (boolean) parametres.get("attendreLaFinDuDeplacement") : ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAULT
 		);
 	}
-
-	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	
+	/**
+	 * Calculer le déplacement de l'image.
+	 * C'est un état intermédiaire entre l'état de début et l'état de fin.
+	 */
+	private final void calculerDeplacement() {
 		final double progression = (double) this.dejaFait / (double) this.nombreDeFrames;
 		final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
 		
@@ -150,15 +170,56 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 		if (this.angleFin != null) {
 			picture.angle = (int) Math.round(progression * this.angleFin + (1-progression) * this.angleDebut);
 		}
+	}
 
-		if (this.dejaFait < this.nombreDeFrames) {
+	@Override
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		if (this.attendreLaFinDuDeplacement) {
+			calculerDeplacement();
+			// Tant que ce n'est pas terminé, on reste sur cette Commande
+			if (this.dejaFait < this.nombreDeFrames) {
+				//pas fini
+				this.dejaFait++;
+				return curseurActuel;
+			} else {
+				//fini
+				this.dejaFait = 0;
+				
+				if(this.repeterLeDeplacement){
+					// On recommence à zéro le déplacement
+					return curseurActuel;
+				} else {
+					// On passe à la Commande suivante
+					return curseurActuel+1;
+				}
+			}
+		} else {
+			// On indique que la Picture a un déplacement propre, et on passe à la Commande suivante
+			final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
+			picture.deplacementActuel = this;
+			return curseurActuel+1;
+		}
+	}
+	
+	/**
+	 * Le déplacement de l'image a été délégué par la Commande au LecteurMap afin de passer immédiatement à la Commande suivante.
+	 * Ce déplacement s'effectue donc en parallèle, de manière indépendante.
+	 * @param picture image à déplacer
+	 */
+	public final void executerCommeUnDeplacementPropre(Picture picture) {
+		calculerDeplacement();
+		
+		if(this.dejaFait < this.nombreDeFrames){
 			//pas fini
 			this.dejaFait++;
-			return curseurActuel;
-		} else {
+		}else{
 			//fini
 			this.dejaFait = 0;
-			return curseurActuel+1;
+			
+			if (!this.repeterLeDeplacement) {
+				// on empêche le renouvellement du déplacement
+				picture.deplacementActuel = null;
+			}
 		}
 	}
 	

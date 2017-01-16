@@ -2,6 +2,7 @@ package map;
 
 import java.awt.image.BufferedImage;
 
+import commandes.DeplacerImage;
 import main.Fenetre;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
@@ -26,6 +27,8 @@ public class Picture {
 	public ModeDeFusion modeDeFusion;
 	/** angle de rotation de l'image */
 	public int angle;
+	/** L'image bouge-t-elle d'elle-même ? */
+	public DeplacerImage deplacementActuel;
 	
 	/**
 	 * Constructeur explicite
@@ -61,6 +64,12 @@ public class Picture {
 	 */
 	public static BufferedImage dessinerLesImages(BufferedImage ecran) {
 		for (Picture picture : Fenetre.getPartieActuelle().images.values()) {
+			// Déplacer les images (dont le déplacement a été délégué au LecteurMap par une Commande)
+			if (picture.deplacementActuel != null) {
+				picture.deplacementActuel.executerCommeUnDeplacementPropre(picture);
+			}
+			
+			// Afficher les images
 			ecran = Graphismes.superposerImages(ecran, picture.image, picture.x, picture.y, picture.centre, picture.zoomX, picture.zoomY, picture.opacite, picture.modeDeFusion, picture.angle);
 		}
 		return ecran;
