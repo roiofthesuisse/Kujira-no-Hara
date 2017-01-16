@@ -3,6 +3,9 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import main.Fenetre;
 import map.Picture;
@@ -14,6 +17,7 @@ import utilitaire.graphismes.ModeDeFusion;
  * Il est également possible de changer de mode de fusion, mais ce changement sera immédiat.
  */
 public class DeplacerImage extends Commande implements CommandeEvent {
+	protected static final Logger LOG = LogManager.getLogger(DeplacerImage.class);
 	/** Le déplacement d'image est instantané */
 	private static final int INSTANTANE = 0;
 	/** Par défaut, le déplacement n'est exécuté qu'une fois */
@@ -116,7 +120,7 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 	 * Calculer le déplacement de l'image.
 	 * C'est un état intermédiaire entre l'état de début et l'état de fin.
 	 */
-	private final void calculerDeplacement() {
+	private void calculerDeplacement() {
 		final double progression = (double) this.dejaFait / (double) this.nombreDeFrames;
 		final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
 		
@@ -185,17 +189,21 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 				//fini
 				this.dejaFait = 0;
 				
-				if(this.repeterLeDeplacement){
+				if (this.repeterLeDeplacement) {
 					// On recommence à zéro le déplacement
+					LOG.info("On recommence le déplacement d'image.");
 					return curseurActuel;
 				} else {
 					// On passe à la Commande suivante
+					LOG.info("Fin du déplacement d'image.");
 					return curseurActuel+1;
 				}
 			}
 		} else {
 			// On indique que la Picture a un déplacement propre, et on passe à la Commande suivante
 			final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
+			this.dejaFait = 0;
+			LOG.info("Déplacement d'image délégué au lecteur de map.");
 			picture.deplacementActuel = this;
 			return curseurActuel+1;
 		}
@@ -206,19 +214,22 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 	 * Ce déplacement s'effectue donc en parallèle, de manière indépendante.
 	 * @param picture image à déplacer
 	 */
-	public final void executerCommeUnDeplacementPropre(Picture picture) {
+	public final void executerCommeUnDeplacementPropre(final Picture picture) {
 		calculerDeplacement();
 		
-		if(this.dejaFait < this.nombreDeFrames){
+		if (this.dejaFait < this.nombreDeFrames) {
 			//pas fini
 			this.dejaFait++;
-		}else{
+		} else {
 			//fini
 			this.dejaFait = 0;
 			
 			if (!this.repeterLeDeplacement) {
 				// on empêche le renouvellement du déplacement
+				LOG.info("Fin du déplacement d'image délégué.");
 				picture.deplacementActuel = null;
+			} else {
+				LOG.info("On recommence le déplacement d'image délégué.");
 			}
 		}
 	}

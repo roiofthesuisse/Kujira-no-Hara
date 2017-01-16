@@ -293,32 +293,24 @@
 					],
 					"commandes": [
 						{
-							"nom": "ModifierVariable",
-							"numeroVariable": 10,
-							"operationAFaire": "rendre egal a",
-							"operationAFaire2": "valeur brute",
-							"valeurADonner": 320
-						},
-						{
-							"nom": "ModifierVariable",
-							"numeroVariable": 11,
-							"operationAFaire": "rendre egal a",
-							"operationAFaire2": "valeur brute",
-							"valeurADonner": 240
-						},
-						{
 							"nom": "AfficherImage",
 							"nomImage": "communist dog.jpg",
 							"numero": 15,
 							"centre": true,
-							"variables": true,
-							"x": 10,
-							"y": 11,
+							"x": 100,
+							"y": 100,
 							"zoomX": 50,
-							"zoomY": 100,
-							"opacite": 200,
-							"modeDeFusion": "addition",
-							"angle": 45
+							"zoomY": 50
+						},
+						{
+							"nom": "AfficherImage",
+							"nomImage": "communist dog.jpg",
+							"numero": 16,
+							"centre": true,
+							"x": 600,
+							"y": 300,
+							"zoomX": 50,
+							"zoomY": 50
 						},
 						{
 							"nom": "Deplacement",
@@ -334,16 +326,23 @@
 						{
 							"nom": "DeplacerImage",
 							"numero": 15,
-							"nombreDeFrames": 40,
-							"angle": 180,
-							"opacite": 255
+							"nombreDeFrames": 60,
+							"x": 300,
+							"y": 100
+						},
+						{
+							"nom": "DeplacerImage",
+							"numero": 16,
+							"nombreDeFrames": 60,
+							"x": 200,
+							"y": 300
 						},
 						{
 							"nom": "Deplacement",
 							"mouvements": [
 								{
 									"nom": "Attendre",
-									"nombreDeFrames": 20
+									"nombreDeFrames": 60
 								}							
 							],
 							"repeterLeDeplacement": false,
@@ -352,6 +351,10 @@
 						{
 							"nom": "EffacerImage",
 							"numero": 15
+						},
+						{
+							"nom": "EffacerImage",
+							"numero": 16
 						}
 					],
 					"image": "mouton character.png",
@@ -385,34 +388,6 @@
 					"traversable": true
 				}
 			]
-		},
-		{
-			"nom": "testBoucle",
-			"id": 10,
-			"x": 3,
-			"y": 11,
-			"pages": [
-				{
-					"commandes": [
-						{
-							"nom": "Boucle",
-							"numero": 1
-						},
-						{
-							"nom": "ModifierInterrupteur",
-							"numeroInterrupteur": 5,
-							"valeur": true
-						},
-						{
-							"nom": "BoucleFin",
-							"numero": 1
-						}
-					],
-					"image": "",
-					"animeEnMouvement": false,
-					"traversable": true
-				}
-			]
-		}	
+		}
 	]
 }

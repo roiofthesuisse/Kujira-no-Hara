@@ -96,8 +96,7 @@ public class AfficherImage extends Commande implements CommandeEvent {
 		}
 		
 		//coordonnées
-		int xAffichage;
-		int yAffichage;
+		final int xAffichage, yAffichage;
 		if (this.variables) {
 			//valeurs stockées dans des variables
 			xAffichage = Fenetre.getPartieActuelle().variables[this.x];
