@@ -18,7 +18,6 @@ import conditions.Condition;
 import conditions.ConditionEtatQuete;
 import main.Commande;
 import main.Fenetre;
-import main.Lecteur;
 import menu.Listable;
 import menu.Texte;
 import utilitaire.InterpreteurDeJson;
@@ -242,7 +241,7 @@ public class Quete implements Listable {
 		final BufferedImage imageTexte = texte.texteToImage();
 		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();
 		final int hauteur = Math.max(imageTexte.getHeight(), this.getIcone().getHeight());
-		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
+		BufferedImage image = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);
 		image = Graphismes.superposerImages(image, this.getIcone(), 0, 0, false, 
 				Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
 				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);

@@ -2,14 +2,12 @@ package utilitaire.graphismes;
 
 import java.awt.Color;
 import java.awt.Composite;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
 import java.io.File;
 import java.io.IOException;
 
@@ -19,7 +17,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Fenetre;
-import main.Lecteur;
 import utilitaire.Maths;
 
 /**
@@ -28,6 +25,11 @@ import utilitaire.Maths;
 public abstract class Graphismes {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Graphismes.class);
+	/** Modèle de couleur unique pour toutes les images du jeu */
+	public static final ColorModel COLORMODEL = new BufferedImage(1, 1, Graphismes.TYPE_DES_IMAGES).getColorModel();
+	/** Type unique pour toutes les images du jeu */
+	public static final int TYPE_DES_IMAGES = BufferedImage.TYPE_INT_ARGB;
+	
 	/** Valeur (en pourcents) représentant l'absence d'homothétie */
 	public static final int PAS_D_HOMOTHETIE = 100;
 	/** Valeur (en degrés) représentant l'absence de rotation */
@@ -37,9 +39,6 @@ public abstract class Graphismes {
 	/** L'origine de l'image est son coin haut-gauche et non son centre */
 	private static final boolean ORIGINE_HAUT_GAUCHE = false;
 	public static Graphics2D graphismes;
-	/** Unique configuration autorisée pour le format des images */
-	private static final GraphicsConfiguration CONFIGURATION = GraphicsEnvironment.
-			getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
 
 	/**
 	 * Superposer deux images
@@ -167,7 +166,7 @@ public abstract class Graphismes {
 	 * @return un rectangle noir
 	 */
 	public static BufferedImage ecranNoir() {
-		BufferedImage image = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Lecteur.TYPE_DES_IMAGES);
+		BufferedImage image = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Graphismes.TYPE_DES_IMAGES);
 		Graphics2D g2d = image.createGraphics();
 		g2d.setPaint(Color.black);
 		g2d.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
@@ -182,7 +181,7 @@ public abstract class Graphismes {
 	 * @return un rectangle sans couleur
 	 */
 	public static BufferedImage imageVide(final int largeur, final int hauteur) {
-		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
+		BufferedImage image = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);
 		final Color couleur = new Color(0, 0, 0, 0);
 		Graphics2D g2d = image.createGraphics();
 		g2d.setPaint(couleur);
@@ -208,7 +207,7 @@ public abstract class Graphismes {
 		final BufferedImage cloneVide = new BufferedImage(
 				image.getWidth(), 
 				image.getWidth(), 
-				image.getType()
+				Graphismes.TYPE_DES_IMAGES
 		);
 		return cloneVide;
 	}
@@ -259,18 +258,19 @@ public abstract class Graphismes {
 	}
 
     /**
-     * Charer une image du dossier de ressources.
+     * Charger une image du dossier de ressources.
      * @param dossier sous-dossier du dossier Picture où se trouve l'image
      * @param nom de l'image
      * @return image chargée, compatible avec la configuration officielle
      * @throws IOException impossible d'ouvrir l'image
      */
     public static BufferedImage ouvrirImage(final String dossier, final String nom) throws IOException {
+    	final String dossierSlashNom = dossier+"/"+nom;
     	try {
-			return convertirEnImageCompatible(ImageIO.read(new File(".\\ressources\\Graphics\\"+dossier+"\\"+nom)));
+			return convertirEnImageCompatible(ImageIO.read(new File("./ressources/Graphics/"+dossierSlashNom)), dossierSlashNom);
 		} catch (IOException e) {
 			if (nom!=null && !nom.equals("")) {
-				LOG.error("Impossible d'ouvrir l'image : "+dossier+"/"+nom);
+				LOG.error("Impossible d'ouvrir l'image : "+dossierSlashNom);
 				e.printStackTrace();
 			} else {
 				LOG.warn("Pas d'image pour ce "+dossier);
@@ -282,19 +282,18 @@ public abstract class Graphismes {
     /**
 	 * Convertir une image qui n'est pas dans la bonne configuration.
 	 * @param image dans une autre configuration
+	 * @param nomImage à loguer en cas d'erreur
 	 * @return image dans la configuration officielle
 	 */
-    private static BufferedImage convertirEnImageCompatible(final BufferedImage image) {
-        if (image.getColorModel().equals(CONFIGURATION.getColorModel())) {
+    private static BufferedImage convertirEnImageCompatible(final BufferedImage image, final String nomImage) {
+        if (image.getColorModel().equals(COLORMODEL)) {
             return image;
         }
-
-        final BufferedImage compatibleImage = CONFIGURATION.createCompatibleImage(
-                image.getWidth(), image.getHeight(), image.getTransparency());
-        final Graphics g = compatibleImage.getGraphics();
+        LOG.debug("Conversion de l'image \""+nomImage+"\" car elle n'a pas le ColorModel standard.");
+        final BufferedImage compatibleImage = new BufferedImage(image.getWidth(), image.getHeight(), TYPE_DES_IMAGES);
+        final Graphics2D g = compatibleImage.createGraphics();
         g.drawImage(image, 0, 0, null);
         g.dispose();
-
         return compatibleImage;
     }
 

@@ -112,7 +112,7 @@ public class Hitbox {
 	 */
 	public static void printCroisement(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max) {
 		//on part d'une image blanche
-		final BufferedImage img = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, LecteurMap.TYPE_DES_IMAGES);
+		final BufferedImage img = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Graphismes.TYPE_DES_IMAGES);
 		final Graphics2D graphics = img.createGraphics();
 		graphics.setPaint(Color.white);
 		graphics.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);

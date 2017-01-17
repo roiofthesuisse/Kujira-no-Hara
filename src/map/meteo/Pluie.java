@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import main.Fenetre;
-import main.Lecteur;
 import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
 
@@ -46,7 +45,7 @@ public class Pluie extends Meteo {
 	public final BufferedImage calculerImage(final int numeroFrame) {
 		ajouterDesParticulesSiNecessaire(numeroFrame);
 		
-		BufferedImage imageMeteo = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Lecteur.TYPE_DES_IMAGES);
+		BufferedImage imageMeteo = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Graphismes.TYPE_DES_IMAGES);
 		for (int i = 0; i<particules.size(); i++) {
 			
 			//on affiche la goutte

@@ -450,7 +450,7 @@ public class LecteurMap extends Lecteur {
 	 * Faire une capture d'écran des collisions
 	 */
 	public final void photographierCollision() {
-		final BufferedImage img = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Lecteur.TYPE_DES_IMAGES);
+		final BufferedImage img = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Graphismes.TYPE_DES_IMAGES);
 		final Graphics2D graphics = img.createGraphics();
 		graphics.setPaint(Color.white);
 		graphics.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);

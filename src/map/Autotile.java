@@ -9,7 +9,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Fenetre;
-import main.Lecteur;
 import utilitaire.graphismes.Graphismes;
 
 /**
@@ -262,7 +261,7 @@ public class Autotile {
 		//fabrication du carreau en dessinant chaque quart
 		final BufferedImage[] resultats = new BufferedImage[NOMBRE_VIGNETTES_AUTOTILE_ANIME];
 		for (int i = 0; (this.anime&&i<NOMBRE_VIGNETTES_AUTOTILE_ANIME)||(!this.anime&&i<=0); i++) {
-			final BufferedImage resultat = new BufferedImage(Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Lecteur.TYPE_DES_IMAGES);
+			final BufferedImage resultat = new BufferedImage(Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Graphismes.TYPE_DES_IMAGES);
 			final Graphics2D g2d = (Graphics2D) resultat.createGraphics();
 
 			//quart haut-gauche du carreau

@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import main.Commande;
 import main.Fenetre;
-import main.Lecteur;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Un Texte peut être sélectionnable, avoir un comportement au survol et à la confirmation.
@@ -183,7 +183,7 @@ public class Texte extends ElementDeMenu {
         	return null;
         }
         
-        BufferedImage img = new BufferedImage(1, 1, Lecteur.TYPE_DES_IMAGES);
+        BufferedImage img = new BufferedImage(1, 1, Graphismes.TYPE_DES_IMAGES);
         Graphics2D g2d = img.createGraphics();
         final Font font = new Font(POLICE, Font.PLAIN, this.taille);
         g2d.setFont(font);
@@ -193,7 +193,7 @@ public class Texte extends ElementDeMenu {
         g2d.dispose();
         
         final int hauteurTotaleImage = (height + Texte.INTERLIGNE)*nombreLignes - Texte.INTERLIGNE; //on retire l'interligne inutile tout à la fin
-        img = new BufferedImage(width, hauteurTotaleImage, Lecteur.TYPE_DES_IMAGES);
+        img = new BufferedImage(width, hauteurTotaleImage, Graphismes.TYPE_DES_IMAGES);
         g2d = img.createGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

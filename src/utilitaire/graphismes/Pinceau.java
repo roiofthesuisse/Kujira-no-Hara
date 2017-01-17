@@ -16,9 +16,9 @@ public abstract class Pinceau {
 	private static final int ROUGE = 1;
 	private static final int VERT = 2;
 	private static final int BLEU = 3;
-	private static final int TEINTE = 1;
-	private static final int SATURATION = 2;
-	private static final int LUMINOSITE = 3;
+	private static final int TEINTE = 0;
+	private static final int SATURATION = 1;
+	private static final int LUMINOSITE = 2;
 	
 	/**
 	 * Peindre un pixel de l'image à superposer sur l'image support.
@@ -81,24 +81,65 @@ public abstract class Pinceau {
                 };
             case TOPKEK:
             	return new Pinceau() {
+            		private static final float TEINTE_CENTRALE = 0.5f;
+            		private static final float DECALAGE_JAUNE = 120f/360f;
+            		private static final float DECALAGE_BLEU = 60f/360f;
+            		private static final float ANTI_JAUNISSEMENT = 4;
+            		private static final float ANTI_BLEUISSEMENT = 3;
+            		private static final float ANTI_VIVIFICATION = 16;
+            		private static final float ANTI_MORNIFICATION = 4;
+            		private static final float ANTI_ECLAIRCISSEMENT = 16;
+            		private static final float ANTI_ASSOMBRISSEMENT = 1.2f;
             		@Override
             		public void peindre(final int[] src, final int[] dst, final int[] result) {
             			final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
-            			float[] hsbSrc = new float[3];
-            			float[] hsbDst = new float[3];
-            			float[] hsbResult = new float[3];
+            			final float[] hsbSrc = new float[3];
+            			final float[] hsbDst = new float[3];
+            			final float[] hsbResult = new float[3];
             			// On passe dans l'espace HSB pour faire varier la luminosité sans déformer la saturation
             			Color.RGBtoHSB(src[ROUGE], src[VERT], src[BLEU], hsbSrc); //les coordonnées HSB vont de 0 à 1
             			Color.RGBtoHSB(dst[ROUGE], dst[VERT], dst[BLEU], hsbDst);
             			
-            			hsbResult[TEINTE] = hsbDst[TEINTE]*(1-hsbSrc[SATURATION]*opaciteLocale) + hsbSrc[TEINTE]*hsbSrc[SATURATION]*opaciteLocale;
-            			hsbResult[SATURATION] = hsbDst[SATURATION];
-            			hsbResult[LUMINOSITE] = Math.max(0f, Math.min(1f, hsbDst[LUMINOSITE] + (2*hsbSrc[LUMINOSITE]-1)*opaciteLocale));
-            			int res = Color.HSBtoRGB(hsbResult[TEINTE], hsbResult[SATURATION], hsbResult[LUMINOSITE]);
+            			final float luminositeSrc = 2*hsbSrc[LUMINOSITE]-1;
+            			if (luminositeSrc > 0) {
+            				// Effet sur la teinte : jaunissement 
+            				final float coefficientJaune = luminositeSrc/ANTI_JAUNISSEMENT;
+            				final float coefficientNormal = 1f - coefficientJaune;
+            				float teinteDstDecalee = hsbDst[TEINTE] + DECALAGE_JAUNE;
+            				if (teinteDstDecalee > 1f) {
+            					teinteDstDecalee--;
+            				}
+            				final float moyenneDecalee = teinteDstDecalee*coefficientNormal + TEINTE_CENTRALE*coefficientJaune;
+            				hsbResult[TEINTE] = moyenneDecalee - DECALAGE_JAUNE;
+            				
+            				// Effet sur la saturation : vivification
+            				hsbResult[SATURATION] = Math.max(0f, Math.min(1f, hsbDst[SATURATION] + luminositeSrc*opaciteLocale/ANTI_VIVIFICATION));
+            				
+            				// Effet sur la luminosité : éclaircissement
+            				hsbResult[LUMINOSITE] = Math.max(0f, Math.min(1f, hsbDst[LUMINOSITE] + luminositeSrc*opaciteLocale/ANTI_ECLAIRCISSEMENT));
+            			} else {
+            				// Effet sur la teinte : bleuissement
+            				final float coefficientBleu = -luminositeSrc/ANTI_BLEUISSEMENT;
+            				final float coefficientNormal = 1f - coefficientBleu;
+            				float teinteDstDecalee = hsbDst[TEINTE] - DECALAGE_BLEU;
+            				if (teinteDstDecalee < 0f) {
+            					teinteDstDecalee++;
+            				}
+            				final float moyenneDecalee = teinteDstDecalee*coefficientNormal + TEINTE_CENTRALE*coefficientBleu;
+            				hsbResult[TEINTE] = moyenneDecalee + DECALAGE_BLEU;
+            				
+            				// Effet sur la saturation : mornification
+            				hsbResult[SATURATION] = Math.max(0f, Math.min(1f, hsbDst[SATURATION] + luminositeSrc*opaciteLocale/ANTI_MORNIFICATION));
+            				
+            				// Effet sur la luminosité : assombrissement
+            				hsbResult[LUMINOSITE] = Math.max(0f, Math.min(1f, hsbDst[LUMINOSITE] + luminositeSrc*opaciteLocale/ANTI_ASSOMBRISSEMENT));
+            			}
+            			
+            			final int res = Color.HSBtoRGB(hsbResult[TEINTE], hsbResult[SATURATION], hsbResult[LUMINOSITE]);
             			result[ALPHA] = dst[ALPHA];
-            			result[ROUGE] = res & 0x0000FF;
-                        result[VERT] = (res & 0x00FF00) >> 8;
-                        result[BLEU] = (res & 0xFF0000) >> 16;
+                        result[ROUGE] = (res >> 16) & 0xFF;
+                        result[VERT]  = (res >>  8) & 0xFF;
+                        result[BLEU]  = (res      ) & 0xFF;
             		}
             	};
             //TODO negatif

@@ -1,5 +1,7 @@
 package conditions;
 
+import java.util.HashMap;
+
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import main.Fenetre;
@@ -25,6 +27,18 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 		this.numeroVariable = numeroVariable;
 		this.inegalite = Inegalite.getInegalite(symboleInegalite);
 		this.valeurQuIlEstCenseAvoir = valeur;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionVariable(final HashMap<String, Object> parametres) {
+		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
+			(int) parametres.get("numeroVariable"),
+			(String) parametres.get("inegalite"),
+			(int) parametres.get("valeurQuIlEstCenseAvoir")
+		);
 	}
 	
 	@Override

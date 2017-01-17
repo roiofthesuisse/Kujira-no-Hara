@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import conditions.Condition;
 import main.Commande;
-import main.Lecteur;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Tout Elément constitutif d'un Menu : Image, Texte, Liste...
@@ -98,7 +98,7 @@ public abstract class ElementDeMenu {
 			//largeur et hauteur sont soit la taille de l'image, soit un rectangle de taille forcée par le JSON
 			larg = this.largeur + 2*ImageMenu.CONTOUR;
 			haut = this.hauteur + 2*ImageMenu.CONTOUR;
-			final BufferedImage selection = new BufferedImage(larg, haut, Lecteur.TYPE_DES_IMAGES);
+			final BufferedImage selection = new BufferedImage(larg, haut, Graphismes.TYPE_DES_IMAGES);
 			for (int i = 0; i<larg; i++) {
 				for (int j = 0; j<haut; j++) {
 					int r, g, b, a;

@@ -32,8 +32,6 @@ public abstract class Lecteur {
 	 */
 	public static final long DUREE_FRAME = 30;
 	
-	public static final int TYPE_DES_IMAGES = BufferedImage.TYPE_INT_ARGB;
-	
 	/**
 	 * Est-ce que le Lecteur est allumé ?
 	 * Si le Lecteur est allumé, l'affichage de l'écran est actualisé en continu.

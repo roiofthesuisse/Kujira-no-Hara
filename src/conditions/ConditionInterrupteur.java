@@ -1,5 +1,7 @@
 package conditions;
 
+import java.util.HashMap;
+
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import main.Fenetre;
@@ -21,6 +23,17 @@ public class ConditionInterrupteur extends Condition implements CommandeEvent, C
 		this.numeroInterrupteur = numeroInterrupteur;
 		this.valeurQuIlEstCenseAvoir = valeur;
 		this.numero = numeroCondition;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionInterrupteur(final HashMap<String, Object> parametres) {
+		this((int) parametres.get("numeroInterrupteur"),
+			(boolean) parametres.get("valeurQuIlEstCenseAvoir"),
+			parametres.containsKey("numero") ? (int) parametres.get("numero") : -1
+		);
 	}
 	
 	@Override

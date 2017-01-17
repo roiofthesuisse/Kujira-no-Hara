@@ -47,7 +47,7 @@ public final class MonComposite implements Composite {
 	public CompositeContext createContext(ColorModel srcColorModel, final ColorModel dstColorModel, final RenderingHints hints) {
 		if (!srcColorModel.equals(dstColorModel)) {
 			LOG.warn("Attention : les modèles de couleurs sont différents pour les deux images !\n"
-					+"Chargez les images avec Graphismes.ouvrirImage() afin d'assurer la compatibilité.");
+					+ "Chargez les images avec Graphismes.ouvrirImage() afin d'assurer la compatibilité.");
 		}
 		return new ContexteDeComposite(this);
 	}

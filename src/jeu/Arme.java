@@ -19,7 +19,6 @@ import conditions.Condition;
 import conditions.ConditionArmePossedee;
 import main.Commande;
 import main.Fenetre;
-import main.Lecteur;
 import map.Hitbox;
 import menu.Listable;
 import menu.Texte;
@@ -207,7 +206,7 @@ public class Arme implements Listable {
 		final BufferedImage imageTexte = texte.texteToImage();
 		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.icone.getWidth();
 		final int hauteur = Math.max(imageTexte.getHeight(), this.icone.getHeight());
-		BufferedImage image = new BufferedImage(largeur, hauteur, Lecteur.TYPE_DES_IMAGES);
+		BufferedImage image = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);
 		image = Graphismes.superposerImages(image, this.icone, 0, 0, false, 
 				Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
 				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
