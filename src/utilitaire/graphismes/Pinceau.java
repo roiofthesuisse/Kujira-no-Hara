@@ -1,5 +1,7 @@
 package utilitaire.graphismes;
 
+import java.awt.Color;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,6 +16,9 @@ public abstract class Pinceau {
 	private static final int ROUGE = 1;
 	private static final int VERT = 2;
 	private static final int BLEU = 3;
+	private static final int TEINTE = 1;
+	private static final int SATURATION = 2;
+	private static final int LUMINOSITE = 3;
 	
 	/**
 	 * Peindre un pixel de l'image à superposer sur l'image support.
@@ -34,22 +39,22 @@ public abstract class Pinceau {
                 return new Pinceau() {
                     @Override
                     public void peindre(final int[] src, final int[] dst, final int[] result) {
-                    	final float opaciteLocale = src[ALPHA] / VALEUR_MAXIMALE;
+                    	final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
                     	result[ROUGE] = Math.min(VALEUR_MAXIMALE, (int) (src[ROUGE]*opaciteLocale) + dst[ROUGE]);
                         result[VERT] = Math.min(VALEUR_MAXIMALE, (int) (src[VERT]*opaciteLocale) + dst[VERT]);
                         result[BLEU] = Math.min(VALEUR_MAXIMALE, (int) (src[BLEU]*opaciteLocale) + dst[BLEU]);
-                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, dst[ALPHA]);
+                        result[ALPHA] = dst[ALPHA];
                     }
                 };
             case ADDITION_NEGATIF:
                 return new Pinceau() {
                     @Override
                     public void peindre(final int[] src, final int[] dst, final int[] result) {
-                    	final float opaciteLocale = src[ALPHA] / VALEUR_MAXIMALE;
+                    	final float opaciteLocale = (float) src[ALPHA] / VALEUR_MAXIMALE;
                     	result[ROUGE] = Math.min(VALEUR_MAXIMALE, (int) ((VALEUR_MAXIMALE-src[ROUGE])*opaciteLocale) + dst[ROUGE]);
                         result[VERT] = Math.min(VALEUR_MAXIMALE, (int) ((VALEUR_MAXIMALE-src[VERT])*opaciteLocale) + dst[VERT]);
                         result[BLEU] = Math.min(VALEUR_MAXIMALE, (int) ((VALEUR_MAXIMALE-src[BLEU])*opaciteLocale) + dst[BLEU]);
-                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, dst[ALPHA]);
+                        result[ALPHA] = dst[ALPHA];
                     }
                 };
             case SOUSTRACTION:
@@ -60,7 +65,7 @@ public abstract class Pinceau {
                     	result[ROUGE] = Math.max(0, (int) (dst[ROUGE] - src[ROUGE]*opaciteLocale));
                         result[VERT] = Math.max(0, (int) (dst[VERT] - src[VERT]*opaciteLocale));
                         result[BLEU] = Math.max(0, (int) (dst[BLEU] - src[BLEU]*opaciteLocale));
-                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, dst[ALPHA]);
+                        result[ALPHA] = dst[ALPHA];
                     }
                 };
             case SOUSTRACTION_NEGATIF:
@@ -71,9 +76,31 @@ public abstract class Pinceau {
                     	result[ROUGE] = Math.max(0, (int) (dst[ROUGE] - (VALEUR_MAXIMALE-src[ROUGE])*opaciteLocale));
                         result[VERT] = Math.max(0, (int) (dst[VERT] - (VALEUR_MAXIMALE-src[VERT])*opaciteLocale));
                         result[BLEU] = Math.max(0, (int) (dst[BLEU] - (VALEUR_MAXIMALE-src[BLEU])*opaciteLocale));
-                        result[ALPHA] = Math.min(VALEUR_MAXIMALE, dst[ALPHA]);
+                        result[ALPHA] = dst[ALPHA];
                     }
                 };
+            case TOPKEK:
+            	return new Pinceau() {
+            		@Override
+            		public void peindre(final int[] src, final int[] dst, final int[] result) {
+            			final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
+            			float[] hsbSrc = new float[3];
+            			float[] hsbDst = new float[3];
+            			float[] hsbResult = new float[3];
+            			// On passe dans l'espace HSB pour faire varier la luminosité sans déformer la saturation
+            			Color.RGBtoHSB(src[ROUGE], src[VERT], src[BLEU], hsbSrc); //les coordonnées HSB vont de 0 à 1
+            			Color.RGBtoHSB(dst[ROUGE], dst[VERT], dst[BLEU], hsbDst);
+            			
+            			hsbResult[TEINTE] = hsbDst[TEINTE]*(1-hsbSrc[SATURATION]*opaciteLocale) + hsbSrc[TEINTE]*hsbSrc[SATURATION]*opaciteLocale;
+            			hsbResult[SATURATION] = hsbDst[SATURATION];
+            			hsbResult[LUMINOSITE] = Math.max(0f, Math.min(1f, hsbDst[LUMINOSITE] + (2*hsbSrc[LUMINOSITE]-1)*opaciteLocale));
+            			int res = Color.HSBtoRGB(hsbResult[TEINTE], hsbResult[SATURATION], hsbResult[LUMINOSITE]);
+            			result[ALPHA] = dst[ALPHA];
+            			result[ROUGE] = res & 0x0000FF;
+                        result[VERT] = (res & 0x00FF00) >> 8;
+                        result[BLEU] = (res & 0xFF0000) >> 16;
+            		}
+            	};
             //TODO negatif
             default:
             	LOG.error("Blender non défini pour le mode de fusion : "+composite.modeDeFusion.nom);

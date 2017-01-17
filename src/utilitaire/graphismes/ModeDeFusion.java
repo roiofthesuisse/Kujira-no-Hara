@@ -15,7 +15,9 @@ public enum ModeDeFusion {
 	/** Assombrir en utilisant les couleurs du négatif de l'image */
 	SOUSTRACTION("soustraction"),
 	/** Assombrir en conservant les couleurs que sur l'image */
-	SOUSTRACTION_NEGATIF("soustraction negatif");
+	SOUSTRACTION_NEGATIF("soustraction negatif"), 
+	/** Assombrir ou éclairer (selon la distance au gris médian) */
+	TOPKEK("topkek");
 	
 	public String nom;
 	
