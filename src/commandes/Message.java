@@ -10,8 +10,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
+import main.Fenetre;
 import map.LecteurMap;
 import menu.Texte;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
@@ -26,7 +28,7 @@ public class Message extends Commande implements CommandeEvent {
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_VIDE = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE_PLEINE);
 	protected static BufferedImage imageBoiteMessage = IMAGE_BOITE_MESSAGE_PLEINE;
 	
-	public String texte;
+	public String[] texte;
 	public BufferedImage image;
 	private boolean touchePresseePourQuitterLeMessage = false;
 	private boolean premiereFrameDAffichageDuMessage = true;
@@ -35,7 +37,7 @@ public class Message extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * @param texte affiché dans la boîte de dialogue
 	 */
-	public Message(final String texte) {
+	public Message(final String[] texte) {
 		this.texte = texte;
 		this.touchePresseePourQuitterLeMessage = false;
 	}
@@ -45,7 +47,7 @@ public class Message extends Commande implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Message(final HashMap<String, Object> parametres) {
-		this( (String) parametres.get("texte") );
+		this( InterpreteurDeJson.construireTexteMultilangue(parametres.get("texte")) );
 	}
 
 	@Override
@@ -99,7 +101,7 @@ public class Message extends Commande implements CommandeEvent {
 		BufferedImage imageMessage = Graphismes.clonerUneImage(Message.imageBoiteMessage);
 		
 		// Ajout du texte
-		final Texte t = new Texte(texte);
+		final Texte t = new Texte( this.texte[Fenetre.getPartieActuelle().langue] );
 		imageMessage = Graphismes.superposerImages(imageMessage, t.image, MARGE_DU_TEXTE, MARGE_DU_TEXTE);
 		return imageMessage;
 	}
@@ -129,7 +131,7 @@ public class Message extends Commande implements CommandeEvent {
 		if (this.texte == null || this.texte.equals("")) {
 			nombreDeLignesDuTexte = 0; 
 		} else {
-			nombreDeLignesDuTexte = 1 + StringUtils.countMatches(this.texte, "\n");
+			nombreDeLignesDuTexte = 1 + StringUtils.countMatches(this.texte[Fenetre.getPartieActuelle().langue], "\n");
 		}
 		final int hauteurLigne = Texte.TAILLE_MOYENNE + Texte.INTERLIGNE;
 		final int hauteurTexte = nombreDeLignesDuTexte * hauteurLigne;

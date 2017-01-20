@@ -41,6 +41,7 @@ public final class Partie implements Listable {
 	public int vie;
 	public int vieMax;
 	public int argent;
+	public int langue; //TODO Commande pour modifier la langue à tout moment
 	
 	public final boolean[] interrupteurs = new boolean[NOMBRE_D_INTERRUPTEURS];
 	public final ArrayList<String> interrupteursLocaux = new ArrayList<String>();

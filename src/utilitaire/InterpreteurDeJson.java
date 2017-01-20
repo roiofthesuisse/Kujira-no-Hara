@@ -740,5 +740,28 @@ public abstract class InterpreteurDeJson {
 		
 		return pagesCommunes;
 	}
+
+	/**
+	 * Séparer les langues dans un tableau.
+	 * @param o soit le texte dans une langue unique au format String, soit le texte multilingue String[]
+	 * @return tableau du texte dans chaque langue
+	 */
+	public static String[] construireTexteMultilangue(Object o) {
+		String[] resultat;
+		try {
+			String texteUnique = (String) o;
+			resultat = new String[1];
+			resultat[0] = texteUnique;
+		} catch(Exception e) {
+			LOG.debug(e);
+			JSONArray jsonTexteMulti = (JSONArray) o;
+			int taille = jsonTexteMulti.length();
+			resultat = new String[taille];
+			for (int i = 0; i<taille; i++) {
+				resultat[i] = (String) jsonTexteMulti.get(i);
+			}
+		}
+		return resultat;
+	}
 	
 }

@@ -9,6 +9,7 @@ import main.Fenetre;
 import menu.Menu;
 import menu.Texte;
 import son.LecteurAudio;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
 
@@ -41,7 +42,7 @@ public class EntrerUnNombre extends Message {
 	 * @param numeroDeVariable numéro de la Variable qui mémorise le nombre
 	 * @param tailleDuNombre longueur (en chiffres) du nombre entré
 	 */
-	public EntrerUnNombre(final String texte, final int numeroDeVariable, final int tailleDuNombre) {
+	public EntrerUnNombre(final String[] texte, final int numeroDeVariable, final int tailleDuNombre) {
 		super(texte);
 		this.numeroDeVariable = numeroDeVariable;
 		this.chiffresRentres = new int[tailleDuNombre];
@@ -58,7 +59,7 @@ public class EntrerUnNombre extends Message {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public EntrerUnNombre(final HashMap<String, Object> parametres) {
-		this( 	(String) parametres.get("texte"),
+		this( 	InterpreteurDeJson.construireTexteMultilangue(parametres.get("texte")),
 				(int) parametres.get("numeroDeVariable"),
 				(int) parametres.get("tailleDuNombre")
 		);
@@ -74,7 +75,7 @@ public class EntrerUnNombre extends Message {
 		this.reactualiserLImage = false;
 		
 		// Texte de base
-		final Texte texteDeBase = new Texte(this.texte);
+		final Texte texteDeBase = new Texte(this.texte[Fenetre.getPartieActuelle().langue]);
 		final int hauteurTexte = calculerHauteurTexte();
 		
 		// Superposition

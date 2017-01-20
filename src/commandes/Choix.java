@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 
 import main.Commande;
+import main.Fenetre;
 import menu.Menu;
 import menu.Texte;
 import son.LecteurAudio;
@@ -40,7 +41,7 @@ public class Choix extends Message {
 	 * @param texte affiché dans la boîte de dialogue
 	 * @param alternatives offertes par le choix au joueur
 	 */
-	public Choix(final int numero, final String texte, final ArrayList<String> alternatives) {
+	public Choix(final int numero, final String[] texte, final ArrayList<String> alternatives) {
 		super(texte);
 		this.numero = numero;
 		this.alternatives = alternatives;
@@ -52,7 +53,7 @@ public class Choix extends Message {
 	 */
 	public Choix(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"),
-				(String) parametres.get("texte"),
+				InterpreteurDeJson.construireTexteMultilangue(parametres.get("texte")),
 				InterpreteurDeJson.recupererLesAlternativesDUnChoix((JSONArray) parametres.get("alternatives"))
 		);
 	}
@@ -67,7 +68,7 @@ public class Choix extends Message {
 		BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(Message.imageBoiteMessage);
 		
 		// Texte de base
-		final Texte texteDeBase = new Texte(this.texte);
+		final Texte texteDeBase = new Texte(this.texte[Fenetre.getPartieActuelle().langue]);
 		
 		// On ajoute les alternatives à l'image de base
 		final ArrayList<Texte> alternativesTexte = new ArrayList<Texte>();
