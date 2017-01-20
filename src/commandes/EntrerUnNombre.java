@@ -59,7 +59,7 @@ public class EntrerUnNombre extends Message {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public EntrerUnNombre(final HashMap<String, Object> parametres) {
-		this( 	InterpreteurDeJson.construireTexteMultilangue(parametres.get("texte")),
+		this( 	InterpreteurDeJson.construireTexteMultilingue(parametres.get("texte")),
 				(int) parametres.get("numeroDeVariable"),
 				(int) parametres.get("tailleDuNombre")
 		);

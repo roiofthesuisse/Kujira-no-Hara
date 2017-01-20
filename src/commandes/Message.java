@@ -47,7 +47,7 @@ public class Message extends Commande implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Message(final HashMap<String, Object> parametres) {
-		this( InterpreteurDeJson.construireTexteMultilangue(parametres.get("texte")) );
+		this( InterpreteurDeJson.construireTexteMultilingue(parametres.get("texte")) );
 	}
 
 	@Override

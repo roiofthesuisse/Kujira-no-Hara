@@ -53,7 +53,7 @@ public class Choix extends Message {
 	 */
 	public Choix(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"),
-				InterpreteurDeJson.construireTexteMultilangue(parametres.get("texte")),
+				InterpreteurDeJson.construireTexteMultilingue(parametres.get("texte")),
 				InterpreteurDeJson.recupererLesAlternativesDUnChoix((JSONArray) parametres.get("alternatives"))
 		);
 	}

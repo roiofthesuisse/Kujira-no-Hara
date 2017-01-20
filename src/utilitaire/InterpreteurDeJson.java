@@ -746,7 +746,7 @@ public abstract class InterpreteurDeJson {
 	 * @param o soit le texte dans une langue unique au format String, soit le texte multilingue String[]
 	 * @return tableau du texte dans chaque langue
 	 */
-	public static String[] construireTexteMultilangue(Object o) {
+	public static String[] construireTexteMultilingue(Object o) {
 		String[] resultat;
 		try {
 			String texteUnique = (String) o;
