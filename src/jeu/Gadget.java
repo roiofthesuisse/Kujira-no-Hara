@@ -31,8 +31,7 @@ import utilitaire.graphismes.ModeDeFusion;
 public class Gadget implements Listable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Gadget.class);
-	private static Gadget[] gadgetsDuJeu;
-	public static HashMap<String, Gadget> gadgetsDuJeuHash = new HashMap<String, Gadget>();
+	public static final Gadget[] gadgetsDuJeu = chargerLesGadgetsDuJeu();
 	
 	/**
 	 * Chaque Gadget possède un id propre. 
@@ -90,7 +89,7 @@ public class Gadget implements Listable {
 	 * Charger les Gadgets du jeu via JSON.
 	 * @return nombre de Gadgets dans le jeu
 	 */
-	public static int chargerLesGadgetsDuJeu() {
+	public static Gadget[] chargerLesGadgetsDuJeu() {
 		try {
 			final JSONArray jsonGadgets = InterpreteurDeJson.ouvrirJsonGadgets();
 			final ArrayList<Gadget> gadgets = new ArrayList<Gadget>();
@@ -109,19 +108,17 @@ public class Gadget implements Listable {
 				
 				final Gadget gadget = new Gadget(parametres);
 				gadgets.add(gadget);
-				gadgetsDuJeuHash.put(gadget.nom, gadget);
 				i++;
 			}
 			
-			gadgetsDuJeu = new Gadget[gadgets.size()];
+			Gadget[] gadgetsDuJeu = new Gadget[gadgets.size()];
 			gadgets.toArray(gadgetsDuJeu);
-			return gadgetsDuJeu.length;
+			return gadgetsDuJeu;
 			
 		} catch (FileNotFoundException e) {
 			//problème lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les gadgets du jeu.", e);
-			gadgetsDuJeu = null;
-			return 0;
+			return null;
 		}
 	}
 

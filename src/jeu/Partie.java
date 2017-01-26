@@ -15,6 +15,7 @@ import conditions.Condition;
 import jeu.Quete.AvancementQuete;
 import main.Commande;
 import main.Fenetre;
+import map.Animation;
 import map.Map;
 import map.Picture;
 import map.meteo.Meteo;
@@ -90,15 +91,17 @@ public final class Partie implements Listable {
 			avancementDesQuetes[i] = AvancementQuete.INCONNUE;
 		}
 		// Objets
-		this.objetsPossedes = new int[ Objet.chargerLesObjetsDuJeu() ];
+		this.objetsPossedes = new int[Objet.objetsDuJeu.length];
 		// Armes
-		this.armesPossedees = new boolean[ Arme.chargerLesArmesDuJeu() ];
+		this.armesPossedees = new boolean[Arme.armesDuJeu.length];
 		this.nombreDArmesPossedees = 0;
 		this.idArmeEquipee = -1;
 		// Gadgets
-		this.gadgetsPossedes = new boolean[ Gadget.chargerLesGadgetsDuJeu() ];
+		this.gadgetsPossedes = new boolean[Gadget.gadgetsDuJeu.length];
 		this.nombreDeGadgetsPossedes = 0;
 		this.idGadgetEquipe = -1;
+		// Animations
+		Animation.chargerLesAnimationsDuJeu();
 
 		LOG.info("Partie chargée.");
 	}
@@ -158,7 +161,7 @@ public final class Partie implements Listable {
 		this.avancementDesQuetes = tableauAvancementDesQuetes;
 		
 		//armes
-		final boolean[] tableauArmesPossedees = new boolean[Arme.chargerLesArmesDuJeu()];
+		final boolean[] tableauArmesPossedees = new boolean[Arme.armesDuJeu.length];
 		int nombreDArmesPossedees = 0;
 		for (Object o : armesPossedees) {
 			final int armePossedee = (Integer) o;
@@ -169,7 +172,7 @@ public final class Partie implements Listable {
 		this.nombreDArmesPossedees = nombreDArmesPossedees;
 		
 		//gadgets
-		final boolean[] tableauDesGadgetsPossedes = new boolean[Gadget.chargerLesGadgetsDuJeu()];
+		final boolean[] tableauDesGadgetsPossedes = new boolean[Gadget.gadgetsDuJeu.length];
 		int nombreDeGadgetsPossedes = 0;
 		for (Object o : gadgetsPossedes) {
 			final int gadgetPossede = (Integer) o;
@@ -194,6 +197,8 @@ public final class Partie implements Listable {
 			final String code = (String) o;
 			this.interrupteursLocaux.add(code);
 		}
+		// Animations
+		Animation.chargerLesAnimationsDuJeu();
 				
 		this.idArmeEquipee = idArmeEquipee;
 		this.idGadgetEquipe = idGadgetEquipe;

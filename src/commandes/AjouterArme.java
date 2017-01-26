@@ -3,7 +3,6 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import jeu.Arme;
 import jeu.Partie;
 import main.Commande;
 import main.Fenetre;
@@ -18,14 +17,10 @@ public class AjouterArme extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * @param arme identifiant de l'Arme à ajouter : son numéro ou son nom
 	 */
-	public AjouterArme(final Object arme) {
-		try {
-			//l'identifiant de l'Arme est son numéro
-			this.idArme = (Integer) arme;
-		} catch (Exception e) {
-			//l'identifiant de l'Arme est son numéro
-			this.idArme = Arme.armesDuJeuHash.get((String) arme).id;
-		}
+	public AjouterArme(final int arme) {
+		//l'identifiant de l'Arme est son numéro
+		this.idArme = arme;
+
 	}
 	
 	/**
@@ -33,7 +28,7 @@ public class AjouterArme extends Commande implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AjouterArme(final HashMap<String, Object> parametres) {
-		this( (Object) (parametres.containsKey("idArme") ? parametres.get("idArme") : parametres.get("nomArme")) );
+		this( (int) parametres.get("idArme") );
 	}
 	
 	@Override

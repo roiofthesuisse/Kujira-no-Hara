@@ -25,8 +25,6 @@ import utilitaire.Maths;
  * Il reçoit les ordres du clavier pour les transcrire en actions.
  */
 public class LecteurMap extends Lecteur {
-	//constantes
-
 	//jauges
 	private static final int X_AFFICHAGE_ARME = 563;
 	private static final int Y_AFFICHAGE_ARME = 4;

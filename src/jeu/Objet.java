@@ -31,8 +31,7 @@ import utilitaire.graphismes.ModeDeFusion;
 public class Objet implements Listable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Objet.class);
-	public static Objet[] objetsDuJeu;
-	public static HashMap<String, Objet> objetsDuJeuHash = new HashMap<String, Objet>();;
+	public static Objet[] objetsDuJeu = chargerLesObjetsDuJeu();
 	
 	public final Integer numero; //Integer car clé d'une HashMap
 	public final String nom;
@@ -73,9 +72,9 @@ public class Objet implements Listable {
 
 	/**
 	 * Charger les Objets du jeu via JSON.
-	 * @return nombre d'Objets dans le jeu
+	 * @return tous les Objets du jeu
 	 */
-	public static int chargerLesObjetsDuJeu() {
+	public static Objet[] chargerLesObjetsDuJeu() {
 		try {
 			final JSONArray jsonObjets = InterpreteurDeJson.ouvrirJsonObjets();
 			final ArrayList<Objet> objets = new ArrayList<Objet>();
@@ -105,20 +104,18 @@ public class Objet implements Listable {
 				
 				final Objet objet = new Objet(parametresObjet);
 				objets.add(objet);
-				objetsDuJeuHash.put(objet.nom, objet);
 				i++;
 			}
 			
-			objetsDuJeu = new Objet[objets.size()];
+			Objet[] objetsDuJeu = new Objet[objets.size()];
 			objets.toArray(objetsDuJeu);
 			LOG.debug("Objets créés : " + objetsDuJeu.length);
-			return objetsDuJeu.length;
+			return objetsDuJeu;
 			
 		} catch (FileNotFoundException e) {
 			//problème lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les objets du jeu.", e);
-			objetsDuJeu = null;
-			return 0;
+			return null;
 		}
 	}
 	

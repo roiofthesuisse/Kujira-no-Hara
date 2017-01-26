@@ -3,7 +3,6 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import jeu.Gadget;
 import jeu.Partie;
 import main.Commande;
 import main.Fenetre;
@@ -18,14 +17,9 @@ public class AjouterGadget extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * @param gadget identifiant du Gadget à ajouter : son numéro ou son nom
 	 */
-	public AjouterGadget(final Object gadget) {
-		try {
-			//l'identifiant du Gadget est son numéro
-			this.idGadget = (Integer) gadget;
-		} catch (Exception e) {
-			//l'identifiant du Gadget est son numéro
-			this.idGadget = Gadget.gadgetsDuJeuHash.get((String) gadget).id;
-		}
+	public AjouterGadget(final int idGadget) {
+		//l'identifiant du Gadget est son numéro
+		this.idGadget = idGadget;
 	}
 	
 	/**
@@ -33,7 +27,7 @@ public class AjouterGadget extends Commande implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AjouterGadget(final HashMap<String, Object> parametres) {
-		this( (Object) (parametres.containsKey("idGadget") ? parametres.get("idGadget") : parametres.get("nomGadget")) );
+		this( (int) parametres.get("idGadget") );
 	}
 	
 	@Override

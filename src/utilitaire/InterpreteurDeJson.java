@@ -541,9 +541,9 @@ public abstract class InterpreteurDeJson {
 				
 				if ("Objet".equals(type)) {
 					// L'ElementDeMenu est un icône d'Objet
-					final String nomObjet = (String) jsonElement.get("nom");
+					final int idObjet = jsonElement.getInt("idObjet");
 					
-					final Objet objet = Objet.objetsDuJeuHash.get(nomObjet);
+					final Objet objet = Objet.objetsDuJeu[idObjet];
 					final ImageMenu imageObjet = new ImageMenu(objet, x, y, largeur, hauteur, true, id);
 					
 					images.add(imageObjet);

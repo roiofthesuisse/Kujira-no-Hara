@@ -32,8 +32,7 @@ import utilitaire.graphismes.ModeDeFusion;
 public class Arme implements Listable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Arme.class);
-	private static Arme[] armesDuJeu;
-	public static HashMap<String, Arme> armesDuJeuHash = new HashMap<String, Arme>();
+	public static final Arme[] armesDuJeu = chargerLesArmesDuJeu();
 	
 	/**
 	 * Chaque Arme possède un id propre. 
@@ -126,7 +125,7 @@ public class Arme implements Listable {
 	 * Charger les Armes du jeu via JSON.
 	 * @return nombre de Armes dans le jeu
 	 */
-	public static int chargerLesArmesDuJeu() {
+	public static Arme[] chargerLesArmesDuJeu() {
 		try {
 			final JSONArray jsonArmes = InterpreteurDeJson.ouvrirJsonArmes();
 			final ArrayList<Arme> armes = new ArrayList<Arme>();
@@ -160,19 +159,17 @@ public class Arme implements Listable {
 				
 				final Arme arme = new Arme(parametres);
 				armes.add(arme);
-				armesDuJeuHash.put(arme.nom, arme);
 				i++;
 			}
 			
-			armesDuJeu = new Arme[armes.size()];
+			Arme[] armesDuJeu = new Arme[armes.size()];
 			armes.toArray(armesDuJeu);
-			return armesDuJeu.length;
+			return armesDuJeu;
 			
 		} catch (FileNotFoundException e) {
 			//problème lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les armes du jeu.", e);
-			armesDuJeu = null;
-			return 0;
+			return null;
 		}
 	}
 

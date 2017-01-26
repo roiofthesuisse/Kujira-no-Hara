@@ -4,32 +4,31 @@ import java.util.HashMap;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
-import jeu.Objet;
 import main.Fenetre;
 
 /**
  * Le joueur possède-t-il l'Objet ?
  */
 public class ConditionObjetPossede extends Condition implements CommandeEvent, CommandeMenu {
-	private Object objet;
+	private int idObjet;
 	
 	/**
 	 * Constructeur partiel
 	 * Réservé aux Conditions de Pages
-	 * @param objet identifiant de l'Objet : numéro ou nom
+	 * @param idObjet identifiant de l'Objet
 	 */
-	public ConditionObjetPossede(final Object objet) {
-		this(-1, objet);
+	public ConditionObjetPossede(final int idObjet) {
+		this(-1, idObjet);
 	}
 	
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param objet identifiant de l'Objet : numéro ou nom
+	 * @param idObjet identifiant de l'Objet
 	 */
-	public ConditionObjetPossede(final int numero, final Object objet) {
-		this.numero = numero;
-		this.objet = objet;
+	public ConditionObjetPossede(final int numeroCondition, final int idObjet) {
+		this.numero = numeroCondition;
+		this.idObjet = idObjet;
 	}
 		
 	/**
@@ -38,19 +37,13 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	 */
 	public ConditionObjetPossede(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
-			parametres.get("objet")
+			(int) parametres.get("objet")
 		);
 	}
 	
 	@Override
 	public final boolean estVerifiee() {
-		int numeroObjet;
-		try {
-			numeroObjet = (Integer) objet;
-		} catch (Exception e) {
-			numeroObjet = Objet.objetsDuJeuHash.get((String) objet).numero;
-		}
-		return Fenetre.getPartieActuelle().objetsPossedes[numeroObjet] >= 1;
+		return Fenetre.getPartieActuelle().objetsPossedes[idObjet] >= 1;
 	}
 
 	@Override
