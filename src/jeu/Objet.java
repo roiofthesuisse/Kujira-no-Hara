@@ -33,7 +33,7 @@ public class Objet implements Listable {
 	private static final Logger LOG = LogManager.getLogger(Objet.class);
 	public static Objet[] objetsDuJeu = chargerLesObjetsDuJeu();
 	
-	public final Integer numero; //Integer car clé d'une HashMap
+	public final Integer idObjet; //Integer car clé d'une HashMap
 	public final String nom;
 	private final String nomIcone;
 	private BufferedImage icone;
@@ -48,8 +48,8 @@ public class Objet implements Listable {
 	 * @param description de l'Objet
 	 * @param effet de l'Objet lorsqu'on le consomme
 	 */
-	private Objet(final int numero, final String nom, final String nomIcone, final String description, final ArrayList<Commande> effet) {
-		this.numero = numero;
+	private Objet(final int idObjet, final String nom, final String nomIcone, final String description, final ArrayList<Commande> effet) {
+		this.idObjet = idObjet;
 		this.nom = nom;
 		this.nomIcone = nomIcone;
 		this.description = description;
@@ -62,7 +62,7 @@ public class Objet implements Listable {
 	 */
 	@SuppressWarnings("unchecked")
 	public Objet(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("numero"), 
+		this( (int) parametres.get("idObjet"), 
 			(String) parametres.get("nom"),
 			(String) parametres.get("nomIcone"),
 			(String) parametres.get("description"),
@@ -78,13 +78,10 @@ public class Objet implements Listable {
 		try {
 			final JSONArray jsonObjets = InterpreteurDeJson.ouvrirJsonObjets();
 			final ArrayList<Objet> objets = new ArrayList<Objet>();
-			int i = 0;
 			for (Object objectObjet : jsonObjets) {
 				final JSONObject jsonObjet = (JSONObject) objectObjet;
 				
 				final HashMap<String, Object> parametresObjet = new HashMap<String, Object>();
-				parametresObjet.put("numero", i);
-				
 				final Iterator<String> jsonParametresObjet = jsonObjet.keys();
 				while (jsonParametresObjet.hasNext()) {
 					final String parametreObjet = jsonParametresObjet.next();
@@ -103,8 +100,18 @@ public class Objet implements Listable {
 				}
 				
 				final Objet objet = new Objet(parametresObjet);
-				objets.add(objet);
-				i++;
+				
+				// On vérifie que les identifiants soient bien uniques
+				boolean identifiantUnique = true;
+				for (Objet objet2 : objets) {
+					if (objet2.idObjet.equals(objet.idObjet)) {
+						LOG.error("Les deux objets ont le même identifiant : "+objet.nom+", "+objet2.nom);
+						identifiantUnique = false;
+					}
+				}
+				if (identifiantUnique) {
+					objets.add(objet);
+				}
 			}
 			
 			Objet[] objetsDuJeu = new Objet[objets.size()];
@@ -142,7 +149,7 @@ public class Objet implements Listable {
 	 */
 	public final ArrayList<Condition> getConditions() {
 		final ArrayList<Condition> conditions = new ArrayList<Condition>();
-		conditions.add(new ConditionObjetPossede(this.numero));
+		conditions.add(new ConditionObjetPossede(this.idObjet));
 		return conditions;
 	}
 	
@@ -184,7 +191,7 @@ public class Objet implements Listable {
 		} else {
 			// toutes les Armes
 			for (Objet objet : objetsDuJeu) {
-				listablesPossedes.put((Integer) objet.numero, objet);
+				listablesPossedes.put((Integer) objet.idObjet, objet);
 			}
 		}
 		return listablesPossedes;
@@ -192,7 +199,7 @@ public class Objet implements Listable {
 
 	@Override
 	public final BufferedImage construireImagePourListe() {
-		final Texte texte = new Texte(this.nom+" : "+Fenetre.getPartieActuelle().objetsPossedes[this.numero]);
+		final Texte texte = new Texte(this.nom+" : "+Fenetre.getPartieActuelle().objetsPossedes[this.idObjet]);
 		final BufferedImage imageTexte = texte.texteToImage();
 		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();
 		final int hauteur = Math.max(imageTexte.getHeight(), this.getIcone().getHeight());

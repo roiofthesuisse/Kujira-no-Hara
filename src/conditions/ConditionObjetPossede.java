@@ -37,7 +37,7 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	 */
 	public ConditionObjetPossede(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
-			(int) parametres.get("objet")
+			(int) parametres.get("idObjet")
 		);
 	}
 	
