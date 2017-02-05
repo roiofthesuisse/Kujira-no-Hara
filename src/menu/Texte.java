@@ -158,6 +158,8 @@ public class Texte extends ElementDeMenu {
 		this.taille = Texte.TAILLE_MOYENNE;
 		this.opacite = Texte.OPACITE_MAXIMALE;
 		this.image = this.texteToImage();
+		this.largeur = this.image.getWidth();
+		this.hauteur = this.image.getHeight();
 	}
 	
 	/**
