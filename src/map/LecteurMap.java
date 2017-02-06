@@ -120,6 +120,9 @@ public class LecteurMap extends Lecteur {
 		//on dessine les évènements
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera);
 		
+		//on dessine les animations
+		ecran = Animation.dessinerLesAnimations(ecran);
+		
 		//ajouter imageCoucheSurHeros à l'écran
 		ecran = dessinerDecorSuperieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
 		

@@ -9,6 +9,10 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import commandes.JouerAnimation;
+import jeu.Partie;
+import main.Fenetre;
+import son.LecteurAudio;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
@@ -47,8 +51,8 @@ public class Animation {
 				
 				Picture vignette = new Picture(imageVignette, 
 						-1, //Picture non référencée dans le LecteurMap
-						xVignette, //TODO ne pas oublier de décaler aussi par rapport au xAnimation
-						yVignette,  //TODO ne pas oublier de décaler aussi par rapport au yAnimation
+						xVignette,
+						yVignette,
 						true, //centré
 						jsonVignette.has("zoomX") ? jsonVignette.getInt("zoomX") : Graphismes.PAS_D_HOMOTHETIE,
 						jsonVignette.has("zoomY") ? (int) jsonVignette.getInt("zoomY") : Graphismes.PAS_D_HOMOTHETIE, 
@@ -85,6 +89,41 @@ public class Animation {
 	public static Animation[] chargerLesAnimationsDuJeu() {
 		//TODO
 		return null;
+	}
+
+	/**
+	 * Dessiner les Animations en cours sur l'écran
+	 * @param ecran sur lequel on dessine
+	 * @return écran avec les Animations dessinées
+	 */
+	public static BufferedImage dessinerLesAnimations(BufferedImage ecran) {
+		Partie partie = Fenetre.getPartieActuelle();
+		Frame frameActuelle;
+		for (JouerAnimation animationEnCours : partie.animations) {
+			frameActuelle = Animation.animationsDuJeu[animationEnCours.numeroAnimation].frames.get(animationEnCours.frameActuelle);
+			// Afficher les vignettes de cette frame
+			for (Picture picture : frameActuelle.vignettes){
+				ecran = Graphismes.superposerImages(
+						ecran,
+						picture.image,
+						picture.x + animationEnCours.xEcran, //x relatif au centre de la vignette et x à l'écran
+						picture.y + animationEnCours.yEcran, //y relatif au centre de la vignette et y à l'écran
+						picture.centre,
+						picture.zoomX,
+						picture.zoomY,
+						picture.opacite,
+						picture.modeDeFusion,
+						picture.angle
+				);
+			}
+			// Jouer les sons de cette frame
+			for (String nomSon : frameActuelle.sons) {
+				LecteurAudio.playSe(nomSon);
+			}
+			// La prochaine fois on jouera la frame suivante
+			animationEnCours.frameActuelle++;
+		}
+		return ecran;
 	}
 	
 }

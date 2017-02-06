@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import commandes.ChargerPartie;
+import commandes.JouerAnimation;
 import conditions.Condition;
 import jeu.Quete.AvancementQuete;
 import main.Commande;
@@ -66,6 +67,8 @@ public final class Partie implements Listable {
 	public Meteo meteo = null;
 	/** Images à afficher par dessus l'écran */
 	public HashMap<Integer, Picture> images = new HashMap<Integer, Picture>();
+	/** Animations à afficher sur la Map */
+	public ArrayList<JouerAnimation> animations = new ArrayList<JouerAnimation>();
 	
 	/** Mot de passe à saisir lettre par lettre via un Menu */
 	public final int tailleMaximaleDuMot = 10;
@@ -100,8 +103,6 @@ public final class Partie implements Listable {
 		this.gadgetsPossedes = new boolean[Gadget.gadgetsDuJeu.length];
 		this.nombreDeGadgetsPossedes = 0;
 		this.idGadgetEquipe = -1;
-		// Animations
-		Animation.chargerLesAnimationsDuJeu();
 
 		LOG.info("Partie chargée.");
 	}
