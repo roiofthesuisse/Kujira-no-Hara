@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import main.Commande;
 import main.Fenetre;
+import map.LecteurMap;
 import menu.Menu;
 import menu.Texte;
 import son.LecteurAudio;
@@ -103,14 +104,10 @@ public class EntrerUnNombre extends Message {
 		}
 		return imageDuMessage;
 	}
-	/**
-	 * Le curseur du Choix a-t-il bougé ?
-	 * Si oui il faut remplacer l'image de Message affichée.
-	 * @return 
-	 */
+
 	@Override
-	protected final boolean siChoixLeCurseurATIlBouge() {
-		return reactualiserLImage;
+	protected boolean ilFautReactualiserLImageDuMessage(LecteurMap lecteur) {
+		return this.reactualiserLImage || super.ilFautReactualiserLImageDuMessage(lecteur);
 	}
 	
 	/** Le Joueur appuie sur la touche pendant le Message */

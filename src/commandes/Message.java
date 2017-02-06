@@ -55,17 +55,13 @@ public class Message extends Commande implements CommandeEvent {
 		final LecteurMap lecteur = this.page.event.map.lecteur;
 		lecteur.normaliserApparenceDesInterlocuteursAvantMessage(this.page.event);
 		//si le Message à afficher est différent du Message affiché, on change !
-		if ( lecteur.messageActuel==null 
-				|| !lecteur.messageActuel.texte.equals(this.texte) 
-				|| siChoixLeCurseurATIlBouge()
-				|| this.premiereFrameDAffichageDuMessage
-		) {
+		if (ilFautReactualiserLImageDuMessage(lecteur)) {
 			lecteur.messageActuel = this;
 			this.image = produireImageDuMessage();
 		}
 		
 		//fermer le message
-		if ( this.touchePresseePourQuitterLeMessage ) {
+		if (this.touchePresseePourQuitterLeMessage) {
 			//on ferme le message
 			lecteur.messageActuel = null;
 			this.touchePresseePourQuitterLeMessage = false;
@@ -76,6 +72,17 @@ public class Message extends Commande implements CommandeEvent {
 			this.premiereFrameDAffichageDuMessage = false;
 			return curseurActuel;
 		}
+	}
+
+	/**
+	 * Faut-il réactualiser l'image du Message ?
+	 * @param lecteur de map
+	 * @return true s'il faut construire une nouvelle image de Message, false sinon
+	 */
+	protected boolean ilFautReactualiserLImageDuMessage(LecteurMap lecteur) {
+		return lecteur.messageActuel==null //le dialogue vient de commencer
+				|| !lecteur.messageActuel.texte.equals(this.texte) //le texte a changé mais pas encore l'image
+				|| this.premiereFrameDAffichageDuMessage; //TODO utile ?
 	}
 
 	/**
@@ -104,16 +111,6 @@ public class Message extends Commande implements CommandeEvent {
 		final Texte t = new Texte( this.texte[Fenetre.getPartieActuelle().langue] );
 		imageMessage = Graphismes.superposerImages(imageMessage, t.image, MARGE_DU_TEXTE, MARGE_DU_TEXTE);
 		return imageMessage;
-	}
-	
-	/**
-	 * Ce n'est pas un Choix, juste un Message Normal, donc le curseur n'a pas changé.
-	 * On n'a jamais besoin de remplacer l'image du Message.
-	 * Méthode dérivée par la classe Choix.
-	 * @return false
-	 */
-	protected boolean siChoixLeCurseurATIlBouge() {
-		return false;
 	}
 	
 	/**

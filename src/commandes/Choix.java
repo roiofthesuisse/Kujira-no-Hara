@@ -10,6 +10,7 @@ import org.json.JSONArray;
 
 import main.Commande;
 import main.Fenetre;
+import map.LecteurMap;
 import menu.Menu;
 import menu.Texte;
 import son.LecteurAudio;
@@ -31,7 +32,7 @@ public class Choix extends Message {
 	/** Différentes alternatives proposées par le Choix */
 	public final ArrayList<String> alternatives;
 
-	private int positionCurseurAffichee = -1;
+	private int positionCurseurAffichee = 0;
 	public int positionCurseurChoisie = 0;
 	public ArrayList<BufferedImage> imagesDesSelectionsPossibles = null;
 	 
@@ -119,17 +120,13 @@ public class Choix extends Message {
 		return this.imagesDesSelectionsPossibles.get(this.positionCurseurAffichee);
 	}
 	
-	/**
-	 * Le curseur du Choix a-t-il bougé ?
-	 * Si oui il faut remplacer l'image de Message affichée.
-	 * @return 
-	 */
 	@Override
-	protected final boolean siChoixLeCurseurATIlBouge() {
-		final boolean reponse = (positionCurseurAffichee != positionCurseurChoisie) 
-				|| this.imagesDesSelectionsPossibles == null;
+	protected boolean ilFautReactualiserLImageDuMessage(LecteurMap lecteur) {
+		final boolean leCurseurABouge = (positionCurseurAffichee != positionCurseurChoisie);
+		final boolean lesImagesNOntJamaisEteGenerees = this.imagesDesSelectionsPossibles == null;
 		this.positionCurseurAffichee = this.positionCurseurChoisie;
-		return reponse;
+		
+		return leCurseurABouge || lesImagesNOntJamaisEteGenerees || super.ilFautReactualiserLImageDuMessage(lecteur);
 	}
 	
 	/**
@@ -137,10 +134,12 @@ public class Choix extends Message {
 	 */
 	@Override
 	protected final int redirectionSelonLeChoix(final int curseurActuel, final ArrayList<Commande> commandes) {
+		Commande commande;
+		ChoixAlternative alternative;
 		for (int i = 0; i < commandes.size(); i++) {
-			final Commande commande = commandes.get(i);
+			commande = commandes.get(i);
 			if (commande instanceof ChoixAlternative) {
-				final ChoixAlternative alternative = (ChoixAlternative) commande;
+				alternative = (ChoixAlternative) commande;
 				if (alternative.numeroChoix == this.numero 
 						&& alternative.numeroAlternative == this.positionCurseurAffichee
 				) {
@@ -150,7 +149,7 @@ public class Choix extends Message {
 				}
 			}
 		}
-		//le début de Boucle n'a pas été trouvé
+		//l'alternative sélectionnée de ce Choix n'a pas été trouvée
 		LOG.error("L'alternative " + positionCurseurAffichee
 				+ " du choix numéro " + numero + " n'a pas été trouvée !");
 		return curseurActuel+1;
