@@ -116,6 +116,16 @@ public abstract class InterpreteurDeJson {
 	}
 	
 	/**
+	 * Charger la liste des Animations modèles du jeu au format JSON.
+	 * @return objet JSON contenant la liste des Animations du jeu
+	 * @throws FileNotFoundException fichier JSON introuvable
+	 */
+	public static JSONArray ouvrirJsonAnimations() throws FileNotFoundException {
+		final JSONObject jsonArmes = ouvrirJson("animations", ".\\ressources\\Data\\");
+		return jsonArmes.getJSONArray("animations");
+	}
+	
+	/**
 	 * Charger une Map au format JSON.
 	 * @param numero de la Map à charger
 	 * @return objet JSON contenant la description de la Map
@@ -746,16 +756,16 @@ public abstract class InterpreteurDeJson {
 	 * @param o soit le texte dans une langue unique au format String, soit le texte multilingue String[]
 	 * @return tableau du texte dans chaque langue
 	 */
-	public static String[] construireTexteMultilingue(Object o) {
+	public static String[] construireTexteMultilingue(final Object o) {
 		String[] resultat;
 		try {
-			String texteUnique = (String) o;
+			final String texteUnique = (String) o;
 			resultat = new String[1];
 			resultat[0] = texteUnique;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			LOG.debug(e);
-			JSONArray jsonTexteMulti = (JSONArray) o;
-			int taille = jsonTexteMulti.length();
+			final JSONArray jsonTexteMulti = (JSONArray) o;
+			final int taille = jsonTexteMulti.length();
 			resultat = new String[taille];
 			for (int i = 0; i<taille; i++) {
 				resultat[i] = (String) jsonTexteMulti.get(i);

@@ -96,11 +96,11 @@ public final class Partie implements Listable {
 		// Objets
 		this.objetsPossedes = new int[Objet.objetsDuJeu.length];
 		// Armes
-		this.armesPossedees = new boolean[Arme.armesDuJeu.length];
+		this.armesPossedees = new boolean[Arme.ARMES_DU_JEU.length];
 		this.nombreDArmesPossedees = 0;
 		this.idArmeEquipee = -1;
 		// Gadgets
-		this.gadgetsPossedes = new boolean[Gadget.gadgetsDuJeu.length];
+		this.gadgetsPossedes = new boolean[Gadget.GADGETS_DU_JEU.length];
 		this.nombreDeGadgetsPossedes = 0;
 		this.idGadgetEquipe = -1;
 
@@ -162,7 +162,7 @@ public final class Partie implements Listable {
 		this.avancementDesQuetes = tableauAvancementDesQuetes;
 		
 		//armes
-		final boolean[] tableauArmesPossedees = new boolean[Arme.armesDuJeu.length];
+		final boolean[] tableauArmesPossedees = new boolean[Arme.ARMES_DU_JEU.length];
 		int nombreDArmesPossedees = 0;
 		for (Object o : armesPossedees) {
 			final int armePossedee = (Integer) o;
@@ -173,7 +173,7 @@ public final class Partie implements Listable {
 		this.nombreDArmesPossedees = nombreDArmesPossedees;
 		
 		//gadgets
-		final boolean[] tableauDesGadgetsPossedes = new boolean[Gadget.gadgetsDuJeu.length];
+		final boolean[] tableauDesGadgetsPossedes = new boolean[Gadget.GADGETS_DU_JEU.length];
 		int nombreDeGadgetsPossedes = 0;
 		for (Object o : gadgetsPossedes) {
 			final int gadgetPossede = (Integer) o;

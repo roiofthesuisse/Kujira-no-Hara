@@ -32,7 +32,7 @@ import utilitaire.graphismes.ModeDeFusion;
 public class Arme implements Listable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Arme.class);
-	public static final Arme[] armesDuJeu = chargerLesArmesDuJeu();
+	public static final Arme[] ARMES_DU_JEU = chargerLesArmesDuJeu();
 	
 	/**
 	 * Chaque Arme possède un id propre. 
@@ -115,7 +115,7 @@ public class Arme implements Listable {
 	 */
 	public static Arme getArme(final int idArme) {
 		try {
-			return armesDuJeu[idArme];
+			return ARMES_DU_JEU[idArme];
 		} catch (Exception e) {
 			return null;
 		}
@@ -162,7 +162,7 @@ public class Arme implements Listable {
 				i++;
 			}
 			
-			Arme[] armesDuJeu = new Arme[armes.size()];
+			final Arme[] armesDuJeu = new Arme[armes.size()];
 			armes.toArray(armesDuJeu);
 			return armesDuJeu;
 			
@@ -185,12 +185,12 @@ public class Arme implements Listable {
 			final boolean[] armesPossedees = Fenetre.getPartieActuelle().armesPossedees;
 			for (int i = 0; i < armesPossedees.length; i++) {
 				if (armesPossedees[i]) {
-					listablesPossedes.put((Integer) i, armesDuJeu[i]);
+					listablesPossedes.put((Integer) i, ARMES_DU_JEU[i]);
 				}
 			}
 		} else {
 			// toutes les Armes
-			for (Arme arme : armesDuJeu) {
+			for (Arme arme : ARMES_DU_JEU) {
 				listablesPossedes.put((Integer) arme.id, arme);
 			}
 		}

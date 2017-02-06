@@ -31,7 +31,7 @@ import utilitaire.graphismes.ModeDeFusion;
 public class Gadget implements Listable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Gadget.class);
-	public static final Gadget[] gadgetsDuJeu = chargerLesGadgetsDuJeu();
+	public static final Gadget[] GADGETS_DU_JEU = chargerLesGadgetsDuJeu();
 	
 	/**
 	 * Chaque Gadget possède un id propre. 
@@ -79,7 +79,7 @@ public class Gadget implements Listable {
 	 */
 	public static Gadget getGadget(final int idGadget) {
 		try {
-			return gadgetsDuJeu[idGadget];
+			return GADGETS_DU_JEU[idGadget];
 		} catch (Exception e) {
 			return null;
 		}
@@ -134,12 +134,12 @@ public class Gadget implements Listable {
 			final boolean[] gadgetsPossedes = Fenetre.getPartieActuelle().gadgetsPossedes;
 			for (int i = 0; i < gadgetsPossedes.length; i++) {
 				if (gadgetsPossedes[i]) {
-					listablesPossedes.put((Integer) i, gadgetsDuJeu[i]);
+					listablesPossedes.put((Integer) i, GADGETS_DU_JEU[i]);
 				}
 			}
 		} else {
 			// toutes les Armes
-			for (Gadget gadget : gadgetsDuJeu) {
+			for (Gadget gadget : GADGETS_DU_JEU) {
 				listablesPossedes.put((Integer) gadget.id, gadget);
 			}
 		}
