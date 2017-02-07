@@ -150,10 +150,12 @@ public class Animation {
 	 */
 	public static BufferedImage dessinerLesAnimations(BufferedImage ecran) {
 		final Partie partie = Fenetre.getPartieActuelle();
-		Frame frameActuelle;
-		for (JouerAnimation animationEnCours : partie.animations) {
+		JouerAnimation animationEnCours;
+		int nombreDAnimationsEnCours = partie.animations.size();
+		for (int i = 0; i<nombreDAnimationsEnCours; i++) {
+			animationEnCours = partie.animations.get(i);
 			try {
-				frameActuelle = Animation.ANIMATIONS_DU_JEU[animationEnCours.idAnimation].frames.get(animationEnCours.frameActuelle);
+				Frame frameActuelle = Animation.ANIMATIONS_DU_JEU[animationEnCours.idAnimation].frames.get(animationEnCours.frameActuelle);
 				// Afficher les vignettes de cette frame
 				for (Picture picture : frameActuelle.vignettes) {
 					//TODO ça fait que dalle
@@ -178,12 +180,15 @@ public class Animation {
 						LecteurAudio.playSe(son.nom, son.volume);
 					}
 				}
-				// La prochaine fois on jouera la frame suivante
+				// La prochaine fois, on jouera la frame suivante
 				LOG.info("Frame n°"+animationEnCours.frameActuelle+" de l'animation");
 				animationEnCours.frameActuelle++;
 			} catch (IndexOutOfBoundsException e) {
 				LOG.info("Fin de l'animation n°"+animationEnCours.frameActuelle);
-				//TODO retirer l'animation de la file
+				// L'animation est terminée, on la retire de la file
+				partie.animations.remove(i);
+				i--;
+				nombreDAnimationsEnCours--;
 			}
 		}
 		return ecran;
