@@ -108,7 +108,7 @@ public abstract class Lecteur {
 		this.allume = true;
 		LOG.info("-------------------------------------------------------------");
 		LOG.info("Un nouveau "+this.typeDeLecteur()+" vient d'être démarré.");
-		LecteurAudio.playBgm(getNomBgm(), LecteurAudio.VOLUME_MAXIMAL);
+		LecteurAudio.playBgm(getNomBgm());
 		//TODO LecteurAudio.playBgs(getNomBgs(), 1.0f);
 		
 		long t1, t2;

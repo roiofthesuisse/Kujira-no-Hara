@@ -14,6 +14,7 @@ import commandes.JouerAnimation;
 import jeu.Partie;
 import main.Fenetre;
 import son.LecteurAudio;
+import son.Musique;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
@@ -40,7 +41,16 @@ public class Animation {
 	 */
 	public class Frame {
 		ArrayList<Picture> vignettes;
-		ArrayList<String> sons;
+		ArrayList<Son> sons;
+		
+		private class Son {
+			public String nom;
+			public float volume;
+			public Son(String nom, float volume) {
+				this.nom = nom;
+				this.volume = volume;
+			}
+		}
 		
 		/**
 		 * Constructeur explicite
@@ -81,10 +91,13 @@ public class Animation {
 			
 			//sons
 			if (jsonFrame.has("sons")) {
-				this.sons = new ArrayList<String>();
+				this.sons = new ArrayList<Son>();
 				final JSONArray jsonSons = jsonFrame.getJSONArray("sons");
 				for (Object o : jsonSons) {
-					this.sons.add( (String) o );
+					JSONObject jsonSon = (JSONObject) o;
+					String nomSon = jsonSon.getString("nom");
+					float volumeSon = jsonSon.has("volume") ? (float) jsonSon.getDouble("volume") : Musique.VOLUME_MAXIMAL;
+					this.sons.add( new Son(nomSon, volumeSon) );
 				}
 			} else {
 				this.sons = null;
@@ -133,7 +146,7 @@ public class Animation {
 	/**
 	 * Dessiner les Animations en cours sur l'écran
 	 * @param ecran sur lequel on dessine
-	 * @return écran avec les Animations dessinées
+	 * @return écran avec les Animations dessinées dessus
 	 */
 	public static BufferedImage dessinerLesAnimations(BufferedImage ecran) {
 		final Partie partie = Fenetre.getPartieActuelle();
@@ -144,6 +157,8 @@ public class Animation {
 				// Afficher les vignettes de cette frame
 				for (Picture picture : frameActuelle.vignettes) {
 					//TODO ça fait que dalle
+					System.out.println("largeurVignette:"+picture.image.getWidth()
+					+" xAnimation:"+animationEnCours.xEcran+" yAnimation:"+animationEnCours.yEcran);
 					ecran = Graphismes.superposerImages(
 							ecran,
 							picture.image,
@@ -159,8 +174,8 @@ public class Animation {
 				}
 				// Jouer les sons de cette frame
 				if (frameActuelle.sons != null) {
-					for (String nomSon : frameActuelle.sons) {
-						LecteurAudio.playSe(nomSon);
+					for (Frame.Son son : frameActuelle.sons) {
+						LecteurAudio.playSe(son.nom, son.volume);
 					}
 				}
 				// La prochaine fois on jouera la frame suivante

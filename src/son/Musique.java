@@ -10,17 +10,23 @@ import java.nio.file.Paths;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 /**
- * Permet d'uniformiser le contrôle de la musique (présente sous différents formats audio).
+ * Permet d'uniformiser le contrôle de la Musique malgré les différents formats audio.
  */
 public class Musique {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Musique.class);
+	public static final float VOLUME_MAXIMAL = 1.0f;
 	private static final long DUREE_MAXIMALE_SE = 5000; //en millisecondes
 	
 	/**
@@ -32,8 +38,6 @@ public class Musique {
 	public FormatAudio format;
 	public TypeMusique type;
 	private Thread thread;
-	
-	
 	
 	/**
 	 * Différents formats de fichiers audio possibles
@@ -53,29 +57,41 @@ public class Musique {
 	 * Constructeur explicite
 	 * @param nom du fichier audio
 	 * @param type BGM, BGS, ME, SE
+	 * @param volume entre 0.0 et 1.0
 	 */
-	public Musique(final String nom, final TypeMusique type) {
+	public Musique(final String nom, final TypeMusique type, final float volume) {
 		this.nom = nom;
 		this.type = type;
 		
-		if (nom.contains(".ogg")) {
+		if (nom.endsWith(".ogg")) {
 			//le fichier est un OGG
 			this.format = FormatAudio.OGG;
 			try {
 				this.stream = new FileInputStream(new File(".\\ressources\\Audio\\"+type+"\\" + nom));
 				this.clip = new OggClip(this.stream);
+				//volume initial
+				if (volume < VOLUME_MAXIMAL) {
+					this.modifierVolume(FormatAudio.OGG, volume);
+				}
+				
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} else if (nom.contains(".wav")) {
+			
+		} else if (nom.endsWith(".wav")) {
 			//le fichier est un WAV
 			this.format = FormatAudio.WAV;
 			try {
 				this.clip = AudioSystem.getClip();
 				this.stream = AudioSystem.getAudioInputStream(new File(".\\ressources\\Audio\\"+type+"\\" + nom));
 				((Clip) clip).open((AudioInputStream) this.stream);
+				//volume initial
+				if (volume < VOLUME_MAXIMAL) {
+					this.modifierVolume(FormatAudio.WAV, volume);
+				}
+				
 			} catch (LineUnavailableException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -83,15 +99,49 @@ public class Musique {
 			} catch (UnsupportedAudioFileException e) {
 				e.printStackTrace();
 			}
-		} else if (nom.contains(".mp3")) {
+			
+		} else if (nom.endsWith(".mp3")) {
 			//le fichier est un MP3
 			this.format = FormatAudio.MP3;
 			String uri = Paths.get("ressources/Audio/"+type+"/" + nom).toUri().toString();
 			Media media = new Media(uri);
 			MediaPlayer mediaPlayer = new MediaPlayer(media);
 			this.clip = mediaPlayer;
+			//volume initial
+			if (volume < VOLUME_MAXIMAL) {
+				this.modifierVolume(FormatAudio.MP3, volume);
+			}
+			
 		} else {
-			new Exception("Format audio inconnu : "+nom).printStackTrace();
+			LOG.error("Format audio inconnu : "+nom);
+		}
+		
+	}
+	
+	/**
+	 * Modifier le volume de la Musique.
+	 * @param format audio de la Musique
+	 * @param nouveauVolume à appliquer
+	 */
+	public final void modifierVolume(FormatAudio format, float nouveauVolume) {
+		switch (format) {
+			case OGG:
+				((OggClip) this.clip).setGain(nouveauVolume);
+				break;
+				
+			case WAV:
+				FloatControl gainControl = (FloatControl) ((Clip) this.clip).getControl(FloatControl.Type.MASTER_GAIN);
+				float gain = (1f-nouveauVolume)*Float.MIN_VALUE;
+				gainControl.setValue(gain);
+				break;
+				
+			case MP3:
+				((MediaPlayer) this.clip).setVolume(nouveauVolume);
+				break;
+				
+			default:
+				LOG.error("Format audio inconnu : "+this.nom);
+				break;
 		}
 	}
 	
@@ -99,7 +149,7 @@ public class Musique {
 	 * Jouer un effet sonore.
 	 */
 	public final void demarrerSe() {
-		switch(format) {
+		switch (format) {
 		case OGG : //le fichier est un OGG
 			/**
 			 * Thread parallèle qui s'occupera de la lecteur du fichier audio
@@ -174,7 +224,7 @@ public class Musique {
 			break;
 			
 		default: //type de fichier inconnu
-			new Exception("Type de fichier inconnu").printStackTrace();
+			LOG.error("Type de fichier inconnu : "+format);
 			break;
 		}
 	}
@@ -183,7 +233,7 @@ public class Musique {
 	 * Jouer musique d'accompagnement.
 	 */
 	public final void demarrerBgm() {
-		switch(format){
+		switch (format) {
 		case OGG : //le fichier est un OGG
 			/**
 			 * Thread parallèle qui s'occupera de la lecteur du fichier audio
@@ -240,7 +290,7 @@ public class Musique {
 			break;
 			
 		default: //type de fichier inconnu
-			new Exception("Type de fichier inconnu").printStackTrace();
+			LOG.error("Type de fichier inconnu : "+format);
 			break;
 		}
 	}
@@ -251,7 +301,7 @@ public class Musique {
 	 */
 	public final void arreter() {
 		//on ferme le clip
-		switch(format) {
+		switch (format) {
 			case OGG : 
 				OggClip oggClip = (OggClip) clip;
 				oggClip.stop();
@@ -275,7 +325,7 @@ public class Musique {
 			try {
 				this.stream.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				LOG.warn("Impossible de fermer le stream audio "+this.nom, e);
 			}
 		}
 	}

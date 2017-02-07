@@ -4,8 +4,6 @@ package son;
  * Classe utilitaire chargée de lire les fichiers audio du jeu.
  */
 public abstract class LecteurAudio {
-	//constantes
-	public static final float VOLUME_MAXIMAL = 1.0f;
 	
 	public static Musique bgmEnCours = null;
 	//TODO bgs, pareil que bgm
@@ -13,10 +11,20 @@ public abstract class LecteurAudio {
 	
 	/**
 	 * Jouer un effet sonore.
+	 * Volume sonore maximal par défaut.
 	 * @param nom du fichier audio
 	 */
 	public static synchronized void playSe(final String nom) {
-		Musique musique = new Musique(nom, Musique.TypeMusique.SE);
+		playSe(nom, Musique.VOLUME_MAXIMAL);
+	}
+	
+	/**
+	 * Jouer un effet sonore.
+	 * @param nom du fichier audio
+	 * @param volume sonore
+	 */
+	public static synchronized void playSe(final String nom, final float volume) {
+		Musique musique = new Musique(nom, Musique.TypeMusique.SE, volume);
 		musique.demarrerSe();
 	}
 	
@@ -42,6 +50,15 @@ public abstract class LecteurAudio {
 	*/
 	
 	/**
+	 * Jouer une musique.
+	 * Volume maximal par défaut.
+	 * @param nom du fichier audio
+	 */
+	public static synchronized void playBgm(final String nom) {
+		playBgm(nom, Musique.VOLUME_MAXIMAL);
+	}
+	
+	/**
 	 * Jouer une musique
 	 * @param nom du fichier audio
 	 * @param volume  sonore auquel il faut jouer la musique
@@ -57,7 +74,7 @@ public abstract class LecteurAudio {
 				stopBgm();
 
 			//on lance la nouvelle
-				Musique musique = new Musique(nom, Musique.TypeMusique.BGM);
+				Musique musique = new Musique(nom, Musique.TypeMusique.BGM, volume);
 				musique.demarrerBgm();
 				
 			//on met à jour les données
