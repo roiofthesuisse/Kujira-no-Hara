@@ -43,10 +43,18 @@ public class Animation {
 		ArrayList<Picture> vignettes;
 		ArrayList<Son> sons;
 		
+		/**
+		 * Son à jouer lors de la Frame d'Animation.
+		 */
 		private class Son {
 			public String nom;
 			public float volume;
-			public Son(String nom, float volume) {
+			/** 
+			 * Constructeur explicite
+			 * @param nom du fichier sonore à jouer
+			 * @param volume sonore entre 0.0 et 1.0
+			 */
+			Son(final String nom, final float volume) {
 				this.nom = nom;
 				this.volume = volume;
 			}
@@ -94,9 +102,9 @@ public class Animation {
 				this.sons = new ArrayList<Son>();
 				final JSONArray jsonSons = jsonFrame.getJSONArray("sons");
 				for (Object o : jsonSons) {
-					JSONObject jsonSon = (JSONObject) o;
-					String nomSon = jsonSon.getString("nom");
-					float volumeSon = jsonSon.has("volume") ? (float) jsonSon.getDouble("volume") : Musique.VOLUME_MAXIMAL;
+					final JSONObject jsonSon = (JSONObject) o;
+					final String nomSon = jsonSon.getString("nom");
+					final float volumeSon = jsonSon.has("volume") ? (float) jsonSon.getDouble("volume") : Musique.VOLUME_MAXIMAL;
 					this.sons.add( new Son(nomSon, volumeSon) );
 				}
 			} else {
@@ -156,7 +164,7 @@ public class Animation {
 			animationEnCours = partie.animations.get(i);
 			
 			// Détermination de la cible de l'animation
-			int xCible, yCible, xCentrage, yCentrage;
+			final int xCible, yCible, xCentrage, yCentrage;
 			if (animationEnCours.xEcran >= 0 && animationEnCours.yEcran >= 0) {
 				// La cible est un point fixe de la Map
 				xCible = animationEnCours.xEcran;
@@ -165,7 +173,7 @@ public class Animation {
 				yCentrage = 0;
 			} else {
 				// La cible est un Event
-				Event eventCible;
+				final Event eventCible;
 				if (animationEnCours.idEvent != null) {
 					// La cible est un Event spécifié
 					eventCible = animationEnCours.page.event.map.eventsHash.get(animationEnCours.idEvent);
@@ -176,11 +184,11 @@ public class Animation {
 				xCible = eventCible.x;
 				yCible = eventCible.y;
 				xCentrage = eventCible.largeurHitbox/2;
-				yCentrage = eventCible.hauteurHitbox/2;
+				yCentrage = eventCible.hauteurHitbox;
 			}
 
 			try {
-				Frame frameActuelle = Animation.ANIMATIONS_DU_JEU[animationEnCours.idAnimation].frames.get(animationEnCours.frameActuelle);
+				final Frame frameActuelle = Animation.ANIMATIONS_DU_JEU[animationEnCours.idAnimation].frames.get(animationEnCours.frameActuelle);
 				// Afficher les vignettes de cette frame
 				for (Picture picture : frameActuelle.vignettes) {
 					ecran = Graphismes.superposerImages(
@@ -203,7 +211,7 @@ public class Animation {
 					}
 				}
 				// La prochaine fois, on jouera la frame suivante
-				LOG.info("Frame n°"+animationEnCours.frameActuelle+" de l'animation");
+				LOG.debug("Frame n°"+animationEnCours.frameActuelle+" de l'animation");
 				animationEnCours.frameActuelle++;
 			} catch (IndexOutOfBoundsException e) {
 				LOG.info("Fin de l'animation n°"+animationEnCours.frameActuelle);
