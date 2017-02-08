@@ -154,18 +154,40 @@ public class Animation {
 		int nombreDAnimationsEnCours = partie.animations.size();
 		for (int i = 0; i<nombreDAnimationsEnCours; i++) {
 			animationEnCours = partie.animations.get(i);
+			
+			// Détermination de la cible de l'animation
+			int xCible, yCible, xCentrage, yCentrage;
+			if (animationEnCours.xEcran >= 0 && animationEnCours.yEcran >= 0) {
+				// La cible est un point fixe de la Map
+				xCible = animationEnCours.xEcran;
+				yCible = animationEnCours.yEcran;
+				xCentrage = 0;
+				yCentrage = 0;
+			} else {
+				// La cible est un Event
+				Event eventCible;
+				if (animationEnCours.idEvent != null) {
+					// La cible est un Event spécifié
+					eventCible = animationEnCours.page.event.map.eventsHash.get(animationEnCours.idEvent);
+				} else {
+					// La cible est cet Event
+					eventCible = animationEnCours.page.event;
+				}
+				xCible = eventCible.x;
+				yCible = eventCible.y;
+				xCentrage = eventCible.largeurHitbox/2;
+				yCentrage = eventCible.hauteurHitbox/2;
+			}
+
 			try {
 				Frame frameActuelle = Animation.ANIMATIONS_DU_JEU[animationEnCours.idAnimation].frames.get(animationEnCours.frameActuelle);
 				// Afficher les vignettes de cette frame
 				for (Picture picture : frameActuelle.vignettes) {
-					//TODO ça fait que dalle
-					System.out.println("largeurVignette:"+picture.image.getWidth()
-					+" xAnimation:"+animationEnCours.xEcran+" yAnimation:"+animationEnCours.yEcran);
 					ecran = Graphismes.superposerImages(
 							ecran,
 							picture.image,
-							picture.x + animationEnCours.xEcran, //x relatif au centre de la vignette et x à l'écran
-							picture.y + animationEnCours.yEcran, //y relatif au centre de la vignette et y à l'écran
+							picture.x + xCible + xCentrage,
+							picture.y + yCible + yCentrage,
 							picture.centre,
 							picture.zoomX,
 							picture.zoomY,
