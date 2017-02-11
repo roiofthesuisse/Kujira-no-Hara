@@ -1,9 +1,9 @@
 package utilitaire.graphismes;
 
-import java.awt.Color;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import utilitaire.Maths;
 
 /**
  * Le Pinceau va peindre un pixel de l'image à superposer sur l'image support.
@@ -16,9 +16,6 @@ public abstract class Pinceau {
 	private static final int ROUGE = 1;
 	private static final int VERT = 2;
 	private static final int BLEU = 3;
-	private static final int TEINTE = 0;
-	private static final int SATURATION = 1;
-	private static final int LUMINOSITE = 2;
 	
 	/**
 	 * Peindre un pixel de l'image à superposer sur l'image support.
@@ -81,65 +78,43 @@ public abstract class Pinceau {
                 };
             case TOPKEK:
             	return new Pinceau() {
-            		private static final float TEINTE_CENTRALE = 0.5f;
-            		private static final float DECALAGE_JAUNE = 120f/360f;
-            		private static final float DECALAGE_BLEU = 60f/360f;
-            		private static final float ANTI_JAUNISSEMENT = 4;
-            		private static final float ANTI_BLEUISSEMENT = 3;
-            		private static final float ANTI_VIVIFICATION = 16;
-            		private static final float ANTI_MORNIFICATION = 4;
-            		private static final float ANTI_ECLAIRCISSEMENT = 16;
-            		private static final float ANTI_ASSOMBRISSEMENT = 1.2f;
+            		private static final float ECLAIRCISSEMENT = 0.4f;
+            		private static final float ASSOMBRISSEMENT = 0.6f;
+            		private static final double VIVIFICATION = 0.75;
+            		private static final double FADIFICATION = 1.5;
+            		private static final float JAUNISSEMENT = 0.06f;
+            		private static final float BLEUISSEMENT = 0.2f;
+            		
             		@Override
             		public void peindre(final int[] src, final int[] dst, final int[] result) {
             			final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
-            			final float[] hsbSrc = new float[3];
-            			final float[] hsbDst = new float[3];
-            			final float[] hsbResult = new float[3];
-            			// On passe dans l'espace HSB pour faire varier la luminosité sans déformer la saturation
-            			Color.RGBtoHSB(src[ROUGE], src[VERT], src[BLEU], hsbSrc); //les coordonnées HSB vont de 0 à 1
-            			Color.RGBtoHSB(dst[ROUGE], dst[VERT], dst[BLEU], hsbDst);
+            			final int luminositeFiltre = (src[ROUGE] + src[VERT] + src[BLEU])/3;
             			
-            			final float luminositeSrc = 2*hsbSrc[LUMINOSITE]-1;
-            			if (luminositeSrc > 0) {
-            				// Effet sur la teinte : jaunissement 
-            				final float coefficientJaune = luminositeSrc/ANTI_JAUNISSEMENT;
-            				final float coefficientNormal = 1f - coefficientJaune;
-            				float teinteDstDecalee = hsbDst[TEINTE] + DECALAGE_JAUNE;
-            				if (teinteDstDecalee > 1f) {
-            					teinteDstDecalee--;
-            				}
-            				final float moyenneDecalee = teinteDstDecalee*coefficientNormal + TEINTE_CENTRALE*coefficientJaune;
-            				hsbResult[TEINTE] = moyenneDecalee - DECALAGE_JAUNE;
-            				
-            				// Effet sur la saturation : vivification
-            				hsbResult[SATURATION] = Math.max(0f, Math.min(1f, hsbDst[SATURATION] + luminositeSrc*opaciteLocale/ANTI_VIVIFICATION));
-            				
-            				// Effet sur la luminosité : éclaircissement
-            				hsbResult[LUMINOSITE] = Math.max(0f, Math.min(1f, hsbDst[LUMINOSITE] + luminositeSrc*opaciteLocale/ANTI_ECLAIRCISSEMENT));
-            			} else {
-            				// Effet sur la teinte : bleuissement
-            				final float coefficientBleu = -luminositeSrc/ANTI_BLEUISSEMENT;
-            				final float coefficientNormal = 1f - coefficientBleu;
-            				float teinteDstDecalee = hsbDst[TEINTE] - DECALAGE_BLEU;
-            				if (teinteDstDecalee < 0f) {
-            					teinteDstDecalee++;
-            				}
-            				final float moyenneDecalee = teinteDstDecalee*coefficientNormal + TEINTE_CENTRALE*coefficientBleu;
-            				hsbResult[TEINTE] = moyenneDecalee + DECALAGE_BLEU;
-            				
-            				// Effet sur la saturation : mornification
-            				hsbResult[SATURATION] = Math.max(0f, Math.min(1f, hsbDst[SATURATION] + luminositeSrc*opaciteLocale/ANTI_MORNIFICATION));
-            				
-            				// Effet sur la luminosité : assombrissement
-            				hsbResult[LUMINOSITE] = Math.max(0f, Math.min(1f, hsbDst[LUMINOSITE] + luminositeSrc*opaciteLocale/ANTI_ASSOMBRISSEMENT));
-            			}
+            			// Le filtre impose sa luminosité à l'écran
+            			int L = luminositeFiltre * 2 - VALEUR_MAXIMALE;
+            			int luminositeEcran = (dst[ROUGE] + dst[VERT] + dst[BLEU])/3;
+            			float coefficientLuminosite = L>=0 ? ECLAIRCISSEMENT : ASSOMBRISSEMENT;
             			
-            			final int res = Color.HSBtoRGB(hsbResult[TEINTE], hsbResult[SATURATION], hsbResult[LUMINOSITE]);
-            			result[ALPHA] = dst[ALPHA];
-                        result[ROUGE] = (res >> 16) & 0xFF;
-                        result[VERT]  = (res >>  8) & 0xFF;
-                        result[BLEU]  = (res      ) & 0xFF;
+            			// Dans la lumière, les couleurs sont plus vives ; dans l'obscurité, plus fades.
+            			float saturation = 2.0f*luminositeFiltre / VALEUR_MAXIMALE;
+            			final double coefficientSaturation = L>=0 ? VIVIFICATION : FADIFICATION;
+            			saturation = (float) Maths.pow(saturation, coefficientSaturation);
+            			int deltaRouge = dst[ROUGE] - luminositeEcran;
+            			int deltaVert = dst[VERT] - luminositeEcran;
+            			int deltaBleu = dst[BLEU] - luminositeEcran;
+            			
+            			// Dans la lumière, l'image est plus jaune : dans l'obscurité, plus bleue.
+            			float coefficientJaune = L>=0 ? JAUNISSEMENT : 0;
+            			float coefficientBleu = L>=0 ? 0 : -BLEUISSEMENT;
+            			
+            			float resultatRouge = luminositeEcran + L*coefficientLuminosite + deltaRouge*saturation + L*coefficientJaune;
+            			float resultatVert = luminositeEcran + L*coefficientLuminosite + deltaVert*saturation + L*coefficientJaune;
+            			float resultatBleu = luminositeEcran + L*coefficientLuminosite + deltaBleu*saturation + L*coefficientBleu;
+            			
+                    	result[ROUGE] = seuiller(dst[ROUGE]*(1.0f-opaciteLocale) + resultatRouge*opaciteLocale);
+                        result[VERT] = seuiller(dst[VERT]*(1.0f-opaciteLocale) + resultatVert*opaciteLocale);
+                        result[BLEU] = seuiller(dst[BLEU]*(1.0f-opaciteLocale) + resultatBleu*opaciteLocale);
+                        result[ALPHA] = dst[ALPHA];
             		}
             	};
             //TODO negatif
@@ -147,5 +122,9 @@ public abstract class Pinceau {
             	LOG.error("Blender non défini pour le mode de fusion : "+composite.modeDeFusion.nom);
             	return null;
         }
+    }
+    
+    private static int seuiller(final float valeur) {
+    	return Math.max(0, Math.min(VALEUR_MAXIMALE, (int) valeur));
     }
 }

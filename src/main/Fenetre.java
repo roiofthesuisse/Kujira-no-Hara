@@ -251,7 +251,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	 * Exporter les mesures de performances en tant que fichier CSV.
 	 */
 	private void exporterCsv() {
-		final Path file = Paths.get("C:/Users/RoiOfTheSuisse/Documents/kujira-perf2.csv");
+		final Path file = Paths.get("C:/Users/Public/kujira-perf2.csv");
 		try {
 			Files.write(file, this.mesuresDePerformance, Charset.forName("UTF-8"));
 		} catch (IOException e) {

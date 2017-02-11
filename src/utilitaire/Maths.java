@@ -135,4 +135,19 @@ public abstract class Maths {
 		return min;
 	}
 	
+	/**
+	 * Puissance approximative, calculée rapidement
+	 * @param x à mettre à la puissance y
+	 * @param y exposant de x
+	 * @return x^y à peu près
+	 */
+	public static double pow(final double x, final double y) {
+		int partieEntiere = (int) y;
+		double partieDecimale = y - partieEntiere;
+		double res = 1;
+		for (int i = 0; i<partieEntiere; i++ ) {
+			res *= x;
+		}
+		return res * (1.0-partieDecimale) + res*x * partieDecimale; //moyenne pondérée entre puissance entière précédente et puissance entière suivante
+	}
 }
