@@ -38,7 +38,7 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	public final boolean estVerifiee() {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		if (partieActuelle.nombreDArmesPossedees > 0) {
-			return partieActuelle.getArmeEquipee().id == this.idArme;
+			return partieActuelle.idArmeEquipee == this.idArme;
 		}
 		return false; //aucune arme possédée
 	}

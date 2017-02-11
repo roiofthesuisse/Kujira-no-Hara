@@ -138,6 +138,9 @@ public class Map {
 			
 		//création du Brouillard
 			this.brouillard = Brouillard.creerBrouillardAPartirDeJson(jsonMap);
+			if (this.brouillard == null) {
+				this.brouillard = this.tileset.brouillard;
+			}
 
 	}
 

@@ -38,6 +38,10 @@ public class AjouterArme extends Commande implements CommandeEvent {
 			partieActuelle.armesPossedees[idArme] = true;
 			partieActuelle.nombreDArmesPossedees++;
 		}
+		// Si actuellement rien d'équipé, on l'équipe
+		if (partieActuelle.idArmeEquipee <= 0) {
+			partieActuelle.idArmeEquipee = idArme;
+		}
 		return curseurActuel+1;
 	}
 

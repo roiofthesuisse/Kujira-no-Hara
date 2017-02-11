@@ -162,13 +162,13 @@ public abstract class Graphismes {
 	}
 	
 	/**
-	 * Produire un rectangle noir pour l'afficher comme écran
-	 * @return un rectangle noir
+	 * Produire un rectangle de couleur pour l'afficher comme écran
+	 * @return un rectangle de couleur
 	 */
-	public static BufferedImage ecranNoir() {
+	public static BufferedImage ecranColore(Color couleur) {
 		BufferedImage image = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Graphismes.TYPE_DES_IMAGES);
 		Graphics2D g2d = image.createGraphics();
-		g2d.setPaint(Color.black);
+		g2d.setPaint(couleur);
 		g2d.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
 		g2d.dispose();
 		return image;

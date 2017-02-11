@@ -117,6 +117,17 @@ public abstract class Pinceau {
                         result[ALPHA] = dst[ALPHA];
             		}
             	};
+            case TON_DE_L_ECRAN:
+                return new Pinceau() {
+                    @Override
+                    public void peindre(final int[] src, final int[] dst, final int[] result) {
+                    	final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
+                    	result[ROUGE] = Math.max(0, (int) (dst[ROUGE] - (VALEUR_MAXIMALE-src[ROUGE])*opaciteLocale));
+                        result[VERT] = Math.max(0, (int) (dst[VERT] - (VALEUR_MAXIMALE-src[VERT])*opaciteLocale));
+                        result[BLEU] = Math.max(0, (int) (dst[BLEU] - (VALEUR_MAXIMALE-src[BLEU])*opaciteLocale));
+                        result[ALPHA] = dst[ALPHA];
+                    }
+                };
             //TODO negatif
             default:
             	LOG.error("Blender non défini pour le mode de fusion : "+composite.modeDeFusion.nom);

@@ -19,6 +19,7 @@ import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 import utilitaire.Maths;
 
 /**
@@ -87,7 +88,7 @@ public class LecteurMap extends Lecteur {
 	public final BufferedImage calculerAffichage(final int frame) {
 		//final long t0 = System.currentTimeMillis(); //mesure de performances
 		
-		BufferedImage ecran = Graphismes.ecranNoir();
+		BufferedImage ecran = Graphismes.ecranColore(Color.BLACK);
 		
 		//ouverture du tileset
 		try {
@@ -115,8 +116,8 @@ public class LecteurMap extends Lecteur {
 		//animation des évènements
 		animerLesEvents(frame);
 
-		//DEBUG pour voir la hitbox de l'attaque du héros
-		ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
+		//TODO DEBUG pour voir la hitbox de l'attaque du héros
+		//ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 		
 		//on dessine les évènements
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera);
@@ -133,6 +134,11 @@ public class LecteurMap extends Lecteur {
 		//brouillard
 		if (map.brouillard != null) {
 			ecran = map.brouillard.dessinerLeBrouillard(ecran, xCamera, yCamera, frame);
+		}
+		
+		//ton
+		if (this.map.tileset.imageTon != null) {
+			ecran = Graphismes.superposerImages(ecran, this.map.tileset.imageTon, 0, 0, this.map.tileset.alphaTon, ModeDeFusion.TON_DE_L_ECRAN);
 		}
 		
 		//ajouter les jauges
@@ -493,9 +499,11 @@ public class LecteurMap extends Lecteur {
 			}			
 			
 			//DEBUG pour visualiser les collisions //TODO commenter
+			/*
 			Graphics2D graphics = ecran.createGraphics();
 			graphics.setPaint(Color.blue);
 			graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
+			*/
 			//voilà
 			
 			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);

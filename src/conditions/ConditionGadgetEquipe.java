@@ -36,7 +36,7 @@ public class ConditionGadgetEquipe extends Condition implements CommandeEvent, C
 	public final boolean estVerifiee() {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		if (partieActuelle.nombreDeGadgetsPossedes > 0) {
-			return partieActuelle.getGadgetEquipe().id == this.idGadget;
+			return partieActuelle.idGadgetEquipe == this.idGadget;
 		}
 		return false; //aucun Gadget possédé
 	}

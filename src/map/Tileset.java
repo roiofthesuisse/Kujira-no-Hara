@@ -1,8 +1,10 @@
 package map;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -39,9 +41,12 @@ public class Tileset {
 	
 	private final String nomImagePanorama;
 	public BufferedImage imagePanorama;
-	private final String nomImageBrouillard;
 	public BufferedImage imageBrouillard;
 	public HashMap<Integer, Autotile> autotiles;
+	public Brouillard brouillard;
+	/** Ton de l'écran */
+	public BufferedImage imageTon;
+	public int alphaTon;
 	
 	/**
 	 * Constructeur explicite
@@ -110,15 +115,20 @@ public class Tileset {
 		}
 		
 		//brouillard
-		//TODO opacité du brouillard, couleur, mode de superposition...
-		this.nomImageBrouillard = jsonTileset.getString("brouillard");
-		try {
-			this.imageBrouillard = Graphismes.ouvrirImage("Fogs", this.nomImageBrouillard);
-		} catch (IOException e) {
-			LOG.warn("Pas d'image de brouillard pour le Tileset : "+this.nom);
-			this.imageBrouillard = null;
-		}
+		this.brouillard  = Brouillard.creerBrouillardAPartirDeJson(jsonTileset);
 		
+		//ton de l'écran
+		try {
+			final Iterator<Object> jsonTon = jsonTileset.getJSONArray("tonDeLEcran").iterator();
+			int rouge = (int) jsonTon.next();
+			int vert = (int) jsonTon.next();
+			int bleu = (int) jsonTon.next();
+			this.alphaTon = (int) jsonTon.next();
+			this.imageTon = Graphismes.ecranColore(new Color(rouge, vert, bleu));
+		} catch (JSONException e) {
+			LOG.error("Pas de ton d'écran pour le tileset : "+this.nom, e);
+		}
+			
 		//autotiles
 		this.autotiles = InterpreteurDeJson.chargerAutotiles(jsonTileset, this);
 		

@@ -1,5 +1,6 @@
 package menu;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import main.Commande;
@@ -48,7 +49,7 @@ public class LecteurMenu extends Lecteur {
 	 * @return écran
 	 */
 	public final BufferedImage calculerAffichage(final int frame) {
-		BufferedImage ecran = Graphismes.ecranNoir();
+		BufferedImage ecran = Graphismes.ecranColore(Color.BLACK);
 		
 		//lecture des CommandesMenu
 		final ElementDeMenu elementConfirme = this.menu.elementSelectionne;

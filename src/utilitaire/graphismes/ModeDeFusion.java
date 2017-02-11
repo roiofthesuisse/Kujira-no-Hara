@@ -17,7 +17,9 @@ public enum ModeDeFusion {
 	/** Assombrir en conservant les couleurs que sur l'image */
 	SOUSTRACTION_NEGATIF("soustraction negatif"), 
 	/** Assombrir ou éclairer (selon la distance au gris médian) */
-	TOPKEK("topkek");
+	TOPKEK("topkek"),
+	/** Pour modifier le ton de l'écran */
+	TON_DE_L_ECRAN("ton de l'ecran");
 	
 	public String nom;
 	
