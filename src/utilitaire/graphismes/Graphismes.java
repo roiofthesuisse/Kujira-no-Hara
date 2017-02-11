@@ -231,8 +231,13 @@ public abstract class Graphismes {
 	 * @param nom de l'image enregistrée
 	 */
 	public static void sauvegarderImage(final BufferedImage image, final String nom) {
+		final File directory = new File(String.valueOf("C:/Users/Public/kujira"));
+		if (!directory.exists()){
+			directory.mkdir();
+		}
+		
 		try {
-			final File outputfile = new File("C:/Users/RoiOfTheSuisse/Pictures/"+nom+".png");
+			final File outputfile = new File("C:/Users/Public/kujira/"+nom+".png");
 			ImageIO.write(image, "png", outputfile);
 		} catch (IOException e) {
 			e.printStackTrace();

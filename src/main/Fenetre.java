@@ -44,6 +44,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	
 	private static Fenetre maFenetre = null;
 	public static String titre = "Le meilleur jeu du monde";
+	public static int langue;
 
 	public JLabel labelEcran = null;
 	public Lecteur lecteur = null;

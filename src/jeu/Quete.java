@@ -35,11 +35,10 @@ public class Quete implements Listable {
 	public static final String NOM_ICONE_QUETE_FAITE_PAR_DEFAUT = "quete faite icon.png";
 	public static final HashMap<String, BufferedImage> ICONES_MEMORISEES = new HashMap<String, BufferedImage>();
 	public static Quete[] quetesDuJeu;
-	public static HashMap<String, Quete> quetesDuJeuHash = new HashMap<String, Quete>();
 	
 	public Integer id; //Integer car clé d'une HashMap
-	public String nom;
-	public String description;
+	public ArrayList<String> nom;
+	public ArrayList<String> description;
 	private final String nomIconeQuetePasFaite;
 	private BufferedImage iconeQuetePasFaite;
 	private final String nomIconeQueteFaite;
@@ -88,7 +87,7 @@ public class Quete implements Listable {
 	 * @param xCarte position x sur la carte des Quêtes
 	 * @param yCarte position y sur la carte des Quêtes
 	 */
-	private Quete(final int id, final String nom, final String description, final String nomIconeQuetePasFaite, 
+	private Quete(final int id, final ArrayList<String> nom, final ArrayList<String> description, final String nomIconeQuetePasFaite, 
 			final String nomIconeQueteFaite, final int xCarte, final int yCarte) {
 		this.id = id;
 		this.nom = nom;
@@ -105,8 +104,8 @@ public class Quete implements Listable {
 	 */
 	public Quete(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("id"), 
-			(String) parametres.get("nom"),
-			(String) parametres.get("description"),
+			InterpreteurDeJson.construireTexteMultilingue(parametres.get("nom")),
+			InterpreteurDeJson.construireTexteMultilingue(parametres.get("description")),
 			(String) (parametres.containsKey("nomIconeQuetePasFaite") ? parametres.get("nomIconeQuetePasFaite") : NOM_ICONE_QUETE_PAS_FAITE_PAR_DEFAUT),
 			(String) (parametres.containsKey("nomIconeQueteFaite") ? parametres.get("nomIconeQueteFaite") : NOM_ICONE_QUETE_FAITE_PAR_DEFAUT),
 			(int) parametres.get("xCarte"),
@@ -137,7 +136,6 @@ public class Quete implements Listable {
 				
 				final Quete quete = new Quete(parametres);
 				quetes.add(quete);
-				quetesDuJeuHash.put(quete.nom, quete);
 				i++;
 			}
 			

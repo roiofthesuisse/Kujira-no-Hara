@@ -34,10 +34,10 @@ public class Objet implements Listable {
 	public static Objet[] objetsDuJeu = chargerLesObjetsDuJeu();
 	
 	public final Integer idObjet; //Integer car clé d'une HashMap
-	public final String nom;
+	public final ArrayList<String> nom;
 	private final String nomIcone;
 	private BufferedImage icone;
-	public final String description;
+	public final ArrayList<String> description;
 	public final ArrayList<Commande> effet;
 	
 	/**
@@ -48,7 +48,7 @@ public class Objet implements Listable {
 	 * @param description de l'Objet
 	 * @param effet de l'Objet lorsqu'on le consomme
 	 */
-	private Objet(final int idObjet, final String nom, final String nomIcone, final String description, final ArrayList<Commande> effet) {
+	private Objet(final int idObjet, final ArrayList<String> nom, final String nomIcone, final ArrayList<String> description, final ArrayList<Commande> effet) {
 		this.idObjet = idObjet;
 		this.nom = nom;
 		this.nomIcone = nomIcone;
@@ -63,9 +63,9 @@ public class Objet implements Listable {
 	@SuppressWarnings("unchecked")
 	public Objet(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("idObjet"), 
-			(String) parametres.get("nom"),
+			InterpreteurDeJson.construireTexteMultilingue(parametres.get("nom")),
 			(String) parametres.get("nomIcone"),
-			(String) parametres.get("description"),
+			InterpreteurDeJson.construireTexteMultilingue(parametres.get("description")),
 			(ArrayList<Commande>) parametres.get("effet") //TODO à revoir, je doute que ça marche
 		);
 	}
@@ -199,8 +199,14 @@ public class Objet implements Listable {
 
 	@Override
 	public final BufferedImage construireImagePourListe() {
-		final Texte texte = new Texte(this.nom+" : "+Fenetre.getPartieActuelle().objetsPossedes[this.idObjet]);
-		final BufferedImage imageTexte = texte.texteToImage();
+		final ArrayList<String> contenuTexte = new ArrayList<String>();
+		final int quantite = Fenetre.getPartieActuelle().objetsPossedes[this.idObjet];
+		for (String nomLangue : this.nom) {
+			contenuTexte.add(nomLangue + " : " + quantite);
+		}
+		final Texte texte = new Texte(contenuTexte);
+		
+		final BufferedImage imageTexte = texte.image;
 		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();
 		final int hauteur = Math.max(imageTexte.getHeight(), this.getIcone().getHeight());
 		BufferedImage image = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);

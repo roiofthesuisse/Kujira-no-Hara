@@ -39,8 +39,8 @@ public class Arme implements Listable {
 	 * 0 pour l'épée, 1 pour la torche etc.
 	 */
 	public final int id;
-	public String nom;
-	private final String description;
+	public ArrayList<String> nom;
+	private final ArrayList<String> description;
 	public String nomEffetSonoreAttaque;
 	public BufferedImage icone;
 	
@@ -64,8 +64,8 @@ public class Arme implements Listable {
 	
 	/**
 	 * @param id chaque Arme a un identifiant
-	 * @param nom chaque Arme a un nom
-	 * @param description à afficher dans les Menus
+	 * @param nom de l'Arme (dans plusieurs langues)
+	 * @param description à afficher dans les Menus (dans plusieurs langues)
 	 * @param nomEffetSonoreAttaque nom du fichier sonore joué lors de l'utilisation
 	 * @param framesDAnimation séquence des vignettes à afficher lors de l'animation d'attaque
 	 * @param hitbox zone d'attaque qu'on peut atteindre
@@ -73,7 +73,7 @@ public class Arme implements Listable {
 	 * @param frameFinCoup frame de l'animation d'attaque où le coup est terminé
 	 * @param nomIcone nom du fichier image de l'icone de l'Arme
 	 */
-	private Arme(final int id, final String nom, final String description, final String nomEffetSonoreAttaque, 
+	private Arme(final int id, final ArrayList<String> nom, final ArrayList<String> description, final String nomEffetSonoreAttaque, 
 			final Integer[] framesDAnimation, final Hitbox hitbox, final int frameDebutCoup, 
 			final int frameFinCoup, final String nomIcone) {
 		this.id = id;
@@ -98,8 +98,8 @@ public class Arme implements Listable {
 	 */
 	public Arme(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
-			(String) parametres.get("nom"),
-			(String) parametres.get("description"),
+			InterpreteurDeJson.construireTexteMultilingue(parametres.get("nom")),
+			InterpreteurDeJson.construireTexteMultilingue(parametres.get("description")),
 			(String) parametres.get("nomEffetSonoreAttaque"),
 			(Integer[]) parametres.get("framesDAnimation"),
 			new Hitbox((int) parametres.get("portee"), (int) parametres.get("etendue")),

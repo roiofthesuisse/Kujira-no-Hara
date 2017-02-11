@@ -30,7 +30,7 @@ public class Choix extends Message {
 	public int numero;
 	
 	/** Différentes alternatives proposées par le Choix */
-	public final ArrayList<String> alternatives;
+	public final ArrayList<ArrayList<String>> alternatives;
 
 	private int positionCurseurAffichee = 0;
 	public int positionCurseurChoisie = 0;
@@ -42,7 +42,7 @@ public class Choix extends Message {
 	 * @param texte affiché dans la boîte de dialogue
 	 * @param alternatives offertes par le choix au joueur
 	 */
-	public Choix(final int numero, final String[] texte, final ArrayList<String> alternatives) {
+	public Choix(final int numero, final ArrayList<String> texte, final ArrayList<ArrayList<String>> alternatives) {
 		super(texte);
 		this.numero = numero;
 		this.alternatives = alternatives;
@@ -71,7 +71,7 @@ public class Choix extends Message {
 			BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(Message.imageBoiteMessage);
 			
 			// Texte de base
-			final Texte texteDeBase = new Texte(this.texte[Fenetre.getPartieActuelle().langue]);
+			final Texte texteDeBase = new Texte(this.texte);
 			
 			// On ajoute les alternatives à l'image de base
 			final ArrayList<Texte> alternativesTexte = new ArrayList<Texte>();
@@ -80,7 +80,7 @@ public class Choix extends Message {
 			final int hauteurLigne = Texte.TAILLE_MOYENNE + Texte.INTERLIGNE;
 			final int hauteurTexte = this.calculerHauteurTexte();
 			for (int i = 0; i < this.alternatives.size(); i++) {
-				final String alternativeString = alternatives.get(i);
+				final ArrayList<String> alternativeString = alternatives.get(i);
 				alternativesTexte.add( new Texte(alternativeString) );
 				imagesAlternatives.add( alternativesTexte.get(i).image );
 				imageDesAlternatives = Graphismes.superposerImages(

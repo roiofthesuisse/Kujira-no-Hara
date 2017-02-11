@@ -43,13 +43,15 @@ public class EntrerUnNombre extends Message {
 	 * @param numeroDeVariable numéro de la Variable qui mémorise le nombre
 	 * @param tailleDuNombre longueur (en chiffres) du nombre entré
 	 */
-	public EntrerUnNombre(final String[] texte, final int numeroDeVariable, final int tailleDuNombre) {
+	public EntrerUnNombre(final ArrayList<String> texte, final int numeroDeVariable, final int tailleDuNombre) {
 		super(texte);
 		this.numeroDeVariable = numeroDeVariable;
 		this.chiffresRentres = new int[tailleDuNombre];
 		this.chiffresRentresTexte = new Texte[tailleDuNombre];
+		ArrayList<String> contenuTexte = new ArrayList<String>();
+		contenuTexte.add("0");
 		for (int i = 0; i<tailleDuNombre; i++) {
-			chiffresRentresTexte[i] = new Texte("0");
+			chiffresRentresTexte[i] = new Texte(contenuTexte);
 		}
 		this.surlignage = chiffresRentresTexte[0].creerImageDeSelection();
 		this.largeurChiffre = chiffresRentresTexte[0].image.getWidth();
@@ -76,7 +78,7 @@ public class EntrerUnNombre extends Message {
 		this.reactualiserLImage = false;
 		
 		// Texte de base
-		final Texte texteDeBase = new Texte(this.texte[Fenetre.getPartieActuelle().langue]);
+		final Texte texteDeBase = new Texte(this.texte);
 		final int hauteurTexte = calculerHauteurTexte();
 		
 		// Superposition
@@ -114,7 +116,9 @@ public class EntrerUnNombre extends Message {
 	@Override
 	public final void haut() {
 		this.chiffresRentres[positionCurseur] = Maths.modulo(this.chiffresRentres[positionCurseur]+1, NOMBRE_DE_CHIFFRES);
-		this.chiffresRentresTexte[positionCurseur] = new Texte( "" + chiffresRentres[positionCurseur] );
+		final ArrayList<String> contenuTexte = new ArrayList<String>();
+		contenuTexte.add( "" + chiffresRentres[positionCurseur] );
+		this.chiffresRentresTexte[positionCurseur] = new Texte(contenuTexte);
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
 	}
@@ -123,7 +127,9 @@ public class EntrerUnNombre extends Message {
 	@Override
 	public final void bas() {
 		this.chiffresRentres[positionCurseur] = Maths.modulo(this.chiffresRentres[positionCurseur]-1, NOMBRE_DE_CHIFFRES);
-		this.chiffresRentresTexte[positionCurseur] = new Texte( "" + chiffresRentres[positionCurseur] );
+		final ArrayList<String> contenuTexte = new ArrayList<String>();
+		contenuTexte.add( "" + chiffresRentres[positionCurseur] );
+		this.chiffresRentresTexte[positionCurseur] = new Texte(contenuTexte);
 		this.reactualiserLImage = true;
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
 	}

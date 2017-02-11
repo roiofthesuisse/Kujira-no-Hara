@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import main.Commande;
 import menu.Texte;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * Afficher la description de l'Elément sélectionné dans le Menu.
@@ -15,14 +16,14 @@ import menu.Texte;
 public class ModifierTexte extends Commande implements CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(ModifierTexte.class);
 	
-	private final String nouveauTexte;
+	private final ArrayList<String> nouveauTexte;
 	private final Integer idElementDeMenu;
 	
 	/**
 	 * Constructeur implicite
 	 * @param nouveauTexte à afficher comme 
 	 */
-	public ModifierTexte(final String nouveauTexte) {
+	public ModifierTexte(final ArrayList<String>  nouveauTexte) {
 		this.nouveauTexte = nouveauTexte;
 		this.idElementDeMenu = null; //texte des descriptions par défaut du Menu
 	}
@@ -32,7 +33,7 @@ public class ModifierTexte extends Commande implements CommandeMenu {
 	 * @param nouveauTexte à afficher comme 
 	 * @param idElementDeMenu identifiant de l'ElementDeMenu dont il faut changer le texte
 	 */
-	private ModifierTexte(final String nouveauTexte, final Integer idElementDeMenu) {
+	private ModifierTexte(final ArrayList<String> nouveauTexte, final Integer idElementDeMenu) {
 		this.nouveauTexte = nouveauTexte;
 		this.idElementDeMenu = idElementDeMenu;
 	}
@@ -43,8 +44,8 @@ public class ModifierTexte extends Commande implements CommandeMenu {
 	 */
 	public ModifierTexte(final HashMap<String, Object> parametres) {
 		this(
-				(String) parametres.get("nouveauTexte"),
-				 parametres.containsKey("idElementDeMenu") ? (int) parametres.get("idElementDeMenu") : null
+				InterpreteurDeJson.construireTexteMultilingue(parametres.get("nouveauTexte")),
+				parametres.containsKey("idElementDeMenu") ? (int) parametres.get("idElementDeMenu") : null
 		);
 	}
 	

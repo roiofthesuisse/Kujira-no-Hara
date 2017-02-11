@@ -19,6 +19,10 @@ public class Liste<T extends Listable> {
 	private static final Logger LOG = LogManager.getLogger(Liste.class);
 	private static final String METHODE_OBTENIR_LISTABLES = "obtenirTousLesListables";
 	
+	/** Listables qui seront mentionnés par la Liste */
+	Map<Integer, Listable> tousLesListables;
+	ArrayList<Integer> numerosDesListables;
+	
 	/** Position x de la Liste */
 	private final int x;
 	/** Position y de la Liste */
@@ -62,17 +66,97 @@ public class Liste<T extends Listable> {
 		this.nombreDeColonnes = nombreDeColonnes;
 		this.nombreDeLignesVisibles = nombreDeLignesVisibles;
 		
-		this.elements = construireLesElements(provenance, possedes, avec, toutSauf);
-		this.nombreDeLignesTotal = this.elements.size() / this.nombreDeColonnes + (this.elements.size() % this.nombreDeColonnes != 0 ? 1 : 0);
+		// Recenser les Listables concernés par cette Liste
+		recenserLesListablesAConsiderer(provenance, possedes, avec, toutSauf);
+		this.elements = genererLesImagesDesElements();
 		
-		// On remplit le tableau bidimensionnel avec le contenu de la liste
+		// Remplir le tableau bidimensionnel des éléments à afficher
+		this.nombreDeLignesTotal = this.elements.size() / this.nombreDeColonnes + (this.elements.size() % this.nombreDeColonnes != 0 ? 1 : 0);
+		determinerLesElementsAAfficher();
+	}
+	
+	/**
+	 * Recenser les Listables qui figureront dans la Liste.
+	 * @param provenance classe d'où proviennent les Listables
+	 * @param possedes considérer seulement les Listables possédés ou non
+	 * @param avec identifiants des collectables à inclure
+	 * @param toutSauf identifiants des collectables à ne pas inclure
+	 */
+	@SuppressWarnings("unchecked")
+	private void recenserLesListablesAConsiderer(final Class<T> provenance, final Boolean possedes, 
+			final ArrayList<Integer> avec, final ArrayList<Integer> toutSauf) {
+
+		try {
+			this.tousLesListables = (Map<Integer, Listable>) 
+					provenance.getDeclaredMethod(METHODE_OBTENIR_LISTABLES, Boolean.class).invoke(null, possedes);
+			
+			// Recensement des numéros des Listables à considérer
+			if (avec != null && avec.size()>0) {
+				// liste blanche
+				this.numerosDesListables = avec;
+			} else {
+				// liste noire
+				this.numerosDesListables = new ArrayList<Integer>();
+				this.numerosDesListables.addAll(tousLesListables.keySet());
+				if (toutSauf != null && toutSauf.size()>0) {
+					for (Integer numeroARetirer : toutSauf) {
+						this.numerosDesListables.remove(numeroARetirer);
+					}
+				}
+			}
+		} catch (NoSuchMethodException e) {
+			LOG.error("Impossible de trouve la méthode '"+METHODE_OBTENIR_LISTABLES+"' pour obtenir chaque "+provenance.getName(), e);
+		} catch (SecurityException e) {
+			LOG.error("Problème de sécurité ! Tous aux abris !", e);
+		} catch (IllegalAccessException e) {
+			LOG.error("Accès incorrect à la méthode d'un Listable.", e);
+		} catch (IllegalArgumentException e) {
+			LOG.error("Arguments incorrects pour la méthode d'un Listable.", e);
+		} catch (InvocationTargetException e) {
+			LOG.error("Impossible de joindre ce type de Listable.", e);
+		}
+	}
+	
+	/**
+	 * Générer l'ElementDeMenu de chaque Listable de la Liste.
+	 * @return ElementsDeMenu de la Liste
+	 */
+	public ArrayList<ImageMenu> genererLesImagesDesElements() {
+		final ArrayList<ImageMenu> elements = new ArrayList<ImageMenu>();
+		
+		// Créer un ElementDeMenu pour chaque numéro
+		Listable listable;
+		BufferedImage image;
+		ImageMenu element;
+		for (Integer numero : this.numerosDesListables) {
+			listable = tousLesListables.get(numero);
+			image = listable.construireImagePourListe();
+			element = new ImageMenu(
+					image, //apparence
+					0, 0, //coordonnées (en pixel) temporaires
+					-1, -1, //largeur/hauteur forcées
+					null, //conditions
+					true, //sélectionnable
+					listable.getComportementSelection(), //comportement au survol
+					listable.getComportementConfirmation(), //comportement à la confirmation
+					-1 //id temporaire de l'ElementDeMenu
+			);
+			elements.add(element);
+			element.liste = this;
+		}
+		
+		return elements;
+	}
+	
+	/**
+	 * Remplir le tableau bidimensionnel des éléments à afficher à partir du contenu de la Liste.
+	 */
+	public final void determinerLesElementsAAfficher() {
 		this.elementsAffiches = new ImageMenu[this.nombreDeLignesVisibles][this.nombreDeColonnes];
 		final int taille = elements.size();
 		int iElement, jElement;
-		ImageMenu element;
 		for (int n = 0; n<taille; n++) {
-			element = this.elements.get(n);
-			element.liste = this;
+			ImageMenu element = this.elements.get(n);
 			iElement = n / this.nombreDeColonnes;
 			jElement = n % this.nombreDeColonnes;
 			if (iElement < this.nombreDeLignesVisibles) {
@@ -91,82 +175,12 @@ public class Liste<T extends Listable> {
 		for (int i = 0; i<this.nombreDeLignesVisibles; i++) {
 			for (int j = 0; j<this.nombreDeColonnes; j++) {
 				if (i * this.nombreDeColonnes + j < taille) {
-					element = this.elementsAffiches[i][j];
+					ImageMenu element = this.elementsAffiches[i][j];
 					element.x = this.x + (this.largeurMaximaleElement+Texte.MARGE_A_DROITE) * j;
 					element.y = this.y + (this.hauteurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
 				}
 			}
 		}
-	}
-	
-	/**
-	 * Générer les ElementsDeMenu qui figureront dans la Liste.
-	 * @param provenance nature des collectables à lister
-	 * @param possedes considérer seulement les Listables possédés ou non
-	 * @param avec identifiants des collectables à inclure
-	 * @param toutSauf identifiants des collectables à ne pas inclure
-	 * @return ElementsDeMenu de la Liste
-	 */
-	private ArrayList<ImageMenu> construireLesElements(final Class<T> provenance, final Boolean possedes, 
-			final ArrayList<Integer> avec, final ArrayList<Integer> toutSauf) {
-		
-		final ArrayList<ImageMenu> elements = new ArrayList<ImageMenu>();
-		try {
-
-			@SuppressWarnings("unchecked")
-			final Map<Integer, Listable> tousLesListables = (Map<Integer, Listable>) 
-					provenance.getDeclaredMethod(METHODE_OBTENIR_LISTABLES, Boolean.class).invoke(null, possedes);
-			
-			
-			// Recensement des numéros des Listables à considérer
-			final ArrayList<Integer> numerosDesListables;
-			if (avec != null && avec.size()>0) {
-				// liste blanche
-				numerosDesListables = avec;
-			} else {
-				// liste noire
-				numerosDesListables = new ArrayList<Integer>();
-				numerosDesListables.addAll(tousLesListables.keySet());
-				if (toutSauf != null && toutSauf.size()>0) {
-					for (Integer numeroARetirer : toutSauf) {
-						numerosDesListables.remove(numeroARetirer);
-					}
-				}
-			}
-
-			// Créer un ElementDeMenu pour chaque numéro
-			Listable listable;
-			BufferedImage image;
-			ImageMenu element;
-			for (Integer numero : numerosDesListables) {
-				listable = tousLesListables.get(numero);
-				image = listable.construireImagePourListe();
-				element = new ImageMenu(
-						image, //apparence
-						0, 0, //coordonnées (en pixel) temporaires
-						-1, -1, //largeur/hauteur forcées
-						null, //conditions
-						true, //sélectionnable
-						listable.getComportementSelection(), //comportement au survol
-						listable.getComportementConfirmation(), //comportement à la confirmation
-						-1 //id temporaire de l'ElementDeMenu
-				);
-				elements.add(element);
-			}
-		
-		} catch (NoSuchMethodException e) {
-			LOG.error("Impossible de trouve la méthode '"+METHODE_OBTENIR_LISTABLES+"' pour obtenir chaque "+provenance.getName(), e);
-		} catch (SecurityException e) {
-			LOG.error("Problème de sécurité ! Tous aux abris !", e);
-		} catch (IllegalAccessException e) {
-			LOG.error("Accès incorrect à la méthode d'un Listable.", e);
-		} catch (IllegalArgumentException e) {
-			LOG.error("Arguments incorrects pour la méthode d'un Listable.", e);
-		} catch (InvocationTargetException e) {
-			LOG.error("Impossible de joindre ce type de Listable.", e);
-		}
-		
-		return elements;
 	}
 
 	/**

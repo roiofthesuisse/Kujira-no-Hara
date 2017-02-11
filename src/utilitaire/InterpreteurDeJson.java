@@ -432,14 +432,15 @@ public abstract class InterpreteurDeJson {
 	
 	/**
 	 * Traduit un JSONArray représentant les alternatives d'un Choix en une liste de Strings.
+	 * La première ArrayList désigne les alternatives, la seconde les langues disponibles pour chaque alternative.
 	 * @param alternativesJSON JSONArray représentant les alternatives
 	 * @return liste des Strings
 	 */
-	public static ArrayList<String> recupererLesAlternativesDUnChoix(final JSONArray alternativesJSON) {
-		final ArrayList<String> alternatives = new ArrayList<String>();
+	public static ArrayList<ArrayList<String>> recupererLesAlternativesDUnChoix(final JSONArray alternativesJSON) {
+		final ArrayList<ArrayList<String>> alternatives = new ArrayList<ArrayList<String>>();
 		for (Object object : alternativesJSON) {
-			final String alternative = (String) object;
-			alternatives.add(alternative);
+			final ArrayList<String> alternativeMultiLingue = construireTexteMultilingue(object);
+			alternatives.add(alternativeMultiLingue);
 		}
 		return alternatives;
 	}
@@ -584,10 +585,20 @@ public abstract class InterpreteurDeJson {
 	
 					if ("Texte".equals(type)) {
 						// L'ElementDeMenu est un Texte
-						final String contenu = (String) jsonElement.get("contenu");
-						final String taille = jsonElement.has("taille") ? (String) jsonElement.get("taille") : null;
+						final ArrayList<String> contenuListe = new ArrayList<String>();
+						try {
+							// Texte multilingue
+							final JSONArray jsonContenu = jsonElement.getJSONArray("contenu");
+							for (Object o : jsonContenu){
+								contenuListe.add((String) o);
+							}
+						} catch(JSONException e) {
+							// Texte monolingue
+							contenuListe.add(jsonElement.getString("contenu"));
+						}
 						
-						final Texte texte = new Texte(contenu, x, y, Taille.getTailleParNom(taille), selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
+						final String taille = jsonElement.has("taille") ? (String) jsonElement.get("taille") : null;
+						final Texte texte = new Texte(contenuListe, x, y, Taille.getTailleParNom(taille), selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
 						textes.add(texte);
 						element = texte;
 						
@@ -752,23 +763,21 @@ public abstract class InterpreteurDeJson {
 	}
 
 	/**
-	 * Séparer les langues dans un tableau.
-	 * @param o soit le texte dans une langue unique au format String, soit le texte multilingue String[]
-	 * @return tableau du texte dans chaque langue
+	 * Séparer les langues dans une liste.
+	 * @param o soit le texte dans une langue unique au format String, soit le texte multilingue ArrayList<String>
+	 * @return liste du texte dans chaque langue
 	 */
-	public static String[] construireTexteMultilingue(final Object o) {
-		String[] resultat;
+	public static ArrayList<String> construireTexteMultilingue(final Object o) {
+		final ArrayList<String> resultat = new ArrayList<String>();
 		try {
+			// Texte monolingue
 			final String texteUnique = (String) o;
-			resultat = new String[1];
-			resultat[0] = texteUnique;
+			resultat.add(texteUnique);
 		} catch (Exception e) {
-			LOG.debug(e);
+			// Texte multilingue
 			final JSONArray jsonTexteMulti = (JSONArray) o;
-			final int taille = jsonTexteMulti.length();
-			resultat = new String[taille];
-			for (int i = 0; i<taille; i++) {
-				resultat[i] = (String) jsonTexteMulti.get(i);
+			for (Object texteDansUneLangue : jsonTexteMulti) {
+				resultat.add((String) texteDansUneLangue);
 			}
 		}
 		return resultat;

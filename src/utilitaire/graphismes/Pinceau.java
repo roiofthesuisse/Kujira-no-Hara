@@ -81,7 +81,7 @@ public abstract class Pinceau {
             		private static final float ECLAIRCISSEMENT = 0.4f;
             		private static final float ASSOMBRISSEMENT = 0.6f;
             		private static final double VIVIFICATION = 0.75;
-            		private static final double FADIFICATION = 1.5;
+            		private static final double FADIFICATION = 1.25;
             		private static final float JAUNISSEMENT = 0.06f;
             		private static final float BLEUISSEMENT = 0.2f;
             		

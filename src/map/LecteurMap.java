@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -233,7 +234,9 @@ public class LecteurMap extends Lecteur {
 		final int argent = Fenetre.getPartieActuelle().argent;
 		if (argent > 0) {
 			ecran = Graphismes.superposerImages(ecran, HUD_ARGENT, X_AFFICHAGE_ARGENT, Y_AFFICHAGE_ARGENT);
-			final Texte texte = new Texte(new Integer(argent).toString(), Color.white);
+			final ArrayList<String> contenuTexte = new ArrayList<String>();
+			contenuTexte.add("" + argent);
+			final Texte texte = new Texte(contenuTexte, Color.white);
 			final BufferedImage texteImage = texte.image;
 			ecran = Graphismes.superposerImages(ecran, texteImage, X_AFFICHAGE_ARGENT+HUD_ARGENT.getWidth()+ESPACEMENT_ICONES, Y_AFFICHAGE_ARGENT);
 		}

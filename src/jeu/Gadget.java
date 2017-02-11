@@ -38,18 +38,18 @@ public class Gadget implements Listable {
 	 * 0 pour les bottes, 1 pour le panier, etc.
 	 */
 	public final int id;
-	public final String nom;
-	private final String description;
+	public final ArrayList<String> nom;
+	private final ArrayList<String> description;
 	public BufferedImage icone;
 	
 	/**
 	 * Constructeur explicite
 	 * @param id chaque Gadget a un identifiant
-	 * @param nom chaque Gadget a un nom
-	 * @param description à afficher dans les Menus
+	 * @param nom du Gadget (dans plusieurs langues)
+	 * @param description à afficher dans les Menus (dans plusieurs langues)
 	 * @param nomIcone nom de l'image d'icone
 	 */
-	private Gadget(final int id, final String nom, final String description, final String nomIcone) {
+	private Gadget(final int id, final ArrayList<String> nom, final ArrayList<String> description, final String nomIcone) {
 		this.id = id;
 		this.nom = nom;
 		this.description = description;
@@ -67,8 +67,8 @@ public class Gadget implements Listable {
 	 */
 	public Gadget(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
-			(String) parametres.get("nom"),
-			(String) parametres.get("description"),
+			InterpreteurDeJson.construireTexteMultilingue(parametres.get("nom")),
+			InterpreteurDeJson.construireTexteMultilingue(parametres.get("description")),
 			(String) parametres.get("nomIcone")
 		);
 	}

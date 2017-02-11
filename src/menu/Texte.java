@@ -67,14 +67,14 @@ public class Texte extends ElementDeMenu {
 	private static final int OPACITE_MAXIMALE = 100;
 	private static final String POLICE = "arial"; //"roiofthesuisse";
 	
-	public String contenu;
+	public ArrayList<String> contenu;
 	public int taille;
 	public int opacite;
 	public Color couleurForcee = null;
 
 	/**
 	 * Constructeur implicite (opacité maximale, taille moyenne) pour les Menus
-	 * @param contenu du Texte
+	 * @param contenu du Texte (dans plusieurs langues)
 	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
 	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
 	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
@@ -82,13 +82,13 @@ public class Texte extends ElementDeMenu {
 	 * @param c2 c2 comportement à la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
 		this(contenu, xDebut, yDebut, Taille.MOYENNE, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, id);
 	}
 	
 	/**
 	 * Constructeur implicite (opacité maximale) pour les Menus
-	 * @param contenu du Texte
+	 * @param contenu du Texte (dans plusieurs langues)
 	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
 	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
 	 * @param taille de la police
@@ -97,13 +97,13 @@ public class Texte extends ElementDeMenu {
 	 * @param c2 comportement à la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
 		this(contenu, xDebut, yDebut, taille, selectionnable, OPACITE_MAXIMALE, c1, c2, id);
 	}
 	
 	/**
 	 * Constructeur explicite pour les Menus
-	 * @param contenu du Texte
+	 * @param contenu du Texte (dans plusieurs langues)
 	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
 	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
 	 * @param taille des caractères
@@ -113,7 +113,7 @@ public class Texte extends ElementDeMenu {
 	 * @param c2 comportement à la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final String contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
 		super(id, selectionnable, xDebut, yDebut, c1, c2, null);
 		
 		if (comportementSurvol!=null && comportementSurvol.size()>0) {
@@ -139,18 +139,18 @@ public class Texte extends ElementDeMenu {
 	
 	/**
 	 * Constructeur implicite pour les Messages d'un Event
-	 * @param contenu du Texte
+	 * @param contenu du Texte (dans plusieurs langues)
 	 */
-	public Texte(final String contenu) {
+	public Texte(final ArrayList<String> contenu) {
 		this(contenu, COULEUR_PAR_DEFAUT);
 	}
 	
 	/**
 	 * Constructeur explicite pour les Messages d'un Event
-	 * @param contenu du Texte
+	 * @param contenu du Texte (dans plusieurs langues)
 	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
 	 */
-	public Texte(final String contenu, final Color couleurForcee) {
+	public Texte(final ArrayList<String> contenu, final Color couleurForcee) {
 		super(0, false, 0, 0, null, null, null); //on se fout de la gueule de la classe mère
 		
 		this.couleurForcee = couleurForcee;
@@ -167,7 +167,8 @@ public class Texte extends ElementDeMenu {
 	 * @return le Texte sous forme d'image
 	 */
 	public final BufferedImage texteToImage() {
-		String texteAAfficher = this.contenu;
+		final int langue = Fenetre.langue;
+		String texteAAfficher = this.contenu.get(langue < this.contenu.size() ? langue : 0);
 		
 		//mot de passe
 		if (texteAAfficher.contains("\\m")) {
