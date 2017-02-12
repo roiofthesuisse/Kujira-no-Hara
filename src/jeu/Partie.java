@@ -31,6 +31,7 @@ public final class Partie implements Listable {
 	private static final Logger LOG = LogManager.getLogger(Partie.class);
 	private static final int NOMBRE_D_INTERRUPTEURS = 100;
 	private static final int NOMBRE_DE_VARIABLES = 100;
+	private static final int NOMBRE_DE_MOTS = 50;
 	
 	public int id;
 	public int numeroMap;
@@ -71,7 +72,7 @@ public final class Partie implements Listable {
 	
 	/** Mot de passe à saisir lettre par lettre via un Menu */
 	public final int tailleMaximaleDuMot = 10;
-	public String mot = "";
+	public String[] mots = new String[NOMBRE_DE_MOTS];
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge

@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -171,12 +173,11 @@ public class Texte extends ElementDeMenu {
 		String texteAAfficher = this.contenu.get(langue < this.contenu.size() ? langue : 0);
 		
 		//mot de passe
-		if (texteAAfficher.contains("\\m")) {
-			try {
-				texteAAfficher = texteAAfficher.replace("\\m", Fenetre.getPartieActuelle().mot);
-			} catch (NullPointerException e) {
-				LOG.error("Impossible d'atteindre le mot mémorisé dans la Partie.", e);
-			}
+		Matcher matcher = Pattern.compile("\\\\m\\[[0-9]+\\]").matcher(texteAAfficher);
+		while ( matcher.find() ){
+			int numeroMot = Integer.parseInt( texteAAfficher.substring(matcher.start()+3, matcher.end()-1) );
+			String mot = Fenetre.getPartieActuelle().mots[numeroMot];
+			texteAAfficher = texteAAfficher.replace("\\m["+numeroMot+"]", mot != null ? mot : "");
 		}
 		
 		//découpage en lignes

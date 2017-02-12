@@ -124,7 +124,7 @@ public class Tileset {
 			int gris = (int) jsonTon.next();
 			this.ton = new int[] {gris, rouge, vert, bleu};
 		} catch (JSONException e) {
-			LOG.error("Pas de ton d'écran pour le tileset : "+this.nom, e);
+			LOG.warn("Pas de ton d'écran pour le tileset : "+this.nom);
 		}
 			
 		//autotiles

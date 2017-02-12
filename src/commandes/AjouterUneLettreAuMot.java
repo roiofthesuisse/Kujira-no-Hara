@@ -11,13 +11,15 @@ import main.Fenetre;
  */
 public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 	private final String lettre;
+	private final int numeroMot;
 	
 	/**
 	 * Constructeur explicite
 	 * @param lettre à ajouter à la fin du mot
 	 */
-	public AjouterUneLettreAuMot(final String lettre) {
+	public AjouterUneLettreAuMot(final String lettre, final int numeroMot) {
 		this.lettre = lettre;
+		this.numeroMot = numeroMot;
 	}
 	
 	/**
@@ -25,13 +27,21 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AjouterUneLettreAuMot(final HashMap<String, Object> parametres) {
-		this( (String) parametres.get("lettre"));
+		this( 
+				(String) parametres.get("lettre"),
+				(int) parametres.get("numeroMot")
+		);
 	}
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		if (Fenetre.getPartieActuelle().mot.length() < Fenetre.getPartieActuelle().tailleMaximaleDuMot) {
-			Fenetre.getPartieActuelle().mot += this.lettre;
+		String mot = Fenetre.getPartieActuelle().mots[this.numeroMot];
+		if (mot == null) {
+			// mot vide
+			Fenetre.getPartieActuelle().mots[this.numeroMot] = this.lettre;
+		} else if (mot.length() < Fenetre.getPartieActuelle().tailleMaximaleDuMot) {
+			// mot déjà rempli
+			Fenetre.getPartieActuelle().mots[this.numeroMot] += this.lettre;
 			this.element.menu.reactualiserTousLesTextes();
 		}
 		return curseurActuel+1;
