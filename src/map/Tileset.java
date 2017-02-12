@@ -1,6 +1,5 @@
 package map;
 
-import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
@@ -45,7 +44,7 @@ public class Tileset {
 	public HashMap<Integer, Autotile> autotiles;
 	public Brouillard brouillard;
 	/** Ton de l'écran */
-	public BufferedImage imageTon;
+	public int[] ton;
 	
 	/**
 	 * Constructeur explicite
@@ -122,8 +121,8 @@ public class Tileset {
 			int rouge = (int) jsonTon.next();
 			int vert = (int) jsonTon.next();
 			int bleu = (int) jsonTon.next();
-			int gris = Graphismes.OPACITE_MAXIMALE - (int) jsonTon.next();
-			this.imageTon = Graphismes.ecranColore(new Color(rouge, vert, bleu, gris));
+			int gris = (int) jsonTon.next();
+			this.ton = new int[] {gris, rouge, vert, bleu};
 		} catch (JSONException e) {
 			LOG.error("Pas de ton d'écran pour le tileset : "+this.nom, e);
 		}

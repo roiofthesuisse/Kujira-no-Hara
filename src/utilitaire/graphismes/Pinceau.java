@@ -3,6 +3,8 @@ package utilitaire.graphismes;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import main.Fenetre;
+import map.LecteurMap;
 import utilitaire.Maths;
 
 /**
@@ -120,16 +122,24 @@ public abstract class Pinceau {
             case TON_DE_L_ECRAN:
                 return new Pinceau() {
                     @Override
-                    public void peindre(final int[] src, final int[] dst, final int[] result) {
-                    	final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
+                    public void peindre(final int[] srcNePasUtiliser, final int[] dst, final int[] result) {
+                    	int[] ton = ((LecteurMap) Fenetre.getFenetre().lecteur).map.tileset.ton;
+                    	final float desaturation = (float) ton[ALPHA] / (float) VALEUR_MAXIMALE;
+                    	final float saturation = 1.0f - desaturation;
+                    	
                     	float mediane = VALEUR_MAXIMALE/2;
                     	float tauxRouge = (float) dst[ROUGE] / mediane - 1.0f;
                     	float tauxVert = (float) dst[VERT] / mediane - 1.0f;
                     	float tauxBleu = (float) dst[BLEU] / mediane - 1.0f;
 
-                    	result[ROUGE] = seuiller(src[ROUGE] + (int) ((VALEUR_MAXIMALE - src[ROUGE])*tauxRouge*opaciteLocale));
-                        result[VERT] = seuiller(src[VERT] + (int) ((VALEUR_MAXIMALE - src[VERT])*tauxVert*opaciteLocale));
-                        result[BLEU] = seuiller(src[BLEU] + (int) ((VALEUR_MAXIMALE - src[BLEU])*tauxBleu*opaciteLocale));
+                    	int luminosite = (dst[ROUGE] + dst[VERT] + dst[BLEU])/3;
+                    	int baseRouge =  (int) (ton[ROUGE]*saturation + luminosite*desaturation);
+                    	int baseVert =  (int) (ton[VERT]*saturation + luminosite*desaturation);
+                    	int baseBleu =  (int) (ton[BLEU]*saturation + luminosite*desaturation);
+                    	
+                    	result[ROUGE] = seuiller(baseRouge + (int) ((VALEUR_MAXIMALE - baseRouge)*tauxRouge*saturation));
+                        result[VERT] = seuiller(baseVert + (int) ((VALEUR_MAXIMALE - baseVert)*tauxVert*saturation));
+                        result[BLEU] = seuiller(baseBleu + (int) ((VALEUR_MAXIMALE - baseBleu)*tauxBleu*saturation));
                         result[ALPHA] = dst[ALPHA];
                     }
                 };
