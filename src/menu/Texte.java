@@ -180,17 +180,26 @@ public class Texte extends ElementDeMenu {
         	return null;
         }
         
+        //calcul de la taille du Texte
         BufferedImage img = new BufferedImage(1, 1, Graphismes.TYPE_DES_IMAGES);
         Graphics2D g2d = img.createGraphics();
         final Font font = new Font(POLICE, Font.PLAIN, this.taille);
         g2d.setFont(font);
         FontMetrics fm = g2d.getFontMetrics();
-        final int width = fm.stringWidth(texts[0])+Texte.MARGE_A_DROITE;
-        final int height = fm.getHeight();
+        int largeurDesLignes = 0;
+        int largeurDeCetteLigne;
+        for (int i=0; i<texts.length; i++) {
+        	largeurDeCetteLigne = fm.stringWidth(texts[i])+Texte.MARGE_A_DROITE;
+        	if (largeurDeCetteLigne > largeurDesLignes) {
+        		largeurDesLignes = largeurDeCetteLigne;
+        	}
+        }
+        final int hauteurDesLignes = fm.getHeight();
         g2d.dispose();
+        final int hauteurTotaleImage = (hauteurDesLignes + Texte.INTERLIGNE)*nombreLignes - Texte.INTERLIGNE; //on retire l'interligne inutile tout à la fin
+        img = new BufferedImage(largeurDesLignes, hauteurTotaleImage, Graphismes.TYPE_DES_IMAGES);
         
-        final int hauteurTotaleImage = (height + Texte.INTERLIGNE)*nombreLignes - Texte.INTERLIGNE; //on retire l'interligne inutile tout à la fin
-        img = new BufferedImage(width, hauteurTotaleImage, Graphismes.TYPE_DES_IMAGES);
+        //réglage de la police
         g2d = img.createGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
