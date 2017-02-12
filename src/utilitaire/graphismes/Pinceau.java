@@ -122,9 +122,14 @@ public abstract class Pinceau {
                     @Override
                     public void peindre(final int[] src, final int[] dst, final int[] result) {
                     	final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
-                    	result[ROUGE] = Math.max(0, (int) (dst[ROUGE] - (VALEUR_MAXIMALE-src[ROUGE])*opaciteLocale));
-                        result[VERT] = Math.max(0, (int) (dst[VERT] - (VALEUR_MAXIMALE-src[VERT])*opaciteLocale));
-                        result[BLEU] = Math.max(0, (int) (dst[BLEU] - (VALEUR_MAXIMALE-src[BLEU])*opaciteLocale));
+                    	float mediane = VALEUR_MAXIMALE/2;
+                    	float tauxRouge = (float) dst[ROUGE] / mediane - 1.0f;
+                    	float tauxVert = (float) dst[VERT] / mediane - 1.0f;
+                    	float tauxBleu = (float) dst[BLEU] / mediane - 1.0f;
+
+                    	result[ROUGE] = seuiller(src[ROUGE] + (int) ((VALEUR_MAXIMALE - src[ROUGE])*tauxRouge*opaciteLocale));
+                        result[VERT] = seuiller(src[VERT] + (int) ((VALEUR_MAXIMALE - src[VERT])*tauxVert*opaciteLocale));
+                        result[BLEU] = seuiller(src[BLEU] + (int) ((VALEUR_MAXIMALE - src[BLEU])*tauxBleu*opaciteLocale));
                         result[ALPHA] = dst[ALPHA];
                     }
                 };

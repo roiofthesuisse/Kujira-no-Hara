@@ -138,7 +138,7 @@ public class LecteurMap extends Lecteur {
 		
 		//ton
 		if (this.map.tileset.imageTon != null) {
-			ecran = Graphismes.superposerImages(ecran, this.map.tileset.imageTon, 0, 0, this.map.tileset.alphaTon, ModeDeFusion.TON_DE_L_ECRAN);
+			ecran = Graphismes.superposerImages(ecran, this.map.tileset.imageTon, 0, 0, Graphismes.OPACITE_MAXIMALE, ModeDeFusion.TON_DE_L_ECRAN);
 		}
 		
 		//ajouter les jauges

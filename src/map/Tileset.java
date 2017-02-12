@@ -46,7 +46,6 @@ public class Tileset {
 	public Brouillard brouillard;
 	/** Ton de l'écran */
 	public BufferedImage imageTon;
-	public int alphaTon;
 	
 	/**
 	 * Constructeur explicite
@@ -123,8 +122,8 @@ public class Tileset {
 			int rouge = (int) jsonTon.next();
 			int vert = (int) jsonTon.next();
 			int bleu = (int) jsonTon.next();
-			this.alphaTon = (int) jsonTon.next();
-			this.imageTon = Graphismes.ecranColore(new Color(rouge, vert, bleu));
+			int gris = Graphismes.OPACITE_MAXIMALE - (int) jsonTon.next();
+			this.imageTon = Graphismes.ecranColore(new Color(rouge, vert, bleu, gris));
 		} catch (JSONException e) {
 			LOG.error("Pas de ton d'écran pour le tileset : "+this.nom, e);
 		}
