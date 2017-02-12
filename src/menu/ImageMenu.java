@@ -75,5 +75,10 @@ public class ImageMenu extends ElementDeMenu {
 			commande.element = this;
 		}
 	}
+	
+	@Override
+	public BufferedImage getImage(){
+		return this.image;
+	}
 
 }

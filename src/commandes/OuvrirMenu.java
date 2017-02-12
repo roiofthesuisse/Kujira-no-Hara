@@ -18,6 +18,8 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	final String nomMenu;
 	final int selectionInitiale;
 	
+	private boolean leMenuAEteOuvert;
+	
 	/**
 	 * Constructeur explicite
 	 * @param nomMenu du Menu
@@ -41,22 +43,33 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Fenetre fenetre = Fenetre.getFenetre();
-		final Lecteur lecteur = fenetre.lecteur;
-		final LecteurMenu nouveauLecteur;
-		final Menu nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nomMenu, null); //pas de Menu parent car appelé depuis la Map
-		if (lecteur instanceof LecteurMenu) {
-			// Le Menu est ouvert depuis un autre Menu
-			final LecteurMenu lecteurActuel = (LecteurMenu) lecteur;
-			nouveauMenu.menuParent = lecteurActuel.menu;
-			nouveauLecteur = new LecteurMenu(fenetre, nouveauMenu, lecteurActuel.lecteurMapMemorise, this.selectionInitiale);
+		if (!leMenuAEteOuvert) {
+			// On ouvre le Menu
+			
+			final Fenetre fenetre = Fenetre.getFenetre();
+			final Lecteur lecteur = fenetre.lecteur;
+			final LecteurMenu nouveauLecteur;
+			final Menu nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nomMenu, null); //pas de Menu parent car appelé depuis la Map
+			if (lecteur instanceof LecteurMenu) {
+				// Le Menu est ouvert depuis un autre Menu
+				final LecteurMenu lecteurActuel = (LecteurMenu) lecteur;
+				nouveauMenu.menuParent = lecteurActuel.menu;
+				nouveauLecteur = new LecteurMenu(fenetre, nouveauMenu, lecteurActuel.lecteurMapMemorise, this.selectionInitiale);
+			} else {
+				// Le Menu est ouvert depuis une Map
+				final LecteurMap lecteurActuel = (LecteurMap) lecteur;
+				nouveauLecteur = new LecteurMenu(fenetre, nouveauMenu, lecteurActuel, this.selectionInitiale);
+			}
+
+			leMenuAEteOuvert = true;
+			nouveauLecteur.changerMenu();
+			return curseurActuel;
+			
 		} else {
-			// Le Menu est ouvert depuis une Map
-			final LecteurMap lecteurActuel = (LecteurMap) lecteur;
-			nouveauLecteur = new LecteurMenu(fenetre, nouveauMenu, lecteurActuel, this.selectionInitiale);
+			// On revient du Menu, on passe à la Commande suivante
+			leMenuAEteOuvert = false;
+			return curseurActuel+1;
 		}
-		nouveauLecteur.changerMenu();
-		return curseurActuel+1;
 	}
 
 }

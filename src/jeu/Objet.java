@@ -206,7 +206,7 @@ public class Objet implements Listable {
 		}
 		final Texte texte = new Texte(contenuTexte);
 		
-		final BufferedImage imageTexte = texte.image;
+		final BufferedImage imageTexte = texte.getImage();
 		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();
 		final int hauteur = Math.max(imageTexte.getHeight(), this.getIcone().getHeight());
 		BufferedImage image = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);

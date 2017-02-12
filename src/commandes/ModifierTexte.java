@@ -59,7 +59,7 @@ public class ModifierTexte extends Commande implements CommandeMenu {
 				elementAModifier = (Texte) this.element.menu.elements.get(this.idElementDeMenu);
 			}
 			elementAModifier.contenu = this.nouveauTexte;
-			elementAModifier.image = elementAModifier.texteToImage();
+			elementAModifier.actualiserImage();
 		} catch (ClassCastException e) {
 			LOG.error("L'élement de menu "+this.idElementDeMenu+" n'est pas un texte.", e);
 		}

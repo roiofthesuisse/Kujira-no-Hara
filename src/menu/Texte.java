@@ -133,10 +133,6 @@ public class Texte extends ElementDeMenu {
 		this.y = yDebut;
 		this.taille = taille.pixels;
 		this.opacite = opacite;
-		this.image = texteToImage();
-
-		this.largeur = this.image.getWidth();
-		this.hauteur = this.image.getHeight();
 	}
 	
 	/**
@@ -159,9 +155,6 @@ public class Texte extends ElementDeMenu {
 		this.contenu = contenu;
 		this.taille = Texte.TAILLE_MOYENNE;
 		this.opacite = Texte.OPACITE_MAXIMALE;
-		this.image = this.texteToImage();
-		this.largeur = this.image.getWidth();
-		this.hauteur = this.image.getHeight();
 	}
 	
 	/**
@@ -240,6 +233,23 @@ public class Texte extends ElementDeMenu {
         g2d.dispose();
 	        
         return img;
+	}
+	
+	@Override
+	public BufferedImage getImage() {
+		if (this.image == null) {
+			this.image = this.texteToImage();
+			this.largeur = this.image.getWidth();
+			this.hauteur = this.image.getHeight();
+		}
+		return this.image;
+	}
+
+	/**
+	 * Provoquer un recalcul de l'image la prochaine fois qu'elle est utile.
+	 */
+	public void actualiserImage() {
+		this.image = null;
 	}
 	
 }

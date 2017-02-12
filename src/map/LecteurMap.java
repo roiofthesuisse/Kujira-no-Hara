@@ -243,7 +243,7 @@ public class LecteurMap extends Lecteur {
 			final ArrayList<String> contenuTexte = new ArrayList<String>();
 			contenuTexte.add("" + argent);
 			final Texte texte = new Texte(contenuTexte, Color.white);
-			final BufferedImage texteImage = texte.image;
+			final BufferedImage texteImage = texte.getImage();
 			ecran = Graphismes.superposerImages(ecran, texteImage, X_AFFICHAGE_ARGENT+HUD_ARGENT.getWidth()+ESPACEMENT_ICONES, Y_AFFICHAGE_ARGENT);
 		}
 		

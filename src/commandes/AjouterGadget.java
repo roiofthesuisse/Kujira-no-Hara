@@ -38,7 +38,7 @@ public class AjouterGadget extends Commande implements CommandeEvent {
 			partieActuelle.nombreDeGadgetsPossedes++;
 		}
 		// Si actuellement rien d'équipé, on l'équipe
-		if (partieActuelle.idGadgetEquipe <= 0) {
+		if (partieActuelle.idGadgetEquipe < 0) {
 			partieActuelle.idGadgetEquipe = idGadget;
 		}
 		return curseurActuel+1;

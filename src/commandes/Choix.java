@@ -82,7 +82,7 @@ public class Choix extends Message {
 			for (int i = 0; i < this.alternatives.size(); i++) {
 				final ArrayList<String> alternativeString = alternatives.get(i);
 				alternativesTexte.add( new Texte(alternativeString) );
-				imagesAlternatives.add( alternativesTexte.get(i).image );
+				imagesAlternatives.add( alternativesTexte.get(i).getImage() );
 				imageDesAlternatives = Graphismes.superposerImages(
 						imageDesAlternatives, 
 						imagesAlternatives.get(i), 
@@ -104,7 +104,7 @@ public class Choix extends Message {
 				);
 				selectionPossible = Graphismes.superposerImages(
 						selectionPossible, 
-						texteDeBase.image, 
+						texteDeBase.getImage(), 
 						MARGE_DU_TEXTE, 
 						MARGE_DU_TEXTE
 				);

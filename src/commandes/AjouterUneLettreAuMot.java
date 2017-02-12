@@ -39,6 +39,7 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 		if (mot == null) {
 			// mot vide
 			Fenetre.getPartieActuelle().mots[this.numeroMot] = this.lettre;
+			this.element.menu.reactualiserTousLesTextes();
 		} else if (mot.length() < Fenetre.getPartieActuelle().tailleMaximaleDuMot) {
 			// mot déjà rempli
 			Fenetre.getPartieActuelle().mots[this.numeroMot] += this.lettre;

@@ -84,9 +84,9 @@ public class LecteurMenu extends Lecteur {
 		for (ImageMenu element : menu.images) {
 			if (element.ilFautAfficherCetElement()) {
 				ecran = Graphismes.superposerImages(ecran, 
-						element.image, 
-						element.x + element.largeur/2 - element.image.getWidth()/2, 
-						element.y + element.hauteur/2 - element.image.getHeight()/2
+						element.getImage(), 
+						element.x + element.largeur/2 - element.getImage().getWidth()/2, 
+						element.y + element.hauteur/2 - element.getImage().getHeight()/2
 				);
 			}
 		}
@@ -98,7 +98,7 @@ public class LecteurMenu extends Lecteur {
 				for (int j = 0; j<liste.elementsAffiches[i].length; j++) {
 					elementDeListe = liste.elementsAffiches[i][j];
 					if (elementDeListe != null) {
-					ecran = Graphismes.superposerImages(ecran, elementDeListe.image, elementDeListe.x, elementDeListe.y);
+					ecran = Graphismes.superposerImages(ecran, elementDeListe.getImage(), elementDeListe.x, elementDeListe.y);
 					}
 				}
 			}
@@ -108,13 +108,13 @@ public class LecteurMenu extends Lecteur {
 		//affichage des textes
 		BufferedImage imgtxt;
 		for (Texte texte : menu.textes) {
-			imgtxt = texte.image;			
+			imgtxt = texte.getImage();			
 			ecran = Graphismes.superposerImages(ecran, imgtxt, texte.x, texte.y);
 		}
 		
 		//afficher le Texte descriptif
 		if (this.menu.texteDescriptif != null && !this.menu.texteDescriptif.contenu.equals("")) {
-			ecran = Graphismes.superposerImages(ecran, this.menu.texteDescriptif.image, this.menu.texteDescriptif.x, this.menu.texteDescriptif.y);
+			ecran = Graphismes.superposerImages(ecran, this.menu.texteDescriptif.getImage(), this.menu.texteDescriptif.x, this.menu.texteDescriptif.y);
 		}
 		
 		return ecran;

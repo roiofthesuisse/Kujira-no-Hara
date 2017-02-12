@@ -57,7 +57,7 @@ public abstract class ElementDeMenu {
 	public Liste liste = null;
 	
 	/** L'élément de Menu peut être une image */
-	public BufferedImage image;
+	protected BufferedImage image;
 	/** Surlignage de l'image lors de la Sélection */
 	public BufferedImage imageDeSelection = null;
 	public int x;
@@ -93,6 +93,7 @@ public abstract class ElementDeMenu {
 	 */
 	public final BufferedImage creerImageDeSelection() {
 		if (this.imageDeSelection == null) { //ne calculer qu'une seule fois l'image
+			this.getImage(); //calculer image
 			final int larg;
 			final int haut;
 			//largeur et hauteur sont soit la taille de l'image, soit un rectangle de taille forcée par le JSON
@@ -252,5 +253,7 @@ public abstract class ElementDeMenu {
 		}
 		return true;
 	}
+	
+	public abstract BufferedImage getImage();
 	
 }

@@ -54,7 +54,7 @@ public class EntrerUnNombre extends Message {
 			chiffresRentresTexte[i] = new Texte(contenuTexte);
 		}
 		this.surlignage = chiffresRentresTexte[0].creerImageDeSelection();
-		this.largeurChiffre = chiffresRentresTexte[0].image.getWidth();
+		this.largeurChiffre = chiffresRentresTexte[0].getImage().getWidth();
 	}
 	
 	/**
@@ -92,14 +92,14 @@ public class EntrerUnNombre extends Message {
 		);
 		imageDuMessage = Graphismes.superposerImages(
 				imageDuMessage, 
-				texteDeBase.image, 
+				texteDeBase.getImage(), 
 				MARGE_DU_TEXTE, 
 				MARGE_DU_TEXTE
 		);
 		for (int i = 0; i<chiffresRentres.length; i++) {
 			imageDuMessage = Graphismes.superposerImages(
 					imageDuMessage, 
-					chiffresRentresTexte[i].image, 
+					chiffresRentresTexte[i].getImage(), 
 					MARGE_DU_TEXTE + 2*i*largeurChiffre, 
 					MARGE_DU_TEXTE + hauteurTexte
 			);

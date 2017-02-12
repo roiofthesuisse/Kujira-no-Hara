@@ -40,7 +40,7 @@ public class ChangerLangue extends Commande implements CommandeMenu {
 		Fenetre.langue = this.nouvelleLangue;
 		Menu menu = ((LecteurMenu) Fenetre.getFenetre().lecteur).menu;
 		for (Texte texte : menu.textes) {
-			texte.image = texte.texteToImage();
+			texte.actualiserImage();
 		}
 		for (Liste<Listable> liste : menu.listes) {
 			liste.elements = liste.genererLesImagesDesElements();

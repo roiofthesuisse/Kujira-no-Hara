@@ -80,9 +80,27 @@ public class Message extends Commande implements CommandeEvent {
 	 * @return true s'il faut construire une nouvelle image de Message, false sinon
 	 */
 	protected boolean ilFautReactualiserLImageDuMessage(LecteurMap lecteur) {
-		return lecteur.messageActuel==null //le dialogue vient de commencer
-				|| !lecteur.messageActuel.texte.equals(this.texte) //le texte a changé mais pas encore l'image
-				|| this.premiereFrameDAffichageDuMessage; //TODO utile ?
+		//le dialogue vient de commencer
+		if (lecteur.messageActuel==null) {
+			return true;
+		}
+		
+		//le texte a changé mais pas encore l'image
+		final int langue = Fenetre.langue;
+		ArrayList<String> texteActuel = lecteur.messageActuel.texte;
+		String messageActuel = texteActuel.get(langue < texteActuel.size() ? langue : 0);
+		String messageDesire = this.texte.get(langue < this.texte.size() ? langue : 0);
+		if (!messageActuel.equals(messageDesire)) {
+			LOG.debug(messageActuel+" =/= "+messageDesire);
+			return true;
+		}
+		
+		//TODO utile ?
+		if (this.premiereFrameDAffichageDuMessage) {
+			return true;
+		}
+		
+		return false;
 	}
 
 	/**
@@ -109,7 +127,9 @@ public class Message extends Commande implements CommandeEvent {
 		
 		// Ajout du texte
 		final Texte t = new Texte(this.texte);
-		imageMessage = Graphismes.superposerImages(imageMessage, t.image, MARGE_DU_TEXTE, MARGE_DU_TEXTE);
+		t.actualiserImage();
+		imageMessage = Graphismes.superposerImages(imageMessage, t.getImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
+		LOG.debug("Texte du message actualisé");
 		return imageMessage;
 	}
 	
