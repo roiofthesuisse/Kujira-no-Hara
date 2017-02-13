@@ -13,6 +13,7 @@ public abstract class Maths {
 	public static final int NOMBRE_PREMIER1 = 7;
 	public static final int NOMBRE_PREMIER2 = 31;
 	public static final int NOMBRE_PREMIER3 = 41;
+	public static final int POURCENTS = 100;
 	
 	/** Générateur de nombres aléatoires */
 	public static Random generateurAleatoire = new Random();
@@ -44,7 +45,7 @@ public abstract class Maths {
 	 * @return pourcentage de la partie sur le tout
 	 */
 	public static long pourcentage(final long a, final long b) {
-		return a*100/b;
+		return a*POURCENTS/b;
 	}
 	
 	/** 
@@ -142,8 +143,8 @@ public abstract class Maths {
 	 * @return x^y à peu près
 	 */
 	public static double pow(final double x, final double y) {
-		int partieEntiere = (int) y;
-		double partieDecimale = y - partieEntiere;
+		final int partieEntiere = (int) y;
+		final double partieDecimale = y - partieEntiere;
 		double res = 1;
 		for (int i = 0; i<partieEntiere; i++ ) {
 			res *= x;

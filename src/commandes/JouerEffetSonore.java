@@ -15,9 +15,11 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	private final float volume;
 	
 	/**
+	 * Jouer un effet sonore.
 	 * @param nomFichierSonore nom du fichier de l'effet sonore à jouer
+	 * @param volume sonore (entre 0.0f et 1.0f)
 	 */
-	public JouerEffetSonore(final String nomFichierSonore, float volume) {
+	public JouerEffetSonore(final String nomFichierSonore, final float volume) {
 		this.nomFichierSonore = nomFichierSonore;
 		this.volume = volume;
 	}

@@ -14,6 +14,8 @@ import main.Lecteur;
  */
 public class Boucle extends Commande implements CommandeEvent, CommandeMenu {
 	protected static final Logger LOG = LogManager.getLogger(Boucle.class);
+	/** Au bout de cette fraction de la frame, on considère que le calcul est trop long */
+	private static final int TIMEOUT_FRACTION_DE_FRAME = 4;
 	
 	public int numero; //le numéro de Boucle est le même que le numéro de fin de Boucle qui correspond
 	public long debutBoucle = -1;
@@ -48,7 +50,7 @@ public class Boucle extends Commande implements CommandeEvent, CommandeMenu {
 		}
 		
 		// cas où la boucle a duré trop longtemps
-		if (System.currentTimeMillis() - this.debutBoucle >= Lecteur.DUREE_FRAME/4) {
+		if (System.currentTimeMillis() - this.debutBoucle >= Lecteur.DUREE_FRAME/TIMEOUT_FRACTION_DE_FRAME) {
 			LOG.warn("Boucle interrompue car a duré trop longtemps.");
 			this.debutBoucle = -1;
 			return curseurActuel;

@@ -80,9 +80,9 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		int valeur;
+		final int valeur;
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
-		Event event;
+		final Event event;
 		
 		// operationAFaire2 donne la provenance de la valeur modificatrice
 		switch (operationAFaire2) {
@@ -123,9 +123,9 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 					// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
 					event = this.page.event;
 				}
-				int xEvent = event.x / Fenetre.TAILLE_D_UN_CARREAU;
-				int yEvent = event.y / Fenetre.TAILLE_D_UN_CARREAU;
-				int carreauEvent = this.page.event.map.layer0[xEvent][yEvent];
+				final int xEvent = event.x / Fenetre.TAILLE_D_UN_CARREAU;
+				final int yEvent = event.y / Fenetre.TAILLE_D_UN_CARREAU;
+				final int carreauEvent = this.page.event.map.layer0[xEvent][yEvent];
 				valeur = this.page.event.map.tileset.terrainDeLaCase(carreauEvent);
 				break;
 			case NUMERO_MAP :

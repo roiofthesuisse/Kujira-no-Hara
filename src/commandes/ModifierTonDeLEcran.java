@@ -8,6 +8,12 @@ import main.Fenetre;
 import map.LecteurMap;
 import utilitaire.graphismes.Graphismes;
 
+/**
+ * Modifier le ton de l'écran.
+ * Utile pour les ambiances lumineuses.
+ * Le ton de l'écran est propre au Tileset, 
+ * donc le changement de ton est conservé d'une Map à l'autre si le Tileset est le même
+ */
 public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	//constante
 	private static final int MEDIANE = Graphismes.OPACITE_MAXIMALE / 2;
@@ -42,7 +48,7 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	}
 	
 	@Override
-	public int executer(int curseurActuel, ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		((LecteurMap) Fenetre.getFenetre().lecteur).map.tileset.ton = new int[] {gris, rouge, vert, bleu};
 		return curseurActuel+1;
 	}

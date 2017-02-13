@@ -118,10 +118,10 @@ public class Tileset {
 		//ton de l'écran
 		try {
 			final Iterator<Object> jsonTon = jsonTileset.getJSONArray("tonDeLEcran").iterator();
-			int rouge = (int) jsonTon.next();
-			int vert = (int) jsonTon.next();
-			int bleu = (int) jsonTon.next();
-			int gris = (int) jsonTon.next();
+			final int rouge = (int) jsonTon.next();
+			final int vert = (int) jsonTon.next();
+			final int bleu = (int) jsonTon.next();
+			final int gris = (int) jsonTon.next();
 			this.ton = new int[] {gris, rouge, vert, bleu};
 		} catch (JSONException e) {
 			LOG.warn("Pas de ton d'écran pour le tileset : "+this.nom);
@@ -161,7 +161,12 @@ public class Tileset {
 		}
 	}
 
-	public int terrainDeLaCase(int numeroCarreau) {
+	/**
+	 * Obtenir le terrain associé à cette case du Tileset.
+	 * @param numeroCarreau numéro de la case du Tileset
+	 * @return identitifaint de terrain
+	 */
+	public final int terrainDeLaCase(final int numeroCarreau) {
 		if (numeroCarreau >= -1) { //case normale
 			return this.terrain[numeroCarreau];
 		} else { //autotile

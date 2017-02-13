@@ -166,10 +166,10 @@ public class Texte extends ElementDeMenu {
 		String texteAAfficher = this.contenu.get(langue < this.contenu.size() ? langue : 0);
 		
 		//mot de passe
-		Matcher matcher = Pattern.compile("\\\\m\\[[0-9]+\\]").matcher(texteAAfficher);
-		while ( matcher.find() ){
-			int numeroMot = Integer.parseInt( texteAAfficher.substring(matcher.start()+3, matcher.end()-1) );
-			String mot = Fenetre.getPartieActuelle().mots[numeroMot];
+		final Matcher matcher = Pattern.compile("\\\\m\\[[0-9]+\\]").matcher(texteAAfficher);
+		while (matcher.find()) {
+			final int numeroMot = Integer.parseInt( texteAAfficher.substring(matcher.start()+3, matcher.end()-1) );
+			final String mot = Fenetre.getPartieActuelle().mots[numeroMot];
 			texteAAfficher = texteAAfficher.replace("\\m["+numeroMot+"]", mot != null ? mot : "");
 		}
 		
@@ -188,7 +188,7 @@ public class Texte extends ElementDeMenu {
         FontMetrics fm = g2d.getFontMetrics();
         int largeurDesLignes = 0;
         int largeurDeCetteLigne;
-        for (int i=0; i<texts.length; i++) {
+        for (int i = 0; i<texts.length; i++) {
         	largeurDeCetteLigne = fm.stringWidth(texts[i])+Texte.MARGE_A_DROITE;
         	if (largeurDeCetteLigne > largeurDesLignes) {
         		largeurDesLignes = largeurDeCetteLigne;
@@ -240,12 +240,13 @@ public class Texte extends ElementDeMenu {
         	}
         }
         g2d.dispose();
-	        
+	    
+        LOG.trace("Texte transformé en image : "+texteAAfficher);
         return img;
 	}
 	
 	@Override
-	public BufferedImage getImage() {
+	public final BufferedImage getImage() {
 		if (this.image == null) {
 			this.image = this.texteToImage();
 			this.largeur = this.image.getWidth();

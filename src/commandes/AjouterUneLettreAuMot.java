@@ -16,6 +16,7 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 	/**
 	 * Constructeur explicite
 	 * @param lettre à ajouter à la fin du mot
+	 * @param numeroMot numéro du mot auquel ajouter une lettre
 	 */
 	public AjouterUneLettreAuMot(final String lettre, final int numeroMot) {
 		this.lettre = lettre;
@@ -35,7 +36,7 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		String mot = Fenetre.getPartieActuelle().mots[this.numeroMot];
+		final String mot = Fenetre.getPartieActuelle().mots[this.numeroMot];
 		if (mot == null) {
 			// mot vide
 			Fenetre.getPartieActuelle().mots[this.numeroMot] = this.lettre;

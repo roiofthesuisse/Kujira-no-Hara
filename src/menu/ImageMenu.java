@@ -77,7 +77,7 @@ public class ImageMenu extends ElementDeMenu {
 	}
 	
 	@Override
-	public BufferedImage getImage(){
+	public final BufferedImage getImage() {
 		return this.image;
 	}
 

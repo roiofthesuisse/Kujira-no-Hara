@@ -2,7 +2,6 @@ package mouvements;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 
 import main.Fenetre;
@@ -79,8 +78,8 @@ public class SauterVersEvent extends Sauter {
 		final ArrayList<Carreau> listeDeCarreaux = new ArrayList<Carreau>();
 		
 		final int signeX, signeY;
-		int distanceVerticale = eventObservateur.y - eventObserve.y;
-		int distanceHorizontale = eventObservateur.x - eventObserve.x;
+		final int distanceVerticale = eventObservateur.y - eventObserve.y;
+		final int distanceHorizontale = eventObservateur.x - eventObserve.x;
 		calculerDirection(distanceVerticale, distanceHorizontale);
 		if (this.directionPossibleVerticale==Direction.BAS) {
 			signeY = 1;
@@ -93,21 +92,21 @@ public class SauterVersEvent extends Sauter {
 			signeX = -1;
 		}
 		for (int i = 0; i <= this.nombreDeCases; i++) {
-			int j = this.nombreDeCases - i;
-			int deltaXSauteurArrivee = signeX*i*Fenetre.TAILLE_D_UN_CARREAU;
-			int deltaYSauteurArrivee = signeY*j*Fenetre.TAILLE_D_UN_CARREAU;
-			int xArrivee = eventObservateur.x + deltaXSauteurArrivee;
-			int yArrivee = eventObservateur.y + deltaYSauteurArrivee;
-			int deltaXArriveeCible = eventObserve.x - xArrivee;
-			int deltaYArriveeCible = eventObserve.y - yArrivee;
+			final int j = this.nombreDeCases - i;
+			final int deltaXSauteurArrivee = signeX*i*Fenetre.TAILLE_D_UN_CARREAU;
+			final int deltaYSauteurArrivee = signeY*j*Fenetre.TAILLE_D_UN_CARREAU;
+			final int xArrivee = eventObservateur.x + deltaXSauteurArrivee;
+			final int yArrivee = eventObservateur.y + deltaYSauteurArrivee;
+			final int deltaXArriveeCible = eventObserve.x - xArrivee;
+			final int deltaYArriveeCible = eventObserve.y - yArrivee;
 			// On n'ajoute le carreau dans la liste que si l'arrivée se trouve entre le sauteur et la cible
 			if (deltaXSauteurArrivee * deltaXArriveeCible >= 0 && deltaYSauteurArrivee * deltaYArriveeCible >= 0) {
-				int distanceAuCarre = deltaXArriveeCible * deltaXArriveeCible + deltaYArriveeCible * deltaYArriveeCible;
-				Carreau carreau = new Carreau(i, j, distanceAuCarre);
+				final int distanceAuCarre = deltaXArriveeCible * deltaXArriveeCible + deltaYArriveeCible * deltaYArriveeCible;
+				final Carreau carreau = new Carreau(i, j, distanceAuCarre);
 				listeDeCarreaux.add(carreau);
 			}
 		}
-		int tailleListe = listeDeCarreaux.size();
+		final int tailleListe = listeDeCarreaux.size();
 		// Si aucune case ne convient, on ne saute pas
 		if (tailleListe > 0) {
 			Collections.sort(listeDeCarreaux);
@@ -146,25 +145,14 @@ public class SauterVersEvent extends Sauter {
 		}
 	}
 	
-	/**
-	 * Si le Mouvement est impossible dans la direction calculée, une autre direction est proposée.
-	 */
-	private void essayerAutreDirection() {
-		if (this.direction == Direction.HAUT || this.direction == Direction.BAS) {
-			this.direction = directionPossibleHorizontale;	 
-		} else {
-			this.direction = directionPossibleVerticale; 
-		}
-	}
-	
 	@Override
 	protected final void reinitialiserSpecifique() {
 		super.reinitialiserSpecifique();
 		//this.directionDecidee = false;
 		this.directionPossibleHorizontale = -1;
 		this.directionPossibleVerticale = -1;
-		this.x=0;
-		this.y=0;
+		this.x = 0;
+		this.y = 0;
 	}
 	
 }

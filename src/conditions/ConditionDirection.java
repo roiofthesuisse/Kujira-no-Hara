@@ -43,7 +43,7 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	@Override
 	public final boolean estVerifiee() {
 		final Map map = this.page.event.map;
-		Event eventConcerne;
+		final Event eventConcerne;
 		
 		if (idEventConcerne == null) {
 			//cet Event

@@ -42,7 +42,7 @@ public class Objet implements Listable {
 	
 	/**
 	 * Constructeur explicite
-	 * @param numero dans le Menu
+	 * @param idObjet dans le Menu
 	 * @param nom de l'Objet
 	 * @param nomIcone nom de l'icône de l'Objet affichée dans le Menu
 	 * @param description de l'Objet
@@ -114,7 +114,7 @@ public class Objet implements Listable {
 				}
 			}
 			
-			Objet[] objetsDuJeu = new Objet[objets.size()];
+			final Objet[] objetsDuJeu = new Objet[objets.size()];
 			objets.toArray(objetsDuJeu);
 			LOG.debug("Objets créés : " + objetsDuJeu.length);
 			return objetsDuJeu;

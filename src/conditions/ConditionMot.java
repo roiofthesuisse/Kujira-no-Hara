@@ -10,15 +10,16 @@ import main.Fenetre;
  * Vérifier la valeur du mot de passe.
  */
 public class ConditionMot extends Condition implements CommandeEvent, CommandeMenu {
-	private final String motAttendu;
+	private final Object motAttendu;
 	private final int numeroMot;
 	
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param motAttendu pour la valeur du mot de passe saisi par le joueur
+	 * @param motAttendu valeur attendue pour le mot de passe saisi par le joueur (ou bien numéro du mot)
+	 * @param numeroMot numéro du mot à comparer avec la valeur attendue
 	 */
-	public ConditionMot(final int numero, final String motAttendu, final int numeroMot) {
+	public ConditionMot(final int numero, final Object motAttendu, final int numeroMot) {
 		this.numero = numero;
 		this.motAttendu = motAttendu;
 		this.numeroMot = numeroMot;
@@ -31,14 +32,20 @@ public class ConditionMot extends Condition implements CommandeEvent, CommandeMe
 	public ConditionMot(final HashMap<String, Object> parametres) {
 		this( 
 				(int) parametres.get("numero"),
-				(String) parametres.get("mot"),
+				parametres.get("mot"),
 				(int) parametres.get("numeroMot")
 		);
 	}
 	
 	@Override
 	public final boolean estVerifiee() {
-		return this.motAttendu.equals(Fenetre.getPartieActuelle().mots[this.numeroMot]);
+		final String aComparer;
+		if (motAttendu instanceof String) {
+			aComparer = (String) this.motAttendu;
+		} else {
+			aComparer = Fenetre.getPartieActuelle().mots[(Integer) this.motAttendu];
+		}
+		return aComparer.equals(Fenetre.getPartieActuelle().mots[this.numeroMot]);
 	}
 
 	@Override

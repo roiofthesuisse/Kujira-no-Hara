@@ -22,9 +22,9 @@ public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * @param x position x de l'Event générique invoqué
 	 * @param y position y de l'Event générique invoqué
-	 * @param nom nom de l'Event générique invoqué
+	 * @param nomEventInvoque nom de l'Event générique invoqué
 	 */
-	public InvoquerEventGenerique(final int x,final int y, final String nomEventInvoque) {
+	public InvoquerEventGenerique(final int x, final int y, final String nomEventInvoque) {
 		this.x = x;
 		this.y = y;
 		this.nomEventInvoque = nomEventInvoque;
@@ -41,7 +41,7 @@ public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 	}
 
 	@Override
-	public int executer(int curseurActuel, ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Map map = this.page.event.map;
 		final int xPixel = this.x*Fenetre.TAILLE_D_UN_CARREAU;
 		final int yPixel = this.y*Fenetre.TAILLE_D_UN_CARREAU;

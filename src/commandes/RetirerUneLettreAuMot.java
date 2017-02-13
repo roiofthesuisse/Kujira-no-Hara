@@ -14,6 +14,7 @@ public class RetirerUneLettreAuMot extends Commande implements CommandeMenu {
 	
 	/**
 	 * Constructeur explicite
+	 * @param numeroMot numéro du mot auquel il faut retirer une lettre
 	 */
 	public RetirerUneLettreAuMot(final int numeroMot) {
 		this.numeroMot = numeroMot;
@@ -29,7 +30,7 @@ public class RetirerUneLettreAuMot extends Commande implements CommandeMenu {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		String mot = Fenetre.getPartieActuelle().mots[this.numeroMot];
+		final String mot = Fenetre.getPartieActuelle().mots[this.numeroMot];
 		if (mot != null && mot.length() > 0) {
 			Fenetre.getPartieActuelle().mots[this.numeroMot] = mot.substring(0, mot.length()-1);
 			this.element.menu.reactualiserTousLesTextes();

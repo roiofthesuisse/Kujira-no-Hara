@@ -62,14 +62,14 @@ public abstract class Meteo {
 	 * @param particule et ses caractéristiques
 	 * @return position horizontale de la particule
 	 */
-	protected abstract int calculerXParticule(final Particule particule);
+	protected abstract int calculerXParticule(Particule particule);
 	
 	/**
 	 * Calculer la position verticale de la particule au cours du temps.
 	 * @param particule et ses caractéristiques
 	 * @return position horizontale de la particule
 	 */
-	protected abstract int calculerYParticule(final Particule particule);
+	protected abstract int calculerYParticule(Particule particule);
 	
 	/**
 	 * Vérifier si deux Météos sont identiques.

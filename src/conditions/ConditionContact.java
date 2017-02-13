@@ -54,7 +54,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		 */
 		SUPERPOSITION_PARTIELLE("partiel") {
 			@Override
-			public boolean ilYAContactExterne(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2){
+			public boolean ilYAContactExterne(final int xmin1, final int xmax1, final int ymin1, final int ymax1, 
+					final int xmin2, final int xmax2, final int ymin2, final int ymax2) {
 				return (xmin1==xmax2 || xmin2==xmax1) && (
 						(ymin2<=ymin1&&ymax1<=ymax2) //un segment est dans l'autre
 						// segments partiellement superposés :
@@ -70,14 +71,15 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 					);
 			}
 			@Override
-			public boolean ilYASuperposition(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2){
+			public boolean ilYASuperposition(final int xmin1, final int xmax1, final int ymin1, final int ymax1, 
+					final int xmin2, final int xmax2, final int ymin2, final int ymax2) {
 				return ((xmin2<=xmin1&&xmax1<=xmax2) //vraiment dedans
 						|| (xmin1<=xmin2&&xmin2<xmax1&&xmax1<=xmax2) //à cheval (héros à gauche)
 						|| (xmin2<=xmin1&&xmin1<xmax2&&xmax2<=xmax1))//à cheval (héros à droite)
 							&&
 						((ymin2<=ymin1&&ymax1<=ymax2) //vraiment dedans
 						|| (ymin1<=ymin2&&ymin2<ymax1&&ymax1<=ymax2)  //à cheval (héros en haut)
-						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1));//à cheval (héros en bas)
+						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1)); //à cheval (héros en bas)
 			}
 		},
 		/**
@@ -88,7 +90,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		 */
 		SUPERPOSITION_MAJORITAIRE("majoritaire") {
 			@Override
-			public boolean ilYAContactExterne(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2){
+			public boolean ilYAContactExterne(final int xmin1, final int xmax1, final int ymin1, final int ymax1, 
+					final int xmin2, final int xmax2, final int ymin2, final int ymax2) {
 				final int largeurHitbox = Math.min(xmax1 - xmin1, xmax2 - xmin2);
 				final int hauteurHitbox = Math.min(ymax1 - ymin1, ymax2 - ymin2);
 				return (xmin1==xmax2 || xmin2==xmax1) && (
@@ -105,7 +108,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 					|| (xmin1<=xmin2&&xmin2<xmax1&&xmax1<=xmax2 && 2*(xmax1-xmin2)>=largeurHitbox));
 			}
 			@Override
-			public boolean ilYASuperposition(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2){
+			public boolean ilYASuperposition(final int xmin1, final int xmax1, final int ymin1, final int ymax1, 
+					final int xmin2, final int xmax2, final int ymin2, final int ymax2) {
 				final int largeurHitbox = Math.min(xmax1 - xmin1, xmax2 - xmin2);
 				final int hauteurHitbox = Math.min(ymax1 - ymin1, ymax2 - ymin2);
 				return ((xmin2<=xmin1&&xmax1<=xmax2) //vraiment dedans
@@ -114,7 +118,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 							&&
 						((ymin2<=ymin1&&ymax1<=ymax2) //vraiment dedans
 						|| (ymin1<=ymin2&&ymin2<ymax1&&ymax1<=ymax2 && 2*(ymax1-ymin2)>=hauteurHitbox)  //à cheval mais beaucoup (héros en haut)
-						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1 && 2*(ymax2-ymin1)>=hauteurHitbox));//à cheval mais beaucoup (héros en bas)
+						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1 && 2*(ymax2-ymin1)>=hauteurHitbox)); //à cheval mais beaucoup (héros en bas)
 			}
 		},
 		/**
@@ -125,12 +129,14 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		 */
 		SUPERPOSITION_INCLUSIVE("inclusif") {
 			@Override
-			public boolean ilYAContactExterne(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2) {
+			public boolean ilYAContactExterne(final int xmin1, final int xmax1, final int ymin1, final int ymax1, 
+					final int xmin2, final int xmax2, final int ymin2, final int ymax2) {
 				return ((xmin1==xmax2 || xmin2==xmax1) && (ymin2<=ymin1&&ymax1<=ymax2)) //vraiment dedans
 					|| ((ymin1==ymax2 || ymin2==ymax1) && (xmin2<=xmin1&&xmax1<=xmax2)); //vraiment dedans
 			}
 			@Override
-			public boolean ilYASuperposition(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2) {
+			public boolean ilYASuperposition(final int xmin1, final int xmax1, final int ymin1, final int ymax1, 
+					final int xmin2, final int xmax2, final int ymin2, final int ymax2) {
 				return (xmin2<=xmin1&&xmax1<=xmax2) //vraiment dedans
 					&& (ymin2<=ymin1&&ymax1<=ymax2); //vraiment dedans
 			}
@@ -138,7 +144,21 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		
 		private final String nom;
 		
-		public boolean ilYAContact(boolean traversable, int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2) {
+		/**
+		 * Y a-t-il contact entre les deux Events ?
+		 * @param traversable si l'un des deux Events est traversable
+		 * @param xmin1 coordonnée x minimale de l'Event 1
+		 * @param xmax1 coordonnée x maximale de l'Event 1
+		 * @param ymin1 coordonnée y minimale de l'Event 1
+		 * @param ymax1 coordonnée y maximale de l'Event 1
+		 * @param xmin2 coordonnée x minimale de l'Event 2
+		 * @param xmax2 coordonnée x maximale de l'Event 2
+		 * @param ymin2 coordonnée y minimale de l'Event 2
+		 * @param ymax2 coordonnée y maximale de l'Event 2
+		 * @return true si contact, false sinon
+		 */
+		public boolean ilYAContact(final boolean traversable, final int xmin1, final int xmax1, final int ymin1, 
+				final int ymax1, final int xmin2, final int xmax2, final int ymin2, final int ymax2) {
 			if (traversable) {
 				return ilYASuperposition(xmin1, xmax1, ymin1, ymax1, xmin2, xmax2, ymin2, ymax2);
 			} else {
@@ -147,20 +167,47 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		}
 		
 		/** 
-		 * Si aucun des deux events n'est traversable.
+		 * Si aucun des deux events n'est traversable, le contact prend en compte les bords des Events.
+		 * @param xmin1 coordonnée x minimale de l'Event 1
+		 * @param xmax1 coordonnée x maximale de l'Event 1
+		 * @param ymin1 coordonnée y minimale de l'Event 1
+		 * @param ymax1 coordonnée y maximale de l'Event 1
+		 * @param xmin2 coordonnée x minimale de l'Event 2
+		 * @param xmax2 coordonnée x maximale de l'Event 2
+		 * @param ymin2 coordonnée y minimale de l'Event 2
+		 * @param ymax2 coordonnée y maximale de l'Event 2
+		 * @return true si contact, false sinon
 		 */
 		public abstract boolean ilYAContactExterne(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2);
 		
 		/** 
-		 * Si un des deux events est traversable.
+		 * Si un des deux events est traversable, le contact se fait par recouvrement
+		 * @param xmin1 coordonnée x minimale de l'Event 1
+		 * @param xmax1 coordonnée x maximale de l'Event 1
+		 * @param ymin1 coordonnée y minimale de l'Event 1
+		 * @param ymax1 coordonnée y maximale de l'Event 1
+		 * @param xmin2 coordonnée x minimale de l'Event 2
+		 * @param xmax2 coordonnée x maximale de l'Event 2
+		 * @param ymin2 coordonnée y minimale de l'Event 2
+		 * @param ymax2 coordonnée y maximale de l'Event 2
+		 * @return true si contact, false sinon
 		 */
 		public abstract boolean ilYASuperposition(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2);
 		
-		TypeDeContact(final String nom){
+		/**
+		 * Constructeur explicite
+		 * @param nom du type de contact
+		 */
+		TypeDeContact(final String nom) {
 			this.nom = nom;
 		}
 		
-		public static TypeDeContact obtenirParNom(String nom) {
+		/**
+		 * Récupérer un type de contact à partir de son nom.
+		 * @param nom du type de contact
+		 * @return le type de contact voulu, ou null si le nom n'existe pas
+		 */
+		public static TypeDeContact obtenirParNom(final String nom) {
 			for (TypeDeContact type : TypeDeContact.values()) {
 				if (type.nom.equals(nom)) {
 					return type;
@@ -202,7 +249,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		final int ymax2 = event.y+event.hauteurHitbox;
 		
 		//deux interprétations très différentes du Contact selon la traversabilité de l'event
-		boolean modeTraversable = event.traversableActuel || heros.traversableActuel;
+		final boolean modeTraversable = event.traversableActuel || heros.traversableActuel;
 		return this.typeDeContact.ilYAContact(modeTraversable, xmin1, xmax1, ymin1, ymax1, xmin2, xmax2, ymin2, ymax2);
 	}
 	

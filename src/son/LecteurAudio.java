@@ -24,7 +24,7 @@ public abstract class LecteurAudio {
 	 * @param volume sonore
 	 */
 	public static synchronized void playSe(final String nom, final float volume) {
-		Musique musique = new Musique(nom, Musique.TypeMusique.SE, volume);
+		final Musique musique = new Musique(nom, Musique.TypeMusique.SE, volume);
 		musique.demarrerSe();
 	}
 	
@@ -74,7 +74,7 @@ public abstract class LecteurAudio {
 				stopBgm();
 
 			//on lance la nouvelle
-				Musique musique = new Musique(nom, Musique.TypeMusique.BGM, volume);
+				final Musique musique = new Musique(nom, Musique.TypeMusique.BGM, volume);
 				musique.demarrerBgm();
 				
 			//on met à jour les données

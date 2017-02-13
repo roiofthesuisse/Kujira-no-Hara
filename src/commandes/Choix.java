@@ -9,7 +9,6 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 
 import main.Commande;
-import main.Fenetre;
 import map.LecteurMap;
 import menu.Menu;
 import menu.Texte;
@@ -121,7 +120,7 @@ public class Choix extends Message {
 	}
 	
 	@Override
-	protected boolean ilFautReactualiserLImageDuMessage(LecteurMap lecteur) {
+	protected final boolean ilFautReactualiserLImageDuMessage(final LecteurMap lecteur) {
 		final boolean leCurseurABouge = (positionCurseurAffichee != positionCurseurChoisie);
 		final boolean lesImagesNOntJamaisEteGenerees = this.imagesDesSelectionsPossibles == null;
 		this.positionCurseurAffichee = this.positionCurseurChoisie;

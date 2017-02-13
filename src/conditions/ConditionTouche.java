@@ -17,7 +17,7 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	 * Constructeur explicite
 	 * @param touche à vérifier 
 	 */
-	public ConditionTouche(GestionClavier.ToucheRole touche) {
+	public ConditionTouche(final GestionClavier.ToucheRole touche) {
 		this.toucheRole = touche;
 	}
 	

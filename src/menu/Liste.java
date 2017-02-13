@@ -156,7 +156,7 @@ public class Liste<T extends Listable> {
 		final int taille = elements.size();
 		int iElement, jElement;
 		for (int n = 0; n<taille; n++) {
-			ImageMenu element = this.elements.get(n);
+			final ImageMenu element = this.elements.get(n);
 			iElement = n / this.nombreDeColonnes;
 			jElement = n % this.nombreDeColonnes;
 			if (iElement < this.nombreDeLignesVisibles) {
@@ -175,7 +175,7 @@ public class Liste<T extends Listable> {
 		for (int i = 0; i<this.nombreDeLignesVisibles; i++) {
 			for (int j = 0; j<this.nombreDeColonnes; j++) {
 				if (i * this.nombreDeColonnes + j < taille) {
-					ImageMenu element = this.elementsAffiches[i][j];
+					final ImageMenu element = this.elementsAffiches[i][j];
 					element.x = this.x + (this.largeurMaximaleElement+Texte.MARGE_A_DROITE) * j;
 					element.y = this.y + (this.hauteurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
 				}

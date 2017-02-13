@@ -589,10 +589,10 @@ public abstract class InterpreteurDeJson {
 						try {
 							// Texte multilingue
 							final JSONArray jsonContenu = jsonElement.getJSONArray("contenu");
-							for (Object o : jsonContenu){
+							for (Object o : jsonContenu) {
 								contenuListe.add((String) o);
 							}
-						} catch(JSONException e) {
+						} catch (JSONException e) {
 							// Texte monolingue
 							contenuListe.add(jsonElement.getString("contenu"));
 						}

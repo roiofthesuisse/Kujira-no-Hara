@@ -81,7 +81,7 @@ public abstract class Mouvement {
 	 * Puis incrémente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
-	protected abstract void calculDuMouvement(final Event event);
+	protected abstract void calculDuMouvement(Event event);
 	
 	/** 
 	 * Déclarer le Mouvement comme terminé.
@@ -95,7 +95,7 @@ public abstract class Mouvement {
 		this.reinitialiser();
 		
 		//est-on dans un Déplacement naturel ou forcé ?
-		Deplacement deplacementNaturelOuForce;
+		final Deplacement deplacementNaturelOuForce;
 		if (this.deplacement.naturel) {
 			deplacementNaturelOuForce = event.deplacementNaturelActuel;
 		} else {
@@ -105,7 +105,7 @@ public abstract class Mouvement {
 		//on regarde si la Page n'a pas changé,
 		//car on ne remet pas en bout de file un Mouvement naturel issu d'une autre Page 
 		final Integer pageAvant = this.deplacement.page.numero;
-		Integer pageMaintenant;
+		final Integer pageMaintenant;
 		if (event.pageActive != null) {
 			pageMaintenant = event.pageActive.numero;
 		} else if (event.pageDApparence != null) {
@@ -147,7 +147,7 @@ public abstract class Mouvement {
 	 * Spécifique à un type de Mouvement.
 	 * @param event subissant le Mouvement
 	 */
-	protected abstract void terminerLeMouvementSpecifique(final Event event);
+	protected abstract void terminerLeMouvementSpecifique(Event event);
 	
 	/** 
 	 * Déclarer le Mouvement comme terminé car ignoré.
@@ -169,7 +169,7 @@ public abstract class Mouvement {
 	 * Spécifique à un type de Mouvement.
 	 * @param event subissant le Mouvement
 	 */
-	protected abstract void ignorerLeMouvementSpecifique(final Event event);
+	protected abstract void ignorerLeMouvementSpecifique(Event event);
 	
 	/**
 	 * Décrire le Mouvement textuellement

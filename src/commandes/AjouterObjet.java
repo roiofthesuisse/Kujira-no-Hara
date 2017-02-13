@@ -15,7 +15,7 @@ public class AjouterObjet extends Commande implements CommandeEvent, CommandeMen
 	
 	/**
 	 * Constructeur explicite
-	 * @param identifiantObjet identifiant de l'Objet à ajouter : soit son nom, soit son numéro
+	 * @param idObjet identifiant de l'Objet à ajouter : soit son nom, soit son numéro
 	 * @param quantite à ajouter pour cet Objet
 	 */
 	public AjouterObjet(final int idObjet, final int quantite) {

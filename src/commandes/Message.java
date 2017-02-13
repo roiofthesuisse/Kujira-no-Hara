@@ -79,7 +79,7 @@ public class Message extends Commande implements CommandeEvent {
 	 * @param lecteur de map
 	 * @return true s'il faut construire une nouvelle image de Message, false sinon
 	 */
-	protected boolean ilFautReactualiserLImageDuMessage(LecteurMap lecteur) {
+	protected boolean ilFautReactualiserLImageDuMessage(final LecteurMap lecteur) {
 		//le dialogue vient de commencer
 		if (lecteur.messageActuel==null) {
 			return true;
@@ -87,9 +87,9 @@ public class Message extends Commande implements CommandeEvent {
 		
 		//le texte a changé mais pas encore l'image
 		final int langue = Fenetre.langue;
-		ArrayList<String> texteActuel = lecteur.messageActuel.texte;
-		String messageActuel = texteActuel.get(langue < texteActuel.size() ? langue : 0);
-		String messageDesire = this.texte.get(langue < this.texte.size() ? langue : 0);
+		final ArrayList<String> texteActuel = lecteur.messageActuel.texte;
+		final String messageActuel = texteActuel.get(langue < texteActuel.size() ? langue : 0);
+		final String messageDesire = this.texte.get(langue < this.texte.size() ? langue : 0);
 		if (!messageActuel.equals(messageDesire)) {
 			LOG.debug(messageActuel+" =/= "+messageDesire);
 			return true;
@@ -136,13 +136,18 @@ public class Message extends Commande implements CommandeEvent {
 	/**
 	 * Ce n'est pas un Choix, juste un Message Normal, donc la Commande suivante est juste après.
 	 * Méthode dérivée par la classe Choix.
-	 * @param curseurActuel
+	 * @param curseurActuel curseur dans la lecture des Commandes
+	 * @param commandes en cours d'execution, dont fait notamment partie ce Message
 	 * @return curseur incrémenté
 	 */
 	protected int redirectionSelonLeChoix(final int curseurActuel, final ArrayList<Commande> commandes) {
 		return curseurActuel+1;
 	}
 	
+	/**
+	 * Calculer la hauteur d'un texte.
+	 * @return hauteur du texte à l'écran (en pixels)
+	 */
 	protected final int calculerHauteurTexte() {
 		final int nombreDeLignesDuTexte;
 		if (this.texte == null || this.texte.equals("")) {

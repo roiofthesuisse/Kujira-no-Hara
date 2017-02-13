@@ -103,9 +103,9 @@ public class Musique {
 		} else if (nom.endsWith(".mp3")) {
 			//le fichier est un MP3
 			this.format = FormatAudio.MP3;
-			String uri = Paths.get("ressources/Audio/"+type+"/" + nom).toUri().toString();
-			Media media = new Media(uri);
-			MediaPlayer mediaPlayer = new MediaPlayer(media);
+			final String uri = Paths.get("ressources/Audio/"+type+"/" + nom).toUri().toString();
+			final Media media = new Media(uri);
+			final MediaPlayer mediaPlayer = new MediaPlayer(media);
 			this.clip = mediaPlayer;
 			//volume initial
 			if (volume < VOLUME_MAXIMAL) {
@@ -123,15 +123,15 @@ public class Musique {
 	 * @param format audio de la Musique
 	 * @param nouveauVolume à appliquer
 	 */
-	public final void modifierVolume(FormatAudio format, float nouveauVolume) {
+	public final void modifierVolume(final FormatAudio format, final float nouveauVolume) {
 		switch (format) {
 			case OGG:
 				((OggClip) this.clip).setGain(nouveauVolume);
 				break;
 				
 			case WAV:
-				FloatControl gainControl = (FloatControl) ((Clip) this.clip).getControl(FloatControl.Type.MASTER_GAIN);
-				float gain = (1f-nouveauVolume)*Float.MIN_VALUE;
+				final FloatControl gainControl = (FloatControl) ((Clip) this.clip).getControl(FloatControl.Type.MASTER_GAIN);
+				final float gain = (1f-nouveauVolume)*Float.MIN_VALUE;
 				gainControl.setValue(gain);
 				break;
 				
@@ -159,7 +159,7 @@ public class Musique {
 				 * Jouer le fichier audio.
 				 */
 				public void run() {
-				    OggClip oggClip = (OggClip) clip;
+					final OggClip oggClip = (OggClip) clip;
 				    oggClip.play(); //jouer une seule fois
 				    try {
 						Thread.sleep(DUREE_MAXIMALE_SE);
@@ -169,7 +169,7 @@ public class Musique {
 				    arreter();
 				}
 			}
-			RunOggBgm r1 = new RunOggBgm();
+			final RunOggBgm r1 = new RunOggBgm();
 			this.thread = new Thread(r1, "SE OGG ("+this.nom+")");
 			this.thread.start();
 			break;
@@ -183,7 +183,7 @@ public class Musique {
 				 * Jouer le fichier audio.
 				 */
 				public void run() {
-				    Clip wavClip = (Clip) clip;
+					final Clip wavClip = (Clip) clip;
 				    wavClip.start(); //jouer une seule fois
 				    try {
 						Thread.sleep(DUREE_MAXIMALE_SE);
@@ -193,7 +193,7 @@ public class Musique {
 				    arreter();
 				}
 			}
-			RunWavBgm r2 = new RunWavBgm();
+			final RunWavBgm r2 = new RunWavBgm();
 			this.thread = new Thread(r2, "SE WAV ("+this.nom+")");
 			this.thread.start();
 			break;
@@ -207,7 +207,7 @@ public class Musique {
 				 * Jouer le fichier audio.
 				 */
 				public void run() {
-					MediaPlayer mp3Clip = (MediaPlayer) clip;
+					final MediaPlayer mp3Clip = (MediaPlayer) clip;
 					mp3Clip.setCycleCount(1); //jouer une seule fois
 					mp3Clip.play();
 					try {
@@ -218,7 +218,7 @@ public class Musique {
 					arreter();
 				}
 			}
-			RunMp3Bgm r3 = new RunMp3Bgm();
+			final RunMp3Bgm r3 = new RunMp3Bgm();
 			this.thread = new Thread(r3, "SE MP3 ("+this.nom+")");
 			this.thread.start();
 			break;
@@ -243,11 +243,11 @@ public class Musique {
 				 * Jouer le fichier audio.
 				 */
 				public void run() {
-				    OggClip oggClip = (OggClip) clip;
+					final OggClip oggClip = (OggClip) clip;
 				    oggClip.loop(); //jouer en boucle
 				}
 			}
-			RunOggBgm r1 = new RunOggBgm();
+			final RunOggBgm r1 = new RunOggBgm();
 			this.thread = new Thread(r1, "BGM OGG ("+this.nom+")");
 			this.thread.start();
 			break;
@@ -261,11 +261,11 @@ public class Musique {
 				 * Jouer le fichier audio.
 				 */
 				public void run() {
-					Clip wavClip = (Clip) clip;
+					final Clip wavClip = (Clip) clip;
 					wavClip.loop(Clip.LOOP_CONTINUOUSLY); //jouer en boucle
 				}
 			}
-			RunWavBgm r2 = new RunWavBgm();
+			final RunWavBgm r2 = new RunWavBgm();
 			this.thread = new Thread(r2, "BGM WAV ("+this.nom+")");
 			this.thread.start();
 			break;
@@ -279,12 +279,12 @@ public class Musique {
 				 * Jouer le fichier audio.
 				 */
 				public void run() {
-					MediaPlayer mp3Clip = ((MediaPlayer) clip);
+					final MediaPlayer mp3Clip = ((MediaPlayer) clip);
 					mp3Clip.setCycleCount(MediaPlayer.INDEFINITE); //jouer en boucle
 					mp3Clip.play();
 				}
 			}
-			RunMp3Bgm r3 = new RunMp3Bgm();
+			final RunMp3Bgm r3 = new RunMp3Bgm();
 			this.thread = new Thread(r3, "BGM MP3 ("+this.nom+")");
 			this.thread.start();
 			break;
@@ -303,17 +303,17 @@ public class Musique {
 		//on ferme le clip
 		switch (format) {
 			case OGG : 
-				OggClip oggClip = (OggClip) clip;
+				final OggClip oggClip = (OggClip) clip;
 				oggClip.stop();
 				break;
 				
 			case WAV : 
-				Clip wavClip = (Clip) clip;
+				final Clip wavClip = (Clip) clip;
 				wavClip.close();
 				break;
 			
 			case MP3 :
-				MediaPlayer mp3Clip = (MediaPlayer) clip;
+				final MediaPlayer mp3Clip = (MediaPlayer) clip;
 				mp3Clip.stop();
 				break;
 				

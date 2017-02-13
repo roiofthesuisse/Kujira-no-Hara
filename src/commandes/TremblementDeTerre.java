@@ -6,7 +6,13 @@ import java.util.HashMap;
 import main.Commande;
 import map.LecteurMap;
 
+/**
+ * Faire trembler l'écran.
+ */
 public class TremblementDeTerre extends Commande implements CommandeEvent {
+	/** Nombre de millisecondes dans une seconde */
+	private static final int MILLISECONDES = 1000;
+	
 	private final int intensite;
 	private final double vitesse;
 	private final int nombreDeFrames;
@@ -39,17 +45,17 @@ public class TremblementDeTerre extends Commande implements CommandeEvent {
 	
 	
 	@Override
-	public int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		if (!this.initialisationFaite) {
 			this.dejaFait = 0;
 			this.initialisationFaite = true;
 		}
 		
-		LecteurMap lecteur = this.page.event.map.lecteur;
-		lecteur.tremblementDeTerre = (int) (this.intensite * Math.sin(Math.PI*this.dejaFait*this.vitesse*1000/LecteurMap.DUREE_FRAME));
+		final LecteurMap lecteur = this.page.event.map.lecteur;
+		lecteur.tremblementDeTerre = (int) (this.intensite * Math.sin(Math.PI*this.dejaFait*this.vitesse*MILLISECONDES/LecteurMap.DUREE_FRAME));
 		this.dejaFait += 1;
 		
-		if (this.dejaFait >= this.nombreDeFrames){
+		if (this.dejaFait >= this.nombreDeFrames) {
 			//fini
 			this.initialisationFaite = false;
 			lecteur.tremblementDeTerre = 0;

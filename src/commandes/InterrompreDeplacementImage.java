@@ -7,6 +7,9 @@ import main.Commande;
 import main.Fenetre;
 import map.Picture;
 
+/**
+ * Figer une Image en supprimant son Déplacement.
+ */
 public class InterrompreDeplacementImage extends Commande implements CommandeEvent {
 	
 	/** numéro de l'image à déplacer */
@@ -16,7 +19,7 @@ public class InterrompreDeplacementImage extends Commande implements CommandeEve
 	 * Constructeur explicite
 	 * @param numero de l'image à stopper
 	 */
-	private InterrompreDeplacementImage(final int numero){
+	private InterrompreDeplacementImage(final int numero) {
 		this.numero = numero;
 	}
 	
@@ -29,7 +32,7 @@ public class InterrompreDeplacementImage extends Commande implements CommandeEve
 	}
 	
 	@Override
-	public int executer(int curseurActuel, ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
 		picture.deplacementActuel = null;
 		

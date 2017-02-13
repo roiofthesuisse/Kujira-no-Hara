@@ -16,13 +16,13 @@ import menu.Texte;
  * Changer la langue du jeu.
  */
 public class ChangerLangue extends Commande implements CommandeMenu {
-	final private int nouvelleLangue;
+	private final int nouvelleLangue;
 	
 	/**
 	 * Constructeur explicite
 	 * @param nouvelleLangue numéro de la nouvelle langue à adopter
 	 */
-	private ChangerLangue(final int nouvelleLangue){
+	private ChangerLangue(final int nouvelleLangue) {
 		this.nouvelleLangue = nouvelleLangue;
 	}
 	
@@ -36,15 +36,15 @@ public class ChangerLangue extends Commande implements CommandeMenu {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public int executer(int curseurActuel, ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		Fenetre.langue = this.nouvelleLangue;
-		Menu menu = ((LecteurMenu) Fenetre.getFenetre().lecteur).menu;
+		final Menu menu = ((LecteurMenu) Fenetre.getFenetre().lecteur).menu;
 		for (Texte texte : menu.textes) {
 			texte.actualiserImage();
 		}
 		for (Liste<Listable> liste : menu.listes) {
 			liste.elements = liste.genererLesImagesDesElements();
-			for(ImageMenu element : liste.elements){
+			for (ImageMenu element : liste.elements) {
 				element.menu = menu;
 			}
 			liste.determinerLesElementsAAfficher();

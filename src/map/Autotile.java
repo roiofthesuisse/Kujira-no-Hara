@@ -327,8 +327,8 @@ public class Autotile {
 	 * @return coordonnées (en quarts de carreaux) du morceau d'Autotile à peindre sur le carreau
 	 */
 	private int[] choisirLeQuartHautGaucheDuCarreau(final boolean connexionHaut, final boolean connexionGauche, final boolean connexionHautGauche, final boolean connexionDroite, final boolean connexionBas) {
-		int xMorceauChoisi;
-		int yMorceauChoisi;
+		final int xMorceauChoisi;
+		final int yMorceauChoisi;
 		if (connexionHaut) {
 			if (connexionGauche) {
 				if (connexionHautGauche) {
@@ -391,8 +391,8 @@ public class Autotile {
 	 * @return coordonnées (en quarts de carreaux) du morceau d'Autotile à peindre sur le carreau
 	 */
 	private int[] choisirLeQuartHautDroiteDuCarreau(final boolean connexionHaut, final boolean connexionDroite, final boolean connexionHautDroite, final boolean connexionGauche, final boolean connexionBas) {
-		int xMorceauChoisi;
-		int yMorceauChoisi;
+		final int xMorceauChoisi;
+		final int yMorceauChoisi;
 		if (connexionHaut) {
 			if (connexionDroite) {
 				if (connexionHautDroite) {
@@ -453,8 +453,8 @@ public class Autotile {
 	 * @return coordonnées (en quarts de carreaux) du morceau d'Autotile à peindre sur le carreau
 	 */
 	private int[] choisirLeQuartBasGaucheDuCarreau(final boolean connexionBas, final boolean connexionGauche, final boolean connexionBasGauche, final boolean connexionDroite, final boolean connexionHaut) {
-		int xMorceauChoisi;
-		int yMorceauChoisi;
+		final int xMorceauChoisi;
+		final int yMorceauChoisi;
 		if (connexionBas) {
 			if (connexionGauche) {
 				if (connexionBasGauche) {
@@ -515,8 +515,8 @@ public class Autotile {
 	 * @return coordonnées (en quarts de carreaux) du morceau d'Autotile à peindre sur le carreau
 	 */
 	private int[] choisirLeQuartBasDroiteDuCarreau(final boolean connexionBas, final boolean connexionDroite, final boolean connexionBasDroite, final boolean connexionGauche, final boolean connexionHaut) {
-		int xMorceauChoisi;
-		int yMorceauChoisi;
+		final int xMorceauChoisi;
+		final int yMorceauChoisi;
 		if (connexionBas) {
 			if (connexionDroite) {
 				if (connexionBasDroite) {

@@ -111,7 +111,7 @@ public class Gadget implements Listable {
 				i++;
 			}
 			
-			Gadget[] gadgetsDuJeu = new Gadget[gadgets.size()];
+			final Gadget[] gadgetsDuJeu = new Gadget[gadgets.size()];
 			gadgets.toArray(gadgetsDuJeu);
 			return gadgetsDuJeu;
 			

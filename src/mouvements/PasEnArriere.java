@@ -13,6 +13,7 @@ public class PasEnArriere extends Avancer {
 	
 	/**
 	 * Constructeur explicite
+	 * @param nombreDePixels ditance parcourue à reculons (en pixels)
 	 */
 	public PasEnArriere(final int nombreDePixels) {
 		//le -1 est bidon, il sera remplacé par la direction de l'Event lors de la vérification

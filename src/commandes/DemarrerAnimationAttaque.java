@@ -3,7 +3,6 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import commandes.CommandeEvent;
 import jeu.Arme;
 import son.LecteurAudio;
 import main.Commande;

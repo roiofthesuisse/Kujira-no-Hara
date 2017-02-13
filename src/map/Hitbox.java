@@ -62,10 +62,10 @@ public class Hitbox {
 	public static int[] calculerCoordonneesAbsolues(final Heros h) {
 		final int[] coordonneesAbsolues = new int[4];
 		final Hitbox b = Fenetre.getPartieActuelle().getArmeEquipee().hitbox;
-		int xminHitbox;
-		int xmaxHitbox;
-		int yminHitbox;
-		int ymaxHitbox;
+		final int xminHitbox;
+		final int xmaxHitbox;
+		final int yminHitbox;
+		final int ymaxHitbox;
 		switch(h.direction) {
 			case Event.Direction.BAS :
 				xminHitbox = (h.x+h.largeurHitbox/2) - b.etendue/2;

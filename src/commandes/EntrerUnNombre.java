@@ -48,7 +48,7 @@ public class EntrerUnNombre extends Message {
 		this.numeroDeVariable = numeroDeVariable;
 		this.chiffresRentres = new int[tailleDuNombre];
 		this.chiffresRentresTexte = new Texte[tailleDuNombre];
-		ArrayList<String> contenuTexte = new ArrayList<String>();
+		final ArrayList<String> contenuTexte = new ArrayList<String>();
 		contenuTexte.add("0");
 		for (int i = 0; i<tailleDuNombre; i++) {
 			chiffresRentresTexte[i] = new Texte(contenuTexte);
@@ -108,7 +108,7 @@ public class EntrerUnNombre extends Message {
 	}
 
 	@Override
-	protected boolean ilFautReactualiserLImageDuMessage(LecteurMap lecteur) {
+	protected final boolean ilFautReactualiserLImageDuMessage(final LecteurMap lecteur) {
 		return this.reactualiserLImage || super.ilFautReactualiserLImageDuMessage(lecteur);
 	}
 	
