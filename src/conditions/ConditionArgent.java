@@ -32,7 +32,7 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ConditionArgent(final HashMap<String, Object> parametres) {
-		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
+		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
 			(int) parametres.get("quantite"),
 			(String) parametres.get("inegalite")
 		);

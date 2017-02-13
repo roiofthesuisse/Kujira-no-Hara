@@ -1,6 +1,9 @@
 package conditions;
 
+import java.util.HashMap;
+
 import commandes.CommandeEvent;
+import conditions.ConditionContact.TypeDeContact;
 import main.Fenetre;
 import map.Event;
 
@@ -12,15 +15,32 @@ import map.Event;
  */
 public class ConditionArriveeAuContact extends Condition  implements CommandeEvent {
 
+	private final TypeDeContact typeDeContact;
+	
+	private ConditionArriveeAuContact(final int numero, final TypeDeContact typeDeContact) {
+		this.numero = numero;
+		this.typeDeContact = typeDeContact;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public ConditionArriveeAuContact(final HashMap<String, Object> parametres) {
+		this(
+				parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
+				parametres.containsKey("typeDeContact") ? TypeDeContact.obtenirParNom((String) parametres.get("typeDeContact")) : null
+		);
+	}
+	
 	@Override
 	public final boolean estVerifiee() {
 		final Event event = this.page.event;
 		final int frameActuelle = Fenetre.getFenetre().lecteur.frameActuelle;
 		if ( event.frameDuContact != frameActuelle) {
 			//on n'est pas à jour ! on calcule s'il y a contact :
-			final ConditionContact conditionContactMaintenant = new ConditionContact();
+			final ConditionContact conditionContactMaintenant = new ConditionContact(this.numero, this.typeDeContact);
 			conditionContactMaintenant.page = this.page;
-			conditionContactMaintenant.numero = this.numero;
 			final boolean leHerosEstAuContactDeLEventMaintenant = conditionContactMaintenant.estVerifiee();
 			
 			event.estAuContactDuHerosAvant = event.estAuContactDuHerosMaintenant;
