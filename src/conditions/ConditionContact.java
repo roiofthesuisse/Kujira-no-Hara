@@ -55,11 +55,29 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		SUPERPOSITION_PARTIELLE("partiel") {
 			@Override
 			public boolean ilYAContactExterne(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2){
-				return false; //TODO
+				return (xmin1==xmax2 || xmin2==xmax1) && (
+						(ymin2<=ymin1&&ymax1<=ymax2) //un segment est dans l'autre
+						// segments partiellement superposés :
+						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1)
+						|| (ymin1<=ymin2&&ymin2<ymax1&&ymax1<=ymax2)
+					)
+						||
+					(ymin1==ymax2 || ymin2==ymax1) && (
+						(xmin2<=xmin1&&xmax1<=xmax2) //un segment est dans l'autre
+						// segments partiellement superposés :
+						|| (xmin2<=xmin1&&xmin1<xmax2&&xmax2<=xmax1)
+						|| (xmin1<=xmin2&&xmin2<xmax1&&xmax1<=xmax2)
+					);
 			}
 			@Override
 			public boolean ilYASuperposition(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2){
-				return false; //TODO
+				return ((xmin2<=xmin1&&xmax1<=xmax2) //vraiment dedans
+						|| (xmin1<=xmin2&&xmin2<xmax1&&xmax1<=xmax2) //à cheval (héros à gauche)
+						|| (xmin2<=xmin1&&xmin1<xmax2&&xmax2<=xmax1))//à cheval (héros à droite)
+							&&
+						((ymin2<=ymin1&&ymax1<=ymax2) //vraiment dedans
+						|| (ymin1<=ymin2&&ymin2<ymax1&&ymax1<=ymax2)  //à cheval (héros en haut)
+						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1));//à cheval (héros en bas)
 			}
 		},
 		/**
@@ -108,11 +126,13 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		SUPERPOSITION_INCLUSIVE("inclusif") {
 			@Override
 			public boolean ilYAContactExterne(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2) {
-				return false; //TODO
+				return ((xmin1==xmax2 || xmin2==xmax1) && (ymin2<=ymin1&&ymax1<=ymax2)) //vraiment dedans
+					|| ((ymin1==ymax2 || ymin2==ymax1) && (xmin2<=xmin1&&xmax1<=xmax2)); //vraiment dedans
 			}
 			@Override
 			public boolean ilYASuperposition(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2) {
-				return false; //TODO
+				return (xmin2<=xmin1&&xmax1<=xmax2) //vraiment dedans
+					&& (ymin2<=ymin1&&ymax1<=ymax2); //vraiment dedans
 			}
 		};
 		
