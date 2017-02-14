@@ -1,9 +1,11 @@
 package main;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,9 +19,7 @@ import java.util.HashMap;
 import javafx.embed.swing.JFXPanel;
 import jeu.Partie;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -44,12 +44,15 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public static final int TAILLE_D_UN_CARREAU = 32;
 	public static final int LARGEUR_ECRAN = 640;
 	public static final int HAUTEUR_ECRAN = 480;
+	private static final int PORT_JAVAMELODY = 8080;
 	
 	private static Fenetre maFenetre = null;
 	public static String titre = "Le meilleur jeu du monde";
 	public static int langue;
 
-	public JLabel labelEcran = null;
+	private int margeGauche, margeHaut;
+	//public JLabel labelEcran = null;
+	public BufferStrategy bufferStrategy;
 	public Lecteur lecteur = null;
 	private Partie partie = null;
 	public Lecteur futurLecteur = null;
@@ -62,7 +65,6 @@ public final class Fenetre extends JFrame implements KeyListener {
 	 */
 	private Fenetre() {
 		super(titre);
-		this.labelEcran = new JLabel();
 		final Menu menuTitre = InterpreteurDeJson.creerMenuDepuisJson("Titre", null);
 		
 		//la sélection initiale est ChargerPartie s'il y a déjà une sauvegarde, sinon nouvellePartie
@@ -79,7 +81,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 
 		this.addKeyListener(this);
 		
-		//démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
+		// Démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
 		@SuppressWarnings("unused")
 		final JFXPanel fxPanel = new JFXPanel();
 	}
@@ -122,9 +124,9 @@ public final class Fenetre extends JFrame implements KeyListener {
 		    }
 		});
 		final Insets marges = obtenirLesMarges();
-		final int margeHorizontale = marges.left+marges.right;
-		final int margeVerticale = marges.top+marges.bottom;
-		fenetre.setSize(LARGEUR_ECRAN+margeHorizontale, HAUTEUR_ECRAN+margeVerticale);
+		fenetre.margeGauche = marges.left;
+		fenetre.margeHaut = marges.top;
+		fenetre.setSize(marges.left+LARGEUR_ECRAN+marges.right, marges.top+HAUTEUR_ECRAN+marges.bottom);
 		try {
 			final ArrayList<Image> icones = new ArrayList<Image>();
 			final BufferedImage iconePetite = Graphismes.ouvrirImage("Icons", "baleine icone.png");
@@ -134,7 +136,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 			fenetre.setIconImages(icones);
 		} catch (IOException e) {
 			//problème avec les icones
-			e.printStackTrace();
+			LOG.error("Problème avec les icônes", e);
 		}
 		fenetre.setResizable(false);
 		fenetre.setVisible(true);
@@ -145,23 +147,30 @@ public final class Fenetre extends JFrame implements KeyListener {
 	 * Si jamais le Lecteur actuel est éteint et qu'un futur Lecteur est désigné, on effectue le remplacement.
 	 * Si aucun futur Lecteur n'est désigné, la Fenêtre se ferme.
 	 */
-	public static void demarrerAffichage() {
-		while (!maFenetre.quitterLeJeu) {
+	public void demarrerAffichage() {
+		// Accélération du calcul graphique
+		System.setProperty("sun.java2d.opengl", "True");
+		
+		// Utiliser une BufferStrategy double
+		this.createBufferStrategy(2);
+		this.bufferStrategy = this.getBufferStrategy();
+		
+		while (!this.quitterLeJeu) {
 			//on lance le Lecteur
-			maFenetre.lecteur.demarrer(); //boucle tant que le Lecteur est allumé
+			this.lecteur.demarrer(); //boucle tant que le Lecteur est allumé
 			
 			//si on est ici, c'est que le Lecteur a été éteint par une Commande Event
 			//y en a-t-il un autre après ?
-			if (maFenetre.futurLecteur!=null) {
-				if (!maFenetre.quitterLeJeu) {
+			if (this.futurLecteur!=null) {
+				if (!this.quitterLeJeu) {
 					//on passe au Lecteur suivant
-					maFenetre.lecteur = maFenetre.futurLecteur;
-					maFenetre.futurLecteur = null;
+					this.lecteur = this.futurLecteur;
+					this.futurLecteur = null;
 				}
 			} else {
 				//pas de Lecteur à suivre
 				//on éteint le jeu
-				maFenetre.quitterLeJeu = true;
+				this.quitterLeJeu = true;
 			}
 		}
 		//le jeu a été éteint ou bien il n'y a plus de Lecteur à suivre
@@ -171,12 +180,22 @@ public final class Fenetre extends JFrame implements KeyListener {
 	 * Changer l'image affichée dans la Fenêtre de jeu.
 	 * @param image nouvelle image à afficher dans la fenêtre
 	 */
-	public void actualiserAffichage(final Image image) {
-		this.invalidate();
-		this.remove(this.labelEcran);
-		this.labelEcran = new JLabel(new ImageIcon(image));
-		this.add(this.labelEcran);
-		this.revalidate();
+	public void actualiserAffichage(final BufferedImage image) {
+		//do {
+			// S'assurer que le contenu du tampon graphique reste cohérent
+			//do {
+				// Il faut un nouveau contexte graphique à chaque tour de boucle pour valider la stratégie
+				final Graphics graphics = this.bufferStrategy.getDrawGraphics();
+				// Dessiner l'écran de cette frame-ci
+				graphics.drawImage(image, this.margeGauche, this.margeHaut, null);
+				// Libérer le contexte graphique
+				graphics.dispose();
+				// Répéter le rendu si jamais le contenu du tampon est restauré
+			//} while (this.bufferStrategy.contentsRestored());
+			// Afficher le tampon
+			this.bufferStrategy.show();
+			// Répéter le rendu si le tampon a été perdu
+		//} while (this.bufferStrategy.contentsLost());
 	}
 	
 	/**
@@ -186,26 +205,26 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public static void main(final String[] args) {
 		ouvrirFenetre();
 		lancerSupervisionJavaMelody();
-		demarrerAffichage();
+		maFenetre.demarrerAffichage();
 	}
 
 	/**
 	 * Superviser les performances avec JavaMelody.
 	 */
 	private static void lancerSupervisionJavaMelody() {
-		final HashMap<Parameter, String> parameters = new HashMap<>();
+		final HashMap<Parameter, String> parametresJavaMelody = new HashMap<>();
 		// Authentification
-		parameters.put(Parameter.AUTHORIZED_USERS, "admin:password");
+		parametresJavaMelody.put(Parameter.AUTHORIZED_USERS, "admin:password");
 		// Dossier d'enregistrement
-		parameters.put(Parameter.STORAGE_DIRECTORY, "C://Users/Public/tmp/javamelody");
+		parametresJavaMelody.put(Parameter.STORAGE_DIRECTORY, "C://Users/Public/tmp/javamelody");
 		// Fréquence d'échantillonnage
-		parameters.put(Parameter.SAMPLING_SECONDS, "1.0");
+		parametresJavaMelody.put(Parameter.SAMPLING_SECONDS, "1.0");
 		// Emplacement des rapports d'analyse
-		parameters.put(Parameter.MONITORING_PATH, "/");
+		parametresJavaMelody.put(Parameter.MONITORING_PATH, "/");
 		try {
 			// Démarrer le server d'affichage de l'analyse JavaMelody
 			LOG.info("Démarrage de JavaMelody...");
-			EmbeddedServer.start(8080, parameters);
+			EmbeddedServer.start(PORT_JAVAMELODY, parametresJavaMelody);
 			LOG.info("JavaMelody est démarré.");
 		} catch (Exception e) {
 			LOG.error("Impossible de lancer l'analyse de performance avec JavaMelody.", e);

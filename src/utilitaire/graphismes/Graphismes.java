@@ -129,21 +129,21 @@ public abstract class Graphismes {
 			final double preTranslationY = image2.getHeight() / 2;
 			
 			// On pivote les coins de l'image pour connaître la nouvelle largeur/hauteur
-			int[][] coins = new int[][]{{x, y}, 
+			final int[][] coins = new int[][]{{x, y}, 
 				{x+image2.getWidth(), y}, 
 				{x, y+image2.getHeight()}, 
 				{x+image2.getWidth(), y+image2.getHeight()}};
-			int[][] coinsPivotes = new int[4][2];
-			for(int i = 0; i<4; i++){
+				final int[][] coinsPivotes = new int[4][2];
+			for (int i = 0; i<4; i++) {
 				coinsPivotes[i][0] = (int) (coins[i][0]*Math.cos(angleRadians)-coins[i][1]*Math.sin(angleRadians));
 				coinsPivotes[i][1] = (int) (coins[i][0]*Math.sin(angleRadians)-coins[i][1]*Math.cos(angleRadians));
 			}
-			int nouvelleLargeur = Maths.max(coinsPivotes[0][0], coinsPivotes[1][0], coinsPivotes[2][0], coinsPivotes[3][0])
+			final int nouvelleLargeur = Maths.max(coinsPivotes[0][0], coinsPivotes[1][0], coinsPivotes[2][0], coinsPivotes[3][0])
 					- Maths.min(coinsPivotes[0][0], coinsPivotes[1][0], coinsPivotes[2][0], coinsPivotes[3][0]);
-			int nouvelleHauteur = Maths.max(coinsPivotes[0][1], coinsPivotes[1][1], coinsPivotes[2][1], coinsPivotes[3][1])
+			final int nouvelleHauteur = Maths.max(coinsPivotes[0][1], coinsPivotes[1][1], coinsPivotes[2][1], coinsPivotes[3][1])
 					- Maths.min(coinsPivotes[0][1], coinsPivotes[1][1], coinsPivotes[2][1], coinsPivotes[3][1]);
-			int postTranslationX = nouvelleLargeur/2;
-			int postTranslationY = nouvelleHauteur/2;
+			final int postTranslationX = nouvelleLargeur/2;
+			final int postTranslationY = nouvelleHauteur/2;
 			
 			// Rotation de l'image
 			final AffineTransform tx = new AffineTransform();
@@ -232,7 +232,7 @@ public abstract class Graphismes {
 	 */
 	public static void sauvegarderImage(final BufferedImage image, final String nom) {
 		final File directory = new File(String.valueOf("C:/Users/Public/kujira"));
-		if (!directory.exists()){
+		if (!directory.exists()) {
 			directory.mkdir();
 		}
 		
