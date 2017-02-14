@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javafx.embed.swing.JFXPanel;
 import jeu.Partie;
@@ -27,6 +28,8 @@ import map.LecteurMap;
 import map.Map;
 import menu.LecteurMenu;
 import menu.Menu;
+import net.bull.javamelody.Parameter;
+import utilitaire.EmbeddedServer;
 import utilitaire.GestionClavier;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
@@ -182,10 +185,33 @@ public final class Fenetre extends JFrame implements KeyListener {
 	 */
 	public static void main(final String[] args) {
 		ouvrirFenetre();
+		lancerSupervisionJavaMelody();
 		demarrerAffichage();
 	}
 
-	
+	/**
+	 * Superviser les performances avec JavaMelody.
+	 */
+	private static void lancerSupervisionJavaMelody() {
+		final HashMap<Parameter, String> parameters = new HashMap<>();
+		// Authentification
+		parameters.put(Parameter.AUTHORIZED_USERS, "admin:password");
+		// Dossier d'enregistrement
+		parameters.put(Parameter.STORAGE_DIRECTORY, "C://Users/Public/tmp/javamelody");
+		// Fréquence d'échantillonnage
+		parameters.put(Parameter.SAMPLING_SECONDS, "1.0");
+		// Emplacement des rapports d'analyse
+		parameters.put(Parameter.MONITORING_PATH, "/");
+		try {
+			// Démarrer le server d'affichage de l'analyse JavaMelody
+			LOG.info("Démarrage de JavaMelody...");
+			EmbeddedServer.start(8080, parameters);
+			LOG.info("JavaMelody est démarré.");
+		} catch (Exception e) {
+			LOG.error("Impossible de lancer l'analyse de performance avec JavaMelody.", e);
+		}
+	}
+
 	@Override
 	public void keyPressed(final KeyEvent event) {
 		final Integer keycode = event.getKeyCode();
