@@ -51,7 +51,6 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public static int langue;
 
 	private int margeGauche, margeHaut;
-	//public JLabel labelEcran = null;
 	public BufferStrategy bufferStrategy;
 	public Lecteur lecteur = null;
 	private Partie partie = null;

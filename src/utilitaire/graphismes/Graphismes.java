@@ -98,6 +98,10 @@ public abstract class Graphismes {
 			final int angle) {
 		final Graphics2D g2d = (Graphics2D) ecran.createGraphics();
 		
+		if (opacite <= 0) {
+			return ecran;
+		}
+		
 		//transparence et mode de fusion
 		if (opacite < OPACITE_MAXIMALE || !ModeDeFusion.NORMAL.equals(modeDeFusion)) {
 			final float alpha = (float) opacite/OPACITE_MAXIMALE;
