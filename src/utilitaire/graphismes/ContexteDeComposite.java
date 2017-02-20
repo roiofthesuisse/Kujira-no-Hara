@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import main.Fenetre;
 import main.Lecteur;
 
 /**
@@ -47,7 +48,7 @@ public class ContexteDeComposite implements CompositeContext {
         final DataBuffer dstDataBuffer = dstIn.getDataBuffer();
         
         // On effectue l'opération graphique en multithread : chaque ligne de pixel a son thread.
-        final ExecutorService executor = Executors.newFixedThreadPool(5);
+        final ExecutorService executor = Executors.newFixedThreadPool(Fenetre.NOMBRE_DE_THREADS);
         ThreadOperationGraphique.initialiserParametreGlobaux(srcDataBuffer, dstDataBuffer, largeur, 
         		src, dstIn, dstOut, pinceau, opacite);
         for (int y = 0; y < hauteur; y++) {

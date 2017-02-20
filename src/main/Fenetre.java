@@ -45,6 +45,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	public static final int LARGEUR_ECRAN = 640;
 	public static final int HAUTEUR_ECRAN = 480;
 	private static final int PORT_JAVAMELODY = 8080;
+	public static final int NOMBRE_DE_THREADS = 5;
 	
 	private static Fenetre maFenetre = null;
 	public static String titre = "Le meilleur jeu du monde";

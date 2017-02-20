@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Vector;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +27,7 @@ import conditions.Condition;
 import jeu.Objet;
 import main.Commande;
 import main.Fenetre;
+import main.Lecteur;
 import map.Autotile;
 import map.Event;
 import map.Map;
@@ -309,8 +314,56 @@ public abstract class InterpreteurDeJson {
 	 * @param map des Events
 	 */
 	public static void recupererLesEvents(final ArrayList<Event> events, final JSONArray eventsJSON, final Map map) {
-		for (Object ev : eventsJSON) {
-			final JSONObject jsonEvent = (JSONObject) ev;
+		// On effectue l'opération graphique en multithread : chaque Event a son thread.
+        final ExecutorService executor = Executors.newFixedThreadPool(Fenetre.NOMBRE_DE_THREADS);
+        final Vector<Event> eventsVector = new Vector<Event>(); //le Vector est synchronisé, contrairement à l'ArrayList
+        ThreadImporterLesEvents.initialiserParametreGlobaux(eventsVector, map);
+        for (Object ev : eventsJSON) {
+        	executor.submit(new ThreadImporterLesEvents((JSONObject) ev)); //chaque thread modifie une ligne du dstOut
+        }
+        executor.shutdown();
+        try {
+        	// On attend la fin de l'execution pour toutes les lignes de pixels de l'image
+        	executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS);
+		} catch (InterruptedException e) {
+			LOG.error("Interruption du thread d'importation des events qui a duré trop longtemps.", e);
+		}
+        
+        // On transvase les Events du vector vers l'arraylist
+        for (Event event : eventsVector) {
+        	events.add(event);
+        }
+	}
+	
+	/**
+	 * Multithread pour importer les Events de la Map rapidement.
+	 */
+	protected static class ThreadImporterLesEvents implements Runnable {
+		static Vector<Event> events;
+		static Map map;
+		
+		final JSONObject jsonEvent;
+		
+		/**
+		 * Ces paramètres sont communs à tou
+		 * @param events liste pour récupérer les Events importés
+		 * @param map de ces Events
+		 */
+		public static void initialiserParametreGlobaux(final Vector<Event> events, final Map map) {
+			ThreadImporterLesEvents.events = events;
+			ThreadImporterLesEvents.map = map;
+		}
+		
+		/**
+		 * Initialisation du thread
+		 * @param ev objet JSON contenant les infos de l'Event à importer
+		 */
+		public ThreadImporterLesEvents(final JSONObject ev) {
+			 this.jsonEvent = ev;
+		}
+		
+		@Override
+		public final void run() {
 			//récupération des données dans le JSON
 			final String nomEvent = jsonEvent.getString("nom");
 			final Integer id = jsonEvent.getInt("id");
