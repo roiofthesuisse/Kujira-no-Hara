@@ -39,31 +39,33 @@ public class ContexteDeComposite implements CompositeContext {
 	@Override
 	public final void compose(final Raster src, final Raster dstIn, final WritableRaster dstOut) {
 		final int largeur = Math.min(src.getWidth(), dstIn.getWidth());
-        final int hauteur = Math.min(src.getHeight(), dstIn.getHeight());
-
-        final float opacite = composite.opacite;
-
-        //buffers
-        final DataBuffer srcDataBuffer = src.getDataBuffer();
-        final DataBuffer dstDataBuffer = dstIn.getDataBuffer();
-        
-        // On effectue l'opération graphique en multithread : chaque ligne de pixel a son thread.
-        final ExecutorService executor = Executors.newFixedThreadPool(Fenetre.NOMBRE_DE_THREADS);
-        ThreadOperationGraphique.initialiserParametreGlobaux(srcDataBuffer, dstDataBuffer, largeur, 
-        		src, dstIn, dstOut, pinceau, opacite);
-        for (int y = 0; y < hauteur; y++) {
-        	executor.submit(new ThreadOperationGraphique(y)); //chaque thread modifie une ligne du dstOut
-        }
-        executor.shutdown();
-        try {
-        	// On attend la fin de l'execution pour toutes les lignes de pixels de l'image
-        	executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS);
-		} catch (InterruptedException e) {
-			LOG.error("Interruption du thread d'opération graphique qui a duré trop longtemps.", e);
+		final int hauteur = Math.min(src.getHeight(), dstIn.getHeight());
+		
+		final float opacite = composite.opacite;
+		
+		//buffers
+		final DataBuffer srcDataBuffer = src.getDataBuffer();
+		final DataBuffer dstDataBuffer = dstIn.getDataBuffer();
+		
+		// On effectue l'opération graphique en multithread : chaque ligne de pixel a son thread.
+		final ExecutorService executor = Executors.newFixedThreadPool(Fenetre.NOMBRE_DE_THREADS);
+		ThreadOperationGraphique.initialiserParametreGlobaux(srcDataBuffer, dstDataBuffer, largeur, 
+				src, dstIn, dstOut, pinceau, opacite);
+		for (int y = 0; y < hauteur; y++) {
+			executor.submit(new ThreadOperationGraphique(y)); //chaque thread modifie une ligne du dstOut
 		}
-        
-        // Le dstOut contient à présent le mélange entre le src et le dstIn.
-    }
+		executor.shutdown();
+		// On attend la fin de l'execution pour toutes les lignes de pixels de l'image
+		try {
+			while (!executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS)) {
+				LOG.warn("L'opération graphique n'est pas encore terminée...");
+			}
+		} catch (InterruptedException e) {
+			LOG.error("Impossible d'attendre la fin de l'opération graphique !", e);
+		}
+		
+		// Le dstOut contient à présent le mélange entre le src et le dstIn.
+	}
 
 
 	@Override

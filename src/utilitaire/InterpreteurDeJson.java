@@ -314,25 +314,28 @@ public abstract class InterpreteurDeJson {
 	 * @param map des Events
 	 */
 	public static void recupererLesEvents(final ArrayList<Event> events, final JSONArray eventsJSON, final Map map) {
-		// On effectue l'opération graphique en multithread : chaque Event a son thread.
-        final ExecutorService executor = Executors.newFixedThreadPool(Fenetre.NOMBRE_DE_THREADS);
-        final Vector<Event> eventsVector = new Vector<Event>(); //le Vector est synchronisé, contrairement à l'ArrayList
-        ThreadImporterLesEvents.initialiserParametreGlobaux(eventsVector, map);
-        for (Object ev : eventsJSON) {
-        	executor.submit(new ThreadImporterLesEvents((JSONObject) ev)); //chaque thread modifie une ligne du dstOut
-        }
-        executor.shutdown();
-        try {
-        	// On attend la fin de l'execution pour toutes les lignes de pixels de l'image
-        	executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS);
-		} catch (InterruptedException e) {
-			LOG.error("Interruption du thread d'importation des events qui a duré trop longtemps.", e);
+		// On effectue l'importation des Events en multithread : chaque Event a son thread.
+		final ExecutorService executor = Executors.newFixedThreadPool(Fenetre.NOMBRE_DE_THREADS);
+		final Vector<Event> eventsVector = new Vector<Event>(); //le Vector est synchronisé, contrairement à l'ArrayList
+		ThreadImporterLesEvents.initialiserParametreGlobaux(eventsVector, map);
+		for (Object ev : eventsJSON) {
+			executor.submit(new ThreadImporterLesEvents((JSONObject) ev)); //chaque thread modifie une ligne du dstOut
 		}
-        
-        // On transvase les Events du vector vers l'arraylist
-        for (Event event : eventsVector) {
-        	events.add(event);
-        }
+		executor.shutdown();
+		// On attend la fin de l'execution pour toutes les lignes de pixels de l'image
+		try {
+			while (!executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS)) {
+				LOG.warn("L'import des Events n'est pas encore terminé...");
+			}
+		} catch (InterruptedException e) {
+			LOG.error("Impossible d'attendre la fin de l'importation des Events !", e);
+		}
+		
+		// On transvase les Events du vector vers l'ArrayList
+		for (Event event : eventsVector) {
+			LOG.debug("Event importé : "+event.id+" ("+event.nom+")");
+			events.add(event);
+		}
 	}
 	
 	/**
@@ -364,43 +367,48 @@ public abstract class InterpreteurDeJson {
 		
 		@Override
 		public final void run() {
-			//récupération des données dans le JSON
 			final String nomEvent = jsonEvent.getString("nom");
 			final Integer id = jsonEvent.getInt("id");
-			final int xEvent = jsonEvent.getInt("x") * Fenetre.TAILLE_D_UN_CARREAU;
-			final int yEvent = jsonEvent.getInt("y") * Fenetre.TAILLE_D_UN_CARREAU;
-			int offsetY;
-			try {
-				offsetY = jsonEvent.getInt("offsetY");
-			} catch (JSONException e2) {
-				offsetY = 0;
-			}
-			
-			//instanciation de l'event
-			Event event;
-
-			//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
-			event = creerEventGenerique(id, nomEvent, xEvent, yEvent, offsetY, map);
-			
-			//si l'Event n'est pas générique, on le construit à partir de sa description dans la page JSON
-			if (event == null) {
-				int largeurHitbox;
-				try {
-					largeurHitbox = jsonEvent.getInt("largeur");
-				} catch (JSONException e2) {
-					largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
+			try{
+				//récupération des données dans le JSON
+				
+				final int xEvent = jsonEvent.getInt("x") * Fenetre.TAILLE_D_UN_CARREAU;
+				final int yEvent = jsonEvent.getInt("y") * Fenetre.TAILLE_D_UN_CARREAU;
+				int offsetY;
+				if (jsonEvent.has("offsetY")) {
+					offsetY = jsonEvent.getInt("offsetY");
+				} else {
+					offsetY = 0;
 				}
-				int hauteurHitbox;
-				try {
-					hauteurHitbox = jsonEvent.getInt("hauteur");
-				} catch (JSONException e2) {
-					hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
+				
+				//instanciation de l'event
+				Event event;
+	
+				//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
+				event = creerEventGenerique(id, nomEvent, xEvent, yEvent, offsetY, map);
+				
+				//si l'Event n'est pas générique, on le construit à partir de sa description dans la page JSON
+				if (event == null) {
+					int largeurHitbox;
+					if (jsonEvent.has("largeur")) {
+						largeurHitbox = jsonEvent.getInt("largeur");
+					} else {
+						largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
+					}
+					int hauteurHitbox;
+					if (jsonEvent.has("hauteur")) {
+						hauteurHitbox = jsonEvent.getInt("hauteur");
+					} else {
+						hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
+					}
+	
+					final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
+					event = new Event(xEvent, yEvent, offsetY, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
 				}
-
-				final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-				event = new Event(xEvent, yEvent, offsetY, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
+				events.add(event);
+			} catch (Exception e) {
+				LOG.error("Impossible d'importer l'event "+id+" ("+nomEvent+") !", e);
 			}
-			events.add(event);
 		}
 	}
 	
