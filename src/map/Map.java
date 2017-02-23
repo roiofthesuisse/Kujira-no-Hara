@@ -351,18 +351,29 @@ public class Map {
 	 */
 	private void creerListeDesCasesPassables() {
 		this.casePassable = new boolean[this.largeur][this.hauteur];
-		boolean passable;
-		int numeroDeLaCaseDansLeTileset;
+		int[][] couche;
+		int numeroDeLaCaseDansLeTileset = -1;
 		for (int i = 0; i<this.largeur; i++) {
 			for (int j = 0; j<this.hauteur; j++) {
-				passable = true;
 				this.casePassable[i][j] = true;
-				for (int k = 0; (k<NOMBRE_LAYERS && passable); k++) { //si on en trouve une de non passable, on ne cherche pas les autres couches
-					final int[][] layer = layers[k];
-					numeroDeLaCaseDansLeTileset = layer[i][j];
-					if (this.tileset.laCaseEstUnObstacle(numeroDeLaCaseDansLeTileset)) {
+				
+				int altitudeDeCetteCouche = -1;
+				boolean[] obstacleALAltitude = new boolean[NOMBRE_ALTITUDES];
+				// Pour chaque altitude, la couche la plus haute (hors -1) donne la passabilité
+				for (int k = 0; k<NOMBRE_LAYERS; k++) {
+					couche = layers[k]; //couche de décor
+					numeroDeLaCaseDansLeTileset = couche[i][j];
+
+					if (numeroDeLaCaseDansLeTileset != -1) {
+					altitudeDeCetteCouche = this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset);
+					// Y a-t-il un obstacle à cette altitude ?
+					obstacleALAltitude[altitudeDeCetteCouche] = this.tileset.laCaseEstUnObstacle(numeroDeLaCaseDansLeTileset);
+					}
+				}
+				// Si au moins une des altitudes est bloquante (dernière affectation), la case est bloquante
+				for (int a = 0; a<NOMBRE_ALTITUDES; a++) {	
+					if (obstacleALAltitude[a]) {
 						this.casePassable[i][j] = false;
-						passable = false;
 					}
 				}
 			}

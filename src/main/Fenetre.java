@@ -278,7 +278,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 		this.futurLecteur = new LecteurMap(this);
 		try {
 			((LecteurMap) futurLecteur).map = new Map(this.partie.numeroMap, (LecteurMap) this.futurLecteur, this.partie.xHeros, this.partie.yHeros, this.partie.directionHeros);
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			LOG.error("Impossible de charger la map numero "+partie.numeroMap);
 			e.printStackTrace();
 		}
