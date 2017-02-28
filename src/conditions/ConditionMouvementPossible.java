@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 import commandes.CommandeEvent;
 import commandes.Deplacement;
-import utilitaire.InterpreteurDeJson;
+import main.Commande;
 
 /**
  * Vérifie si ce Mouvement est possible.
@@ -31,7 +31,7 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	 */
 	public ConditionMouvementPossible(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
-			(Deplacement) InterpreteurDeJson.recupererUneCommande( (JSONObject) parametres.get("deplacement") )
+			(Deplacement) Commande.recupererUneCommande( (JSONObject) parametres.get("deplacement") )
 		);
 	}
 

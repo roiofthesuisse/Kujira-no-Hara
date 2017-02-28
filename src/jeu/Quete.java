@@ -104,8 +104,8 @@ public class Quete implements Listable {
 	 */
 	public Quete(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("id"), 
-			InterpreteurDeJson.construireTexteMultilingue(parametres.get("nom")),
-			InterpreteurDeJson.construireTexteMultilingue(parametres.get("description")),
+			Texte.construireTexteMultilingue(parametres.get("nom")),
+			Texte.construireTexteMultilingue(parametres.get("description")),
 			(String) (parametres.containsKey("nomIconeQuetePasFaite") ? parametres.get("nomIconeQuetePasFaite") : NOM_ICONE_QUETE_PAS_FAITE_PAR_DEFAUT),
 			(String) (parametres.containsKey("nomIconeQueteFaite") ? parametres.get("nomIconeQueteFaite") : NOM_ICONE_QUETE_FAITE_PAR_DEFAUT),
 			(int) parametres.get("xCarte"),

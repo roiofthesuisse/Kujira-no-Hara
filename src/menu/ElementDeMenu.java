@@ -2,13 +2,19 @@ package menu;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import conditions.Condition;
+import jeu.Objet;
 import main.Commande;
+import menu.Texte.Taille;
 import utilitaire.graphismes.Graphismes;
 
 /**
@@ -54,6 +60,7 @@ public abstract class ElementDeMenu {
 	public final ArrayList<Condition> conditions;
 	
 	/** L'ElementDeMenu appartient à une Liste */
+	@SuppressWarnings("rawtypes")
 	public Liste liste = null;
 	
 	/** L'élément de Menu peut être une image */
@@ -255,5 +262,133 @@ public abstract class ElementDeMenu {
 	}
 	
 	public abstract BufferedImage getImage();
+	
+	/**
+	 * Récuperer les Elements du Menuà partir d'un tableau d'objets JSON.
+	 * @param idSelectionInitiale identifiant de l'ElementDeMenu sélectionné d'emblée
+	 * @param jsonElements tableau JSON des ElementsDeMenu
+	 * @param images liste des ElementsDeMenu graphiques
+	 * @param textes liste des ElementsDeMenu textuels
+	 * @param listes tableaux bidimensionnels contenant des ElementsDeMenu
+	 * @param nom du Menu
+	 * @return ElementDeMenu sélectionné d'emblée
+	 */
+	public static ElementDeMenu recupererLesElementsDeMenu(final int idSelectionInitiale, 
+			final JSONArray jsonElements, final ArrayList<ImageMenu> images, final ArrayList<Texte> textes, 
+			@SuppressWarnings("rawtypes") final ArrayList<Liste> listes, final String nom) {
+		ElementDeMenu selectionInitiale = null;
+		
+		for (Object objetElement : jsonElements) {
+			final JSONObject jsonElement = (JSONObject) objetElement;
+			ElementDeMenu element = null;
+			
+			final String type = (String) jsonElement.get("type");
+			
+			final int x = (int) jsonElement.get("x");
+			final int y = (int) jsonElement.get("y");
+			
+			if ("Liste".equals(type)) {
+				// On a affaire à une Liste d'ElementsDeMenu
+				@SuppressWarnings("rawtypes")
+				final Liste liste = Liste.recupererElementDeMenuListe(jsonElement, x, y);
+				listes.add(liste);
+					
+				// On sélectionne le premier de la Liste
+				if (liste.elements != null && liste.elements.size()>0) {
+					selectionInitiale = (ElementDeMenu) liste.elements.get(0);
+				}
+
+			} else {
+				// L'ElementDeMenu n'est pas une Liste..
+				
+				final int id = (int) jsonElement.get("id");
+				final int largeur = jsonElement.has("largeur") ? (int) jsonElement.get("largeur") : -1;
+				final int hauteur = jsonElement.has("hauteur") ? (int) jsonElement.get("hauteur") : -1;
+				
+				if ("Objet".equals(type)) {
+					// L'ElementDeMenu est un icône d'Objet
+					final int idObjet = jsonElement.getInt("idObjet");
+					
+					final Objet objet = Objet.objetsDuJeu[idObjet];
+					final ImageMenu imageObjet = new ImageMenu(objet, x, y, largeur, hauteur, true, id);
+					
+					images.add(imageObjet);
+					element = imageObjet;
+				} else {
+					//L'ElementDeMenu n'est pas un icône d'Objet
+					
+					// L'ElementDeMenu est-il sélectionnable ?
+					final boolean selectionnable = (boolean) jsonElement.get("selectionnable");
+					
+					// CommandesMenu executées au survol de l'Elément de Menu
+					final ArrayList<Commande> commandesAuSurvol = new ArrayList<Commande>();
+					try {
+						final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
+						Commande.recupererLesCommandes(commandesAuSurvol, jsonCommandesSurvol);
+					} catch (JSONException e) {
+						LOG.warn("[Menu "+nom+"] Pas de commandes au survol pour l'élément de menu : "+id);
+					}
+					
+					// CommandesMenu executées à la confirmation de l'Elément de Menu
+					final ArrayList<Commande> commandesALaConfirmation = new ArrayList<Commande>();
+					try {
+						final JSONArray jsonCommandesConfirmation = jsonElement.getJSONArray("commandesConfirmation");
+						Commande.recupererLesCommandes(commandesALaConfirmation, jsonCommandesConfirmation);
+					} catch (JSONException e) {
+						LOG.warn("[Menu "+nom+"] Pas de commandes à la confirmation pour l'élément de menu : "+id);
+					}
+	
+					if ("Texte".equals(type)) {
+						// L'ElementDeMenu est un Texte
+						final ArrayList<String> contenuListe = new ArrayList<String>();
+						try {
+							// Texte multilingue
+							final JSONArray jsonContenu = jsonElement.getJSONArray("contenu");
+							for (Object o : jsonContenu) {
+								contenuListe.add((String) o);
+							}
+						} catch (JSONException e) {
+							// Texte monolingue
+							contenuListe.add(jsonElement.getString("contenu"));
+						}
+						
+						final String taille = jsonElement.has("taille") ? (String) jsonElement.get("taille") : null;
+						final Texte texte = new Texte(contenuListe, x, y, Taille.getTailleParNom(taille), selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
+						textes.add(texte);
+						element = texte;
+						
+					} else if ("Image".equals(type)) {
+						// L'ElementDeMenu est une Image
+						final String dossier = (String) jsonElement.get("dossier");
+						final String fichier = (String) jsonElement.get("fichier");
+	
+						final JSONArray jsonConditions = jsonElement.getJSONArray("conditions");
+						final ArrayList<Condition> conditions = new ArrayList<Condition>();
+						Condition.recupererLesConditions(conditions, jsonConditions);
+						
+						final ImageMenu image;
+						try {
+							image = new ImageMenu(Graphismes.ouvrirImage(dossier, fichier), 
+									x, y, largeur, hauteur, 
+									conditions, selectionnable, commandesAuSurvol, commandesALaConfirmation, 
+									id);
+							images.add(image);
+							element = image;
+						} catch (IOException e) {
+							LOG.error("Impossible d'ouvrir l'image : "+dossier+"/"+fichier, e);
+						}
+						
+					} else  {
+						LOG.error("Type inconnu pour un élement de menu  : "+type);
+					}
+				}
+				
+				if (id == idSelectionInitiale) {
+					selectionInitiale = element;
+				}
+			}
+		}
+		return selectionInitiale;
+	}
 	
 }

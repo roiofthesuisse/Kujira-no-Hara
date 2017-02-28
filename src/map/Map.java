@@ -328,7 +328,7 @@ public class Map {
 			//this.eventsHash.put(0, heros);
 			//puis les autres
 			final JSONArray jsonEvents = jsonMap.getJSONArray("events");
-			InterpreteurDeJson.recupererLesEvents(this.events, jsonEvents, this);
+			Event.recupererLesEvents(this.events, jsonEvents, this);
 		} catch (Exception e3) {
 			LOG.error("Erreur lors de la constitution de la liste des events :", e3);
 		}

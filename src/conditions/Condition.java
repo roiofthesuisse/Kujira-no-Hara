@@ -1,9 +1,14 @@
 package conditions;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
@@ -77,4 +82,47 @@ public abstract class Condition extends Commande {
 	public void executer() {
 		//rien
 	}
+	
+	/**
+	 * Traduit les Conditions depuis le format JSON et les range dans la liste des Conditions de la Page.
+	 * @param conditions liste des Conditions de la Page
+	 * @param conditionsJSON tableau JSON contenant les Conditions au format JSON
+	 */
+	public static void recupererLesConditions(final ArrayList<Condition> conditions, final JSONArray conditionsJSON) {
+		
+		for (Object conditionJSON : conditionsJSON) {
+			try {
+				final Class<?> classeCondition = Class.forName("conditions.Condition"+((JSONObject) conditionJSON).get("nom"));
+				try {
+					//cas d'une Condition sans paramètres
+					
+					final Constructor<?> constructeurCondition = classeCondition.getConstructor();
+					final Condition condition = (Condition) constructeurCondition.newInstance();
+					conditions.add(condition);
+					
+				} catch (NoSuchMethodException e0) {
+					//cas d'une Condition utilisant des paramètres
+					
+					final Iterator<String> parametresNoms = ((JSONObject) conditionJSON).keys();
+					String parametreNom; //nom du paramètre pour instancier la Condition
+					Object parametreValeur; //valeur du paramètre pour instancier la Condition
+					final HashMap<String, Object> parametres = new HashMap<String, Object>();
+					while (parametresNoms.hasNext()) {
+						parametreNom = parametresNoms.next();
+						if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+							parametreValeur = ((JSONObject) conditionJSON).get(parametreNom);
+							parametres.put( parametreNom, parametreValeur );
+						}
+					}
+					final Constructor<?> constructeurCondition = classeCondition.getConstructor(parametres.getClass());
+					final Condition condition = (Condition) constructeurCondition.newInstance(parametres);
+					conditions.add(condition);
+				}
+				
+			} catch (Exception e1) {
+				LOG.error("Erreur lors de l'instanciation de la Condition :", e1);
+			}
+		}
+	}
+	
 }

@@ -98,8 +98,8 @@ public class Arme implements Listable {
 	 */
 	public Arme(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
-			InterpreteurDeJson.construireTexteMultilingue(parametres.get("nom")),
-			InterpreteurDeJson.construireTexteMultilingue(parametres.get("description")),
+			Texte.construireTexteMultilingue(parametres.get("nom")),
+			Texte.construireTexteMultilingue(parametres.get("description")),
 			(String) parametres.get("nomEffetSonoreAttaque"),
 			(Integer[]) parametres.get("framesDAnimation"),
 			new Hitbox((int) parametres.get("portee"), (int) parametres.get("etendue")),

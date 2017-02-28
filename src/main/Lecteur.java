@@ -8,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import son.LecteurAudio;
-import utilitaire.InterpreteurDeJson;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
 import map.LecteurMap;
@@ -50,7 +49,7 @@ public abstract class Lecteur {
 	public static boolean afficherBoiteMessage = true;
 
 	/** Pages de code commun à toutes les Maps */
-	public ArrayList<PageCommune> pagesCommunes = InterpreteurDeJson.recupererLesPagesCommunes();
+	public ArrayList<PageCommune> pagesCommunes = PageCommune.recupererLesPagesCommunes();
 	
 	
 	/**

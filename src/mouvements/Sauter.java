@@ -5,7 +5,6 @@ import java.util.HashMap;
 import main.Fenetre;
 import map.Event;
 import map.Heros;
-import utilitaire.InterpreteurDeJson;
 
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases
@@ -174,7 +173,7 @@ public class Sauter extends Mouvement {
 	 * @param event qui saute
 	 */
 	private void reserverLaPlaceDArrivee(final Event event) {
-		final Event reservation = InterpreteurDeJson.creerEventGenerique(-1, NOM_EVENT_RESERVATION_PLACE_D_ARRIVEE, this.xEventApresSaut, this.yEventApresSaut, 0, event.map);
+		final Event reservation = Event.creerEventGenerique(-1, NOM_EVENT_RESERVATION_PLACE_D_ARRIVEE, this.xEventApresSaut, this.yEventApresSaut, 0, event.map);
 		reservation.largeurHitbox = event.largeurHitbox;
 		reservation.hauteurHitbox = event.hauteurHitbox;
 		event.map.eventsAAjouter.add(reservation);

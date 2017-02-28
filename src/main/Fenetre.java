@@ -31,7 +31,6 @@ import menu.Menu;
 import net.bull.javamelody.Parameter;
 import utilitaire.EmbeddedServer;
 import utilitaire.GestionClavier;
-import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
@@ -65,7 +64,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 	 */
 	private Fenetre() {
 		super(titre);
-		final Menu menuTitre = InterpreteurDeJson.creerMenuDepuisJson("Titre", null);
+		final Menu menuTitre = Menu.creerMenuDepuisJson("Titre", null);
 		
 		//la sélection initiale est ChargerPartie s'il y a déjà une sauvegarde, sinon nouvellePartie
 		int selectionInitiale = 0;

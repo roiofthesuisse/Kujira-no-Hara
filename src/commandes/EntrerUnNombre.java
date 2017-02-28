@@ -10,7 +10,6 @@ import map.LecteurMap;
 import menu.Menu;
 import menu.Texte;
 import son.LecteurAudio;
-import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
 
@@ -62,7 +61,7 @@ public class EntrerUnNombre extends Message {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public EntrerUnNombre(final HashMap<String, Object> parametres) {
-		this( 	InterpreteurDeJson.construireTexteMultilingue(parametres.get("texte")),
+		this( 	Texte.construireTexteMultilingue(parametres.get("texte")),
 				(int) parametres.get("numeroDeVariable"),
 				(int) parametres.get("tailleDuNombre")
 		);

@@ -63,9 +63,9 @@ public class Objet implements Listable {
 	@SuppressWarnings("unchecked")
 	public Objet(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("idObjet"), 
-			InterpreteurDeJson.construireTexteMultilingue(parametres.get("nom")),
+			Texte.construireTexteMultilingue(parametres.get("nom")),
 			(String) parametres.get("nomIcone"),
-			InterpreteurDeJson.construireTexteMultilingue(parametres.get("description")),
+			Texte.construireTexteMultilingue(parametres.get("description")),
 			(ArrayList<Commande>) parametres.get("effet") //TODO à revoir, je doute que ça marche
 		);
 	}
@@ -90,7 +90,7 @@ public class Objet implements Listable {
 						//paramètre : effet
 						final ArrayList<CommandeMenu> effet = new ArrayList<CommandeMenu>();
 						final JSONArray jsonEffet = jsonObjet.getJSONArray("effet");
-						InterpreteurDeJson.recupererLesCommandesMenu(effet, jsonEffet);
+						Commande.recupererLesCommandesMenu(effet, jsonEffet);
 						parametresObjet.put("effet", effet);
 					} else {
 						//autres paramètres

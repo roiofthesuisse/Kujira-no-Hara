@@ -11,7 +11,6 @@ import main.Fenetre;
 import map.LecteurMap;
 import menu.LecteurMenu;
 import menu.Menu;
-import utilitaire.InterpreteurDeJson;
 
 /**
  * Passer à un autre Menu
@@ -45,7 +44,7 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Menu nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nomMenu, this.element.menu);
+		final Menu nouveauMenu = Menu.creerMenuDepuisJson(this.nomMenu, this.element.menu);
 		LOG.info("Nom du nouveau menu : "+this.nomMenu);
 		
 		final LecteurMap lecteurMapMemorise = this.element.menu.lecteur.lecteurMapMemorise;

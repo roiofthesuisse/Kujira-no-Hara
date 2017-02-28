@@ -9,7 +9,6 @@ import main.Lecteur;
 import map.LecteurMap;
 import menu.LecteurMenu;
 import menu.Menu;
-import utilitaire.InterpreteurDeJson;
 
 /**
  * Ouvrir un Menu.
@@ -49,7 +48,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 			final Fenetre fenetre = Fenetre.getFenetre();
 			final Lecteur lecteur = fenetre.lecteur;
 			final LecteurMenu nouveauLecteur;
-			final Menu nouveauMenu = InterpreteurDeJson.creerMenuDepuisJson(this.nomMenu, null); //pas de Menu parent car appelé depuis la Map
+			final Menu nouveauMenu = Menu.creerMenuDepuisJson(this.nomMenu, null); //pas de Menu parent car appelé depuis la Map
 			if (lecteur instanceof LecteurMenu) {
 				// Le Menu est ouvert depuis un autre Menu
 				final LecteurMenu lecteurActuel = (LecteurMenu) lecteur;

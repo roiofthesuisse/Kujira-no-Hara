@@ -128,7 +128,7 @@ public class Tileset {
 		}
 			
 		//autotiles
-		this.autotiles = InterpreteurDeJson.chargerAutotiles(jsonTileset, this);
+		this.autotiles = Autotile.chargerAutotiles(jsonTileset, this);
 		
 		//TODO type de terrain
 	}

@@ -1,14 +1,23 @@
 package map;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import conditions.Condition;
 import main.Commande;
+import utilitaire.InterpreteurDeJson;
 
 /**
  * Pages de code commun à toutes les Maps.
  */
 public class PageCommune extends PageEvent {
+	private static final Logger LOG = LogManager.getLogger(PageCommune.class);
 	public boolean active;
 	
 	/**
@@ -72,4 +81,31 @@ public class PageCommune extends PageEvent {
 			}
 		}
 	}
+	
+	/**
+	 * Récupérer les Pages Communes décrites dans un fichier JSON.
+	 * @return Pages de code Event communes à toutes les Maps du jeu
+	 */
+	public static ArrayList<PageCommune> recupererLesPagesCommunes() {
+		final ArrayList<PageCommune> pagesCommunes = new ArrayList<PageCommune>();
+		
+		try {
+			final JSONObject jsonObjets = InterpreteurDeJson.ouvrirJson("pagesCommunes", ".\\ressources\\Data\\");
+			final JSONArray jsonPagesCommunes = jsonObjets.getJSONArray("pages");
+		
+			for (Object o : jsonPagesCommunes) {
+				final JSONObject jsonPageCommune = (JSONObject) o;
+				final PageCommune pageCommune = new PageCommune(jsonPageCommune);
+				pagesCommunes.add(pageCommune);
+			}
+
+		} catch (FileNotFoundException e) {
+			LOG.error("Impossible de trouver le fichier des pages communes !", e);
+		} catch (JSONException e) {
+			LOG.error("Impossible de lire le fichier JSON des pages communes !", e);
+		}
+		
+		return pagesCommunes;
+	}
+	
 }

@@ -1,16 +1,23 @@
 package main;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Constructor;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import commandes.CommandeEvent;
+import commandes.CommandeMenu;
 import map.PageEvent;
 import menu.ElementDeMenu;
 
@@ -61,4 +68,109 @@ public abstract class Commande {
 		}
 		return null;
 	}
+	
+	/**
+	 * Traduit les Commandes depuis le format JSON et les range dans la liste des Commandes de la Page.
+	 * @param commandes liste des Commandes de la Page.
+	 * @param commandesJSON tableau JSON contenant les Commandes au format JSON
+	 */
+	public static void recupererLesCommandesEvent(final ArrayList<Commande> commandes, final JSONArray commandesJSON) {
+		for (Object commandeJSON : commandesJSON) {
+			final Commande commande = recupererUneCommande( (JSONObject) commandeJSON );
+			if (commande != null) {
+				//on vérifie que c'est bien une CommandeEvent
+				if (commande instanceof CommandeEvent) {
+					commandes.add(commande);
+				} else {
+					LOG.error("La commande "+commande.getClass().getName()+" n'est pas une CommandeEvent !");
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Traduit les Commandes depuis le format JSON et les range dans la liste des Commandes de l'Element de Menu.
+	 * @param commandes liste des Commandes de la Page.
+	 * @param commandesJSON tableau JSON contenant les Commandes au format JSON
+	 */
+	public static void recupererLesCommandesMenu(final ArrayList<CommandeMenu> commandes, final JSONArray commandesJSON) {
+		for (Object commandeJSON : commandesJSON) {
+			final Commande commande = recupererUneCommande( (JSONObject) commandeJSON );
+			if (commande != null) {
+				//on vérifie que c'est bien une CommandeMenu
+				if (commande instanceof CommandeMenu) {
+					commandes.add((CommandeMenu) commande);
+				} else {
+					LOG.error("La commande "+commande.getClass().getName()+" n'est pas une CommandeMenu !");
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Traduit les CommandesMenu depuis le format JSON et les range dans la liste des CommandesMenu de l'Element.
+	 * @param commandes liste des Commandes de l'Element.
+	 * @param commandesJSON tableau JSON contenant les CommandesMenu au format JSON
+	 */
+	public static void recupererLesCommandes(final ArrayList<Commande> commandes, final JSONArray commandesJSON) {
+		for (Object commandeJSON : commandesJSON) {
+			try {
+				final String nomClasseCommande = ((JSONObject) commandeJSON).getString("nom");
+				final Class<?> classeCommande = Class.forName("commandes." + nomClasseCommande);
+				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
+				String parametreNom; //nom du paramètre pour instancier la Commande Event
+				Object parametreValeur; //valeur du paramètre pour instancier la Commande Event
+				final HashMap<String, Object> parametres = new HashMap<String, Object>();
+				while (parametresNoms.hasNext()) {
+					parametreNom = parametresNoms.next();
+					if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+						parametreValeur = ((JSONObject) commandeJSON).get(parametreNom);
+						parametres.put( parametreNom, parametreValeur );
+					}
+				}
+				final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
+				final Commande commande = (Commande) constructeurCommande.newInstance(parametres);
+				commandes.add(commande);
+			} catch (Exception e1) {
+				LOG.error("Impossible de traduire l'objet JSON en CommandeMenu.", e1);
+			}
+		}
+	}
+	
+	/**
+	 * Traduit un objet JSON représentant une Commande en vrai objet Commande.
+	 * @param commandeJson objet JSON représentant une Commande
+	 * @return objet Commande
+	 */
+	public static Commande recupererUneCommande(final JSONObject commandeJson) {
+		try {
+			Class<?> classeCommande;
+			final String nomClasseCommande = commandeJson.getString("nom");
+			try {
+				//la Commande est juste une Commande du package "commandes"
+				classeCommande = Class.forName("commandes." + nomClasseCommande);
+			} catch (ClassNotFoundException e0) {
+				//la Commande est une Condition du package "conditions"
+				classeCommande = Class.forName("conditions." + nomClasseCommande);
+			}
+			final Iterator<String> parametresNoms = commandeJson.keys();
+			String parametreNom; //nom du paramètre pour instancier la Commande Event
+			Object parametreValeur; //valeur du paramètre pour instancier la Commande Event
+			final HashMap<String, Object> parametres = new HashMap<String, Object>();
+			while (parametresNoms.hasNext()) {
+				parametreNom = parametresNoms.next();
+				if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+					parametreValeur = commandeJson.get(parametreNom);
+					parametres.put( parametreNom, parametreValeur );
+				}
+			}
+			final Constructor<?> constructeurCommande = classeCommande.getConstructor(parametres.getClass());
+			final Commande commande = (Commande) constructeurCommande.newInstance(parametres);
+			return commande;
+		} catch (Exception e1) {
+			LOG.error("Impossible de traduire l'objet JSON en CommandeEvent.", e1);
+			return null;
+		}
+	}
+	
 }

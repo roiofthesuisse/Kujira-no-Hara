@@ -12,7 +12,6 @@ import main.Fenetre;
 import map.Event;
 import map.LecteurMap;
 import mouvements.Mouvement;
-import utilitaire.InterpreteurDeJson;
 
 /**
  * <p>Un Déplacement est un ensemble de Mouvements subis par un Event.</p>
@@ -77,7 +76,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 	 */
 	public Deplacement(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("idEventADeplacer") ? (Integer) parametres.get("idEventADeplacer") : null,
-			InterpreteurDeJson.recupererLesMouvements((JSONArray) parametres.get("mouvements")),
+			Mouvement.recupererLesMouvements((JSONArray) parametres.get("mouvements")),
 			parametres.containsKey("ignorerLesMouvementsImpossibles") ? (boolean) parametres.get("ignorerLesMouvementsImpossibles") : Event.IGNORER_LES_MOUVEMENTS_IMPOSSIBLES_PAR_DEFAUT,
 			parametres.containsKey("repeterLeDeplacement") ? (boolean) parametres.get("repeterLeDeplacement") : Event.REPETER_LE_DEPLACEMENT_PAR_DEFAUT,
 			parametres.containsKey("attendreLaFinDuDeplacement") ? (boolean) parametres.get("attendreLaFinDuDeplacement") : Event.ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT

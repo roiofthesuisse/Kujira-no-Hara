@@ -13,7 +13,6 @@ import main.Commande;
 import main.Fenetre;
 import map.LecteurMap;
 import menu.Texte;
-import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
@@ -47,7 +46,7 @@ public class Message extends Commande implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Message(final HashMap<String, Object> parametres) {
-		this( InterpreteurDeJson.construireTexteMultilingue(parametres.get("texte")) );
+		this( Texte.construireTexteMultilingue(parametres.get("texte")) );
 	}
 
 	@Override

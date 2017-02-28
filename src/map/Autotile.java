@@ -4,9 +4,13 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import main.Fenetre;
 import utilitaire.graphismes.Graphismes;
@@ -566,6 +570,51 @@ public class Autotile {
 			}
 		}
 		return new int[]{xMorceauChoisi, yMorceauChoisi};
+	}
+	
+	/**
+	 * Charger les Autotiles d'un Tileset.
+	 * @param jsonTileset objet JSON représentant un Tileset
+	 * @param tileset auquel appartiennent les Autotiles
+	 * @return Autotiles de ce Tileset
+	 */
+	public static HashMap<Integer, Autotile> chargerAutotiles(final JSONObject jsonTileset, final Tileset tileset) {
+		final HashMap<Integer, Autotile> autotiles = new HashMap<Integer, Autotile>();
+		final JSONArray jsonAutotiles = jsonTileset.getJSONArray("autotiles");
+		for (Object autotileObject : jsonAutotiles) {
+			try {
+				final JSONObject jsonAutotile = (JSONObject) autotileObject;
+				final int numeroAutotile = (int) jsonAutotile.get("numero");
+				final boolean passabiliteAutotile = ((int) jsonAutotile.get("passabilite") == 0);
+				final int altitudeAutotile = (int) jsonAutotile.get("altitude");
+				final int terrainAutotile = jsonAutotile.has("terrain") ? (int) jsonAutotile.get("terrain") : 0;
+				final String nomImageAutotile = (String) jsonAutotile.get("nomImage");
+				
+				//cousins
+				final ArrayList<Integer> cousinsAutotile = new ArrayList<Integer>();
+				try {
+					final JSONArray jsonCousins = jsonAutotile.getJSONArray("cousins");
+					if (jsonCousins != null) {
+						for (Object cousinObject : jsonCousins) {
+							cousinsAutotile.add((Integer) cousinObject);
+						}
+					}
+				} catch (JSONException e) {
+					LOG.warn("L'autotile "+nomImageAutotile+" n'a pas de cousins.");
+				}
+				
+				final Autotile autotile;
+				try {
+					autotile = new Autotile(numeroAutotile, nomImageAutotile, passabiliteAutotile, altitudeAutotile, terrainAutotile, cousinsAutotile, tileset);
+					autotiles.put(numeroAutotile, autotile);
+				} catch (IOException e) {
+					LOG.error("Impossible d'instancier l'autotile : "+nomImageAutotile, e);
+				}
+			} catch (JSONException e) {
+				LOG.error("Impossible de lire le JSON de l'autotile", e);
+			}
+		}
+		return autotiles;
 	}
 	
 }

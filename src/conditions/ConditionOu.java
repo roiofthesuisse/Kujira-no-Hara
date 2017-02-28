@@ -5,8 +5,6 @@ import java.util.HashMap;
 
 import org.json.JSONArray;
 
-import utilitaire.InterpreteurDeJson;
-
 /**
  * ConditionOu est vraie si au moins une des conditions imbriquées est vraie.
  *
@@ -25,7 +23,7 @@ public class ConditionOu extends Condition {
 		this.numero = numero;
 		
 		this.conditions = new ArrayList<Condition>();
-		InterpreteurDeJson.recupererLesConditions(conditions, jsonConditions);
+		Condition.recupererLesConditions(conditions, jsonConditions);
 	}
 	
 	/**

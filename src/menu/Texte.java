@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
 
 import main.Commande;
 import main.Fenetre;
@@ -260,6 +261,27 @@ public class Texte extends ElementDeMenu {
 	 */
 	public void actualiserImage() {
 		this.image = null;
+	}
+	
+	/**
+	 * Séparer les langues dans une liste.
+	 * @param o soit le texte dans une langue unique au format String, soit le texte multilingue ArrayList<String>
+	 * @return liste du texte dans chaque langue
+	 */
+	public static ArrayList<String> construireTexteMultilingue(final Object o) {
+		final ArrayList<String> resultat = new ArrayList<String>();
+		try {
+			// Texte monolingue
+			final String texteUnique = (String) o;
+			resultat.add(texteUnique);
+		} catch (Exception e) {
+			// Texte multilingue
+			final JSONArray jsonTexteMulti = (JSONArray) o;
+			for (Object texteDansUneLangue : jsonTexteMulti) {
+				resultat.add((String) texteDansUneLangue);
+			}
+		}
+		return resultat;
 	}
 	
 }

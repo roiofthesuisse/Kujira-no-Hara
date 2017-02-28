@@ -7,6 +7,9 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import map.Event.Direction;
 
@@ -263,6 +266,61 @@ public class Liste<T extends Listable> {
 		}
 		
 		return nouvelElementSelectionne;
+	}
+	
+	/**
+	 * Récupérer une Liste d'ElementsDeMenu.
+	 * @param jsonElement objet JSON représentant la Liste
+	 * @param x position x (en pixels) de la Liste dans le Menu
+	 * @param y position y (en pixels) de la Liste dans le Menu
+	 * @return Liste d'ElementsDeMenu.
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static Liste recupererElementDeMenuListe(final JSONObject jsonElement, final int x, final int y) {
+		final String natureDuListable = Listable.PREFIXE_NOM_CLASSE + jsonElement.getString("provenance");
+		try {
+			final Class<? extends Listable> provenance = (Class<? extends Listable>) Class.forName(natureDuListable);
+			
+			final int nombreDeColonnes = jsonElement.getInt("nombreDeColonnes");
+			final int nombreDeLignesVisibles = jsonElement.getInt("nombreDeLignesVisibles");
+			
+			final boolean possedes = jsonElement.getBoolean("possedes");
+			
+			final JSONArray jsonTousSauf; 
+			ArrayList<Integer> tousSauf = new ArrayList<Integer>();
+			try {
+				jsonTousSauf = jsonElement.getJSONArray("tousSauf");
+				for (Object o : jsonTousSauf) {
+					tousSauf.add((Integer) o);
+				}
+			} catch (JSONException e) {
+				tousSauf = null;
+			}
+			
+			final JSONArray jsonAvec;
+			ArrayList<Integer> avec = new ArrayList<Integer>();
+			try {
+				jsonAvec = jsonElement.getJSONArray("avec");
+				for (Object o : jsonAvec) {
+					avec.add((Integer) o);
+				}
+				
+			} catch (JSONException e) {
+				avec = null;
+			}
+
+			Liste liste = null;
+			try {
+				liste = new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles,
+						provenance, possedes, avec, tousSauf);
+			} catch (Exception e) {
+				LOG.error("Impossible de créer la liste d'éléments pour le menu !", e);
+			}
+			return liste;
+		} catch (ClassNotFoundException e) {
+			LOG.error(natureDuListable+" n'est pas un Listable connu.", e);
+			return null;
+		}
 	}
 
 }

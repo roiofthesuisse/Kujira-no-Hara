@@ -1,7 +1,14 @@
 package mouvements;
 
+import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import commandes.Deplacement;
 import map.Event;
@@ -196,4 +203,50 @@ public abstract class Mouvement {
 	 * @return direction imposée par le Mouvement à l'Event ou -1 si aucune.
 	 */
 	public abstract int getDirectionImposee();
+	
+	/**
+	 * Traduit un JSONArray représentant les Mouvements en une liste de Mouvements.
+	 * @param mouvementsJSON JSONArray représentant les Mouvements
+	 * @return liste des Mouvements
+	 */
+	public static ArrayList<Mouvement> recupererLesMouvements(final JSONArray mouvementsJSON) {
+		final ArrayList<Mouvement> mouvements = new ArrayList<Mouvement>();
+		for (Object object : mouvementsJSON) {
+			final JSONObject mouvementJson = (JSONObject) object;
+			final Mouvement mouvement = recupererUnMouvement(mouvementJson);
+			mouvements.add(mouvement);
+		}
+		return mouvements;
+	}
+	
+	/**
+	 * Traduit un objet JSON représentant un Mouvement en un vrai objet Mouvement.
+	 * @param mouvementJSON objet JSON représentant un Mouvement
+	 * @return un objet Mouvement
+	 */
+	private static Mouvement recupererUnMouvement(final JSONObject mouvementJSON) {
+		final Class<?> classeMouvement;
+		final String nomClasseMouvement = ((JSONObject) mouvementJSON).getString("nom");
+		Mouvement mouvement = null;
+		try {
+			classeMouvement = Class.forName("mouvements." + nomClasseMouvement);
+			final Iterator<String> parametresNoms = ((JSONObject) mouvementJSON).keys();
+			String parametreNom; //nom du paramètre pour instancier le mouvement
+			Object parametreValeur; //valeur du paramètre pour instancier le mouvement
+			final HashMap<String, Object> parametres = new HashMap<String, Object>();
+			while (parametresNoms.hasNext()) {
+				parametreNom = parametresNoms.next();
+				if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+					parametreValeur = ((JSONObject) mouvementJSON).get(parametreNom);
+					parametres.put( parametreNom, parametreValeur );
+				}
+			}
+			final Constructor<?> constructeurMouvement = classeMouvement.getConstructor(parametres.getClass());
+			mouvement = (Mouvement) constructeurMouvement.newInstance(parametres);
+		} catch (Exception e) {
+			LOG.error("Impossible de traduire l'objet JSON en Mouvement "+nomClasseMouvement, e);
+		}
+		return mouvement;
+	}
+	
 }

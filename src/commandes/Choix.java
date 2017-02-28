@@ -13,7 +13,6 @@ import map.LecteurMap;
 import menu.Menu;
 import menu.Texte;
 import son.LecteurAudio;
-import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
 
@@ -53,8 +52,8 @@ public class Choix extends Message {
 	 */
 	public Choix(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"),
-				InterpreteurDeJson.construireTexteMultilingue(parametres.get("texte")),
-				InterpreteurDeJson.recupererLesAlternativesDUnChoix((JSONArray) parametres.get("alternatives"))
+				Texte.construireTexteMultilingue(parametres.get("texte")),
+				recupererLesAlternativesDUnChoix((JSONArray) parametres.get("alternatives"))
 		);
 	}
 	
@@ -166,6 +165,21 @@ public class Choix extends Message {
 	public final void bas() {
 		this.positionCurseurChoisie = Maths.modulo(this.positionCurseurChoisie + 1, this.alternatives.size());
 		LecteurAudio.playSe(Menu.BRUIT_DEPLACEMENT_CURSEUR);
+	}
+	
+	/**
+	 * Traduit un JSONArray représentant les alternatives d'un Choix en une liste de Strings.
+	 * La première ArrayList désigne les alternatives, la seconde les langues disponibles pour chaque alternative.
+	 * @param alternativesJSON JSONArray représentant les alternatives
+	 * @return liste des Strings
+	 */
+	public static ArrayList<ArrayList<String>> recupererLesAlternativesDUnChoix(final JSONArray alternativesJSON) {
+		final ArrayList<ArrayList<String>> alternatives = new ArrayList<ArrayList<String>>();
+		for (Object object : alternativesJSON) {
+			final ArrayList<String> alternativeMultiLingue = Texte.construireTexteMultilingue(object);
+			alternatives.add(alternativeMultiLingue);
+		}
+		return alternatives;
 	}
 	
 }

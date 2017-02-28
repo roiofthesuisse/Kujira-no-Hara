@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 
 import main.Commande;
 import menu.Texte;
-import utilitaire.InterpreteurDeJson;
 
 /**
  * Afficher la description de l'Elément sélectionné dans le Menu.
@@ -44,7 +43,7 @@ public class ModifierTexte extends Commande implements CommandeMenu {
 	 */
 	public ModifierTexte(final HashMap<String, Object> parametres) {
 		this(
-				InterpreteurDeJson.construireTexteMultilingue(parametres.get("nouveauTexte")),
+				Texte.construireTexteMultilingue(parametres.get("nouveauTexte")),
 				parametres.containsKey("idElementDeMenu") ? (int) parametres.get("idElementDeMenu") : null
 		);
 	}

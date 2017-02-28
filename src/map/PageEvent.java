@@ -12,7 +12,6 @@ import conditions.Condition;
 import conditions.ConditionParler;
 import main.Commande;
 import main.Fenetre;
-import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
@@ -74,7 +73,7 @@ public class PageEvent {
 		//conditions de déclenchement de la page
 		this.conditions = new ArrayList<Condition>();
 		try {
-			InterpreteurDeJson.recupererLesConditions(this.conditions, pageJSON.getJSONArray("conditions"));
+			Condition.recupererLesConditions(this.conditions, pageJSON.getJSONArray("conditions"));
 			for (Condition condition : this.conditions) {
 				condition.page = this;
 			}
@@ -85,7 +84,7 @@ public class PageEvent {
 		//commandes de la page
 		final ArrayList<Commande> commandes = new ArrayList<Commande>();
 		try {
-			InterpreteurDeJson.recupererLesCommandesEvent(commandes, pageJSON.getJSONArray("commandes"));
+			Commande.recupererLesCommandesEvent(commandes, pageJSON.getJSONArray("commandes"));
 		} catch (JSONException e2) {
 			//pas de Commandes Event pour cette Page
 		}
@@ -169,7 +168,7 @@ public class PageEvent {
 		
 		//mouvement de l'event lors de cette page
 		try {
-			this.deplacementNaturel = (Deplacement) InterpreteurDeJson.recupererUneCommande(pageJSON.getJSONObject("deplacement"));
+			this.deplacementNaturel = (Deplacement) Commande.recupererUneCommande(pageJSON.getJSONObject("deplacement"));
 			this.deplacementNaturel.page = this; //on apprend au Déplacement quelle est sa Page
 			this.deplacementNaturel.naturel = true; //pour le distinguer des Déplacements forcés
 		} catch (Exception e) {
