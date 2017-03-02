@@ -13,6 +13,7 @@ import commandes.OuvrirMenu;
 import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
+import map.Event.Direction;
 import map.meteo.Meteo;
 import menu.Texte;
 import mouvements.RegarderUnEvent;
@@ -53,25 +54,33 @@ public class LecteurMap extends Lecteur {
 	public boolean stopEvent = false;
 	public Event eventQuiALanceStopEvent;
 	
-	/** message à afficher dans la boîte de dialogue */
+	/** Message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
 	
 	/** Autoriser ou interdire l'accès au Menu depuis la Map ? */
 	public boolean autoriserMenu = true;
 	
+	/** Position x de la caméra */
+	private int xCamera;
+	/** Position y de la caméra */
+	private int yCamera;
 	/** Défilement X de la caméra */
 	public int defilementX;
 	/** Défilement Y de la caméra */
 	public int defilementY;
 	/** Décalage (en pixels) de l'écran à cause du tremblement de terre */
 	public int tremblementDeTerre;
+	/** Transition visuelle avec la Map précédente */
+	private Transition transition = Transition.AUCUNE;
 	
 	/**
 	 * Constructeur explicite
 	 * @param fenetre dont ce Lecteur assure l'affichage
+	 * @param transition visuelle pour le passage d'une Map à l'autre
 	 */
-	public LecteurMap(final Fenetre fenetre) {
+	public LecteurMap(final Fenetre fenetre, final Transition transition) {
 		this.fenetre = fenetre;
+		this.transition = transition;
 		this.comparateur = new Comparator<Event>() {
 	        public int compare(final Event e1, final Event e2) {
 	            return e1.compareTo(e2);
@@ -100,8 +109,8 @@ public class LecteurMap extends Lecteur {
 		}
 		
 		//calcul de la position de la caméra par rapport à la Map
-		final int xCamera = calculerXCamera();
-		final int yCamera = calculerYCamera();
+		this.xCamera = calculerXCamera();
+		this.yCamera = calculerYCamera();
 		
 		//on dessine le décor inférieur
 		animerLesAutotiles();
@@ -120,7 +129,7 @@ public class LecteurMap extends Lecteur {
 		//ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 		
 		//on dessine les évènements
-		ecran = dessinerLesEvents(ecran, xCamera, yCamera);
+		ecran = dessinerLesEvents(ecran, xCamera, yCamera, true);
 		
 		//on dessine les animations
 		ecran = Animation.dessinerLesAnimations(ecran);
@@ -160,6 +169,21 @@ public class LecteurMap extends Lecteur {
 		//final long t1 = System.currentTimeMillis(); //mesure de performances
 		//this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
 		
+		
+		// Transition visuelle avec la Map précédente
+		if (!this.allume) {
+			// Faire une capture d'écran juste avant l'arrêt de l'ancienne Map
+			Lecteur futurLecteur0 = Fenetre.getFenetre().futurLecteur;
+			if (futurLecteur0 instanceof LecteurMap) {
+				LecteurMap futurLecteur = (LecteurMap) futurLecteur0;
+				if (Transition.DEFILEMENT.equals(futurLecteur.transition)) {
+					futurLecteur.transition.captureDeLaMapPrecedente = capturerLaMap();
+				}
+			}
+		} else {
+			// Réutiliser cette capture d'écran au début de la nouvelle Map
+			ecran = this.transition.calculer(ecran, frame);
+		}
 		return ecran;
 	}
 
@@ -341,12 +365,14 @@ public class LecteurMap extends Lecteur {
 	 * @param yCamera position y de la caméra
 	 * @return écran avec les Events dessinés dessus
 	 */
-	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera) {
+	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera, final boolean dessinerLeHeros) {
 		try {
 			Collections.sort(this.map.events, this.comparateur); //on trie les events du plus derrière au plus devant
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
-					ecran = dessinerEvent(ecran, event, xCamera, yCamera);
+					if(dessinerLeHeros || !event.equals(map.heros)) {
+						ecran = dessinerEvent(ecran, event, xCamera, yCamera);
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -557,16 +583,41 @@ public class LecteurMap extends Lecteur {
 	 * @warning cette méthode ne doit être appelée que par le nouveau Lecteur !
 	 * @param nouvelleMap sur laquelle le Héros voyage
 	 */
-	public final void changerMap(final Map nouvelleMap) {
+	public final void devenirLeNouveauLecteurMap(final Map nouvelleMap) {
 		Fenetre.getFenetre().futurLecteur = this;
 		Fenetre.getFenetre().lecteur.allume = false;
 		
-		//on détruit le Tileset actuel si le prochain n'est pas le même
+		// On détruit le Tileset actuel si le prochain n'est pas le même
 		if (tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) {
 			this.tilesetActuel = null;
 		}
 	}
 	
+	/**
+	 * Prendre une capture d'écran de la Map sans le Héros ni les jauges.
+	 * @param frame numéro de la frame à prendre en photo
+	 * @param xCamera position horizontale de la caméra
+	 * @param yCamera position verticale de la caméra
+	 * @return capture de la Map
+	 */
+	private BufferedImage capturerLaMap() {
+		BufferedImage capture = Graphismes.ecranColore(Color.BLACK);
+		capture = dessinerDecorInferieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
+		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, false);
+		capture = Animation.dessinerLesAnimations(capture);
+		capture = dessinerDecorSuperieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
+		capture = dessinerMeteo(capture, this.frameActuelle);
+		//brouillard
+		if (map.brouillard != null) {
+			capture = map.brouillard.dessinerLeBrouillard(capture, this.xCamera, this.yCamera, this.frameActuelle);
+		}
+		//ton
+		if (this.map.tileset.ton != null) {
+			capture = Graphismes.superposerImages(capture, capture, 0, 0, Graphismes.OPACITE_MAXIMALE, ModeDeFusion.TON_DE_L_ECRAN);
+		}
+		return capture;
+	}
+
 	/**
 	 * Ouvrir le Menu du jeu.
 	 * On quitte la Map temporairement (elle est mémorisée) pour parcourir le Menu.

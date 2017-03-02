@@ -26,6 +26,7 @@ import org.apache.logging.log4j.Logger;
 
 import map.LecteurMap;
 import map.Map;
+import map.Transition;
 import menu.LecteurMenu;
 import menu.Menu;
 import net.bull.javamelody.Parameter;
@@ -274,7 +275,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 				e.printStackTrace();
 			}
 		}
-		this.futurLecteur = new LecteurMap(this);
+		this.futurLecteur = new LecteurMap(this, Transition.AUCUNE);
 		try {
 			((LecteurMap) futurLecteur).map = new Map(this.partie.numeroMap, (LecteurMap) this.futurLecteur, this.partie.xHeros, this.partie.yHeros, this.partie.directionHeros);
 		} catch (Exception e) {
