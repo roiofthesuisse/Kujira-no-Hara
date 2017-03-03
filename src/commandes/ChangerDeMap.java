@@ -12,6 +12,7 @@ import map.Heros;
 import map.LecteurMap;
 import map.Map;
 import map.Transition;
+import map.Event.Direction;
 
 /**
  * Le Heros est téléporté sur une autre Map.
@@ -52,17 +53,52 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Heros heros = this.page.event.map.heros;
-		final int directionHeros = heros.direction;
-		this.transition.direction = directionHeros;
+		final Map ancienneMap = this.page.event.map;
+		final Heros ancienHeros = ancienneMap.heros;
+		final int directionHeros = ancienHeros.direction;
+		
 		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre(), this.transition);
 		try {
 			final Map nouvelleMap = new Map(numeroNouvelleMap, nouveauLecteur, xDebutHeros, yDebutHeros, directionHeros);
+			this.transition.direction = calculerDirectionTransition(ancienHeros, ancienneMap, nouvelleMap);
+			
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);
 		} catch (Exception e) {
 			LOG.error("Impossible de charger la map numero "+numeroNouvelleMap, e);
 		}
 		return curseurActuel+1;
+	}
+	
+	/**
+	 * Calculer la Direction du défilement.
+	 * @param ancienHeros héros de l'ancienne Map
+	 * @param ancienneMap Map que le joueur quitte
+	 * @param nouvelleMap Map vers laquelle le joueur va
+	 * @return direction de la Transition
+	 */
+	private int calculerDirectionTransition(Heros ancienHeros, Map ancienneMap, Map nouvelleMap) {
+		final int xVecteurAncienneMap = ancienHeros.x - ancienneMap.largeur*Fenetre.TAILLE_D_UN_CARREAU/2;
+		final int yVecteurAncienneMap = ancienHeros.y - ancienneMap.hauteur*Fenetre.TAILLE_D_UN_CARREAU/2;
+		final int xVecteurNouvelleMap = xDebutHeros - nouvelleMap.largeur*Fenetre.TAILLE_D_UN_CARREAU/2;
+		final int yVecteurNouvelleMap = yDebutHeros - nouvelleMap.hauteur*Fenetre.TAILLE_D_UN_CARREAU/2;
+		
+		final int deltaX = xVecteurAncienneMap - xVecteurNouvelleMap;
+		final int deltaY = yVecteurAncienneMap - yVecteurNouvelleMap;
+		if (Math.abs(deltaX) > Math.abs(deltaY)) {
+			// La Transition est horizontale
+			if (deltaX > 0) {
+				return Direction.DROITE;
+			} else {
+				return Direction.GAUCHE;
+			}
+		} else {
+			// La Transition est verticale
+			if (deltaY > 0) {
+				return Direction.BAS;
+			} else {
+				return Direction.HAUT;
+			}
+		}
 	}
 
 }

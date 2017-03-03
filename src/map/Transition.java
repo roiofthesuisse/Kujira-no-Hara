@@ -13,7 +13,7 @@ import utilitaire.graphismes.Graphismes;
 public enum Transition {
 	AUCUNE("aucune"), DEFILEMENT("defilement"), ROND("rond");
 	
-	private final static int DUREE_TRANSITION = 15;
+	private final static int DUREE_TRANSITION = 20;
 	
 	private final String nom;
 	public BufferedImage captureDeLaMapPrecedente;
