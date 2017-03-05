@@ -48,12 +48,13 @@ public class Heros extends Event {
 			e.printStackTrace();
 		}
 		
-		final int largeur = jsonEventGenerique.has("largeur") ? (int) jsonEventGenerique.get("largeur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
-		final int hauteur = jsonEventGenerique.has("hauteur") ? (int) jsonEventGenerique.get("hauteur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
+		final int largeur = jsonEventGenerique.has("largeur") ? (int) jsonEventGenerique.getInt("largeur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
+		final int hauteur = jsonEventGenerique.has("hauteur") ? (int) jsonEventGenerique.getInt("hauteur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
+		final int offsetY = jsonEventGenerique.has("offsetY") ? jsonEventGenerique.getInt("offsetY") : 0;
 		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
 		final ArrayList<PageEvent> pages = creerListeDesPagesViaJson(jsonPages, 0);
 		
-		final Event modele = new Event(0, 0, 0, "heros", 0, pages, largeur, hauteur, null);
+		final Event modele = new Event(0, 0, offsetY, "heros", 0, pages, largeur, hauteur, null);
 		return modele;
 	}
 	
