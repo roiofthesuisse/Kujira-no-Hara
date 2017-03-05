@@ -47,7 +47,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		this( (int) parametres.get("numeroNouvelleMap"), 
 			(int) parametres.get("xDebutHeros") * Fenetre.TAILLE_D_UN_CARREAU,
 			(int) parametres.get("yDebutHeros") * Fenetre.TAILLE_D_UN_CARREAU,
-			parametres.containsKey("transition") ? Transition.parNom((String) parametres.get("transition")) : Transition.DEFILEMENT
+			parametres.containsKey("transition") ? Transition.parNom((String) parametres.get("transition")) : Transition.ROND
 		);
 	}
 	
@@ -60,7 +60,13 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre(), this.transition);
 		try {
 			final Map nouvelleMap = new Map(numeroNouvelleMap, nouveauLecteur, xDebutHeros, yDebutHeros, directionHeros);
+			
+			// Informations sur la transition
 			this.transition.direction = calculerDirectionTransition(ancienHeros, ancienneMap, nouvelleMap);
+			this.transition.xHerosAvant = ancienHeros.x + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
+			this.transition.yHerosAvant = ancienHeros.y + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
+			this.transition.xHerosApres = xDebutHeros + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
+			this.transition.yHerosApres = yDebutHeros + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
 			
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);
 		} catch (Exception e) {

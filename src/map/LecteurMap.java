@@ -13,7 +13,6 @@ import commandes.OuvrirMenu;
 import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
-import map.Event.Direction;
 import map.meteo.Meteo;
 import menu.Texte;
 import mouvements.RegarderUnEvent;
@@ -126,7 +125,7 @@ public class LecteurMap extends Lecteur {
 		animerLesEvents(frame);
 
 		//TODO DEBUG pour voir la hitbox de l'attaque du héros
-		//ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
+		ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 		
 		//on dessine les évènements
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera, true);
@@ -176,8 +175,9 @@ public class LecteurMap extends Lecteur {
 			Lecteur futurLecteur0 = Fenetre.getFenetre().futurLecteur;
 			if (futurLecteur0 instanceof LecteurMap) {
 				LecteurMap futurLecteur = (LecteurMap) futurLecteur0;
-				if (Transition.DEFILEMENT.equals(futurLecteur.transition)) {
-					futurLecteur.transition.captureDeLaMapPrecedente = capturerLaMap();
+				if (!Transition.AUCUNE.equals(futurLecteur.transition)) {
+					boolean afficherLeHeros = Transition.ROND.equals(futurLecteur.transition);
+					futurLecteur.transition.captureDeLaMapPrecedente = capturerLaMap(afficherLeHeros);
 				}
 			}
 		} else {
@@ -363,6 +363,7 @@ public class LecteurMap extends Lecteur {
 	 * @param ecran sur lequel on dessine les Events
 	 * @param xCamera position x de la caméra
 	 * @param yCamera position y de la caméra
+	 * @param dessinerLeHeros le Héros doit-il être visible sur l'ancienne Map ?
 	 * @return écran avec les Events dessinés dessus
 	 */
 	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera, final boolean dessinerLeHeros) {
@@ -525,11 +526,9 @@ public class LecteurMap extends Lecteur {
 			}			
 			
 			//DEBUG pour visualiser les collisions //TODO commenter
-			/*
 			Graphics2D graphics = ecran.createGraphics();
 			graphics.setPaint(Color.blue);
 			graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
-			*/
 			//voilà
 			
 			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
@@ -595,15 +594,13 @@ public class LecteurMap extends Lecteur {
 	
 	/**
 	 * Prendre une capture d'écran de la Map sans le Héros ni les jauges.
-	 * @param frame numéro de la frame à prendre en photo
-	 * @param xCamera position horizontale de la caméra
-	 * @param yCamera position verticale de la caméra
+	 * @param afficherLeHeros le Héros doit-il être visible sur l'ancienne Map ?
 	 * @return capture de la Map
 	 */
-	private BufferedImage capturerLaMap() {
+	private BufferedImage capturerLaMap(boolean afficherLeHeros) {
 		BufferedImage capture = Graphismes.ecranColore(Color.BLACK);
 		capture = dessinerDecorInferieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
-		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, false);
+		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, afficherLeHeros);
 		capture = Animation.dessinerLesAnimations(capture);
 		capture = dessinerDecorSuperieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
 		capture = dessinerMeteo(capture, this.frameActuelle);

@@ -29,7 +29,7 @@ public abstract class Lecteur {
 	 * Il est interdit qu'une frame dure moins longtemps, afin que l'animation soit compréhensible.
 	 * La frame peut durer plus longtemps si l'ordinateur a du mal à faire tourner le bousin.
 	 */
-	public static final long DUREE_FRAME = 30;
+	public static final int DUREE_FRAME = 30;
 	
 	/**
 	 * Est-ce que le Lecteur est allumé ?
