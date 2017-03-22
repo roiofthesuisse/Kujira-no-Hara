@@ -524,13 +524,13 @@ public class LecteurMap extends Lecteur {
 				//l'Event ne Saute pas
 				animation = event.animation;
 			}			
-			
+			/*
 			//DEBUG pour visualiser les collisions //TODO commenter
 			Graphics2D graphics = ecran.createGraphics();
 			graphics.setPaint(Color.blue);
 			graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
 			//voilà
-			
+			*/
 			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
 			return Graphismes.superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera, event.opaciteActuelle, event.modeDeFusionActuel);
 		} else {
