@@ -14,6 +14,11 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	private int deltaX;
 	private int deltaY;
 	
+	/** Si l'Event marche vers un coin, on le décale légèrement pour qu'il puisse passer */
+	private boolean onPeutContournerUnCoin;
+	/** Décalage de l'Event pour l'aider à franchir un coin */
+	private int realignementX, realignementY;
+	
 	/**
 	 * Constructeur vide
 	 */
@@ -79,9 +84,16 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 						}
 					} else {
 						//haut seul
-						if (unPasVers(Event.Direction.HAUT, event).mouvementPossible()) {
+						Avancer unPas = unPasVers(Event.Direction.HAUT, event);
+						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
 							this.deltaY = -event.pageActive.vitesse;
+							
+						} else if (unPas.onPeutContournerUnCoin) {
+							//contournement d'un coin
+							this.onPeutContournerUnCoin = true;
+							this.realignementX = unPas.realignementX;
+							this.realignementY = unPas.realignementY;
 						}
 					}
 				}
@@ -125,9 +137,16 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 						}
 					} else {
 						//bas seul
-						if (unPasVers(Event.Direction.BAS, event).mouvementPossible()) {
+						Avancer unPas = unPasVers(Event.Direction.BAS, event);
+						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
 							this.deltaY = event.pageActive.vitesse;
+							
+						} else if (unPas.onPeutContournerUnCoin) {
+							//contournement d'un coin
+							this.onPeutContournerUnCoin = true;
+							this.realignementX = unPas.realignementX;
+							this.realignementY = unPas.realignementY;
 						}
 					}
 				}
@@ -135,17 +154,31 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 				if (GestionClavier.ToucheRole.GAUCHE.touche.enfoncee) {
 					if (!GestionClavier.ToucheRole.DROITE.touche.enfoncee) { //gauche-droite impossible
 						//gauche seule
-						if (unPasVers(Event.Direction.GAUCHE, event).mouvementPossible()) {
+						Avancer unPas = unPasVers(Event.Direction.GAUCHE, event);
+						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
 							this.deltaX = -event.pageActive.vitesse;
+							
+						} else if (unPas.onPeutContournerUnCoin) {
+							//contournement d'un coin
+							this.onPeutContournerUnCoin = true;
+							this.realignementX = unPas.realignementX;
+							this.realignementY = unPas.realignementY;
 						}
 					}
 				} else {
 					if (GestionClavier.ToucheRole.DROITE.touche.enfoncee) {
 						//droite seule
-						if (unPasVers(Event.Direction.DROITE, event).mouvementPossible()) {
+						Avancer unPas = unPasVers(Event.Direction.DROITE, event);
+						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
 							this.deltaX = event.pageActive.vitesse;
+							
+						} else if (unPas.onPeutContournerUnCoin) {
+							//contournement d'un coin
+							this.onPeutContournerUnCoin = true;
+							this.realignementX = unPas.realignementX;
+							this.realignementY = unPas.realignementY;
 						}
 					}
 				}
@@ -167,11 +200,11 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	 * @param event 
 	 * @return un pas dans la direction demandée
 	 */
-	private Mouvement unPasVers(final int dir, final Event event) {
+	private Avancer unPasVers(final int dir, final Event event) {
 		if (event.pageActive == null) {
 			event.activerUnePage();
 		}
-		final Mouvement pas = new Avancer(dir, event.pageActive.vitesse);
+		final Avancer pas = new Avancer(dir, event.pageActive.vitesse);
 		pas.deplacement = new Deplacement(event.id, new ArrayList<Mouvement>(), true, false, false);
 		pas.deplacement.page = event.pageActive; //on apprend au Déplacement quelle est sa Page
 		return pas;
@@ -204,12 +237,21 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
 		event.avance = false;
 		
-		//même si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
+		// Même si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
 		mettreEventDansLaDirectionDuMouvement();
 		
-		//l'Event n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
-		if (!event.avancaitALaFramePrecedente && !event.avance && !event.animeALArretActuel) {
-			event.animation = 0;
+		if (this.onPeutContournerUnCoin) {
+			// Contournement d'un coin
+			Avancer.contournerUnCoin(event, this.realignementX, this.realignementY);
+			this.onPeutContournerUnCoin = false;
+			this.realignementX = 0;
+			this.realignementY = 0;
+			
+		} else {
+			// L'Event n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
+			if (!event.avancaitALaFramePrecedente && !event.avance && !event.animeALArretActuel) {
+				event.animation = 0;
+			}
 		}
 	}
 

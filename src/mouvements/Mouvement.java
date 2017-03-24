@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import commandes.Deplacement;
 import map.Event;
+import map.Heros;
 
 /**
  * Toute CommandeEvent qui provoque le Mouvement d'un Event doit implémenter cette interface.
@@ -64,6 +65,7 @@ public abstract class Mouvement {
 				}
 				
 				mettreEventDansLaDirectionDuMouvement();
+				
 			} else {
 				//déclarer le Mouvement comme terminé (car ignoré)
 				ignorerLeMouvement(event);
@@ -161,6 +163,7 @@ public abstract class Mouvement {
 	 * @param event subissant le Mouvement
 	 */
 	private void ignorerLeMouvement(final Event event) {
+		
 		//interruption spécifique à ce type de Mouvement en particulier
 		ignorerLeMouvementSpecifique(event);
 		
