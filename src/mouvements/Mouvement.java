@@ -12,7 +12,6 @@ import org.json.JSONObject;
 
 import commandes.Deplacement;
 import map.Event;
-import map.Heros;
 
 /**
  * Toute CommandeEvent qui provoque le Mouvement d'un Event doit implémenter cette interface.

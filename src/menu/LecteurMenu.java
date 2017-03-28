@@ -74,14 +74,14 @@ public class LecteurMenu extends Lecteur {
 		}
 
 		//affichage de la sélection
-		final ElementDeMenu selectionnable = menu.elementSelectionne;
+		final ElementDeMenu selectionnable = this.menu.elementSelectionne;
 		if (selectionnable!=null && selectionnable.selectionnable && selectionnable.selectionne) {
 			final BufferedImage selection = selectionnable.creerImageDeSelection();
 			ecran = Graphismes.superposerImages(ecran, selection, selectionnable.x-ImageMenu.CONTOUR, selectionnable.y-ImageMenu.CONTOUR);
 		}
 		
 		//affichage des éléments de menu
-		for (ImageMenu element : menu.images) {
+		for (ImageMenu element : this.menu.images) {
 			if (element.ilFautAfficherCetElement()) {
 				ecran = Graphismes.superposerImages(ecran, 
 						element.getImage(), 
@@ -93,7 +93,7 @@ public class LecteurMenu extends Lecteur {
 		
 		//afficher les listes
 		ImageMenu elementDeListe;
-		for (@SuppressWarnings("rawtypes") Liste liste : menu.listes) {
+		for (@SuppressWarnings("rawtypes") Liste liste : this.menu.listes) {
 			for (int i = 0; i<liste.elementsAffiches.length; i++) {
 				for (int j = 0; j<liste.elementsAffiches[i].length; j++) {
 					elementDeListe = liste.elementsAffiches[i][j];
@@ -104,10 +104,16 @@ public class LecteurMenu extends Lecteur {
 			}
 			
 		}
+		
+		//affichage de la carte
+		if (this.menu.carte != null) {
+			final Carte carte = this.menu.carte;			
+			ecran = Graphismes.superposerImages(ecran, carte.getImage(), carte.x, carte.y);
+		}
 
 		//affichage des textes
 		BufferedImage imgtxt;
-		for (Texte texte : menu.textes) {
+		for (Texte texte : this.menu.textes) {
 			imgtxt = texte.getImage();			
 			ecran = Graphismes.superposerImages(ecran, imgtxt, texte.x, texte.y);
 		}

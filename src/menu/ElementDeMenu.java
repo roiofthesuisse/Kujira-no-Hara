@@ -275,7 +275,7 @@ public abstract class ElementDeMenu {
 	 */
 	public static ElementDeMenu recupererLesElementsDeMenu(final int idSelectionInitiale, 
 			final JSONArray jsonElements, final ArrayList<ImageMenu> images, final ArrayList<Texte> textes, 
-			@SuppressWarnings("rawtypes") final ArrayList<Liste> listes, final String nom) {
+			@SuppressWarnings("rawtypes") final ArrayList<Liste> listes, final ArrayList<Carte> cartes, final String nom) {
 		ElementDeMenu selectionInitiale = null;
 		
 		for (Object objetElement : jsonElements) {
@@ -314,6 +314,11 @@ public abstract class ElementDeMenu {
 					
 					images.add(imageObjet);
 					element = imageObjet;
+					
+				} else if ("Carte".equals(type)) {
+					// L'ElementDeMenu est une Carte
+					cartes.add(new Carte(x, y, largeur, hauteur, id));
+					
 				} else {
 					//L'ElementDeMenu n'est pas un icône d'Objet
 					
@@ -353,7 +358,8 @@ public abstract class ElementDeMenu {
 						}
 						
 						final String taille = jsonElement.has("taille") ? (String) jsonElement.get("taille") : null;
-						final Texte texte = new Texte(contenuListe, x, y, Taille.getTailleParNom(taille), selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
+						final int largeurMaximale = jsonElement.has("largeurMaximale") ? jsonElement.getInt("largeurMaximale") : -1;
+						final Texte texte = new Texte(contenuListe, x, y, Taille.getTailleParNom(taille), largeurMaximale, selectionnable, commandesAuSurvol, commandesALaConfirmation, id);
 						textes.add(texte);
 						element = texte;
 						

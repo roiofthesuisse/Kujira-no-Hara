@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import commandes.AfficherCarte;
 import commandes.ModifierTexte;
 import conditions.Condition;
 import conditions.ConditionEtatQuete;
@@ -43,6 +44,7 @@ public class Quete implements Listable {
 	private BufferedImage iconeQuetePasFaite;
 	private final String nomIconeQueteFaite;
 	private BufferedImage iconeQueteFaite;
+	public int numeroCarte;
 	public int xCarte;
 	public int yCarte;
 	
@@ -84,16 +86,18 @@ public class Quete implements Listable {
 	 * @param description de la Quête
 	 * @param nomIconeQuetePasFaite nom de l'icône affichée lorsque la Quête n'est pas encore faite
 	 * @param nomIconeQueteFaite nom de l'icône affichée lorsque la Quête a été  faite
+	 * @param numeroCarte numéro de la Carte sur laquelle figure la Quete
 	 * @param xCarte position x sur la carte des Quêtes
 	 * @param yCarte position y sur la carte des Quêtes
 	 */
 	private Quete(final int id, final ArrayList<String> nom, final ArrayList<String> description, final String nomIconeQuetePasFaite, 
-			final String nomIconeQueteFaite, final int xCarte, final int yCarte) {
+			final String nomIconeQueteFaite, final int numeroCarte, final int xCarte, final int yCarte) {
 		this.id = id;
 		this.nom = nom;
 		this.description = description;
 		this.nomIconeQuetePasFaite = nomIconeQuetePasFaite;
 		this.nomIconeQueteFaite = nomIconeQueteFaite;
+		this.numeroCarte = numeroCarte;
 		this.xCarte = xCarte;
 		this.yCarte = yCarte;
 	}
@@ -108,6 +112,7 @@ public class Quete implements Listable {
 			Texte.construireTexteMultilingue(parametres.get("description")),
 			(String) (parametres.containsKey("nomIconeQuetePasFaite") ? parametres.get("nomIconeQuetePasFaite") : NOM_ICONE_QUETE_PAS_FAITE_PAR_DEFAUT),
 			(String) (parametres.containsKey("nomIconeQueteFaite") ? parametres.get("nomIconeQueteFaite") : NOM_ICONE_QUETE_FAITE_PAR_DEFAUT),
+			(int) parametres.get("numeroCarte"),
 			(int) parametres.get("xCarte"),
 			(int) parametres.get("yCarte")
 		);
@@ -265,6 +270,7 @@ public class Quete implements Listable {
 	public final ArrayList<Commande> getComportementSelection() {
 		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
 		comportementSelection.add(new ModifierTexte(this.description));
+		comportementSelection.add(new AfficherCarte(this.numeroCarte, this.xCarte, this.yCarte));
 		return comportementSelection;
 	}
 

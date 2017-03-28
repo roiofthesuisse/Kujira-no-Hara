@@ -74,6 +74,8 @@ public class Texte extends ElementDeMenu {
 	public int taille;
 	public int opacite;
 	public Color couleurForcee = null;
+	/** Nombre maximal de caractères d'une ligne */
+	private int largeurMaximale;
 
 	/**
 	 * Constructeur implicite (opacité maximale, taille moyenne) pour les Menus
@@ -86,7 +88,7 @@ public class Texte extends ElementDeMenu {
 	 * @param id identifiant de l'ElementDeMenu
 	 */
 	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
-		this(contenu, xDebut, yDebut, Taille.MOYENNE, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, id);
+		this(contenu, xDebut, yDebut, Taille.MOYENNE, -1, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, id);
 	}
 	
 	/**
@@ -95,13 +97,14 @@ public class Texte extends ElementDeMenu {
 	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
 	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
 	 * @param taille de la police
+	 * @param largeurMaximale limite de caractères d'une ligne
 	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
 	 * @param c1 comportement au survol
 	 * @param c2 comportement à la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
-		this(contenu, xDebut, yDebut, taille, selectionnable, OPACITE_MAXIMALE, c1, c2, id);
+	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final int largeurMaximale, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+		this(contenu, xDebut, yDebut, taille, largeurMaximale, selectionnable, OPACITE_MAXIMALE, c1, c2, id);
 	}
 	
 	/**
@@ -110,13 +113,14 @@ public class Texte extends ElementDeMenu {
 	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
 	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
 	 * @param taille des caractères
+	 * @param largeurMaximale limite de caractères d'une ligne
 	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
 	 * @param opacite transparence
 	 * @param c1 comportement au survol
 	 * @param c2 comportement à la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final int largeurMaximale, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
 		super(id, selectionnable, xDebut, yDebut, c1, c2, null);
 		
 		if (comportementSurvol!=null && comportementSurvol.size()>0) {
@@ -133,6 +137,7 @@ public class Texte extends ElementDeMenu {
 		this.x = xDebut;
 		this.y = yDebut;
 		this.taille = taille.pixels;
+		this.largeurMaximale = largeurMaximale;
 		this.opacite = opacite;
 	}
 	
@@ -175,11 +180,36 @@ public class Texte extends ElementDeMenu {
 		}
 		
 		//découpage en lignes
-        final String[] texts = texteAAfficher.split("\\\\n");
-        final int nombreLignes = texts.length;
-        if (nombreLignes <= 0) {
+        String[] texts = texteAAfficher.split("\\\\n");
+        int nombreLignes = texts.length;
+        if (texts.length <= 0) {
         	return null;
         }
+        
+        //largeur maximale des lignes
+        LOG.debug("lignes : "+texts.length);
+        if (this.largeurMaximale > 0) {
+        	ArrayList<String> textesListe = new ArrayList<String>();
+        	for (String ligne : texts) {
+        		textesListe.add(ligne);
+        	}
+        	
+        	int nombreDeLignes = textesListe.size();
+	        for (int i = 0; i<nombreDeLignes; i++) {
+	        	String ligne = textesListe.get(i);
+	        	if (ligne.length() > this.largeurMaximale) {
+	        		int coupure = couper(ligne);
+	        		textesListe.set(i, ligne.substring(0, coupure));
+	        		textesListe.add(i+1, ligne.substring(coupure+1));
+	        		nombreDeLignes++;
+	        		LOG.info("La ligne \""+ligne+"\" a été scindée : "+textesListe.get(i)+"|"+textesListe.get(i+1));
+	        	}
+	        }
+	        
+	        texts = textesListe.toArray(texts);
+	        nombreLignes = texts.length;
+        }
+        LOG.debug("lignes : "+texts.length);
         
         //calcul de la taille du Texte
         BufferedImage img = new BufferedImage(1, 1, Graphismes.TYPE_DES_IMAGES);
@@ -244,6 +274,24 @@ public class Texte extends ElementDeMenu {
 	    
         LOG.trace("Texte transformé en image : "+texteAAfficher);
         return img;
+	}
+	
+	/**
+	 * Couper une ligne trop longue.
+	 * @param ligne à couper
+	 * @return lieu de coupure
+	 */
+	private int couper(final String ligne) {
+		int i = this.largeurMaximale;
+		boolean onATrouveLeLieuDeCoupure = false;
+		while (!onATrouveLeLieuDeCoupure && i>0) {
+			if(ligne.charAt(i) == ' '){
+				onATrouveLeLieuDeCoupure = true;
+				return i;
+			}
+			i--;
+		}
+		return this.largeurMaximale;
 	}
 	
 	@Override

@@ -35,9 +35,10 @@ public class Menu {
 	public BufferedImage fond;
 	public ArrayList<Texte> textes;
 	public Texte texteDescriptif;
-	public  ArrayList<ImageMenu> images;
+	public ArrayList<ImageMenu> images;
 	@SuppressWarnings("rawtypes")
-	public  ArrayList<Liste> listes;
+	public ArrayList<Liste> listes;
+	public Carte carte;
 	public HashMap<Integer, ElementDeMenu> elements;
 	private ArrayList<ElementDeMenu> selectionnables;
 	public ElementDeMenu elementSelectionne;
@@ -53,6 +54,7 @@ public class Menu {
 	 * @param textes du Menu
 	 * @param images du Menu
 	 * @param listes tableaux bidimensionnels d'ElementsDeMenu
+	 * @param cartes du Menu
 	 * @param selectionInitiale ElementDeMenu sélectionné au début
 	 * @param idTexteDescriptif identifiant de l'ElementDeMenu affichant les descriptions
 	 * @param menuParent Menu qui a appelé ce Menu
@@ -60,9 +62,10 @@ public class Menu {
 	 */
 	@SuppressWarnings("unchecked")
 	public Menu(final BufferedImage fond, final ArrayList<Texte> textes, final ArrayList<ImageMenu> images, 
-			@SuppressWarnings("rawtypes") final ArrayList<Liste> listes,
+			@SuppressWarnings("rawtypes") final ArrayList<Liste> listes, final ArrayList<Carte> cartes,
 			final ElementDeMenu selectionInitiale, final int idTexteDescriptif, final Menu menuParent,
-			final ArrayList<Commande> comportementAnnulation) {
+			final ArrayList<Commande> comportementAnnulation) 
+	{
 		// Image de fond du menu
 		this.fond = fond;
 		
@@ -99,14 +102,25 @@ public class Menu {
 			}
 		}
 		
+		// Ajout de l'éventuel ElementDeMenu de type Carte
+		if (cartes.size() >= 1) {
+			this.carte = cartes.get(0);
+			carte.menu = this;
+			LOG.info("Ce menu contient une carte.");
+		}
+		
+		// Texte descriptif de l'Element sélectionné par le curseur
 		this.texteDescriptif = (Texte) this.elements.get((Integer) idTexteDescriptif);
 		
+		// Sélection du curseur au départ
 		this.elementSelectionne = selectionInitiale;
 		selectionInitiale.selectionne = true;
 		selectionInitiale.executionDesCommandesDeSurvol = true;
 		
+		// Menu parent (si on quitte ce Menu, on y retourne)
 		this.menuParent = menuParent;
 		
+		// Comportement en cas d'annulation du Menu
 		this.comportementAnnulation = comportementAnnulation;
 	}
 	
@@ -304,10 +318,11 @@ public class Menu {
 			final ArrayList<ImageMenu> images = new ArrayList<ImageMenu>();
 			@SuppressWarnings("rawtypes")
 			final ArrayList<Liste> listes = new ArrayList<Liste>();
-			final ElementDeMenu selectionInitiale = ElementDeMenu.recupererLesElementsDeMenu(idSelectionInitiale, jsonElements, images, textes, listes, nom);
+			final ArrayList<Carte> cartes = new ArrayList<Carte>();
+			final ElementDeMenu selectionInitiale = ElementDeMenu.recupererLesElementsDeMenu(idSelectionInitiale, jsonElements, images, textes, listes, cartes, nom);
 			
 			//instanciation
-			final Menu menu = new Menu(fond, textes, images, listes, selectionInitiale, idDescription, menuParent, comportementAnnulation);	
+			final Menu menu = new Menu(fond, textes, images, listes, cartes, selectionInitiale, idDescription, menuParent, comportementAnnulation);	
 			
 			//associer un ElementDeMenu arbitraire aux Commandes en cas d'annulation pour qu'elles trouvent leur Menu
 			for (Commande commande : menu.comportementAnnulation) {
