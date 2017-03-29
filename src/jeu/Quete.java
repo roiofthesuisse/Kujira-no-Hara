@@ -270,7 +270,7 @@ public class Quete implements Listable {
 	public final ArrayList<Commande> getComportementSelection() {
 		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
 		comportementSelection.add(new ModifierTexte(this.description));
-		comportementSelection.add(new AfficherCarte(this.numeroCarte, this.xCarte, this.yCarte));
+		comportementSelection.add(new AfficherCarte(this.numeroCarte, this.xCarte, this.yCarte, this.getIcone()));
 		return comportementSelection;
 	}
 

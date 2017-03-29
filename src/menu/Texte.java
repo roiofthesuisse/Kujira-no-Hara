@@ -187,7 +187,6 @@ public class Texte extends ElementDeMenu {
         }
         
         //largeur maximale des lignes
-        LOG.debug("lignes : "+texts.length);
         if (this.largeurMaximale > 0) {
         	ArrayList<String> textesListe = new ArrayList<String>();
         	for (String ligne : texts) {
@@ -202,14 +201,13 @@ public class Texte extends ElementDeMenu {
 	        		textesListe.set(i, ligne.substring(0, coupure));
 	        		textesListe.add(i+1, ligne.substring(coupure+1));
 	        		nombreDeLignes++;
-	        		LOG.info("La ligne \""+ligne+"\" a été scindée : "+textesListe.get(i)+"|"+textesListe.get(i+1));
+	        		LOG.debug("La ligne \""+ligne+"\" a été scindée : "+textesListe.get(i)+"|"+textesListe.get(i+1));
 	        	}
 	        }
 	        
 	        texts = textesListe.toArray(texts);
 	        nombreLignes = texts.length;
         }
-        LOG.debug("lignes : "+texts.length);
         
         //calcul de la taille du Texte
         BufferedImage img = new BufferedImage(1, 1, Graphismes.TYPE_DES_IMAGES);
