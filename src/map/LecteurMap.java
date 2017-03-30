@@ -96,6 +96,9 @@ public class LecteurMap extends Lecteur {
 	public final BufferedImage calculerAffichage(final int frame) {
 		//final long t0 = System.currentTimeMillis(); //mesure de performances
 		
+		//sortie vers la Map adjacente ?
+		this.map.sortirVersLaMapAdjacente();
+		
 		BufferedImage ecran = Graphismes.ecranColore(Color.BLACK);
 		
 		//ouverture du tileset

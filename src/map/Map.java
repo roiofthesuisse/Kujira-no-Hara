@@ -1,7 +1,6 @@
 package map;
 
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import main.Fenetre;
+import map.Event.Direction;
+import map.Adjacence;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
@@ -68,16 +69,17 @@ public class Map {
 	public final boolean defilementCameraX;
 	public final boolean defilementCameraY;
 	
+	/** Maps adjacentes à celle-ci */
+	public HashMap<Integer, Adjacence> adjacences;
+	
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Map, c'est-à-dire numéro du fichier map (au format JSON) à charger
 	 * @param lecteur de la Map
-	 * @param xDebutHerosArg position x du Heros (en pixels) à son arrivée sur la Map
-	 * @param yDebutHerosArg position y du Heros (en pixels) à son arrivée sur la Map
-	 * @param directionDebutHeros direction du Heros à son arrivée sur la Map
-	 * @throws FileNotFoundException 
+	 * @param positionInitialeDuHeros [xDebutHeros, yDebutHerosArg, directionDebutHeros] ou bien [xAncienneMapHeros, yAncienneMapHeros, decalageDebutHeros, directionDebutHeros]
+	 * @throws Exception Impossible de charger la Map
 	 */
-	public Map(final int numero, final LecteurMap lecteur, final int xDebutHerosArg, final int yDebutHerosArg, final int directionDebutHeros) throws FileNotFoundException {
+	public Map(final int numero, final LecteurMap lecteur, final int...positionInitialeDuHeros) throws Exception {
 		this.numero = numero;
 		this.lecteur = lecteur;
 		lecteur.map = this; //on prévient le Lecteur qu'il a une Map
@@ -96,9 +98,60 @@ public class Map {
 		this.layer1 = recupererCouche(jsonMap, 1);
 		this.layer2 = recupererCouche(jsonMap, 2);
 		this.layers = new int[][][] {this.layer0, this.layer1, this.layer2};
-		this.xDebutHeros = xDebutHerosArg;
-		this.yDebutHeros = yDebutHerosArg;
-		this.directionDebutHeros = directionDebutHeros;
+		
+		//position initiale du Héros
+		if (positionInitialeDuHeros.length == 3) {
+			// Coordonnées intiales spécifiées
+			this.xDebutHeros = positionInitialeDuHeros[0]; //position x (en pixels) initiale du Héros
+			this.yDebutHeros = positionInitialeDuHeros[1]; //position y (en pixels) initiale du Héros
+			this.directionDebutHeros = positionInitialeDuHeros[2]; //direction initiale du Héros
+			
+		} else if (positionInitialeDuHeros.length == 4) {
+			// Coordonnées intiales non-spécifiées
+			final int xAncienneMapHeros = positionInitialeDuHeros[0]; //position x (en pixels) du Héros sur l'ancienne Map
+			final int yAncienneMapHeros = positionInitialeDuHeros[1]; //position y (en pixels) du Héros sur l'ancienne Map
+			final int decalageDebutHeros = positionInitialeDuHeros[2]; //décalage (en nombre de cases) du Héros par rapport à l'ancienne Map
+			this.directionDebutHeros = positionInitialeDuHeros[3]; //direction initiale du Héros
+			
+			switch (this.directionDebutHeros) {
+			case Direction.HAUT:
+				this.xDebutHeros = xAncienneMapHeros + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				this.yDebutHeros = (this.hauteur-1)*Fenetre.TAILLE_D_UN_CARREAU;
+				break;
+			case Direction.BAS:
+				this.xDebutHeros = xAncienneMapHeros + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				this.yDebutHeros = 0;
+				break;
+			case Direction.GAUCHE:
+				this.xDebutHeros = (this.largeur-1)*Fenetre.TAILLE_D_UN_CARREAU;
+				this.yDebutHeros = yAncienneMapHeros + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				break;
+			case Direction.DROITE:
+				this.xDebutHeros = 0;
+				this.yDebutHeros = yAncienneMapHeros + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				break;
+			default:
+				LOG.error("Direction inconnue !");
+				break;
+			}
+			LOG.debug("Coordonnées initiales du héros calculées automatiquement : "+ this.xDebutHeros +";"+ this.yDebutHeros);
+		} else {
+			throw new Exception("Nombre incorrect de paramètres pour la position initiale du héros : "+positionInitialeDuHeros.length);
+		}
+		
+		//maps adjacentes à celle-ci
+		if (jsonMap.has("adjacences")) {
+			this.adjacences = new HashMap<Integer, Adjacence>();
+			final JSONArray adjacencesJsonArray = jsonMap.getJSONArray("adjacences");
+			for (Object o : adjacencesJsonArray) {
+				final JSONObject jsonAdjacence = (JSONObject) o;
+				final Integer direction = new Integer(jsonAdjacence.getInt("direction"));
+				final Transition transition = jsonAdjacence.has("transition") ? Transition.parNom(jsonAdjacence.getString("transition")) : Transition.AUCUNE;
+				final Adjacence adjacence = new Adjacence(jsonAdjacence.getInt("numero"), direction, jsonAdjacence.getInt("decalage"), transition);
+				this.adjacences.put(direction, adjacence);
+				LOG.debug("Cette map a une adjacence dans la direction " + direction);
+			}
+		}
 		
 		//chargement du tileset
 		try {
@@ -474,7 +527,7 @@ public class Map {
 			//l'Event sort de la Map !
 			final Event event = this.eventsHash.get((Integer) numeroEvent);
 			if (!event.sortiDeLaMap) { //on n'affiche le message d'erreur qu'une fois
-				LOG.warn("L'event "+event.numero+" ("+event.nom+") est sorti de la map !");
+				LOG.warn("L'event "+event.numero+" ("+event.nom+") est sorti de la map !"); //TODO ni le numéro, ni le nom ne semblent correspondre à l'Event qui sort
 				LOG.trace(e);
 			}
 			event.sortiDeLaMap = true;
@@ -523,6 +576,35 @@ public class Map {
 			if (!lIdEstDejaPris) {
 				LOG.debug("Le nouvel id d'event choisi est "+nouvelId);
 				return nouvelId;
+			}
+		}
+	}
+
+	/**
+	 * Si le Héros sort de la Map, il va vers une éventuelle Map adjacente automatiquement.
+	 */
+	public void sortirVersLaMapAdjacente() {
+		if (this.adjacences != null && !this.adjacences.isEmpty()) {
+			Adjacence adjacence = null;
+			if (heros.x < 0) {
+				// Sortie par la gauche
+				adjacence = this.adjacences.get(new Integer(Direction.GAUCHE));
+			} else if (heros.x > this.largeur*Fenetre.TAILLE_D_UN_CARREAU) {
+				// Sortie par la droite
+				adjacence = this.adjacences.get(new Integer(Direction.DROITE));
+			} else if (heros.y < 0) {
+				// Sortie par le haut
+				adjacence = this.adjacences.get(new Integer(Direction.HAUT));
+			} else if (heros.y > this.hauteur*Fenetre.TAILLE_D_UN_CARREAU) {
+				// Sortie par le bas
+				adjacence = this.adjacences.get(new Integer(Direction.BAS));
+			} else {
+				// Le Héros est encore dans la Map
+				return;
+			}
+			
+			if (adjacence != null) {
+				adjacence.allerALaMapAdjacente(this.heros);
 			}
 		}
 	}
