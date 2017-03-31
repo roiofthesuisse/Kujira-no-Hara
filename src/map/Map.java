@@ -144,9 +144,12 @@ public class Map {
 			final JSONArray adjacencesJsonArray = jsonMap.getJSONArray("adjacences");
 			for (Object o : adjacencesJsonArray) {
 				final JSONObject jsonAdjacence = (JSONObject) o;
+				
 				final Integer direction = new Integer(jsonAdjacence.getInt("direction"));
+				final int decalage = jsonAdjacence.has("decalage") ? jsonAdjacence.getInt("decalage") : 0;
 				final Transition transition = jsonAdjacence.has("transition") ? Transition.parNom(jsonAdjacence.getString("transition")) : Transition.parDefaut();
-				final Adjacence adjacence = new Adjacence(jsonAdjacence.getInt("numero"), direction, jsonAdjacence.getInt("decalage"), transition);
+				
+				final Adjacence adjacence = new Adjacence(jsonAdjacence.getInt("numeroMap"), direction, decalage, transition);
 				this.adjacences.put(direction, adjacence);
 				LOG.debug("Cette map a une adjacence dans la direction " + direction);
 			}
@@ -601,13 +604,13 @@ public class Map {
 			if (heros.x < 0) {
 				// Sortie par la gauche
 				adjacence = this.adjacences.get(new Integer(Direction.GAUCHE));
-			} else if (heros.x > this.largeur*Fenetre.TAILLE_D_UN_CARREAU) {
+			} else if (heros.x > this.largeur*Fenetre.TAILLE_D_UN_CARREAU - Heros.LARGEUR_HITBOX_PAR_DEFAUT) {
 				// Sortie par la droite
 				adjacence = this.adjacences.get(new Integer(Direction.DROITE));
 			} else if (heros.y < 0) {
 				// Sortie par le haut
 				adjacence = this.adjacences.get(new Integer(Direction.HAUT));
-			} else if (heros.y > this.hauteur*Fenetre.TAILLE_D_UN_CARREAU) {
+			} else if (heros.y > this.hauteur*Fenetre.TAILLE_D_UN_CARREAU - Heros.HAUTEUR_HITBOX_PAR_DEFAUT) {
 				// Sortie par le bas
 				adjacence = this.adjacences.get(new Integer(Direction.BAS));
 			} else {
