@@ -47,7 +47,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		this( (int) parametres.get("numeroNouvelleMap"), 
 			(int) parametres.get("xDebutHeros") * Fenetre.TAILLE_D_UN_CARREAU,
 			(int) parametres.get("yDebutHeros") * Fenetre.TAILLE_D_UN_CARREAU,
-			parametres.containsKey("transition") ? Transition.parNom((String) parametres.get("transition")) : Transition.ROND
+			parametres.containsKey("transition") ? Transition.parNom((String) parametres.get("transition")) : Transition.parDefaut()
 		);
 	}
 	
@@ -59,15 +59,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		
 		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre(), this.transition);
 		try {
-			final Map nouvelleMap = new Map(numeroNouvelleMap, nouveauLecteur, xDebutHeros, yDebutHeros, directionHeros);
-			
-			// Informations sur la transition
-			this.transition.direction = calculerDirectionTransition(ancienHeros, ancienneMap, nouvelleMap);
-			this.transition.xHerosAvant = ancienHeros.x + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
-			this.transition.yHerosAvant = ancienHeros.y + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
-			this.transition.xHerosApres = xDebutHeros + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
-			this.transition.yHerosApres = yDebutHeros + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
-			
+			final Map nouvelleMap = new Map(numeroNouvelleMap, nouveauLecteur, ancienHeros, xDebutHeros, yDebutHeros, directionHeros);			
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);
 		} catch (Exception e) {
 			LOG.error("Impossible de charger la map numero "+numeroNouvelleMap, e);
@@ -75,36 +67,6 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		return curseurActuel+1;
 	}
 	
-	/**
-	 * Calculer la Direction du défilement.
-	 * @param ancienHeros héros de l'ancienne Map
-	 * @param ancienneMap Map que le joueur quitte
-	 * @param nouvelleMap Map vers laquelle le joueur va
-	 * @return direction de la Transition
-	 */
-	private int calculerDirectionTransition(Heros ancienHeros, Map ancienneMap, Map nouvelleMap) {
-		final int xVecteurAncienneMap = ancienHeros.x - ancienneMap.largeur*Fenetre.TAILLE_D_UN_CARREAU/2;
-		final int yVecteurAncienneMap = ancienHeros.y - ancienneMap.hauteur*Fenetre.TAILLE_D_UN_CARREAU/2;
-		final int xVecteurNouvelleMap = xDebutHeros - nouvelleMap.largeur*Fenetre.TAILLE_D_UN_CARREAU/2;
-		final int yVecteurNouvelleMap = yDebutHeros - nouvelleMap.hauteur*Fenetre.TAILLE_D_UN_CARREAU/2;
-		
-		final int deltaX = xVecteurAncienneMap - xVecteurNouvelleMap;
-		final int deltaY = yVecteurAncienneMap - yVecteurNouvelleMap;
-		if (Math.abs(deltaX) > Math.abs(deltaY)) {
-			// La Transition est horizontale
-			if (deltaX > 0) {
-				return Direction.DROITE;
-			} else {
-				return Direction.GAUCHE;
-			}
-		} else {
-			// La Transition est verticale
-			if (deltaY > 0) {
-				return Direction.BAS;
-			} else {
-				return Direction.HAUT;
-			}
-		}
-	}
+	
 
 }

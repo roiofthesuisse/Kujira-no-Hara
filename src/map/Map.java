@@ -76,10 +76,11 @@ public class Map {
 	 * Constructeur explicite
 	 * @param numero de la Map, c'est-à-dire numéro du fichier map (au format JSON) à charger
 	 * @param lecteur de la Map
+	 * @param ancienHeros heros de la Map précédente
 	 * @param positionInitialeDuHeros [xDebutHeros, yDebutHerosArg, directionDebutHeros] ou bien [xAncienneMapHeros, yAncienneMapHeros, decalageDebutHeros, directionDebutHeros]
 	 * @throws Exception Impossible de charger la Map
 	 */
-	public Map(final int numero, final LecteurMap lecteur, final int...positionInitialeDuHeros) throws Exception {
+	public Map(final int numero, final LecteurMap lecteur, final Heros ancienHeros, final int...positionInitialeDuHeros) throws Exception {
 		this.numero = numero;
 		this.lecteur = lecteur;
 		lecteur.map = this; //on prévient le Lecteur qu'il a une Map
@@ -101,34 +102,32 @@ public class Map {
 		
 		//position initiale du Héros
 		if (positionInitialeDuHeros.length == 3) {
-			// Coordonnées intiales spécifiées
+			// Coordonnées initiales spécifiées
 			this.xDebutHeros = positionInitialeDuHeros[0]; //position x (en pixels) initiale du Héros
 			this.yDebutHeros = positionInitialeDuHeros[1]; //position y (en pixels) initiale du Héros
 			this.directionDebutHeros = positionInitialeDuHeros[2]; //direction initiale du Héros
 			
-		} else if (positionInitialeDuHeros.length == 4) {
-			// Coordonnées intiales non-spécifiées
-			final int xAncienneMapHeros = positionInitialeDuHeros[0]; //position x (en pixels) du Héros sur l'ancienne Map
-			final int yAncienneMapHeros = positionInitialeDuHeros[1]; //position y (en pixels) du Héros sur l'ancienne Map
-			final int decalageDebutHeros = positionInitialeDuHeros[2]; //décalage (en nombre de cases) du Héros par rapport à l'ancienne Map
-			this.directionDebutHeros = positionInitialeDuHeros[3]; //direction initiale du Héros
+		} else if (positionInitialeDuHeros.length == 2) {
+			// Coordonnées initiales non-spécifiées
+			final int decalageDebutHeros = positionInitialeDuHeros[0]; //décalage (en nombre de cases) du Héros par rapport à l'ancienne Map
+			this.directionDebutHeros = positionInitialeDuHeros[1]; //direction initiale du Héros
 			
 			switch (this.directionDebutHeros) {
 			case Direction.HAUT:
-				this.xDebutHeros = xAncienneMapHeros + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				this.xDebutHeros = ancienHeros.x + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
 				this.yDebutHeros = (this.hauteur-1)*Fenetre.TAILLE_D_UN_CARREAU;
 				break;
 			case Direction.BAS:
-				this.xDebutHeros = xAncienneMapHeros + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				this.xDebutHeros = ancienHeros.x + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
 				this.yDebutHeros = 0;
 				break;
 			case Direction.GAUCHE:
 				this.xDebutHeros = (this.largeur-1)*Fenetre.TAILLE_D_UN_CARREAU;
-				this.yDebutHeros = yAncienneMapHeros + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				this.yDebutHeros = ancienHeros.y + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
 				break;
 			case Direction.DROITE:
 				this.xDebutHeros = 0;
-				this.yDebutHeros = yAncienneMapHeros + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				this.yDebutHeros = ancienHeros.y + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
 				break;
 			default:
 				LOG.error("Direction inconnue !");
@@ -146,11 +145,24 @@ public class Map {
 			for (Object o : adjacencesJsonArray) {
 				final JSONObject jsonAdjacence = (JSONObject) o;
 				final Integer direction = new Integer(jsonAdjacence.getInt("direction"));
-				final Transition transition = jsonAdjacence.has("transition") ? Transition.parNom(jsonAdjacence.getString("transition")) : Transition.AUCUNE;
+				final Transition transition = jsonAdjacence.has("transition") ? Transition.parNom(jsonAdjacence.getString("transition")) : Transition.parDefaut();
 				final Adjacence adjacence = new Adjacence(jsonAdjacence.getInt("numero"), direction, jsonAdjacence.getInt("decalage"), transition);
 				this.adjacences.put(direction, adjacence);
 				LOG.debug("Cette map a une adjacence dans la direction " + direction);
 			}
+		}
+		
+		//informations sur la transition
+		final Transition transition = lecteur.transition;
+		if (Transition.DEFILEMENT.equals(transition)) {
+			// direction du défilement
+			transition.direction = Transition.calculerDirectionDefilement(ancienHeros, ancienHeros.map, this);
+		} else if (Transition.ROND.equals(transition)) {
+			// centre du rond
+			transition.xHerosAvant = ancienHeros.x + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
+			transition.yHerosAvant = ancienHeros.y + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
+			transition.xHerosApres = xDebutHeros + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
+			transition.yHerosApres = yDebutHeros + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
 		}
 		
 		//chargement du tileset

@@ -70,7 +70,7 @@ public class LecteurMap extends Lecteur {
 	/** Décalage (en pixels) de l'écran à cause du tremblement de terre */
 	public int tremblementDeTerre;
 	/** Transition visuelle avec la Map précédente */
-	private Transition transition = Transition.AUCUNE;
+	public Transition transition = Transition.AUCUNE;
 	
 	/**
 	 * Constructeur explicite

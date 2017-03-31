@@ -39,7 +39,7 @@ public class Adjacence {
 		LOG.info("On sort pour aller à la map adjacente.");
 		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre(), this.transition);
 		try {
-			final Map nouvelleMap = new Map(this.numeroMap, nouveauLecteur, heros.x, heros.y, this.decalage, this.direction);
+			final Map nouvelleMap = new Map(this.numeroMap, nouveauLecteur, heros, this.decalage, this.direction);			
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);
 		} catch (FileNotFoundException e) {
 			LOG.error("Impossible d'ouvrir la Map adjacente ! Fichier introuvable : ", e);
