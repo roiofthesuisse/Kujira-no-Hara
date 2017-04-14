@@ -44,7 +44,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 		final int frameActuelle = Fenetre.getFenetre().lecteur.frameActuelle;
 		if ( event.frameDuContact != frameActuelle) {
 			//on n'est pas à jour ! on calcule s'il y a contact :
-			final ConditionContact conditionContactMaintenant = new ConditionContact(this.numero, this.typeDeContact);
+			final ConditionContact conditionContactMaintenant = new ConditionContact(this.numero, 0, null, this.typeDeContact);
 			conditionContactMaintenant.page = this.page;
 			final boolean leHerosEstAuContactDeLEventMaintenant = conditionContactMaintenant.estVerifiee();
 			
