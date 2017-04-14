@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
+import map.Event;
 import map.PageEvent;
 import menu.ElementDeMenu;
 
@@ -67,6 +68,44 @@ public abstract class Commande {
 			LOG.error(e);
 		}
 		return null;
+	}
+	
+	/**
+	 * <p>Récupérer la liste des Events candidats potentiellement désignés par la Condition.</p>
+	 * <p>L'id peut être :
+	 * <ul>
+	 * <li>null : cet Event</li>
+	 * <li>Integer : unique et identifié par son numéro</li>
+	 * <li>String : non-unique et identifié par son nom</li>
+	 * </ul>
+	 * </p>
+	 * @param id identifiant de l'Event
+	 * @return liste des Events candidats à la Condition
+	 */
+	protected ArrayList<Event> recupererLesEventsCandidats(final Object id) {
+		final ArrayList<Event> events = new ArrayList<Event>();
+		if (id == null) {
+			//null signifie cet Event
+			events.add(this.page.event);
+		} else if (id instanceof Integer) {
+			//l'Event est identifié par son numero
+			Event event;
+			if ((Integer) id ==  0) {
+				event = this.page.event.map.heros;
+			} else {
+				event = this.page.event.map.eventsHash.get(id);
+			}
+			events.add(event);
+		} else {
+			//l'Event est identifié par son nom ; potentiellement plusieurs candidats
+			String nomEvent = (String) id;
+			for (Event event : this.page.event.map.events) {
+				if (nomEvent.equals(event.nom)) {
+					events.add(event);
+				}
+			}
+		}
+		return events;
 	}
 	
 	/**

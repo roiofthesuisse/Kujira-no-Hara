@@ -1,5 +1,6 @@
 package conditions;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
@@ -7,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 
 import commandes.CommandeEvent;
 import map.Event;
-import map.Heros;
 
 /**
  * Est-ce que le Héros est en contact avec l'Event ?
@@ -18,15 +18,21 @@ import map.Heros;
 public class ConditionContact extends Condition  implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(ConditionContact.class);
 	
+	private final Object idEvent1;
+	private final Object idEvent2;
 	private final TypeDeContact typeDeContact;
 	
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
+	 * @param identifiant (numéro ou nom) du premier Event ; par défaut, le Héros
+	 * @param identifiant (numéro ou nom) du second Event ; par défaut, cet Event
 	 * @param typeDeContact de la Condition
 	 */
-	public ConditionContact(final int numero, final TypeDeContact typeDeContact) {
+	public ConditionContact(final int numero, final Object idEvent1, final Object idEvent2, final TypeDeContact typeDeContact) {
 		this.numero = numero;
+		this.idEvent1 = idEvent1;
+		this.idEvent2 = idEvent2;
 		this.typeDeContact = typeDeContact;
 	}
 	
@@ -37,6 +43,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	public ConditionContact(final HashMap<String, Object> parametres) {
 		this( 
 				parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
+				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par défaut, le Héros
+				parametres.containsKey("idEvent2") ? parametres.get("idEvent2") : null, //par defaut, cet Event
 				parametres.containsKey("typeDeContact") ? TypeDeContact.obtenirParNom((String) parametres.get("typeDeContact")) : TypeDeContact.SUPERPOSITION_MAJORITAIRE
 		);
 	}
@@ -230,27 +238,38 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		} catch (NullPointerException e) {
 			//pas de page active
 		}
-		
-		final Event event = this.page.event;
-		final Heros heros = event.map.heros;
-		
-		//pas de contact si l'un des deux saute
-		if (heros.saute || event.saute) {
-			return false;
+
+		final ArrayList<Event> events1 = recupererLesEventsCandidats(idEvent1);
+		final ArrayList<Event> events2 = recupererLesEventsCandidats(idEvent2);
+		for (Event event1 : events1) {
+			for (Event event2 : events2) {
+				
+				//pas de contact si l'un des deux saute
+				if (!event1.saute && !event2.saute) {
+					
+					final int xmin1 = event1.x;
+					final int xmax1 = event1.x + event1.largeurHitbox;
+					final int ymin1 = event1.y;
+					final int ymax1 = event1.y + event1.hauteurHitbox;
+					
+					final int xmin2 = event2.x;
+					final int xmax2 = event2.x + event2.largeurHitbox;
+					final int ymin2 = event2.y;
+					final int ymax2 = event2.y + event2.hauteurHitbox;
+					
+					//deux interprétations très différentes du Contact selon la traversabilité de l'event
+					final boolean modeTraversable = event2.traversableActuel || event1.traversableActuel;
+					
+					if (this.typeDeContact.ilYAContact(modeTraversable, xmin1, xmax1, ymin1, ymax1, xmin2, xmax2, ymin2, ymax2)) {
+						//au moins un couple d'events doit être en contact
+						return true;
+					}
+					
+				}
+				
+			}
 		}
-		
-		final int xmin1 = heros.x;
-		final int xmax1 = heros.x+heros.largeurHitbox;
-		final int ymin1 = heros.y;
-		final int ymax1 = heros.y+heros.hauteurHitbox;
-		final int xmin2 = event.x;
-		final int xmax2 = event.x+event.largeurHitbox;
-		final int ymin2 = event.y;
-		final int ymax2 = event.y+event.hauteurHitbox;
-		
-		//deux interprétations très différentes du Contact selon la traversabilité de l'event
-		final boolean modeTraversable = event.traversableActuel || heros.traversableActuel;
-		return this.typeDeContact.ilYAContact(modeTraversable, xmin1, xmax1, ymin1, ymax1, xmin2, xmax2, ymin2, ymax2);
+		return false;
 	}
 	
 	/**
@@ -258,7 +277,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	 * @return true 
 	 */
 	public final boolean estLieeAuHeros() {
-		return true;
+		//l'un des deux events en Contact est-il le Héros ?
+		return idEvent1 instanceof Integer && (Integer) idEvent1 == 0 || idEvent2 instanceof Integer && (Integer) idEvent2 == 0;
 	}
 	
 }

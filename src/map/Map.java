@@ -572,7 +572,6 @@ public class Map {
 		return true;
 	}
 	
-	
 	/**
 	 * Inventer un id pour un nouvel Event de eventHash.
 	 * @return id inédit
