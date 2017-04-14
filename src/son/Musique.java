@@ -38,6 +38,7 @@ public class Musique {
 	public FormatAudio format;
 	public TypeMusique type;
 	private Thread thread;
+	public float volumeActuel;
 	
 	/**
 	 * Différents formats de fichiers audio possibles
@@ -74,6 +75,7 @@ public class Musique {
 	public Musique(final String nom, final TypeMusique type, final float volume) {
 		this.nom = nom;
 		this.type = type;
+		this.volumeActuel = volume;
 		
 		if (nom.endsWith(".ogg")) {
 			//le fichier est un OGG
@@ -83,7 +85,7 @@ public class Musique {
 				this.clip = new OggClip(this.stream);
 				//volume initial
 				if (volume < VOLUME_MAXIMAL) {
-					this.modifierVolume(FormatAudio.OGG, volume);
+					this.modifierVolume(volume);
 				}
 				
 			} catch (FileNotFoundException e) {
@@ -101,7 +103,7 @@ public class Musique {
 				((Clip) clip).open((AudioInputStream) this.stream);
 				//volume initial
 				if (volume < VOLUME_MAXIMAL) {
-					this.modifierVolume(FormatAudio.WAV, volume);
+					this.modifierVolume(volume);
 				}
 				
 			} catch (LineUnavailableException e) {
@@ -121,7 +123,7 @@ public class Musique {
 			this.clip = mediaPlayer;
 			//volume initial
 			if (volume < VOLUME_MAXIMAL) {
-				this.modifierVolume(FormatAudio.MP3, volume);
+				this.modifierVolume(volume);
 			}
 			
 		} else {
@@ -135,8 +137,8 @@ public class Musique {
 	 * @param format audio de la Musique
 	 * @param nouveauVolume à appliquer
 	 */
-	public final void modifierVolume(final FormatAudio format, final float nouveauVolume) {
-		switch (format) {
+	public final void modifierVolume(final float nouveauVolume) {
+		switch (this.format) {
 			case OGG:
 				((OggClip) this.clip).setGain(nouveauVolume);
 				break;
@@ -155,6 +157,8 @@ public class Musique {
 				LOG.error("Format audio inconnu : "+this.nom);
 				break;
 		}
+		//mettre à jour les données
+		this.volumeActuel = nouveauVolume;
 	}
 	
 	/**

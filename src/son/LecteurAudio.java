@@ -69,6 +69,10 @@ public abstract class LecteurAudio {
 				
 			// On met à jour les données
 			LecteurAudio.bgmEnCours = musique;
+		
+		// Modification du volume uniquement
+		} else if (bgmEnCours.volumeActuel != volume) {
+			bgmEnCours.modifierVolume(volume);
 		}
 	}
 	
@@ -112,6 +116,10 @@ public abstract class LecteurAudio {
 				
 			// On met à jour les données
 			LecteurAudio.bgsEnCours = musique;
+			
+		// Modification du volume uniquement
+		} else if (bgsEnCours.volumeActuel != volume) {
+			bgsEnCours.modifierVolume(volume);
 		}
 	}
 	
