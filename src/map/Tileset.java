@@ -106,7 +106,7 @@ public class Tileset {
 		//panorama
 		this.nomImagePanorama = jsonTileset.getString("panorama");
 		try {
-			this.imagePanorama = Graphismes.ouvrirImage("Panoramas", this.nomImagePanorama);
+			this.imagePanorama = Graphismes.ouvrirImage("Panorama", this.nomImagePanorama);
 		} catch (IOException e) {
 			LOG.warn("Pas d'image de panorama pour le Tileset : "+this.nom);
 			this.imagePanorama = null;
