@@ -43,14 +43,26 @@ public class Musique {
 	 * Différents formats de fichiers audio possibles
 	 */
 	public enum FormatAudio {
-		WAV, OGG, MP3
+		WAV("WAV"), OGG("OGG"), MP3("MP3");
+		
+		public final String nom;
+		
+		FormatAudio(final String nom) {
+			this.nom = nom;
+		}
 	}
 	
 	/**
 	 * Différents types de fichiers audio possibles
 	 */
 	public enum TypeMusique {
-		BGM, BGE, ME, SE
+		BGM("BGM"), BGS("BGS"), ME("ME"), SE("SE");
+
+		public final String nom;
+		
+		TypeMusique(final String nom) {
+			this.nom = nom;
+		}
 	}
 	
 	/**
@@ -146,9 +158,9 @@ public class Musique {
 	}
 	
 	/**
-	 * Jouer un effet sonore.
+	 * Jouer un fichier sonore qui s'arrêtera tout seul arrivé à la fin.
 	 */
-	public final void demarrerSe() {
+	public final void jouerUneSeuleFois() {
 		switch (format) {
 		case OGG : //le fichier est un OGG
 			/**
@@ -170,7 +182,7 @@ public class Musique {
 				}
 			}
 			final RunOggBgm r1 = new RunOggBgm();
-			this.thread = new Thread(r1, "SE OGG ("+this.nom+")");
+			this.thread = new Thread(r1, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -194,7 +206,7 @@ public class Musique {
 				}
 			}
 			final RunWavBgm r2 = new RunWavBgm();
-			this.thread = new Thread(r2, "SE WAV ("+this.nom+")");
+			this.thread = new Thread(r2, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -219,7 +231,7 @@ public class Musique {
 				}
 			}
 			final RunMp3Bgm r3 = new RunMp3Bgm();
-			this.thread = new Thread(r3, "SE MP3 ("+this.nom+")");
+			this.thread = new Thread(r3, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -230,9 +242,9 @@ public class Musique {
 	}
 	
 	/**
-	 * Jouer musique d'accompagnement.
+	 * Jouer une fichier sonore qui tourne en boucle sans s'arrêter.
 	 */
-	public final void demarrerBgm() {
+	public final void jouerEnBoucle() {
 		switch (format) {
 		case OGG : //le fichier est un OGG
 			/**
@@ -248,7 +260,7 @@ public class Musique {
 				}
 			}
 			final RunOggBgm r1 = new RunOggBgm();
-			this.thread = new Thread(r1, "BGM OGG ("+this.nom+")");
+			this.thread = new Thread(r1, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -266,7 +278,7 @@ public class Musique {
 				}
 			}
 			final RunWavBgm r2 = new RunWavBgm();
-			this.thread = new Thread(r2, "BGM WAV ("+this.nom+")");
+			this.thread = new Thread(r2, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -285,7 +297,7 @@ public class Musique {
 				}
 			}
 			final RunMp3Bgm r3 = new RunMp3Bgm();
-			this.thread = new Thread(r3, "BGM MP3 ("+this.nom+")");
+			this.thread = new Thread(r3, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
