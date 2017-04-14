@@ -6,8 +6,7 @@ package son;
 public abstract class LecteurAudio {
 	
 	public static Musique bgmEnCours = null;
-	//TODO bgs, pareil que bgm
-	//TODO me, pareil que se, sauf qu'il mute le bgm
+	public static Musique bgsEnCours = null;
 	
 	/**
 	 * Jouer un effet sonore.
@@ -25,29 +24,19 @@ public abstract class LecteurAudio {
 	 */
 	public static synchronized void playSe(final String nom, final float volume) {
 		final Musique musique = new Musique(nom, Musique.TypeMusique.SE, volume);
-		musique.demarrerSe();
+		musique.jouerUneSeuleFois();
 	}
 	
 	/**
-	 * Jouer une musique au format OGG.
+	 * Jouer une fanfare musicale.
 	 * @param nom du fichier audio
-	 * @param volume sonore auquel il faut jouer la musique
+	 * @param volume sonore
 	 */
-	/*
-	import java.io.File;
-	import java.io.FileInputStream;
-	import java.io.IOException;
-	public static synchronized void playOggBgm(final String nom, final float volume) {
-		try {
-			OggClip ogg = new OggClip(new FileInputStream(new File(".\\ressources\\Audio\\BGM\\" + nom)));
-			ogg.loop();
-			ogg.setGain(volume);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	//TODO un ME doit mettre en silence le BGM durant son execution
+	public static synchronized void playMe(final String nom, final float volume) {
+		final Musique musique = new Musique(nom, Musique.TypeMusique.ME, volume);
+		musique.jouerUneSeuleFois();
 	}
-	*/
 	
 	/**
 	 * Jouer une musique.
@@ -64,21 +53,22 @@ public abstract class LecteurAudio {
 	 * @param volume  sonore auquel il faut jouer la musique
 	 */
 	public static synchronized void playBgm(final String nom, final float volume) {
-		//si le nom est vide, on ignore
-			if (nom==null || nom.equals("")) {
-				return;
-			}
-		//si on est déjà en train de jouer le bon morceau, on ne fait rien
-		if (LecteurAudio.bgmEnCours==null || !nom.equals(LecteurAudio.bgmEnCours.nom)) {
-			//on éteint la musique actuelle
-				stopBgm();
+		// Si le nom est vide, on ignore
+		if (nom == null || nom.equals("")) {
+			return;
+		}
+		
+		// Si on est déjà en train de jouer le bon morceau, on ne fait rien
+		if (LecteurAudio.bgmEnCours == null || !nom.equals(LecteurAudio.bgmEnCours.nom)) {
+			// On éteint la musique actuelle
+			stopBgm();
 
-			//on lance la nouvelle
-				final Musique musique = new Musique(nom, Musique.TypeMusique.BGM, volume);
-				musique.demarrerBgm();
+			// On lance la nouvelle
+			final Musique musique = new Musique(nom, Musique.TypeMusique.BGM, volume);
+			musique.jouerEnBoucle();
 				
-			//on met à jour les données
-				LecteurAudio.bgmEnCours = musique;
+			// On met à jour les données
+			LecteurAudio.bgmEnCours = musique;
 		}
 	}
 	
@@ -86,8 +76,51 @@ public abstract class LecteurAudio {
 	 * Arrêter la musique actuellement jouée.
 	 */
 	public static synchronized void stopBgm() {
-		if (LecteurAudio.bgmEnCours!=null) {
+		if (LecteurAudio.bgmEnCours != null) {
 			LecteurAudio.bgmEnCours.arreter();
+		}
+	}
+	
+	/**
+	 * Jouer un fond sonore.
+	 * Volume maximal par défaut.
+	 * @param nom du fichier audio
+	 */
+	public static synchronized void playBgs(final String nom) {
+		playBgs(nom, Musique.VOLUME_MAXIMAL);
+	}
+	
+	/**
+	 * Jouer un fond sonore.
+	 * @param nom du fichier audio
+	 * @param volume  sonore auquel il faut jouer la musique
+	 */
+	public static synchronized void playBgs(final String nom, final float volume) {
+		// Si le nom est vide, on ignore
+		if (nom == null || nom.equals("")) {
+			return;
+		}
+			
+		// Si on est déjà en train de jouer le bon fond sonore, on ne fait rien
+		if (LecteurAudio.bgsEnCours == null || !nom.equals(LecteurAudio.bgsEnCours.nom)) {
+			// On éteint le fond sonore actuel
+			stopBgs();
+
+			// On lance le nouveau
+			final Musique musique = new Musique(nom, Musique.TypeMusique.BGS, volume);
+			musique.jouerEnBoucle();
+				
+			// On met à jour les données
+			LecteurAudio.bgsEnCours = musique;
+		}
+	}
+	
+	/**
+	 * Arrêter le fond sonore actuellement joué.
+	 */
+	public static synchronized void stopBgs() {
+		if (LecteurAudio.bgsEnCours != null) {
+			LecteurAudio.bgsEnCours.arreter();
 		}
 	}
 	
