@@ -4,7 +4,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.json.JSONException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import commandes.Deplacement;
@@ -20,12 +21,12 @@ import utilitaire.graphismes.ModeDeFusion;
  * La Page est déclenchée si certaines Conditions sont vérifiées, ses Commandes sont alors executées.
  */
 public class PageEvent {
+	private static final Logger LOG = LogManager.getLogger(PageEvent.class);
+	
 	/** Event auquel appartient la Page */
 	public Event event;
 	/** numero de la Page */
 	public final int numero;
-	/** ce flag est automatiquement mis à true si contient une Page avec une condition Parler */
-	private boolean sOuvreParParole = false;
 	
 	/** Conditions de déclenchement de la Page */
 	public final ArrayList<Condition> conditions;
@@ -47,6 +48,13 @@ public class PageEvent {
 	public int animationInitiale;
 	
 	//paramètres
+	public int vitesse;
+	public int frequence;
+	/** 
+	 * <p>figer les autres Events pendant la lecture de cette Page</p>
+	 * <p>automatiquement mis à true si la Page contient une condition Parler</p>
+	 */
+	private boolean figerLesAutresEvents;
 	public boolean animeALArret;
 	public boolean animeEnMouvement;
 	public boolean traversable;
@@ -54,8 +62,6 @@ public class PageEvent {
 	public boolean auDessusDeTout;
 	public int opacite;
 	public ModeDeFusion modeDeFusion;
-	public int vitesse;
-	public int frequence;
 	
 	//mouvement
 	public Deplacement deplacementNaturel = null;
@@ -70,136 +76,108 @@ public class PageEvent {
 	public PageEvent(final int numero, final JSONObject pageJSON, final Integer idEvent) {
 		this.numero = numero;
 		
-		//conditions de déclenchement de la page
+		// Conditions de déclenchement de la Page
 		this.conditions = new ArrayList<Condition>();
-		try {
+		if (pageJSON.has("conditions")) {
 			Condition.recupererLesConditions(this.conditions, pageJSON.getJSONArray("conditions"));
-			for (Condition condition : this.conditions) {
-				condition.page = this;
+			if (this.conditions.size() > 0) {
+				//on apprend aux Conditions qui est leur Page
+				for (Condition condition : this.conditions) {
+					condition.page = this;
+				}
+			} else {
+				LOG.trace("Liste de conditions vide pour la page "+this.numero+" de l'event "+idEvent);
 			}
-		} catch (JSONException e2) {
-			//pas de Conditions de déclenchement pour cette Page
+		} else {
+			LOG.trace("Pas de conditions pour la page "+this.numero+" de l'event "+idEvent);
 		}
 		
-		//commandes de la page
-		final ArrayList<Commande> commandes = new ArrayList<Commande>();
-		try {
-			Commande.recupererLesCommandesEvent(commandes, pageJSON.getJSONArray("commandes"));
-		} catch (JSONException e2) {
-			//pas de Commandes Event pour cette Page
-		}
-		this.commandes = commandes;
-		//on apprend aux Commandes qui est leur Page
-		for (Commande commande : commandes) {
-			commande.page = this;
-		}
-		
-		
-		//apparence de l'event lors de cette page
-		try {
-			this.nomImage = (String) pageJSON.get("image");
-		} catch (JSONException e) {
-			this.nomImage = "";
-		}
-		try {
-			this.directionInitiale = (int) pageJSON.get("directionInitiale");
-		} catch (JSONException e) {
-			this.directionInitiale = Event.DIRECTION_PAR_DEFAUT;
-		}
-		try {
-			this.animationInitiale = (int) pageJSON.get("animationInitiale");
-		} catch (JSONException e) {
-			this.animationInitiale = 0;
+		// Commandes de la Page
+		this.commandes = new ArrayList<Commande>();
+		if (pageJSON.has("commandes")) {
+			Commande.recupererLesCommandesEvent(this.commandes, pageJSON.getJSONArray("commandes"));
+			if (this.commandes.size() > 0){
+				//on apprend aux Commandes qui est leur Page
+				for (Commande commande : this.commandes) {
+					commande.page = this;
+				}
+			} else {
+				LOG.trace("Liste de commandes vide pour la page "+this.numero+" de l'event "+idEvent);
+			}
+		} else {
+			LOG.trace("Pas de commandes pour la page "+this.numero+" de l'event "+idEvent);
 		}
 		
-		
-		//propriétés de l'event lors de cette page
+		// Apparence de l'Event lors de cette Page
+		this.directionInitiale = pageJSON.has("directionInitiale") ? pageJSON.getInt("directionInitiale") : Event.DIRECTION_PAR_DEFAUT;
+		this.animationInitiale = pageJSON.has("animationInitiale") ? pageJSON.getInt("animationInitiale") : 0;
+		this.nomImage = pageJSON.has("image") ? pageJSON.getString("image") : "";
 		try {
-			this.animeALArret = (boolean) pageJSON.get("animeALArret");
-		} catch (JSONException e) {
-			this.animeALArret = Event.ANIME_A_L_ARRET_PAR_DEFAUT;
-		}
-		try {
-			this.animeEnMouvement = (boolean) pageJSON.get("animeEnMouvement");
-		} catch (JSONException e) {
-			this.animeEnMouvement = Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
-		}
-		try {
-			this.traversable = (boolean) pageJSON.get("traversable");
-		} catch (JSONException e) {
-			this.traversable = Event.TRAVERSABLE_PAR_DEFAUT;
-		}
-		try {
-			this.directionFixe = (boolean) pageJSON.get("directionFixe");
-		} catch (JSONException e) {
-			this.directionFixe = Event.DIRECTION_FIXE_PAR_DEFAUT;
-		}
-		try {
-			this.auDessusDeTout = (boolean) pageJSON.get("auDessusDeTout");
-		} catch (JSONException e) {
-			this.auDessusDeTout = Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
-		}
-		try {
-			this.plat = (boolean) pageJSON.get("plat");
-		} catch (JSONException e) {
-			this.plat = null; //si non précisé, sera décidé selon la taille de son image
-		}
-		try {
-			this.modeDeFusion = ModeDeFusion.parNom(pageJSON.get("modeDeFusion"));
-		} catch (JSONException e) {
-			this.modeDeFusion = ModeDeFusion.NORMAL;
-		}
-		try {
-			this.opacite = (int) pageJSON.get("opacite");
-		} catch (JSONException e) {
-			this.opacite = Graphismes.OPACITE_MAXIMALE;
-		}
-		
-		try {
-			this.vitesse = (int) pageJSON.get("vitesse");
-		} catch (JSONException e) {
-			this.vitesse = Event.VITESSE_PAR_DEFAUT;
-		}
-		try {
-			this.frequence = (int) pageJSON.get("frequence");
-		} catch (JSONException e) {
-			this.frequence = Event.FREQUENCE_PAR_DEFAUT;
-		}
-		
-		//mouvement de l'event lors de cette page
-		try {
-			this.deplacementNaturel = (Deplacement) Commande.recupererUneCommande(pageJSON.getJSONObject("deplacement"));
-			this.deplacementNaturel.page = this; //on apprend au Déplacement quelle est sa Page
-			this.deplacementNaturel.naturel = true; //pour le distinguer des Déplacements forcés
-		} catch (Exception e) {
-			//pas de déplacement pour cette Page
-			this.deplacementNaturel = null;
-		}
-		
-		//ouverture de l'image d'apparence
-		try {
+			//ouverture de l'image d'apparence
 			this.image = Graphismes.ouvrirImage("Characters", nomImage);
-			if (this.plat == null) {
-				// par défaut, si non précisé, si l'event est petit il est considéré comme plat
-				this.plat = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Fenetre.TAILLE_D_UN_CARREAU;
-			}
 		} catch (IOException e) {
 			//l'image d'apparence n'existe pas
-			this.plat = true;
-			//e.printStackTrace();
-		}		
+			this.image = null;
+			LOG.trace("Pas d'image d'apparence pour la page "+this.numero+" de l'event "+idEvent, e);
+		}	
 		
-		//on précise si c'est une Page qui s'ouvre en parlant à l'Event
-		if (conditions!=null) {
-			boolean onATrouveUneConditionParler = false;
-			for (int i = 0; i<conditions.size() && !onATrouveUneConditionParler; i++) {
+		// Propriétés de cette Page
+		this.frequence = pageJSON.has("frequence") ? pageJSON.getInt("frequence") : Event.FREQUENCE_PAR_DEFAUT;
+		this.vitesse = pageJSON.has("vitesse") ? pageJSON.getInt("vitesse") : Event.VITESSE_PAR_DEFAUT;
+		if (contientUneConditionParler()) {
+			this.figerLesAutresEvents = true;
+		} else if(pageJSON.has("figerLesAutresEvents")) {
+			this.figerLesAutresEvents =  pageJSON.getBoolean("figerLesAutresEvents");
+		} else {
+			this.figerLesAutresEvents = false;
+		}
+		this.animeALArret = pageJSON.has("animeALArret") ? pageJSON.getBoolean("animeALArret") : Event.ANIME_A_L_ARRET_PAR_DEFAUT;
+		this.animeEnMouvement = pageJSON.has("animeEnMouvement") ? pageJSON.getBoolean("animeEnMouvement") : Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
+		this.traversable = pageJSON.has("travrsable") ? pageJSON.getBoolean("traversable") : Event.TRAVERSABLE_PAR_DEFAUT;
+		this.directionFixe = pageJSON.has("directionFixe") ? pageJSON.getBoolean("directionFixe") : Event.DIRECTION_FIXE_PAR_DEFAUT;
+		this.auDessusDeTout = pageJSON.has("auDessusDeTout") ? pageJSON.getBoolean("auDessusDeTout") : Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
+		if (pageJSON.has("plat")) {
+			this.plat = pageJSON.getBoolean("plat");
+		} else if (this.image != null) {
+			//si non précisé, est déterminé en fonction de la taille de l'image
+			this.plat = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Fenetre.TAILLE_D_UN_CARREAU;
+		} else {
+			// pas d'image d'apparence
+			this.plat = true;
+		}
+		this.modeDeFusion = pageJSON.has("modeDeFusion") ? ModeDeFusion.parNom(pageJSON.get("modeDeFusion")) : ModeDeFusion.NORMAL;
+		this.opacite = pageJSON.has("opacite") ? pageJSON.getInt("opacite") : Graphismes.OPACITE_MAXIMALE;
+		
+		// Mouvement de l'Event lors de cette Page
+		try {
+			if (pageJSON.has("deplacement")) {
+				this.deplacementNaturel = (Deplacement) Commande.recupererUneCommande(pageJSON.getJSONObject("deplacement"));
+				this.deplacementNaturel.page = this; //on apprend au Déplacement quelle est sa Page
+				this.deplacementNaturel.naturel = true; //pour le distinguer des Déplacements forcés
+			} else {
+				//pas de déplacement pour cette Page
+				this.deplacementNaturel = null;
+			}
+		} catch (Exception e) {
+			LOG.warn("Erreur lors du chargement du déplacement naturel de la page "+this.numero+" de l'event "+idEvent, e);
+		}
+	}
+	
+	/**
+	 * La PageEvent contient-elle une ConditionParler ?
+	 * Auquel cas, cette Page fige les autres Events de la Map pendant son execution.
+	 * @return présence d'une ConditionParler
+	 */
+	private boolean contientUneConditionParler() {
+		if (conditions != null) {
+			for (int i = 0; i<conditions.size(); i++) {
 				final Condition cond = conditions.get(i);
 				if (cond instanceof ConditionParler) {
-					this.sOuvreParParole = true;
-					onATrouveUneConditionParler = true; //s'arrêter dès que true trouvé
+					return true;
 				}
 			}
 		}
+		return false;
 	}
 
 	/**
@@ -209,7 +187,7 @@ public class PageEvent {
 	 */
 	public void executer() {
 		//si la page est une page "Parler", elle active le stopEvent qui fige tous les Events
-		if (sOuvreParParole) {
+		if (figerLesAutresEvents) {
 			this.event.map.lecteur.stopEvent = true;
 			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
 		}
@@ -218,7 +196,7 @@ public class PageEvent {
 			try {
 				if (curseurCommandes >= commandes.size()) {
 					curseurCommandes = 0;
-					if (sOuvreParParole) {
+					if (figerLesAutresEvents) {
 						this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
 					}
 				}
@@ -236,7 +214,7 @@ public class PageEvent {
 			} catch (IndexOutOfBoundsException e) {
 				//on a fini la page
 				curseurCommandes = 0;
-				if (sOuvreParParole) {
+				if (figerLesAutresEvents) {
 					this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
 				}
 				this.event.pageActive = null; 
