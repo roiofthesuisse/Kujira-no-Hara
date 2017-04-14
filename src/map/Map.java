@@ -39,6 +39,7 @@ public class Map {
 	public String nomBGS; //fond sonore
 	public String nomTileset;
 	public Tileset tileset; //image contenant les decors
+	public BufferedImage panoramaActuel;
 	/** largeur de la Map (en nombre de cases) */
 	public final int largeur;
 	/** hauteur de la Map (en nombre de cases) */
@@ -203,6 +204,9 @@ public class Map {
 			
 		//création de la liste des cases passables
 			creerListeDesCasesPassables();
+		
+		//panorama
+			this.panoramaActuel = this.tileset.imagePanorama;
 			
 		//création du Brouillard
 			this.brouillard = Brouillard.creerBrouillardAPartirDeJson(jsonMap);
