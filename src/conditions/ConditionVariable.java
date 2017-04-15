@@ -14,6 +14,7 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	private int numeroVariable;
 	private Inegalite inegalite;
 	private int valeurQuIlEstCenseAvoir;
+	private boolean comparerAUneAutreVariable;
 	
 	/**
 	 * Utiliser les constantes situées dans la classe pour définir le type de comparaison.
@@ -21,12 +22,14 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	 * @param numeroVariable numéro de la variable
 	 * @param symboleInegalite = egal ; >= superieur large ; <= inferieur large ; > superieur strict ; < inferieur strict ; != différent
 	 * @param valeur comparative
+	 * @param comparerAUneAutreVariable auquel cas la valeur comparative est un numéro de variable
 	 */
-	public ConditionVariable(final int numero, final int numeroVariable, final String symboleInegalite, final int valeur) {
+	public ConditionVariable(final int numero, final int numeroVariable, final String symboleInegalite, final int valeur, final boolean comparerAUneAutreVariable) {
 		this.numero = numero;
 		this.numeroVariable = numeroVariable;
 		this.inegalite = Inegalite.getInegalite(symboleInegalite);
 		this.valeurQuIlEstCenseAvoir = valeur;
+		this.comparerAUneAutreVariable = comparerAUneAutreVariable;
 	}
 	
 	/**
@@ -36,15 +39,22 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	public ConditionVariable(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
 			(int) parametres.get("numeroVariable"),
-			(String) parametres.get("inegalite"),
-			(int) parametres.get("valeurQuIlEstCenseAvoir")
+			parametres.containsKey("inegalite") ? (String) parametres.get("inegalite") : Inegalite.PLUS_OU_AUTANT.symbole,
+			(int) parametres.get("valeurQuIlEstCenseAvoir"),
+			parametres.containsKey("comparerAUneAutreVariable") ? false : (boolean) parametres.get("comparerAUneAutreVariable")
 		);
 	}
 	
 	@Override
 	public final boolean estVerifiee() {
 		final int[] variables = Fenetre.getPartieActuelle().variables;
-		return inegalite.comparer(variables[numeroVariable], valeurQuIlEstCenseAvoir);
+		if (this.comparerAUneAutreVariable) {
+			// Comparer la variable à une autre variable
+			return inegalite.comparer(variables[numeroVariable], variables[valeurQuIlEstCenseAvoir]);
+		} else {
+			// Comparer à une valeur brute
+			return inegalite.comparer(variables[numeroVariable], this.valeurQuIlEstCenseAvoir);
+		}
 	}
 	
 	/**
