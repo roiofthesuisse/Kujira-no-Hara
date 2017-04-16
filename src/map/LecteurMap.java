@@ -96,10 +96,8 @@ public class LecteurMap extends Lecteur {
 	public final BufferedImage calculerAffichage(final int frame) {
 		//final long t0 = System.currentTimeMillis(); //mesure de performances
 		
-		//sortie vers la Map adjacente ?
+		//éventuelle sortie vers la Map adjacente
 		this.map.sortirVersLaMapAdjacente();
-		
-		BufferedImage ecran = Graphismes.ecranColore(Color.BLACK);
 		
 		//ouverture du tileset
 		try {
@@ -113,6 +111,15 @@ public class LecteurMap extends Lecteur {
 		//calcul de la position de la caméra par rapport à la Map
 		this.xCamera = calculerXCamera();
 		this.yCamera = calculerYCamera();
+		
+		//panorama
+		BufferedImage ecran;
+		if (this.map.panoramaActuel != null) {
+			//TODO parallaxe
+			ecran = this.map.panoramaActuel.getSubimage(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
+		} else {
+			ecran = Graphismes.ecranColore(Color.BLACK);
+		}
 		
 		//on dessine le décor inférieur
 		animerLesAutotiles();

@@ -29,10 +29,10 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	 * @param idEventObserve : id de l'Event en fonction duquel l'Event à déplacer avance
 	 * @param sens : l'event s'approche ou s'éloigne
 	 */
-	public AvancerEnFonctionDUnEvent(final int idEventObserve, final String sens) {
+	public AvancerEnFonctionDUnEvent(final int idEventObserve, final Sens sens) {
 		super(-1, Fenetre.TAILLE_D_UN_CARREAU);
 		this.idEventObserve = idEventObserve;	
-		this.sens = sens.equals("fuir") ? Sens.FUIR : Sens.SUIVRE;
+		this.sens = sens;
 		this.directionDecidee = false;
 	}
 
@@ -41,7 +41,10 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AvancerEnFonctionDUnEvent(final HashMap<String, Object> parametres) {
-		this((int) parametres.get("idEventObserve"), (String) parametres.get("sens"));
+		this(
+				(int) parametres.get("idEventObserve"), //0 est le Héros
+				parametres.containsKey("sens") ? (((String) parametres.get("sens")).equals("fuir") ? Sens.FUIR : Sens.SUIVRE) : Sens.SUIVRE //si non précisé : on suit
+		);
 	}
 
 	/**
