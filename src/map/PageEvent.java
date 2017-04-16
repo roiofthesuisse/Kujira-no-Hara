@@ -133,7 +133,7 @@ public class PageEvent {
 		}
 		this.animeALArret = pageJSON.has("animeALArret") ? pageJSON.getBoolean("animeALArret") : Event.ANIME_A_L_ARRET_PAR_DEFAUT;
 		this.animeEnMouvement = pageJSON.has("animeEnMouvement") ? pageJSON.getBoolean("animeEnMouvement") : Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
-		this.traversable = pageJSON.has("traversable") ? pageJSON.getBoolean("traversable") : Event.TRAVERSABLE_PAR_DEFAUT;
+		this.traversable = pageJSON.has("travrsable") ? pageJSON.getBoolean("traversable") : Event.TRAVERSABLE_PAR_DEFAUT;
 		this.directionFixe = pageJSON.has("directionFixe") ? pageJSON.getBoolean("directionFixe") : Event.DIRECTION_FIXE_PAR_DEFAUT;
 		this.auDessusDeTout = pageJSON.has("auDessusDeTout") ? pageJSON.getBoolean("auDessusDeTout") : Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
 		if (pageJSON.has("plat")) {
