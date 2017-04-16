@@ -38,19 +38,32 @@ public class Musique {
 	public FormatAudio format;
 	public TypeMusique type;
 	private Thread thread;
+	public float volumeActuel;
 	
 	/**
 	 * Différents formats de fichiers audio possibles
 	 */
 	public enum FormatAudio {
-		WAV, OGG, MP3
+		WAV("WAV"), OGG("OGG"), MP3("MP3");
+		
+		public final String nom;
+		
+		FormatAudio(final String nom) {
+			this.nom = nom;
+		}
 	}
 	
 	/**
 	 * Différents types de fichiers audio possibles
 	 */
 	public enum TypeMusique {
-		BGM, BGE, ME, SE
+		BGM("BGM"), BGS("BGS"), ME("ME"), SE("SE");
+
+		public final String nom;
+		
+		TypeMusique(final String nom) {
+			this.nom = nom;
+		}
 	}
 	
 	/**
@@ -62,6 +75,7 @@ public class Musique {
 	public Musique(final String nom, final TypeMusique type, final float volume) {
 		this.nom = nom;
 		this.type = type;
+		this.volumeActuel = volume;
 		
 		if (nom.endsWith(".ogg")) {
 			//le fichier est un OGG
@@ -71,7 +85,7 @@ public class Musique {
 				this.clip = new OggClip(this.stream);
 				//volume initial
 				if (volume < VOLUME_MAXIMAL) {
-					this.modifierVolume(FormatAudio.OGG, volume);
+					this.modifierVolume(volume);
 				}
 				
 			} catch (FileNotFoundException e) {
@@ -89,7 +103,7 @@ public class Musique {
 				((Clip) clip).open((AudioInputStream) this.stream);
 				//volume initial
 				if (volume < VOLUME_MAXIMAL) {
-					this.modifierVolume(FormatAudio.WAV, volume);
+					this.modifierVolume(volume);
 				}
 				
 			} catch (LineUnavailableException e) {
@@ -109,7 +123,7 @@ public class Musique {
 			this.clip = mediaPlayer;
 			//volume initial
 			if (volume < VOLUME_MAXIMAL) {
-				this.modifierVolume(FormatAudio.MP3, volume);
+				this.modifierVolume(volume);
 			}
 			
 		} else {
@@ -123,8 +137,8 @@ public class Musique {
 	 * @param format audio de la Musique
 	 * @param nouveauVolume à appliquer
 	 */
-	public final void modifierVolume(final FormatAudio format, final float nouveauVolume) {
-		switch (format) {
+	public final void modifierVolume(final float nouveauVolume) {
+		switch (this.format) {
 			case OGG:
 				((OggClip) this.clip).setGain(nouveauVolume);
 				break;
@@ -143,12 +157,14 @@ public class Musique {
 				LOG.error("Format audio inconnu : "+this.nom);
 				break;
 		}
+		//mettre à jour les données
+		this.volumeActuel = nouveauVolume;
 	}
 	
 	/**
-	 * Jouer un effet sonore.
+	 * Jouer un fichier sonore qui s'arrêtera tout seul arrivé à la fin.
 	 */
-	public final void demarrerSe() {
+	public final void jouerUneSeuleFois() {
 		switch (format) {
 		case OGG : //le fichier est un OGG
 			/**
@@ -170,7 +186,7 @@ public class Musique {
 				}
 			}
 			final RunOggBgm r1 = new RunOggBgm();
-			this.thread = new Thread(r1, "SE OGG ("+this.nom+")");
+			this.thread = new Thread(r1, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -194,7 +210,7 @@ public class Musique {
 				}
 			}
 			final RunWavBgm r2 = new RunWavBgm();
-			this.thread = new Thread(r2, "SE WAV ("+this.nom+")");
+			this.thread = new Thread(r2, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -219,7 +235,7 @@ public class Musique {
 				}
 			}
 			final RunMp3Bgm r3 = new RunMp3Bgm();
-			this.thread = new Thread(r3, "SE MP3 ("+this.nom+")");
+			this.thread = new Thread(r3, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -230,9 +246,9 @@ public class Musique {
 	}
 	
 	/**
-	 * Jouer musique d'accompagnement.
+	 * Jouer une fichier sonore qui tourne en boucle sans s'arrêter.
 	 */
-	public final void demarrerBgm() {
+	public final void jouerEnBoucle() {
 		switch (format) {
 		case OGG : //le fichier est un OGG
 			/**
@@ -248,7 +264,7 @@ public class Musique {
 				}
 			}
 			final RunOggBgm r1 = new RunOggBgm();
-			this.thread = new Thread(r1, "BGM OGG ("+this.nom+")");
+			this.thread = new Thread(r1, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -266,7 +282,7 @@ public class Musique {
 				}
 			}
 			final RunWavBgm r2 = new RunWavBgm();
-			this.thread = new Thread(r2, "BGM WAV ("+this.nom+")");
+			this.thread = new Thread(r2, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			
@@ -285,7 +301,7 @@ public class Musique {
 				}
 			}
 			final RunMp3Bgm r3 = new RunMp3Bgm();
-			this.thread = new Thread(r3, "BGM MP3 ("+this.nom+")");
+			this.thread = new Thread(r3, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 			this.thread.start();
 			break;
 			

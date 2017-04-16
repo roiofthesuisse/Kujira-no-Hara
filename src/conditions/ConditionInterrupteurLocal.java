@@ -36,10 +36,10 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	 */
 	public ConditionInterrupteurLocal(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
-			parametres.containsKey("numeroMap") ? (int) parametres.get("numeroMap") : null,
-			parametres.containsKey("numeroEvent") ? (int) parametres.get("numeroEvent") : null,
+			parametres.containsKey("numeroMap") ? (int) parametres.get("numeroMap") : null, //null signifie "cette Map"
+			parametres.containsKey("numeroEvent") ? (int) parametres.get("numeroEvent") : null, //null signifie "cet Event"
 			(int) parametres.get("numeroInterrupteurLocal"),
-			(boolean) parametres.get("valeurQuIlEstCenseAvoir")
+			parametres.containsKey("valeurQuIlEstCenseAvoir") ? (boolean) parametres.get("valeurQuIlEstCenseAvoir") : true
 		);
 	}
 	

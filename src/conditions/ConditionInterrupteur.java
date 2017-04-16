@@ -31,7 +31,7 @@ public class ConditionInterrupteur extends Condition implements CommandeEvent, C
 	 */
 	public ConditionInterrupteur(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroInterrupteur"),
-			(boolean) parametres.get("valeurQuIlEstCenseAvoir"),
+			parametres.containsKey("valeurQuIlEstCenseAvoir") ? (boolean) parametres.get("valeurQuIlEstCenseAvoir") : true,
 			parametres.containsKey("numero") ? (int) parametres.get("numero") : -1
 		);
 	}
