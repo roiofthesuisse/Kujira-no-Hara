@@ -1,9 +1,13 @@
 package son;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Classe utilitaire chargée de lire les fichiers audio du jeu.
  */
 public abstract class LecteurAudio {
+	private static final Logger LOG = LogManager.getLogger(LecteurAudio.class);
 	
 	public static Musique bgmEnCours = null;
 	public static Musique bgsEnCours = null;
@@ -55,25 +59,30 @@ public abstract class LecteurAudio {
 	public static synchronized void playBgm(final String nom, final float volume) {
 		// Si le nom est vide, on ignore
 		if (nom == null || nom.equals("")) {
+			LOG.debug("Nom de musique vide : on ne fait rien.");
 			return;
 		}
 		
-		// Si on est déjà en train de jouer le bon morceau, on ne fait rien
-		if (LecteurAudio.bgmEnCours == null || !nom.equals(LecteurAudio.bgmEnCours.nom)) {
+		if (LecteurAudio.bgmEnCours != null && nom.equals(LecteurAudio.bgmEnCours.nom)) {
+			// Même morceau que le précédent
+			if (bgmEnCours.volumeActuel != volume) {
+				// Modification du volume uniquement
+				bgmEnCours.modifierVolume(volume);
+			}
+		} else {
+			// Morceau différent du précédent
+			
 			// On éteint la musique actuelle
 			stopBgm();
-
+			
 			// On lance la nouvelle
 			final Musique musique = new Musique(nom, Musique.TypeMusique.BGM, volume);
 			musique.jouerEnBoucle();
 				
 			// On met à jour les données
 			LecteurAudio.bgmEnCours = musique;
-		
-		// Modification du volume uniquement
-		} else if (bgmEnCours.volumeActuel != volume) {
-			bgmEnCours.modifierVolume(volume);
 		}
+		
 	}
 	
 	/**
@@ -82,6 +91,7 @@ public abstract class LecteurAudio {
 	public static synchronized void stopBgm() {
 		if (LecteurAudio.bgmEnCours != null) {
 			LecteurAudio.bgmEnCours.arreter();
+			LecteurAudio.bgmEnCours = null;
 		}
 	}
 	
@@ -129,6 +139,7 @@ public abstract class LecteurAudio {
 	public static synchronized void stopBgs() {
 		if (LecteurAudio.bgsEnCours != null) {
 			LecteurAudio.bgsEnCours.arreter();
+			LecteurAudio.bgsEnCours = null;
 		}
 	}
 	

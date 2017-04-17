@@ -50,7 +50,7 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 			
 		} else {
 			// L'arrêt en fondu est terminé
-			LecteurAudio.bgsEnCours.arreter();
+			LecteurAudio.stopBgs();
 			frame = 0;
 			
 			return curseurActuel+1;

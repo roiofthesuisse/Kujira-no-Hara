@@ -48,6 +48,9 @@ public class Musique {
 		
 		public final String nom;
 		
+		/**
+		 * @param nom du format audio
+		 */
 		FormatAudio(final String nom) {
 			this.nom = nom;
 		}
@@ -61,6 +64,9 @@ public class Musique {
 
 		public final String nom;
 		
+		/**
+		 * @param nom du type de musique
+		 */
 		TypeMusique(final String nom) {
 			this.nom = nom;
 		}
@@ -134,7 +140,6 @@ public class Musique {
 	
 	/**
 	 * Modifier le volume de la Musique.
-	 * @param format audio de la Musique
 	 * @param nouveauVolume à appliquer
 	 */
 	public final void modifierVolume(final float nouveauVolume) {
@@ -314,6 +319,7 @@ public class Musique {
 	/**
 	 * Arrêter cette Musique.
 	 * Il y a potentiellement deux threads à fermer : le Clip et l'InputStream.
+	 * Ne pas utiliser autrement que via LecteurAudio.arreterBgm().
 	 */
 	public final void arreter() {
 		//on ferme le clip

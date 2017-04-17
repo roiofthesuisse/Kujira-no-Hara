@@ -3,6 +3,9 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import son.LecteurAudio;
 
@@ -10,6 +13,8 @@ import son.LecteurAudio;
  * Arrêter la musique.
  */
 public class ArreterMusique extends Commande implements CommandeEvent, CommandeMenu {
+	private static final Logger LOG = LogManager.getLogger(ArreterMusique.class);
+	
 	/** Durée totale de l'arrêt en fondu */
 	private final int nombreDeFrames;
 	/** Compteur de frames de l'arrêt en fondu */
@@ -35,6 +40,12 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		// On ne fait rien si la musique est déjà arrêtée
+		if (LecteurAudio.bgmEnCours == null) {
+			LOG.warn("La musique est déjà arrêtée.");
+			return curseurActuel+1;
+		}
+		
 		// On mémorise le volume initial
 		if (frame == 0) {
 			volumeInitial = LecteurAudio.bgmEnCours.volumeActuel;
@@ -50,9 +61,10 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 			
 		} else {
 			// L'arrêt en fondu est terminé
-			LecteurAudio.bgmEnCours.arreter();
+			LecteurAudio.stopBgm();
 			frame = 0;
 			
+			LOG.info("Arrêt total de la musique.");
 			return curseurActuel+1;
 		}
 	}
