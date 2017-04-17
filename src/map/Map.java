@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import commandes.ModifierInterrupteurLocal;
 import main.Fenetre;
 import map.Event.Direction;
 import utilitaire.InterpreteurDeJson;
@@ -30,6 +31,10 @@ public class Map {
 	private static final int NOMBRE_ALTITUDES_SUR_HEROS = NOMBRE_ALTITUDES - NOMBRE_ALTITUDES_SOUS_HEROS;
 	/** Le décor est constitué de 3 couches, afin de pouvoir superposer plusieurs carreaux au même endroit de la Map */
 	private static final int NOMBRE_LAYERS = 3;
+	/** La position intiale du Héros sur cette Map est décrite par 3 paramètres */
+	private static final int POSITION_INITIALE_PAR_X_Y_ET_DIRECTION = 3;
+	/** La position intiale du Héros sur cette Map est décrite par 2 paramètres */
+	private static final int POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION = 2;
 	
 	public final int numero;
 	public LecteurMap lecteur;
@@ -102,13 +107,13 @@ public class Map {
 		this.layers = new int[][][] {this.layer0, this.layer1, this.layer2};
 		
 		//position initiale du Héros
-		if (positionInitialeDuHeros.length == 3) {
+		if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_X_Y_ET_DIRECTION) {
 			// Coordonnées initiales spécifiées
 			this.xDebutHeros = positionInitialeDuHeros[0]; //position x (en pixels) initiale du Héros
 			this.yDebutHeros = positionInitialeDuHeros[1]; //position y (en pixels) initiale du Héros
 			this.directionDebutHeros = positionInitialeDuHeros[2]; //direction initiale du Héros
 			
-		} else if (positionInitialeDuHeros.length == 2) {
+		} else if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION) {
 			// Coordonnées initiales non-spécifiées
 			final int decalageDebutHeros = positionInitialeDuHeros[0]; //décalage (en nombre de cases) du Héros par rapport à l'ancienne Map
 			this.directionDebutHeros = positionInitialeDuHeros[1]; //direction initiale du Héros
@@ -405,7 +410,8 @@ public class Map {
 		} catch (Exception e3) {
 			LOG.error("Erreur lors de la constitution de la liste des events :", e3);
 		}
-		//numérotation des Events
+		
+		// Numérotation des Events
 		final int nombreDEvents = this.events.size();
 		Event event;
 		for (int i = 0; i<nombreDEvents; i++) {
@@ -416,6 +422,13 @@ public class Map {
 				LOG.error("Un autre event porte déjà le numéro : " + event.id);
 			}
 			this.eventsHash.put(event.id, event);
+		}
+		
+		// Réinitialisation des interrupteurs locaux (si besoin)
+		for (Event eventAReinitialiser : this.events) {
+			if (eventAReinitialiser.reinitialiser) {
+				ModifierInterrupteurLocal.reinitialiserEvent(eventAReinitialiser);
+			}
 		}
 	}
 
@@ -431,7 +444,7 @@ public class Map {
 				this.casePassable[i][j] = true;
 				
 				int altitudeDeCetteCouche = -1;
-				boolean[] obstacleALAltitude = new boolean[NOMBRE_ALTITUDES];
+				final boolean[] obstacleALAltitude = new boolean[NOMBRE_ALTITUDES];
 				// Pour chaque altitude, la couche la plus haute (hors -1) donne la passabilité
 				for (int k = 0; k<NOMBRE_LAYERS; k++) {
 					couche = layers[k]; //couche de décor

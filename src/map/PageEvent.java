@@ -96,7 +96,7 @@ public class PageEvent {
 		this.commandes = new ArrayList<Commande>();
 		if (pageJSON.has("commandes")) {
 			Commande.recupererLesCommandesEvent(this.commandes, pageJSON.getJSONArray("commandes"));
-			if (this.commandes.size() > 0){
+			if (this.commandes.size() > 0) {
 				//on apprend aux Commandes qui est leur Page
 				for (Commande commande : this.commandes) {
 					commande.page = this;
@@ -126,7 +126,7 @@ public class PageEvent {
 		this.vitesse = pageJSON.has("vitesse") ? pageJSON.getInt("vitesse") : Event.VITESSE_PAR_DEFAUT;
 		if (contientUneConditionParler()) {
 			this.figerLesAutresEvents = true;
-		} else if(pageJSON.has("figerLesAutresEvents")) {
+		} else if (pageJSON.has("figerLesAutresEvents")) {
 			this.figerLesAutresEvents =  pageJSON.getBoolean("figerLesAutresEvents");
 		} else {
 			this.figerLesAutresEvents = false;

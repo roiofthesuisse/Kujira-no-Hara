@@ -49,6 +49,7 @@ public class Event implements Comparable<Event> {
 	public static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAUT = true;
 	public static final boolean PLAT_PAR_DEFAUT = false;
 	public static final boolean PLAT_SI_VIDE = true;
+	public static final String MARQUEUR_DE_REINITIALISATION = "RESET";
 	
 	/** Map à laquelle cet Event appartient */
 	public Map map;
@@ -62,6 +63,8 @@ public class Event implements Comparable<Event> {
 	public int x;
 	/** distance (en pixels) entre le bord haut de l'écran et le corps de l'Event */
 	public int y;
+	/** Faut-il réinitialiser les interrupteurs locaux de cet event à chaque changement de Map ? */
+	public final boolean reinitialiser;
 	
 	/** de combien de pixels avance l'Event à chaque pas ? */
 	public int vitesseActuelle = VITESSE_PAR_DEFAUT; //1:trèsLent 2:lent 4:normal 8:rapide 16:trèsrapide 32:trèstrèsRapide
@@ -144,18 +147,21 @@ public class Event implements Comparable<Event> {
 	 * @param offsetY si on veut afficher l'Event plus bas que sa case réelle
 	 * @param nom de l'Event
 	 * @param id identifiant numérique de l'Event
+	 * @param reinitialiserLesInterupteursLocaux à chaque changement de Map ?
 	 * @param pages ensemble de Pages décrivant le comportement de l'Event
 	 * @param largeurHitbox largeur de la boîte de collision
 	 * @param hauteurHitbox hauteur de la boîte de collision
 	 * @param map de l'Event
 	 */
 	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, 
-			final ArrayList<PageEvent> pages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
+			final boolean reinitialiserLesInterupteursLocaux, final ArrayList<PageEvent> pages, 
+			final int largeurHitbox, final int hauteurHitbox, final Map map) {
 		this.x = x;
 		this.y = y;
 		this.offsetY = offsetY;
 		this.id = id;
 		this.nom = nom;
+		this.reinitialiser = reinitialiserLesInterupteursLocaux;
 		this.pages = pages;
 		this.map = map;
 		this.largeurHitbox = largeurHitbox;
@@ -174,13 +180,16 @@ public class Event implements Comparable<Event> {
 	 * @param offsetY si on veut afficher l'Event plus bas que sa case réelle
 	 * @param nom de l'Event
 	 * @param id identifiant numérique de l'Event
+	 * @param reinitialiserLesInterupteursLocaux à chaque changement de Map ?
 	 * @param tableauDesPages tableau JSON contenant les Pages de comportement
 	 * @param largeurHitbox largeur de la boîte de collision
 	 * @param hauteurHitbox hauteur de la boîte de collision
 	 * @param map de l'Event
 	 */
-	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, final JSONArray tableauDesPages, final int largeurHitbox, final int hauteurHitbox, final Map map) {
-		this(x, y, offsetY, nom, id, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox, map);
+	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, 
+			final boolean reinitialiserLesInterupteursLocaux, final JSONArray tableauDesPages, 
+			final int largeurHitbox, final int hauteurHitbox, final Map map) {
+		this(x, y, offsetY, nom, id, reinitialiserLesInterupteursLocaux, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox, map);
 	}
 
 	/**
@@ -440,7 +449,7 @@ public class Event implements Comparable<Event> {
 	 * @return position x de l'image de l'Event
 	 */
 	public final int xImage() {
-		int xBase;
+		final int xBase;
 		if (this.saute) {
 			xBase = this.coordonneeApparenteXLorsDuSaut;
 		} else {
@@ -455,7 +464,7 @@ public class Event implements Comparable<Event> {
 	 * @return position y de l'image de l'Event
 	 */
 	public final int yImage() {
-		int yBase;
+		final int yBase;
 		if (this.saute) {
 			yBase = this.coordonneeApparenteYLorsDuSaut;
 		} else {
@@ -527,12 +536,12 @@ public class Event implements Comparable<Event> {
 		public final void run() {
 			final String nomEvent = jsonEvent.getString("nom");
 			final Integer id = jsonEvent.getInt("id");
-			try{
+			try {
 				//récupération des données dans le JSON
 				
 				final int xEvent = jsonEvent.getInt("x") * Fenetre.TAILLE_D_UN_CARREAU;
 				final int yEvent = jsonEvent.getInt("y") * Fenetre.TAILLE_D_UN_CARREAU;
-				int offsetY;
+				final int offsetY;
 				if (jsonEvent.has("offsetY")) {
 					offsetY = jsonEvent.getInt("offsetY");
 				} else {
@@ -547,21 +556,22 @@ public class Event implements Comparable<Event> {
 				
 				//si l'Event n'est pas générique, on le construit à partir de sa description dans la page JSON
 				if (event == null) {
-					int largeurHitbox;
+					final int largeurHitbox;
 					if (jsonEvent.has("largeur")) {
 						largeurHitbox = jsonEvent.getInt("largeur");
 					} else {
 						largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
 					}
-					int hauteurHitbox;
+					final int hauteurHitbox;
 					if (jsonEvent.has("hauteur")) {
 						hauteurHitbox = jsonEvent.getInt("hauteur");
 					} else {
 						hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
 					}
+					final boolean reinitialiser = jsonEvent.has("reinitialiser") ? jsonEvent.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
 	
 					final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-					event = new Event(xEvent, yEvent, offsetY, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
+					event = new Event(xEvent, yEvent, offsetY, nomEvent, id, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
 				}
 				events.add(event);
 			} catch (Exception e) {
@@ -595,9 +605,10 @@ public class Event implements Comparable<Event> {
 			} catch (JSONException e2) {
 				hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
 			}
+			final boolean reinitialiser = jsonEventGenerique.has("reinitialiser") ? jsonEventGenerique.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
 	
 			final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-			return new Event(xEvent, yEvent, offsetYEvent, nomEvent, id, jsonPages, largeurHitbox, hauteurHitbox, map);
+			return new Event(xEvent, yEvent, offsetYEvent, nomEvent, id, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
 		} catch (FileNotFoundException e1) {
 			LOG.trace("Impossible de trouver le fichier JSON pour contruire l'Event générique "+nomEvent, e1);
 			return null;
@@ -615,7 +626,7 @@ public class Event implements Comparable<Event> {
 		if (!(o instanceof Event)) {
 			return false;
 		}
-		Event event2 = (Event) o;
+		final Event event2 = (Event) o;
 		if (this.hashCode() != event2.hashCode()) {
 			return false;
 		}

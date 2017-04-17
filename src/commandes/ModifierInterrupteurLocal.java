@@ -3,28 +3,34 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import main.Fenetre;
+import map.Event;
 
 /**
  * Modifier la valeur d'un interrupteur
  */
 public class ModifierInterrupteurLocal extends Commande implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(ModifierInterrupteurLocal.class);
+	
 	final boolean valeurADonner;
 	Integer numeroMap;
-	Integer numeroEvent;
+	Integer idEvent;
 	final int numeroInterrupteurLocal;
 	
 	/**
 	 * Constructeur explicite
 	 * @param numeroMap numéro de la Map où se situe l'interrupteur local à modifier
-	 * @param numeroEvent numéro de l'Event auquel appartient l'interrupteur local à modifier
+	 * @param idEvent id de l'Event auquel appartient l'interrupteur local à modifier
 	 * @param numeroInterrupteurLocal 0, 1, 2 ou 3 pour dire A, B, C ou D
 	 * @param valeur à donner à l'interrupteur local
 	 */
-	public ModifierInterrupteurLocal(final Integer numeroMap, final Integer numeroEvent, final int numeroInterrupteurLocal, final boolean valeur) {
+	public ModifierInterrupteurLocal(final Integer numeroMap, final Integer idEvent, final int numeroInterrupteurLocal, final boolean valeur) {
 		this.numeroMap = numeroMap; //peut être null si signifie "cette Map"
-		this.numeroEvent = numeroEvent; //peut être null si signifie "cet Event"
+		this.idEvent = idEvent; //peut être null si signifie "cet Event"
 		this.numeroInterrupteurLocal = numeroInterrupteurLocal;
 		this.valeurADonner = valeur;
 	}
@@ -44,7 +50,7 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 	 */
 	public ModifierInterrupteurLocal(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("numeroMap") ? (int) parametres.get("numeroMap") : null,
-			parametres.containsKey("numeroEvent") ? (int) parametres.get("numeroEvent") : null,
+			parametres.containsKey("idEvent") ? (int) parametres.get("idEvent") : null,
 			(int) parametres.get("numeroInterrupteurLocal"),
 			(boolean) parametres.get("valeurADonner")
 		);
@@ -57,22 +63,43 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 			this.numeroMap = this.page.event.map.numero;
 		}
 		//null signifie "cet Event"
-		if (this.numeroEvent==null) {
-			this.numeroEvent = this.page.event.numero;
+		if (this.idEvent==null) {
+			this.idEvent = this.page.event.id;
 		}
 		
-		final String code = "m"+this.numeroMap+"e"+this.numeroEvent+"i"+this.numeroInterrupteurLocal;
+		final String code = "m"+this.numeroMap+"e"+this.idEvent+"i"+this.numeroInterrupteurLocal;
 		final ArrayList<String> interrupteursLocaux = Fenetre.getPartieActuelle().interrupteursLocaux;
 		if (valeurADonner) {
 			if (!interrupteursLocaux.contains(code)) {
 				Fenetre.getPartieActuelle().interrupteursLocaux.add(code);
+				LOG.debug("Interrupteur local "+code+" allumé.");
 			}
 		} else {
 			if (interrupteursLocaux.contains(code)) {
 				Fenetre.getPartieActuelle().interrupteursLocaux.remove(code);
+				LOG.debug("Interrupteur local "+code+" éteint.");
 			}
 		}
 		return curseurActuel+1;
+	}
+
+	/**
+	 * Réinitialiser les interrupteurs locaux en rapport avec cet Event.
+	 * @param event à réinitialiser
+	 */
+	public static void reinitialiserEvent(final Event event) {
+		final String debutDuCode = "m" + event.map.numero + "e" + event.id;
+		LOG.debug("Réinitialisation des interrupteurs locaux de l'event "+debutDuCode);
+		int tailleListe = Fenetre.getPartieActuelle().interrupteursLocaux.size();
+		String code;
+		for (int i = 0; i<tailleListe; i++) {
+			code = Fenetre.getPartieActuelle().interrupteursLocaux.get(i);
+			if (code.startsWith(debutDuCode)) {
+				LOG.trace("Réinitialisation de l'interrupteur local "+code);
+				Fenetre.getPartieActuelle().interrupteursLocaux.remove(i);
+				tailleListe--;
+			}
+		}
 	}
 
 }

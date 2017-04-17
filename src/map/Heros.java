@@ -31,7 +31,7 @@ public class Heros extends Event {
 	 * @throws FileNotFoundException 
 	 */
 	public Heros(final int x, final int y, final int directionEnDebutDeMap, final Map map) throws FileNotFoundException {
-		super(x, y, MODELE.offsetY, MODELE.nom, MODELE.id, MODELE.pages, MODELE.largeurHitbox, MODELE.hauteurHitbox, map);
+		super(x, y, MODELE.offsetY, MODELE.nom, MODELE.id, MODELE.reinitialiser, MODELE.pages, MODELE.largeurHitbox, MODELE.hauteurHitbox, map);
 		this.direction = directionEnDebutDeMap;
 	}
 	
@@ -51,10 +51,11 @@ public class Heros extends Event {
 		final int largeur = jsonEventGenerique.has("largeur") ? (int) jsonEventGenerique.getInt("largeur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
 		final int hauteur = jsonEventGenerique.has("hauteur") ? (int) jsonEventGenerique.getInt("hauteur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
 		final int offsetY = jsonEventGenerique.has("offsetY") ? jsonEventGenerique.getInt("offsetY") : 0;
+		final boolean reinitialiserLesInterrupteursLocaux = jsonEventGenerique.has("reinitialiser") ? jsonEventGenerique.getBoolean("reinitialiser") : false; 
 		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
 		final ArrayList<PageEvent> pages = creerListeDesPagesViaJson(jsonPages, 0);
 		
-		final Event modele = new Event(0, 0, offsetY, "heros", 0, pages, largeur, hauteur, null);
+		final Event modele = new Event(0, 0, offsetY, "heros", 0, reinitialiserLesInterrupteursLocaux, pages, largeur, hauteur, null);
 		return modele;
 	}
 	
