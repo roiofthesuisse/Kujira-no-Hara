@@ -12,7 +12,6 @@ import org.json.JSONObject;
 
 import main.Fenetre;
 import map.Event.Direction;
-import map.Adjacence;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
@@ -40,6 +39,7 @@ public class Map {
 	public String nomTileset;
 	public Tileset tileset; //image contenant les decors
 	public BufferedImage panoramaActuel;
+	public int parallaxeActuelle;
 	/** largeur de la Map (en nombre de cases) */
 	public final int largeur;
 	/** hauteur de la Map (en nombre de cases) */
@@ -207,6 +207,7 @@ public class Map {
 		
 		//panorama
 			this.panoramaActuel = this.tileset.imagePanorama;
+			this.parallaxeActuelle = this.tileset.parallaxe;
 			
 		//création du Brouillard
 			this.brouillard = Brouillard.creerBrouillardAPartirDeJson(jsonMap);

@@ -116,7 +116,21 @@ public class LecteurMap extends Lecteur {
 		BufferedImage ecran;
 		if (this.map.panoramaActuel != null) {
 			//TODO parallaxe
-			ecran = this.map.panoramaActuel.getSubimage(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
+			int xPanorama = this.map.parallaxeActuelle * this.xCamera / Maths.POURCENTS;
+			int yPanorama = this.map.parallaxeActuelle * this.yCamera / Maths.POURCENTS;
+			final int xMax = this.map.panoramaActuel.getWidth() - Fenetre.LARGEUR_ECRAN;
+			final int yMax = this.map.panoramaActuel.getHeight() - Fenetre.HAUTEUR_ECRAN;
+			if (xPanorama > xMax) {
+				xPanorama = xMax;
+			} else if (xPanorama < 0) {
+				xPanorama = 0;
+			}
+			if (yPanorama > yMax) {
+				yPanorama = yMax;
+			} else if (yPanorama < 0) {
+				yPanorama = 0;
+			}
+			ecran = Graphismes.clonerUneImage(this.map.panoramaActuel.getSubimage(xPanorama, yPanorama, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN));
 		} else {
 			ecran = Graphismes.ecranColore(Color.BLACK);
 		}

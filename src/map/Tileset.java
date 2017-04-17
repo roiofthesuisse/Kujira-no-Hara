@@ -22,6 +22,7 @@ public class Tileset {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Tileset.class);
 	public static final int LARGEUR_TILESET = 8; //chaque ligne de Tileset contient 8 carreaux
+	public static final int PARALLAXE_PAR_DEFAUT = 0; //le Panorama est fixe
 	
 	/** nom du fichier JSON du Tileset */
 	public final String nom;
@@ -38,13 +39,18 @@ public class Tileset {
 	/** carreaux découpés dans l'image du Tileset */
 	public final BufferedImage[] carreaux;
 	
+	/** Nom de l'image de Panorama */
 	private final String nomImagePanorama;
+	/** Image à afficher derrière le décor de la Map */
 	public BufferedImage imagePanorama;
-	public BufferedImage imageBrouillard;
-	public HashMap<Integer, Autotile> autotiles;
+	/** Parallaxe (en pourcents) du Panorama par rapport au décor de la Map */
+	public final int parallaxe;
+	/** Image du Brouillard à afficher sur la Map */
 	public Brouillard brouillard;
 	/** Ton de l'écran */
 	public int[] ton;
+	/** Carreaux qui se lient entre eux automatiquement */
+	public HashMap<Integer, Autotile> autotiles;
 	
 	/**
 	 * Constructeur explicite
@@ -111,6 +117,7 @@ public class Tileset {
 			LOG.warn("Pas d'image de panorama pour le Tileset : "+this.nom);
 			this.imagePanorama = null;
 		}
+		this.parallaxe = jsonTileset.has("parallaxe") ? jsonTileset.getInt("parallaxe") : PARALLAXE_PAR_DEFAUT;
 		
 		//brouillard
 		this.brouillard  = Brouillard.creerBrouillardAPartirDeJson(jsonTileset);
