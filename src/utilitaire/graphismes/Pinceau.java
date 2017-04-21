@@ -143,7 +143,7 @@ public abstract class Pinceau {
                         result[ALPHA] = dst[ALPHA];
                     }
                 };
-            //TODO negatif
+
             default:
             	LOG.error("Blender non défini pour le mode de fusion : "+composite.modeDeFusion.nom);
             	return null;

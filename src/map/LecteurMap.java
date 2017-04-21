@@ -115,7 +115,7 @@ public class LecteurMap extends Lecteur {
 		//panorama
 		BufferedImage ecran;
 		if (this.map.panoramaActuel != null) {
-			//TODO parallaxe
+			//parallaxe
 			int xPanorama = this.map.parallaxeActuelle * this.xCamera / Maths.POURCENTS;
 			int yPanorama = this.map.parallaxeActuelle * this.yCamera / Maths.POURCENTS;
 			final int xMax = this.map.panoramaActuel.getWidth() - Fenetre.LARGEUR_ECRAN;
@@ -541,9 +541,10 @@ public class LecteurMap extends Lecteur {
 			
 			final int direction = event.direction;
 			final int animation;
-			if (event.saute) {
+			if (event.saute && !event.directionFixeActuelle) {
 				//l'Event est en train de sauter
 				animation = 0; //TODO attention : si la vignette normale de l'event n'est pas la vignette 0, l'event va changer d'apparence
+				
 			} else {
 				//l'Event ne Saute pas
 				animation = event.animation;
@@ -736,7 +737,7 @@ public class LecteurMap extends Lecteur {
 				
 		// Normaliser l'intelocuteur
 		// L'interlocuteur arrête son animation
-		if (!event.animeALArretActuel) {
+		if (!event.animeALArretActuel && !event.directionFixeActuelle) {
 			event.animation = 0; //TODO attention : si la vignette par défaut de l'event n'est pas la vignette 0, il va changer d'apparence
 		}
 		// L'interlocuteur se tourne vers le Héros

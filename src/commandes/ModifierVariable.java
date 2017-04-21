@@ -14,7 +14,6 @@ import map.Event;
 
 /**
  * Modifier la valeur d'une variable
- * TODO rendre cette classe abstraite et utiliser l'héritage pour traiter tous les cas séparément
  */
 public class ModifierVariable extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ModifierVariable.class);
@@ -45,7 +44,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 	public static final String COORDONNEE_X = "coordonnee x";
 	public static final String COORDONNEE_Y = "coordonnee y";
 	public static final String TERRAIN = "terrain";
-	public static final String NUMERO_MAP = "numro de la map";
+	public static final String NUMERO_MAP = "numero de la map";
 	public static final String ARGENT_POSSEDE = "argent possede";
 	
 	/**
@@ -135,7 +134,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 				valeur = partieActuelle.argent;
 				break;
 			default: 
-				LOG.error("ModifierVariable.executer() : valeur inconnue pour operationAFaire2");
+				LOG.error("ModifierVariable.executer() : valeur inconnue pour operationAFaire2 : "+operationAFaire2);
 				valeur = 0; 
 				break;
 		}
@@ -161,7 +160,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 				partieActuelle.variables[numeroVariable] %= valeur; 
 				break;
 			default: 
-				LOG.error("ModifierVariable.executer() : valeur inconnue pour operationAFaire");
+				LOG.error("ModifierVariable.executer() : valeur inconnue pour operationAFaire : "+operationAFaire);
 				break;
 		}
 		

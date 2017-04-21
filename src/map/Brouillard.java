@@ -28,7 +28,6 @@ public final class Brouillard {
 
 	public final ModeDeFusion mode;
 	
-	//TODO arrêter le défilement en cas de StopEvent ?
 	public final int defilementX;
 	public final int defilementY;
 	public final long zoom;

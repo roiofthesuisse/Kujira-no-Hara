@@ -83,7 +83,7 @@ public abstract class Lecteur {
 	}
 	
 	/***
-	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Manu ou la Map
+	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Menu ou la Map
 	 * @return nom du BGM à jouer
 	 */
 	public final String getNomBgm() {
@@ -98,6 +98,18 @@ public abstract class Lecteur {
 		return null;
 	}
 	
+	/***
+	 * Récupérer le nom du BGS qu'il faut jouer pour accompagner la Map
+	 * @return nom du BGS à jouer
+	 */
+	public final String getNomBgs() {
+		if (this instanceof LecteurMap) {
+			return ((LecteurMap) this).map.nomBGS;
+		}
+		//pas de bgs dans le menu
+		return null;
+	}
+	
 	/**
 	 * Démarrer le Lecteur.
 	 * Le Lecteur est allumé, la musique est lue, un écran est affiché à chaque frame.
@@ -108,7 +120,7 @@ public abstract class Lecteur {
 		LOG.info("-------------------------------------------------------------");
 		LOG.info("Un nouveau "+this.typeDeLecteur()+" vient d'être démarré.");
 		LecteurAudio.playBgm(getNomBgm());
-		//TODO LecteurAudio.playBgs(getNomBgs(), 1.0f);
+		LecteurAudio.playBgs(getNomBgs());
 		
 		long t1, t2;
 		long dureeEffectiveDeLaFrame;
