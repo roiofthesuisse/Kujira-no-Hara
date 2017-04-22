@@ -198,7 +198,7 @@ public class Objet implements Listable {
 	}
 
 	@Override
-	public final BufferedImage construireImagePourListe() {
+	public final BufferedImage construireImagePourListe(final int largeurMinimale, final int hauteurMinimale) {
 		final ArrayList<String> contenuTexte = new ArrayList<String>();
 		final int quantite = Fenetre.getPartieActuelle().objetsPossedes[this.idObjet];
 		for (String nomLangue : this.nom) {
@@ -207,8 +207,15 @@ public class Objet implements Listable {
 		final Texte texte = new Texte(contenuTexte);
 		
 		final BufferedImage imageTexte = texte.getImage();
-		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();
-		final int hauteur = Math.max(imageTexte.getHeight(), this.getIcone().getHeight());
+		int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();
+		if (largeur < largeurMinimale) {
+			largeur = largeurMinimale;
+		}
+		int hauteur = Math.max(imageTexte.getHeight(), this.getIcone().getHeight());
+		if (hauteur < hauteurMinimale) {
+			hauteur = hauteurMinimale;
+		}
+		
 		BufferedImage image = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);
 		image = Graphismes.superposerImages(image, this.getIcone(), 0, 0, false, 
 				Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 

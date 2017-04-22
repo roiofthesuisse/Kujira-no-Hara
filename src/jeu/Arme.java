@@ -198,11 +198,19 @@ public class Arme implements Listable {
 	}
 
 	@Override
-	public final BufferedImage construireImagePourListe() {
+	public final BufferedImage construireImagePourListe(final int largeurMinimale, final int hauteurMinimale) {
 		final Texte texte = new Texte(this.nom);
 		final BufferedImage imageTexte = texte.texteToImage();
-		final int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.icone.getWidth();
-		final int hauteur = Math.max(imageTexte.getHeight(), this.icone.getHeight());
+		
+		int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.icone.getWidth();
+		if (largeur < largeurMinimale) {
+			largeur = largeurMinimale;
+		}
+		int hauteur = Math.max(imageTexte.getHeight(), this.icone.getHeight());
+		if (hauteur < hauteurMinimale) {
+			hauteur = hauteurMinimale;
+		}
+		
 		BufferedImage image = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);
 		image = Graphismes.superposerImages(image, this.icone, 0, 0, false, 
 				Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 

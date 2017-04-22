@@ -321,8 +321,8 @@ public final class Partie implements Listable {
 	}
 
 	@Override
-	public BufferedImage construireImagePourListe() {
-		final BufferedImage vignettePartie = new BufferedImage(250, 150, Graphismes.TYPE_DES_IMAGES); //TODO taille en dur ?
+	public BufferedImage construireImagePourListe(final int largeur, final int hauteur) {
+		final BufferedImage vignettePartie = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES); //TODO taille en dur ?
 		
 		final ArrayList<String> blabla = new ArrayList<String>();
 		blabla.add("Partie " + this.id);

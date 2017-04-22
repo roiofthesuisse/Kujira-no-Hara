@@ -43,7 +43,7 @@ public class ChangerLangue extends Commande implements CommandeMenu {
 			texte.actualiserImage();
 		}
 		for (Liste<Listable> liste : menu.listes) {
-			liste.elements = liste.genererLesImagesDesElements();
+			liste.elements = liste.genererLesImagesDesElements(liste.largeurMaximaleElement, liste.hauteurMaximaleElement); //la taille maximale est supérieure à la taille minimale
 			for (ImageMenu element : liste.elements) {
 				element.menu = menu;
 			}

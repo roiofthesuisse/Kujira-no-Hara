@@ -37,9 +37,10 @@ public class Liste<T extends Listable> {
 	/** Combien de lignes dans le tableau en tout ? */
 	private final int nombreDeLignesTotal;
 	/** largeur (en pixels) maximale pour l'image d'un des ElementsDeMenu de la Liste */
-	private int largeurMaximaleElement;
+	public int largeurMaximaleElement;
 	/** hauteur (en pixels) maximale pour l'image d'un des ElementsDeMenu de la Liste */
-	private int hauteurMaximaleElement;
+	public int hauteurMaximaleElement;
+	
 	/** Espacement horizontal entre les éléments de la liste */
 	final int margeADroite;
 	/** Espacement vertical entre les éléments de la liste */
@@ -61,6 +62,8 @@ public class Liste<T extends Listable> {
 	 * @param nombreDeColonnes nombre de colonnes du tableau
 	 * @param nombreDeLignesVisibles nombre de lignes visibles simultanément à l'écran
 	 * @param margeADroite espacement horizontal entre les éléments de la liste
+	 * @param largeurMinimaleElements largeur minimale pour un élément
+	 * @param hauteurMinimaleElements hauteur minimale pour un élément
 	 * @param interligne espacement horizontal entre les éléments de la liste
 	 * @param provenance quel est la nature du Listable à afficher ?
 	 * @param possedes n'affiche-t-on que les Listables possédés par le joueur ?
@@ -68,19 +71,21 @@ public class Liste<T extends Listable> {
 	 * @param toutSauf liste exhaustive des numéros des Listables à ne pas afficher
 	 */
 	public Liste(final int x, final int y, final int nombreDeColonnes, final int nombreDeLignesVisibles,
-			final int margeADroite, final int interligne,
+			final int largeurMinimaleElements, final int hauteurMinimaleElements, final int margeADroite, final int interligne,
 			final Class<T> provenance, final boolean possedes, final ArrayList<Integer> avec, 
 			final ArrayList<Integer> toutSauf) {
 		this.x = x;
 		this.y = y;
 		this.nombreDeColonnes = nombreDeColonnes;
 		this.nombreDeLignesVisibles = nombreDeLignesVisibles;
+		this.largeurMaximaleElement = largeurMinimaleElements; //pour l'instant fixé au minimum, mais sera augmenté éventuellement après
+		this.hauteurMaximaleElement = hauteurMinimaleElements; //pour l'instant fixé au minimum, mais sera augmenté éventuellement après
 		this.margeADroite = margeADroite;
 		this.interligne = interligne;
 		
 		// Recenser les Listables concernés par cette Liste
 		recenserLesListablesAConsiderer(provenance, possedes, avec, toutSauf);
-		this.elements = genererLesImagesDesElements();
+		this.elements = genererLesImagesDesElements(largeurMinimaleElements, hauteurMinimaleElements);
 		
 		// Remplir le tableau bidimensionnel des éléments à afficher
 		this.nombreDeLignesTotal = this.elements.size() / this.nombreDeColonnes + (this.elements.size() % this.nombreDeColonnes != 0 ? 1 : 0);
@@ -131,9 +136,11 @@ public class Liste<T extends Listable> {
 	
 	/**
 	 * Générer l'ElementDeMenu de chaque Listable de la Liste.
+	 * @param largeurMinimaleElement largeur minimale des éléments de la liste
+	 * @param hauteurMinimaleElement hauteur minimale des éléments de la liste
 	 * @return ElementsDeMenu de la Liste
 	 */
-	public ArrayList<ImageMenu> genererLesImagesDesElements() {
+	public ArrayList<ImageMenu> genererLesImagesDesElements(final int largeurMinimaleElement, final int hauteurMinimaleElement) {
 		final ArrayList<ImageMenu> elements = new ArrayList<ImageMenu>();
 		
 		// Créer un ElementDeMenu pour chaque numéro
@@ -142,7 +149,7 @@ public class Liste<T extends Listable> {
 		ImageMenu element;
 		for (Integer numero : this.numerosDesListables) {
 			listable = tousLesListables.get(numero);
-			image = listable.construireImagePourListe();
+			image = listable.construireImagePourListe(largeurMinimaleElement, hauteurMinimaleElement);
 			element = new ImageMenu(
 					image, //apparence
 					0, 0, //coordonnées (en pixel) temporaires
@@ -292,6 +299,8 @@ public class Liste<T extends Listable> {
 			
 			final int nombreDeColonnes = jsonElement.getInt("nombreDeColonnes");
 			final int nombreDeLignesVisibles = jsonElement.getInt("nombreDeLignesVisibles");
+			final int largeurMinimaleElements = jsonElement.has("largeurMinimaleElements") ? jsonElement.getInt("largeurMinimaleElements") : 0;
+			final int hauteurMinimaleElements = jsonElement.has("hauteurMinimaleElements") ? jsonElement.getInt("hauteurMinimaleElements") : 0;
 			final int margeADroite = jsonElement.has("margeADroite") ? jsonElement.getInt("margeADroite") : Texte.MARGE_A_DROITE;
 			final int interligne = jsonElement.has("interligne") ? jsonElement.getInt("interligne") : Texte.INTERLIGNE;
 			
@@ -322,7 +331,7 @@ public class Liste<T extends Listable> {
 
 			Liste liste = null;
 			try {
-				liste = new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles, margeADroite, interligne,
+				liste = new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles, largeurMinimaleElements, hauteurMinimaleElements, margeADroite, interligne,
 						provenance, possedes, avec, tousSauf);
 			} catch (Exception e) {
 				LOG.error("Impossible de créer la liste d'éléments pour le menu !", e);
