@@ -23,19 +23,22 @@ public class LecteurMenu extends Lecteur {
 	 * @param fenetre dans laquelle on doit afficher le Menu
 	 * @param menu que va lire ce Lecteur
 	 * @param lecteurMapMemorise Lecteur de la Map sur laquelle on se trouvait avant d'entrer dans le Menu
-	 * @param selectionInitiale identifiant de l'ElementDeMenu sélectionné au début
+	 * @param selectionInitiale identifiant de l'ElementDeMenu sélectionné au début imposé par ce changement de Menu
 	 */
 	public LecteurMenu(final Fenetre fenetre, final Menu menu, final LecteurMap lecteurMapMemorise, 
 			final Integer selectionInitiale) {
 		this.menu = menu;
 		menu.lecteur = this; //on prévient le Lecteur qu'il a un Menu
 		
-		final ElementDeMenu elementSelectionneInitialement = this.menu.elements.get(selectionInitiale);
-		if (elementSelectionneInitialement.selectionnable) {
-			this.menu.elementSelectionne = elementSelectionneInitialement;
-			elementSelectionneInitialement.selectionne = true;
-		} else {
-			LOG.error("Impossible de faire de l'élement de menu "+selectionInitiale+" la sélection initiale.");
+		// Le changement de Menu impose peut-être sa propre sélection initiale
+		if (selectionInitiale != null) {
+			final ElementDeMenu elementSelectionneInitialement = this.menu.elements.get(selectionInitiale);
+			if (elementSelectionneInitialement.selectionnable) {
+				this.menu.elementSelectionne = elementSelectionneInitialement;
+				elementSelectionneInitialement.selectionne = true;
+			} else {
+				LOG.error("Impossible de faire de l'élement de menu "+selectionInitiale+" la sélection initiale.");
+			}
 		}
 		
 		this.fenetre = fenetre;

@@ -1,7 +1,9 @@
 package jeu;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,6 +14,7 @@ import org.json.JSONObject;
 
 import commandes.ChargerPartie;
 import commandes.JouerAnimation;
+import commandes.Sauvegarder;
 import conditions.Condition;
 import jeu.Quete.AvancementQuete;
 import main.Commande;
@@ -21,8 +24,10 @@ import map.Map;
 import map.Picture;
 import map.meteo.Meteo;
 import menu.Listable;
+import menu.Texte;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
+import utilitaire.graphismes.Graphismes;
 
 /**
  * Une Partie est l'ensemble des informations liées à l'avancée du joueur dans le jeu.
@@ -296,15 +301,39 @@ public final class Partie implements Listable {
 	 * @return association entre numero et Partie
 	 */
 	public static java.util.Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
-		// TODO Auto-generated method stub
-		// ce sera des parties bidons, creuses (ou alors avec quelques données seulement), qui ne contiennent que le numéro de sauvegarde
-		return null;
+		final HashMap<Integer, Listable> parties = new HashMap<Integer, Listable>();
+		
+		final File dossier = new File(Sauvegarder.NOM_DOSSIER_SAUVEGARDES);
+		final File[] fichiers = dossier.listFiles();
+		for (int i = 0; i < fichiers.length; i++) {
+			if (fichiers[i].isFile()) {
+				String nomPartie = fichiers[i].getName();
+				int numeroPartie = Integer.parseInt(nomPartie.replaceAll("[^0-9]", ""));
+				try {
+					Partie partie = ChargerPartie.chargerPartie(numeroPartie);
+					parties.put(numeroPartie, partie);
+				} catch (IOException e) {
+					LOG.error("Impossible de charger la partie "+numeroPartie, e);
+				}
+			}
+		}
+		return parties;
 	}
 
 	@Override
 	public BufferedImage construireImagePourListe() {
-		// TODO Auto-generated method stub
-		return null;
+		final BufferedImage vignettePartie = new BufferedImage(250, 150, Graphismes.TYPE_DES_IMAGES); //TODO taille en dur ?
+		
+		final ArrayList<String> blabla = new ArrayList<String>();
+		blabla.add("Partie " + this.id);
+		blabla.add("Game " + this.id);
+		
+		//TODO autre...
+		
+		final BufferedImage nomPartie = new Texte(blabla).getImage();
+		Graphismes.superposerImages(vignettePartie, nomPartie, 16, 16);
+		
+		return vignettePartie;
 	}
 	
 	@Override

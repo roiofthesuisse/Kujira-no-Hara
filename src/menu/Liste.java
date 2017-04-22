@@ -40,6 +40,10 @@ public class Liste<T extends Listable> {
 	private int largeurMaximaleElement;
 	/** hauteur (en pixels) maximale pour l'image d'un des ElementsDeMenu de la Liste */
 	private int hauteurMaximaleElement;
+	/** Espacement horizontal entre les éléments de la liste */
+	final int margeADroite;
+	/** Espacement vertical entre les éléments de la liste */
+	final int interligne;
 	
 	/** numéro de l'ElementDeMenu sélectionné dans la Liste */
 	private int numeroElementSelectionne;
@@ -56,18 +60,23 @@ public class Liste<T extends Listable> {
 	 * @param y position y de la Liste dans le Menu
 	 * @param nombreDeColonnes nombre de colonnes du tableau
 	 * @param nombreDeLignesVisibles nombre de lignes visibles simultanément à l'écran
+	 * @param margeADroite espacement horizontal entre les éléments de la liste
+	 * @param interligne espacement horizontal entre les éléments de la liste
 	 * @param provenance quel est la nature du Listable à afficher ?
 	 * @param possedes n'affiche-t-on que les Listables possédés par le joueur ?
 	 * @param avec liste exhaustive des numéros des Listables à afficher
 	 * @param toutSauf liste exhaustive des numéros des Listables à ne pas afficher
 	 */
 	public Liste(final int x, final int y, final int nombreDeColonnes, final int nombreDeLignesVisibles,
+			final int margeADroite, final int interligne,
 			final Class<T> provenance, final boolean possedes, final ArrayList<Integer> avec, 
 			final ArrayList<Integer> toutSauf) {
 		this.x = x;
 		this.y = y;
 		this.nombreDeColonnes = nombreDeColonnes;
 		this.nombreDeLignesVisibles = nombreDeLignesVisibles;
+		this.margeADroite = margeADroite;
+		this.interligne = interligne;
 		
 		// Recenser les Listables concernés par cette Liste
 		recenserLesListablesAConsiderer(provenance, possedes, avec, toutSauf);
@@ -179,8 +188,8 @@ public class Liste<T extends Listable> {
 			for (int j = 0; j<this.nombreDeColonnes; j++) {
 				if (i * this.nombreDeColonnes + j < taille) {
 					final ImageMenu element = this.elementsAffiches[i][j];
-					element.x = this.x + (this.largeurMaximaleElement+Texte.MARGE_A_DROITE) * j;
-					element.y = this.y + (this.hauteurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
+					element.x = this.x + (this.largeurMaximaleElement+this.margeADroite) * j;
+					element.y = this.y + (this.hauteurMaximaleElement+this.interligne) * (i - this.premiereLigneVisible);
 				}
 			}
 		}
@@ -256,8 +265,8 @@ public class Liste<T extends Listable> {
 				j = n % this.nombreDeColonnes;
 				if (i>=this.premiereLigneVisible && i<this.premiereLigneVisible+this.nombreDeLignesVisibles) {
 					element.invisible = false;
-					element.x = this.x + (this.largeurMaximaleElement+Texte.MARGE_A_DROITE) * j;
-					element.y = this.y + (this.hauteurMaximaleElement+Texte.INTERLIGNE) * (i - this.premiereLigneVisible);
+					element.x = this.x + (this.largeurMaximaleElement+this.margeADroite) * j;
+					element.y = this.y + (this.hauteurMaximaleElement+this.interligne) * (i - this.premiereLigneVisible);
 					this.elementsAffiches[i - this.premiereLigneVisible][j] = element;
 				} else {
 					element.invisible = true;
@@ -283,6 +292,8 @@ public class Liste<T extends Listable> {
 			
 			final int nombreDeColonnes = jsonElement.getInt("nombreDeColonnes");
 			final int nombreDeLignesVisibles = jsonElement.getInt("nombreDeLignesVisibles");
+			final int margeADroite = jsonElement.has("margeADroite") ? jsonElement.getInt("margeADroite") : Texte.MARGE_A_DROITE;
+			final int interligne = jsonElement.has("interligne") ? jsonElement.getInt("interligne") : Texte.INTERLIGNE;
 			
 			final boolean possedes = jsonElement.getBoolean("possedes");
 			
@@ -311,7 +322,7 @@ public class Liste<T extends Listable> {
 
 			Liste liste = null;
 			try {
-				liste = new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles,
+				liste = new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles, margeADroite, interligne,
 						provenance, possedes, avec, tousSauf);
 			} catch (Exception e) {
 				LOG.error("Impossible de créer la liste d'éléments pour le menu !", e);

@@ -48,7 +48,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 	 * @param partieDecryptee0 fichier avec des ZZZ
 	 * @return fichier sans les ZZZ
 	 */
-	private byte[] retirerLAppendice(final byte[] partieDecryptee0) {
+	private static byte[] retirerLAppendice(final byte[] partieDecryptee0) {
 		int tailleDuFichier = partieDecryptee0.length;
 		while (partieDecryptee0[tailleDuFichier-1] == 'Z') {
 			tailleDuFichier--;
@@ -66,34 +66,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 		LOG.info("chargement de la partie numero "+this.numeroDeSauvegarde);
 		
 		try {
-			final Path path = Paths.get("./saves/save"+this.numeroDeSauvegarde+".txt");
-			final byte[] bytesCryptes = Files.readAllBytes(path);
-			
-			final byte[] partieDecryptee = decrypter(bytesCryptes, construireCleDeCryptage());			
-			
-			LOG.debug(partieDecryptee);
-			final JSONObject jsonSauvegarde = new JSONObject(new String(partieDecryptee));
-			final JSONObject jsonAvancement = (JSONObject) jsonSauvegarde.get("partie");
-			final JSONObject jsonEtatMap = (JSONObject) jsonSauvegarde.get("etatMap");
-			final Partie partie = new Partie(
-					numeroDeSauvegarde,
-					jsonEtatMap.getInt("numero"),
-					jsonEtatMap.getInt("xHeros"),
-					jsonEtatMap.getInt("yHeros"),
-					jsonEtatMap.getInt("directionHeros"),
-					jsonAvancement.getInt("vie"),
-					jsonAvancement.getInt("vieMax"),
-					jsonAvancement.getInt("argent"),
-					jsonAvancement.getInt("idArmeEquipee"),
-					jsonAvancement.getInt("idGadgetEquipe"),
-					jsonAvancement.getJSONArray("objetsPossedes"), // int[]
-					jsonAvancement.getJSONArray("avancementQuetes"), // AvancementQuete[]
-					jsonAvancement.getJSONArray("armesPossedees"), // boolean[] 
-					jsonAvancement.getJSONArray("gadgetsPossedes"), // boolean[] 
-					jsonAvancement.getJSONArray("interrupteurs"),
-					jsonAvancement.getJSONArray("variables"),
-					jsonAvancement.getJSONArray("interrupteursLocaux")
-			);
+			final Partie partie = chargerPartie(this.numeroDeSauvegarde);
 			fenetre.setPartieActuelle(partie);
 			fenetre.ouvrirLaPartie();
 		} catch (IOException e) {
@@ -103,13 +76,45 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 		return curseurActuel+1;
 	}
 	
+	public static Partie chargerPartie(final int numeroDeSauvegarde) throws IOException {
+		final Path path = Paths.get(Sauvegarder.NOM_DOSSIER_SAUVEGARDES + Sauvegarder.PREFIXE_FICHIER_SAUVEGARDE + numeroDeSauvegarde + ".txt");
+	
+		final byte[] bytesCryptes = Files.readAllBytes(path);
+		
+		final byte[] partieDecryptee = decrypter(bytesCryptes, construireCleDeCryptage());			
+		
+		LOG.debug(partieDecryptee);
+		final JSONObject jsonSauvegarde = new JSONObject(new String(partieDecryptee));
+		final JSONObject jsonAvancement = (JSONObject) jsonSauvegarde.get("partie");
+		final JSONObject jsonEtatMap = (JSONObject) jsonSauvegarde.get("etatMap");
+		return new Partie(
+				numeroDeSauvegarde,
+				jsonEtatMap.getInt("numero"),
+				jsonEtatMap.getInt("xHeros"),
+				jsonEtatMap.getInt("yHeros"),
+				jsonEtatMap.getInt("directionHeros"),
+				jsonAvancement.getInt("vie"),
+				jsonAvancement.getInt("vieMax"),
+				jsonAvancement.getInt("argent"),
+				jsonAvancement.getInt("idArmeEquipee"),
+				jsonAvancement.getInt("idGadgetEquipe"),
+				jsonAvancement.getJSONArray("objetsPossedes"), // int[]
+				jsonAvancement.getJSONArray("avancementQuetes"), // AvancementQuete[]
+				jsonAvancement.getJSONArray("armesPossedees"), // boolean[] 
+				jsonAvancement.getJSONArray("gadgetsPossedes"), // boolean[] 
+				jsonAvancement.getJSONArray("interrupteurs"),
+				jsonAvancement.getJSONArray("variables"),
+				jsonAvancement.getJSONArray("interrupteursLocaux")
+		);
+	}
+	
 	/**
 	 * Décrypter un texte.
 	 * @param bytesCryptes fichier crypté
 	 * @param cle de décryptage
 	 * @return texte décrypté
 	 */
-	private byte[] decrypter(final byte[] bytesCryptes, final SecretKeySpec cle) {
+	private static byte[] decrypter(final byte[] bytesCryptes, final SecretKeySpec cle) {
 		try {
 			LOG.debug(new String(bytesCryptes));
 			

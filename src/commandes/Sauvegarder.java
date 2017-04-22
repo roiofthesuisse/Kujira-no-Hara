@@ -1,5 +1,6 @@
 package commandes;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ import map.Map;
  */
 public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(Sauvegarder.class);
+	public final static String NOM_DOSSIER_SAUVEGARDES = "./saves/";
+	public final static String PREFIXE_FICHIER_SAUVEGARDE = "save";
 	/** Le cryptage impose des textes de taille multiple de 16 bytes */
 	private static final int MULTIPLE_DE_SEIZE = 16;
 	
@@ -48,7 +51,15 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final String filename = "./saves/save"+this.numeroSauvegarde+".txt";
+		final String nomFichierSauvegarde = PREFIXE_FICHIER_SAUVEGARDE + this.numeroSauvegarde + ".txt";
+		final String filename = NOM_DOSSIER_SAUVEGARDES + nomFichierSauvegarde;
+		
+		// On crée le dossier des sauvegardes s'il n'existe pas
+		File dossierSauvegardes = new File(NOM_DOSSIER_SAUVEGARDES);
+		if (!dossierSauvegardes.exists()) {
+			dossierSauvegardes.mkdir();
+	    }
+		
 		try {
 				// Générer le fichier de sauvegarde
 				final JSONObject jsonSauvegarde = genererSauvegarde();

@@ -52,7 +52,7 @@ public abstract class Commande {
 	 * Construire la clé de cryptage.
 	 * @return clé de cryptage
 	 */
-	protected final SecretKeySpec construireCleDeCryptage() {
+	protected final static SecretKeySpec construireCleDeCryptage() {
 		try {
 			// Hashage de la clé
 			byte[] cle = CLE_CRYPTAGE_SAUVEGARDE.getBytes("UTF-8");
