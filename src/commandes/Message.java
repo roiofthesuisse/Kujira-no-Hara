@@ -156,7 +156,7 @@ public class Message extends Commande implements CommandeEvent {
 			final String texteDansUneLangue = this.texte.get(langue < this.texte.size() ? langue : 0);
 			nombreDeLignesDuTexte = 1 + StringUtils.countMatches(texteDansUneLangue, "\n");
 		}
-		final int hauteurLigne = Texte.TAILLE_MOYENNE + Texte.INTERLIGNE;
+		final int hauteurLigne = Texte.Taille.MOYENNE.pixels + Texte.INTERLIGNE;
 		final int hauteurTexte = nombreDeLignesDuTexte * hauteurLigne;
 		return hauteurTexte;
 	}

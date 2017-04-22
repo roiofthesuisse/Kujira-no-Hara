@@ -75,7 +75,7 @@ public class Choix extends Message {
 			final ArrayList<Texte> alternativesTexte = new ArrayList<Texte>();
 			final ArrayList<BufferedImage> imagesAlternatives = new ArrayList<BufferedImage>();
 			
-			final int hauteurLigne = Texte.TAILLE_MOYENNE + Texte.INTERLIGNE;
+			final int hauteurLigne = Texte.Taille.MOYENNE.pixels + Texte.INTERLIGNE;
 			final int hauteurTexte = this.calculerHauteurTexte();
 			for (int i = 0; i < this.alternatives.size(); i++) {
 				final ArrayList<String> alternativeString = alternatives.get(i);

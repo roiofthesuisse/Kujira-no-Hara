@@ -6,6 +6,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,9 +14,12 @@ import java.util.regex.Pattern;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import main.Commande;
 import main.Fenetre;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
@@ -24,15 +28,16 @@ import utilitaire.graphismes.Graphismes;
 public class Texte extends ElementDeMenu {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Texte.class);
-	private static final Color COULEUR_PAR_DEFAUT = new Color(50, 0, 150);
-	private static final Color COULEUR_PAR_DEFAUT2 = new Color(150, 0, 50);
+	private static final JSONObject JSON_INFORMATIONS_POLICE = chargerInformationsPolice();
+	private static final Color COULEUR_PAR_DEFAUT = chargerCouleurParDefaut(0);
+	private static final Color COULEUR_PAR_DEFAUT2 = chargerCouleurParDefaut(2);
 	public static final int MARGE_A_DROITE = 4; //pour ne pas que le côté droit du texte ne soit coupé
 	
 	/**
 	 * Taille de la police
 	 */
 	public enum Taille {
-		MOYENNE("MOYENNE", 18), GRANDE("GRANDE", 28);
+		MOYENNE("MOYENNE"), GRANDE("GRANDE");
 		
 		public final String nom;
 		public final int pixels;
@@ -42,9 +47,9 @@ public class Texte extends ElementDeMenu {
 		 * @param nom désignant cette taille
 		 * @param pixels hauteur de la police en pixels
 		 */
-		Taille(final String nom, final int pixels) {
+		Taille(final String nom) {
 			this.nom = nom;
-			this.pixels = pixels;
+			this.pixels = Texte.chargerTaille(nom.toLowerCase());
 		}
 		
 		/**
@@ -60,15 +65,11 @@ public class Texte extends ElementDeMenu {
 			}
 			return Taille.MOYENNE;
 		}
-	}
-	
-	public static final int TAILLE_MOYENNE = 18;
-	public static final int TAILLE_GRANDE = 28;
-	
+	}	
 	
 	public static final int INTERLIGNE = 8;
 	private static final int OPACITE_MAXIMALE = 100;
-	private static final String POLICE = "arial"; //"roiofthesuisse";
+	private static final String POLICE = chargerNomPolice();
 	
 	public ArrayList<String> contenu;
 	public int taille;
@@ -159,7 +160,7 @@ public class Texte extends ElementDeMenu {
 		
 		this.couleurForcee = couleurForcee;
 		this.contenu = contenu;
-		this.taille = Texte.TAILLE_MOYENNE;
+		this.taille = Texte.Taille.MOYENNE.pixels;
 		this.opacite = Texte.OPACITE_MAXIMALE;
 	}
 	
@@ -328,6 +329,35 @@ public class Texte extends ElementDeMenu {
 			}
 		}
 		return resultat;
+	}
+	
+	/**
+	 * Charger le fichier de propritétés de la police d'écriture.
+	 * @return objet JSON
+	 */
+	private static JSONObject chargerInformationsPolice() {
+		try {
+			return InterpreteurDeJson.ouvrirJson("police", ".\\ressources\\Data\\");
+		} catch (FileNotFoundException e) {
+			LOG.error("Impossible de trouver le fichier des informations sur la police d'écriture.", e);
+		} catch (JSONException e) {
+			LOG.error("Format incorrect pour le fichier des informations sur la police d'écriture.", e);
+		}
+		return null;
+	}
+	
+	private static String chargerNomPolice() {
+		return JSON_INFORMATIONS_POLICE.getString("nomPolice");
+	}
+	
+	private static Color chargerCouleurParDefaut(int numeroCouleur) {
+		final JSONArray jsonCouleurs = JSON_INFORMATIONS_POLICE.getJSONArray("couleurs");
+		final JSONArray jsonCouleur = jsonCouleurs.getJSONArray(numeroCouleur);
+		return new Color(jsonCouleur.getInt(0), jsonCouleur.getInt(1), jsonCouleur.getInt(2));
+	}
+	
+	private static int chargerTaille(String taille) {
+		return JSON_INFORMATIONS_POLICE.getJSONObject("tailles").getInt(taille);
 	}
 	
 }
