@@ -2,11 +2,15 @@ package menu;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsEnvironment;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -69,6 +73,7 @@ public class Texte extends ElementDeMenu {
 	
 	public static final int INTERLIGNE = 8;
 	private static final int OPACITE_MAXIMALE = 100;
+	private static final String POLICE_PAR_DEFAUT = "arial";
 	private static final String POLICE = chargerNomPolice();
 	
 	public ArrayList<String> contenu;
@@ -346,18 +351,67 @@ public class Texte extends ElementDeMenu {
 		return null;
 	}
 	
+	/**
+	 * Récupérer le nom de la police du jeu.
+	 * @return nom de la police
+	 */
 	private static String chargerNomPolice() {
-		return JSON_INFORMATIONS_POLICE.getString("nomPolice");
+		final String police = JSON_INFORMATIONS_POLICE.getString("nomPolice");
+		if (verifierSiLaPoliceEstInstallee(police)) {
+			// La police est disponible
+			return police;
+			
+		} else {
+			// La police n'existe pas sur l'ordinateur de l'utilisateur
+			// On essaye de l'installer
+			try {
+				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(".\\ressources\\Graphics\\Fonts\\"+police+".ttf")));
+				LOG.info("La police "+police+" a dû être installée.");
+				return police;
+			} catch (IOException|FontFormatException e) {
+				LOG.error("Impossible de charger la police personnalisée "+police, e);
+				LOG.info("La police par défaut "+POLICE_PAR_DEFAUT+" sera utilisée à la place.");
+			}
+		}
+		return POLICE_PAR_DEFAUT;
 	}
 	
+	/**
+	 * Récupérer la couleur de la police du jeu.
+	 * @param numeroCouleur chaque couleur a un numéro
+	 * @return couleur de la police
+	 */
 	private static Color chargerCouleurParDefaut(int numeroCouleur) {
 		final JSONArray jsonCouleurs = JSON_INFORMATIONS_POLICE.getJSONArray("couleurs");
 		final JSONArray jsonCouleur = jsonCouleurs.getJSONArray(numeroCouleur);
 		return new Color(jsonCouleur.getInt(0), jsonCouleur.getInt(1), jsonCouleur.getInt(2));
 	}
 	
+	/**
+	 * Récupérer la taille de la police dans le fichier de propriétés.
+	 * @param taille libellé de la taille
+	 * @return nombre de pixels de hauteur
+	 */
 	private static int chargerTaille(String taille) {
 		return JSON_INFORMATIONS_POLICE.getJSONObject("tailles").getInt(taille);
 	}
 	
+	/**
+	 * Vérifier si la police du jeu est installée sur l'ordinateur de l'utilisateur.
+	 * @param nomPolice police du jeu
+	 * @return disponible ou pas
+	 */
+	private static boolean verifierSiLaPoliceEstInstallee(String nomPolice) {
+		GraphicsEnvironment g = null;
+		g = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		String[] fonts = g.getAvailableFontFamilyNames();
+		for (int i = 0; i<fonts.length; i++) {
+			if (fonts[i].equals(nomPolice)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
