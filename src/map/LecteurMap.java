@@ -113,27 +113,7 @@ public class LecteurMap extends Lecteur {
 		this.yCamera = calculerYCamera();
 		
 		//panorama
-		BufferedImage ecran;
-		if (this.map.panoramaActuel != null) {
-			//parallaxe
-			int xPanorama = this.map.parallaxeActuelle * this.xCamera / Maths.POURCENTS;
-			int yPanorama = this.map.parallaxeActuelle * this.yCamera / Maths.POURCENTS;
-			final int xMax = this.map.panoramaActuel.getWidth() - Fenetre.LARGEUR_ECRAN;
-			final int yMax = this.map.panoramaActuel.getHeight() - Fenetre.HAUTEUR_ECRAN;
-			if (xPanorama > xMax) {
-				xPanorama = xMax;
-			} else if (xPanorama < 0) {
-				xPanorama = 0;
-			}
-			if (yPanorama > yMax) {
-				yPanorama = yMax;
-			} else if (yPanorama < 0) {
-				yPanorama = 0;
-			}
-			ecran = Graphismes.clonerUneImage(this.map.panoramaActuel.getSubimage(xPanorama, yPanorama, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN));
-		} else {
-			ecran = Graphismes.ecranColore(Color.BLACK);
-		}
+		BufferedImage ecran = dessinerPanorama(xCamera, yCamera);
 		
 		//on dessine le décor inférieur
 		animerLesAutotiles();
@@ -173,6 +153,22 @@ public class LecteurMap extends Lecteur {
 			ecran = Graphismes.superposerImages(ecran, ecran, 0, 0, Graphismes.OPACITE_MAXIMALE, ModeDeFusion.TON_DE_L_ECRAN);
 		}
 		
+		// Transition visuelle avec la Map précédente
+		if (!this.allume) {
+			// Faire une capture d'écran juste avant l'arrêt de l'ancienne Map
+			Lecteur futurLecteur0 = Fenetre.getFenetre().futurLecteur;
+			if (futurLecteur0 instanceof LecteurMap) {
+				LecteurMap futurLecteur = (LecteurMap) futurLecteur0;
+				if (!Transition.AUCUNE.equals(futurLecteur.transition)) {
+					boolean afficherLeHeros = Transition.ROND.equals(futurLecteur.transition);
+					futurLecteur.transition.captureDeLaMapPrecedente = capturerLaMap(afficherLeHeros);
+				}
+			}
+		} else {
+			// Réutiliser cette capture d'écran au début de la nouvelle Map
+			ecran = this.transition.calculer(ecran, frame);
+		}
+		
 		//ajouter les jauges
 		ecran = dessinerLesJauges(ecran);
 		
@@ -191,24 +187,38 @@ public class LecteurMap extends Lecteur {
 		
 		//final long t1 = System.currentTimeMillis(); //mesure de performances
 		//this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
-		
-		
-		// Transition visuelle avec la Map précédente
-		if (!this.allume) {
-			// Faire une capture d'écran juste avant l'arrêt de l'ancienne Map
-			Lecteur futurLecteur0 = Fenetre.getFenetre().futurLecteur;
-			if (futurLecteur0 instanceof LecteurMap) {
-				LecteurMap futurLecteur = (LecteurMap) futurLecteur0;
-				if (!Transition.AUCUNE.equals(futurLecteur.transition)) {
-					boolean afficherLeHeros = Transition.ROND.equals(futurLecteur.transition);
-					futurLecteur.transition.captureDeLaMapPrecedente = capturerLaMap(afficherLeHeros);
-				}
-			}
-		} else {
-			// Réutiliser cette capture d'écran au début de la nouvelle Map
-			ecran = this.transition.calculer(ecran, frame);
-		}
+
 		return ecran;
+	}
+
+	/**
+	 * Dessiner l'image de fond (noir ou Panorama)
+	 * @param ecran sur lequel dessiner
+	 * @param xCamera position x de la caméra
+	 * @param yCamera position y d ela caméra
+	 * @return image de fond
+	 */
+	private BufferedImage dessinerPanorama(final int xCamera, final int yCamera) {
+		if (this.map.panoramaActuel != null) {
+			//parallaxe
+			int xPanorama = this.map.parallaxeActuelle * xCamera / Maths.POURCENTS;
+			int yPanorama = this.map.parallaxeActuelle * yCamera / Maths.POURCENTS;
+			final int xMax = this.map.panoramaActuel.getWidth() - Fenetre.LARGEUR_ECRAN;
+			final int yMax = this.map.panoramaActuel.getHeight() - Fenetre.HAUTEUR_ECRAN;
+			if (xPanorama > xMax) {
+				xPanorama = xMax;
+			} else if (xPanorama < 0) {
+				xPanorama = 0;
+			}
+			if (yPanorama > yMax) {
+				yPanorama = yMax;
+			} else if (yPanorama < 0) {
+				yPanorama = 0;
+			}
+			return Graphismes.clonerUneImage(this.map.panoramaActuel.getSubimage(xPanorama, yPanorama, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN));
+		} else {
+			return Graphismes.ecranColore(Color.BLACK);
+		}
 	}
 
 	/**
@@ -625,14 +635,14 @@ public class LecteurMap extends Lecteur {
 	 * @return capture de la Map
 	 */
 	private BufferedImage capturerLaMap(boolean afficherLeHeros) {
-		BufferedImage capture = Graphismes.ecranColore(Color.BLACK);
+		BufferedImage capture = dessinerPanorama(this.xCamera, this.yCamera);
 		capture = dessinerDecorInferieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
 		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, afficherLeHeros);
 		capture = Animation.dessinerLesAnimations(capture);
 		capture = dessinerDecorSuperieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
 		capture = dessinerMeteo(capture, this.frameActuelle);
 		//brouillard
-		if (map.brouillard != null) {
+		if (this.map.brouillard != null) {
 			capture = map.brouillard.dessinerLeBrouillard(capture, this.xCamera, this.yCamera, this.frameActuelle);
 		}
 		//ton
