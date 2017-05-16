@@ -209,8 +209,8 @@ public abstract class Graphismes {
 	 */
 	public static BufferedImage creerUneImageVideDeMemeTaille(final BufferedImage image) {
 		final BufferedImage cloneVide = new BufferedImage(
-				image.getWidth(), 
-				image.getWidth(), 
+				image.getWidth(),
+				image.getHeight(),
 				Graphismes.TYPE_DES_IMAGES
 		);
 		return cloneVide;
