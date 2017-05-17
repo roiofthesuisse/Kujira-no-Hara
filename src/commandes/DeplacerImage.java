@@ -5,7 +5,9 @@ import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
 
+import commandes.Sauvegarder.Sauvegardable;
 import main.Commande;
 import main.Fenetre;
 import map.Picture;
@@ -16,7 +18,7 @@ import utilitaire.graphismes.ModeDeFusion;
  * Cette transition peut concerner le position de l'image, son opacité, son zoom, son angle.
  * Il est également possible de changer de mode de fusion, mais ce changement sera immédiat.
  */
-public class DeplacerImage extends Commande implements CommandeEvent {
+public class DeplacerImage extends Commande implements CommandeEvent, Sauvegardable {
 	protected static final Logger LOG = LogManager.getLogger(DeplacerImage.class);
 	/** Le déplacement d'image est instantané */
 	private static final int INSTANTANE = 0;
@@ -232,6 +234,16 @@ public class DeplacerImage extends Commande implements CommandeEvent {
 				LOG.info("On recommence le déplacement d'image délégué.");
 			}
 		}
+	}
+	
+	/**
+	 * Générer un JSON du déplacement actuel de la Picture pour la Sauvegarde.
+	 */
+	@Override
+	public JSONObject sauvegarderEnJson() {
+		final JSONObject jsonDeplacementActuel = new JSONObject();
+		//TODO
+		return jsonDeplacementActuel;
 	}
 	
 }

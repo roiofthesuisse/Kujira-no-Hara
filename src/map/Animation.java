@@ -83,7 +83,8 @@ public class Animation {
 				//position y de la vignette par rapport au centre de l'animation
 				final int yVignette = jsonVignette.getInt("yVignette");
 				
-				final Picture vignette = new Picture(imageVignette, 
+				final Picture vignette = new Picture(imageVignette,
+						null, //les animations ne sont pas des Pictures sauvegardée
 						-1, //Picture non référencée dans le LecteurMap
 						xVignette,
 						yVignette,

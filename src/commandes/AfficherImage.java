@@ -107,7 +107,7 @@ public class AfficherImage extends Commande implements CommandeEvent {
 			yAffichage = this.y;
 		}
 		
-		final Picture picture = new Picture(this.image, this.numero, xAffichage, yAffichage, centre, zoomX, zoomY, this.opacite, this.modeDeFusion, this.angle);
+		final Picture picture = new Picture(this.image, this.nomImage, this.numero, xAffichage, yAffichage, centre, zoomX, zoomY, this.opacite, this.modeDeFusion, this.angle);
 		Fenetre.getPartieActuelle().images.put(picture.numero, picture);
 		
 		return curseurActuel+1;

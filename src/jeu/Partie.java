@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import commandes.ChargerPartie;
 import commandes.JouerAnimation;
 import commandes.Sauvegarder;
+import commandes.Sauvegarder.Sauvegardable;
 import conditions.Condition;
 import jeu.Quete.AvancementQuete;
 import main.Commande;
@@ -32,7 +33,7 @@ import utilitaire.graphismes.Graphismes;
 /**
  * Une Partie est l'ensemble des informations liées à l'avancée du joueur dans le jeu.
  */
-public final class Partie implements Listable {
+public final class Partie implements Listable, Sauvegardable {
 	private static final Logger LOG = LogManager.getLogger(Partie.class);
 	private static final int NOMBRE_D_INTERRUPTEURS = 100;
 	private static final int NOMBRE_DE_VARIABLES = 100;
@@ -351,6 +352,98 @@ public final class Partie implements Listable {
 		final ArrayList<Commande> comportementConfirmation = new ArrayList<Commande>();
 		comportementConfirmation.add(new ChargerPartie(this.id));
 		return comportementConfirmation;
+	}
+
+	@Override
+	public JSONObject sauvegarderEnJson() {
+		final JSONObject jsonPartie = new JSONObject();
+		
+		jsonPartie.put("vie", this.vie);
+		jsonPartie.put("vieMax", this.vieMax);
+		jsonPartie.put("argent", this.argent);
+		
+		//armes
+		jsonPartie.put("idArmeEquipee", this.idArmeEquipee);
+		final JSONArray armesPossedees = new JSONArray();
+		for (int i = 0; i<this.armesPossedees.length; i++) {
+			if (this.armesPossedees[i]) {
+				armesPossedees.put(i);
+			}
+		}
+		jsonPartie.put("armesPossedees", armesPossedees);
+		
+		//gadgets
+		jsonPartie.put("idGadgetEquipe", this.idGadgetEquipe);
+		final JSONArray gadgetsPossedes = new JSONArray();
+		for (int i = 0; i<this.gadgetsPossedes.length; i++) {
+			if (this.gadgetsPossedes[i]) {
+				gadgetsPossedes.put(i);
+			}
+		}
+		jsonPartie.put("gadgetsPossedes", gadgetsPossedes);
+		
+		//interrupteurs
+		final JSONArray interrupteurs = new JSONArray();
+		for (int i = 0; i<this.interrupteurs.length; i++) {
+			if (this.interrupteurs[i]) {
+				interrupteurs.put(i);
+			}
+		}
+		jsonPartie.put("interrupteurs", interrupteurs);
+		
+		//variables
+		final JSONArray variables = new JSONArray();
+		for (int i = 0; i<this.variables.length; i++) {
+			if (this.variables[i] != 0) {
+				final JSONObject variable = new JSONObject();
+				variable.put("numero", i);
+				variable.put("valeur", this.variables[i]);
+				variables.put(variable);
+			}
+		}
+		jsonPartie.put("variables", variables);
+		
+		//interrupteurs locaux
+		final JSONArray interrupteursLocaux = new JSONArray();
+		for (int i = 0; i<this.interrupteursLocaux.size(); i++) {
+			final String code = this.interrupteursLocaux.get(i); // code de la forme mXXXeXXXiXXX (map, event, interrupteur)
+			interrupteursLocaux.put(code);
+		}
+		jsonPartie.put("interrupteursLocaux", interrupteursLocaux);
+		
+		//objets
+		final JSONArray objetsPossedes = new JSONArray();
+		for (int i = 0; i<this.objetsPossedes.length; i++) {
+			if (this.objetsPossedes[i] != 0) {
+				final JSONObject objet = new JSONObject();
+				objet.put("numero", i);
+				objet.put("quantite", this.objetsPossedes[i]);
+				objetsPossedes.put(objet);
+			}
+		}
+		jsonPartie.put("objetsPossedes", objetsPossedes);
+		
+		//quêtes
+		final JSONArray avancementQuetes = new JSONArray();
+		for (int i = 0; i<this.avancementDesQuetes.length; i++) {
+			if (this.avancementDesQuetes[i]!= null 
+					&& !AvancementQuete.INCONNUE.equals(this.avancementDesQuetes[i])) {
+				final JSONObject quete = new JSONObject();
+				quete.put("numero", i);
+				quete.put("avancement", this.avancementDesQuetes[i].nom);
+				avancementQuetes.put(quete);
+			}
+		}
+		jsonPartie.put("avancementQuetes", avancementQuetes);
+		
+		//images
+		final JSONArray jsonImages = new JSONArray();
+		for (Picture picture : this.images.values()) {
+			jsonImages.put(picture.sauvegarderEnJson());
+		}
+		jsonPartie.put("images", jsonImages);
+		
+		return jsonPartie;
 	}
 
 }

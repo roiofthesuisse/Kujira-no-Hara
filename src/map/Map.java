@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import commandes.ModifierInterrupteurLocal;
+import commandes.Sauvegarder.Sauvegardable;
 import main.Fenetre;
 import map.Event.Direction;
 import utilitaire.InterpreteurDeJson;
@@ -20,7 +21,7 @@ import utilitaire.graphismes.Graphismes;
  * Une Map est un décor rectangulaire constitué de briques issues du Tileset.
  * Le Heros et les Events se déplacent dedans.
  */
-public class Map {
+public class Map implements Sauvegardable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Map.class);
 	/** Chaque carreau du Tileset possède une altitude intrinsèque */
@@ -639,6 +640,16 @@ public class Map {
 				adjacence.allerALaMapAdjacente(this.heros);
 			}
 		}
+	}
+
+	@Override
+	public JSONObject sauvegarderEnJson() {
+		final JSONObject jsonEtatMap = new JSONObject();
+		jsonEtatMap.put("numero", this.numero);
+		jsonEtatMap.put("xHeros", this.heros.x);
+		jsonEtatMap.put("yHeros", this.heros.y);
+		jsonEtatMap.put("directionHeros", this.heros.direction);
+		return jsonEtatMap;
 	}
 	
 }

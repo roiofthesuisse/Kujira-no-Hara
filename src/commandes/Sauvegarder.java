@@ -12,11 +12,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import jeu.Partie;
-import jeu.Quete.AvancementQuete;
 import main.Commande;
 import main.Fenetre;
 import map.Map;
@@ -47,6 +44,16 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	 */
 	public Sauvegarder(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numeroSauvegarde") );
+	}
+	
+	/**
+	 * Tout ce qui est suceptible de figurer dans une sauvegarde.
+	 */
+	public interface Sauvegardable {
+		/**
+		 * Générer un JSON de l'état actuel de cet objet java pour la Sauvegarde.
+		 */
+		public JSONObject sauvegarderEnJson();
 	}
 	
 	@Override
@@ -90,106 +97,20 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 		final JSONObject jsonSauvegarde = new JSONObject();
 		
 		// Partie
-		final JSONObject jsonPartie = new JSONObject();
-		final Partie partie = Fenetre.getPartieActuelle();
-		jsonPartie.put("vie", partie.vie);
-		jsonPartie.put("vieMax", partie.vieMax);
-		jsonPartie.put("argent", partie.argent);
-		
-		//armes
-		jsonPartie.put("idArmeEquipee", partie.idArmeEquipee);
-		final JSONArray armesPossedees = new JSONArray();
-		for (int i = 0; i<partie.armesPossedees.length; i++) {
-			if (partie.armesPossedees[i]) {
-				armesPossedees.put(i);
-			}
-		}
-		jsonPartie.put("armesPossedees", armesPossedees);
-		
-		//gadgets
-		jsonPartie.put("idGadgetEquipe", partie.idGadgetEquipe);
-		final JSONArray gadgetsPossedes = new JSONArray();
-		for (int i = 0; i<partie.gadgetsPossedes.length; i++) {
-			if (partie.gadgetsPossedes[i]) {
-				gadgetsPossedes.put(i);
-			}
-		}
-		jsonPartie.put("gadgetsPossedes", gadgetsPossedes);
-		
-		//interrupteurs
-		final JSONArray interrupteurs = new JSONArray();
-		for (int i = 0; i<partie.interrupteurs.length; i++) {
-			if (partie.interrupteurs[i]) {
-				interrupteurs.put(i);
-			}
-		}
-		jsonPartie.put("interrupteurs", interrupteurs);
-		
-		//variables
-		final JSONArray variables = new JSONArray();
-		for (int i = 0; i<partie.variables.length; i++) {
-			if (partie.variables[i] != 0) {
-				final JSONObject variable = new JSONObject();
-				variable.put("numero", i);
-				variable.put("valeur", partie.variables[i]);
-				variables.put(variable);
-			}
-		}
-		jsonPartie.put("variables", variables);
-		
-		//interrupteurs locaux
-		final JSONArray interrupteursLocaux = new JSONArray();
-		for (int i = 0; i<partie.interrupteursLocaux.size(); i++) {
-			final String code = partie.interrupteursLocaux.get(i); // code de la forme mXXXeXXXiXXX (map, event, interrupteur)
-			interrupteursLocaux.put(code);
-		}
-		jsonPartie.put("interrupteursLocaux", interrupteursLocaux);
-		
-		//objets
-		final JSONArray objetsPossedes = new JSONArray();
-		for (int i = 0; i<partie.objetsPossedes.length; i++) {
-			if (partie.objetsPossedes[i] != 0) {
-				final JSONObject objet = new JSONObject();
-				objet.put("numero", i);
-				objet.put("quantite", partie.objetsPossedes[i]);
-				objetsPossedes.put(objet);
-			}
-		}
-		jsonPartie.put("objetsPossedes", objetsPossedes);
-		
-		//quêtes
-		final JSONArray avancementQuetes = new JSONArray();
-		for (int i = 0; i<partie.avancementDesQuetes.length; i++) {
-			if (partie.avancementDesQuetes[i]!= null 
-					&& !AvancementQuete.INCONNUE.equals(partie.avancementDesQuetes[i])) {
-				final JSONObject quete = new JSONObject();
-				quete.put("numero", i);
-				quete.put("avancement", partie.avancementDesQuetes[i].nom);
-				avancementQuetes.put(quete);
-			}
-		}
-		jsonPartie.put("avancementQuetes", avancementQuetes);
-		
-		
+		final JSONObject jsonPartie = Fenetre.getPartieActuelle().sauvegarderEnJson();
 		jsonSauvegarde.put("partie", jsonPartie);
-		
-		
+
 		// Etat de la Map
-		final JSONObject jsonEtatMap = new JSONObject();
 		final Map map;
 		if (this.element != null) {
 			map = this.element.menu.lecteur.lecteurMapMemorise.map;
 		} else {
 			map = this.page.event.map;
 		}
-		jsonEtatMap.put("numero", map.numero);
-		jsonEtatMap.put("xHeros", map.heros.x);
-		jsonEtatMap.put("yHeros", map.heros.y);
-		jsonEtatMap.put("directionHeros", map.heros.direction);
-		//TODO pour tous les events : x, y, direction, apparence, vitesse, frequence, proprietesActuelles, pageActive, curseur, mouvements
-		//TODO images (état de déplacement, ce qui est fait)
-		//TODO brouillard
+		final JSONObject jsonEtatMap = map.sauvegarderEnJson();
 		jsonSauvegarde.put("etatMap", jsonEtatMap);
+		//TODO pour tous les events : x, y, direction, apparence, vitesse, frequence, proprietesActuelles, pageActive, curseur, mouvements
+		//TODO brouillard
 		
 		return jsonSauvegarde;
 	}

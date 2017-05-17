@@ -2,7 +2,10 @@ package map;
 
 import java.awt.image.BufferedImage;
 
+import org.json.JSONObject;
+
 import commandes.DeplacerImage;
+import commandes.Sauvegarder.Sauvegardable;
 import main.Fenetre;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
@@ -10,7 +13,8 @@ import utilitaire.graphismes.ModeDeFusion;
 /**
  * Image à afficher à l'écran et ses paramètres.
  */
-public class Picture {
+public class Picture implements Sauvegardable {
+	public String nomImage;
 	public BufferedImage image;
 	public Integer numero; //Integer car utilisé comme clé d'une HashMap
 	/** coordonnée x d'affichage par rapport au coin de l'écran */
@@ -33,6 +37,7 @@ public class Picture {
 	/**
 	 * Constructeur explicite
 	 * @param image nom du fichier image
+	 * @param nomImage (pour la sauvegarde uniquement)
 	 * @param numero de l'image pour le LecteurMap
 	 * @param x coordonnée x d'affichage à l'écran (en pixels)
 	 * @param y coordonnée y d'affichage à l'écran (en pixels)
@@ -43,9 +48,10 @@ public class Picture {
 	 * @param modeDeFusion de la superposition d'images
 	 * @param angle de rotation de l'image (en degrés)
 	 */
-	public Picture(final BufferedImage image, final int numero, final int x, final int y, final boolean centre, 
+	public Picture(final BufferedImage image, final String nomImage, final int numero, final int x, final int y, final boolean centre, 
 			final int zoomX, final int zoomY, final int opacite, final ModeDeFusion modeDeFusion, final int angle) {
 		this.image = image;
+		this.nomImage = nomImage;
 		this.numero = numero;
 		this.x = x;
 		this.y = y;
@@ -73,6 +79,31 @@ public class Picture {
 			ecran = Graphismes.superposerImages(ecran, picture.image, picture.x, picture.y, picture.centre, picture.zoomX, picture.zoomY, picture.opacite, picture.modeDeFusion, picture.angle);
 		}
 		return ecran;
+	}
+	
+	/**
+	 * Générer un JSON de la Picture (et son éventuel déplacement actuel) pour la Sauvegarde.
+	 */
+	@Override
+	public JSONObject sauvegarderEnJson() {
+		final JSONObject jsonImage = new JSONObject();
+		jsonImage.put("nomImage", this.nomImage);
+		jsonImage.put("numero", this.numero);
+		jsonImage.put("x", this.x);
+		jsonImage.put("y", this.y);
+		jsonImage.put("centre", this.centre);
+		jsonImage.put("zoomX", this.zoomX);
+		jsonImage.put("zoomY", this.zoomY);
+		jsonImage.put("opacite", this.opacite);
+		jsonImage.put("modeDeFusion", this.modeDeFusion);
+		jsonImage.put("angle", this.angle);
+		
+		if (this.deplacementActuel != null) {
+			final JSONObject jsonDeplacementActuel = this.deplacementActuel.sauvegarderEnJson();
+			jsonImage.put("deplacementActuel", jsonDeplacementActuel);
+		}
+		
+		return jsonImage;
 	}
 	
 }
