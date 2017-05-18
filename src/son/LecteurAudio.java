@@ -27,8 +27,18 @@ public abstract class LecteurAudio {
 	 * @param volume sonore
 	 */
 	public static synchronized void playSe(final String nom, final float volume) {
-		final Musique musique = new Musique(nom, Musique.TypeMusique.SE, volume);
-		musique.jouerUneSeuleFois();
+		Musique musique;
+		if (nom.endsWith(".ogg")) {
+			musique = new MusiqueOgg(nom, Musique.TypeMusique.SE, volume);
+		} else if(nom.endsWith(".wav")) {
+			musique = new MusiqueWav(nom, Musique.TypeMusique.SE, volume);
+		} else if(nom.endsWith(".mp3")) {
+			musique = new MusiqueMp3(nom, Musique.TypeMusique.SE, volume);
+		} else {
+			LOG.error("Format audio inconnu : "+nom);
+			return;
+		}
+		musique.jouerUneSeuleFois(null);
 	}
 	
 	/**
@@ -36,10 +46,21 @@ public abstract class LecteurAudio {
 	 * @param nom du fichier audio
 	 * @param volume sonore
 	 */
-	//TODO un ME doit mettre en silence le BGM durant son execution
 	public static synchronized void playMe(final String nom, final float volume) {
-		final Musique musique = new Musique(nom, Musique.TypeMusique.ME, volume);
-		musique.jouerUneSeuleFois();
+		final Musique musique;
+		if (nom.endsWith(".ogg")) {
+			musique = new MusiqueOgg(nom, Musique.TypeMusique.ME, volume);
+		} else if(nom.endsWith(".wav")) {
+			musique = new MusiqueWav(nom, Musique.TypeMusique.ME, volume);
+		} else if(nom.endsWith(".mp3")) {
+			musique = new MusiqueMp3(nom, Musique.TypeMusique.ME, volume);
+		} else {
+			LOG.error("Format audio inconnu : "+nom);
+			return;
+		}
+		float volumeBgmMemorise = LecteurAudio.bgmEnCours.volumeActuel;
+		LecteurAudio.bgmEnCours.modifierVolume(0);
+		musique.jouerUneSeuleFois(volumeBgmMemorise);
 	}
 	
 	/**
@@ -76,7 +97,17 @@ public abstract class LecteurAudio {
 			stopBgm();
 			
 			// On lance la nouvelle
-			final Musique musique = new Musique(nom, Musique.TypeMusique.BGM, volume);
+			final Musique musique;
+			if (nom.endsWith(".ogg")) {
+				musique = new MusiqueOgg(nom, Musique.TypeMusique.BGM, volume);
+			} else if(nom.endsWith(".wav")) {
+				musique = new MusiqueWav(nom, Musique.TypeMusique.BGM, volume);
+			} else if(nom.endsWith(".mp3")) {
+				musique = new MusiqueMp3(nom, Musique.TypeMusique.BGM, volume);
+			} else {
+				LOG.error("Format audio inconnu : "+nom);
+				return;
+			}
 			musique.jouerEnBoucle();
 				
 			// On met à jour les données
@@ -121,7 +152,17 @@ public abstract class LecteurAudio {
 			stopBgs();
 
 			// On lance le nouveau
-			final Musique musique = new Musique(nom, Musique.TypeMusique.BGS, volume);
+			final Musique musique;
+			if (nom.endsWith(".ogg")) {
+				musique = new MusiqueOgg(nom, Musique.TypeMusique.BGS, volume);
+			} else if(nom.endsWith(".wav")) {
+				musique = new MusiqueWav(nom, Musique.TypeMusique.BGS, volume);
+			} else if(nom.endsWith(".mp3")) {
+				musique = new MusiqueMp3(nom, Musique.TypeMusique.BGS, volume);
+			} else {
+				LOG.error("Format audio inconnu : "+nom);
+				return;
+			}
 			musique.jouerEnBoucle();
 				
 			// On met à jour les données

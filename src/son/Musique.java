@@ -1,43 +1,30 @@
 package son;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Paths;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
 /**
  * Permet d'uniformiser le contrôle de la Musique malgré les différents formats audio.
  */
-public class Musique {
+public abstract class Musique {
 	//constantes
-	private static final Logger LOG = LogManager.getLogger(Musique.class);
+	protected static final Logger LOG = LogManager.getLogger(Musique.class);
 	public static final float VOLUME_MAXIMAL = 1.0f;
 	private static final long DUREE_MAXIMALE_SE = 5000; //en millisecondes
 	
 	/**
 	 * Le clip peut être un Clip javax ou bien un OggClip.
 	 */
-	private Object clip;
-	private InputStream stream;
+	protected Object clip;
+	protected InputStream stream;
 	public String nom;
 	public FormatAudio format;
+	public long dureeMillisecondes;
 	public TypeMusique type;
-	private Thread thread;
+	protected Thread thread;
 	public float volumeActuel;
 	
 	/**
@@ -73,248 +60,77 @@ public class Musique {
 	}
 	
 	/**
+	 * Thread parallèle qui joue la Musique.
+	 */
+	abstract class LancerSon implements Runnable {
+		private final TypeMusique type;
+		private final long duree;
+		private final float volumeBgmMemorise;
+		
+		protected LancerSon(TypeMusique type, long duree, float volumeBgmMemorise) {
+			super();
+			this.type = type;
+			this.duree = duree;
+			this.volumeBgmMemorise = volumeBgmMemorise;
+		}
+		
+		/**
+		 * Refermer le clip à la fin de son execution.
+		 * Si c'est un ME, redémarrer le BGM mis en silence.
+		 */
+		protected void fermerALaFin() {
+			if (TypeMusique.SE.equals(this.type)) {
+		    	// interrompre un SE trop long
+		    	try {
+		    		Thread.sleep(DUREE_MAXIMALE_SE);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+		    	
+		    } else if (TypeMusique.ME.equals(this.type)) {
+		    	// attendre la fin du ME
+		    	try {
+		    		Thread.sleep(this.duree);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+		    	
+		    	// redémarrer le BGM après la fin du ME
+		    	if (LecteurAudio.bgmEnCours != null) {
+		    		LecteurAudio.bgmEnCours.modifierVolume(this.volumeBgmMemorise);
+		    	}
+		    }
+		    arreter();
+		}
+	}
+	
+	/**
 	 * Constructeur explicite
 	 * @param nom du fichier audio
 	 * @param type BGM, BGS, ME, SE
 	 * @param volume entre 0.0 et 1.0
 	 */
-	public Musique(final String nom, final TypeMusique type, final float volume) {
+	protected Musique(final String nom, final TypeMusique type, final float volume) {
 		this.nom = nom;
 		this.type = type;
 		this.volumeActuel = volume;
-		
-		if (nom.endsWith(".ogg")) {
-			//le fichier est un OGG
-			this.format = FormatAudio.OGG;
-			try {
-				this.stream = new FileInputStream(new File(".\\ressources\\Audio\\"+type+"\\" + nom));
-				this.clip = new OggClip(this.stream);
-				//volume initial
-				if (volume < VOLUME_MAXIMAL) {
-					this.modifierVolume(volume);
-				}
-				
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-		} else if (nom.endsWith(".wav")) {
-			//le fichier est un WAV
-			this.format = FormatAudio.WAV;
-			try {
-				this.clip = AudioSystem.getClip();
-				this.stream = AudioSystem.getAudioInputStream(new File(".\\ressources\\Audio\\"+type+"\\" + nom));
-				((Clip) clip).open((AudioInputStream) this.stream);
-				//volume initial
-				if (volume < VOLUME_MAXIMAL) {
-					this.modifierVolume(volume);
-				}
-				
-			} catch (LineUnavailableException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (UnsupportedAudioFileException e) {
-				e.printStackTrace();
-			}
-			
-		} else if (nom.endsWith(".mp3")) {
-			//le fichier est un MP3
-			this.format = FormatAudio.MP3;
-			final String uri = Paths.get("ressources/Audio/"+type+"/" + nom).toUri().toString();
-			final Media media = new Media(uri);
-			final MediaPlayer mediaPlayer = new MediaPlayer(media);
-			this.clip = mediaPlayer;
-			//volume initial
-			if (volume < VOLUME_MAXIMAL) {
-				this.modifierVolume(volume);
-			}
-			
-		} else {
-			LOG.error("Format audio inconnu : "+nom);
-		}
-		
 	}
 	
 	/**
 	 * Modifier le volume de la Musique.
 	 * @param nouveauVolume à appliquer
 	 */
-	public final void modifierVolume(final float nouveauVolume) {
-		switch (this.format) {
-			case OGG:
-				((OggClip) this.clip).setGain(nouveauVolume);
-				break;
-				
-			case WAV:
-				final FloatControl gainControl = (FloatControl) ((Clip) this.clip).getControl(FloatControl.Type.MASTER_GAIN);
-				final float gain = (1f-nouveauVolume)*Float.MIN_VALUE;
-				gainControl.setValue(gain);
-				break;
-				
-			case MP3:
-				((MediaPlayer) this.clip).setVolume(nouveauVolume);
-				break;
-				
-			default:
-				LOG.error("Format audio inconnu : "+this.nom);
-				break;
-		}
-		//mettre à jour les données
-		this.volumeActuel = nouveauVolume;
-	}
+	public abstract void modifierVolume(final float nouveauVolume);
 	
 	/**
 	 * Jouer un fichier sonore qui s'arrêtera tout seul arrivé à la fin.
 	 */
-	public final void jouerUneSeuleFois() {
-		switch (format) {
-		case OGG : //le fichier est un OGG
-			/**
-			 * Thread parallèle qui s'occupera de la lecteur du fichier audio
-			 */
-			class RunOggBgm implements Runnable {
-				/**
-				 * Jouer le fichier audio.
-				 */
-				public void run() {
-					final OggClip oggClip = (OggClip) clip;
-				    oggClip.play(); //jouer une seule fois
-				    try {
-						Thread.sleep(DUREE_MAXIMALE_SE);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				    arreter();
-				}
-			}
-			final RunOggBgm r1 = new RunOggBgm();
-			this.thread = new Thread(r1, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
-			this.thread.start();
-			break;
-			
-		case WAV : //le fichier est un WAV
-			/**
-			 * Thread parallèle qui s'occupera de la lecteur du fichier audio
-			 */
-			class RunWavBgm implements Runnable {
-				/**
-				 * Jouer le fichier audio.
-				 */
-				public void run() {
-					final Clip wavClip = (Clip) clip;
-				    wavClip.start(); //jouer une seule fois
-				    try {
-						Thread.sleep(DUREE_MAXIMALE_SE);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				    arreter();
-				}
-			}
-			final RunWavBgm r2 = new RunWavBgm();
-			this.thread = new Thread(r2, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
-			this.thread.start();
-			break;
-			
-		case MP3 : //le fichier est un MP3
-			/**
-			 * Thread parallèle qui s'occupera de la lecteur du fichier audio
-			 */
-			class RunMp3Bgm implements Runnable {
-				/**
-				 * Jouer le fichier audio.
-				 */
-				public void run() {
-					final MediaPlayer mp3Clip = (MediaPlayer) clip;
-					mp3Clip.setCycleCount(1); //jouer une seule fois
-					mp3Clip.play();
-					try {
-						Thread.sleep(DUREE_MAXIMALE_SE);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-					arreter();
-				}
-			}
-			final RunMp3Bgm r3 = new RunMp3Bgm();
-			this.thread = new Thread(r3, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
-			this.thread.start();
-			break;
-			
-		default: //type de fichier inconnu
-			LOG.error("Type de fichier inconnu : "+format);
-			break;
-		}
-	}
+	public abstract void jouerUneSeuleFois(final Float volumeBgmMemorise);
 	
 	/**
 	 * Jouer une fichier sonore qui tourne en boucle sans s'arrêter.
 	 */
-	public final void jouerEnBoucle() {
-		switch (format) {
-		case OGG : //le fichier est un OGG
-			/**
-			 * Thread parallèle qui s'occupera de la lecteur du fichier audio
-			 */
-			class RunOggBgm implements Runnable {
-				/**
-				 * Jouer le fichier audio.
-				 */
-				public void run() {
-					final OggClip oggClip = (OggClip) clip;
-				    oggClip.loop(); //jouer en boucle
-				}
-			}
-			final RunOggBgm r1 = new RunOggBgm();
-			this.thread = new Thread(r1, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
-			this.thread.start();
-			break;
-			
-		case WAV : //le fichier est un WAV
-			/**
-			 * Thread parallèle qui s'occupera de la lecteur du fichier audio
-			 */
-			class RunWavBgm implements Runnable {
-				/**
-				 * Jouer le fichier audio.
-				 */
-				public void run() {
-					final Clip wavClip = (Clip) clip;
-					wavClip.loop(Clip.LOOP_CONTINUOUSLY); //jouer en boucle
-				}
-			}
-			final RunWavBgm r2 = new RunWavBgm();
-			this.thread = new Thread(r2, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
-			this.thread.start();
-			break;
-			
-		case MP3 : //le fichier est un MP3
-			/**
-			 * Thread parallèle qui s'occupera de la lecteur du fichier audio
-			 */
-			class RunMp3Bgm implements Runnable {
-				/**
-				 * Jouer le fichier audio.
-				 */
-				public void run() {
-					final MediaPlayer mp3Clip = ((MediaPlayer) clip);
-					mp3Clip.setCycleCount(MediaPlayer.INDEFINITE); //jouer en boucle
-					mp3Clip.play();
-				}
-			}
-			final RunMp3Bgm r3 = new RunMp3Bgm();
-			this.thread = new Thread(r3, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
-			this.thread.start();
-			break;
-			
-		default: //type de fichier inconnu
-			LOG.error("Type de fichier inconnu : "+format);
-			break;
-		}
-	}
+	public abstract void jouerEnBoucle();
 
 	/**
 	 * Arrêter cette Musique.
@@ -323,25 +139,7 @@ public class Musique {
 	 */
 	public final void arreter() {
 		//on ferme le clip
-		switch (format) {
-			case OGG : 
-				final OggClip oggClip = (OggClip) clip;
-				oggClip.stop();
-				break;
-				
-			case WAV : 
-				final Clip wavClip = (Clip) clip;
-				wavClip.close();
-				break;
-			
-			case MP3 :
-				final MediaPlayer mp3Clip = (MediaPlayer) clip;
-				mp3Clip.stop();
-				break;
-				
-			default :
-				break;
-		}
+		arreterSpecifique();
 		//on ferme l'InputStream
 		if (this.stream!=null) {
 			try {
@@ -351,5 +149,20 @@ public class Musique {
 			}
 		}
 	}
+	
+	/**
+	 * Arrêter la Musique en fonction du format audio.
+	 */
+	public abstract void arreterSpecifique();
+	
+	/**
+	 * Mettre la Musique en pause.
+	 */
+	public abstract void mettreEnPause();
+	
+	/**
+	 * Continuer la lecture de la Musique après la pause.
+	 */
+	public abstract void reprendreApresPause();
 	
 }
