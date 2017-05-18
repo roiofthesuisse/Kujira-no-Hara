@@ -65,9 +65,9 @@ public abstract class Musique {
 	abstract class LancerSon implements Runnable {
 		private final TypeMusique type;
 		private final long duree;
-		private final float volumeBgmMemorise;
+		private final Float volumeBgmMemorise;
 		
-		protected LancerSon(TypeMusique type, long duree, float volumeBgmMemorise) {
+		protected LancerSon(TypeMusique type, long duree, Float volumeBgmMemorise) {
 			super();
 			this.type = type;
 			this.duree = duree;
