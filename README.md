@@ -1,15 +1,8 @@
 # Kujira no Hara
-Ce projet est une version Java du jeu vidéo Kujira no Hara.
-[Site officiel du jeu](http://www.roiofthesuisse.byethost7.com/kujiranohara.php)
+Ce projet consiste en :
+* une version Java du jeu vidéo Kujira no Hara ([Site officiel du jeu](http://www.roiofthesuisse.byethost7.com/kujiranohara.php))
+* un moteur de jeu vidéo action-RPG, 2D, en vue de dessus, au format JSON (exporté notamment depuis le logiciel RMXP)
 
-Le but de ce projet est d'aller au dela des limites du jeu actuel, développé sous RMXP. Ces limites sont notamment :
-* le déplacement case par case
-* bodyboxes toutes carrées et de taille 32 pixels
-* lag
-* incompatibilité Linux, Mac (et éventuelles futures versions de Windows)
+Le but de ce projet est d'aller au dela des limites du jeu actuel, développé sous RMXP.
 
-Dans le but d'obtenir :
-* un déplacement pixel par pixel
-* des bodyboxes rectangulaires et de taille variable
-* plus de fluidité
-* portabilité vers Linux, Mac, futurs Windows
+Consulter le [wiki](http://github.com/roiofthesuisse/Kujira-no-Hara/wiki) pour plus d'informations !
