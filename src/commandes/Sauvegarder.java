@@ -110,7 +110,6 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 		final JSONObject jsonEtatMap = map.sauvegarderEnJson();
 		jsonSauvegarde.put("etatMap", jsonEtatMap);
 		//TODO pour tous les events : x, y, direction, apparence, vitesse, frequence, proprietesActuelles, pageActive, curseur, mouvements
-		//TODO brouillard
 		
 		return jsonSauvegarde;
 	}

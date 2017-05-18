@@ -93,6 +93,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 				jsonEtatMap.getInt("xHeros"),
 				jsonEtatMap.getInt("yHeros"),
 				jsonEtatMap.getInt("directionHeros"),
+				jsonEtatMap, //infos sur le brouillard
 				jsonAvancement.getInt("vie"),
 				jsonAvancement.getInt("vieMax"),
 				jsonAvancement.getInt("argent"),
@@ -104,7 +105,8 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 				jsonAvancement.getJSONArray("gadgetsPossedes"), // boolean[] 
 				jsonAvancement.getJSONArray("interrupteurs"),
 				jsonAvancement.getJSONArray("variables"),
-				jsonAvancement.getJSONArray("interrupteursLocaux")
+				jsonAvancement.getJSONArray("interrupteursLocaux"),
+				jsonAvancement.getJSONArray("images")
 		);
 	}
 	

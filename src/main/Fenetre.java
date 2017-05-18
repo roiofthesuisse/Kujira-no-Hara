@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -278,7 +277,15 @@ public final class Fenetre extends JFrame implements KeyListener {
 		}
 		this.futurLecteur = new LecteurMap(this, Transition.AUCUNE);
 		try {
-			((LecteurMap) futurLecteur).map = new Map(this.partie.numeroMap, (LecteurMap) this.futurLecteur, null, this.partie.xHeros, this.partie.yHeros, this.partie.directionHeros);
+			((LecteurMap) futurLecteur).map = new Map(
+					this.partie.numeroMap, 
+					(LecteurMap) this.futurLecteur, 
+					null,
+					this.partie.brouillardACharger,
+					this.partie.xHeros, 
+					this.partie.yHeros, 
+					this.partie.directionHeros
+			);
 		} catch (Exception e) {
 			LOG.error("Impossible de charger la map numero "+partie.numeroMap);
 			e.printStackTrace();

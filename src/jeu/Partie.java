@@ -21,6 +21,7 @@ import jeu.Quete.AvancementQuete;
 import main.Commande;
 import main.Fenetre;
 import map.Animation;
+import map.Brouillard;
 import map.Map;
 import map.Picture;
 import map.meteo.Meteo;
@@ -42,10 +43,11 @@ public final class Partie implements Listable, Sauvegardable {
 	public int id;
 	public int numeroMap;
 	public Map map;
-	/** coordonnée x (en pixels) */
-	public int xHeros;
-	/** coordonnée y (en pixels) */
-	public int yHeros;
+	/** Brouillard à afficher sur la Map lorsqu'on charge une Partie sauvegardée */
+	public Brouillard brouillardACharger;
+	
+	/** coordonnées x (en pixels) */
+	public int xHeros, yHeros;
 	public int directionHeros;
 	public int vie;
 	public int vieMax;
@@ -88,6 +90,7 @@ public final class Partie implements Listable, Sauvegardable {
 		final JSONObject jsonNouvellePartie = InterpreteurDeJson.ouvrirJsonNouvellePartie();
 		// Position du Héros
 		this.numeroMap = jsonNouvellePartie.getInt("numeroMap");
+		this.brouillardACharger = null;
 		this.xHeros = jsonNouvellePartie.getInt("xHeros")*Fenetre.TAILLE_D_UN_CARREAU;
 		this.yHeros = jsonNouvellePartie.getInt("yHeros")*Fenetre.TAILLE_D_UN_CARREAU;
 		this.directionHeros = jsonNouvellePartie.getInt("directionHeros");
@@ -120,6 +123,7 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @param xHeros coordonnée x du Héros (en pixels) en reprenant la Partie
 	 * @param yHeros coordonnée y du Héros (en pixels) en reprenant la Partie
 	 * @param directionHeros direction dans laquelle se trouve le Heros en reprenant la Partie
+	 * @param brouillard de la Map
 	 * @param vie niveau d'énergie vitale du Héros en reprenant la Partie
 	 * @param vieMax niveau maximal possible d'énergie vitale du Héros en reprenant la Partie
 	 * @param argent possédé
@@ -131,19 +135,23 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @param interrupteurs état des interrupteurs du jeu
 	 * @param variables état des variables locaux du jeu
 	 * @param interrupteursLocaux état des interrupteurs locaux du jeu
+	 * @param images affichées à l'écran
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
 	 * @param idGadgetEquipe identifiant du Gadget actuel équipé
 	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	public Partie(final int id, final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, final int vie, 
-			final int vieMax, final int argent, final int idArmeEquipee, final int idGadgetEquipe, final JSONArray objetsPossedes, 
-			final JSONArray avancementDesQuetes, final JSONArray armesPossedees, final JSONArray gadgetsPossedes, 
-			final JSONArray interrupteurs, final JSONArray variables, final JSONArray interrupteursLocaux) 
+	public Partie(final int id, final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, 
+			final JSONObject jsonBrouillard,
+			final int vie, final int vieMax, final int argent, final int idArmeEquipee, final int idGadgetEquipe, 
+			final JSONArray objetsPossedes, final JSONArray avancementDesQuetes, final JSONArray armesPossedees, 
+			final JSONArray gadgetsPossedes, final JSONArray interrupteurs, final JSONArray variables, 
+			final JSONArray interrupteursLocaux, final JSONArray images)
 	throws FileNotFoundException {
 		this();
 		this.id = id;
 		this.numeroMap = numeroMap;
+		this.brouillardACharger = Brouillard.creerBrouillardAPartirDeJson(jsonBrouillard);
 		this.xHeros = xHeros; //TODO faire ça pour tous les Events de la Map
 		this.yHeros = yHeros; //TODO faire ça pour tous les Events de la Map
 		this.directionHeros = directionHeros; //TODO faire ça pour tous les Events de la Map
@@ -204,6 +212,8 @@ public final class Partie implements Listable, Sauvegardable {
 			final String code = (String) o;
 			this.interrupteursLocaux.add(code);
 		}
+		//images
+		//TODO
 		// Animations
 		Animation.chargerLesAnimationsDuJeu();
 				

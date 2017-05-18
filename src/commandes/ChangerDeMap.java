@@ -12,7 +12,6 @@ import map.Heros;
 import map.LecteurMap;
 import map.Map;
 import map.Transition;
-import map.Event.Direction;
 
 /**
  * Le Heros est téléporté sur une autre Map.
@@ -59,7 +58,15 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		
 		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre(), this.transition);
 		try {
-			final Map nouvelleMap = new Map(numeroNouvelleMap, nouveauLecteur, ancienHeros, xDebutHeros, yDebutHeros, directionHeros);			
+			final Map nouvelleMap = new Map(
+					numeroNouvelleMap, 
+					nouveauLecteur, 
+					ancienHeros, 
+					null, //pas de Brouillard forcé
+					xDebutHeros, 
+					yDebutHeros, 
+					directionHeros
+			);			
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);
 		} catch (Exception e) {
 			LOG.error("Impossible de charger la map numero "+numeroNouvelleMap, e);

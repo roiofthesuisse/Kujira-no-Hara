@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import commandes.Sauvegarder.Sauvegardable;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
@@ -17,7 +18,7 @@ import utilitaire.graphismes.ModeDeFusion;
  * Le Brouillard est une image ajoutée en transparence par dessus la Map et ses Events.
  * Son intérêt est d'enrichir l'ambiance colorimétrique du décor.
  */
-public final class Brouillard {
+public final class Brouillard implements Sauvegardable {
 	private static final Logger LOG = LogManager.getLogger(Brouillard.class);
 	
 	public final String nomImage;
@@ -42,7 +43,8 @@ public final class Brouillard {
 	 * @param zoom taux d'aggrandissement de l'image (en pourcents)
 	 * @throws IOException l'image n'a pas pu être chargée
 	 */
-	private Brouillard(final String nomImage, final int opacite, final ModeDeFusion mode, final int defilementX, final int defilementY, final long zoom) {
+	private Brouillard(final String nomImage, final int opacite, final ModeDeFusion mode, final int defilementX, 
+			final int defilementY, final long zoom) {
 		this.zoom = zoom;
 		this.nomImage = nomImage;
 		try {
@@ -181,6 +183,18 @@ public final class Brouillard {
 	 */
 	public static int calculerAffichage(final int numeroVignette, final int tailleBrouillard, final int decalageTemporel, final int positionCamera) {
 		return numeroVignette*tailleBrouillard + decalageTemporel - positionCamera;
+	}
+
+	@Override
+	public JSONObject sauvegarderEnJson() {
+		final JSONObject jsonBrouillard = new JSONObject();
+		jsonBrouillard.put("nomImage", nomImage);
+		jsonBrouillard.put("opacite", opacite);
+		jsonBrouillard.put("mode", mode.nom);
+		jsonBrouillard.put("defilementX", defilementX);
+		jsonBrouillard.put("defilementY", defilementY);
+		jsonBrouillard.put("zoom", zoom);
+		return jsonBrouillard;
 	}
 
 }

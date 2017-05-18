@@ -37,28 +37,35 @@ public class Map implements Sauvegardable {
 	/** La position intiale du Héros sur cette Map est décrite par 2 paramètres */
 	private static final int POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION = 2;
 	
+	/** Numéro du fichier JSON de la Map */
 	public final int numero;
-	public LecteurMap lecteur;
 	public String nom;
-	public String nomBGM; //musique
-	public String nomBGS; //fond sonore
+	/** Lecteur chargé de lire cette Map */
+	public LecteurMap lecteur;
+	/** Nom de la musique */
+	public String nomBGM;
+	/** Nom du bruit de fond */
+	public String nomBGS;
+	/** Nom du Tileset utilisé */
 	public String nomTileset;
-	public Tileset tileset; //image contenant les decors
+	/** Image contenant les tuiles constitutives de décor possibles */
+	public Tileset tileset;
+	/** Image de panorama actuel affiché derrière la Map */
 	public BufferedImage panoramaActuel;
+	/** Taux de parallaxe entre la Map et le Panorama */
 	public int parallaxeActuelle;
-	/** largeur de la Map (en nombre de cases) */
-	public final int largeur;
-	/** hauteur de la Map (en nombre de cases) */
-	public final int hauteur;
-	public final int[][] layer0; //couche du sol
-	public final int[][] layer1; //couche de decor 1
-	public final int[][] layer2; //couche de decor 2
+	/** Dimensions de la Map (en nombre de cases) */
+	public final int largeur, hauteur;
+	/** Trois couches de décor pour pouvoir placer plusieurs tuiles sur la même case */
+	public final int[][] layer0, layer1, layer2;
 	public final int[][][] layers;
 	/** en cas d'Autotile animé */
 	private BufferedImage[] imagesCoucheSousHeros = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME]; 
 	/** en cas d'Autotile animé */
-	private BufferedImage[] imagesCoucheSurHeros = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME]; 
+	private BufferedImage[] imagesCoucheSurHeros = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
+	/** Le décor contient-il des autotiles animés ? */
 	public boolean contientDesAutotilesAnimes;
+	/** Brouillard affiché par dessus de décor et les Events */
 	public Brouillard brouillard;
 	/** liste des Events rangés par coordonnée y */
 	public ArrayList<Event> events;
@@ -66,15 +73,16 @@ public class Map implements Sauvegardable {
 	public HashMap<Integer, Event> eventsHash;
 	/** liste des Events à ajouter au tour suivant */
 	public ArrayList<Event> eventsAAjouter = new ArrayList<Event>();
+	/** Event numéro 0, dirigé par le joueur */
 	public Heros heros;
-	/** coordonnée x (en pixels) */
-	public int xDebutHeros;
-	/** coordonnée y (en pixels) */
-	public int yDebutHeros;
+	/** Coordonnées du héros (en pixels) à l'initialisation de la Map */
+	public int xDebutHeros, yDebutHeros;
+	/** Direction dans laquelle regarde le Héros à l'initialisation de la Map */
 	public int directionDebutHeros;
+	/** La case x;y est-elle passable ? */
 	public boolean[][] casePassable;
-	public final boolean defilementCameraX;
-	public final boolean defilementCameraY;
+	/** Pour faire défiler la caméra ailleurs que centrée sur le Héros */
+	public final boolean defilementCameraX, defilementCameraY;
 	
 	/** Maps adjacentes à celle-ci */
 	public HashMap<Integer, Adjacence> adjacences;
@@ -87,7 +95,8 @@ public class Map implements Sauvegardable {
 	 * @param positionInitialeDuHeros [xDebutHeros, yDebutHerosArg, directionDebutHeros] ou bien [xAncienneMapHeros, yAncienneMapHeros, decalageDebutHeros, directionDebutHeros]
 	 * @throws Exception Impossible de charger la Map
 	 */
-	public Map(final int numero, final LecteurMap lecteur, final Heros ancienHeros, final int...positionInitialeDuHeros) throws Exception {
+	public Map(final int numero, final LecteurMap lecteur, final Heros ancienHeros, final Brouillard brouillardForce, 
+			final int...positionInitialeDuHeros) throws Exception {
 		this.numero = numero;
 		this.lecteur = lecteur;
 		lecteur.map = this; //on prévient le Lecteur qu'il a une Map
@@ -216,11 +225,17 @@ public class Map implements Sauvegardable {
 			this.parallaxeActuelle = this.tileset.parallaxe;
 			
 		//création du Brouillard
-			this.brouillard = Brouillard.creerBrouillardAPartirDeJson(jsonMap);
-			if (this.brouillard == null) {
-				this.brouillard = this.tileset.brouillard;
+			if (brouillardForce != null) {
+				// chargement du précédent Brouillard sauvegardé
+				this.brouillard = brouillardForce;
+			} else {
+				// arrivée sur la Map donc chargement du Brouillard natif
+				this.brouillard = Brouillard.creerBrouillardAPartirDeJson(jsonMap);
+				if (this.brouillard == null) {
+					this.brouillard = this.tileset.brouillard;
+				}
 			}
-
+			
 	}
 
 	/**
@@ -649,6 +664,12 @@ public class Map implements Sauvegardable {
 		jsonEtatMap.put("xHeros", this.heros.x);
 		jsonEtatMap.put("yHeros", this.heros.y);
 		jsonEtatMap.put("directionHeros", this.heros.direction);
+		
+		if (this.brouillard != null) {
+			final JSONObject jsonBrouillard = this.brouillard.sauvegarderEnJson();
+			jsonEtatMap.put("brouillard", jsonBrouillard);
+		}
+		
 		return jsonEtatMap;
 	}
 	
