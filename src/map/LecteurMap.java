@@ -154,6 +154,11 @@ public class LecteurMap extends Lecteur {
 			ecran = Graphismes.superposerImages(ecran, ecran, 0, 0, Graphismes.OPACITE_MAXIMALE, ModeDeFusion.TON_DE_L_ECRAN);
 		}
 		
+		//effet aquatique (lol)
+		if (this.map.effetAquatique) {
+			ecran = Graphismes.effetAquatique(ecran, frame);
+		}
+		
 		// Transition visuelle avec la Map précédente
 		if (!this.allume) {
 			// Faire une capture d'écran juste avant l'arrêt de l'ancienne Map

@@ -8,6 +8,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
+import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
 
@@ -305,5 +306,33 @@ public abstract class Graphismes {
         g.dispose();
         return compatibleImage;
     }
+
+    /**
+     * Faie onduler l'écran car on est sous l'eau bloup bloup bloup.
+     * @param ecran à déformer
+     * @param frame temps
+     * @return écran déformé
+     */
+	public static BufferedImage effetAquatique(BufferedImage ecran, int frame) {
+		WritableRaster rasterEcran = ecran.getRaster();
+		BufferedImage resultat = ecranVide();
+		WritableRaster rasterResultat = resultat.getRaster();
+		final double ratioSinus = 2*Math.PI/Fenetre.HAUTEUR_ECRAN;
+		final int nombreDeVagues = 4;
+		final int amplitudeDesVagues = 8;
+		final int lenteurDesVagues = 4;
+		for(int i=0; i<Fenetre.HAUTEUR_ECRAN ; i++){
+			int[] pixels = new int[Fenetre.LARGEUR_ECRAN*4];
+			int h = i + (int) (Math.round(amplitudeDesVagues * Math.sin(nombreDeVagues*i*ratioSinus + frame/lenteurDesVagues)));
+			if (h >= Fenetre.HAUTEUR_ECRAN) {
+				h = Fenetre.HAUTEUR_ECRAN-1;
+			} else if(h < 0) {
+				h = 0;
+			}
+			pixels = rasterEcran.getPixels(0, h, Fenetre.LARGEUR_ECRAN, 1, pixels);
+			rasterResultat.setPixels(0, i, Fenetre.LARGEUR_ECRAN, 1, pixels); 
+		}
+		return resultat;
+	}
 
 }

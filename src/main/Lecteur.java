@@ -9,13 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
-import utilitaire.son.LecteurAudio;
-import utilitaire.son.Musique;
-import map.LecteurMap;
-import map.Map;
 import map.PageCommune;
-import menu.LecteurMenu;
-import menu.Menu;
 
 /**
  * Le lecteur peut être un lecteur de menu ou un lecteur de map.

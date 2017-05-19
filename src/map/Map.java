@@ -86,6 +86,8 @@ public class Map implements Sauvegardable {
 	public boolean[][] casePassable;
 	/** Pour faire défiler la caméra ailleurs que centrée sur le Héros */
 	public final boolean defilementCameraX, defilementCameraY;
+	/** Effet d'ondulation sur la Map */
+	public boolean effetAquatique;
 	
 	/** Maps adjacentes à celle-ci */
 	public HashMap<Integer, Adjacence> adjacences;
@@ -112,6 +114,7 @@ public class Map implements Sauvegardable {
 		this.nomBGS = jsonMap.has("bgs") ? jsonMap.getString("bgs") : "";
 		this.volumeBGS = jsonMap.has("volumeBgs") ? (float) jsonMap.get("volumeBgs") : Musique.VOLUME_MAXIMAL;
 		this.nomTileset = jsonMap.getString("tileset");
+		this.effetAquatique = jsonMap.has("effetAquatique") ? jsonMap.getBoolean("effetAquatique") : false;
 		this.largeur = jsonMap.getInt("largeur");
 		this.hauteur = jsonMap.getInt("hauteur");
 		this.defilementCameraX = largeur>(Fenetre.LARGEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU);
