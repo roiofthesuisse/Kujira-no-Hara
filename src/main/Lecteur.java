@@ -7,9 +7,9 @@ import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import son.LecteurAudio;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.son.LecteurAudio;
 import map.LecteurMap;
 import map.PageCommune;
 import menu.LecteurMenu;

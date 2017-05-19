@@ -7,8 +7,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import son.LecteurAudio;
-import son.Musique;
+import utilitaire.son.LecteurAudio;
+import utilitaire.son.Musique;
 
 /**
  * Jouer un musique en boucle.

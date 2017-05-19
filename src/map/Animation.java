@@ -13,11 +13,11 @@ import org.json.JSONObject;
 import commandes.JouerAnimation;
 import jeu.Partie;
 import main.Fenetre;
-import son.LecteurAudio;
-import son.Musique;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
+import utilitaire.son.LecteurAudio;
+import utilitaire.son.Musique;
 
 /**
  * Jouer une Animation sur la Map.

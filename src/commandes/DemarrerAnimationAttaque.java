@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import jeu.Arme;
-import son.LecteurAudio;
 import main.Commande;
 import main.Fenetre;
 import map.Heros;
+import utilitaire.son.LecteurAudio;
 
 /**
  * Lancer l'animation d'attaque du Heros

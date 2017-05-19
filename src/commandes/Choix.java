@@ -12,9 +12,9 @@ import main.Commande;
 import map.LecteurMap;
 import menu.Menu;
 import menu.Texte;
-import son.LecteurAudio;
 import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.son.LecteurAudio;
 
 /**
  * Un Choix donne la possibilité au joueur de choisir jusqu'à quatre alternatives.

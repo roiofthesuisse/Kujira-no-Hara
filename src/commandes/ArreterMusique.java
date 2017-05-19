@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import son.LecteurAudio;
+import utilitaire.son.LecteurAudio;
 
 /**
  * Arrêter la musique.

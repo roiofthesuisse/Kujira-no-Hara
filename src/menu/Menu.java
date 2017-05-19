@@ -15,9 +15,9 @@ import org.json.JSONObject;
 import commandes.FermerMenu;
 import main.Commande;
 import map.Event;
-import son.LecteurAudio;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.son.LecteurAudio;
 
 /**
  * Un Menu est constitué d'images et de Textes, éventuellement Sélectionnables.
