@@ -91,14 +91,14 @@ public class MusiqueOgg extends Musique {
 
 	@Override
 	public void mettreEnPause() {
-		// TODO Auto-generated method stub
-		
+		final OggClip oggClip = (OggClip) clip;
+		oggClip.pause();
 	}
 
 	@Override
 	public void reprendreApresPause() {
-		// TODO Auto-generated method stub
-		
+		final OggClip oggClip = (OggClip) clip;
+		oggClip.resume();
 	}
 	
 	

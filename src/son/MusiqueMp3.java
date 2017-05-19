@@ -82,14 +82,14 @@ public class MusiqueMp3 extends Musique {
 
 	@Override
 	public void mettreEnPause() {
-		// TODO Auto-generated method stub
-		
+		final MediaPlayer mp3Clip = (MediaPlayer) clip;
+		mp3Clip.pause();
 	}
 
 	@Override
 	public void reprendreApresPause() {
-		// TODO Auto-generated method stub
-		
+		final MediaPlayer mp3Clip = (MediaPlayer) clip;
+		mp3Clip.play();
 	}
 	
 	

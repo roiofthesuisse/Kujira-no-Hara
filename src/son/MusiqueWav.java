@@ -91,14 +91,14 @@ public class MusiqueWav extends Musique {
 
 	@Override
 	public void mettreEnPause() {
-		// TODO Auto-generated method stub
-		
+		final Clip wavClip = (Clip) clip;
+		wavClip.stop();
 	}
 
 	@Override
 	public void reprendreApresPause() {
-		// TODO Auto-generated method stub
-		
+		final Clip wavClip = (Clip) clip;
+		wavClip.start();
 	}
 	
 	
