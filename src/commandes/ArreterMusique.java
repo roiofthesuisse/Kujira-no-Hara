@@ -20,12 +20,14 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 	/** Compteur de frames de l'arrêt en fondu */
 	private int frame;
 	private float volumeInitial;
+	private int piste;
 	
 	/**
 	 * Constructeur explicite
 	 * @param nombreDeFrames durée totale de l'arrêt en fondu
+	 * @param piste à arrêter
 	 */
-	private ArreterMusique(final int nombreDeFrames) {
+	private ArreterMusique(final int nombreDeFrames, final int piste) {
 		this.nombreDeFrames = nombreDeFrames;
 		this.frame = 0;
 	}
@@ -35,7 +37,10 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ArreterMusique(final HashMap<String, Object> parametres) {
-		this(parametres.containsKey("nombreDeFrames") ? (int) parametres.get("nombreDeFrames") : 0);
+		this(
+				parametres.containsKey("nombreDeFrames") ? (int) parametres.get("nombreDeFrames") : 0,
+				parametres.containsKey("piste") ? (int) parametres.get("piste") : 0
+		);
 	}
 	
 	@Override
@@ -48,20 +53,20 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 		
 		// On mémorise le volume initial
 		if (frame == 0) {
-			volumeInitial = LecteurAudio.bgmEnCours.volumeActuel;
+			volumeInitial = LecteurAudio.bgmEnCours[piste].volumeActuel;
 		}
 		
 		if (frame < nombreDeFrames) {
 			// Arrêt en fondu
 			final float nouveauVolume = volumeInitial * (float) (nombreDeFrames-frame)/(float) nombreDeFrames;
-			LecteurAudio.bgmEnCours.modifierVolume(nouveauVolume);
+			LecteurAudio.bgmEnCours[piste].modifierVolume(nouveauVolume);
 			frame++;
 			
 			return curseurActuel;
 			
 		} else {
 			// L'arrêt en fondu est terminé
-			LecteurAudio.stopBgm();
+			LecteurAudio.stopBgm(piste);
 			frame = 0;
 			
 			LOG.info("Arrêt total de la musique.");

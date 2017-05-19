@@ -65,9 +65,9 @@ public abstract class Musique {
 	abstract class LancerSon implements Runnable {
 		private final TypeMusique type;
 		private final long duree;
-		private final Float volumeBgmMemorise;
+		private final Float[] volumeBgmMemorise;
 		
-		protected LancerSon(TypeMusique type, long duree, Float volumeBgmMemorise) {
+		protected LancerSon(TypeMusique type, long duree, Float[] volumeBgmMemorise) {
 			super();
 			this.type = type;
 			this.duree = duree;
@@ -96,8 +96,11 @@ public abstract class Musique {
 				}
 		    	
 		    	// redémarrer le BGM après la fin du ME
-		    	if (LecteurAudio.bgmEnCours != null) {
-		    		LecteurAudio.bgmEnCours.modifierVolume(this.volumeBgmMemorise);
+		    	for (int i = 0 ; i<LecteurAudio.NOMBRE_DE_PISTES; i++) {
+		    		final Musique bgm = LecteurAudio.bgmEnCours[i];
+			    	if (bgm != null) {
+			    		bgm.modifierVolume(this.volumeBgmMemorise[i]);
+			    	}
 		    	}
 		    }
 		    arreter();
@@ -125,7 +128,7 @@ public abstract class Musique {
 	/**
 	 * Jouer un fichier sonore qui s'arrêtera tout seul arrivé à la fin.
 	 */
-	public abstract void jouerUneSeuleFois(final Float volumeBgmMemorise);
+	public abstract void jouerUneSeuleFois(final Float[] volumeBgmMemorise);
 	
 	/**
 	 * Jouer une fichier sonore qui tourne en boucle sans s'arrêter.

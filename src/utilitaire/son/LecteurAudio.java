@@ -8,9 +8,10 @@ import org.apache.logging.log4j.Logger;
  */
 public abstract class LecteurAudio {
 	private static final Logger LOG = LogManager.getLogger(LecteurAudio.class);
+	static final int NOMBRE_DE_PISTES = 10;
 	
-	public static Musique bgmEnCours = null;
-	public static Musique bgsEnCours = null;
+	public static Musique[] bgmEnCours = new Musique[NOMBRE_DE_PISTES];
+	public static Musique[] bgsEnCours = new Musique[NOMBRE_DE_PISTES];
 	
 	/**
 	 * Jouer un effet sonore.
@@ -58,43 +59,39 @@ public abstract class LecteurAudio {
 			LOG.error("Format audio inconnu : "+nom);
 			return;
 		}
-		float volumeBgmMemorise = LecteurAudio.bgmEnCours.volumeActuel;
-		LecteurAudio.bgmEnCours.modifierVolume(0);
+		final Float[] volumeBgmMemorise = new Float[NOMBRE_DE_PISTES];
+		for (int i = 0; i<NOMBRE_DE_PISTES; i++) {
+			final Musique bgm = LecteurAudio.bgmEnCours[i];
+			volumeBgmMemorise[i] = LecteurAudio.bgmEnCours[i].volumeActuel;
+			bgm.modifierVolume(0);
+		}
 		musique.jouerUneSeuleFois(volumeBgmMemorise);
-	}
-	
-	/**
-	 * Jouer une musique.
-	 * Volume maximal par défaut.
-	 * @param nom du fichier audio
-	 */
-	public static synchronized void playBgm(final String nom) {
-		playBgm(nom, Musique.VOLUME_MAXIMAL);
 	}
 	
 	/**
 	 * Jouer une musique
 	 * @param nom du fichier audio
 	 * @param volume  sonore auquel il faut jouer la musique
+	 * @param piste sur laquelle jouer la musique
 	 */
-	public static synchronized void playBgm(final String nom, final float volume) {
+	public static synchronized void playBgm(final String nom, final float volume, final int piste) {
 		// Si le nom est vide, on ignore
 		if (nom == null || nom.equals("")) {
 			LOG.debug("Nom de musique vide : on ne fait rien.");
 			return;
 		}
 		
-		if (LecteurAudio.bgmEnCours != null && nom.equals(LecteurAudio.bgmEnCours.nom)) {
+		if (LecteurAudio.bgmEnCours[piste] != null && nom.equals(LecteurAudio.bgmEnCours[piste].nom)) {
 			// Même morceau que le précédent
-			if (bgmEnCours.volumeActuel != volume) {
+			if (bgmEnCours[piste].volumeActuel != volume) {
 				// Modification du volume uniquement
-				bgmEnCours.modifierVolume(volume);
+				bgmEnCours[piste].modifierVolume(volume);
 			}
 		} else {
 			// Morceau différent du précédent
 			
 			// On éteint la musique actuelle
-			stopBgm();
+			stopBgm(piste);
 			
 			// On lance la nouvelle
 			final Musique musique;
@@ -111,45 +108,38 @@ public abstract class LecteurAudio {
 			musique.jouerEnBoucle();
 				
 			// On met à jour les données
-			LecteurAudio.bgmEnCours = musique;
+			LecteurAudio.bgmEnCours[piste] = musique;
 		}
 		
 	}
 	
 	/**
 	 * Arrêter la musique actuellement jouée.
+	 * @param piste à arrêter
 	 */
-	public static synchronized void stopBgm() {
-		if (LecteurAudio.bgmEnCours != null) {
-			LecteurAudio.bgmEnCours.arreter();
-			LecteurAudio.bgmEnCours = null;
+	public static synchronized void stopBgm(final int piste) {
+		if (LecteurAudio.bgmEnCours[piste] != null) {
+			LecteurAudio.bgmEnCours[piste].arreter();
+			LecteurAudio.bgmEnCours[piste] = null;
 		}
 	}
-	
-	/**
-	 * Jouer un fond sonore.
-	 * Volume maximal par défaut.
-	 * @param nom du fichier audio
-	 */
-	public static synchronized void playBgs(final String nom) {
-		playBgs(nom, Musique.VOLUME_MAXIMAL);
-	}
-	
+
 	/**
 	 * Jouer un fond sonore.
 	 * @param nom du fichier audio
 	 * @param volume  sonore auquel il faut jouer la musique
+	 * @param piste sur laquelle jouer
 	 */
-	public static synchronized void playBgs(final String nom, final float volume) {
+	public static synchronized void playBgs(final String nom, final float volume, final int piste) {
 		// Si le nom est vide, on ignore
 		if (nom == null || nom.equals("")) {
 			return;
 		}
 			
 		// Si on est déjà en train de jouer le bon fond sonore, on ne fait rien
-		if (LecteurAudio.bgsEnCours == null || !nom.equals(LecteurAudio.bgsEnCours.nom)) {
+		if (LecteurAudio.bgsEnCours[piste] == null || !nom.equals(LecteurAudio.bgsEnCours[piste].nom)) {
 			// On éteint le fond sonore actuel
-			stopBgs();
+			stopBgs(piste);
 
 			// On lance le nouveau
 			final Musique musique;
@@ -166,21 +156,22 @@ public abstract class LecteurAudio {
 			musique.jouerEnBoucle();
 				
 			// On met à jour les données
-			LecteurAudio.bgsEnCours = musique;
+			LecteurAudio.bgsEnCours[piste] = musique;
 			
 		// Modification du volume uniquement
-		} else if (bgsEnCours.volumeActuel != volume) {
-			bgsEnCours.modifierVolume(volume);
+		} else if (bgsEnCours[piste].volumeActuel != volume) {
+			bgsEnCours[piste].modifierVolume(volume);
 		}
 	}
 	
 	/**
 	 * Arrêter le fond sonore actuellement joué.
+	 * @param piste à arrêter
 	 */
-	public static synchronized void stopBgs() {
-		if (LecteurAudio.bgsEnCours != null) {
-			LecteurAudio.bgsEnCours.arreter();
-			LecteurAudio.bgsEnCours = null;
+	public static synchronized void stopBgs(final int piste) {
+		if (LecteurAudio.bgsEnCours[piste] != null) {
+			LecteurAudio.bgsEnCours[piste].arreter();
+			LecteurAudio.bgsEnCours[piste] = null;
 		}
 	}
 	

@@ -44,6 +44,7 @@ public class Menu {
 	public ElementDeMenu elementSelectionne;
 	public ArrayList<Commande> comportementAnnulation;
 	public String nomBGM;
+	public Float volumeBGM;
 	public Menu menuSuivant;
 	public Menu menuPrecedent;
 	public Menu menuParent;

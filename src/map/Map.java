@@ -16,6 +16,7 @@ import main.Fenetre;
 import map.Event.Direction;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.son.Musique;
 
 /**
  * Une Map est un décor rectangulaire constitué de briques issues du Tileset.
@@ -44,8 +45,10 @@ public class Map implements Sauvegardable {
 	public LecteurMap lecteur;
 	/** Nom de la musique */
 	public String nomBGM;
+	public Float volumeBGM;
 	/** Nom du bruit de fond */
 	public String nomBGS;
+	public Float volumeBGS;
 	/** Nom du Tileset utilisé */
 	public String nomTileset;
 	/** Image contenant les tuiles constitutives de décor possibles */
@@ -104,8 +107,10 @@ public class Map implements Sauvegardable {
 		//la map est un fichier JSON
 		final JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(numero);
 		
-		this.nomBGM = jsonMap.getString("bgm");
-		this.nomBGS = jsonMap.getString("bgs");
+		this.nomBGM = jsonMap.has("bgm") ? jsonMap.getString("bgm") : "";
+		this.volumeBGM = jsonMap.has("volumeBgm") ? (float) jsonMap.get("volumeBgm") : Musique.VOLUME_MAXIMAL;
+		this.nomBGS = jsonMap.has("bgs") ? jsonMap.getString("bgs") : "";
+		this.volumeBGS = jsonMap.has("volumeBgs") ? (float) jsonMap.get("volumeBgs") : Musique.VOLUME_MAXIMAL;
 		this.nomTileset = jsonMap.getString("tileset");
 		this.largeur = jsonMap.getInt("largeur");
 		this.hauteur = jsonMap.getInt("hauteur");

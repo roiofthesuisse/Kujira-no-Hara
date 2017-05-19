@@ -8,8 +8,10 @@ import main.Fenetre;
 import main.Lecteur;
 import map.Event;
 import map.LecteurMap;
+import map.Map;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.son.LecteurAudio;
 
 /**
  * Le Lecteur de Menu a pour rôle de produire l'image à afficher à l'écran s'il s'agit d'un Menu.
@@ -212,6 +214,18 @@ public class LecteurMenu extends Lecteur {
 		int i = 0;
 		for (Commande commande : this.menu.comportementAnnulation) {
 			i = commande.executer(i, this.menu.comportementAnnulation);
+		}
+	}
+
+	@Override
+	public final void lireMusique() {
+		if (((LecteurMenu) this).menu==null) {
+			LOG.error("Le menu est null pour le lecteur");
+			return;
+		}
+		final Menu menu = ((LecteurMenu) this).menu;
+		if (menu.nomBGM != null && !menu.nomBGM.isEmpty()) {
+			LecteurAudio.playBgm(menu.nomBGM, menu.volumeBGM, 0);
 		}
 	}
 	

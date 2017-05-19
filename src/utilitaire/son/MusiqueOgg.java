@@ -50,7 +50,7 @@ public class MusiqueOgg extends Musique {
 		this.volumeActuel = nouveauVolume;
 	}
 	
-	public final void jouerUneSeuleFois(final Float volumeBgmMemorise) {
+	public final void jouerUneSeuleFois(final Float[] volumeBgmMemorise) {
 		class LancerOgg extends LancerSon {
 			private final OggClip oggClip;
 			

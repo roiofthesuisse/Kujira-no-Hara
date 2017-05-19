@@ -36,7 +36,7 @@ public class MusiqueMp3 extends Musique {
 		this.volumeActuel = nouveauVolume;
 	}
 	
-	public final void jouerUneSeuleFois(final Float volumeBgmMemorise) {
+	public final void jouerUneSeuleFois(final Float[] volumeBgmMemorise) {
 		class LancerMp3 extends LancerSon {
 			private final MediaPlayer mp3Clip;
 			

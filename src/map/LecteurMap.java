@@ -20,6 +20,7 @@ import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
+import utilitaire.son.LecteurAudio;
 import utilitaire.Maths;
 
 /**
@@ -869,6 +870,23 @@ public class LecteurMap extends Lecteur {
 	@Override
 	protected final String typeDeLecteur() {
 		return "LecteurMap";
+	}
+
+	@Override
+	public final void lireMusique() {
+		final Map map = ((LecteurMap) this).map;
+		if(map.volumeBGM == null){
+			LOG.warn("volumeBGM");
+		}
+		if(map.volumeBGS == null){
+			LOG.warn("volumeBGS");
+		}
+		if (map.nomBGM != null && !map.nomBGM.isEmpty()) {
+			LecteurAudio.playBgm(map.nomBGM, map.volumeBGM, 0);
+		}
+		if (map.nomBGS != null && !map.nomBGS.isEmpty()) {
+			LecteurAudio.playBgs(map.nomBGS, map.volumeBGS, 0);
+		}
 	}
 	
 }

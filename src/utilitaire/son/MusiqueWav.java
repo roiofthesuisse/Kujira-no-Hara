@@ -50,7 +50,7 @@ public class MusiqueWav extends Musique {
 		this.volumeActuel = nouveauVolume;
 	}
 	
-	public final void jouerUneSeuleFois(final Float volumeBgmMemorise) {
+	public final void jouerUneSeuleFois(final Float[] volumeBgmMemorise) {
 		class LancerWav extends LancerSon {
 			private final Clip wavClip;
 			

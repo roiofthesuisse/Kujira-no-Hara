@@ -10,9 +10,12 @@ import org.apache.logging.log4j.Logger;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.son.LecteurAudio;
+import utilitaire.son.Musique;
 import map.LecteurMap;
+import map.Map;
 import map.PageCommune;
 import menu.LecteurMenu;
+import menu.Menu;
 
 /**
  * Le lecteur peut être un lecteur de menu ou un lecteur de map.
@@ -84,31 +87,9 @@ public abstract class Lecteur {
 	
 	/***
 	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Menu ou la Map
-	 * @return nom du BGM à jouer
+	 * @return nom et volume du BGM, nom et volume du BGS
 	 */
-	public final String getNomBgm() {
-		if (this instanceof LecteurMap) {
-			return ((LecteurMap) this).map.nomBGM;
-		} else if (this instanceof LecteurMenu) {
-			if (((LecteurMenu) this).menu==null) {
-				LOG.error("Le menu est null pour le lecteur");
-			}
-			return ((LecteurMenu) this).menu.nomBGM;
-		}
-		return null;
-	}
-	
-	/***
-	 * Récupérer le nom du BGS qu'il faut jouer pour accompagner la Map
-	 * @return nom du BGS à jouer
-	 */
-	public final String getNomBgs() {
-		if (this instanceof LecteurMap) {
-			return ((LecteurMap) this).map.nomBGS;
-		}
-		//pas de bgs dans le menu
-		return null;
-	}
+	protected abstract void lireMusique();
 	
 	/**
 	 * Démarrer le Lecteur.
@@ -119,8 +100,8 @@ public abstract class Lecteur {
 		this.allume = true;
 		LOG.info("-------------------------------------------------------------");
 		LOG.info("Un nouveau "+this.typeDeLecteur()+" vient d'être démarré.");
-		LecteurAudio.playBgm(getNomBgm());
-		LecteurAudio.playBgs(getNomBgs());
+		//démarrer la Musique de la Map/du Menu
+		lireMusique();
 		
 		long t1, t2;
 		long dureeEffectiveDeLaFrame;
