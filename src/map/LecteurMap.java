@@ -155,8 +155,8 @@ public class LecteurMap extends Lecteur {
 		}
 		
 		//effet aquatique (lol)
-		if (this.map.effetAquatique) {
-			ecran = Graphismes.effetAquatique(ecran, frame);
+		if (this.map.ondulation != null) {
+			ecran = Ondulation.faireOndulerLEcran(ecran, frame);
 		}
 		
 		// Transition visuelle avec la Map précédente
