@@ -119,7 +119,7 @@ public class LecteurMap extends Lecteur {
 		//on dessine le décor inférieur
 		animerLesAutotiles();
 		ecran = dessinerDecorInferieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
-				
+		
 		//lecture des commandes event
 		continuerLaLectureDesPagesDeCommandesEvent();
 

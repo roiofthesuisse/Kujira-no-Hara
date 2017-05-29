@@ -103,7 +103,7 @@ public class Pluie extends Meteo {
 	}
 
 	@Override
-	protected final void ajouterUneGoutte() {
+	protected final void ajouterUneParticule() {
 		final int tailleGoutte = Maths.generateurAleatoire.nextInt(RATIO_ENTRE_LES_DEUX_TAILLES_DE_GOUTTES);
 		final int offsetX = LARGEUR_GOUTTE1;
 		final int offsetY = HAUTEUR_GOUTTE1;

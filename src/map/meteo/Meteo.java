@@ -3,6 +3,10 @@ package map.meteo;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import main.Lecteur;
 import utilitaire.Maths;
 
 /**
@@ -10,6 +14,7 @@ import utilitaire.Maths;
  * La Météo est constituée de particules animées à l'écran.
  */
 public abstract class Meteo {
+	protected static final Logger LOG = LogManager.getLogger(Meteo.class);
 	protected static int dureeDeVieParticule;
 	protected static int ratioIntensiteNombreDeParticules;
 	
@@ -32,33 +37,40 @@ public abstract class Meteo {
 	/**
 	 * Ajouter une goutte à la pluie.
 	 */
-	protected abstract void ajouterUneGoutte();
+	protected abstract void ajouterUneParticule();
 	
 	/**
 	 * Ajouter des gouttes à la pluie en fonction de l'intensité voulue pour l'intempérie.
 	 * @param numeroFrame numéro de la frame actuelle du LecteurMap
 	 */
 	protected final void ajouterDesParticulesSiNecessaire(final int numeroFrame) {
-		if (particules.size() < nombreDeParticulesNecessaires) {
-			//il faut rajouter des gouttes
-			if (dureeDeVieParticule <= nombreDeParticulesNecessaires
-			&& numeroFrame % (nombreDeParticulesNecessaires/dureeDeVieParticule) == 0) {
-				//ajouter les gouttes au fur et à mesure, pour éviter qu'elles arrivent toutes en groupe
-				ajouterUneGoutte();
-				if (Maths.generateurAleatoire.nextInt(2) == 1) {
-					ajouterUneGoutte();
-				}
-			} else {
-				//ajouter plusieurs gouttes à la fois car elles disparaissent plus vite qu'elles apparaissent
-				for (int i = 0; i<=nombreDeParticulesNecessaires/dureeDeVieParticule; i++) {
-					ajouterUneGoutte();
+		final int deficit = nombreDeParticulesNecessaires - recenserLesParticules();
+		if (deficit > 0) {
+			final int lenteurDApparition = dureeDeVieParticule / Lecteur.DUREE_FRAME;
+			final int probabilite = 1000/(Lecteur.DUREE_FRAME*deficit) + lenteurDApparition;
+			LOG.trace(particules.size()+"/"+nombreDeParticulesNecessaires+" => probabilité : 1/"+probabilite);
+			for (int i = 0; i<=deficit; i++) {
+				if (Maths.generateurAleatoire.nextInt(probabilite+1) == 0) {
+					ajouterUneParticule();
 				}
 			}
 		}
 	}
 	
 	/**
-	 * Calculer la position horizontae de la particule au cours du temps.
+	 * On ne recense pas les particules sur le point de mourir, pour anticiper le renouvellement.
+	 * @return nombre de particules jeunes
+	 */
+	private final int recenserLesParticules() {
+		int compte = 0;
+		for (Particule p : particules) {
+			compte += p.resteAVivre;
+		}
+		return 2*compte/dureeDeVieParticule; //fois deux car l'âge moyen est 50% de la durée de vie
+	}
+	
+	/**
+	 * Calculer la position horizontale de la particule au cours du temps.
 	 * @param particule et ses caractéristiques
 	 * @return position horizontale de la particule
 	 */

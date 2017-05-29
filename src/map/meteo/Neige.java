@@ -112,7 +112,7 @@ public class Neige extends Meteo {
 	}
 
 	@Override
-	protected final void ajouterUneGoutte() {
+	protected final void ajouterUneParticule() {
 		final int tailleFlocon = Maths.generateurAleatoire.nextInt(RATIO_ENTRE_LES_DEUX_TAILLES_DE_FLOCONS);
 		final int vitesse = tailleFlocon == 0 ? VITESSE_Y_FLOCON1 : VITESSE_Y_FLOCON2;
 		final int offsetFlocons = vitesse*dureeDeVieParticule; //pour combler le manque de flocons en bas de l'écran

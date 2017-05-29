@@ -16,7 +16,7 @@ public abstract class Maths {
 	public static final int POURCENTS = 100;
 	
 	/** Générateur de nombres aléatoires */
-	public static Random generateurAleatoire = new Random();
+	public final static Random generateurAleatoire = new Random();
 	
 	/**
 	 * Modulo
