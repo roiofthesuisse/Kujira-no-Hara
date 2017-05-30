@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
  * Différentes sortes d'intempéries 
  */
 public enum TypeDeMeteo {
-	PLUIE("pluie"), NEIGE("neige"), AIGRETTES("aigrettes"), RIEN("rien");
+	PLUIE("pluie"), NEIGE("neige"), TROCHOIDE("trochoide"), RIEN("rien");
 	
 	private static final Logger LOG = LogManager.getLogger(TypeDeMeteo.class);
 	

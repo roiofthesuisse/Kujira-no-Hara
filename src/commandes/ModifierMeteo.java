@@ -1,5 +1,6 @@
 package commandes;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -8,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import main.Commande;
 import main.Fenetre;
-import map.meteo.Aigrettes;
+import map.meteo.Trochoide;
 import map.meteo.Meteo;
 import map.meteo.Neige;
 import map.meteo.Pluie;
@@ -21,17 +22,17 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ModifierMeteo.class);
 	
 	private final TypeDeMeteo typeDeMeteo;
-	private int intensite;
+	private final HashMap<String, Object> parametres;
 	
 	/**
 	 * Constructeur explicite
 	 * @param nom de l'intempérie souhaitée
-	 * @param intensite de l'intempérie souhaitée
+	 * @param parametres de l'intempérie souhaitée
 	 */
-	public ModifierMeteo(final String nom, final int intensite) {
+	public ModifierMeteo(final String nom, final HashMap<String, Object> parametres) {
 		this.typeDeMeteo = TypeDeMeteo.obtenirParNom(nom);
 		LOG.info("Nouvelle météo : "+this.typeDeMeteo.nom);
-		this.intensite = intensite;
+		this.parametres = parametres;
 	}
 	
 	/**
@@ -40,30 +41,45 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 	 */
 	public ModifierMeteo(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("type") ? (String) parametres.get("type") : null,
-			  parametres.containsKey("intensite") ? (int) parametres.get("intensite") : 0	
+			  parametres	
 		);
 	}
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		final Meteo ancienneMeteo = Fenetre.getPartieActuelle().meteo;
 		Meteo nouvelleMeteo = null;
+		
+		final int intensite = parametres.containsKey("intensite") ? (int) parametres.get("intensite") : 0;
 		
 		switch (this.typeDeMeteo) {
 		case PLUIE:
-			nouvelleMeteo = new Pluie(this.intensite);
+			nouvelleMeteo = new Pluie(intensite);
 			break;
 		case NEIGE:
-			nouvelleMeteo = new Neige(this.intensite);
+			nouvelleMeteo = new Neige(intensite);
 			break;
-		case AIGRETTES:
-			nouvelleMeteo = new Aigrettes(this.intensite);
+		case TROCHOIDE:
+			final int dureeDeVie = (int) parametres.get("dureeDeVie");
+			final double vitesseX = (double) parametres.get("vitesseX");
+			final double vitesseY = (double) parametres.get("vitesseY");
+			final double vitesseRotation = (double) parametres.get("vitesseRotation");
+			final int rayonX = (int) parametres.get("rayonX");
+			final int rayonY = (int) parametres.get("rayonY");
+			final String nomImage = (String) parametres.get("image");
+			try {
+				nouvelleMeteo = new Trochoide(intensite, dureeDeVie, vitesseX, vitesseY, vitesseRotation, rayonX, rayonY, nomImage);
+			} catch (IOException e) {
+				LOG.error("Impossible d'instancier la Météo personnalisée.", e);
+				nouvelleMeteo = ancienneMeteo;
+			}
 			break;
 		default:
 			break;
 		}
 		
-		if (Meteo.verifierSiIdentiques(nouvelleMeteo, Fenetre.getPartieActuelle().meteo)) {
-			LOG.warn("Cette météo est identique à l'ancienne, on ne fait rien."+ nouvelleMeteo.getType()+" "+Fenetre.getPartieActuelle().meteo.getType());
+		if (Meteo.verifierSiIdentiques(nouvelleMeteo, ancienneMeteo)) {
+			LOG.warn("Cette météo est identique à l'ancienne, on ne fait rien."+ nouvelleMeteo.getType()+" "+ancienneMeteo.getType());
 		} else {
 			//la nouvelle météo proposée est différente de l'ancienne
 			Fenetre.getPartieActuelle().meteo = nouvelleMeteo;
