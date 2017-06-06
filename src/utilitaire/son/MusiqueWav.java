@@ -71,6 +71,13 @@ public class MusiqueWav extends Musique {
 		}
 		final LancerWav r2 = new LancerWav((Clip) this.clip, this.type);
 		this.thread = new Thread(r2, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
+		if (TypeMusique.ME.equals(type)) {
+			try {
+				Thread.sleep(DELAI_AVANT_ME);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		this.thread.start();
 	}
 	

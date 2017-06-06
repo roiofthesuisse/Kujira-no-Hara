@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import utilitaire.son.Musique.TypeMusique;
+
 /**
  * Fichier audio au format OGG.
  */
@@ -132,6 +134,13 @@ public class MusiqueOgg extends Musique {
 		}
 		final LancerOgg r1 = new LancerOgg((OggClip) this.clip, this.type);
 		this.thread = new Thread(r1, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
+		if (TypeMusique.ME.equals(type)) {
+			try {
+				Thread.sleep(DELAI_AVANT_ME);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		this.thread.start();
 	}
 	

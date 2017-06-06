@@ -66,6 +66,13 @@ public class MusiqueMp3 extends Musique {
 		}
 		final LancerMp3 r3 = new LancerMp3((MediaPlayer) this.clip, this.type);
 		this.thread = new Thread(r3, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
+		if (TypeMusique.ME.equals(type)) {
+			try {
+				Thread.sleep(DELAI_AVANT_ME);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		this.thread.start();
 	}
 	

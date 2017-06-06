@@ -17,6 +17,7 @@ public abstract class Musique {
 	private static final long DUREE_MAXIMALE_SE = 5000; //en millisecondes
 	/** Quand il est impossible de calculer la durée du ME */
 	protected static final long DUREE_PAR_DEFAUT_ME = 10000; //en millisecondes
+	protected static final long DELAI_AVANT_ME = 500; //en millisecondes
 	
 	/**
 	 * Le clip peut être un Clip javax ou bien un OggClip.
@@ -93,7 +94,7 @@ public abstract class Musique {
 		    } else if (TypeMusique.ME.equals(this.type)) {
 		    	// attendre la fin du ME
 		    	try {
-		    		Thread.sleep(this.obtenirDuree());
+		    		Thread.sleep(DELAI_AVANT_ME+this.obtenirDuree());
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
