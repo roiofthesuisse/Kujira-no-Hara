@@ -700,6 +700,7 @@ public class LecteurMap extends Lecteur {
 		} else {
 			//grande map, défilement possible
 			final int xCamera = map.heros.x - Fenetre.LARGEUR_ECRAN/2;
+			
 			if (xCamera<0) { //caméra ne déborde pas de la map à gauche
 				return (this.defilementX>0 ? this.defilementX : 0) 
 						+ this.tremblementDeTerre;
@@ -727,6 +728,7 @@ public class LecteurMap extends Lecteur {
 		} else {
 			//grande map, défilement possible
 			final int yCamera = map.heros.y - Fenetre.HAUTEUR_ECRAN/2;
+			
 			if (yCamera<0) { //caméra ne déborde pas de la map en haut
 				return 0 + (this.defilementY>0 ? this.defilementY : 0);
 			} else if (yCamera+Fenetre.HAUTEUR_ECRAN > hauteurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map en bas
@@ -880,10 +882,10 @@ public class LecteurMap extends Lecteur {
 	@Override
 	public final void lireMusique() {
 		final Map map = ((LecteurMap) this).map;
-		if(map.volumeBGM == null){
+		if (map.volumeBGM == null) {
 			LOG.warn("volumeBGM");
 		}
-		if(map.volumeBGS == null){
+		if (map.volumeBGS == null) {
 			LOG.warn("volumeBGS");
 		}
 		if (map.nomBGM != null && !map.nomBGM.isEmpty()) {
@@ -892,6 +894,14 @@ public class LecteurMap extends Lecteur {
 		if (map.nomBGS != null && !map.nomBGS.isEmpty()) {
 			LecteurAudio.playBgs(map.nomBGS, map.volumeBGS, 0);
 		}
+	}
+	
+	/**
+	 * La Transition à partir de la Map précédente est-elle terminée ?
+	 * @return true si fini
+	 */
+	public final boolean laTransitionEstTerminee() {
+		return Transition.AUCUNE.equals(this.transition) || this.frameActuelle >= Transition.DUREE_TRANSITION;
 	}
 	
 }

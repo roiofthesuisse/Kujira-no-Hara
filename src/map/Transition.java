@@ -26,36 +26,39 @@ public enum Transition {
 		public BufferedImage calculer(BufferedImage ecranNouvelleMap, int frame) {
 			BufferedImage resultat;
 			if (frame < DUREE_TRANSITION) {
-					int xTransitionNouvelleMap = 0;
-					int yTransitionNouvelleMap = 0;
-					int xTransitionAncienneMap = 0;
-					int yTransitionAncienneMap = 0;
-					// La direction du héros donne le sens de la Transition
-					switch (this.direction) {
-					case Direction.BAS:
-						yTransitionNouvelleMap = Fenetre.HAUTEUR_ECRAN - Fenetre.HAUTEUR_ECRAN * frame/DUREE_TRANSITION;
-						yTransitionAncienneMap = yTransitionNouvelleMap - Fenetre.HAUTEUR_ECRAN;
-						break;
-					case Direction.HAUT:
-						yTransitionNouvelleMap = - Fenetre.HAUTEUR_ECRAN + Fenetre.HAUTEUR_ECRAN * frame/DUREE_TRANSITION;
-						yTransitionAncienneMap = yTransitionNouvelleMap + Fenetre.HAUTEUR_ECRAN;
-						break;
-					case Direction.DROITE:
-						xTransitionNouvelleMap = Fenetre.LARGEUR_ECRAN - Fenetre.LARGEUR_ECRAN * frame/DUREE_TRANSITION;
-						xTransitionAncienneMap = xTransitionNouvelleMap - Fenetre.LARGEUR_ECRAN;
-						break;
-					case Direction.GAUCHE:
-						xTransitionNouvelleMap = - Fenetre.LARGEUR_ECRAN + Fenetre.LARGEUR_ECRAN * frame/DUREE_TRANSITION;
-						xTransitionAncienneMap = xTransitionNouvelleMap + Fenetre.LARGEUR_ECRAN;
-						break;
-					}
-					resultat = Graphismes.ecranColore(Color.BLACK);
-					resultat = Graphismes.superposerImages(resultat, ecranNouvelleMap, xTransitionNouvelleMap, yTransitionNouvelleMap);
-					resultat = Graphismes.superposerImages(resultat, captureDeLaMapPrecedente, xTransitionAncienneMap, yTransitionAncienneMap);
-					
-					return resultat;
+				//transition en cours
+				int xTransitionNouvelleMap = 0;
+				int yTransitionNouvelleMap = 0;
+				int xTransitionAncienneMap = 0;
+				int yTransitionAncienneMap = 0;
+				// La direction du héros donne le sens de la Transition
+				switch (this.direction) {
+				case Direction.BAS:
+					yTransitionNouvelleMap = Fenetre.HAUTEUR_ECRAN - Fenetre.HAUTEUR_ECRAN * frame/DUREE_TRANSITION;
+					yTransitionAncienneMap = yTransitionNouvelleMap - Fenetre.HAUTEUR_ECRAN;
+					break;
+				case Direction.HAUT:
+					yTransitionNouvelleMap = - Fenetre.HAUTEUR_ECRAN + Fenetre.HAUTEUR_ECRAN * frame/DUREE_TRANSITION;
+					yTransitionAncienneMap = yTransitionNouvelleMap + Fenetre.HAUTEUR_ECRAN;
+					break;
+				case Direction.DROITE:
+					xTransitionNouvelleMap = Fenetre.LARGEUR_ECRAN - Fenetre.LARGEUR_ECRAN * frame/DUREE_TRANSITION;
+					xTransitionAncienneMap = xTransitionNouvelleMap - Fenetre.LARGEUR_ECRAN;
+					break;
+				case Direction.GAUCHE:
+					xTransitionNouvelleMap = - Fenetre.LARGEUR_ECRAN + Fenetre.LARGEUR_ECRAN * frame/DUREE_TRANSITION;
+					xTransitionAncienneMap = xTransitionNouvelleMap + Fenetre.LARGEUR_ECRAN;
+					break;
+				}
+				resultat = Graphismes.ecranColore(Color.BLACK);
+				resultat = Graphismes.superposerImages(resultat, ecranNouvelleMap, xTransitionNouvelleMap, yTransitionNouvelleMap);
+				resultat = Graphismes.superposerImages(resultat, captureDeLaMapPrecedente, xTransitionAncienneMap, yTransitionAncienneMap);
+				
+				return resultat;
+			} else {
+				//transition terminée
+				return ecranNouvelleMap;
 			}
-			return ecranNouvelleMap;
 		}
 	},
 	ROND("rond") {
@@ -63,6 +66,7 @@ public enum Transition {
 		public BufferedImage calculer(BufferedImage ecranNouvelleMap, int frame) {
 			BufferedImage resultat;
 			if (frame < DUREE_TRANSITION) {
+				//transition en cours
 				int x, y, largeur, hauteur;
 				if (frame <= DUREE_TRANSITION/2) {
 					// Rond qui rétrécit
@@ -102,13 +106,15 @@ public enum Transition {
 					
 					return resultat;
 				}
+			} else {
+				//transition terminée
+				return ecranNouvelleMap;
 			}
-			return ecranNouvelleMap;
 		}
 	};
 	
 	// Constantes
-	private final static int DUREE_TRANSITION = Lecteur.DUREE_FRAME;
+	public final static int DUREE_TRANSITION = Lecteur.DUREE_FRAME;
 	private final static int DEMI_DIAGONALE = (int) Math.sqrt(Fenetre.LARGEUR_ECRAN*Fenetre.LARGEUR_ECRAN/4+Fenetre.HAUTEUR_ECRAN*Fenetre.HAUTEUR_ECRAN/4);
 	
 	private final String nom;

@@ -66,6 +66,9 @@ public class Heros extends Event {
 			this.animation = Fenetre.getPartieActuelle().getArmeEquipee().framesDAnimation[animationAttaque-1];
 			
 			animationAttaque--;
+		} else if (!this.map.lecteur.laTransitionEstTerminee()) {
+			//pas de déplacement du Héros si la Transition n'est pas terminée
+			
 		} else if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
 			//il y a un déplacement forcé
 			this.deplacementForce.executerLePremierMouvement();
