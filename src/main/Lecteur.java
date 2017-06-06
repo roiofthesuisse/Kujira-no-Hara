@@ -111,6 +111,9 @@ public abstract class Lecteur {
 				} catch (InterruptedException e) {
 					LOG.error("La boucle de lecture du jeu dans Lecteur.demarrer() n'a pas réussi son sleep().", e);
 				}
+			} else {
+				//l'affichage a pris trop de temps
+				LOG.warn("Irrespect de la vitesse d'affichage : "+dureeEffectiveDeLaFrame+"/"+Lecteur.DUREE_FRAME);
 			}
 			this.fenetre.actualiserAffichage(this.ecranAtuel);
 			this.frameActuelle++;

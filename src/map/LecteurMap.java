@@ -95,7 +95,7 @@ public class LecteurMap extends Lecteur {
 	 * @return écran représentant la Map
 	 */
 	public final BufferedImage calculerAffichage(final int frame) {
-		//final long t0 = System.currentTimeMillis(); //mesure de performances
+		//final long t0 = System.nanoTime(); //mesure de performances
 		
 		//éventuelle sortie vers la Map adjacente
 		this.map.sortirVersLaMapAdjacente();
@@ -191,7 +191,6 @@ public class LecteurMap extends Lecteur {
 		
 		ajouterLesEventsAAjouter();
 		
-		//final long t1 = System.currentTimeMillis(); //mesure de performances
 		//this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
 
 		return ecran;
@@ -350,20 +349,19 @@ public class LecteurMap extends Lecteur {
 		//en cas de stopEvent, seul l'Event qui a figé tout le monde est lu (Commandes)
 		if (stopEvent) {
 			activerUnePageEtLExecuter(this.eventQuiALanceStopEvent);
-			return;
-		}
-		
-		//lire tous les Events de la Map (sauf le Héros)
-		for (Event event : this.map.events) {
-			if (!event.equals(this.map.heros)) { //le Héros est calculé en dernier
-				activerUnePageEtLExecuter(event);
+		} else {
+			//lire tous les Events de la Map (sauf le Héros)
+			for (Event event : this.map.events) {
+				if (!event.equals(this.map.heros)) { //le Héros est calculé en dernier
+					activerUnePageEtLExecuter(event);
+				}
 			}
+			//le Héros est calculé en dernier pour éviter les problèmes d'épée
+			activerUnePageEtLExecuter(this.map.heros);
+			
+			//lire les PagesCommunes
+			lireLesPagesCommunes();
 		}
-		//le Héros est calculé en dernier pour éviter les problèmes d'épée
-		activerUnePageEtLExecuter(this.map.heros);
-		
-		//lire les PagesCommunes
-		lireLesPagesCommunes();
 	}
 	
 	/**
@@ -375,6 +373,7 @@ public class LecteurMap extends Lecteur {
 			if (event.pageActive == null || event.pageActive.commandes==null) {
 				event.activerUnePage();
 			}
+
 			if (event.pageActive != null) {
 				event.pageActive.executer();
 			}

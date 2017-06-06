@@ -5,11 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.UnsupportedAudioFileException;
-
 /**
  * Fichier audio au format OGG.
  */
@@ -29,18 +24,22 @@ public class MusiqueOgg extends Musique {
 			}
 			//durée
 			if (TypeMusique.ME.equals(type)) {
-				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(fichierOgg);
-				AudioFormat format = audioInputStream.getFormat();
-				long frames = audioInputStream.getFrameLength();
-				this.dureeMillisecondes = (long) ((1000*frames+0.0) / format.getFrameRate());  
+				this.dureeMillisecondes = calculerDuree(fichierOgg);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (UnsupportedAudioFileException e) {
-			LOG.error("La musique "+this.nom+" n'est pas gérée par AudioSystem.", e);
 		}
+	}
+	
+	private final long calculerDuree(File fichier) {
+		//TODO
+		//look for last "OggS" of file
+		//read a byte (should be 0)
+		//read a byte (only bit 3 should be set)
+		//then read a 64-bit little endian value
+		return 1000;
 	}
 	
 	public final void modifierVolume(final float nouveauVolume) {
