@@ -13,7 +13,10 @@ public abstract class Musique {
 	//constantes
 	protected static final Logger LOG = LogManager.getLogger(Musique.class);
 	public static final float VOLUME_MAXIMAL = 1.0f;
+	/** Un SE trop long sera tronqué */
 	private static final long DUREE_MAXIMALE_SE = 5000; //en millisecondes
+	/** Quand il est impossible de calculer la durée du ME */
+	protected static final long DUREE_PAR_DEFAUT_ME = 10000; //en millisecondes
 	
 	/**
 	 * Le clip peut être un Clip javax ou bien un OggClip.

@@ -299,7 +299,9 @@ public class OggClip {
 		}
 		
 		player = null;
-		outputLine.drain();
+		if (outputLine!=null) {
+			outputLine.drain();
+		}
 	}
 	
 	/**

@@ -51,9 +51,9 @@ public abstract class LecteurAudio {
 		final Musique musique;
 		if (nom.endsWith(".ogg")) {
 			musique = new MusiqueOgg(nom, Musique.TypeMusique.ME, volume);
-		} else if(nom.endsWith(".wav")) {
+		} else if (nom.endsWith(".wav")) {
 			musique = new MusiqueWav(nom, Musique.TypeMusique.ME, volume);
-		} else if(nom.endsWith(".mp3")) {
+		} else if (nom.endsWith(".mp3")) {
 			musique = new MusiqueMp3(nom, Musique.TypeMusique.ME, volume);
 		} else {
 			LOG.error("Format audio inconnu : "+nom);
@@ -62,8 +62,10 @@ public abstract class LecteurAudio {
 		final Float[] volumeBgmMemorise = new Float[NOMBRE_DE_PISTES];
 		for (int i = 0; i<NOMBRE_DE_PISTES; i++) {
 			final Musique bgm = LecteurAudio.bgmEnCours[i];
-			volumeBgmMemorise[i] = LecteurAudio.bgmEnCours[i].volumeActuel;
-			bgm.modifierVolume(0);
+			if (bgm != null) {
+				volumeBgmMemorise[i] = bgm.volumeActuel;
+				bgm.modifierVolume(0);
+			}
 		}
 		musique.jouerUneSeuleFois(volumeBgmMemorise);
 	}
