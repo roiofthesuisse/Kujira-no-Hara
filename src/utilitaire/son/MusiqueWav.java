@@ -54,8 +54,8 @@ public class MusiqueWav extends Musique {
 		class LancerWav extends LancerSon {
 			private final Clip wavClip;
 			
-			private LancerWav(Clip clip, TypeMusique type, long duree) {
-				super(type, duree, volumeBgmMemorise);
+			private LancerWav(Clip clip, TypeMusique type) {
+				super(type, volumeBgmMemorise);
 				this.wavClip = clip;
 			}
 
@@ -63,8 +63,13 @@ public class MusiqueWav extends Musique {
 			    wavClip.start(); //jouer une seule fois
 			    fermerALaFin();
 			}
+
+			@Override
+			long obtenirDuree() {
+				return dureeMillisecondes;
+			}
 		}
-		final LancerWav r2 = new LancerWav((Clip) this.clip, this.type, this.dureeMillisecondes);
+		final LancerWav r2 = new LancerWav((Clip) this.clip, this.type);
 		this.thread = new Thread(r2, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 		this.thread.start();
 	}

@@ -23,10 +23,6 @@ public class MusiqueMp3 extends Musique {
 		if (volume < VOLUME_MAXIMAL) {
 			this.modifierVolume(volume);
 		}
-		//durée
-		if (TypeMusique.ME.equals(type)) {
-			this.dureeMillisecondes = (long) mediaPlayer.getTotalDuration().toMillis();
-		}
 	}
 	
 	public final void modifierVolume(final float nouveauVolume) {
@@ -40,9 +36,22 @@ public class MusiqueMp3 extends Musique {
 		class LancerMp3 extends LancerSon {
 			private final MediaPlayer mp3Clip;
 			
-			private LancerMp3(MediaPlayer clip, TypeMusique type, long duree) {
-				super(type, duree, volumeBgmMemorise);
+			private LancerMp3(MediaPlayer clip, TypeMusique type) {
+				super(type, volumeBgmMemorise);
 				this.mp3Clip = clip;
+			}
+			
+			final long obtenirDuree() {
+				this.mp3Clip.setOnReady(this);
+				final long dureeMs = (long) this.mp3Clip.getTotalDuration().toMillis();
+				if (dureeMs>0) {
+					dureeMillisecondes = dureeMs;
+					LOG.debug("Durée du MP3 "+nom+": "+dureeMs+" ms");
+					return dureeMs;
+				} else {
+					LOG.warn("Durée du MP3 inacessible !");
+					return Musique.DUREE_PAR_DEFAUT_ME;
+				}
 			}
 			
 			/**
@@ -53,8 +62,9 @@ public class MusiqueMp3 extends Musique {
 				mp3Clip.play();
 				fermerALaFin();
 			}
+			
 		}
-		final LancerMp3 r3 = new LancerMp3((MediaPlayer) this.clip, this.type, this.dureeMillisecondes);
+		final LancerMp3 r3 = new LancerMp3((MediaPlayer) this.clip, this.type);
 		this.thread = new Thread(r3, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 		this.thread.start();
 	}

@@ -115,8 +115,8 @@ public class MusiqueOgg extends Musique {
 		class LancerOgg extends LancerSon {
 			private final OggClip oggClip;
 			
-			LancerOgg(OggClip oggClip, TypeMusique type, long duree){
-				super(type, duree, volumeBgmMemorise);
+			LancerOgg(OggClip oggClip, TypeMusique type){
+				super(type, volumeBgmMemorise);
 				this.oggClip = oggClip;
 			}
 
@@ -124,8 +124,13 @@ public class MusiqueOgg extends Musique {
 			    this.oggClip.play(); //jouer une seule fois
 			    fermerALaFin();
 			}
+
+			@Override
+			long obtenirDuree() {
+				return dureeMillisecondes;
+			}
 		}
-		final LancerOgg r1 = new LancerOgg((OggClip) this.clip, this.type, this.dureeMillisecondes);
+		final LancerOgg r1 = new LancerOgg((OggClip) this.clip, this.type);
 		this.thread = new Thread(r1, this.type.nom+" "+this.format.nom+" ("+this.nom+")");
 		this.thread.start();
 	}

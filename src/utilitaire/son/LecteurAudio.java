@@ -28,17 +28,18 @@ public abstract class LecteurAudio {
 	 * @param volume sonore
 	 */
 	public static synchronized void playSe(final String nom, final float volume) {
-		Musique musique;
+		final Musique musique;
 		if (nom.endsWith(".ogg")) {
 			musique = new MusiqueOgg(nom, Musique.TypeMusique.SE, volume);
-		} else if(nom.endsWith(".wav")) {
+		} else if (nom.endsWith(".wav")) {
 			musique = new MusiqueWav(nom, Musique.TypeMusique.SE, volume);
-		} else if(nom.endsWith(".mp3")) {
+		} else if (nom.endsWith(".mp3")) {
 			musique = new MusiqueMp3(nom, Musique.TypeMusique.SE, volume);
 		} else {
 			LOG.error("Format audio inconnu : "+nom);
 			return;
 		}
+		LOG.debug("SE démarré : "+nom);
 		musique.jouerUneSeuleFois(null);
 	}
 	
@@ -67,6 +68,7 @@ public abstract class LecteurAudio {
 				bgm.modifierVolume(0);
 			}
 		}
+		LOG.debug("ME démarré : "+nom);
 		musique.jouerUneSeuleFois(volumeBgmMemorise);
 	}
 	
@@ -99,14 +101,15 @@ public abstract class LecteurAudio {
 			final Musique musique;
 			if (nom.endsWith(".ogg")) {
 				musique = new MusiqueOgg(nom, Musique.TypeMusique.BGM, volume);
-			} else if(nom.endsWith(".wav")) {
+			} else if (nom.endsWith(".wav")) {
 				musique = new MusiqueWav(nom, Musique.TypeMusique.BGM, volume);
-			} else if(nom.endsWith(".mp3")) {
+			} else if (nom.endsWith(".mp3")) {
 				musique = new MusiqueMp3(nom, Musique.TypeMusique.BGM, volume);
 			} else {
 				LOG.error("Format audio inconnu : "+nom);
 				return;
 			}
+			LOG.debug("BGM démarré : "+nom);
 			musique.jouerEnBoucle();
 				
 			// On met à jour les données
@@ -122,7 +125,10 @@ public abstract class LecteurAudio {
 	public static synchronized void stopBgm(final int piste) {
 		if (LecteurAudio.bgmEnCours[piste] != null) {
 			LecteurAudio.bgmEnCours[piste].arreter();
+			LOG.debug("Arrêt du BGM");
 			LecteurAudio.bgmEnCours[piste] = null;
+		} else {
+			LOG.debug("Le BGM est déjà arrêté.");
 		}
 	}
 
@@ -147,14 +153,15 @@ public abstract class LecteurAudio {
 			final Musique musique;
 			if (nom.endsWith(".ogg")) {
 				musique = new MusiqueOgg(nom, Musique.TypeMusique.BGS, volume);
-			} else if(nom.endsWith(".wav")) {
+			} else if (nom.endsWith(".wav")) {
 				musique = new MusiqueWav(nom, Musique.TypeMusique.BGS, volume);
-			} else if(nom.endsWith(".mp3")) {
+			} else if (nom.endsWith(".mp3")) {
 				musique = new MusiqueMp3(nom, Musique.TypeMusique.BGS, volume);
 			} else {
 				LOG.error("Format audio inconnu : "+nom);
 				return;
 			}
+			LOG.debug("BGS démarré : "+nom);
 			musique.jouerEnBoucle();
 				
 			// On met à jour les données
@@ -173,7 +180,10 @@ public abstract class LecteurAudio {
 	public static synchronized void stopBgs(final int piste) {
 		if (LecteurAudio.bgsEnCours[piste] != null) {
 			LecteurAudio.bgsEnCours[piste].arreter();
+			LOG.debug("Arrêt du BGS");
 			LecteurAudio.bgsEnCours[piste] = null;
+		} else {
+			LOG.debug("Le BGS est déjà arrêté.");
 		}
 	}
 	

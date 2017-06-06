@@ -67,15 +67,15 @@ public abstract class Musique {
 	 */
 	abstract class LancerSon implements Runnable {
 		private final TypeMusique type;
-		private final long duree;
 		private final Float[] volumeBgmMemorise;
 		
-		protected LancerSon(TypeMusique type, long duree, Float[] volumeBgmMemorise) {
+		protected LancerSon(TypeMusique type, Float[] volumeBgmMemorise) {
 			super();
 			this.type = type;
-			this.duree = duree;
 			this.volumeBgmMemorise = volumeBgmMemorise;
 		}
+		
+		abstract long obtenirDuree();
 		
 		/**
 		 * Refermer le clip à la fin de son execution.
@@ -93,16 +93,21 @@ public abstract class Musique {
 		    } else if (TypeMusique.ME.equals(this.type)) {
 		    	// attendre la fin du ME
 		    	try {
-		    		Thread.sleep(this.duree);
+		    		Thread.sleep(this.obtenirDuree());
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 		    	
 		    	// redémarrer le BGM après la fin du ME
-		    	for (int i = 0 ; i<LecteurAudio.NOMBRE_DE_PISTES; i++) {
+		    	for (int i = 0; i<LecteurAudio.NOMBRE_DE_PISTES; i++) {
 		    		final Musique bgm = LecteurAudio.bgmEnCours[i];
 			    	if (bgm != null) {
-			    		bgm.modifierVolume(this.volumeBgmMemorise[i]);
+			    		Float ancienVolume = this.volumeBgmMemorise[i];
+			    		if (ancienVolume == null) {
+			    			LOG.warn("Le ME est arrêté sans volume BGM à restituer.");
+			    			ancienVolume = Musique.VOLUME_MAXIMAL;
+			    		}
+			    		bgm.modifierVolume(ancienVolume);
 			    	}
 		    	}
 		    }
