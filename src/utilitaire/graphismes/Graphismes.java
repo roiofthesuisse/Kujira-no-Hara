@@ -8,6 +8,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
+import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
 
@@ -222,11 +223,9 @@ public abstract class Graphismes {
 	 * @return clone de l'image
 	 */
 	public static BufferedImage clonerUneImage(final BufferedImage image) {
-		BufferedImage clone = creerUneImageVideDeMemeTaille(image);
-		
-		// Ajout de l'image de boîte de dialogue
-		clone = Graphismes.superposerImages(clone, image, 0, 0);
-		return clone;
+	    boolean isAlphaPremultiplied = COLORMODEL.isAlphaPremultiplied();
+	    WritableRaster raster = image.copyData(image.getRaster().createCompatibleWritableRaster());
+	    return new BufferedImage(COLORMODEL, raster, isAlphaPremultiplied, null);
 	}
 	
 	/**
