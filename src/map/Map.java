@@ -257,17 +257,14 @@ public class Map implements Sauvegardable {
 	private void creerImageDuDecorEnDessousDuHeros() {
 		final long t0 = System.nanoTime();
 		
-		int nombreDeVignettes = this.contientDesAutotilesAnimes ? Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME : 1;
-		
 		final int largeurPixel = this.largeur*Fenetre.TAILLE_D_UN_CARREAU;
 		final int hauteurPixel = this.hauteur*Fenetre.TAILLE_D_UN_CARREAU;
 		
-		for (int v = 0; v<nombreDeVignettes; v++) {
-			this.imagesCoucheSousHeros[v] = Graphismes.imageVide(largeurPixel, hauteurPixel);
-		}
+		this.imagesCoucheSousHeros[0] = Graphismes.imageVide(largeurPixel, hauteurPixel);
 		
 		int numeroCarreau;
 		int altitudeCarreau;
+		int nombreDeVignettes = 1;
 		for (int i = 0; i<largeur; i++) {
 			for (int j = 0; j<hauteur; j++) {
 				for (int altitudeActuelle = 0; altitudeActuelle<NOMBRE_ALTITUDES_SOUS_HEROS; altitudeActuelle++) {
@@ -286,7 +283,7 @@ public class Map implements Sauvegardable {
 									}
 								} else if (numeroCarreau < -1) { 
 									//autotile
-									dessinerAutotile(this.imagesCoucheSousHeros, nombreDeVignettes, i, j, numeroCarreau, tileset, layer);
+									nombreDeVignettes = dessinerAutotile(this.imagesCoucheSousHeros, i, j, numeroCarreau, tileset, layer);
 								}
 							}
 						}
@@ -305,17 +302,14 @@ public class Map implements Sauvegardable {
 	private void creerImageDuDecorAuDessusDuHeros() {
 		final long t0 = System.nanoTime();
 		
-		final int nombreDeVignettes = this.contientDesAutotilesAnimes ? Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME : 1;
-		
 		final int largeurPixel = this.largeur*Fenetre.TAILLE_D_UN_CARREAU;
 		final int hauteurPixel = this.hauteur*Fenetre.TAILLE_D_UN_CARREAU;
 		
-		for (int v = 0; v<nombreDeVignettes; v++) {
-			this.imagesCoucheSurHeros[v] = Graphismes.imageVide(largeurPixel, hauteurPixel);
-		}
+		this.imagesCoucheSurHeros[0] = Graphismes.imageVide(largeurPixel, hauteurPixel);
 		
 		int numeroCarreau;
 		int altitudeCarreau;
+		int nombreDeVignettes = 1;
 		for (int i = 0; i<largeur; i++) {
 			for (int j = 0; j<hauteur; j++) {
 				for (int altitudeActuelle = NOMBRE_ALTITUDES_SOUS_HEROS; altitudeActuelle<NOMBRE_ALTITUDES_SOUS_HEROS+NOMBRE_ALTITUDES_SUR_HEROS; altitudeActuelle++) {
@@ -334,7 +328,7 @@ public class Map implements Sauvegardable {
 									}
 								} else if (numeroCarreau < -1) { 
 									//autotile
-									dessinerAutotile(this.imagesCoucheSurHeros, nombreDeVignettes, i, j, numeroCarreau, tileset, layer);
+									nombreDeVignettes = dessinerAutotile(this.imagesCoucheSurHeros, i, j, numeroCarreau, tileset, layer);
 								}
 							}
 						}
@@ -365,28 +359,39 @@ public class Map implements Sauvegardable {
 	 * Dessiner à l'écran un carreau issu d'un autotile.
 	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
 	 * @param decorAnime partie animée du décor (à peindre dans le cas d'un Autotile animé)
-	 * @param nombreDeVignettes à peindre
 	 * @param x coordonnée x du carreau sur la Map
 	 * @param y coordonnée y du carreau sur la Map
 	 * @param numeroCarreau numéro de l'autotile (numéro négatif)
 	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
 	 * @param layer couche de décor à laquelle appartient le carreau
+	 * @return nombre de vignettes nécessaires pour constituer le décor éventuellement animé
 	 */
-	public final void dessinerAutotile(final BufferedImage[] decorAnime, final int nombreDeVignettes, final int x, final int y,
+	public final int dessinerAutotile(final BufferedImage[] decorAnime, final int x, final int y,
 			final int numeroCarreau, final Tileset tilesetUtilise, final int[][] layer) {
 		final Autotile autotile = tilesetUtilise.autotiles.get(numeroCarreau);
 		
 		//on prévient la Map qu'elle aura un décor animé
-		if (autotile.anime) {
+		if (autotile.anime && !this.contientDesAutotilesAnimes) {
 			this.contientDesAutotilesAnimes = true;
+			LOG.debug("Cette map contient des autotiles animés.");
 		}
+		
+		// on crée les vignettes manquantes pour l'animation du décor
+		if (this.contientDesAutotilesAnimes && decorAnime[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME - 1] == null) {
+			for (int i = 1; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {
+				decorAnime[i] = Graphismes.clonerUneImage(decorAnime[0]);
+			}
+			LOG.debug("Création des différentes vignettes d'animation du décor.");
+		}
+		
+		final int nombreDeVignettes = this.contientDesAutotilesAnimes ? Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME : 1;
 		
 		//on calcule l'apparence du carreau Autotile
 		final BufferedImage[] dessinCarreau = autotile.calculerAutotile(x, y, this.largeur, this.hauteur, numeroCarreau, layer);
 		
 		if (autotile.anime) {
 			//décor animé : on dessine les 4 étapes de l'animation du décor
-			for (int i = 0; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {
+			for (int i = 0; i<nombreDeVignettes; i++) {
 				Graphismes.superposerImages(decorAnime[i], dessinCarreau[i], x*Fenetre.TAILLE_D_UN_CARREAU, y*Fenetre.TAILLE_D_UN_CARREAU);
 			}
 		} else {
@@ -395,6 +400,8 @@ public class Map implements Sauvegardable {
 				Graphismes.superposerImages(decorAnime[i], dessinCarreau[0], x*Fenetre.TAILLE_D_UN_CARREAU, y*Fenetre.TAILLE_D_UN_CARREAU);
 			}
 		}
+		
+		return nombreDeVignettes;
 	}
 
 	/**
