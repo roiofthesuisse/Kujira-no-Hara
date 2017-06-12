@@ -255,60 +255,47 @@ public class Map implements Sauvegardable {
 	 * On affiche en premier le décor arrière.
 	 */
 	private void creerImageDuDecorEnDessousDuHeros() {
-		//on initialise les images des couches
-		final BufferedImage[] couches = new BufferedImage[NOMBRE_ALTITUDES_SOUS_HEROS];
-		final BufferedImage[][] couchesAutotile = new BufferedImage[NOMBRE_ALTITUDES_SOUS_HEROS][Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
+		final long t0 = System.nanoTime();
+		
+		int nombreDeVignettes = this.contientDesAutotilesAnimes ? Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME : 1;
+		
 		final int largeurPixel = this.largeur*Fenetre.TAILLE_D_UN_CARREAU;
 		final int hauteurPixel = this.hauteur*Fenetre.TAILLE_D_UN_CARREAU;
-		for (int i = 0; i<NOMBRE_ALTITUDES_SOUS_HEROS; i++) {
-			couches[i] = Graphismes.imageVide(largeurPixel, hauteurPixel);
-			for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
-				couchesAutotile[i][j] = Graphismes.imageVide(largeurPixel, hauteurPixel);
-			}
+		
+		for (int v = 0; v<nombreDeVignettes; v++) {
+			this.imagesCoucheSousHeros[v] = Graphismes.imageVide(largeurPixel, hauteurPixel);
 		}
 		
-		//on dessine les carreaux sur les couches
 		int numeroCarreau;
 		int altitudeCarreau;
-		BufferedImage couche;
-		BufferedImage[] coucheAnimee;
 		for (int i = 0; i<largeur; i++) {
 			for (int j = 0; j<hauteur; j++) {
-				for (int k = 0; k<NOMBRE_LAYERS; k++) {
-					final int[][] layer = layers[k];
-					try {
+				for (int altitudeActuelle = 0; altitudeActuelle<NOMBRE_ALTITUDES_SOUS_HEROS; altitudeActuelle++) {
+					for (int k = 0; k<NOMBRE_LAYERS; k++) {
+						final int[][] layer = layers[k];
 						numeroCarreau = layer[i][j];
-						altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
-						if (altitudeCarreau<NOMBRE_ALTITUDES_SOUS_HEROS) {
-							if (numeroCarreau >= 0) { 
-								//case normale
-								couche = couches[altitudeCarreau];
-								dessinerCarreau(couche, i, j, numeroCarreau, tileset);
-							} else if (numeroCarreau < -1) { 
-								//autotile
-								couche = couches[altitudeCarreau];
-								coucheAnimee = couchesAutotile[altitudeCarreau];
-								dessinerAutotile(couche, coucheAnimee, i, j, numeroCarreau, tileset, layer);
+						if (numeroCarreau == -1) {
+							//case vide, on ne dessine rien
+						} else {
+							altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
+							if (altitudeCarreau == altitudeActuelle) {
+								if (numeroCarreau >= 0) {
+									//case normale
+									for (int v = 0; v<nombreDeVignettes; v++) {
+										dessinerCarreau(this.imagesCoucheSousHeros[v], i, j, numeroCarreau, tileset);
+									}
+								} else if (numeroCarreau < -1) { 
+									//autotile
+									dessinerAutotile(this.imagesCoucheSousHeros, nombreDeVignettes, i, j, numeroCarreau, tileset, layer);
+								}
 							}
 						}
-					} catch (ArrayIndexOutOfBoundsException e) {
-						//case vide
-						LOG.trace("case vide");
 					}
 				}
 			}
 		}
-		
-		//assemblage des différentes altitudes
-		for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
-			if (this.imagesCoucheSousHeros[j] == null) {
-				this.imagesCoucheSousHeros[j] = Graphismes.clonerUneImage(couches[0]);
-			}
-			for (int i = 0; i<NOMBRE_ALTITUDES_SOUS_HEROS; i++) {
-				this.imagesCoucheSousHeros[j] = Graphismes.superposerImages(this.imagesCoucheSousHeros[j], couches[i], 0, 0);
-				this.imagesCoucheSousHeros[j] = Graphismes.superposerImages(this.imagesCoucheSousHeros[j], couchesAutotile[i][j], 0, 0);
-			}
-		}
+		final long t1 = System.nanoTime();
+		Fenetre.getFenetre().mesuresDePerformance.add(new Long(t1 - t0).toString());
 	}
 
 	/**
@@ -316,60 +303,48 @@ public class Map implements Sauvegardable {
 	 * On affiche en dernier le décor supérieur.
 	 */
 	private void creerImageDuDecorAuDessusDuHeros() {
-		//on initialise les images des couches
-		final BufferedImage[] couches = new BufferedImage[NOMBRE_ALTITUDES_SUR_HEROS];
-		final BufferedImage[][] couchesAutotile = new BufferedImage[NOMBRE_ALTITUDES_SUR_HEROS][Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
-		final int largeurPixel = largeur*Fenetre.TAILLE_D_UN_CARREAU;
-		final int hauteurPixel = hauteur*Fenetre.TAILLE_D_UN_CARREAU;
-		for (int i = 0; i<NOMBRE_ALTITUDES_SUR_HEROS; i++) {
-			couches[i] = Graphismes.imageVide(largeurPixel, hauteurPixel);
-			for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
-				couchesAutotile[i][j] = Graphismes.imageVide(largeurPixel, hauteurPixel);
-			}
+		final long t0 = System.nanoTime();
+		
+		final int nombreDeVignettes = this.contientDesAutotilesAnimes ? Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME : 1;
+		
+		final int largeurPixel = this.largeur*Fenetre.TAILLE_D_UN_CARREAU;
+		final int hauteurPixel = this.hauteur*Fenetre.TAILLE_D_UN_CARREAU;
+		
+		for (int v = 0; v<nombreDeVignettes; v++) {
+			this.imagesCoucheSurHeros[v] = Graphismes.imageVide(largeurPixel, hauteurPixel);
 		}
 		
-		//on dessine les carreaux sur les couches
 		int numeroCarreau;
 		int altitudeCarreau;
-		BufferedImage couche;
-		BufferedImage[] coucheAnimee;
 		for (int i = 0; i<largeur; i++) {
 			for (int j = 0; j<hauteur; j++) {
-				for (int k = 0; k<NOMBRE_LAYERS; k++) {
-					final int[][] layer = layers[k];
-					try {
+				for (int altitudeActuelle = NOMBRE_ALTITUDES_SOUS_HEROS; altitudeActuelle<NOMBRE_ALTITUDES_SOUS_HEROS+NOMBRE_ALTITUDES_SUR_HEROS; altitudeActuelle++) {
+					for (int k = 0; k<NOMBRE_LAYERS; k++) {
+						final int[][] layer = layers[k];
 						numeroCarreau = layer[i][j];
-						altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
-						if (altitudeCarreau >= NOMBRE_ALTITUDES_SOUS_HEROS) {
-							if (numeroCarreau >= 0) { 
-								//case normale
-								couche = couches[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS];
-								dessinerCarreau(couche, i, j, numeroCarreau, tileset);
-							} else if (numeroCarreau < -1) { 
-								//autotile
-								coucheAnimee = couchesAutotile[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS];
-								couche = couches[altitudeCarreau-NOMBRE_ALTITUDES_SOUS_HEROS];
-								dessinerAutotile(couche, coucheAnimee, i, j, numeroCarreau, tileset, layer);
+						if (numeroCarreau == -1) {
+							//case vide, on ne dessine rien
+						} else {
+							altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
+							if (altitudeCarreau == altitudeActuelle) {
+								if (numeroCarreau >= 0) {
+									//case normale
+									for (int v = 0; v<nombreDeVignettes; v++) {
+										dessinerCarreau(this.imagesCoucheSurHeros[v], i, j, numeroCarreau, tileset);
+									}
+								} else if (numeroCarreau < -1) { 
+									//autotile
+									dessinerAutotile(this.imagesCoucheSurHeros, nombreDeVignettes, i, j, numeroCarreau, tileset, layer);
+								}
 							}
 						}
-					} catch (ArrayIndexOutOfBoundsException e) {
-						//case vide
-						LOG.trace("case vide");
 					}
 				}
 			}
 		}
 		
-		//assemblage des différentes altitudes
-		for (int j = 0; j<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; j++) {
-			if (this.imagesCoucheSurHeros[j] == null) {
-				this.imagesCoucheSurHeros[j] = Graphismes.clonerUneImage(couches[0]);
-			}
-			for (int i = 1; i<NOMBRE_ALTITUDES_SUR_HEROS; i++) {
-				this.imagesCoucheSurHeros[j] = Graphismes.superposerImages(this.imagesCoucheSurHeros[j], couches[i], 0, 0);
-				this.imagesCoucheSurHeros[j] = Graphismes.superposerImages(this.imagesCoucheSurHeros[j], couchesAutotile[i][j], 0, 0);
-			}
-		}
+		final long t1 = System.nanoTime();
+		Fenetre.getFenetre().mesuresDePerformance.add(new Long(t1 - t0).toString());
 	}
 	
 	/**
@@ -389,15 +364,15 @@ public class Map implements Sauvegardable {
 	/**
 	 * Dessiner à l'écran un carreau issu d'un autotile.
 	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
-	 * @param decor supérieur ou inférieur de la Map, sur lequel on doit dessiner un carreau
 	 * @param decorAnime partie animée du décor (à peindre dans le cas d'un Autotile animé)
+	 * @param nombreDeVignettes à peindre
 	 * @param x coordonnée x du carreau sur la Map
 	 * @param y coordonnée y du carreau sur la Map
 	 * @param numeroCarreau numéro de l'autotile (numéro négatif)
 	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
 	 * @param layer couche de décor à laquelle appartient le carreau
 	 */
-	public final void dessinerAutotile(final BufferedImage decor, final BufferedImage[] decorAnime, final int x, final int y,
+	public final void dessinerAutotile(final BufferedImage[] decorAnime, final int nombreDeVignettes, final int x, final int y,
 			final int numeroCarreau, final Tileset tilesetUtilise, final int[][] layer) {
 		final Autotile autotile = tilesetUtilise.autotiles.get(numeroCarreau);
 		
@@ -416,7 +391,9 @@ public class Map implements Sauvegardable {
 			}
 		} else {
 			//décor fixe
-			Graphismes.superposerImages(decor, dessinCarreau[0], x*Fenetre.TAILLE_D_UN_CARREAU, y*Fenetre.TAILLE_D_UN_CARREAU);
+			for (int i = 0; i<nombreDeVignettes; i++) {
+				Graphismes.superposerImages(decorAnime[i], dessinCarreau[0], x*Fenetre.TAILLE_D_UN_CARREAU, y*Fenetre.TAILLE_D_UN_CARREAU);
+			}
 		}
 	}
 
