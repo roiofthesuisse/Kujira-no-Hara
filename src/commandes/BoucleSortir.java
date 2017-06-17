@@ -1,6 +1,8 @@
 package commandes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import main.Commande;
 
 /**
@@ -15,6 +17,14 @@ public class BoucleSortir extends Commande implements CommandeEvent, CommandeMen
 	 */
 	public BoucleSortir(final int numero) {
 		this.numero = numero;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public BoucleSortir(final HashMap<String, Object> parametres) {
+		this( (int) parametres.get("numero") );
 	}
 	
 	/**

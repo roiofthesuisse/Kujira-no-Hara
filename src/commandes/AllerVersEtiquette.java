@@ -15,14 +15,14 @@ public class AllerVersEtiquette extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(AllerVersEtiquette.class);
 	
 	/** Nom de l'Etiquette */
-	public String nom;
+	public String nomEtiquette;
 	
 	/**
 	 * Constructeur explicite
 	 * @param nom de l'Etiquette vers laquelle aller
 	 */
-	public AllerVersEtiquette(final String nom) {
-		this.nom = nom;
+	public AllerVersEtiquette(final String nomEtiquette) {
+		this.nomEtiquette = nomEtiquette;
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class AllerVersEtiquette extends Commande implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AllerVersEtiquette(final HashMap<String, Object> parametres) {
-		this( (String) parametres.get("nom"));
+		this( (String) parametres.get("nomEtiquette"));
 	}
 
 	/**
@@ -46,14 +46,14 @@ public class AllerVersEtiquette extends Commande implements CommandeEvent {
 			final Commande commande = commandes.get(i);
 			if (commande instanceof Etiquette) {
 				final Etiquette etiquette = (Etiquette) commande;
-				if (etiquette.nom == this.nom) {
+				if (etiquette.nomEtiquette == this.nomEtiquette) {
 					//la fin de ce Choix a été trouvée
 					return i+1;
 				}
 			}
 		}
 		//la fin de Boucle n'a pas été trouvée
-		LOG.error("L'étiquette "+nom+" n'a pas été trouvée !");
+		LOG.error("L'étiquette "+this.nomEtiquette+" n'a pas été trouvée !");
 		return curseurActuel+1;
 	}
 

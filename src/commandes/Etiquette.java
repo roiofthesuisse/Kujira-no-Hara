@@ -10,14 +10,14 @@ import main.Commande;
  */
 public class Etiquette  extends Commande implements CommandeEvent {
 	/** Nom de l'Etiquette */
-	public String nom;
+	public String nomEtiquette;
 	
 	/**
 	 * Constructeur explicite
 	 * @param nom identifiant de l'Etiquette
 	 */
-	public Etiquette(final String nom) {
-		this.nom = nom;
+	public Etiquette(final String nomEtiquette) {
+		this.nomEtiquette = nomEtiquette;
 	}
 	
 	/**
@@ -25,7 +25,7 @@ public class Etiquette  extends Commande implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Etiquette(final HashMap<String, Object> parametres) {
-		this( (String) parametres.get("nom") );
+		this( (String) parametres.get("nomEtiquette") );
 	}
 	
 	/**
