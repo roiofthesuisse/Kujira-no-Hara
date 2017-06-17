@@ -41,7 +41,7 @@ public class Chronometre {
 			this.image = calculerLImageDuChronometre(secondeActuelle);
 		}
 
-		return Graphismes.superposerImages(ecran, this.image, Fenetre.LARGEUR_ECRAN/2, Fenetre.HAUTEUR_ECRAN/2, true, 
+		return Graphismes.superposerImages(ecran, this.image, Fenetre.LARGEUR_ECRAN/2, Fenetre.HAUTEUR_ECRAN/3, true, 
 				Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, 
 				Graphismes.OPACITE_MAXIMALE, ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
 	}
@@ -61,7 +61,7 @@ public class Chronometre {
 		temps += String.format("%02d", secondeActuelle%60);
 		ArrayList<String> tempsListe = new ArrayList<String>();
 		tempsListe.add(temps);
-		final Texte texte = new Texte(tempsListe, Color.white, Texte.Taille.GRANDE);
+		final Texte texte = new Texte(tempsListe, Color.white, Color.black, Texte.Taille.GRANDE);
 		return texte.getImage();
 	}
 }

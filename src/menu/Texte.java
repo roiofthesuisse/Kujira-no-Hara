@@ -80,6 +80,7 @@ public class Texte extends ElementDeMenu {
 	public int taille;
 	public int opacite;
 	public Color couleurForcee = null;
+	public Color couleurContour = null;
 	/** Nombre maximal de caractères d'une ligne */
 	private int largeurMaximale;
 
@@ -93,7 +94,8 @@ public class Texte extends ElementDeMenu {
 	 * @param c2 c2 comportement à la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final boolean selectionnable, 
+			final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
 		this(contenu, xDebut, yDebut, Taille.MOYENNE, -1, selectionnable, Texte.OPACITE_MAXIMALE, c1, c2, id);
 	}
 	
@@ -109,7 +111,8 @@ public class Texte extends ElementDeMenu {
 	 * @param c2 comportement à la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final int largeurMaximale, final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final int largeurMaximale, 
+			final boolean selectionnable, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
 		this(contenu, xDebut, yDebut, taille, largeurMaximale, selectionnable, OPACITE_MAXIMALE, c1, c2, id);
 	}
 	
@@ -126,7 +129,8 @@ public class Texte extends ElementDeMenu {
 	 * @param c2 comportement à la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
-	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final int largeurMaximale, final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
+	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final int largeurMaximale, 
+			final boolean selectionnable, final int opacite, final ArrayList<Commande> c1, final ArrayList<Commande> c2, final int id) {
 		super(id, selectionnable, xDebut, yDebut, c1, c2, null);
 		
 		if (comportementSurvol!=null && comportementSurvol.size()>0) {
@@ -161,7 +165,7 @@ public class Texte extends ElementDeMenu {
 	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
 	 */
 	public Texte(final ArrayList<String> contenu, final Color couleurForcee) {
-		this(contenu, COULEUR_PAR_DEFAUT, Taille.MOYENNE);
+		this(contenu, couleurForcee, null, Taille.MOYENNE);
 	}
 	
 	/**
@@ -169,14 +173,16 @@ public class Texte extends ElementDeMenu {
 	 * @param contenu du Texte (dans plusieurs langues)
 	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
 	 * @param taille autre que la taille par défaut
+	 * @param contour une autre couleur enrobe les lettres
 	 */
-	public Texte(final ArrayList<String> contenu, final Color couleurForcee, final Taille taille) {
+	public Texte(final ArrayList<String> contenu, final Color couleurForcee, final Color couleurContour, final Taille taille) {
 		super(0, false, 0, 0, null, null, null); //on se fout de la gueule de la classe mère
 		
 		this.couleurForcee = couleurForcee;
 		this.contenu = contenu;
 		this.taille = taille.pixels;
 		this.opacite = Texte.OPACITE_MAXIMALE;
+		this.couleurContour = couleurContour;
 	}
 	
 	/**
@@ -271,16 +277,32 @@ public class Texte extends ElementDeMenu {
         	final String ligne = texts[i].trim();
         	final String[] boutsDeLigne = ligne.split("\\\\c", -1);
         	final int nombreDeBoutsDeLigne = boutsDeLigne.length;
-        	for (int j = 0; j<nombreDeBoutsDeLigne; j++) {
+        	for (int j = 0; j<nombreDeBoutsDeLigne; j++) {      		
+        		//lettre colorée
         		if ( boutsDeLigne[j].startsWith("[02]") ) {
         			boutsDeLigne[j] = boutsDeLigne[j].replace("[02]", "");
 	        		g2d.setColor(Texte.COULEUR_PAR_DEFAUT2); 
 	        		largeurALaquelleOnEcrit += fm.stringWidth(boutsDeLigne[j-1]);
+	        		
+	        	//couleur normale
         		} else if ( boutsDeLigne[j].startsWith("[01]") ) {
         			boutsDeLigne[j] = boutsDeLigne[j].replace("[01]", "");
 	        		g2d.setColor(Texte.COULEUR_PAR_DEFAUT); 
 	        		largeurALaquelleOnEcrit += fm.stringWidth(boutsDeLigne[j-1]);
         		}
+        		
+        		//dessiner le contour
+        		if (this.couleurContour != null) {
+        			Color memoriserCouleur = g2d.getColor();
+        			g2d.setColor(this.couleurContour);
+        			g2d.drawString(boutsDeLigne[j], largeurALaquelleOnEcrit-1, hauteurALaquelleOnEcrit-1);
+        			g2d.drawString(boutsDeLigne[j], largeurALaquelleOnEcrit-1, hauteurALaquelleOnEcrit+1);
+        			g2d.drawString(boutsDeLigne[j], largeurALaquelleOnEcrit+1, hauteurALaquelleOnEcrit-1);
+        			g2d.drawString(boutsDeLigne[j], largeurALaquelleOnEcrit+1, hauteurALaquelleOnEcrit+1);
+        			g2d.setColor(memoriserCouleur);
+        		}
+        		
+        		//dessiner les lettres
         		g2d.drawString(boutsDeLigne[j], largeurALaquelleOnEcrit, hauteurALaquelleOnEcrit);
         	}
         }

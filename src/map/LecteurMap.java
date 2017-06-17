@@ -312,7 +312,7 @@ public class LecteurMap extends Lecteur {
 			ecran = Graphismes.superposerImages(ecran, HUD_ARGENT, X_AFFICHAGE_ARGENT, Y_AFFICHAGE_ARGENT);
 			final ArrayList<String> contenuTexte = new ArrayList<String>();
 			contenuTexte.add("" + argent);
-			final Texte texte = new Texte(contenuTexte, Color.white);
+			final Texte texte = new Texte(contenuTexte, Color.white, Color.black, Texte.Taille.MOYENNE);
 			final BufferedImage texteImage = texte.getImage();
 			ecran = Graphismes.superposerImages(ecran, texteImage, X_AFFICHAGE_ARGENT+HUD_ARGENT.getWidth()+ESPACEMENT_ICONES, Y_AFFICHAGE_ARGENT);
 		}
