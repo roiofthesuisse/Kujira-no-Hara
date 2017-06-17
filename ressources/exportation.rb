@@ -1,5 +1,5 @@
 #------------------------------------------------------------------
-# Dans un premier temps on crée une méthode string? 
+# Dans un premier temps on cree une methode string? 
 # qui permet de savoir si un objet est une chaine ou pas
 #------------------------------------------------------------------
 # elle vaudra faux pour tous les objets banals
@@ -24,7 +24,7 @@ class Exportation
   EXPORT_FOLDER = "./Exportation/Maps"
   
   #------------------------------------------------------------------
-  # Ecrit un retour à la ligne
+  # Ecrit un retour � la ligne
   #------------------------------------------------------------------
   def write_linebreak(file)
     file.write("\r\n")
@@ -37,7 +37,7 @@ class Exportation
     maps = load_data(MapsFile)
     tilesets = load_data(TilesetsFile)
     
-    # Si le dossier d'exportation n'existe pas, on le crée
+    # Si le dossier d'exportation n'existe pas, on le cree
     if !File.directory?(EXPORT_FOLDER)
       Dir.mkdir(EXPORT_FOLDER)
     end
@@ -50,16 +50,16 @@ class Exportation
       mapInfo = maps[map_id]
       
       
-      # On crée un fichier par map
+      # On cree un fichier par map
       filename = sprintf("%s/%03d_%s.txt", EXPORT_FOLDER, map_id, mapInfo.name)
-      # On supprime le fichier s'il existe déjà
+      # On supprime le fichier s'il existe dej�
       if File.exist?(filename)
         File.delete(filename)
       end
-      # Ouvre le fichier et rajoute du texte à la fin
+      # Ouvre le fichier et rajoute du texte � la fin
       file = File.new(filename, 'a') 
       
-      # Début de l'écriture de la map
+      # Debut de l'ecriture de la map
       file.write("{")
       write_linebreak(file)
       
@@ -84,23 +84,23 @@ class Exportation
       file.write(sprintf("\t\"bgs\": \"%s\",", map.bgs.name))
       write_linebreak(file)
       
-      # Couches de décor
+      # Couches de decor
       for couche in [0, 1, 2]
         file.write(sprintf("\t\"couche%d\": [", couche))
         write_linebreak(file)
         for y in 0...map.height
           ligne = "\t["
           for x in 0...map.width
-            # On récupère la case
+            # On recupere la case
             tile_id = normaliser_tile_id( map.data[x, y, couche] )
             ligne += sprintf("%04d", tile_id)
-            # La dernière colonne n'a pas de virgule
+            # La derniere colonne n'a pas de virgule
             if x < map.width - 1
               ligne += ","
             end
           end
           ligne += "]"
-          # La dernière ligne n'a pas de virgule
+          # La derniere ligne n'a pas de virgule
           if y < map.height - 1
             ligne += ","
           end
@@ -110,7 +110,7 @@ class Exportation
         file.write("\t],")
         write_linebreak(file)
       end
-      # Fin des couches de décor
+      # Fin des couches de decor
       
       file.write("\t\"events\": [")
       write_linebreak(file)
@@ -118,7 +118,7 @@ class Exportation
       for event_id in map.events.keys
         event = map.events[event_id]
         
-        # Début de l'écriture de l'event
+        # Debut de l'ecriture de l'event
         file.write("\t{")
         write_linebreak(file)
         
@@ -136,7 +136,7 @@ class Exportation
         file.write(sprintf("\t\t\"y\": %d", event.y))
         
         
-        # Un event générique n'a pas de pages
+        # Un event generique n'a pas de pages
         if !event.name.include? "Clone"
           file.write(",")
           write_linebreak(file)
@@ -146,7 +146,7 @@ class Exportation
           # On parcourt toutes les pages
           for i in 0...event.pages.size
 
-            # Début de l'écriture de la page
+            # Debut de l'ecriture de la page
             file.write("\t\t{")
             write_linebreak(file)          
             
@@ -240,7 +240,7 @@ class Exportation
               write_linebreak(file)
             end
             
-            # Conditions déclencheuses
+            # Conditions declencheuses
             #@trigger = @page.trigger
             # TODO
             #...
@@ -263,14 +263,14 @@ class Exportation
               write_linebreak(file)
               case page.move_type
               when 1
-                # Aléatoire
+                # Aleatoire
                 file.write("\t\t\t\t\"nom\": \"AvancerAleatoirement\"")
               when 2
-                # Suit le héros
+                # Suit le heros
                 file.write("\t\t\t\t\"nom\": \"AvancerEnFonctionDUnEvent\",")
                 file.write("\t\t\t\t\"idEventObserve\": 0")
               when 3
-                # Prédéfini
+                # Predefini
                 # TODO
                 #...
                 #page.move_route
@@ -283,7 +283,7 @@ class Exportation
             # Fin des mouvements de la page
             
             
-            # Ecriture des propriétés de la page
+            # Ecriture des proprietes de la page
             
             # Apparence
             if page.graphic.character_name.to_s.empty?
@@ -305,7 +305,7 @@ class Exportation
               write_linebreak(file)
             end
             
-            # Opacité
+            # Opacite
             if page.graphic.opacity != 255
               file.write(sprintf("\t\t\t\"opacite\": %d,", page.graphic.opacity))
               write_linebreak(file)
@@ -353,11 +353,11 @@ class Exportation
             file.write(sprintf("\t\t\t\"frequence\": %d,", frequence))
             write_linebreak(file)
             
-            # Animé en mouvement
+            # Anime en mouvement
             file.write(sprintf("\t\t\t\"animeEnMouvement\": %s,", page.walk_anime))
             write_linebreak(file)
             
-            # Animé à l'arrêt
+            # Anime � l'arret
             file.write(sprintf("\t\t\t\"animeALArret\": %s,", page.step_anime))
             write_linebreak(file)
             
@@ -372,17 +372,17 @@ class Exportation
             # Au dessus de tout
             file.write(sprintf("\t\t\t\"auDessusDeTout\": %s", page.always_on_top))
             write_linebreak(file)
-            # Fin des propriétés de la page
+            # Fin des proprietes de la page
           
             
-          # Fin de l'écriture de la page
+          # Fin de l'ecriture de la page
           file.write("\t\t}")
           if i < event.pages.size - 1
               file.write(",")
           end
           write_linebreak(file)
             
-          # On rajoute ça pour ne pas que le programme plante lol
+          # On rajoute �a pour ne pas que le programme plante lol
           Graphics.update
           
           end
@@ -392,7 +392,7 @@ class Exportation
         write_linebreak(file)
         
         
-        # Fin de l'écriture de l'event
+        # Fin de l'ecriture de l'event
         file.write("\t}")
         if event_id != map.events.keys.last
           file.write(",")
@@ -404,7 +404,7 @@ class Exportation
       file.write("\t]")
       write_linebreak(file)
     
-    # Fin de l'écriture de la map
+    # Fin de l'ecriture de la map
     file.write("}")
     write_linebreak(file)
     
@@ -419,7 +419,7 @@ class Exportation
   
   
   #-----------------------------------------
-  # Récupérer les commandes évènementielles
+  # Recuperer les commandes evenementielles
   #-----------------------------------------
   def write_commands(file, page)
     # S'il y a des commandes
@@ -428,16 +428,20 @@ class Exportation
       write_linebreak(file)
 
       
-      # Numérotation des choix
+      # Numerotation des choix
       nombre_de_choix_rencontres = 0
       choix_en_cours = Array.new
       
-      # Numérotation des conditions
+      # Numerotation des conditions
       nombre_de_conditions_rencontrees = 0
       conditions_en_cours = Array.new
       
+      # Numerotation des boucles
+      nombre_de_boucles_rencontrees = 0
+      boucles_en_cours = Array.new
       
-      # S'intéresser aux event_data.code pour exporter d'autres types de commandes
+      
+      # S'interesser aux event_data.code pour exporter d'autres types de commandes
       @command_id = 0
       while page.list[@command_id] != nil
         
@@ -455,26 +459,26 @@ class Exportation
       
         case commande.code
         when 0
-          # RM met des commandes de code 0 à chaque embranchement
+          # RM met des commandes de code 0 � chaque embranchement
         when 101
           # Message
           file.write("\t\t\t\t\"nom\": \"Message\",")
           write_linebreak(file)
           
-          #récupération du texte multiligne
+          #recuperation du texte multiligne
           meme_message = true
           ligne_message = 0
           texte = ""
           while ligne_message < 4 && meme_message
             commande_suivante = page.list[@command_id+ligne_message]
             if ligne_message == 0 || commande_suivante.code == 401
-              # La commande suivante concerne le même message
+              # La commande suivante concerne le meme message
               if ligne_message > 0
                 texte += "\\n"
               end
               texte += commande_suivante.parameters[0]
             else
-              # La commande suivante ne concerne plus le même message
+              # La commande suivante ne concerne plus le meme message
               meme_message = false
             end
             ligne_message += 1
@@ -494,7 +498,7 @@ class Exportation
           file.write(sprintf("\t\t\t\t\"numero\": %d", nombre_de_choix_rencontres))
           write_linebreak(file)
           
-          # Ajouter un nouvel élément à la pile
+          # Ajouter un nouvel element � la pile
           choix_en_cours << nombre_de_choix_rencontres
           nombre_de_choix_rencontres += 1
           
@@ -523,7 +527,7 @@ class Exportation
           file.write(sprintf("\t\t\t\t\"numero\": %d", choix_en_cours.last))
           write_linebreak(file)
           
-          # Retirer le dernier élément de la pile
+          # Retirer le dernier element de la pile
           choix_en_cours.pop 
           
         when 103
@@ -565,20 +569,20 @@ class Exportation
           file.write("\t\t\t\t\"nom\": \"Commentaire\",")
           write_linebreak(file)
           
-          #récupération du commentaire multiligne
+          #recuperation du commentaire multiligne
           meme_commentaire = true
           ligne_commentaire = 0
           texte = ""
           while ligne_commentaire < 4 && meme_commentaire
             commande_suivante = page.list[@command_id+ligne_commentaire]
             if ligne_commentaire == 0 || commande_suivante.code == 408
-              # La commande suivante concerne le même commentaire
+              # La commande suivante concerne le meme commentaire
               if ligne_commentaire > 0
                 texte += "\\n"
               end
               texte += commande_suivante.parameters[0]
             else
-              # La commande suivante ne concerne plus le même message
+              # La commande suivante ne concerne plus le meme message
               meme_commentaire = false
             end
             ligne_commentaire += 1
@@ -588,7 +592,7 @@ class Exportation
           
         when 408
           # Commentaire (autres lignes)
-       
+
         when 111
           # Condition si
           
@@ -639,7 +643,7 @@ class Exportation
             file.write(sprintf("\t\t\t\t\"valeurQuIlEstCenseAvoir\": %s,", valeurQuIlEstCenseAvoir))
             write_linebreak(file)
           when 3
-            # Condition chronomètre
+            # Condition chronometre
             file.write("\t\t\t\t\"nom\": \"ConditionChronometre\",")
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"nombreDeSecondes\": %d,", commande.parameters[1]))
@@ -650,6 +654,126 @@ class Exportation
             end
             file.write(sprintf("\t\t\t\t\"inegalite\": \"%s\",", inegalite))
             write_linebreak(file)
+          when 4
+            # Conditions sur les coequipiers (parametre 1)
+            case commande.parameters[2]
+            when 2
+              # Condition competence apprise
+              file.write("\t\t\t\t\"nom\": \"ConditionEtatQuete\",")
+              write_linebreak(file)
+              idQuete = (commande.parameters[3]-1)/2
+              file.write(sprintf("\t\t\t\t\"idQuete\": %d,", idQuete))
+              write_linebreak(file)
+              etatQuete = case commande.parameters[3]%2
+                when 0 then "FAITE"
+                when 1 then "CONNUE"
+              end
+              file.write(sprintf("\t\t\t\t\"etat\": \"%s\",", etatQuete))
+              write_linebreak(file)
+              
+            when 3
+              # Arme equipee
+              file.write("\t\t\t\t\"nom\": \"ConditionArmeEquipee\",")
+              write_linebreak(file)
+              file.write(sprintf("\t\t\t\t\"idArme\": %d,", commande.parameters[3]))
+              write_linebreak(file)
+              
+            when 4
+              # Armure equipee
+              file.write("\t\t\t\t\"nom\": \"ConditionGadgetEquipe\",")
+              write_linebreak(file)
+              file.write(sprintf("\t\t\t\t\"idGadget\": %d,", commande.parameters[3]))
+              write_linebreak(file)
+            end
+            # Fin des conditions sur les coequipiers
+            
+          when 6
+            # Condition direction
+              file.write("\t\t\t\t\"nom\": \"ConditionDirection\",")
+              write_linebreak(file)
+              idEvent = commande.parameters[1]
+              if idEvent == 0 #dans RM 0 est cet event
+                #dans java cet event est null
+                #donc ne rien ecrire
+              else
+                if idEvent == -1 #dans RM -1 est le heros
+                  idEvent = 0 #dans java le heros est 0
+                end
+                file.write(sprintf("\t\t\t\t\"idEventConcerne\": %d,", idEvent))
+                write_linebreak(file)
+              end
+              direction = case commande.parameters[2]
+                when 2 then 0
+                when 4 then 1
+                when 6 then 2
+                when 8 then 3
+              end
+              file.write(sprintf("\t\t\t\t\"direction\": %d,", direction))
+              write_linebreak(file)
+            
+            when 7
+              # Condition argent
+              file.write("\t\t\t\t\"nom\": \"ConditionArgent\",")
+              write_linebreak(file)
+              file.write(sprintf("\t\t\t\t\"quantite\": %d,", commande.parameters[1]))
+              write_linebreak(file)
+              inegalite = case commande.parameters[2]
+                when 0 then ">="
+                when 1 then "<="
+              end
+              file.write(sprintf("\t\t\t\t\"inegalite\": \"%s\",", inegalite))
+              write_linebreak(file)
+            
+            when 8
+              # Condition objet possede
+              file.write("\t\t\t\t\"nom\": \"ConditionObjetPossede\",")
+              write_linebreak(file)
+              file.write(sprintf("\t\t\t\t\"idObjet\": %d,", commande.parameters[1]))
+              write_linebreak(file)
+              
+            when 9
+              # Condition arme possedee
+              file.write("\t\t\t\t\"nom\": \"ConditionArmePossedee\",")
+              write_linebreak(file)
+              file.write(sprintf("\t\t\t\t\"idArme\": %d,", commande.parameters[1]))
+              write_linebreak(file)
+              
+            when 10
+              # Condition armure possedee
+              file.write("\t\t\t\t\"nom\": \"ConditionGadgetPossede\",")
+              write_linebreak(file)
+              file.write(sprintf("\t\t\t\t\"idGadget\": %d,", commande.parameters[1]))
+              write_linebreak(file)
+              
+            when 11
+              # Condition touche
+              file.write("\t\t\t\t\"nom\": \"ConditionTouche\",")
+              write_linebreak(file)
+              touche = case commande.parameters[1]
+                when 2 then "BAS"
+                when 4 then "GAUCHE"
+                when 6 then "DROITE"
+                when 8 then "HAUT"
+                when 11 then "ACTION_SECONDAIRE" # Z ou shift
+                when 12 then "MENU" # echap, X ou 0
+                when 13 then "ACTION" # entree ou espace
+                when 14 then "A"
+                when 15 then "S"
+                when 16 then "D"
+                when 17 then "ARME_SUIVANTE" #Q
+                when 18 then "ARME_PRECEDENTE" #W
+              end
+              file.write(sprintf("\t\t\t\t\"touche\": \"%s\",", touche))
+              write_linebreak(file)
+            
+            when 12
+              # Condition script
+              file.write("\t\t\t\t\"nom\": \"ConditionScript\",")
+              write_linebreak(file)
+              file.write(sprintf("\t\t\t\t\"script\": %s,", commande.parameters[1].inspect))
+              write_linebreak(file)
+            
+              # Pas d'autres types de Conditions
           end
 
           file.write(sprintf("\t\t\t\t\"numero\": %d", nombre_de_conditions_rencontrees))
@@ -657,26 +781,95 @@ class Exportation
           
           conditions_en_cours << nombre_de_conditions_rencontrees
           nombre_de_conditions_rencontrees += 1
+          # Voil� pour les Conditions
+          
+          
+        when 411
+          # Sinon
+          file.write("\t\t\t\t\"nom\": \"ConditionSinon\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"numero\": %d", conditions_en_cours.last))
+          write_linebreak(file)
+          
+        when 412
+          # Fin de si
+          file.write("\t\t\t\t\"nom\": \"ConditionFin\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"numero\": %d", conditions_en_cours.last))
+          write_linebreak(file)
+          
+          # On retire le dernier element de la liste
+          conditions_en_cours.pop
+          
+        when 112
+          # Boucle
+          file.write("\t\t\t\t\"nom\": \"Boucle\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"numero\": %d", nombre_de_boucles_rencontrees))
+          write_linebreak(file)
+          
+          boucles_en_cours << nombre_de_boucles_rencontrees
+          nombre_de_boucles_rencontrees += 1
+          
+        when 113
+          # Sortir de la boucle
+          file.write("\t\t\t\t\"nom\": \"BoucleSortir\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"numero\": %d", boucles_en_cours.last))
+          write_linebreak(file)
+          
+        when 413
+          # Fin de boucle
+          file.write("\t\t\t\t\"nom\": \"BoucleFin\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"numero\": %d", boucles_en_cours.last))
+          write_linebreak(file)
+          
+          # On retire le dernier element de la liste
+          boucles_en_cours.pop
+          
+          
+        when 115 
+          # Arreter les events
+          # ???
+
+        when 116
+          # Effacer l'event
+          file.write("\t\t\t\t\"nom\": \"SupprimerEvent\"")
+          write_linebreak(file)
+
+        when 117
+          # Appeler un code commun
+          file.write("\t\t\t\t\"nom\": \"AppelerPageCommune\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"numeroPageCommune\": %d", commande.parameters[0]))
+          write_linebreak(file)
+          
+        when 118
+          # Etiquette
+          file.write("\t\t\t\t\"nom\": \"Etiquette\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"nomEtiquette\": \"%s\"", commande.parameters[0]))
+          write_linebreak(file)
+          
+        when 119
+          # Aller vers l'etiquette
+          file.write("\t\t\t\t\"nom\": \"AllerVersEtiquette\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"nomEtiquette\": \"%s\"", commande.parameters[0]))
+          write_linebreak(file)
+          
+          
           
           #TODO
           #...
+          
 =begin
-        #when 111
-          # Condition si
-        #when 411
-          #Condition sinon
-        when 112 # Boucle
-        when 413 # Fin de boucle
-        When 113 # Sortir de la boucle
-        When 115 # Arrêter l'event
-        When 116 # Effacer l'event
-        When 117 # Appeler un code commun
-        When 118 # Etiquette
-        When 119 # Aller vers l'étiquette
+
         When 121 # Modifier interrupteur
         When 122 # Modifier variable
         When 123 # Modifier interrupteur local
-        When 124 # Chronomètre
+        When 124 # Chronometre
         When 125 # Ajouter argent
         When 126 # Ajouter objet
         When 127 # Ajouter arme
@@ -691,34 +884,34 @@ class Exportation
         
         When 201 # Changer de map
         When 202 # Repositionner un event
-        When 203 # Faire défiler la map
-        When 204 # Brouillard et autres paramètres de la map
+        When 203 # Faire defiler la map
+        When 204 # Brouillard et autres parametres de la map
         When 205 # Ton du brouillard
-        When 206 # Opacité du brouillard
+        When 206 # Opacite du brouillard
         When 207 # Animation
-        When 209 # Déplacement
-        When 210 # Attendre la fin du déplacement
+        When 209 # Deplacement
+        When 210 # Attendre la fin du deplacement
         When 221 # Transition preparation
         When 222 # Transition execution
-        When 223 # Ton de l'écran
-        When 224 # Flasher l'écran => bof...
+        When 223 # Ton de l'ecran
+        When 224 # Flasher l'ecran => bof...
         When 225 # Tremblement de terre
         When 231 # Afficher image
         When 232 # Deplacer image
         When 233 # Tourner image
         When 235 # Effacer image
-        When 236 # Météo
+        When 236 # Meteo
         When 241 # BGM
         When 242 # Fondu BGM
         When 245 # BGS
         When 246 # Fondu BGS
         When 249 # ME
         When 250 # SE
-        When 251 # Arrêter SE
+        When 251 # Arreter SE
 
         When 303 # Rentrer un mot
         When 311 # Modifier la vie
-        When 318 # Ajouter / Retirer Quête
+        When 318 # Ajouter / Retirer Quete
         When 319 # Equipement
 
         When 351 # Ouvrir le menu
@@ -732,7 +925,7 @@ class Exportation
           file.write(sprintf("\t\t\t\t\"nom\": \"%d\",", commande.code))
           write_linebreak(file)
           
-          # Paramètres
+          # Parametres
           for parameter_id in 0...commande.parameters.size
             parametre = commande.parameters[parameter_id].to_s
             file.write(sprintf("\t\t\t\t\"%d\": \"%s\"", parameter_id, parametre))
@@ -766,11 +959,11 @@ class Exportation
   # Traduction du tile_id de RM vers celui de Kujira no Java
   #----------------------------------------------------------
   def normaliser_tile_id(tile_id)
-    tile_id = tile_id - 384 # On décale les autotiles dans les négatifs
+    tile_id = tile_id - 384 # On decale les autotiles dans les negatifs
     if tile_id < 0
-      # RPG Maker différencie les 48 apparences possibles d'un autotile
+      # RPG Maker differencie les 48 apparences possibles d'un autotile
       tile_id = tile_id/48 - 1
-      # On décale les autotiles pour que -1 représente la case vide
+      # On decale les autotiles pour que -1 represente la case vide
       if tile_id == -9
         tile_id = -1
       end
