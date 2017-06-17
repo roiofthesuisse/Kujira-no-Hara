@@ -81,6 +81,8 @@ public final class Partie implements Listable, Sauvegardable {
 	/** Mot de passe à saisir lettre par lettre via un Menu */
 	public final int tailleMaximaleDuMot = 10;
 	public String[] mots = new String[NOMBRE_DE_MOTS];
+	/** Chronomètre a afficher à l'écran */
+	public Chronometre chronometre;
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge
@@ -146,17 +148,17 @@ public final class Partie implements Listable, Sauvegardable {
 			final int vie, final int vieMax, final int argent, final int idArmeEquipee, final int idGadgetEquipe, 
 			final JSONArray objetsPossedes, final JSONArray avancementDesQuetes, final JSONArray armesPossedees, 
 			final JSONArray gadgetsPossedes, final JSONArray interrupteurs, final JSONArray variables, 
-			final JSONArray interrupteursLocaux, final JSONArray images)
+			final JSONArray interrupteursLocaux, final JSONObject chronometre, final JSONArray images)
 	throws FileNotFoundException {
 		this();
 		this.id = id;
 		this.numeroMap = numeroMap;
 		this.brouillardACharger = Brouillard.creerBrouillardAPartirDeJson(jsonBrouillard);
-		this.xHeros = xHeros; //TODO faire ça pour tous les Events de la Map
-		this.yHeros = yHeros; //TODO faire ça pour tous les Events de la Map
-		this.directionHeros = directionHeros; //TODO faire ça pour tous les Events de la Map
-		this.vie = vie; //TODO faire ça pour tous les Events de la Map
-		this.vieMax = vieMax; //TODO faire ça pour tous les Events de la Map
+		this.xHeros = xHeros;
+		this.yHeros = yHeros;
+		this.directionHeros = directionHeros;
+		this.vie = vie;
+		this.vieMax = vieMax;
 		this.argent = argent;
 		
 		//objets
@@ -212,6 +214,8 @@ public final class Partie implements Listable, Sauvegardable {
 			final String code = (String) o;
 			this.interrupteursLocaux.add(code);
 		}
+		//chronometre
+		this.chronometre = new Chronometre(chronometre.getBoolean("croissant"), chronometre.getInt("secondes"));
 		//images
 		//TODO
 		// Animations
@@ -333,7 +337,7 @@ public final class Partie implements Listable, Sauvegardable {
 
 	@Override
 	public BufferedImage construireImagePourListe(final int largeur, final int hauteur) {
-		final BufferedImage vignettePartie = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES); //TODO taille en dur ?
+		final BufferedImage vignettePartie = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);
 		
 		final ArrayList<String> blabla = new ArrayList<String>();
 		blabla.add("Partie " + this.id);
@@ -420,6 +424,14 @@ public final class Partie implements Listable, Sauvegardable {
 			interrupteursLocaux.put(code);
 		}
 		jsonPartie.put("interrupteursLocaux", interrupteursLocaux);
+		
+		//chronometre
+		if (this.chronometre != null) {
+			final JSONObject jsonChronometre = new JSONObject();
+			jsonChronometre.put("secondes", this.chronometre.secondes);
+			jsonChronometre.put("croissant", this.chronometre.croissant);
+			jsonPartie.put("chronometre", jsonChronometre);
+		}
 		
 		//objets
 		final JSONArray objetsPossedes = new JSONArray();
