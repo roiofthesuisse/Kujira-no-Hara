@@ -10,6 +10,7 @@ import java.util.Comparator;
 
 import commandes.Message;
 import commandes.OuvrirMenu;
+import jeu.Chronometre;
 import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
@@ -175,11 +176,17 @@ public class LecteurMap extends Lecteur {
 			ecran = this.transition.calculer(ecran, frame);
 		}
 		
+		//afficher les images
+		ecran = Picture.dessinerLesImages(ecran);
+		
 		//ajouter les jauges
 		ecran = dessinerLesJauges(ecran);
 		
-		//afficher les images
-		ecran = Picture.dessinerLesImages(ecran);
+		//chronometre
+		Chronometre chronometre = Fenetre.getPartieActuelle().chronometre;
+		if (chronometre!=null) {
+			ecran = chronometre.dessinerChronometre(ecran);
+		}
 		
 		//on affiche le message
 		if (messageActuel!=null) {

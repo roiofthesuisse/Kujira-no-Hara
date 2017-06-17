@@ -156,16 +156,26 @@ public class Texte extends ElementDeMenu {
 	}
 	
 	/**
-	 * Constructeur explicite pour les Messages d'un Event
+	 * Constructeur implicite pour les Messages d'un Event
 	 * @param contenu du Texte (dans plusieurs langues)
 	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
 	 */
 	public Texte(final ArrayList<String> contenu, final Color couleurForcee) {
+		this(contenu, COULEUR_PAR_DEFAUT, Taille.MOYENNE);
+	}
+	
+	/**
+	 * Constructeur explicite pour les Messages d'un Event
+	 * @param contenu du Texte (dans plusieurs langues)
+	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
+	 * @param taille autre que la taille par défaut
+	 */
+	public Texte(final ArrayList<String> contenu, final Color couleurForcee, final Taille taille) {
 		super(0, false, 0, 0, null, null, null); //on se fout de la gueule de la classe mère
 		
 		this.couleurForcee = couleurForcee;
 		this.contenu = contenu;
-		this.taille = Texte.Taille.MOYENNE.pixels;
+		this.taille = taille.pixels;
 		this.opacite = Texte.OPACITE_MAXIMALE;
 	}
 	
