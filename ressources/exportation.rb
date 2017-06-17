@@ -24,7 +24,7 @@ class Exportation
   EXPORT_FOLDER = "./Exportation/Maps"
   
   #------------------------------------------------------------------
-  # Ecrit un retour à la ligne
+  # Ecrit un retour a la ligne
   #------------------------------------------------------------------
   def write_linebreak(file)
     file.write("\r\n")
@@ -52,11 +52,11 @@ class Exportation
       
       # On cree un fichier par map
       filename = sprintf("%s/%03d_%s.txt", EXPORT_FOLDER, map_id, mapInfo.name)
-      # On supprime le fichier s'il existe dejà
+      # On supprime le fichier s'il existe deja
       if File.exist?(filename)
         File.delete(filename)
       end
-      # Ouvre le fichier et rajoute du texte à la fin
+      # Ouvre le fichier et rajoute du texte a la fin
       file = File.new(filename, 'a') 
       
       # Debut de l'ecriture de la map
@@ -357,7 +357,7 @@ class Exportation
             file.write(sprintf("\t\t\t\"animeEnMouvement\": %s,", page.walk_anime))
             write_linebreak(file)
             
-            # Anime à l'arret
+            # Anime a l'arret
             file.write(sprintf("\t\t\t\"animeALArret\": %s,", page.step_anime))
             write_linebreak(file)
             
@@ -459,7 +459,7 @@ class Exportation
       
         case commande.code
         when 0
-          # RM met des commandes de code 0 à chaque embranchement
+          # RM met des commandes de code 0 a chaque embranchement
         when 101
           # Message
           file.write("\t\t\t\t\"nom\": \"Message\",")
@@ -498,7 +498,7 @@ class Exportation
           file.write(sprintf("\t\t\t\t\"numero\": %d", nombre_de_choix_rencontres))
           write_linebreak(file)
           
-          # Ajouter un nouvel element à la pile
+          # Ajouter un nouvel element a la pile
           choix_en_cours << nombre_de_choix_rencontres
           nombre_de_choix_rencontres += 1
           
@@ -781,7 +781,7 @@ class Exportation
           
           conditions_en_cours << nombre_de_conditions_rencontrees
           nombre_de_conditions_rencontrees += 1
-          # Voilà pour les Conditions
+          # Voila pour les Conditions
           
           
         when 411
