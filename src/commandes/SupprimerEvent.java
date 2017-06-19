@@ -31,13 +31,13 @@ public class SupprimerEvent extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Event eventASupprimer;
-		if (idEvent == null) {
+		if (this.idEvent == null) {
 			eventASupprimer = this.page.event;
 		} else {
-			eventASupprimer = this.page.event.map.eventsHash.get(idEvent);
+			eventASupprimer = this.page.event.map.eventsHash.get(this.idEvent);
 		}
 		eventASupprimer.pageActive = null;
-		eventASupprimer.map.supprimerEvenement(eventASupprimer.numero);
+		eventASupprimer.map.supprimerEvenement(eventASupprimer.id);
 		return curseurActuel+1;
 	}
 

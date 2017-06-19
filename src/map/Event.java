@@ -57,8 +57,6 @@ public class Event implements Comparable<Event> {
 	public String nom;
 	/** identifiant de l'Event pour les Mouvements, tels qu'écrits dans les fichiers JSON */
 	public Integer id;
-	/** numéro unique de l'Event dans la gestion de la Map, assignés automatiquement */
-	public int numero;
 	/** distance (en pixels) entre le bord gauche de l'écran et le corps de l'Event */
 	public int x;
 	/** distance (en pixels) entre le bord haut de l'écran et le corps de l'Event */
@@ -226,7 +224,7 @@ public class Event implements Comparable<Event> {
 						}
 					} catch (NullPointerException e1) {
 						//pas de conditions pour déclencher cette page
-						LOG.warn("La page "+page.numero+" de l'event "+this.nom+" ("+this.numero+") n'a pas besoin de conditions pour se déclencher.");
+						LOG.warn("La page "+page.numero+" de l'event "+this.nom+" ("+this.id+") n'a pas besoin de conditions pour se déclencher.");
 					}
 					//on apprend aux commandes qui est leur page
 					try {
@@ -235,13 +233,13 @@ public class Event implements Comparable<Event> {
 						}
 					} catch (NullPointerException e2) {
 						//pas de commandes dans cette page
-						LOG.warn("La page "+page.numero+" de l'event "+this.nom+" ("+this.numero+") n'a pas de commandes.");
+						LOG.warn("La page "+page.numero+" de l'event "+this.nom+" ("+this.id+") n'a pas de commandes.");
 					}
 				}
 			}
 		} catch (NullPointerException e3) {
 			//pas de pages dans cet event
-			LOG.error("L'envent "+this.nom+" ("+this.numero+") n'a pas de pages.");
+			LOG.error("L'envent "+this.nom+" ("+this.id+") n'a pas de pages.");
 		}
 	}
 
@@ -360,7 +358,7 @@ public class Event implements Comparable<Event> {
 			}
 		} catch (NullPointerException e2) {
 			//pas de Pages pour cet Event
-			LOG.warn("L'event "+this.numero+" ("+this.nom+") n'a pas de pages.");
+			LOG.warn("L'event "+this.id+" ("+this.nom+") n'a pas de pages.");
 			e2.printStackTrace();
 		}
 		if (!onATrouveLaPageDApparence) {
@@ -489,7 +487,7 @@ public class Event implements Comparable<Event> {
 			executor.submit(new ThreadImporterLesEvents((JSONObject) ev)); //chaque thread modifie une ligne du dstOut
 		}
 		executor.shutdown();
-		// On attend la fin de l'execution pour toutes les lignes de pixels de l'image
+		// On attend la fin de l'execution pour toutes les events JSON
 		try {
 			while (!executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS)) {
 				LOG.warn("L'import des Events n'est pas encore terminé...");
@@ -630,9 +628,6 @@ public class Event implements Comparable<Event> {
 		if (this.hashCode() != event2.hashCode()) {
 			return false;
 		}
-		if (this.numero != event2.numero) {
-			return false;
-		}
 		if (this.id != event2.id) {
 			return false;
 		}
@@ -647,7 +642,7 @@ public class Event implements Comparable<Event> {
 	 */
 	@Override
 	public final int hashCode() {
-		return Maths.NOMBRE_PREMIER1 + Maths.NOMBRE_PREMIER2 * this.numero + Maths.NOMBRE_PREMIER3 * this.numero;
+		return Maths.NOMBRE_PREMIER1 + Maths.NOMBRE_PREMIER2 * this.id;
 	}
 	
 }

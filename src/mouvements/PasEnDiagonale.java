@@ -103,7 +103,7 @@ public class PasEnDiagonale extends Avancer {
 			xAInspecter += event.vitesseActuelle; 
 			break;
 		}
-		return event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.numero);
+		return event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id);
 	}
 
 	@Override

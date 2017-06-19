@@ -55,7 +55,7 @@ public abstract class Condition extends Commande {
 					}
 				} catch (IndexOutOfBoundsException e) {
 					if (this instanceof CommandeEvent) {
-						LOG.error("L'évènement n°"+this.page.event.numero+" n'a pas trouvé sa fin de condition "+this.numero+" :", e);
+						LOG.error("L'évènement n°"+this.page.event.id+" n'a pas trouvé sa fin de condition "+this.numero+" :", e);
 					}
 					if (this instanceof CommandeMenu) {
 						LOG.error("L'élément de menu n°"+this.element.id+" n'a pas trouvé sa fin de condition "+this.numero+" :", e);

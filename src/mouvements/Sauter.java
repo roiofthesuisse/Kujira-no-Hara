@@ -104,7 +104,7 @@ public class Sauter extends Mouvement {
 			}
 			
 			//la case d'arrivée est-elle libre ?
-			final boolean reponse = event.map.calculerSiLaPlaceEstLibre(this.xEventApresSaut, this.yEventApresSaut, event.largeurHitbox, event.hauteurHitbox, event.numero);
+			final boolean reponse = event.map.calculerSiLaPlaceEstLibre(this.xEventApresSaut, this.yEventApresSaut, event.largeurHitbox, event.hauteurHitbox, event.id);
 			return reponse;
 		} else {
 			//le Saut est en cours

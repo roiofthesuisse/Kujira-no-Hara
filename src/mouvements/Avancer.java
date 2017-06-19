@@ -107,7 +107,7 @@ public class Avancer extends Mouvement {
 		default : 
 			break;
 		}
-		if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.numero)) {
+		if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id)) {
 			// Aucun obstacle: on peut avancer tout droit
 			return true;
 		} else if (lObstacleEstUnCoinQueLOnPeutContourner(xAInspecter, yAInspecter, event)) {
@@ -201,20 +201,20 @@ public class Avancer extends Mouvement {
 			// On essaye de contourner un coin gauche
 			xAInspecterApresRealignement = (xAInspecter/Fenetre.TAILLE_D_UN_CARREAU) * Fenetre.TAILLE_D_UN_CARREAU + (Fenetre.TAILLE_D_UN_CARREAU - event.largeurHitbox);
 			this.realignementX = xAInspecterApresRealignement - xAInspecter;
-			if (event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.numero)  //c'est un coin
+			if (event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id)  //c'est un coin
 					&& Math.abs(this.realignementX) <= TOLERANCE_COIN) //le coin est petit
 			{
 				// On peut contourner le coin en décalant un peu l'Event
-				return event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, event.y, event.largeurHitbox, event.hauteurHitbox, event.numero); //on peut réaligner l'Event
+				return event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, event.y, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
 			} else {
 				// On essaye de contourner un coin droit
 				xAInspecterApresRealignement = (xAInspecter/Fenetre.TAILLE_D_UN_CARREAU + 1) * Fenetre.TAILLE_D_UN_CARREAU;
 				this.realignementX = xAInspecterApresRealignement - xAInspecter;
-				if (event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.numero) //c'est un coin
+				if (event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id) //c'est un coin
 						&& Math.abs(this.realignementX) <= TOLERANCE_COIN) //le coin est petit
 				{
 					// On peut contourner le coin en décalant un peu l'Event
-					return event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, event.y, event.largeurHitbox, event.hauteurHitbox, event.numero); //on peut réaligner l'Event
+					return event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, event.y, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
 				}
 			}
 			// L'obstacle n'est pas un coin que l'on peut contourner
@@ -225,20 +225,20 @@ public class Avancer extends Mouvement {
 			// On essaye de contourner un coin haut
 			yAInspecterApresRealignement = (yAInspecter/Fenetre.TAILLE_D_UN_CARREAU) * Fenetre.TAILLE_D_UN_CARREAU + (Fenetre.TAILLE_D_UN_CARREAU - event.hauteurHitbox);
 			this.realignementY = yAInspecterApresRealignement - yAInspecter;
-			if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.numero) //c'est un coin
+			if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id) //c'est un coin
 					&& Math.abs(this.realignementY) <= TOLERANCE_COIN) //le coin est petit
 			{
 				// On peut contourner le coin en décalant un peu l'Event
-				return event.map.calculerSiLaPlaceEstLibre(event.x, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.numero); //on peut réaligner l'Event
+				return event.map.calculerSiLaPlaceEstLibre(event.x, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
 			} else {
 				// On essaye de contourner un coin bas
 				yAInspecterApresRealignement = (yAInspecter/Fenetre.TAILLE_D_UN_CARREAU + 1) * Fenetre.TAILLE_D_UN_CARREAU;
 				this.realignementY = yAInspecterApresRealignement - yAInspecter;
-				if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.numero) //c'est un coin
+				if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id) //c'est un coin
 						&& Math.abs(this.realignementY) <= TOLERANCE_COIN) //le coin est petit
 				{
 					// On peut contourner le coin en décalant un peu l'Event
-					return event.map.calculerSiLaPlaceEstLibre(event.x, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.numero); //on peut réaligner l'Event
+					return event.map.calculerSiLaPlaceEstLibre(event.x, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
 				}
 			}
 			// L'obstacle n'est pas un coin que l'on peut contourner
@@ -275,7 +275,7 @@ public class Avancer extends Mouvement {
 			// On réaligne l'Event pour qu'il puisse contourner un coin
 			event.y += Math.abs(realignementY) <= Math.abs(event.vitesseActuelle) ? realignementY : event.vitesseActuelle;
 		}
-		LOG.debug("realignement de l'event "+event.numero+" x:"+realignementX+" y:"+realignementY);
+		LOG.debug("realignement de l'event id:"+event.id+" x:"+realignementX+" y:"+realignementY);
 	}
 	
 }

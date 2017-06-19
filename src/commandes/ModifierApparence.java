@@ -40,11 +40,11 @@ public class ModifierApparence extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final ArrayList<Event> events = this.page.event.map.events;
-		if (eventId == -1) {
-			eventId = this.page.event.numero; //c'est l'évènement qui donne l'ordre qui change d'apparence
+		if (this.eventId == -1) {
+			this.eventId = this.page.event.id; //c'est l'évènement qui donne l'ordre qui change d'apparence
 		}
 		for (Event e : events) {
-			if (e.numero == eventId) {
+			if (e.id == this.eventId) {
 				try {
 					e.imageActuelle = Graphismes.ouvrirImage("Characters", nomNouvelleImage);
 				} catch (IOException err) {

@@ -131,7 +131,7 @@ public abstract class Mouvement {
 				deplacementNaturelOuForce.mouvements.add(this);
 			} else {
 				LOG.warn("On ne remet pas en bout de file le Mouvement "+this.getClass().getName()
-						+" car la Page de l'Event "+this.deplacement.page.event.numero+" ("
+						+" car la Page de l'Event "+this.deplacement.page.event.id+" ("
 						+this.deplacement.page.event.nom+") a changé : de "+pageAvant+" vers "+pageMaintenant);
 			}
 
@@ -146,7 +146,7 @@ public abstract class Mouvement {
 			//cas théoriquement impossible
 			LOG.error("Impossible de retirer le premier Mouvement " + this.toString() 
 			+ " du Déplacement " + (this.deplacement.naturel ? "naturel" : "forcé")
-			+ " de l'Event " + event.numero + " (" + event.nom + ")");
+			+ " de l'Event " + event.id + " (" + event.nom + ")");
 		}
 	}
 	

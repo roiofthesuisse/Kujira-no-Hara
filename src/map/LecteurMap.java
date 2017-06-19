@@ -517,7 +517,7 @@ public class LecteurMap extends Lecteur {
 			
 			//on l'ajoute à la liste des Events
 			this.map.events.add(eventAajouter);
-			eventAajouter.numero = this.map.events.size();
+			eventAajouter.id = this.map.events.size();
 			
 			LOG.info("Ajout de l'event "+eventAajouter.nom);
 			LOG.debug("Nombre d'events sur la map : "+this.map.events.size());

@@ -424,14 +424,10 @@ public class Map implements Sauvegardable {
 		}
 		
 		// Numérotation des Events
-		final int nombreDEvents = this.events.size();
-		Event event;
-		for (int i = 0; i<nombreDEvents; i++) {
-			event = this.events.get(i);
+		for (Event event : this.events) {
 			event.map = this;
-			event.numero = i;
 			if (this.eventsHash.containsKey(event.id)) { //la numérotation des Events comporte un doublon !
-				LOG.error("Un autre event porte déjà le numéro : " + event.id);
+				LOG.error("CONFLIT : les events "+this.eventsHash.get(event.id).nom+" et "+event.nom+" portent le même id : "+event.id);
 			}
 			this.eventsHash.put(event.id, event);
 		}
@@ -509,14 +505,14 @@ public class Map implements Sauvegardable {
 	 * @param numeroEventASupprimer numéro de l'Event qu'il faut inscrire à la suppression
 	 * @return booléen pour savoir si l'Event à supprimer a bien été trouvé dans la liste des évènements
 	 */
-	public final boolean supprimerEvenement(final int numeroEventASupprimer) {
+	public final boolean supprimerEvenement(final int idEventASupprimer) {
 		for (Event event : this.events) {
-			if (event.numero == numeroEventASupprimer) {
+			if (event.id == idEventASupprimer) {
 				event.supprime = true;
 				return true;
 			}
 		}
-		LOG.warn("L'évènement à supprimer numéro "+numeroEventASupprimer+" n'a pas été trouvé dans la liste.");
+		LOG.warn("L'évènement à supprimer id:"+idEventASupprimer+" n'a pas été trouvé dans la liste.");
 		return false;
 	}
 
@@ -572,7 +568,7 @@ public class Map implements Sauvegardable {
 			//l'Event sort de la Map !
 			final Event event = this.eventsHash.get((Integer) numeroEvent);
 			if (!event.sortiDeLaMap) { //on n'affiche le message d'erreur qu'une fois
-				LOG.warn("L'event "+event.numero+" ("+event.nom+") est sorti de la map !"); //TODO ni le numéro, ni le nom ne semblent correspondre à l'Event qui sort
+				LOG.warn("L'event "+event.id+" ("+event.nom+") est sorti de la map !"); //TODO ni le numéro, ni le nom ne semblent correspondre à l'Event qui sort
 				LOG.trace(e);
 			}
 			event.sortiDeLaMap = true;
@@ -588,7 +584,7 @@ public class Map implements Sauvegardable {
 			xmax2 = autreEvent.x + autreEvent.largeurHitbox;
 			ymin2 = autreEvent.y;
 			ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
-			if (numeroEvent != autreEvent.numero 
+			if (numeroEvent != autreEvent.id 
 				&& !autreEvent.traversableActuel
 				&& Hitbox.lesDeuxRectanglesSeChevauchent(xmin, xmax, ymin, ymax, 
 						xmin2, xmax2, ymin2, ymax2, 
