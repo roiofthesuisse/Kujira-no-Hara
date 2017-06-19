@@ -316,9 +316,8 @@ public class Map implements Sauvegardable {
 					for (int k = 0; k<NOMBRE_LAYERS; k++) {
 						final int[][] layer = layers[k];
 						numeroCarreau = layer[i][j];
-						if (numeroCarreau == -1) {
-							//case vide, on ne dessine rien
-						} else {
+						if (numeroCarreau != -1) {
+							//case non-vide, il y a quelque chose à dessiner
 							altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
 							if (altitudeCarreau == altitudeActuelle) {
 								if (numeroCarreau >= 0) {
