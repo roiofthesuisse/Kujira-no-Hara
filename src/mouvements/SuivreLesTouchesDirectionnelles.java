@@ -3,14 +3,20 @@ package mouvements;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import commandes.Deplacement;
 import map.Event;
+import map.Heros;
 import utilitaire.GestionClavier;
 
 /**
  * Avancer selon les touches directionnelles du clavier.
  */
 public class SuivreLesTouchesDirectionnelles extends Mouvement {
+	protected static final Logger LOG = LogManager.getLogger(SuivreLesTouchesDirectionnelles.class);
+	
 	private int deltaX;
 	private int deltaY;
 	
@@ -18,6 +24,8 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	private boolean onPeutContournerUnCoin;
 	/** Décalage de l'Event pour l'aider à franchir un coin */
 	private int realignementX, realignementY;
+	/** Inertie : le Héros avance moins vite lors de la première frame d'appui */
+	private boolean toucheEnfonceeALaFramePrecedente;
 	
 	/**
 	 * Constructeur vide
@@ -43,51 +51,64 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	@Override
 	public final boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
+		if (event.pageActive == null) {
+			event.activerUnePage();
+		}
+		
+		// Inertie : si on vient d'appuyer sur la touche, le Héros va moins vite
+		final int vitesse;
+		if (event instanceof Heros && !this.toucheEnfonceeALaFramePrecedente) {
+			vitesse = Math.max(1, event.pageActive.vitesse/2);
+		} else {
+			vitesse = event.pageActive.vitesse;
+		}
 		
 		boolean ilYADeplacement = false;
+		boolean toucheEnfonceeACetteFrame = false;
 		if (GestionClavier.ToucheRole.HAUT.touche.enfoncee) {
+			toucheEnfonceeACetteFrame = true;
 			if (!GestionClavier.ToucheRole.BAS.touche.enfoncee) { //bas-haut impossible
 				if (GestionClavier.ToucheRole.GAUCHE.touche.enfoncee) {
 					if (!GestionClavier.ToucheRole.DROITE.touche.enfoncee) { //gauche-droite impossible
 						//haut-gauche
-						if (unPasVers(Event.Direction.HAUT, Event.Direction.GAUCHE, event).mouvementPossible()) {
+						if (unPasVers(Event.Direction.HAUT, Event.Direction.GAUCHE, event, vitesse).mouvementPossible()) {
 							ilYADeplacement = true;
-							this.deltaX = -event.pageActive.vitesse;
-							this.deltaY = -event.pageActive.vitesse;
+							this.deltaX = -vitesse;
+							this.deltaY = -vitesse;
 						} else {
 							//le mouvement diagonale n'est pas possible, on essaye un des deux sous-mouvements
-							if (unPasVers(Event.Direction.GAUCHE, event).mouvementPossible()) {
+							if (unPasVers(Event.Direction.GAUCHE, event, vitesse).mouvementPossible()) {
 								ilYADeplacement = true;
-								this.deltaX = -event.pageActive.vitesse;
-							} else if (unPasVers(Event.Direction.HAUT, event).mouvementPossible()) {
+								this.deltaX = -vitesse;
+							} else if (unPasVers(Event.Direction.HAUT, event, vitesse).mouvementPossible()) {
 								ilYADeplacement = true;
-								this.deltaY = -event.pageActive.vitesse;
+								this.deltaY = -vitesse;
 							}
 						}
 					}
 				} else {
 					if (GestionClavier.ToucheRole.DROITE.touche.enfoncee) {
 						//haut-droite
-						if (unPasVers(Event.Direction.HAUT, Event.Direction.DROITE, event).mouvementPossible()) {
+						if (unPasVers(Event.Direction.HAUT, Event.Direction.DROITE, event, vitesse).mouvementPossible()) {
 							ilYADeplacement = true;
-							this.deltaX = event.pageActive.vitesse;
-							this.deltaY = -event.pageActive.vitesse;
+							this.deltaX = vitesse;
+							this.deltaY = -vitesse;
 						} else {
 							//le mouvement diagonale n'est pas possible, on essaye un des deux sous-mouvements
-							if (unPasVers(Event.Direction.DROITE, event).mouvementPossible()) {
+							if (unPasVers(Event.Direction.DROITE, event, vitesse).mouvementPossible()) {
 								ilYADeplacement = true;
-								this.deltaX = event.pageActive.vitesse;
-							} else if (unPasVers(Event.Direction.HAUT, event).mouvementPossible()) {
+								this.deltaX = vitesse;
+							} else if (unPasVers(Event.Direction.HAUT, event, vitesse).mouvementPossible()) {
 								ilYADeplacement = true;
-								this.deltaY = -event.pageActive.vitesse;
+								this.deltaY = -vitesse;
 							}
 						}
 					} else {
 						//haut seul
-						Avancer unPas = unPasVers(Event.Direction.HAUT, event);
+						Avancer unPas = unPasVers(Event.Direction.HAUT, event, vitesse);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
-							this.deltaY = -event.pageActive.vitesse;
+							this.deltaY = -vitesse;
 							
 						} else if (unPas.onPeutContournerUnCoin) {
 							//contournement d'un coin
@@ -100,47 +121,48 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 			}
 		} else {
 			if (GestionClavier.ToucheRole.BAS.touche.enfoncee) {
+				toucheEnfonceeACetteFrame = true;
 				if (GestionClavier.ToucheRole.GAUCHE.touche.enfoncee) {
 					if (!GestionClavier.ToucheRole.DROITE.touche.enfoncee) { //gauche-droite impossible
 						//bas-gauche
-						if (unPasVers(Event.Direction.BAS, Event.Direction.GAUCHE, event).mouvementPossible()) {
+						if (unPasVers(Event.Direction.BAS, Event.Direction.GAUCHE, event, vitesse).mouvementPossible()) {
 							ilYADeplacement = true;
-							this.deltaX = -event.pageActive.vitesse;
-							this.deltaY = event.pageActive.vitesse;
+							this.deltaX = -vitesse;
+							this.deltaY = vitesse;
 						} else {
 							//le mouvement diagonale n'est pas possible, on essaye un des deux sous-mouvements
-							if (unPasVers(Event.Direction.GAUCHE, event).mouvementPossible()) {
+							if (unPasVers(Event.Direction.GAUCHE, event, vitesse).mouvementPossible()) {
 								ilYADeplacement = true;
-								this.deltaX = -event.pageActive.vitesse;
-							} else if (unPasVers(Event.Direction.BAS, event).mouvementPossible()) {
+								this.deltaX = -vitesse;
+							} else if (unPasVers(Event.Direction.BAS, event, vitesse).mouvementPossible()) {
 								ilYADeplacement = true;
-								this.deltaY = event.pageActive.vitesse;
+								this.deltaY = vitesse;
 							}
 						}
 					}
 				} else {
 					if (GestionClavier.ToucheRole.DROITE.touche.enfoncee) {
 						//bas-droite
-						if (unPasVers(Event.Direction.BAS, Event.Direction.DROITE, event).mouvementPossible()) {
+						if (unPasVers(Event.Direction.BAS, Event.Direction.DROITE, event, vitesse).mouvementPossible()) {
 							ilYADeplacement = true;
-							this.deltaX = event.pageActive.vitesse;
-							this.deltaY = event.pageActive.vitesse;
+							this.deltaX = vitesse;
+							this.deltaY = vitesse;
 						} else {
 							//le mouvement diagonale n'est pas possible, on essaye un des deux sous-mouvements
-							if (unPasVers(Event.Direction.DROITE, event).mouvementPossible()) {
+							if (unPasVers(Event.Direction.DROITE, event, vitesse).mouvementPossible()) {
 								ilYADeplacement = true;
-								this.deltaX = event.pageActive.vitesse;
-							} else if (unPasVers(Event.Direction.BAS, event).mouvementPossible()) {
+								this.deltaX = vitesse;
+							} else if (unPasVers(Event.Direction.BAS, event, vitesse).mouvementPossible()) {
 								ilYADeplacement = true;
-								this.deltaY = event.pageActive.vitesse;
+								this.deltaY = vitesse;
 							}
 						}
 					} else {
 						//bas seul
-						Avancer unPas = unPasVers(Event.Direction.BAS, event);
+						Avancer unPas = unPasVers(Event.Direction.BAS, event, vitesse);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
-							this.deltaY = event.pageActive.vitesse;
+							this.deltaY = vitesse;
 							
 						} else if (unPas.onPeutContournerUnCoin) {
 							//contournement d'un coin
@@ -152,12 +174,13 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 				}
 			} else {
 				if (GestionClavier.ToucheRole.GAUCHE.touche.enfoncee) {
+					toucheEnfonceeACetteFrame = true;
 					if (!GestionClavier.ToucheRole.DROITE.touche.enfoncee) { //gauche-droite impossible
 						//gauche seule
-						Avancer unPas = unPasVers(Event.Direction.GAUCHE, event);
+						Avancer unPas = unPasVers(Event.Direction.GAUCHE, event, vitesse);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
-							this.deltaX = -event.pageActive.vitesse;
+							this.deltaX = -vitesse;
 							
 						} else if (unPas.onPeutContournerUnCoin) {
 							//contournement d'un coin
@@ -168,13 +191,41 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 					}
 				} else {
 					if (GestionClavier.ToucheRole.DROITE.touche.enfoncee) {
+						toucheEnfonceeACetteFrame = true;
 						//droite seule
-						Avancer unPas = unPasVers(Event.Direction.DROITE, event);
+						Avancer unPas = unPasVers(Event.Direction.DROITE, event, vitesse);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
-							this.deltaX = event.pageActive.vitesse;
+							this.deltaX = vitesse;
 							
 						} else if (unPas.onPeutContournerUnCoin) {
+							//contournement d'un coin
+							this.onPeutContournerUnCoin = true;
+							this.realignementX = unPas.realignementX;
+							this.realignementY = unPas.realignementY;
+						}
+					} else if (this.toucheEnfonceeALaFramePrecedente && event instanceof Heros) {
+						// Inertie : même si on ne presse plus les touches, le Héros avance encore un peu
+						final int vitesseInertie = Math.max(1, event.pageActive.vitesse/2);
+						Avancer unPas = unPasVers(event.direction, event, vitesseInertie);
+						if (unPas.mouvementPossible()) {
+							ilYADeplacement = true;
+							switch(event.direction){
+								case Event.Direction.BAS :
+									this.deltaY = vitesseInertie;
+									break;
+								case Event.Direction.HAUT :
+									this.deltaY = -vitesseInertie;
+									break;
+								case Event.Direction.DROITE :
+									this.deltaX = vitesseInertie;
+									break;
+								case Event.Direction.GAUCHE :
+									this.deltaX = -vitesseInertie;
+									break;
+							}
+						} else if (unPas.onPeutContournerUnCoin) {
+							LOG.error("Contournement d'un obstacle suite à un mouvement inertiel.");
 							//contournement d'un coin
 							this.onPeutContournerUnCoin = true;
 							this.realignementX = unPas.realignementX;
@@ -184,6 +235,9 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 				}
 			}
 		}
+		
+		this.toucheEnfonceeALaFramePrecedente = toucheEnfonceeACetteFrame;
+		
 		return ilYADeplacement;
 	}
 
@@ -197,14 +251,12 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	 * Créer un pas dans la direction voulue.
 	 * Ce pas peut rester théorique pour permettre de calculer la possibilité (ou non) d'un Mouvement.
 	 * @param dir direction du pas
-	 * @param event 
+	 * @param event qui doit avancer
+	 * @param vitesseForcee du pas, éventuellement différente de la vitesse de l'Event
 	 * @return un pas dans la direction demandée
 	 */
-	private Avancer unPasVers(final int dir, final Event event) {
-		if (event.pageActive == null) {
-			event.activerUnePage();
-		}
-		final Avancer pas = new Avancer(dir, event.pageActive.vitesse);
+	private Avancer unPasVers(final int dir, final Event event, final int vitesseForcee) {
+		final Avancer pas = new Avancer(dir, vitesseForcee);
 		pas.deplacement = new Deplacement(event.id, new ArrayList<Mouvement>(), true, false, false);
 		pas.deplacement.page = event.pageActive; //on apprend au Déplacement quelle est sa Page
 		return pas;
@@ -215,14 +267,12 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	 * Ce pas peut rester théorique pour permettre de calculer la possibilité (ou non) d'un Mouvement.
 	 * @param dirVerti direction verticale du pas
 	 * @param dirHori direction horizontale du pas
-	 * @param event 
+	 * @param event qui doit avancer
+	 * @param vitesseForcee du pas, éventuellement différente de la vitesse de l'Event
 	 * @return un pas dans la direction demandée
 	 */
-	private Mouvement unPasVers(final int dirVerti, final int dirHori, final Event event) {
-		if (event.pageActive == null) {
-			event.activerUnePage();
-		}
-		final Mouvement pas = new PasEnDiagonale(dirVerti, dirHori, event.pageActive.vitesse);
+	private Mouvement unPasVers(final int dirVerti, final int dirHori, final Event event, final int vitesseForcee) {
+		final Mouvement pas = new PasEnDiagonale(dirVerti, dirHori, vitesseForcee);
 		pas.deplacement = new Deplacement(event.id, new ArrayList<Mouvement>(), true, false, false);
 		pas.deplacement.page = event.pageActive; //on apprend au Déplacement quelle est sa Page
 		return pas;

@@ -23,6 +23,8 @@ public class Avancer extends Mouvement {
 	protected boolean onPeutContournerUnCoin;
 	/** Décalage de l'Event pour l'aider à franchir un coin */
 	protected int realignementX, realignementY;
+	/** Nombre de pixels parcourus à chaque pas */
+	private int vitesse;
 	
 	/**
 	 * Constructeur explicite
@@ -55,19 +57,19 @@ public class Avancer extends Mouvement {
 		//déplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
-				event.y += event.vitesseActuelle; 
+				event.y += this.vitesse; 
 				break;
 			case Direction.GAUCHE : 
-				event.x -= event.vitesseActuelle; 
+				event.x -= this.vitesse; 
 				break;
 			case Direction.DROITE : 
-				event.x += event.vitesseActuelle; 
+				event.x += this.vitesse; 
 				break;
 			case Direction.HAUT : 
-				event.y -= event.vitesseActuelle; 
+				event.y -= this.vitesse; 
 				break;
 		}
-		this.ceQuiAEteFait += event.vitesseActuelle;
+		this.ceQuiAEteFait += this.vitesse;
 	}
 	
 	/**
@@ -88,21 +90,24 @@ public class Avancer extends Mouvement {
 			return true;
 		}
 		
+		//pas besoin d'aller à la vitesse de l'Event si l'objectif est très proche
+		this.vitesse = Math.min(this.etapes, event.vitesseActuelle);
+		
 		//collisions avec le décor et les autres Events
 		int xAInspecter = event.x;
 		int yAInspecter = event.y;
 		switch (this.direction) {
 		case Event.Direction.BAS : 
-			yAInspecter += event.vitesseActuelle; 
+			yAInspecter += this.vitesse; 
 			break;
 		case Event.Direction.GAUCHE : 
-			xAInspecter -= event.vitesseActuelle; 
+			xAInspecter -= this.vitesse; 
 			break;
 		case Event.Direction.DROITE : 
-			xAInspecter += event.vitesseActuelle; 
+			xAInspecter += this.vitesse; 
 			break;
 		case Event.Direction.HAUT : 
-			yAInspecter -= event.vitesseActuelle; 
+			yAInspecter -= this.vitesse; 
 			break;
 		default : 
 			break;
