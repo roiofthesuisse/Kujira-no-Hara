@@ -439,7 +439,9 @@ public class LecteurMap extends Lecteur {
 		
 		try {
 			for (Event event : this.map.events) {
-				final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle == 0);
+				final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle == 0) //fréquence d'animation
+				|| (event.avance && !event.avancaitALaFramePrecedente); //la première frame d'animation est un pas
+				
 				//cas où l'Event est animé à l'arrêt
 				if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
 					event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
