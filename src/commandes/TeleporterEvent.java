@@ -1,6 +1,7 @@
 package commandes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import jeu.Partie;
 import main.Commande;
@@ -28,6 +29,19 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 		this.nouveauX = nouveauX;
 		this.nouveauY = nouveauY;
 		this.utiliserVariables = utiliserVariables;
+	}
+	
+	/**
+	 * Constructeur générique
+	 * @param parametres liste de paramètres issus de JSON
+	 */
+	public TeleporterEvent(final HashMap<String, Object> parametres) {
+		this( 
+			parametres.containsKey("idEvent") ? (int) parametres.get("idEvent") : null, 
+			(int) parametres.get("nouveauX"),
+			(int) parametres.get("nouveauY"),
+			parametres.containsKey("variable") && (boolean) parametres.get("variable")
+		);
 	}
 	
 	@Override
