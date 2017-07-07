@@ -382,7 +382,7 @@ class Exportation
           end
           write_linebreak(file)
             
-          # On rajoute ça pour ne pas que le programme plante lol
+          # On rajoute ca pour ne pas que le programme plante lol
           Graphics.update
           
           end
@@ -453,6 +453,13 @@ class Exportation
           masquer_la_commande = true
         else
           masquer_la_commande = false
+                
+          # Virgule entre chaque commande   
+          if (@command_id != 0)
+            file.write(",")
+            write_linebreak(file)
+          end
+          
           file.write("\t\t\t{")
           write_linebreak(file)
         end
@@ -858,30 +865,239 @@ class Exportation
           write_linebreak(file)
           file.write(sprintf("\t\t\t\t\"nomEtiquette\": \"%s\"", commande.parameters[0]))
           write_linebreak(file)
+
+        when 121
+          # Modifier interrupteur
+          file.write("\t\t\t\t\"nom\": \"ModifierInterrupteur\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"numeroInterrupteur\": %d,", commande.parameters[0]))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"valeur\": %s", commande.parameters[2]==0))
+          write_linebreak(file)
+
+        when 122 
+          # Modifier variable
+          file.write("\t\t\t\t\"nom\": \"ModifierVariable\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"numeroVariable\": %d,", commande.parameters[0]))
+          write_linebreak(file)
+          operation = case commande.parameters[2]
+            when 0 then "rendre egal a"
+            when 1 then "ajouter"
+            when 2 then "retirer"
+            when 3 then "multiplier"
+            when 4 then "diviser"
+            when 5 then "modulo"
+          end
           
+          # operation mathematique a effectuer
+          file.write(sprintf("\t\t\t\t\"operationAFaire\": \"%s\",", operation))
+          write_linebreak(file)
           
+          operation2 = case commande.parameters[3]
+            when 0 then "valeur brute"
+            when 1 then "contenu de la variable"
+            when 2 then "nombre aleatoire"
+            when 3 then "objets possedes"
+            when 6 then 
+              case commande.parameters[5]
+                when 0 then "coordonnee x"
+                when 1 then "coordonnee y"
+                when 2 then "direction"
+                when 5 then "terrain"
+              end
+            when 7 then
+              case commande.parameters[4]
+                when 0 then "numero de la map"
+                when 2 then "argent possede"
+              end
+          end
           
+          if commande.parameters[3] != 7
+            # pas de valeur a preciser pour l'argent et le numero de map
+            file.write(sprintf("\t\t\t\t\"valeurADonner\": \"%s\",", commande.parameters[4]))
+            write_linebreak(file)
+          end
+          
+          if commande.parameters[3] == 2
+            # un nombre aleatoire necessite une borne superieure
+            file.write(sprintf("\t\t\t\t\"valeurADonner2\": \"%s\",", commande.parameters[5]))
+            write_linebreak(file)
+          end
+          # provenance de la valeur a assigner
+          file.write(sprintf("\t\t\t\t\"operationAFaire2\": \"%s\"", operation2))
+          write_linebreak(file)
+
+        when 123
+          # Modifier interrupteur local
+          file.write("\t\t\t\t\"nom\": \"ModifierInterrupteurLocal\",")
+          write_linebreak(file)
+          numeroInterrupteur = case commande.parameters[0]
+            when "A" then 0
+            when "B" then 1
+            when "C" then 2
+            when "D" then 3
+          end
+          file.write(sprintf("\t\t\t\t\"numeroInterrupteurLocal\": %d,", numeroInterrupteur))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"valeurADonner\": %s", commande.parameters[1]==0))
+          write_linebreak(file)
+          
+        when 124
+          # Chronometre
+          case commande.parameters[0]
+            when 0
+              # Demarrer
+              file.write("\t\t\t\t\"nom\": \"DemarrerChronometre\",")
+              write_linebreak(file)
+              file.write(sprintf("\t\t\t\t\"depart\": %d", commande.parameters[1]))
+              write_linebreak(file)
+            when 1
+              # Arreter
+              file.write("\t\t\t\t\"nom\": \"ArreterChronometre\"")
+              write_linebreak(file)              
+          end
+
+        when 125
+          # Ajouter/retirer argent
+          case commande.parameters[0]
+          when 0
+            # Ajout
+            file.write("\t\t\t\t\"nom\": \"AjouterArgent\",")
+            write_linebreak(file)
+          when 1
+            # Retrait
+            file.write("\t\t\t\t\"nom\": \"RetirerArgent\",")
+            write_linebreak(file)
+          end
+          file.write(sprintf("\t\t\t\t\"variable\": %s,", commande.parameters[1]==1))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"quantite\": %d", commande.parameters[2]))
+          write_linebreak(file)
+        
+        when 126
+          # Ajouter/retirer objet
+          case commande.parameters[1]
+          when 0
+            # Ajout
+            file.write("\t\t\t\t\"nom\": \"AjouterObjet\",")
+            write_linebreak(file)
+          when 1
+            # Retrait
+            file.write("\t\t\t\t\"nom\": \"RetirerObjet\",")
+            write_linebreak(file)
+          end
+          file.write(sprintf("\t\t\t\t\"idObjet\": %d,", commande.parameters[0]))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"variable\": %s,", commande.parameters[2]==1))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"quantite\": %d", commande.parameters[3]))
+          write_linebreak(file)
+          
+        when 127
+          # Ajouter/retirer arme
+          case commande.parameters[1]
+          when 0
+            # Ajout
+            file.write("\t\t\t\t\"nom\": \"AjouterArme\",")
+            write_linebreak(file)
+          when 1
+            # Retrait
+            file.write("\t\t\t\t\"nom\": \"RetirerArme\",")
+            write_linebreak(file)
+          end
+          #file.write(sprintf("\t\t\t\t\"variable\": %s,", commande.parameters[2]==1))
+          #write_linebreak(file)
+          #file.write(sprintf("\t\t\t\t\"quantite\": %d,", commande.parameters[3]))
+          #write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"idArme\": %d", commande.parameters[0]))
+          write_linebreak(file)
+          
+        when 128
+          # Ajouter/retirer armure
+          case commande.parameters[1]
+          when 0
+            # Ajout
+            file.write("\t\t\t\t\"nom\": \"AjouterGadget\",")
+            write_linebreak(file)
+          when 1
+            # Retrait
+            file.write("\t\t\t\t\"nom\": \"RetirerGadget\",")
+            write_linebreak(file)
+          end
+          #file.write(sprintf("\t\t\t\t\"variable\": %s,", commande.parameters[2]==1))
+          #write_linebreak(file)
+          #file.write(sprintf("\t\t\t\t\"quantite\": %d,", commande.parameters[3]))
+          #write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"idGadget\": %d", commande.parameters[0]))
+          write_linebreak(file)
+          
+        #When 129 # Swap actors
+        #When 131 # Changer l'apparence de la boite de dialogues
+        #When 132 # Change Battle BGM
+        #When 133 # Change battle end ME
+        #when 134 # Autoriser sauvegarde
+          
+        when 135
+          # Autoriser menu
+          file.write("\t\t\t\t\"nom\": \"AutoriserMenu\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"autoriser\": %s", commande.parameters[0]==1))
+          write_linebreak(file)
+          
+        #When 136 # Activer les combats aleatoires
+                    
+        when 201
+          # Changer de Map
+          file.write("\t\t\t\t\"nom\": \"ChangerDeMap\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"variable\": %s,", commande.parameters[0]==1))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"numeroNouvelleMap\": %d,", commande.parameters[1]))
+          write_linebreak(file)
+          if commande.parameters[4] != 0
+            direction = case commande.parameters[4]
+              when 2 then 0
+              when 4 then 1
+              when 6 then 2
+              when 8 then 3
+            end
+            file.write(sprintf("\t\t\t\t\"directionDebutHeros\": %d,", direction))
+            write_linebreak(file)
+          end
+          file.write(sprintf("\t\t\t\t\"xDebutHeros\": %d,", commande.parameters[2]))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"yDebutHeros\": %d", commande.parameters[3]))
+          write_linebreak(file)
+          
+        when 202
+          # Repositionner un Event
+          file.write("\t\t\t\t\"nom\": \"TeleporterEvent\",")
+          write_linebreak(file)
+          if commande.parameters[0] != 0 # 0 signifie "cet event"
+            file.write(sprintf("\t\t\t\t\"idEvent\": %d,", commande.parameters[0]))
+            write_linebreak(file)
+          end
+          file.write(sprintf("\t\t\t\t\"variable\": %s,", commande.parameters[1]==1))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"nouveauX\": %d,", commande.parameters[2]))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"nouveauY\": %d,", commande.parameters[3]))
+          write_linebreak(file)
+          direction = case commande.parameters[4]
+            when 2 then 0
+            when 4 then 1
+            when 6 then 2
+            when 8 then 3
+          end
+          file.write(sprintf("\t\t\t\t\"direction\": %d", direction))
+          write_linebreak(file)
+        
           #TODO
           #...
           
 =begin
 
-        When 121 # Modifier interrupteur
-        When 122 # Modifier variable
-        When 123 # Modifier interrupteur local
-        When 124 # Chronometre
-        When 125 # Ajouter argent
-        When 126 # Ajouter objet
-        When 127 # Ajouter arme
-        When 128 # Ajouter equipement
-        When 129 # Swap actors
-        When 131 # Changer l'apparence de la boite de dialogues
-        When 132 # Change Battle BGM
-        When 133 # Change battle end ME
-        When 134 # Autoriser la sauvegarde
-        When 135 # Autoriser le menu
-        When 136 # Changing prohibition of encounter
-        
         When 201 # Changer de map
         When 202 # Repositionner un event
         When 203 # Faire defiler la map
@@ -925,7 +1141,7 @@ class Exportation
           file.write(sprintf("\t\t\t\t\"nom\": \"%d\",", commande.code))
           write_linebreak(file)
           
-          # Parametres
+          # Parametres de la commande inconnue
           for parameter_id in 0...commande.parameters.size
             parametre = commande.parameters[parameter_id].to_s
             file.write(sprintf("\t\t\t\t\"%d\": \"%s\"", parameter_id, parametre))
@@ -940,15 +1156,12 @@ class Exportation
         
         if !masquer_la_commande
           file.write("\t\t\t}")
-          if @command_id < page.list.size - 1
-            file.write(",")
-          end
-          write_linebreak(file)
         end
       
         @command_id += 1
       end
-
+      
+      write_linebreak(file)
       file.write("\t\t\t],")
       write_linebreak(file)
     end
