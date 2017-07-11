@@ -537,9 +537,16 @@ public class Event implements Comparable<Event> {
 			try {
 				//récupération des données dans le JSON
 				
-				final int xEvent = jsonEvent.getInt("x") * Fenetre.TAILLE_D_UN_CARREAU;
-				final int yEvent = jsonEvent.getInt("y") * Fenetre.TAILLE_D_UN_CARREAU;
-				
+				int xEvent, yEvent; 
+				try {
+					// coordonnées entières
+					xEvent = ((int) jsonEvent.get("x")) * Fenetre.TAILLE_D_UN_CARREAU;
+					yEvent = ((int) jsonEvent.get("y")) * Fenetre.TAILLE_D_UN_CARREAU;
+				} catch (ClassCastException e) {
+					// coordonnées non entières
+					xEvent = (int) (jsonEvent.getDouble("x") * Fenetre.TAILLE_D_UN_CARREAU);
+					yEvent = (int) (jsonEvent.getDouble("y") * Fenetre.TAILLE_D_UN_CARREAU);
+				}
 				//instanciation de l'event
 				Event event;
 	
