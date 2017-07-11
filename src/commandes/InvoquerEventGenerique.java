@@ -46,7 +46,7 @@ public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 		final int yPixel = this.y*Fenetre.TAILLE_D_UN_CARREAU;
 		final int idEventInvoque = -1;
 		final Event eventInvoque = Event.creerEventGenerique(idEventInvoque, this.nomEventInvoque, 
-				xPixel, yPixel, 0, map);
+				xPixel, yPixel, map);
 		if (map.calculerSiLaPlaceEstLibre(xPixel, yPixel, eventInvoque.largeurHitbox, eventInvoque.hauteurHitbox, idEventInvoque)) {
 			map.eventsAAjouter.add(eventInvoque);
 		}

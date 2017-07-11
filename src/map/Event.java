@@ -539,18 +539,12 @@ public class Event implements Comparable<Event> {
 				
 				final int xEvent = jsonEvent.getInt("x") * Fenetre.TAILLE_D_UN_CARREAU;
 				final int yEvent = jsonEvent.getInt("y") * Fenetre.TAILLE_D_UN_CARREAU;
-				final int offsetY;
-				if (jsonEvent.has("offsetY")) {
-					offsetY = jsonEvent.getInt("offsetY");
-				} else {
-					offsetY = 0;
-				}
 				
 				//instanciation de l'event
 				Event event;
 	
 				//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
-				event = Event.creerEventGenerique(id, nomEvent, xEvent, yEvent, offsetY, map);
+				event = Event.creerEventGenerique(id, nomEvent, xEvent, yEvent, map);
 				
 				//si l'Event n'est pas générique, on le construit à partir de sa description dans la page JSON
 				if (event == null) {
@@ -565,6 +559,12 @@ public class Event implements Comparable<Event> {
 						hauteurHitbox = jsonEvent.getInt("hauteur");
 					} else {
 						hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
+					}
+					final int offsetY;
+					if (jsonEvent.has("offsetY")) {
+						offsetY = jsonEvent.getInt("offsetY");
+					} else {
+						offsetY = 0;
 					}
 					final boolean reinitialiser = jsonEvent.has("reinitialiser") ? jsonEvent.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
 	
@@ -584,11 +584,11 @@ public class Event implements Comparable<Event> {
 	 * @param nomEvent nom de l'Event à créer
 	 * @param xEvent (en pixels) position x de l'Event
 	 * @param yEvent (en pixels) position y de l'Event
-	 * @param offsetYEvent si on veut afficher l'Event plus bas que sa case réelle
 	 * @param map de l'Event
 	 * @return un Event créé
 	 */
-	public static Event creerEventGenerique(final int id, final String nomEvent, final int xEvent, final int yEvent, final int offsetYEvent, final Map map) {
+	public static Event creerEventGenerique(final int id, final String nomEvent, final int xEvent, 
+			final int yEvent, final Map map) {
 		try {
 			final JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
 			int largeurHitbox;
@@ -603,10 +603,16 @@ public class Event implements Comparable<Event> {
 			} catch (JSONException e2) {
 				hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
 			}
+			final int offsetY;
+			if (jsonEventGenerique.has("offsetY")) {
+				offsetY = jsonEventGenerique.getInt("offsetY");
+			} else {
+				offsetY = 0;
+			}
 			final boolean reinitialiser = jsonEventGenerique.has("reinitialiser") ? jsonEventGenerique.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
 	
 			final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-			return new Event(xEvent, yEvent, offsetYEvent, nomEvent, id, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
+			return new Event(xEvent, yEvent, offsetY, nomEvent, id, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
 		} catch (FileNotFoundException e1) {
 			LOG.trace("Impossible de trouver le fichier JSON pour contruire l'Event générique "+nomEvent, e1);
 			return null;
