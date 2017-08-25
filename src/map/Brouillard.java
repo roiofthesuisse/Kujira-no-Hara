@@ -43,7 +43,7 @@ public final class Brouillard implements Sauvegardable {
 	 * @param zoom taux d'aggrandissement de l'image (en pourcents)
 	 * @throws IOException l'image n'a pas pu être chargée
 	 */
-	private Brouillard(final String nomImage, final int opacite, final ModeDeFusion mode, final int defilementX, 
+	public Brouillard(final String nomImage, final int opacite, final ModeDeFusion mode, final int defilementX, 
 			final int defilementY, final long zoom) {
 		this.zoom = zoom;
 		this.nomImage = nomImage;

@@ -36,7 +36,7 @@ public class ModifierPanorama extends Commande implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ModifierPanorama(final HashMap<String, Object> parametres) {
-		this( 
+		this(
 				(String) parametres.get("nomImage"),
 				parametres.containsKey("parallaxe") ? (int) parametres.get("parallaxe") : Tileset.PARALLAXE_PAR_DEFAUT
 		);
@@ -51,6 +51,6 @@ public class ModifierPanorama extends Commande implements CommandeEvent {
 			LOG.error("Impossible d'ouvrir l'image de panorama : "+this.nomImage);
 		}
 		
-		return 0;
+		return curseurActuel+1;
 	}
 }
