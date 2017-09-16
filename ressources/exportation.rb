@@ -449,7 +449,7 @@ class Exportation
         
         # Faut-il masquer cette commande ?
         case commande.code 
-        when 0, 401, 408
+        when 0, 401, 408, 509
           masquer_la_commande = true
         else
           masquer_la_commande = false
@@ -1093,20 +1093,242 @@ class Exportation
           file.write(sprintf("\t\t\t\t\"direction\": %d", direction))
           write_linebreak(file)
         
+        when 203 
+          # Faire defiler la map
+          file.write("\t\t\t\t\"nom\": \"FaireDefilerLaMap\",")
+          write_linebreak(file)
+          direction = case commande.parameters[0]
+            when 2 then 0
+            when 4 then 1
+            when 6 then 2
+            when 8 then 3
+          end
+          file.write(sprintf("\t\t\t\t\"direction\": %d,", direction))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\"nombreDeCarreaux\": %d,", commande.parameters[1]))
+          write_linebreak(file)
+          vitesse = case commande.parameters[2]
+            when 0 then 1
+            when 1 then 2
+            when 2 then 4
+            when 3 then 8
+            when 4 then 12
+            when 5 then 16
+            when 6 then 24
+          end
+          file.write(sprintf("\t\t\t\t\"vitesse\": %d", vitesse))
+          write_linebreak(file)
+
+        when 204
+          case commande.parameters[0]
+          when 0
+            # Panorama
+            file.write("\t\t\t\t\"nom\": \"ModifierPanorama\",")
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"nuance\": %d,", commande.parameters[2]))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"nomImage\": \"%s\"", commande.parameters[1]))
+            write_linebreak(file)
+            
+          when 1
+            # Brouillard
+            file.write("\t\t\t\t\"nom\": \"ModifierBrouillard\",")
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"opacite\": %d,", commande.parameters[3]))
+            write_linebreak(file)
+            modeDeFusion = case commande.parameters[4]
+              when 0 then "normal"
+              when 1 then "negatif"
+              when 2 then "addition"
+            end
+            file.write(sprintf("\t\t\t\t\"nomModeDeFusion\": \"%s\",", modeDeFusion))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"defilementX\": %d,", commande.parameters[6]))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"defilementY\": %d,", commande.parameters[7]))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"zoom\": %d,", commande.parameters[5]))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"nuance\": %d,", commande.parameters[2]))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"nomImage\": \"%s\"", commande.parameters[1]))
+            write_linebreak(file)
+          end
+          
+        #When 205 # Ton du brouillard
+        #When 206 # Opacite du brouillard
+        
+        when 207 
+          # Animation
+          file.write("\t\t\t\t\"nom\": \"JouerAnimation\",")
+          write_linebreak(file)
+          # event cible de l'animation
+          case commande.parameters[0]
+            when -1
+              # heros
+              file.write("\t\t\t\t\"idEvent\": 0,")
+              write_linebreak(file)
+            when 0
+              # cet event
+            else
+              # un event
+              file.write(sprintf("\t\t\t\t\"idEvent\": %d,", commande.parameters[0]))
+              write_linebreak(file)
+          end
+          file.write(sprintf("\t\t\t\t\"idAnimation\": %d", commande.parameters[1]))
+          write_linebreak(file)
+          
+        when 209
+          # Deplacement
+          file.write("\t\t\t\t\"nom\": \"Deplacement\",")
+          write_linebreak(file)
+          # event e deplacer
+          case commande.parameters[0]
+            when -1
+              # heros
+              file.write("\t\t\t\t\"idEventADeplacer\": 0,")
+              write_linebreak(file)
+            when 0
+              # cet event
+            else
+              # un event
+              file.write(sprintf("\t\t\t\t\"idEventADeplacer\": %d,", commande.parameters[0]))
+              write_linebreak(file)
+          end
+          facultatif = commande.parameters[1].skippable
+          file.write(sprintf("\t\t\t\t\"ignorerLesMouvementsImpossibles\": %s,", facultatif))
+          write_linebreak(file)
+          repeter = commande.parameters[1].repeat
+          file.write(sprintf("\t\t\t\t\"repeterLeDeplacement\": %s,", repeter))
+          write_linebreak(file)
+          file.write("\t\t\t\t\"attendreLaFinDuDeplacement\": false,")
+          write_linebreak(file)
+          file.write("\t\t\t\t\"mouvements\": [")
+          write_linebreak(file)
+          
+          i_mouvement = 1
+          commande_suivante = page.list[@command_id + i_mouvement]
+          while commande_suivante != nil && commande_suivante.code == 509
+            # Mouvements
+            mouvement = commande_suivante.parameters[0]
+            file.write("\t\t\t\t{")
+            write_linebreak(file)
+            case mouvement.code 
+              when 1
+                file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"direction\": 0,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
+              when 2
+                file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"direction\": 1,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
+              when 3
+                file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"direction\": 2,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
+              when 4
+                file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"direction\": 3,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
+              when 5
+                file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionVerticale\": 0,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionVerticale\": 1,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
+              when 6
+                file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionVerticale\": 0,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionVerticale\": 2,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
+              when 7
+                file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionVerticale\": 3,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionVerticale\": 1,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
+              when 8
+                file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionVerticale\": 3,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionVerticale\": 2,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
+              when 9
+                file.write("\t\t\t\t\t\"nom\": \"AvancerAleatoirement\"")
+              when 10
+                file.write("\t\t\t\t\t\"nom\": \"AvancerEnFonctionDUnEvent\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"idEventObserve\": 0,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"sens\": \"suivre\"")
+              when 11
+                file.write("\t\t\t\t\t\"nom\": \"AvancerEnFonctionDUnEvent\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"idEventObserve\": 0,")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"sens\": \"fuir\"")
+              when 12
+                file.write("\t\t\t\t\t\"nom\": \"PasEnAvant\"")
+              when 13
+                file.write("\t\t\t\t\t\"nom\": \"PasEnArriere\"")
+              when 14
+                file.write("\t\t\t\t\t\"nom\": \"Sauter\",")
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"x\": %d,", mouvement.parameters[0]))
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"y\": %d", mouvement.parameters[1]))
+              else
+                file.write(sprintf("\t\t\t\t\t\"nom\": %s", mouvement.code))
+            end
+            write_linebreak(file)
+            file.write("\t\t\t\t}")
+            
+            i_mouvement += 1
+            commande_suivante = page.list[@command_id + i_mouvement]
+            
+            if commande_suivante != nil && commande_suivante.code == 509
+              file.write(",")
+            end
+            write_linebreak(file)
+            
+          end
+          file.write("\t\t\t\t]")
+          write_linebreak(file)
+        
+        when 509
+          # Mouvements du deplacement
+          
+        when 210 
+          # Attendre la fin du deplacement
+          file.write("\t\t\t\t\"nom\": \"AttendreLaFinDesDeplacements\",")
+          write_linebreak(file)
+          file.write("\t\t\t\t\"idEvent\": -1")
+          write_linebreak(file)
+          
+          
+          
+          
           #TODO
           #...
           
 =begin
-
-        When 201 # Changer de map
-        When 202 # Repositionner un event
-        When 203 # Faire defiler la map
-        When 204 # Brouillard et autres parametres de la map
-        When 205 # Ton du brouillard
-        When 206 # Opacite du brouillard
-        When 207 # Animation
-        When 209 # Deplacement
-        When 210 # Attendre la fin du deplacement
         When 221 # Transition preparation
         When 222 # Transition execution
         When 223 # Ton de l'ecran
