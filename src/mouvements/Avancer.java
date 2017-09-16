@@ -42,7 +42,8 @@ public class Avancer extends Mouvement {
 	 */
 	public Avancer(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("direction"), 
-			  (int) parametres.get("nombreDeCarreaux")*Fenetre.TAILLE_D_UN_CARREAU );
+			  (int) (parametres.containsKey("nombreDeCarreaux") ? parametres.get("nombreDeCarreaux") : 1) * Fenetre.TAILLE_D_UN_CARREAU 
+		);
 	}
 	
 	/** 
