@@ -2,6 +2,8 @@ package mouvements;
 
 import java.util.HashMap;
 
+import conditions.ConditionContact;
+import conditions.ConditionContact.TypeDeContact;
 import main.Fenetre;
 import map.Event;
 import map.Event.Direction;
@@ -54,14 +56,25 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	@Override
 	public final boolean mouvementPossible() {
 		if (!this.directionDecidee) { //ne calculer la direction qu'une seule fois par pas
-			//calcul de la direction à prendre
+			
 			final Event eventObservateur = this.deplacement.getEventADeplacer();
 			final Event eventObserve = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventObserve);
+			
+			//s'il est déjà arrivé auprès de sa cible, l'Event arrête d'avancer
+			if (this.sens == Sens.SUIVRE) {
+				final ConditionContact contact = new ConditionContact(-1, eventObservateur.id, eventObserve.id, TypeDeContact.SUPERPOSITION_PARTIELLE);
+				contact.page = this.deplacement.page;
+				if (contact.estVerifiee()) {
+					return false;
+				}
+			}
+			
+			//calcul de la direction à prendre pour atteindre la cible
 			final int distanceVerticale = eventObservateur.y - eventObserve.y;
 			final int distanceHorizontale = eventObservateur.x - eventObserve.x;
 			calculerDirection(distanceVerticale, distanceHorizontale);
 			
-			//si l'Event fuit on inverse la direction
+			//si l'Event fuit, on inverse la direction
 			if (this.sens == Sens.FUIR) {
 				this.direction = calculerDirectionOpposee(this.direction);
 			} 
