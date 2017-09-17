@@ -170,25 +170,6 @@ public class Avancer extends Mouvement {
 	}
 	
 	/**
-	 * Calcule la direction opposée.
-	 * @param dir direction à inverser
-	 * @return direction opposée
-	 */
-	protected final int calculerDirectionOpposee(final int dir) {
-		switch(dir) {
-			case Direction.BAS:
-				return Direction.HAUT;
-			case Direction.HAUT:
-				return Direction.BAS;
-			case Direction.GAUCHE:
-				return Direction.DROITE;
-			case Direction.DROITE:
-				return Direction.GAUCHE;
-		}
-		return -1;
-	}
-	
-	/**
 	 * Si l'Event ne peut pas avancer parce qu'il déborde légèrement sur un coin, on le réaligne pour l'aider à passer.
 	 * @param xAInspecter coordonnée X où l'Event voudrait aller
 	 * @param yAInspecter coordonnée Y où l'Event voudrait aller

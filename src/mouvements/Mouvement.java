@@ -26,6 +26,11 @@ public abstract class Mouvement {
 	/** Déplacement dont fait partie ce Mouvement */
 	public Deplacement deplacement;
 
+	/** "suivre" ou "fuir" l'Event observé */
+	protected enum Sens {
+		SUIVRE, FUIR
+	};
+	
 	/**
 	 * Si la Page de comportement doit être rejouée, il faut réinitialiser cette Commande.
 	 * Réinitialiser un mouvement le déclare non fait, et change la direction en cas de mouvement aléatoire.

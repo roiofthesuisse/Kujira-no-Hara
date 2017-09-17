@@ -2,6 +2,9 @@ package mouvements;
 
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import map.Event;
 import map.Event.Direction;
 
@@ -10,12 +13,13 @@ import map.Event.Direction;
  */
 public class Pivoter extends Mouvement {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Pivoter.class);
 	private static final int ANGLE_DROIT_HORAIRE = 90;
 	private static final int ANGLE_DROIT_ANTIHORAIRE = -90;
 	private static final int ANGLE_DEMI_TOUR = 180;
 	
 	private int angle;
-	private int direction;
+	protected int direction;
 	
 	/**
 	 * Constructeur explicite
@@ -71,7 +75,7 @@ public class Pivoter extends Mouvement {
 	}
 
 	@Override
-	public final int getDirectionImposee() {
+	public int getDirectionImposee() {
 		final Event event = this.deplacement.getEventADeplacer();
 		this.direction = event.direction;
 		switch (this.angle) {
@@ -85,6 +89,7 @@ public class Pivoter extends Mouvement {
 			pivoterMoins90degres();
 			break;
 		default:
+			LOG.error("Angle interdit : "+this.angle);
 			break;
 		}
 		return this.direction;
@@ -115,7 +120,7 @@ public class Pivoter extends Mouvement {
 	/**
 	 * Donne la direction à +90°
 	 */
-	private void pivoter90degres() {
+	protected void pivoter90degres() {
 		switch (this.direction) {
 		case (Direction.BAS):
 			this.direction = Direction.GAUCHE;
@@ -137,7 +142,7 @@ public class Pivoter extends Mouvement {
 	/**
 	 * Donne la direction à -90°
 	 */
-	private void pivoterMoins90degres() {
+	protected void pivoterMoins90degres() {
 		switch (this.direction) {
 		case (Direction.BAS):
 			this.direction = Direction.DROITE;

@@ -17,10 +17,6 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	private int idEventObserve;
 	
 	private Sens sens;
-	/** "suivre" ou "fuir" l'Event observé */
-	private enum Sens {
-		SUIVRE, FUIR
-	};
 	private int directionPossibleVerticale;
 	private int directionPossibleHorizontale;
 	/** La direction a-t-elle été décidée ? Si oui on n'y touche plus */
@@ -76,7 +72,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 			
 			//si l'Event fuit, on inverse la direction
 			if (this.sens == Sens.FUIR) {
-				this.direction = calculerDirectionOpposee(this.direction);
+				this.direction = Event.Direction.directionOpposee(this.direction);
 			} 
 			
 			if (!super.mouvementPossible()) {
@@ -123,7 +119,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 		}
 		//si l'Event fuit on prend la direction opposée
 		if (this.sens == Sens.FUIR) {
-			this.direction = calculerDirectionOpposee(this.direction);
+			this.direction = Event.Direction.directionOpposee(this.direction);
 		}
 	}
 	

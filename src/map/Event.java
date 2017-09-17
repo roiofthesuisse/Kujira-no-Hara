@@ -136,6 +136,26 @@ public class Event implements Comparable<Event> {
 		public static final int GAUCHE = 1;
 		public static final int DROITE = 2;
 		public static final int HAUT = 3;
+		
+		/**
+		 * Calcule la direction opposée.
+		 * @param dir direction à inverser
+		 * @return direction opposée
+		 */
+		public static final int directionOpposee(int dir) {
+			switch (dir) {
+				case Direction.BAS:
+					return Direction.HAUT;
+				case Direction.HAUT:
+					return Direction.BAS;
+				case Direction.GAUCHE:
+					return Direction.DROITE;
+				case Direction.DROITE:
+					return Direction.GAUCHE;
+				default:
+					return -1;
+			}
+		}
 	}
 	
 	/**

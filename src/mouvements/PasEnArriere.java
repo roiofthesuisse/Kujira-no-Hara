@@ -37,7 +37,7 @@ public class PasEnArriere extends Avancer {
 		//on peut avancer à reculons si on peut avancer en arrière
 		final Event event = this.deplacement.getEventADeplacer();
 		this.direction = event.direction; //la direction affichée durant le Mouvement est celle de l'Event avant
-		final Avancer mouvementFictif = new Avancer(calculerDirectionOpposee(event.direction), Fenetre.TAILLE_D_UN_CARREAU);
+		final Avancer mouvementFictif = new Avancer(Event.Direction.directionOpposee(event.direction), Fenetre.TAILLE_D_UN_CARREAU);
 		mouvementFictif.deplacement = this.deplacement; //Deplacement pour éviter la NullPointerException dans Avancer
 		
 		//puis on lance la vérification traditionnelle
