@@ -1214,31 +1214,31 @@ class Exportation
             file.write("\t\t\t\t{")
             write_linebreak(file)
             case mouvement.code 
-              when 1
+              when 1  # pas bas
                 file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"direction\": 0,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 2
+              when 2  # pas gauche
                 file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"direction\": 1,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 3
+              when 3  # pas droite
                 file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"direction\": 2,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 4
+              when 4  # pas haut
                 file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"direction\": 3,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 5
+              when 5  # pas diagonal bas-gauche
                 file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"directionVerticale\": 0,")
@@ -1246,7 +1246,7 @@ class Exportation
                 file.write("\t\t\t\t\t\"directionVerticale\": 1,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 6
+              when 6  # pas diagonal bas-droite
                 file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"directionVerticale\": 0,")
@@ -1254,7 +1254,7 @@ class Exportation
                 file.write("\t\t\t\t\t\"directionVerticale\": 2,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 7
+              when 7  # pas diagonal haut-gauche
                 file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"directionVerticale\": 3,")
@@ -1262,7 +1262,7 @@ class Exportation
                 file.write("\t\t\t\t\t\"directionVerticale\": 1,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 8
+              when 8  # pas diagonalhaut-droite
                 file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"directionVerticale\": 3,")
@@ -1270,30 +1270,77 @@ class Exportation
                 file.write("\t\t\t\t\t\"directionVerticale\": 2,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 9
+              when 9  # pas aleatoire
                 file.write("\t\t\t\t\t\"nom\": \"AvancerAleatoirement\"")
-              when 10
+              when 10  # suivre le heros
                 file.write("\t\t\t\t\t\"nom\": \"AvancerEnFonctionDUnEvent\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"idEventObserve\": 0,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"sens\": \"suivre\"")
-              when 11
+              when 11  # fuir le heros
                 file.write("\t\t\t\t\t\"nom\": \"AvancerEnFonctionDUnEvent\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"idEventObserve\": 0,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"sens\": \"fuir\"")
-              when 12
+              when 12  # pas en avant
                 file.write("\t\t\t\t\t\"nom\": \"PasEnAvant\"")
-              when 13
+              when 13  # pas en arriere
                 file.write("\t\t\t\t\t\"nom\": \"PasEnArriere\"")
-              when 14
+              when 14  # sauter
                 file.write("\t\t\t\t\t\"nom\": \"Sauter\",")
                 write_linebreak(file)
                 file.write(sprintf("\t\t\t\t\t\"x\": %d,", mouvement.parameters[0]))
                 write_linebreak(file)
                 file.write(sprintf("\t\t\t\t\t\"y\": %d", mouvement.parameters[1]))
+              when 15  # attendre
+                file.write("\t\t\t\t\t\"nom\": \"Attendre\",")
+                write_linebreak(file)
+                nombre_de_frames = (mouvement.parameters[0] * 1.65).floor
+                file.write(sprintf("\t\t\t\t\t\"nombreDeFrames\": %d", nombre_de_frames))
+              when 16  # regarder vers le bas
+                file.write("\t\t\t\t\t\"nom\": \"RegarderDansUneDirection\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"direction\": 0")
+              when 17  # regarder vers la gauche
+                file.write("\t\t\t\t\t\"nom\": \"RegarderDansUneDirection\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"direction\": 1")
+              when 18  # regarder vers la droite
+                file.write("\t\t\t\t\t\"nom\": \"RegarderDansUneDirection\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"direction\": 2")
+              when 19  # regarder vers le haut
+                file.write("\t\t\t\t\t\"nom\": \"RegarderDansUneDirection\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"direction\": 3")
+              when 20  # pivoter de 90 degres horaires
+                file.write("\t\t\t\t\t\"nom\": \"Pivoter\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"angle\": +90")
+              when 21  # pivoter de 90 degres anti-horaires
+                file.write("\t\t\t\t\t\"nom\": \"Pivoter\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"angle\": -90")
+              when 22  # se retourner
+                file.write("\t\t\t\t\t\"nom\": \"Pivoter\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"angle\": 180")
+              when 23  # pivoter aleatoirement de 90 degres
+                file.write("\t\t\t\t\t\"nom\": \"PivoterAleatoirement\"")
+              when 24  # regarder dans une direction aleatoire
+                file.write("\t\t\t\t\t\"nom\": \"RegarderDansUneDirectionAleatoire\"")
+              when 25  # se tourner vers le heros
+                file.write("\t\t\t\t\t\"nom\": \"RegarderUnEvent\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"idEvent\": 0")
+              when 26  # se detourner du heros
+                file.write("\t\t\t\t\t\"nom\": \"RegarderUnEvent\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"sens\": \"fuir\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"idEvent\": 0")
               else
                 file.write(sprintf("\t\t\t\t\t\"nom\": %s", mouvement.code))
             end
