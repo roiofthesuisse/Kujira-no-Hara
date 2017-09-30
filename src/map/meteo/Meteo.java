@@ -25,7 +25,10 @@ public abstract class Meteo {
 	public abstract TypeDeMeteo getType();
 	public int intensite;
 	protected int nombreDeParticulesNecessaires;
+	/** Particules en cours d'utilisation */
 	protected ArrayList<Particule> particules = new ArrayList<Particule>();
+	/** Particules inusitées */
+	protected ArrayList<Particule> bassinDeParticules = new ArrayList<Particule>();
 	
 	/**
 	 * Fabriquer l'image représentant l'effet Météo.
@@ -61,7 +64,7 @@ public abstract class Meteo {
 	 * On ne recense pas les particules sur le point de mourir, pour anticiper le renouvellement.
 	 * @return nombre de particules jeunes
 	 */
-	private final int recenserLesParticules() {
+	private int recenserLesParticules() {
 		int compte = 0;
 		for (Particule p : particules) {
 			compte += p.resteAVivre;
@@ -82,6 +85,25 @@ public abstract class Meteo {
 	 * @return position horizontale de la particule
 	 */
 	protected abstract int calculerYParticule(Particule particule);
+	
+	/**
+	 * Ranger une particule dans le bassin pour la mettre en attente.
+	 * @param particule à mettre de côté
+	 */
+	protected final void congedierParticule(final Particule particule) {
+		this.bassinDeParticules.add(particule);
+		this.particules.remove(particule);
+	}
+	
+	/**
+	 * Prendre une particule du bassin pour la remettre en service.
+	 * @return particule trouvée dans le bassin
+	 */
+	protected final Particule rehabiliterParticule() {
+		final Particule particule = this.bassinDeParticules.get(0);
+		this.bassinDeParticules.remove(particule);
+		return particule;
+	}
 	
 	/**
 	 * Vérifier si deux Météos sont identiques.

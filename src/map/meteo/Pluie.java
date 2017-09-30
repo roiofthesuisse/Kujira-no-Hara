@@ -94,7 +94,7 @@ public class Pluie extends Meteo {
 			if ( (goutte.type == 0 && goutte.resteAVivre <= FRAME_DE_FIN_DE_L_ECLABOUSSURE2)
 					|| (goutte.type != 0 && goutte.resteAVivre < 0) ) {
 				//on retire la goutte de la liste
-				particules.remove(0);
+				congedierParticule(particules.get(0));
 				i--;
 			}
 			
@@ -108,12 +108,18 @@ public class Pluie extends Meteo {
 		final int offsetX = LARGEUR_GOUTTE1;
 		final int offsetY = HAUTEUR_GOUTTE1;
 		
-		this.particules.add(new Particule(
-				Maths.generateurAleatoire.nextInt(Fenetre.LARGEUR_ECRAN) - offsetX,
-				Maths.generateurAleatoire.nextInt(Fenetre.HAUTEUR_ECRAN) + offsetY,
-				dureeDeVieParticule,
-				tailleGoutte
-		));
+		final Particule nouvelleParticule;
+		final int x0 = Maths.generateurAleatoire.nextInt(Fenetre.LARGEUR_ECRAN) - offsetX;
+		final int y0 = Maths.generateurAleatoire.nextInt(Fenetre.HAUTEUR_ECRAN) + offsetY;
+		if (this.bassinDeParticules.size() > 0) {
+			// On peut recycler une particule issue du bassin
+			nouvelleParticule = this.rehabiliterParticule();
+			nouvelleParticule.reinitialiser(x0, y0, dureeDeVieParticule, tailleGoutte);
+		} else {
+			// Le bassin est vide, il faut créer une nouvelle particule
+			nouvelleParticule = new Particule(x0, y0, dureeDeVieParticule, tailleGoutte);
+		}
+		particules.add(nouvelleParticule);
 	}
 
 	/**

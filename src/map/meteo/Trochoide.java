@@ -69,7 +69,7 @@ public class Trochoide extends Meteo {
 			flocon.resteAVivre--;
 			if (flocon.resteAVivre < 0) {
 				//on retire le flocon de la liste
-				particules.remove(0);
+				congedierParticule(particules.get(0));
 				i--;
 			}
 		}
@@ -97,12 +97,19 @@ public class Trochoide extends Meteo {
 		//offset pour centrer les particules sur l'écran
 		final int offsetX = (int) (vitesseX * dureeDeVieParticule)/2;
 		final int offsetY = (int) (vitesseY * dureeDeVieParticule)/2;
-		particules.add(new Particule(
-				Maths.generateurAleatoire.nextInt(Fenetre.LARGEUR_ECRAN) - offsetX,
-				Maths.generateurAleatoire.nextInt(Fenetre.HAUTEUR_ECRAN) - offsetY, 
-				dureeDeVieParticule,
-				0 //un seul type
-		));
+		
+		final Particule nouvelleParticule;
+		final int x0 = Maths.generateurAleatoire.nextInt(Fenetre.LARGEUR_ECRAN) - offsetX;
+		final int y0 = Maths.generateurAleatoire.nextInt(Fenetre.HAUTEUR_ECRAN) - offsetY;
+		if (this.bassinDeParticules.size() > 0) {
+			// On peut recycler une particule issue du bassin
+			nouvelleParticule = this.rehabiliterParticule();
+			nouvelleParticule.reinitialiser(x0, y0, dureeDeVieParticule, 0);
+		} else {
+			// Le bassin est vide, il faut créer une nouvelle particule
+			nouvelleParticule = new Particule(x0, y0, dureeDeVieParticule, 0);
+		}
+		particules.add(nouvelleParticule);
 	}
 
 }

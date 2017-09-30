@@ -59,7 +59,7 @@ public class Neige extends Meteo {
 			flocon.resteAVivre--;
 			if (flocon.resteAVivre < 0) {
 				//on retire le flocon de la liste
-				particules.remove(0);
+				congedierParticule(particules.get(0));
 				i--;
 			}
 		}
@@ -117,12 +117,18 @@ public class Neige extends Meteo {
 		final int vitesse = tailleFlocon == 0 ? VITESSE_Y_FLOCON1 : VITESSE_Y_FLOCON2;
 		final int offsetFlocons = vitesse*dureeDeVieParticule; //pour combler le manque de flocons en bas de l'écran
 		
-		particules.add(new Particule(
-				Maths.generateurAleatoire.nextInt(Fenetre.LARGEUR_ECRAN), 
-				Maths.generateurAleatoire.nextInt(Fenetre.HAUTEUR_ECRAN + offsetFlocons), 
-				dureeDeVieParticule,
-				tailleFlocon
-		));
+		final Particule nouvelleParticule;
+		final int x0 = Maths.generateurAleatoire.nextInt(Fenetre.LARGEUR_ECRAN);
+		final int y0 = Maths.generateurAleatoire.nextInt(Fenetre.HAUTEUR_ECRAN + offsetFlocons);
+		if (this.bassinDeParticules.size() > 0) {
+			// On peut recycler une particule issue du bassin
+			nouvelleParticule = this.rehabiliterParticule();
+			nouvelleParticule.reinitialiser(x0, y0, dureeDeVieParticule, tailleFlocon);
+		} else {
+			// Le bassin est vide, il faut créer une nouvelle particule
+			nouvelleParticule = new Particule(x0, y0, dureeDeVieParticule, tailleFlocon);
+		}
+		particules.add(nouvelleParticule);
 	}
 
 }
