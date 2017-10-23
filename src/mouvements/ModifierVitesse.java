@@ -54,7 +54,7 @@ public class ModifierVitesse extends Mouvement {
 
 	@Override
 	public final String toString() {
-		return "nouvelle vitesse : "+this.nouvelleVitesse;
+		return "nouvelle vitesse : " + this.nouvelleVitesse;
 	}
 
 	@Override

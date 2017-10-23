@@ -332,10 +332,10 @@ class Exportation
             # Vitesse
             vitesse = case page.move_speed
               when 0 then 1
-              when 1 then 1
-              when 2 then 2
-              when 3 then 4
-              when 4 then 8
+              when 1 then 2
+              when 2 then 4
+              when 3 then 8
+              when 4 then 12
               when 5 then 16
             end
             file.write(sprintf("\t\t\t\"vitesse\": %d,", vitesse))
@@ -1214,31 +1214,31 @@ class Exportation
             file.write("\t\t\t\t{")
             write_linebreak(file)
             case mouvement.code 
-              when 1  # pas bas
+              when 1  # marche vers le bas
                 file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"direction\": 0,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 2  # pas gauche
+              when 2  # marche vers la gauche
                 file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"direction\": 1,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 3  # pas droite
+              when 3  # marche vers la droite
                 file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"direction\": 2,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 4  # pas haut
+              when 4  # marche vers le haut
                 file.write("\t\t\t\t\t\"nom\": \"Avancer\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"direction\": 3,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 5  # pas diagonal bas-gauche
+              when 5  # marche gauche-bas
                 file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"directionVerticale\": 0,")
@@ -1246,7 +1246,7 @@ class Exportation
                 file.write("\t\t\t\t\t\"directionVerticale\": 1,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 6  # pas diagonal bas-droite
+              when 6  # marche droite-bas
                 file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"directionVerticale\": 0,")
@@ -1254,7 +1254,7 @@ class Exportation
                 file.write("\t\t\t\t\t\"directionVerticale\": 2,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 7  # pas diagonal haut-gauche
+              when 7  # marche gauche-haut
                 file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"directionVerticale\": 3,")
@@ -1262,7 +1262,7 @@ class Exportation
                 file.write("\t\t\t\t\t\"directionVerticale\": 1,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 8  # pas diagonalhaut-droite
+              when 8  # marche droite-haut
                 file.write("\t\t\t\t\t\"nom\": \"PasEnDiagonale\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"directionVerticale\": 3,")
@@ -1270,25 +1270,25 @@ class Exportation
                 file.write("\t\t\t\t\t\"directionVerticale\": 2,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
-              when 9  # pas aleatoire
+              when 9  # marche aleatoire
                 file.write("\t\t\t\t\t\"nom\": \"AvancerAleatoirement\"")
-              when 10  # suivre le heros
+              when 10  # suivre heros
                 file.write("\t\t\t\t\t\"nom\": \"AvancerEnFonctionDUnEvent\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"idEventObserve\": 0,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"sens\": \"suivre\"")
-              when 11  # fuir le heros
+              when 11  # fuir heros
                 file.write("\t\t\t\t\t\"nom\": \"AvancerEnFonctionDUnEvent\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"idEventObserve\": 0,")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"sens\": \"fuir\"")
-              when 12  # pas en avant
+              when 12  # marche avant
                 file.write("\t\t\t\t\t\"nom\": \"PasEnAvant\"")
-              when 13  # pas en arriere
+              when 13  # marche arriere
                 file.write("\t\t\t\t\t\"nom\": \"PasEnArriere\"")
-              when 14  # sauter
+              when 14  # saut
                 file.write("\t\t\t\t\t\"nom\": \"Sauter\",")
                 write_linebreak(file)
                 file.write(sprintf("\t\t\t\t\t\"x\": %d,", mouvement.parameters[0]))
@@ -1341,6 +1341,129 @@ class Exportation
                 file.write("\t\t\t\t\t\"sens\": \"fuir\",")
                 write_linebreak(file)
                 file.write("\t\t\t\t\t\"idEvent\": 0")
+              when 27 # activer interrupteur
+                file.write("\t\t\t\t\t\"nom\": \"AppelerUneCommande\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nomCommande\": \"ModifierInterrupteur\",")
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"numeroInterrupteur\": %d,", mouvement.parameters[0]))
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"valeur\": true")
+              when 28 # desactiver interrupteur
+                file.write("\t\t\t\t\t\"nom\": \"AppelerUneCommande\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nomCommande\": \"ModifierInterrupteur\",")
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"numeroInterrupteur\": %d,", mouvement.parameters[0]))
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"valeur\": false")
+              when 29 # modifier vitesse
+                file.write("\t\t\t\t\t\"nom\": \"ModifierVitesse\",")
+                write_linebreak(file)
+                vitesse = case mouvement.parameters[0]
+                  when 0 then 1
+                  when 1 then 2
+                  when 2 then 4
+                  when 3 then 8
+                  when 4 then 12
+                  when 5 then 16
+                end
+                file.write(sprintf("\t\t\t\t\t\"vitesse\": %d,", vitesse))
+              when 30 # modifier frequence
+                file.write("\t\t\t\t\t\"nom\": \"ModifierFrequence\",")
+                write_linebreak(file)
+                frequence = case mouvement.parameters[0]
+                  when 0 then 32
+                  when 1 then 16
+                  when 2 then 8
+                  when 3 then 4
+                  when 4 then 2
+                  when 5 then 1
+                end
+                file.write(sprintf("\t\t\t\t\t\"frequence\": %d,", frequence))
+              when 31 # marche animee
+                file.write("\t\t\t\t\t\"nom\": \"RendreAnimeEnMouvement\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"animeEnMouvement\": true")
+              when 32 # marche non-animee
+                file.write("\t\t\t\t\t\"nom\": \"RendreAnimeEnMouvement\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"animeEnMouvement\": false")
+              when 33 # arret anime
+                file.write("\t\t\t\t\t\"nom\": \"RendreAnimeALArret\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"animeALArret\": true")
+              when 34 # arret non-anime
+                file.write("\t\t\t\t\t\"nom\": \"RendreAnimeALArret\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"animeALArret\": false")
+              when 35 # direction fixe
+                file.write("\t\t\t\t\t\"nom\": \"RendreDirectionFixe\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionFixe\": true")
+              when 36 # direction non-fixe
+                file.write("\t\t\t\t\t\"nom\": \"RendreDirectionFixe\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"directionFixe\": false")
+              when 37 # traversable
+                file.write("\t\t\t\t\t\"nom\": \"RendreTraversable\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"traversable\": true")
+              when 38 # non-traversable
+                file.write("\t\t\t\t\t\"nom\": \"RendreTraversable\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"traversable\": false")
+              when 39 # au dessus de tout
+                file.write("\t\t\t\t\t\"nom\": \"RendreAuDessusDeTout\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"auDessusDeTout\": true")
+              when 40 # pas au dessus de tout
+                file.write("\t\t\t\t\t\"nom\": \"RendreAuDessusDeTout\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"auDessusDeTout\": false")
+              when 41 # apparence
+                file.write("\t\t\t\t\t\"nom\": \"ModifierApparence\",")
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"image\": \"%s\",", mouvement.parameters[0]))
+                write_linebreak(file)
+                direction = case mouvement.parameters[2]
+                  when 2 then 0
+                  when 4 then 1
+                  when 6 then 2
+                  when 8 then 3
+                end
+                file.write(sprintf("\t\t\t\t\t\"direction\": %d,", direction))
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"animation\": %d,", mouvement.parameters[3]))
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"teinte\": %d", mouvement.parameters[1]))
+              when 42 # opacite
+                file.write("\t\t\t\t\t\"nom\": \"ModifierOpacite\",")
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"opacite\": %d", mouvement.parameters[0]))
+              when 43 # mode de fusion
+                file.write("\t\t\t\t\t\"nom\": \"ModifierModeDeFusion\",")
+                write_linebreak(file)
+                modeDeFusion = case mouvement.parameters[0]
+                  when 0 then "normal"
+                  when 1 then "addition"
+                  when 2 then "soustraction"
+                end
+                file.write(sprintf("\t\t\t\t\t\"modeDeFusion\": \"%s\"", modeDeFusion))
+              when 44 # jouer son
+                file.write("\t\t\t\t\t\"nom\": \"AppelerUneCommande\",")
+                write_linebreak(file)
+                file.write("\t\t\t\t\t\"nomCommande\": \"JouerEffetSonore\",")
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"nomFichierSonore\": \"%s\",", mouvement.parameters[0].name))
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"volume\": %d,", mouvement.parameters[0].volume))
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"tempo\": %d", mouvement.parameters[0].pitch))
+              when 45 # script
+                file.write("\t\t\t\t\t\"nom\": \"AppelerUnScript\",")
+                write_linebreak(file)
+                file.write(sprintf("\t\t\t\t\t\"script\": %s", mouvement.parameters[0].inspect))
               else
                 file.write(sprintf("\t\t\t\t\t\"nom\": %s", mouvement.code))
             end
@@ -1369,15 +1492,14 @@ class Exportation
           file.write("\t\t\t\t\"idEvent\": -1")
           write_linebreak(file)
           
-          
+        #when 221 # Transition preparation  
+        #when 222 # Transition execution 
           
           
           #TODO
           #...
           
 =begin
-        When 221 # Transition preparation
-        When 222 # Transition execution
         When 223 # Ton de l'ecran
         When 224 # Flasher l'ecran => bof...
         When 225 # Tremblement de terre
@@ -1391,7 +1513,15 @@ class Exportation
         When 245 # BGS
         When 246 # Fondu BGS
         When 249 # ME
-        When 250 # SE
+        when 250 # SE
+          file.write("\t\t\t\t\t\"nomCommande\": \"JouerEffetSonore\",")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\t\"nomFichierSonore\": \"%s\",", mouvement.parameters[0].name))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\t\"volume\": %d,", mouvement.parameters[0].volume))
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\t\t\"tempo\": %d", mouvement.parameters[0].pitch))
+          write_linebreak(file)
         When 251 # Arreter SE
 
         When 303 # Rentrer un mot
