@@ -18,7 +18,11 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	//constante
 	private static final int MEDIANE = Graphismes.OPACITE_MAXIMALE / 2;
 	
-	private final int rouge, vert, bleu, gris;
+	private final int[] tonFinal = new int[4];
+	private int[] tonInitial = new int[4];
+	private final int dureeTransition;
+
+	private int dejaFait;
 	
 	/**
 	 * Constructeur explicite
@@ -27,11 +31,13 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	 * @param bleu importance du bleu dans le nouveau ton de l'écran
 	 * @param gris désaturation de l'image
 	 */
-	public ModifierTonDeLEcran(final int rouge, final int vert, final int bleu, final int gris) {
-		this.rouge = rouge;
-		this.vert = vert;
-		this.bleu = bleu;
-		this.gris = gris;
+	public ModifierTonDeLEcran(final int rouge, final int vert, final int bleu, final int gris, final int dureeTransition) {
+		this.tonFinal[1] = rouge;
+		this.tonFinal[2] = vert;
+		this.tonFinal[3] = bleu;
+		this.tonFinal[0] = gris;
+		this.dureeTransition = dureeTransition;
+		this.dejaFait = 0;
 	}
 	
 	/**
@@ -43,14 +49,41 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 				parametres.containsKey("rouge") ? (int) parametres.get("rouge") : MEDIANE,
 				parametres.containsKey("vert") ? (int) parametres.get("vert") : MEDIANE,
 				parametres.containsKey("bleu") ? (int) parametres.get("bleu") : MEDIANE,
-				parametres.containsKey("gris") ? (int) parametres.get("gris") : 0
+				parametres.containsKey("gris") ? (int) parametres.get("gris") : 0,
+				parametres.containsKey("dureeTransition") ? (int) parametres.get("dureeTransition") : 0
 		);
 	}
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		((LecteurMap) Fenetre.getFenetre().lecteur).map.tileset.ton = new int[] {gris, rouge, vert, bleu};
-		return curseurActuel+1;
+		// Début de la transition
+		if (this.dejaFait == 0) {
+			if (((LecteurMap) Fenetre.getFenetre().lecteur).map.tileset.ton != null) {
+				for(int i=0; i<4; i++){
+					this.tonInitial[i] = ((LecteurMap) Fenetre.getFenetre().lecteur).map.tileset.ton[i];
+				}
+			} else {
+				this.tonInitial[0] = 0; //pas de gris
+				for(int i=1; i<4; i++){
+					this.tonInitial[i] = MEDIANE;
+				}
+				((LecteurMap) Fenetre.getFenetre().lecteur).map.tileset.ton = new int[4];
+			}
+		}
+		
+		for (int i=0; i<4; i++) {
+			((LecteurMap) Fenetre.getFenetre().lecteur).map.tileset.ton[i] = (tonInitial[i] * (this.dureeTransition-this.dejaFait) + this.tonFinal[i] * this.dejaFait) / this.dureeTransition;
+		}
+				
+		if (this.dejaFait < this.dureeTransition) {
+			// la transition continue
+			this.dejaFait++;
+			return curseurActuel;
+		} else {
+			// fin de la transition
+			this.dejaFait = 0;
+			return curseurActuel+1;
+		}
 	}
 
 }
