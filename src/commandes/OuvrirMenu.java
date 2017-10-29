@@ -15,7 +15,7 @@ import menu.Menu;
  */
 public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu {
 	final String nomMenu;
-	final int selectionInitiale;
+	final Integer selectionInitiale;
 	
 	private boolean leMenuAEteOuvert;
 	
@@ -24,7 +24,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	 * @param nomMenu du Menu
 	 * @param selectionInitiale identifiant de l'ElementDeMenu à sélectionner au début
 	 */
-	public OuvrirMenu(final String nomMenu, final int selectionInitiale) {
+	public OuvrirMenu(final String nomMenu, final Integer selectionInitiale) {
 		this.nomMenu = nomMenu;
 		this.selectionInitiale = selectionInitiale;
 	}
@@ -36,7 +36,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	public OuvrirMenu(final HashMap<String, Object> parametres) {
 		this( 
 				(String) parametres.get("nomMenu"),
-				(int) parametres.get("selectionInitiale")
+				parametres.containsKey("selectionInitiale") ? (int) parametres.get("selectionInitiale") : null //on laisse la sélection initiale par défaut du menu
 		);
 	}
 

@@ -8,7 +8,6 @@ import main.Fenetre;
 import main.Lecteur;
 import map.Event;
 import map.LecteurMap;
-import map.Map;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.son.LecteurAudio;
