@@ -127,7 +127,7 @@ public class PageEvent {
 		if (contientUneConditionParler()) {
 			this.figerLesAutresEvents = true;
 		} else if (pageJSON.has("figerLesAutresEvents")) {
-			this.figerLesAutresEvents =  pageJSON.getBoolean("figerLesAutresEvents");
+			this.figerLesAutresEvents = pageJSON.getBoolean("figerLesAutresEvents");
 		} else {
 			this.figerLesAutresEvents = false;
 		}
