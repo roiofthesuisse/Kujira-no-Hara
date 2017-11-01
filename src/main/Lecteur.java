@@ -41,9 +41,6 @@ public abstract class Lecteur {
 	 * A chaque nouveau Lecteur, on repart de 0.
 	 */
 	public int frameActuelle = 0;
-	
-	/** Afficher ou masquer la boîte des Messages. */
-	public static boolean afficherBoiteMessage = true;
 
 	/** Pages de code commun à toutes les Maps */
 	public ArrayList<PageCommune> pagesCommunes = PageCommune.recupererLesPagesCommunes();

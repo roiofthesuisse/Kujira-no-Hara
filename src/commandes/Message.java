@@ -26,11 +26,52 @@ public class Message extends Commande implements CommandeEvent {
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage();
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_VIDE = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE_PLEINE);
 	protected static BufferedImage imageBoiteMessage = IMAGE_BOITE_MESSAGE_PLEINE;
+	protected static final boolean MASQUER_BOITE_MESSAGE_PAR_DEFAUT = false;
+	protected static final Position POSITION_BOITE_MESSAGE_PAR_DEFAUT = Position.BAS;
 	
 	public ArrayList<String> texte;
 	public BufferedImage image;
 	private boolean touchePresseePourQuitterLeMessage = false;
 	private boolean premiereFrameDAffichageDuMessage = true;
+	public static boolean masquerBoiteMessage = MASQUER_BOITE_MESSAGE_PAR_DEFAUT;
+	public static Position positionBoiteMessage = POSITION_BOITE_MESSAGE_PAR_DEFAUT;
+	
+	/**
+	 * Position de la boîte de Messages à l'écran.
+	 */
+	public enum Position {
+		BAS("bas", 76, 320), MILIEU("milieu", 76, 160), HAUT("haut", 76, 0);
+		
+		final String nom;
+		public final int xAffichage;
+		public final int yAffichage;
+
+		/**
+		 * Constructeur explicite
+		 * @param nom de la position
+		 * @param xAffichage (en pixels)
+		 * @param yAffichage (en pixels)
+		 */
+		Position(final String nom, final int xAffichage, final int yAffichage) {
+			this.nom = nom;
+			this.xAffichage = xAffichage;
+			this.yAffichage = yAffichage;
+		}
+		
+		/**
+		 * Récupérer la Position de la boîte de Messages par son nom.
+		 * @param nom de la position
+		 * @return position ainsi nommée
+		 */
+		public static Position parNom(final String nom) {
+			for (Position position : Position.values()) {
+				if (position.nom.equals(nom)) {
+					return position;
+				}
+			}
+			return Position.BAS;
+		}
+	}
 	
 	/**
 	 * Constructeur explicite
@@ -123,7 +164,6 @@ public class Message extends Commande implements CommandeEvent {
 	protected BufferedImage produireImageDuMessage() {
 		// Partir de la boîte de dialogue
 		BufferedImage imageMessage = Graphismes.clonerUneImage(Message.imageBoiteMessage);
-		
 		// Ajout du texte
 		final Texte t = new Texte(this.texte);
 		t.actualiserImage();

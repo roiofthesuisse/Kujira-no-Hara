@@ -36,8 +36,6 @@ public class LecteurMap extends Lecteur {
 	private static final int Y_AFFICHAGE_GADGET = 4;
 	private static final int X_AFFICHAGE_ARGENT = 4;
 	private static final int Y_AFFICHAGE_ARGENT = 450;
-	private static final int X_AFFICHAGE_MESSAGE = 76;
-	private static final int Y_AFFICHAGE_MESSAGE = 320;
 	private static final int ESPACEMENT_ICONES = 4;
 	//icônes de jauges
 	public static final BufferedImage HUD_TOUCHES = chargerImageHudTouches();
@@ -163,11 +161,11 @@ public class LecteurMap extends Lecteur {
 		// Transition visuelle avec la Map précédente
 		if (!this.allume) {
 			// Faire une capture d'écran juste avant l'arrêt de l'ancienne Map
-			Lecteur futurLecteur0 = Fenetre.getFenetre().futurLecteur;
+			final Lecteur futurLecteur0 = Fenetre.getFenetre().futurLecteur;
 			if (futurLecteur0 instanceof LecteurMap) {
-				LecteurMap futurLecteur = (LecteurMap) futurLecteur0;
+				final LecteurMap futurLecteur = (LecteurMap) futurLecteur0;
 				if (!Transition.AUCUNE.equals(futurLecteur.transition)) {
-					boolean afficherLeHeros = Transition.ROND.equals(futurLecteur.transition);
+					final boolean afficherLeHeros = Transition.ROND.equals(futurLecteur.transition);
 					futurLecteur.transition.captureDeLaMapPrecedente = capturerLaMap(afficherLeHeros);
 				}
 			}
@@ -183,14 +181,18 @@ public class LecteurMap extends Lecteur {
 		ecran = dessinerLesJauges(ecran);
 		
 		//chronometre
-		Chronometre chronometre = Fenetre.getPartieActuelle().chronometre;
+		final Chronometre chronometre = Fenetre.getPartieActuelle().chronometre;
 		if (chronometre!=null) {
 			ecran = chronometre.dessinerChronometre(ecran);
 		}
 		
 		//on affiche le message
 		if (messageActuel!=null) {
-			ecran = Graphismes.superposerImages(ecran, messageActuel.image, X_AFFICHAGE_MESSAGE, Y_AFFICHAGE_MESSAGE);
+			ecran = Graphismes.superposerImages(
+					ecran, 
+					this.messageActuel.image,
+					Message.positionBoiteMessage.xAffichage, 
+					Message.positionBoiteMessage.yAffichage);
 		}
 		
 		//supprimer events dont l'attribut "supprimé" est à true
@@ -205,7 +207,6 @@ public class LecteurMap extends Lecteur {
 
 	/**
 	 * Dessiner l'image de fond (noir ou Panorama)
-	 * @param ecran sur lequel dessiner
 	 * @param xCamera position x de la caméra
 	 * @param yCamera position y d ela caméra
 	 * @return image de fond
@@ -417,7 +418,7 @@ public class LecteurMap extends Lecteur {
 			Collections.sort(this.map.events, this.comparateur); //on trie les events du plus derrière au plus devant
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
-					if(dessinerLeHeros || !event.equals(map.heros)) {
+					if (dessinerLeHeros || !event.equals(map.heros)) {
 						ecran = dessinerEvent(ecran, event, xCamera, yCamera);
 					}
 				}
@@ -648,7 +649,7 @@ public class LecteurMap extends Lecteur {
 	 * @param afficherLeHeros le Héros doit-il être visible sur l'ancienne Map ?
 	 * @return capture de la Map
 	 */
-	private BufferedImage capturerLaMap(boolean afficherLeHeros) {
+	private BufferedImage capturerLaMap(final boolean afficherLeHeros) {
 		BufferedImage capture = dessinerPanorama(this.xCamera, this.yCamera);
 		capture = dessinerDecorInferieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
 		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, afficherLeHeros);
