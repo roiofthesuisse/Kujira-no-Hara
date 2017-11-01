@@ -2,6 +2,7 @@ package utilitaire;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
 import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
@@ -20,13 +21,28 @@ public abstract class InterpreteurDeJson {
 	 * Charger un objet JSON quelconque
 	 * @param nomFichier nom du fichier JSON à charger
 	 * @param adresse du fichier JSON à charger
+	 * @param parPrefixe trouver le fichier uniquement à partir du début de son nom
 	 * @return objet JSON
 	 * @throws FileNotFoundException fichier JSON introuvable
 	 * @throws JSONException Erreur de syntaxe dans le fichier JSON
 	 */
-	public static JSONObject ouvrirJson(final String nomFichier, final String adresse) throws FileNotFoundException, JSONException {
-		final String nomFichierJson = adresse+nomFichier+".json";
-		final Scanner scanner = new Scanner(new File(nomFichierJson));
+	public static JSONObject ouvrirJson(final String nomFichier, final String adresse, final boolean parPrefixe) throws FileNotFoundException, JSONException {
+		final File fichierJson;
+		if (parPrefixe) {
+			// fichiers commençant par
+			final File dossier = new File(adresse);
+			final File[] fichiersTrouves = dossier.listFiles(new FilenameFilter() {
+			    public boolean accept(final File dir, final String name) {
+			        return name.startsWith(nomFichier);
+			    }
+			});
+			fichierJson = fichiersTrouves[0];
+		} else {
+			// nom exact
+			fichierJson = new File(adresse+nomFichier+".json");
+		}
+		
+		final Scanner scanner = new Scanner(fichierJson);
 		final String contenuFichierJson = scanner.useDelimiter("\\Z").next();
 		scanner.close();
 		try {
@@ -36,6 +52,18 @@ public abstract class InterpreteurDeJson {
 			LOG.error("Erreur de syntaxe dans le fichier JSON "+nomFichier, e);
 			throw e;
 		}
+	}
+	
+	/**
+	 * Charger un objet JSON quelconque (par son nom exact)
+	 * @param nomFichier nom du fichier JSON à charger
+	 * @param adresse du fichier JSON à charger
+	 * @return objet JSON
+	 * @throws FileNotFoundException fichier JSON introuvable
+	 * @throws JSONException Erreur de syntaxe dans le fichier JSON
+	 */
+	public static JSONObject ouvrirJson(final String nomFichier, final String adresse) throws FileNotFoundException, JSONException {
+		return ouvrirJson(nomFichier, adresse, false);
 	}
 	
 	/**
@@ -104,7 +132,8 @@ public abstract class InterpreteurDeJson {
 	 * @throws FileNotFoundException fichier JSON introuvable
 	 */
 	public static JSONObject ouvrirJsonMap(final int numero) throws FileNotFoundException {
-		return ouvrirJson(""+numero, ".\\ressources\\Data\\Maps\\");
+		final String numeroA3Chiffres = String.format("%03d", numero) + "_";
+		return ouvrirJson(numeroA3Chiffres, ".\\ressources\\Data\\Maps\\", true);
 	}
 	
 	/**

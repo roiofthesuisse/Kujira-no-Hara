@@ -273,7 +273,10 @@ public abstract class Graphismes {
      * @throws IOException impossible d'ouvrir l'image
      */
     public static BufferedImage ouvrirImage(final String dossier, final String nom) throws IOException {
-    	final String dossierSlashNom = dossier+"/"+nom;
+    	String dossierSlashNom = dossier+"/"+nom;
+    	if (!nom.endsWith(".png")) {
+    		dossierSlashNom += ".png";
+    	}
     	try {
 			return convertirEnImageCompatible(ImageIO.read(new File("./ressources/Graphics/"+dossierSlashNom)), dossierSlashNom);
 		} catch (IOException e) {
