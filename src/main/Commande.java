@@ -52,7 +52,7 @@ public abstract class Commande {
 	 * Construire la clé de cryptage.
 	 * @return clé de cryptage
 	 */
-	protected final static SecretKeySpec construireCleDeCryptage() {
+	protected static final SecretKeySpec construireCleDeCryptage() {
 		try {
 			// Hashage de la clé
 			byte[] cle = CLE_CRYPTAGE_SAUVEGARDE.getBytes("UTF-8");
@@ -89,7 +89,7 @@ public abstract class Commande {
 			events.add(this.page.event);
 		} else if (id instanceof Integer) {
 			//l'Event est identifié par son numero
-			Event event;
+			final Event event;
 			if ((Integer) id ==  0) {
 				event = this.page.event.map.heros;
 			} else {
@@ -98,7 +98,7 @@ public abstract class Commande {
 			events.add(event);
 		} else {
 			//l'Event est identifié par son nom ; potentiellement plusieurs candidats
-			String nomEvent = (String) id;
+			final String nomEvent = (String) id;
 			for (Event event : this.page.event.map.events) {
 				if (nomEvent.equals(event.nom)) {
 					events.add(event);
@@ -185,6 +185,10 @@ public abstract class Commande {
 		try {
 			Class<?> classeCommande;
 			final String nomClasseCommande = commandeJson.getString("nom");
+			if ("Commentaire".equals(nomClasseCommande)) {
+				LOG.info("Commentaire : "+commandeJson.getString("texte"));
+				return null;
+			}
 			try {
 				//la Commande est juste une Commande du package "commandes"
 				classeCommande = Class.forName("commandes." + nomClasseCommande);
@@ -207,7 +211,7 @@ public abstract class Commande {
 			final Commande commande = (Commande) constructeurCommande.newInstance(parametres);
 			return commande;
 		} catch (Exception e1) {
-			LOG.error("Impossible de traduire l'objet JSON en CommandeEvent.", e1);
+			LOG.error("Impossible de traduire l'objet JSON en CommandeEvent : "+commandeJson.toString(), e1);
 			return null;
 		}
 	}

@@ -51,7 +51,7 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 		this( 
 				(String) parametres.get("nomImage"),
 				parametres.containsKey("opacite") ? (int) parametres.get("opacite") : Graphismes.OPACITE_MAXIMALE,
-				parametres.containsKey("nomModeDeFusion") ? (String) parametres.get("opacite") : ModeDeFusion.NORMAL.nom,
+				parametres.containsKey("modeDeFusion") ? (String) parametres.get("modeDeFusion") : ModeDeFusion.NORMAL.nom,
 				parametres.containsKey("defilementX") ? (int) parametres.get("defilementX") : 0,
 				parametres.containsKey("defilementY") ? (int) parametres.get("defilementY") : 0,
 				parametres.containsKey("zoom") ? (int) parametres.get("zoom") : Graphismes.PAS_D_HOMOTHETIE

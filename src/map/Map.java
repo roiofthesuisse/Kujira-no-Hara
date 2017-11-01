@@ -107,7 +107,7 @@ public class Map implements Sauvegardable {
 		lecteur.map = this; //on prévient le Lecteur qu'il a une Map
 		
 		//la map est un fichier JSON
-		final JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(numero);
+		final JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(this.numero);
 		
 		this.nomBGM = jsonMap.has("bgm") ? jsonMap.getString("bgm") : "";
 		this.volumeBGM = jsonMap.has("volumeBgm") ? (float) jsonMap.get("volumeBgm") : Musique.VOLUME_MAXIMAL;
