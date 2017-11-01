@@ -19,9 +19,9 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	 * @param nomFichierSonore nom du fichier de l'effet sonore à jouer
 	 * @param volume sonore (entre 0.0f et 1.0f)
 	 */
-	public JouerEffetSonore(final String nomFichierSonore, final float volume) {
+	public JouerEffetSonore(final String nomFichierSonore, final double volume) {
 		this.nomFichierSonore = nomFichierSonore;
-		this.volume = volume;
+		this.volume = new Float(volume);
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	 */
 	public JouerEffetSonore(final HashMap<String, Object> parametres) {
 		this( (String) parametres.get("nomFichierSonore"),
-				parametres.containsKey("volume") ? (float) parametres.get("volume") : Musique.VOLUME_MAXIMAL
+				parametres.containsKey("volume") ? (double) parametres.get("volume") : Musique.VOLUME_MAXIMAL
 		);
 	}
 	

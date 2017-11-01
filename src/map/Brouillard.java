@@ -31,7 +31,7 @@ public final class Brouillard implements Sauvegardable {
 	
 	public final int defilementX;
 	public final int defilementY;
-	public final long zoom;
+	public final double zoom;
 	
 	/**
 	 * Constructeur explicite
@@ -44,11 +44,12 @@ public final class Brouillard implements Sauvegardable {
 	 * @throws IOException l'image n'a pas pu être chargée
 	 */
 	public Brouillard(final String nomImage, final int opacite, final ModeDeFusion mode, final int defilementX, 
-			final int defilementY, final long zoom) {
+			final int defilementY, final int zoom) {
 		this.zoom = zoom;
 		this.nomImage = nomImage;
 		try {
-			this.image = redimensionnerImage(Graphismes.ouvrirImage("Fogs", this.nomImage), zoom);
+			double ratioZoom = (double) zoom / (double)Graphismes.PAS_D_HOMOTHETIE;
+			this.image = redimensionnerImage(Graphismes.ouvrirImage("Fogs", this.nomImage), ratioZoom);
 			this.largeur = this.image.getWidth();
 			this.hauteur = this.image.getHeight();
 		} catch (IOException e) {
@@ -67,7 +68,7 @@ public final class Brouillard implements Sauvegardable {
 	 * @param ratio d'aggrandissement
 	 * @return image redimensionnée
 	 */
-	private static BufferedImage redimensionnerImage(final BufferedImage image, final long ratio) {
+	private static BufferedImage redimensionnerImage(final BufferedImage image, final double ratio) {
 		if (ratio == 1) {
 			//pas de redimensionnement à faire
 			return image;
@@ -77,8 +78,8 @@ public final class Brouillard implements Sauvegardable {
 	    final int ancienneHauteur = image.getHeight();
 	    final AffineTransform scaleTransform = AffineTransform.getScaleInstance(ratio, ratio);
 	    final AffineTransformOp bilinearScaleOp = new AffineTransformOp(scaleTransform, AffineTransformOp.TYPE_BILINEAR);
-	    final int nouvelleLargeur = Math.round(ratio*ancienneLargeur);
-	    final int nouvelleHauteur = Math.round(ratio*ancienneHauteur);
+	    final int nouvelleLargeur = (int) Math.round(ratio*ancienneLargeur);
+	    final int nouvelleHauteur = (int) Math.round(ratio*ancienneHauteur);
 	    return bilinearScaleOp.filter(image, new BufferedImage(nouvelleLargeur, nouvelleHauteur, image.getType()));
 	}
 	
@@ -104,7 +105,7 @@ public final class Brouillard implements Sauvegardable {
 			} catch (JSONException e) {
 				//pas de défilement y
 			}
-			long zoom = 1;
+			int zoom = Graphismes.PAS_D_HOMOTHETIE;
 			try {
 				zoom = brouillardJson.getInt("zoom");
 			} catch (JSONException e) {

@@ -297,14 +297,20 @@ public abstract class Graphismes {
 	 * @return image dans la configuration officielle
 	 */
     private static BufferedImage convertirEnImageCompatible(final BufferedImage image, final String nomImage) {
-        if (image.getColorModel().equals(COLORMODEL)) {
+    	// Si l'image a déjà le bon ColorModel, tout va bien
+    	if (image.getColorModel().equals(COLORMODEL)) {
             return image;
         }
+    	// On sauvegarde l'image actuelle
+    	//sauvegarderImage(image, "/ressources/Graphics/"+nomImage+".old");
+    	// On convertit l'image dans le bon ColorModel
         LOG.debug("Conversion de l'image \""+nomImage+"\" car elle n'a pas le ColorModel standard.");
         final BufferedImage compatibleImage = new BufferedImage(image.getWidth(), image.getHeight(), TYPE_DES_IMAGES);
         final Graphics2D g = compatibleImage.createGraphics();
         g.drawImage(image, 0, 0, null);
         g.dispose();
+        // On enregistre la nouvelle image
+        //sauvegarderImage(compatibleImage, "/ressources/Graphics/"+nomImage);
         return compatibleImage;
     }
 

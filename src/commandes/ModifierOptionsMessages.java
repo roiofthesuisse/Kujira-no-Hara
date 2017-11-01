@@ -8,7 +8,7 @@ import main.Commande;
 /**
  * Modifier les options de la boîte de Messages.
  */
-public class ModifierOptionsMessages extends Commande {
+public class ModifierOptionsMessages extends Commande implements CommandeEvent {
 	private final boolean masquer;
 	private final String position;
 

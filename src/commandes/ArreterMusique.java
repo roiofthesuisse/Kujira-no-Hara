@@ -46,7 +46,7 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		// On ne fait rien si la musique est déjà arrêtée
-		if (LecteurAudio.bgmEnCours == null) {
+		if (LecteurAudio.bgmEnCours == null || LecteurAudio.bgmEnCours[piste] == null) {
 			LOG.warn("La musique est déjà arrêtée.");
 			return curseurActuel+1;
 		}

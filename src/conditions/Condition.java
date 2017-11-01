@@ -89,10 +89,11 @@ public abstract class Condition extends Commande {
 	 * @param conditionsJSON tableau JSON contenant les Conditions au format JSON
 	 */
 	public static void recupererLesConditions(final ArrayList<Condition> conditions, final JSONArray conditionsJSON) {
-		
+		JSONObject conditionJSON2 = null;
 		for (Object conditionJSON : conditionsJSON) {
 			try {
-				final Class<?> classeCondition = Class.forName("conditions.Condition"+((JSONObject) conditionJSON).get("nom"));
+				conditionJSON2 = (JSONObject) conditionJSON;
+				final Class<?> classeCondition = Class.forName("conditions.Condition"+conditionJSON2.get("nom"));
 				try {
 					//cas d'une Condition sans paramètres
 					
@@ -120,7 +121,7 @@ public abstract class Condition extends Commande {
 				}
 				
 			} catch (Exception e1) {
-				LOG.error("Erreur lors de l'instanciation de la Condition :", e1);
+				LOG.error("Erreur lors de l'instanciation de la Condition : "+conditionJSON2, e1);
 			}
 		}
 	}
