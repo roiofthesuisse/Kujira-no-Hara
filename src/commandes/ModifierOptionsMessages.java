@@ -35,16 +35,15 @@ public class ModifierOptionsMessages extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		// masquer ?
-		Message.masquerBoiteMessage = this.masquer;
-		if (masquer) {
-			Message.imageBoiteMessage = Message.IMAGE_BOITE_MESSAGE_VIDE;
-		} else {
-			Message.imageBoiteMessage = Message.IMAGE_BOITE_MESSAGE_PLEINE;
-		}
-		// position
-		Message.positionBoiteMessage = Message.Position.parNom(this.position);
-		
+			// masquer ?
+			Message.masquerBoiteMessage = this.masquer;
+			if (masquer) {
+				Message.imageBoiteMessage = Message.IMAGE_BOITE_MESSAGE_VIDE;
+			} else {
+				Message.imageBoiteMessage = Message.IMAGE_BOITE_MESSAGE_PLEINE;
+			}
+			// position
+			Message.positionBoiteMessage = Message.Position.parNom(this.position);
 		return curseurActuel+1;
 	}
 

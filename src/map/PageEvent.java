@@ -205,19 +205,36 @@ public class PageEvent {
 					final int ancienCurseur = curseurCommandes;
 					final Commande commande = this.commandes.get(curseurCommandes);
 					commande.page = this; //on apprend à la Commande depuis quelle Page elle est appelée
-					curseurCommandes = commande.executer(curseurCommandes, commandes);
-					if (curseurCommandes==ancienCurseur) { 
+					try {
+						curseurCommandes = commande.executer(curseurCommandes, commandes);
+					} catch (Exception e1) {
+						LOG.error(
+								(this.event != null ? "Event "+this.event.id + ", " : "")
+								+ "page " + this.numero
+								+ ", commande "+curseurCommandes
+								+ " ("+commande.getClass().getSimpleName()
+								+ ") a échoué :", e1
+						);
+						curseurCommandes++;
+						throw e1;
+					}
+					if (curseurCommandes == ancienCurseur) {
 						//le curseur n'a pas changé, c'est donc une commande qui prend du temps
 						onAvanceDansLesCommandes = false;
 					}
 				}
-			} catch (IndexOutOfBoundsException e) {
+			} catch (IndexOutOfBoundsException e2) {
 				//on a fini la page
+				LOG.debug(
+						(this.event != null ? "Event " + this.event.id + ", " : "")
+						+ "page " + this.numero
+						+ " terminée."
+				);
 				curseurCommandes = 0;
 				if (figerLesAutresEvents) {
 					this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
 				}
-				this.event.pageActive = null; 
+				this.event.pageActive = null;
 			}
 		}
 	}
