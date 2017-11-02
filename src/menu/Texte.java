@@ -32,10 +32,14 @@ import utilitaire.graphismes.Graphismes;
 public class Texte extends ElementDeMenu {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Texte.class);
+	private static final Pattern PATTERN_MOT_DE_PASSE = Pattern.compile("\\\\m\\[[0-9]+\\]");
 	private static final JSONObject JSON_INFORMATIONS_POLICE = chargerInformationsPolice();
 	private static final Color COULEUR_PAR_DEFAUT = chargerCouleurParDefaut(0);
 	private static final Color COULEUR_PAR_DEFAUT2 = chargerCouleurParDefaut(2);
-	public static final int MARGE_A_DROITE = 4; //pour ne pas que le côté droit du texte ne soit coupé
+	/** Pour ne pas que le côté droit du texte ne soit coupé */
+	public static final int MARGE_A_DROITE = 4;
+	/** A utiliser si le texte est vide */
+	private static final BufferedImage PIXEL_VIDE = Graphismes.imageVide(1, 1);
 	
 	/**
 	 * Taille de la police
@@ -49,7 +53,6 @@ public class Texte extends ElementDeMenu {
 		/** 
 		 * Constructeur explicite
 		 * @param nom désignant cette taille
-		 * @param pixels hauteur de la police en pixels
 		 */
 		Taille(final String nom) {
 			this.nom = nom;
@@ -173,7 +176,7 @@ public class Texte extends ElementDeMenu {
 	 * @param contenu du Texte (dans plusieurs langues)
 	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
 	 * @param taille autre que la taille par défaut
-	 * @param contour une autre couleur enrobe les lettres
+	 * @param couleurContour une autre couleur enrobe les lettres
 	 */
 	public Texte(final ArrayList<String> contenu, final Color couleurForcee, final Color couleurContour, final Taille taille) {
 		super(0, false, 0, 0, null, null, null); //on se fout de la gueule de la classe mère
@@ -184,7 +187,7 @@ public class Texte extends ElementDeMenu {
 		this.opacite = Texte.OPACITE_MAXIMALE;
 		this.couleurContour = couleurContour;
 	}
-	
+
 	/**
 	 * Convertir un Texte en image
 	 * @return le Texte sous forme d'image
@@ -193,8 +196,13 @@ public class Texte extends ElementDeMenu {
 		final int langue = Fenetre.langue;
 		String texteAAfficher = this.contenu.get(langue < this.contenu.size() ? langue : 0);
 		
+		if (texteAAfficher == null || "".equals(texteAAfficher)) {
+			// le texte est vide, donc l'image aussi
+			return PIXEL_VIDE;
+		}
+		
 		//mot de passe
-		final Matcher matcher = Pattern.compile("\\\\m\\[[0-9]+\\]").matcher(texteAAfficher);
+		final Matcher matcher = PATTERN_MOT_DE_PASSE.matcher(texteAAfficher);
 		while (matcher.find()) {
 			final int numeroMot = Integer.parseInt( texteAAfficher.substring(matcher.start()+3, matcher.end()-1) );
 			final String mot = Fenetre.getPartieActuelle().mots[numeroMot];
@@ -210,16 +218,16 @@ public class Texte extends ElementDeMenu {
         
         //largeur maximale des lignes
         if (this.largeurMaximale > 0) {
-        	ArrayList<String> textesListe = new ArrayList<String>();
+        	final ArrayList<String> textesListe = new ArrayList<String>();
         	for (String ligne : texts) {
         		textesListe.add(ligne);
         	}
         	
         	int nombreDeLignes = textesListe.size();
 	        for (int i = 0; i<nombreDeLignes; i++) {
-	        	String ligne = textesListe.get(i);
+	        	final String ligne = textesListe.get(i);
 	        	if (ligne.length() > this.largeurMaximale) {
-	        		int coupure = couper(ligne);
+	        		final int coupure = couper(ligne);
 	        		textesListe.set(i, ligne.substring(0, coupure));
 	        		textesListe.add(i+1, ligne.substring(coupure+1));
 	        		nombreDeLignes++;
@@ -293,7 +301,7 @@ public class Texte extends ElementDeMenu {
         		
         		//dessiner le contour
         		if (this.couleurContour != null) {
-        			Color memoriserCouleur = g2d.getColor();
+        			final Color memoriserCouleur = g2d.getColor();
         			g2d.setColor(this.couleurContour);
         			g2d.drawString(boutsDeLigne[j], largeurALaquelleOnEcrit-1, hauteurALaquelleOnEcrit-1);
         			g2d.drawString(boutsDeLigne[j], largeurALaquelleOnEcrit-1, hauteurALaquelleOnEcrit+1);
@@ -321,7 +329,7 @@ public class Texte extends ElementDeMenu {
 		int i = this.largeurMaximale;
 		boolean onATrouveLeLieuDeCoupure = false;
 		while (!onATrouveLeLieuDeCoupure && i>0) {
-			if(ligne.charAt(i) == ' '){
+			if (ligne.charAt(i) == ' ') {
 				onATrouveLeLieuDeCoupure = true;
 				return i;
 			}
@@ -397,7 +405,7 @@ public class Texte extends ElementDeMenu {
 			// La police n'existe pas sur l'ordinateur de l'utilisateur
 			// On essaye de l'installer
 			try {
-				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(".\\ressources\\Graphics\\Fonts\\"+police+".ttf")));
 				LOG.info("La police "+police+" a dû être installée.");
 				return police;
@@ -414,7 +422,7 @@ public class Texte extends ElementDeMenu {
 	 * @param numeroCouleur chaque couleur a un numéro
 	 * @return couleur de la police
 	 */
-	private static Color chargerCouleurParDefaut(int numeroCouleur) {
+	private static Color chargerCouleurParDefaut(final int numeroCouleur) {
 		final JSONArray jsonCouleurs = JSON_INFORMATIONS_POLICE.getJSONArray("couleurs");
 		final JSONArray jsonCouleur = jsonCouleurs.getJSONArray(numeroCouleur);
 		return new Color(jsonCouleur.getInt(0), jsonCouleur.getInt(1), jsonCouleur.getInt(2));
@@ -425,7 +433,7 @@ public class Texte extends ElementDeMenu {
 	 * @param taille libellé de la taille
 	 * @return nombre de pixels de hauteur
 	 */
-	private static int chargerTaille(String taille) {
+	private static int chargerTaille(final String taille) {
 		return JSON_INFORMATIONS_POLICE.getJSONObject("tailles").getInt(taille);
 	}
 	
@@ -434,10 +442,10 @@ public class Texte extends ElementDeMenu {
 	 * @param nomPolice police du jeu
 	 * @return disponible ou pas
 	 */
-	private static boolean verifierSiLaPoliceEstInstallee(String nomPolice) {
+	private static boolean verifierSiLaPoliceEstInstallee(final String nomPolice) {
 		GraphicsEnvironment g = null;
 		g = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		String[] fonts = g.getAvailableFontFamilyNames();
+		final String[] fonts = g.getAvailableFontFamilyNames();
 		for (int i = 0; i<fonts.length; i++) {
 			if (fonts[i].equals(nomPolice)) {
 				return true;

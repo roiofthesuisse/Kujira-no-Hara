@@ -121,7 +121,7 @@ public class Message extends Commande implements CommandeEvent {
 	 */
 	protected boolean ilFautReactualiserLImageDuMessage(final LecteurMap lecteur) {
 		//le dialogue vient de commencer
-		if (lecteur.messageActuel==null) {
+		if (lecteur.messageActuel == null) {
 			return true;
 		}
 		
@@ -130,7 +130,8 @@ public class Message extends Commande implements CommandeEvent {
 		final ArrayList<String> texteActuel = lecteur.messageActuel.texte;
 		final String messageActuel = texteActuel.get(langue < texteActuel.size() ? langue : 0);
 		final String messageDesire = this.texte.get(langue < this.texte.size() ? langue : 0);
-		if (!messageActuel.equals(messageDesire)) {
+		if ( (messageActuel == null && messageDesire != null) 
+		  || (messageActuel != null && !messageActuel.equals(messageDesire))) {
 			LOG.debug(messageActuel+" =/= "+messageDesire);
 			return true;
 		}
