@@ -57,7 +57,11 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 			LecteurAudio.playBgm(nomFichierSonore, 0, piste);
 			this.frame++;
 			
-			LOG.info("Démarrage de la musique.");
+			if (LecteurAudio.bgmEnCours[piste] == null) {
+				LOG.error("Impossible de démarrer la musique \""+nomFichierSonore+"\"");
+			} else {
+				LOG.info("Démarrage de la musique.");
+			}
 			return curseurActuel;
 			
 		} else if (frame < nombreDeFrames) {

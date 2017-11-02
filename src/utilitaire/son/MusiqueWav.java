@@ -22,7 +22,7 @@ public class MusiqueWav extends Musique {
 		this.format = FormatAudio.WAV;
 		try {
 			this.clip = AudioSystem.getClip();
-			this.stream = AudioSystem.getAudioInputStream(new File(".\\ressources\\Audio\\"+type+"\\" + nom));
+			this.stream = AudioSystem.getAudioInputStream(new File(DOSSIER_AUDIO+type+"/" + nom));
 			((Clip) clip).open((AudioInputStream) this.stream);
 			//volume initial
 			if (volume < VOLUME_MAXIMAL) {

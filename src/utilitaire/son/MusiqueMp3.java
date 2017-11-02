@@ -15,7 +15,7 @@ public class MusiqueMp3 extends Musique {
 		
 		//le fichier est un MP3
 		this.format = FormatAudio.MP3;
-		final String uri = Paths.get("ressources/Audio/"+type+"/" + nom).toUri().toString();
+		final String uri = Paths.get(DOSSIER_AUDIO+type+"/" + nom).toUri().toString();
 		final Media media = new Media(uri);
 		final MediaPlayer mediaPlayer = new MediaPlayer(media);
 		this.clip = mediaPlayer;

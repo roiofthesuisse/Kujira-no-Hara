@@ -301,7 +301,7 @@ public abstract class Graphismes {
     	if (image.getColorModel().equals(COLORMODEL)) {
             return image;
         }
-    	// On sauvegarde l'image actuelle
+    	//TODO On sauvegarde l'image actuelle
     	//sauvegarderImage(image, "/ressources/Graphics/"+nomImage+".old");
     	// On convertit l'image dans le bon ColorModel
         LOG.debug("Conversion de l'image \""+nomImage+"\" car elle n'a pas le ColorModel standard.");
@@ -309,7 +309,7 @@ public abstract class Graphismes {
         final Graphics2D g = compatibleImage.createGraphics();
         g.drawImage(image, 0, 0, null);
         g.dispose();
-        // On enregistre la nouvelle image
+        //TODO On enregistre la nouvelle image
         //sauvegarderImage(compatibleImage, "/ressources/Graphics/"+nomImage);
         return compatibleImage;
     }

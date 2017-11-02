@@ -18,6 +18,7 @@ public abstract class Musique {
 	/** Quand il est impossible de calculer la durée du ME */
 	protected static final long DUREE_PAR_DEFAUT_ME = 10000; //en millisecondes
 	protected static final long DELAI_AVANT_ME = 500; //en millisecondes
+	protected static final String DOSSIER_AUDIO = "./ressources/Audio/";
 	
 	/**
 	 * Le clip peut être un Clip javax ou bien un OggClip.

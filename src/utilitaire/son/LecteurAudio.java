@@ -1,5 +1,8 @@
 package utilitaire.son;
 
+import java.io.File;
+import java.io.FilenameFilter;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -106,8 +109,32 @@ public abstract class LecteurAudio {
 			} else if (nom.endsWith(".mp3")) {
 				musique = new MusiqueMp3(nom, Musique.TypeMusique.BGM, volume);
 			} else {
-				LOG.error("Format audio inconnu : "+nom);
-				return;
+				//c'est sûrement encore un connard qui a oublié l'extension du fichier audio dans le JSON
+				final File dossierAudio = new File(Musique.DOSSIER_AUDIO + Musique.TypeMusique.BGM.nom + "/");
+				final File[] fichiersTrouves = dossierAudio.listFiles(new FilenameFilter() {
+				    public boolean accept(final File dir, final String nomTotal) {
+				        return nomTotal.startsWith(nom);
+				    }
+				});
+				if (fichiersTrouves.length > 0) {
+					final String vraiNom = fichiersTrouves[0].getName();
+					if (vraiNom.endsWith(".ogg")) {
+						musique = new MusiqueOgg(vraiNom, Musique.TypeMusique.BGM, volume);
+					} else if (vraiNom.endsWith(".wav")) {
+						musique = new MusiqueWav(vraiNom, Musique.TypeMusique.BGM, volume);
+					} else if (vraiNom.endsWith(".mp3")) {
+						musique = new MusiqueMp3(vraiNom, Musique.TypeMusique.BGM, volume);
+					} else {
+						// format non géré
+						LOG.error("Format audio inconnu : " + nom);
+						return;
+					}
+					LOG.warn("Le vrai nom du fichier audio \"" + nom +"\" devrait être \""+ vraiNom +"\"");
+				} else {
+					// pas de fichier trouvé
+					LOG.error("Fichier audio introuvable : " + nom);
+					return;
+				}
 			}
 			LOG.debug("BGM démarré : "+nom);
 			musique.jouerEnBoucle();

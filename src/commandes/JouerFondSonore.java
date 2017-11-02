@@ -3,6 +3,9 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import utilitaire.son.LecteurAudio;
 import utilitaire.son.Musique;
@@ -11,6 +14,8 @@ import utilitaire.son.Musique;
  * Jouer un fond sonore en boucle.
  */
 public class JouerFondSonore extends Commande implements CommandeEvent, CommandeMenu {
+	private static final Logger LOG = LogManager.getLogger(JouerFondSonore.class);
+	
 	private final String nomFichierSonore;
 	private final float volume;
 	private final int nombreDeFrames;
@@ -52,6 +57,11 @@ public class JouerFondSonore extends Commande implements CommandeEvent, Commande
 			LecteurAudio.playBgs(nomFichierSonore, 0, piste);
 			this.frame++;
 			
+			if (LecteurAudio.bgsEnCours[piste] == null) {
+				LOG.error("Impossible de démarrer le fond sonore \""+nomFichierSonore+"\"");
+			} else {
+				LOG.info("Démarrage du fond sonore.");
+			}
 			return curseurActuel;
 			
 		} else if (frame < nombreDeFrames) {

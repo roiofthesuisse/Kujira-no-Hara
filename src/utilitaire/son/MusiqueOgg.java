@@ -18,7 +18,7 @@ public class MusiqueOgg extends Musique {
 		
 		this.format = FormatAudio.OGG;
 		try {
-			final File fichierOgg = new File(".\\ressources\\Audio\\"+type+"\\" + nom);
+			final File fichierOgg = new File(DOSSIER_AUDIO+type+"/" + nom);
 			this.stream = new FileInputStream(fichierOgg);
 			this.clip = new OggClip(this.stream);
 			//volume initial
