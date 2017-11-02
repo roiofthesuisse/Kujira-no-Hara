@@ -37,7 +37,7 @@ import utilitaire.graphismes.Graphismes;
 public final class Partie implements Listable, Sauvegardable {
 	private static final Logger LOG = LogManager.getLogger(Partie.class);
 	private static final int NOMBRE_D_INTERRUPTEURS = 100;
-	private static final int NOMBRE_DE_VARIABLES = 100;
+	private static final int NOMBRE_DE_VARIABLES = 200;
 	private static final int NOMBRE_DE_MOTS = 50;
 	
 	public int id;
@@ -125,7 +125,7 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @param xHeros coordonnée x du Héros (en pixels) en reprenant la Partie
 	 * @param yHeros coordonnée y du Héros (en pixels) en reprenant la Partie
 	 * @param directionHeros direction dans laquelle se trouve le Heros en reprenant la Partie
-	 * @param brouillard de la Map
+	 * @param jsonBrouillard de la Map
 	 * @param vie niveau d'énergie vitale du Héros en reprenant la Partie
 	 * @param vieMax niveau maximal possible d'énergie vitale du Héros en reprenant la Partie
 	 * @param argent possédé
@@ -137,6 +137,7 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @param interrupteurs état des interrupteurs du jeu
 	 * @param variables état des variables locaux du jeu
 	 * @param interrupteursLocaux état des interrupteurs locaux du jeu
+	 * @param chronometre état du chronomètre éventuel
 	 * @param images affichées à l'écran
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
@@ -322,10 +323,10 @@ public final class Partie implements Listable, Sauvegardable {
 		final File[] fichiers = dossier.listFiles();
 		for (int i = 0; i < fichiers.length; i++) {
 			if (fichiers[i].isFile()) {
-				String nomPartie = fichiers[i].getName();
-				int numeroPartie = Integer.parseInt(nomPartie.replaceAll("[^0-9]", ""));
+				final String nomPartie = fichiers[i].getName();
+				final int numeroPartie = Integer.parseInt(nomPartie.replaceAll("[^0-9]", ""));
 				try {
-					Partie partie = ChargerPartie.chargerPartie(numeroPartie);
+					final Partie partie = ChargerPartie.chargerPartie(numeroPartie);
 					parties.put(numeroPartie, partie);
 				} catch (IOException e) {
 					LOG.error("Impossible de charger la partie "+numeroPartie, e);
