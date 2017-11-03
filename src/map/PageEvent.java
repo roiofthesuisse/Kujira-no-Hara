@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import commandes.Deplacement;
@@ -111,18 +112,38 @@ public class PageEvent {
 		// Apparence de l'Event lors de cette Page
 		this.directionInitiale = pageJSON.has("directionInitiale") ? pageJSON.getInt("directionInitiale") : Event.DIRECTION_PAR_DEFAUT;
 		this.animationInitiale = pageJSON.has("animationInitiale") ? pageJSON.getInt("animationInitiale") : 0;
-		this.nomImage = pageJSON.has("image") ? pageJSON.getString("image") : "";
-		try {
-			//ouverture de l'image d'apparence
-			this.image = Graphismes.ouvrirImage("Characters", nomImage);
-		} catch (IOException e) {
-			//l'image d'apparence n'existe pas
-			this.image = null;
-			LOG.trace("Pas d'image d'apparence pour la page "+this.numero+" de l'event "+idEvent, e);
-		}	
 		
+		Integer tileDeLApparence = null;
+		if (pageJSON.has("image")) {
+			// l'Event a une apparence
+			try {
+				tileDeLApparence = pageJSON.getInt("image");
+				// l'apparence est un Tile
+				this.nomImage = "" + tileDeLApparence;
+				this.image = this.event.map.tileset.carreaux[tileDeLApparence];
+			} catch (JSONException e) {
+				// l'apparence est une Image
+				this.nomImage = pageJSON.getString("image");
+				try {
+					//ouverture de l'image d'apparence
+					this.image = Graphismes.ouvrirImage("Characters", nomImage);
+				} catch (IOException e1) {
+					//l'image d'apparence n'existe pas
+					LOG.error("L'image d'apparence \""+nomImage+"\" de l'event "+idEvent+" n'existe pas !", e1);
+					this.image = null;
+				}
+			}
+		} else {
+			// pas d'image
+			this.image = null;
+			LOG.trace("Pas d'image d'apparence pour la page "+this.numero+" de l'event "+idEvent);
+		}
+	
 		// Propriétés de cette Page
 		this.frequence = pageJSON.has("frequence") ? pageJSON.getInt("frequence") : Event.FREQUENCE_PAR_DEFAUT;
+		if (this.frequence == 0) {
+			LOG.error("La fréquence de l'event "+event.id+" "+event.nom+" est nulle ! Cela va créer une division par 0 lors de l'animation !");
+		}
 		this.vitesse = pageJSON.has("vitesse") ? pageJSON.getInt("vitesse") : Event.VITESSE_PAR_DEFAUT;
 		if (contientUneConditionParler()) {
 			this.figerLesAutresEvents = true;
@@ -133,7 +154,31 @@ public class PageEvent {
 		}
 		this.animeALArret = pageJSON.has("animeALArret") ? pageJSON.getBoolean("animeALArret") : Event.ANIME_A_L_ARRET_PAR_DEFAUT;
 		this.animeEnMouvement = pageJSON.has("animeEnMouvement") ? pageJSON.getBoolean("animeEnMouvement") : Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
-		this.traversable = pageJSON.has("traversable") ? pageJSON.getBoolean("traversable") : Event.TRAVERSABLE_PAR_DEFAUT;
+
+		if (pageJSON.has("traversable")) {
+			if (pageJSON.getBoolean("traversable")) {
+				this.traversable = true;
+			} else {
+				if (tileDeLApparence != null) {
+					//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
+					this.traversable = !this.event.map.tileset.laCaseEstUnObstacle(tileDeLApparence);
+				} else if (this.image == null) {
+					this.traversable = Event.TRAVERSABLE_SI_VIDE;
+				} else {
+					this.traversable = false;
+				} 
+			}
+		} else {
+			if (tileDeLApparence != null) {
+				//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
+				this.traversable = !this.event.map.tileset.laCaseEstUnObstacle(tileDeLApparence);
+			} else if (this.image == null) {
+				this.traversable = Event.TRAVERSABLE_SI_VIDE;
+			} else {
+				this.traversable = Event.TRAVERSABLE_PAR_DEFAUT;
+			}
+		}
+
 		this.directionFixe = pageJSON.has("directionFixe") ? pageJSON.getBoolean("directionFixe") : Event.DIRECTION_FIXE_PAR_DEFAUT;
 		this.auDessusDeTout = pageJSON.has("auDessusDeTout") ? pageJSON.getBoolean("auDessusDeTout") : Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
 		if (pageJSON.has("plat")) {
