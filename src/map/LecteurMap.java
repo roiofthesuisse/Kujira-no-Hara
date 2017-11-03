@@ -3,6 +3,7 @@ package map;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.awt.image.RasterFormatException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -583,7 +584,16 @@ public class LecteurMap extends Lecteur {
 			//voilà
 			*/
 			
-			final BufferedImage apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
+			final BufferedImage apparence;
+			try {
+				apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
+			} catch (RasterFormatException rfe) {
+				LOG.error("La vignette d'Event est mal découpée "
+						+ "(animation:"+animation+";direction:"+direction+";"
+						+ "largeur:"+largeur+";hauteur:"+hauteur+")", rfe
+				);
+				return ecran;
+			}
 			return Graphismes.superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera, event.opaciteActuelle, event.modeDeFusionActuel);
 		} else {
 			//l'event n'a pas d'image
