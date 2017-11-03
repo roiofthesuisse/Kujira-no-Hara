@@ -1,6 +1,5 @@
 package commandes;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,6 +12,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import jeu.Partie;
@@ -69,14 +69,21 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 			final Partie partie = chargerPartie(this.numeroDeSauvegarde);
 			fenetre.setPartieActuelle(partie);
 			fenetre.ouvrirLaPartie();
-		} catch (IOException e) {
-			LOG.error("Impossible d'ouvrir le fichier de partie numero "+this.numeroDeSauvegarde, e);
+		} catch (Exception e) {
+			LOG.error("Impossible de charger la partie numero "+this.numeroDeSauvegarde, e);
 		}
 		
 		return curseurActuel+1;
 	}
 	
-	public static Partie chargerPartie(final int numeroDeSauvegarde) throws IOException {
+	/**
+	 * Charger une Partie à partir du numéro de la Sauvegarde.
+	 * @param numeroDeSauvegarde qui identifie le fichier de Sauvegarde
+	 * @return Partie chargée
+	 * @throws JSONException le fichier de Sauvegarde n'a pas le bon format
+	 * @throws Exception le fichier de Nouvelle Partie n'a pas le bon format
+	 */
+	public static Partie chargerPartie(final int numeroDeSauvegarde) throws JSONException, Exception {
 		final Path path = Paths.get(Sauvegarder.NOM_DOSSIER_SAUVEGARDES + Sauvegarder.PREFIXE_FICHIER_SAUVEGARDE + numeroDeSauvegarde + ".txt");
 	
 		final byte[] bytesCryptes = Files.readAllBytes(path);

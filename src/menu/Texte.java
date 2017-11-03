@@ -9,7 +9,6 @@ import java.awt.GraphicsEnvironment;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -18,7 +17,6 @@ import java.util.regex.Pattern;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import main.Commande;
@@ -383,12 +381,10 @@ public class Texte extends ElementDeMenu {
 	private static JSONObject chargerInformationsPolice() {
 		try {
 			return InterpreteurDeJson.ouvrirJson("police", ".\\ressources\\Data\\");
-		} catch (FileNotFoundException e) {
-			LOG.error("Impossible de trouver le fichier des informations sur la police d'écriture.", e);
-		} catch (JSONException e) {
-			LOG.error("Format incorrect pour le fichier des informations sur la police d'écriture.", e);
+		} catch (Exception e) {
+			LOG.error("Impossible de lire le fichier des informations sur la police d'écriture.", e);
+			return null;
 		}
-		return null;
 	}
 	
 	/**

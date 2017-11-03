@@ -1,7 +1,6 @@
 package jeu;
 
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,36 +89,37 @@ public class Gadget implements Listable {
 	 * @return nombre de Gadgets dans le jeu
 	 */
 	public static Gadget[] chargerLesGadgetsDuJeu() {
+		final JSONArray jsonGadgets;
 		try {
-			final JSONArray jsonGadgets = InterpreteurDeJson.ouvrirJsonGadgets();
-			final ArrayList<Gadget> gadgets = new ArrayList<Gadget>();
-			int i = 0;
-			for (Object objectGadget : jsonGadgets) {
-				final JSONObject jsonGadget = (JSONObject) objectGadget;
-				
-				final HashMap<String, Object> parametres = new HashMap<String, Object>();
-				parametres.put("numero", i);
-				
-				final Iterator<String> jsonParametres = jsonGadget.keys();
-				while (jsonParametres.hasNext()) {
-					final String parametre = jsonParametres.next();
-					parametres.put(parametre, jsonGadget.get(parametre));
-				}
-				
-				final Gadget gadget = new Gadget(parametres);
-				gadgets.add(gadget);
-				i++;
-			}
-			
-			final Gadget[] gadgetsDuJeu = new Gadget[gadgets.size()];
-			gadgets.toArray(gadgetsDuJeu);
-			return gadgetsDuJeu;
-			
-		} catch (FileNotFoundException e) {
+			jsonGadgets = InterpreteurDeJson.ouvrirJsonGadgets();
+		} catch (Exception e) {
 			//problème lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les gadgets du jeu.", e);
 			return null;
 		}
+			
+		final ArrayList<Gadget> gadgets = new ArrayList<Gadget>();
+		int i = 0;
+		for (Object objectGadget : jsonGadgets) {
+			final JSONObject jsonGadget = (JSONObject) objectGadget;
+			
+			final HashMap<String, Object> parametres = new HashMap<String, Object>();
+			parametres.put("numero", i);
+			
+			final Iterator<String> jsonParametres = jsonGadget.keys();
+			while (jsonParametres.hasNext()) {
+				final String parametre = jsonParametres.next();
+				parametres.put(parametre, jsonGadget.get(parametre));
+			}
+			
+			final Gadget gadget = new Gadget(parametres);
+			gadgets.add(gadget);
+			i++;
+		}
+		
+		final Gadget[] gadgetsDuJeu = new Gadget[gadgets.size()];
+		gadgets.toArray(gadgetsDuJeu);
+		return gadgetsDuJeu;
 	}
 
 	/**

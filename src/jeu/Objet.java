@@ -1,7 +1,6 @@
 package jeu;
 
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,55 +74,56 @@ public class Objet implements Listable {
 	 * @return tous les Objets du jeu
 	 */
 	public static Objet[] chargerLesObjetsDuJeu() {
+		final JSONArray jsonObjets;
 		try {
-			final JSONArray jsonObjets = InterpreteurDeJson.ouvrirJsonObjets();
-			final ArrayList<Objet> objets = new ArrayList<Objet>();
-			for (Object objectObjet : jsonObjets) {
-				final JSONObject jsonObjet = (JSONObject) objectObjet;
-				
-				final HashMap<String, Object> parametresObjet = new HashMap<String, Object>();
-				final Iterator<String> jsonParametresObjet = jsonObjet.keys();
-				while (jsonParametresObjet.hasNext()) {
-					final String parametreObjet = jsonParametresObjet.next();
-					
-					if ("effet".equals(parametreObjet)) {
-						//paramètre : effet
-						final ArrayList<CommandeMenu> effet = new ArrayList<CommandeMenu>();
-						final JSONArray jsonEffet = jsonObjet.getJSONArray("effet");
-						Commande.recupererLesCommandesMenu(effet, jsonEffet);
-						parametresObjet.put("effet", effet);
-					} else {
-						//autres paramètres
-						parametresObjet.put(parametreObjet, jsonObjet.get(parametreObjet));
-					}
-					
-				}
-				
-				final Objet objet = new Objet(parametresObjet);
-				
-				// On vérifie que les identifiants soient bien uniques
-				boolean identifiantUnique = true;
-				for (Objet objet2 : objets) {
-					if (objet2.idObjet.equals(objet.idObjet)) {
-						LOG.error("Les deux objets ont le même identifiant : "+objet.nom+", "+objet2.nom);
-						identifiantUnique = false;
-					}
-				}
-				if (identifiantUnique) {
-					objets.add(objet);
-				}
-			}
-			
-			final Objet[] objetsDuJeu = new Objet[objets.size()];
-			objets.toArray(objetsDuJeu);
-			LOG.debug("Objets créés : " + objetsDuJeu.length);
-			return objetsDuJeu;
-			
-		} catch (FileNotFoundException e) {
+			jsonObjets = InterpreteurDeJson.ouvrirJsonObjets();
+		} catch (Exception e) {
 			//problème lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les objets du jeu.", e);
 			return null;
 		}
+		
+		final ArrayList<Objet> objets = new ArrayList<Objet>();
+		for (Object objectObjet : jsonObjets) {
+			final JSONObject jsonObjet = (JSONObject) objectObjet;
+			
+			final HashMap<String, Object> parametresObjet = new HashMap<String, Object>();
+			final Iterator<String> jsonParametresObjet = jsonObjet.keys();
+			while (jsonParametresObjet.hasNext()) {
+				final String parametreObjet = jsonParametresObjet.next();
+				
+				if ("effet".equals(parametreObjet)) {
+					//paramètre : effet
+					final ArrayList<CommandeMenu> effet = new ArrayList<CommandeMenu>();
+					final JSONArray jsonEffet = jsonObjet.getJSONArray("effet");
+					Commande.recupererLesCommandesMenu(effet, jsonEffet);
+					parametresObjet.put("effet", effet);
+				} else {
+					//autres paramètres
+					parametresObjet.put(parametreObjet, jsonObjet.get(parametreObjet));
+				}
+				
+			}
+			
+			final Objet objet = new Objet(parametresObjet);
+			
+			// On vérifie que les identifiants soient bien uniques
+			boolean identifiantUnique = true;
+			for (Objet objet2 : objets) {
+				if (objet2.idObjet.equals(objet.idObjet)) {
+					LOG.error("Les deux objets ont le même identifiant : "+objet.nom+", "+objet2.nom);
+					identifiantUnique = false;
+				}
+			}
+			if (identifiantUnique) {
+				objets.add(objet);
+			}
+		}
+		
+		final Objet[] objetsDuJeu = new Objet[objets.size()];
+		objets.toArray(objetsDuJeu);
+		LOG.debug("Objets créés : " + objetsDuJeu.length);
+		return objetsDuJeu;
 	}
 	
 	/**

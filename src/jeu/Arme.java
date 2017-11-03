@@ -1,7 +1,6 @@
 package jeu;
 
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -126,51 +125,52 @@ public class Arme implements Listable {
 	 * @return nombre de Armes dans le jeu
 	 */
 	public static Arme[] chargerLesArmesDuJeu() {
+		final JSONArray jsonArmes;
 		try {
-			final JSONArray jsonArmes = InterpreteurDeJson.ouvrirJsonArmes();
-			final ArrayList<Arme> armes = new ArrayList<Arme>();
-			int i = 0;
-			for (Object objectArme : jsonArmes) {
-				final JSONObject jsonArme = (JSONObject) objectArme;
-				
-				final HashMap<String, Object> parametres = new HashMap<String, Object>();
-				parametres.put("numero", i);
-				
-				final Iterator<String> jsonParametres = jsonArme.keys();
-				while (jsonParametres.hasNext()) {
-					final String parametre = jsonParametres.next();
-					
-					if ("framesDAnimation".equals(parametre)) {
-						//paramètre : framesDAnimation
-						final JSONArray jsonArrayframesDAnimation = jsonArme.getJSONArray("framesDAnimation");
-						final ArrayList<Integer> framesDAnimationListe = new ArrayList<Integer>();
-						for (Object frameObject : jsonArrayframesDAnimation) {
-							framesDAnimationListe.add((Integer) frameObject);
-						}
-						
-						final Integer[] framesDAnimation = new Integer[framesDAnimationListe.size()];
-						framesDAnimationListe.toArray(framesDAnimation);
-						parametres.put("framesDAnimation", framesDAnimation);
-					} else {
-						//autres paramètres
-						parametres.put(parametre, jsonArme.get(parametre));
-					}
-				}
-				
-				final Arme arme = new Arme(parametres);
-				armes.add(arme);
-				i++;
-			}
-			
-			final Arme[] armesDuJeu = new Arme[armes.size()];
-			armes.toArray(armesDuJeu);
-			return armesDuJeu;
-			
-		} catch (FileNotFoundException e) {
+			jsonArmes = InterpreteurDeJson.ouvrirJsonArmes();
+		} catch (Exception e) {
 			//problème lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les armes du jeu.", e);
 			return null;
 		}
+		
+		final ArrayList<Arme> armes = new ArrayList<Arme>();
+		int i = 0;
+		for (Object objectArme : jsonArmes) {
+			final JSONObject jsonArme = (JSONObject) objectArme;
+			
+			final HashMap<String, Object> parametres = new HashMap<String, Object>();
+			parametres.put("numero", i);
+			
+			final Iterator<String> jsonParametres = jsonArme.keys();
+			while (jsonParametres.hasNext()) {
+				final String parametre = jsonParametres.next();
+				
+				if ("framesDAnimation".equals(parametre)) {
+					//paramètre : framesDAnimation
+					final JSONArray jsonArrayframesDAnimation = jsonArme.getJSONArray("framesDAnimation");
+					final ArrayList<Integer> framesDAnimationListe = new ArrayList<Integer>();
+					for (Object frameObject : jsonArrayframesDAnimation) {
+						framesDAnimationListe.add((Integer) frameObject);
+					}
+					
+					final Integer[] framesDAnimation = new Integer[framesDAnimationListe.size()];
+					framesDAnimationListe.toArray(framesDAnimation);
+					parametres.put("framesDAnimation", framesDAnimation);
+				} else {
+					//autres paramètres
+					parametres.put(parametre, jsonArme.get(parametre));
+				}
+			}
+			
+			final Arme arme = new Arme(parametres);
+			armes.add(arme);
+			i++;
+		}
+		
+		final Arme[] armesDuJeu = new Arme[armes.size()];
+		armes.toArray(armesDuJeu);
+		return armesDuJeu;
 	}
 
 	/**

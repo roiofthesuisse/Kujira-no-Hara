@@ -2,8 +2,6 @@ package jeu;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -86,9 +84,9 @@ public final class Partie implements Listable, Sauvegardable {
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge
-	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
+	 * @throws Exception le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	private Partie() throws FileNotFoundException {
+	private Partie() throws Exception {
 		final JSONObject jsonNouvellePartie = InterpreteurDeJson.ouvrirJsonNouvellePartie();
 		// Position du Héros
 		this.numeroMap = jsonNouvellePartie.getInt("numeroMap");
@@ -142,7 +140,7 @@ public final class Partie implements Listable, Sauvegardable {
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
 	 * @param idGadgetEquipe identifiant du Gadget actuel équipé
-	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
+	 * @throws Exception le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
 	public Partie(final int id, final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, 
 			final JSONObject jsonBrouillard,
@@ -150,7 +148,7 @@ public final class Partie implements Listable, Sauvegardable {
 			final JSONArray objetsPossedes, final JSONArray avancementDesQuetes, final JSONArray armesPossedees, 
 			final JSONArray gadgetsPossedes, final JSONArray interrupteurs, final JSONArray variables, 
 			final JSONArray interrupteursLocaux, final JSONObject chronometre, final JSONArray images)
-	throws FileNotFoundException {
+	throws Exception {
 		this();
 		this.id = id;
 		this.numeroMap = numeroMap;
@@ -229,9 +227,9 @@ public final class Partie implements Listable, Sauvegardable {
 	/**
 	 * Génère une nouvelle Partie vierge.
 	 * @return une nouvelle partie
-	 * @throws FileNotFoundException le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
+	 * @throws Exception le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
-	public static Partie creerNouvellePartie() throws FileNotFoundException {
+	public static Partie creerNouvellePartie() throws Exception {
 		return new Partie();
 	}
 	
@@ -328,8 +326,8 @@ public final class Partie implements Listable, Sauvegardable {
 				try {
 					final Partie partie = ChargerPartie.chargerPartie(numeroPartie);
 					parties.put(numeroPartie, partie);
-				} catch (IOException e) {
-					LOG.error("Impossible de charger la partie "+numeroPartie, e);
+				} catch (Exception e) {
+					LOG.error("Impossible de charger la partie numéro "+numeroPartie, e);
 				}
 			}
 		}

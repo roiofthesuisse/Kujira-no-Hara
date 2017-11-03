@@ -3,6 +3,8 @@ package map;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -13,6 +15,8 @@ import utilitaire.InterpreteurDeJson;
  * Event particulier qui est déplacé par le joueur à l'aide du clavier
  */
 public class Heros extends Event {
+	private static final Logger LOG = LogManager.getLogger(Heros.class);
+	
 	public static final Event MODELE = creerModele();
 	
 	/**
@@ -44,8 +48,8 @@ public class Heros extends Event {
 		JSONObject jsonEventGenerique = null;
 		try {
 			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique("Heros");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			LOG.error("Impossible d'ouvrir le fichier JSON du héros !", e);
 		}
 		
 		final int largeur = jsonEventGenerique.has("largeur") ? (int) jsonEventGenerique.getInt("largeur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;

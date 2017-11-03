@@ -1,7 +1,6 @@
 package map;
 
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Vector;
 import java.util.concurrent.ExecutorService;
@@ -616,34 +615,36 @@ public class Event implements Comparable<Event> {
 	 */
 	public static Event creerEventGenerique(final int id, final String nomEvent, final int xEvent, 
 			final int yEvent, final Map map) {
+		final JSONObject jsonEventGenerique;
 		try {
-			final JSONObject jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
-			int largeurHitbox;
-			try {
-				largeurHitbox = jsonEventGenerique.getInt("largeur");
-			} catch (JSONException e2) {
-				largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
-			}
-			int hauteurHitbox;
-			try {
-				hauteurHitbox = jsonEventGenerique.getInt("hauteur");
-			} catch (JSONException e2) {
-				hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
-			}
-			final int offsetY;
-			if (jsonEventGenerique.has("offsetY")) {
-				offsetY = jsonEventGenerique.getInt("offsetY");
-			} else {
-				offsetY = 0;
-			}
-			final boolean reinitialiser = jsonEventGenerique.has("reinitialiser") ? jsonEventGenerique.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
-	
-			final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-			return new Event(xEvent, yEvent, offsetY, nomEvent, id, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
-		} catch (FileNotFoundException e1) {
+			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
+		} catch (Exception e1) {
 			LOG.trace("Impossible de trouver le fichier JSON pour contruire l'Event générique "+nomEvent, e1);
 			return null;
 		}
+		
+		int largeurHitbox;
+		try {
+			largeurHitbox = jsonEventGenerique.getInt("largeur");
+		} catch (JSONException e2) {
+			largeurHitbox = Event.LARGEUR_HITBOX_PAR_DEFAUT;
+		}
+		int hauteurHitbox;
+		try {
+			hauteurHitbox = jsonEventGenerique.getInt("hauteur");
+		} catch (JSONException e2) {
+			hauteurHitbox = Event.HAUTEUR_HITBOX_PAR_DEFAUT;
+		}
+		final int offsetY;
+		if (jsonEventGenerique.has("offsetY")) {
+			offsetY = jsonEventGenerique.getInt("offsetY");
+		} else {
+			offsetY = 0;
+		}
+		final boolean reinitialiser = jsonEventGenerique.has("reinitialiser") ? jsonEventGenerique.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
+
+		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
+		return new Event(xEvent, yEvent, offsetY, nomEvent, id, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
 	}
 	
 	/**

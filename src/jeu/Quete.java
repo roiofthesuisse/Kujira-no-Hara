@@ -1,7 +1,6 @@
 package jeu;
 
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -123,37 +122,38 @@ public class Quete implements Listable {
 	 * @return nombre de Quêtes dans le jeu
 	 */
 	public static int chargerLesQuetesDuJeu() {
+		final JSONArray jsonQuetes;
 		try {
-			final JSONArray jsonQuetes = InterpreteurDeJson.ouvrirJsonQuetes();
-			final ArrayList<Quete> quetes = new ArrayList<Quete>();
-			int i = 0;
-			for (Object objectQuete : jsonQuetes) {
-				final JSONObject jsonQuete = (JSONObject) objectQuete;
-				
-				final HashMap<String, Object> parametres = new HashMap<String, Object>();
-				parametres.put("numero", i);
-				
-				final Iterator<String> jsonParametres = jsonQuete.keys();
-				while (jsonParametres.hasNext()) {
-					final String parametre = jsonParametres.next();
-					parametres.put(parametre, jsonQuete.get(parametre));
-				}
-				
-				final Quete quete = new Quete(parametres);
-				quetes.add(quete);
-				i++;
-			}
-			
-			quetesDuJeu = new Quete[quetes.size()];
-			quetes.toArray(quetesDuJeu);
-			return quetesDuJeu.length;
-			
-		} catch (FileNotFoundException e) {
+			jsonQuetes = InterpreteurDeJson.ouvrirJsonQuetes();
+		} catch (Exception e) {
 			//problème lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les quêtes du jeu.", e);
 			quetesDuJeu = null;
 			return 0;
 		}
+		
+		final ArrayList<Quete> quetes = new ArrayList<Quete>();
+		int i = 0;
+		for (Object objectQuete : jsonQuetes) {
+			final JSONObject jsonQuete = (JSONObject) objectQuete;
+			
+			final HashMap<String, Object> parametres = new HashMap<String, Object>();
+			parametres.put("numero", i);
+			
+			final Iterator<String> jsonParametres = jsonQuete.keys();
+			while (jsonParametres.hasNext()) {
+				final String parametre = jsonParametres.next();
+				parametres.put(parametre, jsonQuete.get(parametre));
+			}
+			
+			final Quete quete = new Quete(parametres);
+			quetes.add(quete);
+			i++;
+		}
+		
+		quetesDuJeu = new Quete[quetes.size()];
+		quetes.toArray(quetesDuJeu);
+		return quetesDuJeu.length;
 	}
 	
 	/**

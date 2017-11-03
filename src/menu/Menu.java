@@ -1,7 +1,6 @@
 package menu;
 
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -282,61 +281,60 @@ public class Menu {
 	 * @return Menu instancié
 	 */
 	public static Menu creerMenuDepuisJson(final String nom, final Menu menuParent) {
+		final JSONObject jsonObject;
 		try {
-			final JSONObject jsonObject = InterpreteurDeJson.ouvrirJson(nom, ".\\ressources\\Data\\Menus\\");
-			
-			// Identifiant de l'ElementDeMenu déjà sélectionné par défaut
-			final int idSelectionInitiale = jsonObject.has("selectionInitiale") ? (int) jsonObject.get("selectionInitiale") : 0;
-			
-			// Identifiant de l'ElementDeMenu contenant les descriptions d'Objects
-			final int idDescription = jsonObject.has("idDescription") ? (int) jsonObject.get("idDescription") : -1;
-			
-			// Image de fond du Menu
-			BufferedImage fond = null;
-			if (jsonObject.has("fond")) {
-				final String nomFond = (String) jsonObject.get("fond");
-				try {
-					fond = Graphismes.ouvrirImage("Pictures", nomFond);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			
-			// Comportement du Menu en cas d'annulation
-			final ArrayList<Commande> comportementAnnulation = new ArrayList<Commande>();
-			try {
-				final JSONArray jsonComportementAnnulation = jsonObject.getJSONArray("comportementAnnulation");
-				Commande.recupererLesCommandes(comportementAnnulation, jsonComportementAnnulation);
-			} catch (JSONException e) {
-				LOG.warn("Pas de comportement en cas d'annulation spécifié pour le menu "+nom+".\n"
-						+ "Comportement par défaut : revenir au menu parent ou revenir à la map.");
-				comportementAnnulation.add(new FermerMenu());
-			}
-
-			// Eléments du Menu
-			final JSONArray jsonElements = jsonObject.getJSONArray("elements");
-			final ArrayList<Texte> textes = new ArrayList<Texte>();
-			final ArrayList<ImageMenu> images = new ArrayList<ImageMenu>();
-			@SuppressWarnings("rawtypes")
-			final ArrayList<Liste> listes = new ArrayList<Liste>();
-			final ArrayList<Carte> cartes = new ArrayList<Carte>();
-			final ElementDeMenu selectionInitiale = ElementDeMenu.recupererLesElementsDeMenu(idSelectionInitiale, jsonElements, images, textes, listes, cartes, nom);
-			
-			//instanciation
-			final Menu menu = new Menu(fond, textes, images, listes, cartes, selectionInitiale, idDescription, menuParent, comportementAnnulation);	
-			
-			//associer un ElementDeMenu arbitraire aux Commandes en cas d'annulation pour qu'elles trouvent leur Menu
-			for (Commande commande : menu.comportementAnnulation) {
-				commande.element = menu.elements.get(0);
-			}
-			
-			return menu;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (JSONException e) {
-			e.printStackTrace();
+			jsonObject = InterpreteurDeJson.ouvrirJson(nom, ".\\ressources\\Data\\Menus\\");
+		} catch (Exception e) {
+			LOG.error("Impossible d'ouvrir ke fichier JSON du menu "+nom, e);
+			return null;
 		}
-		return null;
+		
+		// Identifiant de l'ElementDeMenu déjà sélectionné par défaut
+		final int idSelectionInitiale = jsonObject.has("selectionInitiale") ? (int) jsonObject.get("selectionInitiale") : 0;
+		
+		// Identifiant de l'ElementDeMenu contenant les descriptions d'Objects
+		final int idDescription = jsonObject.has("idDescription") ? (int) jsonObject.get("idDescription") : -1;
+		
+		// Image de fond du Menu
+		BufferedImage fond = null;
+		if (jsonObject.has("fond")) {
+			final String nomFond = (String) jsonObject.get("fond");
+			try {
+				fond = Graphismes.ouvrirImage("Pictures", nomFond);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// Comportement du Menu en cas d'annulation
+		final ArrayList<Commande> comportementAnnulation = new ArrayList<Commande>();
+		try {
+			final JSONArray jsonComportementAnnulation = jsonObject.getJSONArray("comportementAnnulation");
+			Commande.recupererLesCommandes(comportementAnnulation, jsonComportementAnnulation);
+		} catch (JSONException e) {
+			LOG.warn("Pas de comportement en cas d'annulation spécifié pour le menu "+nom+".\n"
+					+ "Comportement par défaut : revenir au menu parent ou revenir à la map.");
+			comportementAnnulation.add(new FermerMenu());
+		}
+
+		// Eléments du Menu
+		final JSONArray jsonElements = jsonObject.getJSONArray("elements");
+		final ArrayList<Texte> textes = new ArrayList<Texte>();
+		final ArrayList<ImageMenu> images = new ArrayList<ImageMenu>();
+		@SuppressWarnings("rawtypes")
+		final ArrayList<Liste> listes = new ArrayList<Liste>();
+		final ArrayList<Carte> cartes = new ArrayList<Carte>();
+		final ElementDeMenu selectionInitiale = ElementDeMenu.recupererLesElementsDeMenu(idSelectionInitiale, jsonElements, images, textes, listes, cartes, nom);
+		
+		//instanciation
+		final Menu menu = new Menu(fond, textes, images, listes, cartes, selectionInitiale, idDescription, menuParent, comportementAnnulation);	
+		
+		//associer un ElementDeMenu arbitraire aux Commandes en cas d'annulation pour qu'elles trouvent leur Menu
+		for (Commande commande : menu.comportementAnnulation) {
+			commande.element = menu.elements.get(0);
+		}
+		
+		return menu;
 	}
 	
 }

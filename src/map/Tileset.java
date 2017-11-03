@@ -55,9 +55,9 @@ public class Tileset {
 	/**
 	 * Constructeur explicite
 	 * @param nomTileset nom de l'image de décor
-	 * @throws IOException erreur lors de l'ouverture du fichier JSON ou des images
+	 * @throws Exception erreur lors de l'ouverture du fichier JSON ou des images
 	 */
-	public Tileset(final String nomTileset) throws IOException {
+	public Tileset(final String nomTileset) throws Exception {
 		this.nom = nomTileset;
 
 		final JSONObject jsonTileset = InterpreteurDeJson.ouvrirJsonTileset(nomTileset);

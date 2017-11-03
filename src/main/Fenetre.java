@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -270,7 +269,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 		if (this.partie == null) {
 			try {
 				this.partie = Partie.creerNouvellePartie();
-			} catch (FileNotFoundException e) {
+			} catch (Exception e) {
 				LOG.error("Impossible de charger la partie.");
 				e.printStackTrace();
 			}

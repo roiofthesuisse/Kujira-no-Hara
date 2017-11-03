@@ -1,12 +1,10 @@
 package map;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import conditions.Condition;
@@ -88,23 +86,20 @@ public class PageCommune extends PageEvent {
 	 */
 	public static ArrayList<PageCommune> recupererLesPagesCommunes() {
 		final ArrayList<PageCommune> pagesCommunes = new ArrayList<PageCommune>();
-		
+		final JSONObject jsonObjets;
 		try {
-			final JSONObject jsonObjets = InterpreteurDeJson.ouvrirJson("pagesCommunes", ".\\ressources\\Data\\");
-			final JSONArray jsonPagesCommunes = jsonObjets.getJSONArray("pages");
-		
-			for (Object o : jsonPagesCommunes) {
-				final JSONObject jsonPageCommune = (JSONObject) o;
-				final PageCommune pageCommune = new PageCommune(jsonPageCommune);
-				pagesCommunes.add(pageCommune);
-			}
-
-		} catch (FileNotFoundException e) {
-			LOG.error("Impossible de trouver le fichier des pages communes !", e);
-		} catch (JSONException e) {
-			LOG.error("Impossible de lire le fichier JSON des pages communes !", e);
+			jsonObjets = InterpreteurDeJson.ouvrirJson("pagesCommunes", ".\\ressources\\Data\\");
+		} catch (Exception e) {
+			LOG.error("Impossible d'ouvrir le fichier JSON des pages communes !", e);
+			return pagesCommunes;
 		}
 		
+		final JSONArray jsonPagesCommunes = jsonObjets.getJSONArray("pages");
+		for (Object o : jsonPagesCommunes) {
+			final JSONObject jsonPageCommune = (JSONObject) o;
+			final PageCommune pageCommune = new PageCommune(jsonPageCommune);
+			pagesCommunes.add(pageCommune);
+		}
 		return pagesCommunes;
 	}
 	

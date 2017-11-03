@@ -1,7 +1,6 @@
 package map;
 
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -138,18 +137,21 @@ public class Animation {
 	 * @return tableau des Animations modèles
 	 */
 	public static Animation[] chargerLesAnimationsDuJeu() {
+		final JSONArray jsonAnimations;
 		try {
-			final JSONArray jsonAnimations = InterpreteurDeJson.ouvrirJsonAnimations();
-			final ArrayList<Animation> animations = new ArrayList<Animation>();
-			for (Object animationObject : jsonAnimations) {
-				animations.add(new Animation((JSONObject) animationObject));
-			}
-			final Animation[] tableauDesAnimations = new Animation[animations.size()];
-			return animations.toArray(tableauDesAnimations);
-		} catch (FileNotFoundException e) {
+			jsonAnimations = InterpreteurDeJson.ouvrirJsonAnimations();
+		} catch (Exception e) {
 			LOG.error("Impossible d'interpréter la liste des animations du jeu.", e);
 			return null;
 		}
+		
+		final ArrayList<Animation> animations = new ArrayList<Animation>();
+		for (Object animationObject : jsonAnimations) {
+			animations.add(new Animation((JSONObject) animationObject));
+		}
+		final Animation[] tableauDesAnimations = new Animation[animations.size()];
+		return animations.toArray(tableauDesAnimations);
+		
 	}
 
 	/**

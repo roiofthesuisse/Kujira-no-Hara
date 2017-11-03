@@ -48,12 +48,12 @@ public final class Brouillard implements Sauvegardable {
 		this.zoom = zoom;
 		this.nomImage = nomImage;
 		try {
-			double ratioZoom = (double) zoom / (double)Graphismes.PAS_D_HOMOTHETIE;
+			final double ratioZoom = (double) zoom / (double) Graphismes.PAS_D_HOMOTHETIE;
 			this.image = redimensionnerImage(Graphismes.ouvrirImage("Fogs", this.nomImage), ratioZoom);
 			this.largeur = this.image.getWidth();
 			this.hauteur = this.image.getHeight();
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOG.error("Impossible d'ouvrir l'image de brouillard "+nomImage, e);
 			this.image = null;
 		}
 		this.opacite = opacite;
