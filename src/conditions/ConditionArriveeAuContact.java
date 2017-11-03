@@ -2,6 +2,9 @@ package conditions;
 
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import commandes.CommandeEvent;
 import conditions.ConditionContact.TypeDeContact;
 import main.Fenetre;
@@ -14,7 +17,8 @@ import map.Event;
  * - si l'Event n'est pas traversable, le contact signifie que le Héros et l'Event se touchent par un côté de la Hitbox.
  */
 public class ConditionArriveeAuContact extends Condition  implements CommandeEvent {
-
+	private static final Logger LOG = LogManager.getLogger(ConditionArriveeAuContact.class);
+	
 	private final TypeDeContact typeDeContact;
 	
 	/**
@@ -41,6 +45,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	@Override
 	public final boolean estVerifiee() {
 		final Event event = this.page.event;
+		
 		final int frameActuelle = Fenetre.getFenetre().lecteur.frameActuelle;
 		if ( event.frameDuContact != frameActuelle) {
 			//on n'est pas à jour ! on calcule s'il y a contact :
@@ -52,8 +57,14 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 			event.estAuContactDuHerosMaintenant = leHerosEstAuContactDeLEventMaintenant;
 			event.frameDuContact = frameActuelle;
 		}
-		
 		//on est à jour
+		
+		//on était d'emblée sur l'Event à la première frame du LecteurMap
+		if (frameActuelle <= 1 && event.estAuContactDuHerosMaintenant) {
+			LOG.debug("Condition ArriveeAuContact ignorée si c'est la position initiale du Héros sur la Map.");
+			event.estAuContactDuHerosAvant = true;
+		}
+		
 		return event.estAuContactDuHerosMaintenant && !event.estAuContactDuHerosAvant;
 	}
 	
