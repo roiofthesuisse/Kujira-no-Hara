@@ -14,9 +14,9 @@ public abstract class Musique {
 	protected static final Logger LOG = LogManager.getLogger(Musique.class);
 	public static final float VOLUME_MAXIMAL = 1.0f;
 	/** Un SE trop long sera tronqué */
-	private static final long DUREE_MAXIMALE_SE = 5000; //en millisecondes
+	private static final long DUREE_MAXIMALE_SE = 20000; //en millisecondes
 	/** Quand il est impossible de calculer la durée du ME */
-	protected static final long DUREE_PAR_DEFAUT_ME = 10000; //en millisecondes
+	protected static final long DUREE_PAR_DEFAUT_ME = 20000; //en millisecondes
 	protected static final long DELAI_AVANT_ME = 500; //en millisecondes
 	protected static final String DOSSIER_AUDIO = "./ressources/Audio/";
 	
