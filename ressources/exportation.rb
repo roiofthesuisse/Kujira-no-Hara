@@ -40,14 +40,14 @@ class Exportation
     #----------------------
     maps = load_data(MapsFile)
     tilesets = load_data(TilesetsFile)
-=begin 
+
     # Si le dossier d'exportation n'existe pas, on le cree
     if !File.directory?(EXPORT_FOLDER)
       Dir.mkdir(EXPORT_FOLDER)
     end
     
     # On parcourt toutes les maps
-    for map_id in 459...maps.size+1
+    for map_id in 1...maps.size+1
       mapFile = sprintf("Data/Map%03d.rxdata", map_id)
       map = load_data(mapFile) rescue next
       
@@ -56,12 +56,13 @@ class Exportation
       
       # On cree un fichier par map
       filename = sprintf("%s/%03d_%s.txt", EXPORT_FOLDER, map_id, mapInfo.name)
+      #filename = sprintf("%s/%d.json", EXPORT_FOLDER, map_id)
       # On supprime le fichier s'il existe deja
       if File.exist?(filename)
         File.delete(filename)
       end
       # Ouvre le fichier et rajoute du texte a la fin
-      file = File.new(filename, 'a') 
+      file = File.new(filename, 'a')
       
       # Debut de l'ecriture de la map
       file.write("{")
@@ -83,9 +84,13 @@ class Exportation
       write_linebreak(file)
       
       # Musique de la map
-      file.write(sprintf("\t\"bgm\": \"%s\",", map.bgm.name))
+      nomFichier = map.bgm.name
+      extension = File.extname(Dir.entries("./Audio/BGM").select{|s| s.index(nomFichier) == 0}.first)
+      file.write(sprintf("\t\"bgm\": \"%s\",", nomFichier+extension))
       write_linebreak(file)
-      file.write(sprintf("\t\"bgs\": \"%s\",", map.bgs.name))
+      nomFichier = map.bgs.name
+      extension = File.extname(Dir.entries("./Audio/BGS").select{|s| s.index(nomFichier) == 0}.first)
+      file.write(sprintf("\t\"bgs\": \"%s\",", nomFichier+extension))
       write_linebreak(file)
       
       # Couches de decor
@@ -161,13 +166,54 @@ class Exportation
             file.write("\t\t\t\"conditions\": [")
             write_linebreak(file)
             
-            # Condition 1 (interrupteur)
             c = page.condition
+            
+            # Condition de declenchement
+            case page.trigger
+              when 0
+                # Parler
+                file.write("\t\t\t{")
+                write_linebreak(file)
+                file.write("\t\t\t\t\"nom\": \"ConditionParler\"")
+                write_linebreak(file)
+                file.write("\t\t\t}")
+                if c.switch1_valid || c.switch2_valid || c.variable_valid || c.self_switch_valid
+                  file.write(",")
+                end
+                write_linebreak(file)
+              when 1
+                # Arrivee au contact
+                file.write("\t\t\t{")
+                write_linebreak(file)
+                file.write("\t\t\t\t\"nom\": \"ConditionArriveeAuContact\"")
+                write_linebreak(file)
+                file.write("\t\t\t}")
+                if c.switch1_valid || c.switch2_valid || c.variable_valid || c.self_switch_valid
+                  file.write(",")
+                end
+                write_linebreak(file)
+              when 2
+                # Contact
+                file.write("\t\t\t{")
+                write_linebreak(file)
+                file.write("\t\t\t\t\"nom\": \"ConditionContact\"")
+                write_linebreak(file)
+                file.write("\t\t\t}")
+                write_linebreak(file)
+              when 3
+                # Automatique
+                # rien, mais fige les autres events
+              when 4
+                # Processu parallele
+                # rien
+            end
+              
+            # Condition 1 (interrupteur)
             if c.switch1_valid
               
               file.write("\t\t\t{")
               write_linebreak(file)
-              file.write("\t\t\t\t\"name\": \"Interrupteur\",")
+              file.write("\t\t\t\t\"nom\": \"Interrupteur\",")
               write_linebreak(file)
               file.write(sprintf("\t\t\t\t\"numeroInterrupteur\": %d,", c.switch1_id))
               write_linebreak(file)
@@ -185,7 +231,7 @@ class Exportation
             if c.switch2_valid
               file.write("\t\t\t{")
               write_linebreak(file)
-              file.write("\t\t\t\t\"name\": \"Interrupteur\",")
+              file.write("\t\t\t\t\"nom\": \"Interrupteur\",")
               write_linebreak(file)
               file.write(sprintf("\t\t\t\t\"numeroInterrupteur\": %d,", c.switch2_id))
               write_linebreak(file)
@@ -203,7 +249,7 @@ class Exportation
             if c.variable_valid
               file.write("\t\t\t{")
               write_linebreak(file)
-              file.write("\t\t\t\t\"name\": \"Variable\",")
+              file.write("\t\t\t\t\"nom\": \"Variable\",")
               write_linebreak(file)
               file.write(sprintf("\t\t\t\t\"numeroVariable\": %d,", c.variable_id))
               write_linebreak(file)
@@ -223,7 +269,7 @@ class Exportation
             if c.self_switch_valid
               file.write("\t\t\t{")
               write_linebreak(file)
-              file.write("\t\t\t\t\"name\": \"InterrupteurLocal\",")
+              file.write("\t\t\t\t\"nom\": \"InterrupteurLocal\",")
               write_linebreak(file)
               file.write(sprintf("\t\t\t\t\"numeroMap\": %d,", map_id))
               write_linebreak(file)
@@ -242,40 +288,6 @@ class Exportation
               write_linebreak(file)
               file.write("\t\t\t}")
               write_linebreak(file)
-            end
-            
-            # Conditions declencheuses
-            case page.trigger
-              when 0
-                # Parler
-                file.write("\t\t\t{")
-                write_linebreak(file)
-                file.write("\t\t\t\t\"name\": \"ConditionParler\"")
-                write_linebreak(file)
-                file.write("\t\t\t}")
-                write_linebreak(file)
-              when 1
-                # Arrivee au contact
-                file.write("\t\t\t{")
-                write_linebreak(file)
-                file.write("\t\t\t\t\"name\": \"ConditionArriveeAuContact\"")
-                write_linebreak(file)
-                file.write("\t\t\t}")
-                write_linebreak(file)
-              when 2
-                # Contact
-                file.write("\t\t\t{")
-                write_linebreak(file)
-                file.write("\t\t\t\t\"name\": \"ConditionContact\"")
-                write_linebreak(file)
-                file.write("\t\t\t}")
-                write_linebreak(file)
-              when 3
-                # Automatique
-                # rien, mais fige les autres events
-              when 4
-                # Processu parallele
-                # rien
             end
 
             file.write("\t\t\t],")
@@ -419,7 +431,7 @@ class Exportation
             write_linebreak(file)
             
             # Traversable
-            file.write(sprintf("\t\t\t\"directionFixe\": %s,", page.through))
+            file.write(sprintf("\t\t\t\"traversable\": %s,", page.through))
             write_linebreak(file)
             
             # Au dessus de tout
@@ -468,7 +480,7 @@ class Exportation
     # Fin du parcours des maps
     
     # Fin de l'exportation des maps
-=end  
+
     
     #--------------------------
     # Exportation des Tilesets
@@ -482,136 +494,178 @@ class Exportation
     # On parcourt tous les tilesets
     for tileset_id in 1...tilesets.size
       tilesetInfo = tilesets[tileset_id]
-        
-      # On cree un fichier par tileset
-      filename = sprintf("%s/%03d_%s.txt", EXPORT_TILESET_FOLDER, tileset_id, tilesetInfo.name)
-      # On supprime le fichier s'il existe deja
-      if File.exist?(filename)
-        File.delete(filename)
-      end
-      # Ouvre le fichier et rajoute du texte a la fin
-      file = File.new(filename, 'a')
       
-      # Debut de l'ecriture du tileset
-      file.write("{")
-      write_linebreak(file)
-      
-      file.write(sprintf("\t\"nomImage\": \"%s\",", tilesetInfo.tileset_name))
-      write_linebreak(file)
-      
-      # Passabilites
-      file.write("\t\"passabilite\": [")
-      tile_id = 384
-      while tilesetInfo.passages[tile_id] != nil
-        
-        # virgule entre les passabilites
-        if tile_id != 384
-          file.write(", ")
+      if tilesetInfo.name != ""
+        # On cree un fichier par tileset
+        filename = sprintf("%s/%s.txt", EXPORT_TILESET_FOLDER, tilesetInfo.name)
+        # On supprime le fichier s'il existe deja
+        if File.exist?(filename)
+          File.delete(filename)
         end
+        # Ouvre le fichier et rajoute du texte a la fin
+        file = File.new(filename, 'a')
         
-        # Retour a la ligne
-        if tile_id % 8 == 0
-          write_linebreak(file)
-          file.write("\t\t")
-        end
+        # Debut de l'ecriture du tileset
+        file.write("{")
+        write_linebreak(file)
         
-        # valeurs des blocages : 8 haut, 4 droite, 2 gauche, 1 bas
-        if tilesetInfo.passages[tile_id] == 15 #= 8 + 4 + 2 + 1
-          passage = 1
-        else
-          passage = 0
+        # Nom de l'image
+        file.write(sprintf("\t\"nomImage\": \"%s\",", tilesetInfo.tileset_name))
+        write_linebreak(file)
+        
+        # Passabilites
+        file.write("\t\"passabilite\": [")
+        tile_id = 384
+        while tilesetInfo.passages[tile_id] != nil
+          # Virgule entre les valeurs
+          if tile_id != 384
+            file.write(", ")
+          end
+          # Retour a la ligne
+          if tile_id % 8 == 0
+            write_linebreak(file)
+            file.write("\t\t")
+          end
+          # Blocages individuels : 8 haut + 4 droite + 2 gauche + 1 bas
+          if tilesetInfo.passages[tile_id] == 15 #= 8 + 4 + 2 + 1
+            passage = 1
+          else
+            passage = 0
+          end
+          # Ecriture de la valeur
+          file.write(sprintf("%d", passage))
+          tile_id += 1
         end
-        file.write(sprintf("%d", passage))
+        write_linebreak(file)
+        file.write("\t],")
+        write_linebreak(file)
+        # Fin des passabilites
+        
+        
+        # Altitudes
+        file.write("\t\"altitude\": [")
+        tile_id = 384
+        while tilesetInfo.priorities[tile_id] != nil
+          # virgule entre les valeurs
+          if tile_id != 384
+            file.write(", ")
+          end
+          # Retour a la ligne
+          if tile_id % 8 == 0
+            write_linebreak(file)
+            file.write("\t\t")
+          end
+          # Ecriture de la valeur
+          file.write(sprintf("%d", tilesetInfo.priorities[tile_id]))
+          tile_id += 1
+        end
+        write_linebreak(file)
+        file.write("\t],")
+        write_linebreak(file)
+        # Fin des altitudes
 
-        tile_id += 1
-      end
-      write_linebreak(file)
-      file.write("\t],")
-      write_linebreak(file)
-      # Fin des passabilites
-      
-      
-      # Altitudes
-      file.write("\t\"altitude\": [")
-      tile_id = 384
-      while tilesetInfo.priorities[tile_id] != nil
-        
-        # virgule entre les altitudes
-        if tile_id != 384
-          file.write(", ")
+        # Terrain
+        file.write("\t\"terrain\": [")
+        tile_id = 384
+        while tilesetInfo.terrain_tags[tile_id] != nil
+          # Virgule entre les valeurs
+          if tile_id != 384
+            file.write(", ")
+          end
+          # Retour a la ligne
+          if tile_id % 8 == 0
+            write_linebreak(file)
+            file.write("\t\t")
+          end
+          # Ecriture de la valeur
+          file.write(sprintf("%d", tilesetInfo.terrain_tags[tile_id]))
+          tile_id += 1
         end
+        write_linebreak(file)
+        file.write("\t],")
+        write_linebreak(file)
+        # Fin des terrains
         
-        # Retour a la ligne
-        if tile_id % 8 == 0
-          write_linebreak(file)
-          file.write("\t\t")
+              # Autotile
+        file.write("\t\"autotiles\": [")
+        write_linebreak(file)
+        autotile_id = 0
+        while tilesetInfo.autotile_names[autotile_id] != nil
+          nom_autotile = tilesetInfo.autotile_names[autotile_id]
+          if nom_autotile != ""
+            if autotile_id != 0
+              file.write(",")
+              write_linebreak(file)
+            end
+            file.write("\t\t{")
+            write_linebreak(file)
+            
+            file.write(sprintf("\t\t\t\"nomImage\": \"%s\",", nom_autotile))
+            write_linebreak(file)
+            numero_autotile = autotile_id - 8 #-1 est la case vide
+            file.write(sprintf("\t\t\t\"numero\": %d,", numero_autotile))
+            write_linebreak(file)
+            passabilite_autotile = case tilesetInfo.passages[(autotile_id + 1) * 48]
+              when 15 then 1
+              else 0
+            end
+            file.write(sprintf("\t\t\t\"passabilite\": %d,", passabilite_autotile))
+            write_linebreak(file)
+            altitude_autotile = tilesetInfo.priorities[(autotile_id + 1) * 48]
+            file.write(sprintf("\t\t\t\"altitude\": %d,", altitude_autotile))
+            write_linebreak(file)
+            terrain_autotile = tilesetInfo.terrain_tags[(autotile_id + 1) * 48]
+            file.write(sprintf("\t\t\t\"terrain\": %d", terrain_autotile))
+            write_linebreak(file)
+            file.write("\t\t}")
+          end
+          autotile_id += 1
         end
+        write_linebreak(file)
+        file.write("\t],")
+        write_linebreak(file)
+        # Fin des autotiles
         
-        file.write(sprintf("%d", tilesetInfo.priorities[tile_id]))
+        # Panorama
+        file.write(sprintf("\t\"panorama\": \"%s\",", tilesetInfo.panorama_name))
+        write_linebreak(file)
+        # TODO panorama_hue
+        # ...
+        # Fin du panorama
+        
+        # Brouillard
+        file.write("\t\"brouillard\": {")
+        write_linebreak(file)
+        file.write(sprintf("\t\t\"nom\": \"%s\",", tilesetInfo.fog_name))
+        write_linebreak(file)
+        file.write(sprintf("\t\t\"opacite\": %d,", tilesetInfo.fog_opacity))
+        write_linebreak(file)
+        file.write(sprintf("\t\t\"defilementX\": %d,", tilesetInfo.fog_sx))
+        write_linebreak(file)
+        file.write(sprintf("\t\t\"defilementY\": %d,", tilesetInfo.fog_sy))
+        write_linebreak(file)
+        file.write(sprintf("\t\t\"zoom\": %d,", tilesetInfo.fog_zoom))
+        write_linebreak(file)
+        modeDeFusion = case tilesetInfo.fog_blend_type
+          when 0 then "normal"
+          when 1 then "negatif"
+          when 2 then "addition"
+        end
+        file.write(sprintf("\t\t\"modeDeFusion\": \"%s\",", modeDeFusion))
+        write_linebreak(file)
+        file.write(sprintf("\t\t\"teinte\": %d", tilesetInfo.fog_hue))
+        write_linebreak(file)
+        file.write("\t}")
+        write_linebreak(file)
+        # Fin du brouillard
 
-        tile_id += 1
+        # Fin de l'ecriture du tileset
+        file.write("}")
+        write_linebreak(file)
+        
+        # On referme le fichier du tileset
+        file.close
       end
-      write_linebreak(file)
-      file.write("\t],")
-      write_linebreak(file)
-      # Fin des altitudes
-
-      # Terrain
-      file.write("\t\"terrain\": [")
-      tile_id = 384
-      while tilesetInfo.terrain_tags[tile_id] != nil
-        
-        # virgule entre les terrains
-        if tile_id != 384
-          file.write(", ")
-        end
-        
-        # Retour a la ligne
-        if tile_id % 8 == 0
-          write_linebreak(file)
-          file.write("\t\t")
-        end
-        
-        file.write(sprintf("%d", tilesetInfo.terrain_tags[tile_id]))
-
-        tile_id += 1
-      end
-      write_linebreak(file)
-      file.write("\t],")
-      write_linebreak(file)
-      # Fin des terrains
-      
-      # Panorama
-      
-      # Brouillard
-      
-      # Autotile
-      # @autotile_names = tileset.autotile_names
-      
-=begin
-      @autotile_names = tileset.autotile_names
-      
-      @panorama_name = tileset.panorama_name
-      @panorama_hue = tileset.panorama_hue
-      
-      @fog_name = tileset.fog_name
-      @fog_hue = tileset.fog_hue
-      @fog_opacity = tileset.fog_opacity
-      @fog_blend_type = tileset.fog_blend_type
-      @fog_zoom = tileset.fog_zoom
-      @fog_sx = tileset.fog_sx
-      @fog_sy = tileset.fog_sy
-      
-      @priorities = tileset.priorities
-      @terrain_tags = tileset.terrain_tags
-=end
-      
-      # Fin de l'ecriture du tileset
-      file.write("}")
-      write_linebreak(file)
-      
-      # On referme le fichier du tilset
-      file.close
     end
     # Fin de l'exportation des Tilesets
     
@@ -656,7 +710,7 @@ class Exportation
         
         # Faut-il masquer cette commande ?
         case commande.code 
-        when 0, 224, 401, 408, 509, 655
+        when 0, 224, 251, 401, 408, 509, 655
           masquer_la_commande = true
         else
           # Masquer les suppressions de quetes
@@ -780,9 +834,25 @@ class Exportation
             
           when 106
             # Attendre
-            file.write("\t\t\t\t\"nom\": \"Attendre\",")
+            file.write("\t\t\t\t\"nom\": \"Deplacement\",")
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d", commande.parameters[0]))
+            file.write("\t\t\t\t\"ignorerLesMouvementsImpossibles\": false,")
+            write_linebreak(file)
+            file.write("\t\t\t\t\"repeterLeDeplacement\": false,")
+            write_linebreak(file)
+            file.write("\t\t\t\t\"attendreLaFinDuDeplacement\": true,")
+            write_linebreak(file)
+            file.write("\t\t\t\t\"mouvements\": [")
+            write_linebreak(file)
+            file.write("\t\t\t\t{")
+            write_linebreak(file)
+            file.write("\t\t\t\t\t\"nom\": \"Attendre\",")
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\t\"nombreDeFrames\": %d", commande.parameters[0]))
+            write_linebreak(file)
+            file.write("\t\t\t\t}")
+            write_linebreak(file)
+            file.write("\t\t\t\t]")
             write_linebreak(file)
             
           when 108
@@ -1129,13 +1199,13 @@ class Exportation
             
             if commande.parameters[3] != 7
               # pas de valeur a preciser pour l'argent et le numero de map
-              file.write(sprintf("\t\t\t\t\"valeurADonner\": \"%s\",", commande.parameters[4]))
+              file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", commande.parameters[4]))
               write_linebreak(file)
             end
             
             if commande.parameters[3] == 2
               # un nombre aleatoire necessite une borne superieure
-              file.write(sprintf("\t\t\t\t\"valeurADonner2\": \"%s\",", commande.parameters[5]))
+              file.write(sprintf("\t\t\t\t\"valeurADonner2\": %d,", commande.parameters[5]))
               write_linebreak(file)
             end
             # provenance de la valeur a assigner
@@ -1355,7 +1425,7 @@ class Exportation
                 when 1 then "negatif"
                 when 2 then "addition"
               end
-              file.write(sprintf("\t\t\t\t\"nomModeDeFusion\": \"%s\",", modeDeFusion))
+              file.write(sprintf("\t\t\t\t\"modeDeFusion\": \"%s\",", modeDeFusion))
               write_linebreak(file)
               file.write(sprintf("\t\t\t\t\"defilementX\": %d,", commande.parameters[6]))
               write_linebreak(file)
@@ -1553,6 +1623,13 @@ class Exportation
             write_linebreak(file)
             file.write("\t\t\t\t\"repeterLeDeplacement\": true")
             write_linebreak(file)
+          
+          when 235
+            # Effacer une image
+            file.write("\t\t\t\t\"nom\": \"EffacerImage\",")
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"numero\": %d", commande.parameters[0] ))
+            write_linebreak(file)
             
           when 236
             # Meteo
@@ -1571,65 +1648,73 @@ class Exportation
             
           when 241
             # BGM
-            file.write("\t\t\t\t\"nomCommande\": \"JouerMusique\",")
+            file.write("\t\t\t\t\"nom\": \"JouerMusique\",")
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", commande.parameters[0].name))
+            nomFichier = commande.parameters[0].name
+            extension = File.extname(Dir.entries("./Audio/BGM").select{|s| s.index(nomFichier) == 0}.first)
+            file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"volume\": %d,", commande.parameters[0].volume))
+            file.write(sprintf("\t\t\t\t\"volume\": %.2f,", commande.parameters[0].volume.to_f/100))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"tempo\": %d", commande.parameters[0].pitch))
+            file.write(sprintf("\t\t\t\t\"tempo\": %.2f", commande.parameters[0].pitch.to_f/100))
             write_linebreak(file)
           
           when 242
             # Fondu BGM
-            file.write("\t\t\t\t\"nomCommande\": \"ArreterMusique\",")
+            file.write("\t\t\t\t\"nom\": \"ArreterMusique\",")
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d", commande.parameters[0] * 30 ))
             write_linebreak(file)
             
           when 245
             # BGS
-            file.write("\t\t\t\t\"nomCommande\": \"JouerFondSonore\",")
+            file.write("\t\t\t\t\"nom\": \"JouerFondSonore\",")
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", commande.parameters[0].name))
+            nomFichier = commande.parameters[0].name
+            extension = File.extname(Dir.entries("./Audio/BGS").select{|s| s.index(nomFichier) == 0}.first)
+            file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"volume\": %d,", commande.parameters[0].volume))
+            file.write(sprintf("\t\t\t\t\"volume\": %.2f,", commande.parameters[0].volume.to_f/100))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"tempo\": %d", commande.parameters[0].pitch))
+            file.write(sprintf("\t\t\t\t\"tempo\": %.2f", commande.parameters[0].pitch.to_f/100))
             write_linebreak(file)
             
           when 246
             # Fondu BGS
-            file.write("\t\t\t\t\"nomCommande\": \"ArreterFondSonore\",")
+            file.write("\t\t\t\t\"nom\": \"ArreterFondSonore\",")
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d", commande.parameters[0] * 30 ))
             write_linebreak(file)
           
           when 249
             # ME
-            file.write("\t\t\t\t\"nomCommande\": \"JouerEffetMusical\",")
+            file.write("\t\t\t\t\"nom\": \"JouerEffetMusical\",")
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", commande.parameters[0].name))
+            nomFichier = commande.parameters[0].name
+            extension = File.extname(Dir.entries("./Audio/ME").select{|s| s.index(nomFichier) == 0}.first)
+            file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"volume\": %d,", commande.parameters[0].volume))
+            file.write(sprintf("\t\t\t\t\"volume\": %.2f,", commande.parameters[0].volume.to_f/100))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"tempo\": %d", commande.parameters[0].pitch))
+            file.write(sprintf("\t\t\t\t\"tempo\": %.2f", commande.parameters[0].pitch.to_f/100))
             write_linebreak(file)
             
           when 250
             # SE
-            file.write("\t\t\t\t\"nomCommande\": \"JouerEffetSonore\",")
+            file.write("\t\t\t\t\"nom\": \"JouerEffetSonore\",")
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", commande.parameters[0].name))
+            nomFichier = commande.parameters[0].name
+            extension = File.extname(Dir.entries("./Audio/SE").select{|s| s.index(nomFichier) == 0}.first)
+            file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"volume\": %d,", commande.parameters[0].volume))
+            file.write(sprintf("\t\t\t\t\"volume\": %.2f,", commande.parameters[0].volume.to_f/100))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"tempo\": %d", commande.parameters[0].pitch))
+            file.write(sprintf("\t\t\t\t\"tempo\": %.2f", commande.parameters[0].pitch.to_f/100))
             write_linebreak(file)
-
+            
           when 303
             # Rentrer un mot
-            file.write("\t\t\t\t\"nomCommande\": \"OuvrirMenu\",")
+            file.write("\t\t\t\t\"nom\": \"OuvrirMenu\",")
             write_linebreak(file)
             file.write("\t\t\t\t\"nomMenu\": \"MotDePasse\"")
             write_linebreak(file)
@@ -1637,7 +1722,7 @@ class Exportation
           when 318
             # Avancement de la quete
             if commande.parameters[1] == 0 
-              file.write("\t\t\t\t\"nomCommande\": \"ModifierAvancementQuete\",")
+              file.write("\t\t\t\t\"nom\": \"ModifierAvancementQuete\",")
               write_linebreak(file)
               file.write(sprintf("\t\t\t\t\"numero\": %d,", (commande.parameters[2]+1)/2 ))
               write_linebreak(file)
@@ -1653,12 +1738,12 @@ class Exportation
           when 319
             # Equipement
             if commande.parameters[1] == 0 # Arme
-              file.write("\t\t\t\t\"nomCommande\": \"EquiperArme\",")
+              file.write("\t\t\t\t\"nom\": \"EquiperArme\",")
               write_linebreak(file)
               file.write(sprintf("\t\t\t\t\"idArme\": %d", commande.parameters[2]-1))
               write_linebreak(file)
             else # Gadget
-              file.write("\t\t\t\t\"nomCommande\": \"EquiperGadget\",")
+              file.write("\t\t\t\t\"nom\": \"EquiperGadget\",")
               write_linebreak(file)
               file.write(sprintf("\t\t\t\t\"idGadget\": %d", commande.parameters[2]-1))
               write_linebreak(file)
@@ -1666,28 +1751,28 @@ class Exportation
           
           when 351
             # Ouvrir le menu
-            file.write("\t\t\t\t\"nomCommande\": \"OuvrirMenu\",")
+            file.write("\t\t\t\t\"nom\": \"OuvrirMenu\",")
             write_linebreak(file)
             file.write("\t\t\t\t\"nomMenu\": \"Statut\"")
             write_linebreak(file)
           
           when 352
             # Ouvrir le menu de sauvegarde
-            file.write("\t\t\t\t\"nomCommande\": \"OuvrirMenu\",")
+            file.write("\t\t\t\t\"nom\": \"OuvrirMenu\",")
             write_linebreak(file)
             file.write("\t\t\t\t\"nomMenu\": \"SauvegarderPartie\"")
             write_linebreak(file)
             
           when 353
             # Ouvrir le menu de sauvegarde
-            file.write("\t\t\t\t\"nomCommande\": \"OuvrirMenu\",")
+            file.write("\t\t\t\t\"nom\": \"OuvrirMenu\",")
             write_linebreak(file)
             file.write("\t\t\t\t\"nomMenu\": \"GameOver\"")
             write_linebreak(file)
             
           when 354
             # Ouvrir le menu de sauvegarde
-            file.write("\t\t\t\t\"nomCommande\": \"OuvrirMenu\",")
+            file.write("\t\t\t\t\"nom\": \"OuvrirMenu\",")
             write_linebreak(file)
             file.write("\t\t\t\t\"nomMenu\": \"Titre\"")
             write_linebreak(file)
@@ -1804,7 +1889,7 @@ class Exportation
         write_linebreak(file)
         file.write("\t\t\t\t\t\"directionVerticale\": 0,")
         write_linebreak(file)
-        file.write("\t\t\t\t\t\"directionVerticale\": 1,")
+        file.write("\t\t\t\t\t\"directionHorizontale\": 1,")
         write_linebreak(file)
         file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
       when 6  # marche droite bas
@@ -1812,7 +1897,7 @@ class Exportation
         write_linebreak(file)
         file.write("\t\t\t\t\t\"directionVerticale\": 0,")
         write_linebreak(file)
-        file.write("\t\t\t\t\t\"directionVerticale\": 2,")
+        file.write("\t\t\t\t\t\"directionHorizontale\": 2,")
         write_linebreak(file)
         file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
       when 7  # marche gauche haut
@@ -1820,7 +1905,7 @@ class Exportation
         write_linebreak(file)
         file.write("\t\t\t\t\t\"directionVerticale\": 3,")
         write_linebreak(file)
-        file.write("\t\t\t\t\t\"directionVerticale\": 1,")
+        file.write("\t\t\t\t\t\"directionHorizontale\": 1,")
         write_linebreak(file)
         file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
       when 8  # marche droite haut
@@ -1828,7 +1913,7 @@ class Exportation
         write_linebreak(file)
         file.write("\t\t\t\t\t\"directionVerticale\": 3,")
         write_linebreak(file)
-        file.write("\t\t\t\t\t\"directionVerticale\": 2,")
+        file.write("\t\t\t\t\t\"directionHorizontale\": 2,")
         write_linebreak(file)
         file.write("\t\t\t\t\t\"nombreDeCarreaux\": 1")
       when 9  # marche aleatoire
@@ -2016,11 +2101,13 @@ class Exportation
         write_linebreak(file)
         file.write("\t\t\t\t\t\"nomCommande\": \"JouerEffetSonore\",")
         write_linebreak(file)
-        file.write(sprintf("\t\t\t\t\t\"nomFichierSonore\": \"%s\",", mouvement.parameters[0].name))
+        nomFichier = mouvement.parameters[0].name
+        extension = File.extname(Dir.entries("./Audio/SE").select{|s| s.index(nomFichier) == 0}.first)
+        file.write(sprintf("\t\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
         write_linebreak(file)
-        file.write(sprintf("\t\t\t\t\t\"volume\": %d,", mouvement.parameters[0].volume))
+        file.write(sprintf("\t\t\t\t\t\"volume\": %.2f,", mouvement.parameters[0].volume.to_f/100))
         write_linebreak(file)
-        file.write(sprintf("\t\t\t\t\t\"tempo\": %d", mouvement.parameters[0].pitch))
+        file.write(sprintf("\t\t\t\t\t\"tempo\": %.2f", mouvement.parameters[0].pitch.to_f/100))
       when 45 # script
         file.write("\t\t\t\t\t\"nom\": \"AppelerUnScript\",")
         write_linebreak(file)
