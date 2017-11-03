@@ -113,7 +113,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 					// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
 					event = this.page.event;
 				}
-				valeur = this.page.event.map.eventsHash.get((Integer) valeurADonner).y / Fenetre.TAILLE_D_UN_CARREAU;
+				valeur = event.y / Fenetre.TAILLE_D_UN_CARREAU;
 				break;
 			case TERRAIN :
 				if (valeurADonner>0) {
