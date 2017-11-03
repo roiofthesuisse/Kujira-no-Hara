@@ -28,7 +28,7 @@ public class Map implements Sauvegardable {
 	/** Chaque carreau du Tileset possède une altitude intrinsèque */
 	private static final int NOMBRE_ALTITUDES = 6;
 	/** Certaines altitudes sont affichées sous le Héros */
-	private static final int NOMBRE_ALTITUDES_SOUS_HEROS = 2;
+	private static final int NOMBRE_ALTITUDES_SOUS_HEROS = 1;
 	/** Certaines altitudes sont affichées au dessus du Héros */
 	private static final int NOMBRE_ALTITUDES_SUR_HEROS = NOMBRE_ALTITUDES - NOMBRE_ALTITUDES_SOUS_HEROS;
 	/** Le décor est constitué de 3 couches, afin de pouvoir superposer plusieurs carreaux au même endroit de la Map */
