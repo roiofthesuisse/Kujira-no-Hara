@@ -60,13 +60,27 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.page.event.map.brouillard = new Brouillard(this.nomImage,
-				this.opacite, 
-				ModeDeFusion.parNom(this.nomModeDeFusion), 
-				this.defilementX, 
-				this.defilementY, 
-				this.zoom
-		);
+		final Brouillard brouillardActuel = this.page.event.map.brouillard;
+		if (brouillardActuel != null 
+				&& (brouillardActuel.nomImage != null && brouillardActuel.nomImage.equals(this.nomImage)) 
+				&& brouillardActuel.opacite == this.opacite
+				&& brouillardActuel.mode.nom.equals(this.nomModeDeFusion)
+				&& brouillardActuel.defilementX == this.defilementX
+				&& brouillardActuel.defilementY == this.defilementY
+				&& brouillardActuel.zoom == this.zoom
+		) {
+			// pas de changement
+			LOG.warn("Cette modification du brouillard ne change rien !");
+		} else {
+			// différent d'avant
+			this.page.event.map.brouillard = new Brouillard(this.nomImage,
+					this.opacite, 
+					ModeDeFusion.parNom(this.nomModeDeFusion), 
+					this.defilementX, 
+					this.defilementY, 
+					this.zoom
+			);
+		}
 		return curseurActuel+1;
 	}
 }
