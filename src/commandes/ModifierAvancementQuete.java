@@ -8,14 +8,18 @@ import jeu.Quete.AvancementQuete;
 import main.Commande;
 import main.Fenetre;
 
-public class ModifierAvancementQuete extends Commande {
+/**
+ * Modifier l'état d'avancement de la Quête.
+ */
+public class ModifierAvancementQuete extends Commande implements CommandeEvent {
 
 	private AvancementQuete avancement;
 	private int numeroQuete;
 	
 	/**
 	 * Constructeur explicite
-	 * @param arme identifiant de l'Arme à ajouter : son numéro ou son nom
+	 * @param numeroQuete identifiant de la Quête à faire évoluer
+	 * @param avancement nouvel état de la Quête
 	 */
 	public ModifierAvancementQuete(final int numeroQuete, final AvancementQuete avancement) {
 		this.numeroQuete = numeroQuete;
@@ -32,7 +36,7 @@ public class ModifierAvancementQuete extends Commande {
 	}
 	
 	@Override
-	public int executer(int curseurActuel, ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Partie partieActuelle = Fenetre.getPartieActuelle();
 		partieActuelle.avancementDesQuetes[this.numeroQuete] = this.avancement;
 		

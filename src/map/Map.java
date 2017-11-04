@@ -97,6 +97,7 @@ public class Map implements Sauvegardable {
 	 * @param numero de la Map, c'est-à-dire numéro du fichier map (au format JSON) à charger
 	 * @param lecteur de la Map
 	 * @param ancienHeros heros de la Map précédente
+	 * @param brouillardForce brouillard imposé au chargement de partie
 	 * @param positionInitialeDuHeros [xDebutHeros, yDebutHerosArg, directionDebutHeros] ou bien [xAncienneMapHeros, yAncienneMapHeros, decalageDebutHeros, directionDebutHeros]
 	 * @throws Exception Impossible de charger la Map
 	 */
@@ -109,21 +110,31 @@ public class Map implements Sauvegardable {
 		//la map est un fichier JSON
 		final JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(this.numero);
 		
-		this.nomBGM = jsonMap.has("bgm") ? jsonMap.getString("bgm") : "";
-		this.volumeBGM = jsonMap.has("volumeBgm") ? (float) jsonMap.get("volumeBgm") : Musique.VOLUME_MAXIMAL;
-		this.nomBGS = jsonMap.has("bgs") ? jsonMap.getString("bgs") : "";
-		this.volumeBGS = jsonMap.has("volumeBgs") ? (float) jsonMap.get("volumeBgs") : Musique.VOLUME_MAXIMAL;
+		this.nomBGM = "";
+		this.volumeBGM = Musique.VOLUME_MAXIMAL;
+		if (jsonMap.has("musique")) {
+			final JSONObject bgmJSON = (JSONObject) jsonMap.get("musique");
+			this.nomBGM = bgmJSON.getString("nomFichierSonore");
+			this.volumeBGM = bgmJSON.has("volume") ? (float) bgmJSON.getDouble("volume") : Musique.VOLUME_MAXIMAL;
+		}
+		this.nomBGS = "";
+		this.volumeBGS = Musique.VOLUME_MAXIMAL;
+		if (jsonMap.has("fondSonore")) {
+			final JSONObject bgsJSON = (JSONObject) jsonMap.get("fondSonore");
+			this.nomBGS = bgsJSON.getString("nomFichierSonore");
+			this.volumeBGS = bgsJSON.has("volume") ? (float) bgsJSON.getDouble("volume") : Musique.VOLUME_MAXIMAL;
+		}
 		this.nomTileset = jsonMap.getString("tileset");
-		if(jsonMap.has("ondulation")){
-			JSONObject jsonOndulation = jsonMap.getJSONObject("ondulation");
+		if (jsonMap.has("ondulation")) {
+			final JSONObject jsonOndulation = jsonMap.getJSONObject("ondulation");
 			this.ondulation = new Ondulation(jsonOndulation.getInt("nombreDeVagues"), jsonOndulation.getInt("amplitude"), jsonOndulation.getInt("lenteur"));
 		} else {
 			this.ondulation = null;
 		}
 		this.largeur = jsonMap.getInt("largeur");
 		this.hauteur = jsonMap.getInt("hauteur");
-		this.defilementCameraX = largeur>(Fenetre.LARGEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU);
-		this.defilementCameraY = hauteur>(Fenetre.HAUTEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU);
+		this.defilementCameraX = largeur > (Fenetre.LARGEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU);
+		this.defilementCameraY = hauteur > (Fenetre.HAUTEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU);
 		this.layer0 = recupererCouche(jsonMap, 0);
 		this.layer1 = recupererCouche(jsonMap, 1);
 		this.layer2 = recupererCouche(jsonMap, 2);
