@@ -31,9 +31,9 @@ public class Texte extends ElementDeMenu {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Texte.class);
 	private static final Pattern PATTERN_MOT_DE_PASSE = Pattern.compile("\\\\m\\[[0-9]+\\]");
+	private static final Pattern PATTERN_COULEUR = Pattern.compile("\\[[0-9]+\\].*");
 	private static final JSONObject JSON_INFORMATIONS_POLICE = chargerInformationsPolice();
-	private static final Color COULEUR_PAR_DEFAUT = chargerCouleurParDefaut(0);
-	private static final Color COULEUR_PAR_DEFAUT2 = chargerCouleurParDefaut(2);
+	private static final Color[] COULEURS_PAR_DEFAUT = chargerCouleurParDefaut();
 	/** Pour ne pas que le côté droit du texte ne soit coupé */
 	public static final int MARGE_A_DROITE = 4;
 	/** A utiliser si le texte est vide */
@@ -157,7 +157,7 @@ public class Texte extends ElementDeMenu {
 	 * @param contenu du Texte (dans plusieurs langues)
 	 */
 	public Texte(final ArrayList<String> contenu) {
-		this(contenu, COULEUR_PAR_DEFAUT);
+		this(contenu, COULEURS_PAR_DEFAUT[0]);
 	}
 	
 	/**
@@ -271,7 +271,7 @@ public class Texte extends ElementDeMenu {
         
         //si aucune couleur forcée, couleur par défaut
         if (this.couleurForcee == null) {
-        	g2d.setColor(Texte.COULEUR_PAR_DEFAUT);
+        	g2d.setColor(Texte.COULEURS_PAR_DEFAUT[0]);
         } else {
         	g2d.setColor(this.couleurForcee);
         }
@@ -284,16 +284,15 @@ public class Texte extends ElementDeMenu {
         	final String[] boutsDeLigne = ligne.split("\\\\c", -1);
         	final int nombreDeBoutsDeLigne = boutsDeLigne.length;
         	for (int j = 0; j<nombreDeBoutsDeLigne; j++) {      		
-        		//lettre colorée
-        		if ( boutsDeLigne[j].startsWith("[02]") ) {
-        			boutsDeLigne[j] = boutsDeLigne[j].replace("[02]", "");
-	        		g2d.setColor(Texte.COULEUR_PAR_DEFAUT2); 
-	        		largeurALaquelleOnEcrit += fm.stringWidth(boutsDeLigne[j-1]);
-	        		
-	        	//couleur normale
-        		} else if ( boutsDeLigne[j].startsWith("[01]") ) {
-        			boutsDeLigne[j] = boutsDeLigne[j].replace("[01]", "");
-	        		g2d.setColor(Texte.COULEUR_PAR_DEFAUT); 
+        		//couleur du texte ?
+        		if (boutsDeLigne[j].matches("^\\[[0-9]+\\].*")) {
+        			final int numeroCouleur = Integer.parseInt(
+        					boutsDeLigne[j]
+        					.split("\\[", -1)[1]
+        					.split("\\]", -1)[0]
+        			);
+        			g2d.setColor(Texte.COULEURS_PAR_DEFAUT[numeroCouleur]);
+        			boutsDeLigne[j] = boutsDeLigne[j].substring(boutsDeLigne[j].indexOf(']')+1);
 	        		largeurALaquelleOnEcrit += fm.stringWidth(boutsDeLigne[j-1]);
         		}
         		
@@ -414,14 +413,18 @@ public class Texte extends ElementDeMenu {
 	}
 	
 	/**
-	 * Récupérer la couleur de la police du jeu.
-	 * @param numeroCouleur chaque couleur a un numéro
-	 * @return couleur de la police
+	 * Récupérer les couleurs de la police du jeu.
+	 * @return couleurs de la police
 	 */
-	private static Color chargerCouleurParDefaut(final int numeroCouleur) {
+	private static Color[] chargerCouleurParDefaut() {
 		final JSONArray jsonCouleurs = JSON_INFORMATIONS_POLICE.getJSONArray("couleurs");
-		final JSONArray jsonCouleur = jsonCouleurs.getJSONArray(numeroCouleur);
-		return new Color(jsonCouleur.getInt(0), jsonCouleur.getInt(1), jsonCouleur.getInt(2));
+		final int taille = jsonCouleurs.length();
+		final Color[] couleurs = new Color[taille];
+		for (int i = 0; i<taille; i++) {
+			final JSONArray jsonCouleur = jsonCouleurs.getJSONArray(i);
+			couleurs[i] = new Color(jsonCouleur.getInt(0), jsonCouleur.getInt(1), jsonCouleur.getInt(2));
+		}
+		return couleurs;
 	}
 	
 	/**
