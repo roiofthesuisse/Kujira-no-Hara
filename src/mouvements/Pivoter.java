@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import map.Event;
 import map.Event.Direction;
+import utilitaire.Maths;
 
 /**
  * Faire pivoter un Event d'un certain angle.
@@ -14,9 +15,6 @@ import map.Event.Direction;
 public class Pivoter extends Mouvement {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Pivoter.class);
-	private static final int ANGLE_DROIT_HORAIRE = 90;
-	private static final int ANGLE_DROIT_ANTIHORAIRE = -90;
-	private static final int ANGLE_DEMI_TOUR = 180;
 	
 	private int angle;
 	protected int direction;
@@ -79,13 +77,13 @@ public class Pivoter extends Mouvement {
 		final Event event = this.deplacement.getEventADeplacer();
 		this.direction = event.direction;
 		switch (this.angle) {
-		case (ANGLE_DROIT_HORAIRE):
+		case (Maths.ANGLE_DROIT_HORAIRE):
 			pivoter90degres();
 			break;
-		case(ANGLE_DEMI_TOUR):
+		case(Maths.ANGLE_DEMI_TOUR):
 			prendreDirectionOpposee();
 			break;
-		case(ANGLE_DROIT_ANTIHORAIRE):
+		case(Maths.ANGLE_DROIT_ANTIHORAIRE):
 			pivoterMoins90degres();
 			break;
 		default:

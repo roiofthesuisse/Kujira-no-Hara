@@ -94,6 +94,14 @@ public class Deplacement extends Commande implements CommandeEvent {
 		// Nous nous trouvons actuellement dans le Déplacement qui contient les Mouvements à ajouter au Déplacement forcé d'un Event.
 		
 		final Event event = this.getEventADeplacer();
+		if (event == null) {
+			// Event introuvable
+			LOG.error("Déplacement impossible : l'Event "+this.idEventADeplacer+" n'existe pas !");
+			//on réinitialise le Deplacement (au cas où il est à nouveau executé dans le futur)
+			this.aEteAjouteAuxDeplacementsForces = false;
+			//on passe à la Commande suivante
+			return curseurActuel+1;
+		}
 		
 		if (!this.aEteAjouteAuxDeplacementsForces) {
 			//interrompre l'ancien Déplacement forcé de l'Event

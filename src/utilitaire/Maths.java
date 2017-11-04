@@ -14,6 +14,10 @@ public abstract class Maths {
 	public static final int NOMBRE_PREMIER2 = 31;
 	public static final int NOMBRE_PREMIER3 = 41;
 	public static final int POURCENTS = 100;
+	public static final int ANGLE_DROIT_HORAIRE = 90;
+	public static final int ANGLE_DROIT_ANTIHORAIRE = -90;
+	public static final int ANGLE_DEMI_TOUR = 180;
+	public static final int ANGLE_TOUR_COMPLET = 360;
 	
 	/** Générateur de nombres aléatoires */
 	public final static Random generateurAleatoire = new Random();

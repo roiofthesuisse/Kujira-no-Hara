@@ -607,20 +607,26 @@ public class Event implements Comparable<Event> {
 	/**
 	 * Créer un Event générique à partir de sa description JSON.
 	 * @param id de l'Event à créer
-	 * @param nomEvent nom de l'Event à créer
+	 * @param nomFichier nom du fichier JSON de l'Event générique
 	 * @param xEvent (en pixels) position x de l'Event
 	 * @param yEvent (en pixels) position y de l'Event
 	 * @param map de l'Event
 	 * @return un Event créé
 	 */
-	public static Event creerEventGenerique(final int id, final String nomEvent, final int xEvent, 
+	public static Event creerEventGenerique(final int id, final String nomFichier, final int xEvent, 
 			final int yEvent, final Map map) {
 		final JSONObject jsonEventGenerique;
 		try {
-			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomEvent);
+			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomFichier);
 		} catch (Exception e1) {
-			LOG.trace("Impossible de trouver le fichier JSON pour contruire l'Event générique "+nomEvent, e1);
+			LOG.warn("Impossible de trouver le fichier JSON "+nomFichier+" pour contruire l'Event générique !", e1);
 			return null;
+		}
+		final String nomEvent;
+		if (jsonEventGenerique.has("nom")) {
+			nomEvent = jsonEventGenerique.getString("nom");
+		} else {
+			nomEvent = nomFichier;
 		}
 		
 		int largeurHitbox;

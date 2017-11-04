@@ -33,7 +33,7 @@ public class PasEnDiagonale extends Avancer {
 	public PasEnDiagonale(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("directionVerticale"),
 			  (int) parametres.get("directionHorizontale"),
-			  (parametres.containsKey("nombreDeCarreaux") ? (int) parametres.get("parametres") : 1) * Fenetre.TAILLE_D_UN_CARREAU
+			  (parametres.containsKey("nombreDeCarreaux") ? (int) parametres.get("nombreDeCarreaux") : 1) * Fenetre.TAILLE_D_UN_CARREAU
 		);
 	}
 	
@@ -100,7 +100,7 @@ public class PasEnDiagonale extends Avancer {
 			xAInspecter -= event.vitesseActuelle; 
 			break;
 		case Event.Direction.DROITE : 
-			xAInspecter += event.vitesseActuelle; 
+			xAInspecter += event.vitesseActuelle;
 			break;
 		}
 		return event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id);
