@@ -97,6 +97,16 @@ public class Message extends Commande implements CommandeEvent {
 		//si le Message à afficher est différent du Message affiché, on change !
 		if (ilFautReactualiserLImageDuMessage(lecteur)) {
 			lecteur.messageActuel = this;
+			//si c'est un Choix, récupérer le dernier Texte comportant la question
+			if (this instanceof Choix) {
+				for (int c = curseurActuel-1; c>0; c--) {
+					final Commande commande = commandes.get(c);
+					if (commande instanceof Message) {
+						((Choix) this).messagePrecedent = ((Message) commande);
+						break;
+					}
+				}
+			}
 			this.image = produireImageDuMessage();
 		}
 		
@@ -190,12 +200,19 @@ public class Message extends Commande implements CommandeEvent {
 	 */
 	protected final int calculerHauteurTexte() {
 		final int nombreDeLignesDuTexte;
-		if (this.texte == null || this.texte.equals("")) {
+		if (this.texte == null || this.texte.size() == 0) {
+			//texte null
 			nombreDeLignesDuTexte = 0; 
 		} else {
 			final int langue = Fenetre.langue;
 			final String texteDansUneLangue = this.texte.get(langue < this.texte.size() ? langue : 0);
-			nombreDeLignesDuTexte = 1 + StringUtils.countMatches(texteDansUneLangue, "\n");
+			if ("".equals(texteDansUneLangue)) {
+				//texte vide
+				nombreDeLignesDuTexte = 0; 
+			} else {
+				//plusieurs lignes
+				nombreDeLignesDuTexte = 1 + StringUtils.countMatches(texteDansUneLangue, "\n");
+			}
 		}
 		final int hauteurLigne = Texte.Taille.MOYENNE.pixels + Texte.INTERLIGNE;
 		final int hauteurTexte = nombreDeLignesDuTexte * hauteurLigne;

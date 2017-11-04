@@ -33,7 +33,8 @@ public class Choix extends Message {
 	private int positionCurseurAffichee = 0;
 	public int positionCurseurChoisie = 0;
 	public ArrayList<BufferedImage> imagesDesSelectionsPossibles = null;
-	 
+	public Message messagePrecedent = null;
+	
 	/**
 	 * Constructeur explicite
 	 * @param numero du Choix
@@ -69,7 +70,16 @@ public class Choix extends Message {
 			BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(Message.imageBoiteMessage);
 			
 			// Texte de base
-			final Texte texteDeBase = new Texte(this.texte);
+			if (this.texte==null || this.texte.size()==0 || this.texte.get(0)==null || "".equals(this.texte.get(0))) {
+				this.texte = this.messagePrecedent.texte;
+			}
+			final Texte texteQuestion = new Texte(this.texte);
+			BufferedImage imageQuestion = texteQuestion.getImage();
+			final int nombreDeLignesQuestion = Math.round((float) imageQuestion.getHeight() / (float) (texteQuestion.taille+Texte.INTERLIGNE));
+			final int nombreDeLignesQuOnNePeutPasAfficher = Math.max(this.alternatives.size() + nombreDeLignesQuestion - 4, 0);
+			final int debutDecoupage = nombreDeLignesQuOnNePeutPasAfficher*(texteQuestion.taille+Texte.INTERLIGNE);
+			final int hauteurDecoupage = imageQuestion.getHeight() - debutDecoupage;
+			imageQuestion = imageQuestion.getSubimage(0, debutDecoupage, imageQuestion.getWidth(), hauteurDecoupage);
 			
 			// On ajoute les alternatives à l'image de base
 			final ArrayList<Texte> alternativesTexte = new ArrayList<Texte>();
@@ -102,7 +112,7 @@ public class Choix extends Message {
 				);
 				selectionPossible = Graphismes.superposerImages(
 						selectionPossible, 
-						texteDeBase.getImage(), 
+						imageQuestion, 
 						MARGE_DU_TEXTE, 
 						MARGE_DU_TEXTE
 				);

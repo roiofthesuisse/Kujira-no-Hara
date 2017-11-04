@@ -1,0 +1,65 @@
+{
+	"nom": "lanterne de sauvegarde",
+	"pages": [
+		{
+			"conditions": [
+				{
+					"nom": "Parler"
+				}
+			],
+			"commandes": [
+				{
+					"nom": "JouerAnimation",
+					"idEvent": 0,
+					"idAnimation": 7
+				},
+				{
+					"nom": "ModifierVariable",
+					"numeroVariable": 4,
+					"operationAFaire": "rendre egal a",
+					"valeurADonner": 5,
+					"operationAFaire2": "contenu de la variable"
+				},
+				{
+					"nom": "Message",
+					"texte": "Vous regagnez toute votre énergie vitale."
+				},
+				{
+					"nom": "Message",
+					"texte": "Voulez-vous sauvegarder ?"
+				},
+				{
+					"nom": "Choix",
+					"alternatives": ["Oui", "Non"],
+					"numero": 0
+				},
+				{
+					"nom": "ChoixAlternative",
+					"numero": 0,
+					"alternative": 0
+				},
+				{
+					"nom": "OuvrirMenu",
+					"nomMenu": "SauvegarderPartie"
+				},
+				{
+					"nom": "ChoixAlternative",
+					"numero": 0,
+					"alternative": 1
+				},
+				{
+					"nom": "ChoixFin",
+					"numero": 0
+				}
+			],
+			"image": "lumière lanterne character",
+			"vitesse": 2,
+			"frequence": 24,
+			"animeALArret": true,
+			"animeEnMouvement": false,
+			"traversable": false,
+			"directionFixe": true,
+			"directionInitiale": 0
+		}
+	]
+}

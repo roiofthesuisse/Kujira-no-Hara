@@ -619,7 +619,7 @@ public class Event implements Comparable<Event> {
 		try {
 			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomFichier);
 		} catch (Exception e1) {
-			LOG.warn("Impossible de trouver le fichier JSON "+nomFichier+" pour contruire l'Event générique !", e1);
+			LOG.trace("Impossible de trouver le fichier JSON "+nomFichier+" pour contruire l'Event générique !", e1);
 			return null;
 		}
 		final String nomEvent;

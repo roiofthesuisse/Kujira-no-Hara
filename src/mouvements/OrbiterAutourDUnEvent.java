@@ -2,9 +2,6 @@ package mouvements;
 
 import java.util.HashMap;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import main.Fenetre;
 import map.Event;
 import map.Heros;
@@ -15,12 +12,9 @@ import utilitaire.Maths;
  * Déplacer un Event d'un pas en diagonale
  */
 public class OrbiterAutourDUnEvent extends Mouvement {
-	protected static final Logger LOG = LogManager.getLogger(OrbiterAutourDUnEvent.class);
-	
 	private final Object idEventCentral;
 	private Event eventCentral = null;
 	private double rayon = -1;
-	private double angleInitial = -1;
 	private double angleParcouruAChaqueEtape = -1;
 	private int nouveauX, nouveauY;
 	private int deplacementX, deplacementY;
@@ -98,14 +92,9 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 		//calcul du rayon du cercle
 		if (this.rayon < 0) {
 			this.rayon = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
-			LOG.info(event.id+" rayon = "+rayon);
-			this.angleInitial = angleActuel(deltaX, deltaY);
-			LOG.info(event.id+" angleInitial = "+this.angleInitial);
 			this.angleParcouruAChaqueEtape = (double) event.vitesseActuelle / this.rayon;
-			LOG.info(event.id+" angleParcouruAChaqueEtape = "+angleParcouruAChaqueEtape);
 		}
 		final double angleActuel = angleActuel(deltaX, deltaY);
-		LOG.info(event.id+" angleActuel = "+angleActuel);
 		this.nouveauX = eventCentral.x + (int) (this.rayon * Math.cos(angleActuel + this.angleParcouruAChaqueEtape));
 		this.nouveauY = eventCentral.y + (int) (this.rayon * Math.sin(angleActuel + this.angleParcouruAChaqueEtape));
 		this.deplacementX = this.nouveauX - event.x; //utile pour connaître la direction regardée
@@ -150,7 +139,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 					}
 				}
 			}
-			LOG.info("Orbiter autour de l'event central "+this.eventCentral.nom);
+			this.eventCentral.nom.isEmpty(); //tester si l'event est null => NullPointerException
 		}
 		return this.eventCentral;
 	}
