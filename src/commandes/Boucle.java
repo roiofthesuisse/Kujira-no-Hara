@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import conditions.ConditionTouche;
 import main.Commande;
 import main.Lecteur;
 
@@ -19,6 +20,7 @@ public class Boucle extends Commande implements CommandeEvent, CommandeMenu {
 	
 	public int numero; //le numéro de Boucle est le même que le numéro de fin de Boucle qui correspond
 	public long debutBoucle = -1;
+	private Boolean laBoucleAttendUneActionDuJoueur = null;
 
 	/**
 	 * Constructeur explicite
@@ -50,7 +52,8 @@ public class Boucle extends Commande implements CommandeEvent, CommandeMenu {
 		}
 		
 		// cas où la boucle a duré trop longtemps
-		if (System.currentTimeMillis() - this.debutBoucle >= Lecteur.DUREE_FRAME/TIMEOUT_FRACTION_DE_FRAME) {
+		if (!laBoucleAttendUneActionDuJoueur(commandes)
+				&& System.currentTimeMillis() - this.debutBoucle >= Lecteur.DUREE_FRAME/TIMEOUT_FRACTION_DE_FRAME) {
 			LOG.warn("Boucle interrompue car a duré trop longtemps.");
 			this.debutBoucle = -1;
 			return curseurActuel;
@@ -64,5 +67,36 @@ public class Boucle extends Commande implements CommandeEvent, CommandeMenu {
 	 */
 	public void executer() {
 		//rien
+	}
+	
+	/**
+	 * La Boucle dépend-elle d'une action du Joueur ?
+	 * Si oui, elle ne doit pas échouer par Timeout car ce n'est pas un calcul.
+	 * @param commandes liste des Commandes de la Page
+	 * @return true si le Joueur doit répondre, false sinon
+	 */
+	private boolean laBoucleAttendUneActionDuJoueur(final ArrayList<Commande> commandes) {
+		if (this.laBoucleAttendUneActionDuJoueur == null) {
+			this.laBoucleAttendUneActionDuJoueur = false;
+			//rechercher si la Boucle attend une action de la part du Joueur
+			boolean onATrouveLeDebutDeBoucle = false;
+			boolean onATrouveLaFinDeBoucle = false;
+			for (Commande commande : commandes) {
+				//on cherche le début de Boucle
+				if (commande instanceof Boucle && ((Boucle) commande).numero == this.numero) {
+					onATrouveLeDebutDeBoucle = true;
+				}
+				//on cherche la fin de Boucle
+				if (commande instanceof BoucleFin && ((BoucleFin) commande).numero == this.numero) {
+					onATrouveLaFinDeBoucle = true;
+				}
+				//les Conditions de réponse du Joueur sont situées entre les deux
+				if (commande instanceof ConditionTouche && onATrouveLeDebutDeBoucle && !onATrouveLaFinDeBoucle) {
+					this.laBoucleAttendUneActionDuJoueur = true;
+					break;
+				}
+			}
+		}
+		return this.laBoucleAttendUneActionDuJoueur;
 	}
 }
