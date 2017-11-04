@@ -235,7 +235,7 @@ public final class Fenetre extends JFrame implements KeyListener {
 		final Integer keycode = event.getKeyCode();
 		//this.mesuresDePerformance.add("press;"+keycode+";"+System.currentTimeMillis());
 		final GestionClavier.ToucheRole touchePressee = GestionClavier.ToucheRole.getToucheRole(keycode);
-		if (touchePressee!=null && !touchePressee.touche.enfoncee) {
+		if (touchePressee != null && !touchePressee.touche.enfoncee) {
 			touchePressee.touche.enfoncee = true;
 			touchePressee.touche.frameDAppui = (Integer) this.lecteur.frameActuelle; // mémorisation de la frame d'appui
 			

@@ -19,6 +19,7 @@ public abstract class GestionClavier {
 		D(68, "D"),
 		ESPACE(32, "ESPACE"),
 		C(67, "C"),
+		B(66, "B"),
 		ENTREE(10, "ENTREE"),
 		O(79, "O"),
 		K(75, "K"),
@@ -56,7 +57,8 @@ public abstract class GestionClavier {
 		//PAGE_MENU_PRECEDENTE(ToucheClavier.L, "PAGE_MENU_PRECEDENTE"), //TODO ?
 		ACTION_SECONDAIRE(ToucheClavier.M, "ACTION_SECONDAIRE"),
 		MENU(ToucheClavier.ENTREE, "MENU"),
-		CAPTURE_D_ECRAN(ToucheClavier.C, "CAPTURE_D_ECRAN");
+		CAPTURE_D_ECRAN(ToucheClavier.C, "CAPTURE_D_ECRAN"),
+		BREAKPOINT(ToucheClavier.B, "BREAKPOINT");
 		
 		public final ToucheClavier touche;
 		private final String nom;

@@ -634,6 +634,9 @@ public class LecteurMap extends Lecteur {
 			case CAPTURE_D_ECRAN : 
 				this.faireUneCaptureDEcran(); 
 				break;
+			case BREAKPOINT :
+				final Fenetre fenetre = Fenetre.getFenetre();
+				break;
 			default : 
 				break; // touche inconnue
 		}
