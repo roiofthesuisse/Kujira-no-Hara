@@ -78,7 +78,6 @@ public abstract class Lecteur {
 	
 	/***
 	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Menu ou la Map
-	 * @return nom et volume du BGM, nom et volume du BGS
 	 */
 	protected abstract void lireMusique();
 	

@@ -2,6 +2,7 @@ package utilitaire.son;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,6 +16,7 @@ public abstract class LecteurAudio {
 	
 	public static Musique[] bgmEnCours = new Musique[NOMBRE_DE_PISTES];
 	public static Musique[] bgsEnCours = new Musique[NOMBRE_DE_PISTES];
+	public static ArrayList<Musique> seEnCours = new ArrayList<Musique>();
 	
 	/**
 	 * Jouer un effet sonore.
@@ -44,6 +46,9 @@ public abstract class LecteurAudio {
 		}
 		LOG.debug("SE démarré : "+nom);
 		musique.jouerUneSeuleFois(null);
+		
+		// On met à jour les données
+		seEnCours.add(musique);
 	}
 	
 	/**

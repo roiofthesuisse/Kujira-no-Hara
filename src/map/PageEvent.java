@@ -270,11 +270,11 @@ public class PageEvent {
 				}
 			} catch (IndexOutOfBoundsException e2) {
 				//on a fini la page
-				LOG.debug(
+				/*LOG.debug(
 						(this.event != null ? "Event " + this.event.id + ", " : "")
 						+ "page " + this.numero
 						+ " terminée."
-				);
+				);*/
 				curseurCommandes = 0;
 				if (figerLesAutresEvents) {
 					this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page

@@ -89,7 +89,7 @@ public abstract class Musique {
 		    	try {
 		    		Thread.sleep(DUREE_MAXIMALE_SE);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					LOG.error("Impossible d'attendre la fin de la musique "+nom, e);
 				}
 		    	
 		    } else if (TypeMusique.ME.equals(this.type)) {
@@ -97,7 +97,7 @@ public abstract class Musique {
 		    	try {
 		    		Thread.sleep(DELAI_AVANT_ME+this.obtenirDuree());
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					LOG.error("Impossible d'attendre la fin de la musique "+nom, e);
 				}
 		    	
 		    	// redémarrer le BGM après la fin du ME
@@ -133,12 +133,13 @@ public abstract class Musique {
 	 * Modifier le volume de la Musique.
 	 * @param nouveauVolume à appliquer
 	 */
-	public abstract void modifierVolume(final float nouveauVolume);
+	public abstract void modifierVolume(float nouveauVolume);
 	
 	/**
 	 * Jouer un fichier sonore qui s'arrêtera tout seul arrivé à la fin.
+	 * @param volumeBgmMemorise on a mémorisé les volumes des BGM avant de lancer un ME
 	 */
-	public abstract void jouerUneSeuleFois(final Float[] volumeBgmMemorise);
+	public abstract void jouerUneSeuleFois(Float[] volumeBgmMemorise);
 	
 	/**
 	 * Jouer une fichier sonore qui tourne en boucle sans s'arrêter.
@@ -153,6 +154,10 @@ public abstract class Musique {
 	public final void arreter() {
 		//on ferme le clip
 		arreterSpecifique();
+		//on retire le SE de la liste
+		if (TypeMusique.SE.equals(this.type)) {
+			LecteurAudio.seEnCours.remove(this);
+		}
 		//on ferme l'InputStream
 		if (this.stream!=null) {
 			try {
