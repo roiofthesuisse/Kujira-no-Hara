@@ -88,6 +88,28 @@ public class AfficherImage extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		// On vérifie si ça n'a pas déjà été fait
+		final Picture pictureActuelle = Fenetre.getPartieActuelle().images.get(this.numero);
+		if (pictureActuelle != null 
+				&& pictureActuelle.nomImage.equals(this.nomImage)
+				&& (this.variables 
+						? pictureActuelle.x == Fenetre.getPartieActuelle().variables[this.x] 
+						&& pictureActuelle.y == Fenetre.getPartieActuelle().variables[this.y] 
+						: pictureActuelle.x == this.x 
+						&& pictureActuelle.y == this.y)
+				&& pictureActuelle.centre == this.centre
+				&& pictureActuelle.zoomX == this.zoomX
+				&& pictureActuelle.zoomY == this.zoomY
+				&& pictureActuelle.angle == this.angle
+				&& pictureActuelle.opacite == this.opacite
+				&& pictureActuelle.modeDeFusion.equals(this.modeDeFusion)
+		) {
+			// L'image est déjà à l'écran
+			//LOG.warn("Image "+this.numero+" \""+this.nomImage+"\" déjà présente à l'écran !");
+			return curseurActuel+1;
+		}
+		// L'image n'est pas encore à l'écran
+		
 		try {
 			this.image = Graphismes.ouvrirImage("Pictures", this.nomImage);
 		} catch (IOException e) {
