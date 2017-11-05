@@ -721,7 +721,9 @@ public class LecteurMap extends Lecteur {
 			return this.tremblementDeTerre;
 		} else {
 			//grande map, défilement possible
-			final int xCamera = map.heros.x - Fenetre.LARGEUR_ECRAN/2;
+			int xCamera = map.heros.x - Fenetre.LARGEUR_ECRAN/2;
+			
+			xCamera = (xCamera+this.xCamera)/2; //transition douce
 			
 			if (xCamera<0) { //caméra ne déborde pas de la map à gauche
 				return (this.defilementX>0 ? this.defilementX : 0) 
@@ -749,7 +751,9 @@ public class LecteurMap extends Lecteur {
 			return 0;
 		} else {
 			//grande map, défilement possible
-			final int yCamera = map.heros.y - Fenetre.HAUTEUR_ECRAN/2;
+			int yCamera = map.heros.y - Fenetre.HAUTEUR_ECRAN/2;
+			
+			yCamera = (yCamera+this.yCamera)/2; //transition douce
 			
 			if (yCamera<0) { //caméra ne déborde pas de la map en haut
 				return 0 + (this.defilementY>0 ? this.defilementY : 0);

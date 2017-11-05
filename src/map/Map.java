@@ -323,7 +323,7 @@ public class Map implements Sauvegardable {
 		int nombreDeVignettes = 1;
 		for (int i = 0; i<largeur; i++) {
 			for (int j = 0; j<hauteur; j++) {
-				for (int altitudeActuelle = NOMBRE_ALTITUDES_SOUS_HEROS; altitudeActuelle<NOMBRE_ALTITUDES_SOUS_HEROS+NOMBRE_ALTITUDES_SUR_HEROS; altitudeActuelle++) {
+				for (int altitudeActuelle = NOMBRE_ALTITUDES_SOUS_HEROS; altitudeActuelle<NOMBRE_ALTITUDES; altitudeActuelle++) {
 					for (int k = 0; k<NOMBRE_LAYERS; k++) {
 						final int[][] layer = layers[k];
 						numeroCarreau = layer[i][j];
@@ -512,7 +512,7 @@ public class Map implements Sauvegardable {
 	/**
 	 * Inscrire l'Event dans la liste des Events en attente de suppression.
 	 * L'Event sera supprimé à la fin de la boucle d'affichage.
-	 * @param numeroEventASupprimer numéro de l'Event qu'il faut inscrire à la suppression
+	 * @param idEventASupprimer numéro de l'Event qu'il faut inscrire à la suppression
 	 * @return booléen pour savoir si l'Event à supprimer a bien été trouvé dans la liste des évènements
 	 */
 	public final boolean supprimerEvenement(final int idEventASupprimer) {
@@ -533,7 +533,11 @@ public class Map implements Sauvegardable {
 	 * @return décor supérieur, avec l'autotile dépendant de la frame
 	 */
 	public final BufferedImage getImageCoucheSurHeros(final int vignetteAutotileActuelle) {
-		return this.imagesCoucheSurHeros[vignetteAutotileActuelle];
+		if (this.imagesCoucheSurHeros[1] != null) {
+			return this.imagesCoucheSurHeros[vignetteAutotileActuelle];
+		} else {
+			return this.imagesCoucheSurHeros[0];
+		}
 	}
 
 	/**
@@ -543,7 +547,11 @@ public class Map implements Sauvegardable {
 	 * @return décor inférieur, avec l'autotile dépendant de la frame
 	 */
 	public final BufferedImage getImageCoucheSousHeros(final int vignetteAutotileActuelle) {
-		return this.imagesCoucheSousHeros[vignetteAutotileActuelle];
+		if (this.imagesCoucheSousHeros[1] != null) {
+			return this.imagesCoucheSousHeros[vignetteAutotileActuelle];
+		} else {
+			return this.imagesCoucheSousHeros[0];
+		}
 	}
 	
 	/**
