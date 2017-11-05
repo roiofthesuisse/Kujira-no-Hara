@@ -60,7 +60,7 @@ public class Carte extends ElementDeMenu {
 		}
 		
 		BufferedImage copieImage = Graphismes.clonerUneImage(imageTotale);
-		copieImage = Graphismes.superposerImages(copieImage, icone, xCarteFutur, yCarteFutur); //dessiner l'icone
+		copieImage = Graphismes.superposerImages(copieImage, icone, xCarteFutur+7, yCarteFutur+14); //dessiner l'icone
 		BufferedImage sousImage = copieImage.getSubimage(xCadrage, yCadrage, largeur, hauteur);
 		return sousImage;
 	}
