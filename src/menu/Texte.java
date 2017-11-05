@@ -452,5 +452,27 @@ public class Texte extends ElementDeMenu {
 		}
 		return false;
 	}
+	
+	/**
+	 * Trouver des couleurs de sélection adaptées au Texte.
+	 * @return tableau conteneant deux couleurs RGBA
+	 */
+	public int[][] trouverCouleursDeSelectionAdaptees() {
+		final int[][] couleursDeSelectionAdaptees = new int[2][4];
+		
+		final int langue = Fenetre.langue;
+		final String texteAAfficher = this.contenu.get(langue < this.contenu.size() ? langue : 0);
+		
+		if (texteAAfficher.contains("\\c[07]")) {
+			// sélection argentée pour les textes blancs
+			couleursDeSelectionAdaptees[0] = new int[]{200, 255, 255, 100};
+			couleursDeSelectionAdaptees[1] = new int[]{100, 150, 200, 0};
+		} else {
+			couleursDeSelectionAdaptees[0] = null;
+			couleursDeSelectionAdaptees[1] = null;
+		}
+		
+		return couleursDeSelectionAdaptees;
+	}
 
 }

@@ -80,7 +80,7 @@ public class LecteurMenu extends Lecteur {
 		//affichage de la sélection
 		final ElementDeMenu selectionnable = this.menu.elementSelectionne;
 		if (selectionnable!=null && selectionnable.selectionnable && selectionnable.selectionne) {
-			final BufferedImage selection = selectionnable.creerImageDeSelection();
+			final BufferedImage selection = selectionnable.creerImageDeSelection(null, null);
 			ecran = Graphismes.superposerImages(ecran, selection, selectionnable.x-ImageMenu.CONTOUR, selectionnable.y-ImageMenu.CONTOUR);
 		}
 		

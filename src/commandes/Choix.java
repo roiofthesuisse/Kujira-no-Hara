@@ -102,7 +102,8 @@ public class Choix extends Message {
 			// Différentes sélections possibles
 			this.imagesDesSelectionsPossibles = new ArrayList<BufferedImage>();
 			for (int i = 0; i < this.alternatives.size(); i++) {
-				final BufferedImage surlignage = alternativesTexte.get(i).creerImageDeSelection();
+				final int[][] couleursDeSelectionAdaptees = alternativesTexte.get(i).trouverCouleursDeSelectionAdaptees();
+				final BufferedImage surlignage = alternativesTexte.get(i).creerImageDeSelection(couleursDeSelectionAdaptees[0], couleursDeSelectionAdaptees[1]);
 				BufferedImage selectionPossible = Graphismes.clonerUneImage(imageBoiteMessage);				
 				selectionPossible = Graphismes.superposerImages(
 						selectionPossible, 

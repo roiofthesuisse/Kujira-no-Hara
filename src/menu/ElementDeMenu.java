@@ -25,14 +25,8 @@ public abstract class ElementDeMenu {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(ElementDeMenu.class);
 	public static final int CONTOUR = 16;
-	private static final int COULEUR_CENTRE_SELECTION_R = 255;
-	private static final int COULEUR_CENTRE_SELECTION_G = 255;
-	private static final int COULEUR_CENTRE_SELECTION_B = 120;
-	private static final int COULEUR_CENTRE_SELECTION_A = 175;
-	private static final int COULEUR_CONTOUR_SELECTION_R = 255;
-	private static final int COULEUR_CONTOUR_SELECTION_G = 150;
-	private static final int COULEUR_CONTOUR_SELECTION_B = 0;
-	private static final int COULEUR_CONTOUR_SELECTION_A = 0;
+	private static final int[] COULEUR_CENTRE_SELECTION_PAR_DEFAUT = new int[]{255, 255, 120, 175}; //rgba
+	private static final int[] COULEUR_CONTOUR_SELECTION_PAR_DEFAUT = new int[]{255, 150, 0, 0}; //rgba
 	
 	public Menu menu;
 	public int id;
@@ -98,7 +92,7 @@ public abstract class ElementDeMenu {
 	 * Lorsqu'il est sélectionné, le Sélectionnable est surligné en jaune.
 	 * @return image contenant le surlignage jaune adapté au Sélectionnable
 	 */
-	public final BufferedImage creerImageDeSelection() {
+	public final BufferedImage creerImageDeSelection(final int[] couleurCentreSelection, final int[] couleurContourSelection) {
 		if (this.imageDeSelection == null) { //ne calculer qu'une seule fois l'image
 			this.getImage(); //calculer image
 			final int larg;
@@ -117,15 +111,29 @@ public abstract class ElementDeMenu {
 					b = 0;
 					a = 0;
 					//couleur au centre de la sélection
-					r1 = COULEUR_CENTRE_SELECTION_R;
-					g1 = COULEUR_CENTRE_SELECTION_G;
-					b1 = COULEUR_CENTRE_SELECTION_B;
-					a1 = COULEUR_CENTRE_SELECTION_A;
+					if (couleurCentreSelection != null) {
+						r1 = couleurCentreSelection[0];
+						g1 = couleurCentreSelection[1];
+						b1 = couleurCentreSelection[2];
+						a1 = couleurCentreSelection[3];
+					} else {
+						r1 = COULEUR_CENTRE_SELECTION_PAR_DEFAUT[0];
+						g1 = COULEUR_CENTRE_SELECTION_PAR_DEFAUT[1];
+						b1 = COULEUR_CENTRE_SELECTION_PAR_DEFAUT[2];
+						a1 = COULEUR_CENTRE_SELECTION_PAR_DEFAUT[3];
+					}
 					//couleur à l'extérieur de la sélection
-					r2 = COULEUR_CONTOUR_SELECTION_R;
-					g2 = COULEUR_CONTOUR_SELECTION_G;
-					b2 = COULEUR_CONTOUR_SELECTION_B;
-					a2 = COULEUR_CONTOUR_SELECTION_A; 
+					if (couleurContourSelection != null) {
+						r2 = couleurContourSelection[0];
+						g2 = couleurContourSelection[1];
+						b2 = couleurContourSelection[2];
+						a2 = couleurContourSelection[3]; 
+					} else {
+						r2 = COULEUR_CONTOUR_SELECTION_PAR_DEFAUT[0];
+						g2 = COULEUR_CONTOUR_SELECTION_PAR_DEFAUT[1];
+						b2 = COULEUR_CONTOUR_SELECTION_PAR_DEFAUT[2];
+						a2 = COULEUR_CONTOUR_SELECTION_PAR_DEFAUT[3]; 
+					}
 					double rate = 0.0, hypotenuse = 0.0;
 					//calcul du taux "rate" d'éloignement avec le centre de la sélection
 					if (i>=ImageMenu.CONTOUR && i<=larg-ImageMenu.CONTOUR) {

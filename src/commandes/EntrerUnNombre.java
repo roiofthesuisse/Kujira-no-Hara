@@ -52,7 +52,7 @@ public class EntrerUnNombre extends Message {
 		for (int i = 0; i<tailleDuNombre; i++) {
 			chiffresRentresTexte[i] = new Texte(contenuTexte);
 		}
-		this.surlignage = chiffresRentresTexte[0].creerImageDeSelection();
+		this.surlignage = chiffresRentresTexte[0].creerImageDeSelection(null, null);
 		this.largeurChiffre = chiffresRentresTexte[0].getImage().getWidth();
 	}
 	
