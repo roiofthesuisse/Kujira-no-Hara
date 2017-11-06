@@ -17,17 +17,17 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.son.LecteurAudio;
 
 /**
- * Un Choix donne la possibilité au joueur de choisir jusqu'à quatre alternatives.
- * Le Choix s'affiche comme un Message, mais avec un curseur à déplacer.
- * Selon la sélection du joueur, un embranchement différent du code Event est utilisé.
+ * Un Choix donne la possibilitÃ© au joueur de choisir jusqu'Ã  quatre alternatives.
+ * Le Choix s'affiche comme un Message, mais avec un curseur Ã  dÃ©placer.
+ * Selon la sÃ©lection du joueur, un embranchement diffÃ©rent du code Event est utilisÃ©.
  */
 public class Choix extends Message {
 	private static final Logger LOG = LogManager.getLogger(Choix.class);
 	
-	/** Numéro du Choix */
+	/** NumÃ©ro du Choix */
 	public int numero;
 	
-	/** Différentes alternatives proposées par le Choix */
+	/** DiffÃ©rentes alternatives proposÃ©es par le Choix */
 	public final ArrayList<ArrayList<String>> alternatives;
 
 	private int positionCurseurAffichee = 0;
@@ -38,7 +38,7 @@ public class Choix extends Message {
 	/**
 	 * Constructeur explicite
 	 * @param numero du Choix
-	 * @param texte affiché dans la boîte de dialogue
+	 * @param texte affichÃ© dans la boÃ®te de dialogue
 	 * @param alternatives offertes par le choix au joueur
 	 */
 	public Choix(final int numero, final ArrayList<String> texte, final ArrayList<ArrayList<String>> alternatives) {
@@ -48,8 +48,8 @@ public class Choix extends Message {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gÃ©nÃ©rique
+	 * @param parametres liste de paramÃ¨tres issus de JSON
 	 */
 	public Choix(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"),
@@ -59,13 +59,13 @@ public class Choix extends Message {
 	}
 	
 	/**
-	 * Fabrique l'image du Message à partir de l'image de la boîte de dialogue et du texte.
-	 * Une image est fabriquée pour chaque alternative à sélectionner.
+	 * Fabrique l'image du Message Ã  partir de l'image de la boÃ®te de dialogue et du texte.
+	 * Une image est fabriquÃ©e pour chaque alternative Ã  sÃ©lectionner.
 	 * @return image du Message
 	 */
 	@Override
 	protected final BufferedImage produireImageDuMessage() {
-		//initialisation (la première fois, on fabrique toutes les images)
+		//initialisation (la premiÃ¨re fois, on fabrique toutes les images)
 		if (this.imagesDesSelectionsPossibles == null) {
 			BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(Message.imageBoiteMessage);
 			
@@ -81,12 +81,11 @@ public class Choix extends Message {
 			final int hauteurDecoupage = imageQuestion.getHeight() - debutDecoupage;
 			imageQuestion = imageQuestion.getSubimage(0, debutDecoupage, imageQuestion.getWidth(), hauteurDecoupage);
 			
-			// On ajoute les alternatives à l'image de base
+			// On ajoute les alternatives Ã  l'image de base
 			final ArrayList<Texte> alternativesTexte = new ArrayList<Texte>();
 			final ArrayList<BufferedImage> imagesAlternatives = new ArrayList<BufferedImage>();
 			
 			final int hauteurLigne = Texte.Taille.MOYENNE.pixels + Texte.INTERLIGNE;
-			final int hauteurTexte = this.calculerHauteurTexte();
 			for (int i = 0; i < this.alternatives.size(); i++) {
 				final ArrayList<String> alternativeString = alternatives.get(i);
 				alternativesTexte.add( new Texte(alternativeString) );
@@ -95,11 +94,11 @@ public class Choix extends Message {
 						imageDesAlternatives, 
 						imagesAlternatives.get(i), 
 						MARGE_DU_TEXTE, 
-						MARGE_DU_TEXTE + hauteurTexte + i*hauteurLigne
+						MARGE_DU_TEXTE + imageQuestion.getHeight() + i*hauteurLigne
 				);
 			}
 			
-			// Différentes sélections possibles
+			// DiffÃ©rentes sÃ©lections possibles
 			this.imagesDesSelectionsPossibles = new ArrayList<BufferedImage>();
 			for (int i = 0; i < this.alternatives.size(); i++) {
 				final int[][] couleursDeSelectionAdaptees = alternativesTexte.get(i).trouverCouleursDeSelectionAdaptees();
@@ -109,7 +108,7 @@ public class Choix extends Message {
 						selectionPossible, 
 						surlignage, 
 						MARGE_DU_TEXTE - Texte.CONTOUR, 
-						MARGE_DU_TEXTE + hauteurTexte + i*hauteurLigne - Texte.CONTOUR
+						MARGE_DU_TEXTE + imageQuestion.getHeight() + i*hauteurLigne - Texte.CONTOUR
 				);
 				selectionPossible = Graphismes.superposerImages(
 						selectionPossible, 
@@ -119,7 +118,7 @@ public class Choix extends Message {
 				);
 				selectionPossible = Graphismes.superposerImages(
 						selectionPossible, 
-						imageDesAlternatives, //toutes les alternatives sur la même image
+						imageDesAlternatives, //toutes les alternatives sur la mÃªme image
 						0, 
 						0
 				);
@@ -139,7 +138,7 @@ public class Choix extends Message {
 	}
 	
 	/**
-	 * La Commande suivante dépend de l'alternative choisie par le joueur.
+	 * La Commande suivante dÃ©pend de l'alternative choisie par le joueur.
 	 */
 	@Override
 	protected final int redirectionSelonLeChoix(final int curseurActuel, final ArrayList<Commande> commandes) {
@@ -158,9 +157,9 @@ public class Choix extends Message {
 				}
 			}
 		}
-		//l'alternative sélectionnée de ce Choix n'a pas été trouvée
+		//l'alternative sÃ©lectionnÃ©e de ce Choix n'a pas Ã©tÃ© trouvÃ©e
 		LOG.error("L'alternative " + positionCurseurAffichee
-				+ " du choix numéro " + numero + " n'a pas été trouvée !");
+				+ " du choix numÃ©ro " + numero + " n'a pas Ã©tÃ© trouvÃ©e !");
 		return curseurActuel+1;
 	}
 	
@@ -179,9 +178,9 @@ public class Choix extends Message {
 	}
 	
 	/**
-	 * Traduit un JSONArray représentant les alternatives d'un Choix en une liste de Strings.
-	 * La première ArrayList désigne les alternatives, la seconde les langues disponibles pour chaque alternative.
-	 * @param alternativesJSON JSONArray représentant les alternatives
+	 * Traduit un JSONArray reprÃ©sentant les alternatives d'un Choix en une liste de Strings.
+	 * La premiÃ¨re ArrayList dÃ©signe les alternatives, la seconde les langues disponibles pour chaque alternative.
+	 * @param alternativesJSON JSONArray reprÃ©sentant les alternatives
 	 * @return liste des Strings
 	 */
 	public static ArrayList<ArrayList<String>> recupererLesAlternativesDUnChoix(final JSONArray alternativesJSON) {
