@@ -70,6 +70,10 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 			this.directionDebutHeros = ancienHeros.direction;
 		}
 		
+		// Le héros n'est pas forcément pile sur le coin haut-gauche du carreau
+		final int ecartX = ancienHeros.x - this.page.event.x;
+		final int ecartY = ancienHeros.y - this.page.event.y;
+		
 		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre(), this.transition);
 		try {
 			final Map nouvelleMap;
@@ -83,7 +87,9 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 						null, //pas de Brouillard forcé
 						variables[xDebutHeros] * Fenetre.TAILLE_D_UN_CARREAU, 
 						variables[yDebutHeros] * Fenetre.TAILLE_D_UN_CARREAU, 
-						this.directionDebutHeros
+						this.directionDebutHeros,
+						ecartX, //décalage
+						ecartY //décalage
 				);
 			} else {
 				//données brutes
@@ -94,7 +100,9 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 						null, //pas de Brouillard forcé
 						xDebutHeros * Fenetre.TAILLE_D_UN_CARREAU, 
 						yDebutHeros * Fenetre.TAILLE_D_UN_CARREAU, 
-						this.directionDebutHeros
+						this.directionDebutHeros,
+						ecartX, //décalage
+						ecartY //décalage
 				);
 			}
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);

@@ -283,7 +283,9 @@ public final class Fenetre extends JFrame implements KeyListener {
 					this.partie.brouillardACharger,
 					this.partie.xHeros, 
 					this.partie.yHeros, 
-					this.partie.directionHeros
+					this.partie.directionHeros,
+					0, // pas de décalage car ce n'est pas un changement de Map
+					0  // pas de décalage car ce n'est pas un changement de Map
 			);
 		} catch (Exception e) {
 			LOG.error("Impossible de charger la map numero "+partie.numeroMap);

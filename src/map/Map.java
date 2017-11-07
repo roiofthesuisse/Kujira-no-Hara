@@ -33,8 +33,8 @@ public class Map implements Sauvegardable {
 	private static final int NOMBRE_ALTITUDES_SUR_HEROS = NOMBRE_ALTITUDES - NOMBRE_ALTITUDES_SOUS_HEROS;
 	/** Le décor est constitué de 3 couches, afin de pouvoir superposer plusieurs carreaux au même endroit de la Map */
 	private static final int NOMBRE_LAYERS = 3;
-	/** La position intiale du Héros sur cette Map est décrite par 3 paramètres */
-	private static final int POSITION_INITIALE_PAR_X_Y_ET_DIRECTION = 3;
+	/** La position intiale du Héros sur cette Map est décrite par 5 paramètres */
+	private static final int POSITION_INITIALE_PAR_X_Y_ET_DIRECTION = 5;
 	/** La position intiale du Héros sur cette Map est décrite par 2 paramètres */
 	private static final int POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION = 2;
 	
@@ -146,7 +146,7 @@ public class Map implements Sauvegardable {
 			this.xDebutHeros = positionInitialeDuHeros[0]; //position x (en pixels) initiale du Héros
 			this.yDebutHeros = positionInitialeDuHeros[1]; //position y (en pixels) initiale du Héros
 			this.directionDebutHeros = positionInitialeDuHeros[2]; //direction initiale du Héros
-			
+
 		} else if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION) {
 			// Coordonnées initiales non-spécifiées
 			final int decalageDebutHeros = positionInitialeDuHeros[0]; //décalage (en nombre de cases) du Héros par rapport à l'ancienne Map
@@ -197,15 +197,30 @@ public class Map implements Sauvegardable {
 		
 		//informations sur la transition
 		final Transition transition = lecteur.transition;
-		if (Transition.DEFILEMENT.equals(transition)) {
-			// direction du défilement
-			transition.direction = Transition.calculerDirectionDefilement(ancienHeros, ancienHeros.map, this);
-		} else if (Transition.ROND.equals(transition)) {
+		final int xAncienHeros = ancienHeros != null ? ancienHeros.x : 0; //pas d'ancien Héros en cas de chargement de Partie
+		final int yAncienHeros = ancienHeros != null ? ancienHeros.y : 0;
+		final int largeurAncienneMap = ancienHeros != null ? ancienHeros.map.largeur : 0;
+		final int hauteurAncienneMap = ancienHeros != null ? ancienHeros.map.hauteur : 0;
+		transition.direction = Transition.calculerDirectionDefilement(xAncienHeros, yAncienHeros, this.xDebutHeros, 
+				this.yDebutHeros, largeurAncienneMap, hauteurAncienneMap, this.largeur, this.hauteur);
+		if (Transition.ROND.equals(transition)) {
 			// centre du rond
 			transition.xHerosAvant = ancienHeros.x + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
 			transition.yHerosAvant = ancienHeros.y + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
 			transition.xHerosApres = xDebutHeros + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
 			transition.yHerosApres = yDebutHeros + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
+		}
+		
+		//correctif sur la position x y initiale du Héros
+		//le Héros n'est pas forcément pile sur le coin haut-gauche du carreau téléporteur
+		if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_X_Y_ET_DIRECTION) {
+			final int ecartX = positionInitialeDuHeros[3];
+			final int ecartY = positionInitialeDuHeros[4];
+			if (transition.direction == Direction.BAS || transition.direction == Direction.HAUT) {
+				this.xDebutHeros += ecartX;
+			} else {
+				this.yDebutHeros += ecartY;
+			}
 		}
 		
 		//chargement du tileset

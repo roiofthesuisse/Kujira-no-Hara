@@ -172,7 +172,7 @@ public class LecteurMap extends Lecteur {
 			}
 		} else {
 			// Réutiliser cette capture d'écran au début de la nouvelle Map
-			ecran = this.transition.calculer(ecran, frame);
+			ecran = this.transition.calculer(ecran, this.map, frame);
 		}
 		
 		//afficher les images
@@ -721,19 +721,17 @@ public class LecteurMap extends Lecteur {
 			return this.tremblementDeTerre;
 		} else {
 			//grande map, défilement possible
-			int xCamera = map.heros.x - Fenetre.LARGEUR_ECRAN/2;
+			int nouveauXCamera = map.heros.x - Fenetre.LARGEUR_ECRAN/2;
 			
-			xCamera = (xCamera+this.xCamera)/2; //transition douce
-			
-			if (xCamera<0) { //caméra ne déborde pas de la map à gauche
+			if (nouveauXCamera<0) { //caméra ne déborde pas de la map à gauche
 				return (this.defilementX>0 ? this.defilementX : 0) 
 						+ this.tremblementDeTerre;
-			} else if (xCamera+Fenetre.LARGEUR_ECRAN > largeurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map à droite
+			} else if (nouveauXCamera+Fenetre.LARGEUR_ECRAN > largeurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map à droite
 				return largeurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN 
 						+ (this.defilementX<0 ? this.defilementX : 0) 
 						+ this.tremblementDeTerre;
 			} else {
-				return xCamera 
+				return nouveauXCamera 
 						+ this.defilementX 
 						+ this.tremblementDeTerre;
 			}
@@ -751,16 +749,14 @@ public class LecteurMap extends Lecteur {
 			return 0;
 		} else {
 			//grande map, défilement possible
-			int yCamera = map.heros.y - Fenetre.HAUTEUR_ECRAN/2;
+			int nouveauYCamera = map.heros.y - Fenetre.HAUTEUR_ECRAN/2;
 			
-			yCamera = (yCamera+this.yCamera)/2; //transition douce
-			
-			if (yCamera<0) { //caméra ne déborde pas de la map en haut
+			if (nouveauYCamera<0) { //caméra ne déborde pas de la map en haut
 				return 0 + (this.defilementY>0 ? this.defilementY : 0);
-			} else if (yCamera+Fenetre.HAUTEUR_ECRAN > hauteurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map en bas
+			} else if (nouveauYCamera+Fenetre.HAUTEUR_ECRAN > hauteurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map en bas
 				return hauteurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.HAUTEUR_ECRAN + (this.defilementY<0 ? this.defilementY : 0);
 			} else {
-				return yCamera + this.defilementY;
+				return nouveauYCamera + this.defilementY;
 			}
 		}
 	}
