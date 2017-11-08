@@ -642,8 +642,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 8
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
 				},
 				{
 					"nom": "ModifierApparence",
@@ -731,16 +732,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -748,10 +741,16 @@
 				"valeur": false
 			}
 			],
-			"mouvements": [
-			{
-				"nom": "AvancerAleatoirement"			}
-			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				],
+			},
 			"image": "fillette character",
 			"vitesse": 12,
 			"frequence": 4,
@@ -800,10 +799,16 @@
 				"nom": "SupprimerEvent"
 			}
 			],
-			"mouvements": [
-			{
-				"nom": "AvancerAleatoirement"			}
-			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				],
+			},
 			"vitesse": 8,
 			"frequence": 8,
 			"animeEnMouvement": false,

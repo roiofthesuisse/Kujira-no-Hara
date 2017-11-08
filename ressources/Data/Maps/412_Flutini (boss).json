@@ -165,8 +165,9 @@
 					"nombreDeCarreaux": 1
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 8
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
 				}
 				]
 			},
@@ -175,32 +176,16 @@
 				"idEvent": -1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "JouerAnimation",
 				"idAnimation": 7
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ModifierVariable",
@@ -239,7 +224,12 @@
 				"numero": 0
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "PasEnDiagonale",
 					"directionVerticale": 3,
@@ -558,7 +548,8 @@
 					"y": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 				{
@@ -567,7 +558,8 @@
 					"y": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 				{
@@ -576,11 +568,13 @@
 					"y": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 
-			],
+				],
+			},
 			"image": "flutini character",
 			"vitesse": 12,
 			"frequence": 1,
@@ -615,64 +609,32 @@
 				"idAnimation": 22
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 7
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 7
 			},
 			{
 				"nom": "JouerAnimation",
 				"idAnimation": 22
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 7
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 7
 			},
 			{
 				"nom": "JouerAnimation",
 				"idAnimation": 22
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 7
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 7
 			},
 			{
 				"nom": "JouerAnimation",
 				"idAnimation": 6
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 14
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 14
 			},
 			{
 				"nom": "Deplacement",
@@ -691,16 +653,8 @@
 				]
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 20
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 20
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -781,16 +735,8 @@
 				]
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ModifierVariable",
@@ -969,8 +915,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 8
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
 				},
 				{
 					"nom": "ModifierApparence",
@@ -1085,16 +1032,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 10
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 10
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1106,16 +1045,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 10
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 10
 			},
 			{
 				"nom": "ConditionFin",
@@ -1128,16 +1059,8 @@
 				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 30
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 30
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1149,16 +1072,8 @@
 				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			}
 			],
 			"vitesse": 8,
@@ -1278,16 +1193,8 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 10
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 10
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1385,16 +1292,8 @@
 				"numero": 5
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 20
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 20
 			},
 			{
 				"nom": "ConditionFin",
@@ -1731,16 +1630,8 @@
 				"valeur": false
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 200
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 200
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1748,16 +1639,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 400
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 400
 			}
 			],
 			"vitesse": 8,

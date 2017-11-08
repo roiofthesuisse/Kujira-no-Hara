@@ -155,16 +155,8 @@
 				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "AjouterObjet",
@@ -198,7 +190,12 @@
 				"numero": 0
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "Avancer",
 					"direction": 3,
@@ -240,7 +237,8 @@
 					"nombreDeCarreaux": 1
 				},
 
-			],
+				],
+			},
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": 4,
@@ -595,8 +593,9 @@
 					"direction": 3
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 198
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 120
 				}
 				]
 			},
@@ -619,8 +618,9 @@
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 16
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 10
 				},
 				{
 					"nom": "ModifierApparence",
@@ -630,8 +630,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 14
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 9
 				},
 				{
 					"nom": "ModifierApparence",
@@ -641,8 +642,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 14
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 9
 				},
 				{
 					"nom": "ModifierApparence",
@@ -652,8 +654,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 14
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 9
 				},
 				{
 					"nom": "ModifierApparence",
@@ -663,8 +666,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 14
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 9
 				},
 				{
 					"nom": "ModifierApparence",
@@ -674,8 +678,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 14
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 9
 				},
 				{
 					"nom": "ModifierApparence",
@@ -689,22 +694,15 @@
 					"directionFixe": true
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 24
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 15
 				}
 				]
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 85
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 85
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -727,8 +725,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 99
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 60
 				}
 				]
 			},
@@ -771,16 +770,8 @@
 				"numero": 2
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 10
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 10
 			},
 			{
 				"nom": "Deplacement",
@@ -797,8 +788,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 8
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
 				},
 				{
 					"nom": "ModifierApparence",
@@ -814,16 +806,8 @@
 				]
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "AppelerPageCommune",
@@ -840,16 +824,8 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 2
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -908,8 +884,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 8
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
 				},
 				{
 					"nom": "ModifierApparence",
@@ -1002,16 +979,8 @@
 				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "AjouterObjet",
@@ -1045,7 +1014,12 @@
 				"numero": 0
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "PasEnDiagonale",
 					"directionVerticale": 3,
@@ -1071,7 +1045,8 @@
 					"nombreDeCarreaux": 1
 				},
 
-			],
+				],
+			},
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": 4,

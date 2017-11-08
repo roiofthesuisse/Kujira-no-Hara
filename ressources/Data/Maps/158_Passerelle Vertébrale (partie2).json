@@ -247,16 +247,8 @@
 				"tempo": 0.50
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -265,16 +257,8 @@
 				"tempo": 0.50
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 10
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 10
 			},
 			{
 				"nom": "ModifierBrouillard",
@@ -421,16 +405,8 @@
 				"quantite": 300
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 30
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 30
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -469,16 +445,8 @@
 				"texte": "C'est un superbe morceau de sel magique \\ncristallisé !"
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 10
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 10
 			},
 			{
 				"nom": "Deplacement",
@@ -495,8 +463,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 8
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
 				},
 				{
 					"nom": "ModifierApparence",
@@ -559,7 +528,12 @@
 				"numero": 0
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "ModifierApparence",
 					"image": "jizo character",
@@ -568,8 +542,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 49
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 30
 				},
 				{
 					"nom": "ModifierApparence",
@@ -579,7 +554,8 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 				{
@@ -590,7 +566,8 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 				{
@@ -601,7 +578,8 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 				{
@@ -612,11 +590,13 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 
-			],
+				],
+			},
 			"image": "jizo character",
 			"directionInitiale": 2,
 			"vitesse": 8,
@@ -710,7 +690,12 @@
 				"numero": 0
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "ModifierApparence",
 					"image": "jizo character",
@@ -719,8 +704,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 49
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 30
 				},
 				{
 					"nom": "ModifierApparence",
@@ -730,7 +716,8 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 				{
@@ -741,7 +728,8 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 				{
@@ -752,7 +740,8 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 				{
@@ -763,11 +752,13 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
 				},
 
-			],
+				],
+			},
 			"image": "jizo character",
 			"directionInitiale": 2,
 			"vitesse": 8,
@@ -837,16 +828,8 @@
 				"tempo": 0.50
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -855,16 +838,8 @@
 				"tempo": 0.50
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 10
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 10
 			},
 			{
 				"nom": "ModifierBrouillard",
@@ -949,16 +924,8 @@
 				"tempo": 0.80
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "AjouterObjet",

@@ -153,16 +153,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			}
 			],
 			"image": "blocage character",
@@ -224,16 +216,8 @@
 				"texte": "\"Le trésor enchanté de l'\\c[02]Ogre\\c[01] des bois\\npermet de courir plus vite que le vent !\""
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -287,16 +271,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 3
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 3
 			},
 			{
 				"nom": "ModifierVariable",
@@ -339,8 +315,9 @@
 					"frequence": 1,
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 33
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 20
 				},
 				{
 					"nom": "RendreAnimeALArret",
@@ -365,16 +342,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			}
 			],
 			"image": "Clochette character",
@@ -521,8 +490,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 8
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
 				},
 				{
 					"nom": "ModifierApparence",

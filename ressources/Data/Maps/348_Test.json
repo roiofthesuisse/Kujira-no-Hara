@@ -159,16 +159,8 @@
 			],
 			"commandes": [
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 150
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 150
 			},
 			{
 				"nom": "AppelerPageCommune",
@@ -395,16 +387,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -844,10 +828,16 @@
 				"valeurADonner": true
 			}
 			],
-			"mouvements": [
-			{
-				"nom": "AvancerEnFonctionDUnEvent",				"idEventObserve": 0			}
-			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
+				],
+			},
 			"image": "Anémone bleue character",
 			"vitesse": 8,
 			"frequence": 1,
@@ -901,16 +891,8 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 20
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 20
 			},
 			{
 				"nom": "ConditionFin",
@@ -961,8 +943,9 @@
 					"nom": "PasEnArriere"
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 33
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 20
 				}
 				]
 			},
@@ -985,8 +968,9 @@
 					"nom": "PasEnArriere"
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 33
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 20
 				}
 				]
 			},
@@ -1009,8 +993,9 @@
 					"nom": "PasEnArriere"
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 66
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 40
 				}
 				]
 			},
@@ -1033,8 +1018,9 @@
 					"nom": "PasEnArriere"
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 33
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 20
 				}
 				]
 			},
@@ -1057,8 +1043,9 @@
 					"nom": "PasEnArriere"
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 33
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 20
 				}
 				]
 			},
@@ -1518,16 +1505,8 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 20
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 20
 			},
 			{
 				"nom": "ConditionFin",
@@ -1561,16 +1540,8 @@
 				"tempo": 1.50
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ConditionFin",
@@ -1588,16 +1559,8 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ConditionFin",
@@ -1835,16 +1798,8 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 20
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 20
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -2081,16 +2036,8 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 50
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 50
 			},
 			{
 				"nom": "Message",
@@ -2109,16 +2056,8 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 50
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 50
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2330,8 +2269,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 3
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 2
 				},
 				{
 					"nom": "ModifierApparence",
@@ -2341,8 +2281,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 3
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 2
 				},
 				{
 					"nom": "ModifierApparence",
@@ -2352,8 +2293,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 3
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 2
 				},
 				{
 					"nom": "ModifierApparence",
@@ -2363,8 +2305,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 3
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 2
 				}
 				]
 			},

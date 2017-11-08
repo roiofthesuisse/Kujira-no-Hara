@@ -307,16 +307,8 @@
 				"texte": "Certains Colibris ont tenté d'atteindre la salle \\ndu trône sans le plan, mais ils se sont égarés\\net sont devenus fous !"
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -324,13 +316,19 @@
 				"valeur": false
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "RegarderUnEvent",
 					"idEvent": 0
 				},
 
-			],
+				],
+			},
 			"image": "colibri vert character",
 			"vitesse": 24,
 			"frequence": 1,
@@ -377,16 +375,8 @@
 				"texte": "Statue de \\c[02]l'auguste roi Flivouille\\c[01]\\nen célébration de son 60e anniversaire\\nofferte par le peuple Colibri reconnaissant\\npour décorer l'entrée de son palais"
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ConditionFin",

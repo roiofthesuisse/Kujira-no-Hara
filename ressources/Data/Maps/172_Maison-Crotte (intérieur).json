@@ -143,16 +143,8 @@
 				"texte": "Sa voile carrée cache un trou dans le mur !"
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -243,10 +235,16 @@
 				"nom": "SupprimerEvent"
 			}
 			],
-			"mouvements": [
-			{
-				"nom": "AvancerAleatoirement"			}
-			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				],
+			},
 			"opacite": 0,
 			"directionInitiale": 1,
 			"vitesse": 8,
@@ -296,16 +294,8 @@
 				"texte": "A leur façon..."
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -313,10 +303,16 @@
 				"valeur": false
 			}
 			],
-			"mouvements": [
-			{
-				"nom": "AvancerAleatoirement"			}
-			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				],
+			},
 			"image": "fillette character",
 			"directionInitiale": 1,
 			"vitesse": 8,

@@ -477,16 +477,8 @@
 				"script": "invoquer($game_variables[2]+$game_variables[17], $game_variables[3]+$game_variables[18], 519, 1)"
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 10
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 10
 			}
 			],
 			"vitesse": 8,
@@ -985,7 +977,12 @@
 				"numero": 0
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "JouerEffetSonore",
@@ -999,7 +996,8 @@
 					"nombreDeCarreaux": 1
 				},
 
-			],
+				],
+			},
 			"image": "taupe character",
 			"vitesse": 12,
 			"frequence": 1,
@@ -1053,7 +1051,12 @@
 				"numero": 0
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "JouerEffetSonore",
@@ -1067,7 +1070,8 @@
 					"nombreDeCarreaux": 1
 				},
 
-			],
+				],
+			},
 			"image": "taupe character",
 			"vitesse": 12,
 			"frequence": 1,
@@ -1121,7 +1125,12 @@
 				"numero": 0
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "JouerEffetSonore",
@@ -1135,7 +1144,8 @@
 					"nombreDeCarreaux": 1
 				},
 
-			],
+				],
+			},
 			"image": "taupe character",
 			"vitesse": 12,
 			"frequence": 1,
@@ -1189,7 +1199,12 @@
 				"numero": 0
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "JouerEffetSonore",
@@ -1203,7 +1218,8 @@
 					"nombreDeCarreaux": 1
 				},
 
-			],
+				],
+			},
 			"image": "taupe character",
 			"vitesse": 12,
 			"frequence": 1,
@@ -1514,16 +1530,8 @@
 				"nombreDeFrames": 20
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "Deplacement",
@@ -1550,8 +1558,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 3
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 2
 				},
 				{
 					"nom": "ModifierApparence",
@@ -1561,8 +1570,9 @@
 					"teinte": 0
 				},
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 3
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 2
 				},
 				{
 					"nom": "ModifierOpacite",
@@ -1659,16 +1669,8 @@
 				"numero": 3
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 10
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 10
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1714,16 +1716,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 50
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 50
 			},
 			{
 				"nom": "ConditionSinon",
@@ -1738,32 +1732,16 @@
 				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 150
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 150
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 100
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 100
 			},
 			{
 				"nom": "ConditionFin",
@@ -1870,16 +1848,8 @@
 				"idAnimation": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1930,16 +1900,8 @@
 				"idAnimation": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1977,16 +1939,8 @@
 				"idAnimation": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2037,16 +1991,8 @@
 				"idAnimation": 1
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 3
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 3
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2103,10 +2049,16 @@
 				"numero": 9
 			}
 			],
-			"mouvements": [
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
-					"nom": "Attendre",
-					"nombreDeFrames": 165
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 100
 				},
 				{
 					"nom": "AppelerUneCommande",
@@ -2115,7 +2067,8 @@
 					"valeur": false
 				},
 
-			],
+				],
+			},
 			"image": "taupe character2",
 			"vitesse": 12,
 			"frequence": 1,
@@ -2146,16 +2099,8 @@
 				"idAnimation": 6
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 12
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 12
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -2280,16 +2225,8 @@
 			],
 			"commandes": [
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": true,
-				"mouvements": [
-				{
-					"nom": "Attendre",
-					"nombreDeFrames": 20
-				}
-				]
+				"nom": "Attendre",
+				"nombreDeFrames": 20
 			},
 			{
 				"nom": "ModifierInterrupteur",
