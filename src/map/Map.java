@@ -1,6 +1,7 @@
 package map;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.RasterFormatException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -619,14 +620,15 @@ public class Map implements Sauvegardable {
 	 * @param finBandelette à découper
 	 * @return bandelette de décor médian, avec l'autotile dépendant de la frame
 	 */
-	public final BufferedImage getImageCoucheAvecHeros(final int vignetteAutotileActuelle, final int debutBandelette, int finBandelette) {
+	public final BufferedImage getImageCoucheAvecHeros(final int vignetteAutotileActuelle, final int debutBandelette, final int finBandelette) {
 		final BufferedImage vignette;
 		if (this.imagesCoucheAvecHeros[1] != null) {
 			vignette = this.imagesCoucheAvecHeros[vignetteAutotileActuelle];
 		} else {
 			vignette = this.imagesCoucheAvecHeros[0];
 		}
-		return vignette.getSubimage(0, debutBandelette*Fenetre.TAILLE_D_UN_CARREAU, vignette.getWidth(), (finBandelette-debutBandelette)*Fenetre.TAILLE_D_UN_CARREAU);
+		final int hauteurBandelette = (finBandelette-debutBandelette)*Fenetre.TAILLE_D_UN_CARREAU;
+		return vignette.getSubimage(0, debutBandelette*Fenetre.TAILLE_D_UN_CARREAU, vignette.getWidth(), hauteurBandelette);
 	}
 
 	/**

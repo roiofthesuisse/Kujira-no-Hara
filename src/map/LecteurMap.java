@@ -429,19 +429,20 @@ public class LecteurMap extends Lecteur {
 						final BufferedImage imageBandelette = this.map.getImageCoucheAvecHeros(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
 						ecran = Graphismes.superposerImages(ecran, imageBandelette,
 								-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
-						
+						LOG.info("dessiner bandelette de "+bandeletteActuelle+" à "+bandeletteEvent);
 						bandeletteActuelle = bandeletteEvent;
 					}
 					
 					//dessiner l'Event
 					if (dessinerLeHeros || !event.equals(map.heros)) {
 						ecran = dessinerEvent(ecran, event, xCamera, yCamera);
+						LOG.info("dessiner "+event.nom+" en y = "+bandeletteEvent);
 					}
 				}
 			}
 			
 			//dernière bandelette
-			final BufferedImage imageBandelette = this.map.getImageCoucheAvecHeros(vignetteAutotile, bandeletteEvent, this.map.hauteur+1);
+			final BufferedImage imageBandelette = this.map.getImageCoucheAvecHeros(vignetteAutotile, bandeletteEvent, this.map.hauteur);
 			ecran = Graphismes.superposerImages(ecran, imageBandelette,
 					-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
 			
