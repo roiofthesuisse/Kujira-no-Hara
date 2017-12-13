@@ -61,11 +61,11 @@ public class Map implements Sauvegardable {
 	public final int[][] layer0, layer1, layer2;
 	public final int[][][] layers;
 	/** en cas d'Autotile animé */
-	private BufferedImage[] imagesCoucheSousHeros = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
+	private BufferedImage[] imagesCoucheSousHeros;
 	/** en cas d'Autotile animé */
-	private BufferedImage[] imagesCoucheAvecHeros = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
+	private BufferedImage[] imagesCoucheAvecHeros;
 	/** en cas d'Autotile animé */
-	private BufferedImage[] imagesCoucheSurHeros = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
+	private BufferedImage[] imagesCoucheSurHeros;
 	/** Le décor contient-il des autotiles animés ? */
 	public boolean contientDesAutotilesAnimes;
 	/** Brouillard affiché par dessus de décor et les Events */
@@ -248,11 +248,11 @@ public class Map implements Sauvegardable {
 		}
 		
 		//on dessine la couche de décor inférieure, qui sera sous le héros et les évènements
-			creerImageDuDecorEnDessousDuHeros();
+			this.imagesCoucheSousHeros = creerCoucheDeDecor(0, ALTITUDE_MEDIANE-1);
 		//on dessine la couche de décor médiane, qui sera avec le héros et les évènements
-			creerImageDuDecorAuMemeNiveauQueLeHeros();
+			this.imagesCoucheAvecHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE, ALTITUDE_MEDIANE);
 		//on dessine la couche de décor supérieure, qui sera au dessus du héros et des évènements
-			creerImageDuDecorAuDessusDuHeros();
+			this.imagesCoucheSurHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE+1, NOMBRE_ALTITUDES-1);
 		
 		//importer les events
 			importerLesEvenements(jsonMap);
@@ -282,7 +282,6 @@ public class Map implements Sauvegardable {
 	 * On affiche en premier le décor arrière.
 	 */
 	private void creerImageDuDecorEnDessousDuHeros() {
-		creerCoucheDeDecor(this.imagesCoucheSurHeros, 0, ALTITUDE_MEDIANE-1);
 		/*
 		final long t0 = System.nanoTime();
 		
@@ -324,21 +323,12 @@ public class Map implements Sauvegardable {
 		Fenetre.getFenetre().mesuresDePerformance.add(new Long(t1 - t0).toString());
 		*/
 	}
-	
-	/**
-	 * L'affichage est un sandwich : une partie du décor est affichée au meme niveau que les Events.
-	 * On affiche ce décor médian intercallé en bandelettes entre les Events.
-	 */
-	private void creerImageDuDecorAuMemeNiveauQueLeHeros() {
-		creerCoucheDeDecor(this.imagesCoucheAvecHeros, ALTITUDE_MEDIANE, ALTITUDE_MEDIANE);
-	}
 
 	/**
 	 * L'affichage est un sandwich : une partie du décor est affichée par dessus les Events.
 	 * On affiche en dernier le décor supérieur.
 	 */
 	private void creerImageDuDecorAuDessusDuHeros() {
-		creerCoucheDeDecor(this.imagesCoucheSurHeros, ALTITUDE_MEDIANE+1, NOMBRE_ALTITUDES-1);
 		/*
 		final long t0 = System.nanoTime();
 		
@@ -383,11 +373,13 @@ public class Map implements Sauvegardable {
 	
 	/**
 	 * L'affichage est un sandwich : une partie du décor est affichée par dessus les Events, une autre dessous, et une autre au même niveau.
-	 * @param vignettesDeCetteCouche vignettes de cette couch de décor pour l'animation du décor
 	 * @param altitudeMin première altitude de cette couche de décor
 	 * @param altitudeMax dernière altitude (incluse) de cette couche de décor
+	 * @return vignettes de la couche de décor
 	 */
-	private void creerCoucheDeDecor(BufferedImage[] vignettesDeCetteCouche, int altitudeMin, int altitudeMax) {
+	private BufferedImage[] creerCoucheDeDecor(final int altitudeMin, final int altitudeMax) {
+		final BufferedImage[] vignettesDeCetteCouche = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
+		
 		final long t0 = System.nanoTime();
 		
 		final int largeurPixel = this.largeur*Fenetre.TAILLE_D_UN_CARREAU;
@@ -426,6 +418,7 @@ public class Map implements Sauvegardable {
 		
 		final long t1 = System.nanoTime();
 		Fenetre.getFenetre().mesuresDePerformance.add(new Long(t1 - t0).toString());
+		return vignettesDeCetteCouche;
 	}
 	
 	/**
@@ -622,17 +615,18 @@ public class Map implements Sauvegardable {
 	 * Ce décor est composé du décor fixe et d'éventuels autotiles animés.
 	 * Il doit être découpé en bandelettes pour s'intercaler avec les Events.
 	 * @param vignetteAutotileActuelle vignette de l'Autotile à afficher
-	 * @param bandelette à découper
+	 * @param debutBandelette à découper
+	 * @param finBandelette à découper
 	 * @return bandelette de décor médian, avec l'autotile dépendant de la frame
 	 */
-	public final BufferedImage getImageCoucheAvecHeros(final int vignetteAutotileActuelle, final int bandelette) {
-		BufferedImage vignette;
-		if (this.imagesCoucheSurHeros[1] != null) {
-			vignette = this.imagesCoucheSurHeros[vignetteAutotileActuelle];
+	public final BufferedImage getImageCoucheAvecHeros(final int vignetteAutotileActuelle, final int debutBandelette, int finBandelette) {
+		final BufferedImage vignette;
+		if (this.imagesCoucheAvecHeros[1] != null) {
+			vignette = this.imagesCoucheAvecHeros[vignetteAutotileActuelle];
 		} else {
-			vignette = this.imagesCoucheSurHeros[0];
+			vignette = this.imagesCoucheAvecHeros[0];
 		}
-		return vignette.getSubimage(0, bandelette*Fenetre.TAILLE_D_UN_CARREAU, vignette.getWidth(), Fenetre.TAILLE_D_UN_CARREAU);
+		return vignette.getSubimage(0, debutBandelette*Fenetre.TAILLE_D_UN_CARREAU, vignette.getWidth(), (finBandelette-debutBandelette)*Fenetre.TAILLE_D_UN_CARREAU);
 	}
 
 	/**

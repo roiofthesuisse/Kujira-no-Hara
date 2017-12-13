@@ -420,13 +420,16 @@ public class LecteurMap extends Lecteur {
 		try {
 			Collections.sort(this.map.events, this.comparateur); //on trie les events du plus derrière au plus devant
 			int bandeletteActuelle = 0;
-			int bandeletteEvent;
+			int bandeletteEvent = 0;
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
 					//dessiner la bandelette de décor médian
 					bandeletteEvent = event.y / Fenetre.TAILLE_D_UN_CARREAU;
 					if (bandeletteEvent > bandeletteActuelle) {
-						ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheAvecHeros(vignetteAutotile, bandeletteActuelle), -xCamera, -yCamera);
+						final BufferedImage imageBandelette = this.map.getImageCoucheAvecHeros(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
+						ecran = Graphismes.superposerImages(ecran, imageBandelette,
+								-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
+						
 						bandeletteActuelle = bandeletteEvent;
 					}
 					
@@ -436,6 +439,12 @@ public class LecteurMap extends Lecteur {
 					}
 				}
 			}
+			
+			//dernière bandelette
+			final BufferedImage imageBandelette = this.map.getImageCoucheAvecHeros(vignetteAutotile, bandeletteEvent, this.map.hauteur+1);
+			ecran = Graphismes.superposerImages(ecran, imageBandelette,
+					-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
+			
 		} catch (Exception e) {
 			LOG.error("Erreur lors du dessin des évènements :", e);
 		}
