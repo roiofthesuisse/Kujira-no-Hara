@@ -132,8 +132,8 @@ public class LecteurMap extends Lecteur {
 		//TODO DEBUG pour voir la hitbox de l'attaque du héros
 		ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 		
-		//on dessine les évènements
-		ecran = dessinerLesEvents(ecran, xCamera, yCamera, true);
+		//on dessine les évènements et la couche médiane
+		ecran = dessinerLesEvents(ecran, xCamera, yCamera, true, vignetteAutotileActuelle);
 		
 		//on dessine les animations
 		ecran = Animation.dessinerLesAnimations(ecran);
@@ -412,13 +412,25 @@ public class LecteurMap extends Lecteur {
 	 * @param xCamera position x de la caméra
 	 * @param yCamera position y de la caméra
 	 * @param dessinerLeHeros le Héros doit-il être visible sur l'ancienne Map ?
+	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile animé
 	 * @return écran avec les Events dessinés dessus
 	 */
-	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera, final boolean dessinerLeHeros) {
+	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera, final boolean dessinerLeHeros, 
+			final int vignetteAutotile) {
 		try {
 			Collections.sort(this.map.events, this.comparateur); //on trie les events du plus derrière au plus devant
+			int bandeletteActuelle = 0;
+			int bandeletteEvent;
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
+					//dessiner la bandelette de décor médian
+					bandeletteEvent = event.y / Fenetre.TAILLE_D_UN_CARREAU;
+					if (bandeletteEvent > bandeletteActuelle) {
+						ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheAvecHeros(vignetteAutotile, bandeletteActuelle), -xCamera, -yCamera);
+						bandeletteActuelle = bandeletteEvent;
+					}
+					
+					//dessiner l'Event
 					if (dessinerLeHeros || !event.equals(map.heros)) {
 						ecran = dessinerEvent(ecran, event, xCamera, yCamera);
 					}
@@ -665,7 +677,7 @@ public class LecteurMap extends Lecteur {
 	private BufferedImage capturerLaMap(final boolean afficherLeHeros) {
 		BufferedImage capture = dessinerPanorama(this.xCamera, this.yCamera);
 		capture = dessinerDecorInferieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
-		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, afficherLeHeros);
+		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, afficherLeHeros, this.vignetteAutotileActuelle);
 		capture = Animation.dessinerLesAnimations(capture);
 		capture = dessinerDecorSuperieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
 		capture = dessinerMeteo(capture, this.frameActuelle);
