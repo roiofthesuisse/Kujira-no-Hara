@@ -254,7 +254,7 @@ public class LecteurMap extends Lecteur {
 	 * @return écran avec le décor supérieur peint
 	 */
 	private BufferedImage dessinerDecorSuperieur(BufferedImage ecran, final int xCamera, final int yCamera, final int vignetteAutotile) {
-		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheSurHeros(vignetteAutotile), -xCamera, -yCamera);
+		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheDecorSuperieur(vignetteAutotile), -xCamera, -yCamera);
 		return ecran;
 	}
 
@@ -267,7 +267,7 @@ public class LecteurMap extends Lecteur {
 	 * @return écran avec le décor inférieur peint
 	 */
 	private BufferedImage dessinerDecorInferieur(BufferedImage ecran, final int xCamera, final int yCamera, final int vignetteAutotile) {
-		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheSousHeros(vignetteAutotile), -xCamera, -yCamera);
+		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheDecorInferieur(vignetteAutotile), -xCamera, -yCamera);
 		return ecran;
 	}
 
@@ -424,9 +424,9 @@ public class LecteurMap extends Lecteur {
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
 					//dessiner la bandelette de décor médian
-					bandeletteEvent = event.y / Fenetre.TAILLE_D_UN_CARREAU;
+					bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Fenetre.TAILLE_D_UN_CARREAU;
 					if (bandeletteEvent > bandeletteActuelle) {
-						final BufferedImage imageBandelette = this.map.getImageCoucheAvecHeros(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
+						final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
 						ecran = Graphismes.superposerImages(ecran, imageBandelette,
 								-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
 						LOG.info("dessiner bandelette de "+bandeletteActuelle+" à "+bandeletteEvent);
@@ -442,7 +442,7 @@ public class LecteurMap extends Lecteur {
 			}
 			
 			//dernière bandelette
-			final BufferedImage imageBandelette = this.map.getImageCoucheAvecHeros(vignetteAutotile, bandeletteEvent, this.map.hauteur);
+			final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteEvent, this.map.hauteur);
 			ecran = Graphismes.superposerImages(ecran, imageBandelette,
 					-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
 			

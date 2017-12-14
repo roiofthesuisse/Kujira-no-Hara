@@ -1,7 +1,6 @@
 package map;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.RasterFormatException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -598,12 +597,12 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Obtenir le décor à afficher par dessus le Héros.
+	 * Obtenir le décor à afficher par dessus les Events.
 	 * Ce décor est composé du décor fixe et d'éventuels autotiles animés.
 	 * @param vignetteAutotileActuelle vignette de l'Autotile à afficher
 	 * @return décor supérieur, avec l'autotile dépendant de la frame
 	 */
-	public final BufferedImage getImageCoucheSurHeros(final int vignetteAutotileActuelle) {
+	public final BufferedImage getImageCoucheDecorSuperieur(final int vignetteAutotileActuelle) {
 		if (this.imagesCoucheSurHeros[1] != null) {
 			return this.imagesCoucheSurHeros[vignetteAutotileActuelle];
 		} else {
@@ -612,7 +611,7 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * Obtenir le décor à afficher au même niveau que le Héros.
+	 * Obtenir le décor à afficher au même niveau que les Events.
 	 * Ce décor est composé du décor fixe et d'éventuels autotiles animés.
 	 * Il doit être découpé en bandelettes pour s'intercaler avec les Events.
 	 * @param vignetteAutotileActuelle vignette de l'Autotile à afficher
@@ -620,7 +619,7 @@ public class Map implements Sauvegardable {
 	 * @param finBandelette à découper
 	 * @return bandelette de décor médian, avec l'autotile dépendant de la frame
 	 */
-	public final BufferedImage getImageCoucheAvecHeros(final int vignetteAutotileActuelle, final int debutBandelette, final int finBandelette) {
+	public final BufferedImage getImageCoucheDecorMedian(final int vignetteAutotileActuelle, final int debutBandelette, final int finBandelette) {
 		final BufferedImage vignette;
 		if (this.imagesCoucheAvecHeros[1] != null) {
 			vignette = this.imagesCoucheAvecHeros[vignetteAutotileActuelle];
@@ -632,12 +631,12 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Obtenir le décor à afficher en dessous du Héros.
+	 * Obtenir le décor à afficher en dessous des Events.
 	 * Ce décor est composé du décor fixe et d'éventuels autotiles animés.
 	 * @param vignetteAutotileActuelle frame actuelle du Lecteur
 	 * @return décor inférieur, avec l'autotile dépendant de la frame
 	 */
-	public final BufferedImage getImageCoucheSousHeros(final int vignetteAutotileActuelle) {
+	public final BufferedImage getImageCoucheDecorInferieur(final int vignetteAutotileActuelle) {
 		if (this.imagesCoucheSousHeros[1] != null) {
 			return this.imagesCoucheSousHeros[vignetteAutotileActuelle];
 		} else {
