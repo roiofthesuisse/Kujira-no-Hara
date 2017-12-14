@@ -298,11 +298,13 @@ public class Event implements Comparable<Event> {
 		final int thisEstDevant = 1;
 		if (this.auDessusDeToutActuel) {
 			if (e.auDessusDeToutActuel) {
+				final int thisY = this.y + this.hauteurHitbox;
+				final int eY = e.y + e.hauteurHitbox;
 				//les deux sont au dessus de tout, on applique la logique inversée
-				if (this.y > e.y) {
+				if (thisY > eY) {
 					return eEstDevant;
 				}
-				if (this.y < e.y) {
+				if (thisY < eY) {
 					return thisEstDevant;
 				}
 			} else {
@@ -319,11 +321,13 @@ public class Event implements Comparable<Event> {
 					return thisEstDevant;
 				}
 				
+				final int thisY = this.y + this.hauteurHitbox;
+				final int eY = e.y + e.hauteurHitbox;
 				//aucun n'est au dessus de tout, on applique la logique normale
-				if (this.y > e.y) {
+				if (thisY > eY) {
 					return thisEstDevant;
 				}
-				if (this.y < e.y) {
+				if (thisY < eY) {
 					return eEstDevant;
 				}
 			}
