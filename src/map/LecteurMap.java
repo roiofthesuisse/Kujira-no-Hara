@@ -156,7 +156,7 @@ public class LecteurMap extends Lecteur {
 		
 		//effet aquatique (lol)
 		if (this.map.ondulation != null) {
-			ecran = Ondulation.faireOndulerLEcran(ecran, frame);
+			ecran = this.map.ondulation.faireOndulerLEcran(ecran, frame);
 		}
 		
 		// Transition visuelle avec la Map précédente
