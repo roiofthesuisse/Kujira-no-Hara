@@ -7,7 +7,6 @@ import java.awt.image.RasterFormatException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 import commandes.Message;
 import commandes.OuvrirMenu;
@@ -47,9 +46,6 @@ public class LecteurMap extends Lecteur {
 	/** vignette actuelle pour l'animation des Autotiles animés de la Map */
 	private int vignetteAutotileActuelle = 0;
 	
-	/** permet de trier les events selon leur coordonnée y pour l'affichage */
-	public Comparator<Event> comparateur;
-	
 	/** si true, les évènements n'avancent plus naturellement (seuls mouvements forcés autorisés) */
 	public boolean stopEvent = false;
 	public Event eventQuiALanceStopEvent;
@@ -81,12 +77,7 @@ public class LecteurMap extends Lecteur {
 	public LecteurMap(final Fenetre fenetre, final Transition transition) {
 		this.fenetre = fenetre;
 		this.transition = transition;
-		this.comparateur = new Comparator<Event>() {
-	        public int compare(final Event e1, final Event e2) {
-	            return e1.compareTo(e2);
 	        }
-	    };
-	}
 	
 	/**
 	 * A chaque frame, calcule l'écran à afficher, avec le décor et les Events dessus.
@@ -418,11 +409,13 @@ public class LecteurMap extends Lecteur {
 	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera, final boolean dessinerLeHeros, 
 			final int vignetteAutotile) {
 		try {
-			Collections.sort(this.map.events, this.comparateur); //on trie les events du plus derrière au plus devant
+			LOG.info("-----------------");
+			Collections.sort(this.map.events); //on trie les events du plus derrière au plus devant
 			int bandeletteActuelle = 0;
 			int bandeletteEvent = 0;
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
+					if (!event.auDessusDeToutActuel && !event.platActuel) {
 					//dessiner la bandelette de décor médian
 					bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Fenetre.TAILLE_D_UN_CARREAU;
 					if (bandeletteEvent > bandeletteActuelle) {
@@ -432,11 +425,12 @@ public class LecteurMap extends Lecteur {
 						LOG.info("dessiner bandelette de "+bandeletteActuelle+" à "+bandeletteEvent);
 						bandeletteActuelle = bandeletteEvent;
 					}
+					}
 					
 					//dessiner l'Event
 					if (dessinerLeHeros || !event.equals(map.heros)) {
 						ecran = dessinerEvent(ecran, event, xCamera, yCamera);
-						LOG.info("dessiner "+event.nom+" en y = "+bandeletteEvent);
+						LOG.info("dessiner "+event.nom+"("+(event.auDessusDeToutActuel?"+":"-")+") en y = "+bandeletteEvent);
 					}
 				}
 			}
@@ -925,12 +919,12 @@ public class LecteurMap extends Lecteur {
 
 	@Override
 	public final void lireMusique() {
-		final Map map = ((LecteurMap) this).map;
+		final Map map = this.map;
 		if (map.volumeBGM == null) {
-			LOG.warn("volumeBGM");
+			LOG.warn("volumeBGM est null");
 		}
 		if (map.volumeBGS == null) {
-			LOG.warn("volumeBGS");
+			LOG.warn("volumeBGS est null");
 		}
 		if (map.nomBGM != null && !map.nomBGM.isEmpty()) {
 			LecteurAudio.playBgm(map.nomBGM, map.volumeBGM, 0);
