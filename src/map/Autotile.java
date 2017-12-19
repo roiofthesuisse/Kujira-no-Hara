@@ -1,10 +1,13 @@
 package map;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.imageio.IIOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -152,7 +155,16 @@ public class Autotile {
 		this.numero = numero;
 		
 		this.nomImage = nomImage;
-		this.image = Graphismes.ouvrirImage("Autotile", this.nomImage);
+		try {
+			this.image = Graphismes.ouvrirImage("Autotile", this.nomImage);
+		} catch(IIOException ioe) {
+			// image manquante, on crée une fausse image
+			LOG.error("Impossible de charger l'image de l'autotile "+this.nomImage, ioe);
+			this.image = new BufferedImage(LARGEUR_AUTOTILE_FIXE, HAUTEUR_AUTOTILE, Graphismes.TYPE_DES_IMAGES);
+			Graphics2D g2d = (Graphics2D) this.image.getGraphics();
+			g2d.setPaint(Color.GRAY);
+			g2d.fillRect(0, 0, LARGEUR_AUTOTILE_FIXE, HAUTEUR_AUTOTILE);
+		}
 		final int largeurAutotile = this.image.getWidth();
 		if (largeurAutotile == LARGEUR_AUTOTILE_FIXE) {
 			this.anime = false;
