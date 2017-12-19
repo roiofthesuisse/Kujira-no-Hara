@@ -918,12 +918,12 @@ public class LecteurMap extends Lecteur {
 
 	@Override
 	public final void lireMusique() {
-		final Map map = ((LecteurMap) this).map;
+		final Map map = this.map;
 		if (map.volumeBGM == null) {
-			LOG.warn("volumeBGM");
+			LOG.warn("volumeBGM est null");
 		}
 		if (map.volumeBGS == null) {
-			LOG.warn("volumeBGS");
+			LOG.warn("volumeBGS est null");
 		}
 		if (map.nomBGM != null && !map.nomBGM.isEmpty()) {
 			LecteurAudio.playBgm(map.nomBGM, map.volumeBGM, 0);
