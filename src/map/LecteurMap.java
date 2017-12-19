@@ -77,7 +77,7 @@ public class LecteurMap extends Lecteur {
 	public LecteurMap(final Fenetre fenetre, final Transition transition) {
 		this.fenetre = fenetre;
 		this.transition = transition;
-	        }
+	}
 	
 	/**
 	 * A chaque frame, calcule l'écran à afficher, avec le décor et les Events dessus.
@@ -416,15 +416,15 @@ public class LecteurMap extends Lecteur {
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
 					if (!event.auDessusDeToutActuel && !event.platActuel) {
-					//dessiner la bandelette de décor médian
-					bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Fenetre.TAILLE_D_UN_CARREAU;
-					if (bandeletteEvent > bandeletteActuelle) {
-						final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
-						ecran = Graphismes.superposerImages(ecran, imageBandelette,
-								-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
-						LOG.info("dessiner bandelette de "+bandeletteActuelle+" à "+bandeletteEvent);
-						bandeletteActuelle = bandeletteEvent;
-					}
+						//dessiner la bandelette de décor médian
+						bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Fenetre.TAILLE_D_UN_CARREAU;
+						if (bandeletteEvent > bandeletteActuelle) {
+							final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
+							ecran = Graphismes.superposerImages(ecran, imageBandelette,
+									-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
+							LOG.info("dessiner bandelette de "+bandeletteActuelle+" à "+bandeletteEvent);
+							bandeletteActuelle = bandeletteEvent;
+						}
 					}
 					
 					//dessiner l'Event

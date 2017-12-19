@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javafx.scene.media.MediaException;
+
 /**
  * Classe utilitaire chargée de lire les fichiers audio du jeu.
  */
@@ -112,7 +114,12 @@ public abstract class LecteurAudio {
 			} else if (nom.endsWith(".wav")) {
 				musique = new MusiqueWav(nom, Musique.TypeMusique.BGM, volume);
 			} else if (nom.endsWith(".mp3")) {
-				musique = new MusiqueMp3(nom, Musique.TypeMusique.BGM, volume);
+				try {
+					musique = new MusiqueMp3(nom, Musique.TypeMusique.BGM, volume);
+				} catch (javafx.scene.media.MediaException e) {
+					LOG.error("Impossible de trouver le BGM \""+nom+"\" de la map", e);
+					return;
+				}
 			} else {
 				//c'est sûrement encore un connard qui a oublié l'extension du fichier audio dans le JSON
 				final File dossierAudio = new File(Musique.DOSSIER_AUDIO + Musique.TypeMusique.BGM.nom + "/");
@@ -147,7 +154,6 @@ public abstract class LecteurAudio {
 			// On met à jour les données
 			LecteurAudio.bgmEnCours[piste] = musique;
 		}
-		
 	}
 	
 	/**

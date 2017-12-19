@@ -1,9 +1,12 @@
 package map;
 
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
+
+import javax.imageio.IIOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.awt.Color;
 import main.Fenetre;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
@@ -29,7 +33,7 @@ public class Tileset {
 	/** nom de l'image du Tileset */
 	private final String nomImage;
 	/** image complète du Tileset */
-	private final BufferedImage image;
+	private BufferedImage image;
 	/** Peut-on marcher sur cette case ? Ou bien est-ce un obstacle ? */
 	private final boolean[] passabilite;
 	/** Altitude d'affichage du carreau (0:sol, 2:héros) */
@@ -62,11 +66,44 @@ public class Tileset {
 
 		final JSONObject jsonTileset = InterpreteurDeJson.ouvrirJsonTileset(nomTileset);
 		
+		//lecture des passabilités
+		final JSONArray jsonPassabilite = jsonTileset.getJSONArray("passabilite");
+		final int nombreDeLignesTileset = jsonPassabilite.length();
+		final int nombreDeCarreauxTileset = nombreDeLignesTileset * LARGEUR_TILESET;
+		this.passabilite = new boolean[nombreDeCarreauxTileset];
+		try {
+			for (int i = 0; i<nombreDeCarreauxTileset; i++ ) {
+				this.passabilite[i] = ((Integer) jsonPassabilite.get(i)) == 0;
+			}
+		} catch (JSONException e) {
+			LOG.error("Taille incorrecte pour le tableau des passabilités du Tileset JSON : "+this.nom, e);
+		}
+		
 		//image du tileset
 		this.nomImage = jsonTileset.getString("nomImage");
-		this.image = Graphismes.ouvrirImage("Tilesets", this.nomImage);
-		final int nombreDeLignesTileset = (image.getHeight()/Fenetre.TAILLE_D_UN_CARREAU);
-		final int nombreDeCarreauxTileset = nombreDeLignesTileset * LARGEUR_TILESET;
+		try {
+			this.image = Graphismes.ouvrirImage("Tilesets", this.nomImage);
+		} catch (IIOException ioe) {
+			// image manquante, on crée une fausse image
+			LOG.warn("Impossible de charger l'image du tileset "+this.nomImage, ioe);
+			final int largeurImageTileset = LARGEUR_TILESET * Fenetre.TAILLE_D_UN_CARREAU;
+			final int hauteurImageTileset = nombreDeLignesTileset * Fenetre.TAILLE_D_UN_CARREAU;
+			this.image = new BufferedImage(largeurImageTileset, hauteurImageTileset, Graphismes.TYPE_DES_IMAGES);
+			Graphics2D g2d = (Graphics2D) this.image.getGraphics();
+			g2d.setPaint(Color.LIGHT_GRAY); //passages
+			g2d.fillRect(0, 0, largeurImageTileset, hauteurImageTileset);
+			g2d.setPaint(Color.DARK_GRAY); //obstacles
+			for (int i = 0; i<LARGEUR_TILESET; i++) {
+				for (int j = 0; j<nombreDeLignesTileset; j++) {
+					if (this.passabilite[i+j*8]) {
+						g2d.fillRect(i*Fenetre.TAILLE_D_UN_CARREAU, j*Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
+					}
+				}
+			}
+		}
+		if (this.image.getHeight() != nombreDeLignesTileset*Fenetre.TAILLE_D_UN_CARREAU) {
+			LOG.warn("Incompatibilité entre le tableau des passabilités du tileset JSON et l'image du tileset : "+this.nom);
+		}
 		
 		//découpage des carreaux
 		this.carreaux = new BufferedImage[nombreDeCarreauxTileset];
@@ -76,16 +113,7 @@ public class Tileset {
 			}
 		}
 		
-		//lecture des passabilités
-		this.passabilite = new boolean[nombreDeCarreauxTileset];
-		final JSONArray jsonPassabilite = jsonTileset.getJSONArray("passabilite");
-		try {
-			for (int i = 0; i<nombreDeCarreauxTileset; i++ ) {
-				this.passabilite[i] = ((Integer) jsonPassabilite.get(i)) == 0;
-			}
-		} catch (JSONException e) {
-			LOG.error("Incompatibilité entre le tableau des passabilités du Tileset JSON et de l'image du Tileset : "+this.nom, e);
-		}
+		
 		
 		//lecture des altitudes
 		this.altitude = new int[nombreDeCarreauxTileset];
