@@ -68,15 +68,11 @@ public class Tileset {
 		
 		//lecture des passabilités
 		final JSONArray jsonPassabilite = jsonTileset.getJSONArray("passabilite");
-		final int nombreDeLignesTileset = jsonPassabilite.length();
-		final int nombreDeCarreauxTileset = nombreDeLignesTileset * LARGEUR_TILESET;
+		final int nombreDeCarreauxTileset = jsonPassabilite.length();
+		final int nombreDeLignesTileset = nombreDeCarreauxTileset / LARGEUR_TILESET;
 		this.passabilite = new boolean[nombreDeCarreauxTileset];
-		try {
-			for (int i = 0; i<nombreDeCarreauxTileset; i++ ) {
-				this.passabilite[i] = ((Integer) jsonPassabilite.get(i)) == 0;
-			}
-		} catch (JSONException e) {
-			LOG.error("Taille incorrecte pour le tableau des passabilités du Tileset JSON : "+this.nom, e);
+		for (int i = 0; i<nombreDeCarreauxTileset; i++) {
+			this.passabilite[i] = ((Integer) jsonPassabilite.get(i)) == 0;
 		}
 		
 		//image du tileset
@@ -89,20 +85,17 @@ public class Tileset {
 			final int largeurImageTileset = LARGEUR_TILESET * Fenetre.TAILLE_D_UN_CARREAU;
 			final int hauteurImageTileset = nombreDeLignesTileset * Fenetre.TAILLE_D_UN_CARREAU;
 			this.image = new BufferedImage(largeurImageTileset, hauteurImageTileset, Graphismes.TYPE_DES_IMAGES);
-			Graphics2D g2d = (Graphics2D) this.image.getGraphics();
+			final Graphics2D g2d = (Graphics2D) this.image.getGraphics();
 			g2d.setPaint(Color.LIGHT_GRAY); //passages
 			g2d.fillRect(0, 0, largeurImageTileset, hauteurImageTileset);
 			g2d.setPaint(Color.DARK_GRAY); //obstacles
 			for (int i = 0; i<LARGEUR_TILESET; i++) {
 				for (int j = 0; j<nombreDeLignesTileset; j++) {
-					if (this.passabilite[i+j*8]) {
+					if (this.passabilite[i+j*LARGEUR_TILESET]) {
 						g2d.fillRect(i*Fenetre.TAILLE_D_UN_CARREAU, j*Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
 					}
 				}
 			}
-		}
-		if (this.image.getHeight() != nombreDeLignesTileset*Fenetre.TAILLE_D_UN_CARREAU) {
-			LOG.warn("Incompatibilité entre le tableau des passabilités du tileset JSON et l'image du tileset : "+this.nom);
 		}
 		
 		//découpage des carreaux
@@ -112,8 +105,6 @@ public class Tileset {
 				carreaux[LARGEUR_TILESET*j + i] = this.image.getSubimage(i*Fenetre.TAILLE_D_UN_CARREAU, j*Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
 			}
 		}
-		
-		
 		
 		//lecture des altitudes
 		this.altitude = new int[nombreDeCarreauxTileset];

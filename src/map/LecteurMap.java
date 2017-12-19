@@ -409,7 +409,6 @@ public class LecteurMap extends Lecteur {
 	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera, final boolean dessinerLeHeros, 
 			final int vignetteAutotile) {
 		try {
-			LOG.info("-----------------");
 			Collections.sort(this.map.events); //on trie les events du plus derrière au plus devant
 			int bandeletteActuelle = 0;
 			int bandeletteEvent = 0;
@@ -422,7 +421,6 @@ public class LecteurMap extends Lecteur {
 							final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
 							ecran = Graphismes.superposerImages(ecran, imageBandelette,
 									-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
-							LOG.info("dessiner bandelette de "+bandeletteActuelle+" à "+bandeletteEvent);
 							bandeletteActuelle = bandeletteEvent;
 						}
 					}
@@ -430,7 +428,6 @@ public class LecteurMap extends Lecteur {
 					//dessiner l'Event
 					if (dessinerLeHeros || !event.equals(map.heros)) {
 						ecran = dessinerEvent(ecran, event, xCamera, yCamera);
-						LOG.info("dessiner "+event.nom+"("+(event.auDessusDeToutActuel?"+":"-")+") en y = "+bandeletteEvent);
 					}
 				}
 			}
