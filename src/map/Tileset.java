@@ -35,7 +35,7 @@ public class Tileset {
 	/** image complète du Tileset */
 	private BufferedImage image;
 	/** Peut-on marcher sur cette case ? Ou bien est-ce un obstacle ? */
-	private final boolean[] passabilite;
+	private final Passabilite[] passabilite;
 	/** Altitude d'affichage du carreau (0:sol, 2:héros) */
 	private final int[] altitude; 
 	/** Terrain du carreau */
@@ -70,9 +70,9 @@ public class Tileset {
 		final JSONArray jsonPassabilite = jsonTileset.getJSONArray("passabilite");
 		final int nombreDeCarreauxTileset = jsonPassabilite.length();
 		final int nombreDeLignesTileset = nombreDeCarreauxTileset / LARGEUR_TILESET;
-		this.passabilite = new boolean[nombreDeCarreauxTileset];
+		this.passabilite = new Passabilite[nombreDeCarreauxTileset];
 		for (int i = 0; i<nombreDeCarreauxTileset; i++) {
-			this.passabilite[i] = ((Integer) jsonPassabilite.get(i)) == 0;
+			this.passabilite[i] = Passabilite.parCode((int) jsonPassabilite.get(i));
 		}
 		
 		//image du tileset
@@ -91,7 +91,7 @@ public class Tileset {
 			g2d.setPaint(Color.DARK_GRAY); //obstacles
 			for (int i = 0; i<LARGEUR_TILESET; i++) {
 				for (int j = 0; j<nombreDeLignesTileset; j++) {
-					if (this.passabilite[i+j*LARGEUR_TILESET]) {
+					if (this.passabilite[i+j*LARGEUR_TILESET] != Passabilite.OBSTACLE) {
 						g2d.fillRect(i*Fenetre.TAILLE_D_UN_CARREAU, j*Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
 					}
 				}
@@ -164,7 +164,7 @@ public class Tileset {
 	 */
 	public final boolean laCaseEstUnObstacle(final int numeroDeLaCaseDansLeTileset) {
 		if (numeroDeLaCaseDansLeTileset >= 0) { //case normale
-			return !this.passabilite[numeroDeLaCaseDansLeTileset]; 
+			return (this.passabilite[numeroDeLaCaseDansLeTileset] == Passabilite.OBSTACLE); 
 		} else if (numeroDeLaCaseDansLeTileset < -1) { //autotile
 			return !this.autotiles.get((Integer) numeroDeLaCaseDansLeTileset).passabilite;
 		} else { //case vide
