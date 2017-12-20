@@ -30,7 +30,11 @@ public enum Passabilite {
 	
 	final int code;
 	
-	private Passabilite(int code) {
+	/**
+	 * Constructeur explicite
+	 * @param code représentant cette passabilité
+	 */
+	Passabilite(final int code) {
 		this.code = code;
 	}
 	
@@ -40,6 +44,9 @@ public enum Passabilite {
 	 * @return passabilité dont c'est le code
 	 */
 	public static Passabilite parCode(int code) {
+		if (code > OBSTACLE.code) {
+			code -= 128;
+		}
 		for (Passabilite p : Passabilite.values()) {
 			if (p.code == code) {
 				return p;
