@@ -238,15 +238,12 @@ public class PageEvent {
 		}
 		//lecture des Commandes event
 		if (commandes!=null) {
-			try {
-				if (curseurCommandes >= commandes.size()) {
-					curseurCommandes = 0;
-					if (figerLesAutresEvents) {
-						this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
-					}
-				}
-				boolean onAvanceDansLesCommandes = true;
-				while (onAvanceDansLesCommandes) {
+			boolean onAvanceDansLesCommandes = true;
+			//on n'enchaine durant la même frame que les commandes instantanées
+			//si une commande longue est rencontrée, on reporte la lecture de la Page à la frame suivante
+			while (onAvanceDansLesCommandes) {
+				if (curseurCommandes < commandes.size()) {
+					//il y a encore des commandes dans la liste
 					final int ancienCurseur = curseurCommandes;
 					final Commande commande = this.commandes.get(curseurCommandes);
 					commande.page = this; //on apprend à la Commande depuis quelle Page elle est appelée
@@ -265,23 +262,29 @@ public class PageEvent {
 					}
 					if (curseurCommandes == ancienCurseur) {
 						//le curseur n'a pas changé, c'est donc une commande qui prend du temps
+						//la lecture de cette Page sera continuée à la frame suivante
 						onAvanceDansLesCommandes = false;
 					}
+				} else {
+					//on a fini la page
+					refermerLaPage();
 				}
-			} catch (IndexOutOfBoundsException e2) {
-				//on a fini la page
-				/*LOG.debug(
-						(this.event != null ? "Event " + this.event.id + ", " : "")
-						+ "page " + this.numero
-						+ " terminée."
-				);*/
-				curseurCommandes = 0;
-				if (figerLesAutresEvents) {
-					this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
-				}
-				this.event.pageActive = null;
 			}
 		}
+	}
+	
+	/**
+	 * Désactiver la Page.
+	 * Remettre le curseur des commandes à zéro.
+	 * Libérer les autres Events s'ils ont été figés par cette Page.
+	 */
+	private void refermerLaPage() {
+		curseurCommandes = 0;
+		if (figerLesAutresEvents) {
+			this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
+			this.event.map.lecteur.messagePrecedent = null; //plus besoin d'afficher le Message précédent dans un Choix
+		}
+		this.event.pageActive = null;
 	}
 	
 }
