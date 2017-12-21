@@ -96,23 +96,15 @@ public class Message extends Commande implements CommandeEvent {
 		lecteur.normaliserApparenceDesInterlocuteursAvantMessage(this.page.event);
 		//si le Message à afficher est différent du Message affiché, on change !
 		if (ilFautReactualiserLImageDuMessage(lecteur)) {
+			lecteur.messagePrecedent = lecteur.messageActuel;
 			lecteur.messageActuel = this;
-			//si c'est un Choix, récupérer le dernier Texte comportant la question
-			if (this instanceof Choix) {
-				for (int c = curseurActuel-1; c>0; c--) {
-					final Commande commande = commandes.get(c);
-					if (commande instanceof Message) {
-						((Choix) this).messagePrecedent = ((Message) commande);
-						break;
-					}
-				}
-			}
 			this.image = produireImageDuMessage();
 		}
 		
 		//fermer le message
 		if (this.touchePresseePourQuitterLeMessage) {
 			//on ferme le message
+			lecteur.messagePrecedent = this;
 			lecteur.messageActuel = null;
 			this.touchePresseePourQuitterLeMessage = false;
 			this.premiereFrameDAffichageDuMessage = true;

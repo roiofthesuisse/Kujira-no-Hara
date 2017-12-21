@@ -52,6 +52,7 @@ public class LecteurMap extends Lecteur {
 	
 	/** Message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
+	public Message messagePrecedent = null;
 	
 	/** Autoriser ou interdire l'accès au Menu depuis la Map ? */
 	public boolean autoriserMenu = true;
