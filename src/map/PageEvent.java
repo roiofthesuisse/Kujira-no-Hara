@@ -241,6 +241,7 @@ public class PageEvent {
 			boolean onAvanceDansLesCommandes = true;
 			//on n'enchaine durant la même frame que les commandes instantanées
 			//si une commande longue est rencontrée, on reporte la lecture de la Page à la frame suivante
+			parcoursDesCommandes:
 			while (onAvanceDansLesCommandes) {
 				if (curseurCommandes < commandes.size()) {
 					//il y a encore des commandes dans la liste
@@ -268,6 +269,7 @@ public class PageEvent {
 				} else {
 					//on a fini la page
 					refermerLaPage();
+					break parcoursDesCommandes;
 				}
 			}
 		}
