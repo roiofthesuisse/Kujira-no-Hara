@@ -83,7 +83,7 @@ public class Map implements Sauvegardable {
 	/** Direction dans laquelle regarde le Héros à l'initialisation de la Map */
 	public int directionDebutHeros;
 	/** La case x;y est-elle passable ? */
-	public boolean[][] casePassable;
+	public Passabilite[][] casePassable;
 	/** Pour faire défiler la caméra ailleurs que centrée sur le Héros */
 	public final boolean defilementCameraX, defilementCameraY;
 	/** Effet d'ondulation sur la Map */
@@ -524,12 +524,12 @@ public class Map implements Sauvegardable {
 	 * Création d'un tableau pour connaitre les passabilités de la Map plus rapidement par la suite.
 	 */
 	private void creerListeDesCasesPassables() {
-		this.casePassable = new boolean[this.largeur][this.hauteur];
+		this.casePassable = new Passabilite[this.largeur][this.hauteur];
 		int[][] couche;
 		int numeroDeLaCaseDansLeTileset = -1;
 		for (int i = 0; i<this.largeur; i++) {
 			for (int j = 0; j<this.hauteur; j++) {
-				this.casePassable[i][j] = true;
+				this.casePassable[i][j] = Passabilite.PASSABLE;
 				
 				int altitudeDeCetteCouche = -1;
 				final boolean[] obstacleALAltitude = new boolean[NOMBRE_ALTITUDES];
@@ -539,15 +539,15 @@ public class Map implements Sauvegardable {
 					numeroDeLaCaseDansLeTileset = couche[i][j];
 
 					if (numeroDeLaCaseDansLeTileset != -1) {
-					altitudeDeCetteCouche = this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset);
-					// Y a-t-il un obstacle à cette altitude ?
-					obstacleALAltitude[altitudeDeCetteCouche] = this.tileset.laCaseEstUnObstacle(numeroDeLaCaseDansLeTileset);
+						altitudeDeCetteCouche = this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset);
+						// Y a-t-il un obstacle à cette altitude ?
+						obstacleALAltitude[altitudeDeCetteCouche] = (this.tileset.passabiliteDeLaCase(numeroDeLaCaseDansLeTileset) == Passabilite.OBSTACLE);
 					}
 				}
 				// Si au moins une des altitudes est bloquante (dernière affectation), la case est bloquante
 				for (int a = 0; a<NOMBRE_ALTITUDES; a++) {	
 					if (obstacleALAltitude[a]) {
-						this.casePassable[i][j] = false;
+						this.casePassable[i][j] = Passabilite.OBSTACLE;
 					}
 				}
 			}
@@ -660,16 +660,16 @@ public class Map implements Sauvegardable {
 		
 		try {
 			//aucun des 4 coins de l'Event ne doivent être sur une case non passable
-			if (!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU]) {
+			if (this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU] == Passabilite.OBSTACLE) {
 				return false;
 			}
-			if (!this.casePassable[(xmax-1)/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU]) {
+			if (this.casePassable[(xmax-1)/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU] == Passabilite.OBSTACLE) {
 				return false;
 			}
-			if (!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][(ymax-1)/Fenetre.TAILLE_D_UN_CARREAU]) {
+			if (this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][(ymax-1)/Fenetre.TAILLE_D_UN_CARREAU] == Passabilite.OBSTACLE) {
 				return false;
 			}
-			if (!this.casePassable[(xmax-1)/Fenetre.TAILLE_D_UN_CARREAU][(ymax-1)/Fenetre.TAILLE_D_UN_CARREAU]) {
+			if (this.casePassable[(xmax-1)/Fenetre.TAILLE_D_UN_CARREAU][(ymax-1)/Fenetre.TAILLE_D_UN_CARREAU] == Passabilite.OBSTACLE) {
 				return false;
 			}
 		} catch (Exception e) {

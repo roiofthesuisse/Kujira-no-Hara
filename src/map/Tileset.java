@@ -158,17 +158,17 @@ public class Tileset {
 	}
 	
 	/**
-	 * La case de décor est-elle un obstacle ?
+	 * La case de décor est-elle traversable ?
 	 * @param numeroDeLaCaseDansLeTileset numérotation du Tileset
 	 * @return true si obstacle, false si passable
 	 */
-	public final boolean laCaseEstUnObstacle(final int numeroDeLaCaseDansLeTileset) {
+	public final Passabilite passabiliteDeLaCase(final int numeroDeLaCaseDansLeTileset) {
 		if (numeroDeLaCaseDansLeTileset >= 0) { //case normale
-			return (this.passabilite[numeroDeLaCaseDansLeTileset] == Passabilite.OBSTACLE); 
+			return this.passabilite[numeroDeLaCaseDansLeTileset]; 
 		} else if (numeroDeLaCaseDansLeTileset < -1) { //autotile
-			return !this.autotiles.get((Integer) numeroDeLaCaseDansLeTileset).passabilite;
+			return this.autotiles.get((Integer) numeroDeLaCaseDansLeTileset).passabilite ? Passabilite.PASSABLE : Passabilite.OBSTACLE;
 		} else { //case vide
-			return false;
+			return Passabilite.PASSABLE;
 		}
 	}
 	

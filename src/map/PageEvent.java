@@ -161,7 +161,7 @@ public class PageEvent {
 			} else {
 				if (tileDeLApparence != null) {
 					//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
-					this.traversable = !this.event.map.tileset.laCaseEstUnObstacle(tileDeLApparence);
+					this.traversable = (this.event.map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE);
 				} else if (this.image == null) {
 					this.traversable = Event.TRAVERSABLE_SI_VIDE;
 				} else {
@@ -171,7 +171,7 @@ public class PageEvent {
 		} else {
 			if (tileDeLApparence != null) {
 				//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
-				this.traversable = !this.event.map.tileset.laCaseEstUnObstacle(tileDeLApparence);
+				this.traversable = (this.event.map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE);
 			} else if (this.image == null) {
 				this.traversable = Event.TRAVERSABLE_SI_VIDE;
 			} else {
