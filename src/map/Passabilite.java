@@ -27,7 +27,7 @@ public enum Passabilite {
 	OBSTACLE(15);
 	
 	private static final Logger LOG = LogManager.getLogger(Passabilite.class);
-	
+	private static final Passabilite[] BASE = {GAUCHE_DROITE_HAUT, BAS_DROITE_HAUT, BAS_GAUCHE_HAUT, BAS_GAUCHE_DROITE};
 	final int code;
 	
 	/**
@@ -55,4 +55,30 @@ public enum Passabilite {
 		LOG.error("Code de passabilité inconnu : "+code);
 		return PASSABLE;
 	}
+
+	/**
+	 * Ajoute les obstacles de deux Passabilités.
+	 * @param p1 première passabilité
+	 * @param p2 seconbde passabilité
+	 * @return passabilité constituée des obstacles des deux
+	 */
+	public static Passabilite ajouter(Passabilite p1, Passabilite p2) {
+		if (p1 == null) {
+			return p2;
+		}
+		if (p2 == null) {
+			return p1;
+		}
+		
+		int codeResultat = 0;
+		for (Passabilite dir : BASE) {
+			if (p1.code%(2*dir.code) >= dir.code 
+			 || p2.code%(2*dir.code) >= dir.code)
+			{
+				codeResultat += dir.code;
+			}
+		}
+		return parCode(codeResultat);
+	}
+	
 }

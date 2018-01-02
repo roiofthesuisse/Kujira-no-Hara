@@ -276,100 +276,6 @@ public class Map implements Sauvegardable {
 				}
 			}
 	}
-
-	/**
-	 * L'affichage est un sandwich : une partie du décor est en fond, et les Events sont affichés par dessus.
-	 * On affiche en premier le décor arrière.
-	 */
-	private void creerImageDuDecorEnDessousDuHeros() {
-		/*
-		final long t0 = System.nanoTime();
-		
-		final int largeurPixel = this.largeur*Fenetre.TAILLE_D_UN_CARREAU;
-		final int hauteurPixel = this.hauteur*Fenetre.TAILLE_D_UN_CARREAU;
-		
-		this.imagesCoucheSousHeros[0] = Graphismes.imageVide(largeurPixel, hauteurPixel);
-		
-		int numeroCarreau;
-		int altitudeCarreau;
-		int nombreDeVignettes = 1;
-		for (int i = 0; i<largeur; i++) {
-			for (int j = 0; j<hauteur; j++) {
-				for (int altitudeActuelle = 0; altitudeActuelle<ALTITUDE_MEDIANE; altitudeActuelle++) {
-					for (int k = 0; k<NOMBRE_LAYERS; k++) {
-						final int[][] layer = layers[k];
-						numeroCarreau = layer[i][j];
-						if (numeroCarreau == -1) {
-							//case vide, on ne dessine rien
-						} else {
-							altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
-							if (altitudeCarreau == altitudeActuelle) {
-								if (numeroCarreau >= 0) {
-									//case normale
-									for (int v = 0; v<nombreDeVignettes; v++) {
-										dessinerCarreau(this.imagesCoucheSousHeros[v], i, j, numeroCarreau, tileset);
-									}
-								} else if (numeroCarreau < -1) { 
-									//autotile
-									nombreDeVignettes = dessinerAutotile(this.imagesCoucheSousHeros, i, j, numeroCarreau, tileset, layer);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		final long t1 = System.nanoTime();
-		Fenetre.getFenetre().mesuresDePerformance.add(new Long(t1 - t0).toString());
-		*/
-	}
-
-	/**
-	 * L'affichage est un sandwich : une partie du décor est affichée par dessus les Events.
-	 * On affiche en dernier le décor supérieur.
-	 */
-	private void creerImageDuDecorAuDessusDuHeros() {
-		/*
-		final long t0 = System.nanoTime();
-		
-		final int largeurPixel = this.largeur*Fenetre.TAILLE_D_UN_CARREAU;
-		final int hauteurPixel = this.hauteur*Fenetre.TAILLE_D_UN_CARREAU;
-		
-		this.imagesCoucheSurHeros[0] = Graphismes.imageVide(largeurPixel, hauteurPixel);
-		
-		int numeroCarreau;
-		int altitudeCarreau;
-		int nombreDeVignettes = 1;
-		for (int i = 0; i<largeur; i++) {
-			for (int j = 0; j<hauteur; j++) {
-				for (int altitudeActuelle = ALTITUDE_MEDIANE; altitudeActuelle<NOMBRE_ALTITUDES; altitudeActuelle++) {
-					for (int k = 0; k<NOMBRE_LAYERS; k++) {
-						final int[][] layer = layers[k];
-						numeroCarreau = layer[i][j];
-						if (numeroCarreau != -1) {
-							//case non-vide, il y a quelque chose à dessiner
-							altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
-							if (altitudeCarreau == altitudeActuelle) {
-								if (numeroCarreau >= 0) {
-									//case normale
-									for (int v = 0; v<nombreDeVignettes; v++) {
-										dessinerCarreau(this.imagesCoucheSurHeros[v], i, j, numeroCarreau, tileset);
-									}
-								} else if (numeroCarreau < -1) { 
-									//autotile
-									nombreDeVignettes = dessinerAutotile(this.imagesCoucheSurHeros, i, j, numeroCarreau, tileset, layer);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		final long t1 = System.nanoTime();
-		Fenetre.getFenetre().mesuresDePerformance.add(new Long(t1 - t0).toString());
-		*/
-	}
 	
 	/**
 	 * L'affichage est un sandwich : une partie du décor est affichée par dessus les Events, une autre dessous, et une autre au même niveau.
@@ -531,25 +437,30 @@ public class Map implements Sauvegardable {
 			for (int j = 0; j<this.hauteur; j++) {
 				this.casePassable[i][j] = Passabilite.PASSABLE;
 				
-				int altitudeDeCetteCouche = -1;
-				final boolean[] obstacleALAltitude = new boolean[NOMBRE_ALTITUDES];
-				// Pour chaque altitude, la couche la plus haute (hors -1) donne la passabilité
+				int altitudeDeCetteCouche;
+				final Passabilite[] passabiliteALAltitude = new Passabilite[NOMBRE_ALTITUDES]; //initialisées à null
+				
+				// A chaque altitude, on additionne les passabilités des éléments de décor
 				for (int k = 0; k<NOMBRE_LAYERS; k++) {
 					couche = layers[k]; //couche de décor
 					numeroDeLaCaseDansLeTileset = couche[i][j];
 
 					if (numeroDeLaCaseDansLeTileset != -1) {
 						altitudeDeCetteCouche = this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset);
-						// Y a-t-il un obstacle à cette altitude ?
-						obstacleALAltitude[altitudeDeCetteCouche] = (this.tileset.passabiliteDeLaCase(numeroDeLaCaseDansLeTileset) == Passabilite.OBSTACLE);
+						// On ajoute les obstacles de cette couche
+						passabiliteALAltitude[altitudeDeCetteCouche] = Passabilite.ajouter(this.tileset.passabiliteDeLaCase(numeroDeLaCaseDansLeTileset), passabiliteALAltitude[altitudeDeCetteCouche]);
 					}
 				}
-				// Si au moins une des altitudes est bloquante (dernière affectation), la case est bloquante
-				for (int a = 0; a<NOMBRE_ALTITUDES; a++) {	
-					if (obstacleALAltitude[a]) {
-						this.casePassable[i][j] = Passabilite.OBSTACLE;
+				
+				// La passabilité choisie est celle de la plus haute altitude
+				onATrouveLaPassabiliteDeLaCase:
+				for (int a = NOMBRE_ALTITUDES-1; a >= 0; a--) {
+					if (passabiliteALAltitude[a] != null) {
+						this.casePassable[i][j] = passabiliteALAltitude[a];
+						break onATrouveLaPassabiliteDeLaCase;
 					}
 				}
+				
 			}
 		}
 	}
