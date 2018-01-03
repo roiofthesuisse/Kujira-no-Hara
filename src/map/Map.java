@@ -593,39 +593,39 @@ public class Map implements Sauvegardable {
 			final boolean chevauchementEnHaut = (ycentre/Fenetre.TAILLE_D_UN_CARREAU != ymin/Fenetre.TAILLE_D_UN_CARREAU);
 			final boolean chevauchementEnBas = (ycentre/Fenetre.TAILLE_D_UN_CARREAU != (ymax-1)/Fenetre.TAILLE_D_UN_CARREAU);
 			if (chevauchementAGauche 
-					&& (!this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche 
+					&& (/*!this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche 
 					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableADroite
-					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche 
+					||*/ !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche 
 					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableADroite
-					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche 
-					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableADroite)) {
+					/*|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche 
+					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableADroite*/)) {
 				return false;
 			}
 			if (chevauchementADroite 
-					&& (!this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableADroite 
+					&& (/*!this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableADroite 
 					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche
-					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableADroite 
+					||*/ !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableADroite 
 					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche
-					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableADroite 
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche)) {
+					/*|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableADroite 
+					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche*/)) {
 				return false;
 			}
 			if (chevauchementEnHaut
-					&& (!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut 
+					&& (/*!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut 
 					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas
-					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut 
+					||*/ !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut 
 					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut 
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas)) {
+					/*|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut 
+					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas*/)) {
 				return false;
 			}
 			if (chevauchementEnBas 
-					&& (!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas 
+					&& (/*!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas 
 					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut
-					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas 
+					||*/ !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas 
 					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas 
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut)) {
+					/*|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas 
+					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut*/)) {
 				return false;
 			}
 		} catch (Exception e) {
