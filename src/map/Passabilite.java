@@ -47,10 +47,7 @@ public enum Passabilite {
 	 */
 	Passabilite(final boolean passableEnBas, final boolean passableAGauche, final boolean passableADroite, 
 			final boolean passableEnHaut) {
-		this.code = (passableEnBas ? 0 : BIT_OBSTACLE_BAS) 
-				+ (passableAGauche ? 0 : BIT_OBSTACLE_GAUCHE) 
-				+ (passableADroite ? 0 : BIT_OBSTACLE_DROITE) 
-				+ (passableEnHaut ? 0 : BIT_OBSTACLE_HAUT);
+		this.code = genererCode(passableEnBas, passableAGauche, passableADroite, passableEnHaut);
 		this.passableEnBas = passableEnBas;
 		this.passableAGauche = passableAGauche;
 		this.passableADroite = passableADroite;
@@ -89,11 +86,27 @@ public enum Passabilite {
 			return p1;
 		}
 		
-		int codeResultat = (p1.passableEnBas || p2.passableEnBas ? 0 : 1) 
-				+ (p1.passableAGauche || p2.passableAGauche ? 0 : 2) 
-				+ (p1.passableADroite || p2.passableADroite ? 0 : 4) 
-				+ (p1.passableEnHaut || p2.passableEnHaut ? 0 : 8);
+		int codeResultat = genererCode(p1.passableEnBas || p2.passableEnBas, 
+				p1.passableAGauche || p2.passableAGauche, 
+				p1.passableADroite || p2.passableADroite,
+				p1.passableEnHaut || p2.passableEnHaut);
 		return parCode(codeResultat);
+	}
+	
+	/**
+	 * Générer le code de passabilité d'une case.
+	 * @param passableEnBas peut-on entrer sur cette case par le bas ?
+	 * @param passableAGauche peut-on entrer sur cette case par la gauche ?
+	 * @param passableADroite peut-on entrer sur cette case par la droite ?
+	 * @param passableEnHaut peut-on entrer sur cette case par le haut ?
+	 * @return code correspondant à cette passabilité
+	 */
+	private static int genererCode(final boolean passableEnBas, final boolean passableAGauche, final boolean passableADroite, 
+			final boolean passableEnHaut) {
+		return (passableEnBas ? 0 : BIT_OBSTACLE_BAS) 
+				+ (passableAGauche ? 0 : BIT_OBSTACLE_GAUCHE) 
+				+ (passableADroite ? 0 : BIT_OBSTACLE_DROITE) 
+				+ (passableEnHaut ? 0 : BIT_OBSTACLE_HAUT);
 	}
 	
 }
