@@ -9,25 +9,29 @@ import org.apache.logging.log4j.Logger;
  * on pourra y entrer par la gauche, mais pas forcément en resortir par la droite.
  */
 public enum Passabilite {
-	PASSABLE(0, true, true, true, true),
-	GAUCHE_DROITE_HAUT(1, false, true, true, true), 
-	BAS_DROITE_HAUT(2, true, false, true, true), 
-	DROITE_HAUT(3, false, false, true, true), 
-	BAS_GAUCHE_HAUT(4, true, true, false, true), 
-	GAUCHE_HAUT(5, false, true, false, true), 
-	BAS_HAUT(6, true, false, false, true),
-	HAUT(7, false, false, false, true),
-	BAS_GAUCHE_DROITE(8, true, true, true, false),
-	GAUCHE_DROITE(9, false, true, true, false),
-	BAS_DROITE(10, true, false, true, false),
-	DROITE(11, false, false, true, false),
-	BAS_GAUCHE(12, true, true, false, false),
-	GAUCHE(13, false, true, false, false),
-	BAS(14, true, false, false, false),
-	OBSTACLE(15, false, false, false, false);
+	PASSABLE(true, true, true, true),
+	GAUCHE_DROITE_HAUT(false, true, true, true), 
+	BAS_DROITE_HAUT(true, false, true, true), 
+	DROITE_HAUT(false, false, true, true), 
+	BAS_GAUCHE_HAUT(true, true, false, true), 
+	GAUCHE_HAUT(false, true, false, true), 
+	BAS_HAUT(true, false, false, true),
+	HAUT(false, false, false, true),
+	BAS_GAUCHE_DROITE(true, true, true, false),
+	GAUCHE_DROITE(false, true, true, false),
+	BAS_DROITE(true, false, true, false),
+	DROITE(false, false, true, false),
+	BAS_GAUCHE(true, true, false, false),
+	GAUCHE(false, true, false, false),
+	BAS(true, false, false, false),
+	OBSTACLE(false, false, false, false);
 	
 	private static final Logger LOG = LogManager.getLogger(Passabilite.class);
-	private static final Passabilite[] BASE = {GAUCHE_DROITE_HAUT, BAS_DROITE_HAUT, BAS_GAUCHE_HAUT, BAS_GAUCHE_DROITE};
+	private static final int BIT_OBSTACLE_BAS = 1;
+	private static final int BIT_OBSTACLE_GAUCHE = 2;
+	private static final int BIT_OBSTACLE_DROITE = 4;
+	private static final int BIT_OBSTACLE_HAUT = 8;
+	
 	final int code;
 	final boolean passableEnBas;
 	final boolean passableAGauche;
@@ -36,11 +40,17 @@ public enum Passabilite {
 	
 	/**
 	 * Constructeur explicite
-	 * @param code représentant cette passabilité
+	 * @param passableEnBas peut-on entrer sur cette case par le bas ?
+	 * @param passableAGauche peut-on entrer sur cette case par la gauche ?
+	 * @param passableADroite peut-on entrer sur cette case par la droite ?
+	 * @param passableEnHaut peut-on entrer sur cette case par le haut ?
 	 */
-	Passabilite(final int code, final boolean passableEnBas, final boolean passableAGauche, final boolean passableADroite, 
+	Passabilite(final boolean passableEnBas, final boolean passableAGauche, final boolean passableADroite, 
 			final boolean passableEnHaut) {
-		this.code = code;
+		this.code = (passableEnBas ? 0 : BIT_OBSTACLE_BAS) 
+				+ (passableAGauche ? 0 : BIT_OBSTACLE_GAUCHE) 
+				+ (passableADroite ? 0 : BIT_OBSTACLE_DROITE) 
+				+ (passableEnHaut ? 0 : BIT_OBSTACLE_HAUT);
 		this.passableEnBas = passableEnBas;
 		this.passableAGauche = passableAGauche;
 		this.passableADroite = passableADroite;
@@ -66,10 +76,10 @@ public enum Passabilite {
 	}
 
 	/**
-	 * Ajoute les obstacles de deux Passabilités.
+	 * Ajoute les deux Passabilités.
 	 * @param p1 première passabilité
 	 * @param p2 seconbde passabilité
-	 * @return passabilité constituée des obstacles des deux
+	 * @return passabilité unie
 	 */
 	public static Passabilite ajouter(Passabilite p1, Passabilite p2) {
 		if (p1 == null) {
@@ -79,14 +89,10 @@ public enum Passabilite {
 			return p1;
 		}
 		
-		int codeResultat = 0;
-		for (Passabilite dir : BASE) {
-			if (p1.code%(2*dir.code) >= dir.code 
-			 || p2.code%(2*dir.code) >= dir.code)
-			{
-				codeResultat += dir.code;
-			}
-		}
+		int codeResultat = (p1.passableEnBas || p2.passableEnBas ? 0 : 1) 
+				+ (p1.passableAGauche || p2.passableAGauche ? 0 : 2) 
+				+ (p1.passableADroite || p2.passableADroite ? 0 : 4) 
+				+ (p1.passableEnHaut || p2.passableEnHaut ? 0 : 8);
 		return parCode(codeResultat);
 	}
 	

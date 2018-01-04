@@ -447,7 +447,7 @@ public class Map implements Sauvegardable {
 
 					if (numeroDeLaCaseDansLeTileset != -1) {
 						altitudeDeCetteCouche = this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset);
-						// On ajoute les obstacles de cette couche
+						// On ajoute les passabilités de cette couche
 						passabiliteALAltitude[altitudeDeCetteCouche] = Passabilite.ajouter(this.tileset.passabiliteDeLaCase(numeroDeLaCaseDansLeTileset), passabiliteALAltitude[altitudeDeCetteCouche]);
 					}
 				}
