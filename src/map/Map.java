@@ -569,63 +569,54 @@ public class Map implements Sauvegardable {
 		final int xmax = xmin + largeurHitbox;
 		final int ymax = ymin + hauteurHitbox;
 		
+		/** Coordonnées (en nombre de cases) des cases où se situent les coins de l'Event */
+		final int xCaseMin = xmin/Fenetre.TAILLE_D_UN_CARREAU;
+		final int yCaseMin = ymin/Fenetre.TAILLE_D_UN_CARREAU;
+		final int xCaseMax = (xmax-1)/Fenetre.TAILLE_D_UN_CARREAU;
+		final int yCaseMax = (ymax-1)/Fenetre.TAILLE_D_UN_CARREAU;
 		try {
 			//TODO ces 4 premiers cas purs sont des cas particuliers des 4 cas de chevauchement
 			//aucun des 4 coins de l'Event ne doivent être sur une case non passable
-			if (this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU] == Passabilite.OBSTACLE) {
+			if (this.casePassable[xCaseMin][yCaseMin] == Passabilite.OBSTACLE) {
 				return false;
 			}
-			if (this.casePassable[(xmax-1)/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU] == Passabilite.OBSTACLE) {
+			if (this.casePassable[xCaseMax][yCaseMin] == Passabilite.OBSTACLE) {
 				return false;
 			}
-			if (this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][(ymax-1)/Fenetre.TAILLE_D_UN_CARREAU] == Passabilite.OBSTACLE) {
+			if (this.casePassable[xCaseMin][yCaseMax] == Passabilite.OBSTACLE) {
 				return false;
 			}
-			if (this.casePassable[(xmax-1)/Fenetre.TAILLE_D_UN_CARREAU][(ymax-1)/Fenetre.TAILLE_D_UN_CARREAU] == Passabilite.OBSTACLE) {
+			if (this.casePassable[xCaseMax][yCaseMax] == Passabilite.OBSTACLE) {
 				return false;
 			}
 			
 			//chevauchement entre deux cases et passabilités directionnelles
-			final int xcentre = (xmin+xmax)/2;
-			final int ycentre = (ymin+ymax)/2;
-			final boolean chevauchementAGauche = (xcentre/Fenetre.TAILLE_D_UN_CARREAU != xmin/Fenetre.TAILLE_D_UN_CARREAU);
-			final boolean chevauchementADroite = (xcentre/Fenetre.TAILLE_D_UN_CARREAU != (xmax-1)/Fenetre.TAILLE_D_UN_CARREAU);
-			final boolean chevauchementEnHaut = (ycentre/Fenetre.TAILLE_D_UN_CARREAU != ymin/Fenetre.TAILLE_D_UN_CARREAU);
-			final boolean chevauchementEnBas = (ycentre/Fenetre.TAILLE_D_UN_CARREAU != (ymax-1)/Fenetre.TAILLE_D_UN_CARREAU);
+			/** Coordonnées (en nombre de cases) de la case où se situe le centre de l'Event */
+			final int xCaseCentre = ((xmin+xmax)/2) / Fenetre.TAILLE_D_UN_CARREAU;
+			final int yCaseCentre = ((ymin+ymax)/2) / Fenetre.TAILLE_D_UN_CARREAU;
+			/** l'Event chevauche-t-il deux cases ? */
+			final boolean chevauchementAGauche = (xCaseCentre != xCaseMin);
+			final boolean chevauchementADroite = (xCaseCentre != xCaseMax);
+			final boolean chevauchementEnHaut = (yCaseCentre != yCaseMin);
+			final boolean chevauchementEnBas = (yCaseCentre != yCaseMax);
 			if (chevauchementAGauche 
-					&& (/*!this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche 
-					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableADroite
-					||*/ !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche 
-					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableADroite
-					/*|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche 
-					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableADroite*/)) {
+					&& (!this.casePassable[xCaseCentre][yCaseCentre].passableAGauche 
+					|| !this.casePassable[xCaseMin][yCaseCentre].passableADroite)) {
 				return false;
 			}
 			if (chevauchementADroite 
-					&& (/*!this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableADroite 
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche
-					||*/ !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableADroite 
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche
-					/*|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableADroite 
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableAGauche*/)) {
+					&& (!this.casePassable[xCaseCentre][yCaseCentre].passableADroite 
+					|| !this.casePassable[xCaseMax][yCaseCentre].passableAGauche)) {
 				return false;
 			}
 			if (chevauchementEnHaut
-					&& (/*!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut 
-					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas
-					||*/ !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut 
-					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas
-					/*|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut 
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymin/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas*/)) {
+					&& (!this.casePassable[xCaseCentre][yCaseCentre].passableEnHaut 
+					|| !this.casePassable[xCaseCentre][yCaseMin].passableEnBas)) {
 				return false;
 			}
 			if (chevauchementEnBas 
-					&& (/*!this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas 
-					|| !this.casePassable[xmin/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut
-					||*/ !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas 
-					|| !this.casePassable[xcentre/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut
-					/*|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ycentre/Fenetre.TAILLE_D_UN_CARREAU].passableEnBas 
-					|| !this.casePassable[xmax/Fenetre.TAILLE_D_UN_CARREAU][ymax/Fenetre.TAILLE_D_UN_CARREAU].passableEnHaut*/)) {
+					&& (!this.casePassable[xCaseCentre][yCaseCentre].passableEnBas 
+					|| !this.casePassable[xCaseCentre][yCaseMax].passableEnHaut)) {
 				return false;
 			}
 		} catch (Exception e) {
