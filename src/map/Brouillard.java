@@ -143,7 +143,7 @@ public final class Brouillard implements Sauvegardable {
 		int imax = (xCamera + largeurEcran - decalageX) / this.largeur;
 		int jmin = (yCamera - decalageY) / this.hauteur;
 		int jmax = (yCamera + hauteurEcran - decalageY) / this.hauteur;
-		/*if (Brouillard.calculerAffichage(imin, this.largeur, decalageX, xCamera) >= 0) {
+		if (Brouillard.calculerAffichage(imin, this.largeur, decalageX, xCamera) >= 0) {
 			imin--;
 		}
 		if (Brouillard.calculerAffichage(imax, this.largeur, decalageX, xCamera) <= largeurEcran) {
@@ -154,7 +154,7 @@ public final class Brouillard implements Sauvegardable {
 		}
 		if (Brouillard.calculerAffichage(jmax, this.largeur, decalageY, yCamera) <= hauteurEcran) {
 			jmax++;
-		}*/
+		}
 		for (int i = imin; i<=imax; i++) {
 			for (int j = jmin; j<=jmax; j++) {
 				ecran = Graphismes.superposerImages(
