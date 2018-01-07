@@ -16,8 +16,7 @@ import map.PageCommune;
 public class AppelerPageCommune extends Commande implements CommandeEvent, CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(AppelerPageCommune.class);
 	
-	private int curseurInterne;
-	private final int numeroPageCommune;
+	private final Integer numeroPageCommune;
 	private PageCommune pageCommune = null;
 	
 	/**
@@ -26,13 +25,12 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 	 */
 	public AppelerPageCommune(final int numeroPageCommune) {
 		this.numeroPageCommune = numeroPageCommune;
-		final ArrayList<PageCommune> pagesCommunes = Fenetre.getFenetre().lecteur.pagesCommunes;
-		if (numeroPageCommune < pagesCommunes.size()) {
-			this.pageCommune = Fenetre.getFenetre().lecteur.pagesCommunes.get(numeroPageCommune);
+		final HashMap<Integer, PageCommune> pagesCommunes = Fenetre.getFenetre().lecteur.pagesCommunes;
+		if (pagesCommunes.containsKey(this.numeroPageCommune)) {
+			this.pageCommune = pagesCommunes.get(this.numeroPageCommune);
 		} else {
 			LOG.warn("Page commune "+numeroPageCommune+" introuvable !");
 		}
-		this.curseurInterne = 0;
 	}
 	
 	/**
@@ -47,30 +45,22 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		// page commune introuvable
+		// La page commune est-elle introuvable ?
 		if (this.pageCommune == null) {
-			LOG.warn("Page commune "+numeroPageCommune+" introuvable !");
-			curseurInterne = 0;
+			LOG.warn("Page commune "+this.numeroPageCommune+" introuvable !");
 			return curseurActuel+1;
 		}
 		
-		final ArrayList<Commande> commandesInternes = this.pageCommune.commandes;
-		int nouveauCurseurInterne;
-		boolean commandeInstantanee = true;
-		try {
-			while (commandeInstantanee) {
-				nouveauCurseurInterne = this.pageCommune.commandes.get(curseurInterne).executer(curseurInterne, commandesInternes);
-				commandeInstantanee = (nouveauCurseurInterne != curseurInterne);
-				curseurInterne = nouveauCurseurInterne;
-			}
-		} catch (Exception e) {
-			// la Page Commune a été lue en entier
-			LOG.trace("La page commune a été lue en entier.", e);
-		}
+		// On apprend à la page commune qui est son event
+		this.pageCommune.event = this.page.event;
 		
-		if (this.curseurInterne >= this.pageCommune.commandes.size()) {
+		// Exécution
+		LOG.info("Exécution de la page commune "+this.numeroPageCommune+" "+this.pageCommune.nom);
+		this.pageCommune.executer();
+		
+		// La page a-t-elle été exécutée en entier ?
+		if (this.pageCommune.curseurCommandes == 0) {
 			//fini
-			curseurInterne = 0;
 			return curseurActuel+1;
 		} else {
 			//pas fini

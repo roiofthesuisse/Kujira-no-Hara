@@ -214,10 +214,10 @@ public class Animation {
 					}
 				}
 				// La prochaine fois, on jouera la frame suivante
-				LOG.debug("Frame n°"+animationEnCours.frameActuelle+" de l'animation");
+				LOG.trace("Frame n°"+animationEnCours.frameActuelle+" de l'animation");
 				animationEnCours.frameActuelle++;
 			} catch (IndexOutOfBoundsException e) {
-				LOG.info("Fin de l'animation n°"+animationEnCours.frameActuelle);
+				LOG.debug("Fin de l'animation n°"+animationEnCours.frameActuelle);
 				// L'animation est terminée, on la retire de la file
 				partie.animations.remove(i);
 				i--;

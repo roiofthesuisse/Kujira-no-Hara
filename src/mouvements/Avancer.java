@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import main.Fenetre;
 import map.Event;
 import map.Heros;
+import map.PageEvent.Traversabilite;
 import map.Event.Direction;
 
 /**
@@ -87,7 +88,7 @@ public class Avancer extends Mouvement {
 		}
 		
 		//si l'Event est lui-même traversable, il peut faire son mouvement
-		if (event.traversableActuel) {
+		if (event.traversableActuel == Traversabilite.TRAVERSABLE) {
 			return true;
 		}
 		

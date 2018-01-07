@@ -16,7 +16,7 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(JouerAnimation.class);
 	
 	public final int idAnimation;
-	public final Integer idEvent;
+	public Integer idEvent;
 	public int xEcran, yEcran;
 	
 	public int frameActuelle;
@@ -50,8 +50,35 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.frameActuelle = 0;
+		if (this.xEcran == -1 && this.yEcran == -1) {
+			// L'animation concerne un Event
+			
+			// "null" signifie donc "cet Event"
+			if (this.idEvent == null) {
+				this.idEvent = this.page.event.id;
+			}
+			
+			// On vérifie qu'il n'y a pas déjà une animation sur cet Event
+			int nombreDAnimations = Fenetre.getPartieActuelle().animations.size();
+			JouerAnimation animation;
+			for (int i = 0; i<nombreDAnimations; i++) {
+				animation = Fenetre.getPartieActuelle().animations.get(i);
+				// Est-ce qu'il y a déjà une animation sur l'Event concerné ?
+				if (this.idEvent == animation.idEvent) {
+					// On retire les animations actuellement associées à cet Event
+					Fenetre.getPartieActuelle().animations.remove(i);
+					i--;
+					nombreDAnimations--;
+				}
+			}
+		} else {
+			// L'animation est définie par ses coordonnées
+			this.idEvent = null;
+		}
+		
+		// On ajoute la nouvelle animation
 		Fenetre.getPartieActuelle().animations.add(this);
-		LOG.info("Animation "+this.idAnimation+" ajoutée à la file");
+		LOG.debug("Animation "+this.idAnimation+" ajoutée à la file");
 		return curseurActuel+1;
 	}
 

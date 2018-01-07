@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import commandes.CommandeEvent;
 import map.Event;
+import map.PageEvent.Traversabilite;
 
 /**
  * Est-ce que le Héros est en contact avec l'Event ?
@@ -25,8 +26,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param identifiant (numéro ou nom) du premier Event ; par défaut, le Héros
-	 * @param identifiant (numéro ou nom) du second Event ; par défaut, cet Event
+	 * @param idEvent1 identifiant (numéro ou nom) du premier Event ; par défaut, le Héros
+	 * @param idEvent2 identifiant (numéro ou nom) du second Event ; par défaut, cet Event
 	 * @param typeDeContact de la Condition
 	 */
 	public ConditionContact(final int numero, final Object idEvent1, final Object idEvent2, final TypeDeContact typeDeContact) {
@@ -258,7 +259,11 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 					final int ymax2 = event2.y + event2.hauteurHitbox;
 					
 					//deux interprétations très différentes du Contact selon la traversabilité de l'event
-					final boolean modeTraversable = event2.traversableActuel || event1.traversableActuel;
+					final boolean modeTraversable = event2.traversableActuel == Traversabilite.TRAVERSABLE 
+							|| event1.traversableActuel == Traversabilite.TRAVERSABLE
+							// si l'un des deux est le Héros
+							|| (event1.id == 0 && event2.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS)
+							|| (event2.id == 0 && event1.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS);
 					
 					if (this.typeDeContact.ilYAContact(modeTraversable, xmin1, xmax1, ymin1, ymax1, xmin2, xmax2, ymin2, ymax2)) {
 						//au moins un couple d'events doit être en contact

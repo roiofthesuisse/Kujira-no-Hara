@@ -74,7 +74,7 @@ public final class Partie implements Listable, Sauvegardable {
 	/** Images à afficher par dessus l'écran */
 	public HashMap<Integer, Picture> images = new HashMap<Integer, Picture>();
 	/** Animations à afficher sur la Map */
-	public ArrayList<JouerAnimation> animations = new ArrayList<JouerAnimation>();
+	public ArrayList<JouerAnimation> animations = new ArrayList<>();
 	
 	/** Mot de passe à saisir lettre par lettre via un Menu */
 	public final int tailleMaximaleDuMot = 10;

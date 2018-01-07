@@ -18,6 +18,7 @@ import conditions.Condition;
 import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
+import map.PageEvent.Traversabilite;
 import mouvements.Mouvement;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
@@ -39,8 +40,8 @@ public class Event implements Comparable<Event> {
 	public static final int NOMBRE_DE_VIGNETTES_PAR_IMAGE = 4;
 	public static final boolean ANIME_A_L_ARRET_PAR_DEFAUT = false;
 	public static final boolean ANIME_EN_MOUVEMENT_PAR_DEFAUT = true;
-	public static final boolean TRAVERSABLE_PAR_DEFAUT = false; //si une Page est active
-	public static final boolean TRAVERSABLE_SI_VIDE = true; //si aucune Page active
+	public static final Traversabilite TRAVERSABLE_PAR_DEFAUT = Traversabilite.OBSTACLE; //si une Page est active
+	public static final Traversabilite TRAVERSABLE_SI_VIDE = Traversabilite.TRAVERSABLE; //si aucune Page active
 	public static final boolean DIRECTION_FIXE_PAR_DEFAUT = false;
 	public static final boolean AU_DESSUS_DE_TOUT_PAR_DEFAUT = false;
 	public static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAUT = false;
@@ -98,7 +99,7 @@ public class Event implements Comparable<Event> {
 	 */
 	public boolean animeALArretActuel = ANIME_A_L_ARRET_PAR_DEFAUT;
 	public boolean animeEnMouvementActuel = ANIME_EN_MOUVEMENT_PAR_DEFAUT;
-	public boolean traversableActuel = TRAVERSABLE_PAR_DEFAUT;
+	public Traversabilite traversableActuel = TRAVERSABLE_PAR_DEFAUT;
 	public boolean directionFixeActuelle = DIRECTION_FIXE_PAR_DEFAUT;
 	public boolean auDessusDeToutActuel = AU_DESSUS_DE_TOUT_PAR_DEFAUT;
 	public Deplacement deplacementNaturelActuel;

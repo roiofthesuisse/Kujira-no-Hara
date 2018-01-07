@@ -1,8 +1,8 @@
 package main;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -43,7 +43,7 @@ public abstract class Lecteur {
 	public int frameActuelle = 0;
 
 	/** Pages de code commun à toutes les Maps */
-	public ArrayList<PageCommune> pagesCommunes = PageCommune.recupererLesPagesCommunes();
+	public HashMap<Integer, PageCommune> pagesCommunes = PageCommune.recupererLesPagesCommunes();
 	
 	
 	/**

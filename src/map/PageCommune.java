@@ -1,6 +1,6 @@
 package map;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,6 +17,7 @@ import utilitaire.InterpreteurDeJson;
 public class PageCommune extends PageEvent {
 	private static final Logger LOG = LogManager.getLogger(PageCommune.class);
 	public boolean active;
+	public final String nom;
 	
 	/**
 	 * Constructeur explicite
@@ -24,6 +25,7 @@ public class PageCommune extends PageEvent {
 	 */
 	public PageCommune(final JSONObject pageJSON) {
 		super(-1, pageJSON, -1); //pas d'Event correspondant, pas de numéro
+		this.nom = pageJSON.getString("nom");
 		this.active = false;
 	}
 
@@ -84,8 +86,8 @@ public class PageCommune extends PageEvent {
 	 * Récupérer les Pages Communes décrites dans un fichier JSON.
 	 * @return Pages de code Event communes à toutes les Maps du jeu
 	 */
-	public static ArrayList<PageCommune> recupererLesPagesCommunes() {
-		final ArrayList<PageCommune> pagesCommunes = new ArrayList<PageCommune>();
+	public static HashMap<Integer, PageCommune> recupererLesPagesCommunes() {
+		final HashMap<Integer, PageCommune> pagesCommunes = new HashMap<>();
 		final JSONObject jsonObjets;
 		try {
 			jsonObjets = InterpreteurDeJson.ouvrirJson("pagesCommunes", ".\\ressources\\Data\\");
@@ -98,7 +100,8 @@ public class PageCommune extends PageEvent {
 		for (Object o : jsonPagesCommunes) {
 			final JSONObject jsonPageCommune = (JSONObject) o;
 			final PageCommune pageCommune = new PageCommune(jsonPageCommune);
-			pagesCommunes.add(pageCommune);
+			final Integer numeroPageCommune = jsonPageCommune.getInt("numero");
+			pagesCommunes.put(numeroPageCommune, pageCommune);
 		}
 		return pagesCommunes;
 	}

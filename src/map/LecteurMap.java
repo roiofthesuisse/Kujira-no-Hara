@@ -142,9 +142,10 @@ public class LecteurMap extends Lecteur {
 		}
 		
 		//ton
+		/*
 		if (this.map.tileset.ton != null) {
-			ecran = Graphismes.superposerImages(ecran, ecran, 0, 0, Graphismes.OPACITE_MAXIMALE, ModeDeFusion.TON_DE_L_ECRAN);
-		}
+			ecran = Graphismes.appliquerTon(ecran, this.map.tileset.ton);
+		}*/
 		
 		//effet aquatique (lol)
 		if (this.map.ondulation != null) {
@@ -386,7 +387,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private void lireLesPagesCommunes() {
 		if (this.pagesCommunes.size() > 0) {
-			for (PageCommune pageCommune : this.pagesCommunes) {
+			for (PageCommune pageCommune : this.pagesCommunes.values()) {
 				if (!pageCommune.active) {
 					pageCommune.essayerDActiver();
 				}

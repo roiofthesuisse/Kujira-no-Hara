@@ -14,6 +14,7 @@ import commandes.ModifierInterrupteurLocal;
 import commandes.Sauvegarder.Sauvegardable;
 import main.Fenetre;
 import map.Event.Direction;
+import map.PageEvent.Traversabilite;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.son.Musique;
@@ -566,6 +567,8 @@ public class Map implements Sauvegardable {
 	 * @return true si on peut poser un nouvel Event ici, false sinon
 	 */
 	public final boolean calculerSiLaPlaceEstLibre(final int xmin, final int ymin, final int largeurHitbox, final int hauteurHitbox, final int numeroEvent) {
+		final Event event = this.eventsHash.get((Integer) numeroEvent);
+		
 		final int xmax = xmin + largeurHitbox;
 		final int ymax = ymin + hauteurHitbox;
 		
@@ -621,7 +624,7 @@ public class Map implements Sauvegardable {
 			}
 		} catch (Exception e) {
 			//l'Event sort de la Map !
-			final Event event = this.eventsHash.get((Integer) numeroEvent);
+			
 			if (!event.sortiDeLaMap) { //on n'affiche le message d'erreur qu'une fois
 				LOG.warn("L'event "+event.id+" ("+event.nom+") est sorti de la map !"); //TODO ni le numéro, ni le nom ne semblent correspondre à l'Event qui sort
 				LOG.trace(e);
@@ -635,18 +638,35 @@ public class Map implements Sauvegardable {
 		int ymin2;
 		int ymax2;
 		for (Event autreEvent : this.events) {
-			xmin2 = autreEvent.x;
-			xmax2 = autreEvent.x + autreEvent.largeurHitbox;
-			ymin2 = autreEvent.y;
-			ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
-			if (numeroEvent != autreEvent.id 
-				&& !autreEvent.traversableActuel
-				&& Hitbox.lesDeuxRectanglesSeChevauchent(xmin, xmax, ymin, ymax, 
+			
+			// Il ne faut pas qu'un Event interfère avec lui-même
+			if (numeroEvent != autreEvent.id) {
+				// Ce n'est pas le même Event
+				
+				// Y a-t-il un choc physique ?
+				final boolean modeTraversable = 
+						event.traversableActuel == Traversabilite.TRAVERSABLE
+						|| autreEvent.traversableActuel == Traversabilite.TRAVERSABLE 
+						// si l'un des deux est le Héros
+						|| (event.id == 0 && autreEvent.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS)
+						|| (autreEvent.id == 0 && event.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS);
+				if (!modeTraversable) {
+					// Les deux Events sont solides
+					
+					// Les deux Events se chevauchent-ils ?
+					xmin2 = autreEvent.x;
+					xmax2 = autreEvent.x + autreEvent.largeurHitbox;
+					ymin2 = autreEvent.y;
+					ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
+					if (Hitbox.lesDeuxRectanglesSeChevauchent(xmin, xmax, ymin, ymax, 
 						xmin2, xmax2, ymin2, ymax2, 
 						largeurHitbox, hauteurHitbox, 
 						autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
-			) {
-				return false;
+			
+					) {
+						return false;
+					}
+				}
 			}
 		}
 		
@@ -705,7 +725,7 @@ public class Map implements Sauvegardable {
 	}
 
 	@Override
-	public JSONObject sauvegarderEnJson() {
+	public final JSONObject sauvegarderEnJson() {
 		final JSONObject jsonEtatMap = new JSONObject();
 		jsonEtatMap.put("numero", this.numero);
 		jsonEtatMap.put("xHeros", this.heros.x);

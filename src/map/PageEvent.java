@@ -48,6 +48,11 @@ public class PageEvent {
 	public int directionInitiale;
 	public int animationInitiale;
 	
+	public enum Traversabilite {
+		TRAVERSABLE, OBSTACLE, TRAVERSABLE_PAR_LE_HEROS
+	}
+	
+	
 	//paramètres
 	public int vitesse;
 	public int frequence;
@@ -58,7 +63,7 @@ public class PageEvent {
 	private boolean figerLesAutresEvents;
 	public boolean animeALArret;
 	public boolean animeEnMouvement;
-	public boolean traversable;
+	public Traversabilite traversable;
 	public boolean directionFixe;
 	public boolean auDessusDeTout;
 	public int opacite;
@@ -157,25 +162,25 @@ public class PageEvent {
 
 		if (pageJSON.has("traversable")) {
 			if (pageJSON.getBoolean("traversable")) {
-				this.traversable = true;
+				this.traversable = Traversabilite.TRAVERSABLE;
 			} else {
 				if (tileDeLApparence != null) {
 					//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
-					this.traversable = (this.event.map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE);
+					this.traversable = (this.event.map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE) ? Traversabilite.TRAVERSABLE : Traversabilite.OBSTACLE;
 				} else if (this.image == null) {
-					this.traversable = Event.TRAVERSABLE_SI_VIDE;
+					this.traversable = Traversabilite.TRAVERSABLE_PAR_LE_HEROS;
 				} else {
-					this.traversable = false;
+					this.traversable = Traversabilite.OBSTACLE;
 				} 
 			}
 		} else {
 			if (tileDeLApparence != null) {
 				//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
-				this.traversable = (this.event.map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE);
+				this.traversable = (this.event.map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE) ? Traversabilite.TRAVERSABLE : Traversabilite.OBSTACLE;
 			} else if (this.image == null) {
-				this.traversable = Event.TRAVERSABLE_SI_VIDE;
+				this.traversable = Traversabilite.TRAVERSABLE_PAR_LE_HEROS;
 			} else {
-				this.traversable = Event.TRAVERSABLE_PAR_DEFAUT;
+				this.traversable = Traversabilite.OBSTACLE;
 			}
 		}
 

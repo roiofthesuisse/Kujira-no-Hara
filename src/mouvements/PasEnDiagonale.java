@@ -6,6 +6,7 @@ import main.Fenetre;
 import map.Event;
 import map.Heros;
 import map.Event.Direction;
+import map.PageEvent.Traversabilite;
 
 /**
  * Déplacer un Event d'un pas en diagonale
@@ -80,7 +81,7 @@ public class PasEnDiagonale extends Avancer {
 		}
 		
 		//si l'Event est lui-même traversable, il peut faire son mouvement
-		if (event.traversableActuel) {
+		if (event.traversableActuel == Traversabilite.TRAVERSABLE) {
 			return true;
 		}
 		

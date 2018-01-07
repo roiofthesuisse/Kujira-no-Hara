@@ -14,7 +14,7 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	private int numeroVariable;
 	private Inegalite inegalite;
 	private int valeurQuIlEstCenseAvoir;
-	private boolean comparerAUneAutreVariable;
+	private final boolean comparerAUneAutreVariable;
 	
 	/**
 	 * Utiliser les constantes situées dans la classe pour définir le type de comparaison.
@@ -41,7 +41,7 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 			(int) parametres.get("numeroVariable"),
 			parametres.containsKey("inegalite") ? (String) parametres.get("inegalite") : Inegalite.PLUS_OU_AUTANT.symbole,
 			(int) parametres.get("valeurQuIlEstCenseAvoir"),
-			parametres.containsKey("comparerAUneAutreVariable") ? false : (boolean) parametres.get("comparerAUneAutreVariable")
+			parametres.containsKey("comparerAUneAutreVariable") ? (boolean) parametres.get("comparerAUneAutreVariable") : false
 		);
 	}
 	

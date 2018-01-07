@@ -5,6 +5,7 @@ import java.util.HashMap;
 import main.Fenetre;
 import map.Event;
 import map.Heros;
+import map.PageEvent.Traversabilite;
 
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases
@@ -85,7 +86,7 @@ public class Sauter extends Mouvement {
 			}
 			
 			//si l'Event est lui-même traversable, il peut faire son mouvement
-			if (event.traversableActuel) {
+			if (event.traversableActuel == Traversabilite.TRAVERSABLE) {
 				return true;
 			}
 			
