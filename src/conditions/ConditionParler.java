@@ -19,7 +19,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 	@Override
 	public final boolean estVerifiee() {
 		//1) pour Parler, premièrement, il faut appuyer sur la touche action :
-		final ConditionTouche conditionToucheAction = new ConditionTouche(-1, GestionClavier.ToucheRole.ACTION, false);
+		final ConditionTouche conditionToucheAction = new ConditionTouche(-1, GestionClavier.ToucheRole.ACTION.nom, false);
 		conditionToucheAction.page = this.page;
 		if (!conditionToucheAction.estVerifiee()) {
 			return false;

@@ -17,14 +17,21 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 	private static final Logger LOG = LogManager.getLogger(AppelerPageCommune.class);
 	
 	private int curseurInterne;
-	private PageCommune pageCommune;
+	private final int numeroPageCommune;
+	private PageCommune pageCommune = null;
 	
 	/**
 	 * Constructeur explicite
 	 * @param numeroPageCommune numéro de la Page à appeler
 	 */
 	public AppelerPageCommune(final int numeroPageCommune) {
-		this.pageCommune = Fenetre.getFenetre().lecteur.pagesCommunes.get(numeroPageCommune);
+		this.numeroPageCommune = numeroPageCommune;
+		final ArrayList<PageCommune> pagesCommunes = Fenetre.getFenetre().lecteur.pagesCommunes;
+		if (numeroPageCommune < pagesCommunes.size()) {
+			this.pageCommune = Fenetre.getFenetre().lecteur.pagesCommunes.get(numeroPageCommune);
+		} else {
+			LOG.warn("Page commune "+numeroPageCommune+" introuvable !");
+		}
 		this.curseurInterne = 0;
 	}
 	
@@ -40,6 +47,13 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		// page commune introuvable
+		if (this.pageCommune == null) {
+			LOG.warn("Page commune "+numeroPageCommune+" introuvable !");
+			curseurInterne = 0;
+			return curseurActuel+1;
+		}
+		
 		final ArrayList<Commande> commandesInternes = this.pageCommune.commandes;
 		int nouveauCurseurInterne;
 		boolean commandeInstantanee = true;

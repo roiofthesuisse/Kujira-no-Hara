@@ -61,7 +61,7 @@ public abstract class GestionClavier {
 		BREAKPOINT(ToucheClavier.B, "BREAKPOINT");
 		
 		public final ToucheClavier touche;
-		private final String nom;
+		public final String nom;
 		
 		/**
 		 * Constructeur explicite
