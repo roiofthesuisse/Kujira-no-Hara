@@ -21,7 +21,7 @@ public enum ModeDeFusion {
 	/** Pour modifier le ton de l'écran */
 	TON_DE_L_ECRAN("ton de l'ecran");
 	
-	public String nom;
+	public final String nom;
 	
 	/**
 	 * Constructeur explicite

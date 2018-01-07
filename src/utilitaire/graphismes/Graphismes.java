@@ -37,6 +37,8 @@ public abstract class Graphismes {
 	public static final int PAS_DE_ROTATION = 0;
 	/** Valeur (sur 255) représentant l'absence de transparence */
 	public static final int OPACITE_MAXIMALE = 255;
+	/** Ton par défaut des images */
+	public static final int[] TON_PAR_DEFAUT = new int[]{0, 127, 127, 127};
 	/** L'origine de l'image est son coin haut-gauche et non son centre */
 	private static final boolean ORIGINE_HAUT_GAUCHE = false;
 	public static Graphics2D graphismes;
@@ -313,5 +315,46 @@ public abstract class Graphismes {
         //sauvegarderImage(compatibleImage, "/ressources/Graphics/"+nomImage);
         return compatibleImage;
     }
+
+    /**
+     * Comparer deux tons.
+     * @param ton premier ton
+     * @param ton2 second ton
+     * @return true si les tons sont identiques, false sinon
+     */
+	public static boolean memeTon(final int[] ton, final int[] ton2) {
+		final int taille =  Math.max(ton.length, ton2.length);
+		for (int i = 0; i<taille; i++) {
+			if (ton[i] != ton2[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Appliquer un ton à une image.
+	 * @param image sur laquelle appliquer le ton
+	 * @param ton à appliquer (gris, rouge, vert, bleu)
+	 * @return image modifiée
+	 */
+	public static BufferedImage appliquerTon(final BufferedImage image, final int[] ton) {
+		if (Graphismes.memeTon(ton, Graphismes.TON_PAR_DEFAUT)) {
+			// pas de ton
+			return image;
+		}
+		
+		BufferedImage image2 = new BufferedImage(image.getWidth(), image.getHeight(), Graphismes.TYPE_DES_IMAGES);
+
+		// composite tonal
+		final Graphics2D g2d = (Graphics2D) image2.createGraphics();
+	    final Composite comp = MonComposite.creerComposite(ton);
+		g2d.setComposite(comp);
+		
+		// dessiner l'image
+		g2d.drawImage(image, null,  0,  0);
+		
+		return image2;
+	}
 
 }

@@ -18,6 +18,7 @@ public final class MonComposite implements Composite {
 	
 	public final ModeDeFusion modeDeFusion;
 	public final float opacite;
+	public int[] ton = null;
 	
 	/**
 	 * Générer un Composite qui effectuera la superposition telle que voulue
@@ -31,6 +32,17 @@ public final class MonComposite implements Composite {
 		} else {
 			return new MonComposite(modeDeFusion, opacite);
 		}
+	}
+	
+	/**
+	 * Générer un Composite tonal qui effectuera la superposition telle que voulue
+	 * @param ton déformant les couleurs de l'image
+	 * @return composite qui effectuera la superposition telle que voulue
+	 */
+	public static Composite creerComposite(final int[] ton) {
+		final MonComposite composite = new MonComposite(ModeDeFusion.TON_DE_L_ECRAN, 1f);
+		composite.ton = ton;
+		return composite;
 	}
 
 	/**

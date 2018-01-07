@@ -123,7 +123,7 @@ public abstract class Pinceau {
                 return new Pinceau() {
                     @Override
                     public void peindre(final int[] srcNePasUtiliser, final int[] dst, final int[] result) {
-                    	int[] ton = ((LecteurMap) Fenetre.getFenetre().lecteur).map.tileset.ton;
+                    	int[] ton = composite.ton;
                     	final float desaturation = (float) ton[ALPHA] / (float) VALEUR_MAXIMALE;
                     	final float saturation = 1.0f - desaturation;
                     	

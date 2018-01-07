@@ -31,7 +31,8 @@ public final class Brouillard implements Sauvegardable {
 	
 	public final int defilementX;
 	public final int defilementY;
-	public final double zoom;
+	public final int zoom;
+	public final int[] ton;
 	
 	/**
 	 * Constructeur explicite
@@ -41,15 +42,19 @@ public final class Brouillard implements Sauvegardable {
 	 * @param defilementX vitesse de déplacement du Brouillard suivant l'axe x
 	 * @param defilementY vitesse de déplacement du Brouillard suivant l'axe y
 	 * @param zoom taux d'aggrandissement de l'image (en pourcents)
+	 * @param ton du brouillard (gris, rouge, vert, bleu)
 	 * @throws IOException l'image n'a pas pu être chargée
 	 */
 	public Brouillard(final String nomImage, final int opacite, final ModeDeFusion mode, final int defilementX, 
-			final int defilementY, final int zoom) {
+			final int defilementY, final int zoom, final int[] ton) {
 		this.zoom = zoom;
+		this.ton = ton;
 		this.nomImage = nomImage;
 		try {
 			final double ratioZoom = (double) zoom / (double) Graphismes.PAS_D_HOMOTHETIE;
-			this.image = redimensionnerImage(Graphismes.ouvrirImage("Fogs", this.nomImage), ratioZoom);
+			this.image = Graphismes.ouvrirImage("Fogs", this.nomImage);
+			this.image = Graphismes.appliquerTon(this.image, this.ton);
+			this.image = redimensionnerImage(this.image, ratioZoom);
 			this.largeur = this.image.getWidth();
 			this.hauteur = this.image.getHeight();
 		} catch (IOException e) {
@@ -112,8 +117,14 @@ public final class Brouillard implements Sauvegardable {
 				//pas de zoom
 			}
 			final String nomModeDeFusion = brouillardJson.has("modeDeFusion") ? brouillardJson.getString("modeDeFusion") : null;
-
-			return new Brouillard(nomImage, opacite, ModeDeFusion.parNom(nomModeDeFusion), defilementX, defilementY, zoom);
+			final int[] ton = brouillardJson.has("rouge") ? new int[]{
+					brouillardJson.getInt("gris"), 
+					brouillardJson.getInt("rouge"), 
+					brouillardJson.getInt("vert"), 
+					brouillardJson.getInt("bleu")
+			} : Graphismes.TON_PAR_DEFAUT;
+			
+			return new Brouillard(nomImage, opacite, ModeDeFusion.parNom(nomModeDeFusion), defilementX, defilementY, zoom, ton);
 		} catch (JSONException e) {
 			//pas de brouillard
 			LOG.info("Pas de Brouillard pour cette Map.");

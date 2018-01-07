@@ -19,10 +19,11 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(ModifierBrouillard.class);
 	
 	private final String nomImage;
-	private final int opacite;
+	private final Integer opacite;
 	private final String nomModeDeFusion;
-	private final int defilementX, defilementY;
-	private final int zoom;
+	private final Integer defilementX, defilementY;
+	private final Integer zoom;
+	private final int[] ton;
 	
 	/**
 	 * Constructeur explicite
@@ -32,15 +33,17 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 	 * @param defilementX vitesse du défilement horizontal
 	 * @param defilementY vitesse du défilement vertical
 	 * @param zoom homothétie
+	 * @param ton du brouillard (gris, rouge, vert, bleu)
 	 */
-	public ModifierBrouillard(final String nomImage, final int opacite, final String nomModeDeFusion,
-			final int defilementX, final int defilementY, final int zoom) {
+	public ModifierBrouillard(final String nomImage, final Integer opacite, final String nomModeDeFusion,
+			final Integer defilementX, final Integer defilementY, final Integer zoom, final int[] ton) {
 		this.nomImage = nomImage;
 		this.opacite = opacite;
 		this.nomModeDeFusion = nomModeDeFusion;
 		this.defilementX = defilementX;
 		this.defilementY = defilementY;
 		this.zoom = zoom;
+		this.ton = ton;
 	}
 	
 	/**
@@ -48,38 +51,68 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ModifierBrouillard(final HashMap<String, Object> parametres) {
+		// "null" signifie aucun changement par rapport au Brouillard actuel
 		this( 
-				(String) parametres.get("nomImage"),
-				parametres.containsKey("opacite") ? (int) parametres.get("opacite") : Graphismes.OPACITE_MAXIMALE,
-				parametres.containsKey("modeDeFusion") ? (String) parametres.get("modeDeFusion") : ModeDeFusion.NORMAL.nom,
-				parametres.containsKey("defilementX") ? (int) parametres.get("defilementX") : 0,
-				parametres.containsKey("defilementY") ? (int) parametres.get("defilementY") : 0,
-				parametres.containsKey("zoom") ? (int) parametres.get("zoom") : Graphismes.PAS_D_HOMOTHETIE
+				parametres.containsKey("nomImage") ? (String) parametres.get("nomImage") : null,
+				parametres.containsKey("opacite") ? (int) parametres.get("opacite") : null,
+				parametres.containsKey("modeDeFusion") ? (String) parametres.get("modeDeFusion") : null,
+				parametres.containsKey("defilementX") ? (int) parametres.get("defilementX") : null,
+				parametres.containsKey("defilementY") ? (int) parametres.get("defilementY") : null,
+				parametres.containsKey("zoom") ? (int) parametres.get("zoom") : null,
+				parametres.containsKey("rouge") ? new int[]{
+						(int) parametres.get("gris"), 
+						(int) parametres.get("rouge"), 
+						(int) parametres.get("vert"), 
+						(int) parametres.get("bleu")
+				} : null
 		);
 	}
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Brouillard brouillardActuel = this.page.event.map.brouillard;
-		if (brouillardActuel != null 
-				&& (brouillardActuel.nomImage != null && brouillardActuel.nomImage.equals(this.nomImage)) 
-				&& brouillardActuel.opacite == this.opacite
-				&& brouillardActuel.mode.nom.equals(this.nomModeDeFusion)
-				&& brouillardActuel.defilementX == this.defilementX
-				&& brouillardActuel.defilementY == this.defilementY
-				&& brouillardActuel.zoom == this.zoom
-		) {
-			// pas de changement
-			LOG.warn("Cette modification du brouillard ne change rien !");
-		} else {
-			// différent d'avant
-			this.page.event.map.brouillard = new Brouillard(this.nomImage,
-					this.opacite, 
-					ModeDeFusion.parNom(this.nomModeDeFusion), 
-					this.defilementX, 
-					this.defilementY, 
-					this.zoom
+		
+		// Y a-t-il déjà un Brouillard actuel ?
+		if (brouillardActuel == null) {
+			// Il n'y a pas encore de Brouillard
+			// On crée un Brouillard tout neuf
+			// On utilise des valeurs par défaut si manquantes
+			this.page.event.map.brouillard = new Brouillard(
+					this.nomImage,
+					this.opacite == null ? Graphismes.OPACITE_MAXIMALE : this.opacite, 
+					this.nomModeDeFusion == null ? ModeDeFusion.NORMAL : ModeDeFusion.parNom(this.nomModeDeFusion), 
+					this.defilementX == null ? 0 : this.defilementX, 
+					this.defilementY == null ? 0 : this.defilementY, 
+					this.zoom == null ? Graphismes.PAS_D_HOMOTHETIE : this.zoom,
+					this.ton == null ? Graphismes.TON_PAR_DEFAUT : this.ton
 			);
+			
+		} else {
+			// Il y a déjà un Brouillard
+			// On modifie le Brouillard actuel
+			if ((this.nomImage == null || brouillardActuel.nomImage.equals(this.nomImage)) 
+					&& (this.opacite == null || brouillardActuel.opacite == this.opacite)
+					&& (this.nomModeDeFusion == null || brouillardActuel.mode.nom.equals(this.nomModeDeFusion))
+					&& (this.defilementX == null || brouillardActuel.defilementX == this.defilementX)
+					&& (this.defilementY == null || brouillardActuel.defilementY == this.defilementY)
+					&& (this.zoom == null || brouillardActuel.zoom == this.zoom)
+					&& (this.ton == null || Graphismes.memeTon(brouillardActuel.ton, this.ton) )
+			) {
+				// Aucun changement
+				LOG.warn("Cette modification du brouillard ne change rien !");
+			} else {
+				// Différent d'avant !
+				// Si manquantes, on réutilise les valeurs du Brouillard actuel
+				this.page.event.map.brouillard = new Brouillard(
+						this.nomImage == null ? brouillardActuel.nomImage : this.nomImage,
+						this.opacite == null ? brouillardActuel.opacite : this.opacite, 
+						this.nomModeDeFusion == null ? brouillardActuel.mode : ModeDeFusion.parNom(this.nomModeDeFusion), 
+						this.defilementX == null ? brouillardActuel.defilementX : this.defilementX, 
+						this.defilementY == null ? brouillardActuel.defilementY : this.defilementY, 
+						this.zoom == null ? brouillardActuel.zoom : this.zoom,
+						this.ton == null ? brouillardActuel.ton : this.ton
+				);
+			}
 		}
 		return curseurActuel+1;
 	}

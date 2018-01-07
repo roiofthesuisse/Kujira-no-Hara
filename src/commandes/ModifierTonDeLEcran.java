@@ -30,6 +30,7 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	 * @param vert importance du vert dans le nouveau ton de l'écran
 	 * @param bleu importance du bleu dans le nouveau ton de l'écran
 	 * @param gris désaturation de l'image
+	 * @param dureeTransition (en nombre de frames)
 	 */
 	public ModifierTonDeLEcran(final int rouge, final int vert, final int bleu, final int gris, final int dureeTransition) {
 		this.tonFinal[1] = rouge;
