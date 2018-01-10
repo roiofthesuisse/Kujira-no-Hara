@@ -36,10 +36,10 @@ public abstract class Mouvement {
 	 * Réinitialiser un mouvement le déclare non fait, et change la direction en cas de mouvement aléatoire.
 	 */
 	public final void reinitialiser() {
-		//réinitialisation spécifique à ce type de Mouvement en particulier
+		// Réinitialisation spécifique à ce type de Mouvement en particulier
 		this.reinitialiserSpecifique();
 		
-		//rénitialisation commune à tous les Mouvements
+		// Réinitialisation commune à tous les Mouvements
 		this.ceQuiAEteFait = 0;
 	}
 	
@@ -59,19 +59,19 @@ public abstract class Mouvement {
 			final Event event = this.deplacement.getEventADeplacer();
 
 			if ( this.mouvementPossible() ) {
-				//appliquer l'effet du Mouvement sur la Map et les Events
+				// Appliquer l'effet du Mouvement sur la Map et les Events
 				calculDuMouvement(event);
 
-				//quelle sera la commande suivante ?
+				// Quelle sera la commande suivante ?
 				if ( this.ceQuiAEteFait >= this.etapes ) {
-					//déclarer le Mouvement comme terminé (car il est réellement terminé)
+					// Déclarer le Mouvement comme terminé (car il est réellement terminé)
 					terminerLeMouvement(event);
 				}
 				
 				mettreEventDansLaDirectionDuMouvement();
 				
 			} else {
-				//déclarer le Mouvement comme terminé (car ignoré)
+				// Déclarer le Mouvement comme terminé (car ignoré)
 				ignorerLeMouvement(event);
 				event.avance = false;
 			}
@@ -101,13 +101,13 @@ public abstract class Mouvement {
 	 * @param event subissant le Mouvement
 	 */
 	private void terminerLeMouvement(final Event event) {
-		//finalisation spécifique à ce type de Mouvement en particulier
+		// Finalisation spécifique à ce type de Mouvement en particulier
 		terminerLeMouvementSpecifique(event); //dépend du type de Mouvement
 		
-		//finalisation commune à tous les Mouvements
+		// Finalisation commune à tous les Mouvements
 		this.reinitialiser();
 		
-		//est-on dans un Déplacement naturel ou forcé ?
+		// Est-on dans un Déplacement naturel ou forcé ?
 		final Deplacement deplacementNaturelOuForce;
 		if (this.deplacement.naturel) {
 			deplacementNaturelOuForce = event.deplacementNaturelActuel;
@@ -115,8 +115,8 @@ public abstract class Mouvement {
 			deplacementNaturelOuForce = event.deplacementForce;
 		}
 		
-		//on regarde si la Page n'a pas changé,
-		//car on ne remet pas en bout de file un Mouvement naturel issu d'une autre Page 
+		// On regarde si la Page n'a pas changé,
+		// Car on ne remet pas en bout de file un Mouvement naturel issu d'une autre Page 
 		final Integer pageAvant = this.deplacement.page.numero;
 		final Integer pageMaintenant;
 		if (event.pageActive != null) {
@@ -129,7 +129,7 @@ public abstract class Mouvement {
 		final boolean laPageEstToujoursLaMeme = pageAvant.equals(pageMaintenant);
 		
 		
-		//si le Déplacement est perpétuel, on remet ce Mouvement en fin de liste
+		// Si le Déplacement est perpétuel, on remet ce Mouvement en fin de liste
 		if (this.deplacement.repeterLeDeplacement) {
 			if (!this.deplacement.naturel //un Mouvement forcé perpétuel ne s'arrête pas même si la Page de l'Event change
 			|| laPageEstToujoursLaMeme) { //un Mouvement naturel perpétuel s'arrête si la Page change
@@ -142,16 +142,23 @@ public abstract class Mouvement {
 
 		}
 		
-		//on retire ce Mouvement de la liste
-		if (laPageEstToujoursLaMeme 
-				&& deplacementNaturelOuForce.mouvements.size() >= 1
-				&& deplacementNaturelOuForce.mouvements.get(0).equals(this)) {
-			deplacementNaturelOuForce.mouvements.remove(0);
+		// On retire ce Mouvement de la liste
+		final String messageDErreurPotentiel = "Impossible de retirer le premier Mouvement " + this.toString() 
+		+ " du Déplacement " + (this.deplacement.naturel ? "naturel" : "forcé")
+		+ " de l'Event " + event.id + " (" + event.nom + ")";
+		if (laPageEstToujoursLaMeme) {
+				if (deplacementNaturelOuForce.mouvements.size() >= 1) {
+					if (deplacementNaturelOuForce.mouvements.get(0).equals(this)) {
+						deplacementNaturelOuForce.mouvements.remove(0);
+					} else {
+						LOG.error(messageDErreurPotentiel+" car le premier mouvement du déplacement est un tout autre mouvement : "+
+								deplacementNaturelOuForce.mouvements.get(0).getClass().getName());
+					}
+				} else {
+					LOG.error(messageDErreurPotentiel+" car le déplacement est vide.");
+				}
 		} else {
-			//cas théoriquement impossible
-			LOG.error("Impossible de retirer le premier Mouvement " + this.toString() 
-			+ " du Déplacement " + (this.deplacement.naturel ? "naturel" : "forcé")
-			+ " de l'Event " + event.id + " (" + event.nom + ")");
+			LOG.error(messageDErreurPotentiel+" car la page active a changé (page "+pageAvant+" -> page "+pageMaintenant+").");
 		}
 	}
 	
@@ -167,11 +174,10 @@ public abstract class Mouvement {
 	 * @param event subissant le Mouvement
 	 */
 	private void ignorerLeMouvement(final Event event) {
-		
-		//interruption spécifique à ce type de Mouvement en particulier
+		// Interruption spécifique à ce type de Mouvement en particulier
 		ignorerLeMouvementSpecifique(event);
 		
-		//interruption commune à tous les Mouvements
+		// Interruption commune à tous les Mouvements
 		if (this.deplacement.ignorerLesMouvementsImpossibles) {
 			//on ignore ce Mouvement impossible et on passe au suivant
 			terminerLeMouvement(event);
