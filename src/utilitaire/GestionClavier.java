@@ -21,6 +21,7 @@ public abstract class GestionClavier {
 		C(67, "C"),
 		B(66, "B"),
 		ENTREE(10, "ENTREE"),
+		ECHAP(27, "ECHAP"),
 		O(79, "O"),
 		K(75, "K"),
 		L(76, "L"),
@@ -46,30 +47,30 @@ public abstract class GestionClavier {
 	 * Association entre les touches du clavier et leur rôle
 	 */
 	public enum ToucheRole {
-		ACTION(ToucheClavier.K, "ACTION"),
-		HAUT(ToucheClavier.Z, "HAUT"),
-		BAS(ToucheClavier.S, "BAS"),
-		GAUCHE(ToucheClavier.Q, "GAUCHE"),
-		DROITE(ToucheClavier.D, "DROITE"),
-		ARME_SUIVANTE(ToucheClavier.O, "ARME_SUIVANTE"),
-		//PAGE_MENU_SUIVANTE(ToucheClavier.O, "PAGE_MENU_SUIVANTE"), //TODO ?
-		ARME_PRECEDENTE(ToucheClavier.L, "ARME_PRECEDENTE"),
-		//PAGE_MENU_PRECEDENTE(ToucheClavier.L, "PAGE_MENU_PRECEDENTE"), //TODO ?
-		ACTION_SECONDAIRE(ToucheClavier.M, "ACTION_SECONDAIRE"),
-		MENU(ToucheClavier.ENTREE, "MENU"),
-		CAPTURE_D_ECRAN(ToucheClavier.C, "CAPTURE_D_ECRAN"),
-		BREAKPOINT(ToucheClavier.B, "BREAKPOINT");
+		ACTION("ACTION", ToucheClavier.K),
+		HAUT("HAUT", ToucheClavier.Z),
+		BAS("BAS", ToucheClavier.S),
+		GAUCHE("GAUCHE", ToucheClavier.Q),
+		DROITE("DROITE", ToucheClavier.D),
+		ARME_SUIVANTE("ARME_SUIVANTE", ToucheClavier.O),
+		//PAGE_MENU_SUIVANTE("PAGE_MENU_SUIVANTE", ToucheClavier.O), //TODO ?
+		ARME_PRECEDENTE("ARME_PRECEDENTE", ToucheClavier.L),
+		//PAGE_MENU_PRECEDENTE("PAGE_MENU_PRECEDENTE", ToucheClavier.L), //TODO ?
+		ACTION_SECONDAIRE("ACTION_SECONDAIRE", ToucheClavier.M),
+		MENU("MENU", ToucheClavier.ENTREE, ToucheClavier.ECHAP),
+		CAPTURE_D_ECRAN("CAPTURE_D_ECRAN", ToucheClavier.C),
+		BREAKPOINT("BREAKPOINT", ToucheClavier.B);
 		
-		public final ToucheClavier touche;
+		private final ToucheClavier[] touches;
 		public final String nom;
 		
 		/**
 		 * Constructeur explicite
-		 * @param touche du clavier
+		 * @param touches du clavier
 		 * @param nom du rôle associé à la touche
 		 */
-		ToucheRole(final ToucheClavier touche, final String nom) {
-			this.touche = touche;
+		ToucheRole(final String nom, final ToucheClavier... touches) {
+			this.touches = touches;
 			this.nom = nom;
 		}
 		
@@ -80,8 +81,10 @@ public abstract class GestionClavier {
 		 */
 		public static ToucheRole getToucheRole(final int keycode) {
 			for (ToucheRole role : ToucheRole.values()) {
-				if (keycode == role.touche.keycode) {
-					return role;
+				for (ToucheClavier touche : role.touches) {
+					if (keycode == touche.keycode) {
+						return role;
+					}
 				}
 			}
 			LOG.warn("une touche inconnue a été pressée : "+keycode); 
@@ -95,12 +98,60 @@ public abstract class GestionClavier {
 		 */
 		public static ToucheRole getToucheRole(final String nom) {
 			for (ToucheRole role : ToucheRole.values()) {
-				if (role.nom.equals(nom) || role.touche.nom.equals(nom)) {
-					return role;
+				for (ToucheClavier touche : role.touches) {
+					if (role.nom.equals(nom) || touche.nom.equals(nom)) {
+						return role;
+					}
 				}
 			}
 			LOG.error("une touche inconnue a été mentionnée : "+nom); 
 			return null;
+		}
+		
+		/**
+		 * Une des touches du clavier correspondant à ce rôle est-elle enfoncée.
+		 * @return true ou false
+		 */
+		public boolean enfoncee() {
+			for (ToucheClavier touche : this.touches) {
+				if (touche.enfoncee) {
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		/**
+		 * Frame d'appui d'une des touches du clavier correspondant à ce rôle.
+		 * @return la frame
+		 */
+		public Integer frameDAppui() {
+			for (ToucheClavier touche : this.touches) {
+				if (touche.frameDAppui != null) {
+					return touche.frameDAppui;
+				}
+			}
+			return null;
+		}
+
+		/**
+		 * Mutateur de l'enfoncement de toutes les touches du clavier correspondant à ce rôle.
+		 * @param b noter les touches du clavier comme enfoncées ou non
+		 */
+		public void enfoncee(final boolean b) {
+			for (ToucheClavier touche : this.touches) {
+				touche.enfoncee = b;
+			}
+		}
+
+		/**
+		 * Mutateur de la frame d'appui de toutes les touches du clavier correspondant à ce rôle.
+		 * @param frame d'appui à assigner aux touches de ce rôle
+		 */
+		public void frameDAppui(final Integer frame) {
+			for (ToucheClavier touche : this.touches) {
+				touche.frameDAppui = frame;
+			}
 		}
 	}
 	

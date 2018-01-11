@@ -22,7 +22,7 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	/** 
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param touches à vérifier (séparées par des points-virgules)
+	 * @param touches rôles à vérifier (séparées par des points-virgules)
 	 * @param toucheMaintenue touche actuellement enfoncée VS appui récent
 	 */
 	public ConditionTouche(final int numero, final String touches, final boolean toucheMaintenue) {
@@ -51,10 +51,10 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 		if (this.toucheMaintenue) {
 			// La touche est-elle enfoncée en ce moment ?
 				for (ToucheRole toucheRole : this.touchesRoles) {
-					if (toucheRole == null || toucheRole.touche == null) {
+					if (toucheRole == null || toucheRole == null) {
 						LOG.error("Touche inexistante !", this.touchesRoles);
 					}
-					if (toucheRole.touche.enfoncee) {
+					if (toucheRole.enfoncee()) {
 						return true;
 					}
 				}
@@ -65,7 +65,7 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 			final LecteurMap lecteur = this.page.event.map.lecteur;
 			if (lecteur.frameActuelle > 1) { //pour éviter que l'Epée se déclenche en début de Map
 				for (ToucheRole toucheRole : this.touchesRoles) {
-					final Integer frameDAppui = toucheRole.touche.frameDAppui;
+					final Integer frameDAppui = toucheRole.frameDAppui();
 					if (frameDAppui != null && frameDAppui + 1 == lecteur.frameActuelle) {
 						return true;
 					}

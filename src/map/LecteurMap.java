@@ -481,10 +481,10 @@ public class LecteurMap extends Lecteur {
 	private void deplacerLesEvents() {
 		try {
 			//animer la marche du Héros si touche pressée
-			if ( GestionClavier.ToucheRole.HAUT.touche.enfoncee
-			  || GestionClavier.ToucheRole.GAUCHE.touche.enfoncee
-			  || GestionClavier.ToucheRole.BAS.touche.enfoncee
-			  || GestionClavier.ToucheRole.DROITE.touche.enfoncee ) {
+			if ( GestionClavier.ToucheRole.HAUT.enfoncee()
+			  || GestionClavier.ToucheRole.GAUCHE.enfoncee()
+			  || GestionClavier.ToucheRole.BAS.enfoncee()
+			  || GestionClavier.ToucheRole.DROITE.enfoncee()) {
 				map.heros.avance = true;
 			}
 			
@@ -716,10 +716,10 @@ public class LecteurMap extends Lecteur {
 	 */
 	public final void remettreAZeroLAnimationDuHeros() {
 		final Event heros = map.heros;
-		if (!GestionClavier.ToucheRole.BAS.touche.enfoncee
-		 && !GestionClavier.ToucheRole.HAUT.touche.enfoncee
-		 && !GestionClavier.ToucheRole.GAUCHE.touche.enfoncee
-		 && !GestionClavier.ToucheRole.DROITE.touche.enfoncee) {
+		if (!GestionClavier.ToucheRole.BAS.enfoncee()
+		 && !GestionClavier.ToucheRole.HAUT.enfoncee()
+		 && !GestionClavier.ToucheRole.GAUCHE.enfoncee()
+		 && !GestionClavier.ToucheRole.DROITE.enfoncee()) {
 			heros.avance = false;
 			heros.animation = 0;
 		}

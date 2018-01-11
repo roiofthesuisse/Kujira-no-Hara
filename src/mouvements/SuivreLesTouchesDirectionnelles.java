@@ -65,11 +65,11 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 		
 		boolean ilYADeplacement = false;
 		boolean toucheEnfonceeACetteFrame = false;
-		if (GestionClavier.ToucheRole.HAUT.touche.enfoncee) {
+		if (GestionClavier.ToucheRole.HAUT.enfoncee()) {
 			toucheEnfonceeACetteFrame = true;
-			if (!GestionClavier.ToucheRole.BAS.touche.enfoncee) { //bas-haut impossible
-				if (GestionClavier.ToucheRole.GAUCHE.touche.enfoncee) {
-					if (!GestionClavier.ToucheRole.DROITE.touche.enfoncee) { //gauche-droite impossible
+			if (!GestionClavier.ToucheRole.BAS.enfoncee()) { //bas-haut impossible
+				if (GestionClavier.ToucheRole.GAUCHE.enfoncee()) {
+					if (!GestionClavier.ToucheRole.DROITE.enfoncee()) { //gauche-droite impossible
 						//haut-gauche
 						if (unPasVers(Event.Direction.HAUT, Event.Direction.GAUCHE, event, vitesse).mouvementPossible()) {
 							ilYADeplacement = true;
@@ -87,7 +87,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 						}
 					}
 				} else {
-					if (GestionClavier.ToucheRole.DROITE.touche.enfoncee) {
+					if (GestionClavier.ToucheRole.DROITE.enfoncee()) {
 						//haut-droite
 						if (unPasVers(Event.Direction.HAUT, Event.Direction.DROITE, event, vitesse).mouvementPossible()) {
 							ilYADeplacement = true;
@@ -120,10 +120,10 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 				}
 			}
 		} else {
-			if (GestionClavier.ToucheRole.BAS.touche.enfoncee) {
+			if (GestionClavier.ToucheRole.BAS.enfoncee()) {
 				toucheEnfonceeACetteFrame = true;
-				if (GestionClavier.ToucheRole.GAUCHE.touche.enfoncee) {
-					if (!GestionClavier.ToucheRole.DROITE.touche.enfoncee) { //gauche-droite impossible
+				if (GestionClavier.ToucheRole.GAUCHE.enfoncee()) {
+					if (!GestionClavier.ToucheRole.DROITE.enfoncee()) { //gauche-droite impossible
 						//bas-gauche
 						if (unPasVers(Event.Direction.BAS, Event.Direction.GAUCHE, event, vitesse).mouvementPossible()) {
 							ilYADeplacement = true;
@@ -141,7 +141,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 						}
 					}
 				} else {
-					if (GestionClavier.ToucheRole.DROITE.touche.enfoncee) {
+					if (GestionClavier.ToucheRole.DROITE.enfoncee()) {
 						//bas-droite
 						if (unPasVers(Event.Direction.BAS, Event.Direction.DROITE, event, vitesse).mouvementPossible()) {
 							ilYADeplacement = true;
@@ -173,9 +173,9 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 					}
 				}
 			} else {
-				if (GestionClavier.ToucheRole.GAUCHE.touche.enfoncee) {
+				if (GestionClavier.ToucheRole.GAUCHE.enfoncee()) {
 					toucheEnfonceeACetteFrame = true;
-					if (!GestionClavier.ToucheRole.DROITE.touche.enfoncee) { //gauche-droite impossible
+					if (!GestionClavier.ToucheRole.DROITE.enfoncee()) { //gauche-droite impossible
 						//gauche seule
 						Avancer unPas = unPasVers(Event.Direction.GAUCHE, event, vitesse);
 						if (unPas.mouvementPossible()) {
@@ -190,7 +190,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 						}
 					}
 				} else {
-					if (GestionClavier.ToucheRole.DROITE.touche.enfoncee) {
+					if (GestionClavier.ToucheRole.DROITE.enfoncee()) {
 						toucheEnfonceeACetteFrame = true;
 						//droite seule
 						Avancer unPas = unPasVers(Event.Direction.DROITE, event, vitesse);
@@ -317,13 +317,13 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 				//&& event.animationAttaque <= 0 //pas en attaque
 				&& (event.deplacementForce == null || event.deplacementForce.mouvements.size() <= 0) //pas de Déplacement forcé
 		) {
-			if ( GestionClavier.ToucheRole.GAUCHE.touche.enfoncee ) {
+			if (GestionClavier.ToucheRole.GAUCHE.enfoncee()) {
 				event.direction = Event.Direction.GAUCHE;
-			} else if ( GestionClavier.ToucheRole.DROITE.touche.enfoncee ) {
+			} else if (GestionClavier.ToucheRole.DROITE.enfoncee()) {
 				event.direction = Event.Direction.DROITE;
-			} else if ( GestionClavier.ToucheRole.BAS.touche.enfoncee ) {
+			} else if (GestionClavier.ToucheRole.BAS.enfoncee()) {
 				event.direction = Event.Direction.BAS;
-			} else if ( GestionClavier.ToucheRole.HAUT.touche.enfoncee ) {
+			} else if (GestionClavier.ToucheRole.HAUT.enfoncee()) {
 				event.direction = Event.Direction.HAUT;
 			}
 		}
