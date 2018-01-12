@@ -51,7 +51,7 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 		if (this.toucheMaintenue) {
 			// La touche est-elle enfoncée en ce moment ?
 				for (ToucheRole toucheRole : this.touchesRoles) {
-					if (toucheRole == null || toucheRole == null) {
+					if (toucheRole == null) {
 						LOG.error("Touche inexistante !", this.touchesRoles);
 					}
 					if (toucheRole.enfoncee()) {
