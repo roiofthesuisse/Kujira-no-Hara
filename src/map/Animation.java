@@ -25,10 +25,12 @@ import utilitaire.son.Musique;
 public class Animation {
 	//constantes
 	protected static final Logger LOG = LogManager.getLogger(Animation.class);
-	private static final int NOMBRE_VIGNETTES_PAR_LIGNE = 4;
+	private static final int NOMBRE_VIGNETTES_PAR_LIGNE = 5;
 	private static final int TAILLE_VIGNETTE = 192;
 	public static final Animation[] ANIMATIONS_DU_JEU = chargerLesAnimationsDuJeu();
 	
+	/** Identifiant de l'animation */
+	private final int id;
 	/** Image dans laquelle on découpe les vignettes de l'Animation */
 	private BufferedImage image;
 	/** Les différentes étapes successives de l'animation */
@@ -118,6 +120,7 @@ public class Animation {
 	 * @param jsonAnimation objet JSON représentant l'Animation
 	 */
 	public Animation(final JSONObject jsonAnimation) {
+		this.id = jsonAnimation.getInt("id");
 		final String nomImage = jsonAnimation.getString("nomImage");
 		try {
 			this.image = Graphismes.ouvrirImage("Animations", nomImage);
@@ -146,11 +149,19 @@ public class Animation {
 		}
 		
 		final ArrayList<Animation> animations = new ArrayList<Animation>();
+		int plusGrandId = 0;
 		for (Object animationObject : jsonAnimations) {
-			animations.add(new Animation((JSONObject) animationObject));
+			Animation animation = new Animation((JSONObject) animationObject);
+			animations.add(animation);
+			if (animation.id > plusGrandId) {
+				plusGrandId = animation.id;
+			}
 		}
-		final Animation[] tableauDesAnimations = new Animation[animations.size()];
-		return animations.toArray(tableauDesAnimations);
+		final Animation[] tableauDesAnimations = new Animation[plusGrandId+1];
+		for (Animation animation : animations) {
+			tableauDesAnimations[animation.id] = animation;
+		}
+		return tableauDesAnimations;
 		
 	}
 
@@ -216,7 +227,13 @@ public class Animation {
 				// La prochaine fois, on jouera la frame suivante
 				LOG.trace("Frame n°"+animationEnCours.frameActuelle+" de l'animation");
 				animationEnCours.frameActuelle++;
-			} catch (IndexOutOfBoundsException e) {
+			} catch (NullPointerException e0) {
+				LOG.error("Impossible de trouver l'animation "+animationEnCours.idAnimation);
+				// Animation introuvable, on la retire de la file
+				partie.animations.remove(i);
+				i--;
+				nombreDAnimationsEnCours--;
+			} catch (IndexOutOfBoundsException e1) {
 				LOG.debug("Fin de l'animation n°"+animationEnCours.frameActuelle);
 				// L'animation est terminée, on la retire de la file
 				partie.animations.remove(i);
