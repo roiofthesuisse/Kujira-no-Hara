@@ -146,7 +146,7 @@ public abstract class Mouvement {
 		final String messageDErreurPotentiel = "Impossible de retirer le premier Mouvement " + this.toString() 
 		+ " du Déplacement " + (this.deplacement.naturel ? "naturel" : "forcé")
 		+ " de l'Event " + event.id + " (" + event.nom + ")";
-		if (laPageEstToujoursLaMeme) {
+		if (laPageEstToujoursLaMeme || !this.deplacement.naturel) { //un Déplacement forcé est au niveau de l'Event, pas de la Page
 				if (deplacementNaturelOuForce.mouvements.size() >= 1) {
 					if (deplacementNaturelOuForce.mouvements.get(0).equals(this)) {
 						deplacementNaturelOuForce.mouvements.remove(0);
