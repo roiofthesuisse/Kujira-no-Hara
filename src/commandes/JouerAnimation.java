@@ -50,12 +50,16 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		this.frameActuelle = 0;
+		final String lieuDeLExplosion;
 		if (this.xEcran == -1 && this.yEcran == -1) {
 			// L'animation concerne un Event
 			
 			// "null" signifie donc "cet Event"
 			if (this.idEvent == null) {
 				this.idEvent = this.page.event.id;
+				lieuDeLExplosion = "event "+this.idEvent;
+			} else {
+				lieuDeLExplosion = "cet event";
 			}
 			
 			// On vérifie qu'il n'y a pas déjà une animation sur cet Event
@@ -74,11 +78,12 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 		} else {
 			// L'animation est définie par ses coordonnées
 			this.idEvent = null;
+			lieuDeLExplosion = "aux coordonnées "+this.xEcran+";"+this.yEcran;
 		}
 		
 		// On ajoute la nouvelle animation
 		Fenetre.getPartieActuelle().animations.add(this);
-		LOG.debug("Animation "+this.idAnimation+" ajoutée à la file");
+		LOG.debug("Animation "+this.idAnimation+" démarrée à l'endroit : "+lieuDeLExplosion);
 		return curseurActuel+1;
 	}
 

@@ -128,7 +128,7 @@ public class LecteurMap extends Lecteur {
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera, true, vignetteAutotileActuelle);
 		
 		//on dessine les animations
-		ecran = Animation.dessinerLesAnimations(ecran);
+		ecran = Animation.dessinerLesAnimations(ecran, xCamera, yCamera);
 		
 		//ajouter imageCoucheSurHeros à l'écran
 		ecran = dessinerDecorSuperieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
@@ -681,7 +681,7 @@ public class LecteurMap extends Lecteur {
 		BufferedImage capture = dessinerPanorama(this.xCamera, this.yCamera);
 		capture = dessinerDecorInferieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
 		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, afficherLeHeros, this.vignetteAutotileActuelle);
-		capture = Animation.dessinerLesAnimations(capture);
+		capture = Animation.dessinerLesAnimations(capture, this.xCamera, this.yCamera);
 		capture = dessinerDecorSuperieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
 		capture = dessinerMeteo(capture, this.frameActuelle);
 		//brouillard

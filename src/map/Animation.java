@@ -168,9 +168,11 @@ public class Animation {
 	/**
 	 * Dessiner les Animations en cours sur l'écran
 	 * @param ecran sur lequel on dessine
+	 * @param xCamera position (en pixels) de la caméra par rapport au bord haut-gauche de la Map
+	 * @param yCamera position (en pixels) de la caméra par rapport au bord haut-gauche de la Map
 	 * @return écran avec les Animations dessinées dessus
 	 */
-	public static BufferedImage dessinerLesAnimations(BufferedImage ecran) {
+	public static BufferedImage dessinerLesAnimations(BufferedImage ecran, final int xCamera, final int yCamera) {
 		final Partie partie = Fenetre.getPartieActuelle();
 		JouerAnimation animationEnCours;
 		int nombreDAnimationsEnCours = partie.animations.size();
@@ -198,7 +200,7 @@ public class Animation {
 				xCible = eventCible.x;
 				yCible = eventCible.y;
 				xCentrage = eventCible.largeurHitbox/2;
-				yCentrage = eventCible.hauteurHitbox;
+				yCentrage = eventCible.hauteurHitbox/2;
 			}
 
 			try {
@@ -208,8 +210,8 @@ public class Animation {
 					ecran = Graphismes.superposerImages(
 							ecran,
 							picture.image,
-							picture.x + xCible + xCentrage,
-							picture.y + yCible + yCentrage,
+							picture.x + xCible + xCentrage - xCamera,
+							picture.y + yCible + yCentrage - yCamera,
 							picture.centre,
 							picture.zoomX,
 							picture.zoomY,
