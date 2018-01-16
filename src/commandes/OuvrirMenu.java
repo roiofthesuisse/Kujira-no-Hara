@@ -22,7 +22,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	/**
 	 * Constructeur explicite
 	 * @param nomMenu du Menu
-	 * @param selectionInitiale identifiant de l'ElementDeMenu à sélectionner au début
+	 * @param selectionInitiale identifiant de l'ElementDeMenu à sélectionner au début ; null pour la sélection par défaut spécifique au menu
 	 */
 	public OuvrirMenu(final String nomMenu, final Integer selectionInitiale) {
 		this.nomMenu = nomMenu;

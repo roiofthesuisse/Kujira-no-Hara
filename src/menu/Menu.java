@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import commandes.FermerMenu;
 import main.Commande;
+import main.Fenetre;
 import map.Event;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
@@ -290,7 +291,25 @@ public class Menu {
 		}
 		
 		// Identifiant de l'ElementDeMenu déjà sélectionné par défaut
-		final int idSelectionInitiale = jsonObject.has("selectionInitiale") ? (int) jsonObject.get("selectionInitiale") : 0;
+		final int idSelectionInitiale;
+		if (jsonObject.has("selectionInitiale")) {
+			if (jsonObject.get("selectionInitiale") instanceof String) {
+				String nomSelectionInitiale = jsonObject.getString("selectionInitiale");
+				switch (nomSelectionInitiale) {
+				case "numeroPartie":
+					idSelectionInitiale = Fenetre.getPartieActuelle().id;
+					break;
+				default:
+					LOG.error("La sélection initiale du menu \""+nom+"\" est inconnue : "+nomSelectionInitiale);
+					idSelectionInitiale = 0;
+					break;
+				}
+			} else {
+				idSelectionInitiale = jsonObject.getInt("selectionInitiale");
+			}
+		} else {
+			idSelectionInitiale = 0;
+		}
 		
 		// Identifiant de l'ElementDeMenu contenant les descriptions d'Objects
 		final int idDescription = jsonObject.has("idDescription") ? (int) jsonObject.get("idDescription") : -1;
