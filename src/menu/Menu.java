@@ -115,8 +115,10 @@ public class Menu {
 		
 		// Sélection du curseur au départ
 		this.elementSelectionne = selectionInitiale;
-		selectionInitiale.selectionne = true;
-		selectionInitiale.executionDesCommandesDeSurvol = true;
+		if (selectionInitiale != null) {
+			selectionInitiale.selectionne = true;
+			selectionInitiale.executionDesCommandesDeSurvol = true;
+		}
 		
 		// Menu parent (si on quitte ce Menu, on y retourne)
 		this.menuParent = menuParent;

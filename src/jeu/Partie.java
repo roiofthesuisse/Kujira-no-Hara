@@ -214,7 +214,9 @@ public final class Partie implements Listable, Sauvegardable {
 			this.interrupteursLocaux.add(code);
 		}
 		//chronometre
-		this.chronometre = new Chronometre(chronometre.getBoolean("croissant"), chronometre.getInt("secondes"));
+		if (chronometre!=null) {
+			this.chronometre = new Chronometre(chronometre.getBoolean("croissant"), chronometre.getInt("secondes"));
+		}
 		//images
 		//TODO
 		// Animations

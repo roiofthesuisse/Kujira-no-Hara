@@ -28,13 +28,13 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	/** Le cryptage impose des textes de taille multiple de 16 bytes */
 	private static final int MULTIPLE_DE_SEIZE = 16;
 	
-	private int numeroSauvegarde;
+	private Integer numeroSauvegarde;
 	
 	/**
 	 * Constructeur explicite
 	 * @param numeroSauvegarde numéro du fichier de Sauvegarde
 	 */
-	private Sauvegarder(final int numeroSauvegarde) {
+	private Sauvegarder(final Integer numeroSauvegarde) {
 		this.numeroSauvegarde = numeroSauvegarde;
 	}
 	
@@ -43,7 +43,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Sauvegarder(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("numeroSauvegarde") );
+		this( parametres.containsKey("numeroSauvegarde") ? (int) parametres.get("numeroSauvegarde") : null );
 	}
 	
 	/**
@@ -58,6 +58,11 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+		// La Partie par défaut est la Partie actuelle
+		if (this.numeroSauvegarde == null) {
+			this.numeroSauvegarde = Fenetre.getPartieActuelle().id;
+		}
+		
 		final String nomFichierSauvegarde = PREFIXE_FICHIER_SAUVEGARDE + this.numeroSauvegarde + ".txt";
 		final String filename = NOM_DOSSIER_SAUVEGARDES + nomFichierSauvegarde;
 		
