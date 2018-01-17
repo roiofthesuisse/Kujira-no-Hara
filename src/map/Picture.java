@@ -95,7 +95,7 @@ public class Picture implements Sauvegardable {
 		jsonImage.put("zoomX", this.zoomX);
 		jsonImage.put("zoomY", this.zoomY);
 		jsonImage.put("opacite", this.opacite);
-		jsonImage.put("modeDeFusion", this.modeDeFusion);
+		jsonImage.put("modeDeFusion", this.modeDeFusion.nom);
 		jsonImage.put("angle", this.angle);
 		
 		if (this.deplacementActuel != null) {

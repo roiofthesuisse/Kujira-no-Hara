@@ -113,6 +113,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 				jsonAvancement.getJSONArray("interrupteurs"),
 				jsonAvancement.getJSONArray("variables"),
 				jsonAvancement.getJSONArray("interrupteursLocaux"),
+				jsonAvancement.getJSONArray("mots"),
 				jsonAvancement.has("chronometre") ? jsonAvancement.getJSONObject("chronometre") : null,
 				jsonAvancement.getJSONArray("images")
 		);

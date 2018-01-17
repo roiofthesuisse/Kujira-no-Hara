@@ -2,6 +2,7 @@ package jeu;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -11,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import commandes.ChargerPartie;
+import commandes.DeplacerImage;
 import commandes.JouerAnimation;
 import commandes.Sauvegarder;
 import commandes.Sauvegarder.Sauvegardable;
@@ -28,6 +30,7 @@ import menu.Texte;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
+import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Une Partie est l'ensemble des informations liées à l'avancée du joueur dans le jeu.
@@ -37,6 +40,8 @@ public final class Partie implements Listable, Sauvegardable {
 	private static final int NOMBRE_D_INTERRUPTEURS = 100;
 	private static final int NOMBRE_DE_VARIABLES = 200;
 	private static final int NOMBRE_DE_MOTS = 50;
+	/** Marge (en pixels) de la vignette de Partie dans le Menu */
+	private static final int MARGE = 16;
 	
 	public int id;
 	public int numeroMap;
@@ -135,6 +140,7 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @param interrupteurs état des interrupteurs du jeu
 	 * @param variables état des variables locaux du jeu
 	 * @param interrupteursLocaux état des interrupteurs locaux du jeu
+	 * @param mots état des mots du jeu
 	 * @param chronometre état du chronomètre éventuel
 	 * @param images affichées à l'écran
 	 * ---------------------------------------------------------------------------------------- 
@@ -143,11 +149,11 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @throws Exception le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
 	 */
 	public Partie(final int id, final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, 
-			final JSONObject jsonBrouillard,
-			final int vie, final int vieMax, final int argent, final int idArmeEquipee, final int idGadgetEquipe, 
-			final JSONArray objetsPossedes, final JSONArray avancementDesQuetes, final JSONArray armesPossedees, 
-			final JSONArray gadgetsPossedes, final JSONArray interrupteurs, final JSONArray variables, 
-			final JSONArray interrupteursLocaux, final JSONObject chronometre, final JSONArray images)
+			final JSONObject jsonBrouillard, final int vie, final int vieMax, final int argent, final int idArmeEquipee, 
+			final int idGadgetEquipe, final JSONArray objetsPossedes, final JSONArray avancementDesQuetes, 
+			final JSONArray armesPossedees, final JSONArray gadgetsPossedes, final JSONArray interrupteurs, 
+			final JSONArray variables, final JSONArray interrupteursLocaux, final JSONArray mots, 
+			final JSONObject chronometre, final JSONArray images)
 	throws Exception {
 		this();
 		this.id = id;
@@ -213,12 +219,65 @@ public final class Partie implements Listable, Sauvegardable {
 			final String code = (String) o;
 			this.interrupteursLocaux.add(code);
 		}
+		//mots
+		for (int i = 0; i<mots.length(); i++) {
+		    final Object o = mots.get(i);
+		    if (!JSONObject.NULL.equals(o)) {
+		        this.mots[i] = (String) o;
+		    }
+		}
 		//chronometre
 		if (chronometre!=null) {
 			this.chronometre = new Chronometre(chronometre.getBoolean("croissant"), chronometre.getInt("secondes"));
 		}
 		//images
-		//TODO
+		for (Object o : images) {
+			final JSONObject descripteur = (JSONObject) o;
+			final Integer numero = descripteur.getInt("numero");
+			final String nomImage = descripteur.getString("nomImage");
+			final BufferedImage image = Graphismes.ouvrirImage("Pictures", nomImage);
+			final int x = descripteur.getInt("x");
+			final int y = descripteur.getInt("y");
+			final boolean centre = descripteur.getBoolean("centre");
+			final int zoomX = descripteur.getInt("zoomX");
+			final int zoomY = descripteur.getInt("zoomY");
+			final int opacite = descripteur.getInt("opacite");
+			final String nomModeDeFusion = descripteur.getString("nomImage");
+			final ModeDeFusion modeDeFusion = ModeDeFusion.parNom(nomModeDeFusion);
+			final int angle = descripteur.getInt("angle");
+			final Picture picture = new Picture(image, nomImage, numero, x, y, centre, zoomX, zoomY, opacite, modeDeFusion, angle);
+			if (descripteur.has("deplacementActuel")) {
+				// L'image est en mouvement
+				final JSONObject deplacementImage = descripteur.getJSONObject("deplacementActuel");
+				final int nombreDeFrames = deplacementImage.getInt("nombreDeFrames");
+				final int dejaFait = deplacementImage.getInt("dejaFait");
+				final int xDebut = deplacementImage.getInt("xDebut");
+				final int yDebut = deplacementImage.getInt("yDebut");
+				final int zoomXDebut = deplacementImage.getInt("zoomXDebut");
+				final int zoomYDebut = deplacementImage.getInt("zoomYDebut");
+				final int angleDebut = deplacementImage.getInt("angleDebut");
+				final int opaciteDebut = deplacementImage.getInt("opaciteDebut");
+				final Boolean centreFin = deplacementImage.has("centre") ? deplacementImage.getBoolean("centre") : null;
+				final Integer xVar = deplacementImage.has("x") ? deplacementImage.getInt("x") : null;
+				final Integer yVar = deplacementImage.has("y") ? deplacementImage.getInt("y") : null;
+				final boolean variablesFin = deplacementImage.getBoolean("variables");
+				final int xFin = deplacementImage.getInt("xFin");
+				final int yFin = deplacementImage.getInt("yFin");
+				final Integer zoomXFin = deplacementImage.has("zoomXFin") ? deplacementImage.getInt("zoomXFin") : null;
+				final Integer zoomYFin = deplacementImage.has("zoomYFin") ? deplacementImage.getInt("zoomYFin") : null;
+				final Integer opaciteFin = deplacementImage.has("opaciteFin") ? deplacementImage.getInt("opaciteFin") : null;
+				final ModeDeFusion modeDeFusionFin = deplacementImage.has("modeDeFusion") ? ModeDeFusion.parNom(deplacementImage.getString("modeDeFusion")) : null;
+				final Integer angleFin = deplacementImage.has("angleFin") ? deplacementImage.getInt("angleFin") : null;
+				final boolean repeterLeDeplacement = deplacementImage.getBoolean("repeterLeDeplacement");
+				final boolean attendreLaFinDuDeplacement = deplacementImage.getBoolean("attendreLaFinDuDeplacement");
+				final DeplacerImage deplacerImage = new DeplacerImage(numero, nombreDeFrames, centreFin, variablesFin,
+						xVar, yVar, zoomXFin, zoomYFin, opaciteFin, modeDeFusionFin, angleFin, 
+						repeterLeDeplacement, attendreLaFinDuDeplacement);
+				deplacerImage.configurerEnCoursDeRoute(dejaFait, xDebut, yDebut, zoomXDebut, zoomYDebut, angleDebut, opaciteDebut, xFin, yFin);
+				picture.deplacementActuel = deplacerImage;
+			}
+			this.images.put(numero, picture);
+		}
 		// Animations
 		Animation.chargerLesAnimationsDuJeu();
 				
@@ -340,19 +399,27 @@ public final class Partie implements Listable, Sauvegardable {
 	public BufferedImage construireImagePourListe(final int largeur, final int hauteur) {
 		final BufferedImage vignettePartie = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);
 		
+		// Texte d'avancement
 		final ArrayList<String> blabla = new ArrayList<String>();
-		StringBuilder francais = new StringBuilder();
+		final StringBuilder francais = new StringBuilder();
 		francais.append(this.mots[0]); //nom du héros
 		blabla.add(francais.toString());
-		
-		StringBuilder anglais = new StringBuilder();
+		final StringBuilder anglais = new StringBuilder();
 		anglais.append(this.mots[0]); //nom du héros
 		blabla.add(anglais.toString());
-		
-		//TODO autre...
-		
 		final BufferedImage nomPartie = new Texte(blabla).getImage();
-		Graphismes.superposerImages(vignettePartie, nomPartie, 16, 16);
+		Graphismes.superposerImages(vignettePartie, nomPartie, MARGE, MARGE);
+		
+		// Image d'avancement
+		try {
+			final BufferedImage avancement = Graphismes.ouvrirImage("Pictures/Avancement", this.variables[126]+"");
+			final int xVignette = largeur-avancement.getWidth()-MARGE;
+			final int yVignette = MARGE;
+			Graphismes.superposerImages(vignettePartie, avancement, xVignette, yVignette);
+		} catch (IOException e) {
+			LOG.error("Impossible d'ouvrir l'image d'avancement "+this.variables[126]);
+		}
+		
 		
 		return vignettePartie;
 	}
@@ -430,6 +497,13 @@ public final class Partie implements Listable, Sauvegardable {
 			interrupteursLocaux.put(code);
 		}
 		jsonPartie.put("interrupteursLocaux", interrupteursLocaux);
+		
+		//mots
+		final JSONArray mots = new JSONArray();
+		for (int i = 0; i<this.mots.length; i++) {
+			mots.put(this.mots[i]);
+		}
+		jsonPartie.put("mots", mots);
 		
 		//chronometre
 		if (this.chronometre != null) {

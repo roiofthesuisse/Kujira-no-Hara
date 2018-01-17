@@ -23,8 +23,8 @@ import map.Map;
  */
 public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(Sauvegarder.class);
-	public final static String NOM_DOSSIER_SAUVEGARDES = "./saves/";
-	public final static String PREFIXE_FICHIER_SAUVEGARDE = "save";
+	public static final String NOM_DOSSIER_SAUVEGARDES = "./saves/";
+	public static final String PREFIXE_FICHIER_SAUVEGARDE = "save";
 	/** Le cryptage impose des textes de taille multiple de 16 bytes */
 	private static final int MULTIPLE_DE_SEIZE = 16;
 	

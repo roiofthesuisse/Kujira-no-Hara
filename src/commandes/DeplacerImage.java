@@ -14,22 +14,22 @@ import map.Picture;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * D√©marrer une transition progressive de l'√©tat actuel de l'image vers un √©tat d'arriv√©e.
- * Cette transition peut concerner le position de l'image, son opacit√©, son zoom, son angle.
- * Il est √©galement possible de changer de mode de fusion, mais ce changement sera imm√©diat.
+ * DÈmarrer une transition progressive de l'Ètat actuel de l'image vers un Ètat d'arrivÈe.
+ * Cette transition peut concerner le position de l'image, son opacitÈ, son zoom, son angle.
+ * Il est Ègalement possible de changer de mode de fusion, mais ce changement sera immÈdiat.
  */
 public class DeplacerImage extends Commande implements CommandeEvent, Sauvegardable {
 	protected static final Logger LOG = LogManager.getLogger(DeplacerImage.class);
-	/** Le d√©placement d'image est instantan√© */
+	/** Le dÈplacement d'image est instantanÈ */
 	private static final int INSTANTANE = 0;
-	/** Par d√©faut, le d√©placement n'est ex√©cut√© qu'une fois */
+	/** Par dÈfaut, le dÈplacement n'est exÈcutÈ qu'une fois */
 	private static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAULT = false;
-	/** Par d√©faut, on n'attend pas la fin du d√©placement avant de passer √† la Commande suivante */
+	/** Par dÈfaut, on n'attend pas la fin du dÈplacement avant de passer ‡† la Commande suivante */
 	private static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAULT = false;
 	
-	/** num√©ro de l'image √† d√©placer */
-	private Integer numero; //Integer car utilis√© comme cl√© d'une HashMap
-	/** dur√©e (en frames) de la transition */
+	/** numÈro de l'image ‡† dÈplacer */
+	private Integer numero; //Integer car utilisÈ comme clÈ d'une HashMap
+	/** durÈe (en frames) de la transition */
 	private int nombreDeFrames;
 	private int dejaFait;
 	
@@ -37,7 +37,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	private Integer y;
 	/** la nouvelle origine est-elle le centre de l'image ? */
 	private Boolean centre;
-	/** les coordonn√©es sont-elles stock√©es dans des variables ? */
+	/** les coordonnÈes sont-elles stockÈes dans des variables ? */
 	private boolean variables;
 	
 	private int xDebut;
@@ -54,28 +54,28 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	private int angleDebut;
 	private Integer angleFin;
 	
-	/** Faut-il r√©p√©ter en boucle le d√©placement ? */
+	/** Faut-il rÈpÈter en boucle le dÈplacement ? */
 	private final boolean repeterLeDeplacement;
-	/** Faut-il attendre la fin du d√©placement pour passer √† la Commande suivante ? */
+	/** Faut-il attendre la fin du dÈplacement pour passer ‡† la Commande suivante ? */
 	private final boolean attendreLaFinDuDeplacement;
 	
 	/**
 	 * Constructeur explicite
-	 * @param numero de l'image √† modifier
-	 * @param nombreDeFrames dur√©e de la transition
-	 * @param centre l'origine pour les nouvelles coordonn√©es de l'image est elle son centre ?
-	 * @param variables les nouvelles coordonn√©es sont-elles stock√©es dans des variables ?
-	 * @param x coordonn√©e d'arriv√©e
-	 * @param y coordonn√©e d'arriv√©e
-	 * @param zoomX zoom d'arriv√©e
-	 * @param zoomY zoom d'arriv√©e
-	 * @param opacite opacit√© d'arriv√©e
-	 * @param modeDeFusion d'arriv√©e
-	 * @param angle d'arriv√©e
-	 * @param repeterLeDeplacement le d√©placement boucle-t-il ?
-	 * @param attendreLaFinDuDeplacement faut-il passer √† la Commande suivante imm√©diatement ?
+	 * @param numero de l'image ‡† modifier
+	 * @param nombreDeFrames durÈe de la transition
+	 * @param centre l'origine pour les nouvelles coordonnÈes de l'image est elle son centre ?
+	 * @param variables les nouvelles coordonnÈes sont-elles stockÈes dans des variables ?
+	 * @param x coordonnÈe d'arrivÈe
+	 * @param y coordonnÈe d'arrivÈe
+	 * @param zoomX zoom d'arrivÈe
+	 * @param zoomY zoom d'arrivÈe
+	 * @param opacite opacitÈ d'arrivÈe
+	 * @param modeDeFusion d'arrivÈe
+	 * @param angle d'arrivÈe
+	 * @param repeterLeDeplacement le dÈplacement boucle-t-il ?
+	 * @param attendreLaFinDuDeplacement faut-il passer ‡† la Commande suivante immÈdiatement ?
 	 */
-	private DeplacerImage(final Integer numero, final int nombreDeFrames, final Boolean centre, 
+	public DeplacerImage(final Integer numero, final int nombreDeFrames, final Boolean centre, 
 			final boolean variables, final Integer x, final Integer y, final Integer zoomX, final Integer zoomY, 
 			final Integer opacite, final ModeDeFusion modeDeFusion, final Integer angle, 
 			final boolean repeterLeDeplacement, final boolean attendreLaFinDuDeplacement) {
@@ -98,8 +98,8 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	}
 	
 	/**
-	 * Constructeur g√©n√©rique
-	 * @param parametres liste de param√®tres issus de JSON
+	 * Constructeur gÈnÈrique
+	 * @param parametres liste de param‡®tres issus de JSON
 	 */
 	public DeplacerImage(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"),
@@ -119,21 +119,21 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	}
 	
 	/**
-	 * Calculer le d√©placement de l'image.
-	 * C'est un √©tat interm√©diaire entre l'√©tat de d√©but et l'√©tat de fin.
+	 * Calculer le dÈplacement de l'image.
+	 * C'est un Ètat intermÈdiaire entre l'Ètat de dÈbut et l'Ètat de fin.
 	 */
 	private void calculerDeplacement() {
 		final double progression = (double) this.dejaFait / (double) this.nombreDeFrames;
 		final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
 		
-		//initialisation des extr√©mums
+		//initialisation des extrÈmums
 		if (this.dejaFait <= 0) {
 			this.xDebut = picture.x;
 			this.yDebut = picture.y;
 			
 			if (this.x != null && this.y != null) {
 				if (this.variables) {
-					//valeurs stock√©es dans des variables
+					//valeurs stockÈes dans des variables
 					this.xFin = Fenetre.getPartieActuelle().variables[this.x];
 					this.yFin = Fenetre.getPartieActuelle().variables[this.y];
 				} else {
@@ -148,7 +148,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			this.angleDebut = picture.angle;
 			this.opaciteDebut = picture.opacite;
 			
-			//n'est modifi√© que ce qui a √©t√© explicitement sp√©cifi√©
+			//n'est modifiÈ que ce qui a ÈtÈ explicitement spÈcifiÈ
 			if (this.modeDeFusion != null) {
 				picture.modeDeFusion = this.modeDeFusion;
 			}
@@ -157,7 +157,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			}
 		}
 		
-		//n'est modifi√© que ce qui a √©t√© explicitement sp√©cifi√©
+		//n'est modifiÈ que ce qui a ÈtÈ explicitement spÈcifiÈ
 		if (this.x != null) {
 			picture.x = (int) Math.round(progression * this.xFin + (1-progression) * this.xDebut);
 		}
@@ -182,7 +182,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		if (this.attendreLaFinDuDeplacement) {
 			calculerDeplacement();
-			// Tant que ce n'est pas termin√©, on reste sur cette Commande
+			// Tant que ce n'est pas terminÈ, on reste sur cette Commande
 			if (this.dejaFait < this.nombreDeFrames) {
 				//pas fini
 				this.dejaFait++;
@@ -192,29 +192,29 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 				this.dejaFait = 0;
 				
 				if (this.repeterLeDeplacement) {
-					// On recommence √† z√©ro le d√©placement
-					LOG.info("On recommence le d√©placement d'image.");
+					// On recommence ‡† zÈro le dÈplacement
+					LOG.info("On recommence le dÈplacement d'image.");
 					return curseurActuel;
 				} else {
-					// On passe √† la Commande suivante
-					LOG.info("Fin du d√©placement d'image.");
+					// On passe ‡† la Commande suivante
+					LOG.info("Fin du dÈplacement d'image.");
 					return curseurActuel+1;
 				}
 			}
 		} else {
-			// On indique que la Picture a un d√©placement propre, et on passe √† la Commande suivante
+			// On indique que la Picture a un dÈplacement propre, et on passe ‡† la Commande suivante
 			final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
 			this.dejaFait = 0;
-			LOG.info("D√©placement d'image d√©l√©gu√© au lecteur de map.");
+			LOG.info("DÈplacement d'image dÈlÈguÈ au lecteur de map.");
 			picture.deplacementActuel = this;
 			return curseurActuel+1;
 		}
 	}
 	
 	/**
-	 * Le d√©placement de l'image a √©t√© d√©l√©gu√© par la Commande au LecteurMap afin de passer imm√©diatement √† la Commande suivante.
-	 * Ce d√©placement s'effectue donc en parall√®le, de mani√®re ind√©pendante.
-	 * @param picture image √† d√©placer
+	 * Le dÈplacement de l'image a ÈtÈ dÈlÈguÈ par la Commande au LecteurMap afin de passer immÈdiatement ‡† la Commande suivante.
+	 * Ce dÈplacement s'effectue donc en parall‡®le, de mani‡®re indÈpendante.
+	 * @param picture image ‡† dÈplacer
 	 */
 	public final void executerCommeUnDeplacementPropre(final Picture picture) {
 		calculerDeplacement();
@@ -227,23 +227,86 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			this.dejaFait = 0;
 			
 			if (!this.repeterLeDeplacement) {
-				// on emp√™che le renouvellement du d√©placement
-				LOG.info("Fin du d√©placement d'image d√©l√©gu√©.");
+				// on empÍche le renouvellement du dÈplacement
+				LOG.info("Fin du dÈplacement d'image dÈlÈguÈ.");
 				picture.deplacementActuel = null;
 			} else {
-				LOG.info("On recommence le d√©placement d'image d√©l√©gu√©.");
+				LOG.info("On recommence le dÈplacement d'image dÈlÈguÈ.");
 			}
 		}
 	}
 	
 	/**
-	 * G√©n√©rer un JSON du d√©placement actuel de la Picture pour la Sauvegarde.
+	 * GÈnÈrer un JSON du dÈplacement actuel de la Picture pour la Sauvegarde.
 	 */
 	@Override
 	public JSONObject sauvegarderEnJson() {
 		final JSONObject jsonDeplacementActuel = new JSONObject();
-		//TODO
+		jsonDeplacementActuel.put("nombreDeFrames", this.nombreDeFrames);
+		jsonDeplacementActuel.put("dejaFait", this.dejaFait);
+		jsonDeplacementActuel.put("xDebut", this.xDebut);
+		jsonDeplacementActuel.put("yDebut", this.yDebut);
+		jsonDeplacementActuel.put("zoomXDebut", this.zoomXDebut);
+		jsonDeplacementActuel.put("zoomYDebut", this.zoomYDebut);
+		jsonDeplacementActuel.put("angleDebut", this.angleDebut);
+		jsonDeplacementActuel.put("opaciteDebut", this.opaciteDebut);
+		if (this.centre != null) {
+		jsonDeplacementActuel.put("centre", this.centre);
+		}
+		if (this.x != null) {
+			jsonDeplacementActuel.put("x", this.x);
+		}
+		if (this.y != null) {
+			jsonDeplacementActuel.put("y", this.y);
+		}
+		jsonDeplacementActuel.put("variables", this.variables);
+		jsonDeplacementActuel.put("xFin", this.xFin);
+		jsonDeplacementActuel.put("yFin", this.yFin);
+		if (this.zoomXFin != null) {
+			jsonDeplacementActuel.put("zoomXFin", this.zoomXFin);
+		}
+		if (this.zoomYFin != null) {
+			jsonDeplacementActuel.put("zoomYFin", this.zoomYFin);
+		}
+		if (this.opaciteFin != null) {
+			jsonDeplacementActuel.put("opaciteFin", this.opaciteFin);
+		}
+		if (this.modeDeFusion != null) {
+			jsonDeplacementActuel.put("modeDeFusion", this.modeDeFusion);
+		}
+		if (this.angleFin != null) {
+			jsonDeplacementActuel.put("angleFin", this.angleFin);
+		}
+		jsonDeplacementActuel.put("repeterLeDeplacement", this.repeterLeDeplacement);
+		jsonDeplacementActuel.put("attendreLaFinDuDeplacement", this.attendreLaFinDuDeplacement);
 		return jsonDeplacementActuel;
+	}
+	
+	/**
+	 * Si le DÈplacement d'image est reconstituÈ ‡ partir d'une Sauvegarde,
+	 * ses attributs doivent Ítre configurÈs comme ils l'Ètaient au moment de la Sauvegarde.
+	 * @param dejaFait avancement du dÈplacement
+	 * @param xDebut coordonnÈes (en pixels) avant le dÈplacement
+	 * @param yDebut coordonnÈes (en pixels) avant le dÈplacement
+	 * @param zoomXDebut aggrandissement (en pourcents) avant le dÈplacement
+	 * @param zoomYDebut aggrandissement (en pourcents) avant le dÈplacement
+	 * @param angleDebut inclinaison avant le dÈplacement
+	 * @param opaciteDebut opacitÈ avant le dÈplacement
+	 * @param xFin coordonnÈes (en pixels) aprËs le dÈplacement
+	 * @param yFin coordonnÈes (en pixels) aprËs le dÈplacement
+	 */
+	public void configurerEnCoursDeRoute(final int dejaFait, final int xDebut, final int yDebut, 
+			final int zoomXDebut, final int zoomYDebut, final int angleDebut, final int opaciteDebut,
+			final int xFin, final int yFin) {
+		this.dejaFait = dejaFait;
+		this.xDebut = xDebut;
+		this.yDebut = yDebut;
+		this.zoomXDebut = zoomXDebut;
+		this.zoomYDebut = zoomYDebut;
+		this.angleDebut = angleDebut;
+		this.opaciteDebut = opaciteDebut;
+		this.xFin = xFin;
+		this.yFin = yFin;
 	}
 	
 }
