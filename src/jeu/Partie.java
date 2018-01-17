@@ -341,8 +341,13 @@ public final class Partie implements Listable, Sauvegardable {
 		final BufferedImage vignettePartie = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);
 		
 		final ArrayList<String> blabla = new ArrayList<String>();
-		blabla.add("Partie " + this.id);
-		blabla.add("Game " + this.id);
+		StringBuilder francais = new StringBuilder();
+		francais.append(this.mots[0]); //nom du héros
+		blabla.add(francais.toString());
+		
+		StringBuilder anglais = new StringBuilder();
+		anglais.append(this.mots[0]); //nom du héros
+		blabla.add(anglais.toString());
 		
 		//TODO autre...
 		
