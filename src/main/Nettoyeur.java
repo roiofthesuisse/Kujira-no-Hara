@@ -1,9 +1,20 @@
 package main;
 
+import java.io.File;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
+
+import map.Tileset;
+import utilitaire.InterpreteurDeJson;
+
 /**
  * Adapter les fichiers JSON du jeu au moteur Java sur des spécificités.
  */
 public abstract class Nettoyeur {
+	private static final Logger LOG = LogManager.getLogger(Nettoyeur.class);
+	
 	/**
 	 * Lancer le nettoyeur.
 	 * @param args rien du tout
@@ -31,7 +42,16 @@ public abstract class Nettoyeur {
 	}
 
 	private static void calculerLesAutotilesCousins() {
-		// TODO Auto-generated method stub
+		final File dossierTileset = new File(".\\ressources\\Data\\Tilesets\\");
+		final File[] fichiersTileset = dossierTileset.listFiles();
+		for (File fichierTileset : fichiersTileset) {
+			try {
+				final JSONObject jsonTileset = InterpreteurDeJson.ouvrirJsonTileset(fichierTileset.getName());
+				//TODO
+			} catch (Exception e) {
+				LOG.error("Impossible d'ouvrir le tilset "+fichierTileset.getName(), e);
+			}
+		}
 	}
 
 	private static void reecrireLesTouchesDuClavier() {
