@@ -357,4 +357,28 @@ public abstract class Graphismes {
 		return image2;
 	}
 
+	/**
+	 * Comparer deux images. Sont-elles identiques ?
+	 * @param image1 première image
+	 * @param image2 seconde image
+	 * @return true si les images sont identiques
+	 */
+	public static boolean memeImage(BufferedImage image1, BufferedImage image2) {
+		// Comparaison des dimensions
+		if	(image1.getWidth() != image2.getWidth()
+				|| image1.getHeight() != image2.getHeight()) {
+			return false;
+		}
+		
+		// Comparaison pixel à pixel
+		for (int i=0; i<image1.getWidth(); i++) {
+			for (int j=0; j<image2.getWidth(); j++) {
+				if (image1.getRGB(i, j) != image2.getRGB(i, j)) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
 }
