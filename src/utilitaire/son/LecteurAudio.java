@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javafx.scene.media.MediaException;
-
 /**
  * Classe utilitaire chargée de lire les fichiers audio du jeu.
  */
@@ -223,6 +221,13 @@ public abstract class LecteurAudio {
 		} else {
 			LOG.debug("Le BGS est déjà arrêté.");
 		}
+	}
+	
+	public static void redemarrerToutesLesMusiques() {
+		//TODO
+	}
+	public static void  mettreEnPauseToutesLesMusiques() {
+		//TODO
 	}
 	
 }

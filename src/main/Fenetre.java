@@ -3,8 +3,6 @@ package main;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Insets;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -30,14 +28,13 @@ import menu.LecteurMenu;
 import menu.Menu;
 import net.bull.javamelody.Parameter;
 import utilitaire.EmbeddedServer;
-import utilitaire.GestionClavier;
 import utilitaire.graphismes.Graphismes;
 
 /**
  * La Fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.
  */
 @SuppressWarnings("serial")
-public final class Fenetre extends JFrame implements KeyListener {
+public final class Fenetre extends JFrame{
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Fenetre.class);
 	public static final int TAILLE_D_UN_CARREAU = 32;
@@ -78,7 +75,8 @@ public final class Fenetre extends JFrame implements KeyListener {
 		}
 		this.lecteur = new LecteurMenu(this, menuTitre, null, selectionInitiale);
 
-		this.addKeyListener(this);
+		this.addKeyListener(new CapteurClavier(this)); //récupérer les entrées Clavier
+		this.addWindowFocusListener(new CapteurFenetre()); //pauser le jeu si Fenetre inactive
 		
 		// Démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
 		@SuppressWarnings("unused")
@@ -230,37 +228,6 @@ public final class Fenetre extends JFrame implements KeyListener {
 		}
 	}
 
-	@Override
-	public void keyPressed(final KeyEvent event) {
-		final Integer keycode = event.getKeyCode();
-		//this.mesuresDePerformance.add("press;"+keycode+";"+System.currentTimeMillis());
-		final GestionClavier.ToucheRole touchePressee = GestionClavier.ToucheRole.getToucheRole(keycode);
-		if (touchePressee != null && !touchePressee.enfoncee()) {
-			touchePressee.enfoncee(true);
-			touchePressee.frameDAppui((Integer) this.lecteur.frameActuelle); // mémorisation de la frame d'appui
-			
-			this.lecteur.keyPressed(touchePressee);
-		}
-	}
-
-	@Override
-	public void keyReleased(final KeyEvent event) {
-		final Integer keycode = event.getKeyCode();
-		//this.mesuresDePerformance.add("release;"+keycode+";"+System.currentTimeMillis());
-		final GestionClavier.ToucheRole toucheRelachee = GestionClavier.ToucheRole.getToucheRole(keycode);
-		
-		if (toucheRelachee != null && toucheRelachee.enfoncee()) {
-			toucheRelachee.enfoncee(false);
-			toucheRelachee.frameDAppui(null);
-			
-			this.lecteur.keyReleased(toucheRelachee);
-		}
-	}
-
-	@Override
-	public void keyTyped(final KeyEvent event) {
-		//rien
-	}
 	
 	/**
 	 * La Fenêtre a une partie sélectionnée, on l'ouvre.

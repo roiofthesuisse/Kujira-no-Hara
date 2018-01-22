@@ -182,5 +182,5 @@ public abstract class Musique {
 	 * Continuer la lecture de la Musique après la pause.
 	 */
 	public abstract void reprendreApresPause();
-	
+
 }
