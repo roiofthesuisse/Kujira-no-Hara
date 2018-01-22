@@ -223,11 +223,36 @@ public abstract class LecteurAudio {
 		}
 	}
 	
+	/**
+	 * Redémarrer toutes les Musiques du jeu après la pause.
+	 */
 	public static void redemarrerToutesLesMusiques() {
-		//TODO
+		for (Musique bgm : bgmEnCours) {
+			if (bgm != null) {
+				bgm.reprendreApresPause();
+			}
+		}
+		for (Musique bgs : bgsEnCours) {
+			if (bgs != null) {
+				bgs.reprendreApresPause();
+			}
+		}
 	}
+	
+	/**
+	 * Mettre toutes les Musiques du jeu en pause.
+	 */
 	public static void  mettreEnPauseToutesLesMusiques() {
-		//TODO
+		for (Musique bgm : bgmEnCours) {
+			if (bgm != null) {
+				bgm.mettreEnPause();
+			}
+		}
+		for (Musique bgs : bgsEnCours) {
+			if (bgs != null) {
+				bgs.mettreEnPause();
+			}
+		}
 	}
 	
 }
