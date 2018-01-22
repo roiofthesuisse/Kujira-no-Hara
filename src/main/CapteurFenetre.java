@@ -3,21 +3,36 @@ package main;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import utilitaire.son.LecteurAudio;
 
+/**
+ * Actions à effectuer lorsque la Fenêtre du jeu est modifiée.
+ */
 public class CapteurFenetre implements WindowFocusListener {
-
-	public CapteurFenetre() {
-		
+	private static final Logger LOG = LogManager.getLogger(CapteurFenetre.class);
+	
+	private Fenetre fenetre;
+	
+	/**
+	 * Constructeur explicite
+	 * @param fenetre du jeu
+	 */
+	public CapteurFenetre(final Fenetre fenetre) {
+		this.fenetre = fenetre;
 	}
 	
 	@Override
-	public void windowGainedFocus(WindowEvent arg0) {
+	public final void windowGainedFocus(final WindowEvent arg0) {
+		LOG.info("Fenêtre réactivée");
 		LecteurAudio.redemarrerToutesLesMusiques();
 	}
 
 	@Override
-	public void windowLostFocus(WindowEvent arg0) {
+	public final void windowLostFocus(final WindowEvent arg0) {
+		LOG.info("Fenêtre désactivée");
 		LecteurAudio.mettreEnPauseToutesLesMusiques();
 	}
 

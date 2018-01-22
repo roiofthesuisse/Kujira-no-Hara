@@ -5,15 +5,22 @@ import java.awt.event.KeyListener;
 
 import utilitaire.GestionClavier;
 
+/**
+ * Actions à effectuer quand le Clavier est utilisé.
+ */
 public class CapteurClavier implements KeyListener {
 	private final Fenetre fenetre;
 	
+	/**
+	 * Constructeur explicite
+	 * @param fenetre du jeu
+	 */
 	public CapteurClavier(final Fenetre fenetre) {
 		this.fenetre = fenetre;
 	}
 
 	@Override
-	public void keyPressed(final KeyEvent event) {
+	public final void keyPressed(final KeyEvent event) {
 		final Integer keycode = event.getKeyCode();
 		//this.mesuresDePerformance.add("press;"+keycode+";"+System.currentTimeMillis());
 		final GestionClavier.ToucheRole touchePressee = GestionClavier.ToucheRole.getToucheRole(keycode);
@@ -26,7 +33,7 @@ public class CapteurClavier implements KeyListener {
 	}
 
 	@Override
-	public void keyReleased(final KeyEvent event) {
+	public final void keyReleased(final KeyEvent event) {
 		final Integer keycode = event.getKeyCode();
 		//this.mesuresDePerformance.add("release;"+keycode+";"+System.currentTimeMillis());
 		final GestionClavier.ToucheRole toucheRelachee = GestionClavier.ToucheRole.getToucheRole(keycode);

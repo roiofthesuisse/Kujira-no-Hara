@@ -34,7 +34,7 @@ import utilitaire.graphismes.Graphismes;
  * La Fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.
  */
 @SuppressWarnings("serial")
-public final class Fenetre extends JFrame{
+public final class Fenetre extends JFrame {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Fenetre.class);
 	public static final int TAILLE_D_UN_CARREAU = 32;
@@ -76,7 +76,7 @@ public final class Fenetre extends JFrame{
 		this.lecteur = new LecteurMenu(this, menuTitre, null, selectionInitiale);
 
 		this.addKeyListener(new CapteurClavier(this)); //récupérer les entrées Clavier
-		this.addWindowFocusListener(new CapteurFenetre()); //pauser le jeu si Fenetre inactive
+		this.addWindowFocusListener(new CapteurFenetre(this)); //pauser le jeu si Fenetre inactive
 		
 		// Démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
 		@SuppressWarnings("unused")
