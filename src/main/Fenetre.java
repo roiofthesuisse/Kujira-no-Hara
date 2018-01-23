@@ -2,9 +2,9 @@ package main;
 
 import java.awt.Graphics;
 import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Rectangle;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -45,6 +45,8 @@ public final class Fenetre extends JFrame {
 	public static final int TAILLE_D_UN_CARREAU = 32;
 	public static final int LARGEUR_ECRAN = 640;
 	public static final int HAUTEUR_ECRAN = 480;
+	private static int largeurPleinEcran;
+	private static int hauteurPleinEcran;
 	private static final int PORT_JAVAMELODY = 8080;
 	public static final int NOMBRE_DE_THREADS = 5;
 	
@@ -54,6 +56,8 @@ public final class Fenetre extends JFrame {
 
 	private int margeGauche, margeHaut;
 	public BufferStrategy bufferStrategy;
+	private Graphics bufferStrategyGraphics;
+	private GraphicsDevice device;
 	public Lecteur lecteur = null;
 	private Partie partie = null;
 	public Lecteur futurLecteur = null;
@@ -83,6 +87,7 @@ public final class Fenetre extends JFrame {
 		this.addKeyListener(new CapteurClavier(this)); //récupérer les entrées Clavier
 		this.addWindowFocusListener(new CapteurFenetre(this)); //pauser le jeu si Fenetre inactive
 		this.addMouseListener(new CapteurSouris(this)); //plein écran si double-clic
+		this.device = this.getGraphicsConfiguration().getDevice();
 		
 		// Démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
 		@SuppressWarnings("unused")
@@ -157,6 +162,7 @@ public final class Fenetre extends JFrame {
 		// Utiliser une BufferStrategy double
 		this.createBufferStrategy(2);
 		this.bufferStrategy = this.getBufferStrategy();
+		this.bufferStrategyGraphics = this.bufferStrategy.getDrawGraphics();
 		
 		while (!this.quitterLeJeu) {
 			//on lance le Lecteur
@@ -188,11 +194,17 @@ public final class Fenetre extends JFrame {
 			// S'assurer que le contenu du tampon graphique reste cohérent
 			//do {
 				// Il faut un nouveau contexte graphique à chaque tour de boucle pour valider la stratégie
-				final Graphics graphics = this.bufferStrategy.getDrawGraphics();
+				//final Graphics graphics = this.bufferStrategy.getDrawGraphics();
+				final BufferedImage imageAgrandie;
+				if (this.device.getFullScreenWindow() != null) {
+					imageAgrandie = Graphismes.redimensionner(image, getLargeurPleinEcran(), getHauteurPleinEcran());
+				} else {
+					imageAgrandie = image;
+				}
 				// Dessiner l'écran de cette frame-ci
-				graphics.drawImage(image, this.margeGauche, this.margeHaut, null);
+				bufferStrategyGraphics.drawImage(imageAgrandie, this.margeGauche, this.margeHaut, null);
 				// Libérer le contexte graphique
-				graphics.dispose();
+				//graphics.dispose();
 				// Répéter le rendu si jamais le contenu du tampon est restauré
 			//} while (this.bufferStrategy.contentsRestored());
 			// Afficher le tampon
@@ -207,7 +219,7 @@ public final class Fenetre extends JFrame {
 	 */
 	public static void main(final String[] args) {
 		ouvrirFenetre();
-		//lancerSupervisionJavaMelody();
+		lancerSupervisionJavaMelody();
 		maFenetre.demarrerAffichage();
 	}
 
@@ -271,6 +283,7 @@ public final class Fenetre extends JFrame {
 	 * Fermer la Fenêtre et quitter le jeu
 	 */
 	public void fermer() {
+		this.bufferStrategyGraphics.dispose();
 		exporterCsv();
 		System.exit(0);
 	}
@@ -307,19 +320,39 @@ public final class Fenetre extends JFrame {
 	 * Entrer ou quitter le mode plein écran.
 	 */
 	public void pleinEcran() {
-		final GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-		if (device.isFullScreenSupported()) {
+		if (this.device.isFullScreenSupported()) {
 			// Est-on déjà en mode plein écran ?
-			if (device.getFullScreenWindow() == null) {
+			if (this.device.getFullScreenWindow() == null) {
 				// On entre en mode plein écran
-				device.setFullScreenWindow(this);
+				this.device.setFullScreenWindow(this);
 				this.setUndecorated(true);
 			} else {
 				// On quitte le mode plein écran
-				device.setFullScreenWindow(null);
+				this.device.setFullScreenWindow(null);
 				this.setUndecorated(false);
 			}
 		}
+	}
+	
+	/**
+	 * Calculer la largeur et la hauteur de l'écran en mode plein écran.
+	 * @return largeur (en pixels)
+	 */
+	private int getLargeurPleinEcran() {
+		if (largeurPleinEcran <= 0) {
+			final Rectangle bounds = getGraphicsConfiguration().getBounds();
+			largeurPleinEcran = (int) (bounds.getMaxX() - bounds.getMinX());
+			hauteurPleinEcran = (int) (bounds.getMaxY() - bounds.getMinY());
+		}
+		return largeurPleinEcran;
+	}
+	
+	/**
+	 * Obtenir la hauteur de l'écran en mode plein écran.
+	 * @return hauteur (en pixels)
+	 */
+	private int getHauteurPleinEcran() {
+		return hauteurPleinEcran;
 	}
 
 }
