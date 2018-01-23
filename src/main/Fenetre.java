@@ -1,6 +1,8 @@
 package main;
 
 import java.awt.Graphics;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.image.BufferStrategy;
@@ -15,6 +17,9 @@ import java.util.HashMap;
 
 import javafx.embed.swing.JFXPanel;
 import jeu.Partie;
+import main.capteurs.CapteurClavier;
+import main.capteurs.CapteurFenetre;
+import main.capteurs.CapteurSouris;
 
 import javax.swing.JFrame;
 
@@ -77,6 +82,7 @@ public final class Fenetre extends JFrame {
 
 		this.addKeyListener(new CapteurClavier(this)); //récupérer les entrées Clavier
 		this.addWindowFocusListener(new CapteurFenetre(this)); //pauser le jeu si Fenetre inactive
+		this.addMouseListener(new CapteurSouris(this)); //plein écran si double-clic
 		
 		// Démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
 		@SuppressWarnings("unused")
@@ -295,6 +301,25 @@ public final class Fenetre extends JFrame {
 	 */
 	public void setPartieActuelle(final Partie partieActuelle) {
 		this.partie = partieActuelle;
+	}
+
+	/**
+	 * Entrer ou quitter le mode plein écran.
+	 */
+	public void pleinEcran() {
+		final GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		if (device.isFullScreenSupported()) {
+			// Est-on déjà en mode plein écran ?
+			if (device.getFullScreenWindow() == null) {
+				// On entre en mode plein écran
+				device.setFullScreenWindow(this);
+				this.setUndecorated(true);
+			} else {
+				// On quitte le mode plein écran
+				device.setFullScreenWindow(null);
+				this.setUndecorated(false);
+			}
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-package main;
+package main.capteurs;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
@@ -6,6 +6,7 @@ import java.awt.event.WindowFocusListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import main.Fenetre;
 import utilitaire.son.LecteurAudio;
 
 /**

@@ -1,8 +1,9 @@
-package main;
+package main.capteurs;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import main.Fenetre;
 import utilitaire.GestionClavier;
 
 /**
