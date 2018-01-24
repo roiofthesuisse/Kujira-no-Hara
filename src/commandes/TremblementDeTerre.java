@@ -14,7 +14,7 @@ public class TremblementDeTerre extends Commande implements CommandeEvent {
 	private static final int MILLISECONDES = 1000;
 	
 	private final int intensite;
-	private final double vitesse;
+	private double vitesse;
 	private final int nombreDeFrames;
 	
 	private boolean initialisationFaite = false;
@@ -26,9 +26,13 @@ public class TremblementDeTerre extends Commande implements CommandeEvent {
 	 * @param vitesse du tremblement de terre
 	 * @param nombreDeFrames durée du tremblement de terre
 	 */
-	private TremblementDeTerre(final int intensite, final double vitesse, final int nombreDeFrames) {
+	private TremblementDeTerre(final int intensite, final Object vitesse, final int nombreDeFrames) {
 		this.intensite = intensite;
-		this.vitesse = vitesse;
+		try {
+			this.vitesse = (double) vitesse;
+		} catch (ClassCastException e) {
+			this.vitesse = (double) ((int) vitesse) / 10.0;
+		}
 		this.nombreDeFrames = nombreDeFrames;
 	}
 	
@@ -38,7 +42,7 @@ public class TremblementDeTerre extends Commande implements CommandeEvent {
 	 */
 	public TremblementDeTerre(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("intensite"),
-			(double) parametres.get("vitesse"),
+			parametres.get("vitesse"),
 			(int) parametres.get("nombreDeFrames")
 		);
 	}
