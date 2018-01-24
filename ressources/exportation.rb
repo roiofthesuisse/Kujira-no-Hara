@@ -22,6 +22,7 @@ class Exportation
   MapsFile = "./Data/MapInfos.rxdata"
   TilesetsFile = "./Data/Tilesets.rxdata"
   ItemsFile = "./Data/Items.rxdata"
+  QuestsFile = "./Data/Skills.rxdata"
   EXPORT_FOLDER = "./Exportation/Maps"
   EXPORT_TILESET_FOLDER = "./Exportation/Tilesets"
   EXPORT_MAIN_FOLDER = "./Exportation"
@@ -37,6 +38,7 @@ class Exportation
   # Fonction principale, elle exporte les maps en json
   #----------------------------------------------------
   def exporter
+
     #----------------------
     # Exportation des maps
     #----------------------
@@ -538,7 +540,7 @@ class Exportation
     # On parcourt tous les tilesets
     for tileset_id in 1...tilesets.size
       tilesetInfo = tilesets[tileset_id]
-      
+
       if tilesetInfo.name != ""
         # On cree un fichier par tileset
         filename = sprintf("%s/%s.json", EXPORT_TILESET_FOLDER, tilesetInfo.name)
@@ -571,12 +573,7 @@ class Exportation
             file.write("\t\t")
           end
           # Blocages individuels : 8 haut + 4 droite + 2 gauche + 1 bas
-          if tilesetInfo.passages[tile_id] == 15 #= 8 + 4 + 2 + 1
-            passage = 1
-          else
-            passage = 0
-          end
-          # Ecriture de la valeur
+          passage = tilesetInfo.passages[tile_id]
           file.write(sprintf("%d", passage))
           tile_id += 1
         end
@@ -729,7 +726,7 @@ class Exportation
     # On charge les data des objets
     items = load_data(ItemsFile)
     
-    # Debut de l'ecriture du tileset
+    # Debut de l'ecriture des objets
     file.write("{")
     write_linebreak(file)
     file.write("\t\"objets\": [")
@@ -741,7 +738,7 @@ class Exportation
         write_linebreak(file)
         file.write("\t\t{")
         write_linebreak(file)
-        file.write(sprintf("\t\t\t\"idObjet\": %d,", item.id))
+        file.write(sprintf("\t\t\t\"idObjet\": %d,", item.id - 1))
         write_linebreak(file)
         $game_variables = Array.new(122) 
         $game_variables[121] = 0
@@ -773,6 +770,68 @@ class Exportation
     # Fin de l'exportation des objets
     
     
+    #------------------------
+    # Exportation des quetes
+    #------------------------
+    # On cree un fichier des quetes
+    filename = sprintf("%s/quetes.json", EXPORT_MAIN_FOLDER)
+    # On supprime le fichier s'il existe deja
+    if File.exist?(filename)
+      File.delete(filename)
+    end
+    # Ouvre le fichier et rajoute du texte a la fin
+    file = File.new(filename, 'a')
+    
+    # On charge les data des quetes
+    quetes = load_data(QuestsFile)
+    
+    # Debut de l'ecriture des quetes
+    file.write("{")
+    write_linebreak(file)
+    file.write("\t\"quetes\": [")
+    quetes.each do |quete|
+      if quete != nil
+        if quete.id % 2 == 1
+          if quete.id != 1
+            file.write(",")
+          end
+          write_linebreak(file)
+          file.write("\t\t{")
+          write_linebreak(file)
+          file.write(sprintf("\t\t\t\"id\": %d,", (quete.id+1)/2-1))
+          write_linebreak(file)
+          $game_variables = Array.new(122) 
+          $game_variables[121] = 0
+          nom_fr = quete.name
+          $game_variables[121] = 1
+          nom_en = quete.name
+          file.write(sprintf("\t\t\t\"nom\": [\"%s\", \"%s\"],", nom_fr, nom_en))
+          write_linebreak(file)
+          est_un_bonus = (quete.icon_name != "quete a faire icon")
+          file.write(sprintf("\t\t\t\"bonus\": %s,", est_un_bonus))
+          write_linebreak(file)
+          $game_variables[121] = 0
+          desc_fr = quete.description
+          $game_variables[121] = 1
+          desc_en = quete.description
+          file.write(sprintf("\t\t\t\"description\": [\"%s\", \"%s\"],", desc_fr, desc_en))
+          write_linebreak(file)
+          file.write("\t\t\t\"numeroCarte\": 0,")
+          write_linebreak(file)
+          file.write("\t\t\t\"xCarte\": 320,")
+          write_linebreak(file)
+          file.write("\t\t\t\"yCarte\": 240")
+          write_linebreak(file)
+          file.write("\t\t}")
+        end
+      end
+    end
+    write_linebreak(file)
+    file.write("\t]")
+    write_linebreak(file)
+    file.write("}")
+    write_linebreak(file)
+    # Fin de l'exportation des quetes
     
   end
   # Fin de la fonction principale
@@ -939,25 +998,9 @@ class Exportation
             
           when 106
             # Attendre
-            file.write("\t\t\t\t\"nom\": \"Deplacement\",")
+            file.write("\t\t\t\t\"nom\": \"Attendre\",")
             write_linebreak(file)
-            file.write("\t\t\t\t\"ignorerLesMouvementsImpossibles\": false,")
-            write_linebreak(file)
-            file.write("\t\t\t\t\"repeterLeDeplacement\": false,")
-            write_linebreak(file)
-            file.write("\t\t\t\t\"attendreLaFinDuDeplacement\": true,")
-            write_linebreak(file)
-            file.write("\t\t\t\t\"mouvements\": [")
-            write_linebreak(file)
-            file.write("\t\t\t\t{")
-            write_linebreak(file)
-            file.write("\t\t\t\t\t\"nom\": \"Attendre\",")
-            write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\t\"nombreDeFrames\": %d", commande.parameters[0]))
-            write_linebreak(file)
-            file.write("\t\t\t\t}")
-            write_linebreak(file)
-            file.write("\t\t\t\t]")
+            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d", commande.parameters[0]))
             write_linebreak(file)
             
           when 108
@@ -1071,14 +1114,14 @@ class Exportation
                 # Arme equipee
                 file.write("\t\t\t\t\"nom\": \"ConditionArmeEquipee\",")
                 write_linebreak(file)
-                file.write(sprintf("\t\t\t\t\"idArme\": %d,", commande.parameters[3]))
+                file.write(sprintf("\t\t\t\t\"idArme\": %d,", commande.parameters[3] - 1))
                 write_linebreak(file)
                 
               when 4
                 # Armure equipee
                 file.write("\t\t\t\t\"nom\": \"ConditionGadgetEquipe\",")
                 write_linebreak(file)
-                file.write(sprintf("\t\t\t\t\"idGadget\": %d,", commande.parameters[3]))
+                file.write(sprintf("\t\t\t\t\"idGadget\": %d,", commande.parameters[3] - 1))
                 write_linebreak(file)
               end
               # Fin des conditions sur les coequipiers
@@ -1124,21 +1167,21 @@ class Exportation
                 # Condition objet possede
                 file.write("\t\t\t\t\"nom\": \"ConditionObjetPossede\",")
                 write_linebreak(file)
-                file.write(sprintf("\t\t\t\t\"idObjet\": %d,", commande.parameters[1]))
+                file.write(sprintf("\t\t\t\t\"idObjet\": %d,", commande.parameters[1] - 1))
                 write_linebreak(file)
                 
               when 9
                 # Condition arme possedee
                 file.write("\t\t\t\t\"nom\": \"ConditionArmePossedee\",")
                 write_linebreak(file)
-                file.write(sprintf("\t\t\t\t\"idArme\": %d,", commande.parameters[1]))
+                file.write(sprintf("\t\t\t\t\"idArme\": %d,", commande.parameters[1] - 1))
                 write_linebreak(file)
                 
               when 10
                 # Condition armure possedee
                 file.write("\t\t\t\t\"nom\": \"ConditionGadgetPossede\",")
                 write_linebreak(file)
-                file.write(sprintf("\t\t\t\t\"idGadget\": %d,", commande.parameters[1]))
+                file.write(sprintf("\t\t\t\t\"idGadget\": %d,", commande.parameters[1] - 1))
                 write_linebreak(file)
                 
               when 11
@@ -1304,7 +1347,11 @@ class Exportation
             
             if commande.parameters[3] != 7
               # pas de valeur a preciser pour l'argent et le numero de map
-              file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", commande.parameters[4]))
+              if commande.parameters[3] == 3
+                file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", commande.parameters[4]-1)) #id objet
+              else
+                file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", commande.parameters[4]))
+              end
               write_linebreak(file)
             end
             
@@ -1376,7 +1423,7 @@ class Exportation
               file.write("\t\t\t\t\"nom\": \"RetirerObjet\",")
               write_linebreak(file)
             end
-            file.write(sprintf("\t\t\t\t\"idObjet\": %d,", commande.parameters[0]))
+            file.write(sprintf("\t\t\t\t\"idObjet\": %d,", commande.parameters[0] - 1))
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"variable\": %s,", commande.parameters[2]==1))
             write_linebreak(file)
@@ -1399,7 +1446,7 @@ class Exportation
             #write_linebreak(file)
             #file.write(sprintf("\t\t\t\t\"quantite\": %d,", commande.parameters[3]))
             #write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"idArme\": %d", commande.parameters[0]))
+            file.write(sprintf("\t\t\t\t\"idArme\": %d", commande.parameters[0] - 1))
             write_linebreak(file)
             
           when 128
@@ -1418,7 +1465,7 @@ class Exportation
             #write_linebreak(file)
             #file.write(sprintf("\t\t\t\t\"quantite\": %d,", commande.parameters[3]))
             #write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"idGadget\": %d", commande.parameters[0]))
+            file.write(sprintf("\t\t\t\t\"idGadget\": %d", commande.parameters[0] - 1))
             write_linebreak(file)
             
           #When 129 # Swap actors
@@ -1544,9 +1591,30 @@ class Exportation
               write_linebreak(file)
             end
             
-          #When 205 # Ton du brouillard
-          #When 206 # Opacite du brouillard
-          
+          when 205
+            # Ton du brouillard
+            file.write("\t\t\t\t\"nom\": \"ModifierBrouillard\",")
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"rouge\": %d,", (commande.parameters[0].red+255)/2 ))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"vert\": %d,", (commande.parameters[0].green+255)/2 ))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"bleu\": %d,", (commande.parameters[0].blue+255)/2 ))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"gris\": %d,", commande.parameters[0].gray ))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"dureeTransition\": %d", commande.parameters[1]))
+            write_linebreak(file)
+            
+          when 206
+            # Opacite du brouillard
+            file.write("\t\t\t\t\"nom\": \"ModifierBrouillard\",")
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"opacite\": %d,", commande.parameters[0] ))
+            write_linebreak(file)
+            file.write(sprintf("\t\t\t\t\"dureeTransition\": %d", commande.parameters[1] ))
+            write_linebreak(file)
+            
           when 207 
             # Animation
             file.write("\t\t\t\t\"nom\": \"JouerAnimation\",")
@@ -1724,7 +1792,7 @@ class Exportation
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"angle\": %d,", commande.parameters[1] ))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d,", 20 ))
+            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d,", 2 ))
             write_linebreak(file)
             file.write("\t\t\t\t\"repeterLeDeplacement\": true")
             write_linebreak(file)
@@ -2051,10 +2119,11 @@ class Exportation
         write_linebreak(file)
         file.write(sprintf("\t\t\t\t\t\"y\": %d", mouvement.parameters[1]))
       when 15  # attendre
-        file.write("\t\t\t\t\t\"nom\": \"Attendre\",")
+        file.write("\t\t\t\t\t\"nom\": \"AppelerUneCommande\",")
         write_linebreak(file)
-        nombre_de_frames = (mouvement.parameters[0] * 1.65).floor
-        file.write(sprintf("\t\t\t\t\t\"nombreDeFrames\": %d", nombre_de_frames))
+        file.write("\t\t\t\t\t\"nomCommande\": \"Attendre\",")
+        write_linebreak(file)
+        file.write(sprintf("\t\t\t\t\t\"nombreDeFrames\": %d", mouvement.parameters[0]))
       when 16  # regarder vers le bas
         file.write("\t\t\t\t\t\"nom\": \"RegarderDansUneDirection\",")
         write_linebreak(file)
