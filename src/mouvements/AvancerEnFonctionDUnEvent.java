@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import conditions.ConditionContact;
 import conditions.ConditionContact.TypeDeContact;
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import map.Event.Direction;
 import map.LecteurMap;
@@ -28,7 +28,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	 * @param sens : l'event s'approche ou s'éloigne
 	 */
 	public AvancerEnFonctionDUnEvent(final int idEventObserve, final Sens sens) {
-		super(-1, Fenetre.TAILLE_D_UN_CARREAU);
+		super(-1, Main.TAILLE_D_UN_CARREAU);
 		this.idEventObserve = idEventObserve;	
 		this.sens = sens;
 		this.directionDecidee = false;
@@ -54,7 +54,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 		if (!this.directionDecidee) { //ne calculer la direction qu'une seule fois par pas
 			
 			final Event eventObservateur = this.deplacement.getEventADeplacer();
-			final Event eventObserve = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventObserve);
+			final Event eventObserve = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventObserve);
 			
 			//s'il est déjà arrivé auprès de sa cible, l'Event arrête d'avancer
 			if (this.sens == Sens.SUIVRE) {

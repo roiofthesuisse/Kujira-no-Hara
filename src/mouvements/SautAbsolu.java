@@ -2,7 +2,7 @@ package mouvements;
 
 import java.util.HashMap;
 
-import main.Fenetre;
+import main.Main;
 import map.Event;
 
 /**
@@ -38,8 +38,8 @@ public class SautAbsolu extends Sauter {
 	 */
 	public final boolean mouvementPossible() {
 		final Event eventADeplacer = this.deplacement.getEventADeplacer();
-		this.x = this.xDestination - (eventADeplacer.x/Fenetre.TAILLE_D_UN_CARREAU);
-		this.y = this.yDestination - (eventADeplacer.y/Fenetre.TAILLE_D_UN_CARREAU);
+		this.x = this.xDestination - (eventADeplacer.x/Main.TAILLE_D_UN_CARREAU);
+		this.y = this.yDestination - (eventADeplacer.y/Main.TAILLE_D_UN_CARREAU);
 		calculerDirectionSaut();
 		return super.mouvementPossible();
 	}

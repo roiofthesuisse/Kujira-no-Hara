@@ -2,7 +2,7 @@ package mouvements;
 
 import java.util.HashMap;
 
-import main.Fenetre;
+import main.Main;
 import map.Event;
 
 /**
@@ -18,7 +18,7 @@ public class PasEnAvant extends Avancer {
 	 */
 	public PasEnAvant() {
 		//le -1 est bidon, il sera remplacé par la direction de l'Event lors de la vérification
-		super(-1, Fenetre.TAILLE_D_UN_CARREAU);
+		super(-1, Main.TAILLE_D_UN_CARREAU);
 		this.directionDecidee = false;
 	}
 	

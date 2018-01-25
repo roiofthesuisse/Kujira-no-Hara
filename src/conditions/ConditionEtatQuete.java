@@ -41,7 +41,7 @@ public class ConditionEtatQuete extends Condition implements CommandeEvent, Comm
 	public final boolean estVerifiee() {
 		final Partie partieActuelle = getPartieActuelle();
 		final AvancementQuete avancementReel = partieActuelle.avancementDesQuetes[idQuete];
-		return avancementReel.equals(this.avancementVoulu) 
+		return this.avancementVoulu.equals(avancementReel) 
 		|| (avancementVoulu.equals(AvancementQuete.CONNUE) && avancementReel.equals(AvancementQuete.FAITE)); //une quête faite est connue
 	}
 	

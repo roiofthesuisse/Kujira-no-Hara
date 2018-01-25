@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import map.LecteurMap;
 import map.Event.Direction;
@@ -74,7 +74,7 @@ public class SauterVersEvent extends Sauter {
 	@Override
 	public final boolean mouvementPossible() {
 		final Event eventObservateur = this.deplacement.getEventADeplacer();
-		final Event eventObserve = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventObserve);
+		final Event eventObserve = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventObserve);
 		final ArrayList<Carreau> listeDeCarreaux = new ArrayList<Carreau>();
 		
 		final int signeX, signeY;
@@ -93,8 +93,8 @@ public class SauterVersEvent extends Sauter {
 		}
 		for (int i = 0; i <= this.nombreDeCases; i++) {
 			final int j = this.nombreDeCases - i;
-			final int deltaXSauteurArrivee = signeX*i*Fenetre.TAILLE_D_UN_CARREAU;
-			final int deltaYSauteurArrivee = signeY*j*Fenetre.TAILLE_D_UN_CARREAU;
+			final int deltaXSauteurArrivee = signeX*i*Main.TAILLE_D_UN_CARREAU;
+			final int deltaYSauteurArrivee = signeY*j*Main.TAILLE_D_UN_CARREAU;
 			final int xArrivee = eventObservateur.x + deltaXSauteurArrivee;
 			final int yArrivee = eventObservateur.y + deltaYSauteurArrivee;
 			final int deltaXArriveeCible = eventObserve.x - xArrivee;

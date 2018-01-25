@@ -2,7 +2,7 @@ package mouvements;
 
 import java.util.HashMap;
 
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import map.Heros;
 import map.Event.Direction;
@@ -34,7 +34,7 @@ public class PasEnDiagonale extends Avancer {
 	public PasEnDiagonale(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("directionVerticale"),
 			  (int) parametres.get("directionHorizontale"),
-			  (parametres.containsKey("nombreDeCarreaux") ? (int) parametres.get("nombreDeCarreaux") : 1) * Fenetre.TAILLE_D_UN_CARREAU
+			  (parametres.containsKey("nombreDeCarreaux") ? (int) parametres.get("nombreDeCarreaux") : 1) * Main.TAILLE_D_UN_CARREAU
 		);
 	}
 	

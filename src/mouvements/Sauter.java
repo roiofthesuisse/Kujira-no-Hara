@@ -2,7 +2,7 @@ package mouvements;
 
 import java.util.HashMap;
 
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import map.Heros;
 import map.PageEvent.Traversabilite;
@@ -92,14 +92,14 @@ public class Sauter extends Mouvement {
 			
 			this.xEventAvantSaut = event.x;
 			this.yEventAvantSaut = event.y;
-			this.xEventApresSaut = xEventAvantSaut + this.x*Fenetre.TAILLE_D_UN_CARREAU;
-			this.yEventApresSaut = yEventAvantSaut + this.y*Fenetre.TAILLE_D_UN_CARREAU;
+			this.xEventApresSaut = xEventAvantSaut + this.x*Main.TAILLE_D_UN_CARREAU;
+			this.yEventApresSaut = yEventAvantSaut + this.y*Main.TAILLE_D_UN_CARREAU;
 			
 			//on ne peut pas Sauter en dehors de la Map
 			if (this.xEventAvantSaut<0 
-				|| this.xEventAvantSaut+event.largeurHitbox>event.map.largeur*Fenetre.TAILLE_D_UN_CARREAU
+				|| this.xEventAvantSaut+event.largeurHitbox>event.map.largeur*Main.TAILLE_D_UN_CARREAU
 				|| this.yEventApresSaut<0
-				|| this.yEventApresSaut+event.hauteurHitbox>event.map.hauteur*Fenetre.TAILLE_D_UN_CARREAU
+				|| this.yEventApresSaut+event.hauteurHitbox>event.map.hauteur*Main.TAILLE_D_UN_CARREAU
 			) {
 				return false;
 			}
@@ -124,7 +124,7 @@ public class Sauter extends Mouvement {
 			event.saute = true;
 			this.ceQuiAEteFait = 0;
 			calculerDistance();
-			this.etapes = DUREE_DU_SAUT_SUR_PLACE + DUREE_DU_SAUT_PAR_CASE*((int) (distance/Fenetre.TAILLE_D_UN_CARREAU));
+			this.etapes = DUREE_DU_SAUT_SUR_PLACE + DUREE_DU_SAUT_PAR_CASE*((int) (distance/Main.TAILLE_D_UN_CARREAU));
 			if (this.x==0 && this.y==0) {
 				this.direction = event.direction;
 			}
@@ -141,7 +141,7 @@ public class Sauter extends Mouvement {
 		final int xDroite = (int) Math.round( (1-t)*x0 + t*xf );
 		final int yDroite = (int) Math.round( (1-t)*y0 + t*yf );
 		
-		final int yParabole = (int) Math.round( 1.5*(distance+2*Fenetre.TAILLE_D_UN_CARREAU)*(t*t-t) );
+		final int yParabole = (int) Math.round( 1.5*(distance+2*Main.TAILLE_D_UN_CARREAU)*(t*t-t) );
 		event.coordonneeApparenteXLorsDuSaut = (int) xDroite;
 		event.coordonneeApparenteYLorsDuSaut = (int) (yParabole + yDroite);
 		

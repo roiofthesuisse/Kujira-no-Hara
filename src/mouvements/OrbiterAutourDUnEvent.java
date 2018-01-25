@@ -2,7 +2,7 @@ package mouvements;
 
 import java.util.HashMap;
 
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import map.Heros;
 import map.LecteurMap;
@@ -130,10 +130,10 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	private Event trouverEventCentral() {
 		if (this.eventCentral == null) {
 			if (this.idEventCentral instanceof Integer) {
-				this.eventCentral = ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventCentral);
+				this.eventCentral = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventCentral);
 			} else if (this.idEventCentral instanceof String) {
 				final String nomEventCentral = (String) this.idEventCentral;
-				for (Event e : ((LecteurMap) Fenetre.getFenetre().lecteur).map.events) {
+				for (Event e : ((LecteurMap) Main.lecteur).map.events) {
 					if (e.nom.equals(nomEventCentral)) {
 						this.eventCentral = e;
 						break;
