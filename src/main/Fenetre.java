@@ -33,7 +33,7 @@ public final class Fenetre extends JFrame {
 	public static final int HAUTEUR_ECRAN = 480;
 	private static int largeurPleinEcran;
 	private static int hauteurPleinEcran;
-	private static final String titre = "Le meilleur jeu du monde";
+	private static final String TITRE = "Le meilleur jeu du monde";
 
 	private final boolean pleinEcran;
 	private int margeGauche, margeHaut;
@@ -43,27 +43,41 @@ public final class Fenetre extends JFrame {
 	
 	/**
 	 * Constructeur explicite
+	 * @param pleinEcran faut-il ouvrir la Fenêtre en plein écran ?
 	 */
 	Fenetre(final boolean pleinEcran) {
-		super(titre);
+		super(TITRE);
 		this.pleinEcran = pleinEcran;
-
-		this.addKeyListener(new CapteurClavier(this)); //récupérer les entrées Clavier
-		this.addWindowFocusListener(new CapteurFenetre(this)); //pauser le jeu si Fenetre inactive
-		this.addMouseListener(new CapteurSouris(this)); //plein écran si double-clic
+		
+		// Capteurs d'entrées
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.addKeyListener(new CapteurClavier()); //récupérer les entrées Clavier
+		this.addWindowFocusListener(new CapteurFenetre()); //pauser le jeu si Fenetre inactive
+		this.addMouseListener(new CapteurSouris()); //plein écran si double-clic
 		this.device = this.getGraphicsConfiguration().getDevice();
 		
 		// Démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
 		@SuppressWarnings("unused")
 		final JFXPanel fxPanel = new JFXPanel();
 		
-		//-------------------------------------------------------------------------------
+		// Dimensionnement
+		if (this.pleinEcran) {
+			// Mode plein écran
+			this.setUndecorated(true);
+			this.device.setFullScreenWindow(this);
+			
+		} else {
+			// Mode fenêtré 
+			final Insets marges = obtenirLesMarges();
+			this.margeGauche = marges.left;
+			this.margeHaut = marges.top;
+			this.setSize(marges.left+LARGEUR_ECRAN+marges.right, marges.top+HAUTEUR_ECRAN+marges.bottom);
+			this.device.setFullScreenWindow(null);
+			this.setUndecorated(false);
+		}
+		this.setResizable(false);
 		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		final Insets marges = obtenirLesMarges();
-		this.margeGauche = marges.left;
-		this.margeHaut = marges.top;
-		this.setSize(marges.left+LARGEUR_ECRAN+marges.right, marges.top+HAUTEUR_ECRAN+marges.bottom);
+		// Icones
 		try {
 			final ArrayList<Image> icones = new ArrayList<Image>();
 			final BufferedImage iconePetite = Graphismes.ouvrirImage("Icons", "baleine icone.png");
@@ -75,8 +89,14 @@ public final class Fenetre extends JFrame {
 			//problème avec les icones
 			LOG.error("Problème avec les icônes", e);
 		}
-		this.setResizable(false);
+		
+		// On fait apparaître la Fenêtre
 		this.setVisible(true);
+		
+		// Stratégie d'affichage
+		this.createBufferStrategy(2); //utiliser une BufferStrategy double
+		this.bufferStrategy = this.getBufferStrategy();
+		this.bufferStrategyGraphics = this.bufferStrategy.getDrawGraphics();
 	}
 
 	
@@ -91,43 +111,6 @@ public final class Fenetre extends JFrame {
 		final Insets marges = fenetreBidon.getInsets();
 		fenetreBidon.dispose();
 		return marges;
-	}
-	
-	/**
-	 * La Fenêtre confie l'affichage d'un Menu/Map à un Lecteur.
-	 * Si jamais le Lecteur actuel est éteint et qu'un futur Lecteur est désigné, on effectue le remplacement.
-	 * Si aucun futur Lecteur n'est désigné, la Fenêtre se ferme.
-	 */
-	public void demarrerAffichage() {
-		// Utiliser une BufferStrategy double
-		this.createBufferStrategy(2);
-		this.bufferStrategy = this.getBufferStrategy();
-		this.bufferStrategyGraphics = this.bufferStrategy.getDrawGraphics();
-		
-		while (!Main.quitterLeJeu) {
-			//on lance le Lecteur
-			Main.lecteur.demarrer(); //boucle tant que le Lecteur est allumé
-			
-			//si on est ici, c'est que le Lecteur a été éteint par une Commande Event
-			//y en a-t-il un autre après ?
-			if (Main.futurLecteur != null) {
-				if (!Main.quitterLeJeu) {
-					//on passe au Lecteur suivant
-					Main.lecteur = Main.futurLecteur;
-					Main.futurLecteur = null;
-				}
-			} else {
-				//pas de Lecteur à suivre
-				//on éteint le jeu
-				Main.quitterLeJeu = true;
-			}
-		}
-		//le jeu a été éteint ou bien il n'y a plus de Lecteur à suivre
-		
-		// On ferme la Fenêtre
-		this.bufferStrategyGraphics.dispose();
-		this.bufferStrategy.dispose();
-		this.dispose();
 	}
 	
 	/**
@@ -161,19 +144,10 @@ public final class Fenetre extends JFrame {
 	/**
 	 * Entrer ou quitter le mode plein écran.
 	 */
-	public void pleinEcran() {
-		//TODO fermer la Fenêtre et en utiliser une nouvelle
-		if (this.device.isFullScreenSupported()) {
-			// Est-on déjà en mode plein écran ?
-			if (this.pleinEcran) {
-				// On quitte le mode plein écran
-				this.device.setFullScreenWindow(null);
-				this.setUndecorated(false);
-			} else {
-				// On entre en mode plein écran
-				this.device.setFullScreenWindow(this);
-				this.setUndecorated(true);
-			}
+	public static void pleinEcran() {
+		if (Main.fenetre.device.isFullScreenSupported()) {
+			Main.fenetre.fermer();
+			Main.fenetre = new Fenetre(!Main.fenetre.pleinEcran);
 		}
 	}
 	
@@ -196,6 +170,15 @@ public final class Fenetre extends JFrame {
 	 */
 	private int getHauteurPleinEcran() {
 		return hauteurPleinEcran;
+	}
+
+	/**
+	 * Fermer la Fenêtre.
+	 */
+	public void fermer() {
+		this.bufferStrategyGraphics.dispose();
+		this.bufferStrategy.dispose();
+		this.dispose();
 	}
 
 }

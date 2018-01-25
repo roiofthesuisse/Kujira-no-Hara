@@ -6,7 +6,6 @@ import java.awt.event.WindowEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import main.Fenetre;
 import main.Main;
 import utilitaire.son.LecteurAudio;
 
@@ -16,15 +15,10 @@ import utilitaire.son.LecteurAudio;
 public class CapteurFenetre extends WindowAdapter {
 	private static final Logger LOG = LogManager.getLogger(CapteurFenetre.class);
 	
-	private Fenetre fenetre;
-	
 	/**
 	 * Constructeur explicite
-	 * @param fenetre du jeu
 	 */
-	public CapteurFenetre(final Fenetre fenetre) {
-		this.fenetre = fenetre;
-	}
+	public CapteurFenetre() { }
 	
 	@Override
 	public final void windowGainedFocus(final WindowEvent arg0) {
@@ -39,7 +33,7 @@ public class CapteurFenetre extends WindowAdapter {
 	}
 	
 	@Override
-    public void windowClosing(final java.awt.event.WindowEvent windowEvent) {
+	public final void windowClosing(final java.awt.event.WindowEvent windowEvent) {
 		LOG.info("Fermeture manuelle du jeu");
 		Main.quitterLeJeu = true;
     }

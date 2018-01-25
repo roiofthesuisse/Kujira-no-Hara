@@ -3,7 +3,6 @@ package main.capteurs;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import main.Fenetre;
 import main.Main;
 import utilitaire.GestionClavier;
 
@@ -11,15 +10,11 @@ import utilitaire.GestionClavier;
  * Actions à effectuer quand le Clavier est utilisé.
  */
 public class CapteurClavier implements KeyListener {
-	private final Fenetre fenetre;
 	
 	/**
 	 * Constructeur explicite
-	 * @param fenetre du jeu
 	 */
-	public CapteurClavier(final Fenetre fenetre) {
-		this.fenetre = fenetre;
-	}
+	public CapteurClavier() { }
 
 	@Override
 	public final void keyPressed(final KeyEvent event) {

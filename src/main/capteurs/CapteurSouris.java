@@ -9,20 +9,16 @@ import main.Fenetre;
  * Actions à effectuer quand la souris est utilisée
  */
 public class CapteurSouris implements MouseListener {
-	private final Fenetre fenetre;
 	
 	/**
 	 * Constructeur explicite
-	 * @param fenetre du jeu
 	 */
-	public CapteurSouris(final Fenetre fenetre) {
-		this.fenetre = fenetre;
-	}
+	public CapteurSouris() { }
 
 	@Override
 	public final void mouseClicked(final MouseEvent e) {
 		if (e.getClickCount() == 2) {
-			this.fenetre.pleinEcran();
+			Fenetre.pleinEcran();
 		}
 	}
 

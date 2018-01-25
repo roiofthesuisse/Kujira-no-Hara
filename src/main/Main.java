@@ -20,6 +20,9 @@ import menu.Menu;
 import net.bull.javamelody.Parameter;
 import utilitaire.EmbeddedServer;
 
+/**
+ * Point d'entrée du programme.
+ */
 public class Main {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Main.class);
@@ -66,8 +69,29 @@ public class Main {
 		// Accélération du calcul graphique
 		System.setProperty("sun.java2d.opengl", "True");
 		
-		//
-		fenetre.demarrerAffichage();
+		// On démarre le lecteur
+		while (!Main.quitterLeJeu) {
+			//on lance le Lecteur
+			Main.lecteur.demarrer(); //boucle tant que le Lecteur est allumé
+			
+			//si on est ici, c'est que le Lecteur a été éteint par une Commande Event
+			//y en a-t-il un autre après ?
+			if (Main.futurLecteur != null) {
+				if (!Main.quitterLeJeu) {
+					//on passe au Lecteur suivant
+					Main.lecteur = Main.futurLecteur;
+					Main.futurLecteur = null;
+				}
+			} else {
+				//pas de Lecteur à suivre
+				//on éteint le jeu
+				Main.quitterLeJeu = true;
+			}
+		}
+		// Il n'y a plus de Lecteur à suivre : le jeu est éteint
+		
+		// On ferme la Fenêtre
+		fenetre.fermer();
 	}
 	
 	/**
