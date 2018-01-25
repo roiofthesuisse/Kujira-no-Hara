@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import map.Heros;
 import map.PageEvent.Traversabilite;
@@ -16,7 +16,7 @@ import map.Event.Direction;
  */
 public class Avancer extends Mouvement {
 	protected static final Logger LOG = LogManager.getLogger(Avancer.class);
-	private static final int TOLERANCE_COIN = Fenetre.TAILLE_D_UN_CARREAU /2;
+	private static final int TOLERANCE_COIN = Main.TAILLE_D_UN_CARREAU /2;
 	
 	/** Direction dans laquelle l'Event doit avancer */
 	protected int direction;
@@ -43,7 +43,7 @@ public class Avancer extends Mouvement {
 	 */
 	public Avancer(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("direction"), 
-			  (int) (parametres.containsKey("nombreDeCarreaux") ? parametres.get("nombreDeCarreaux") : 1) * Fenetre.TAILLE_D_UN_CARREAU 
+			  (int) (parametres.containsKey("nombreDeCarreaux") ? parametres.get("nombreDeCarreaux") : 1) * Main.TAILLE_D_UN_CARREAU 
 		);
 	}
 	
@@ -187,7 +187,7 @@ public class Avancer extends Mouvement {
 		case Event.Direction.BAS :
 		case Event.Direction.HAUT : 
 			// On essaye de contourner un coin gauche
-			xAInspecterApresRealignement = (xAInspecter/Fenetre.TAILLE_D_UN_CARREAU) * Fenetre.TAILLE_D_UN_CARREAU + (Fenetre.TAILLE_D_UN_CARREAU - event.largeurHitbox);
+			xAInspecterApresRealignement = (xAInspecter/Main.TAILLE_D_UN_CARREAU) * Main.TAILLE_D_UN_CARREAU + (Main.TAILLE_D_UN_CARREAU - event.largeurHitbox);
 			this.realignementX = xAInspecterApresRealignement - xAInspecter;
 			if (event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id)  //c'est un coin
 					&& Math.abs(this.realignementX) <= TOLERANCE_COIN) //le coin est petit
@@ -196,7 +196,7 @@ public class Avancer extends Mouvement {
 				return event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, event.y, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
 			} else {
 				// On essaye de contourner un coin droit
-				xAInspecterApresRealignement = (xAInspecter/Fenetre.TAILLE_D_UN_CARREAU + 1) * Fenetre.TAILLE_D_UN_CARREAU;
+				xAInspecterApresRealignement = (xAInspecter/Main.TAILLE_D_UN_CARREAU + 1) * Main.TAILLE_D_UN_CARREAU;
 				this.realignementX = xAInspecterApresRealignement - xAInspecter;
 				if (event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id) //c'est un coin
 						&& Math.abs(this.realignementX) <= TOLERANCE_COIN) //le coin est petit
@@ -211,7 +211,7 @@ public class Avancer extends Mouvement {
 		case Event.Direction.GAUCHE : 
 		case Event.Direction.DROITE : 
 			// On essaye de contourner un coin haut
-			yAInspecterApresRealignement = (yAInspecter/Fenetre.TAILLE_D_UN_CARREAU) * Fenetre.TAILLE_D_UN_CARREAU + (Fenetre.TAILLE_D_UN_CARREAU - event.hauteurHitbox);
+			yAInspecterApresRealignement = (yAInspecter/Main.TAILLE_D_UN_CARREAU) * Main.TAILLE_D_UN_CARREAU + (Main.TAILLE_D_UN_CARREAU - event.hauteurHitbox);
 			this.realignementY = yAInspecterApresRealignement - yAInspecter;
 			if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id) //c'est un coin
 					&& Math.abs(this.realignementY) <= TOLERANCE_COIN) //le coin est petit
@@ -220,7 +220,7 @@ public class Avancer extends Mouvement {
 				return event.map.calculerSiLaPlaceEstLibre(event.x, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
 			} else {
 				// On essaye de contourner un coin bas
-				yAInspecterApresRealignement = (yAInspecter/Fenetre.TAILLE_D_UN_CARREAU + 1) * Fenetre.TAILLE_D_UN_CARREAU;
+				yAInspecterApresRealignement = (yAInspecter/Main.TAILLE_D_UN_CARREAU + 1) * Main.TAILLE_D_UN_CARREAU;
 				this.realignementY = yAInspecterApresRealignement - yAInspecter;
 				if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id) //c'est un coin
 						&& Math.abs(this.realignementY) <= TOLERANCE_COIN) //le coin est petit

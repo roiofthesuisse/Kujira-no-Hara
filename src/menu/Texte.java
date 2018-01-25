@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
@@ -191,7 +191,7 @@ public class Texte extends ElementDeMenu {
 	 * @return le Texte sous forme d'image
 	 */
 	public final BufferedImage texteToImage() {
-		final int langue = Fenetre.langue;
+		final int langue = Main.langue;
 		String texteAAfficher = this.contenu.get(langue < this.contenu.size() ? langue : 0);
 		
 		if (texteAAfficher == null || "".equals(texteAAfficher)) {
@@ -203,7 +203,7 @@ public class Texte extends ElementDeMenu {
 		final Matcher matcher = PATTERN_MOT_DE_PASSE.matcher(texteAAfficher);
 		while (matcher.find()) {
 			final int numeroMot = Integer.parseInt( texteAAfficher.substring(matcher.start()+3, matcher.end()-1) );
-			final String mot = Fenetre.getPartieActuelle().mots[numeroMot];
+			final String mot = Main.getPartieActuelle().mots[numeroMot];
 			texteAAfficher = texteAAfficher.replace("\\m["+numeroMot+"]", mot != null ? mot : "");
 		}
 		
@@ -460,7 +460,7 @@ public class Texte extends ElementDeMenu {
 	public int[][] trouverCouleursDeSelectionAdaptees() {
 		final int[][] couleursDeSelectionAdaptees = new int[2][4];
 		
-		final int langue = Fenetre.langue;
+		final int langue = Main.langue;
 		final String texteAAfficher = this.contenu.get(langue < this.contenu.size() ? langue : 0);
 		
 		if (texteAAfficher.contains("\\c[07]")) {

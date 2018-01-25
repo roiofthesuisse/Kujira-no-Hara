@@ -9,7 +9,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Fenetre;
 import map.Picture;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
@@ -89,12 +88,12 @@ public class AfficherImage extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		// On vérifie si ça n'a pas déjà été fait
-		final Picture pictureActuelle = Fenetre.getPartieActuelle().images.get(this.numero);
+		final Picture pictureActuelle = getPartieActuelle().images.get(this.numero);
 		if (pictureActuelle != null 
 				&& pictureActuelle.nomImage.equals(this.nomImage)
 				&& (this.variables 
-						? pictureActuelle.x == Fenetre.getPartieActuelle().variables[this.x] 
-						&& pictureActuelle.y == Fenetre.getPartieActuelle().variables[this.y] 
+						? pictureActuelle.x == getPartieActuelle().variables[this.x] 
+						&& pictureActuelle.y == getPartieActuelle().variables[this.y] 
 						: pictureActuelle.x == this.x 
 						&& pictureActuelle.y == this.y)
 				&& pictureActuelle.centre == this.centre
@@ -121,8 +120,8 @@ public class AfficherImage extends Commande implements CommandeEvent {
 		final int xAffichage, yAffichage;
 		if (this.variables) {
 			//valeurs stockées dans des variables
-			xAffichage = Fenetre.getPartieActuelle().variables[this.x];
-			yAffichage = Fenetre.getPartieActuelle().variables[this.y];
+			xAffichage = getPartieActuelle().variables[this.x];
+			yAffichage = getPartieActuelle().variables[this.y];
 		} else {
 			//valeurs brutes
 			xAffichage = this.x;
@@ -130,7 +129,7 @@ public class AfficherImage extends Commande implements CommandeEvent {
 		}
 		
 		final Picture picture = new Picture(this.image, this.nomImage, this.numero, xAffichage, yAffichage, centre, zoomX, zoomY, this.opacite, this.modeDeFusion, this.angle);
-		Fenetre.getPartieActuelle().images.put(picture.numero, picture);
+		getPartieActuelle().images.put(picture.numero, picture);
 		
 		return curseurActuel+1;
 	}

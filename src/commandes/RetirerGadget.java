@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import jeu.Partie;
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Retirer un Gadget au joueur.
@@ -32,7 +31,7 @@ public class RetirerGadget extends Commande implements CommandeEvent, CommandeMe
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		//on procède à la suppression
-		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Partie partieActuelle = getPartieActuelle();
 		final boolean[] gadgetsPossedes = partieActuelle.gadgetsPossedes;
 		if (gadgetsPossedes[idGadget]) {
 			gadgetsPossedes[this.idGadget] = false;

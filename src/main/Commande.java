@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
+import jeu.Partie;
 import map.Event;
 import map.PageEvent;
 import menu.ElementDeMenu;
@@ -47,6 +48,10 @@ public abstract class Commande {
 	 * @return nouvelle position du curseur après l'execution totale ou partielle de la Commande
 	 */
 	public abstract int executer(int curseurActuel, ArrayList<Commande> commandes);
+	
+	protected static Partie getPartieActuelle() {
+		return Main.getPartieActuelle();
+	}
 	
 	/**
 	 * Construire la clé de cryptage.

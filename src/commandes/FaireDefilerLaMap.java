@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.LecteurMap;
 
 /**
@@ -28,7 +28,7 @@ public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 	 * @param direction du défilement
 	 */
 	public FaireDefilerLaMap(final int nombreDeCarreaux, final int vitesse, final int direction) {
-		this.nombreDePixels = Fenetre.TAILLE_D_UN_CARREAU*nombreDeCarreaux;
+		this.nombreDePixels = Main.TAILLE_D_UN_CARREAU*nombreDeCarreaux;
 		this.vitesse = vitesse;
 		this.direction = direction;
 	}
@@ -53,7 +53,7 @@ public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 		}
 		
 		//on déplace la caméra
-		final LecteurMap lecteurMap = (LecteurMap) Fenetre.getFenetre().lecteur;
+		final LecteurMap lecteurMap = (LecteurMap) Main.lecteur;
 		switch(direction) {
 		case 0: 
 			lecteurMap.defilementY += this.vitesse;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 
 /**
  * Prendre une capture d'écran du jeu.
@@ -27,7 +27,7 @@ public class CaptureDEcran extends Commande implements CommandeEvent, CommandeMe
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getFenetre().lecteur.faireUneCaptureDEcran();
+		Main.lecteur.faireUneCaptureDEcran();
 		
 		return curseurActuel+1;
 	}

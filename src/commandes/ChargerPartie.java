@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import jeu.Partie;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 
 /**
  * Charger une Partie dans le menu dédié
@@ -62,13 +62,12 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Fenetre fenetre = this.element.menu.lecteur.fenetre;
 		LOG.info("chargement de la partie numero "+this.numeroDeSauvegarde);
 		
 		try {
 			final Partie partie = chargerPartie(this.numeroDeSauvegarde);
-			fenetre.setPartieActuelle(partie);
-			fenetre.ouvrirLaPartie();
+			Main.setPartieActuelle(partie);
+			Main.ouvrirLaPartie();
 		} catch (Exception e) {
 			LOG.error("Impossible de charger la partie numero "+this.numeroDeSauvegarde, e);
 		}

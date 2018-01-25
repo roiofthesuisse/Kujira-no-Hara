@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import jeu.Partie;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.Event;
 
 /**
@@ -80,7 +80,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final int valeur;
-		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Partie partieActuelle = getPartieActuelle();
 		final Event event;
 		
 		// operationAFaire2 donne la provenance de la valeur modificatrice
@@ -104,7 +104,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 					// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
 					event = this.page.event;
 				}
-				valeur = event.x / Fenetre.TAILLE_D_UN_CARREAU;
+				valeur = event.x / Main.TAILLE_D_UN_CARREAU;
 				break;
 			case COORDONNEE_Y :
 				if (valeurADonner>0) {
@@ -113,7 +113,7 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 					// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
 					event = this.page.event;
 				}
-				valeur = event.y / Fenetre.TAILLE_D_UN_CARREAU;
+				valeur = event.y / Main.TAILLE_D_UN_CARREAU;
 				break;
 			case TERRAIN :
 				if (valeurADonner>0) {
@@ -122,8 +122,8 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 					// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
 					event = this.page.event;
 				}
-				final int xEvent = event.x / Fenetre.TAILLE_D_UN_CARREAU;
-				final int yEvent = event.y / Fenetre.TAILLE_D_UN_CARREAU;
+				final int xEvent = event.x / Main.TAILLE_D_UN_CARREAU;
+				final int yEvent = event.y / Main.TAILLE_D_UN_CARREAU;
 				final int carreauEvent = this.page.event.map.layer0[xEvent][yEvent];
 				valeur = this.page.event.map.tileset.terrainDeLaCase(carreauEvent);
 				break;

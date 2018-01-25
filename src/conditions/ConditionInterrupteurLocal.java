@@ -3,7 +3,6 @@ package conditions;
 import java.util.HashMap;
 
 import commandes.CommandeEvent;
-import main.Fenetre;
 
 /**
  * Condition pour vérifier la valeur d'un interrupteur local d'un Event
@@ -55,7 +54,7 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 		}
 		final String code = "m"+this.numeroMap+"e"+this.idEvent+"i"+this.numeroInterrupteurLocal;
 		
-		final boolean reponse = Fenetre.getPartieActuelle().interrupteursLocaux.contains(code) == valeurQuIlEstCenseAvoir;
+		final boolean reponse = getPartieActuelle().interrupteursLocaux.contains(code) == valeurQuIlEstCenseAvoir;
 		return reponse;
 	}
 	

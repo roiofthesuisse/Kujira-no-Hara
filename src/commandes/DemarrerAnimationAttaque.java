@@ -34,7 +34,7 @@ public class DemarrerAnimationAttaque extends Commande implements CommandeEvent 
 		final Heros heros = this.page.event.map.heros;
 		// pas d'attaque si Mouvement forcé en cours
 		if (heros.deplacementForce==null || heros.deplacementForce.mouvements.size()<=0) {
-			final Arme armeActuelle = Fenetre.getPartieActuelle().getArmeEquipee();
+			final Arme armeActuelle = getPartieActuelle().getArmeEquipee();
 			heros.animationAttaque = armeActuelle.framesDAnimation.length;
 			LecteurAudio.playSe(armeActuelle.nomEffetSonoreAttaque);
 		}

@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
-import main.Fenetre;
 
 /**
  * Vérifier la valeur du mot de passe.
@@ -43,9 +42,9 @@ public class ConditionMot extends Condition implements CommandeEvent, CommandeMe
 		if (motAttendu instanceof String) {
 			aComparer = (String) this.motAttendu;
 		} else {
-			aComparer = Fenetre.getPartieActuelle().mots[(Integer) this.motAttendu];
+			aComparer = getPartieActuelle().mots[(Integer) this.motAttendu];
 		}
-		return aComparer.equals(Fenetre.getPartieActuelle().mots[this.numeroMot]);
+		return aComparer.equals(getPartieActuelle().mots[this.numeroMot]);
 	}
 
 	@Override

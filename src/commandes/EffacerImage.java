@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Effacer une image.
@@ -30,7 +29,7 @@ public class EffacerImage extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getPartieActuelle().images.remove(new Integer(this.numero));
+		getPartieActuelle().images.remove(new Integer(this.numero));
 		return curseurActuel+1;
 	}
 

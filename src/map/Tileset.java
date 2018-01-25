@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.awt.Color;
-import main.Fenetre;
+import main.Main;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
@@ -82,8 +82,8 @@ public class Tileset {
 		} catch (IIOException ioe) {
 			// image manquante, on crée une fausse image
 			LOG.warn("Impossible de charger l'image du tileset "+this.nomImage, ioe);
-			final int largeurImageTileset = LARGEUR_TILESET * Fenetre.TAILLE_D_UN_CARREAU;
-			final int hauteurImageTileset = nombreDeLignesTileset * Fenetre.TAILLE_D_UN_CARREAU;
+			final int largeurImageTileset = LARGEUR_TILESET * Main.TAILLE_D_UN_CARREAU;
+			final int hauteurImageTileset = nombreDeLignesTileset * Main.TAILLE_D_UN_CARREAU;
 			this.image = new BufferedImage(largeurImageTileset, hauteurImageTileset, Graphismes.TYPE_DES_IMAGES);
 			final Graphics2D g2d = (Graphics2D) this.image.getGraphics();
 			g2d.setPaint(Color.LIGHT_GRAY); //passages
@@ -92,7 +92,7 @@ public class Tileset {
 			for (int i = 0; i<LARGEUR_TILESET; i++) {
 				for (int j = 0; j<nombreDeLignesTileset; j++) {
 					if (this.passabilite[i+j*LARGEUR_TILESET] != Passabilite.OBSTACLE) {
-						g2d.fillRect(i*Fenetre.TAILLE_D_UN_CARREAU, j*Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
+						g2d.fillRect(i*Main.TAILLE_D_UN_CARREAU, j*Main.TAILLE_D_UN_CARREAU, Main.TAILLE_D_UN_CARREAU, Main.TAILLE_D_UN_CARREAU);
 					}
 				}
 			}
@@ -102,7 +102,7 @@ public class Tileset {
 		this.carreaux = new BufferedImage[nombreDeCarreauxTileset];
 		for (int i = 0; i<LARGEUR_TILESET; i++) {
 			for (int j = 0; j<nombreDeLignesTileset; j++) {
-				carreaux[LARGEUR_TILESET*j + i] = this.image.getSubimage(i*Fenetre.TAILLE_D_UN_CARREAU, j*Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
+				carreaux[LARGEUR_TILESET*j + i] = this.image.getSubimage(i*Main.TAILLE_D_UN_CARREAU, j*Main.TAILLE_D_UN_CARREAU, Main.TAILLE_D_UN_CARREAU, Main.TAILLE_D_UN_CARREAU);
 			}
 		}
 		

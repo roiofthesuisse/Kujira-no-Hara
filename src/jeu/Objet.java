@@ -17,7 +17,7 @@ import commandes.CommandeMenu;
 import conditions.Condition;
 import conditions.ConditionObjetPossede;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import menu.Listable;
 import menu.Texte;
 import utilitaire.InterpreteurDeJson;
@@ -182,7 +182,7 @@ public class Objet implements Listable {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
 			// seulement les Objets possédées
-			final int[] objetsPossedes = Fenetre.getPartieActuelle().objetsPossedes;
+			final int[] objetsPossedes = Main.getPartieActuelle().objetsPossedes;
 			for (int i = 0; i < objetsPossedes.length; i++) {
 				if (objetsPossedes[i]>0) {
 					listablesPossedes.put((Integer) i, objetsDuJeu[i]);
@@ -200,7 +200,7 @@ public class Objet implements Listable {
 	@Override
 	public final BufferedImage construireImagePourListe(final int largeurMinimale, final int hauteurMinimale) {
 		final ArrayList<String> contenuTexte = new ArrayList<String>();
-		final int quantite = Fenetre.getPartieActuelle().objetsPossedes[this.idObjet];
+		final int quantite = Main.getPartieActuelle().objetsPossedes[this.idObjet];
 		for (String nomLangue : this.nom) {
 			contenuTexte.add(nomLangue + " : " + quantite);
 		}

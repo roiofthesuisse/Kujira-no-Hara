@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 
 /**
  * Eteindre le jeu.
@@ -28,7 +28,7 @@ public class QuitterJeu extends Commande implements CommandeMenu {
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getFenetre().fermer();
+		Main.quitterLeJeu = true;
 		
 		return curseurActuel+1;
 	}

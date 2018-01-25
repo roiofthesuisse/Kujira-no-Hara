@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import main.Fenetre;
-
 /** 
  * Map adjacente à une Map, permettant une téléportation automatique
  */
@@ -37,7 +35,7 @@ public class Adjacence {
 	 */
 	public void allerALaMapAdjacente(final Heros heros) {
 		LOG.info("On sort pour aller à la map adjacente.");
-		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre(), this.transition);
+		final LecteurMap nouveauLecteur = new LecteurMap(this.transition);
 		try {
 			final Map nouvelleMap = new Map(
 					this.numeroMap, 

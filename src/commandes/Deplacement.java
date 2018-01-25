@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import map.LecteurMap;
 import mouvements.Mouvement;
@@ -158,7 +158,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 	public final Event getEventADeplacer() {
 		if (this.idEventADeplacer != null) {
 			//un numéro d'Event à déplacer a été spécifié dans le JSON
-			return ((LecteurMap) Fenetre.getFenetre().lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
+			return ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
 		} else {
 			//aucun numéro n'a été spécifié, on déplace l'Event qui a lancé la Commande
 			return this.page.event;
@@ -175,7 +175,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 
 		final Mouvement premierMouvement = this.mouvements.get(0);
 
-		final LecteurMap lecteurMap = (LecteurMap) Fenetre.getFenetre().lecteur;
+		final LecteurMap lecteurMap = (LecteurMap) Main.lecteur;
 		//si le stopEvent est activé, on n'effectue pas les Mouvements
 		//sauf s'il s'agit d'Attendre
 		if (lecteurMap.stopEvent) {

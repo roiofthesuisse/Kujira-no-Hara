@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import jeu.Partie;
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Retirer une Arme au joueur.
@@ -32,7 +31,7 @@ public class RetirerArme extends Commande implements CommandeEvent, CommandeMenu
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		//on procède à la suppression
-		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Partie partieActuelle = getPartieActuelle();
 		final boolean[] armesPossedees = partieActuelle.armesPossedees;
 		if (armesPossedees[idArme]) {
 			armesPossedees[this.idArme] = false;

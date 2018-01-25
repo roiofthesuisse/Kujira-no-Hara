@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Equiper le Heros avec un Gadget qu'il possède
@@ -30,7 +29,7 @@ public class EquiperGadget extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getPartieActuelle().equiperGadget(this.idGadget);
+		getPartieActuelle().equiperGadget(this.idGadget);
 		return curseurActuel+1;
 	}
 

@@ -19,7 +19,6 @@ public abstract class Lecteur {
 	protected static final Logger LOG = LogManager.getLogger(Lecteur.class);
 	
 	private BufferedImage ecranAtuel;
-	public Fenetre fenetre = null;
 	
 	/**
 	 * Durée minimale d'une frame (en millisecondes).
@@ -111,7 +110,7 @@ public abstract class Lecteur {
 				//l'affichage a pris trop de temps
 				LOG.warn("Irrespect de la vitesse d'affichage : "+dureeEffectiveDeLaFrame+"/"+Lecteur.DUREE_FRAME);
 			}
-			this.fenetre.actualiserAffichage(this.ecranAtuel);
+			Main.fenetre.actualiserAffichage(this.ecranAtuel);
 			this.frameActuelle++;
 		}
 		//si on est ici, c'est qu'une Commande Event a éteint le Lecteur

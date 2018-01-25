@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import commandes.CommandeEvent;
 import conditions.ConditionContact.TypeDeContact;
-import main.Fenetre;
+import main.Main;
 import map.Event;
 
 /**
@@ -46,7 +46,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	public final boolean estVerifiee() {
 		final Event event = this.page.event;
 		
-		final int frameActuelle = Fenetre.getFenetre().lecteur.frameActuelle;
+		final int frameActuelle = Main.lecteur.frameActuelle;
 		if ( event.frameDuContact != frameActuelle) {
 			//on n'est pas à jour ! on calcule s'il y a contact :
 			final ConditionContact conditionContactMaintenant = new ConditionContact(this.numero, 0, null, this.typeDeContact);

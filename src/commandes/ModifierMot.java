@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Modifier le mot de passe.
@@ -36,7 +35,7 @@ public class ModifierMot extends Commande implements CommandeMenu, CommandeEvent
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getPartieActuelle().mots[this.numeroMot] = this.nouveauMot;
+		getPartieActuelle().mots[this.numeroMot] = this.nouveauMot;
 		this.element.menu.reactualiserTousLesTextes();
 		return curseurActuel+1;
 	}

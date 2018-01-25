@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 
 /**
  * Créer une nouvelle Partie vierge et y jouer
@@ -32,10 +32,9 @@ public class OuvrirNouvellePartie extends Commande implements CommandeMenu {
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Fenetre fenetre = this.element.menu.lecteur.fenetre;
 		LOG.info("nouvelle partie");
-		fenetre.setPartieActuelle(null);
-		fenetre.ouvrirLaPartie();
+		Main.setPartieActuelle(null);
+		Main.ouvrirLaPartie();
 		
 		return curseurActuel+1;
 	}

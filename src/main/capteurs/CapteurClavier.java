@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import main.Fenetre;
+import main.Main;
 import utilitaire.GestionClavier;
 
 /**
@@ -27,9 +28,9 @@ public class CapteurClavier implements KeyListener {
 		final GestionClavier.ToucheRole touchePressee = GestionClavier.ToucheRole.getToucheRole(keycode);
 		if (touchePressee != null && !touchePressee.enfoncee()) {
 			touchePressee.enfoncee(true);
-			touchePressee.frameDAppui((Integer) this.fenetre.lecteur.frameActuelle); // mémorisation de la frame d'appui
+			touchePressee.frameDAppui((Integer) Main.lecteur.frameActuelle); // mémorisation de la frame d'appui
 			
-			this.fenetre.lecteur.keyPressed(touchePressee);
+			Main.lecteur.keyPressed(touchePressee);
 		}
 	}
 
@@ -43,7 +44,7 @@ public class CapteurClavier implements KeyListener {
 			toucheRelachee.enfoncee(false);
 			toucheRelachee.frameDAppui(null);
 			
-			this.fenetre.lecteur.keyReleased(toucheRelachee);
+			Main.lecteur.keyReleased(toucheRelachee);
 		}
 	}
 

@@ -19,7 +19,7 @@ import commandes.Sauvegarder.Sauvegardable;
 import conditions.Condition;
 import jeu.Quete.AvancementQuete;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.Animation;
 import map.Brouillard;
 import map.Map;
@@ -96,8 +96,8 @@ public final class Partie implements Listable, Sauvegardable {
 		// Position du Héros
 		this.numeroMap = jsonNouvellePartie.getInt("numeroMap");
 		this.brouillardACharger = null;
-		this.xHeros = jsonNouvellePartie.getInt("xHeros")*Fenetre.TAILLE_D_UN_CARREAU;
-		this.yHeros = jsonNouvellePartie.getInt("yHeros")*Fenetre.TAILLE_D_UN_CARREAU;
+		this.xHeros = jsonNouvellePartie.getInt("xHeros") * Main.TAILLE_D_UN_CARREAU;
+		this.yHeros = jsonNouvellePartie.getInt("yHeros") * Main.TAILLE_D_UN_CARREAU;
 		this.directionHeros = jsonNouvellePartie.getInt("directionHeros");
 		// Vie
 		this.vie = jsonNouvellePartie.getInt("vie");

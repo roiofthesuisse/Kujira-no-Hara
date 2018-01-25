@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
-import main.Fenetre;
 
 /**
  * Vérifier la valeur d'un interrupteur
@@ -38,7 +37,7 @@ public class ConditionInterrupteur extends Condition implements CommandeEvent, C
 	
 	@Override
 	public final boolean estVerifiee() {
-		return Fenetre.getPartieActuelle().interrupteurs[numeroInterrupteur] == valeurQuIlEstCenseAvoir;
+		return getPartieActuelle().interrupteurs[numeroInterrupteur] == valeurQuIlEstCenseAvoir;
 	}
 	
 	/**

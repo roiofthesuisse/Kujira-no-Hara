@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Retirer un certain nombre d'Objets au joueur.
@@ -36,7 +35,7 @@ public class RetirerObjet extends Commande implements CommandeMenu, CommandeEven
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {		
 		//on procède à la suppression
-		final int[] objetsPossedes = Fenetre.getPartieActuelle().objetsPossedes;
+		final int[] objetsPossedes = getPartieActuelle().objetsPossedes;
 		objetsPossedes[this.idObjet] -= quantite;
 		
 		//on ne doit pas aller dans les négatifs

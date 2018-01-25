@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import main.Fenetre;
+import main.Main;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -67,7 +67,7 @@ public class Heros extends Event {
 	public final void deplacer() {
 		if (animationAttaque > 0) {
 			//pas de déplacement si animation d'attaque
-			this.animation = Fenetre.getPartieActuelle().getArmeEquipee().framesDAnimation[animationAttaque-1];
+			this.animation = Main.getPartieActuelle().getArmeEquipee().framesDAnimation[animationAttaque-1];
 			
 			animationAttaque--;
 		} else if (!this.map.lecteur.laTransitionEstTerminee()) {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import map.Map;
 
@@ -42,8 +42,8 @@ public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		final Map map = this.page.event.map;
-		final int xPixel = this.x*Fenetre.TAILLE_D_UN_CARREAU;
-		final int yPixel = this.y*Fenetre.TAILLE_D_UN_CARREAU;
+		final int xPixel = this.x*Main.TAILLE_D_UN_CARREAU;
+		final int yPixel = this.y*Main.TAILLE_D_UN_CARREAU;
 		final int idEventInvoque = -1;
 		final Event eventInvoque = Event.creerEventGenerique(idEventInvoque, this.nomEventInvoque, 
 				xPixel, yPixel, map);

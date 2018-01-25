@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
-import main.Fenetre;
 import utilitaire.Maths.Inegalite;
 
 /**
@@ -47,7 +46,7 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	
 	@Override
 	public final boolean estVerifiee() {
-		final int[] variables = Fenetre.getPartieActuelle().variables;
+		final int[] variables = getPartieActuelle().variables;
 		if (this.comparerAUneAutreVariable) {
 			// Comparer la variable à une autre variable
 			return inegalite.comparer(variables[numeroVariable], variables[valeurQuIlEstCenseAvoir]);

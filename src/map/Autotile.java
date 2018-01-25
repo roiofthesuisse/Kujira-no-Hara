@@ -15,7 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import main.Fenetre;
+import main.Main;
 import utilitaire.graphismes.Graphismes;
 
 /**
@@ -29,15 +29,15 @@ public class Autotile {
 	/** fréquence d'animation des autotiles animés (eau, etc.) */
 	public static final int FREQUENCE_ANIMATION_AUTOTILE = 10;
 	/** largeur standard pour une image d'Autotile fixe */
-	public static final int LARGEUR_AUTOTILE_FIXE = 3*Fenetre.TAILLE_D_UN_CARREAU;
+	public static final int LARGEUR_AUTOTILE_FIXE = 3*Main.TAILLE_D_UN_CARREAU;
 	/** nombre de vignettes qui composent l'animation d'un Autotile */
 	public static final int NOMBRE_VIGNETTES_AUTOTILE_ANIME = 4;
 	/** largeur standard pour une image d'Autotile animé */
 	public static final int LARGEUR_AUTOTILE_ANIME = NOMBRE_VIGNETTES_AUTOTILE_ANIME*LARGEUR_AUTOTILE_FIXE;
 	/** hauteur standard pour une image d'Autotile */
-	public static final int HAUTEUR_AUTOTILE = 4*Fenetre.TAILLE_D_UN_CARREAU;
+	public static final int HAUTEUR_AUTOTILE = 4*Main.TAILLE_D_UN_CARREAU;
 	/** l'Autotile est composé de 4 quarts */
-	public static final int TAILLE_MORCEAU = Fenetre.TAILLE_D_UN_CARREAU/2;
+	public static final int TAILLE_MORCEAU = Main.TAILLE_D_UN_CARREAU/2;
 	/** décalage pour aller piocher dans la vignette d'animation suivante (en nombre de quarts de carreaux) */
 	public static final int DECALAGE_VIGNETTE_SUIVANTE = 6;
 	
@@ -277,7 +277,7 @@ public class Autotile {
 		//fabrication du carreau en dessinant chaque quart
 		final BufferedImage[] resultats = new BufferedImage[NOMBRE_VIGNETTES_AUTOTILE_ANIME];
 		for (int i = 0; (this.anime&&i<NOMBRE_VIGNETTES_AUTOTILE_ANIME)||(!this.anime&&i<=0); i++) {
-			final BufferedImage resultat = new BufferedImage(Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU, Graphismes.TYPE_DES_IMAGES);
+			final BufferedImage resultat = new BufferedImage(Main.TAILLE_D_UN_CARREAU, Main.TAILLE_D_UN_CARREAU, Graphismes.TYPE_DES_IMAGES);
 			final Graphics2D g2d = (Graphics2D) resultat.createGraphics();
 
 			//quart haut-gauche du carreau

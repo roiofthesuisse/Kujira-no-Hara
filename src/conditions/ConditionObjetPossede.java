@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
-import main.Fenetre;
 
 /**
  * Le joueur possède-t-il l'Objet ?
@@ -43,7 +42,7 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	
 	@Override
 	public final boolean estVerifiee() {
-		return Fenetre.getPartieActuelle().objetsPossedes[idObjet] >= 1;
+		return getPartieActuelle().objetsPossedes[idObjet] >= 1;
 	}
 
 	@Override

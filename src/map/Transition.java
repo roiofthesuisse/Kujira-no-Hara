@@ -8,6 +8,7 @@ import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
 import main.Fenetre;
 import main.Lecteur;
+import main.Main;
 import map.Event.Direction;
 import utilitaire.graphismes.Graphismes;
 
@@ -184,10 +185,10 @@ public enum Transition {
 			final int hauteurNouvelleMap) {
 		
 		// On calcule la direction globale de la transition par un vecteur
-		final int xVecteurAncienneMap = xAncienHeros - largeurAncienneMap*Fenetre.TAILLE_D_UN_CARREAU/2;
-		final int yVecteurAncienneMap = yAncienHeros - hauteurAncienneMap*Fenetre.TAILLE_D_UN_CARREAU/2;
-		final int xVecteurNouvelleMap = xNouveauHeros - largeurNouvelleMap*Fenetre.TAILLE_D_UN_CARREAU/2;
-		final int yVecteurNouvelleMap = yNouveauHeros - hauteurNouvelleMap*Fenetre.TAILLE_D_UN_CARREAU/2;
+		final int xVecteurAncienneMap = xAncienHeros - largeurAncienneMap*Main.TAILLE_D_UN_CARREAU/2;
+		final int yVecteurAncienneMap = yAncienHeros - hauteurAncienneMap*Main.TAILLE_D_UN_CARREAU/2;
+		final int xVecteurNouvelleMap = xNouveauHeros - largeurNouvelleMap*Main.TAILLE_D_UN_CARREAU/2;
+		final int yVecteurNouvelleMap = yNouveauHeros - hauteurNouvelleMap*Main.TAILLE_D_UN_CARREAU/2;
 		
 		final int deltaX = xVecteurAncienneMap - xVecteurNouvelleMap;
 		final int deltaY = yVecteurAncienneMap - yVecteurNouvelleMap;

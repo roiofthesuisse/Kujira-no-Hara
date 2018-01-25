@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 import map.Picture;
 
 /**
@@ -33,7 +32,7 @@ public class InterrompreDeplacementImage extends Commande implements CommandeEve
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
+		final Picture picture = getPartieActuelle().images.get(this.numero);
 		picture.deplacementActuel = null;
 		
 		return curseurActuel+1;

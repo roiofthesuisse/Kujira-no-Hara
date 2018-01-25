@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import jeu.Partie;
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Ajouter un nouveau Gadget au Heros
@@ -32,7 +31,7 @@ public class AjouterGadget extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Partie partieActuelle = getPartieActuelle();
 		if (!partieActuelle.gadgetsPossedes[idGadget]) {
 			partieActuelle.gadgetsPossedes[idGadget] = true;
 			partieActuelle.nombreDeGadgetsPossedes++;

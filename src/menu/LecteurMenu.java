@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import main.Commande;
-import main.Fenetre;
 import main.Lecteur;
+import main.Main;
 import map.Event;
 import map.LecteurMap;
 import utilitaire.GestionClavier.ToucheRole;
@@ -21,12 +21,11 @@ public class LecteurMenu extends Lecteur {
 	
 	/**
 	 * Constructeur explicite
-	 * @param fenetre dans laquelle on doit afficher le Menu
 	 * @param menu que va lire ce Lecteur
 	 * @param lecteurMapMemorise Lecteur de la Map sur laquelle on se trouvait avant d'entrer dans le Menu
 	 * @param selectionInitiale identifiant de l'ElementDeMenu sélectionné au début imposé par ce changement de Menu
 	 */
-	public LecteurMenu(final Fenetre fenetre, final Menu menu, final LecteurMap lecteurMapMemorise, 
+	public LecteurMenu(final Menu menu, final LecteurMap lecteurMapMemorise, 
 			final Integer selectionInitiale) {
 		this.menu = menu;
 		menu.lecteur = this; //on prévient le Lecteur qu'il a un Menu
@@ -42,7 +41,6 @@ public class LecteurMenu extends Lecteur {
 			}
 		}
 		
-		this.fenetre = fenetre;
 		this.lecteurMapMemorise = lecteurMapMemorise;
 		this.allume = true; //TODO est-ce utile ?
 	}
@@ -171,8 +169,8 @@ public class LecteurMenu extends Lecteur {
 	 * @warning cette méthode ne doit être appelée que par le nouveau Lecteur !
 	 */
 	public final void changerMenu() {
-		Fenetre.getFenetre().futurLecteur = this;
-		Fenetre.getFenetre().lecteur.allume = false;
+		Main.futurLecteur = this;
+		Main.lecteur.allume = false;
 	}
 	
 	/**
@@ -181,7 +179,7 @@ public class LecteurMenu extends Lecteur {
 	 */
 	public final void allerAuMenuSuivant(final int selectionInitiale) {
 		if (this.menu.menuSuivant!=null) {
-			new LecteurMenu(this.fenetre, this.menu.menuSuivant, this.lecteurMapMemorise, selectionInitiale).changerMenu();
+			new LecteurMenu(this.menu.menuSuivant, this.lecteurMapMemorise, selectionInitiale).changerMenu();
 		}
 	}
 	
@@ -191,7 +189,7 @@ public class LecteurMenu extends Lecteur {
 	 */
 	public final void allerAuMenuPrecedent(final int selectionInitiale) {
 		if (this.menu.menuPrecedent!=null) {
-			new LecteurMenu(this.fenetre, this.menu.menuPrecedent, this.lecteurMapMemorise, selectionInitiale).changerMenu();
+			new LecteurMenu(this.menu.menuPrecedent, this.lecteurMapMemorise, selectionInitiale).changerMenu();
 		}
 	}
 

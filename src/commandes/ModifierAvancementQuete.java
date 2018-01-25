@@ -6,7 +6,6 @@ import java.util.HashMap;
 import jeu.Partie;
 import jeu.Quete.AvancementQuete;
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Modifier l'état d'avancement de la Quête.
@@ -37,7 +36,7 @@ public class ModifierAvancementQuete extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Partie partieActuelle = getPartieActuelle();
 		partieActuelle.avancementDesQuetes[this.numeroQuete] = this.avancement;
 		
 		return curseurActuel+1;

@@ -15,7 +15,6 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import main.Commande;
-import main.Fenetre;
 import map.Map;
 
 /**
@@ -60,7 +59,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		// La Partie par défaut est la Partie actuelle
 		if (this.numeroSauvegarde == null) {
-			this.numeroSauvegarde = Fenetre.getPartieActuelle().id;
+			this.numeroSauvegarde = getPartieActuelle().id;
 		}
 		
 		final String nomFichierSauvegarde = PREFIXE_FICHIER_SAUVEGARDE + this.numeroSauvegarde + ".txt";
@@ -102,7 +101,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 		final JSONObject jsonSauvegarde = new JSONObject();
 		
 		// Partie
-		final JSONObject jsonPartie = Fenetre.getPartieActuelle().sauvegarderEnJson();
+		final JSONObject jsonPartie = getPartieActuelle().sauvegarderEnJson();
 		jsonSauvegarde.put("partie", jsonPartie);
 
 		// Etat de la Map

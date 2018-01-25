@@ -7,7 +7,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Une Animation peut cibler un Event, ou bien être positionnée en des coordonnées spécifiques.
@@ -63,14 +62,14 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 			}
 			
 			// On vérifie qu'il n'y a pas déjà une animation sur cet Event
-			int nombreDAnimations = Fenetre.getPartieActuelle().animations.size();
+			int nombreDAnimations = getPartieActuelle().animations.size();
 			JouerAnimation animation;
 			for (int i = 0; i<nombreDAnimations; i++) {
-				animation = Fenetre.getPartieActuelle().animations.get(i);
+				animation = getPartieActuelle().animations.get(i);
 				// Est-ce qu'il y a déjà une animation sur l'Event concerné ?
 				if (this.idEvent == animation.idEvent) {
 					// On retire les animations actuellement associées à cet Event
-					Fenetre.getPartieActuelle().animations.remove(i);
+					getPartieActuelle().animations.remove(i);
 					i--;
 					nombreDAnimations--;
 				}
@@ -82,7 +81,7 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 		}
 		
 		// On ajoute la nouvelle animation
-		Fenetre.getPartieActuelle().animations.add(this);
+		getPartieActuelle().animations.add(this);
 		LOG.debug("Animation "+this.idAnimation+" démarrée à l'endroit : "+lieuDeLExplosion);
 		return curseurActuel+1;
 	}

@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
-import main.Fenetre;
 import utilitaire.Maths.Inegalite;
 
 /**
@@ -40,7 +39,7 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	
 	@Override
 	public final boolean estVerifiee() {
-		return inegalite.comparer(Fenetre.getPartieActuelle().argent, this.quantite);
+		return inegalite.comparer(getPartieActuelle().argent, this.quantite);
 	}
 
 	@Override

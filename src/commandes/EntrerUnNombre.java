@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 import map.LecteurMap;
 import menu.Menu;
 import menu.Texte;
@@ -157,7 +156,7 @@ public class EntrerUnNombre extends Message {
 			nombre += this.chiffresRentres[i];
 		}
 		//on modifie la valeur de la variable
-		Fenetre.getPartieActuelle().variables[this.numeroDeVariable] = nombre;
+		getPartieActuelle().variables[this.numeroDeVariable] = nombre;
 		return curseurActuel+1;
 	}
 

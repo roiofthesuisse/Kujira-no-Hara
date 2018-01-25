@@ -11,7 +11,7 @@ import org.json.JSONObject;
 
 import commandes.JouerAnimation;
 import jeu.Partie;
-import main.Fenetre;
+import main.Main;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
@@ -173,7 +173,7 @@ public class Animation {
 	 * @return écran avec les Animations dessinées dessus
 	 */
 	public static BufferedImage dessinerLesAnimations(BufferedImage ecran, final int xCamera, final int yCamera) {
-		final Partie partie = Fenetre.getPartieActuelle();
+		final Partie partie = Main.getPartieActuelle();
 		JouerAnimation animationEnCours;
 		int nombreDAnimationsEnCours = partie.animations.size();
 		for (int i = 0; i<nombreDAnimationsEnCours; i++) {

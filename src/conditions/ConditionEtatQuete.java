@@ -6,7 +6,6 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import jeu.Partie;
 import jeu.Quete.AvancementQuete;
-import main.Fenetre;
 
 /**
  * Vérifie si le Héros connaît la Quête.
@@ -40,7 +39,7 @@ public class ConditionEtatQuete extends Condition implements CommandeEvent, Comm
 	
 	@Override
 	public final boolean estVerifiee() {
-		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Partie partieActuelle = getPartieActuelle();
 		final AvancementQuete avancementReel = partieActuelle.avancementDesQuetes[idQuete];
 		return avancementReel.equals(this.avancementVoulu) 
 		|| (avancementVoulu.equals(AvancementQuete.CONNUE) && avancementReel.equals(AvancementQuete.FAITE)); //une quête faite est connue

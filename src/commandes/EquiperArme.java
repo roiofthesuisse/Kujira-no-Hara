@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Equiper le Heros avec une Arme qu'il possède
@@ -30,7 +29,7 @@ public class EquiperArme extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getPartieActuelle().equiperArme(this.idArme);
+		getPartieActuelle().equiperArme(this.idArme);
 		return curseurActuel+1;
 	}
 

@@ -14,6 +14,7 @@ import jeu.Chronometre;
 import main.Commande;
 import main.Fenetre;
 import main.Lecteur;
+import main.Main;
 import map.meteo.Meteo;
 import menu.Texte;
 import mouvements.RegarderUnEvent;
@@ -75,8 +76,7 @@ public class LecteurMap extends Lecteur {
 	 * @param fenetre dont ce Lecteur assure l'affichage
 	 * @param transition visuelle pour le passage d'une Map à l'autre
 	 */
-	public LecteurMap(final Fenetre fenetre, final Transition transition) {
-		this.fenetre = fenetre;
+	public LecteurMap(final Transition transition) {
 		this.transition = transition;
 	}
 	
@@ -155,7 +155,7 @@ public class LecteurMap extends Lecteur {
 		// Transition visuelle avec la Map précédente
 		if (!this.allume) {
 			// Faire une capture d'écran juste avant l'arrêt de l'ancienne Map
-			final Lecteur futurLecteur0 = Fenetre.getFenetre().futurLecteur;
+			final Lecteur futurLecteur0 = Main.futurLecteur;
 			if (futurLecteur0 instanceof LecteurMap) {
 				final LecteurMap futurLecteur = (LecteurMap) futurLecteur0;
 				if (!Transition.AUCUNE.equals(futurLecteur.transition)) {
@@ -175,13 +175,13 @@ public class LecteurMap extends Lecteur {
 		ecran = dessinerLesJauges(ecran);
 		
 		//chronometre
-		final Chronometre chronometre = Fenetre.getPartieActuelle().chronometre;
-		if (chronometre!=null) {
+		final Chronometre chronometre = Main.getPartieActuelle().chronometre;
+		if (chronometre != null) {
 			ecran = chronometre.dessinerChronometre(ecran);
 		}
 		
 		//on affiche le message
-		if (messageActuel!=null) {
+		if (messageActuel != null) {
 			ecran = Graphismes.superposerImages(
 					ecran, 
 					this.messageActuel.image,
@@ -271,7 +271,7 @@ public class LecteurMap extends Lecteur {
 	 * @return écran avec la météo
 	 */
 	private BufferedImage dessinerMeteo(BufferedImage ecran, final int frame) {
-		final Meteo meteo = Fenetre.getPartieActuelle().meteo;
+		final Meteo meteo = Main.getPartieActuelle().meteo;
 		if (meteo != null) {
 			ecran = Graphismes.superposerImages(ecran, meteo.calculerImage(frame), 0, 0);
 		}
@@ -289,20 +289,20 @@ public class LecteurMap extends Lecteur {
 		
 		//icone de l'Arme equipée
 		try {
-			ecran = Graphismes.superposerImages(ecran, Fenetre.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
+			ecran = Graphismes.superposerImages(ecran, Main.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
 		} catch (NullPointerException e) {
 			//pas d'Arme équipée
 		}
 		
 		//icone du Gadget équipé
 		try {
-			ecran = Graphismes.superposerImages(ecran, Fenetre.getPartieActuelle().getGadgetEquipe().icone, X_AFFICHAGE_GADGET, Y_AFFICHAGE_GADGET);
+			ecran = Graphismes.superposerImages(ecran, Main.getPartieActuelle().getGadgetEquipe().icone, X_AFFICHAGE_GADGET, Y_AFFICHAGE_GADGET);
 		} catch (NullPointerException e) {
 			//pas de Gadget équipé
 		}
 		
 		//argent
-		final int argent = Fenetre.getPartieActuelle().argent;
+		final int argent = Main.getPartieActuelle().argent;
 		if (argent > 0) {
 			ecran = Graphismes.superposerImages(ecran, HUD_ARGENT, X_AFFICHAGE_ARGENT, Y_AFFICHAGE_ARGENT);
 			final ArrayList<String> contenuTexte = new ArrayList<String>();
@@ -325,7 +325,7 @@ public class LecteurMap extends Lecteur {
 	@SuppressWarnings("unused")
 	private BufferedImage dessinerLaHitboxDuHeros(BufferedImage ecran, final int xCamera, final int yCamera) {
 		try {
-			if (Fenetre.getPartieActuelle().getArmeEquipee() != null) {
+			if (Main.getPartieActuelle().getArmeEquipee() != null) {
 				final int[] coord = Hitbox.calculerCoordonneesAbsolues(this.map.heros);
 				final int xminHitbox = coord[0];
 				final int xmaxHitbox = coord[1];
@@ -418,11 +418,11 @@ public class LecteurMap extends Lecteur {
 				if (!event.supprime) {
 					if (!event.auDessusDeToutActuel && !event.platActuel) {
 						//dessiner la bandelette de décor médian
-						bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Fenetre.TAILLE_D_UN_CARREAU;
+						bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Main.TAILLE_D_UN_CARREAU;
 						if (bandeletteEvent > bandeletteActuelle) {
 							final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
 							ecran = Graphismes.superposerImages(ecran, imageBandelette,
-									-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
+									-xCamera, bandeletteActuelle*Main.TAILLE_D_UN_CARREAU-yCamera);
 							bandeletteActuelle = bandeletteEvent;
 						}
 					}
@@ -437,7 +437,7 @@ public class LecteurMap extends Lecteur {
 			//dernière bandelette
 			final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteEvent, this.map.hauteur);
 			ecran = Graphismes.superposerImages(ecran, imageBandelette,
-					-xCamera, bandeletteActuelle*Fenetre.TAILLE_D_UN_CARREAU-yCamera);
+					-xCamera, bandeletteActuelle*Main.TAILLE_D_UN_CARREAU-yCamera);
 			
 		} catch (Exception e) {
 			LOG.error("Erreur lors du dessin des évènements :", e);
@@ -650,7 +650,7 @@ public class LecteurMap extends Lecteur {
 				this.faireUneCaptureDEcran(); 
 				break;
 			case BREAKPOINT :
-				final Fenetre fenetre = Fenetre.getFenetre();
+				final Fenetre fenetre = Main.fenetre;
 				break;
 			default : 
 				break; // touche inconnue
@@ -663,8 +663,8 @@ public class LecteurMap extends Lecteur {
 	 * @param nouvelleMap sur laquelle le Héros voyage
 	 */
 	public final void devenirLeNouveauLecteurMap(final Map nouvelleMap) {
-		Fenetre.getFenetre().futurLecteur = this;
-		Fenetre.getFenetre().lecteur.allume = false;
+		Main.futurLecteur = this;
+		Main.lecteur.allume = false;
 		
 		// On détruit le Tileset actuel si le prochain n'est pas le même
 		if (tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) {
@@ -741,8 +741,8 @@ public class LecteurMap extends Lecteur {
 			if (nouveauXCamera<0) { //caméra ne déborde pas de la map à gauche
 				return (this.defilementX>0 ? this.defilementX : 0) 
 						+ this.tremblementDeTerre;
-			} else if (nouveauXCamera+Fenetre.LARGEUR_ECRAN > largeurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map à droite
-				return largeurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN 
+			} else if (nouveauXCamera+Fenetre.LARGEUR_ECRAN > largeurMap*Main.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map à droite
+				return largeurMap*Main.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN 
 						+ (this.defilementX<0 ? this.defilementX : 0) 
 						+ this.tremblementDeTerre;
 			} else {
@@ -768,8 +768,8 @@ public class LecteurMap extends Lecteur {
 			
 			if (nouveauYCamera<0) { //caméra ne déborde pas de la map en haut
 				return 0 + (this.defilementY>0 ? this.defilementY : 0);
-			} else if (nouveauYCamera+Fenetre.HAUTEUR_ECRAN > hauteurMap*Fenetre.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map en bas
-				return hauteurMap*Fenetre.TAILLE_D_UN_CARREAU - Fenetre.HAUTEUR_ECRAN + (this.defilementY<0 ? this.defilementY : 0);
+			} else if (nouveauYCamera+Fenetre.HAUTEUR_ECRAN > hauteurMap*Main.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map en bas
+				return hauteurMap*Main.TAILLE_D_UN_CARREAU - Fenetre.HAUTEUR_ECRAN + (this.defilementY<0 ? this.defilementY : 0);
 			} else {
 				return nouveauYCamera + this.defilementY;
 			}
@@ -872,7 +872,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	public final void equiperArmeSuivante() {
 		if (!this.stopEvent) { //on ne change pas d'Arme lorsqu'on lit un Message
-			Fenetre.getPartieActuelle().equiperArmeSuivante();
+			Main.getPartieActuelle().equiperArmeSuivante();
 		}
 	}
 	
@@ -881,7 +881,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	public final void equiperArmePrecedente() {
 		if (!this.stopEvent) { //on ne change pas d'Arme lorsqu'on lit un Message
-			Fenetre.getPartieActuelle().equiperArmePrecedente();
+			Main.getPartieActuelle().equiperArmePrecedente();
 		}
 	}
 	

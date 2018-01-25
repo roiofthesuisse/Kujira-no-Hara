@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 import commandes.DeplacerImage;
 import commandes.Sauvegarder.Sauvegardable;
-import main.Fenetre;
+import main.Main;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
@@ -69,7 +69,7 @@ public class Picture implements Sauvegardable {
 	 * @return écran avec les images dessinées
 	 */
 	public static BufferedImage dessinerLesImages(BufferedImage ecran) {
-		for (Picture picture : Fenetre.getPartieActuelle().images.values()) {
+		for (Picture picture : Main.getPartieActuelle().images.values()) {
 			// Déplacer les images (dont le déplacement a été délégué au LecteurMap par une Commande)
 			if (picture.deplacementActuel != null) {
 				picture.deplacementActuel.executerCommeUnDeplacementPropre(picture);

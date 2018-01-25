@@ -13,7 +13,7 @@ import commandes.Deplacement;
 import conditions.Condition;
 import conditions.ConditionParler;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
@@ -190,7 +190,7 @@ public class PageEvent {
 			this.plat = pageJSON.getBoolean("plat");
 		} else if (this.image != null) {
 			//si non précisé, est déterminé en fonction de la taille de l'image
-			this.plat = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Fenetre.TAILLE_D_UN_CARREAU;
+			this.plat = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Main.TAILLE_D_UN_CARREAU;
 		} else {
 			// pas d'image d'apparence
 			this.plat = true;

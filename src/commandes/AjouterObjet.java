@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Ajouter un certain nombre d'Objets au joueur.
@@ -36,7 +35,7 @@ public class AjouterObjet extends Commande implements CommandeEvent, CommandeMen
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {	
 		//on procède à l'ajout
-		final int[] objetsPossedes = Fenetre.getPartieActuelle().objetsPossedes;
+		final int[] objetsPossedes = getPartieActuelle().objetsPossedes;
 		objetsPossedes[this.idObjet] += quantite;
 				
 		return curseurActuel+1;

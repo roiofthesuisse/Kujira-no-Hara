@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 import commandes.FermerMenu;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
@@ -299,7 +299,7 @@ public class Menu {
 				String nomSelectionInitiale = jsonObject.getString("selectionInitiale");
 				switch (nomSelectionInitiale) {
 				case "numeroPartie":
-					idSelectionInitiale = Fenetre.getPartieActuelle().id;
+					idSelectionInitiale = Main.getPartieActuelle().id;
 					break;
 				default:
 					LOG.error("La sélection initiale du menu \""+nom+"\" est inconnue : "+nomSelectionInitiale);

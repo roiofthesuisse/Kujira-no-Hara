@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import commandes.ModifierInterrupteurLocal;
 import commandes.Sauvegarder.Sauvegardable;
 import main.Fenetre;
+import main.Main;
 import map.Event.Direction;
 import map.PageEvent.Traversabilite;
 import utilitaire.InterpreteurDeJson;
@@ -134,8 +135,8 @@ public class Map implements Sauvegardable {
 		}
 		this.largeur = jsonMap.getInt("largeur");
 		this.hauteur = jsonMap.getInt("hauteur");
-		this.defilementCameraX = largeur > (Fenetre.LARGEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU);
-		this.defilementCameraY = hauteur > (Fenetre.HAUTEUR_ECRAN/Fenetre.TAILLE_D_UN_CARREAU);
+		this.defilementCameraX = largeur > (Fenetre.LARGEUR_ECRAN/Main.TAILLE_D_UN_CARREAU);
+		this.defilementCameraY = hauteur > (Fenetre.HAUTEUR_ECRAN/Main.TAILLE_D_UN_CARREAU);
 		this.layer0 = recupererCouche(jsonMap, 0);
 		this.layer1 = recupererCouche(jsonMap, 1);
 		this.layer2 = recupererCouche(jsonMap, 2);
@@ -155,20 +156,20 @@ public class Map implements Sauvegardable {
 			
 			switch (this.directionDebutHeros) {
 			case Direction.HAUT:
-				this.xDebutHeros = ancienHeros.x + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
-				this.yDebutHeros = (this.hauteur-1)*Fenetre.TAILLE_D_UN_CARREAU;
+				this.xDebutHeros = ancienHeros.x + decalageDebutHeros*Main.TAILLE_D_UN_CARREAU;
+				this.yDebutHeros = (this.hauteur-1)*Main.TAILLE_D_UN_CARREAU;
 				break;
 			case Direction.BAS:
-				this.xDebutHeros = ancienHeros.x + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				this.xDebutHeros = ancienHeros.x + decalageDebutHeros*Main.TAILLE_D_UN_CARREAU;
 				this.yDebutHeros = 0;
 				break;
 			case Direction.GAUCHE:
-				this.xDebutHeros = (this.largeur-1)*Fenetre.TAILLE_D_UN_CARREAU;
-				this.yDebutHeros = ancienHeros.y + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				this.xDebutHeros = (this.largeur-1)*Main.TAILLE_D_UN_CARREAU;
+				this.yDebutHeros = ancienHeros.y + decalageDebutHeros*Main.TAILLE_D_UN_CARREAU;
 				break;
 			case Direction.DROITE:
 				this.xDebutHeros = 0;
-				this.yDebutHeros = ancienHeros.y + decalageDebutHeros*Fenetre.TAILLE_D_UN_CARREAU;
+				this.yDebutHeros = ancienHeros.y + decalageDebutHeros*Main.TAILLE_D_UN_CARREAU;
 				break;
 			default:
 				LOG.error("Direction inconnue !");
@@ -227,7 +228,7 @@ public class Map implements Sauvegardable {
 		//chargement du tileset
 		try {
 			//si jamais le Tileset est le même, pas la peine de le recréer
-			final Tileset tilesetActuel = ((LecteurMap) Fenetre.getFenetre().lecteur).tilesetActuel;
+			final Tileset tilesetActuel = ((LecteurMap) Main.lecteur).tilesetActuel;
 			if (this.nomTileset.equals(tilesetActuel.nom)) {
 				this.tileset = tilesetActuel;
 				LOG.info("Le Tileset n'a pas changé, on garde le même.");
@@ -289,8 +290,8 @@ public class Map implements Sauvegardable {
 		
 		final long t0 = System.nanoTime();
 		
-		final int largeurPixel = this.largeur*Fenetre.TAILLE_D_UN_CARREAU;
-		final int hauteurPixel = this.hauteur*Fenetre.TAILLE_D_UN_CARREAU;
+		final int largeurPixel = this.largeur*Main.TAILLE_D_UN_CARREAU;
+		final int hauteurPixel = this.hauteur*Main.TAILLE_D_UN_CARREAU;
 		
 		vignettesDeCetteCouche[0] = Graphismes.imageVide(largeurPixel, hauteurPixel);
 		
@@ -324,7 +325,7 @@ public class Map implements Sauvegardable {
 		}
 		
 		final long t1 = System.nanoTime();
-		Fenetre.getFenetre().mesuresDePerformance.add(new Long(t1 - t0).toString());
+		Main.mesuresDePerformance.add(new Long(t1 - t0).toString());
 		return vignettesDeCetteCouche;
 	}
 	
@@ -339,7 +340,7 @@ public class Map implements Sauvegardable {
 	 */
 	public final void dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise) {
 		final BufferedImage dessinCarreau = tilesetUtilise.carreaux[numeroCarreau];
-		Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Fenetre.TAILLE_D_UN_CARREAU, yEcran*Fenetre.TAILLE_D_UN_CARREAU);
+		Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Main.TAILLE_D_UN_CARREAU, yEcran*Main.TAILLE_D_UN_CARREAU);
 	}
 	
 	/**
@@ -379,12 +380,12 @@ public class Map implements Sauvegardable {
 		if (autotile.anime) {
 			//décor animé : on dessine les 4 étapes de l'animation du décor
 			for (int i = 0; i<nombreDeVignettes; i++) {
-				Graphismes.superposerImages(decorAnime[i], dessinCarreau[i], x*Fenetre.TAILLE_D_UN_CARREAU, y*Fenetre.TAILLE_D_UN_CARREAU);
+				Graphismes.superposerImages(decorAnime[i], dessinCarreau[i], x*Main.TAILLE_D_UN_CARREAU, y*Main.TAILLE_D_UN_CARREAU);
 			}
 		} else {
 			//décor fixe
 			for (int i = 0; i<nombreDeVignettes; i++) {
-				Graphismes.superposerImages(decorAnime[i], dessinCarreau[0], x*Fenetre.TAILLE_D_UN_CARREAU, y*Fenetre.TAILLE_D_UN_CARREAU);
+				Graphismes.superposerImages(decorAnime[i], dessinCarreau[0], x*Main.TAILLE_D_UN_CARREAU, y*Main.TAILLE_D_UN_CARREAU);
 			}
 		}
 		
@@ -538,8 +539,8 @@ public class Map implements Sauvegardable {
 		} else {
 			vignette = this.imagesCoucheAvecHeros[0];
 		}
-		final int hauteurBandelette = (finBandelette-debutBandelette)*Fenetre.TAILLE_D_UN_CARREAU;
-		return vignette.getSubimage(0, debutBandelette*Fenetre.TAILLE_D_UN_CARREAU, vignette.getWidth(), hauteurBandelette);
+		final int hauteurBandelette = (finBandelette-debutBandelette)*Main.TAILLE_D_UN_CARREAU;
+		return vignette.getSubimage(0, debutBandelette*Main.TAILLE_D_UN_CARREAU, vignette.getWidth(), hauteurBandelette);
 	}
 
 	/**
@@ -573,10 +574,10 @@ public class Map implements Sauvegardable {
 		final int ymax = ymin + hauteurHitbox;
 		
 		/** Coordonnées (en nombre de cases) des cases où se situent les coins de l'Event */
-		final int xCaseMin = xmin/Fenetre.TAILLE_D_UN_CARREAU;
-		final int yCaseMin = ymin/Fenetre.TAILLE_D_UN_CARREAU;
-		final int xCaseMax = (xmax-1)/Fenetre.TAILLE_D_UN_CARREAU;
-		final int yCaseMax = (ymax-1)/Fenetre.TAILLE_D_UN_CARREAU;
+		final int xCaseMin = xmin/Main.TAILLE_D_UN_CARREAU;
+		final int yCaseMin = ymin/Main.TAILLE_D_UN_CARREAU;
+		final int xCaseMax = (xmax-1)/Main.TAILLE_D_UN_CARREAU;
+		final int yCaseMax = (ymax-1)/Main.TAILLE_D_UN_CARREAU;
 		try {
 			//TODO ces 4 premiers cas purs sont des cas particuliers des 4 cas de chevauchement
 			//aucun des 4 coins de l'Event ne doivent être sur une case non passable
@@ -595,8 +596,8 @@ public class Map implements Sauvegardable {
 			
 			//chevauchement entre deux cases et passabilités directionnelles
 			/** Coordonnées (en nombre de cases) de la case où se situe le centre de l'Event */
-			final int xCaseCentre = ((xmin+xmax)/2) / Fenetre.TAILLE_D_UN_CARREAU;
-			final int yCaseCentre = ((ymin+ymax)/2) / Fenetre.TAILLE_D_UN_CARREAU;
+			final int xCaseCentre = ((xmin+xmax)/2) / Main.TAILLE_D_UN_CARREAU;
+			final int yCaseCentre = ((ymin+ymax)/2) / Main.TAILLE_D_UN_CARREAU;
 			/** l'Event chevauche-t-il deux cases ? */
 			final boolean chevauchementAGauche = (xCaseCentre != xCaseMin);
 			final boolean chevauchementADroite = (xCaseCentre != xCaseMax);
@@ -704,13 +705,13 @@ public class Map implements Sauvegardable {
 			if (heros.x < 0) {
 				// Sortie par la gauche
 				adjacence = this.adjacences.get(new Integer(Direction.GAUCHE));
-			} else if (heros.x > this.largeur*Fenetre.TAILLE_D_UN_CARREAU - Heros.LARGEUR_HITBOX_PAR_DEFAUT) {
+			} else if (heros.x > this.largeur*Main.TAILLE_D_UN_CARREAU - Heros.LARGEUR_HITBOX_PAR_DEFAUT) {
 				// Sortie par la droite
 				adjacence = this.adjacences.get(new Integer(Direction.DROITE));
 			} else if (heros.y < 0) {
 				// Sortie par le haut
 				adjacence = this.adjacences.get(new Integer(Direction.HAUT));
-			} else if (heros.y > this.hauteur*Fenetre.TAILLE_D_UN_CARREAU - Heros.HAUTEUR_HITBOX_PAR_DEFAUT) {
+			} else if (heros.y > this.hauteur*Main.TAILLE_D_UN_CARREAU - Heros.HAUTEUR_HITBOX_PAR_DEFAUT) {
 				// Sortie par le bas
 				adjacence = this.adjacences.get(new Integer(Direction.BAS));
 			} else {

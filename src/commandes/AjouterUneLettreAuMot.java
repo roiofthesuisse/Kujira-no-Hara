@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Ajouter une lettre à la fin du mot de passe.
@@ -36,14 +35,14 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final String mot = Fenetre.getPartieActuelle().mots[this.numeroMot];
+		final String mot = getPartieActuelle().mots[this.numeroMot];
 		if (mot == null) {
 			// mot vide
-			Fenetre.getPartieActuelle().mots[this.numeroMot] = this.lettre;
+			getPartieActuelle().mots[this.numeroMot] = this.lettre;
 			this.element.menu.reactualiserTousLesTextes();
-		} else if (mot.length() < Fenetre.getPartieActuelle().tailleMaximaleDuMot) {
+		} else if (mot.length() < getPartieActuelle().tailleMaximaleDuMot) {
 			// mot déjà rempli
-			Fenetre.getPartieActuelle().mots[this.numeroMot] += this.lettre;
+			getPartieActuelle().mots[this.numeroMot] += this.lettre;
 			this.element.menu.reactualiserTousLesTextes();
 		}
 		return curseurActuel+1;

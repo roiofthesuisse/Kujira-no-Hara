@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
+import main.Main;
 import menu.LecteurMenu;
 
 /**
@@ -33,7 +34,6 @@ public class FermerMenu extends Commande implements CommandeMenu {
 		if (lecteur.menu.menuParent!=null) {
 			//revenir au Menu parent
 			final LecteurMenu lecteurPourMenuParent = new LecteurMenu(
-					lecteur.fenetre, 
 					lecteur.menu.menuParent, 
 					lecteur.lecteurMapMemorise, 
 					lecteur.menu.menuParent.elementSelectionne.id
@@ -44,7 +44,7 @@ public class FermerMenu extends Commande implements CommandeMenu {
 			new RevenirAuJeu(lecteur).executer(0, null);
 		} else {
 			//quitte le jeu
-			lecteur.fenetre.dispose();
+			Main.quitterLeJeu = true;
 		}
 		
 		return curseurActuel+1;

@@ -3,6 +3,7 @@ package commandes;
 import java.util.ArrayList;
 
 import main.Commande;
+import main.Main;
 import menu.LecteurMenu;
 
 /**
@@ -21,7 +22,7 @@ public class RevenirAuJeu extends Commande implements CommandeMenu {
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		this.lecteurMenu.fenetre.futurLecteur = this.lecteurMenu.lecteurMapMemorise;
+		Main.futurLecteur = this.lecteurMenu.lecteurMapMemorise;
 		this.lecteurMenu.allume = false;
 		
 		return curseurActuel+1;

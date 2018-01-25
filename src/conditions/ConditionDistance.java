@@ -3,7 +3,7 @@ package conditions;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import main.Fenetre;
+import main.Main;
 import map.Event;
 import utilitaire.Maths.Inegalite;
 
@@ -26,7 +26,7 @@ public class ConditionDistance extends Condition {
 	public ConditionDistance(final Object idEvent1, final Object idEvent2, final int distance, final String symboleInegalite) {
 		this.idEvent1 = idEvent1;
 		this.idEvent2 = idEvent2;
-		this.distanceVoulue = distance*Fenetre.TAILLE_D_UN_CARREAU;
+		this.distanceVoulue = distance * Main.TAILLE_D_UN_CARREAU;
 		this.inegalite = Inegalite.getInegalite(symboleInegalite);
 	}
 	

@@ -2,7 +2,6 @@ package conditions;
 
 import commandes.CommandeEvent;
 import jeu.Arme;
-import main.Fenetre;
 
 /**
  * Si l'attaque en est au moment du coup donné.
@@ -20,7 +19,7 @@ public class ConditionPendantDureeDAttaque extends Condition implements Commande
 	@Override
 	public final boolean estVerifiee() {
 		final int animationAttaqueActuelle = this.page.event.map.heros.animationAttaque;
-		final Arme armeActuelle = Fenetre.getPartieActuelle().getArmeEquipee();
+		final Arme armeActuelle = getPartieActuelle().getArmeEquipee();
 		if (armeActuelle!=null) {
 			return animationAttaqueActuelle >= armeActuelle.frameDebutCoup && animationAttaqueActuelle <= armeActuelle.frameFinCoup;
 		} else {

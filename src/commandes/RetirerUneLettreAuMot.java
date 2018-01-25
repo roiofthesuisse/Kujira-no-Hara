@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Retirer la dernière lettre du mot de passe.
@@ -30,9 +29,9 @@ public class RetirerUneLettreAuMot extends Commande implements CommandeMenu {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final String mot = Fenetre.getPartieActuelle().mots[this.numeroMot];
+		final String mot = getPartieActuelle().mots[this.numeroMot];
 		if (mot != null && mot.length() > 0) {
-			Fenetre.getPartieActuelle().mots[this.numeroMot] = mot.substring(0, mot.length()-1);
+			getPartieActuelle().mots[this.numeroMot] = mot.substring(0, mot.length()-1);
 			this.element.menu.reactualiserTousLesTextes();
 		}
 		return curseurActuel+1;

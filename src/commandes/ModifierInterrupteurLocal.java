@@ -7,7 +7,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Fenetre;
 import map.Event;
 
 /**
@@ -68,15 +67,15 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 		}
 		
 		final String code = "m"+this.numeroMap+"e"+this.idEvent+"i"+this.numeroInterrupteurLocal;
-		final ArrayList<String> interrupteursLocaux = Fenetre.getPartieActuelle().interrupteursLocaux;
+		final ArrayList<String> interrupteursLocaux = getPartieActuelle().interrupteursLocaux;
 		if (valeurADonner) {
 			if (!interrupteursLocaux.contains(code)) {
-				Fenetre.getPartieActuelle().interrupteursLocaux.add(code);
+				getPartieActuelle().interrupteursLocaux.add(code);
 				LOG.debug("Interrupteur local "+code+" allumé.");
 			}
 		} else {
 			if (interrupteursLocaux.contains(code)) {
-				Fenetre.getPartieActuelle().interrupteursLocaux.remove(code);
+				getPartieActuelle().interrupteursLocaux.remove(code);
 				LOG.debug("Interrupteur local "+code+" éteint.");
 			}
 		}
@@ -90,13 +89,13 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 	public static void reinitialiserEvent(final Event event) {
 		final String debutDuCode = "m" + event.map.numero + "e" + event.id;
 		LOG.debug("Réinitialisation des interrupteurs locaux de l'event "+debutDuCode);
-		int tailleListe = Fenetre.getPartieActuelle().interrupteursLocaux.size();
+		int tailleListe = getPartieActuelle().interrupteursLocaux.size();
 		String code;
 		for (int i = 0; i<tailleListe; i++) {
-			code = Fenetre.getPartieActuelle().interrupteursLocaux.get(i);
+			code = getPartieActuelle().interrupteursLocaux.get(i);
 			if (code.startsWith(debutDuCode)) {
 				LOG.trace("Réinitialisation de l'interrupteur local "+code);
-				Fenetre.getPartieActuelle().interrupteursLocaux.remove(i);
+				getPartieActuelle().interrupteursLocaux.remove(i);
 				tailleListe--;
 			}
 		}

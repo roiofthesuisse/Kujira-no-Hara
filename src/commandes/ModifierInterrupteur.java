@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Modifier la valeur d'un interrupteur
@@ -35,7 +34,7 @@ public class ModifierInterrupteur extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getPartieActuelle().interrupteurs[numeroInterrupteur] = valeurADonner;
+		getPartieActuelle().interrupteurs[numeroInterrupteur] = valeurADonner;
 		return curseurActuel+1;
 	}
 

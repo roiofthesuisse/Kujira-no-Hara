@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Arrêter le Chronometre.
@@ -27,7 +26,7 @@ public class ArreterChronometre extends Commande implements CommandeEvent {
 	
 	@Override
 	public int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getPartieActuelle().chronometre = null;
+		getPartieActuelle().chronometre = null;
 		return curseurActuel+1;
 	}
 

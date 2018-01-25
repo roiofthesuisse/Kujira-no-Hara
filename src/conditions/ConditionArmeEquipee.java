@@ -5,7 +5,6 @@ import java.util.HashMap;
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import jeu.Partie;
-import main.Fenetre;
 
 /**
  * Vérifie si le Héros a équipé cette Arme.
@@ -36,7 +35,7 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	
 	@Override
 	public final boolean estVerifiee() {
-		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Partie partieActuelle = getPartieActuelle();
 		if (partieActuelle.nombreDArmesPossedees > 0) {
 			return partieActuelle.idArmeEquipee == this.idArme;
 		}

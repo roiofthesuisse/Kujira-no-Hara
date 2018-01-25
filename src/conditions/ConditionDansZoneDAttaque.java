@@ -1,7 +1,6 @@
 package conditions;
 
 import commandes.CommandeEvent;
-import main.Fenetre;
 import map.Event;
 import map.Heros;
 import map.Hitbox;
@@ -20,7 +19,7 @@ public class ConditionDansZoneDAttaque extends Condition implements CommandeEven
 	
 	@Override
 	public final boolean estVerifiee() {
-		final boolean estCeQueLeHerosAUneArme = (Fenetre.getPartieActuelle().nombreDArmesPossedees > 0);
+		final boolean estCeQueLeHerosAUneArme = (getPartieActuelle().nombreDArmesPossedees > 0);
 		if (estCeQueLeHerosAUneArme) {
 			final Heros heros = this.page.event.map.heros;
 			final Event event = this.page.event;

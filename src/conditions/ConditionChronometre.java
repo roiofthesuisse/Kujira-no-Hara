@@ -3,7 +3,6 @@ package conditions;
 import java.util.HashMap;
 
 import commandes.CommandeEvent;
-import main.Fenetre;
 import utilitaire.Maths.Inegalite;
 
 /**
@@ -39,7 +38,7 @@ public class ConditionChronometre extends Condition implements CommandeEvent {
 	
 	@Override
 	public final boolean estVerifiee() {
-		return this.inegalite.comparer(Fenetre.getPartieActuelle().chronometre.secondes, this.nombreDeSecondes);
+		return this.inegalite.comparer(getPartieActuelle().chronometre.secondes, this.nombreDeSecondes);
 	}
 	
 	/**

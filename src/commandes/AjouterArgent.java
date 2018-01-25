@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Ajouter de l'argent au joueur.
@@ -30,7 +29,7 @@ public class AjouterArgent extends Commande implements CommandeEvent, CommandeMe
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.getPartieActuelle().argent += quantite;
+		getPartieActuelle().argent += quantite;
 		
 		return curseurActuel+1;
 	}

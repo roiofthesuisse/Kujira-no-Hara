@@ -61,8 +61,8 @@ public abstract class Nettoyeur {
 						final String nomImageAutotile = (String) jsonAutotile.get("nomImage");
 						try {
 							final BufferedImage imageAutotile = Graphismes.ouvrirImage("Autotile", nomImageAutotile);
-							vignettes[i][0] = imageAutotile.getSubimage(0, 0, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
-							vignettes[i][1] = imageAutotile.getSubimage(Fenetre.TAILLE_D_UN_CARREAU, 0, Fenetre.TAILLE_D_UN_CARREAU, Fenetre.TAILLE_D_UN_CARREAU);
+							vignettes[i][0] = imageAutotile.getSubimage(0, 0, Main.TAILLE_D_UN_CARREAU, Main.TAILLE_D_UN_CARREAU);
+							vignettes[i][1] = imageAutotile.getSubimage(Main.TAILLE_D_UN_CARREAU, 0, Main.TAILLE_D_UN_CARREAU, Main.TAILLE_D_UN_CARREAU);
 						} catch (IOException ioe) {
 							LOG.error("Impossible d'ouvrir l'image du tileset "+fichierTileset.getName(), ioe);
 						}

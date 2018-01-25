@@ -8,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Fenetre;
 import map.meteo.Trochoide;
 import map.meteo.Meteo;
 import map.meteo.Neige;
@@ -47,7 +46,7 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Meteo ancienneMeteo = Fenetre.getPartieActuelle().meteo;
+		final Meteo ancienneMeteo = getPartieActuelle().meteo;
 		Meteo nouvelleMeteo = null;
 		
 		final int intensite = parametres.containsKey("intensite") ? (int) parametres.get("intensite") : 0;
@@ -82,7 +81,7 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 			LOG.warn("Cette météo est identique à l'ancienne, on ne fait rien."+ nouvelleMeteo.getType()+" "+ancienneMeteo.getType());
 		} else {
 			//la nouvelle météo proposée est différente de l'ancienne
-			Fenetre.getPartieActuelle().meteo = nouvelleMeteo;
+			getPartieActuelle().meteo = nouvelleMeteo;
 		}
 		
 		return curseurActuel + 1;

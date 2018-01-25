@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.Heros;
 import map.LecteurMap;
 import map.Map;
@@ -74,19 +74,19 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		final int ecartX = ancienHeros.x - this.page.event.x;
 		final int ecartY = ancienHeros.y - this.page.event.y;
 		
-		final LecteurMap nouveauLecteur = new LecteurMap(Fenetre.getFenetre(), this.transition);
+		final LecteurMap nouveauLecteur = new LecteurMap(this.transition);
 		try {
 			final Map nouvelleMap;
 			if (this.definiParDesVariables) {
 				//données à chercher dans les variables
-				final int[] variables = Fenetre.getPartieActuelle().variables;
+				final int[] variables = getPartieActuelle().variables;
 				nouvelleMap = new Map(
 						variables[numeroNouvelleMap], 
 						nouveauLecteur, 
 						ancienHeros, 
 						null, //pas de Brouillard forcé
-						variables[xDebutHeros] * Fenetre.TAILLE_D_UN_CARREAU, 
-						variables[yDebutHeros] * Fenetre.TAILLE_D_UN_CARREAU, 
+						variables[xDebutHeros] * Main.TAILLE_D_UN_CARREAU, 
+						variables[yDebutHeros] * Main.TAILLE_D_UN_CARREAU, 
 						this.directionDebutHeros,
 						ecartX, //décalage
 						ecartY //décalage
@@ -98,8 +98,8 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 						nouveauLecteur, 
 						ancienHeros, 
 						null, //pas de Brouillard forcé
-						xDebutHeros * Fenetre.TAILLE_D_UN_CARREAU, 
-						yDebutHeros * Fenetre.TAILLE_D_UN_CARREAU, 
+						xDebutHeros * Main.TAILLE_D_UN_CARREAU, 
+						yDebutHeros * Main.TAILLE_D_UN_CARREAU, 
 						this.directionDebutHeros,
 						ecartX, //décalage
 						ecartY //décalage

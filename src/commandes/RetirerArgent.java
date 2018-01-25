@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import jeu.Partie;
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Ajouter de l'argent au joueur.
@@ -31,7 +30,7 @@ public class RetirerArgent extends Commande implements CommandeEvent, CommandeMe
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Partie partie = Fenetre.getPartieActuelle();
+		final Partie partie = getPartieActuelle();
 		partie.argent -= quantite;
 		
 		//on ne peut pas avoir de l'argent négatif

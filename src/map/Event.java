@@ -16,8 +16,8 @@ import org.json.JSONObject;
 import commandes.Deplacement;
 import conditions.Condition;
 import main.Commande;
-import main.Fenetre;
 import main.Lecteur;
+import main.Main;
 import map.PageEvent.Traversabilite;
 import mouvements.Mouvement;
 import utilitaire.InterpreteurDeJson;
@@ -35,8 +35,8 @@ public class Event implements Comparable<Event> {
 	public static final int VITESSE_PAR_DEFAUT = 4;
 	public static final int FREQUENCE_PAR_DEFAUT = 4;
 	public static final int DIRECTION_PAR_DEFAUT = Event.Direction.BAS;
-	public static final int LARGEUR_HITBOX_PAR_DEFAUT = Fenetre.TAILLE_D_UN_CARREAU;
-	public static final int HAUTEUR_HITBOX_PAR_DEFAUT = Fenetre.TAILLE_D_UN_CARREAU;
+	public static final int LARGEUR_HITBOX_PAR_DEFAUT = Main.TAILLE_D_UN_CARREAU;
+	public static final int HAUTEUR_HITBOX_PAR_DEFAUT = Main.TAILLE_D_UN_CARREAU;
 	public static final int NOMBRE_DE_VIGNETTES_PAR_IMAGE = 4;
 	public static final boolean ANIME_A_L_ARRET_PAR_DEFAUT = false;
 	public static final boolean ANIME_EN_MOUVEMENT_PAR_DEFAUT = true;
@@ -504,7 +504,7 @@ public class Event implements Comparable<Event> {
 	 */
 	public static void recupererLesEvents(final ArrayList<Event> events, final JSONArray eventsJSON, final Map map) {
 		// On effectue l'importation des Events en multithread : chaque Event a son thread.
-		final ExecutorService executor = Executors.newFixedThreadPool(Fenetre.NOMBRE_DE_THREADS);
+		final ExecutorService executor = Executors.newFixedThreadPool(Main.NOMBRE_DE_THREADS);
 		final Vector<Event> eventsVector = new Vector<Event>(); //le Vector est synchronisé, contrairement à l'ArrayList
 		ThreadImporterLesEvents.initialiserParametreGlobaux(eventsVector, map);
 		for (Object ev : eventsJSON) {
@@ -564,12 +564,12 @@ public class Event implements Comparable<Event> {
 				int xEvent, yEvent; 
 				try {
 					// coordonnées entières
-					xEvent = ((int) jsonEvent.get("x")) * Fenetre.TAILLE_D_UN_CARREAU;
-					yEvent = ((int) jsonEvent.get("y")) * Fenetre.TAILLE_D_UN_CARREAU;
+					xEvent = ((int) jsonEvent.get("x")) * Main.TAILLE_D_UN_CARREAU;
+					yEvent = ((int) jsonEvent.get("y")) * Main.TAILLE_D_UN_CARREAU;
 				} catch (ClassCastException e) {
 					// coordonnées non entières
-					xEvent = (int) (jsonEvent.getDouble("x") * Fenetre.TAILLE_D_UN_CARREAU);
-					yEvent = (int) (jsonEvent.getDouble("y") * Fenetre.TAILLE_D_UN_CARREAU);
+					xEvent = (int) (jsonEvent.getDouble("x") * Main.TAILLE_D_UN_CARREAU);
+					yEvent = (int) (jsonEvent.getDouble("y") * Main.TAILLE_D_UN_CARREAU);
 				}
 				//instanciation de l'event
 				Event event;

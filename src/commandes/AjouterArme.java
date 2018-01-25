@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import jeu.Partie;
 import main.Commande;
-import main.Fenetre;
 
 /**
  * Ajouter une nouvelle Arme au Heros
@@ -33,7 +32,7 @@ public class AjouterArme extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Partie partieActuelle = getPartieActuelle();
 		if (!partieActuelle.armesPossedees[idArme]) {
 			partieActuelle.armesPossedees[idArme] = true;
 			partieActuelle.nombreDArmesPossedees++;

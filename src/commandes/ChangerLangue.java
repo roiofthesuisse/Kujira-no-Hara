@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import menu.ImageMenu;
 import menu.LecteurMenu;
 import menu.Listable;
@@ -37,8 +37,8 @@ public class ChangerLangue extends Commande implements CommandeMenu {
 	@SuppressWarnings("unchecked")
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		Fenetre.langue = this.nouvelleLangue;
-		final Menu menu = ((LecteurMenu) Fenetre.getFenetre().lecteur).menu;
+		Main.langue = this.nouvelleLangue;
+		final Menu menu = ((LecteurMenu) Main.lecteur).menu;
 		for (Texte texte : menu.textes) {
 			texte.actualiserImage();
 		}

@@ -9,7 +9,6 @@ import org.json.JSONObject;
 
 import commandes.Sauvegarder.Sauvegardable;
 import main.Commande;
-import main.Fenetre;
 import map.Picture;
 import utilitaire.graphismes.ModeDeFusion;
 
@@ -124,7 +123,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	 */
 	private void calculerDeplacement() {
 		final double progression = (double) this.dejaFait / (double) this.nombreDeFrames;
-		final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
+		final Picture picture = getPartieActuelle().images.get(this.numero);
 		
 		//initialisation des extrémums
 		if (this.dejaFait <= 0) {
@@ -134,8 +133,8 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			if (this.x != null && this.y != null) {
 				if (this.variables) {
 					//valeurs stockées dans des variables
-					this.xFin = Fenetre.getPartieActuelle().variables[this.x];
-					this.yFin = Fenetre.getPartieActuelle().variables[this.y];
+					this.xFin = getPartieActuelle().variables[this.x];
+					this.yFin = getPartieActuelle().variables[this.y];
 				} else {
 					//valeurs brutes
 					this.xFin = this.x;
@@ -203,7 +202,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			}
 		} else {
 			// On indique que la Picture a un déplacement propre, et on passe à  la Commande suivante
-			final Picture picture = Fenetre.getPartieActuelle().images.get(this.numero);
+			final Picture picture = getPartieActuelle().images.get(this.numero);
 			this.dejaFait = 0;
 			LOG.info("Déplacement d'image délégué au lecteur de map.");
 			picture.deplacementActuel = this;

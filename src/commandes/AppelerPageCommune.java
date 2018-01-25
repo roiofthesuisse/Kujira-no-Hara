@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.PageCommune;
 
 /**
@@ -25,7 +25,7 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 	 */
 	public AppelerPageCommune(final int numeroPageCommune) {
 		this.numeroPageCommune = numeroPageCommune;
-		final HashMap<Integer, PageCommune> pagesCommunes = Fenetre.getFenetre().lecteur.pagesCommunes;
+		final HashMap<Integer, PageCommune> pagesCommunes = Main.lecteur.pagesCommunes;
 		if (pagesCommunes.containsKey(this.numeroPageCommune)) {
 			this.pageCommune = pagesCommunes.get(this.numeroPageCommune);
 		} else {

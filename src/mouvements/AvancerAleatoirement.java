@@ -2,7 +2,7 @@ package mouvements;
 
 import java.util.HashMap;
 
-import main.Fenetre;
+import main.Main;
 import map.Event.Direction;
 import utilitaire.Maths;
 
@@ -17,7 +17,7 @@ public class AvancerAleatoirement extends Avancer {
 	 * Constructeur explicite 
 	 */
 	public AvancerAleatoirement() {
-		super(Maths.generateurAleatoire.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES), Fenetre.TAILLE_D_UN_CARREAU);
+		super(Maths.generateurAleatoire.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES), Main.TAILLE_D_UN_CARREAU);
 	}
 	
 	/**

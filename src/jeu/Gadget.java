@@ -17,7 +17,7 @@ import commandes.ModifierTexte;
 import conditions.Condition;
 import conditions.ConditionGadgetPossede;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import menu.Listable;
 import menu.Texte;
 import utilitaire.InterpreteurDeJson;
@@ -131,7 +131,7 @@ public class Gadget implements Listable {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
 			// seulement les Gadgets possédées
-			final boolean[] gadgetsPossedes = Fenetre.getPartieActuelle().gadgetsPossedes;
+			final boolean[] gadgetsPossedes = Main.getPartieActuelle().gadgetsPossedes;
 			for (int i = 0; i < gadgetsPossedes.length; i++) {
 				if (gadgetsPossedes[i]) {
 					listablesPossedes.put((Integer) i, GADGETS_DU_JEU[i]);

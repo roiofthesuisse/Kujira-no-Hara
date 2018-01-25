@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import jeu.Partie;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.Event;
 
 /**
@@ -55,12 +55,12 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 		}
 		
 		if (utiliserVariables) {
-			final Partie partieActuelle = Fenetre.getPartieActuelle();
-			cetEvent.x = partieActuelle.variables[nouveauX]*Fenetre.TAILLE_D_UN_CARREAU;
-			cetEvent.y = partieActuelle.variables[nouveauY]*Fenetre.TAILLE_D_UN_CARREAU;
+			final Partie partieActuelle = getPartieActuelle();
+			cetEvent.x = partieActuelle.variables[nouveauX] * Main.TAILLE_D_UN_CARREAU;
+			cetEvent.y = partieActuelle.variables[nouveauY] * Main.TAILLE_D_UN_CARREAU;
 		} else {
-			cetEvent.x = nouveauX*Fenetre.TAILLE_D_UN_CARREAU;
-			cetEvent.y = nouveauY*Fenetre.TAILLE_D_UN_CARREAU;
+			cetEvent.x = nouveauX * Main.TAILLE_D_UN_CARREAU;
+			cetEvent.y = nouveauY * Main.TAILLE_D_UN_CARREAU;
 		}
 		return curseurActuel+1;
 	}

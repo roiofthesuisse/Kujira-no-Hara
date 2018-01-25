@@ -17,7 +17,7 @@ import commandes.ModifierTexte;
 import conditions.Condition;
 import conditions.ConditionEtatQuete;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import menu.Listable;
 import menu.Texte;
 import utilitaire.InterpreteurDeJson;
@@ -207,7 +207,7 @@ public class Quete implements Listable {
 	 * @return icône de la Quête faite ou non faite, selon si la Quête est fait ou non.
 	 */
 	public final BufferedImage getIcone() {
-		if (Quete.AvancementQuete.FAITE.equals( Fenetre.getPartieActuelle().avancementDesQuetes[this.id]) ) {
+		if (Quete.AvancementQuete.FAITE.equals( Main.getPartieActuelle().avancementDesQuetes[this.id]) ) {
 			return this.getIconeQueteFaite();
 		} else {
 			return this.getIconeQuetePasFaite();
@@ -223,7 +223,7 @@ public class Quete implements Listable {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
 			// seulement les Quetes connues
-			final AvancementQuete[] avancements = Fenetre.getPartieActuelle().avancementDesQuetes;
+			final AvancementQuete[] avancements = Main.getPartieActuelle().avancementDesQuetes;
 			for (int i = 0; i < avancements.length; i++) {
 				if (avancements[i].equals(AvancementQuete.CONNUE) || avancements[i].equals(AvancementQuete.FAITE)) {
 					listablesPossedes.put((Integer) i, quetesDuJeu[i]);

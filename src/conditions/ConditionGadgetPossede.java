@@ -5,7 +5,6 @@ import java.util.HashMap;
 import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 import jeu.Partie;
-import main.Fenetre;
 
 /**
  * Vérifie si le Héros possède ce Gadget.
@@ -35,7 +34,7 @@ public class ConditionGadgetPossede extends Condition implements CommandeEvent, 
 	
 	@Override
 	public final boolean estVerifiee() {
-		final Partie partieActuelle = Fenetre.getPartieActuelle();
+		final Partie partieActuelle = getPartieActuelle();
 		return partieActuelle.gadgetsPossedes[this.idGadget];
 	}
 	

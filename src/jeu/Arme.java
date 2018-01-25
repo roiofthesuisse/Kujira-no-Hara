@@ -17,7 +17,7 @@ import commandes.ModifierTexte;
 import conditions.Condition;
 import conditions.ConditionArmePossedee;
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.Hitbox;
 import menu.Listable;
 import menu.Texte;
@@ -182,7 +182,7 @@ public class Arme implements Listable {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
 			// seulement les Armes possédées
-			final boolean[] armesPossedees = Fenetre.getPartieActuelle().armesPossedees;
+			final boolean[] armesPossedees = Main.getPartieActuelle().armesPossedees;
 			for (int i = 0; i < armesPossedees.length; i++) {
 				if (armesPossedees[i]) {
 					listablesPossedes.put((Integer) i, ARMES_DU_JEU[i]);

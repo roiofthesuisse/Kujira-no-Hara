@@ -7,7 +7,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Fenetre;
 import map.LecteurMap;
 import menu.LecteurMenu;
 import menu.Menu;
@@ -66,7 +65,7 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 		final LecteurMap lecteurMapMemorise = this.element.menu.lecteur.lecteurMapMemorise;
 		
 		// Démarrer le nouveau Menu
-		final LecteurMenu nouveauLecteur = new LecteurMenu(Fenetre.getFenetre(), nouveauMenu, lecteurMapMemorise, this.selectionInitiale);
+		final LecteurMenu nouveauLecteur = new LecteurMenu(nouveauMenu, lecteurMapMemorise, this.selectionInitiale);
 		nouveauLecteur.changerMenu();
 		
 		return curseurActuel+1;

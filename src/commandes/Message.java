@@ -10,7 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Fenetre;
+import main.Main;
 import map.LecteurMap;
 import menu.Texte;
 import utilitaire.graphismes.Graphismes;
@@ -128,7 +128,7 @@ public class Message extends Commande implements CommandeEvent {
 		}
 		
 		//le texte a changé mais pas encore l'image
-		final int langue = Fenetre.langue;
+		final int langue = Main.langue;
 		final ArrayList<String> texteActuel = lecteur.messageActuel.texte;
 		final String messageActuel = texteActuel.get(langue < texteActuel.size() ? langue : 0);
 		final String messageDesire = this.texte.get(langue < this.texte.size() ? langue : 0);
@@ -196,7 +196,7 @@ public class Message extends Commande implements CommandeEvent {
 			//texte null
 			nombreDeLignesDuTexte = 0; 
 		} else {
-			final int langue = Fenetre.langue;
+			final int langue = Main.langue;
 			final String texteDansUneLangue = this.texte.get(langue < this.texte.size() ? langue : 0);
 			if ("".equals(texteDansUneLangue)) {
 				//texte vide
