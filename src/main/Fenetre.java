@@ -146,8 +146,9 @@ public final class Fenetre extends JFrame {
 	 */
 	public static void pleinEcran() {
 		if (Main.fenetre.device.isFullScreenSupported()) {
-			Main.fenetre.fermer();
+			final Fenetre ancienneFenetre =  Main.fenetre;
 			Main.fenetre = new Fenetre(!Main.fenetre.pleinEcran);
+			ancienneFenetre.fermer();
 		}
 	}
 	

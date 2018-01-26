@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Composite;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -257,10 +258,11 @@ public abstract class Graphismes {
 	 * @return image redimensionnée
 	 */
 	public static BufferedImage redimensionner(final BufferedImage image, final int largeur, final int hauteur) {
-		final Image tmp = image.getScaledInstance(largeur, hauteur, Image.SCALE_SMOOTH);
+		final Image tmp = image.getScaledInstance(largeur, hauteur, Image.SCALE_FAST);
 	    final BufferedImage imageRedimensionnee = new BufferedImage(largeur, hauteur, BufferedImage.TYPE_INT_ARGB);
 
 	    final Graphics2D g2d = imageRedimensionnee.createGraphics();
+	    g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
 	    g2d.drawImage(tmp, 0, 0, null);
 	    g2d.dispose();
 
