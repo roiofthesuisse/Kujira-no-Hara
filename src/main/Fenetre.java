@@ -94,7 +94,7 @@ public final class Fenetre extends JFrame {
 		this.setVisible(true);
 		
 		// Stratégie d'affichage
-		this.createBufferStrategy(2); //utiliser une BufferStrategy double
+		this.createBufferStrategy(1);
 		this.bufferStrategy = this.getBufferStrategy();
 		this.bufferStrategyGraphics = this.bufferStrategy.getDrawGraphics();
 	}
