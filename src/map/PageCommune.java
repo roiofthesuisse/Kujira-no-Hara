@@ -24,7 +24,7 @@ public class PageCommune extends PageEvent {
 	 * @param pageJSON objet JSON représentant la Page
 	 */
 	public PageCommune(final JSONObject pageJSON) {
-		super(-1, pageJSON, -1); //pas d'Event correspondant, pas de numéro
+		super(-1, pageJSON, -1, null); //pas d'Event correspondant, pas de numéro
 		this.nom = pageJSON.getString("nom");
 		this.active = false;
 	}

@@ -57,7 +57,7 @@ public class Heros extends Event {
 		final int offsetY = jsonEventGenerique.has("offsetY") ? jsonEventGenerique.getInt("offsetY") : 0;
 		final boolean reinitialiserLesInterrupteursLocaux = jsonEventGenerique.has("reinitialiser") ? jsonEventGenerique.getBoolean("reinitialiser") : false; 
 		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-		final ArrayList<PageEvent> pages = creerListeDesPagesViaJson(jsonPages, 0);
+		final ArrayList<PageEvent> pages = creerListeDesPagesViaJson(jsonPages, 0, null);
 		
 		final Event modele = new Event(0, 0, offsetY, "heros", 0, reinitialiserLesInterrupteursLocaux, pages, largeur, hauteur, null);
 		return modele;

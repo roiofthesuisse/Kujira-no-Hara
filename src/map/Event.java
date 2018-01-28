@@ -207,7 +207,7 @@ public class Event implements Comparable<Event> {
 	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, 
 			final boolean reinitialiserLesInterupteursLocaux, final JSONArray tableauDesPages, 
 			final int largeurHitbox, final int hauteurHitbox, final Map map) {
-		this(x, y, offsetY, nom, id, reinitialiserLesInterupteursLocaux, creerListeDesPagesViaJson(tableauDesPages, id), largeurHitbox, hauteurHitbox, map);
+		this(x, y, offsetY, nom, id, reinitialiserLesInterupteursLocaux, creerListeDesPagesViaJson(tableauDesPages, id, map), largeurHitbox, hauteurHitbox, map);
 	}
 
 	/**
@@ -216,11 +216,11 @@ public class Event implements Comparable<Event> {
 	 * @param tableauDesPages au format JSON
 	 * @return liste des Pages de l'Event
 	 */
-	protected static ArrayList<PageEvent> creerListeDesPagesViaJson(final JSONArray tableauDesPages, final Integer idEvent) {
+	protected static ArrayList<PageEvent> creerListeDesPagesViaJson(final JSONArray tableauDesPages, final Integer idEvent, final Map map) {
 		final ArrayList<PageEvent> listeDesPages = new ArrayList<PageEvent>();
 		int i = 0;
 		for (Object pageJSON : tableauDesPages) {
-			listeDesPages.add( new PageEvent(i, (JSONObject) pageJSON, idEvent) );
+			listeDesPages.add( new PageEvent(i, (JSONObject) pageJSON, idEvent, map) );
 			i++;
 		}
 		return listeDesPages;

@@ -79,7 +79,7 @@ public class PageEvent {
 	 * @param pageJSON objet JSON décrivant la page de comportements
 	 * @param idEvent identifiant de l'Event
 	 */
-	public PageEvent(final int numero, final JSONObject pageJSON, final Integer idEvent) {
+	public PageEvent(final int numero, final JSONObject pageJSON, final Integer idEvent, final Map map) {
 		this.numero = numero;
 		
 		// Conditions de déclenchement de la Page
@@ -125,7 +125,7 @@ public class PageEvent {
 				tileDeLApparence = pageJSON.getInt("image");
 				// l'apparence est un Tile
 				this.nomImage = "" + tileDeLApparence;
-				this.image = this.event.map.tileset.carreaux[tileDeLApparence];
+				this.image = map.tileset.carreaux[tileDeLApparence];
 			} catch (JSONException e) {
 				// l'apparence est une Image
 				this.nomImage = pageJSON.getString("image");
