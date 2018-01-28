@@ -449,11 +449,7 @@ public class LecteurMap extends Lecteur {
 	 * Donne la bonne valeur à l'attribut "animation" avant d'envoyer l'event à l'affichage.
 	 * @param frame d'animation des Events
 	 */
-	private void animerLesEvents(final int frame) {
-		if (this.stopEvent) {
-			return; //pas d'animation en cas de stopEvent
-		}
-		
+	private void animerLesEvents(final int frame) {		
 		try {
 			for (Event event : this.map.events) {
 				final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle == 0) //fréquence d'animation
