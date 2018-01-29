@@ -47,6 +47,7 @@ public class ModifierApparence extends Commande implements CommandeEvent {
 			if (e.id == this.eventId) {
 				try {
 					e.imageActuelle = Graphismes.ouvrirImage("Characters", nomNouvelleImage);
+					e.apparenceActuelleEstUnTile = false;
 				} catch (IOException err) {
 					LOG.error("Erreur lors de l'ouverture de l'image durant modification d'apparence d'event :", err);
 				}

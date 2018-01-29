@@ -73,6 +73,7 @@ public class Event implements Comparable<Event> {
 	public Deplacement deplacementForce;
 	
 	public BufferedImage imageActuelle = null;
+	public boolean apparenceActuelleEstUnTile;
 	public int opaciteActuelle = Graphismes.OPACITE_MAXIMALE;
 	public ModeDeFusion modeDeFusionActuel = ModeDeFusion.NORMAL;
 	/** par défaut, si l'image est plus petite que 32px, l'Event est considéré comme plat (au sol) */
@@ -142,7 +143,7 @@ public class Event implements Comparable<Event> {
 		 * @param dir direction à inverser
 		 * @return direction opposée
 		 */
-		public static final int directionOpposee(int dir) {
+		public static final int directionOpposee(final int dir) {
 			switch (dir) {
 				case Direction.BAS:
 					return Direction.HAUT;
@@ -214,6 +215,7 @@ public class Event implements Comparable<Event> {
 	 * Prend le tableau JSON des pages et crée la liste des Pages avec.
 	 * @param idEvent identifiant de l'Event
 	 * @param tableauDesPages au format JSON
+	 * @param map de l'event
 	 * @return liste des Pages de l'Event
 	 */
 	protected static ArrayList<PageEvent> creerListeDesPagesViaJson(final JSONArray tableauDesPages, final Integer idEvent, final Map map) {
@@ -420,6 +422,7 @@ public class Event implements Comparable<Event> {
 	private void attribuerLesProprietesActuelles(final PageEvent page) {
 		//apparence
 		this.imageActuelle = page.image;
+		this.apparenceActuelleEstUnTile = page.apparenceEstUnTile;
 		
 		if (!(this instanceof Heros) //le Héros n'est pas redirigé aux changements de Page
 		&& ilYAEuChangementDePageDApparence) { //on ne réinitialise pas les propriétés sans vrai changement de Page 
@@ -447,6 +450,7 @@ public class Event implements Comparable<Event> {
 	private void viderLesProprietesActuelles() {
 		//apparence
 		this.imageActuelle = null;
+		this.apparenceActuelleEstUnTile = false;
 		
 		if (!(this instanceof Heros) //le Héros n'est pas redirigé aux changements de Page
 		&& ilYAEuChangementDePageDApparence ) { //on ne réinitialise pas les propriétés sans vrai changement de Page 
@@ -477,7 +481,12 @@ public class Event implements Comparable<Event> {
 		} else {
 			xBase = this.x;
 		}
-		final int largeurVignette = this.imageActuelle.getWidth()/4;
+		final int largeurVignette;
+		if (this.apparenceActuelleEstUnTile) {
+			largeurVignette = this.imageActuelle.getWidth();
+		} else {
+			largeurVignette = this.imageActuelle.getWidth()/4;
+		}
 		return xBase + (this.largeurHitbox - largeurVignette)/2;
 	}
 	
@@ -492,7 +501,12 @@ public class Event implements Comparable<Event> {
 		} else {
 			yBase = this.y;
 		}
-		final int hauteurVignette = this.imageActuelle.getHeight()/4;
+		final int hauteurVignette;
+		if (this.apparenceActuelleEstUnTile) {
+			hauteurVignette = this.imageActuelle.getHeight();
+		} else {
+			hauteurVignette = this.imageActuelle.getHeight()/4;
+		}
 		return yBase + this.hauteurHitbox - hauteurVignette + this.offsetY;
 	}
 	

@@ -43,6 +43,7 @@ public class PageEvent {
 	//apparence
 	private String nomImage;
 	public BufferedImage image;
+	public boolean apparenceEstUnTile;
 	/** par défaut, si image < 32px, l'Event est considéré comme plat (au sol) */
 	public Boolean plat; //
 	public int directionInitiale;
@@ -126,6 +127,7 @@ public class PageEvent {
 				// l'apparence est un Tile
 				this.nomImage = "" + tileDeLApparence;
 				this.image = map.tileset.carreaux[tileDeLApparence];
+				this.apparenceEstUnTile = true;
 			} catch (JSONException e) {
 				// l'apparence est une Image
 				this.nomImage = pageJSON.getString("image");
@@ -166,7 +168,7 @@ public class PageEvent {
 			} else {
 				if (tileDeLApparence != null) {
 					//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
-					this.traversable = (this.event.map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE) ? Traversabilite.TRAVERSABLE : Traversabilite.OBSTACLE;
+					this.traversable = (map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE) ? Traversabilite.TRAVERSABLE : Traversabilite.OBSTACLE;
 				} else if (this.image == null) {
 					this.traversable = Traversabilite.TRAVERSABLE_PAR_LE_HEROS;
 				} else {
@@ -176,7 +178,7 @@ public class PageEvent {
 		} else {
 			if (tileDeLApparence != null) {
 				//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
-				this.traversable = (this.event.map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE) ? Traversabilite.TRAVERSABLE : Traversabilite.OBSTACLE;
+				this.traversable = (map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE) ? Traversabilite.TRAVERSABLE : Traversabilite.OBSTACLE;
 			} else if (this.image == null) {
 				this.traversable = Traversabilite.TRAVERSABLE_PAR_LE_HEROS;
 			} else {

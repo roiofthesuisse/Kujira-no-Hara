@@ -61,6 +61,7 @@ public class ModifierApparence extends Mouvement {
 				System.err.println("Impossible d'ouvrir l'image d'apparence : "+this.nouvelleImage);
 				event.imageActuelle = null;
 			}
+			event.apparenceActuelleEstUnTile = false;
 		}
 		if (this.nouvelleDirection >= 0 && this.nouvelleDirection < Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) {
 			event.direction = this.nouvelleDirection;

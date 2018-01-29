@@ -570,9 +570,13 @@ public class LecteurMap extends Lecteur {
 	private BufferedImage dessinerEvent(final BufferedImage ecran, final Event event, final int xCamera, final int yCamera) {
 		final BufferedImage eventImage = event.imageActuelle;
 		if (eventImage!=null) { 
+			int largeur =  eventImage.getWidth();
+			int hauteur = eventImage.getHeight();
 			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)
-			final int largeur = eventImage.getWidth() / 4;
-			final int hauteur = eventImage.getHeight() / 4;
+			if (!event.apparenceActuelleEstUnTile) {
+				largeur /= 4;
+				hauteur /= 4;
+			}
 			final int positionX = event.xImage();
 			final int positionY = event.yImage();
 			
