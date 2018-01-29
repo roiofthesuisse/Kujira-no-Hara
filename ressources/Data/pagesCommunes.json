@@ -1,6 +1,49 @@
 {
 	"pages": [
 		{
+			"numero": 36,
+			"nom": "Terrain sécurisé",
+			"conditions": [
+				{
+					"nom": "Ou",
+					"conditions": [
+						{
+							"nom": "Terrain",
+							"idEvent": 0,
+							"terrain": 0
+						},
+						{
+							"nom": "Terrain",
+							"idEvent": 0,
+							"terrain": 7
+						}
+					]
+				}
+			],
+			"commandes": [
+				{
+					"nom": "ModifierVariable",
+					"numeroVariable": 23,
+					"operationAFaire": "rendre egal a",
+					"valeurADonner": 0,
+					"operationAFaire2": "coordonnee x"
+				},
+				{
+					"nom": "ModifierVariable",
+					"numeroVariable": 24,
+					"operationAFaire": "rendre egal a",
+					"valeurADonner": 0,
+					"operationAFaire2": "coordonnee y"
+				},
+				{
+					"nom": "ModifierVariable",
+					"numeroVariable": 20,
+					"operationAFaire": "rendre egal a",
+					"operationAFaire2": "numero de la map"
+				}
+			]
+		},
+		{
 			"numero": 62,
 			"nom": "Bruit PUSH",
 			"conditions": [
@@ -9,56 +52,56 @@
 				}
 			],
 			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 105,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 106,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numero": 0,
-				"numeroVariable": 103,
-				"inegalite": "!=",
-				"comparerAUneAutreVariable": true,
-				"valeurQuIlEstCenseAvoir": 105
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numero": 1,
-				"numeroVariable": 104,
-				"inegalite": "!=",
-				"comparerAUneAutreVariable": true,
-				"valeurQuIlEstCenseAvoir": 106
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
+				{
+					"nom": "ModifierVariable",
+					"numeroVariable": 105,
+					"operationAFaire": "rendre egal a",
+					"valeurADonner": -1,
+					"operationAFaire2": "coordonnee x"
+				},
+				{
+					"nom": "ModifierVariable",
+					"numeroVariable": 106,
+					"operationAFaire": "rendre egal a",
+					"valeurADonner": -1,
+					"operationAFaire2": "coordonnee y"
+				},
+				{
+					"nom": "ConditionVariable",
+					"numero": 0,
+					"numeroVariable": 103,
+					"inegalite": "!=",
+					"comparerAUneAutreVariable": true,
+					"valeurQuIlEstCenseAvoir": 105
+				},
+				{
+					"nom": "JouerEffetSonore",
+					"nomFichierSonore": "045-Push01.ogg",
+					"volume": 1.00,
+					"tempo": 1.50
+				},
+				{
+					"nom": "ConditionFin",
+					"numero": 0
+				},
+				{
+					"nom": "ConditionVariable",
+					"numero": 1,
+					"numeroVariable": 104,
+					"inegalite": "!=",
+					"comparerAUneAutreVariable": true,
+					"valeurQuIlEstCenseAvoir": 106
+				},
+				{
+					"nom": "JouerEffetSonore",
+					"nomFichierSonore": "045-Push01.ogg",
+					"volume": 1.00,
+					"tempo": 1.50
+				},
+				{
+					"nom": "ConditionFin",
+					"numero": 1
+				}
 			]
 		}
 	]

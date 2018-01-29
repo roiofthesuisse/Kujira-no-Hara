@@ -5,6 +5,7 @@
 	"offsetY": 6,
 	"pages": [
 		{
+			"nom": "marche normale",
 			"image": "Jiyounasu character.png",
 			"vitesse": 4,
 			"frequence": 4,
@@ -21,6 +22,7 @@
 			}
 		},
 		{
+			"nom": "debut attaque arme 0",
 			"conditions": [
 				{
 					"nom": "ArmeEquipee",
@@ -48,6 +50,7 @@
 			"frequence": 4
 		},
 		{
+			"nom": "attaque arme 0 en cours",
 			"conditions": [
 				{
 					"nom": "AnimationAttaque"
@@ -62,6 +65,7 @@
 			"frequence": 4
 		},
 		{
+			"nom": "debut attaque arme 1",
 			"conditions": [
 				{
 					"nom": "ArmeEquipee",
@@ -89,6 +93,7 @@
 			"frequence": 4
 		},
 		{
+			"nom": "attaque arme 1 en cours",
 			"conditions": [
 				{
 					"nom": "AnimationAttaque"
@@ -99,6 +104,352 @@
 				}
 			],
 			"image": "Jiyounasu Eventail character.png",
+			"vitesse": 4,
+			"frequence": 4
+		},
+		{
+			"nom": "sautoir 1",
+			"conditions": [
+				{
+					"nom": "Terrain",
+					"terrain": 1
+				}
+			],			
+			"commandes": [
+				{
+					"nom": "JouerEffetSonore",
+					"nomFichierSonore": "017-Jump03.ogg",
+					"volume": 0.80,
+					"tempo": 1.20
+				},
+				{
+					"nom": "Deplacement",
+					"mouvements": [
+						{
+							"nom": "Sauter",
+							"x": 0,
+							"y": 1
+						}
+					],
+					"ignorerLesMouvementsImpossibles": true,
+					"repeterLeDeplacement": false,
+					"attendreLaFinDuDeplacement": true
+				}
+			],
+			"image": "Jiyounasu character.png",
+			"vitesse": 4,
+			"frequence": 4
+		},
+		{
+			"nom": "sautoir 2",
+			"conditions": [
+				{
+					"nom": "Terrain",
+					"terrain": 2
+				}
+			],			
+			"commandes": [
+				{
+					"nom": "JouerEffetSonore",
+					"nomFichierSonore": "017-Jump03.ogg",
+					"volume": 0.80,
+					"tempo": 1.20
+				},
+				{
+					"nom": "Deplacement",
+					"mouvements": [
+						{
+							"nom": "Sauter",
+							"x": -1,
+							"y": 0
+						}
+					],
+					"ignorerLesMouvementsImpossibles": true,
+					"repeterLeDeplacement": false,
+					"attendreLaFinDuDeplacement": true
+				}
+			],
+			"image": "Jiyounasu character.png",
+			"vitesse": 4,
+			"frequence": 4
+		},
+		{
+			"nom": "sautoir 3",
+			"conditions": [
+				{
+					"nom": "Terrain",
+					"terrain": 3
+				}
+			],			
+			"commandes": [
+				{
+					"nom": "JouerEffetSonore",
+					"nomFichierSonore": "017-Jump03.ogg",
+					"volume": 0.80,
+					"tempo": 1.20
+				},
+				{
+					"nom": "Deplacement",
+					"mouvements": [
+						{
+							"nom": "Sauter",
+							"x": 1,
+							"y": 0
+						}
+					],
+					"ignorerLesMouvementsImpossibles": true,
+					"repeterLeDeplacement": false,
+					"attendreLaFinDuDeplacement": true
+				}
+			],
+			"image": "Jiyounasu character.png",
+			"vitesse": 4,
+			"frequence": 4
+		},
+		{
+			"nom": "sautoir 4",
+			"conditions": [
+				{
+					"nom": "Terrain",
+					"terrain": 4
+				}
+			],			
+			"commandes": [
+				{
+					"nom": "JouerEffetSonore",
+					"nomFichierSonore": "017-Jump03.ogg",
+					"volume": 0.80,
+					"tempo": 1.20
+				},
+				{
+					"nom": "Deplacement",
+					"mouvements": [
+						{
+							"nom": "Sauter",
+							"x": 0,
+							"y": -1
+						}
+					],
+					"ignorerLesMouvementsImpossibles": true,
+					"repeterLeDeplacement": false,
+					"attendreLaFinDuDeplacement": true
+				}
+			],
+			"image": "Jiyounasu character.png",
+			"vitesse": 4,
+			"frequence": 4
+		},
+		{
+			"nom": "noyade",
+			"conditions": [
+				{
+					"nom": "Terrain",
+					"terrain": 5
+				}
+			],			
+			"commandes": [
+				{
+					"nom": "JouerEffetSonore",
+					"nomFichierSonore": "022-Dive02.ogg"
+				},
+				{
+					"nom": "Deplacement",
+					"mouvements": [
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 200
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 150
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 100
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 50
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 0
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 5
+						}
+					],
+					"ignorerLesMouvementsImpossibles": true,
+					"repeterLeDeplacement": false,
+					"attendreLaFinDuDeplacement": true
+				},
+				{
+					"nom": "ModifierVariable",
+					"numeroVariable": 4,
+					"operationAFaire": "retirer",
+					"operationAFaire2": "valeur brute",
+					"valeurADonner": 1
+				},
+				{
+					"nom": "TeleporterEvent",
+					"nouveauX": 23,
+					"nouveauY": 24,
+					"variable": true
+				},
+				{
+					"nom": "Deplacement",
+					"mouvements": [
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 255
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 0
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 255
+						}
+					],
+					"ignorerLesMouvementsImpossibles": true,
+					"repeterLeDeplacement": false,
+					"attendreLaFinDuDeplacement": true
+				}
+			],
+			"image": "Jiyounasu character.png",
+			"vitesse": 4,
+			"frequence": 4
+		},
+		{
+			"nom": "chute dans un trou",
+			"conditions": [
+				{
+					"nom": "Terrain",
+					"terrain": 6
+				}
+			],			
+			"commandes": [
+				{
+					"nom": "JouerEffetSonore",
+					"nomFichierSonore": "OOT_YoungLink_Attack3.wav"
+				},
+				{
+					"nom": "Deplacement",
+					"mouvements": [
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 200
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 150
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 100
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 50
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 0
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 5
+						}
+					],
+					"ignorerLesMouvementsImpossibles": true,
+					"repeterLeDeplacement": false,
+					"attendreLaFinDuDeplacement": true
+				},
+				{
+					"nom": "ModifierVariable",
+					"numeroVariable": 4,
+					"operationAFaire": "retirer",
+					"operationAFaire2": "valeur brute",
+					"valeurADonner": 1
+				},
+				{
+					"nom": "TeleporterEvent",
+					"nouveauX": 23,
+					"nouveauY": 24,
+					"variable": true
+				},
+				{
+					"nom": "Deplacement",
+					"mouvements": [
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 255
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 0
+						},
+						{
+							"nom": "Attendre",
+							"nombreDeFrames": 1
+						},
+						{
+							"nom": "ModifierOpacite",
+							"opacite": 255
+						}
+					],
+					"ignorerLesMouvementsImpossibles": true,
+					"repeterLeDeplacement": false,
+					"attendreLaFinDuDeplacement": true
+				}
+			],
+			"image": "Jiyounasu character.png",
 			"vitesse": 4,
 			"frequence": 4
 		}

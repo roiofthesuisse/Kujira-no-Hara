@@ -62,6 +62,11 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 			cetEvent.x = nouveauX * Main.TAILLE_D_UN_CARREAU;
 			cetEvent.y = nouveauY * Main.TAILLE_D_UN_CARREAU;
 		}
+		
+		// On interromp l'inertie
+		cetEvent.avancaitALaFramePrecedente = false;
+		cetEvent.avance = false;
+		
 		return curseurActuel+1;
 	}
 

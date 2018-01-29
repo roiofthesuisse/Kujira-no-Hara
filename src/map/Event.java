@@ -624,6 +624,17 @@ public class Event implements Comparable<Event> {
 	}
 	
 	/**
+	 * Calculer le terrain de l'Event.
+	 * @return identifiant du terrain
+	 */
+	public final int calculerTerrain() {
+		final int xEvent = (this.x + this.largeurHitbox/2) / Main.TAILLE_D_UN_CARREAU;
+		final int yEvent = (this.y + this.hauteurHitbox/2) / Main.TAILLE_D_UN_CARREAU;
+		final int carreauEvent = this.map.layer0[xEvent][yEvent];
+		return this.map.tileset.terrainDeLaCase(carreauEvent);
+	}
+	
+	/**
 	 * Créer un Event générique à partir de sa description JSON.
 	 * @param id de l'Event à créer
 	 * @param nomFichier nom du fichier JSON de l'Event générique

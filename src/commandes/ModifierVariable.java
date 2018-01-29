@@ -11,6 +11,7 @@ import jeu.Partie;
 import main.Commande;
 import main.Main;
 import map.Event;
+import map.LecteurMap;
 
 /**
  * Modifier la valeur d'une variable
@@ -98,37 +99,34 @@ public class ModifierVariable extends Commande implements CommandeEvent {
 				valeur = partieActuelle.objetsPossedes[valeurADonner];
 				break;
 			case COORDONNEE_X :
-				if (valeurADonner>0) {
-					event = this.page.event.map.eventsHash.get((Integer) valeurADonner);
+				if (valeurADonner >= 0) {
+					event = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) valeurADonner);
 				} else {
 					// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
 					event = this.page.event;
 				}
-				valeur = event.x / Main.TAILLE_D_UN_CARREAU;
+				valeur = (event.x + event.largeurHitbox/2) / Main.TAILLE_D_UN_CARREAU;
 				break;
 			case COORDONNEE_Y :
-				if (valeurADonner>0) {
-					event = this.page.event.map.eventsHash.get((Integer) valeurADonner);
+				if (valeurADonner >= 0) {
+					event = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) valeurADonner);
 				} else {
 					// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
 					event = this.page.event;
 				}
-				valeur = event.y / Main.TAILLE_D_UN_CARREAU;
+				valeur = (event.y + event.hauteurHitbox/2) / Main.TAILLE_D_UN_CARREAU;
 				break;
 			case TERRAIN :
-				if (valeurADonner>0) {
-					event = this.page.event.map.eventsHash.get((Integer) valeurADonner);
+				if (valeurADonner >= 0) {
+					event = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) valeurADonner);
 				} else {
 					// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
 					event = this.page.event;
 				}
-				final int xEvent = event.x / Main.TAILLE_D_UN_CARREAU;
-				final int yEvent = event.y / Main.TAILLE_D_UN_CARREAU;
-				final int carreauEvent = this.page.event.map.layer0[xEvent][yEvent];
-				valeur = this.page.event.map.tileset.terrainDeLaCase(carreauEvent);
+				valeur = event.calculerTerrain();
 				break;
 			case NUMERO_MAP :
-				valeur = this.page.event.map.numero;
+				valeur = ((LecteurMap) Main.lecteur).map.numero;
 				break;
 			case ARGENT_POSSEDE :
 				valeur = partieActuelle.argent;

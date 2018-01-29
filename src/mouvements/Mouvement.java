@@ -151,8 +151,8 @@ public abstract class Mouvement {
 					if (deplacementNaturelOuForce.mouvements.get(0).equals(this)) {
 						deplacementNaturelOuForce.mouvements.remove(0);
 					} else {
-						LOG.error(messageDErreurPotentiel+" car le premier mouvement du déplacement est un tout autre mouvement : "+
-								deplacementNaturelOuForce.mouvements.get(0).getClass().getName());
+						LOG.error(messageDErreurPotentiel+" car le premier mouvement du déplacement est un tout autre mouvement : "
+								+ deplacementNaturelOuForce.mouvements.get(0).getClass().getName());
 					}
 				} else {
 					LOG.error(messageDErreurPotentiel+" car le déplacement est vide.");

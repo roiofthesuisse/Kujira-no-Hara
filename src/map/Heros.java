@@ -76,7 +76,7 @@ public class Heros extends Event {
 		} else if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
 			//il y a un déplacement forcé
 			this.deplacementForce.executerLePremierMouvement();
-		} else {
+		} else if (this.deplacementNaturelActuel != null) {
 			this.deplacementNaturelActuel.executerLePremierMouvement();
 		}
 	}
