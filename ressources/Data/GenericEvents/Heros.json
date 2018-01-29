@@ -113,6 +113,23 @@
 				{
 					"nom": "Terrain",
 					"terrain": 1
+				},
+				{
+					"nom": "MouvementPossible",
+					"numero": 0,
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "Sauter",
+								"x": 0,
+								"y": 1
+							}
+						],
+						"ignorerLesMouvementsImpossibles": false,
+						"repeterLeDeplacement": false,
+						"attendreLaFinDuDeplacement": true
+					}
 				}
 			],			
 			"commandes": [
@@ -131,7 +148,7 @@
 							"y": 1
 						}
 					],
-					"ignorerLesMouvementsImpossibles": true,
+					"ignorerLesMouvementsImpossibles": false,
 					"repeterLeDeplacement": false,
 					"attendreLaFinDuDeplacement": true
 				}
@@ -146,6 +163,23 @@
 				{
 					"nom": "Terrain",
 					"terrain": 2
+				},
+				{
+					"nom": "MouvementPossible",
+					"numero": 0,
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "Sauter",
+								"x": -1,
+								"y": 0
+							}
+						],
+						"ignorerLesMouvementsImpossibles": false,
+						"repeterLeDeplacement": false,
+						"attendreLaFinDuDeplacement": true
+					}
 				}
 			],			
 			"commandes": [
@@ -164,7 +198,7 @@
 							"y": 0
 						}
 					],
-					"ignorerLesMouvementsImpossibles": true,
+					"ignorerLesMouvementsImpossibles": false,
 					"repeterLeDeplacement": false,
 					"attendreLaFinDuDeplacement": true
 				}
@@ -179,9 +213,27 @@
 				{
 					"nom": "Terrain",
 					"terrain": 3
+				},
+				{
+					"nom": "MouvementPossible",
+					"numero": 0,
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "Sauter",
+								"x": 1,
+								"y": 0
+							}
+						],
+						"ignorerLesMouvementsImpossibles": false,
+						"repeterLeDeplacement": false,
+						"attendreLaFinDuDeplacement": true
+					}
 				}
 			],			
 			"commandes": [
+				
 				{
 					"nom": "JouerEffetSonore",
 					"nomFichierSonore": "017-Jump03.ogg",
@@ -197,7 +249,7 @@
 							"y": 0
 						}
 					],
-					"ignorerLesMouvementsImpossibles": true,
+					"ignorerLesMouvementsImpossibles": false,
 					"repeterLeDeplacement": false,
 					"attendreLaFinDuDeplacement": true
 				}
@@ -212,6 +264,23 @@
 				{
 					"nom": "Terrain",
 					"terrain": 4
+				},
+				{
+					"nom": "MouvementPossible",
+					"numero": 0,
+					"deplacement": {
+						"nom": "Deplacement",
+						"mouvements": [
+							{
+								"nom": "Sauter",
+								"x": 0,
+								"y": -1
+							}
+						],
+						"ignorerLesMouvementsImpossibles": false,
+						"repeterLeDeplacement": false,
+						"attendreLaFinDuDeplacement": true
+					}
 				}
 			],			
 			"commandes": [
@@ -230,7 +299,7 @@
 							"y": -1
 						}
 					],
-					"ignorerLesMouvementsImpossibles": true,
+					"ignorerLesMouvementsImpossibles": false,
 					"repeterLeDeplacement": false,
 					"attendreLaFinDuDeplacement": true
 				}

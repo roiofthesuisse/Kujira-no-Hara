@@ -2,6 +2,9 @@ package mouvements;
 
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Main;
 import map.Event;
 import map.Heros;
@@ -12,6 +15,7 @@ import map.PageEvent.Traversabilite;
  */
 public class Sauter extends Mouvement {
 	//constantes
+	private static final Logger LOG = LogManager.getLogger(Sauter.class);
 	private static final int DUREE_DU_SAUT_SUR_PLACE = 10;
 	private static final int DUREE_DU_SAUT_PAR_CASE = 1;
 	private static final String NOM_EVENT_RESERVATION_PLACE_D_ARRIVEE = "ReservationSaut";
@@ -106,6 +110,9 @@ public class Sauter extends Mouvement {
 			
 			//la case d'arrivée est-elle libre ?
 			final boolean reponse = event.map.calculerSiLaPlaceEstLibre(this.xEventApresSaut, this.yEventApresSaut, event.largeurHitbox, event.hauteurHitbox, event.id);
+			if (!reponse) {
+				LOG.warn("Saut impossible !");
+			}
 			return reponse;
 		} else {
 			//le Saut est en cours
@@ -121,6 +128,7 @@ public class Sauter extends Mouvement {
 	public final void calculDuMouvement(final Event event) {
 		if (!event.saute) {
 			//le Mouvement n'a pas encore commencé, on initialise
+			LOG.info("Début du saut");
 			event.saute = true;
 			this.ceQuiAEteFait = 0;
 			calculerDistance();
@@ -149,6 +157,7 @@ public class Sauter extends Mouvement {
 		
 		if (this.ceQuiAEteFait >= etapes) {
 			//le saut est fini, on déplace l'Event à l'arrivée
+			LOG.info("Fin du saut");
 			event.x = this.xEventApresSaut;
 			event.y = this.yEventApresSaut;
 			
