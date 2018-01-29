@@ -73,12 +73,12 @@ public enum Passabilite {
 	}
 
 	/**
-	 * Ajoute les deux Passabilités.
+	 * Union des deux Passabilités.
 	 * @param p1 première passabilité
 	 * @param p2 seconbde passabilité
-	 * @return passabilité unie
+	 * @return passabilités ajoutées
 	 */
-	public static Passabilite ajouter(Passabilite p1, Passabilite p2) {
+	public static Passabilite union(final Passabilite p1, final Passabilite p2) {
 		if (p1 == null) {
 			return p2;
 		}
@@ -86,7 +86,7 @@ public enum Passabilite {
 			return p1;
 		}
 		
-		int codeResultat = genererCode(p1.passableEnBas || p2.passableEnBas, 
+		final int codeResultat = genererCode(p1.passableEnBas || p2.passableEnBas, 
 				p1.passableAGauche || p2.passableAGauche, 
 				p1.passableADroite || p2.passableADroite,
 				p1.passableEnHaut || p2.passableEnHaut);
@@ -107,6 +107,27 @@ public enum Passabilite {
 				+ (passableAGauche ? 0 : BIT_OBSTACLE_GAUCHE) 
 				+ (passableADroite ? 0 : BIT_OBSTACLE_DROITE) 
 				+ (passableEnHaut ? 0 : BIT_OBSTACLE_HAUT);
+	}
+
+	/**
+	 * Intersection des passabilités.
+	 * @param p1 Passabilité de base
+	 * @param p2 Passabilité à soustraire
+	 * @return obstacles ajoutés
+	 */
+	public static Passabilite intersection(final Passabilite p1, final Passabilite p2) {
+		if (p1 == null) {
+			return p2;
+		}
+		if (p2 == null) {
+			return p1;
+		}
+		
+		final int codeResultat = genererCode(p1.passableEnBas && p2.passableEnBas, 
+				p1.passableAGauche && p2.passableAGauche, 
+				p1.passableADroite && p2.passableADroite,
+				p1.passableEnHaut && p2.passableEnHaut);
+		return parCode(codeResultat);
 	}
 	
 }

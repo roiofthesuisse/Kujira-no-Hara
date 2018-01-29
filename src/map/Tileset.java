@@ -27,6 +27,7 @@ public class Tileset {
 	private static final Logger LOG = LogManager.getLogger(Tileset.class);
 	public static final int LARGEUR_TILESET = 8; //chaque ligne de Tileset contient 8 carreaux
 	public static final int PARALLAXE_PAR_DEFAUT = 0; //le Panorama est fixe
+	private static final int ALTITUDE_DE_LA_CASE_VIDE = 5;
 	
 	/** nom du fichier JSON du Tileset */
 	public final String nom;
@@ -163,12 +164,12 @@ public class Tileset {
 	 * @return true si obstacle, false si passable
 	 */
 	public final Passabilite passabiliteDeLaCase(final int numeroDeLaCaseDansLeTileset) {
-		if (numeroDeLaCaseDansLeTileset >= 0) { //case normale
-			return this.passabilite[numeroDeLaCaseDansLeTileset]; 
-		} else if (numeroDeLaCaseDansLeTileset < -1) { //autotile
-			return this.autotiles.get((Integer) numeroDeLaCaseDansLeTileset).passabilite ? Passabilite.PASSABLE : Passabilite.OBSTACLE;
-		} else { //case vide
+		if (numeroDeLaCaseDansLeTileset == -1) { //case vide
 			return Passabilite.PASSABLE;
+		} else if (numeroDeLaCaseDansLeTileset >= 0) { //case normale
+			return this.passabilite[numeroDeLaCaseDansLeTileset]; 
+		} else { //autotile
+			return this.autotiles.get((Integer) numeroDeLaCaseDansLeTileset).passabilite ? Passabilite.PASSABLE : Passabilite.OBSTACLE;
 		}
 	}
 	
@@ -178,7 +179,9 @@ public class Tileset {
 	 * @return true si obstacle, false si passable
 	 */
 	public final int altitudeDeLaCase(final int numeroCarreau) {
-		if (numeroCarreau >= -1) { //case normale
+		if (numeroCarreau == -1) { //case vide
+			return ALTITUDE_DE_LA_CASE_VIDE;
+		} else if (numeroCarreau > -1) { //case normale
 			return this.altitude[numeroCarreau];
 		} else { //autotile
 			return this.autotiles.get(numeroCarreau).altitude;

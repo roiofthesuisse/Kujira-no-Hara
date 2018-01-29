@@ -437,6 +437,11 @@ public class Map implements Sauvegardable {
 		int numeroDeLaCaseDansLeTileset = -1;
 		for (int i = 0; i<this.largeur; i++) {
 			for (int j = 0; j<this.hauteur; j++) {
+				
+				//-----------//
+				// METHODE 1 //
+				//-----------//
+				
 				this.casePassable[i][j] = Passabilite.PASSABLE;
 				
 				int altitudeDeCetteCouche;
@@ -450,7 +455,7 @@ public class Map implements Sauvegardable {
 					if (numeroDeLaCaseDansLeTileset != -1) {
 						altitudeDeCetteCouche = this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset);
 						// On ajoute les passabilités de cette couche
-						passabiliteALAltitude[altitudeDeCetteCouche] = Passabilite.ajouter(this.tileset.passabiliteDeLaCase(numeroDeLaCaseDansLeTileset), passabiliteALAltitude[altitudeDeCetteCouche]);
+						passabiliteALAltitude[altitudeDeCetteCouche] = Passabilite.union(this.tileset.passabiliteDeLaCase(numeroDeLaCaseDansLeTileset), passabiliteALAltitude[altitudeDeCetteCouche]);
 					}
 				}
 				
@@ -462,6 +467,40 @@ public class Map implements Sauvegardable {
 						break onATrouveLaPassabiliteDeLaCase;
 					}
 				}
+				
+				
+				//-----------//
+				// METHODE 2 //
+				//-----------//
+				/*
+				// On cherche la plus haute couche dont le tile a une altitude de 0
+				int coucheDeBase = -1;
+				for (int k = 0; k<NOMBRE_LAYERS; k++) {
+					couche = layers[k]; //couche de décor
+					numeroDeLaCaseDansLeTileset = couche[i][j];
+					if (this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset) == 0) {
+						coucheDeBase = k;
+					}
+				}
+				if (coucheDeBase != 0) {
+					LOG.debug("prout jari");
+				}
+				final int tuileDeBase = layers[coucheDeBase][i][j];
+				final Passabilite passabiliteDeBase = this.tileset.passabiliteDeLaCase(tuileDeBase);
+				this.casePassable[i][j] = passabiliteDeBase;
+				
+				// De cette Passabilité de base, on va soustraire les obstacles
+				int tuileSuivante;
+				Passabilite passabiliteSuivante;
+				for (int k = 0; k<NOMBRE_LAYERS; k++) {
+					couche = layers[k];
+					if (this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset) > 0) {
+						tuileSuivante = couche[i][j];
+						passabiliteSuivante = this.tileset.passabiliteDeLaCase(tuileSuivante);
+						this.casePassable[i][j] = Passabilite.intersection(this.casePassable[i][j], passabiliteSuivante);
+					}
+				}
+				*/
 				
 			}
 		}
