@@ -12,31 +12,31 @@
 			"idObjet": 1,
 			"nom": ["Cristal de Baleine", "Crystal of the Whale"],
 			"nomIcone": "cristal de baleine icon",
-			"description": ["Superbe morceau de sel magique cristallisÃ© de Kujira.", "Magic piece of crystallized salt of Kujira."],
+			"description": ["Superbe morceau de sel magique cristallisé de Kujira.", "Magic piece of crystallized salt of Kujira."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 2,
-			"nom": ["PanacÃ©e", "Panacea"],
-			"nomIcone": "panacÃ©e1 icon",
+			"nom": ["Panacée", "Panacea"],
+			"nomIcone": "panacée1 icon",
 			"description": ["Une potion magique soignant les blessures.", "Heals wounds."],
-			"effet": [
+			"effet": [				{					"nom": "ConditionVariable",					"numero": 0,					"numeroVariable": 4,					"inegalite": "<=",					"comparerAUneAutreVariable": true,					"valeurQuIlEstCenseAvoir": 5				},				{					"nom": "ModifierVariable",					"numeroVariable": 4,					"operationAFaire": "ajouter",					"operationAFaire2": "valeur brute",					"valeurADonner": 20				},				{					"nom": "JouerEffetSonore",					"nomFichierSonore": "glouglouglou.wav"				},				{					"nom": "ConditionSinon",					"numero": 0				},				{					"nom": "JouerEffetSonore",					"nomFichierSonore": "NON.wav"				},				{					"nom": "ConditionFin",					"numero": 0				}
 			]
 		},
 		{
 			"idObjet": 3,
-			"nom": ["PanacÃ©e Universelle", "Universal Panacea"],
-			"nomIcone": "panacÃ©e2 icon",
+			"nom": ["Panacée Universelle", "Universal Panacea"],
+			"nomIcone": "panacée2 icon",
 			"description": ["Une potion magique soignant toutes les blessures.", "Heals all wounds."],
-			"effet": [
+			"effet": [				{					"nom": "ConditionVariable",					"numero": 0,					"numeroVariable": 4,					"inegalite": "<=",					"comparerAUneAutreVariable": true,					"valeurQuIlEstCenseAvoir": 5				},				{					"nom": "ModifierVariable",					"numeroVariable": 4,					"operationAFaire": "rendre egal a",					"operationAFaire2": "contenu de la variable",					"valeurADonner": 5				},				{					"nom": "JouerEffetSonore",					"nomFichierSonore": "glouglouglou.wav"				},				{					"nom": "ConditionSinon",					"numero": 0				},				{					"nom": "JouerEffetSonore",					"nomFichierSonore": "NON.wav"				},				{					"nom": "ConditionFin",					"numero": 0				}
 			]
 		},
 		{
 			"idObjet": 4,
-			"nom": ["Chant de SirÃ¨ne", "Mermaid Song"],
-			"nomIcone": "chantdesirÃ¨ne icon",
-			"description": ["Il peut vous ressusciter Ã  tout moment en cas de soucis.", "Brings back from the brink of death."],
+			"nom": ["Chant de Sirène", "Mermaid Song"],
+			"nomIcone": "chantdesirène icon",
+			"description": ["Il peut vous ressusciter à  tout moment en cas de soucis.", "Brings back from the brink of death."],
 			"effet": [
 			]
 		},
@@ -44,31 +44,31 @@
 			"idObjet": 5,
 			"nom": ["Ticket AGV", "HSA Ticket"],
 			"nomIcone": "ticket icon",
-			"description": ["Ticket pour se dÃ©placer dans le rÃ©seau AGV kujirien.", "Allows to travel in the kujirian HSA network."],
+			"description": ["Ticket pour se déplacer dans le réseau AGV kujirien.", "Allows to travel in the kujirian HSA network."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 6,
-			"nom": ["ClÃ© du Donjon", "Dungeon Key"],
-			"nomIcone": "Grande clÃ© icon",
-			"description": ["Pour ouvrir l'accÃ©s au donjon suivant.", "Opens the door of the next dungeon."],
+			"nom": ["Clé du Donjon", "Dungeon Key"],
+			"nomIcone": "Grande clé icon",
+			"description": ["Pour ouvrir l'accés au donjon suivant.", "Opens the door of the next dungeon."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 7,
-			"nom": ["Petite ClÃ©", "Small Key"],
-			"nomIcone": "petite clÃ© icon",
+			"nom": ["Petite Clé", "Small Key"],
+			"nomIcone": "petite clé icon",
 			"description": ["Pour ouvrir une porte munie d'une serrure, ne sert qu'une fois.", "Opens a locked door. Can only be used once."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 8,
-			"nom": ["ClÃ© d'Or", "Golden Key"],
-			"nomIcone": "clÃ© d'or icon",
-			"description": ["Pour ouvrir une porte munie d'une grosse serrure dorÃ©e.", "Unlocks golden locks."],
+			"nom": ["Clé d'Or", "Golden Key"],
+			"nomIcone": "clé d'or icon",
+			"description": ["Pour ouvrir une porte munie d'une grosse serrure dorée.", "Unlocks golden locks."],
 			"effet": [
 			]
 		},
@@ -76,7 +76,7 @@
 			"idObjet": 9,
 			"nom": ["Pilon d'Aspirateur", "Hoover Pestle"],
 			"nomIcone": "pilon d'aspirateur icon",
-			"description": ["Objet trÃ¨s utilisÃ© dans le pilonnage interne et externe des aspirateurs.", "Pounds internally and externally vacuum cleaners."],
+			"description": ["Objet très utilisé dans le pilonnage interne et externe des aspirateurs.", "Pounds internally and externally vacuum cleaners."],
 			"effet": [
 			]
 		},
@@ -90,9 +90,9 @@
 		},
 		{
 			"idObjet": 11,
-			"nom": ["ClÃ© de Potage", "Pottage Key"],
-			"nomIcone": "clÃ© de potage icon",
-			"description": ["ClÃ© servant Ã  ouvrir et refermer les soupes.", "Locks and unlocks soups."],
+			"nom": ["Clé de Potage", "Pottage Key"],
+			"nomIcone": "clé de potage icon",
+			"description": ["Clé servant à  ouvrir et refermer les soupes.", "Locks and unlocks soups."],
 			"effet": [
 			]
 		},
@@ -100,7 +100,7 @@
 			"idObjet": 12,
 			"nom": ["Racine de Bolet", "Boletus Rootatum"],
 			"nomIcone": "racine de bolet icon",
-			"description": ["MycÃ©lium sÃ©chÃ© du champignon comestible.", "Dried mycelium of the edible mushroom."],
+			"description": ["Mycélium séché du champignon comestible.", "Dried mycelium of the edible mushroom."],
 			"effet": [
 			]
 		},
@@ -108,7 +108,7 @@
 			"idObjet": 13,
 			"nom": ["Patte de Passoire", "Sieve Paw"],
 			"nomIcone": "patte de passoire icon",
-			"description": ["Appartient Ã  une passoire dÃ©sormais bancale.", "Belongs to a strainer that must be wobbly now."],
+			"description": ["Appartient à  une passoire désormais bancale.", "Belongs to a strainer that must be wobbly now."],
 			"effet": [
 			]
 		},
@@ -124,7 +124,7 @@
 			"idObjet": 15,
 			"nom": ["Marlock", "Marlock"],
 			"nomIcone": "noiraude icon",
-			"description": ["Lutin fantastique extÃªmement rare, ultime trophÃ©e du chasseur.", "Rare mythical creature, the ultimate hunter prize."],
+			"description": ["Lutin fantastique extêmement rare, ultime trophée du chasseur.", "Rare mythical creature, the ultimate hunter prize."],
 			"effet": [
 			]
 		},
@@ -148,63 +148,63 @@
 			"idObjet": 18,
 			"nom": ["Graine Magique", "Magic Seed"],
 			"nomIcone": "graine icon",
-			"description": ["PlantÃ©e dans un rond de terre meuble, elle germe.", "Planted in loose soil, it sprouts."],
+			"description": ["Plantée dans un rond de terre meuble, elle germe.", "Planted in loose soil, it sprouts."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 19,
-			"nom": ["Parchemin du poÃ¨te voyageur 1", "Parchment of the Legend 1"],
+			"nom": ["Parchemin du poète voyageur 1", "Parchment of the Legend 1"],
 			"nomIcone": "parchemin icon",
-			"description": ["Un Ã©crit prÃ©cieux laissÃ© par le poÃ¨te voyageur dÃ©crivant Kujira.", "Precious scroll left by the wayfaring poet."],
+			"description": ["Un écrit précieux laissé par le poète voyageur décrivant Kujira.", "Precious scroll left by the wayfaring poet."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 20,
-			"nom": ["Parchemin du poÃ¨te voyageur 2", "Parchment of the Legend 2"],
+			"nom": ["Parchemin du poète voyageur 2", "Parchment of the Legend 2"],
 			"nomIcone": "parchemin icon",
-			"description": ["Un Ã©crit prÃ©cieux laissÃ© par le poÃ¨te voyageur dÃ©crivant Kujira.", "Precious scroll left by the wayfaring poet."],
+			"description": ["Un écrit précieux laissé par le poète voyageur décrivant Kujira.", "Precious scroll left by the wayfaring poet."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 21,
-			"nom": ["Parchemin du poÃ¨te voyageur 3", "Parchment of the Legend 3"],
+			"nom": ["Parchemin du poète voyageur 3", "Parchment of the Legend 3"],
 			"nomIcone": "parchemin icon",
-			"description": ["Un Ã©crit prÃ©cieux laissÃ© par le poÃ¨te voyageur dÃ©crivant Kujira.", "Precious scroll left by the wayfaring poet."],
+			"description": ["Un écrit précieux laissé par le poète voyageur décrivant Kujira.", "Precious scroll left by the wayfaring poet."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 22,
-			"nom": ["Parchemin du poÃ¨te voyageur 4", "Parchment of the Legend 4"],
+			"nom": ["Parchemin du poète voyageur 4", "Parchment of the Legend 4"],
 			"nomIcone": "parchemin icon",
-			"description": ["Un Ã©crit prÃ©cieux laissÃ© par le poÃ¨te voyageur dÃ©crivant Kujira.", "Precious scroll left by the wayfaring poet."],
+			"description": ["Un écrit précieux laissé par le poète voyageur décrivant Kujira.", "Precious scroll left by the wayfaring poet."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 23,
-			"nom": ["Parchemin du poÃ¨te voyageur 5", "Parchment of the Legend 5"],
+			"nom": ["Parchemin du poète voyageur 5", "Parchment of the Legend 5"],
 			"nomIcone": "parchemin icon",
-			"description": ["Un Ã©crit prÃ©cieux laissÃ© par le poÃ¨te voyageur dÃ©crivant Kujira.", "Precious scroll left by the wayfaring poet."],
+			"description": ["Un écrit précieux laissé par le poète voyageur décrivant Kujira.", "Precious scroll left by the wayfaring poet."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 24,
-			"nom": ["Parchemin du poÃ¨te voyageur 6", "Parchment of the Legend 6"],
+			"nom": ["Parchemin du poète voyageur 6", "Parchment of the Legend 6"],
 			"nomIcone": "parchemin icon",
-			"description": ["Un Ã©crit prÃ©cieux laissÃ© par le poÃ¨te voyageur dÃ©crivant Kujira.", "Precious scroll left by the wayfaring poet."],
+			"description": ["Un écrit précieux laissé par le poète voyageur décrivant Kujira.", "Precious scroll left by the wayfaring poet."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 25,
-			"nom": ["Parchemin du poÃ¨te voyageur 7", "Parchment of the Legend 7"],
+			"nom": ["Parchemin du poète voyageur 7", "Parchment of the Legend 7"],
 			"nomIcone": "parchemin icon",
-			"description": ["Un Ã©crit prÃ©cieux laissÃ© par le poÃ¨te voyageur dÃ©crivant Kujira.", "Precious scroll left by the wayfaring poet."],
+			"description": ["Un écrit précieux laissé par le poète voyageur décrivant Kujira.", "Precious scroll left by the wayfaring poet."],
 			"effet": [
 			]
 		},
@@ -212,7 +212,7 @@
 			"idObjet": 26,
 			"nom": ["Luciole", "Firefly"],
 			"nomIcone": "luciole icon",
-			"description": ["Insecte lumineux frÃ©quent dans Kujira.", "Frequently met in the belly of the whale."],
+			"description": ["Insecte lumineux fréquent dans Kujira.", "Frequently met in the belly of the whale."],
 			"effet": [
 			]
 		},
@@ -220,15 +220,15 @@
 			"idObjet": 27,
 			"nom": ["Tirelire", "Small Piggybank"],
 			"nomIcone": "Tirelire icon",
-			"description": ["Permet de transporter jusqu'Ã  600 Ã©cailles colorÃ©es.", "Carries up to 600 scales."],
+			"description": ["Permet de transporter jusqu'à  600 écailles colorées.", "Carries up to 600 scales."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 28,
-			"nom": ["Tirelire EnchantÃ©e", "Enchanted Piggybank"],
+			"nom": ["Tirelire Enchantée", "Enchanted Piggybank"],
 			"nomIcone": "Tirelire icon",
-			"description": ["Permet de transporter jusqu'Ã  999 Ã©cailles colorÃ©es.", "Carries up to 999 scales."],
+			"description": ["Permet de transporter jusqu'à  999 écailles colorées.", "Carries up to 999 scales."],
 			"effet": [
 			]
 		},
@@ -236,7 +236,7 @@
 			"idObjet": 29,
 			"nom": ["Radis", "Radish"],
 			"nomIcone": "radis icon",
-			"description": ["Petit lÃ©gume rose et blanc qui pousse dans le ventre de Kujira.", "Vegetable that burns the tongue."],
+			"description": ["Petit légume rose et blanc qui pousse dans le ventre de Kujira.", "Vegetable that burns the tongue."],
 			"effet": [
 			]
 		},
@@ -250,8 +250,8 @@
 		},
 		{
 			"idObjet": 31,
-			"nom": ["Sac Ã  Soufre", "Sulfur Bag"],
-			"nomIcone": "sac Ã  soufre icon",
+			"nom": ["Sac à  Soufre", "Sulfur Bag"],
+			"nomIcone": "sac à  soufre icon",
 			"description": ["Sac pour ranger les morceaux de Soufre.", "Stores sulfur."],
 			"effet": [
 			]
@@ -260,7 +260,7 @@
 			"idObjet": 32,
 			"nom": ["Boule de Boue", "Mud Ball"],
 			"nomIcone": "boule de boue icon",
-			"description": ["Un argile pateux et mallÃ©able d'une grande puretÃ©.", "Used for pottery."],
+			"description": ["Un argile pateux et malléable d'une grande pureté.", "Used for pottery."],
 			"effet": [
 			]
 		},
@@ -284,7 +284,7 @@
 			"idObjet": 35,
 			"nom": ["Coccinelle Verte", "Green Ladydbug"],
 			"nomIcone": "coccinelle verte icon",
-			"description": ["Insecte Ã©meraude, rare, et qui ravira les collectionneurs.", "Rare emerald colored insect, a collectorâ€™s delight."],
+			"description": ["Insecte émeraude, rare, et qui ravira les collectionneurs.", "Rare emerald colored insect, a collectorâ€™s delight."],
 			"effet": [
 			]
 		},
@@ -292,7 +292,7 @@
 			"idObjet": 36,
 			"nom": ["Coccinelle Bleue", "Blue Ladybug"],
 			"nomIcone": "coccinelle bleue icon",
-			"description": ["Insecte cÃ©rulÃ©en, rare, et qui ravira les collectionneurs.", "Rare sapphire colored insect, a collectorâ€™s delight."],
+			"description": ["Insecte céruléen, rare, et qui ravira les collectionneurs.", "Rare sapphire colored insect, a collectorâ€™s delight."],
 			"effet": [
 			]
 		},
@@ -300,7 +300,7 @@
 			"idObjet": 37,
 			"nom": ["Prospectus Dose 1", "Ovose Flyer 1"],
 			"nomIcone": "prospectus icon",
-			"description": ["Une publicitÃ© de la boutique de l'alchimiste Dose.", "Advertisement promoting Ovoseâ€™s alchemist shop."],
+			"description": ["Une publicité de la boutique de l'alchimiste Dose.", "Advertisement promoting Ovoseâ€™s alchemist shop."],
 			"effet": [
 			]
 		},
@@ -308,7 +308,7 @@
 			"idObjet": 38,
 			"nom": ["Prospectus Dose 2", "Ovose Flyer 2"],
 			"nomIcone": "prospectus icon",
-			"description": ["Une publicitÃ© de la boutique de l'alchimiste Dose.", "Advertisement promoting Ovoseâ€™s alchemist shop."],
+			"description": ["Une publicité de la boutique de l'alchimiste Dose.", "Advertisement promoting Ovoseâ€™s alchemist shop."],
 			"effet": [
 			]
 		},
@@ -324,7 +324,7 @@
 			"idObjet": 40,
 			"nom": ["Gland", "Mysterious Acorn"],
 			"nomIcone": "gland icon",
-			"description": ["Fruit d'un chÃªne, laissÃ© Ã  terre par un animal peu scrupuleux.", "Dropped by a careless animal."],
+			"description": ["Fruit d'un chêne, laissé à  terre par un animal peu scrupuleux.", "Dropped by a careless animal."],
 			"effet": [
 			]
 		},
@@ -332,21 +332,21 @@
 			"idObjet": 41,
 			"nom": ["L'incroyable caca de monsieur Qwidget", "L'incroyable caca de monsieur Qwidget"],
 			"nomIcone": "Livre 1",
-			"description": ["Un livre Ã  la fois poÃ©tique et lÃ©ger sur la vie d'un comptable.", "Un livre Ã  la fois poÃ©tique et lÃ©ger sur la vie d'un comptable."],
+			"description": ["Un livre à  la fois poétique et léger sur la vie d'un comptable.", "Un livre à  la fois poétique et léger sur la vie d'un comptable."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 42,
-			"nom": ["Le grand dictionnaire des cuillÃ¨res", "Le grand dictionnaire des cuillÃ¨res"],
+			"nom": ["Le grand dictionnaire des cuillères", "Le grand dictionnaire des cuillères"],
 			"nomIcone": "Livre 1",
-			"description": ["Un ouvrage trÃ¨s complet sur l'origine et la diversitÃ© des cuillÃ¨res.", "Un ouvrage trÃ¨s complet sur l'origine et la diversitÃ© des cuillÃ¨res."],
+			"description": ["Un ouvrage très complet sur l'origine et la diversité des cuillères.", "Un ouvrage très complet sur l'origine et la diversité des cuillères."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 43,
-			"nom": ["Le dernier des pÃ©licans", "Le dernier des pÃ©licans"],
+			"nom": ["Le dernier des pélicans", "Le dernier des pélicans"],
 			"nomIcone": "Livre 1",
 			"description": ["Un western avec des oiseaux comme personnages.", "Un western avec des oiseaux comme personnages."],
 			"effet": [
@@ -356,15 +356,15 @@
 			"idObjet": 44,
 			"nom": ["Zandide (ou le zoptimiste)", "Zandide (ou le zoptimiste)"],
 			"nomIcone": "Livre 1",
-			"description": ["Comment se faire botter les fesses par tout le monde au XVIIIÃ¨me siÃ¨cle.", "Comment se faire botter les fesses par tout le monde au XVIIIÃ¨me siÃ¨cle."],
+			"description": ["Comment se faire botter les fesses par tout le monde au XVIIIème siècle.", "Comment se faire botter les fesses par tout le monde au XVIIIème siècle."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 45,
-			"nom": ["Mais qui a tuÃ© Barry ?!", "Mais qui a tuÃ© Barry ?!"],
+			"nom": ["Mais qui a tué Barry ?!", "Mais qui a tué Barry ?!"],
 			"nomIcone": "Livre 1",
-			"description": ["Un thriller Ã  suspens dans un petit village plein d'idiots.", "Un thriller Ã  suspens dans un petit village plein d'idiots."],
+			"description": ["Un thriller à  suspens dans un petit village plein d'idiots.", "Un thriller à  suspens dans un petit village plein d'idiots."],
 			"effet": [
 			]
 		},
@@ -372,15 +372,15 @@
 			"idObjet": 46,
 			"nom": ["Palourde des Profondeurs", "Clam of the Deep"],
 			"nomIcone": "palourde",
-			"description": ["Coquillage indiquant la prÃ©sence d'une mer dans Kujira.", "Indicates the presence of the sea."],
+			"description": ["Coquillage indiquant la présence d'une mer dans Kujira.", "Indicates the presence of the sea."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 47,
-			"nom": ["Branche de ChÃªne", "Oak Branch"],
+			"nom": ["Branche de Chêne", "Oak Branch"],
 			"nomIcone": "branche icon",
-			"description": ["BÃ¢ton feuillu indiquant la prÃ©sence d'une forÃªt dans Kujira.", "Indicates the proximity of a forest."],
+			"description": ["Bâton feuillu indiquant la présence d'une forêt dans Kujira.", "Indicates the proximity of a forest."],
 			"effet": [
 			]
 		},
@@ -388,15 +388,15 @@
 			"idObjet": 48,
 			"nom": ["Perle des Braises", "Pearl of Embers"],
 			"nomIcone": "perle rouge icon",
-			"description": ["SphÃ¨re magique laissÃ©e par l'Ã©rudit Kazan'.", "Magic sphere left by the scholar Kazan."],
+			"description": ["Sphère magique laissée par l'érudit Kazan'.", "Magic sphere left by the scholar Kazan."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 49,
-			"nom": ["Perle des NÃ©nuphars", "Pearl of Waterlilies"],
+			"nom": ["Perle des Nénuphars", "Pearl of Waterlilies"],
 			"nomIcone": "perle verte icon",
-			"description": ["SphÃ¨re magique laissÃ©e par l'Ã©rudit NingyÃ´.", "Magic sphere left by the scholar Ningyo."],
+			"description": ["Sphère magique laissée par l'érudit Ningyà´.", "Magic sphere left by the scholar Ningyo."],
 			"effet": [
 			]
 		},
@@ -404,7 +404,7 @@
 			"idObjet": 50,
 			"nom": ["Perle des Sables", "Pearl of Sands"],
 			"nomIcone": "perle jaune icon",
-			"description": ["SphÃ¨re magique laissÃ©e par l'Ã©rudit Kaze.", "Magic sphere left by the scholar Kaze."],
+			"description": ["Sphère magique laissée par l'érudit Kaze.", "Magic sphere left by the scholar Kaze."],
 			"effet": [
 			]
 		},
@@ -412,7 +412,7 @@
 			"idObjet": 51,
 			"nom": ["Perle des Soupirs", "Pearl of Whispers"],
 			"nomIcone": "perle violette icon",
-			"description": ["SphÃ¨re magique laissÃ©e par l'Ã©rudit Kakeru.", "Magic sphere left by the scholar Kakeru."],
+			"description": ["Sphère magique laissée par l'érudit Kakeru.", "Magic sphere left by the scholar Kakeru."],
 			"effet": [
 			]
 		},
@@ -420,7 +420,7 @@
 			"idObjet": 52,
 			"nom": ["Perle des Carillons", "Pearl of Chimes"],
 			"nomIcone": "perle orange icon",
-			"description": ["SphÃ¨re magique laissÃ©e par l'Ã©rudit Jishin'.", "Magic sphere left by the scholar Jishin."],
+			"description": ["Sphère magique laissée par l'érudit Jishin'.", "Magic sphere left by the scholar Jishin."],
 			"effet": [
 			]
 		},
@@ -428,7 +428,7 @@
 			"idObjet": 53,
 			"nom": ["Perle des Neiges", "Pearl of Snowflakes"],
 			"nomIcone": "perle bleue icon",
-			"description": ["SphÃ¨re magique laissÃ©e par l'Ã©rudit TaiyÃ´.", "Magic sphere left by the scholar TaiyÃ´."],
+			"description": ["Sphère magique laissée par l'érudit Taiyà´.", "Magic sphere left by the scholar Taiyà´."],
 			"effet": [
 			]
 		},
@@ -436,7 +436,7 @@
 			"idObjet": 54,
 			"nom": ["Vitrail Serpent", "Stained Glass 1"],
 			"nomIcone": "vitrail serpent",
-			"description": ["Il n'attend qu'Ã  Ãªtre posÃ© sur un socle.", "Represents a coiled snake."],
+			"description": ["Il n'attend qu'à  être posé sur un socle.", "Represents a coiled snake."],
 			"effet": [
 			]
 		},
@@ -444,7 +444,7 @@
 			"idObjet": 55,
 			"nom": ["Vitrail Crabe", "Stained Glass 2"],
 			"nomIcone": "vitrail crabe",
-			"description": ["Il n'attend qu'Ã  Ãªtre posÃ© sur un socle.", "Represents a sprawling crab."],
+			"description": ["Il n'attend qu'à  être posé sur un socle.", "Represents a sprawling crab."],
 			"effet": [
 			]
 		},
@@ -452,7 +452,7 @@
 			"idObjet": 56,
 			"nom": ["Pomme rouge", "Red Apple"],
 			"nomIcone": "Pomme",
-			"description": ["Pomme de la sorciÃ¨re Ã  livrer.", "Given by the witch, it must be delivered."],
+			"description": ["Pomme de la sorcière à  livrer.", "Given by the witch, it must be delivered."],
 			"effet": [
 			]
 		},
@@ -466,17 +466,17 @@
 		},
 		{
 			"idObjet": 58,
-			"nom": ["ClÃ© Crapo", "Swamp Key"],
+			"nom": ["Clé Crapo", "Swamp Key"],
 			"nomIcone": "cle crapo icon",
-			"description": ["Pour ouvrir le portail menant Ã  la mare du Roi Crapo 1er.", "Unlocks the gate to the Frog King's pond."],
+			"description": ["Pour ouvrir le portail menant à  la mare du Roi Crapo 1er.", "Unlocks the gate to the Frog King's pond."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 59,
-			"nom": ["Perruque ColorÃ©e", "Rainbow Wig"],
+			"nom": ["Perruque Colorée", "Rainbow Wig"],
 			"nomIcone": "",
-			"description": ["Un article de dÃ©guisement de farce et attrape.", "A disguising joke article."],
+			"description": ["Un article de déguisement de farce et attrape.", "A disguising joke article."],
 			"effet": [
 			]
 		},
@@ -484,7 +484,7 @@
 			"idObjet": 60,
 			"nom": ["Carpe Japonaise", "Carpe Japonaise"],
 			"nomIcone": "carpe",
-			"description": ["Poisson d'agrÃ©ment pour les bassins.", "Poisson d'agrÃ©ment pour les bassins."],
+			"description": ["Poisson d'agrément pour les bassins.", "Poisson d'agrément pour les bassins."],
 			"effet": [
 			]
 		},
@@ -492,7 +492,7 @@
 			"idObjet": 61,
 			"nom": ["Gardon Rutilant", "Gardon Rutilant"],
 			"nomIcone": "gardon",
-			"description": ["Poisson d'eau douce Ã  la chair apprÃ©ciÃ©e des vikings.", "Poisson d'eau douce Ã  la chair apprÃ©ciÃ©e des vikings."],
+			"description": ["Poisson d'eau douce à  la chair appréciée des vikings.", "Poisson d'eau douce à  la chair appréciée des vikings."],
 			"effet": [
 			]
 		},
@@ -500,13 +500,13 @@
 			"idObjet": 62,
 			"nom": ["Dorade Royale", "Dorade Royale"],
 			"nomIcone": "",
-			"description": ["Poisson d'eau de mer Ã  la chair apprÃ©ciÃ©e des vikings.", "Poisson d'eau de mer Ã  la chair apprÃ©ciÃ©e des vikings."],
+			"description": ["Poisson d'eau de mer à  la chair appréciée des vikings.", "Poisson d'eau de mer à  la chair appréciée des vikings."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 63,
-			"nom": ["Impromptu nÂ°3 op.90", "Impromptu nÂ°3 op.90"],
+			"nom": ["Impromptu n°3 op.90", "Impromptu n°3 op.90"],
 			"nomIcone": "note de musique",
 			"description": ["Un morceau de Franz Schubert.", "Un morceau de Franz Schubert."],
 			"effet": [
@@ -514,7 +514,7 @@
 		},
 		{
 			"idObjet": 64,
-			"nom": ["PrÃ©lude nÂ°5 op.23", "PrÃ©lude nÂ°5 op.23"],
+			"nom": ["Prélude n°5 op.23", "Prélude n°5 op.23"],
 			"nomIcone": "note de musique",
 			"description": ["Un morceau de Sergei Rachmaninoff.", "Un morceau de Sergei Rachmaninoff."],
 			"effet": [
@@ -524,7 +524,7 @@
 			"idObjet": 65,
 			"nom": ["Sicilienne op.78", "Sicilienne op.78"],
 			"nomIcone": "note de musique",
-			"description": ["Un morceau de Gabriel FaurÃ©.", "Un morceau de Gabriel FaurÃ©."],
+			"description": ["Un morceau de Gabriel Fauré.", "Un morceau de Gabriel Fauré."],
 			"effet": [
 			]
 		},
@@ -538,9 +538,9 @@
 		},
 		{
 			"idObjet": 67,
-			"nom": ["Nocturne nÂ°1 op.9", "Nocturne nÂ°1 op.9"],
+			"nom": ["Nocturne n°1 op.9", "Nocturne n°1 op.9"],
 			"nomIcone": "note de musique",
-			"description": ["Un morceau de FrÃ©dÃ©ric Chopin.", "Un morceau de FrÃ©dÃ©ric Chopin."],
+			"description": ["Un morceau de Frédéric Chopin.", "Un morceau de Frédéric Chopin."],
 			"effet": [
 			]
 		},
@@ -548,7 +548,7 @@
 			"idObjet": 68,
 			"nom": ["Poil roux", "Poil roux"],
 			"nomIcone": "poil roux",
-			"description": ["Poil de barbe indiquant la prÃ©sence d'un village viking.", "Poil de barbe indiquant la prÃ©sence d'un village viking."],
+			"description": ["Poil de barbe indiquant la présence d'un village viking.", "Poil de barbe indiquant la présence d'un village viking."],
 			"effet": [
 			]
 		},
@@ -556,7 +556,7 @@
 			"idObjet": 69,
 			"nom": ["Galet", "Galet"],
 			"nomIcone": "galet",
-			"description": ["Roche Ã©moussÃ©e indiquant la prÃ©sence de cours d'eau.", "Roche Ã©moussÃ©e indiquant la prÃ©sence de cours d'eau."],
+			"description": ["Roche émoussée indiquant la présence de cours d'eau.", "Roche émoussée indiquant la présence de cours d'eau."],
 			"effet": [
 			]
 		},
@@ -564,7 +564,7 @@
 			"idObjet": 70,
 			"nom": ["Pointe de Stalactite", "Pointe de Stalactite"],
 			"nomIcone": "stalagtite icon",
-			"description": ["ConcrÃ©tion indiquant la prÃ©sence de grottes.", "ConcrÃ©tion indiquant la prÃ©sence de grottes."],
+			"description": ["Concrétion indiquant la présence de grottes.", "Concrétion indiquant la présence de grottes."],
 			"effet": [
 			]
 		},
@@ -572,23 +572,23 @@
 			"idObjet": 71,
 			"nom": ["Moutarde", "Moutarde"],
 			"nomIcone": "moutarde icon",
-			"description": ["Condiment jaunÃ¢tre utilisÃ© dans la fabrication d'explosifs.", "Condiment jaunÃ¢tre utilisÃ© dans la fabrication d'explosifs."],
+			"description": ["Condiment jaunâtre utilisé dans la fabrication d'explosifs.", "Condiment jaunâtre utilisé dans la fabrication d'explosifs."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 72,
-			"nom": ["SalpÃªtre", "SalpÃªtre"],
+			"nom": ["Salpêtre", "Salpêtre"],
 			"nomIcone": "salpetre icon",
-			"description": ["Roche blanchÃ¢tre utilisÃ©e dans la fabrication d'explosifs.", "Roche blanchÃ¢tre utilisÃ©e dans la fabrication d'explosifs."],
+			"description": ["Roche blanchâtre utilisée dans la fabrication d'explosifs.", "Roche blanchâtre utilisée dans la fabrication d'explosifs."],
 			"effet": [
 			]
 		},
 		{
 			"idObjet": 73,
-			"nom": ["Eau BÃ©nite", "Eau BÃ©nite"],
+			"nom": ["Eau Bénite", "Eau Bénite"],
 			"nomIcone": "eau benite icon",
-			"description": ["Eau croupie utilisÃ©e dans la fabrication d'explosifs.", "Eau croupie utilisÃ©e dans la fabrication d'explosifs."],
+			"description": ["Eau croupie utilisée dans la fabrication d'explosifs.", "Eau croupie utilisée dans la fabrication d'explosifs."],
 			"effet": [
 			]
 		},
