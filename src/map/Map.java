@@ -442,41 +442,6 @@ public class Map implements Sauvegardable {
 		for (int i = 0; i<this.largeur; i++) {
 			for (int j = 0; j<this.hauteur; j++) {
 				
-				//-----------//
-				// METHODE 1 //
-				//-----------//
-				/*
-				this.casePassable[i][j] = Passabilite.PASSABLE;
-				
-				int altitudeDeCetteCouche;
-				final Passabilite[] passabiliteALAltitude = new Passabilite[NOMBRE_ALTITUDES]; //initialisées à null
-				
-				// A chaque altitude, on additionne les passabilités des éléments de décor
-				for (int k = 0; k<NOMBRE_LAYERS; k++) {
-					couche = layers[k]; //couche de décor
-					numeroDeLaCaseDansLeTileset = couche[i][j];
-
-					if (numeroDeLaCaseDansLeTileset != -1) {
-						altitudeDeCetteCouche = this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset);
-						// On ajoute les passabilités de cette couche
-						passabiliteALAltitude[altitudeDeCetteCouche] = Passabilite.union(this.tileset.passabiliteDeLaCase(numeroDeLaCaseDansLeTileset), passabiliteALAltitude[altitudeDeCetteCouche]);
-					}
-				}
-				
-				// La passabilité choisie est celle de la plus haute altitude
-				onATrouveLaPassabiliteDeLaCase:
-				for (int a = NOMBRE_ALTITUDES-1; a >= 0; a--) {
-					if (passabiliteALAltitude[a] != null) {
-						this.casePassable[i][j] = passabiliteALAltitude[a];
-						break onATrouveLaPassabiliteDeLaCase;
-					}
-				}
-				*/
-				
-				//-----------//
-				// METHODE 2 //
-				//-----------//
-				
 				// On cherche la plus haute couche dont le tile a une altitude de 0
 				int coucheDeBase = -1;
 				for (int k = 0; k<NOMBRE_LAYERS; k++) {
@@ -486,17 +451,20 @@ public class Map implements Sauvegardable {
 						coucheDeBase = k;
 					}
 				}
-				if (coucheDeBase != 0) {
-					LOG.debug("prout jari");
+				// Ce tile servira de base au calcul de la passabilité
+				final Passabilite passabiliteDeBase;
+				if (coucheDeBase == -1) {
+					passabiliteDeBase = Passabilite.PASSABLE;
+				} else {
+					final int tuileDeBase = layers[coucheDeBase][i][j];
+					passabiliteDeBase = this.tileset.passabiliteDeLaCase(tuileDeBase);
 				}
-				final int tuileDeBase = layers[coucheDeBase][i][j];
-				final Passabilite passabiliteDeBase = this.tileset.passabiliteDeLaCase(tuileDeBase);
 				this.casePassable[i][j] = passabiliteDeBase;
 				
 				// De cette Passabilité de base, on va soustraire les obstacles
 				int tuileSuivante;
 				Passabilite passabiliteSuivante;
-				for (int k = 0; k<NOMBRE_LAYERS; k++) {
+				for (int k = coucheDeBase+1; k<NOMBRE_LAYERS; k++) {
 					couche = layers[k];
 					if (this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset) > 0) {
 						tuileSuivante = couche[i][j];
@@ -504,8 +472,7 @@ public class Map implements Sauvegardable {
 						this.casePassable[i][j] = Passabilite.intersection(this.casePassable[i][j], passabiliteSuivante);
 					}
 				}
-				
-				
+				// Voilà
 			}
 		}
 	}
