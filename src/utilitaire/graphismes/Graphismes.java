@@ -19,6 +19,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Fenetre;
+import main.Main;
 import utilitaire.Maths;
 
 /**
@@ -42,6 +43,7 @@ public abstract class Graphismes {
 	public static final int[] TON_PAR_DEFAUT = new int[]{0, 127, 127, 127};
 	/** L'origine de l'image est son coin haut-gauche et non son centre */
 	private static final boolean ORIGINE_HAUT_GAUCHE = false;
+	private static final Color COULEUR_TRANSPARENTE = new Color(0,0,0,0);
 	public static Graphics2D graphismes;
 
 	/**
@@ -167,6 +169,33 @@ public abstract class Graphismes {
 		g2d.dispose();
 		
 		return ecran;
+	}
+	
+	/**
+	 * Opération graphique plus rapide adaptée aux Tilesets.
+	 * @param dst image sur laquelle on dessine
+	 * @param src image de laquelle on prend le carreau à dessiner
+	 * @param xDst coordonnée (en pixels) où on dessine
+	 * @param yDst coordonnée (en pixels) où on dessine
+	 * @param xSrc coordonnée (en pixels) où on prend le carreau à dessiner
+	 * @param ySrc coordonnée (en pixels) où on prend le carreau à dessiner
+	 * @return image avec le carreau dessiné
+	 */
+	public static BufferedImage superposerPortionDImage(BufferedImage dst, BufferedImage src, int xDst, int yDst, int xSrc, int ySrc) {
+		final Graphics2D g2d = (Graphics2D) dst.createGraphics();
+		g2d.drawImage(src,
+				xDst,
+				yDst,
+				xDst + Main.TAILLE_D_UN_CARREAU,
+                yDst + Main.TAILLE_D_UN_CARREAU,
+                xSrc,
+                ySrc,
+                xSrc + Main.TAILLE_D_UN_CARREAU,
+                ySrc + Main.TAILLE_D_UN_CARREAU,
+                COULEUR_TRANSPARENTE,
+                null);
+		g2d.dispose();
+		return dst;
 	}
 	
 	/**
