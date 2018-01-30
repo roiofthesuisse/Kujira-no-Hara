@@ -341,6 +341,10 @@ public class Map implements Sauvegardable {
 	public final void dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise) {
 		final BufferedImage dessinCarreau = tilesetUtilise.carreaux[numeroCarreau];
 		Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Main.TAILLE_D_UN_CARREAU, yEcran*Main.TAILLE_D_UN_CARREAU);
+		//TODO essayer la méthode superposerPortion, plus rapide ?
+		/*final int xTile = (numeroCarreau%8) * Main.TAILLE_D_UN_CARREAU;
+		final int yTile = (numeroCarreau/8) * Main.TAILLE_D_UN_CARREAU;
+		Graphismes.superposerPortionDImage(ecran, tilesetUtilise.image, xEcran, yEcran, xTile, yTile);*/
 	}
 	
 	/**
@@ -441,7 +445,7 @@ public class Map implements Sauvegardable {
 				//-----------//
 				// METHODE 1 //
 				//-----------//
-				
+				/*
 				this.casePassable[i][j] = Passabilite.PASSABLE;
 				
 				int altitudeDeCetteCouche;
@@ -467,12 +471,12 @@ public class Map implements Sauvegardable {
 						break onATrouveLaPassabiliteDeLaCase;
 					}
 				}
-				
+				*/
 				
 				//-----------//
 				// METHODE 2 //
 				//-----------//
-				/*
+				
 				// On cherche la plus haute couche dont le tile a une altitude de 0
 				int coucheDeBase = -1;
 				for (int k = 0; k<NOMBRE_LAYERS; k++) {
@@ -500,7 +504,7 @@ public class Map implements Sauvegardable {
 						this.casePassable[i][j] = Passabilite.intersection(this.casePassable[i][j], passabiliteSuivante);
 					}
 				}
-				*/
+				
 				
 			}
 		}
