@@ -17,6 +17,7 @@ import main.Lecteur;
 import main.Main;
 import map.meteo.Meteo;
 import menu.Texte;
+import mouvements.Mouvement;
 import mouvements.RegarderUnEvent;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
@@ -649,8 +650,28 @@ public class LecteurMap extends Lecteur {
 			case CAPTURE_D_ECRAN : 
 				this.faireUneCaptureDEcran(); 
 				break;
-			case BREAKPOINT :
-				final Fenetre fenetre = Main.fenetre;
+			case DEBUG :
+				LOG.debug("Map : \""+this.map.nom+"\" ("+this.map.largeur+"x"+this.map.hauteur+")");
+				LOG.debug("Events :");
+				for (Event e : this.map.events) {
+					LOG.debug("\t"+e.id+" : "+e.nom);
+					if (e.deplacementForce != null && e.deplacementForce.mouvements != null && e.deplacementForce.mouvements.size() > 0) {
+						StringBuilder mouvementsForces = new StringBuilder();
+						for (Mouvement m : e.deplacementForce.mouvements) {
+							mouvementsForces.append(m.getClass().getSimpleName())
+									.append(" ; ");
+						}
+						LOG.debug("\t\tDéplacement forcé : "+mouvementsForces.toString());
+					}
+					if (e.deplacementNaturelActuel != null && e.deplacementNaturelActuel.mouvements != null && e.deplacementNaturelActuel.mouvements.size() > 0) {
+						StringBuilder mouvementsNaturels = new StringBuilder();
+						for (Mouvement m : e.deplacementNaturelActuel.mouvements) {
+							mouvementsNaturels.append(m.getClass().getSimpleName())
+									.append(" ; ");
+						}
+						LOG.debug("\t\tDéplacement naturel : "+mouvementsNaturels.toString());
+					}
+				}
 				break;
 			default : 
 				break; // touche inconnue
