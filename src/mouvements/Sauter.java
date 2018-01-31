@@ -225,5 +225,21 @@ public class Sauter extends Mouvement {
 	public final String toString() {
 		return "Sauter de "+this.x+" en X et de "+this.y+" en Y";
 	}
+
+	/**
+	 * Position de la caméra pendant le saut.
+	 * @return (en pixels)
+	 */
+	public int xPourCamera() {
+		return (this.ceQuiAEteFait*xEventApresSaut+(this.etapes-this.ceQuiAEteFait)*xEventAvantSaut)/this.etapes;
+	}
+	
+	/**
+	 * Position de la caméra pendant le saut.
+	 * @return (en pixels)
+	 */
+	public int yPourCamera() {
+		return (this.ceQuiAEteFait*yEventApresSaut+(this.etapes-this.ceQuiAEteFait)*yEventAvantSaut)/this.etapes;
+	}
 	
 }

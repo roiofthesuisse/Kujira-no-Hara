@@ -18,6 +18,7 @@ import main.Main;
 import map.meteo.Meteo;
 import menu.Texte;
 import mouvements.RegarderUnEvent;
+import mouvements.Sauter;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
@@ -736,7 +737,23 @@ public class LecteurMap extends Lecteur {
 			return this.tremblementDeTerre;
 		} else {
 			//grande map, défilement possible
-			int nouveauXCamera = map.heros.x - Fenetre.LARGEUR_ECRAN/2;
+			
+			// Si l'event saute, la caméra est décorrélée de la position du Héros
+			final int xHeros;
+			if (this.map.heros.saute
+					&& this.map.heros.deplacementForce != null 
+					&& this.map.heros.deplacementForce.mouvements != null
+					&& this.map.heros.deplacementForce.mouvements.size() > 0
+					&& this.map.heros.deplacementForce.mouvements.get(0) instanceof Sauter
+			) {
+				// Le Héros est en train de sauter
+				final Sauter saut = (Sauter) this.map.heros.deplacementForce.mouvements.get(0);
+				xHeros = saut.xPourCamera();
+			} else {
+				// Le Héros ne saute pas
+				xHeros = map.heros.x;
+			}
+			int nouveauXCamera = xHeros - Fenetre.LARGEUR_ECRAN/2;
 			
 			if (nouveauXCamera<0) { //caméra ne déborde pas de la map à gauche
 				return (this.defilementX>0 ? this.defilementX : 0) 
@@ -764,7 +781,23 @@ public class LecteurMap extends Lecteur {
 			return 0;
 		} else {
 			//grande map, défilement possible
-			int nouveauYCamera = map.heros.y - Fenetre.HAUTEUR_ECRAN/2;
+			
+			// Si l'event saute, la caméra est décorrélée de la position du Héros
+			final int yHeros;
+			if (this.map.heros.saute
+					&& this.map.heros.deplacementForce != null 
+					&& this.map.heros.deplacementForce.mouvements != null
+					&& this.map.heros.deplacementForce.mouvements.size() > 0
+					&& this.map.heros.deplacementForce.mouvements.get(0) instanceof Sauter
+			) {
+				// Le Héros est en train de sauter
+				final Sauter saut = (Sauter) this.map.heros.deplacementForce.mouvements.get(0);
+				yHeros = saut.yPourCamera();
+			} else {
+				// Le Héros ne saute pas
+				yHeros = map.heros.y;
+			}
+			int nouveauYCamera = yHeros - Fenetre.HAUTEUR_ECRAN/2;
 			
 			if (nouveauYCamera<0) { //caméra ne déborde pas de la map en haut
 				return 0 + (this.defilementY>0 ? this.defilementY : 0);
