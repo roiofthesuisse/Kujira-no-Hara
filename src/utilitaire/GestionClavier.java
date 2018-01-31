@@ -59,7 +59,7 @@ public abstract class GestionClavier {
 		ACTION_SECONDAIRE("ACTION_SECONDAIRE", ToucheClavier.M),
 		MENU("MENU", ToucheClavier.ENTREE, ToucheClavier.ECHAP),
 		CAPTURE_D_ECRAN("CAPTURE_D_ECRAN", ToucheClavier.C),
-		BREAKPOINT("BREAKPOINT", ToucheClavier.B);
+		DEBUG("BREAKPOINT", ToucheClavier.B);
 		
 		private final ToucheClavier[] touches;
 		public final String nom;
