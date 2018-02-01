@@ -129,11 +129,14 @@ public class LecteurMap extends Lecteur {
 		//on dessine les évènements et la couche médiane
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera, true, vignetteAutotileActuelle);
 		
-		//on dessine les animations
-		ecran = Animation.dessinerLesAnimations(ecran, xCamera, yCamera);
-		
 		//ajouter imageCoucheSurHeros à l'écran
 		ecran = dessinerDecorSuperieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
+		
+		//on dessine les évènements au dessus de tout et la couche médiane
+		ecran = dessinerLesEventsAuDessusDeTout(ecran, xCamera, yCamera, true);
+				
+		//on dessine les animations
+		ecran = Animation.dessinerLesAnimations(ecran, xCamera, yCamera);
 		
 		//météo
 		ecran = dessinerMeteo(ecran, frame);
@@ -414,11 +417,22 @@ public class LecteurMap extends Lecteur {
 			final int vignetteAutotile) {
 		try {
 			Collections.sort(this.map.events); //on trie les events du plus derrière au plus devant
+			
+			// On dessine les Events plats d'abord
+			for (Event event : this.map.events) {
+				if (!event.supprime && event.platActuel) {
+					if (dessinerLeHeros || !event.equals(map.heros)) {
+						ecran = dessinerEvent(ecran, event, xCamera, yCamera);
+					}
+				}
+			}
+			
+			// On dessine les Events normaux ensuite
 			int bandeletteActuelle = 0;
 			int bandeletteEvent = 0;
 			for (Event event : this.map.events) {
-				if (!event.supprime) {
-					if (!event.auDessusDeToutActuel && !event.platActuel) {
+				if (!event.supprime && !event.platActuel) {
+					if (!event.auDessusDeToutActuel) {
 						//dessiner la bandelette de décor médian
 						bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Main.TAILLE_D_UN_CARREAU;
 						if (bandeletteEvent > bandeletteActuelle) {
@@ -435,12 +449,37 @@ public class LecteurMap extends Lecteur {
 					}
 				}
 			}
-			
 			//dernière bandelette
 			final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteEvent, this.map.hauteur);
 			ecran = Graphismes.superposerImages(ecran, imageBandelette,
 					-xCamera, bandeletteActuelle*Main.TAILLE_D_UN_CARREAU-yCamera);
 			
+			// Les Events au dessus de tout seront dessinés après le décor supérieur
+			
+		} catch (Exception e) {
+			LOG.error("Erreur lors du dessin des évènements :", e);
+		}
+		return ecran;
+	}
+	
+	/**
+	 * Calculer le nouvel écran, avec les Events dessinés dessus.
+	 * Ne pas oublier de récupérer le résultat de cette méthode.
+	 * @param ecran sur lequel on dessine les Events
+	 * @param xCamera position x de la caméra
+	 * @param yCamera position y de la caméra
+	 * @param dessinerLeHeros le Héros doit-il être visible sur l'ancienne Map ?
+	 * @return écran avec les Events dessinés dessus
+	 */
+	private BufferedImage dessinerLesEventsAuDessusDeTout(BufferedImage ecran, final int xCamera, final int yCamera, final boolean dessinerLeHeros) {
+		try {
+			for (Event event : this.map.events) {
+				if (!event.supprime && event.auDessusDeToutActuel) {
+					if (dessinerLeHeros || !event.equals(map.heros)) {
+						ecran = dessinerEvent(ecran, event, xCamera, yCamera);
+					}
+				}
+			}
 		} catch (Exception e) {
 			LOG.error("Erreur lors du dessin des évènements :", e);
 		}
