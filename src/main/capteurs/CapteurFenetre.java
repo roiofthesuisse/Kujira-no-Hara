@@ -36,6 +36,8 @@ public class CapteurFenetre extends WindowAdapter {
 	public final void windowClosing(final java.awt.event.WindowEvent windowEvent) {
 		LOG.info("Fermeture manuelle du jeu");
 		Main.quitterLeJeu = true;
+		Main.futurLecteur = null;
+		Main.lecteur.allume = false;
     }
 
 }

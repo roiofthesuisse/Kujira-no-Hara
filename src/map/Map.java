@@ -225,6 +225,7 @@ public class Map implements Sauvegardable {
 			}
 		}
 		
+		long t0 = System.nanoTime();
 		//chargement du tileset
 		try {
 			//si jamais le Tileset est le même, pas la peine de le recréer
@@ -248,14 +249,17 @@ public class Map implements Sauvegardable {
 				LOG.error("Erreur lors de la création du Tileset :", e2);
 			}
 		}
-		
+		long t1 = System.nanoTime();
+			
 		//on dessine la couche de décor inférieure, qui sera sous le héros et les évènements
 			this.imagesCoucheSousHeros = creerCoucheDeDecor(0, ALTITUDE_MEDIANE-1);
 		//on dessine la couche de décor médiane, qui sera avec le héros et les évènements
 			this.imagesCoucheAvecHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE, ALTITUDE_MEDIANE);
 		//on dessine la couche de décor supérieure, qui sera au dessus du héros et des évènements
 			this.imagesCoucheSurHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE+1, NOMBRE_ALTITUDES-1);
-		
+			long t2 = System.nanoTime();
+			Main.mesuresDePerformance.add((t1-t0)+";"+(t2-t1));
+			
 		//importer les events
 			importerLesEvenements(jsonMap);
 			

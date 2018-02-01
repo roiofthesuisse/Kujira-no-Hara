@@ -50,9 +50,9 @@ public final class Fenetre extends JFrame {
 		this.pleinEcran = pleinEcran;
 		
 		// Capteurs d'entrées
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.addKeyListener(new CapteurClavier()); //récupérer les entrées Clavier
-		this.addWindowFocusListener(new CapteurFenetre()); //pauser le jeu si Fenetre inactive
+		this.addWindowListener(new CapteurFenetre()); //pauser le jeu si Fenetre inactive
 		this.addMouseListener(new CapteurSouris()); //plein écran si double-clic
 		this.device = this.getGraphicsConfiguration().getDevice();
 		

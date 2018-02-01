@@ -90,8 +90,13 @@ public class Main {
 		}
 		// Il n'y a plus de Lecteur à suivre : le jeu est éteint
 		
+		// Export CSV
+		exporterCsv();
+		
 		// On ferme la Fenêtre
 		fenetre.fermer();
+		
+		LOG.info("Arrêt total du programme");
 	}
 	
 	/**
@@ -168,10 +173,10 @@ public class Main {
 	/**
 	 * Exporter les mesures de performances en tant que fichier CSV.
 	 */
-	private void exporterCsv() {
-		final Path file = Paths.get("C:/Users/Public/kujira-perf2.csv");
+	private static void exporterCsv() {
+		final Path file = Paths.get("C:/Users/Public/kujira-perf3.csv");
 		try {
-			Files.write(file, this.mesuresDePerformance, Charset.forName("UTF-8"));
+			Files.write(file, mesuresDePerformance, Charset.forName("UTF-8"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
