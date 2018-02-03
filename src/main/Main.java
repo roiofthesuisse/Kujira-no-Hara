@@ -64,7 +64,7 @@ public class Main {
 		lecteur = new LecteurMenu(menuTitre, null, selectionInitiale);
 		
 		// Mesurer les performances
-		lancerSupervisionJavaMelody();
+		//lancerSupervisionJavaMelody();
 		
 		// Accélération du calcul graphique
 		System.setProperty("sun.java2d.opengl", "True");
@@ -97,6 +97,7 @@ public class Main {
 		fenetre.fermer();
 		
 		LOG.info("Arrêt total du programme");
+		System.exit(0);
 	}
 	
 	/**
