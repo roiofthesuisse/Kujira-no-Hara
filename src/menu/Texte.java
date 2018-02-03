@@ -311,7 +311,6 @@ public class Texte extends ElementDeMenu {
         		g2d.drawString(boutsDeLigne[j], largeurALaquelleOnEcrit, hauteurALaquelleOnEcrit);
         	}
         }
-        g2d.dispose();
 	    
         LOG.trace("Texte transformé en image : "+texteAAfficher);
         return img;

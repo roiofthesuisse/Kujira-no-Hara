@@ -139,6 +139,9 @@ public final class Fenetre extends JFrame {
 			this.bufferStrategy.show();
 			// Répéter le rendu si le tampon a été perdu
 		//} while (this.bufferStrategy.contentsLost());
+		
+		// On n'aura plus jamais besoin de l'image
+		image.getGraphics().dispose();
 	}
 
 	/**

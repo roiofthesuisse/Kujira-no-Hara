@@ -336,7 +336,7 @@ public class LecteurMap extends Lecteur {
 				final int xmaxHitbox = coord[1];
 				final int yminHitbox = coord[2];
 				final int ymaxHitbox = coord[3];
-				final Graphics2D graphics = ecran.createGraphics();
+				final Graphics2D graphics = (Graphics2D) ecran.getGraphics();
 				graphics.setPaint(Color.magenta);
 				graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, yminHitbox-yCamera);
 				graphics.drawLine(xminHitbox-xCamera, ymaxHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
@@ -583,8 +583,6 @@ public class LecteurMap extends Lecteur {
 		}
 	}
 	
-	
-
 	/**
 	 * Faire une capture d'écran des collisions
 	 */
@@ -597,6 +595,9 @@ public class LecteurMap extends Lecteur {
 		img.setRGB(map.heros.x, map.heros.y, Color.red.getRGB());
 		img.setRGB(map.events.get(1).x, map.events.get(1).y, Color.blue.getRGB());
 		Graphismes.sauvegarderImage(img, "collision");
+		
+		// On n'aura plus jamais besoin de cette image
+		graphics.dispose();
 	}
 
 	/**
@@ -610,7 +611,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private BufferedImage dessinerEvent(final BufferedImage ecran, final Event event, final int xCamera, final int yCamera) {
 		final BufferedImage eventImage = event.imageActuelle;
-		if (eventImage!=null) { 
+		if (eventImage != null) { 
 			int largeur =  eventImage.getWidth();
 			int hauteur = eventImage.getHeight();
 			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)

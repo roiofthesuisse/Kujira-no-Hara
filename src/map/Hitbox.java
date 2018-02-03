@@ -128,6 +128,9 @@ public class Hitbox {
 		
 		//on enregistre
 		Graphismes.sauvegarderImage(img, "croisements");
+		
+		//on n'utilisera plus jamais cette image
+		graphics.dispose();
 	}
 
 	/**

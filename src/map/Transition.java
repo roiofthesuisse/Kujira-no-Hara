@@ -92,7 +92,6 @@ public enum Transition {
 					final Area ellipse = new Area(new Ellipse2D.Float(x,y,largeur,hauteur));
 					rectangle.subtract(ellipse);
 					g2d.fill(rectangle);
-					g2d.dispose();
 					
 					return resultat;
 				} else {
@@ -110,7 +109,6 @@ public enum Transition {
 					final Area ellipse = new Area(new Ellipse2D.Float(x, y, largeur, hauteur));
 					rectangle.subtract(ellipse);
 					g2d.fill(rectangle);
-					g2d.dispose();
 					
 					return resultat;
 				}

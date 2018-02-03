@@ -102,7 +102,7 @@ public abstract class Graphismes {
 	public static final BufferedImage superposerImages(BufferedImage ecran, BufferedImage image2, int x, int y, 
 			final boolean centre, final int zoomX, final int zoomY, final int opacite, final ModeDeFusion modeDeFusion, 
 			final int angle) {
-		final Graphics2D g2d = (Graphics2D) ecran.createGraphics();
+		final Graphics2D g2d = (Graphics2D) ecran.getGraphics();
 		
 		if (opacite <= 0) {
 			return ecran;
@@ -166,7 +166,6 @@ public abstract class Graphismes {
 			final int nouveauY = y + (int) preTranslationY - postTranslationY;
 			g2d.drawImage(imagePivotee, nouveauX, nouveauY, null);
 		}
-		g2d.dispose();
 		
 		return ecran;
 	}
@@ -182,7 +181,7 @@ public abstract class Graphismes {
 	 * @return image avec le carreau dessiné
 	 */
 	public static BufferedImage superposerPortionDImage(BufferedImage dst, BufferedImage src, int xDst, int yDst, int xSrc, int ySrc) {
-		final Graphics2D g2d = (Graphics2D) dst.createGraphics();
+		final Graphics2D g2d = (Graphics2D) dst.getGraphics();
 		g2d.drawImage(src,
 				xDst,
 				yDst,
@@ -194,7 +193,6 @@ public abstract class Graphismes {
                 ySrc + Main.TAILLE_D_UN_CARREAU,
                 COULEUR_TRANSPARENTE,
                 null);
-		g2d.dispose();
 		return dst;
 	}
 	
@@ -207,7 +205,6 @@ public abstract class Graphismes {
 		Graphics2D g2d = image.createGraphics();
 		g2d.setPaint(couleur);
 		g2d.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
-		g2d.dispose();
 		return image;
 	}
 	
@@ -223,7 +220,6 @@ public abstract class Graphismes {
 		Graphics2D g2d = image.createGraphics();
 		g2d.setPaint(couleur);
 		g2d.fillRect(0, 0, largeur, hauteur);
-		g2d.dispose();
 		return image;
 	}
 	
@@ -293,7 +289,6 @@ public abstract class Graphismes {
 	    final Graphics2D g2d = imageRedimensionnee.createGraphics();
 	    g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
 	    g2d.drawImage(tmp, 0, 0, null);
-	    g2d.dispose();
 
 	    return imageRedimensionnee;
 	}
@@ -341,7 +336,6 @@ public abstract class Graphismes {
         final BufferedImage compatibleImage = new BufferedImage(image.getWidth(), image.getHeight(), TYPE_DES_IMAGES);
         final Graphics2D g = compatibleImage.createGraphics();
         g.drawImage(image, 0, 0, null);
-        g.dispose();
         //TODO On enregistre la nouvelle image
         //sauvegarderImage(compatibleImage, "/ressources/Graphics/"+nomImage);
         return compatibleImage;
