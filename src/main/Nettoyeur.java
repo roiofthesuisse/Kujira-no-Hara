@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -67,27 +68,22 @@ public abstract class Nettoyeur {
 							LOG.error("Impossible d'ouvrir l'image du tileset "+fichierTileset.getName(), ioe);
 						}
 					}
+					final JSONObject jsonCousin = new JSONObject();
+					final JSONArray cousinages = new JSONArray();
 					for (int i = 0; i < nombreDAutotiles; i++) {
-						final JSONObject jsonAutotile = (JSONObject) jsonAutotiles.get(i);
-						JSONArray cousins = new JSONArray();
+						JSONArray cousinage = new JSONArray();
+						cousinage.put(i);
 						for (int j = 0; j < nombreDAutotiles; j++) {
 							if (i != j && (Graphismes.memeImage(vignettes[i][0], vignettes[j][1]) || Graphismes.memeImage(vignettes[i][1], vignettes[j][0]))) {
-								cousins.put(j);
+								cousinage.put(j);
 							}
 						}
-						jsonAutotile.put("cousins", cousins);
+						cousinages.put(cousinage);
 					}
+					jsonCousin.put("cousins", cousinages);
 					// écrire nouveau JSON
-					PrintWriter out = new PrintWriter(".\\ressources\\Data\\Tilesets\\"+fichierTileset.getName()+".new");
-					out.println(jsonTileset.toString()
-							.replaceAll("\\],", "\\\n],\n")
-							.replaceAll("\\},", "\\\n},\n")
-							.replaceAll("\\{", "\\{\n")
-							.replaceAll("\\[", "\\[\n")
-							.replaceAll("\\]\\}", "\\]\n\\}")
-							.replaceAll("\\}\\]", "\\}\n\\]")
-							.replaceAll("\",", "\",\n")
-					);
+					PrintWriter out = new PrintWriter(".\\ressources\\Data\\Tilesets\\Cousins\\"+fichierTileset.getName());
+					out.println(jsonCousin.toString());
 					out.close();
 				} catch (Exception e) {
 					LOG.error("Impossible d'ouvrir le tileset "+fichierTileset.getName(), e);

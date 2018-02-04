@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import main.Main;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
@@ -590,7 +591,19 @@ public class Autotile {
 	 * @param tileset auquel appartiennent les Autotiles
 	 * @return Autotiles de ce Tileset
 	 */
-	public static HashMap<Integer, Autotile> chargerAutotiles(final JSONObject jsonTileset, final Tileset tileset) {
+	public static HashMap<Integer, Autotile> chargerAutotiles(final JSONObject jsonTileset, 
+			final Tileset tileset) {
+		// On ouvre également le fichier des cousinages entre Autotiles
+		JSONArray jsonCousinagesDesAutotilesPourCeTileset = null;
+		try {
+			final JSONObject fichierDesCousins = InterpreteurDeJson.ouvrirJson(tileset.nom, ".\\ressources\\Data\\Tilesets\\Cousins\\");
+			jsonCousinagesDesAutotilesPourCeTileset = fichierDesCousins.getJSONArray("cousins");
+		} catch (Exception e) {
+			LOG.error("Impossible de récupérer les cousinages d'autotiles pour le tileset "+tileset.nom, e);
+		}
+		int iAutotile = 0;
+		
+		// On ouvre les infos sur les Autotiles de ce Tileset
 		final HashMap<Integer, Autotile> autotiles = new HashMap<Integer, Autotile>();
 		final JSONArray jsonAutotiles = jsonTileset.getJSONArray("autotiles");
 		for (Object autotileObject : jsonAutotiles) {
@@ -602,17 +615,22 @@ public class Autotile {
 				final int terrainAutotile = jsonAutotile.has("terrain") ? (int) jsonAutotile.get("terrain") : 0;
 				final String nomImageAutotile = (String) jsonAutotile.get("nomImage");
 				
-				//cousins
+				//cousins de cet Autotile
 				final ArrayList<Integer> cousinsAutotile = new ArrayList<Integer>();
 				try {
-					final JSONArray jsonCousins = jsonAutotile.getJSONArray("cousins");
-					if (jsonCousins != null) {
-						for (Object cousinObject : jsonCousins) {
-							cousinsAutotile.add((Integer) cousinObject);
+					if (jsonCousinagesDesAutotilesPourCeTileset != null 
+							&& jsonCousinagesDesAutotilesPourCeTileset.length() > iAutotile) {
+						final JSONArray jsonCousinage = jsonCousinagesDesAutotilesPourCeTileset.getJSONArray(iAutotile);
+						if (jsonCousinage != null && jsonCousinage.length() > 0) {
+							for (Object cousinObject : jsonCousinage) {
+								Integer cousin = (Integer) cousinObject;
+								cousin -= 8;
+								cousinsAutotile.add(cousin);
+							}
 						}
 					}
 				} catch (JSONException e) {
-					LOG.warn("L'autotile "+nomImageAutotile+" n'a pas de cousins.");
+					LOG.debug("L'autotile "+nomImageAutotile+" n'a pas de cousins.");
 				}
 				
 				final Autotile autotile;
@@ -625,6 +643,7 @@ public class Autotile {
 			} catch (JSONException e) {
 				LOG.error("Impossible de lire le JSON de l'autotile", e);
 			}
+			iAutotile++;
 		}
 		return autotiles;
 	}
