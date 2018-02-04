@@ -194,37 +194,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 13,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 8,
-				"xDebutHeros": 15,
-				"yDebutHeros": 4
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 12,
 		"nom": "EV012",
 		"x": 0,
@@ -243,6 +212,37 @@
 				"numeroNouvelleMap": 37,
 				"xDebutHeros": 23,
 				"yDebutHeros": 12
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 13,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 8,
+				"xDebutHeros": 15,
+				"yDebutHeros": 4
 			}
 			],
 			"vitesse": 8,
@@ -282,124 +282,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 13,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 17,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 2,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 18,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 2,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 18,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 17,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 13,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 6,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 6,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 6,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -476,7 +358,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 20
+				"nombreDeFrames": 33
 			},
 			{
 				"nom": "JouerAnimation",
@@ -484,7 +366,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 20
+				"nombreDeFrames": 33
 			},
 			{
 				"nom": "Deplacement",
@@ -624,7 +506,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 20
+				"nombreDeFrames": 33
 			},
 			{
 				"nom": "JouerAnimation",
@@ -632,7 +514,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 20
+				"nombreDeFrames": 33
 			},
 			{
 				"nom": "Message",
@@ -768,7 +650,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 20
+				"nombreDeFrames": 33
 			},
 			{
 				"nom": "JouerAnimation",
@@ -776,7 +658,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 20
+				"nombreDeFrames": 33
 			},
 			{
 				"nom": "Message",
@@ -1052,7 +934,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 10
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -1121,7 +1003,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 10
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "Deplacement",
@@ -1140,7 +1022,7 @@
 				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
+					"nombreDeFrames": 8
 				},
 				{
 					"nom": "ModifierApparence",
@@ -1401,7 +1283,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 10
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -1470,7 +1352,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 10
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "Deplacement",
@@ -1489,7 +1371,7 @@
 				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
+					"nombreDeFrames": 8
 				},
 				{
 					"nom": "ModifierApparence",
@@ -1722,7 +1604,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 5
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ConditionFin",
@@ -1867,6 +1749,124 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 13,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 17,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 2,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 18,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 2,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 18,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 17,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 13,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 6,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 6,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 6,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 29,
@@ -1985,7 +1985,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 5
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ConditionSinon",
@@ -2184,7 +2184,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 5
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2361,7 +2361,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 5
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierInterrupteur",
