@@ -72,10 +72,10 @@ public abstract class Nettoyeur {
 					final JSONArray cousinages = new JSONArray();
 					for (int i = 0; i < nombreDAutotiles; i++) {
 						JSONArray cousinage = new JSONArray();
-						cousinage.put(i);
+						cousinage.put(i-8);
 						for (int j = 0; j < nombreDAutotiles; j++) {
 							if (i != j && (Graphismes.memeImage(vignettes[i][0], vignettes[j][1]) || Graphismes.memeImage(vignettes[i][1], vignettes[j][0]))) {
-								cousinage.put(j);
+								cousinage.put(j-8);
 							}
 						}
 						cousinages.put(cousinage);

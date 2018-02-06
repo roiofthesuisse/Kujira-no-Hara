@@ -624,7 +624,7 @@ public class Autotile {
 						if (jsonCousinage != null && jsonCousinage.length() > 0) {
 							for (Object cousinObject : jsonCousinage) {
 								Integer cousin = (Integer) cousinObject;
-								cousin -= 8;
+								//cousin -= 8;
 								cousinsAutotile.add(cousin);
 							}
 						}
