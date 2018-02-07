@@ -118,7 +118,9 @@ public abstract class Commande {
 	 * @param commandes liste des Commandes de la Page.
 	 * @param commandesJSON tableau JSON contenant les Commandes au format JSON
 	 */
-	public static void recupererLesCommandesEvent(final ArrayList<Commande> commandes, final JSONArray commandesJSON) {
+	public static void recupererLesCommandesEvent(final ArrayList<Commande> commandes, 
+			final JSONArray commandesJSON) {
+		// Ajouter les Commandes de la Page
 		for (Object commandeJSON : commandesJSON) {
 			final Commande commande = recupererUneCommande( (JSONObject) commandeJSON );
 			if (commande != null) {

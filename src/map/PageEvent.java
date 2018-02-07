@@ -14,6 +14,8 @@ import conditions.Condition;
 import conditions.ConditionParler;
 import main.Commande;
 import main.Main;
+import mouvements.Mouvement;
+import mouvements.SeRapprocher;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
@@ -49,6 +51,9 @@ public class PageEvent {
 	public int directionInitiale;
 	public int animationInitiale;
 	
+	/**
+	 * Lorsque cette Page sera active, qui pourra traverser cet Event ?
+	 */
 	public enum Traversabilite {
 		TRAVERSABLE, OBSTACLE, TRAVERSABLE_PAR_LE_HEROS
 	}
@@ -79,6 +84,7 @@ public class PageEvent {
 	 * @param numero de la Page
 	 * @param pageJSON objet JSON décrivant la page de comportements
 	 * @param idEvent identifiant de l'Event
+	 * @param map de l'Event
 	 */
 	public PageEvent(final int numero, final JSONObject pageJSON, final Integer idEvent, final Map map) {
 		this.numero = numero;
@@ -107,6 +113,14 @@ public class PageEvent {
 				//on apprend aux Commandes qui est leur Page
 				for (Commande commande : this.commandes) {
 					commande.page = this;
+				}
+				
+				//on rapproche le Héros de l'Event si c'est un interlocuteur
+				if (this.contientUneConditionParler()) {
+					final ArrayList<Mouvement> mouvements = new ArrayList<>();
+					mouvements.add(new SeRapprocher(0, idEvent));
+					final Commande deplacement = new Deplacement(0, mouvements, true, false, true);
+					this.commandes.add(0, deplacement);
 				}
 			} else {
 				LOG.trace("Liste de commandes vide pour la page "+this.numero+" de l'event "+idEvent);
@@ -244,7 +258,7 @@ public class PageEvent {
 			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
 		}
 		//lecture des Commandes event
-		if (commandes!=null) {
+		if (commandes != null) {
 			boolean onAvanceDansLesCommandes = true;
 			//on n'enchaine durant la même frame que les commandes instantanées
 			//si une commande longue est rencontrée, on reporte la lecture de la Page à la frame suivante
