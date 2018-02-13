@@ -248,7 +248,7 @@ public class Avancer extends Mouvement {
 		if (realignementX != 0) {
 			// Le réalignement ne se fait pas plus rapidement que la vitesse de l'Event
 			if (Math.abs(realignementX) > event.vitesseActuelle) {
-				int signeRealigmement = Math.abs(realignementX) / realignementX; //-1 ou +1
+				final int signeRealigmement = Math.abs(realignementX) / realignementX; //-1 ou +1
 				realignementX = event.vitesseActuelle * signeRealigmement;
 			}
 			// On réaligne l'Event pour qu'il puisse contourner un coin
@@ -257,7 +257,7 @@ public class Avancer extends Mouvement {
 		} else if (realignementY != 0) {
 			// Le réalignement ne se fait pas plus rapidement que la vitesse de l'Event
 			if (Math.abs(realignementY) > event.vitesseActuelle) {
-				int signeRealigmement = Math.abs(realignementY) / realignementY; //-1 ou +1
+				final int signeRealigmement = Math.abs(realignementY) / realignementY; //-1 ou +1
 				realignementY = event.vitesseActuelle * signeRealigmement;
 			}
 			// On réaligne l'Event pour qu'il puisse contourner un coin
