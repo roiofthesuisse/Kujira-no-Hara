@@ -25,7 +25,8 @@ public abstract class GestionClavier {
 		O(79, "O"),
 		K(75, "K"),
 		L(76, "L"),
-		M(77, "M");
+		M(77, "M"),
+		ALT_GR(17, "ALT_GR");
 		
 		public final int keycode;
 		public final String nom;
@@ -59,7 +60,8 @@ public abstract class GestionClavier {
 		ACTION_SECONDAIRE("ACTION_SECONDAIRE", ToucheClavier.M),
 		MENU("MENU", ToucheClavier.ENTREE, ToucheClavier.ECHAP),
 		CAPTURE_D_ECRAN("CAPTURE_D_ECRAN", ToucheClavier.C),
-		DEBUG("BREAKPOINT", ToucheClavier.B);
+		DEBUG("BREAKPOINT", ToucheClavier.B),
+		TRICHE("TRICHE", ToucheClavier.ALT_GR);
 		
 		private final ToucheClavier[] touches;
 		public final String nom;

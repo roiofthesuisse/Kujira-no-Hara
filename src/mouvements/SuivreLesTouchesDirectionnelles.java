@@ -10,6 +10,7 @@ import commandes.Deplacement;
 import map.Event;
 import map.Heros;
 import utilitaire.GestionClavier;
+import utilitaire.GestionClavier.ToucheRole;
 
 /**
  * Avancer selon les touches directionnelles du clavier.
@@ -63,6 +64,15 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 			vitesse = event.pageActive.vitesse;
 		}
 		
+		// Le Héros traverse tout si la touche de triche est pressée
+		if (event instanceof Heros && ToucheRole.TRICHE.enfoncee()) {
+			this.deltaX += GestionClavier.ToucheRole.DROITE.enfoncee() ? vitesse : 0;
+			this.deltaX += GestionClavier.ToucheRole.GAUCHE.enfoncee() ? -vitesse : 0;
+			this.deltaY += GestionClavier.ToucheRole.BAS.enfoncee() ? vitesse : 0;
+			this.deltaY += GestionClavier.ToucheRole.HAUT.enfoncee() ? -vitesse : 0;
+			return true;
+		}
+		
 		boolean ilYADeplacement = false;
 		boolean toucheEnfonceeACetteFrame = false;
 		if (GestionClavier.ToucheRole.HAUT.enfoncee()) {
@@ -105,7 +115,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 						}
 					} else {
 						//haut seul
-						Avancer unPas = unPasVers(Event.Direction.HAUT, event, vitesse);
+						final Avancer unPas = unPasVers(Event.Direction.HAUT, event, vitesse);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
 							this.deltaY = -vitesse;
@@ -159,7 +169,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 						}
 					} else {
 						//bas seul
-						Avancer unPas = unPasVers(Event.Direction.BAS, event, vitesse);
+						final Avancer unPas = unPasVers(Event.Direction.BAS, event, vitesse);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
 							this.deltaY = vitesse;
@@ -177,7 +187,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 					toucheEnfonceeACetteFrame = true;
 					if (!GestionClavier.ToucheRole.DROITE.enfoncee()) { //gauche-droite impossible
 						//gauche seule
-						Avancer unPas = unPasVers(Event.Direction.GAUCHE, event, vitesse);
+						final Avancer unPas = unPasVers(Event.Direction.GAUCHE, event, vitesse);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
 							this.deltaX = -vitesse;
@@ -193,7 +203,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 					if (GestionClavier.ToucheRole.DROITE.enfoncee()) {
 						toucheEnfonceeACetteFrame = true;
 						//droite seule
-						Avancer unPas = unPasVers(Event.Direction.DROITE, event, vitesse);
+						final Avancer unPas = unPasVers(Event.Direction.DROITE, event, vitesse);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
 							this.deltaX = vitesse;
@@ -207,10 +217,10 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 					} else if (this.toucheEnfonceeALaFramePrecedente && event instanceof Heros) {
 						// Inertie : même si on ne presse plus les touches, le Héros avance encore un peu
 						final int vitesseInertie = Math.max(1, event.pageActive.vitesse/2);
-						Avancer unPas = unPasVers(event.direction, event, vitesseInertie);
+						final Avancer unPas = unPasVers(event.direction, event, vitesseInertie);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
-							switch(event.direction){
+							switch(event.direction) {
 								case Event.Direction.BAS :
 									this.deltaY = vitesseInertie;
 									break;
