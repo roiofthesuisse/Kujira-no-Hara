@@ -11,6 +11,8 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import commandes.AppelerUnScript;
+import conditions.ConditionScript;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
@@ -30,8 +32,17 @@ public abstract class Nettoyeur {
 			return;
 		}
 		
+		// conditions script
+		final ArrayList<String> scripts = listerLesConditionsScript();
+		System.out.println("-----------------------------");
+		System.out.println("-----------------------------");
+		System.out.println("-----------------------------");
+		for (String s : scripts) {
+			System.out.println(s);
+		}
+		
 		// Autotiles cousins
-		calculerLesAutotilesCousins();
+		//calculerLesAutotilesCousins();
 		
 		// Noms des touches du clavier dans les messages
 		reecrireLesTouchesDuClavier();
@@ -103,5 +114,46 @@ public abstract class Nettoyeur {
 		//TODO recenser les occurences de chaque musique dans le jeu avec leur volume assigné
 		//TODO pour le plus grand volumed'usage, utiliser le volume par défaut
 		//TODO déduire les remplacements des autres volumes d'usage par produit en croix 
+	}
+	
+	private static ArrayList<String> listerLesConditionsScript() {
+		ArrayList<String> scripts = new ArrayList<>();
+		for (int numeroMap = 1; numeroMap <=572; numeroMap++) {
+			try {
+				final JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(numeroMap);
+				final JSONArray jsonEvents = jsonMap.getJSONArray("events");
+				for (Object oEvent : jsonEvents) {
+					try {
+						JSONObject jsonEvent = (JSONObject) oEvent;
+						final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
+						for (Object oPage : jsonPages) {
+							try {
+								JSONObject jsonPage = (JSONObject) oPage;
+								final JSONArray jsonCommandes = jsonPage.getJSONArray("commandes");
+								for (Object oCommande : jsonCommandes) {
+									try {
+										JSONObject jsonCommande = (JSONObject) oCommande;
+										final Commande commande = Commande.recupererUneCommande(jsonCommande);
+										if (commande instanceof ConditionScript || commande instanceof AppelerUnScript) {
+											scripts.add(commande.toString());
+										}
+									} catch (Exception e) {
+										//LOG.error("Commande irrécupérable : "+oCommande);
+									}
+								}
+							} catch (Exception e) {
+								//e.printStackTrace();
+							}
+						}
+					} catch (Exception e) {
+						//LOG.error("Pas de pages : "+oEvent);
+					}
+				}
+			} catch (Exception e) {
+				//e.printStackTrace();
+			}
+			
+		}
+		return scripts;
 	}
 }
