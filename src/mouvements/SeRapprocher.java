@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import map.Event;
+import map.PageEvent.Traversabilite;
 import utilitaire.Maths;
 
 /**
@@ -52,15 +53,20 @@ public class SeRapprocher extends Avancer {
 
 	@Override
 	public final boolean mouvementPossible() {
-		if (!initialisation) {
+		if (!this.initialisation) {
 			// Initialisation
 			this.eventARapprocher = this.deplacement.page.event.map.eventsHash.get(this.idEventARapprocher);
 			this.eventCible = this.deplacement.page.event.map.eventsHash.get(this.idEventCible);
 			
+			// Ce Mouvement ne fonctionne qu'avec les Events solides
+			if (this.eventARapprocher.traversableActuel != Traversabilite.OBSTACLE 
+					|| this.eventCible.traversableActuel != Traversabilite.OBSTACLE) {
+				return false;
+			}
+			
 			// Coordonnées de départ
 			this.xInitialEventARapprocher = this.eventARapprocher.x;
 			this.yInitialEventARapprocher = this.eventARapprocher.y;
-			this.directionDurantLeMouvement = this.eventARapprocher.direction;
 			
 			// Calcul des coordonnées d'arrivée
 			final int xmin1 = this.eventARapprocher.x;
@@ -74,26 +80,30 @@ public class SeRapprocher extends Avancer {
 			// Où se situe-t-on par rapport à l'Event cible ?
 			if (xmax1 <= xmin2) {
 				//on est à gauche
-				this.xFinalEventARapprocher = xmin2 - eventARapprocher.largeurHitbox;
-				this.yFinalEventARapprocher = (ymin2+ymax2 - eventARapprocher.hauteurHitbox)/2;
+				this.xFinalEventARapprocher = xmin2 - this.eventARapprocher.largeurHitbox;
+				this.yFinalEventARapprocher = (ymin2+ymax2 - this.eventARapprocher.hauteurHitbox)/2;
+				this.directionDurantLeMouvement = Event.Direction.DROITE;
 				
 			} else if (xmin1 >= xmax2) {
 				//on est à droite
 				this.xFinalEventARapprocher = xmax2;
-				this.yFinalEventARapprocher = (ymin2+ymax2 - eventARapprocher.hauteurHitbox)/2;
+				this.yFinalEventARapprocher = (ymin2+ymax2 - this.eventARapprocher.hauteurHitbox)/2;
+				this.directionDurantLeMouvement = Event.Direction.GAUCHE;
 				
 			} else if (ymax1 <= ymin2) {
 				//on est en haut
-				this.xFinalEventARapprocher = (xmin2+xmax2 - eventARapprocher.largeurHitbox)/2;
-				this.yFinalEventARapprocher = ymin2 - eventARapprocher.hauteurHitbox;
+				this.xFinalEventARapprocher = (xmin2+xmax2 - this.eventARapprocher.largeurHitbox)/2;
+				this.yFinalEventARapprocher = ymin2 - this.eventARapprocher.hauteurHitbox;
+				this.directionDurantLeMouvement = Event.Direction.BAS;
 				
 			} else if (ymin1 >= ymax2) {
 				//on est en bas
 				this.xFinalEventARapprocher = (xmin2+xmax2 - this.eventARapprocher.largeurHitbox)/2;
 				this.yFinalEventARapprocher = ymax2;
+				this.directionDurantLeMouvement = Event.Direction.HAUT;
 				
 			} else {
-				//cas théoriquement impossible
+				//cas impossible si l'event est solide
 				LOG.warn("Positions relatives anormales des events "+this.idEventARapprocher+" et "+this.idEventCible);
 				return false;
 			}
@@ -104,28 +114,41 @@ public class SeRapprocher extends Avancer {
 			this.etapes = Maths.max(1,
 					Math.abs(trajetX/this.eventARapprocher.vitesseActuelle),
 					Math.abs(trajetY/this.eventARapprocher.vitesseActuelle));
-		
-			// Est-ce possible ?
-			final int nouveauX = this.eventARapprocher.x + Maths.min(trajetX, this.eventARapprocher.vitesseActuelle);
-			final int nouveauY = this.eventARapprocher.y + Maths.min(trajetY, this.eventARapprocher.vitesseActuelle);
-			return this.eventARapprocher.map.calculerSiLaPlaceEstLibre(nouveauX, 
-					nouveauY, 
-					this.eventARapprocher.largeurHitbox, 
-					this.eventARapprocher.hauteurHitbox, 
-					this.eventARapprocher.id);
+			
+			this.initialisation = true;
 		}
 		
-		return true;
-		
+		// Est-ce possible ?
+		final int nouveauX = (this.xInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) 
+				+ this.xFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
+		final int nouveauY = (this.yInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) 
+				+ this.yFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
+		final boolean mouvementPossible = this.eventARapprocher.map.calculerSiLaPlaceEstLibre(nouveauX, 
+				nouveauY, 
+				this.eventARapprocher.largeurHitbox, 
+				this.eventARapprocher.hauteurHitbox, 
+				this.eventARapprocher.id);
+
+		if (mouvementPossible) {
+			return true;
+		} else {
+			this.initialisation = false;
+			return false;
+		}
 	}
 	
 	@Override
 	public final void calculDuMouvement(final Event event) {
 		event.avance = true;
 		
-		//TODO
+		event.x = (this.xInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) + this.xFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
+		event.y = (this.yInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) + this.yFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
 		
 		this.ceQuiAEteFait++;
+		// Il faudra réinitialiser le mouvement la prochaine fois
+		if (this.ceQuiAEteFait >= this.etapes) {
+			this.initialisation = false;
+		}
 	}
 	
 	@Override

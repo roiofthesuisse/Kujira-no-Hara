@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import commandes.Deplacement;
+import commandes.Message;
 import conditions.Condition;
 import conditions.ConditionParler;
 import main.Commande;
@@ -111,12 +112,17 @@ public class PageEvent {
 			Commande.recupererLesCommandesEvent(this.commandes, pageJSON.getJSONArray("commandes"));
 			if (this.commandes.size() > 0) {
 				//on apprend aux Commandes qui est leur Page
+				boolean laPageContientUnMessage = false;
 				for (Commande commande : this.commandes) {
 					commande.page = this;
+					
+					if (commande instanceof Message) {
+						laPageContientUnMessage = true;
+					}
 				}
 				
 				//on rapproche le Héros de l'Event si c'est un interlocuteur
-				if (this.contientUneConditionParler()) {
+				if (this.contientUneConditionParler() && laPageContientUnMessage) {
 					final ArrayList<Mouvement> mouvements = new ArrayList<>();
 					mouvements.add(new SeRapprocher(0, idEvent));
 					final Commande deplacement = new Deplacement(0, mouvements, true, false, true);
