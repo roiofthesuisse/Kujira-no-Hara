@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import map.Event;
-import map.PageEvent.Traversabilite;
 import utilitaire.Maths;
 
 /**
@@ -37,6 +36,7 @@ public class SeRapprocher extends Avancer {
 		
 		this.idEventARapprocher = idEventARapprocher;
 		this.idEventCible = idEventCible;
+		this.directionDurantLeMouvement = -1;
 		this.initialisation = false;
 	}
 	
@@ -57,12 +57,6 @@ public class SeRapprocher extends Avancer {
 			// Initialisation
 			this.eventARapprocher = this.deplacement.page.event.map.eventsHash.get(this.idEventARapprocher);
 			this.eventCible = this.deplacement.page.event.map.eventsHash.get(this.idEventCible);
-			
-			// Ce Mouvement ne fonctionne qu'avec les Events solides
-			if (this.eventARapprocher.traversableActuel != Traversabilite.OBSTACLE 
-					|| this.eventCible.traversableActuel != Traversabilite.OBSTACLE) {
-				return false;
-			}
 			
 			// Coordonnées de départ
 			this.xInitialEventARapprocher = this.eventARapprocher.x;
@@ -133,6 +127,7 @@ public class SeRapprocher extends Avancer {
 			return true;
 		} else {
 			this.initialisation = false;
+			this.directionDurantLeMouvement = -1;
 			return false;
 		}
 	}
@@ -143,11 +138,13 @@ public class SeRapprocher extends Avancer {
 		
 		event.x = (this.xInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) + this.xFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
 		event.y = (this.yInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) + this.yFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
-		
+		LOG.debug("Rapprochement de "+this.xInitialEventARapprocher+";"+this.yInitialEventARapprocher
+				+" vers "+event.x+";"+event.y);
 		this.ceQuiAEteFait++;
 		// Il faudra réinitialiser le mouvement la prochaine fois
 		if (this.ceQuiAEteFait >= this.etapes) {
 			this.initialisation = false;
+			this.directionDurantLeMouvement = -1;
 		}
 	}
 	
