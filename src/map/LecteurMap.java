@@ -75,7 +75,6 @@ public class LecteurMap extends Lecteur {
 	
 	/**
 	 * Constructeur explicite
-	 * @param fenetre dont ce Lecteur assure l'affichage
 	 * @param transition visuelle pour le passage d'une Map à l'autre
 	 */
 	public LecteurMap(final Transition transition) {
@@ -501,7 +500,15 @@ public class LecteurMap extends Lecteur {
 					event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
 				}
 				//cas où l'Event est vraiment en mouvement
-				if ((event.avance||event.avancaitALaFramePrecedente) && event.animeEnMouvementActuel && passerALAnimationSuivante) {
+				final boolean eventAvance = event.avance || event.avancaitALaFramePrecedente;
+				final boolean nAnimerQueLesDeplacementsForcesLorsDesDialogues = !this.stopEvent 
+						|| (event.deplacementForce != null 
+							&& event.deplacementForce.mouvements.size() > 0 
+							&& event.deplacementForce.idEventCommanditaire == this.eventQuiALanceStopEvent.id);
+				if (eventAvance
+						&& event.animeEnMouvementActuel
+						&& passerALAnimationSuivante
+						&& nAnimerQueLesDeplacementsForcesLorsDesDialogues) {
 					event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
 				}
 				event.avancaitALaFramePrecedente = event.avance;

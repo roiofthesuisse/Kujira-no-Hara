@@ -35,8 +35,10 @@ import mouvements.Mouvement;
 public class Deplacement extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(Deplacement.class);
 	
-	/** id de l'Event qui va être déplacé durant ce Mouvement */
+	/** id de l'Event qui va être déplacé */
 	public Integer idEventADeplacer; //Integer car clé d'une HashMap, et null lorsque "cet Event"
+	/** id de l'Event qui a réclamé ce Déplacement */
+	public Integer idEventCommanditaire;
 	/** Mouvements constitutifs de ce Déplacement */
 	public ArrayList<Mouvement> mouvements;
 	/** faut-il interrompre les Mouvements impossibles, ou attendre qu'ils soient possibles ? */
@@ -116,6 +118,8 @@ public class Deplacement extends Commande implements CommandeEvent {
 				event.deplacementForce.mouvements.add(mvt);
 				event.deplacementForce.page = this.page; //on indique le commanditaire de ce Déplacement
 			}
+			//on précise le commanditaire qui a imposé ce Déplacement à un autre event
+			event.deplacementForce.idEventCommanditaire = this.page.event.id;
 			//les nouvelles caractéristiques de Déplacement sont assignées au Déplacement forcé
 			event.deplacementForce.attendreLaFinDuDeplacement = this.attendreLaFinDuDeplacement;
 			event.deplacementForce.ignorerLesMouvementsImpossibles = this.ignorerLesMouvementsImpossibles;
