@@ -69,11 +69,13 @@ public class Tileset {
 		
 		//lecture des passabilités
 		final JSONArray jsonPassabilite = jsonTileset.getJSONArray("passabilite");
-		final int nombreDeCarreauxTileset = jsonPassabilite.length();
-		final int nombreDeLignesTileset = nombreDeCarreauxTileset / LARGEUR_TILESET;
+		final int nombreDeLignesTileset = jsonPassabilite.length();
+		final int nombreDeCarreauxTileset = nombreDeLignesTileset * LARGEUR_TILESET;
 		this.passabilite = new Passabilite[nombreDeCarreauxTileset];
-		for (int i = 0; i<nombreDeCarreauxTileset; i++) {
-			this.passabilite[i] = Passabilite.parCode((int) jsonPassabilite.get(i));
+		for (int l = 0; l<nombreDeLignesTileset; l++) {
+			for (int c = 0; c<LARGEUR_TILESET; c++) {
+				this.passabilite[l*LARGEUR_TILESET+c] = Passabilite.parCode(jsonPassabilite.getJSONArray(l).getInt(c));
+			}
 		}
 		
 		//image du tileset
@@ -111,8 +113,10 @@ public class Tileset {
 		this.altitude = new int[nombreDeCarreauxTileset];
 		final JSONArray jsonAltitude = jsonTileset.getJSONArray("altitude");
 		try {
-			for (int i = 0; i<nombreDeCarreauxTileset; i++ ) {
-				this.altitude[i] = (Integer) jsonAltitude.get(i);
+			for (int l = 0; l<nombreDeLignesTileset; l++ ) {
+				for (int c = 0; c<LARGEUR_TILESET; c++) {
+					this.altitude[l*LARGEUR_TILESET+c] = (Integer) jsonAltitude.getJSONArray(l).getInt(c);
+				}
 			}
 		} catch (JSONException e) {
 			LOG.error("Incompatibilité entre le tableau des altitudes du Tileset JSON et de l'image du Tileset : "+this.nom, e);
@@ -122,8 +126,10 @@ public class Tileset {
 		this.terrain = new int[nombreDeCarreauxTileset];
 		final JSONArray jsonTerrain = jsonTileset.getJSONArray("terrain");
 		try {
-			for (int i = 0; i<nombreDeCarreauxTileset; i++ ) {
-				this.terrain[i] = (Integer) jsonTerrain.get(i);
+			for (int l = 0; l<nombreDeLignesTileset; l++ ) {
+				for (int c = 0; c<LARGEUR_TILESET; c++) {
+					this.terrain[l*LARGEUR_TILESET+c] = (Integer) jsonTerrain.getJSONArray(l).getInt(c);
+				}
 			}
 		} catch (JSONException e) {
 			LOG.error("Incompatibilité entre le tableau des terrains du Tileset JSON et de l'image du Tileset : "+this.nom, e);
