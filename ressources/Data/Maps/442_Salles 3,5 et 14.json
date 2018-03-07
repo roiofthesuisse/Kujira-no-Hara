@@ -156,33 +156,27 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 15,
-		"y": 32,
+		"id": 27,
+		"nom": "coffre",
+		"x": 29,
+		"y": 44,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 431,
-				"xDebutHeros": 16,
-				"yDebutHeros": 13
-			}
 			],
+			"image": "Palourde coffre character",
 			"vitesse": 8,
 			"frequence": 8,
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -359,35 +353,35 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "coffre",
-		"x": 29,
-		"y": 44,
+		"id": 5,
+		"nom": "EV005",
+		"x": 15,
+		"y": 32,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 431,
+				"xDebutHeros": 16,
+				"yDebutHeros": 13
+			}
 			],
-			"image": "Palourde coffre character",
 			"vitesse": 8,
 			"frequence": 8,
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 11,
-		"nom": "Clone[341][004]",
-		"x": 11,
-		"y": 11
 	},
 	{
 		"id": 22,
@@ -396,16 +390,10 @@
 		"y": 11
 	},
 	{
-		"id": 6,
+		"id": 11,
 		"nom": "Clone[341][004]",
-		"x": 19,
-		"y": 32
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][141]",
-		"x": 18,
-		"y": 9
+		"x": 11,
+		"y": 11
 	},
 	{
 		"id": 28,
@@ -414,10 +402,22 @@
 		"y": 44
 	},
 	{
-		"id": 23,
+		"id": 17,
 		"nom": "Clone[341][141]",
-		"x": 14,
-		"y": 30
+		"x": 18,
+		"y": 9
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][004]",
+		"x": 19,
+		"y": 32
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][004]",
+		"x": 13,
+		"y": 11
 	},
 	{
 		"id": 1,
@@ -446,16 +446,10 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Clone[341][004]",
-		"x": 13,
-		"y": 11
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][004]",
-		"x": 19,
-		"y": 31
+		"id": 23,
+		"nom": "Clone[341][141]",
+		"x": 14,
+		"y": 30
 	},
 	{
 		"id": 18,
@@ -464,16 +458,10 @@
 		"y": 9
 	},
 	{
-		"id": 24,
-		"nom": "Clone[341][141]",
-		"x": 16,
-		"y": 26
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][141]",
-		"x": 18,
-		"y": 10
+		"id": 7,
+		"nom": "Clone[341][004]",
+		"x": 19,
+		"y": 31
 	},
 	{
 		"id": 2,
@@ -502,10 +490,16 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][004]",
-		"x": 19,
-		"y": 30
+		"id": 13,
+		"nom": "Clone[341][141]",
+		"x": 18,
+		"y": 10
+	},
+	{
+		"id": 24,
+		"nom": "Clone[341][141]",
+		"x": 16,
+		"y": 26
 	},
 	{
 		"id": 19,
@@ -514,10 +508,35 @@
 		"y": 10
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][141]",
+		"id": 8,
+		"nom": "Clone[341][004]",
 		"x": 19,
-		"y": 10
+		"y": 30
+	},
+	{
+		"id": 25,
+		"nom": "liane",
+		"x": 15,
+		"y": 27,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "liane pomme character",
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 3,
@@ -551,29 +570,16 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "liane",
-		"x": 15,
-		"y": 27,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "liane pomme character",
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"id": 14,
+		"nom": "Clone[341][141]",
+		"x": 19,
+		"y": 10
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][141]",
+		"x": 17,
+		"y": 11
 	},
 	{
 		"id": 9,
@@ -601,7 +607,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Quand \\c[02]Kakeru\\c[01] a redécouvert l'intérieur de\\ncette colline de granit, il y a disséminé des\\npépins de pomme.\""
+				"texte": "\"Quand \\c[02]Kakeru\\c[01] redécouvrit l'intérieur de\\nla colline de granit, il y dissémina des pépins\\nde pomme.\""
 			},
 			{
 				"nom": "Message",
@@ -628,49 +634,6 @@
 			"vitesse": 8,
 			"frequence": 8,
 			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][141]",
-		"x": 17,
-		"y": 11
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][141]",
-		"x": 19,
-		"y": 9
-	},
-	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 12,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 73,
-				"xDebutHeros": 13,
-				"yDebutHeros": 5
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -937,6 +900,49 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "EV004",
+		"x": 12,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 73,
+				"xDebutHeros": 13,
+				"yDebutHeros": 5
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][141]",
+		"x": 19,
+		"y": 9
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][141]",
+		"x": 18,
+		"y": 11
+	},
+	{
 		"id": 10,
 		"nom": "Pancarte",
 		"x": 15,
@@ -991,12 +997,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][141]",
-		"x": 18,
-		"y": 11
 	}
 	]
 }

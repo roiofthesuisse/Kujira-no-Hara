@@ -4,7 +4,7 @@
 	"largeur": 50,
 	"hauteur": 29,
 	"musique": {
-		"nomFichierSonore": "Village des Vickings.ogg",
+		"nomFichierSonore": "Village des Vickings.mid",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -108,52 +108,67 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 5,
-		"y": 26,
+		"id": 5,
+		"nom": "EV005",
+		"x": 21,
+		"y": 28,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 2
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 3,
-				"variable": false,
-				"nouveauX": 10,
-				"nouveauY": 24,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 126,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
+				"nom": "ConditionObjetPossede",
+				"idObjet": 51,
 				"numero": 0
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
+				"nom": "ConditionVariable",
+				"numeroVariable": 161,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 509,
+				"xDebutHeros": 21,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 21,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 21,
+				"yDebutHeros": 1
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": 8,
@@ -366,10 +381,94 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 21,
-		"y": 28,
+		"id": 16,
+		"nom": "EV016",
+		"x": 5,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 3,
+				"variable": false,
+				"nouveauX": 10,
+				"nouveauY": 24,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 126,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 22,
+		"nom": "EV022",
+		"x": 24,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 860,
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 33,
+		"nom": "EV033",
+		"x": 0,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
@@ -379,54 +478,11 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 51,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 161,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 509,
-				"xDebutHeros": 21,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 21,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 21,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"numeroNouvelleMap": 66,
+				"xDebutHeros": 28,
+				"yDebutHeros": 17
 			}
 			],
 			"vitesse": 8,
@@ -610,41 +666,10 @@
 		]
 	},
 	{
-		"id": 33,
-		"nom": "EV033",
-		"x": 0,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 66,
-				"xDebutHeros": 28,
-				"yDebutHeros": 17
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 22,
-		"nom": "EV022",
-		"x": 24,
-		"y": 8,
+		"id": 28,
+		"nom": "EV028",
+		"x": 27,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -654,73 +679,16 @@
 			],
 			"commandes": [
 			],
-			"image": 860,
-			"vitesse": 8,
-			"frequence": 8,
+			"image": "fumee chara",
+			"opacite": 200,
+			"modeDeFusion": 1,
+			"vitesse": 12,
+			"frequence": 4,
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 17,
-		"nom": "narrateur",
-		"x": 11,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 50
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "narrateur scene04.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 28,
-				"numeroEvent": 17,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	},
@@ -847,43 +815,63 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "EV028",
-		"x": 27,
+		"id": 17,
+		"nom": "narrateur",
+		"x": 11,
 		"y": 13,
 		"pages": [
 		{
 			"conditions": [
+			],
+			"commandes": [
 			{
-				"nom": "Parler"
+				"nom": "Attendre",
+				"nombreDeFrames": 50
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "narrateur scene04.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 28,
+				"numeroEvent": 17,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
 			],
-			"image": "fumee chara",
-			"opacite": 200,
-			"modeDeFusion": 1,
-			"vitesse": 12,
-			"frequence": 4,
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][001]",
-		"x": 37,
-		"y": 15
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][001]",
-		"x": 37,
-		"y": 16
 	},
 	{
 		"id": 23,
@@ -907,6 +895,117 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][001]",
+		"x": 37,
+		"y": 16
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][001]",
+		"x": 37,
+		"y": 15
+	},
+	{
+		"id": 18,
+		"nom": "oriflamme",
+		"x": 13,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "oriflamme character",
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "EV007",
+		"x": 22,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 51,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 161,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 509,
+				"xDebutHeros": 22,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 22,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 22,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1149,146 +1248,6 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 22,
-		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 51,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 161,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 509,
-				"xDebutHeros": 22,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 22,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 22,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "oriflamme",
-		"x": 13,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "oriflamme character",
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][001]",
-		"x": 22,
-		"y": 19
-	},
-	{
-		"id": 24,
-		"nom": "EV024",
-		"x": 22,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 41,
-				"xDebutHeros": 26,
-				"yDebutHeros": 17
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 13,
 		"nom": "EV013",
 		"x": 10,
@@ -1424,10 +1383,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 28,
-		"y": 28,
+		"id": 24,
+		"nom": "EV024",
+		"x": 22,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -1437,54 +1396,15 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 51,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 161,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 509,
-				"xDebutHeros": 28,
-				"yDebutHeros": 1
+				"numeroNouvelleMap": 41,
+				"xDebutHeros": 26,
+				"yDebutHeros": 17
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 28,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 28,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "EffacerImage",
+				"numero": 3
 			}
 			],
 			"vitesse": 8,
@@ -1494,6 +1414,37 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][001]",
+		"x": 22,
+		"y": 19
+	},
+	{
+		"id": 19,
+		"nom": "EV019",
+		"x": 28,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 860,
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -1736,41 +1687,10 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "EV019",
+		"id": 8,
+		"nom": "EV008",
 		"x": 28,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 860,
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][115]",
-		"x": 10,
-		"y": 23
-	},
-	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 28,
-		"y": 0,
+		"y": 28,
 		"pages": [
 		{
 			"conditions": [
@@ -1780,11 +1700,54 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 51,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 161,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 84,
-				"xDebutHeros": 27,
-				"yDebutHeros": 28
+				"numeroNouvelleMap": 509,
+				"xDebutHeros": 28,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 28,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 28,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": 8,
@@ -1850,6 +1813,68 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 28,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 84,
+				"xDebutHeros": 27,
+				"yDebutHeros": 28
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][115]",
+		"x": 10,
+		"y": 23
+	},
+	{
+		"id": 20,
+		"nom": "EV020",
+		"x": 19,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 860,
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -1928,72 +1953,6 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "EV020",
-		"x": 19,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 860,
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 24,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 88,
-				"xDebutHeros": 8,
-				"yDebutHeros": 17
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][005]",
-		"x": 12,
-		"y": 24
-	},
-	{
 		"id": 26,
 		"nom": "EV026",
 		"x": 32,
@@ -2019,84 +1978,16 @@
 		]
 	},
 	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 30,
-		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 51,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 161,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 509,
-				"xDebutHeros": 30,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 30,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 30,
-				"yDebutHeros": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 4,
+		"nom": "Clone[341][005]",
+		"x": 12,
+		"y": 24
 	},
 	{
-		"id": 32,
-		"nom": "EV032",
-		"x": 0,
-		"y": 21,
+		"id": 15,
+		"nom": "EV015",
+		"x": 24,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
@@ -2108,9 +1999,13 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 66,
-				"xDebutHeros": 28,
-				"yDebutHeros": 16
+				"numeroNouvelleMap": 88,
+				"xDebutHeros": 8,
+				"yDebutHeros": 17
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
 			}
 			],
 			"vitesse": 8,
@@ -2191,7 +2086,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).mid",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2491,6 +2386,111 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 32,
+		"nom": "EV032",
+		"x": 0,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 66,
+				"xDebutHeros": 28,
+				"yDebutHeros": 16
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "EV010",
+		"x": 30,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 51,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 161,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 509,
+				"xDebutHeros": 30,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 30,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 30,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

@@ -4,7 +4,7 @@
 	"largeur": 35,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Premières Galeries.ogg",
+		"nomFichierSonore": "Premières Galeries.mid",
 		"volume": 1.00,
 		"tempo": 0.50
 	},
@@ -857,6 +857,12 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][005]",
+		"x": 13,
+		"y": 13
+	},
+	{
 		"id": 12,
 		"nom": "Pancarte",
 		"x": 17,
@@ -968,12 +974,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][005]",
-		"x": 13,
-		"y": 13
-	},
-	{
 		"id": 7,
 		"nom": "Fleur téléporteuse",
 		"x": 9,
@@ -998,12 +998,6 @@
 			"auDessusDeTout": true
 		}
 		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][001]",
-		"x": 29,
-		"y": 17
 	},
 	{
 		"id": 2,
@@ -1058,62 +1052,16 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Clone[341][001]",
+		"x": 29,
+		"y": 17
+	},
+	{
 		"id": 8,
 		"nom": "Clone[341][008]",
 		"x": 6,
 		"y": 10
-	},
-	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 34,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 7,
-				"etat": "FAITE",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 39,
-				"xDebutHeros": 1,
-				"yDebutHeros": 21
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 39,
-				"xDebutHeros": 14,
-				"yDebutHeros": 20
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 14,
@@ -1189,6 +1137,58 @@
 			"commandes": [
 			{
 				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "EV003",
+		"x": 34,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 7,
+				"etat": "FAITE",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 39,
+				"xDebutHeros": 1,
+				"yDebutHeros": 21
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 39,
+				"xDebutHeros": 14,
+				"yDebutHeros": 20
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": 8,

@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Maison.ogg",
+		"nomFichierSonore": "Maison.mid",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
@@ -135,6 +135,168 @@
 			"frequence": 8,
 			"animeEnMouvement": true,
 			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Edouard",
+		"x": 13,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "On n'a pas encore rencontré Clovis le polymorphe \\ndans la grotte"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 169,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 5
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "On a déjà rencontré Clovis le polymorphe dans la grotte"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai hérité de la maison de mon cousin \\c[02]Dü\\c[01]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Elle est en bien piteux état !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Il faudra quelques mois pour tout rabibocher."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je me prénomme \\c[02]Édouard Gruchemuche\\c[01]."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'enseigne la littérature ogresque\\nà l'université de Tamago."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "ogre edouard character",
+			"vitesse": 12,
+			"frequence": 2,
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 169,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 5
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 145,
+				"numeroEvent": 6,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu portes les bottes de mon cousin \\c[02]Dü\\c[01] ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu peux les garder !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mon cousin était un matérialiste."
+			},
+			{
+				"nom": "Message",
+				"texte": "Sans doute que son inclination prononcée\\npour les biens bassement matériels l'a perdu."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour ma part j'ai beaucoup de livres, toutefois\\nje n'ai pas d'intérêt pour l'objet livre."
+			},
+			{
+				"nom": "Message",
+				"texte": "Mon attention ne va qu'aux idées."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "ogre edouard character",
+			"vitesse": 12,
+			"frequence": 2,
+			"animeEnMouvement": true,
+			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -411,7 +573,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Poésie theme 2.ogg",
+				"nomFichierSonore": "Poésie theme 2.mid",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -471,7 +633,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Cet \\c[2]Ogre\\c[1] a cru que je voulais sa poule en or !"
+				"texte": "Cet \\c[2]ogre\\c[1] a cru que je voulais sa poule en or !"
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -481,7 +643,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "L'\\c[02]Ogre\\c[01] a laissé tomber ça :"
+				"texte": "L'\\c[02]ogre\\c[01] a laissé tomber ça :"
 			},
 			{
 				"nom": "Attendre",
@@ -524,7 +686,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Ces chaussures magiques appartenant à \\nl'\\c[02]Ogre\\c[01] vous feront courir vite !"
+				"texte": "Ces chaussures magiques ayant appartenu à\\n\\c[02]l'ogre Dü Gruchemuche\\c[01] vous feront courir\\ntrès rapidement sans effort !"
 			},
 			{
 				"nom": "Message",
@@ -879,7 +1041,7 @@
 			"commandes": [
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Maison.ogg",
+				"nomFichierSonore": "Maison.mid",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
@@ -1018,6 +1180,59 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "valise",
+		"x": 12,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "On n'a pas encore rencontré Clovis le polymorphe \\ndans la grotte"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 169,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 5
+			}
+			],
+			"commandes": [
+			],
+			"image": "objet kujira 2",
+			"directionInitiale": 1,
+			"animationInitiale": 1,
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

@@ -111,43 +111,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][138]",
-		"x": 14,
-		"y": 12
-	},
-	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 7,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 431,
-				"xDebutHeros": 25,
-				"yDebutHeros": 16
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 27,
 		"nom": "Stèle",
 		"x": 19,
@@ -173,27 +136,27 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Ce géant de pierre est en réalité un ancien \\ngisement de granit qui a été exploité par les\\nvikings pour tailler des statues."
+				"texte": "\"Le géant de pierre est en réalité un ancien \\ngisement de granit exploité par les vikings\\npour la taille de statues."
 			},
 			{
 				"nom": "Message",
-				"texte": "Une fois la colline creusée et sculptée de \\nl'intérieur, les lucioles s'y sont engouffrées\\net lui ont donné une âme."
+				"texte": "Quand la colline fut creusée et sculptée de \\nl'intérieur, les lucioles s'y engouffrèrent et \\nlui donnèrent une âme."
 			},
 			{
 				"nom": "Message",
-				"texte": "Ce n'est pas la première fois que des lucioles \\nont donné vie à un granit creux..."
+				"texte": "Ce n'est pas la première fois que les lucioles \\ndonnent vie à un granit creux..."
 			},
 			{
 				"nom": "Message",
-				"texte": "On raconte que les statues jizo ont \\négalement une âme."
+				"texte": "On raconte parfois que les statues jizô ont \\naussi une âme."
 			},
 			{
 				"nom": "Message",
-				"texte": "Sans parler de cette légende qui mentionne\\ndes roches parlantes, au Sud-Est..."
+				"texte": "Sans parler de cette légende qui mentionne\\nun peuple de roches parlantes, au Sud-Est..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Il faut que j'aille voir ça de mes propres yeux !\""
+				"texte": "J'irai voir ça de mes propres yeux !\""
 			},
 			{
 				"nom": "Message",
@@ -228,10 +191,41 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][137]",
-		"x": 15,
-		"y": 14
+		"id": 16,
+		"nom": "EV016",
+		"x": 7,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 431,
+				"xDebutHeros": 25,
+				"yDebutHeros": 16
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][138]",
+		"x": 14,
+		"y": 12
 	},
 	{
 		"id": 22,
@@ -240,10 +234,16 @@
 		"y": 14
 	},
 	{
-		"id": 28,
-		"nom": "Clone[341][004]",
-		"x": 9,
-		"y": 6
+		"id": 11,
+		"nom": "Clone[341][137]",
+		"x": 15,
+		"y": 14
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][138]",
+		"x": 13,
+		"y": 8
 	},
 	{
 		"id": 17,
@@ -418,22 +418,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][138]",
-		"x": 13,
-		"y": 8
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][138]",
-		"x": 14,
-		"y": 11
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][137]",
-		"x": 14,
-		"y": 14
+		"id": 28,
+		"nom": "Clone[341][004]",
+		"x": 9,
+		"y": 6
 	},
 	{
 		"id": 23,
@@ -442,34 +430,16 @@
 		"y": 18
 	},
 	{
-		"id": 29,
-		"nom": "Clone[341][004]",
-		"x": 11,
-		"y": 6
+		"id": 12,
+		"nom": "Clone[341][137]",
+		"x": 14,
+		"y": 14
 	},
 	{
-		"id": 18,
-		"nom": "Blocage anti-évènement",
-		"x": 13,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 1,
+		"nom": "Clone[341][138]",
+		"x": 14,
+		"y": 11
 	},
 	{
 		"id": 7,
@@ -496,15 +466,57 @@
 		]
 	},
 	{
+		"id": 18,
+		"nom": "Blocage anti-évènement",
+		"x": 13,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 29,
+		"nom": "Clone[341][004]",
+		"x": 11,
+		"y": 6
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][137]",
+		"x": 15,
+		"y": 13
+	},
+	{
 		"id": 2,
 		"nom": "Clone[341][138]",
 		"x": 14,
 		"y": 10
 	},
 	{
-		"id": 13,
+		"id": 30,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 19
+	},
+	{
+		"id": 8,
 		"nom": "Clone[341][137]",
-		"x": 15,
+		"x": 14,
 		"y": 13
 	},
 	{
@@ -530,30 +542,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][137]",
-		"x": 14,
-		"y": 13
-	},
-	{
-		"id": 30,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 19
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][138]",
-		"x": 14,
-		"y": 9
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][138]",
-		"x": 14,
-		"y": 15
 	},
 	{
 		"id": 25,
@@ -587,6 +575,30 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Clone[341][138]",
+		"x": 14,
+		"y": 15
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][138]",
+		"x": 14,
+		"y": 9
+	},
+	{
+		"id": 31,
+		"nom": "Clone[341][004]",
+		"x": 9,
+		"y": 19
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][137]",
+		"x": 13,
+		"y": 13
+	},
+	{
 		"id": 20,
 		"nom": "Blocage anti-évènement",
 		"x": 15,
@@ -611,22 +623,10 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][137]",
-		"x": 13,
-		"y": 13
-	},
-	{
-		"id": 31,
-		"nom": "Clone[341][004]",
-		"x": 9,
-		"y": 19
-	},
-	{
-		"id": 26,
-		"nom": "Clone[341][0025]",
-		"x": 10,
-		"y": 5
+		"id": 4,
+		"nom": "Clone[341][138]",
+		"x": 14,
+		"y": 8
 	},
 	{
 		"id": 15,
@@ -635,16 +635,16 @@
 		"y": 15
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][138]",
-		"x": 14,
-		"y": 8
+		"id": 26,
+		"nom": "Clone[341][0025]",
+		"x": 10,
+		"y": 5
 	},
 	{
-		"id": 10,
-		"nom": "Clone[341][138]",
-		"x": 13,
-		"y": 14
+		"id": 32,
+		"nom": "Clone[341][004]",
+		"x": 9,
+		"y": 18
 	},
 	{
 		"id": 21,
@@ -671,10 +671,10 @@
 		]
 	},
 	{
-		"id": 32,
-		"nom": "Clone[341][004]",
-		"x": 9,
-		"y": 18
+		"id": 10,
+		"nom": "Clone[341][138]",
+		"x": 13,
+		"y": 14
 	}
 	]
 }

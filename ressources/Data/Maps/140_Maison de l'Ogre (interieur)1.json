@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "MiniBoss 2.ogg",
+		"nomFichierSonore": "MiniBoss 2.mid",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
@@ -111,12 +111,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 20,
-		"y": 20
-	},
-	{
 		"id": 16,
 		"nom": "Bloquage",
 		"x": 16,
@@ -141,6 +135,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 20,
+		"y": 20
 	},
 	{
 		"id": 6,
@@ -193,68 +193,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Obscurité",
-		"x": 18,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 20,
-				"modeDeFusion": "addition",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 0,
-				"nomImage": "001-Fog01"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 16,
-				"variable": false,
-				"nouveauX": 15,
-				"nouveauY": 21,
-				"direction": 0
-			},
-			{
-				"nom": "AfficherImage",
-				"numero": 3,
-				"nomImage": "décor sup poutres",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -547,6 +485,10 @@
 				"texte": "Canailles !"
 			},
 			{
+				"nom": "Message",
+				"texte": "Un Gruchemuche ne se laisse pas cambrioler\\nsi facilement !"
+			},
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
@@ -603,6 +545,68 @@
 			"vitesse": 8,
 			"frequence": 8,
 			"figerLesAutresEvents": true,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Obscurité",
+		"x": 18,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 20,
+				"modeDeFusion": "addition",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 200,
+				"nuance": 0,
+				"nomImage": "001-Fog01"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 16,
+				"variable": false,
+				"nouveauX": 15,
+				"nouveauY": 21,
+				"direction": 0
+			},
+			{
+				"nom": "AfficherImage",
+				"numero": 3,
+				"nomImage": "décor sup poutres",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 255,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,

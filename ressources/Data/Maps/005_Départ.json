@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Rencontre avec Mathusalem.mp3",
+		"nomFichierSonore": "",
 		"volume": 0.00,
 		"tempo": 1.00
 	},
@@ -148,14 +148,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 77,
-				"vert": 77,
-				"bleu": 77,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 8,
@@ -189,6 +181,10 @@
 				"nomFichierSonore": "052-Cannon01.ogg",
 				"volume": 0.80,
 				"tempo": 1.50
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 30
 			},
 			{
 				"nom": "AfficherImage",
@@ -402,6 +398,9 @@
 				"bleu": 127,
 				"gris": 0,
 				"dureeTransition": 0
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": 8,
