@@ -43,6 +43,9 @@ public class ContexteDeComposite implements CompositeContext {
 		
 		final float opacite = composite.opacite;
 		
+		// changer le ton de l'écran ?
+		final int[] ton = ModeDeFusion.TON_DE_L_ECRAN.nom.equals(composite.modeDeFusion.nom) ? composite.ton : null;
+		
 		//buffers
 		final DataBuffer srcDataBuffer = src.getDataBuffer();
 		final DataBuffer dstDataBuffer = dstIn.getDataBuffer();
@@ -50,7 +53,7 @@ public class ContexteDeComposite implements CompositeContext {
 		// On effectue l'opération graphique en multithread : chaque ligne de pixel a son thread.
 		final ExecutorService executor = Executors.newFixedThreadPool(Main.NOMBRE_DE_THREADS);
 		ThreadOperationGraphique.initialiserParametreGlobaux(srcDataBuffer, dstDataBuffer, largeur, 
-				src, dstIn, dstOut, pinceau, opacite);
+				src, dstIn, dstOut, pinceau, opacite, ton);
 		for (int y = 0; y < hauteur; y++) {
 			executor.submit(new ThreadOperationGraphique(y)); //chaque thread modifie une ligne du dstOut
 		}
@@ -87,6 +90,7 @@ public class ContexteDeComposite implements CompositeContext {
 		private static volatile WritableRaster dstOut;
 		private static Pinceau pinceau;
 		private static float opacite;
+		private static int[] ton;
 		
 		/**
 		 * Ces paramètres sont communs à toutes les lignes de pixels de l'image.
@@ -98,10 +102,11 @@ public class ContexteDeComposite implements CompositeContext {
 		 * @param dstOut raster du résultat du mélange
 		 * @param pinceau qui effectue le mélange sur chaque pixel
 		 * @param opacite de l'opération graphique
+		 * @param ton null dans le cas normal, non null dans le cas d'un ton d'écran
 		 */
 		public static void initialiserParametreGlobaux(final DataBuffer srcDataBuffer, final DataBuffer dstDataBuffer, 
 				final int largeur, final Raster src, final Raster dstIn, final WritableRaster dstOut, 
-				final Pinceau pinceau, final float opacite
+				final Pinceau pinceau, final float opacite, final int[] ton
 		) {
 			ThreadOperationGraphique.srcDataBuffer = srcDataBuffer;
 			ThreadOperationGraphique.dstDataBuffer = dstDataBuffer;
@@ -111,6 +116,7 @@ public class ContexteDeComposite implements CompositeContext {
 			ThreadOperationGraphique.dstOut = dstOut;
 			ThreadOperationGraphique.pinceau = pinceau;
 			ThreadOperationGraphique.opacite = opacite;
+			ThreadOperationGraphique.ton = ton;
 		}
 		
 		/**
@@ -124,7 +130,7 @@ public class ContexteDeComposite implements CompositeContext {
 		@Override
 		public final void run() {
 	        final int[] result = new int[4];
-	        final int[] srcPixel = new int[4];
+	        final int[] srcPixel;
 	        final int[] dstPixel = new int[4];
 	        final int[] srcPixels = new int[largeur];
 	        final byte[] srcPixelsBytes = new byte[largeur*4]; //4 bytes pour faire un int
@@ -132,18 +138,25 @@ public class ContexteDeComposite implements CompositeContext {
 	        final byte[] dstPixelsBytes = new byte[largeur*4]; //4 bytes pour faire un int
 			
 			//récupérer le tableau de pixels
-        	if (srcDataBuffer.getDataType() == DataBuffer.TYPE_INT) {
-	            src.getDataElements(0, y, largeur, 1, srcPixels);
-        	} else {
-        		//l'image source n'a pas des pixels de type int, il faut les convertir
-        		src.getDataElements(0, y, largeur, 1, srcPixelsBytes);
-
-        		final IntBuffer intBuffer =
-        				   ByteBuffer.wrap(srcPixelsBytes)
-        				     .order(ByteOrder.LITTLE_ENDIAN)
-        				     .asIntBuffer();
-        		intBuffer.get(srcPixels);
-        	}
+	        if (ton == null) {
+	        	if (srcDataBuffer.getDataType() == DataBuffer.TYPE_INT) {
+		            src.getDataElements(0, y, largeur, 1, srcPixels);
+	        	} else {
+	        		//l'image source n'a pas des pixels de type int, il faut les convertir
+	        		src.getDataElements(0, y, largeur, 1, srcPixelsBytes);
+	
+	        		final IntBuffer intBuffer =
+	        				   ByteBuffer.wrap(srcPixelsBytes)
+	        				     .order(ByteOrder.LITTLE_ENDIAN)
+	        				     .asIntBuffer();
+	        		intBuffer.get(srcPixels);
+	        	}
+	        	// le pixel de l'image source sera utilisé comme source
+	        	srcPixel  = new int[4];
+	        } else {
+	        	// ton de l'écran utilisé comme source
+	        	srcPixel = ton;
+	        }
         	
         	if (dstDataBuffer.getDataType() == DataBuffer.TYPE_INT) {
         		dstIn.getDataElements(0, y, largeur, 1, dstPixels);
@@ -160,11 +173,14 @@ public class ContexteDeComposite implements CompositeContext {
 
             for (int x = 0; x < largeur; x++) {     	
                 //les pixels sont des INT_ARGB
-                int pixel = srcPixels[x];
-                srcPixel[0] = (pixel >> 24) & 0xFF;
-                srcPixel[1] = (pixel >> 16) & 0xFF;
-                srcPixel[2] = (pixel >>  8) & 0xFF;
-                srcPixel[3] = (pixel      ) & 0xFF;
+            	int pixel;
+            	if (ton == null) {
+            		pixel = srcPixels[x];
+            		srcPixel[0] = (pixel >> 24) & 0xFF;
+                    srcPixel[1] = (pixel >> 16) & 0xFF;
+                    srcPixel[2] = (pixel >>  8) & 0xFF;
+                    srcPixel[3] = (pixel      ) & 0xFF;
+            	}
                 
                 pixel = dstPixels[x];
                 dstPixel[0] = (pixel >> 24) & 0xFF;

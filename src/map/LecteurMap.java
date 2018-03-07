@@ -23,7 +23,6 @@ import mouvements.Sauter;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
-import utilitaire.graphismes.ModeDeFusion;
 import utilitaire.son.LecteurAudio;
 import utilitaire.Maths;
 
@@ -45,7 +44,6 @@ public class LecteurMap extends Lecteur {
 	public static final BufferedImage HUD_ARGENT = chargerImageHudArgent();
 	
 	public Map map;
-	public Tileset tilesetActuel = null;
 	/** vignette actuelle pour l'animation des Autotiles animés de la Map */
 	private int vignetteAutotileActuelle = 0;
 	
@@ -72,6 +70,7 @@ public class LecteurMap extends Lecteur {
 	public int tremblementDeTerre;
 	/** Transition visuelle avec la Map précédente */
 	public Transition transition = Transition.AUCUNE;
+	public int[] tonActuel = null;
 	
 	/**
 	 * Constructeur explicite
@@ -93,18 +92,14 @@ public class LecteurMap extends Lecteur {
 		//éventuelle sortie vers la Map adjacente
 		this.map.sortirVersLaMapAdjacente();
 		
-		//ouverture du tileset
-		try {
-			if (tilesetActuel == null) {
-				tilesetActuel = this.map!=null && this.map.tileset!=null ? this.map.tileset : new Tileset(map.tileset.nom);
-			}
-		} catch (Exception e) {
-			LOG.error("Erreur lors de l'ouverture du tileset :", e);
-		}
-		
 		//calcul de la position de la caméra par rapport à la Map
 		this.xCamera = calculerXCamera();
 		this.yCamera = calculerYCamera();
+		
+		//ton
+		if (this.tonActuel == null) {
+			this.tonActuel = this.map.tileset.ton;
+		}
 		
 		//panorama
 		BufferedImage ecran = dessinerPanorama(xCamera, yCamera);
@@ -146,10 +141,9 @@ public class LecteurMap extends Lecteur {
 		}
 		
 		//ton
-		/*
-		if (this.map.tileset.ton != null) {
-			ecran = Graphismes.appliquerTon(ecran, this.map.tileset.ton);
-		}*/
+		if (this.tonActuel != null) {
+			ecran = Graphismes.appliquerTon(ecran, this.tonActuel);
+		}
 		
 		//effet aquatique (lol)
 		if (this.map.ondulation != null) {
@@ -736,8 +730,8 @@ public class LecteurMap extends Lecteur {
 		Main.lecteur.allume = false;
 		
 		// On détruit le Tileset actuel si le prochain n'est pas le même
-		if (tilesetActuel!=null && !tilesetActuel.nom.equals(nouvelleMap.tileset.nom)) {
-			this.tilesetActuel = null;
+		if (this.map.tileset != null && !this.map.tileset.nom.equals(nouvelleMap.tileset.nom)) {
+			this.map.tileset = null;
 		}
 	}
 	
@@ -758,8 +752,9 @@ public class LecteurMap extends Lecteur {
 			capture = map.brouillard.dessinerLeBrouillard(capture, this.xCamera, this.yCamera, this.frameActuelle);
 		}
 		//ton
-		if (this.map.tileset.ton != null) {
-			capture = Graphismes.superposerImages(capture, capture, 0, 0, Graphismes.OPACITE_MAXIMALE, ModeDeFusion.TON_DE_L_ECRAN);
+		if (this.tonActuel != null) {
+			//capture = Graphismes.superposerImages(capture, capture, 0, 0, Graphismes.OPACITE_MAXIMALE, ModeDeFusion.TON_DE_L_ECRAN);
+			capture = Graphismes.appliquerTon(capture, this.tonActuel);
 		}
 		return capture;
 	}
@@ -821,7 +816,7 @@ public class LecteurMap extends Lecteur {
 				// Le Héros ne saute pas
 				xHeros = map.heros.x;
 			}
-			int nouveauXCamera = xHeros - Fenetre.LARGEUR_ECRAN/2;
+			final int nouveauXCamera = xHeros - Fenetre.LARGEUR_ECRAN/2;
 			
 			if (nouveauXCamera<0) { //caméra ne déborde pas de la map à gauche
 				return (this.defilementX>0 ? this.defilementX : 0) 

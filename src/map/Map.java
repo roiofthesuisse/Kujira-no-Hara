@@ -229,7 +229,7 @@ public class Map implements Sauvegardable {
 		//chargement du tileset
 		try {
 			//si jamais le Tileset est le même, pas la peine de le recréer
-			final Tileset tilesetActuel = ((LecteurMap) Main.lecteur).tilesetActuel;
+			final Tileset tilesetActuel = ((LecteurMap) Main.lecteur).map.tileset;
 			if (this.nomTileset.equals(tilesetActuel.nom)) {
 				this.tileset = tilesetActuel;
 				LOG.info("Le Tileset n'a pas changé, on garde le même.");

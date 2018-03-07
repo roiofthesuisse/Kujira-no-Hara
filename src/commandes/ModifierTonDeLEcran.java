@@ -59,28 +59,28 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		// Début de la transition
 		if (this.dejaFait == 0) {
-			if (((LecteurMap) Main.lecteur).map.tileset.ton != null) {
+			if (((LecteurMap) Main.lecteur).tonActuel != null) {
 				for (int i = 0; i<4; i++) {
-					this.tonInitial[i] = ((LecteurMap) Main.lecteur).map.tileset.ton[i];
+					this.tonInitial[i] = ((LecteurMap) Main.lecteur).tonActuel[i];
 				}
 			} else {
 				this.tonInitial[0] = 0; //pas de gris
 				for (int i = 1; i<4; i++) {
 					this.tonInitial[i] = MEDIANE;
 				}
-				((LecteurMap) Main.lecteur).map.tileset.ton = new int[4];
+				((LecteurMap) Main.lecteur).tonActuel = new int[4];
 			}
 		}
 		
 		if (this.dureeTransition == 0) {
 			// transition instantanée
 			for (int i = 0; i<4; i++) {
-				((LecteurMap) Main.lecteur).map.tileset.ton[i] = this.tonFinal[i];
+				((LecteurMap) Main.lecteur).tonActuel[i] = this.tonFinal[i];
 			}
 		} else {
 			// transition lente
 			for (int i = 0; i<4; i++) {
-				((LecteurMap) Main.lecteur).map.tileset.ton[i] = (tonInitial[i] * (this.dureeTransition-this.dejaFait) + this.tonFinal[i] * this.dejaFait) / this.dureeTransition;
+				((LecteurMap) Main.lecteur).tonActuel[i] = (tonInitial[i] * (this.dureeTransition-this.dejaFait) + this.tonFinal[i] * this.dejaFait) / this.dureeTransition;
 			}
 		}
 				

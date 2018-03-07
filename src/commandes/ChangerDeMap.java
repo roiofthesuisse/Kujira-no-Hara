@@ -76,35 +76,34 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		
 		final LecteurMap nouveauLecteur = new LecteurMap(this.transition);
 		try {
-			final Map nouvelleMap;
+			final int numeroNouvelleMapInterprete;
+			final int xDebutHerosInterprete;
+			final int yDebutHerosInterprete;
 			if (this.definiParDesVariables) {
 				//données à chercher dans les variables
 				final int[] variables = getPartieActuelle().variables;
-				nouvelleMap = new Map(
-						variables[numeroNouvelleMap], 
-						nouveauLecteur, 
-						ancienHeros, 
-						null, //pas de Brouillard forcé
-						variables[xDebutHeros] * Main.TAILLE_D_UN_CARREAU, 
-						variables[yDebutHeros] * Main.TAILLE_D_UN_CARREAU, 
-						this.directionDebutHeros,
-						ecartX, //décalage
-						ecartY //décalage
-				);
+				numeroNouvelleMapInterprete = variables[numeroNouvelleMap];
+				xDebutHerosInterprete = variables[xDebutHeros];
+				yDebutHerosInterprete = variables[yDebutHeros];
 			} else {
 				//données brutes
-				nouvelleMap = new Map(
-						numeroNouvelleMap, 
-						nouveauLecteur, 
-						ancienHeros, 
-						null, //pas de Brouillard forcé
-						xDebutHeros * Main.TAILLE_D_UN_CARREAU, 
-						yDebutHeros * Main.TAILLE_D_UN_CARREAU, 
-						this.directionDebutHeros,
-						ecartX, //décalage
-						ecartY //décalage
-				);
+				numeroNouvelleMapInterprete = numeroNouvelleMap;
+				xDebutHerosInterprete = xDebutHeros;
+				yDebutHerosInterprete = yDebutHeros;
 			}
+			
+			final Map nouvelleMap = new Map(
+					numeroNouvelleMapInterprete, 
+					nouveauLecteur, 
+					ancienHeros, 
+					null, //pas de Brouillard forcé
+					xDebutHerosInterprete * Main.TAILLE_D_UN_CARREAU, 
+					yDebutHerosInterprete * Main.TAILLE_D_UN_CARREAU, 
+					this.directionDebutHeros,
+					ecartX, //décalage
+					ecartY //décalage
+			);
+			
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);
 		} catch (Exception e) {
 			LOG.error("Impossible de charger la map numero "+numeroNouvelleMap, e);

@@ -78,7 +78,9 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 		}
 		
 		if (Meteo.verifierSiIdentiques(nouvelleMeteo, ancienneMeteo)) {
-			LOG.warn("Cette météo est identique à l'ancienne, on ne fait rien."+ nouvelleMeteo.getType()+" "+ancienneMeteo.getType());
+			final String nouveauTypeMeteo = nouvelleMeteo != null ? nouvelleMeteo.getType().nom : "null";
+			final String ancienTypeMeteo = ancienneMeteo != null ? ancienneMeteo.getType().nom : "null";
+			LOG.warn("Cette météo est identique à l'ancienne, on ne fait rien. "+ancienTypeMeteo+"->"+nouveauTypeMeteo);
 		} else {
 			//la nouvelle météo proposée est différente de l'ancienne
 			getPartieActuelle().meteo = nouvelleMeteo;

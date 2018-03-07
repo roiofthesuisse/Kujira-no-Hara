@@ -20,7 +20,7 @@ public abstract class Maths {
 	public static final int ANGLE_TOUR_COMPLET = 360;
 	
 	/** Générateur de nombres aléatoires */
-	public final static Random generateurAleatoire = new Random();
+	public static final Random generateurAleatoire = new Random();
 	
 	/**
 	 * Modulo

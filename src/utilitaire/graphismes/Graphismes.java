@@ -110,6 +110,9 @@ public abstract class Graphismes {
 		
 		//transparence et mode de fusion
 		if (opacite < OPACITE_MAXIMALE || !ModeDeFusion.NORMAL.equals(modeDeFusion)) {
+			if (ModeDeFusion.TON_DE_L_ECRAN.equals(modeDeFusion)) {
+				LOG.warn("Pour modifier le ton de l'écran, utiliser plutôt la méthode Graphismes.appliquerTon().");
+			}
 			final float alpha = (float) opacite/OPACITE_MAXIMALE;
 	        final Composite comp = MonComposite.creerComposite(modeDeFusion, alpha);
 			g2d.setComposite(comp);
@@ -251,7 +254,7 @@ public abstract class Graphismes {
 	 * @return clone de l'image
 	 */
 	public static BufferedImage clonerUneImage(final BufferedImage image) {
-	    boolean isAlphaPremultiplied = COLORMODEL.isAlphaPremultiplied();
+	    final boolean isAlphaPremultiplied = COLORMODEL.isAlphaPremultiplied();
 	    WritableRaster raster = image.copyData(image.getRaster().createCompatibleWritableRaster());
 	    return new BufferedImage(COLORMODEL, raster, isAlphaPremultiplied, null);
 	}
@@ -271,7 +274,7 @@ public abstract class Graphismes {
 			final File outputfile = new File("C:/Users/Public/kujira/"+nom+".png");
 			ImageIO.write(image, "png", outputfile);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOG.error(e);
 		}
 	}
 	
@@ -309,8 +312,7 @@ public abstract class Graphismes {
 			return convertirEnImageCompatible(ImageIO.read(new File("./ressources/Graphics/"+dossierSlashNom)), dossierSlashNom);
 		} catch (IOException e) {
 			if (nom!=null && !nom.equals("")) {
-				LOG.error("Impossible d'ouvrir l'image : "+dossierSlashNom);
-				e.printStackTrace();
+				LOG.error("Impossible d'ouvrir l'image : "+dossierSlashNom, e);
 			} else {
 				LOG.warn("Pas d'image pour ce "+dossier);
 			}
@@ -347,6 +349,7 @@ public abstract class Graphismes {
      * @param ton2 second ton
      * @return true si les tons sont identiques, false sinon
      */
+    @Deprecated
 	public static boolean memeTon(final int[] ton, final int[] ton2) {
 		final int taille =  Math.max(ton.length, ton2.length);
 		for (int i = 0; i<taille; i++) {
@@ -368,16 +371,15 @@ public abstract class Graphismes {
 			// pas de ton
 			return image;
 		}
-		
-		BufferedImage image2 = new BufferedImage(image.getWidth(), image.getHeight(), Graphismes.TYPE_DES_IMAGES);
+		BufferedImage image2 = clonerUneImage(image);
 
 		// composite tonal
-		final Graphics2D g2d = (Graphics2D) image2.createGraphics();
+		Graphics2D g2d = (Graphics2D) image2.createGraphics();
 	    final Composite comp = MonComposite.creerComposite(ton);
 		g2d.setComposite(comp);
 		
 		// dessiner l'image
-		g2d.drawImage(image, null,  0,  0);
+		g2d.drawImage(image, null,  0,  0); //ici peu importe l'image en argument, car la source sera le ton
 		
 		return image2;
 	}
@@ -396,8 +398,8 @@ public abstract class Graphismes {
 		}
 		
 		// Comparaison pixel à pixel
-		for (int i=0; i<image1.getWidth(); i++) {
-			for (int j=0; j<image2.getWidth(); j++) {
+		for (int i = 0; i<image1.getWidth(); i++) {
+			for (int j = 0; j<image2.getWidth(); j++) {
 				if (image1.getRGB(i, j) != image2.getRGB(i, j)) {
 					return false;
 				}
