@@ -42,8 +42,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-004,-004,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0076,0075,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0084,0083,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
@@ -65,12 +65,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 16,
-		"nom": "Clone[341][040]",
-		"x": 13,
-		"y": 2
-	},
 	{
 		"id": 5,
 		"nom": "Blocage anti-évènement",
@@ -96,10 +90,10 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][0021]",
-		"x": 12,
-		"y": 4
+		"id": 16,
+		"nom": "Clone[341][040]",
+		"x": 13,
+		"y": 2
 	},
 	{
 		"id": 22,
@@ -144,10 +138,10 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][040]",
-		"x": 17,
-		"y": 2
+		"id": 11,
+		"nom": "Clone[341][0021]",
+		"x": 12,
+		"y": 4
 	},
 	{
 		"id": 6,
@@ -174,6 +168,18 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "Clone[341][040]",
+		"x": 17,
+		"y": 2
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][0021]",
+		"x": 18,
+		"y": 5
+	},
+	{
 		"id": 1,
 		"nom": "Blocage anti-évènement",
 		"x": 8,
@@ -198,10 +204,28 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Clone[341][0021]",
+		"id": 7,
+		"nom": "Blocage anti-évènement",
 		"x": 18,
-		"y": 5
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -356,28 +380,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Blocage anti-évènement",
+		"id": 13,
+		"nom": "Clone[341][0021]",
 		"x": 18,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 4
 	},
 	{
 		"id": 2,
@@ -415,10 +421,72 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][0021]",
-		"x": 18,
-		"y": 4
+		"id": 24,
+		"nom": "Stèle",
+		"x": 13,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Bourgmestre \\c[02]Don Flatus\\c[01] ! Menteur ! \\nEscroc !\\nSac à vent !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Par deux fois fut brisé le coeur des habitants\\nde Wissenburg !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ton âme turpide erre à présent pour toujours\\ndans les ruines de Braënshwyck.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 8,
@@ -427,10 +495,35 @@
 		"y": 4
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][040]",
-		"x": 9,
-		"y": 2
+		"id": 19,
+		"nom": "EV019",
+		"x": 14,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 531,
+				"xDebutHeros": 14,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 3,
@@ -457,16 +550,47 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Clone[341][040]",
+		"x": 9,
+		"y": 2
+	},
+	{
 		"id": 9,
 		"nom": "Clone[341][0021]",
 		"x": 8,
 		"y": 9
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][040]",
-		"x": 9,
-		"y": 11
+		"id": 20,
+		"nom": "EV020",
+		"x": 18,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 531,
+				"xDebutHeros": 18,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 4,
@@ -491,6 +615,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][040]",
+		"x": 9,
+		"y": 11
 	},
 	{
 		"id": 10,
