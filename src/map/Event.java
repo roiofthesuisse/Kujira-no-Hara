@@ -630,7 +630,17 @@ public class Event implements Comparable<Event> {
 	public final int calculerTerrain() {
 		final int xEvent = (this.x + this.largeurHitbox/2) / Main.TAILLE_D_UN_CARREAU;
 		final int yEvent = (this.y + this.hauteurHitbox/2) / Main.TAILLE_D_UN_CARREAU;
-		final int carreauEvent = this.map.layer0[xEvent][yEvent];
+        //la couche la plus haute donne son terrain
+        int carreauEvent = this.map.layer2[xEvent][yEvent];
+        if (carreauEvent == 0) {
+            //si la couche la plus haute n'a pas de terrain, on prend le terrain de la couche médiane
+            carreauEvent = this.map.layer1[xEvent][yEvent];
+            if (carreauEvent == 0) {
+                //si la couche médiane n'a pas de terrain non plus, on prend le terrain de la couche basse
+                carreauEvent = this.map.layer0[xEvent][yEvent];
+                //et tant pis si la couche basse n'a pas de terrain non plus (0)
+            }
+        }
 		return this.map.tileset.terrainDeLaCase(carreauEvent);
 	}
 	
