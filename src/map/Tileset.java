@@ -200,7 +200,9 @@ public class Tileset {
 	 * @return identitifaint de terrain
 	 */
 	public final int terrainDeLaCase(final int numeroCarreau) {
-		if (numeroCarreau >= -1) { //case normale
+		if (numeroCarreau == -1) { //case vide
+			return 0;
+		} else if (numeroCarreau > -1) { //case normale
 			return this.terrain[numeroCarreau];
 		} else { //autotile
 			return this.autotiles.get(numeroCarreau).terrain;

@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import commandes.CommandeEvent;
 import map.Event;
+import map.Map;
 import map.PageEvent.Traversabilite;
 
 /**
@@ -242,8 +243,11 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 
 		final ArrayList<Event> events1 = recupererLesEventsCandidats(idEvent1);
 		final ArrayList<Event> events2 = recupererLesEventsCandidats(idEvent2);
+		final Map map = this.page.event.map;
 		for (Event event1 : events1) {
+			final boolean event1SurUnDecorPassable = map.calculerSiLaPlaceEstLibre(event1.x, event1.y, event1.largeurHitbox, event1.hauteurHitbox, event1.id);
 			for (Event event2 : events2) {
+				final boolean event2SurUnDecorPassable = map.calculerSiLaPlaceEstLibre(event2.x, event2.y, event2.largeurHitbox, event2.hauteurHitbox, event2.id);
 				
 				//pas de contact si l'un des deux saute
 				if (!event1.saute && !event2.saute) {
@@ -258,12 +262,13 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 					final int ymin2 = event2.y;
 					final int ymax2 = event2.y + event2.hauteurHitbox;
 					
-					//deux interprétations très différentes du Contact selon la traversabilité de l'event
-					final boolean modeTraversable = event2.traversableActuel == Traversabilite.TRAVERSABLE 
-							|| event1.traversableActuel == Traversabilite.TRAVERSABLE
+					// deux interprétations très différentes du Contact selon la traversabilité de l'event
+					// si un event traversable est situé sur un décor impraticable, le contact est solide
+					final boolean modeTraversable = event2.traversableActuel == Traversabilite.TRAVERSABLE && event2SurUnDecorPassable
+							|| event1.traversableActuel == Traversabilite.TRAVERSABLE && event1SurUnDecorPassable
 							// si l'un des deux est le Héros
-							|| (event1.id == 0 && event2.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS)
-							|| (event2.id == 0 && event1.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS);
+							|| (event1.id == 0 && event2.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS) && event2SurUnDecorPassable
+							|| (event2.id == 0 && event1.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS) && event1SurUnDecorPassable;
 					
 					if (this.typeDeContact.ilYAContact(modeTraversable, xmin1, xmax1, ymin1, ymax1, xmin2, xmax2, ymin2, ymax2)) {
 						//au moins un couple d'events doit être en contact
