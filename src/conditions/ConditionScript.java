@@ -1,20 +1,87 @@
 package conditions;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import main.Main;
+
+/**
+ * Condition basée sur l'interprétation d'un script ruby.
+ */
 public class ConditionScript extends Condition {
-
-	private final String script;
+	//constantes
+	private static final Logger LOG = LogManager.getLogger(ConditionScript.class);
+	
+	private static final String ESPACE = "(\\s)*";
+	private static final String TRUE = "true";
+	private static final String FALSE = "false";
+	
+	private static final String COORD_EVENT_DEBUT = "\\$game_map\\.events\\[";
+	private static final String COORD_EVENT_FIN = "\\]\\.";
+	private static final String EVENT_ID = "@event_id";
+	private static final String NOMBRE = "[0-9]+";
+	private static final String COORD_EVENT_X = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+"x";
+	private static final String COORD_EVENT_Y = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+"y";
+	private static final String COORD_HEROS_X = "\\$game_player\\.x";
+	private static final String COORD_HEROS_Y = "\\$game_player\\.y";
+	private static final String RACINE_DEBUT = "Math\\.sqrt\\(";
+	private static final String RACINE_FIN = "\\)\\.round";
+	private static final String RACINAGE = RACINE_DEBUT+ESPACE+NOMBRE+ESPACE+RACINE_FIN;
+	private static final String ABSOLU_DEBUT = "\\(";
+	private static final String ABSOLU_FIN = "\\)\\.abs";
+	private static final String ABSOLUTION = ABSOLU_DEBUT+ESPACE+NOMBRE+ESPACE+ABSOLU_FIN;
+	
+	private static final String ET = "&&";
+	private static final String ETATION = NOMBRE+ESPACE+ET+ESPACE+NOMBRE;
+	private static final String OU = "\\|\\|";
+	private static final String OUATION = NOMBRE+ESPACE+OU+ESPACE+NOMBRE;
+	private static final String NEGATION = "!"+ESPACE+NOMBRE;
+	private static final String PARENTHESAGE = "\\("+ESPACE+NOMBRE+ESPACE+"\\)";
+	
+	private static final String EGAL = "==";
+	private static final String EGALISATION = NOMBRE+ESPACE+EGAL+ESPACE+NOMBRE;
+	private static final String INFEGAL = "<=";
+	private static final String INFERIORATION_LARGE = NOMBRE+ESPACE+INFEGAL+ESPACE+NOMBRE;
+	private static final String SUPEGAL = ">=";
+	private static final String SUPERIORATION_LARGE = NOMBRE+ESPACE+SUPEGAL+ESPACE+NOMBRE;
+	private static final String INFERIEUR = "<";
+	private static final String INFERIORATION = NOMBRE+ESPACE+INFERIEUR+ESPACE+NOMBRE;
+	private static final String SUPERIEUR = ">";
+	private static final String SUPERIORATION = NOMBRE+ESPACE+SUPERIEUR+ESPACE+NOMBRE;
+	private static final String DIFFERENT = "!=";
+	private static final String DIFFERENTIATION = NOMBRE+ESPACE+DIFFERENT+ESPACE+NOMBRE;
+	
+	private static final String PLUS = "\\+";
+	private static final String ADDITION = NOMBRE+ESPACE+PLUS+ESPACE+NOMBRE;
+	private static final String MOINS = "-";
+	private static final String SOUSTRACTION = NOMBRE+ESPACE+MOINS+ESPACE+NOMBRE;
+	private static final String FOIS = "\\*";
+	private static final String MULTIPLICATION = NOMBRE+ESPACE+FOIS+ESPACE+NOMBRE;
+	private static final String SLASH = "/";
+	private static final String DIVISION = NOMBRE+ESPACE+SLASH+ESPACE+NOMBRE;
+	private static final String POURCENT = "%";
+	private static final String MODULATION = NOMBRE+ESPACE+POURCENT+ESPACE+NOMBRE;
+	private static final String EXPOSANT = "\\*\\*";
+	private static final String EXPONENTIATION = NOMBRE+ESPACE+EXPOSANT+ESPACE+NOMBRE;
+	
+	private String script;
+	private final boolean modeTest;
 	
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
 	 * @param script à interpréter
+	 * @param modeTest est-on en train de tester la classe ?
 	 */
-	public ConditionScript(final int numero, final String script) {
+	public ConditionScript(final int numero, final String script, final boolean modeTest) {
 		this.numero = numero;
 		this.script = script;
+		this.modeTest = modeTest;
 	}
 	
 	/**
@@ -23,13 +90,39 @@ public class ConditionScript extends Condition {
 	 */
 	public ConditionScript(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
-			(String) parametres.get("script")
+			(String) parametres.get("script"),
+			false //cas réel
 		);
+	}
+	
+	/**
+	 * Constructeur de test
+	 */
+	public ConditionScript() {
+		this.numero = 0;
+		this.script = null;
+		this.modeTest = true;
 	}
 	
 	@Override
 	public final boolean estVerifiee() {
-		// TODO Auto-generated method stub
+		String s = this.script;
+		
+		boolean fini = false;
+		while (!fini) {
+			System.out.println(s);
+			s = traiter(s);
+			try {
+				//fini
+				Integer.parseInt(s);
+				fini = true;
+			} catch (NumberFormatException e) {
+				//pas fini
+			}
+		}
+
+		return !"0".equals(s);
+		
 		//$game_player.target_in_da_zone?(@event_id, 6)
 		
 		//$game_map.events[@event_id].target_in_da_zone?(0, 0)
@@ -62,19 +155,343 @@ public class ConditionScript extends Condition {
 		//ConditionScript : Input.trigger?(Input::X)
 		
 		// ! ($game_map.events[@event_id].event_arround?("Anémone HP[1] RESET", 50) || $game_map.events[@event_id].event_arround?("Crevette HP[3] RESET", 50))
+	}
+	
+	/**
+	 * Interpréter un script ruby.
+	 * @param expression (en ruby)
+	 * @return une chaine de caractère qui est un nombre lorsque l'interprétation est terminée.
+	 */
+	private String traiter(final String expression) {
+		if (expression.contains(TRUE)) {
+			return expression.replace(TRUE, "1");
+		}
+		if (expression.contains(FALSE)) {
+			return expression.replace(FALSE, "0");
+		}
+
+		// Trim
+		if (expression.startsWith(" ") || expression.endsWith(" ")) {
+			System.out.println("trim");
+			return expression.trim();
+		}
 		
-		return false;
+		Pattern p;
+		Matcher m;
+		
+		//-----------//
+		// Fonctions //
+		//-----------//
+		
+		// Event id
+		p = Pattern.compile(EVENT_ID);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println(EVENT_ID);
+			return expression.replaceFirst(EVENT_ID, "" + eventId());
+		}
+		
+		// Coordonnée x event
+		p = Pattern.compile(COORD_EVENT_X);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("coordonnée x de l'event");
+			final Integer nombre = extraireLeNombre(m.group(0));
+			return expression.replaceFirst(COORD_EVENT_X, ""+coordonneeXEvent(nombre));
+		}
+		
+		// Coordonnée y event
+		p = Pattern.compile(COORD_EVENT_Y);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("coordonnée y de l'event");
+			final Integer nombre = extraireLeNombre(m.group(0));
+			return expression.replaceFirst(COORD_EVENT_Y, ""+coordonneeYEvent(nombre));
+		}
+		
+		// Coordonnée x heros
+		p = Pattern.compile(COORD_HEROS_X);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("coordonnée x du héros");
+			return expression.replaceFirst(COORD_HEROS_X, ""+coordonneeXHeros());
+		}
+		
+		// Coordonnée y heros
+		p = Pattern.compile(COORD_HEROS_Y);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("coordonnée y du héros");
+			return expression.replaceFirst(COORD_HEROS_Y, ""+coordonneeYHeros());
+		}
+		
+		// Racine
+		p = Pattern.compile(RACINAGE);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final int nombre = extraireLeNombre(m.group(0));
+			return expression.replaceFirst(RACINAGE, ""+nombre);
+		}
+		
+		// Valeur absolue
+		p = Pattern.compile(ABSOLUTION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final int nombre = extraireLeNombre(m.group(0));
+			return expression.replaceFirst(ABSOLUTION, ""+nombre);
+		}
+		
+		
+		//--------------------//
+		// Opérations unaires //
+		//--------------------//
+		
+		// Négation
+		p = Pattern.compile(NEGATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final int nombre = extraireLeNombre(m.group(0));
+			return expression.replaceFirst(NEGATION, nombre==0 ? "1" : "0");
+		}
+		
+		// Parenthèses
+		p = Pattern.compile(PARENTHESAGE);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final int nombre = extraireLeNombre(m.group(0));
+			return expression.replaceFirst(PARENTHESAGE, ""+nombre);
+		}
+
+		
+		//--------------------------//
+		// Opérations arithmétiques //
+		//--------------------------//				
+		
+		// Puissance
+		p = Pattern.compile(EXPONENTIATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(EXPONENTIATION, ""+((int) Math.pow(nombres.get(0), nombres.get(1))));
+		}
+		
+		// Multiplication
+		p = Pattern.compile(MULTIPLICATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(MULTIPLICATION, ""+(nombres.get(0)*nombres.get(1)));
+		}
+		
+		// Division
+		p = Pattern.compile(DIVISION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(DIVISION, ""+(nombres.get(0)/nombres.get(1)));
+		}
+		
+		// Modulo
+		p = Pattern.compile(MODULATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(MODULATION, ""+(nombres.get(0)%nombres.get(1)));
+		}
+		
+		// Addition
+		p = Pattern.compile(ADDITION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(ADDITION, ""+(nombres.get(0)+nombres.get(1)));
+		}
+		
+		// Soustraction
+		p = Pattern.compile(SOUSTRACTION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(SOUSTRACTION, ""+(nombres.get(0)-nombres.get(1)));
+		}
+		
+		
+		//---------------------//
+		// Relations d'égalité //
+		//---------------------//
+		
+		// Egalité
+		p = Pattern.compile(EGALISATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(EGALISATION, nombres.get(0)==nombres.get(1) ? "1" : "0");
+		}
+		
+		// Inférieur ou égal
+		p = Pattern.compile(INFERIORATION_LARGE);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(INFERIORATION_LARGE, nombres.get(0)<=nombres.get(1) ? "1" : "0");
+		}
+		
+		// Supérieur ou égal
+		p = Pattern.compile(SUPERIORATION_LARGE);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(SUPERIORATION_LARGE, nombres.get(0)>=nombres.get(1) ? "1" : "0");
+		}
+		
+		// Inférieur
+		p = Pattern.compile(INFERIORATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(INFERIORATION, nombres.get(0)<nombres.get(1) ? "1" : "0");
+		}
+		
+		// Supérieur
+		p = Pattern.compile(SUPERIORATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(SUPERIORATION, nombres.get(0)>nombres.get(1) ? "1" : "0");
+		}
+		
+		// Différent
+		p = Pattern.compile(DIFFERENTIATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(DIFFERENTIATION, nombres.get(0)!=nombres.get(1) ? "1" : "0");
+		}
+		
+		//--------------------------------//
+		// Opérations booléennes binaires //
+		//--------------------------------//
+		
+		// Et
+		p = Pattern.compile(ETATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final String remplacement;
+			if (nombres.get(0) == 0 || nombres.get(1) == 0) {
+				remplacement = "0";
+			} else {
+				remplacement = "1";
+			}
+			return expression.replaceFirst(ETATION, remplacement);
+		}
+		
+		// Ou
+		p = Pattern.compile(OUATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final String remplacement;
+			if (nombres.get(0) == 0 && nombres.get(1) == 0) {
+				remplacement = "0";
+			} else {
+				remplacement = "1";
+			}
+			return expression.replaceFirst(OUATION, remplacement);
+		}
+		
+		
+		LOG.error("Script impossible à interpréter : "+expression);
+		return "0";
+	}
+	
+	/**
+	 * Remplacer la dernière occurence.
+	 * @param expression dans laquelle on cherche une occurrence
+	 * @param aReplacer occurrence à remplacer
+	 * @param remplacement mot à mettre à la place
+	 * @return expression modifiée
+	 */
+	public static String replaceLast(final String expression, final String aReplacer, final String remplacement) {
+        return expression.replaceFirst("(?s)(.*)" + aReplacer, "$1" + remplacement);
+    }
+	
+	/**
+	 * Trouver le nombre situé dans une chaine de caractères.
+	 * @param nombreBrut chaine de caractères contenant un nombre
+	 * @return nombre contenu
+	 */
+	private static int extraireLeNombre(final String nombreBrut) {
+		final Pattern p = Pattern.compile(NOMBRE);
+		final Matcher m = p.matcher(nombreBrut);
+		m.find();
+		final String nombreExtrait = m.group(0);
+		return (int) Integer.parseInt(nombreExtrait);
+	}
+	
+	/**
+	 * Trouver les nombres situés dans une chaine de caractères.
+	 * @param brut chaine de caractères contenant des nombres
+	 * @return nombres contenus
+	 */
+	private static ArrayList<Integer> extraireLesNombres(final String brut) {
+		final Pattern p = Pattern.compile(NOMBRE);
+		final Matcher m = p.matcher(brut);
+		final ArrayList<Integer> nombres = new ArrayList<>();
+		while (m.find()) {
+			nombres.add(Integer.parseInt(m.group()));
+		}
+		return nombres;
 	}
 
 	@Override
 	public final boolean estLieeAuHeros() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	
 	@Override
 	public final String toString() {
 		return "ConditionScript : "+script;
+	}
+	
+	private int eventId() {
+		if (this.modeTest) {
+			return 18;
+		} else {
+			return this.page.event.id;
+		}
+	}
+	
+	private int coordonneeXEvent(final int idEvent) {
+		if (this.modeTest) {
+			return 15;
+		} else {
+			return this.page.event.map.eventsHash.get(idEvent).x / Main.TAILLE_D_UN_CARREAU;
+		}
+	}
+	
+	private int coordonneeYEvent(final int idEvent) {
+		if (this.modeTest) {
+			return 20;
+		} else {
+			return this.page.event.map.eventsHash.get(idEvent).y / Main.TAILLE_D_UN_CARREAU;
+		}
+	}
+	
+	private int coordonneeXHeros() {
+		if (this.modeTest) {
+			return 5;
+		} else {
+			return this.page.event.map.heros.x / Main.TAILLE_D_UN_CARREAU;
+		}
+	}
+	
+	private int coordonneeYHeros() {
+		if (this.modeTest) {
+			return 6;
+		} else {
+			return this.page.event.map.heros.y / Main.TAILLE_D_UN_CARREAU;
+		}
 	}
 
 }

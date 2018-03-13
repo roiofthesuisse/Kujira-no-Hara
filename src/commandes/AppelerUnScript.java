@@ -3,13 +3,18 @@ package commandes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 
 /**
  * Appeler un script ruby.
  */
 public class AppelerUnScript extends Commande implements CommandeEvent, CommandeMenu {
-	
+	//constantes
+	private static final Logger LOG = LogManager.getLogger(AppelerUnScript.class);
+		
 	private final String script;
 	
 	/**
@@ -49,7 +54,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 		//$game_temp.animations.push([23, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])
 		
 		//x = y = 0\ncase $game_player.direction\nwhen 2; y = $game_map.events[@event_id].y - $game_player.y - 1\nwhen 4; x = $game_map.events[@event_id].x - $game_player.x + 1\nwhen 6; x = $game_map.events[@event_id].x - $game_player.x - 1\nwhen 8; y = $game_map.events[@event_id].y - $game_player.y + 1\nend\n$game_player.jump(x, y)
-		
+		LOG.error("L'appel de script n'est pas encore implémenté !");
 		return curseurActuel+1;
 	}
 	
