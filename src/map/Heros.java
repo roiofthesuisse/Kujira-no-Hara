@@ -35,7 +35,7 @@ public class Heros extends Event {
 	 * @throws FileNotFoundException 
 	 */
 	public Heros(final int x, final int y, final int directionEnDebutDeMap, final Map map) throws FileNotFoundException {
-		super(x, y, MODELE.offsetY, MODELE.nom, MODELE.id, MODELE.reinitialiser, MODELE.pages, MODELE.largeurHitbox, MODELE.hauteurHitbox, map);
+		super(x, y, MODELE.offsetY, MODELE.nom, MODELE.id, MODELE.vies, MODELE.reinitialiser, MODELE.pages, MODELE.largeurHitbox, MODELE.hauteurHitbox, map);
 		this.direction = directionEnDebutDeMap;
 	}
 	
@@ -59,7 +59,7 @@ public class Heros extends Event {
 		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
 		final ArrayList<PageEvent> pages = creerListeDesPagesViaJson(jsonPages, 0, null);
 		
-		final Event modele = new Event(0, 0, offsetY, "heros", 0, reinitialiserLesInterrupteursLocaux, pages, largeur, hauteur, null);
+		final Event modele = new Event(0, 0, offsetY, "heros", 0, 1, reinitialiserLesInterrupteursLocaux, pages, largeur, hauteur, null);
 		return modele;
 	}
 	

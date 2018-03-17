@@ -6,6 +6,8 @@ import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -61,6 +63,8 @@ public class Event implements Comparable<Event> {
 	public int x;
 	/** distance (en pixels) entre le bord haut de l'écran et le corps de l'Event */
 	public int y;
+	/** vies a décrémenter pour qu'il disparaisse */
+	public int vies;
 	/** Faut-il réinitialiser les interrupteurs locaux de cet event à chaque changement de Map ? */
 	public final boolean reinitialiser;
 	
@@ -166,6 +170,7 @@ public class Event implements Comparable<Event> {
 	 * @param offsetY si on veut afficher l'Event plus bas que sa case réelle
 	 * @param nom de l'Event
 	 * @param id identifiant numérique de l'Event
+	 * @param vies de l'Event
 	 * @param reinitialiserLesInterupteursLocaux à chaque changement de Map ?
 	 * @param pages ensemble de Pages décrivant le comportement de l'Event
 	 * @param largeurHitbox largeur de la boîte de collision
@@ -173,13 +178,14 @@ public class Event implements Comparable<Event> {
 	 * @param map de l'Event
 	 */
 	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, 
-			final boolean reinitialiserLesInterupteursLocaux, final ArrayList<PageEvent> pages, 
+			final int vies, final boolean reinitialiserLesInterupteursLocaux, final ArrayList<PageEvent> pages, 
 			final int largeurHitbox, final int hauteurHitbox, final Map map) {
 		this.x = x;
 		this.y = y;
 		this.offsetY = offsetY;
 		this.id = id;
 		this.nom = nom;
+		this.vies = vies;
 		this.reinitialiser = reinitialiserLesInterupteursLocaux;
 		this.pages = pages;
 		this.map = map;
@@ -199,6 +205,7 @@ public class Event implements Comparable<Event> {
 	 * @param offsetY si on veut afficher l'Event plus bas que sa case réelle
 	 * @param nom de l'Event
 	 * @param id identifiant numérique de l'Event
+	 * @param vies de l'Event
 	 * @param reinitialiserLesInterupteursLocaux à chaque changement de Map ?
 	 * @param tableauDesPages tableau JSON contenant les Pages de comportement
 	 * @param largeurHitbox largeur de la boîte de collision
@@ -206,9 +213,9 @@ public class Event implements Comparable<Event> {
 	 * @param map de l'Event
 	 */
 	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, 
-			final boolean reinitialiserLesInterupteursLocaux, final JSONArray tableauDesPages, 
+			final int vies, final boolean reinitialiserLesInterupteursLocaux, final JSONArray tableauDesPages, 
 			final int largeurHitbox, final int hauteurHitbox, final Map map) {
-		this(x, y, offsetY, nom, id, reinitialiserLesInterupteursLocaux, creerListeDesPagesViaJson(tableauDesPages, id, map), largeurHitbox, hauteurHitbox, map);
+		this(x, y, offsetY, nom, id, vies, reinitialiserLesInterupteursLocaux, creerListeDesPagesViaJson(tableauDesPages, id, map), largeurHitbox, hauteurHitbox, map);
 	}
 
 	/**
@@ -612,15 +619,34 @@ public class Event implements Comparable<Event> {
 						offsetY = 0;
 					}
 					final boolean reinitialiser = jsonEvent.has("reinitialiser") ? jsonEvent.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
-	
+					final int vies = jsonEvent.has("vies") ? jsonEvent.getInt("vies") : interpreterVies(nomEvent);
+					
 					final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-					event = new Event(xEvent, yEvent, offsetY, nomEvent, id, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
+					event = new Event(xEvent, yEvent, offsetY, nomEvent, id, vies, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
 				}
 				events.add(event);
 			} catch (Exception e) {
 				LOG.error("Impossible d'importer l'event "+id+" ("+nomEvent+") !", e);
 			}
 		}
+	}
+	
+	/**
+	 * Interpréter le nom de l'Event pour connaitre son nombre de vies
+	 * @param nomEvent nom de l'Event
+	 * @return nombre de vies de l'Event
+	 */
+	private static int interpreterVies(final String nomEvent) {
+		final Pattern p = Pattern.compile("HP\\[[0-9]+\\]");
+		final Matcher m = p.matcher(nomEvent);
+		if (m.find()) {
+			final Pattern p2 = Pattern.compile("[0-9]+");
+			final Matcher m2 = p2.matcher(m.group(0));
+			m2.find();
+			final String nombreExtrait = m2.group(0);
+			return Integer.parseInt(nombreExtrait);
+		}
+		return 0;
 	}
 	
 	/**
@@ -691,9 +717,10 @@ public class Event implements Comparable<Event> {
 			offsetY = 0;
 		}
 		final boolean reinitialiser = jsonEventGenerique.has("reinitialiser") ? jsonEventGenerique.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
-
+		final int vies = jsonEventGenerique.has("vies") ? jsonEventGenerique.getInt("vies") : interpreterVies(nomEvent);
+		
 		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-		return new Event(xEvent, yEvent, offsetY, nomEvent, id, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
+		return new Event(xEvent, yEvent, offsetY, nomEvent, id, vies, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
 	}
 	
 	/**

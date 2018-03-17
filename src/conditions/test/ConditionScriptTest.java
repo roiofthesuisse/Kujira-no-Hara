@@ -68,6 +68,8 @@ public class ConditionScriptTest {
 		liste.add("2 + 4 * 3**2 == 38"); attendu.add(true);
 		liste.add("2 + 4 * 3**2 == 38 && 5 == 4"); attendu.add(false);
 		liste.add("1<2 && 2<3 || 2<0 && 4<75"); attendu.add(true);
+		liste.add("$game_map.events[18].life == 3"); attendu.add(true);
+		liste.add("$game_map.events[18].life == 4"); attendu.add(false);
 		
 		for (int i = 0; i<liste.size(); i++) {
 			final String s = liste.get(i);

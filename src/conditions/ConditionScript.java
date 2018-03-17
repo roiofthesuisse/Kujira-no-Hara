@@ -35,6 +35,8 @@ public class ConditionScript extends Condition {
 	private static final String ABSOLU_DEBUT = "\\(";
 	private static final String ABSOLU_FIN = "\\)\\.abs";
 	private static final String ABSOLUTION = ABSOLU_DEBUT+ESPACE+NOMBRE+ESPACE+ABSOLU_FIN;
+	private static final String VIE_EVENT_FIN = "\\]\\.life";
+	private static final String VITALISATION = COORD_EVENT_DEBUT + NOMBRE + VIE_EVENT_FIN;
 	
 	private static final String ET = "&&";
 	private static final String ETATION = NOMBRE+ESPACE+ET+ESPACE+NOMBRE;
@@ -224,6 +226,16 @@ public class ConditionScript extends Condition {
 			System.out.println("coordonnée y du héros");
 			return expression.replaceFirst(COORD_HEROS_Y, ""+coordonneeYHeros());
 		}
+		
+		// Vie d'un event
+		p = Pattern.compile(VITALISATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("vie de l'event");
+			final Integer nombre = extraireLeNombre(m.group(0));
+			return expression.replaceFirst(VITALISATION, ""+vieEvent(nombre));
+		}
+		
 		
 		// Racine
 		p = Pattern.compile(RACINAGE);
@@ -491,6 +503,14 @@ public class ConditionScript extends Condition {
 			return 6;
 		} else {
 			return this.page.event.map.heros.y / Main.TAILLE_D_UN_CARREAU;
+		}
+	}
+	
+	private int vieEvent(final int idEvent) {
+		if (this.modeTest) {
+			return 3;
+		} else {
+			return this.page.event.map.eventsHash.get(idEvent).vies;
 		}
 	}
 
