@@ -101,7 +101,7 @@ public class Arme implements Listable {
 			Texte.construireTexteMultilingue(parametres.get("description")),
 			(String) parametres.get("nomEffetSonoreAttaque"),
 			(Integer[]) parametres.get("framesDAnimation"),
-			new Hitbox((int) parametres.get("portee"), (int) parametres.get("etendue")),
+			Hitbox.ZONES_D_ATTAQUE.get((Integer) parametres.get("zoneDAttaque")),
 			(int) parametres.get("frameDebutCoup"),
 			(int) parametres.get("frameFinCoup"),
 			(String) parametres.get("nomIcone")

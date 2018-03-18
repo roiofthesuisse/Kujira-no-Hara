@@ -9,6 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Main;
+import map.Event;
+import map.Hitbox;
 
 /**
  * Condition basée sur l'interprétation d'un script ruby.
@@ -21,14 +23,17 @@ public class ConditionScript extends Condition {
 	private static final String TRUE = "true";
 	private static final String FALSE = "false";
 	
+	private static final String HEROS = "\\$game_player\\.";
+	private static final String X = "x";
+	private static final String Y = "y";
 	private static final String COORD_EVENT_DEBUT = "\\$game_map\\.events\\[";
 	private static final String COORD_EVENT_FIN = "\\]\\.";
 	private static final String EVENT_ID = "@event_id";
 	private static final String NOMBRE = "[0-9]+";
-	private static final String COORD_EVENT_X = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+"x";
-	private static final String COORD_EVENT_Y = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+"y";
-	private static final String COORD_HEROS_X = "\\$game_player\\.x";
-	private static final String COORD_HEROS_Y = "\\$game_player\\.y";
+	private static final String COORD_EVENT_X = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+X;
+	private static final String COORD_EVENT_Y = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+Y;
+	private static final String COORD_HEROS_X = HEROS+X;
+	private static final String COORD_HEROS_Y = HEROS+Y;
 	private static final String RACINE_DEBUT = "Math\\.sqrt\\(";
 	private static final String RACINE_FIN = "\\)\\.round";
 	private static final String RACINAGE = RACINE_DEBUT+ESPACE+NOMBRE+ESPACE+RACINE_FIN;
@@ -37,6 +42,9 @@ public class ConditionScript extends Condition {
 	private static final String ABSOLUTION = ABSOLU_DEBUT+ESPACE+NOMBRE+ESPACE+ABSOLU_FIN;
 	private static final String VIE_EVENT_FIN = "\\]\\.life";
 	private static final String VITALISATION = COORD_EVENT_DEBUT + NOMBRE + VIE_EVENT_FIN;
+	private static final String CIBLAGE = "target_in_da_zone?("+NOMBRE+","+NOMBRE+")";
+	private static final String CIBLAGE_PAR_HEROS = HEROS+CIBLAGE;
+	private static final String CIBLAGE_PAR_EVENT = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+CIBLAGE;
 	
 	private static final String ET = "&&";
 	private static final String ETATION = NOMBRE+ESPACE+ET+ESPACE+NOMBRE;
@@ -211,7 +219,7 @@ public class ConditionScript extends Condition {
 			return expression.replaceFirst(COORD_EVENT_Y, ""+coordonneeYEvent(nombre));
 		}
 		
-		// Coordonnée x heros
+		// Coordonnée x héros
 		p = Pattern.compile(COORD_HEROS_X);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -219,7 +227,7 @@ public class ConditionScript extends Condition {
 			return expression.replaceFirst(COORD_HEROS_X, ""+coordonneeXHeros());
 		}
 		
-		// Coordonnée y heros
+		// Coordonnée y héros
 		p = Pattern.compile(COORD_HEROS_Y);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -236,6 +244,23 @@ public class ConditionScript extends Condition {
 			return expression.replaceFirst(VITALISATION, ""+vieEvent(nombre));
 		}
 		
+		// Ciblage par le héros
+		p = Pattern.compile(CIBLAGE_PAR_HEROS);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("ciblage par le heros");
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(CIBLAGE_PAR_HEROS, ""+ciblage(0, nombres.get(0), nombres.get(1)));
+		}
+		
+		// Ciblage par un event
+		p = Pattern.compile(CIBLAGE_PAR_EVENT);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("ciblage par un event");
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return expression.replaceFirst(CIBLAGE_PAR_HEROS, ""+ciblage(nombres.get(0), nombres.get(1), nombres.get(2)));
+		}
 		
 		// Racine
 		p = Pattern.compile(RACINAGE);
@@ -512,6 +537,12 @@ public class ConditionScript extends Condition {
 		} else {
 			return this.page.event.map.eventsHash.get(idEvent).vies;
 		}
+	}
+	
+	private boolean ciblage(Integer idAttaquant, Integer idCible, Integer typeDeZone) {
+		final Event attaquant = this.page.event.map.eventsHash.get(idAttaquant);
+		final Event cible = this.page.event.map.eventsHash.get(idCible);
+		return Hitbox.ZONES_D_ATTAQUE.get(typeDeZone).estDansZoneDAttaque(cible, attaquant);
 	}
 
 }

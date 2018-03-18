@@ -162,5 +162,15 @@ public abstract class InterpreteurDeJson {
 	public static JSONObject ouvrirJsonEventGenerique(final String nomEvent) throws Exception {
 		return ouvrirJson(nomEvent, ".\\ressources\\Data\\GenericEvents\\");
 	}
+
+	/**
+	 * Charger les Zones d'attaque du jeu décrites dans un fichier JSON.
+	 * @return zones d'attaque du jeu
+	 * @throws Exception erreur dans la lecture du fichier JSON
+	 */
+	public static JSONArray ouvrirJsonZonesDAttaque() throws Exception {
+		final JSONObject jsonZones = ouvrirJson("zonesDAttaque", ".\\ressources\\Data\\");
+		return jsonZones.getJSONArray("zonesDAttaque");
+	}
 	
 }

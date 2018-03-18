@@ -3,16 +3,26 @@ package map;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import jeu.Partie;
 import main.Fenetre;
 import main.Main;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
  * Une hitbox peut être assignée à une arme afin de calculer sa portée et son étendue.
  */
-public class Hitbox {
+public final class Hitbox {
+	private static final Logger LOG = LogManager.getLogger(Hitbox.class);
+	public static final HashMap<Integer, Hitbox> ZONES_D_ATTAQUE = chargerLesZonesDAttaqueDuJeu();
+	
 	public final int portee;
 	public final int etendue;
 	
@@ -21,23 +31,23 @@ public class Hitbox {
 	 * @param portee : profondeur de la zone d'attaque
 	 * @param etendue : largeur de la zone d'attaque
 	 */
-	public Hitbox(final int portee, final int etendue) {
+	private Hitbox(final int portee, final int etendue) {
 		this.portee = portee;
 		this.etendue = etendue;
 	}
 	
 	/**
-	 * Cet Event est-il dans la zone d'attaque du Héros ?
-	 * @param e un Event
-	 * @param h le Héros
+	 * Cet Event cible est-il dans la zone d'attaque del'Event attaquant ?
+	 * @param cible un Event à atteindre
+	 * @param attaquant un Event qui cherche à atteindre la cible
 	 * @return true si l'Event est dans la zone d'attaque, false sinon
 	 */
-	public static boolean estDansZoneDAttaque(final Event e, final Heros h) {
+	public boolean estDansZoneDAttaque(final Event cible, final Event attaquant) {
 		final Partie partieActuelle = Main.getPartieActuelle();
 		final boolean estCeQueLeHerosAUneArme = (partieActuelle.nombreDArmesPossedees > 0) && partieActuelle.getArmeEquipee()!=null;
 		if (estCeQueLeHerosAUneArme) {
 			//on calcule les bords de la zone d'attaque en fonction de l'orientation du héros
-			final int[] coord = calculerCoordonneesAbsolues(h);
+			final int[] coord = this.calculerCoordonneesAbsolues(attaquant);
 			final int xminHitbox = coord[0];
 			final int xmaxHitbox = coord[1];
 			final int yminHitbox = coord[2];
@@ -45,52 +55,51 @@ public class Hitbox {
 			final int largeurHitbox = xmaxHitbox - xminHitbox;
 			final int hauteurHitbox = ymaxHitbox - yminHitbox;
 			
-			final int xminEvent = e.x;
-			final int xmaxEvent = e.x + e.largeurHitbox;
-			final int yminEvent = e.y;
-			final int ymaxEvent = e.y + e.hauteurHitbox;
+			final int xminEvent = cible.x;
+			final int xmaxEvent = cible.x + cible.largeurHitbox;
+			final int yminEvent = cible.y;
+			final int ymaxEvent = cible.y + cible.hauteurHitbox;
 			//calcul du croisement entre la bodybox de l'event et la hitbox de l'arme
-			return lesDeuxRectanglesSeChevauchent(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, largeurHitbox, hauteurHitbox, e.largeurHitbox, e.hauteurHitbox);
+			return lesDeuxRectanglesSeChevauchent(xminHitbox, xmaxHitbox, yminHitbox, ymaxHitbox, xminEvent, xmaxEvent, yminEvent, ymaxEvent, largeurHitbox, hauteurHitbox, cible.largeurHitbox, cible.hauteurHitbox);
 		}
 		return false;
 	}
 	
 	/**
 	 * Calcule les coordonnées x et y minimales et maximales du rectangle de la Hitbox.
-	 * @param h le Héros
+	 * @param attaquant l'Event qui attaque
 	 * @return xmin, xmax, ymin, ymax
 	 */
-	public static int[] calculerCoordonneesAbsolues(final Heros h) {
+	public int[] calculerCoordonneesAbsolues(final Event attaquant) {
 		final int[] coordonneesAbsolues = new int[4];
-		final Hitbox b = Main.getPartieActuelle().getArmeEquipee().hitbox;
 		final int xminHitbox;
 		final int xmaxHitbox;
 		final int yminHitbox;
 		final int ymaxHitbox;
-		switch(h.direction) {
+		switch(attaquant.direction) {
 			case Event.Direction.BAS :
-				xminHitbox = (h.x+h.largeurHitbox/2) - b.etendue/2;
-				xmaxHitbox = (h.x+h.largeurHitbox/2) + b.etendue/2;
-				yminHitbox = h.y+h.hauteurHitbox;
-				ymaxHitbox = h.y+h.hauteurHitbox + b.portee;
+				xminHitbox = (attaquant.x+attaquant.largeurHitbox/2) - this.etendue/2;
+				xmaxHitbox = (attaquant.x+attaquant.largeurHitbox/2) + this.etendue/2;
+				yminHitbox = attaquant.y+attaquant.hauteurHitbox;
+				ymaxHitbox = attaquant.y+attaquant.hauteurHitbox + this.portee;
 				break;
 			case Event.Direction.GAUCHE :
-				xminHitbox = h.x - b.portee;
-				xmaxHitbox = h.x;
-				yminHitbox = (h.y+h.hauteurHitbox/2) - b.etendue/2;
-				ymaxHitbox = (h.y+h.hauteurHitbox/2) + b.etendue/2;
+				xminHitbox = attaquant.x - this.portee;
+				xmaxHitbox = attaquant.x;
+				yminHitbox = (attaquant.y+attaquant.hauteurHitbox/2) - this.etendue/2;
+				ymaxHitbox = (attaquant.y+attaquant.hauteurHitbox/2) + this.etendue/2;
 				break;
 			case Event.Direction.DROITE :
-				xminHitbox = h.x+h.largeurHitbox;
-				xmaxHitbox = h.x+h.largeurHitbox + b.portee;
-				yminHitbox = (h.y+h.hauteurHitbox/2) - b.etendue/2;
-				ymaxHitbox = (h.y+h.hauteurHitbox/2) + b.etendue/2;
+				xminHitbox = attaquant.x+attaquant.largeurHitbox;
+				xmaxHitbox = attaquant.x+attaquant.largeurHitbox + this.portee;
+				yminHitbox = (attaquant.y+attaquant.hauteurHitbox/2) - this.etendue/2;
+				ymaxHitbox = (attaquant.y+attaquant.hauteurHitbox/2) + this.etendue/2;
 				break;
 			default : //HAUT
-				xminHitbox = (h.x+h.largeurHitbox/2) - b.etendue/2;
-				xmaxHitbox = (h.x+h.largeurHitbox/2) + b.etendue/2;
-				yminHitbox = h.y - b.portee;
-				ymaxHitbox = h.y;
+				xminHitbox = (attaquant.x+attaquant.largeurHitbox/2) - this.etendue/2;
+				xmaxHitbox = (attaquant.x+attaquant.largeurHitbox/2) + this.etendue/2;
+				yminHitbox = attaquant.y - this.portee;
+				ymaxHitbox = attaquant.y;
 				break;
 		}
 		coordonneesAbsolues[0] = xminHitbox;
@@ -226,6 +235,30 @@ public class Hitbox {
 										  || ((x1min<=x2min && x2max<=x1max)&&(y2min<=y1min && y1max<=y2max));
 		
 		return superpositionEnCroix;
+	}
+	
+	/**
+	 * Charger les Zones d'attaque du jeu à partir du fichier JSON.
+	 * @return zones d'attaque du jeu
+	 */
+	private static HashMap<Integer, Hitbox> chargerLesZonesDAttaqueDuJeu() {
+		final JSONArray jsonZones;
+		try {
+			jsonZones = InterpreteurDeJson.ouvrirJsonZonesDAttaque();
+		} catch (Exception e) {
+			//problème lors de l'ouverture du fichier JSON
+			LOG.error("Impossible de charger les zones d'attaque du jeu.", e);
+			return null;
+		}
+		
+		final HashMap<Integer, Hitbox> zones = new HashMap<>();
+		for (Object objectArme : jsonZones) {
+			final JSONObject jsonZone = (JSONObject) objectArme;
+			final Integer id = jsonZone.getInt("id");
+			final Hitbox zone = new Hitbox(jsonZone.getInt("portee"), jsonZone.getInt("etendue"));
+			zones.put(id, zone);
+		}
+		return zones;
 	}
 	
 }

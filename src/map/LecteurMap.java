@@ -324,7 +324,8 @@ public class LecteurMap extends Lecteur {
 	private BufferedImage dessinerLaHitboxDuHeros(BufferedImage ecran, final int xCamera, final int yCamera) {
 		try {
 			if (Main.getPartieActuelle().getArmeEquipee() != null) {
-				final int[] coord = Hitbox.calculerCoordonneesAbsolues(this.map.heros);
+				final Hitbox zoneDAttaqueDuHeros = Main.getPartieActuelle().getArmeEquipee().hitbox;
+				final int[] coord = zoneDAttaqueDuHeros.calculerCoordonneesAbsolues(this.map.heros);
 				final int xminHitbox = coord[0];
 				final int xmaxHitbox = coord[1];
 				final int yminHitbox = coord[2];

@@ -1,6 +1,7 @@
 package conditions;
 
 import commandes.CommandeEvent;
+import main.Main;
 import map.Event;
 import map.Heros;
 import map.Hitbox;
@@ -23,7 +24,8 @@ public class ConditionDansZoneDAttaque extends Condition implements CommandeEven
 		if (estCeQueLeHerosAUneArme) {
 			final Heros heros = this.page.event.map.heros;
 			final Event event = this.page.event;
-			final boolean reponse = Hitbox.estDansZoneDAttaque(event, heros);
+			final Hitbox zoneDAttaqueDuHeros = Main.getPartieActuelle().getArmeEquipee().hitbox;
+			final boolean reponse = zoneDAttaqueDuHeros.estDansZoneDAttaque(event, heros);
 			return reponse;
 		} else {
 			return false;
