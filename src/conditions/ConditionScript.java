@@ -29,55 +29,63 @@ public class ConditionScript extends Condition {
 	private static final String COORD_EVENT_DEBUT = "\\$game_map\\.events\\[";
 	private static final String COORD_EVENT_FIN = "\\]\\.";
 	private static final String EVENT_ID = "@event_id";
-	private static final String NOMBRE = "[0-9]+";
-	private static final String COORD_EVENT_X = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+X;
-	private static final String COORD_EVENT_Y = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+Y;
+	private static final String RELATIF = "-?[0-9]+";
+	private static final String POSITIF = "[0-9]+";
+	private static final String COORD_EVENT_X = COORD_EVENT_DEBUT+POSITIF+COORD_EVENT_FIN+X;
+	private static final String COORD_EVENT_Y = COORD_EVENT_DEBUT+POSITIF+COORD_EVENT_FIN+Y;
 	private static final String COORD_HEROS_X = HEROS+X;
 	private static final String COORD_HEROS_Y = HEROS+Y;
+	private static final String VARIABLE_DEBUT = "\\$game_variables\\[";
+	private static final String VARIABLE_FIN = "\\]";
+	private static final String VARIABILISATION = VARIABLE_DEBUT+POSITIF+VARIABLE_FIN;
 	private static final String RACINE_DEBUT = "Math\\.sqrt\\(";
 	private static final String RACINE_FIN = "\\)\\.round";
-	private static final String RACINAGE = RACINE_DEBUT+ESPACE+NOMBRE+ESPACE+RACINE_FIN;
+	private static final String RACINAGE = RACINE_DEBUT+ESPACE+POSITIF+ESPACE+RACINE_FIN;
+	private static final String HYPOTHENUSE_DEBUT = "Math\\.hypot\\(";
+	private static final String HYPOTHENUSE_MILIEU = ",";
+	private static final String HYPOTHENUSE_FIN = "\\)\\.round";
+	private static final String HYPOTHENUSAGE = HYPOTHENUSE_DEBUT+ESPACE+RELATIF+ESPACE+HYPOTHENUSE_MILIEU+ESPACE+RELATIF+ESPACE+HYPOTHENUSE_FIN;
 	private static final String ABSOLU_DEBUT = "\\(";
 	private static final String ABSOLU_FIN = "\\)\\.abs";
-	private static final String ABSOLUTION = ABSOLU_DEBUT+ESPACE+NOMBRE+ESPACE+ABSOLU_FIN;
+	private static final String ABSOLUTION = ABSOLU_DEBUT+ESPACE+RELATIF+ESPACE+ABSOLU_FIN;
 	private static final String VIE_EVENT_FIN = "\\]\\.life";
-	private static final String VITALISATION = COORD_EVENT_DEBUT + NOMBRE + VIE_EVENT_FIN;
-	private static final String CIBLAGE = "target_in_da_zone?("+NOMBRE+","+NOMBRE+")";
+	private static final String VITALISATION = COORD_EVENT_DEBUT + POSITIF + VIE_EVENT_FIN;
+	private static final String CIBLAGE = "target_in_da_zone?("+POSITIF+","+POSITIF+")";
 	private static final String CIBLAGE_PAR_HEROS = HEROS+CIBLAGE;
-	private static final String CIBLAGE_PAR_EVENT = COORD_EVENT_DEBUT+NOMBRE+COORD_EVENT_FIN+CIBLAGE;
+	private static final String CIBLAGE_PAR_EVENT = COORD_EVENT_DEBUT+POSITIF+COORD_EVENT_FIN+CIBLAGE;
 	
 	private static final String ET = "&&";
-	private static final String ETATION = NOMBRE+ESPACE+ET+ESPACE+NOMBRE;
+	private static final String ETATION = RELATIF+ESPACE+ET+ESPACE+RELATIF;
 	private static final String OU = "\\|\\|";
-	private static final String OUATION = NOMBRE+ESPACE+OU+ESPACE+NOMBRE;
-	private static final String NEGATION = "!"+ESPACE+NOMBRE;
-	private static final String PARENTHESAGE = "\\("+ESPACE+NOMBRE+ESPACE+"\\)";
+	private static final String OUATION = RELATIF+ESPACE+OU+ESPACE+RELATIF;
+	private static final String NEGATION = "!"+ESPACE+RELATIF;
+	private static final String PARENTHESAGE = "\\("+ESPACE+RELATIF+ESPACE+"\\)";
 	
 	private static final String EGAL = "==";
-	private static final String EGALISATION = NOMBRE+ESPACE+EGAL+ESPACE+NOMBRE;
+	private static final String EGALISATION = RELATIF+ESPACE+EGAL+ESPACE+RELATIF;
 	private static final String INFEGAL = "<=";
-	private static final String INFERIORATION_LARGE = NOMBRE+ESPACE+INFEGAL+ESPACE+NOMBRE;
+	private static final String INFERIORATION_LARGE = RELATIF+ESPACE+INFEGAL+ESPACE+RELATIF;
 	private static final String SUPEGAL = ">=";
-	private static final String SUPERIORATION_LARGE = NOMBRE+ESPACE+SUPEGAL+ESPACE+NOMBRE;
+	private static final String SUPERIORATION_LARGE = RELATIF+ESPACE+SUPEGAL+ESPACE+RELATIF;
 	private static final String INFERIEUR = "<";
-	private static final String INFERIORATION = NOMBRE+ESPACE+INFERIEUR+ESPACE+NOMBRE;
+	private static final String INFERIORATION = RELATIF+ESPACE+INFERIEUR+ESPACE+RELATIF;
 	private static final String SUPERIEUR = ">";
-	private static final String SUPERIORATION = NOMBRE+ESPACE+SUPERIEUR+ESPACE+NOMBRE;
+	private static final String SUPERIORATION = RELATIF+ESPACE+SUPERIEUR+ESPACE+RELATIF;
 	private static final String DIFFERENT = "!=";
-	private static final String DIFFERENTIATION = NOMBRE+ESPACE+DIFFERENT+ESPACE+NOMBRE;
+	private static final String DIFFERENTIATION = RELATIF+ESPACE+DIFFERENT+ESPACE+RELATIF;
 	
 	private static final String PLUS = "\\+";
-	private static final String ADDITION = NOMBRE+ESPACE+PLUS+ESPACE+NOMBRE;
+	private static final String ADDITION = RELATIF+ESPACE+PLUS+ESPACE+RELATIF;
 	private static final String MOINS = "-";
-	private static final String SOUSTRACTION = NOMBRE+ESPACE+MOINS+ESPACE+NOMBRE;
+	private static final String SOUSTRACTION = RELATIF+ESPACE+MOINS+ESPACE+RELATIF;
 	private static final String FOIS = "\\*";
-	private static final String MULTIPLICATION = NOMBRE+ESPACE+FOIS+ESPACE+NOMBRE;
+	private static final String MULTIPLICATION = RELATIF+ESPACE+FOIS+ESPACE+RELATIF;
 	private static final String SLASH = "/";
-	private static final String DIVISION = NOMBRE+ESPACE+SLASH+ESPACE+NOMBRE;
+	private static final String DIVISION = RELATIF+ESPACE+SLASH+ESPACE+RELATIF;
 	private static final String POURCENT = "%";
-	private static final String MODULATION = NOMBRE+ESPACE+POURCENT+ESPACE+NOMBRE;
+	private static final String MODULATION = RELATIF+ESPACE+POURCENT+ESPACE+RELATIF;
 	private static final String EXPOSANT = "\\*\\*";
-	private static final String EXPONENTIATION = NOMBRE+ESPACE+EXPOSANT+ESPACE+NOMBRE;
+	private static final String EXPONENTIATION = RELATIF+ESPACE+EXPOSANT+ESPACE+RELATIF;
 	
 	private String script;
 	private final boolean modeTest;
@@ -132,34 +140,17 @@ public class ConditionScript extends Condition {
 		}
 
 		return !"0".equals(s);
-		
-		//$game_player.target_in_da_zone?(@event_id, 6)
-		
-		//$game_map.events[@event_id].target_in_da_zone?(0, 0)
+	
 
 		//$game_map.events[2].lolilol("geyser character", nil, nil)
-		
-		//$game_map.events[22].x==18
-		
-		//$game_player.x < $game_map.events[@event_id].x
-		
-		//Math.sqrt(($game_player.x-$game_map.events[@event_id].x)**2 + ($game_player.y-$game_map.events[@event_id].y)**2).round <= 3
-		
-		//($game_variables[45] != $game_variables[2]) || ($game_variables[46] != $game_variables[3])
-		
+
 		//$game_map.events[@event_id].araignee_brulee?()
-		
-		//$game_map.events[@event_id].life <= 0
-		
-		//($game_map.events[3].x-$game_player.x).abs + ($game_map.events[3].y-$game_player.y).abs <= 1
 		
 		//$game_player.prout("Jiyounasu AttaqueEpee character", nil, 2)
 
 		//$game_map.events[@event_id].lolilol(nil, nil, 1) || $game_map.events[@event_id].lolilol(nil, nil, 3)
 		
 		//($game_player.target_in_da_zone?(@event_id, 2) && $game_player.prout("Jiyounasu AttaqueEpee character", nil, 2)) || ($game_player.target_in_da_zone?(@event_id, 1) && $game_player.prout("Jiyounasu AttaqueTorche character", nil, nil)) || ($game_player.target_in_da_zone?(@event_id, 2) && $game_player.prout("Jiyounasu AttaqueEpee character", nil, 3))
-		
-		//Math.hypot($game_player.x-25, $game_player.y-25).round >= 10
 		
 		//Input.trigger?(Input::C)
 		//ConditionScript : Input.trigger?(Input::X)
@@ -235,6 +226,16 @@ public class ConditionScript extends Condition {
 			return expression.replaceFirst(COORD_HEROS_Y, ""+coordonneeYHeros());
 		}
 		
+		// Variable
+		p = Pattern.compile(VARIABILISATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("variable");
+			final Integer nombre = extraireLeNombre(m.group(0));
+			return expression.replaceFirst(VARIABILISATION, ""+variable(nombre));
+		}
+		
+		
 		// Vie d'un event
 		p = Pattern.compile(VITALISATION);
 		m = p.matcher(expression);
@@ -249,7 +250,7 @@ public class ConditionScript extends Condition {
 		m = p.matcher(expression);
 		if (m.find()) {
 			System.out.println("ciblage par le heros");
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF);
 			return expression.replaceFirst(CIBLAGE_PAR_HEROS, ""+ciblage(0, nombres.get(0), nombres.get(1)));
 		}
 		
@@ -258,8 +259,8 @@ public class ConditionScript extends Condition {
 		m = p.matcher(expression);
 		if (m.find()) {
 			System.out.println("ciblage par un event");
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
-			return expression.replaceFirst(CIBLAGE_PAR_HEROS, ""+ciblage(nombres.get(0), nombres.get(1), nombres.get(2)));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF);
+			return expression.replaceFirst(CIBLAGE_PAR_EVENT, ""+ciblage(nombres.get(0), nombres.get(1), nombres.get(2)));
 		}
 		
 		// Racine
@@ -267,7 +268,17 @@ public class ConditionScript extends Condition {
 		m = p.matcher(expression);
 		if (m.find()) {
 			final int nombre = extraireLeNombre(m.group(0));
-			return expression.replaceFirst(RACINAGE, ""+nombre);
+			final int racine = ((int) Math.sqrt(nombre));
+			return expression.replaceFirst(RACINAGE, ""+racine);
+		}
+		
+		// Hypothenuse
+		p = Pattern.compile(HYPOTHENUSAGE);
+		m = p.matcher(expression);
+		if (m.find()) {
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(), RELATIF);
+			final int hypothenuse = ((int) Math.sqrt(nombres.get(0)*nombres.get(0)+nombres.get(1)*nombres.get(1)));
+			return expression.replaceFirst(HYPOTHENUSAGE, ""+hypothenuse);
 		}
 		
 		// Valeur absolue
@@ -308,7 +319,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(EXPONENTIATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(EXPONENTIATION, ""+((int) Math.pow(nombres.get(0), nombres.get(1))));
 		}
 		
@@ -316,7 +327,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(MULTIPLICATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(MULTIPLICATION, ""+(nombres.get(0)*nombres.get(1)));
 		}
 		
@@ -324,7 +335,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(DIVISION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(DIVISION, ""+(nombres.get(0)/nombres.get(1)));
 		}
 		
@@ -332,7 +343,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(MODULATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(MODULATION, ""+(nombres.get(0)%nombres.get(1)));
 		}
 		
@@ -340,15 +351,22 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(ADDITION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(ADDITION, ""+(nombres.get(0)+nombres.get(1)));
+		}
+		
+		// Moins moins
+		p = Pattern.compile("-"+ESPACE+"-");
+		m = p.matcher(expression);
+		if (m.find()) {
+			return expression.replaceFirst("-"+ESPACE+"-", "");
 		}
 		
 		// Soustraction
 		p = Pattern.compile(SOUSTRACTION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF);
 			return expression.replaceFirst(SOUSTRACTION, ""+(nombres.get(0)-nombres.get(1)));
 		}
 		
@@ -361,7 +379,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(EGALISATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(EGALISATION, nombres.get(0)==nombres.get(1) ? "1" : "0");
 		}
 		
@@ -369,7 +387,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(INFERIORATION_LARGE);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(INFERIORATION_LARGE, nombres.get(0)<=nombres.get(1) ? "1" : "0");
 		}
 		
@@ -377,7 +395,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(SUPERIORATION_LARGE);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(SUPERIORATION_LARGE, nombres.get(0)>=nombres.get(1) ? "1" : "0");
 		}
 		
@@ -385,7 +403,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(INFERIORATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(INFERIORATION, nombres.get(0)<nombres.get(1) ? "1" : "0");
 		}
 		
@@ -393,7 +411,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(SUPERIORATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(SUPERIORATION, nombres.get(0)>nombres.get(1) ? "1" : "0");
 		}
 		
@@ -401,7 +419,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(DIFFERENTIATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			return expression.replaceFirst(DIFFERENTIATION, nombres.get(0)!=nombres.get(1) ? "1" : "0");
 		}
 		
@@ -413,7 +431,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(ETATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			final String remplacement;
 			if (nombres.get(0) == 0 || nombres.get(1) == 0) {
 				remplacement = "0";
@@ -427,7 +445,7 @@ public class ConditionScript extends Condition {
 		p = Pattern.compile(OUATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), RELATIF);
 			final String remplacement;
 			if (nombres.get(0) == 0 && nombres.get(1) == 0) {
 				remplacement = "0";
@@ -459,7 +477,7 @@ public class ConditionScript extends Condition {
 	 * @return nombre contenu
 	 */
 	private static int extraireLeNombre(final String nombreBrut) {
-		final Pattern p = Pattern.compile(NOMBRE);
+		final Pattern p = Pattern.compile(RELATIF);
 		final Matcher m = p.matcher(nombreBrut);
 		m.find();
 		final String nombreExtrait = m.group(0);
@@ -471,8 +489,8 @@ public class ConditionScript extends Condition {
 	 * @param brut chaine de caractères contenant des nombres
 	 * @return nombres contenus
 	 */
-	private static ArrayList<Integer> extraireLesNombres(final String brut) {
-		final Pattern p = Pattern.compile(NOMBRE);
+	private static ArrayList<Integer> extraireLesNombres(final String brut, String relatifOuPositif) {
+		final Pattern p = Pattern.compile(relatifOuPositif);
 		final Matcher m = p.matcher(brut);
 		final ArrayList<Integer> nombres = new ArrayList<>();
 		while (m.find()) {
@@ -536,6 +554,14 @@ public class ConditionScript extends Condition {
 			return 3;
 		} else {
 			return this.page.event.map.eventsHash.get(idEvent).vies;
+		}
+	}
+	
+	private int variable(final int idVariable) {
+		if (this.modeTest) {
+			return 10;
+		} else {
+			return Main.getPartieActuelle().variables[idVariable];
 		}
 	}
 	

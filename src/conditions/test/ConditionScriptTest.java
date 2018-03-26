@@ -70,6 +70,11 @@ public class ConditionScriptTest {
 		liste.add("1<2 && 2<3 || 2<0 && 4<75"); attendu.add(true);
 		liste.add("$game_map.events[18].life == 3"); attendu.add(true);
 		liste.add("$game_map.events[18].life == 4"); attendu.add(false);
+		liste.add("$game_variables[14] == 10"); attendu.add(true);
+		liste.add("$game_variables[50] == 11 || $game_variables[18] == 0"); attendu.add(false);
+		liste.add("($game_map.events[22].x-$game_player.x).abs + ($game_map.events[22].y-$game_player.y).abs == 24"); attendu.add(true);
+		liste.add("Math.hypot($game_player.x-2, $game_player.y-2).round == 5"); attendu.add(true);
+		liste.add("Math.sqrt(65).round == 8"); attendu.add(true);
 		
 		for (int i = 0; i<liste.size(); i++) {
 			final String s = liste.get(i);
