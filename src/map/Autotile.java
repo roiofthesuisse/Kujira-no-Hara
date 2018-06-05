@@ -588,15 +588,16 @@ public class Autotile {
 	/**
 	 * Charger les Autotiles d'un Tileset.
 	 * @param jsonTileset objet JSON représentant un Tileset
+	 * @param fichierDesCousins objet JSON contenant d'autres informations sur le Tileset
 	 * @param tileset auquel appartiennent les Autotiles
 	 * @return Autotiles de ce Tileset
 	 */
 	public static HashMap<Integer, Autotile> chargerAutotiles(final JSONObject jsonTileset, 
+			final JSONObject fichierDesCousins, 
 			final Tileset tileset) {
 		// On ouvre également le fichier des cousinages entre Autotiles
 		JSONArray jsonCousinagesDesAutotilesPourCeTileset = null;
 		try {
-			final JSONObject fichierDesCousins = InterpreteurDeJson.ouvrirJson(tileset.nom, ".\\ressources\\Data\\Tilesets\\Cousins\\");
 			jsonCousinagesDesAutotilesPourCeTileset = fichierDesCousins.getJSONArray("cousins");
 		} catch (Exception e) {
 			LOG.error("Impossible de récupérer les cousinages d'autotiles pour le tileset "+tileset.nom, e);
@@ -623,7 +624,7 @@ public class Autotile {
 						final JSONArray jsonCousinage = jsonCousinagesDesAutotilesPourCeTileset.getJSONArray(iAutotile);
 						if (jsonCousinage != null && jsonCousinage.length() > 0) {
 							for (Object cousinObject : jsonCousinage) {
-								Integer cousin = (Integer) cousinObject;
+								final Integer cousin = (Integer) cousinObject;
 								//cousin -= 8;
 								cousinsAutotile.add(cousin);
 							}

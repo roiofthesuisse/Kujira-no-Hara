@@ -12,6 +12,8 @@ import map.Heros;
 import map.LecteurMap;
 import map.Map;
 import map.Transition;
+import map.positionInitiale.PositionInitiale;
+import map.positionInitiale.PositionInitialeExhaustive;
 
 /**
  * Le Heros est téléporté sur une autre Map.
@@ -24,7 +26,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	private final int xDebutHeros;
 	private final int yDebutHeros;
 	private int directionDebutHeros;
-	private final Transition transition;
+	private Transition transition;
 	
 	/**
 	 * Constructeur explicite
@@ -33,7 +35,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	 * @param xDebutHeros coordonnée x du Héros (en carreaux) à son arrivée sur la Map
 	 * @param yDebutHeros coordonnée y du Héros (en carreaux) à son arrivée sur la Map
 	 * @param directionDebutHeros direction du Héros à son arrivée sur la Map
-	 * @param transition visuelle pour passer d'une Map à l'autre
+	 * @param transition visuelle pour passer d'une Map à l'autre (si null, choix automatique)
 	 */
 	public ChangerDeMap(final boolean variable, final int numeroNouvelleMap, final int xDebutHeros, 
 			final int yDebutHeros, final int directionDebutHeros, final Transition transition) {
@@ -56,7 +58,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 			(int) parametres.get("xDebutHeros"),
 			(int) parametres.get("yDebutHeros"),
 			parametres.containsKey("directionDebutHeros") ? (int) parametres.get("directionDebutHeros") : -1,
-			parametres.containsKey("transition") ? Transition.parNom((String) parametres.get("transition")) : Transition.parDefaut()
+			parametres.containsKey("transition") ? Transition.parNom((String) parametres.get("transition")) : null
 		);
 	}
 	
@@ -70,11 +72,21 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 			this.directionDebutHeros = ancienHeros.direction;
 		}
 		
-		// Le héros n'est pas forcément pile sur le coin haut-gauche du carreau
-		final int ecartX = ancienHeros.x - this.page.event.x;
-		final int ecartY = ancienHeros.y - this.page.event.y;
+		// Si la Transition n'a pas été spécifiée par le code RM, 
+		// on choisit la mieux adaptée automatiquement
+		if (this.transition == null) {
+			if (ancienneMap.leHerosEntreParUnePorte(ancienHeros.x/Main.TAILLE_D_UN_CARREAU, 
+					ancienHeros.y/Main.TAILLE_D_UN_CARREAU)) {
+				// Transition en cas de franchissement de porte
+				this.transition = Transition.ROND;
+			} else {
+				// Transition par défaut
+				this.transition = Transition.DEFILEMENT;
+			}
+		}
 		
-		final LecteurMap nouveauLecteur = new LecteurMap(this.transition);
+		final LecteurMap nouveauLecteur = new LecteurMap();
+		nouveauLecteur.transition = this.transition; // Transition qui introduira la nouvelle Map
 		try {
 			final int numeroNouvelleMapInterprete;
 			final int xDebutHerosInterprete;
@@ -92,16 +104,14 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 				yDebutHerosInterprete = yDebutHeros;
 			}
 			
+			final PositionInitiale positionInitiale = new PositionInitialeExhaustive(this.directionDebutHeros, 
+					ancienHeros.x, ancienHeros.y, xDebutHerosInterprete, yDebutHerosInterprete);
 			final Map nouvelleMap = new Map(
 					numeroNouvelleMapInterprete, 
 					nouveauLecteur, 
 					ancienHeros, 
 					null, //pas de Brouillard forcé
-					xDebutHerosInterprete * Main.TAILLE_D_UN_CARREAU, 
-					yDebutHerosInterprete * Main.TAILLE_D_UN_CARREAU, 
-					this.directionDebutHeros,
-					ecartX, //décalage
-					ecartY //décalage
+					positionInitiale
 			);
 			
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);
@@ -111,6 +121,4 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		return curseurActuel+1;
 	}
 	
-	
-
 }

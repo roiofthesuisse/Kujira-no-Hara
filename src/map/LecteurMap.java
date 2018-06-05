@@ -73,12 +73,9 @@ public class LecteurMap extends Lecteur {
 	public int[] tonActuel = null;
 	
 	/**
-	 * Constructeur explicite
-	 * @param transition visuelle pour le passage d'une Map à l'autre
+	 * Constructeur vide
 	 */
-	public LecteurMap(final Transition transition) {
-		this.transition = transition;
-	}
+	public LecteurMap() { }
 	
 	/**
 	 * A chaque frame, calcule l'écran à afficher, avec le décor et les Events dessus.

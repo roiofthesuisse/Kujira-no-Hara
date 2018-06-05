@@ -16,6 +16,7 @@ import main.Fenetre;
 import main.Main;
 import map.Event.Direction;
 import map.PageEvent.Traversabilite;
+import map.positionInitiale.PositionInitiale;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.son.Musique;
@@ -100,11 +101,11 @@ public class Map implements Sauvegardable {
 	 * @param lecteur de la Map
 	 * @param ancienHeros heros de la Map précédente
 	 * @param brouillardForce brouillard imposé au chargement de partie
-	 * @param positionInitialeDuHeros [xDebutHeros, yDebutHerosArg, directionDebutHeros] ou bien [xAncienneMapHeros, yAncienneMapHeros, decalageDebutHeros, directionDebutHeros]
+	 * @param positionInitiale [xDebutHeros, yDebutHerosArg, directionDebutHeros] ou bien [xAncienneMapHeros, yAncienneMapHeros, decalageDebutHeros, directionDebutHeros]
 	 * @throws Exception Impossible de charger la Map
 	 */
 	public Map(final int numero, final LecteurMap lecteur, final Heros ancienHeros, final Brouillard brouillardForce, 
-			final int...positionInitialeDuHeros) throws Exception {
+			final PositionInitiale positionInitiale) throws Exception {
 		this.numero = numero;
 		this.lecteur = lecteur;
 		lecteur.map = this; //on prévient le Lecteur qu'il a une Map
@@ -141,46 +142,17 @@ public class Map implements Sauvegardable {
 		this.layer1 = recupererCouche(jsonMap, 1);
 		this.layer2 = recupererCouche(jsonMap, 2);
 		this.layers = new int[][][] {this.layer0, this.layer1, this.layer2};
-		
-		//position initiale du Héros
-		if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_X_Y_ET_DIRECTION) {
-			// Coordonnées initiales spécifiées
-			this.xDebutHeros = positionInitialeDuHeros[0]; //position x (en pixels) initiale du Héros
-			this.yDebutHeros = positionInitialeDuHeros[1]; //position y (en pixels) initiale du Héros
-			this.directionDebutHeros = positionInitialeDuHeros[2]; //direction initiale du Héros
 
-		} else if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION) {
-			// Coordonnées initiales non-spécifiées
-			final int decalageDebutHeros = positionInitialeDuHeros[0]; //décalage (en nombre de cases) du Héros par rapport à l'ancienne Map
-			this.directionDebutHeros = positionInitialeDuHeros[1]; //direction initiale du Héros
-			
-			switch (this.directionDebutHeros) {
-			case Direction.HAUT:
-				this.xDebutHeros = ancienHeros.x + decalageDebutHeros*Main.TAILLE_D_UN_CARREAU;
-				this.yDebutHeros = (this.hauteur-1)*Main.TAILLE_D_UN_CARREAU;
-				break;
-			case Direction.BAS:
-				this.xDebutHeros = ancienHeros.x + decalageDebutHeros*Main.TAILLE_D_UN_CARREAU;
-				this.yDebutHeros = 0;
-				break;
-			case Direction.GAUCHE:
-				this.xDebutHeros = (this.largeur-1)*Main.TAILLE_D_UN_CARREAU;
-				this.yDebutHeros = ancienHeros.y + decalageDebutHeros*Main.TAILLE_D_UN_CARREAU;
-				break;
-			case Direction.DROITE:
-				this.xDebutHeros = 0;
-				this.yDebutHeros = ancienHeros.y + decalageDebutHeros*Main.TAILLE_D_UN_CARREAU;
-				break;
-			default:
-				LOG.error("Direction inconnue !");
-				break;
-			}
-			LOG.debug("Coordonnées initiales du héros calculées automatiquement : "+ this.xDebutHeros +";"+ this.yDebutHeros);
-		} else {
-			throw new Exception("Nombre incorrect de paramètres pour la position initiale du héros : "+positionInitialeDuHeros.length);
-		}
+		// Transition qui introduit cette Map
+		final Transition transition = lecteur.transition;
 		
-		//maps adjacentes à celle-ci
+		// Position initiale du Héros
+		final int[] positionInitialeDuHeros = positionInitiale.calculer(this.largeur, this.hauteur, transition);
+		this.xDebutHeros = positionInitialeDuHeros[0]; //position x (en pixels) initiale du Héros
+		this.yDebutHeros = positionInitialeDuHeros[1]; //position y (en pixels) initiale du Héros
+		this.directionDebutHeros = positionInitialeDuHeros[2]; //direction initiale du Héros
+		
+		// Maps adjacentes à celle-ci
 		if (jsonMap.has("adjacences")) {
 			this.adjacences = new HashMap<Integer, Adjacence>();
 			final JSONArray adjacencesJsonArray = jsonMap.getJSONArray("adjacences");
@@ -189,22 +161,24 @@ public class Map implements Sauvegardable {
 				
 				final Integer direction = new Integer(jsonAdjacence.getInt("direction"));
 				final int decalage = jsonAdjacence.has("decalage") ? jsonAdjacence.getInt("decalage") : 0;
-				final Transition transition = jsonAdjacence.has("transition") ? Transition.parNom(jsonAdjacence.getString("transition")) : Transition.parDefaut();
-				
-				final Adjacence adjacence = new Adjacence(jsonAdjacence.getInt("numeroMap"), direction, decalage, transition);
+				final Transition transitionVersLAdjacence = jsonAdjacence.has("transition") 
+						? Transition.parNom(jsonAdjacence.getString("transition")) 
+						: Transition.DEFILEMENT;
+				final Adjacence adjacence = new Adjacence(jsonAdjacence.getInt("numeroMap"), direction, decalage, transitionVersLAdjacence);
 				this.adjacences.put(direction, adjacence);
 				LOG.debug("Cette map a une adjacence dans la direction " + direction);
 			}
 		}
 		
-		//informations sur la transition
-		final Transition transition = lecteur.transition;
+		//informations sur la Transition
 		final int xAncienHeros = ancienHeros != null ? ancienHeros.x : 0; //pas d'ancien Héros en cas de chargement de Partie
 		final int yAncienHeros = ancienHeros != null ? ancienHeros.y : 0;
 		final int largeurAncienneMap = ancienHeros != null ? ancienHeros.map.largeur : 0;
 		final int hauteurAncienneMap = ancienHeros != null ? ancienHeros.map.hauteur : 0;
+		//TODO faire de calculerDirectionDefilement une méthode propre au type DEFILEMENT
 		transition.direction = Transition.calculerDirectionDefilement(xAncienHeros, yAncienHeros, this.xDebutHeros, 
 				this.yDebutHeros, largeurAncienneMap, hauteurAncienneMap, this.largeur, this.hauteur);
+		//TODO faire une méthode calculerTransition() qui fait ceci pour ROND
 		if (Transition.ROND.equals(transition)) {
 			// centre du rond
 			transition.xHerosAvant = ancienHeros.x + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
@@ -737,6 +711,21 @@ public class Map implements Sauvegardable {
 				adjacence.allerALaMapAdjacente(this.heros);
 			}
 		}
+	}
+	
+	/**
+	 * Le Héros est-il en train d'entrer par une porte ?
+	 * @param xHerosMapPrecedente coordonnée x (en carreaux) du Héros sur l'ancienne Map
+	 * @param yHerosMapPrecedente coordonnée y (en carreaux) du Héros sur l'ancienne Map
+	 * @return true si le Héros passe par une porte, false sinon
+	 */
+	public boolean leHerosEntreParUnePorte(final int xHerosMapPrecedente, final int yHerosMapPrecedente) {
+		final Integer carreauDuHeros0 = this.layer0[xHerosMapPrecedente][yHerosMapPrecedente];
+		final Integer carreauDuHeros1 = this.layer1[xHerosMapPrecedente][yHerosMapPrecedente];
+		final Integer carreauDuHeros2 = this.layer2[xHerosMapPrecedente][yHerosMapPrecedente];
+		return this.tileset.portes.contains(carreauDuHeros0)
+				|| this.tileset.portes.contains(carreauDuHeros1)
+				|| this.tileset.portes.contains(carreauDuHeros2);
 	}
 
 	@Override

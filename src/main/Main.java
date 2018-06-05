@@ -15,6 +15,8 @@ import jeu.Partie;
 import map.LecteurMap;
 import map.Map;
 import map.Transition;
+import map.positionInitiale.PositionInitialeBrute;
+import map.positionInitiale.PositionInitiale;
 import menu.LecteurMenu;
 import menu.Menu;
 import net.bull.javamelody.Parameter;
@@ -108,26 +110,23 @@ public class Main {
 			try {
 				partie = Partie.creerNouvellePartie();
 			} catch (Exception e) {
-				LOG.error("Impossible de charger la partie.");
-				e.printStackTrace();
+				LOG.error("Impossible de charger la partie.", e);
 			}
 		}
-		futurLecteur = new LecteurMap(Transition.AUCUNE);
+		futurLecteur = new LecteurMap();
+		((LecteurMap) futurLecteur).transition = Transition.AUCUNE; // aucune Transition pour le premier Lecteur
+		final PositionInitiale positionInitiale = new PositionInitialeBrute(partie.xHeros, partie.yHeros, 
+				partie.directionHeros);
 		try {
 			((LecteurMap) futurLecteur).map = new Map(
 					partie.numeroMap, 
 					(LecteurMap) futurLecteur, 
 					null,
-					partie.brouillardACharger,
-					partie.xHeros, 
-					partie.yHeros, 
-					partie.directionHeros,
-					0, // pas de décalage car ce n'est pas un changement de Map
-					0  // pas de décalage car ce n'est pas un changement de Map
+					partie.brouillardACharger, 
+					positionInitiale
 			);
 		} catch (Exception e) {
-			LOG.error("Impossible de charger la map numero "+partie.numeroMap);
-			e.printStackTrace();
+			LOG.error("Impossible de charger la map numero "+partie.numeroMap, e);
 		}
 		lecteur.allume = false; //TODO est-ce utile ?
 	}

@@ -3,6 +3,7 @@ package map;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -40,7 +41,9 @@ public class Tileset {
 	/** Altitude d'affichage du carreau (0:sol, 2:héros) */
 	private final int[] altitude; 
 	/** Terrain du carreau */
-	private final int[] terrain; 
+	private final int[] terrain;
+	/** Carreaux du Tileset considérés comme des portes */
+	public final ArrayList<Integer> portes;
 	/** carreaux découpés dans l'image du Tileset */
 	public final BufferedImage[] carreaux;
 	
@@ -159,9 +162,23 @@ public class Tileset {
 		} catch (JSONException e) {
 			LOG.warn("Pas de ton d'écran pour le tileset : "+this.nom);
 		}
+		
+		final JSONObject jsonTileset2 = InterpreteurDeJson.ouvrirJson(this.nom, ".\\ressources\\Data\\Tilesets\\Cousins\\");
 			
 		//autotiles
-		this.autotiles = Autotile.chargerAutotiles(jsonTileset, this);
+		this.autotiles = Autotile.chargerAutotiles(jsonTileset, jsonTileset2, this);
+		
+		//portes
+		this.portes = new ArrayList<Integer>();
+		if (jsonTileset2.has("portes")) {
+			final JSONArray jsonPortes = jsonTileset2.getJSONArray("portes");
+			for (int i = 0; i<jsonPortes.length(); i++) {
+				final int carreauPorte = jsonPortes.getInt(i);
+				this.portes.add(carreauPorte);
+			}
+		} else {
+			LOG.warn("Pas de portes pour le tileset : "+this.nom);
+		}
 	}
 	
 	/**

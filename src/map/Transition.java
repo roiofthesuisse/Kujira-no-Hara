@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
 import main.Fenetre;
@@ -161,8 +165,16 @@ public enum Transition {
 	 */
 	public abstract BufferedImage calculer(BufferedImage ecranNouvelleMap, Map nouvelleMap, int frame);
 
-	/** Transition par défaut si rien n'est précisé */
-	public static Transition parDefaut() {
+	/** Trouver la tansition la plus adaptée si aucune n'est précisée
+	 * @param xHerosNouvelleMap coordonnée x (en carreaux) du Héros à l'arrivée sur la nouvelle Map
+	 * @param yHerosNouvelleMap coordonnée y (en carreaux) du Héros à l'arrivée sur la nouvelle Map
+	 * @param tilesetNouvelleMap Tileset de la nouvelle Map
+	 * @return type de transition à effectuer
+	 */
+	public static Transition parDefaut(final int xHerosNouvelleMap, final int yHerosNouvelleMap, 
+			final Tileset tilesetNouvelleMap) {
+		
+		
 		return DEFILEMENT;
 	}
 	
