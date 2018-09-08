@@ -117,10 +117,22 @@
 		"y": 11
 	},
 	{
+		"id": 11,
+		"nom": "Clone[5][10]",
+		"x": 18,
+		"y": 0
+	},
+	{
 		"id": 6,
 		"nom": "Clone[341][006]",
 		"x": 19,
 		"y": 14
+	},
+	{
+		"id": 12,
+		"nom": "Clone[5][10]",
+		"x": 12,
+		"y": 0
 	},
 	{
 		"id": 1,
@@ -129,10 +141,22 @@
 		"y": 18
 	},
 	{
+		"id": 18,
+		"nom": "Clone[5][10]",
+		"x": 11,
+		"y": 0
+	},
+	{
 		"id": 7,
 		"nom": "Clone[341][001]",
 		"x": 19,
 		"y": 15
+	},
+	{
+		"id": 13,
+		"nom": "Clone[5][10]",
+		"x": 13,
+		"y": 0
 	},
 	{
 		"id": 2,
@@ -165,6 +189,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[5][10]",
+		"x": 14,
+		"y": 0
 	},
 	{
 		"id": 8,
@@ -362,10 +392,22 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Clone[5][10]",
+		"x": 15,
+		"y": 0
+	},
+	{
 		"id": 3,
 		"nom": "Clone[341][001]",
 		"x": 9,
 		"y": 15
+	},
+	{
+		"id": 20,
+		"nom": "Clone[5][10]",
+		"x": 17,
+		"y": 0
 	},
 	{
 		"id": 9,
@@ -414,10 +456,355 @@
 		]
 	},
 	{
+		"id": 15,
+		"nom": "Clone[5][10]",
+		"x": 16,
+		"y": 0
+	},
+	{
 		"id": 4,
 		"nom": "Clone[341][001]",
 		"x": 9,
 		"y": 14
+	},
+	{
+		"id": 10,
+		"nom": "etoile",
+		"x": 10,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "étaler les étoiles dans l'espace"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"valeurADonner2": 18,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 10,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"valeurADonner2": 8,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"variable": true,
+				"nouveauX": 9,
+				"nouveauY": 10,
+				"direction": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "décaler dans le temps"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 45,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"valeurADonner2": 7,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 45,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 45,
+				"operationAFaire": "retirer",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 88
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 45,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 45,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 18
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 48
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 45,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 61
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 78
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "taille de l'étoile"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 46,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 4
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 46,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "etoile scintillement",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 46,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "etoile scintillement",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "tomber"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 100
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 50
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			}
+			],
+			"image": "etoile scintillement",
+			"vitesse": 4,
+			"frequence": 1,
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	}
 	]
 }

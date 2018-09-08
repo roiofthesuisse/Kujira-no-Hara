@@ -111,6 +111,33 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Geyser",
+		"x": 8,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 14,
@@ -215,31 +242,10 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Geyser",
-		"x": 8,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 22,
+		"nom": "Clone[341][002]",
+		"x": 21,
+		"y": 13
 	},
 	{
 		"id": 11,
@@ -273,10 +279,10 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Clone[341][002]",
-		"x": 21,
-		"y": 13
+		"id": 17,
+		"nom": "Clone[341][078]",
+		"x": 22,
+		"y": 15
 	},
 	{
 		"id": 6,
@@ -346,44 +352,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][078]",
-		"x": 22,
-		"y": 15
-	},
-	{
-		"id": 1,
-		"nom": "cascade",
-		"x": 6,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 225,
-			"vitesse": 16,
-			"frequence": 2,
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][078]",
-		"x": 22,
-		"y": 16
 	},
 	{
 		"id": 23,
@@ -505,9 +473,15 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Geyser",
-		"x": 19,
+		"id": 12,
+		"nom": "Clone[341][078]",
+		"x": 22,
+		"y": 16
+	},
+	{
+		"id": 1,
+		"nom": "cascade",
+		"x": 6,
 		"y": 12,
 		"pages": [
 		{
@@ -518,11 +492,10 @@
 			],
 			"commandes": [
 			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": 24,
-			"frequence": 1,
+			"image": "cascade character",
+			"opacite": 225,
+			"vitesse": 16,
+			"frequence": 2,
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -678,125 +651,29 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "EV024",
-		"x": 10,
-		"y": 9,
+		"id": 7,
+		"nom": "Geyser",
+		"x": 19,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			}
 			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Luciole",
-		"x": 13,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.mp3",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "luciole character",
+			"image": "geyser character",
 			"opacite": 200,
-			"vitesse": 4,
+			"directionInitiale": 3,
+			"vitesse": 24,
 			"frequence": 1,
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": true,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -904,6 +781,160 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Luciole",
+		"x": 13,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "ACTION_SECONDAIRE",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 26,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Luciole attrapée.mp3",
+				"volume": 1.00,
+				"tempo": 1.25
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
+				]
+			},
+			"image": "luciole character",
+			"opacite": 200,
+			"vitesse": 4,
+			"frequence": 1,
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 24,
+		"nom": "EV024",
+		"x": 10,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "EV008",
+		"x": 29,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 252,
+				"xDebutHeros": 1,
+				"yDebutHeros": 12
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 19,
 		"nom": "EV019",
 		"x": 14,
@@ -997,10 +1028,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 29,
-		"y": 15,
+		"id": 25,
+		"nom": "EV025",
+		"x": 18,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -1010,11 +1041,34 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 160,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 252,
-				"xDebutHeros": 1,
-				"yDebutHeros": 12
+				"numeroNouvelleMap": 245,
+				"xDebutHeros": 11,
+				"yDebutHeros": 7
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 176,
+				"xDebutHeros": 13,
+				"yDebutHeros": 13
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": 8,
@@ -1023,6 +1077,39 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "cascade",
+		"x": 24,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 100,
+				"modeDeFusion": "negatif",
+				"defilementX": 0,
+				"defilementY": -7,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "brouillard bleu clair2"
+			}
+			],
+			"image": "cascade character",
+			"opacite": 225,
+			"vitesse": 16,
+			"frequence": 2,
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -1109,99 +1196,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "cascade",
-		"x": 24,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 100,
-				"modeDeFusion": "negatif",
-				"defilementX": 0,
-				"defilementY": -7,
-				"zoom": 100,
-				"nuance": 0,
-				"nomImage": "brouillard bleu clair2"
-			}
-			],
-			"image": "cascade character",
-			"opacite": 225,
-			"vitesse": 16,
-			"frequence": 2,
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 25,
-		"nom": "EV025",
-		"x": 18,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 160,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 245,
-				"xDebutHeros": 11,
-				"yDebutHeros": 7
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 176,
-				"xDebutHeros": 13,
-				"yDebutHeros": 13
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][007]",
-		"x": 9,
-		"y": 14
-	},
-	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 29,
@@ -1228,6 +1222,39 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][007]",
+		"x": 9,
+		"y": 14
+	},
+	{
+		"id": 4,
+		"nom": "Geyser",
+		"x": 16,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -1437,10 +1464,10 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Geyser",
-		"x": 16,
-		"y": 18,
+		"id": 26,
+		"nom": "nom station",
+		"x": 14,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -1450,41 +1477,16 @@
 			],
 			"commandes": [
 			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "arche",
-		"x": 6,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "arches kujira character",
+			"image": "metro nom character",
+			"directionInitiale": 1,
+			"animationInitiale": 1,
 			"vitesse": 8,
 			"frequence": 8,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1516,6 +1518,31 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "arche",
+		"x": 6,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "arches kujira character",
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	}

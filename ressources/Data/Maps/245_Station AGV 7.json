@@ -105,6 +105,12 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[341][007]",
+		"x": 21,
+		"y": 11
+	},
+	{
 		"id": 5,
 		"nom": "Luciole",
 		"x": 14,
@@ -186,16 +192,52 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][007]",
-		"x": 21,
-		"y": 11
-	},
-	{
 		"id": 11,
 		"nom": "Clone[341][113]",
 		"x": 24,
 		"y": 12
+	},
+	{
+		"id": 17,
+		"nom": "EV017",
+		"x": 10,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 6,
@@ -279,46 +321,10 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "EV017",
-		"x": 10,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 12,
+		"nom": "Clone[341][113]",
+		"x": 11,
+		"y": 17
 	},
 	{
 		"id": 1,
@@ -371,10 +377,35 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Clone[341][113]",
-		"x": 11,
-		"y": 17
+		"id": 7,
+		"nom": "EV007",
+		"x": 19,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 262,
+				"xDebutHeros": 14,
+				"yDebutHeros": 10
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -408,35 +439,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 19,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 262,
-				"xDebutHeros": 14,
-				"yDebutHeros": 10
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 13,
+		"nom": "Clone[341][113]",
+		"x": 12,
+		"y": 18
 	},
 	{
 		"id": 2,
@@ -643,22 +649,37 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][113]",
-		"x": 12,
-		"y": 18
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][113]",
 		"x": 19,
 		"y": 10
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][005]",
-		"x": 18,
-		"y": 15
+		"id": 19,
+		"nom": "nom station",
+		"x": 14,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "metro nom character",
+			"directionInitiale": 1,
+			"animationInitiale": 2,
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 14,
@@ -690,6 +711,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][005]",
+		"x": 18,
+		"y": 15
 	},
 	{
 		"id": 9,
@@ -844,35 +871,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "brouillard de forêt",
-		"x": 22,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierMeteo",
-				"type": "neige",
-				"intensite": 9
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 15,
 		"nom": "EV015",
 		"x": 29,
@@ -891,6 +889,35 @@
 				"numeroNouvelleMap": 275,
 				"xDebutHeros": 1,
 				"yDebutHeros": 21
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "brouillard de forêt",
+		"x": 22,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierMeteo",
+				"type": "neige",
+				"intensite": 9
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": 8,

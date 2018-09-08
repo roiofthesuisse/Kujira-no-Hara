@@ -900,6 +900,12 @@
 		"y": 8
 	},
 	{
+		"id": 23,
+		"nom": "Clone[341][165]",
+		"x": 13,
+		"y": 8
+	},
+	{
 		"id": 18,
 		"nom": "EV018",
 		"x": 30,
@@ -1046,43 +1052,43 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Autrefois, \\c[02]Grötkrötsen\\c[01] et \\c[02]Blutrik Obsten\\c[01] \\nvoulaient tous les deux être chef viking."
+				"texte": "\"Autrefois, \\c[02]Grötkrötsen\\c[01] et \\c[02]Blutrik Obsten\\c[01] \\nse disputaient le titre de chef viking."
 			},
 			{
 				"nom": "Message",
-				"texte": "Ils étaient les deux guerriers vikings les \\nplus forts de toute l'histoire."
+				"texte": "Ils étaient alors les deux guerriers vikings \\nles plus forts du pays."
 			},
 			{
 				"nom": "Message",
-				"texte": "Un jour \\c[02]Grötkrötsen\\c[01] mit au défi \\c[02]Blutrik\\c[01]\\nde ramasser le galet du fond de la rivière \\nde la montagne de granit sans se mouiller."
+				"texte": "Un jour, \\c[02]Grötkrötsen\\c[01] mit au défi \\c[02]Blutrik\\c[01]\\nde ramasser le galet du fond de la rivière \\nde la montagne de granit sans se mouiller."
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[02]Blutrik Obsten\\c[01] alla consulter les sages\\npour savoir comment relever le défi."
+				"texte": "\\c[02]Blutrik Obsten\\c[01] alla consulter les sages\\npour savoir comment relever ce défi."
 			},
 			{
 				"nom": "Message",
-				"texte": "Les sages vikings lui dirent qu'avec un \\ngrand bâton il pourrait récupérer le galet\\nsans se mouiller."
+				"texte": "Les sages vikings lui indiquèrent qu'avec\\nun grand bâton, il pourrait récupérer le galet\\nsans se mouiller."
 			},
 			{
 				"nom": "Message",
-				"texte": "N'écoutant que son courage, \\c[02]Blutrik Obsten\\c[01]\\nparcourut toutes les forêts glaciales \\ndu Nord à la recherche d'un grand bâton."
+				"texte": "N'écoutant que son courage, \\c[02]Blutrik Obsten\\c[01]\\nparcourut les forêts glaciales du Nord \\nà la recherche du grand bâton."
 			},
 			{
 				"nom": "Message",
-				"texte": "Une fois qu'il eut trouvé une perche assez \\ngrande, il se mit à creuser de ses mains\\nla montagne de granit."
+				"texte": "Une fois qu'il eut trouvé une perche \\nsuffisamment grande, il se mit à creuser\\ndans le granit à mains nues."
 			},
 			{
 				"nom": "Message",
-				"texte": "En un mois il creusa dans le granit un \\ntunnel qui allait sous la rivière, juste en \\ndessous de l'endroit où se trouvait le galet."
+				"texte": "En un mois, il y perça un tunnel qui menait\\nsous la rivière, juste en dessous de l'endroit\\noù se trouvait le galet de \\c[02]Grötkrötsen\\c[01]."
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[02]Blutrik Obsten\\c[01], dans le tunnel, prit le galet \\npar en dessous, puis boucha le trou avec \\nla perche avant que l'eau ne s'engouffre."
+				"texte": "\\c[02]Blutrik\\c[01], depuis le tunnel, attrapa le galet \\npar dessous, puis boucha rapidement le trou\\navec la perche avant que l'eau ne s'engouffre."
 			},
 			{
 				"nom": "Message",
-				"texte": "Il ramena le galet à \\c[02]Grötkrötsen\\c[01] qui, \\nde rage, se jetta dans l'eau et se noya."
+				"texte": "Il ramena le galet à \\c[02]Grötkrötsen\\c[01] qui, \\nde rage, se jeta dans l'eau et se noya."
 			},
 			{
 				"nom": "ArreterMusique",
@@ -2805,42 +2811,55 @@
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
 					"nom": "ModifierApparence",
-					"image": "kiria character",
+					"image": "poesie dodo character2",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
 					"direction": 1,
 					"animation": 0,
 					"teinte": 0
 				},
 				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
 				},
 				{
 					"nom": "AppelerUneCommande",
 					"nomCommande": "Attendre",
-					"nombreDeFrames": 10
+					"nombreDeFrames": 16
 				},
 				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 6
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 6
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 1
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
 				}
 				]
 			},
@@ -2867,6 +2886,21 @@
 				"texte": "..."
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
 				"nom": "Message",
 				"texte": "Quel horrible \\c[02]sorcier\\c[01] !"
 			},
@@ -2877,6 +2911,21 @@
 			{
 				"nom": "Message",
 				"texte": "...une étoile qu'on ne voit qu'au matin."
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "Message",
@@ -2893,6 +2942,21 @@
 			{
 				"nom": "Message",
 				"texte": "Tu me la montreras, hein, tu me le promets ?"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie dodo character2",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "Attendre",
@@ -2915,12 +2979,12 @@
 				"valeurADonner": true
 			}
 			],
-			"image": "poesie dodo character",
-			"directionInitiale": 1,
+			"image": "poesie dodo character2",
+			"directionInitiale": 3,
 			"vitesse": 8,
 			"frequence": 8,
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -2964,7 +3028,7 @@
 				"valeur": false
 			}
 			],
-			"image": "kiria character",
+			"image": "poesie dodo character2",
 			"vitesse": 8,
 			"frequence": 8,
 			"animeEnMouvement": false,

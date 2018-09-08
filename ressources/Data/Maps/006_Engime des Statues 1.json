@@ -165,6 +165,59 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 17,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 4,
+				"xDebutHeros": 13,
+				"yDebutHeros": 9
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 12,
 		"nom": "EV012",
 		"x": 17,
@@ -261,59 +314,6 @@
 			},
 			{
 				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 17,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 4,
-				"xDebutHeros": 13,
-				"yDebutHeros": 9
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
 			}
 			],
 			"vitesse": 8,
@@ -506,52 +506,36 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) We, \\c[02]vikings\\c[01], make proud statues."
 			},
 			{
 				"nom": "Message",
-				"texte": "Nous les \\c[02]vikings\\c[01], construisons de fières \\nstatues."
+				"texte": "Nous autres les \\c[02]vikings\\c[01], construisons de fières \\nstatues."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But as they are useless, we put them \\nanywhere."
 			},
 			{
 				"nom": "Message",
 				"texte": "Cependant, comme elles ne servent à rien, \\non les met un peu n'importe où..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) To move a viking statue, stand in front of it\\nand press \"SPACE\", then move backward or \\nforward."
+			},
+			{
 				"nom": "Message",
 				"texte": "Pour déplacer une statue viking, placez-vous \\ndevant et pressez \"ESPACE\", puis reculez ou \\navancez."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) One cannot pull them in the sand because\\nof the wheels"
+			},
+			{
 				"nom": "Message",
 				"texte": "On ne peut pas les tirer dans le sable\\nà cause des roulettes."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "We, \\c[02]vikings\\c[01], make proud statues."
-			},
-			{
-				"nom": "Message",
-				"texte": "But as they are useless, we put them \\nanywhere."
-			},
-			{
-				"nom": "Message",
-				"texte": "To move a viking statue, stand in front of it\\nand press \"SPACE\", then move backward or \\nforward."
-			},
-			{
-				"nom": "Message",
-				"texte": "You cannot pull them in sand because\\nof the roulettes."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",

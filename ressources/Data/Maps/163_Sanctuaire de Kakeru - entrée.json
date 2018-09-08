@@ -654,7 +654,7 @@
 		"id": 7,
 		"nom": "EV007",
 		"x": 17,
-		"y": 24,
+		"y": 23,
 		"pages": [
 		{
 			"conditions": [
@@ -1003,6 +1003,57 @@
 		"nom": "Clone[341][004]",
 		"x": 21,
 		"y": 20
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 16,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Arme du donjon récupérée"
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 94,
+				"numero": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 94,
+				"variable": false,
+				"quantite": 99
+			},
+			{
+				"nom": "EquiperArme",
+				"idArme": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 10,

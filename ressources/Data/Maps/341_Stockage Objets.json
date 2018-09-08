@@ -897,6 +897,12 @@
 		]
 	},
 	{
+		"id": 166,
+		"nom": "Clone[341][165]",
+		"x": 40,
+		"y": 11
+	},
+	{
 		"id": 37,
 		"nom": "Clone[341][035]",
 		"x": 11,
@@ -35038,30 +35044,46 @@
 		"y": 12
 	},
 	{
-		"id": 49,
-		"nom": "Pissenlit HP[1] RESET",
-		"x": 7,
-		"y": 5,
+		"id": 123,
+		"nom": "tourniquet HP[1] RESET",
+		"x": 30,
+		"y": 1,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "Commentaire",
-				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
 			}
 			],
-			"image": "pissenlit character",
-			"opacite": 200,
-			"vitesse": 24,
-			"frequence": 1,
+			"image": "hélice de passerelle character",
+			"vitesse": 8,
+			"frequence": 8,
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		},
@@ -35070,7 +35092,7 @@
 			{
 				"nom": "InterrupteurLocal",
 				"numeroMap": 341,
-				"numeroEvent": 49,
+				"numeroEvent": 123,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -35082,33 +35104,201 @@
 				"numero": 0
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 35,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Bush.wav",
-				"volume": 0.80,
-				"tempo": 1.00
+				"nom": "ConditionScript",
+				"script": "($game_player.x != $game_map.events[@event_id].x) || ($game_player.y != $game_map.events[@event_id].y)\r\n\r\n",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Math.sqrt(($game_player.x-$game_map.events[@event_id].x)*($game_player.x-$game_map.events[@event_id].x)+($game_player.y-$game_map.events[@event_id].y)*($game_player.y-$game_map.events[@event_id].y)).round <= 3\r\n\r\n",
+				"numero": 3
 			},
 			{
 				"nom": "ModifierVariable",
-				"numeroVariable": 90,
+				"numeroVariable": 21,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
+				"valeurADonner": -1,
+				"operationAFaire2": "terrain"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 21,
+				"inegalite": "!=",
+				"valeurQuIlEstCenseAvoir": 8,
+				"comparerAUneAutreVariable": false,
+				"numero": 4
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "030-Door07.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "hélice de passerelle character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "hélice de passerelle character",
+					"direction": 0,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "hélice de passerelle character",
+					"direction": 0,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "hélice de passerelle character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "hélice de passerelle character",
+					"direction": 0,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "hélice de passerelle character",
+					"direction": 0,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 35,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 55,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 55,
+				"operationAFaire": "modulo",
+				"valeurADonner": 4,
 				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 33
+				"nombreDeFrames": 10
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(341, 50)"
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 35,
+				"valeur": false
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "hélice de passerelle character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 35,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 21,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "terrain"
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -35116,29 +35306,16 @@
 				"valeurADonner": false
 			}
 			],
-			"image": "pissenlit character",
-			"opacite": 200,
-			"vitesse": 24,
-			"frequence": 1,
+			"image": "hélice de passerelle character",
+			"vitesse": 8,
+			"frequence": 8,
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][002]",
-		"x": 4,
-		"y": 9
-	},
-	{
-		"id": 160,
-		"nom": "Clone[341][159]",
-		"x": 39,
-		"y": 12
 	},
 	{
 		"id": 86,
@@ -35786,46 +35963,42 @@
 		]
 	},
 	{
-		"id": 123,
-		"nom": "tourniquet HP[1] RESET",
-		"x": 30,
-		"y": 1,
+		"id": 160,
+		"nom": "Clone[341][159]",
+		"x": 39,
+		"y": 12
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][002]",
+		"x": 4,
+		"y": 9
+	},
+	{
+		"id": 49,
+		"nom": "Pissenlit HP[1] RESET",
+		"x": 7,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
+				"nom": "Commentaire",
+				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
 			}
 			],
-			"image": "hélice de passerelle character",
-			"vitesse": 8,
-			"frequence": 8,
+			"image": "pissenlit character",
+			"opacite": 200,
+			"vitesse": 24,
+			"frequence": 1,
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		},
@@ -35834,7 +36007,7 @@
 			{
 				"nom": "InterrupteurLocal",
 				"numeroMap": 341,
-				"numeroEvent": 123,
+				"numeroEvent": 49,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -35846,201 +36019,33 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 35,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x != $game_map.events[@event_id].x) || ($game_player.y != $game_map.events[@event_id].y)\r\n\r\n",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Math.sqrt(($game_player.x-$game_map.events[@event_id].x)*($game_player.x-$game_map.events[@event_id].x)+($game_player.y-$game_map.events[@event_id].y)*($game_player.y-$game_map.events[@event_id].y)).round <= 3\r\n\r\n",
-				"numero": 3
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 21,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "terrain"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 21,
-				"inegalite": "!=",
-				"valeurQuIlEstCenseAvoir": 8,
-				"comparerAUneAutreVariable": false,
-				"numero": 4
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "030-Door07.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "hélice de passerelle character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "hélice de passerelle character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "hélice de passerelle character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "hélice de passerelle character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "hélice de passerelle character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "hélice de passerelle character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 35,
-				"valeur": true
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 0.80,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierVariable",
-				"numeroVariable": 55,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 55,
-				"operationAFaire": "modulo",
-				"valeurADonner": 4,
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
 				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 10
+				"nombreDeFrames": 33
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 35,
-				"valeur": false
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "hélice de passerelle character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 35,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(341, 50)"
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 21,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "terrain"
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -36048,16 +36053,168 @@
 				"valeurADonner": false
 			}
 			],
-			"image": "hélice de passerelle character",
+			"image": "pissenlit character",
+			"opacite": 200,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 142,
+		"nom": "Clone[341][141]",
+		"x": 5,
+		"y": 13
+	},
+	{
+		"id": 105,
+		"nom": "Carrilon de bois",
+		"x": 26,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Carillon de bois.mp3",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "carillons de bois character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "carillons de bois character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "carillons de bois character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "carillons de bois character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "carillons de bois character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "carillons de bois character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 6
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "carillons de bois character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "carillons de bois character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"image": "carillons de bois character",
 			"vitesse": 8,
 			"frequence": 8,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 31,
+		"nom": "Clone[341][030]",
+		"x": 10,
+		"y": 11
 	},
 	{
 		"id": 68,
@@ -36285,327 +36442,10 @@
 		]
 	},
 	{
-		"id": 31,
-		"nom": "Clone[341][030]",
-		"x": 10,
-		"y": 11
-	},
-	{
-		"id": 105,
-		"nom": "Carrilon de bois",
-		"x": 26,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Carillon de bois.mp3",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "carillons de bois character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "carillons de bois character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "carillons de bois character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "carillons de bois character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "carillons de bois character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "carillons de bois character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 6
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "carillons de bois character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "carillons de bois character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"image": "carillons de bois character",
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 142,
-		"nom": "Clone[341][141]",
-		"x": 5,
-		"y": 13
-	},
-	{
-		"id": 161,
-		"nom": "Flouze HP[1]",
-		"x": 40,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "Ecailles colorées",
-			"directionInitiale": 2,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
-				"numeroEvent": 161,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 5
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 50,
-		"nom": "Pissenlit HP[1] RESET",
-		"x": 7,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
-			}
-			],
-			"image": "pissenlit character",
-			"opacite": 0,
-			"directionInitiale": 1,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
-				"numeroEvent": 50,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "WW_HyoiPear.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			}
-			],
-			"image": "pissenlit character",
-			"opacite": 0,
-			"directionInitiale": 1,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][003]",
-		"x": 6,
-		"y": 9
+		"id": 124,
+		"nom": "Clone[341][123]",
+		"x": 30,
+		"y": 8
 	},
 	{
 		"id": 87,
@@ -37253,9 +37093,287 @@
 		]
 	},
 	{
-		"id": 124,
-		"nom": "Clone[341][123]",
-		"x": 30,
+		"id": 13,
+		"nom": "Clone[341][003]",
+		"x": 6,
+		"y": 9
+	},
+	{
+		"id": 50,
+		"nom": "Pissenlit HP[1] RESET",
+		"x": 7,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
+			}
+			],
+			"image": "pissenlit character",
+			"opacite": 0,
+			"directionInitiale": 1,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 50,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 3,
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "WW_HyoiPear.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"image": "pissenlit character",
+			"opacite": 0,
+			"directionInitiale": 1,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 161,
+		"nom": "Flouze HP[1]",
+		"x": 40,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Ecailles colorées",
+			"directionInitiale": 2,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 161,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "monnaie.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 106,
+		"nom": "Clone[341][0105]",
+		"x": 26,
+		"y": 8
+	},
+	{
+		"id": 32,
+		"nom": "Liane HP[1]",
+		"x": 18,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "On met des HP à tous les éléments avec qui on veut pouvoir\\navoir des interractions via les armes."
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 32,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 4,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 48,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 33
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 48,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Je le fais en script parce que c'est mille fois plus simple."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "x = y = 0\\ncase $game_player.direction\\nwhen 2; y = $game_map.events[@event_id].y - $game_player.y - 1\\nwhen 4; x = $game_map.events[@event_id].x - $game_player.x + 1\\nwhen 6; x = $game_map.events[@event_id].x - $game_player.x - 1\\nwhen 8; y = $game_map.events[@event_id].y - $game_player.y + 1\\nend\\n$game_player.jump(x, y)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 48,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 69,
+		"nom": "Clone[341][0067]",
+		"x": 17,
 		"y": 8
 	},
 	{
@@ -38477,142 +38595,6 @@
 		]
 	},
 	{
-		"id": 69,
-		"nom": "Clone[341][0067]",
-		"x": 17,
-		"y": 8
-	},
-	{
-		"id": 32,
-		"nom": "Liane HP[1]",
-		"x": 18,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "On met des HP à tous les éléments avec qui on veut pouvoir\\navoir des interractions via les armes."
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
-				"numeroEvent": 32,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 48,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 33
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 48,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Je le fais en script parce que c'est mille fois plus simple."
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "x = y = 0\\ncase $game_player.direction\\nwhen 2; y = $game_map.events[@event_id].y - $game_player.y - 1\\nwhen 4; x = $game_map.events[@event_id].x - $game_player.x + 1\\nwhen 6; x = $game_map.events[@event_id].x - $game_player.x - 1\\nwhen 8; y = $game_map.events[@event_id].y - $game_player.y + 1\\nend\\n$game_player.jump(x, y)"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 48,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 106,
-		"nom": "Clone[341][0105]",
-		"x": 26,
-		"y": 8
-	},
-	{
-		"id": 162,
-		"nom": "Clone[341][161]",
-		"x": 40,
-		"y": 8
-	},
-	{
-		"id": 51,
-		"nom": "Clone[341][049]",
-		"x": 7,
-		"y": 12
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][004]",
-		"x": 7,
-		"y": 9
-	},
-	{
-		"id": 88,
-		"nom": "Clone[341][0080]",
-		"x": 21,
-		"y": 8
-	},
-	{
 		"id": 125,
 		"nom": "Buisson HP[1] RESET",
 		"x": 33,
@@ -38717,10 +38699,40 @@
 		]
 	},
 	{
-		"id": 144,
-		"nom": "Clone[341][143]",
-		"x": 15,
+		"id": 88,
+		"nom": "Clone[341][0080]",
+		"x": 21,
+		"y": 8
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][004]",
+		"x": 7,
 		"y": 9
+	},
+	{
+		"id": 51,
+		"nom": "Clone[341][049]",
+		"x": 7,
+		"y": 12
+	},
+	{
+		"id": 162,
+		"nom": "Clone[341][161]",
+		"x": 40,
+		"y": 8
+	},
+	{
+		"id": 70,
+		"nom": "Clone[341][0068]",
+		"x": 17,
+		"y": 9
+	},
+	{
+		"id": 33,
+		"nom": "Clone[341][032]",
+		"x": 18,
+		"y": 12
 	},
 	{
 		"id": 107,
@@ -38827,16 +38839,34 @@
 		]
 	},
 	{
-		"id": 33,
-		"nom": "Clone[341][032]",
-		"x": 18,
+		"id": 144,
+		"nom": "Clone[341][143]",
+		"x": 15,
+		"y": 9
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][001]",
+		"x": 1,
+		"y": 9
+	},
+	{
+		"id": 52,
+		"nom": "Clone[341][047]",
+		"x": 8,
 		"y": 12
 	},
 	{
-		"id": 70,
-		"nom": "Clone[341][0068]",
-		"x": 17,
-		"y": 9
+		"id": 89,
+		"nom": "Clone[341][0086]",
+		"x": 22,
+		"y": 8
+	},
+	{
+		"id": 126,
+		"nom": "Clone[341][125]",
+		"x": 33,
+		"y": 12
 	},
 	{
 		"id": 163,
@@ -38912,28 +38942,296 @@
 		]
 	},
 	{
-		"id": 126,
-		"nom": "Clone[341][125]",
-		"x": 33,
-		"y": 12
+		"id": 34,
+		"nom": "Vie HP[1] RESET",
+		"x": 10,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Ecailles colorées",
+			"opacite": 225,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 34,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "111-Heal07.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 4,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": true,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 89,
-		"nom": "Clone[341][0086]",
-		"x": 22,
-		"y": 8
+		"id": 71,
+		"nom": "Serrure",
+		"x": 18,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "Ce bloc de pierre est muni d'une serrure."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "This stone block has a lock."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 7,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous utilisez la clé."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Message",
+				"texte": "You use the key."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "028-Door05.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 7,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "029-Door06.ogg",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 33
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "Message",
+				"texte": "Il vous faudrait une clé pour l'ouvrir..."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "Message",
+				"texte": "You will need a key to open it..."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "Serrures character",
+			"directionInitiale": 2,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 71,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"directionInitiale": 1,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 52,
-		"nom": "Clone[341][047]",
-		"x": 8,
-		"y": 12
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][001]",
-		"x": 1,
-		"y": 9
+		"id": 108,
+		"nom": "Clone[341][0107]",
+		"x": 26,
+		"y": 10
 	},
 	{
 		"id": 145,
@@ -39199,302 +39497,22 @@
 		]
 	},
 	{
-		"id": 108,
-		"nom": "Clone[341][0107]",
-		"x": 26,
-		"y": 10
-	},
-	{
-		"id": 71,
-		"nom": "Serrure",
-		"x": 18,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Ce bloc de pierre est muni d'une serrure."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "This stone block has a lock."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 7,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous utilisez la clé."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "You use the key."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "028-Door05.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "RetirerObjet",
-				"idObjet": 7,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "029-Door06.ogg",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "Il vous faudrait une clé pour l'ouvrir..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "You will need a key to open it..."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "Serrures character",
-			"directionInitiale": 2,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
-				"numeroEvent": 71,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"directionInitiale": 1,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 34,
-		"nom": "Vie HP[1] RESET",
-		"x": 10,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "Ecailles colorées",
-			"opacite": 225,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
-				"numeroEvent": 34,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "111-Heal07.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 4,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": true,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 164,
-		"nom": "Clone[341][163]",
-		"x": 41,
+		"id": 90,
+		"nom": "Clone[341][0087]",
+		"x": 23,
 		"y": 8
+	},
+	{
+		"id": 16,
+		"nom": "Clone[341][007]",
+		"x": 1,
+		"y": 11
+	},
+	{
+		"id": 53,
+		"nom": "Clone[341][048]",
+		"x": 8,
+		"y": 13
 	},
 	{
 		"id": 127,
@@ -40249,433 +40267,10 @@
 		]
 	},
 	{
-		"id": 53,
-		"nom": "Clone[341][048]",
-		"x": 8,
-		"y": 13
-	},
-	{
-		"id": 16,
-		"nom": "Clone[341][007]",
-		"x": 1,
-		"y": 11
-	},
-	{
-		"id": 90,
-		"nom": "Clone[341][0087]",
-		"x": 23,
+		"id": 164,
+		"nom": "Clone[341][163]",
+		"x": 41,
 		"y": 8
-	},
-	{
-		"id": 146,
-		"nom": "Clone[341][145]",
-		"x": 35,
-		"y": 9
-	},
-	{
-		"id": 109,
-		"nom": "Briqueliane HP[1] RESET",
-		"x": 10,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "brique liane character",
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
-				"numeroEvent": 109,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "jump_toward_player"
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 92,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "terrain"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 59
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 6,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 60
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			}
-			],
-			"image": "brique liane character",
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
-				"numeroEvent": 109,
-				"numeroInterrupteurLocal": 3,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "L'interrupteur local D est automatiquement activé quand\\nl'ennemi chage de terrain.\\nComme ça on peut le faire tomber dans les trous, l'eau, etc..."
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 92,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "terrain"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 59
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 6,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 60
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": false
-			}
-			],
-			"image": "brique liane character",
-			"vitesse": 8,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 72,
-		"nom": "Serrure",
-		"x": 19,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Ce bloc de pierre est muni d'une serrure."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "This stone block has a lock."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 7,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous utilisez la clé."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "You use the key."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "028-Door05.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "RetirerObjet",
-				"idObjet": 7,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "029-Door06.ogg",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "Il vous faudrait une clé pour l'ouvrir..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "You will need a key to open it..."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "Serrures character",
-			"directionInitiale": 3,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
-				"numeroEvent": 72,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"directionInitiale": 1,
-			"vitesse": 24,
-			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 35,
@@ -40692,10 +40287,10 @@
 			"commandes": [
 			],
 			"image": "kumquat character",
-			"vitesse": 8,
-			"frequence": 8,
+			"vitesse": 16,
+			"frequence": 1,
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -40946,16 +40541,1485 @@
 		]
 	},
 	{
-		"id": 128,
-		"nom": "Clone[341][127]",
-		"x": 27,
-		"y": 12
+		"id": 72,
+		"nom": "Serrure",
+		"x": 19,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "Ce bloc de pierre est muni d'une serrure."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "This stone block has a lock."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 7,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous utilisez la clé."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Message",
+				"texte": "You use the key."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "028-Door05.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 7,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "029-Door06.ogg",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 33
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "Message",
+				"texte": "Il vous faudrait une clé pour l'ouvrir..."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "Message",
+				"texte": "You will need a key to open it..."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "Serrures character",
+			"directionInitiale": 3,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 72,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"directionInitiale": 1,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 54,
-		"nom": "Clone[341][050]",
-		"x": 7,
-		"y": 13
+		"id": 109,
+		"nom": "Briqueliane HP[1] RESET",
+		"x": 10,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "brique liane character",
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 109,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 4,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "jump_toward_player"
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 92,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "terrain"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 92,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 59
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 92,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 6,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 60
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"image": "brique liane character",
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 109,
+				"numeroInterrupteurLocal": 3,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "L'interrupteur local D est automatiquement activé quand\\nl'ennemi chage de terrain.\\nComme ça on peut le faire tomber dans les trous, l'eau, etc..."
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 92,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "terrain"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 92,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 59
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 92,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 6,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 60
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 3,
+				"valeurADonner": false
+			}
+			],
+			"image": "brique liane character",
+			"vitesse": 8,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 146,
+		"nom": "Clone[341][145]",
+		"x": 35,
+		"y": 9
+	},
+	{
+		"id": 165,
+		"nom": "radio",
+		"x": 40,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "aiguiller sur la bonne émission\\n(qui n'a pas encore été entendue)"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 8,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 0"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 1"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 3,
+				"comparerAUneAutreVariable": false,
+				"numero": 4
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 2"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 3"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 6,
+				"comparerAUneAutreVariable": false,
+				"numero": 5
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 6
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 4"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 6
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 5"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 7,
+				"comparerAUneAutreVariable": false,
+				"numero": 7
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 6"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 7
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 7"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 12,
+				"comparerAUneAutreVariable": false,
+				"numero": 8
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 9
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 9,
+				"comparerAUneAutreVariable": false,
+				"numero": 10
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 8"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 10
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 9"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 11,
+				"comparerAUneAutreVariable": false,
+				"numero": 11
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 10"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 11
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 11"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 11
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 14,
+				"comparerAUneAutreVariable": false,
+				"numero": 12
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 13,
+				"comparerAUneAutreVariable": false,
+				"numero": 13
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 12"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 13
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 13"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 13
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 12
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 183,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 15,
+				"comparerAUneAutreVariable": false,
+				"numero": 14
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 14"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 14
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "emission 15"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 14
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 12
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "si on arrive ici, c'est qu'il n'y a plus d'émissions"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 0"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Scientifique : les radios explosent"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour chers auditeurs !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici, toujours le \\c[2]magistrat\\c[0] et le \\c[2]croque-mort\\c[0]\\nen direct de radio Kujira !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Sujet d'actualité à présent : nos postes radio \\nprésenteraient tous un dysfonctionnement !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Notre invité du jour pour nous en parler est\\nle professeur \\c[2]Astrophilius Wuerrenz\\c[0].\\nBonjour professeur."
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour et merci de m'avoir invité."
+			},
+			{
+				"nom": "Message",
+				"texte": "En effet, hier j'ai constaté sur ma radio \\nune fragilité au niveau du transistor."
+			},
+			{
+				"nom": "Message",
+				"texte": "Après investigations, je suis en mesure\\nd'affirmer que ce défaut dont je vous parle\\nest présent sur absolument tous les..."
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 1"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Poésie : les trilobites"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour chers auditeurs !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici, encore et toujours vos humbles serviteurs :\\nle \\c[2]magistrat\\c[0] et moi-même, le \\c[2]croque-mort\\c[0],\\nen direct de radio Kujira !"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est à présent l'heure de lire le courrier \\ndes auditeurs. Whow j'ai hâte !\\nJe commence par cette enveloppe rose \\nen haut de la pile."
+			},
+			{
+				"nom": "Message",
+				"texte": "Elle nous est envoyée par \\c[2]Poésie Tabulsen\\c[0],\\nune auditrice que nous remercions \\npour sa fidélité à radio Kujira."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il s'agit de son dernier poème qui s'intitule \\n\"les trilobites\". Je m'empresse de vous le lire :"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Quel grand malheur\\nDémolisseur\\nQue cette perte\\nEn si jeune âge"
+			},
+			{
+				"nom": "Message",
+				"texte": "Des trilobites\\nResplendissants\\nEt facétieux !\\nTerrassés donc"
+			},
+			{
+				"nom": "Message",
+				"texte": "Comme une fleur\\nQue la chaleur\\nAurait ouverte\\nAvant l'orage"
+			},
+			{
+				"nom": "Message",
+				"texte": "Se voit détruite\\nDans un torrent\\nTrès audacieux\\nMais très quelconque.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Personnellement j'aime beaucoup, et vous, \\nqu'en pensez-vous, \\c[2]magistrat\\c[0] ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Eh bien c'est très caustique, notamment la..."
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 2"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Olaf : le savon"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour chers auditeurs !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici, toujours le \\c[2]magistrat\\c[0] et le \\c[2]croque-mort\\c[0]\\nen direct de radio Kujira !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour l'émission philosophique d'aujourd'hui,\\nnous recevons \\c[2]Olaf Fridkrutsen\\c[0] du village \\nviking jaune."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf\\c[0] va nous parler du thème du jour\\nqui est - je tire au hasard dans la boîte - \\nle péché !"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf\\c[0], qu'évoque chez vous la notion \\nde péché ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai acheté tout récemment, dans un élan \\nde radinerie que je regrette, un énorme savon\\nà pas cher chez un commerçant douteux."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il s'est révélé en ôtant l'emballage que\\ncet énorme savon ne sentait pas très bon."
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous voyez, quand on achète un petit savon\\nqui sent bon, on sent bon pour une semaine ;\\nmais lorsqu'on achète un gros savon qui sent \\nmauvais, on sent mauvais pendant un mois !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le péché est peut-être un peu comme ça\\nje crois."
+			},
+			{
+				"nom": "Message",
+				"texte": "Merci \\c[2]Olaf\\c[0] pour cette anecdote croustillante !\\nJ'espère qu'elle inspirera nos auditeurs."
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 3"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Tri Yangl : mon moulin"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour chers auditeurs !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici, toujours le \\c[2]croque-mort\\c[0] en direct \\nde radio Kujira !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Comme le \\c[2]magistrat\\c[0] n'est pas là, j'en profite \\npour passer une chanson du groupe celtique\\ncontroversé, Tri Yangl."
+			},
+			{
+				"nom": "Message",
+				"texte": " \\u266A \\u266B Vois com' je suis fier\\nde mon moulin \\u266A \\u266B\\n\\u266A \\u266B Ligueudilalère\\nLigueudilalin \\u266A \\u266B"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u266A \\u266B Vois com' je suis fier\\nde mon moulin \\u266A \\u266B\\n\\u266A \\u266B Qui broie la poussière\\net moud le grain \\u266A \\u266B"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 4"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Bienvenue"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour chers auditeurs !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici, le \\c[2]magistrat\\c[0] en direct de radio Kujira !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Sujet d'actualité à présent : \\c[2]Kujira\\c[0] a avalé\\nune nouvelle personne !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Nous souhaitons donc la bienvenue à\\n\\c[2]\\n[0]\\c[0] !"
+			},
+			{
+				"nom": "Message",
+				"texte": "L'appétit de \\c[2]Kujira\\c[0] paraît insatiable."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pourquoi la \\c[2]baleine\\c[0] continue-t-elle \\nd'engloutir d'honnêtes gens ? \\nPourquoi les enlever à leurs proches, \\nà leur pays, à leur vie ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Nous sommes tous maudits."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est sur ces mots encourageants que \\nje concluerai mon accueil."
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 5"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Tabula : les mauviettes"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour chers auditeurs !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici, le \\c[2]magistrat\\c[0] et le \\c[2]croque-mort\\c[0]\\net vous êtes sur radio Kujira !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Aujourd'hui dans l'émission politique, \\nnous interviewons un invité de marque,\\nj'ai nommé \\c[2]Tabula le Terrible\\c[0], le chef\\ndes vikings rouges !"
+			},
+			{
+				"nom": "Message",
+				"texte": "BONJOUR !\\nJ'AIME BEAUCOUP VOTRE ÉMISSION !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vos mots nous touchent.\\n\\c[2]Tabula le Terrible\\c[0], quelle politique \\nmenez-vous ces temps-ci dans votre village ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "NOUS LES VIKINGS, ON EN A MARRE \\nD'ÊTRE COINCÉS DANS UNE BALEINE !"
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ENVOIE MES HOMMES CHERCHER \\nUN MOYEN DE QUITTER LA BALEINE."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ESPÈRE QU'ON VA TROUVER AVANT\\nLES VIKINGS JAUNES, QUI NE SONT QUE \\nDES MAUVIETTES ! BOUH ! MAUVIETTES !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Et ne serait-il pas plus efficace que les vikings\\nrouges joignent leur force à celle des vikings\\njaunes pour trouver la sortie de la baleine ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "NAN, C'EST DES MAUVIETTES."
+			},
+			{
+				"nom": "Message",
+				"texte": "D'accord.\\nBon, voilà chers auditeurs, c'était l'interview\\nde \\c[2]Tabula le Terrible\\c[0], sur radio Kujira !"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'EST QUOI CE BOUTON ROUGE LÀ ?!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Non, s'il vous plait, ne touchez pas à..."
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 6"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Groniass : les dégonflés"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour chers auditeurs !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici, le \\c[2]magistrat\\c[0] et le \\c[2]croque-mort\\c[0]\\net vous êtes sur radio Kujira !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Aujourd'hui dans l'émission politique,\\nnous interviewons une invitée de marque,\\nj'ai nommé \\c[2]Groniass l'Intrépide\\c[0], la cheffe \\ndes vikings jaunes !"
+			},
+			{
+				"nom": "Message",
+				"texte": "BONJOUR !\\nDANS VOTRE DERNIÈRE ÉMISSION, \\nMON MARI \\c[2]TABULA\\c[0] A DIT QU'ON ÉTAIT \\nDES MAUVIETTES."
+			},
+			{
+				"nom": "Message",
+				"texte": "Oui alors en effet..."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'EST PAS VRAI !\\nON N'EST PAS DES MAUVIETTES !"
+			},
+			{
+				"nom": "Message",
+				"texte": "ET ON VA LUI PROUVER EN TROUVANT \\nLA SORTIE DE KUJIRA  AVANT SON VILLAGE\\nDE DÉGONFLÉS ! BOUH DÉGONFLÉS !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Euh... très bien mais..."
+			},
+			{
+				"nom": "Message",
+				"texte": "POURQUOI IL Y A UN SPARADRAP SUR \\nCE BOUTON ROUGE LÀ ?!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Non, s'il vous plait, ne touchez pas à..."
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 7"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Nature des thaumaturges noirs"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour chers auditeurs !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici, toujours le \\c[2]magistrat\\c[0] et le \\c[2]croque-mort\\c[0]\\nen direct de radio Kujira !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Sujet d'actualité : qui sont les délétères\\n\\c[2]thaumaturges noirs\\c[0] ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour y répondre, nous avons invité \\c[2]Olaf \\nFridkrutsen\\c[0] du village viking jaune."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf\\c[1], vous êtes déjà venu sur radio Kujira,\\nnos auditeurs ont réclamé votre retour.\\nQui sont, selon vous, les \\c[2]thaumaturges noirs\\c[1] ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Euh oui, merci de m'inviter une seconde fois.\\nJ'ai trois théories concernant les \\c[2]thaumaturges\\nnoirs\\c[1], qui s'acharnent à détruire la baleine."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ma première théorie est qu'ils seraient \\nla matérialisation de la colère des habitants\\nde Kujira à l'encontre de cette dernière."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ma seconde théorie est qu'ils sont des fans\\nde \\c[2]Didier Wampas\\c[1]. \\nJe vais vous lire un extrait de \\c[2]Didier Wampas\\c[1] :"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Mais parfois ils se révoltent, \\nils veulent tout casser !\\nMais parfois ils se lèvent et ils vont chanter !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Comme si tous les oiseaux du monde \\nchantaient ensemble la même chanson,\\nils font tomber les murs qui les entourent !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Et ils chantent comme les baleines !\\nOui, ils chantent comme les baleines !\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour moi, la coïncidence est trop grosse."
+			},
+			{
+				"nom": "Message",
+				"texte": "Enfin, ma troisième théorie est qu'ils seraient\\ndes matérialisation de haine fans de \\c[2]Didier \\nWampas\\c[1]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Merci \\c[2]Olaf Fridkrutsen\\c[0] pour vos théories,\\nqui, nous en sommes certains, passionneront\\nnos auditeurs."
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 8"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Propagande de Mercator"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour chers auditeurs !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici, le \\c[2]magistrat\\c[0] et le \\c[2]croque-mort\\c[0]\\nsur radio Kujira pour l'émission politique !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Aujourd'hui, nous interviewons \\c[2]Mercator\\c[1], \\ntenancier des boutiques du même nom."
+			},
+			{
+				"nom": "Message",
+				"texte": "Bonjour \\c[2]Mercator\\c[1], qu'avez-vous à nous dire\\ndans l'émission politique aujourd'hui ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Nul ne sort de la baleine !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ceux qui pensent pouvoir sortir de la baleine\\nsont comme les \\c[2]thaumaturges noirs\\c[1], \\nqui cherchent à la détruire de l'intérieur !"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est de la folie, ou bien du déni !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Il n'y a pas d'alternative !\\nLa seule attitude raisonnable est de s'habituer \\nà la vie dans la baleine..."
+			},
+			{
+				"nom": "Message",
+				"texte": "...pour y fonder une société capitaliste \\ndans laquelle je suis très riche\\net vous travaillez tous pour moi."
+			},
+			{
+				"nom": "Message",
+				"texte": "Un jour, le bienaimé \\c[2]roi Flivouille\\c[1], gouverneur\\ndes gouverneurs, mourra. Et sa bienveillance\\ndevra être remplacée par quelque chose."
+			},
+			{
+				"nom": "Message",
+				"texte": "Et ce quelque chose, c'est le marché libre \\net non faussé. Voilà."
+			},
+			{
+				"nom": "Message",
+				"texte": "Nous remercions \\c[2]Mercator\\c[1] pour nous avoir \\nexposé sa vision ô combien politique !\\nJ'espère qu'elle terrorisera nos auditeurs."
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 9"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 10"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 11"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 12"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 13"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 14"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "emission 15"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Faire exploser la radio"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "fin emission"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "radio character",
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 165,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 22
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "radio character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "la prochaine fois, ce sera l'émission suivante"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 183,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"image": "radio character",
+			"vitesse": 24,
+			"frequence": 1,
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 165,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The radio exploded."
+			},
+			{
+				"nom": "Message",
+				"texte": "La radio a explosé."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "radio character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 66
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "radio character",
+					"direction": 3,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "radio character",
+					"direction": 3,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "radio character",
+					"direction": 3,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			"image": "radio character",
+			"directionInitiale": 3,
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 91,
+		"nom": "Clone[341][0083]",
+		"x": 24,
+		"y": 8
 	},
 	{
 		"id": 17,
@@ -41498,292 +42562,16 @@
 		]
 	},
 	{
-		"id": 91,
-		"nom": "Clone[341][0083]",
-		"x": 24,
-		"y": 8
-	},
-	{
-		"id": 110,
-		"nom": "Clone[341][109]",
-		"x": 10,
+		"id": 54,
+		"nom": "Clone[341][050]",
+		"x": 7,
 		"y": 13
 	},
 	{
-		"id": 73,
-		"nom": "Clone[341][0071]",
-		"x": 18,
-		"y": 10
-	},
-	{
-		"id": 36,
-		"nom": "Kumquat géant HP[1] RESET",
-		"x": 11,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "kumquat character",
-			"directionInitiale": 3,
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
-				"numeroEvent": 36,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 24,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 24,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "SPLATCH.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 24,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 2
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 24,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 3
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 24,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 4
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 24,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 5
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "132-Wind01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 24,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 6
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(341, 34)"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 24,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 24,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			}
-			],
-			"image": "kumquat character",
-			"directionInitiale": 3,
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 128,
+		"nom": "Clone[341][127]",
+		"x": 27,
+		"y": 12
 	},
 	{
 		"id": 147,
@@ -42172,6 +42960,288 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 36,
+		"nom": "Kumquat géant HP[1] RESET",
+		"x": 11,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "kumquat character",
+			"directionInitiale": 3,
+			"vitesse": 16,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 36,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 24,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 0,
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 24,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
+				"numero": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "SPLATCH.wav",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 24,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 1,
+				"numero": 2
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "117-Fire01.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 4
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 24,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 3,
+				"numero": 3
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "117-Fire01.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 4
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 24,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 4,
+				"numero": 4
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 24,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 5,
+				"numero": 5
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "132-Wind01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 24,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 6
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(341, 34)"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 24,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 24,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"image": "kumquat character",
+			"directionInitiale": 3,
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 73,
+		"nom": "Clone[341][0071]",
+		"x": 18,
+		"y": 10
+	},
+	{
+		"id": 110,
+		"nom": "Clone[341][109]",
+		"x": 10,
+		"y": 13
 	}
 	]
 }

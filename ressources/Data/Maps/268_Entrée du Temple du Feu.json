@@ -132,44 +132,20 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) You did not complete this dungeon.\\nIf you leave now, you will lost the weapon\\nof the dungeon."
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous n'avez pas encore terminé ce donjon."
+				"texte": "Vous n'avez pas encore terminé ce donjon.\\nSi vous sortez maintenant, vous perdrez \\nl'arme du donjon."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It will reappear when coming back \\nto the sanctuary."
 			},
 			{
 				"nom": "Message",
-				"texte": "Si vous sortez maintenant, vous perdrez \\nl'arme du donjon."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il faudra aller la récupérer à votre prochaine \\nvisite du sanctuaire."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "You did not complete this dungeon."
-			},
-			{
-				"nom": "Message",
-				"texte": "If you leave now, you will lost the weapon\\nof the dungeon."
-			},
-			{
-				"nom": "Message",
-				"texte": "You will have to fetch it again at your next \\nvisit of the sanctuary."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"texte": "Elle réapparaîtra à votre retour au sanctuaire."
 			},
 			{
 				"nom": "Attendre",
@@ -214,6 +190,10 @@
 			"conditions": [
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Effacement du panneau"
+			},
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 48,
@@ -278,6 +258,33 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Arme du donjon récupérée"
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 91,
+				"numero": 3
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 91,
+				"variable": false,
+				"quantite": 99
+			},
+			{
+				"nom": "EquiperArme",
+				"idArme": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "SupprimerEvent"

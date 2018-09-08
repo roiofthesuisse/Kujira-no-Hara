@@ -141,10 +141,28 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][040]",
+		"id": 27,
+		"nom": "Blocage anti-évènement",
 		"x": 20,
-		"y": 24
+		"y": 27,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 16,
@@ -391,10 +409,16 @@
 		]
 	},
 	{
-		"id": 27,
+		"id": 5,
+		"nom": "Clone[341][040]",
+		"x": 20,
+		"y": 24
+	},
+	{
+		"id": 33,
 		"nom": "Blocage anti-évènement",
 		"x": 20,
-		"y": 27,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [
@@ -413,6 +437,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 11,
+		"nom": "Clone[341][111]",
+		"x": 20,
+		"y": 30
 	},
 	{
 		"id": 22,
@@ -446,16 +476,10 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][111]",
-		"x": 20,
-		"y": 30
-	},
-	{
-		"id": 33,
+		"id": 28,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 21,
+		"x": 18,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
@@ -474,12 +498,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][040]",
-		"x": 17,
-		"y": 24
 	},
 	{
 		"id": 17,
@@ -726,10 +744,16 @@
 		]
 	},
 	{
-		"id": 28,
+		"id": 6,
+		"nom": "Clone[341][040]",
+		"x": 17,
+		"y": 24
+	},
+	{
+		"id": 34,
 		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 19,
+		"x": 20,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -742,72 +766,6 @@
 			"vitesse": 8,
 			"frequence": 8,
 			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][040]",
-		"x": 17,
-		"y": 17
-	},
-	{
-		"id": 23,
-		"nom": "Pancarte",
-		"x": 14,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "LE TOUR DE L'HORLOGE"
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ Village Vicking rouge\\n\\/ Intestins"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -934,52 +892,40 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionArmePossedee",
-				"idArme": 5,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "Disparition de l'arme du donjon"
 			},
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 50,
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "EquiperArme",
-				"idArme": 0
-			},
-			{
-				"nom": "RetirerArme",
-				"idArme": 5
-			},
-			{
-				"nom": "Message",
-				"texte": "L'éventail de Kaze disparaît."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Sans la perle, l'arme doit être retirée"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 61,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionArmePossedee",
+				"idArme": 5,
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 61,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
 			},
 			{
 				"nom": "ConditionArmeEquipee",
@@ -987,12 +933,22 @@
 				"numero": 3
 			},
 			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 50,
-				"numero": 4
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 61,
+				"valeur": true
 			},
 			{
-				"nom": "ConditionSinon",
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 61,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 4
 			},
 			{
@@ -1002,11 +958,34 @@
 			},
 			{
 				"nom": "EquiperArme",
-				"idArme": 0
+				"idArme": 5
 			},
 			{
 				"nom": "RetirerArme",
 				"idArme": 5
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 95,
+				"numero": 5
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 95,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Kaze's fan disappeared."
 			},
 			{
 				"nom": "Message",
@@ -1024,14 +1003,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 4
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -1097,10 +1068,10 @@
 		]
 	},
 	{
-		"id": 34,
-		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 20,
+		"id": 23,
+		"nom": "Pancarte",
+		"x": 14,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -1109,10 +1080,46 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "LE TOUR DE L'HORLOGE"
+			},
+			{
+				"nom": "Message",
+				"texte": "/\\ Village Vicking rouge\\n\\/ Intestins"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
 			"vitesse": 8,
 			"frequence": 8,
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1121,16 +1128,10 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 1,
 		"nom": "Clone[341][040]",
-		"x": 15,
-		"y": 22
-	},
-	{
-		"id": 18,
-		"nom": "Clone[021][007]",
-		"x": 24,
-		"y": 15
+		"x": 17,
+		"y": 17
 	},
 	{
 		"id": 29,
@@ -1155,6 +1156,55 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 18,
+		"nom": "Clone[021][007]",
+		"x": 24,
+		"y": 15
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][040]",
+		"x": 15,
+		"y": 22
+	},
+	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 9,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 168,
+				"xDebutHeros": 15,
+				"yDebutHeros": 38
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][040]",
+		"x": 20,
+		"y": 17
 	},
 	{
 		"id": 24,
@@ -1294,55 +1344,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][040]",
-		"x": 20,
-		"y": 17
-	},
-	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 9,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 168,
-				"xDebutHeros": 15,
-				"yDebutHeros": 38
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][040]",
-		"x": 15,
-		"y": 19
-	},
-	{
-		"id": 19,
-		"nom": "Clone[021][007]",
-		"x": 13,
-		"y": 26
-	},
-	{
 		"id": 30,
 		"nom": "Blocage anti-évènement",
 		"x": 17,
@@ -1367,10 +1368,40 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 19,
+		"nom": "Clone[021][007]",
+		"x": 13,
+		"y": 26
+	},
+	{
+		"id": 8,
 		"nom": "Clone[341][040]",
-		"x": 22,
+		"x": 15,
 		"y": 19
+	},
+	{
+		"id": 25,
+		"nom": "Blocage anti-évènement",
+		"x": 18,
+		"y": 27,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 14,
@@ -1404,10 +1435,16 @@
 		]
 	},
 	{
-		"id": 25,
+		"id": 3,
+		"nom": "Clone[341][040]",
+		"x": 22,
+		"y": 19
+	},
+	{
+		"id": 31,
 		"nom": "Blocage anti-évènement",
 		"x": 18,
-		"y": 27,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
@@ -1426,12 +1463,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 20,
-		"nom": "Clone[021][007]",
-		"x": 8,
-		"y": 16
 	},
 	{
 		"id": 9,
@@ -1506,10 +1537,16 @@
 		]
 	},
 	{
-		"id": 31,
+		"id": 20,
+		"nom": "Clone[021][007]",
+		"x": 8,
+		"y": 16
+	},
+	{
+		"id": 26,
 		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 22,
+		"x": 19,
+		"y": 26,
 		"pages": [
 		{
 			"conditions": [
@@ -1528,12 +1565,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][040]",
-		"x": 22,
-		"y": 22
 	},
 	{
 		"id": 15,
@@ -1780,10 +1811,16 @@
 		]
 	},
 	{
-		"id": 26,
+		"id": 4,
+		"nom": "Clone[341][040]",
+		"x": 22,
+		"y": 22
+	},
+	{
+		"id": 32,
 		"nom": "Blocage anti-évènement",
 		"x": 19,
-		"y": 26,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
@@ -1792,6 +1829,37 @@
 			}
 			],
 			"commandes": [
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "EV021",
+		"x": 21,
+		"y": 39,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 567,
+				"xDebutHeros": 9,
+				"yDebutHeros": 1
+			}
 			],
 			"vitesse": 8,
 			"frequence": 8,
@@ -2043,61 +2111,6 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "EV021",
-		"x": 21,
-		"y": 39,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 567,
-				"xDebutHeros": 9,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 32,
-		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

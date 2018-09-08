@@ -168,81 +168,64 @@
 				]
 			},
 			{
-				"nom": "ConditionArmePossedee",
-				"idArme": 1,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "Disparition de l'arme du donjon"
 			},
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 48,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "EquiperArme",
-				"idArme": 0
-			},
-			{
-				"nom": "RetirerArme",
-				"idArme": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "La torche de Kazan' disparaît."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Kazan's torch disappeared."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Sans la perle, l'arme doit être retirée"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 61,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionArmePossedee",
+				"idArme": 1,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 61,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionArmeEquipee",
 				"idArme": 1,
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 61,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 61,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 3
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 48,
-				"numero": 4
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -258,40 +241,35 @@
 				"idArme": 1
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 5
-			},
-			{
-				"nom": "Message",
-				"texte": "La torche de Kazan' disparaît."
+				"nom": "ConditionObjetPossede",
+				"idObjet": 91,
+				"numero": 4
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 5
+				"numero": 4
 			},
 			{
-				"nom": "Message",
-				"texte": "Kazan's torch disappeared."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "AjouterObjet",
+				"idObjet": 91,
+				"variable": false,
+				"quantite": 1
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 4
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
+				"nom": "Commentaire",
+				"texte": "(en) Kazan's torch disappeared."
+			},
+			{
+				"nom": "Message",
+				"texte": "La torche de Kazan' disparaît."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "ConditionFin",

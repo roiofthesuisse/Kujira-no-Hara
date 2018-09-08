@@ -20,8 +20,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0009,0012,0010,0011,0012,0010,0011,0012,0010,0011,0022,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0024,0009,0010,0011,0012,0010,0010,0111,0010,0022,0030,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,0016,0010,0017,0024,0000,0000,0000,0000,0000,0000,0000,0030,0021,0022,0022,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,0024,0016,0010,0017,0000,0000,0000,0000,0000,0000,0000,0021,0022,0022,0030,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,0016,0010,0017,0024,0000,0000,0000,0000,0000,0000,0000,0030,0021,0010,0022,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,0024,0016,0010,0017,0000,0000,0000,0000,0000,0000,0000,0021,0010,0022,0030,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0024,0024,0009,0010,0010,0010,0010,0010,0010,0010,0010,0010,0022,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0024,0024,0024,0009,0010,0010,0010,0010,0010,0010,0010,0022,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0024,0024,0024,0024,-008,-007,-007,-007,-008,-008,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -29,8 +29,8 @@
 	[-001,-001,-001,-001,-001,0024,0016,0010,0017,0024,0024,-008,0053,0059,0059,0059,0049,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0024,0024,0000,0000,0024,0024,-008,0030,0053,0059,0049,0032,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0024,0024,0000,0000,0024,0024,-008,0030,0030,0000,0032,0032,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0024,0024,0000,0000,0024,0024,-008,0030,0057,0010,0017,0032,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0024,0057,0059,0049,0024,0024,-008,0057,0010,0010,0010,0017,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0024,0024,0000,0000,0024,0024,-008,0030,0021,0010,0017,0032,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0024,0057,0059,0049,0024,0024,-008,0021,0010,0010,0010,0017,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0057,0059,0049,0024,0024,0024,-008,-008,-008,-008,-008,-008,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0024,0024,0024,0024,-008,-007,-007,-007,-007,-007,-008,0030,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0024,0024,0024,0057,0059,0049,0000,0000,0000,0053,0059,0054,0030,0030,0030,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -110,6 +110,62 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
+	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 13,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
 	{
 		"id": 16,
 		"nom": "interrupteur",
@@ -219,62 +275,6 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 13,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 11,
 		"nom": "Blocage anti-évènement",
 		"x": 11,
@@ -287,37 +287,6 @@
 			}
 			],
 			"commandes": [
-			],
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 17,
-		"nom": "EV017",
-		"x": 16,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 455,
-				"xDebutHeros": 16,
-				"yDebutHeros": 28
-			}
 			],
 			"vitesse": 8,
 			"frequence": 8,
@@ -386,18 +355,25 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Blocage anti-évènement",
-		"x": 11,
-		"y": 12,
+		"id": 17,
+		"nom": "EV017",
+		"x": 16,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 455,
+				"xDebutHeros": 16,
+				"yDebutHeros": 28
+			}
 			],
 			"vitesse": 8,
 			"frequence": 8,
@@ -416,25 +392,18 @@
 		"y": 6
 	},
 	{
-		"id": 18,
-		"nom": "EV018",
-		"x": 14,
-		"y": 21,
+		"id": 12,
+		"nom": "Blocage anti-évènement",
+		"x": 11,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 255,
-				"xDebutHeros": 9,
-				"yDebutHeros": 4
-			}
 			],
 			"vitesse": 8,
 			"frequence": 8,
@@ -507,18 +476,25 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Blocage anti-évènement",
-		"x": 12,
-		"y": 10,
+		"id": 18,
+		"nom": "EV018",
+		"x": 14,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 255,
+				"xDebutHeros": 9,
+				"yDebutHeros": 4
+			}
 			],
 			"vitesse": 8,
 			"frequence": 8,
@@ -579,43 +555,18 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "EV019",
+		"id": 13,
+		"nom": "Blocage anti-évènement",
 		"x": 12,
-		"y": 8,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 2
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			}
 			],
 			"vitesse": 8,
 			"frequence": 8,
@@ -688,18 +639,43 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 16,
+		"id": 19,
+		"nom": "EV019",
+		"x": 12,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "017-Jump03.ogg",
+					"volume": 0.80,
+					"tempo": 1.00
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 2
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			}
 			],
 			"vitesse": 8,
 			"frequence": 8,
@@ -760,10 +736,82 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Blocage anti-évènement",
+		"x": 14,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "Clone[446][2]",
 		"x": 17,
 		"y": 14
+	},
+	{
+		"id": 4,
+		"nom": "Passerelle",
+		"x": 11,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 23,
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 32,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": 23,
+			"vitesse": 8,
+			"frequence": 8,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 15,
@@ -1176,54 +1224,6 @@
 			"directionInitiale": 3,
 			"vitesse": 24,
 			"frequence": 1,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Passerelle",
-		"x": 11,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 23,
-			"vitesse": 8,
-			"frequence": 8,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 32,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": 23,
-			"vitesse": 8,
-			"frequence": 8,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,

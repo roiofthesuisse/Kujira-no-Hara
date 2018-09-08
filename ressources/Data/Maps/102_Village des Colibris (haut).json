@@ -160,6 +160,12 @@
 		]
 	},
 	{
+		"id": 22,
+		"nom": "Clone[582][1]",
+		"x": 33,
+		"y": 30
+	},
+	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 43,
@@ -281,6 +287,12 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 23,
+		"nom": "Clone[582][1]",
+		"x": 16,
+		"y": 34
 	},
 	{
 		"id": 12,
@@ -599,6 +611,112 @@
 			"frequence": 8,
 			"animeEnMouvement": true,
 			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 24,
+		"nom": "Colibri",
+		"x": 27,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 76
+			},
+			{
+				"nom": "Message",
+				"texte": "Saluzalu !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Connais-tu les gouverneurs de Kujira ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh, tu sais déjà tout !\\nJe pensais t'impressionner en te les récitant."
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "Le gouverneur de la contrée Dose est \\n\\c[2]Mathusalem\\c[0].\\nLe gouverneur de la contrée viking rouge est \\n\\c[2]Tabula le terrible\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le gouverneur de la forêt de l'Ouest est \\nle \\c[2]bienaimé roi Flivouille\\c[0].\\nLe gouverneur de la contrée viking jaune est \\n\\c[2]Groniass l'Intrépide\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le gouverneur des plaines aquatiques est\\nla \\c[2]chamane de l'Ouest\\c[0].\\nLe gouverneur des grandes grottes est\\n\\c[2]Katchapou le caillouteux\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je ne crois pas que la mer d'Ibukuro \\nni le désert n'aient de gouverneur..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Notre bienaimé \\c[2]roi Flivouille\\c[1] est gouverneur \\ndes gouverneurs !"
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "colibri bleu character",
+			"vitesse": 24,
+			"frequence": 1,
+			"animeEnMouvement": false,
+			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
