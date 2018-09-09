@@ -170,18 +170,6 @@ public class Map implements Sauvegardable {
 			}
 		}
 		
-		//correctif sur la position x y initiale du Héros
-		//le Héros n'est pas forcément pile sur le coin haut-gauche du carreau téléporteur
-		if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_X_Y_ET_DIRECTION) {
-			final int ecartX = positionInitialeDuHeros[3];
-			final int ecartY = positionInitialeDuHeros[4];
-			if (transition.direction == Direction.BAS || transition.direction == Direction.HAUT) {
-				this.xDebutHeros += ecartX;
-			} else {
-				this.yDebutHeros += ecartY;
-			}
-		}
-		
 		long t0 = System.nanoTime();
 		//chargement du tileset
 		try {
@@ -230,15 +218,30 @@ public class Map implements Sauvegardable {
 					this.yDebutHeros, largeurAncienneMap, hauteurAncienneMap, this.largeur, this.hauteur);
 			//TODO faire une méthode calculerTransition() qui fait ceci pour ROND
 			if (Transition.ROND.equals(transition)) {
-				// centre du rond
+				// Calcul du centre du rond
 				final int[] ancienneCamera = ancienHeros.map.lecteur.recupererCamera();
 				transition.xHerosAvant = ancienHeros.x + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2 - ancienneCamera[0];
 				transition.yHerosAvant = ancienHeros.y + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2 - ancienneCamera[1];
 				final int[] nouvelleCamera = this.lecteur.recupererCamera();
 				transition.xHerosApres = xDebutHeros + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2 - nouvelleCamera[0];
 				transition.yHerosApres = yDebutHeros + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2 - nouvelleCamera[1];
-				LOG.debug("Rond avant : " + transition.xHerosAvant + ";" + transition.yHerosAvant
-						+ " après : " + transition.xHerosApres + ";" + transition.yHerosApres);
+			}
+			
+		//correctif sur la position x y initiale du Héros
+		//le Héros n'est pas forcément pile sur le coin haut-gauche du carreau téléporteur
+			if (Transition.ROND.equals(transition)) {
+				// Si c'est une Transition ronde, on recentre le Héros sur la case
+				this.heros.x = this.heros.x - (this.heros.x % Main.TAILLE_D_UN_CARREAU) + Main.TAILLE_D_UN_CARREAU/2 - this.heros.largeurHitbox/2;
+				this.heros.y = this.heros.y - (this.heros.y % Main.TAILLE_D_UN_CARREAU) + Main.TAILLE_D_UN_CARREAU/2 - this.heros.hauteurHitbox/2;
+			} else if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_X_Y_ET_DIRECTION) {
+				// Si c'est un défilement, on reporte le décalage de la Map précédente
+				final int ecartX = positionInitialeDuHeros[3];
+				final int ecartY = positionInitialeDuHeros[4];
+				if (transition.direction == Direction.BAS || transition.direction == Direction.HAUT) {
+					this.heros.x += ecartX;
+				} else {
+					this.heros.y += ecartY;
+				}
 			}
 			
 		//création de la liste des cases passables
