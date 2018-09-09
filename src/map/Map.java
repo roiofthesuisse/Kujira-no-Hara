@@ -723,9 +723,13 @@ public class Map implements Sauvegardable {
 		final Integer carreauDuHeros0 = this.layer0[xHerosMapPrecedente][yHerosMapPrecedente];
 		final Integer carreauDuHeros1 = this.layer1[xHerosMapPrecedente][yHerosMapPrecedente];
 		final Integer carreauDuHeros2 = this.layer2[xHerosMapPrecedente][yHerosMapPrecedente];
-		return this.tileset.portes.contains(carreauDuHeros0)
+		final boolean leHerosEntreParUnePorte = this.tileset.portes.contains(carreauDuHeros0)
 				|| this.tileset.portes.contains(carreauDuHeros1)
 				|| this.tileset.portes.contains(carreauDuHeros2);
+		LOG.info(leHerosEntreParUnePorte ? "Le héros est entré par une porte." : "Le héros n'est pas entré par une porte.");
+		LOG.debug("Carreaux héros : "+carreauDuHeros0+", "+carreauDuHeros1+", "+carreauDuHeros2);
+		LOG.debug("Portes : " + this.tileset.portesToString());
+		return leHerosEntreParUnePorte;
 	}
 
 	@Override

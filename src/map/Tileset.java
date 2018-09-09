@@ -44,6 +44,7 @@ public class Tileset {
 	private final int[] terrain;
 	/** Carreaux du Tileset considérés comme des portes */
 	public final ArrayList<Integer> portes;
+	private String portesToString = null;
 	/** carreaux découpés dans l'image du Tileset */
 	public final BufferedImage[] carreaux;
 	
@@ -163,15 +164,15 @@ public class Tileset {
 			LOG.warn("Pas de ton d'écran pour le tileset : "+this.nom);
 		}
 		
-		final JSONObject jsonTileset2 = InterpreteurDeJson.ouvrirJson(this.nom, ".\\ressources\\Data\\Tilesets\\Cousins\\");
-			
 		//autotiles
-		this.autotiles = Autotile.chargerAutotiles(jsonTileset, jsonTileset2, this);
+		final JSONObject jsonTilesetCousins = InterpreteurDeJson.ouvrirJson(this.nom, ".\\ressources\\Data\\Tilesets\\Cousins\\");
+		this.autotiles = Autotile.chargerAutotiles(jsonTileset, jsonTilesetCousins, this);
 		
 		//portes
+		final JSONObject jsonTilesetPortes = InterpreteurDeJson.ouvrirJson(this.nom, ".\\ressources\\Data\\Tilesets\\Portes\\");
 		this.portes = new ArrayList<Integer>();
-		if (jsonTileset2.has("portes")) {
-			final JSONArray jsonPortes = jsonTileset2.getJSONArray("portes");
+		if (jsonTilesetPortes.has("portes")) {
+			final JSONArray jsonPortes = jsonTilesetPortes.getJSONArray("portes");
 			for (int i = 0; i<jsonPortes.length(); i++) {
 				final int carreauPorte = jsonPortes.getInt(i);
 				this.portes.add(carreauPorte);
@@ -224,6 +225,21 @@ public class Tileset {
 		} else { //autotile
 			return this.autotiles.get(numeroCarreau).terrain;
 		}
+	}
+	
+	/**
+	 * On crée la liste des portes du Tileset si ça n'a jamais été encore fait.
+	 */
+	public final String portesToString() {
+		if (this.portesToString == null) {
+			StringBuilder sb = new StringBuilder();
+			for (Integer porte : this.portes) {
+				sb.append(porte.toString());
+				sb.append(", ");
+			}
+			this.portesToString = sb.toString();
+		}
+		return this.portesToString;
 	}
 
 }
