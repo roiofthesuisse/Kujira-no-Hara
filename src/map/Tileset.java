@@ -44,7 +44,6 @@ public class Tileset {
 	private final int[] terrain;
 	/** Carreaux du Tileset considérés comme des portes */
 	public final ArrayList<Integer> portes;
-	private String portesToString = null;
 	/** carreaux découpés dans l'image du Tileset */
 	public final BufferedImage[] carreaux;
 	
@@ -225,21 +224,6 @@ public class Tileset {
 		} else { //autotile
 			return this.autotiles.get(numeroCarreau).terrain;
 		}
-	}
-	
-	/**
-	 * On crée la liste des portes du Tileset si ça n'a jamais été encore fait.
-	 */
-	public final String portesToString() {
-		if (this.portesToString == null) {
-			StringBuilder sb = new StringBuilder();
-			for (Integer porte : this.portes) {
-				sb.append(porte.toString());
-				sb.append(", ");
-			}
-			this.portesToString = sb.toString();
-		}
-		return this.portesToString;
 	}
 
 }

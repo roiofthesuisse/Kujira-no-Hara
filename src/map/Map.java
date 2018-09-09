@@ -720,16 +720,35 @@ public class Map implements Sauvegardable {
 	 * @return true si le Héros passe par une porte, false sinon
 	 */
 	public boolean leHerosEntreParUnePorte(final int xHerosMapPrecedente, final int yHerosMapPrecedente) {
-		final Integer carreauDuHeros0 = this.layer0[xHerosMapPrecedente][yHerosMapPrecedente];
-		final Integer carreauDuHeros1 = this.layer1[xHerosMapPrecedente][yHerosMapPrecedente];
-		final Integer carreauDuHeros2 = this.layer2[xHerosMapPrecedente][yHerosMapPrecedente];
-		final boolean leHerosEntreParUnePorte = this.tileset.portes.contains(carreauDuHeros0)
-				|| this.tileset.portes.contains(carreauDuHeros1)
-				|| this.tileset.portes.contains(carreauDuHeros2);
-		LOG.info(leHerosEntreParUnePorte ? "Le héros est entré par une porte." : "Le héros n'est pas entré par une porte.");
-		LOG.debug("Carreaux héros : "+carreauDuHeros0+", "+carreauDuHeros1+", "+carreauDuHeros2);
-		LOG.debug("Portes : " + this.tileset.portesToString());
-		return leHerosEntreParUnePorte;
+		boolean onATrouveUnePorte = false;
+		rechercheDePorteAutour: for (int i = -1; i<=1; i++) {
+			for (int j = -1; j<=1; j++) {
+				try {
+					final Integer carreauDuHeros0 = this.layer0[xHerosMapPrecedente + i][yHerosMapPrecedente + j];
+					if (this.tileset.portes.contains(carreauDuHeros0)) {
+						// On a trouvé une porte à proximité !
+						onATrouveUnePorte = true;
+						break rechercheDePorteAutour;
+					}
+					final Integer carreauDuHeros1 = this.layer1[xHerosMapPrecedente + i][yHerosMapPrecedente + j];
+					if (this.tileset.portes.contains(carreauDuHeros1)) {
+						// On a trouvé une porte à proximité !
+						onATrouveUnePorte = true;
+						break rechercheDePorteAutour;
+					}
+					final Integer carreauDuHeros2 = this.layer2[xHerosMapPrecedente + i][yHerosMapPrecedente + j];
+					if (this.tileset.portes.contains(carreauDuHeros2)) {
+						// On a trouvé une porte à proximité !
+						onATrouveUnePorte = true;
+						break rechercheDePorteAutour;
+					}
+				} catch (ArrayIndexOutOfBoundsException e) {
+					// on sort de la map
+				}
+			}
+		}
+		LOG.info(onATrouveUnePorte ? "Le héros est entré par une porte." : "Le héros n'est pas entré par une porte.");
+		return onATrouveUnePorte;
 	}
 
 	@Override
