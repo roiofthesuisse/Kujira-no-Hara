@@ -871,6 +871,17 @@ public class LecteurMap extends Lecteur {
 	}
 	
 	/**
+	 * Actualiser et récupérer la caméra de la Map.
+	 * @return coordonnées x et y de la caméra sur la Map
+	 */
+	public int[] recupererCamera() {
+		final int[] camera = new int[2];
+		camera[0] = this.xCamera = calculerXCamera();
+		camera[1] = this.yCamera = calculerYCamera();
+		return camera;
+	}
+	
+	/**
 	 * Le Héros arrête son animation pour écouter un Message.
 	 * @param event avec lequel le Héros discute
 	 */

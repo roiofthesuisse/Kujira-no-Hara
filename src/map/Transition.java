@@ -132,7 +132,7 @@ public enum Transition {
 	/** Direction de la transition si défilement */
 	public int direction;
 	/** Centre de la Transition circulaire */
-	public int xHerosAvant,  xHerosApres, yHerosAvant, yHerosApres;
+	public int xHerosAvant, xHerosApres, yHerosAvant, yHerosApres;
 	
 	/**
 	 * Constructeur explicite

@@ -170,23 +170,6 @@ public class Map implements Sauvegardable {
 			}
 		}
 		
-		//informations sur la Transition
-		final int xAncienHeros = ancienHeros != null ? ancienHeros.x : 0; //pas d'ancien Héros en cas de chargement de Partie
-		final int yAncienHeros = ancienHeros != null ? ancienHeros.y : 0;
-		final int largeurAncienneMap = ancienHeros != null ? ancienHeros.map.largeur : 0;
-		final int hauteurAncienneMap = ancienHeros != null ? ancienHeros.map.hauteur : 0;
-		//TODO faire de calculerDirectionDefilement une méthode propre au type DEFILEMENT
-		transition.direction = Transition.calculerDirectionDefilement(xAncienHeros, yAncienHeros, this.xDebutHeros, 
-				this.yDebutHeros, largeurAncienneMap, hauteurAncienneMap, this.largeur, this.hauteur);
-		//TODO faire une méthode calculerTransition() qui fait ceci pour ROND
-		if (Transition.ROND.equals(transition)) {
-			// centre du rond
-			transition.xHerosAvant = ancienHeros.x + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
-			transition.yHerosAvant = ancienHeros.y + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
-			transition.xHerosApres = xDebutHeros + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2;
-			transition.yHerosApres = yDebutHeros + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2;
-		}
-		
 		//correctif sur la position x y initiale du Héros
 		//le Héros n'est pas forcément pile sur le coin haut-gauche du carreau téléporteur
 		if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_X_Y_ET_DIRECTION) {
@@ -236,6 +219,27 @@ public class Map implements Sauvegardable {
 			
 		//importer les events
 			importerLesEvenements(jsonMap);
+			
+		//informations sur la Transition
+			final int xAncienHeros = ancienHeros != null ? ancienHeros.x : 0; //pas d'ancien Héros en cas de chargement de Partie
+			final int yAncienHeros = ancienHeros != null ? ancienHeros.y : 0;
+			final int largeurAncienneMap = ancienHeros != null ? ancienHeros.map.largeur : 0;
+			final int hauteurAncienneMap = ancienHeros != null ? ancienHeros.map.hauteur : 0;
+			//TODO faire de calculerDirectionDefilement une méthode propre au type DEFILEMENT
+			transition.direction = Transition.calculerDirectionDefilement(xAncienHeros, yAncienHeros, this.xDebutHeros, 
+					this.yDebutHeros, largeurAncienneMap, hauteurAncienneMap, this.largeur, this.hauteur);
+			//TODO faire une méthode calculerTransition() qui fait ceci pour ROND
+			if (Transition.ROND.equals(transition)) {
+				// centre du rond
+				final int[] ancienneCamera = ancienHeros.map.lecteur.recupererCamera();
+				transition.xHerosAvant = ancienHeros.x + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2 - ancienneCamera[0];
+				transition.yHerosAvant = ancienHeros.y + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2 - ancienneCamera[1];
+				final int[] nouvelleCamera = this.lecteur.recupererCamera();
+				transition.xHerosApres = xDebutHeros + Heros.LARGEUR_HITBOX_PAR_DEFAUT/2 - nouvelleCamera[0];
+				transition.yHerosApres = yDebutHeros + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2 - nouvelleCamera[1];
+				LOG.debug("Rond avant : " + transition.xHerosAvant + ";" + transition.yHerosAvant
+						+ " après : " + transition.xHerosApres + ";" + transition.yHerosApres);
+			}
 			
 		//création de la liste des cases passables
 			creerListeDesCasesPassables();
