@@ -228,7 +228,8 @@ public abstract class Nettoyeur {
 							if (l.get(0) == numeroMap && l.get(1) == idEvent) {
 								// On a trouvé le modèle
 								jsonModele = jsonEvent.toString(4);
-								nomModele = "Clone["+numeroMap+"]["+idEvent+"]";
+								
+								nomModele = "Clone["+String.format("%03d", numeroMap)+"]["+String.format("%03d", idEvent)+"]";
 								break rechercheDuModele;
 							}
 						}

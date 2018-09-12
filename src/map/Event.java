@@ -690,10 +690,19 @@ public class Event implements Comparable<Event> {
 	 */
 	public static Event creerEventGenerique(final int id, final String nomFichier, final int xEvent, 
 			final int yEvent, final Map map) {
-		final JSONObject jsonEventGenerique;
+		JSONObject jsonEventGenerique;
 		try {
-			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomFichier);
+			try {
+				// Essayer de trouver un Event générique artisanal
+				jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomFichier, true);
+			} catch (Exception e0) {
+				// L'Event générique artisanal n'existe pas
+				// Essayer de trouver un Event générique exporté automatiquement
+				jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomFichier, false);
+			}
 		} catch (Exception e1) {
+			// L'Event générique n'existe pas
+			// Ni en artisanal, ni en exporté automatiquement
 			LOG.trace("Impossible de trouver le fichier JSON "+nomFichier+" pour contruire l'Event générique !", e1);
 			return null;
 		}

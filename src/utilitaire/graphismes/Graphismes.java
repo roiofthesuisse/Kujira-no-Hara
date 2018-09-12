@@ -304,7 +304,7 @@ public abstract class Graphismes {
      * @throws IOException impossible d'ouvrir l'image
      */
     public static BufferedImage ouvrirImage(final String dossier, final String nom) throws IOException {
-    	String dossierSlashNom = dossier+"/"+nom;
+    	String dossierSlashNom = dossier+"/"+nom.replaceAll("[^a-zA-Z0-9איטח _\\.-]", "");
     	if (!nom.endsWith(".png")) {
     		dossierSlashNom += ".png";
     	}

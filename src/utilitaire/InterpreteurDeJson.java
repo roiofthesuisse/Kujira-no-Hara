@@ -156,11 +156,14 @@ public abstract class InterpreteurDeJson {
 	 * Charger un Event générique au format JSON.
 	 * Les Events génériques sont situés dans le dossier "ressources/Data/GenericEvents"
 	 * @param nomEvent nom de l'Event générique
+	 * @param artisanal est-ce que l'Event générique a été écrit à la main ?
 	 * @return objet JSON contenant la description de l'Event
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
-	public static JSONObject ouvrirJsonEventGenerique(final String nomEvent) throws Exception {
-		return ouvrirJson(nomEvent, ".\\ressources\\Data\\GenericEvents\\");
+	public static JSONObject ouvrirJsonEventGenerique(final String nomEvent, final boolean artisanal) 
+			throws Exception {
+		String sousDossier = artisanal ? "" : "Exportation\\";
+		return ouvrirJson(nomEvent, ".\\ressources\\Data\\GenericEvents\\"+sousDossier);
 	}
 
 	/**

@@ -47,7 +47,7 @@ public class Heros extends Event {
 	private static Event creerModele() {
 		JSONObject jsonEventGenerique = null;
 		try {
-			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique("Heros");
+			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique("Heros", true);
 		} catch (Exception e) {
 			LOG.error("Impossible d'ouvrir le fichier JSON du héros !", e);
 		}
