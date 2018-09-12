@@ -206,7 +206,7 @@ public class Map implements Sauvegardable {
 			Main.mesuresDePerformance.add((t1-t0)+";"+(t2-t1));
 			
 		//importer les events
-			importerLesEvenements(jsonMap);
+			importerLesEvenements(jsonMap, this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros);
 			
 		//informations sur la Transition
 			final int xAncienHeros = ancienHeros != null ? ancienHeros.x : 0; //pas d'ancien Héros en cas de chargement de Partie
@@ -227,6 +227,7 @@ public class Map implements Sauvegardable {
 				transition.yHerosApres = yDebutHeros + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2 - nouvelleCamera[1];
 			}
 			
+		// TODO ce correctif sur la position initiale du Héros aurait sa place dans la méthode importerLesEvenements()
 		//correctif sur la position x y initiale du Héros
 		//le Héros n'est pas forcément pile sur le coin haut-gauche du carreau téléporteur
 			if (Transition.ROND.equals(transition)) {
@@ -384,8 +385,11 @@ public class Map implements Sauvegardable {
 	/**
 	 * Constitue la liste des Events de la Map en allant lire dans le fichier JSON décrivant la Map.
 	 * @param jsonMap objet JSON décrivant la Map
+	 * @param xDebutHeros position initiale (en pixels) du Héros sur la Map
+	 * @param yDebutHeros position initiale (en pixels) du Héros sur la Map
+	 * @param directionDebutHeros direction initiale du Héros sur la Map
 	 */
-	private void importerLesEvenements(final JSONObject jsonMap) {
+	private void importerLesEvenements(final JSONObject jsonMap, final int xDebutHeros, final int yDebutHeros, final int directionDebutHeros) {
 		try {
 			this.events = new ArrayList<Event>();
 			this.eventsHash = new HashMap<Integer, Event>();
