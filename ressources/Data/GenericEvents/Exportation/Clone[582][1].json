@@ -1,0 +1,46 @@
+{
+    "pages": [{
+        "image": "papillon character",
+        "commandes": [],
+        "traversable": true,
+        "animeEnMouvement": true,
+        "auDessusDeTout": false,
+        "deplacement": {
+            "ignorerLesMouvementsImpossibles": true,
+            "repeterLeDeplacement": true,
+            "mouvements": [
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 83
+                },
+                {"nom": "PivoterAleatoirement"},
+                {"nom": "PasEnAvant"},
+                {"nom": "PivoterAleatoirement"},
+                {"nom": "PasEnAvant"},
+                {"nom": "PasEnAvant"},
+                {"nom": "PivoterAleatoirement"},
+                {"nom": "PasEnAvant"},
+                {"nom": "PivoterAleatoirement"},
+                {"nom": "PasEnAvant"},
+                {"nom": "PasEnAvant"},
+                {"nom": "PivoterAleatoirement"},
+                {"nom": "PasEnAvant"},
+                {"nom": "PivoterAleatoirement"},
+                {"nom": "PasEnAvant"},
+                {"nom": "PasEnAvant"}
+            ],
+            "attendreLaFinDuDeplacement": false,
+            "nom": "Deplacement"
+        },
+        "frequence": 1,
+        "conditions": [{"nom": "Parler"}],
+        "directionFixe": false,
+        "animeALArret": false,
+        "vitesse": 4
+    }],
+    "x": 2,
+    "y": 2,
+    "id": 1,
+    "nom": "Papillon"
+}

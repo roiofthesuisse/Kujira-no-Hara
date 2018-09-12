@@ -1,0 +1,669 @@
+{
+    "pages": [
+        {
+            "image": "etoile de mer character",
+            "commandes": [
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 33
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": 2,
+            "conditions": [],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 8
+        },
+        {
+            "image": "etoile de mer character",
+            "commandes": [
+                {
+                    "numeroInterrupteur": 15,
+                    "numero": 0,
+                    "valeurQuIlEstCenseAvoir": false,
+                    "nom": "ConditionInterrupteur"
+                },
+                {
+                    "numeroInterrupteur": 15,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 16
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
+                    "tempo": 0.8,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 1,
+                    "idEvent": 0,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numeroVariable": 4,
+                    "operationAFaire": "retirer",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 12
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 16
+                    },
+                    {"nom": "PasEnAvant"},
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 12
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 8
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 12
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 16
+                    },
+                    {"nom": "PasEnAvant"},
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 12
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 8
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 12
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 16
+                    },
+                    {"nom": "PasEnAvant"},
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 12
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nom": "ModifierVitesse",
+                        "vitesse": 8
+                    },
+                    {
+                        "numeroInterrupteur": 15,
+                        "valeur": false,
+                        "nomCommande": "ModifierInterrupteur",
+                        "nom": "AppelerUneCommande"
+                    },
+                    {
+                        "nom": "AppelerUnScript",
+                        "script": "$game_self_switches[[@map_id, @id, \"B\"]] = true"
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            "frequence": 1,
+            "conditions": [
+                {"nom": "Contact"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroMap": 21,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 46
+                }
+            ],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 8
+        },
+        {
+            "image": "etoile de mer character",
+            "commandes": [
+                {
+                    "touche": "ACTION",
+                    "numero": 0,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "numeroInterrupteur": 51,
+                    "numero": 1,
+                    "valeurQuIlEstCenseAvoir": false,
+                    "nom": "ConditionInterrupteur"
+                },
+                {
+                    "numeroInterrupteur": 51,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 2,
+                    "idArme": 0,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id,1)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 144,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "x": 0,
+                        "y": 0,
+                        "nom": "Sauter"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "idArme": 1,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id,0)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "idAnimation": 4,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 144,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 2,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 6,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id,2)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 144,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 2,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "idArme": 3,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id,0)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 144,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 2,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 10,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 11,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id,3)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 144,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 2,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "TP_Slingshot_Shoot.wav",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "x": 0,
+                        "y": 0,
+                        "nom": "Sauter"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numero": 11,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 10,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 12,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 13,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id,3)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "132-Wind01.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "idEvent": 0,
+                            "nom": "RegarderUnEvent"
+                        },
+                        {"nom": "PasEnArriere"},
+                        {"nom": "PasEnArriere"}
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numero": 13,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 12,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroInterrupteur": 51,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "mort du monstre",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 144,
+                    "numero": 14,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 3,
+                    "inegalite": ">=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroVariable": 144,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numeroPageCommune": 58,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "texte": "On le transforme en butin avec la commande\\ntransform(map_id, event_id)",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 8,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 20,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numeroVariable": 8,
+                    "numero": 15,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 10,
+                    "inegalite": "<=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroVariable": 8,
+                    "numero": 16,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 6,
+                    "inegalite": ">=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 34)"
+                },
+                {
+                    "numero": 16,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 8,
+                    "numero": 17,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 1,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(348, 8)"
+                },
+                {
+                    "numero": 17,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(348, 9)"
+                },
+                {
+                    "numero": 17,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 16,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 15,
+                    "nom": "ConditionSinon"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 15,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 14,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 100
+                    },
+                    {
+                        "nom": "AppelerUnScript",
+                        "script": "$game_self_switches[[@map_id, @id, \"A\"]] = false"
+                    },
+                    {
+                        "nom": "AppelerUnScript",
+                        "script": "$game_self_switches[[@map_id, @id, \"B\"]] = false"
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 21,
+                "numeroInterrupteurLocal": 1,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 46
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "image": "etoile de mer character",
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "animationInitiale": 1,
+            "frequence": 1,
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "numeroInterrupteur": 12,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "nom": "Interrupteur"
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        }
+    ],
+    "x": 23,
+    "y": 9,
+    "id": 46,
+    "nom": "Etoile de mer RESET (18)"
+}

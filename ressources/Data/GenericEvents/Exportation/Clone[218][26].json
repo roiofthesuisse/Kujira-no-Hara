@@ -1,0 +1,130 @@
+{
+    "pages": [{
+        "image": "mineur character",
+        "commandes": [
+            {
+                "numeroInterrupteur": 12,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "numero": 0,
+                "idQuete": 78,
+                "nom": "ConditionEtatQuete",
+                "etat": "FAITE"
+            },
+            {
+                "texte": "Les \\c[02]mineurs\\c[01] savent qu'il faut creuser.",
+                "nom": "Message"
+            },
+            {
+                "texte": "Il nous arrive d'exhumer des trésors.",
+                "nom": "Message"
+            },
+            {
+                "texte": "Je recherche le plus gros diamant...",
+                "nom": "Message"
+            },
+            {
+                "texte": "Mon instinct de mineur me dit qu'il est par ici.",
+                "nom": "Message"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numeroInterrupteur": 54,
+                "numero": 1,
+                "valeurQuIlEstCenseAvoir": false,
+                "nom": "ConditionInterrupteur"
+            },
+            {
+                "texte": "Un rocher trop dur t'empêche d'avancer ?",
+                "nom": "Message"
+            },
+            {
+                "texte": "Et oui, les pioches ne brisent pas tout.",
+                "nom": "Message"
+            },
+            {
+                "texte": "Va voir le \\c[02]scientifique\\c[01] au Nord-Ouest \\ndes grottes.",
+                "nom": "Message"
+            },
+            {
+                "texte": "Son nom est \\c[02]Astrophilius Wuerrenz\\c[01].",
+                "nom": "Message"
+            },
+            {
+                "texte": "Comme les mineurs, il cherche et trouve.",
+                "nom": "Message"
+            },
+            {
+                "texte": "Il te fabriquera de la dynamite \\nsi tu lui apportes les ingrédients :",
+                "nom": "Message"
+            },
+            {
+                "texte": "- Salpêtre\\n- Moutarde\\n- Eau bénite",
+                "nom": "Message"
+            },
+            {
+                "texte": "Les \\c[02]êtres de pierre\\c[01] ont du salpêtre.\\nLe \\c[02]cuistot\\c[01] de la moutarde.\\nLes \\c[02]prêtres\\c[01] l'eau bénite.",
+                "nom": "Message"
+            },
+            {
+                "avancement": "CONNUE",
+                "numero": 79,
+                "nom": "ModifierAvancementQuete"
+            },
+            {
+                "texte": "Je ne peux pas t'accompagner, \\nje suis trop occupé à creuser \\npour trouver le plus gros diamant.",
+                "nom": "Message"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionSinon"
+            },
+            {
+                "texte": "Les \\c[02]mineurs\\c[01] savent qu'il faut creuser.",
+                "nom": "Message"
+            },
+            {
+                "texte": "Ils creusent parce qu'ils sont mineurs\\net ils sont mineurs parce qu'ils creusent.",
+                "nom": "Message"
+            },
+            {
+                "texte": "Ce diamant géant, quand poindra-t-il ?",
+                "nom": "Message"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 8
+            },
+            {
+                "numeroInterrupteur": 12,
+                "valeur": false,
+                "nom": "ModifierInterrupteur"
+            }
+        ],
+        "traversable": false,
+        "animeEnMouvement": true,
+        "auDessusDeTout": false,
+        "frequence": 8,
+        "conditions": [{"nom": "Parler"}],
+        "directionFixe": true,
+        "animeALArret": false,
+        "vitesse": 8
+    }],
+    "x": 52,
+    "y": 27,
+    "id": 26,
+    "nom": "mineur"
+}

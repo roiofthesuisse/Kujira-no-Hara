@@ -1,0 +1,251 @@
+{
+    "pages": [
+        {
+            "image": "pots character",
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "image": "pots character",
+            "commandes": [
+                {
+                    "numeroInterrupteur": 24,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 0,
+                    "idArme": 0,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life = 0"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "numeroInterrupteur": 24,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life = 0"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 5
+                },
+                {
+                    "numeroInterrupteur": 24,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life = 0"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "TP_Slingshot_Shoot.wav",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numeroInterrupteur": 24,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteur": 27,
+                    "numero": 3,
+                    "valeurQuIlEstCenseAvoir": false,
+                    "nom": "ConditionInterrupteur"
+                },
+                {
+                    "numero": 4,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "132-Wind01.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "x": 0,
+                        "y": 0,
+                        "nom": "Sauter"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteur": 24,
+                    "numero": 5,
+                    "valeurQuIlEstCenseAvoir": false,
+                    "nom": "ConditionInterrupteur"
+                },
+                {
+                    "idAnimation": 32,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "TP_Pot_Shatter1.wav",
+                    "tempo": 0.75,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numeroVariable": 8,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 20,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numeroVariable": 8,
+                    "numero": 6,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 15,
+                    "inegalite": ">=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 34)"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 8,
+                    "numero": 7,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 5,
+                    "inegalite": "<=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(348, 8)"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(348, 9)"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteur": 24,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteur": 24,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 3
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        }
+    ],
+    "x": 6,
+    "y": 2,
+    "id": 3,
+    "nom": "Poterie HP[1] RESET"
+}

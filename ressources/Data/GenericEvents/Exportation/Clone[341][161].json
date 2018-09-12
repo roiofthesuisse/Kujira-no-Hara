@@ -1,0 +1,65 @@
+{
+    "pages": [
+        {
+            "directionInitiale": 2,
+            "image": "Ecailles colorées",
+            "commandes": [
+                {
+                    "texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": true,
+            "frequence": 1,
+            "conditions": [{"nom": "ArriveeAuContact"}],
+            "directionFixe": true,
+            "animeALArret": true,
+            "vitesse": 24
+        },
+        {
+            "commandes": [
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "monnaie.mp3",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "variable": false,
+                    "nom": "AjouterArgent",
+                    "quantite": 5
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life = 0"
+                },
+                {"nom": "SupprimerEvent"}
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 161
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 8
+        }
+    ],
+    "x": 40,
+    "y": 1,
+    "id": 161,
+    "nom": "Flouze HP[1]"
+}

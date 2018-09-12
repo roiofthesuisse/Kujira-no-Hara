@@ -1,0 +1,537 @@
+{
+    "pages": [
+        {
+            "image": "torche character",
+            "commandes": [
+                {
+                    "numero": 9,
+                    "nom": "EffacerImage"
+                },
+                {
+                    "texte": "Extinction",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 0,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id, 0)"
+                },
+                {
+                    "touche": "ARME_SUIVANTE",
+                    "numero": 2,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "134-Wind03.ogg",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "Accrochage",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 3,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numeroVariable": 15,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 16,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "texte": "Décalage théorique d'une case",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 0
+                },
+                {
+                    "numeroVariable": 16,
+                    "operationAFaire": "retirer",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 1
+                },
+                {
+                    "numeroVariable": 15,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 2
+                },
+                {
+                    "numeroVariable": 15,
+                    "operationAFaire": "retirer",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 3
+                },
+                {
+                    "numeroVariable": 16,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id, 3)"
+                },
+                {
+                    "touche": "ARME_SUIVANTE",
+                    "numero": 9,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "WW_GrapplingHook_Throw.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numeroVariable": 20,
+                    "operationAFaire": "rendre egal a",
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "numero de la map"
+                },
+                {
+                    "numeroNouvelleMap": 20,
+                    "variable": true,
+                    "xDebutHeros": 15,
+                    "yDebutHeros": 16,
+                    "nom": "ChangerDeMap"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "TP_Slingshot_Shoot.wav",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "angle": 180,
+                            "nom": "Pivoter"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [],
+            "directionFixe": true,
+            "animeALArret": true,
+            "vitesse": 24
+        },
+        {
+            "directionInitiale": 3,
+            "image": "torche character",
+            "commandes": [
+                {
+                    "texte": "Allumage",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 0,
+                    "idArme": 1,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id, 0)"
+                },
+                {
+                    "touche": "ARME_SUIVANTE",
+                    "numero": 2,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "118-Fire02.ogg",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "Accrochage",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 3,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numeroVariable": 15,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 16,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "texte": "Décalage théorique d'une case",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 0
+                },
+                {
+                    "numeroVariable": 16,
+                    "operationAFaire": "retirer",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 1
+                },
+                {
+                    "numeroVariable": 15,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 2
+                },
+                {
+                    "numeroVariable": 15,
+                    "operationAFaire": "retirer",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 3
+                },
+                {
+                    "numeroVariable": 16,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id, 3)"
+                },
+                {
+                    "touche": "ARME_SUIVANTE",
+                    "numero": 9,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "WW_GrapplingHook_Throw.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numeroVariable": 20,
+                    "operationAFaire": "rendre egal a",
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "numero de la map"
+                },
+                {
+                    "numeroNouvelleMap": 20,
+                    "variable": true,
+                    "xDebutHeros": 15,
+                    "yDebutHeros": 16,
+                    "nom": "ChangerDeMap"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "TP_Slingshot_Shoot.wav",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "angle": 180,
+                            "nom": "Pivoter"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 17
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 24
+        }
+    ],
+    "x": 4,
+    "y": 5,
+    "id": 17,
+    "nom": "Torche (new)"
+}

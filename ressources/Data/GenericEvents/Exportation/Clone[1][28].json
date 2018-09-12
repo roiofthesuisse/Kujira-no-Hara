@@ -1,0 +1,111 @@
+{
+    "pages": [{
+        "opacite": 200,
+        "image": "luciole character",
+        "commandes": [
+            {
+                "numero": 0,
+                "nom": "ConditionGadgetEquipe",
+                "idGadget": 0
+            },
+            {
+                "touche": "ACTION_SECONDAIRE",
+                "numero": 1,
+                "nom": "ConditionTouche"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 1
+            },
+            {
+                "idObjet": 26,
+                "variable": false,
+                "nom": "AjouterObjet",
+                "quantite": 1
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "Luciole attrapée.mp3",
+                "tempo": 1.25,
+                "nom": "JouerEffetSonore"
+            },
+            {"nom": "SupprimerEvent"},
+            {
+                "numero": 1,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            }
+        ],
+        "traversable": true,
+        "animeEnMouvement": true,
+        "auDessusDeTout": true,
+        "deplacement": {
+            "ignorerLesMouvementsImpossibles": true,
+            "repeterLeDeplacement": true,
+            "mouvements": [
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 3
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 3
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 1
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 1
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 0
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 0
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 2
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 2
+                }
+            ],
+            "attendreLaFinDuDeplacement": false,
+            "nom": "Deplacement"
+        },
+        "frequence": 1,
+        "conditions": [{"nom": "Contact"}],
+        "directionFixe": false,
+        "animeALArret": true,
+        "vitesse": 4
+    }],
+    "x": 9,
+    "y": 4,
+    "id": 28,
+    "nom": "Luciole de torche 2"
+}

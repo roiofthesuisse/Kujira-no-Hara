@@ -1,0 +1,95 @@
+{
+    "pages": [{
+        "opacite": 200,
+        "image": "luciole character",
+        "commandes": [
+            {
+                "numero": 0,
+                "nom": "ConditionGadgetEquipe",
+                "idGadget": 0
+            },
+            {
+                "touche": "ACTION_SECONDAIRE",
+                "numero": 1,
+                "nom": "ConditionTouche"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 1
+            },
+            {
+                "idObjet": 26,
+                "variable": false,
+                "nom": "AjouterObjet",
+                "quantite": 1
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "Luciole attrapée.mp3",
+                "tempo": 1.25,
+                "nom": "JouerEffetSonore"
+            },
+            {"nom": "SupprimerEvent"},
+            {
+                "numero": 1,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            }
+        ],
+        "traversable": true,
+        "animeEnMouvement": true,
+        "auDessusDeTout": true,
+        "deplacement": {
+            "ignorerLesMouvementsImpossibles": true,
+            "repeterLeDeplacement": true,
+            "mouvements": [
+                {
+                    "directionVerticale": 3,
+                    "nom": "PasEnDiagonale",
+                    "directionHorizontale": 1,
+                    "nombreDeCarreaux": 1
+                },
+                {
+                    "directionVerticale": 0,
+                    "nom": "PasEnDiagonale",
+                    "directionHorizontale": 1,
+                    "nombreDeCarreaux": 1
+                },
+                {
+                    "directionVerticale": 0,
+                    "nom": "PasEnDiagonale",
+                    "directionHorizontale": 2,
+                    "nombreDeCarreaux": 1
+                },
+                {
+                    "directionVerticale": 3,
+                    "nom": "PasEnDiagonale",
+                    "directionHorizontale": 2,
+                    "nombreDeCarreaux": 1
+                }
+            ],
+            "attendreLaFinDuDeplacement": false,
+            "nom": "Deplacement"
+        },
+        "frequence": 1,
+        "conditions": [{"nom": "Contact"}],
+        "directionFixe": false,
+        "animeALArret": true,
+        "vitesse": 4
+    }],
+    "x": 9,
+    "y": 3,
+    "id": 29,
+    "nom": "Luciole de torche 1"
+}

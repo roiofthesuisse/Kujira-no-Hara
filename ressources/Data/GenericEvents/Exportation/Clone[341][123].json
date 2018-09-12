@@ -1,0 +1,264 @@
+{
+    "pages": [
+        {
+            "image": "hélice de passerelle character",
+            "commandes": [{
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "traversable": true,
+                        "nom": "RendreTraversable"
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 3
+                    },
+                    {
+                        "traversable": false,
+                        "nom": "RendreTraversable"
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            }],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{"nom": "ArriveeAuContact"}],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "image": "hélice de passerelle character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numeroInterrupteur": 35,
+                    "numero": 1,
+                    "valeurQuIlEstCenseAvoir": false,
+                    "nom": "ConditionInterrupteur"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionScript",
+                    "script": "($game_player.x != $game_map.events[@event_id].x) || ($game_player.y != $game_map.events[@event_id].y)\r\n\r\n"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionScript",
+                    "script": "Math.sqrt(($game_player.x-$game_map.events[@event_id].x)*($game_player.x-$game_map.events[@event_id].x)+($game_player.y-$game_map.events[@event_id].y)*($game_player.y-$game_map.events[@event_id].y)).round <= 3\r\n\r\n"
+                },
+                {
+                    "numeroVariable": 21,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "terrain"
+                },
+                {
+                    "numeroVariable": 21,
+                    "numero": 4,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 8,
+                    "inegalite": "!=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "030-Door07.ogg",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "hélice de passerelle character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "hélice de passerelle character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "hélice de passerelle character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "hélice de passerelle character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "hélice de passerelle character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "hélice de passerelle character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroInterrupteur": 35,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroVariable": 55,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numeroVariable": 55,
+                    "operationAFaire": "modulo",
+                    "valeurADonner": 4,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 10
+                },
+                {
+                    "numeroInterrupteur": 35,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "hélice de passerelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numeroInterrupteur": 35,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 21,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "terrain"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 123
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 8
+        }
+    ],
+    "x": 30,
+    "y": 1,
+    "id": 123,
+    "nom": "tourniquet HP[1] RESET"
+}

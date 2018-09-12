@@ -1,0 +1,195 @@
+{
+    "pages": [
+        {
+            "image": "brique liane character",
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "image": "brique liane character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nom": "AppelerUnScript",
+                        "script": "jump_toward_player"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "TP_Slingshot_Shoot.wav",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 92,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "terrain"
+                },
+                {
+                    "numeroVariable": 92,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 5,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "numeroPageCommune": 59,
+                    "nom": "AppelerPageCommune"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 92,
+                    "numero": 2,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 6,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "numeroPageCommune": 60,
+                    "nom": "AppelerPageCommune"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 109
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "image": "brique liane character",
+            "commandes": [
+                {
+                    "texte": "L'interrupteur local D est automatiquement activé quand\\nl'ennemi chage de terrain.\\nComme ça on peut le faire tomber dans les trous, l'eau, etc...",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 92,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "terrain"
+                },
+                {
+                    "numeroVariable": 92,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 5,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "numeroPageCommune": 59,
+                    "nom": "AppelerPageCommune"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 92,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 6,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "numeroPageCommune": 60,
+                    "nom": "AppelerPageCommune"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 3,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 3,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 109
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 8
+        }
+    ],
+    "x": 10,
+    "y": 6,
+    "id": 109,
+    "nom": "Briqueliane HP[1] RESET"
+}

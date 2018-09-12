@@ -1,0 +1,211 @@
+{
+    "pages": [{
+        "image": "cube character",
+        "commandes": [
+            {
+                "numeroVariable": 122,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 0,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "coordonnee x"
+            },
+            {
+                "numeroVariable": 123,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 0,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "coordonnee y"
+            },
+            {
+                "numeroInterrupteur": 12,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 0
+            },
+            {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 0
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 1
+            },
+            {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 1
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 2
+            },
+            {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 2
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 3
+            },
+            {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 3
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 124,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 0,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "coordonnee x"
+            },
+            {
+                "numeroVariable": 125,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 0,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "coordonnee y"
+            },
+            {
+                "numeroVariable": 122,
+                "numero": 4,
+                "comparerAUneAutreVariable": true,
+                "valeurQuIlEstCenseAvoir": 124,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "numeroVariable": 123,
+                "numero": 5,
+                "comparerAUneAutreVariable": true,
+                "valeurQuIlEstCenseAvoir": 125,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "numero": 5,
+                "nom": "ConditionSinon"
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "MC_IceBlock_Stop.wav",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "numero": 5,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionSinon"
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "MC_IceBlock_Stop.wav",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 1
+            },
+            {
+                "numeroInterrupteur": 12,
+                "valeur": false,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 1
+            },
+            {
+                "numeroInterrupteur": 12,
+                "valeur": false,
+                "nom": "ModifierInterrupteur"
+            }
+        ],
+        "traversable": false,
+        "teinte": "220",
+        "animeEnMouvement": true,
+        "auDessusDeTout": false,
+        "frequence": 1,
+        "conditions": [{"nom": "ArriveeAuContact"}],
+        "directionFixe": false,
+        "animeALArret": false,
+        "vitesse": 4
+    }],
+    "x": 17,
+    "y": 2,
+    "id": 68,
+    "nom": "Cube à pousser"
+}

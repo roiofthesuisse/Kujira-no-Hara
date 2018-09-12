@@ -1,0 +1,253 @@
+{
+    "pages": [
+        {
+            "image": "cristal de baleine character",
+            "commandes": [
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (important).mid",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "Jiyounasu content character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    }],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "idObjet": 1,
+                    "variable": false,
+                    "nom": "AjouterObjet",
+                    "quantite": 1
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "opacite": 255,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "opacite": 255,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "opacite": 255,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "opacite": 255,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "opacite": 255,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Vous gagnez un cristal de baleine !",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "C'est un superbe morceau de sel magique \\ncristallisé.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "You get a Crystal of the Whale !",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "This is a magic piece of crystallized salt.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "Jiyounasu character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 8
+                        },
+                        {
+                            "image": "Jiyounasu character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "directionFixe": false,
+                            "nom": "RendreDirectionFixe"
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                }
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": true,
+            "frequence": 1,
+            "conditions": [{"nom": "ArriveeAuContact"}],
+            "directionFixe": true,
+            "animeALArret": true,
+            "vitesse": 24
+        },
+        {
+            "opacite": 0,
+            "commandes": [
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {"nom": "SupprimerEvent"}
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 145
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 24
+        }
+    ],
+    "x": 35,
+    "y": 2,
+    "id": 145,
+    "nom": "Cristal de baleine"
+}

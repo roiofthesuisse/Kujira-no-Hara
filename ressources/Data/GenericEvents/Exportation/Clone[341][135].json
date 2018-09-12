@@ -1,0 +1,619 @@
+{
+    "pages": [
+        {
+            "directionInitiale": 2,
+            "image": "jizo character",
+            "commandes": [
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (jizo1).mid",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "C'est une statue jizô.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "This is a jizo statue.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionGadgetEquipe",
+                    "idGadget": 4
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 2,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Voici ses vénérables pensées :",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "Here are its wise thoughts :",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (jizo2).mid",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 3,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "\"La richesse spirituelle, c'est de savoir \\ns'appauvrir matériellement.",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "Donne 300 écailles colorées et tu seras \\nplus serein.\"",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "\"Spiritual wealth comes from material poverty.\\nGive 300 colored scales to reach serenity.\"",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "inegalite": ">=",
+                    "nom": "ConditionArgent",
+                    "quantite": 300
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 5,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Donner 300 écailles ?",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "Do you want to give 300 colored scales \\nto the statue ?",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "alternatives": [
+                        "Oui",
+                        "Non"
+                    ],
+                    "nom": "Choix"
+                },
+                {
+                    "numero": 0,
+                    "alternative": 0,
+                    "nom": "ChoixAlternative"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "006-System06.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "variable": false,
+                    "nom": "RetirerArgent",
+                    "quantite": 300
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 50
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (important).mid",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "Jiyounasu content character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    }],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "idObjet": 1,
+                    "variable": false,
+                    "nom": "AjouterObjet",
+                    "quantite": 1
+                },
+                {
+                    "texte": "Vous gagnez un cristal de baleine !",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "C'est un superbe morceau de sel magique \\ncristallisé !",
+                    "nom": "Message"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "Jiyounasu character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 8
+                        },
+                        {
+                            "image": "Jiyounasu character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "directionFixe": false,
+                            "nom": "RendreDirectionFixe"
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 0,
+                    "alternative": 1,
+                    "nom": "ChoixAlternative"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ChoixFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 6,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Vous n'avez pas assez pour donner au jizô.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "You do not have enough money to donate.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 7,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Elle a l'air pensive...",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "It seems meditative...",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": true,
+                "mouvements": [
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 0
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 50
+                    },
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 2
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 0
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            "frequence": 8,
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "directionInitiale": 2,
+            "image": "jizo character",
+            "commandes": [
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (jizo1).mid",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "C'est une statue jizô.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "This is a jizo statue.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionGadgetEquipe",
+                    "idGadget": 4
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 2,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Voici ses vénérables pensées :",
+                    "nom": "Message"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (jizo2).mid",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "texte": "\"Tagada tsoin tsoin.\"",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "Here are its wise thoughts :",
+                    "nom": "Message"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (jizo2).mid",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "texte": "\"Tagada tsoin tsoin.\"",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 3,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Elle a l'air pensive...",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "It seems meditative...",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": true,
+                "mouvements": [
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 0
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 50
+                    },
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 2
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "jizo character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 0
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            "frequence": 8,
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroMap": 341,
+                    "numeroInterrupteurLocal": 1,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 135
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        }
+    ],
+    "x": 31,
+    "y": 2,
+    "id": 135,
+    "nom": "Jizo 300"
+}

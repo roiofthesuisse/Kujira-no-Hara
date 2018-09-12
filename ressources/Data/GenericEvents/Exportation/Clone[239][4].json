@@ -1,0 +1,239 @@
+{
+    "pages": [{
+        "directionInitiale": 1,
+        "image": "viking petit character",
+        "commandes": [
+            {
+                "numeroInterrupteur": 12,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "Viking2.wav",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "numeroVariable": 9,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 1,
+                "valeurADonner2": 6,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 0,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 1,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Ils nous ont défiés à la danse viking !",
+                "nom": "Message"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 1,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 2,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "On ne peut pas rater cette chorégraphie !",
+                "nom": "Message"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 2,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 3,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Si seulement on avait la sainte pralinette !",
+                "nom": "Message"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 3,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 4,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Il nous faut du renfort !",
+                "nom": "Message"
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 4,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 5,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Un petit pas à droite et un petit pas à gauche...",
+                "nom": "Message"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 5,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 6,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "C'est la danse de nos ancêtres !",
+                "nom": "Message"
+            },
+            {
+                "numero": 5,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 8
+            },
+            {
+                "numeroInterrupteur": 12,
+                "valeur": false,
+                "nom": "ModifierInterrupteur"
+            }
+        ],
+        "traversable": false,
+        "animeEnMouvement": false,
+        "auDessusDeTout": false,
+        "deplacement": {
+            "ignorerLesMouvementsImpossibles": false,
+            "repeterLeDeplacement": true,
+            "mouvements": [
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 0
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 2
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 3
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 1
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 0
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 2
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 3
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 1
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 50
+                },
+                {
+                    "x": 0,
+                    "y": 0,
+                    "nom": "Sauter"
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 50
+                }
+            ],
+            "attendreLaFinDuDeplacement": false,
+            "nom": "Deplacement"
+        },
+        "frequence": 1,
+        "conditions": [{"nom": "Parler"}],
+        "directionFixe": false,
+        "animeALArret": true,
+        "vitesse": 12
+    }],
+    "x": 24,
+    "y": 18,
+    "id": 4,
+    "nom": "viking rouge"
+}

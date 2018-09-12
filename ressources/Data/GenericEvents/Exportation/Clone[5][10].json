@@ -1,0 +1,330 @@
+{
+    "pages": [{
+        "image": "etoile scintillement",
+        "commandes": [
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "opacite": 0,
+                    "nom": "ModifierOpacite"
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "texte": "étaler les étoiles dans l'espace",
+                "nom": "Commentaire"
+            },
+            {
+                "numeroVariable": 9,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 10,
+                "valeurADonner2": 18,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 10,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 0,
+                "valeurADonner2": 8,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "variable": true,
+                "nouveauY": 10,
+                "nouveauX": 9,
+                "nom": "TeleporterEvent",
+                "direction": 0
+            },
+            {
+                "texte": "décaler dans le temps",
+                "nom": "Commentaire"
+            },
+            {
+                "numeroVariable": 45,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 0,
+                "valeurADonner2": 7,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 45,
+                "numero": 0,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 4,
+                "inegalite": ">=",
+                "nom": "ConditionVariable"
+            },
+            {
+                "numeroVariable": 45,
+                "operationAFaire": "retirer",
+                "valeurADonner": 4,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "valeur brute"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 88
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 45,
+                "numero": 1,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 1,
+                "inegalite": "<=",
+                "nom": "ConditionVariable"
+            },
+            {
+                "numeroVariable": 45,
+                "numero": 2,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "<=",
+                "nom": "ConditionVariable"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 18
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionSinon"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 48
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numeroVariable": 45,
+                "numero": 3,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 2,
+                "inegalite": "<=",
+                "nom": "ConditionVariable"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 61
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionSinon"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 78
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "texte": "taille de l'étoile",
+                "nom": "Commentaire"
+            },
+            {
+                "numeroVariable": 46,
+                "numero": 4,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "numeroVariable": 46,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 1,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "valeur brute"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "image": "etoile scintillement",
+                    "teinte": 0,
+                    "nom": "ModifierApparence",
+                    "direction": 0,
+                    "animation": 0
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numeroVariable": 46,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 0,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "valeur brute"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "image": "etoile scintillement",
+                    "teinte": 0,
+                    "nom": "ModifierApparence",
+                    "direction": 3,
+                    "animation": 0
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionFin"
+            },
+            {
+                "texte": "tomber",
+                "nom": "Commentaire"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "opacite": 255,
+                        "nom": "ModifierOpacite"
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "opacite": 200,
+                        "nom": "ModifierOpacite"
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "opacite": 150,
+                        "nom": "ModifierOpacite"
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "opacite": 100,
+                        "nom": "ModifierOpacite"
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "opacite": 50,
+                        "nom": "ModifierOpacite"
+                    },
+                    {
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    },
+                    {
+                        "opacite": 0,
+                        "nom": "ModifierOpacite"
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "nom": "AppelerUnScript",
+                "script": "wait_for_event(@event_id)"
+            }
+        ],
+        "traversable": true,
+        "animeEnMouvement": true,
+        "auDessusDeTout": true,
+        "frequence": 1,
+        "conditions": [],
+        "directionFixe": true,
+        "animeALArret": true,
+        "vitesse": 4
+    }],
+    "x": 10,
+    "y": 0,
+    "id": 10,
+    "nom": "etoile"
+}

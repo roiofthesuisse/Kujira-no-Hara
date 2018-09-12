@@ -1,0 +1,289 @@
+{
+    "pages": [
+        {
+            "image": "boules de verre character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "cristal.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 36,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 151,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 152,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "numeroInterrupteur": 52,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": true,
+                "mouvements": [
+                    {
+                        "numeroInterrupteur": 53,
+                        "valeur": true,
+                        "nomCommande": "ModifierInterrupteur",
+                        "nom": "AppelerUneCommande"
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            "frequence": 1,
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 24
+        },
+        {
+            "image": "boules de verre character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "($game_map.events[@event_id].x - $game_variables[151]).abs + ($game_map.events[@event_id].y - $game_variables[152]).abs <= 2"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "x": 0,
+                        "y": 0,
+                        "nom": "Sauter"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 1,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "ConditionInterrupteurLocal"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "numeroInterrupteur": 52,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{
+                "numeroInterrupteur": 52,
+                "valeurQuIlEstCenseAvoir": true,
+                "nom": "Interrupteur"
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "directionInitiale": 1,
+            "image": "boules de verre character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "cristal.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 36,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 151,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 152,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "numeroInterrupteur": 52,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroMap": 341,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 149
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 24
+        },
+        {
+            "directionInitiale": 1,
+            "image": "boules de verre character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "($game_map.events[@event_id].x - $game_variables[151]).abs + ($game_map.events[@event_id].y - $game_variables[152]).abs <= 2"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "x": 0,
+                        "y": 0,
+                        "nom": "Sauter"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 1,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "ConditionInterrupteurLocal"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "numeroInterrupteur": 52,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [
+                {
+                    "numeroInterrupteur": 52,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "nom": "Interrupteur"
+                },
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroMap": 341,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 149
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        }
+    ],
+    "x": 36,
+    "y": 3,
+    "id": 149,
+    "nom": "boule de verre"
+}

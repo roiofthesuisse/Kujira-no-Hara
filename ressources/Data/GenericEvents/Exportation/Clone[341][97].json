@@ -1,0 +1,117 @@
+{
+    "pages": [
+        {
+            "directionInitiale": 3,
+            "image": "jarre géante character",
+            "commandes": [{
+                "texte": "On met des HP à tous les éléments avec qui on veut pouvoir\\navoir des interractions via les armes.",
+                "nom": "Commentaire"
+            }],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 24
+        },
+        {
+            "directionInitiale": 3,
+            "image": "jarre géante character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "idArme": 0,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "x": 0,
+                        "y": 0,
+                        "nom": "Sauter"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 96)"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "x": 0,
+                        "y": 0,
+                        "nom": "Sauter"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 96)"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 97
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 24
+        }
+    ],
+    "x": 22,
+    "y": 4,
+    "id": 97,
+    "nom": "Jarre colorée HP[1]"
+}

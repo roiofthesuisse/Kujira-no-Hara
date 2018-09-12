@@ -1,0 +1,815 @@
+{
+    "pages": [
+        {
+            "image": "Anémone bleue character",
+            "commandes": [
+                {
+                    "texte": "On initialise la vie du monstre dans le nom en haut.\\nComme ça chaque monstre a sa propre vie.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "Cette page c'est l'ia du monstre.\\nTu peux le mettre en processus parallèle si tu veux faire\\nquelque chose de compliqué ou juste mettre au contact\\npour un monstre minable comme celui-ci.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroInterrupteurLocal": 2,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "teinte": "160",
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": true,
+                "mouvements": [
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "idEvent": 0,
+                        "nom": "RegarderUnEvent"
+                    },
+                    {
+                        "angle": "+90",
+                        "nom": "Pivoter"
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "idEvent": 0,
+                        "nom": "RegarderUnEvent"
+                    },
+                    {
+                        "angle": -90,
+                        "nom": "Pivoter"
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "idEvent": 0,
+                        "nom": "RegarderUnEvent"
+                    },
+                    {
+                        "angle": "+90",
+                        "nom": "Pivoter"
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "sens": "suivre",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "idEvent": 0,
+                        "nom": "RegarderUnEvent"
+                    },
+                    {
+                        "angle": -90,
+                        "nom": "Pivoter"
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "nom": "AppelerUnScript",
+                        "script": "$game_map.events[id].transform(449, 2)"
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            "frequence": 1,
+            "conditions": [{"nom": "Contact"}],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 8
+        },
+        {
+            "image": "Anémone bleue character",
+            "commandes": [
+                {
+                    "texte": "Comportement de l'ennemi qui donne un coup.\\nJe l'ai mis dans une nouvelle page pour avoir un proc parallèle\\net pouvoir attendre qu'il finisse son déplacement avant\\nd'attaquer, sinon il nous touche alors qu'il n'est même pas",
+                    "nom": "Commentaire"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "$game_map.events[@event_id].target_in_da_zone?(0, 0)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "numeroInterrupteur": 16,
+                    "numero": 1,
+                    "valeurQuIlEstCenseAvoir": false,
+                    "nom": "ConditionInterrupteur"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionScript",
+                    "script": "$game_map.events[@event_id].target_in_da_zone?(0, 0)"
+                },
+                {
+                    "numeroPageCommune": 56,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "numeroVariable": 4,
+                    "operationAFaire": "retirer",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 33
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 2,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "teinte": "160",
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 21,
+                "numeroInterrupteurLocal": 2,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 14
+            }],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 8
+        },
+        {
+            "image": "Anémone bleue character",
+            "commandes": [
+                {
+                    "texte": "L'interrupteur local B est activé après que l'ennemi ait reçu\\nun coup.\\nOn met ça dans une autre page comme ça on peut le\\nre-attaquer à n'importe quel moment.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 0,
+                    "idArme": 0,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {"nom": "PasEnArriere"},
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 33
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "idArme": 1,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {"nom": "PasEnArriere"},
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 33
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {"nom": "PasEnArriere"},
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 66
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "idArme": 3,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {"nom": "PasEnArriere"},
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 33
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {"nom": "PasEnArriere"},
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 33
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 5,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {"nom": "PasEnArriere"},
+                        {"nom": "PasEnArriere"},
+                        {"nom": "PasEnArriere"},
+                        {"nom": "PasEnArriere"},
+                        {"nom": "PasEnArriere"}
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "teinte": "160",
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 21,
+                "numeroInterrupteurLocal": 1,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 14
+            }],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 8
+        },
+        {
+            "image": "Anémone bleue character",
+            "commandes": [],
+            "traversable": false,
+            "teinte": "160",
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "numeroInterrupteur": 12,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "nom": "Interrupteur"
+                }
+            ],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 8
+        },
+        {
+            "image": "Anémone bleue character",
+            "commandes": [
+                {
+                    "texte": "Quand un ennemi est touché son interrupteur local A\\nest automatiquement activé.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "On lui inflige des dégâts selon l'arme équipée.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 0,
+                    "idArme": 0,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 1"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "idArme": 1,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 2"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "117-Fire01.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 4,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 90,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 10,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 3"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "idArme": 3,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 1"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 90,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 10,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 1"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "TP_Slingshot_Shoot.wav",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 5,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "132-Wind01.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "On regarde si il est mort.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionScript",
+                    "script": "$game_map.events[@event_id].life <= 0"
+                },
+                {
+                    "numeroPageCommune": 58,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "idObjet": 48,
+                    "numero": 7,
+                    "nom": "ConditionObjetPossede"
+                },
+                {
+                    "numeroVariable": 97,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 56,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 97,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 28,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroPageCommune": 71,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "texte": "On le transforme en butin avec la commande\\ntransform(map_id, event_id)",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 8,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 20,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numeroVariable": 8,
+                    "numero": 8,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 10,
+                    "inegalite": "<=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroVariable": 8,
+                    "numero": 9,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 6,
+                    "inegalite": ">=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 34)"
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 8,
+                    "numero": 10,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 1,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(348, 8)"
+                },
+                {
+                    "numero": 10,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(348, 9)"
+                },
+                {
+                    "numero": 10,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionSinon"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 8,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numeroInterrupteurLocal": 2,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "teinte": "160",
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 21,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 14
+            }],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 8
+        },
+        {
+            "image": "Anémone bleue character",
+            "commandes": [
+                {
+                    "texte": "L'interrupteur local D est automatiquement activé quand\\nl'ennemi chage de terrain.\\nComme ça on peut le faire tomber dans les trous, l'eau, etc...",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 92,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "terrain"
+                },
+                {
+                    "numeroVariable": 92,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 5,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroPageCommune": 59,
+                    "nom": "AppelerPageCommune"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 92,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 6,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroPageCommune": 60,
+                    "nom": "AppelerPageCommune"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 3,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "teinte": "160",
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 21,
+                "numeroInterrupteurLocal": 3,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 14
+            }],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 8
+        }
+    ],
+    "x": 10,
+    "y": 6,
+    "id": 14,
+    "nom": "Anémone HP[5] RESET"
+}

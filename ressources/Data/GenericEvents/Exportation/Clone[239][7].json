@@ -1,0 +1,239 @@
+{
+    "pages": [{
+        "directionInitiale": 2,
+        "image": "viking2 petit character",
+        "commandes": [
+            {
+                "numeroInterrupteur": 12,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "Viking2.wav",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "numeroVariable": 9,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 1,
+                "valeurADonner2": 6,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 0,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 1,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Les vikings jaunes gagneront !",
+                "nom": "Message"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 1,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 2,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Le duel de danse viking, un art séculaire \\ndans lequel excellent les vikings jaunes !",
+                "nom": "Message"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 2,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 3,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Les vikings jaunes mettront la main sur \\nla sainte clarinette avant les vikings rouges.",
+                "nom": "Message"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 3,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 4,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Arrête de me déconcentrer, c'est important.",
+                "nom": "Message"
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 4,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 5,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Un petit saut, et on tourne sur soi-même...",
+                "nom": "Message"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 9,
+                "numero": 5,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 6,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Gloire à \\c[02]Groniass\\c[01] et aux vikings jaunes !",
+                "nom": "Message"
+            },
+            {
+                "numero": 5,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 8
+            },
+            {
+                "numeroInterrupteur": 12,
+                "valeur": false,
+                "nom": "ModifierInterrupteur"
+            }
+        ],
+        "traversable": false,
+        "animeEnMouvement": false,
+        "auDessusDeTout": false,
+        "deplacement": {
+            "ignorerLesMouvementsImpossibles": false,
+            "repeterLeDeplacement": true,
+            "mouvements": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "nom": "Sauter"
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 50
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 0
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 1
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 3
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 2
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 0
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 1
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 3
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nom": "RegarderDansUneDirection",
+                    "direction": 2
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 50
+                }
+            ],
+            "attendreLaFinDuDeplacement": false,
+            "nom": "Deplacement"
+        },
+        "frequence": 1,
+        "conditions": [{"nom": "Parler"}],
+        "directionFixe": false,
+        "animeALArret": true,
+        "vitesse": 12
+    }],
+    "x": 22,
+    "y": 18,
+    "id": 7,
+    "nom": "viking jaune"
+}

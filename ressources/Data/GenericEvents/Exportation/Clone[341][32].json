@@ -1,0 +1,92 @@
+{
+    "pages": [
+        {
+            "commandes": [{
+                "texte": "On met des HP à tous les éléments avec qui on veut pouvoir\\navoir des interractions via les armes.",
+                "nom": "Commentaire"
+            }],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "commandes": [
+                {
+                    "numero": 0,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numeroInterrupteur": 48,
+                    "numero": 1,
+                    "valeurQuIlEstCenseAvoir": false,
+                    "nom": "ConditionInterrupteur"
+                },
+                {
+                    "idAnimation": 33,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroInterrupteur": 48,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "Je le fais en script parce que c'est mille fois plus simple.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "x = y = 0\\ncase $game_player.direction\\nwhen 2; y = $game_map.events[@event_id].y - $game_player.y - 1\\nwhen 4; x = $game_map.events[@event_id].x - $game_player.x + 1\\nwhen 6; x = $game_map.events[@event_id].x - $game_player.x - 1\\nwhen 8; y = $game_map.events[@event_id].y - $game_player.y + 1\\nend\\n$game_player.jump(x, y)"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "TP_Slingshot_Shoot.wav",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteur": 48,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 32
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 8
+        }
+    ],
+    "x": 18,
+    "y": 5,
+    "id": 32,
+    "nom": "Liane HP[1]"
+}

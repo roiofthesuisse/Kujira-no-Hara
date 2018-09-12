@@ -1,0 +1,417 @@
+{
+    "pages": [
+        {
+            "image": "poisson petit",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "nom": "ConditionGadgetEquipe",
+                    "idGadget": 0
+                },
+                {
+                    "touche": "ACTION_SECONDAIRE",
+                    "numero": 1,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": true,
+                "mouvements": [
+                    {
+                        "sens": "fuir",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 8
+                    },
+                    {"nom": "AvancerAleatoirement"},
+                    {"nom": "PasEnAvant"},
+                    {
+                        "sens": "fuir",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {"nom": "AvancerAleatoirement"},
+                    {
+                        "sens": "fuir",
+                        "idEventObserve": 0,
+                        "nom": "AvancerEnFonctionDUnEvent"
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 8
+                    },
+                    {"nom": "AvancerAleatoirement"},
+                    {"nom": "AvancerAleatoirement"},
+                    {"nom": "PasEnAvant"},
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 8
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            "frequence": 1,
+            "conditions": [{"nom": "Contact"}],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 4
+        },
+        {
+            "commandes": [
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Vous avez attrapé un poisson.",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "C'est une carpe japonaise.",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "Différents poids en fonction des zones de pêche :",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "(les carpes vont de  4 00 à 36 00 g)",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 20,
+                    "operationAFaire": "rendre egal a",
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "numero de la map"
+                },
+                {
+                    "numeroVariable": 20,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 435,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "bassin viking",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 136,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 4,
+                    "valeurADonner2": 22,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 20,
+                    "numero": 2,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 255,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "trou-poisson",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 136,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 6,
+                    "valeurADonner2": 30,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 136,
+                    "operationAFaire": "multiplier",
+                    "valeurADonner": 100,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "texte": "La garde-t-on ?",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 133,
+                    "numero": 3,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "La garder ?",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 0,
+                    "alternatives": [
+                        "Oui",
+                        "Non"
+                    ],
+                    "nom": "Choix"
+                },
+                {
+                    "numero": 0,
+                    "alternative": 0,
+                    "nom": "ChoixAlternative"
+                },
+                {
+                    "numeroVariable": 133,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 136,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "contenu de la variable"
+                },
+                {
+                    "idObjet": 60,
+                    "variable": false,
+                    "nom": "AjouterObjet",
+                    "quantite": 1
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 0,
+                    "alternative": 1,
+                    "nom": "ChoixAlternative"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ChoixFin"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 10,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 5,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numeroVariable": 136,
+                    "numero": 4,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 133,
+                    "inegalite": ">=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroVariable": 10,
+                    "numero": 5,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 5,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Elle a l'air plus petite que celle que vous avez.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "Elle a l'air plus grosse que celle que vous avez.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 10,
+                    "numero": 6,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 5,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Elle a l'air plus grosse que celle que vous avez.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "Elle a l'air plus petite que celle que vous avez.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "Prendre ce nouveau poisson et relacher \\nl'ancien ?",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 1,
+                    "alternatives": [
+                        "Oui",
+                        "Non"
+                    ],
+                    "nom": "Choix"
+                },
+                {
+                    "numero": 1,
+                    "alternative": 0,
+                    "nom": "ChoixAlternative"
+                },
+                {
+                    "numeroVariable": 133,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 136,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "contenu de la variable"
+                },
+                {
+                    "numero": 1,
+                    "alternative": 1,
+                    "nom": "ChoixAlternative"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ChoixFin"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "sens": "fuir",
+                            "idEventObserve": 0,
+                            "nom": "AvancerEnFonctionDUnEvent"
+                        },
+                        {
+                            "sens": "fuir",
+                            "idEventObserve": 0,
+                            "nom": "AvancerEnFonctionDUnEvent"
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "figerLesAutresEvents": true,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 130
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": 4
+        }
+    ],
+    "x": 30,
+    "y": 4,
+    "id": 130,
+    "nom": "Carpe"
+}

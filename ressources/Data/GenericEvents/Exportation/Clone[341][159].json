@@ -1,0 +1,99 @@
+{
+    "pages": [
+        {
+            "commandes": [],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "image": "bouton terre character",
+            "commandes": [
+                {
+                    "numeroVariable": 168,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "033-Switch02.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 0,
+                    "idQuete": 80,
+                    "nom": "ConditionEtatQuete",
+                    "etat": "FAITE"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "avancement": "CONNUE",
+                    "numero": 81,
+                    "nom": "ModifierAvancementQuete"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [
+                {"nom": "ArriveeAuContact"},
+                {
+                    "numeroVariable": 168,
+                    "valeurQuIlEstCenseAvoir": 4,
+                    "inegalite": ">=",
+                    "nom": "Variable"
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "directionInitiale": 1,
+            "image": "bouton terre character",
+            "commandes": [],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroMap": 341,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 159
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        }
+    ],
+    "x": 39,
+    "y": 5,
+    "id": 159,
+    "nom": "bouton terre"
+}

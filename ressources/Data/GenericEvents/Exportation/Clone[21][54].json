@@ -1,0 +1,116 @@
+{
+    "pages": [
+        {
+            "image": "golem character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "($game_player.x - $game_map.events[@event_id].x)**2 + ($game_player.y - $game_map.events[@event_id].y)**2 <=9"
+                },
+                {
+                    "idAnimation": 22,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": true,
+                "mouvements": [{
+                    "idEventObserve": 0,
+                    "nom": "AvancerEnFonctionDUnEvent"
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            "frequence": 1,
+            "conditions": [],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 12
+        },
+        {
+            "image": "golem character",
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "numeroInterrupteur": 12,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "nom": "Interrupteur"
+                }
+            ],
+            "directionFixe": false,
+            "animeALArret": true,
+            "vitesse": 12
+        },
+        {
+            "image": "vide mais pas invisible",
+            "commandes": [
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 21, 51)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 21, 52)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 21, 53)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 21, 50)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {"nom": "SupprimerEvent"}
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 21,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 54
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 12
+        }
+    ],
+    "x": 32,
+    "y": 9,
+    "id": 54,
+    "nom": "golem RESET"
+}

@@ -1,0 +1,439 @@
+{
+    "pages": [{
+        "image": "Boite aux lettres jaune character",
+        "commandes": [
+            {
+                "numero": 0,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 3
+            },
+            {
+                "numeroInterrupteur": 12,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "numeroVariable": 121,
+                "numero": 1,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Une boîte aux lettres...",
+                "nom": "Message"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionSinon"
+            },
+            {
+                "texte": "A mailbox...",
+                "nom": "Message"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "texte": "...",
+                "nom": "Message"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {
+                "numero": 2,
+                "idArme": 1,
+                "nom": "ConditionArmePossedee"
+            },
+            {
+                "idObjet": 37,
+                "numero": 3,
+                "nom": "ConditionObjetPossede"
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numeroVariable": 121,
+                "numero": 4,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Vous avez reçu quelque chose !",
+                "nom": "Message"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionSinon"
+            },
+            {
+                "texte": "You received a mail !",
+                "nom": "Message"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "fanfare (objet trouvé).mp3",
+                "tempo": 1,
+                "nom": "JouerEffetMusical"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "image": "Jiyounasu content character",
+                    "teinte": 0,
+                    "nom": "ModifierApparence",
+                    "direction": 0,
+                    "animation": 0
+                }],
+                "idEventADeplacer": 0,
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "idObjet": 37,
+                "variable": false,
+                "nom": "AjouterObjet",
+                "quantite": 1
+            },
+            {
+                "numeroVariable": 121,
+                "numero": 5,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Vous obtenez le Prospectus Dose 1 !",
+                "nom": "Message"
+            },
+            {
+                "texte": "C'est une publicité de la boutique de \\nl' \\c[02]alchimiste Dose \\c[01].",
+                "nom": "Message"
+            },
+            {
+                "texte": "Lisez-la dans la rubrique \"objet\" du menu.",
+                "nom": "Message"
+            },
+            {
+                "numero": 5,
+                "nom": "ConditionSinon"
+            },
+            {
+                "texte": "You get Ovose Flyer 1 !",
+                "nom": "Message"
+            },
+            {
+                "texte": "This advertisement promotes the \\c[02]wizard \\nOvose\\c[01]\u2019s alchemist shop.",
+                "nom": "Message"
+            },
+            {
+                "texte": "Read it in the \"items\" section of the menu.",
+                "nom": "Message"
+            },
+            {
+                "numero": 5,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "image": "Jiyounasu character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 8
+                    },
+                    {
+                        "image": "Jiyounasu character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    },
+                    {
+                        "directionFixe": false,
+                        "nom": "RendreDirectionFixe"
+                    }
+                ],
+                "idEventADeplacer": 0,
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {
+                "texte": "...",
+                "nom": "Message"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 6,
+                "idArme": 5,
+                "nom": "ConditionArmePossedee"
+            },
+            {
+                "idObjet": 38,
+                "numero": 7,
+                "nom": "ConditionObjetPossede"
+            },
+            {
+                "numero": 7,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numeroVariable": 121,
+                "numero": 8,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Vous avez reçu quelque chose !",
+                "nom": "Message"
+            },
+            {
+                "numero": 8,
+                "nom": "ConditionSinon"
+            },
+            {
+                "texte": "You received a mail !",
+                "nom": "Message"
+            },
+            {
+                "numero": 8,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "fanfare (objet trouvé).mp3",
+                "tempo": 1,
+                "nom": "JouerEffetMusical"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "image": "Jiyounasu content character",
+                    "teinte": 0,
+                    "nom": "ModifierApparence",
+                    "direction": 0,
+                    "animation": 0
+                }],
+                "idEventADeplacer": 0,
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "idObjet": 38,
+                "variable": false,
+                "nom": "AjouterObjet",
+                "quantite": 1
+            },
+            {
+                "numeroVariable": 121,
+                "numero": 9,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Vous obtenez le Prospectus Dose 2 !",
+                "nom": "Message"
+            },
+            {
+                "texte": "C'est une publicité de la boutique de \\nl' \\c[02]alchimiste Dose \\c[01].",
+                "nom": "Message"
+            },
+            {
+                "texte": "Lisez-la dans la rubrique \"objet\" du menu.",
+                "nom": "Message"
+            },
+            {
+                "numero": 9,
+                "nom": "ConditionSinon"
+            },
+            {
+                "texte": "You get Ovose Flyer 2 !",
+                "nom": "Message"
+            },
+            {
+                "texte": "This advertisement promotes the \\c[02]wizard \\nOvose\\c[01]\u2019s alchemist shop.",
+                "nom": "Message"
+            },
+            {
+                "texte": "Read it in the \"items\" section of the menu.",
+                "nom": "Message"
+            },
+            {
+                "numero": 9,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "image": "Jiyounasu character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 8
+                    },
+                    {
+                        "image": "Jiyounasu character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    },
+                    {
+                        "directionFixe": false,
+                        "nom": "RendreDirectionFixe"
+                    }
+                ],
+                "idEventADeplacer": 0,
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {
+                "texte": "...",
+                "nom": "Message"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {
+                "numero": 7,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 6,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 6,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 121,
+                "numero": 10,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "texte": "Il n'y a rien pour vous pour l'instant.",
+                "nom": "Message"
+            },
+            {
+                "numero": 10,
+                "nom": "ConditionSinon"
+            },
+            {
+                "texte": "There is nothing for you now.",
+                "nom": "Message"
+            },
+            {
+                "numero": 10,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 3
+            },
+            {
+                "numeroInterrupteur": 12,
+                "valeur": false,
+                "nom": "ModifierInterrupteur"
+            }
+        ],
+        "traversable": false,
+        "animeEnMouvement": false,
+        "auDessusDeTout": false,
+        "frequence": 2,
+        "conditions": [{"nom": "Parler"}],
+        "directionFixe": true,
+        "animeALArret": true,
+        "vitesse": 16
+    }],
+    "x": 1,
+    "y": 4,
+    "id": 7,
+    "nom": "Boite aux lettres"
+}

@@ -1,0 +1,66 @@
+{
+    "pages": [{
+        "image": "rocher cassable character",
+        "commandes": [
+            {
+                "numero": 0,
+                "idArme": 2,
+                "nom": "ConditionArmeEquipee"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 3
+            },
+            {
+                "intensite": 2,
+                "nom": "TremblementDeTerre",
+                "nombreDeFrames": 16,
+                "vitesse": 9
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "image": "vide mais pas invisible",
+                    "teinte": 0,
+                    "nom": "ModifierApparence",
+                    "direction": 0,
+                    "animation": 0
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "129-Earth01.ogg",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "idAnimation": 37,
+                "nom": "JouerAnimation"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 16
+            },
+            {"nom": "SupprimerEvent"},
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            }
+        ],
+        "traversable": false,
+        "animeEnMouvement": false,
+        "auDessusDeTout": false,
+        "frequence": 8,
+        "conditions": [{"nom": "Parler"}],
+        "directionFixe": true,
+        "animeALArret": false,
+        "vitesse": 8
+    }],
+    "x": 37,
+    "y": 3,
+    "id": 151,
+    "nom": "rocher cassable"
+}

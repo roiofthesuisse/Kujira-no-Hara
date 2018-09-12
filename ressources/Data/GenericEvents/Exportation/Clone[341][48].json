@@ -1,0 +1,85 @@
+{
+    "pages": [
+        {
+            "opacite": 0,
+            "directionInitiale": 1,
+            "image": "pissenlit character",
+            "commandes": [{
+                "texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon.",
+                "nom": "Commentaire"
+            }],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 24
+        },
+        {
+            "opacite": 0,
+            "directionInitiale": 1,
+            "image": "pissenlit character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "idArme": 3,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life = 0"
+                },
+                {
+                    "numeroVariable": 90,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 10,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 33
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "WW_HyoiPear.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 47)"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroMap": 341,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 48
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 24
+        }
+    ],
+    "x": 8,
+    "y": 6,
+    "id": 48,
+    "nom": "Pissenlit HP[1] RESET"
+}

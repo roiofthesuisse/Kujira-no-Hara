@@ -1,0 +1,405 @@
+{
+    "pages": [
+        {
+            "image": "Palourde coffre character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 3
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "C'est un coffrillage !",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "It is a treasure shell !",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "nom": "RegarderDansUneDirection",
+                            "direction": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 200
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "044-Chest01.ogg",
+                    "tempo": 0.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (coffre).mp3",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 0
+                        },
+                        {
+                            "directionFixe": true,
+                            "nom": "RendreDirectionFixe"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 25
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 141
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (objet trouvé).mp3",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "Jiyounasu content character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 100
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "idObjet": 29,
+                    "variable": false,
+                    "nom": "AjouterObjet",
+                    "quantite": 1
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 2,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "Vous obtenez un radis !",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "C'est piquant, frais et croustillant !",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "You get a radish !",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "It is fresh, piquant and crunchy !",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "Jiyounasu character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 8
+                        },
+                        {
+                            "image": "Jiyounasu character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "directionFixe": false,
+                            "nom": "RendreDirectionFixe"
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "idObjet": 48,
+                    "numero": 3,
+                    "nom": "ConditionObjetPossede"
+                },
+                {
+                    "numeroVariable": 97,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 44,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 97,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 22,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroPageCommune": 72,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 8,
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 8
+        },
+        {
+            "directionInitiale": 3,
+            "image": "Palourde coffre character",
+            "commandes": [
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroVariable": 121,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "C'est vide.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "It's empty.",
+                    "nom": "Message"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": 1,
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroMap": 341,
+                    "numeroInterrupteurLocal": 1,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 6
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": 24
+        }
+    ],
+    "x": 14,
+    "y": 2,
+    "id": 6,
+    "nom": "Coffrillage (radis)"
+}
