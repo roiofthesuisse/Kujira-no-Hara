@@ -162,8 +162,9 @@ public abstract class InterpreteurDeJson {
 	 */
 	public static JSONObject ouvrirJsonEventGenerique(final String nomEvent, final boolean artisanal) 
 			throws Exception {
-		String sousDossier = artisanal ? "" : "Exportation\\";
-		return ouvrirJson(nomEvent, ".\\ressources\\Data\\GenericEvents\\"+sousDossier);
+		final String sousDossier = artisanal ? "" : "Exportation\\";
+		final String nomEventSansLesZeros = nomEvent.replace("[00", "[").replace("[0", "[");
+		return ouvrirJson(nomEventSansLesZeros, ".\\ressources\\Data\\GenericEvents\\"+sousDossier);
 	}
 
 	/**
