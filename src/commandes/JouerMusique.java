@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
+import utilitaire.Maths;
 import utilitaire.son.LecteurAudio;
 import utilitaire.son.Musique;
 
@@ -29,9 +30,10 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 	 * @param nombreDeFrames durée de l'entrée en fondu
 	 * @param piste sur laquelle jouer
 	 */
-	public JouerMusique(final String nomFichierSonore, final double volume, final int nombreDeFrames, final int piste) {
+	public JouerMusique(final String nomFichierSonore, final float volume, final int nombreDeFrames, 
+			final int piste) {
 		this.nomFichierSonore = nomFichierSonore;
-		this.volume = new Float(volume);
+		this.volume = volume;
 		this.nombreDeFrames = nombreDeFrames;
 		this.frame = 0;
 		this.piste = piste;
@@ -44,7 +46,9 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 	public JouerMusique(final HashMap<String, Object> parametres) {
 		this( 
 				(String) parametres.get("nomFichierSonore"),
-				parametres.containsKey("volume") ? (double) parametres.get("volume") : Musique.VOLUME_MAXIMAL,
+				parametres.containsKey("volume")
+						? Maths.toFloat(parametres.get("volume"))
+						: Musique.VOLUME_MAXIMAL,
 				parametres.containsKey("nombreDeFrames") ? (int) parametres.get("nombreDeFrames") : 0,
 				parametres.containsKey("piste") ? (int) parametres.get("piste") : 0
 		);

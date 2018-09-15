@@ -155,4 +155,37 @@ public abstract class Maths {
 		}
 		return res * (1.0-partieDecimale) + res*x * partieDecimale; //moyenne pondérée entre puissance entière précédente et puissance entière suivante
 	}
+	
+	/**
+	 * Convertir un nombre en float.
+	 * @param valeur nombre
+	 * @return float
+	 */
+	public static final float toFloat(final Object valeur) {
+		float resultat = 1f;
+		if (valeur != null) {
+			try {
+				// Double ?
+				resultat = new Float((double) valeur);
+			} catch (ClassCastException e1) {
+				try {
+					// Float ?
+					resultat = (float) valeur;
+				} catch (ClassCastException e3) {
+					try {
+						// Int ?
+						resultat = new Float((int) valeur);
+						LOG.warn("Conversion de int vers float de la valeur : "+valeur);
+					} catch (ClassCastException e2) {
+						// Autre !
+						LOG.error("Impossible de convertir en float "+valeur, e3);
+					}
+				}
+			}
+		} else {
+			// Null ?
+			LOG.error("Impossible de convertir en float null", new NullPointerException());
+		}
+		return resultat;
+	}
 }

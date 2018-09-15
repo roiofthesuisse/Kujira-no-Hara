@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
+import utilitaire.Maths;
 import utilitaire.son.LecteurAudio;
 import utilitaire.son.Musique;
 
@@ -19,9 +20,9 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	 * @param nomFichierSonore nom du fichier de l'effet sonore à jouer
 	 * @param volume sonore (entre 0.0f et 1.0f)
 	 */
-	public JouerEffetSonore(final String nomFichierSonore, final double volume) {
+	public JouerEffetSonore(final String nomFichierSonore, final float volume) {
 		this.nomFichierSonore = nomFichierSonore;
-		this.volume = new Float(volume);
+		this.volume = volume;
 	}
 	
 	/**
@@ -30,7 +31,9 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	 */
 	public JouerEffetSonore(final HashMap<String, Object> parametres) {
 		this( (String) parametres.get("nomFichierSonore"),
-				parametres.containsKey("volume") ? (double) parametres.get("volume") : Musique.VOLUME_MAXIMAL
+				parametres.containsKey("volume")
+						? Maths.toFloat(parametres.get("volume"))
+						: Musique.VOLUME_MAXIMAL
 		);
 	}
 	

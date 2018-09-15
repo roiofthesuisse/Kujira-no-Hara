@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
+import utilitaire.Maths;
 import utilitaire.son.LecteurAudio;
 import utilitaire.son.Musique;
 
@@ -20,9 +21,9 @@ public class JouerEffetMusical extends Commande implements CommandeEvent, Comman
 	 * @param nomFichierSonore nom du fichier de la fanfare à jouer
 	 * @param volume sonore (entre 0.0f et 1.0f)
 	 */
-	public JouerEffetMusical(final String nomFichierSonore, final double volume) {
+	public JouerEffetMusical(final String nomFichierSonore, final float volume) {
 		this.nomFichierSonore = nomFichierSonore;
-		this.volume = new Float(volume);
+		this.volume = volume;
 	}
 	
 	/**
@@ -31,7 +32,9 @@ public class JouerEffetMusical extends Commande implements CommandeEvent, Comman
 	 */
 	public JouerEffetMusical(final HashMap<String, Object> parametres) {
 		this( (String) parametres.get("nomFichierSonore"),
-				parametres.containsKey("volume") ? (double) parametres.get("volume") : Musique.VOLUME_MAXIMAL
+				parametres.containsKey("volume")
+						? Maths.toFloat(parametres.get("volume"))
+						: Musique.VOLUME_MAXIMAL
 		);
 	}
 	
