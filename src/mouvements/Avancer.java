@@ -56,6 +56,10 @@ public class Avancer extends Mouvement {
 	public void calculDuMouvement(final Event event) {
 		event.avance = true;
 		
+		if(event.id == 20){
+			LOG.debug("hihi");
+		}
+		
 		//déplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
@@ -82,6 +86,9 @@ public class Avancer extends Mouvement {
 	public boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		
+		//pas besoin d'aller à la vitesse de l'Event si l'objectif est très proche
+		this.vitesse = Math.min(this.etapes, event.vitesseActuelle);
+		
 		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 			return false;
@@ -91,9 +98,6 @@ public class Avancer extends Mouvement {
 		if (event.traversableActuel == Traversabilite.TRAVERSABLE) {
 			return true;
 		}
-		
-		//pas besoin d'aller à la vitesse de l'Event si l'objectif est très proche
-		this.vitesse = Math.min(this.etapes, event.vitesseActuelle);
 		
 		//collisions avec le décor et les autres Events
 		int xAInspecter = event.x;
