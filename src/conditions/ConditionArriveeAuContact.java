@@ -37,8 +37,12 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	 */
 	public ConditionArriveeAuContact(final HashMap<String, Object> parametres) {
 		this(
-				parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
-				parametres.containsKey("typeDeContact") ? TypeDeContact.obtenirParNom((String) parametres.get("typeDeContact")) : TypeDeContact.SUPERPOSITION_MAJORITAIRE
+				parametres.containsKey("numero") 
+						? (int) parametres.get("numero") 
+						: -1,
+				parametres.containsKey("typeDeContact") 
+						? TypeDeContact.obtenirParNom((String) parametres.get("typeDeContact")) 
+						: TypeDeContact.SUPERPOSITION_MAJORITAIRE
 		);
 	}
 	

@@ -568,9 +568,37 @@ public class Map implements Sauvegardable {
 	 */
 	public final boolean calculerSiLaPlaceEstLibre(final int xmin, final int ymin, final int largeurHitbox, final int hauteurHitbox, final int numeroEvent) {
 		final Event event = this.eventsHash.get((Integer) numeroEvent);
-		
 		final int xmax = xmin + largeurHitbox;
 		final int ymax = ymin + hauteurHitbox;
+		
+		// Est-ce que le décor permet de passer ici ?
+		if (!lEventEstSurUnDecorTraversable(event, xmin, ymin, xmax, ymax)) {
+			// Le décor n'est pas traversable ici !
+			// La place n'est pas libre !
+			return false;
+		}
+		
+		// Est-ce que les autres Events permettent de passer ici ?
+		if (!lEventNEmpietePasSurUnAutreEvent(event, xmin, ymin, xmax, ymax, largeurHitbox, hauteurHitbox, numeroEvent)) {
+			// L'Event empiète sur un autre Event !
+			// La place n'est pas libre !
+			return false;
+		}
+		
+		// La place est libre à cet endroit
+		return true;
+	}
+	
+	/**
+	 * Est-ce qu'on peut poser l'Event ici malgré le décor ?
+	 * @param event qu'on voudrait placer ici
+	 * @param xmin coordonnée (en pixels) de là où on veut placer l'Event
+	 * @param ymin coordonnée (en pixels) de là où on veut placer l'Event
+	 * @param xmax coordonnée (en pixels) de là où on veut placer l'Event
+	 * @param ymax coordonnée (en pixels) de là où on veut placer l'Event
+	 * @return true si le décor est traversable ici, false sinon.
+	 */
+	public final boolean lEventEstSurUnDecorTraversable(final Event event, final int xmin, final int ymin, final int xmax, final int ymax) {
 		
 		/** Coordonnées (en nombre de cases) des cases où se situent les coins de l'Event */
 		final int xCaseMin = xmin/Main.TAILLE_D_UN_CARREAU;
@@ -631,7 +659,24 @@ public class Map implements Sauvegardable {
 			}
 			event.sortiDeLaMap = true;
 		}
-			
+		
+		return true;
+	}
+	
+	/**
+	 * Est-ce qu'on peut poser l'Event ici malgré les autres Events ?
+	 * @param event qu'on voudrait placer ici
+	 * @param xmin coordonnée (en pixel) de là où on veut placer l'Event
+	 * @param ymin coordonnée (en pixel) de là où on veut placer l'Event
+	 * @param xmax coordonnée (en pixel) de là où on veut placer l'Event
+	 * @param ymax coordonnée (en pixel) de là où on veut placer l'Event
+	 * @param largeurHitbox largeur (en pixels) de l'Event
+	 * @param hauteurHitbox largeur (en pixels) de l'Event
+	 * @param numeroEvent numéro de l'Event
+	 * @return true si les Events alentours font suffisamment de place pour cet Event, false sinon.
+	 */
+	private boolean lEventNEmpietePasSurUnAutreEvent(final Event event, final int xmin, final int ymin, 
+			final int xmax, final int ymax, final int largeurHitbox, final int hauteurHitbox, final int numeroEvent) {
 		//si rencontre avec un autre Event non traversable -> false
 		int xmin2;
 		int xmax2;
@@ -650,8 +695,17 @@ public class Map implements Sauvegardable {
 						// si l'un des deux est le Héros
 						|| (event.id == 0 && autreEvent.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS)
 						|| (autreEvent.id == 0 && event.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS);
+				
+				if(event.id==2){
+					LOG.info("obstacle event+heros "+(autreEvent.id == 0 && event.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS));
+				}
+				
 				if (!modeTraversable) {
 					// Les deux Events sont solides
+					
+					if(event.id==2){
+						LOG.info("obstacle event "+autreEvent+" !!!");
+					}
 					
 					// Les deux Events se chevauchent-ils ?
 					xmin2 = autreEvent.x;
@@ -662,14 +716,15 @@ public class Map implements Sauvegardable {
 						xmin2, xmax2, ymin2, ymax2, 
 						largeurHitbox, hauteurHitbox, 
 						autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
-			
 					) {
+						if(event.id==2){
+							LOG.info("obstacle event "+autreEvent.id+" !!!!!!");
+						}
 						return false;
 					}
 				}
 			}
 		}
-		
 		return true;
 	}
 	

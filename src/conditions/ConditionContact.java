@@ -245,9 +245,11 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		final ArrayList<Event> events2 = recupererLesEventsCandidats(idEvent2);
 		final Map map = this.page.event.map;
 		for (Event event1 : events1) {
-			final boolean event1SurUnDecorPassable = map.calculerSiLaPlaceEstLibre(event1.x, event1.y, event1.largeurHitbox, event1.hauteurHitbox, event1.id);
+			final boolean event1SurUnDecorPassable = map.lEventEstSurUnDecorTraversable(event1, event1.x, event1.y, 
+					event1.x+event1.largeurHitbox, event1.y+event1.hauteurHitbox);
 			for (Event event2 : events2) {
-				final boolean event2SurUnDecorPassable = map.calculerSiLaPlaceEstLibre(event2.x, event2.y, event2.largeurHitbox, event2.hauteurHitbox, event2.id);
+				final boolean event2SurUnDecorPassable = map.lEventEstSurUnDecorTraversable(event2, event2.x, event2.y,
+						event2.x+event2.largeurHitbox, event2.y+event2.hauteurHitbox);
 				
 				//pas de contact si l'un des deux saute
 				if (!event1.saute && !event2.saute) {
