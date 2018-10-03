@@ -58,11 +58,11 @@ public class PageEvent {
 	public enum Traversabilite {
 		TRAVERSABLE, OBSTACLE, TRAVERSABLE_PAR_LE_HEROS
 	}
-	
-	
+
 	//paramètres
-	public int vitesse;
-	public int frequence;
+	public Vitesse vitesse;
+	public Frequence frequence;
+	
 	/** 
 	 * <p>figer les autres Events pendant la lecture de cette Page</p>
 	 * <p>automatiquement mis à true si la Page contient une condition Parler</p>
@@ -167,11 +167,27 @@ public class PageEvent {
 		}
 	
 		// Propriétés de cette Page
-		this.frequence = pageJSON.has("frequence") ? pageJSON.getInt("frequence") : Event.FREQUENCE_PAR_DEFAUT;
-		if (this.frequence == 0) {
-			LOG.error("La fréquence de l'event "+event.id+" "+event.nom+" est nulle ! Cela va créer une division par 0 lors de l'animation !");
+		try {
+			this.frequence = pageJSON.has("frequence") 
+					? Frequence.parNom(pageJSON.getString("frequence"))
+					: Event.FREQUENCE_PAR_DEFAUT;
+		} catch (Exception e) {
+			LOG.error("La fréquence de l'évent "+idEvent+" n'est pas une chaine de caractères : "
+					+pageJSON.toString());
+			this.frequence = Event.FREQUENCE_PAR_DEFAUT;
 		}
-		this.vitesse = pageJSON.has("vitesse") ? pageJSON.getInt("vitesse") : Event.VITESSE_PAR_DEFAUT;
+		if (this.frequence == null) {
+			LOG.error("La fréquence de l'event "+idEvent+" est nulle ! Cela va créer une erreur lors de l'animation !");
+		}
+		try {
+			this.vitesse = pageJSON.has("vitesse")
+					? Vitesse.parNom(pageJSON.getString("vitesse"))
+					: Event.VITESSE_PAR_DEFAUT;
+		} catch (Exception e) {
+			LOG.error("La vitesse de l'event "+idEvent+" n'est pas une chaine de caractères : "
+					+pageJSON.toString());
+			this.vitesse = Event.VITESSE_PAR_DEFAUT;
+		}
 		if (contientUneConditionParler()) {
 			this.figerLesAutresEvents = true;
 		} else if (pageJSON.has("figerLesAutresEvents")) {

@@ -2,20 +2,27 @@ package mouvements;
 
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import map.Event;
+import map.Vitesse;
 
 /**
  * Modifier la vitesse actuelle d'un Event.
  */
 public class ModifierVitesse extends Mouvement {
-	private int nouvelleVitesse;
+	private static final Logger LOG = LogManager.getLogger(ModifierVitesse.class);
+	
+	private String nomNouvelleVitesse;
+	private Vitesse nouvelleVitesse = null;
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouvelleVitesse à donner à l'Event
+	 * @param nomNouvelleVitesse nom de la nouvelle vitesse à donner à l'Event
 	 */
-	public ModifierVitesse(final int nouvelleVitesse) {
-		this.nouvelleVitesse = nouvelleVitesse;
+	public ModifierVitesse(final String nomNouvelleVitesse) {
+		this.nomNouvelleVitesse = nomNouvelleVitesse;
 	}
 	
 	/**
@@ -23,7 +30,7 @@ public class ModifierVitesse extends Mouvement {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ModifierVitesse(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("vitesse") );
+		this( (String) parametres.get("vitesse") );
 	}
 	
 	@Override
@@ -39,6 +46,22 @@ public class ModifierVitesse extends Mouvement {
 
 	@Override
 	protected final void calculDuMouvement(final Event event) {
+		if (this.nouvelleVitesse == null) {
+			// La Vitesse n'a pas encore été interprétée
+			
+			// On l'interprète
+			this.nouvelleVitesse = Vitesse.parNom(this.nomNouvelleVitesse);
+			
+			if (this.nouvelleVitesse == null) {
+				// La Vitesse n'a pas pu être interprétée !
+				LOG.error("Nom de vitesse inconnu : "+this.nomNouvelleVitesse);
+				// On ne fera rien
+				this.nouvelleVitesse = event.vitesseActuelle;
+			}
+		}
+		// La nouvelle Vitesse a été interprétée
+		
+		// On assigne la nouvelle Vitesse
 		event.vitesseActuelle = this.nouvelleVitesse;
 	}
 
@@ -54,7 +77,7 @@ public class ModifierVitesse extends Mouvement {
 
 	@Override
 	public final String toString() {
-		return "nouvelle vitesse : " + this.nouvelleVitesse;
+		return "nouvelle vitesse : " + this.nomNouvelleVitesse;
 	}
 
 	@Override

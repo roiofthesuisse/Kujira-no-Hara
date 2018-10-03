@@ -51,19 +51,19 @@ public class PasEnArriere extends Avancer {
 		//déplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
-				event.y -= event.vitesseActuelle; 
+				event.y -= event.vitesseActuelle.valeur; 
 				break;
 			case Direction.GAUCHE : 
-				event.x += event.vitesseActuelle; 
+				event.x += event.vitesseActuelle.valeur; 
 				break;
 			case Direction.DROITE : 
-				event.x -= event.vitesseActuelle; 
+				event.x -= event.vitesseActuelle.valeur; 
 				break;
 			case Direction.HAUT : 
-				event.y += event.vitesseActuelle; 
+				event.y += event.vitesseActuelle.valeur; 
 				break;
 		}
-		this.ceQuiAEteFait += event.vitesseActuelle;
+		this.ceQuiAEteFait += event.vitesseActuelle.valeur;
 	}
 
 }

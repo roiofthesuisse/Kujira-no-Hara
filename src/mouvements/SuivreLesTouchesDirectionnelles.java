@@ -59,9 +59,9 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 		// Inertie : si on vient d'appuyer sur la touche, le Héros va moins vite
 		final int vitesse;
 		if (event instanceof Heros && !this.toucheEnfonceeALaFramePrecedente) {
-			vitesse = Math.max(1, event.pageActive.vitesse/2);
+			vitesse = Math.max(1, event.pageActive.vitesse.valeur/2);
 		} else {
-			vitesse = event.pageActive.vitesse;
+			vitesse = event.pageActive.vitesse.valeur;
 		}
 		
 		// Le Héros traverse tout si la touche de triche est pressée
@@ -216,7 +216,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 						}
 					} else if (this.toucheEnfonceeALaFramePrecedente && event instanceof Heros) {
 						// Inertie : même si on ne presse plus les touches, le Héros avance encore un peu
-						final int vitesseInertie = Math.max(1, event.pageActive.vitesse/2);
+						final int vitesseInertie = Math.max(1, event.pageActive.vitesse.valeur/2);
 						final Avancer unPas = unPasVers(event.direction, event, vitesseInertie);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;

@@ -56,10 +56,6 @@ public class Avancer extends Mouvement {
 	public void calculDuMouvement(final Event event) {
 		event.avance = true;
 		
-		if(event.id == 20){
-			LOG.debug("hihi");
-		}
-		
 		//déplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
@@ -87,7 +83,7 @@ public class Avancer extends Mouvement {
 		final Event event = this.deplacement.getEventADeplacer();
 		
 		//pas besoin d'aller à la vitesse de l'Event si l'objectif est très proche
-		this.vitesse = Math.min(this.etapes, event.vitesseActuelle);
+		this.vitesse = Math.min(this.etapes, event.vitesseActuelle.valeur);
 		
 		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
@@ -251,21 +247,23 @@ public class Avancer extends Mouvement {
 		// On contourne un coin
 		if (realignementX != 0) {
 			// Le réalignement ne se fait pas plus rapidement que la vitesse de l'Event
-			if (Math.abs(realignementX) > event.vitesseActuelle) {
+			if (Math.abs(realignementX) > event.vitesseActuelle.valeur) {
 				final int signeRealigmement = Math.abs(realignementX) / realignementX; //-1 ou +1
-				realignementX = event.vitesseActuelle * signeRealigmement;
+				realignementX = event.vitesseActuelle.valeur * signeRealigmement;
 			}
 			// On réaligne l'Event pour qu'il puisse contourner un coin
 			event.x += realignementX;
 			
 		} else if (realignementY != 0) {
 			// Le réalignement ne se fait pas plus rapidement que la vitesse de l'Event
-			if (Math.abs(realignementY) > event.vitesseActuelle) {
+			if (Math.abs(realignementY) > event.vitesseActuelle.valeur) {
 				final int signeRealigmement = Math.abs(realignementY) / realignementY; //-1 ou +1
-				realignementY = event.vitesseActuelle * signeRealigmement;
+				realignementY = event.vitesseActuelle.valeur * signeRealigmement;
 			}
 			// On réaligne l'Event pour qu'il puisse contourner un coin
-			event.y += Math.abs(realignementY) <= Math.abs(event.vitesseActuelle) ? realignementY : event.vitesseActuelle;
+			event.y += Math.abs(realignementY) <= Math.abs(event.vitesseActuelle.valeur) 
+					? realignementY 
+					: event.vitesseActuelle.valeur;
 		}
 		LOG.debug("realignement de l'event id:"+event.id+" x:"+realignementX+" y:"+realignementY);
 	}

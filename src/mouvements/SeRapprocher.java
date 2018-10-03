@@ -106,8 +106,8 @@ public class SeRapprocher extends Avancer {
 			final int trajetX = this.xFinalEventARapprocher - this.xInitialEventARapprocher;
 			final int trajetY = this.yFinalEventARapprocher - this.yInitialEventARapprocher;
 			this.etapes = Maths.max(1,
-					Math.abs(trajetX/this.eventARapprocher.vitesseActuelle),
-					Math.abs(trajetY/this.eventARapprocher.vitesseActuelle));
+					Math.abs(trajetX/this.eventARapprocher.vitesseActuelle.valeur),
+					Math.abs(trajetY/this.eventARapprocher.vitesseActuelle.valeur));
 			
 			this.initialisation = true;
 		}

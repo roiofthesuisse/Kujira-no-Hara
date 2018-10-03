@@ -2,20 +2,27 @@ package mouvements;
 
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import map.Event;
+import map.Frequence;
 
 /**
  * Modifier la frequence actuelle d'un Event.
  */
 public class ModifierFrequence extends Mouvement {
-	private int nouvelleFrequence;
+	private static final Logger LOG = LogManager.getLogger(ModifierFrequence.class);
+	
+	private String nomNouvelleFrequence;
+	private Frequence nouvelleFrequence = null;
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouvelleFrequence à donner à l'Event
+	 * @param nomNouvelleFrequence nom de la nouvelle Fréquence à donner à l'Event
 	 */
-	public ModifierFrequence(final int nouvelleFrequence) {
-		this.nouvelleFrequence = nouvelleFrequence;
+	public ModifierFrequence(final String nomNouvelleFrequence) {
+		this.nomNouvelleFrequence = nomNouvelleFrequence;
 	}
 	
 	/**
@@ -23,7 +30,7 @@ public class ModifierFrequence extends Mouvement {
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ModifierFrequence(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("frequence") );
+		this( (String) parametres.get("frequence") );
 	}
 	
 	@Override
@@ -39,6 +46,22 @@ public class ModifierFrequence extends Mouvement {
 
 	@Override
 	protected final void calculDuMouvement(final Event event) {
+		if (this.nouvelleFrequence == null) {
+			// La Fréquence n'a pas encore été interprétée
+			
+			// On l'interprète
+			this.nouvelleFrequence = Frequence.parNom(this.nomNouvelleFrequence);
+			
+			if (this.nouvelleFrequence == null) {
+				// La Fréquence n'a pas pu être interprétée !
+				LOG.error("Nom de fréquence inconnu : "+this.nomNouvelleFrequence);
+				// On ne fera rien
+				this.nouvelleFrequence = event.frequenceActuelle;
+			}
+		}
+		// La nouvelle Fréquence a été interprétée
+		
+		// On assigne la nouvelle Fréquence
 		event.frequenceActuelle = this.nouvelleFrequence;
 	}
 
@@ -54,7 +77,7 @@ public class ModifierFrequence extends Mouvement {
 
 	@Override
 	public final String toString() {
-		return "nouvelle frequence : "+this.nouvelleFrequence;
+		return "nouvelle frequence : "+this.nomNouvelleFrequence;
 	}
 
 	@Override

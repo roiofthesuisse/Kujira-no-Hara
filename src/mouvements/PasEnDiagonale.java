@@ -50,21 +50,21 @@ public class PasEnDiagonale extends Avancer {
 		//déplacement :
 		switch (this.directionHorizontale) {
 			case Direction.GAUCHE : 
-				event.x -= event.vitesseActuelle; 
+				event.x -= event.vitesseActuelle.valeur; 
 				break;
 			case Direction.DROITE : 
-				event.x += event.vitesseActuelle; 
+				event.x += event.vitesseActuelle.valeur; 
 				break;
 		}
 		switch (this.directionVerticale) {
 			case Direction.BAS : 
-				event.y += event.vitesseActuelle; 
+				event.y += event.vitesseActuelle.valeur; 
 				break;
 			case Direction.HAUT : 
-				event.y -= event.vitesseActuelle; 
+				event.y -= event.vitesseActuelle.valeur; 
 				break;
 		}
-		this.ceQuiAEteFait += event.vitesseActuelle;
+		this.ceQuiAEteFait += event.vitesseActuelle.valeur;
 	}
 
 	/**
@@ -90,18 +90,18 @@ public class PasEnDiagonale extends Avancer {
 		int yAInspecter = event.y;
 		switch (this.directionVerticale) {
 		case Event.Direction.BAS : 
-			yAInspecter += event.vitesseActuelle; 
+			yAInspecter += event.vitesseActuelle.valeur; 
 			break;
 		case Event.Direction.HAUT : 
-			yAInspecter -= event.vitesseActuelle; 
+			yAInspecter -= event.vitesseActuelle.valeur; 
 			break;
 		}
 		switch (this.directionHorizontale) {
 		case Event.Direction.GAUCHE : 
-			xAInspecter -= event.vitesseActuelle; 
+			xAInspecter -= event.vitesseActuelle.valeur; 
 			break;
 		case Event.Direction.DROITE : 
-			xAInspecter += event.vitesseActuelle;
+			xAInspecter += event.vitesseActuelle.valeur;
 			break;
 		}
 		return event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id);

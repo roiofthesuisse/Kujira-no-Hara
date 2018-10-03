@@ -484,29 +484,62 @@ public class LecteurMap extends Lecteur {
 	private void animerLesEvents(final int frame) {		
 		try {
 			for (Event event : this.map.events) {
-				final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle == 0) //fréquence d'animation
-				|| (event.avance && !event.avancaitALaFramePrecedente); //la première frame d'animation est un pas
-				
-				//cas où l'Event est animé à l'arrêt
-				if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
-					event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
+				try {
+					if (event.frequenceActuelle == null) {
+						throw new FrequenceNulleException(event.nom, event.id);
+					}
+					final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle.valeur == 0) //fréquence d'animation
+					|| (event.avance && !event.avancaitALaFramePrecedente); //la première frame d'animation est un pas
+					
+					//cas où l'Event est animé à l'arrêt
+					if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
+						event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
+					}
+					//cas où l'Event est vraiment en mouvement
+					final boolean eventAvance = event.avance || event.avancaitALaFramePrecedente;
+					final boolean nAnimerQueLesDeplacementsForcesLorsDesDialogues = !this.stopEvent 
+							|| (event.deplacementForce != null 
+								&& event.deplacementForce.mouvements.size() > 0 
+								&& event.deplacementForce.idEventCommanditaire == this.eventQuiALanceStopEvent.id);
+					if (eventAvance
+							&& event.animeEnMouvementActuel
+							&& passerALAnimationSuivante
+							&& nAnimerQueLesDeplacementsForcesLorsDesDialogues) {
+						event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
+					}
+					event.avancaitALaFramePrecedente = event.avance;
+					
+				} catch (FrequenceNulleException e) {
+					LOG.error(e);
 				}
-				//cas où l'Event est vraiment en mouvement
-				final boolean eventAvance = event.avance || event.avancaitALaFramePrecedente;
-				final boolean nAnimerQueLesDeplacementsForcesLorsDesDialogues = !this.stopEvent 
-						|| (event.deplacementForce != null 
-							&& event.deplacementForce.mouvements.size() > 0 
-							&& event.deplacementForce.idEventCommanditaire == this.eventQuiALanceStopEvent.id);
-				if (eventAvance
-						&& event.animeEnMouvementActuel
-						&& passerALAnimationSuivante
-						&& nAnimerQueLesDeplacementsForcesLorsDesDialogues) {
-					event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
-				}
-				event.avancaitALaFramePrecedente = event.avance;
 			}
 		} catch (Exception e) {
 			LOG.error("erreur lors de l'animation des évènements dans la boucle d'affichage de la map :", e);
+		}
+	}
+	
+	/**
+	 * Exception lorsqu'un Event a une Fréquence nulle et qu'il est impossible de l'animer.
+	 */
+	private class FrequenceNulleException extends Exception {
+		private static final long serialVersionUID = 1L;
+		
+		private final String nomEvent;
+		private final int idEvent;
+		
+		/**
+		 * Constructeur explicite
+		 * @param nomEvent nom de l'Event concerné
+		 * @param idEvent id de l'Event concerné
+		 */
+		FrequenceNulleException(final String nomEvent, final Integer idEvent) {
+			this.nomEvent = (nomEvent == null ? "null" : nomEvent);
+			this.idEvent = (idEvent == null ? -1 : idEvent);
+		}
+		
+		@Override
+		public final String getMessage() {
+			return "L'event "+this.idEvent+" '"+this.nomEvent+"' a une fréquence nulle !";
 		}
 	}
 	

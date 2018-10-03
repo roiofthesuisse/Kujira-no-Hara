@@ -93,7 +93,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 		//calcul du rayon du cercle
 		if (this.rayon < 0) {
 			this.rayon = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
-			this.angleParcouruAChaqueEtape = (double) event.vitesseActuelle / this.rayon;
+			this.angleParcouruAChaqueEtape = (double) event.vitesseActuelle.valeur / this.rayon;
 		}
 		final double angleActuel = angleActuel(deltaX, deltaY);
 		this.nouveauX = eventCentral.x + (int) (this.rayon * Math.cos(angleActuel + this.angleParcouruAChaqueEtape));

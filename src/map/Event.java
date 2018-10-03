@@ -34,8 +34,8 @@ import utilitaire.graphismes.ModeDeFusion;
 public class Event implements Comparable<Event> {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Event.class);
-	public static final int VITESSE_PAR_DEFAUT = 4;
-	public static final int FREQUENCE_PAR_DEFAUT = 4;
+	public static final Vitesse VITESSE_PAR_DEFAUT = Vitesse.MODEREE;
+	public static final Frequence FREQUENCE_PAR_DEFAUT = Frequence.BASSE;
 	public static final int DIRECTION_PAR_DEFAUT = Event.Direction.BAS;
 	public static final int LARGEUR_HITBOX_PAR_DEFAUT = Main.TAILLE_D_UN_CARREAU;
 	public static final int HAUTEUR_HITBOX_PAR_DEFAUT = Main.TAILLE_D_UN_CARREAU;
@@ -69,9 +69,9 @@ public class Event implements Comparable<Event> {
 	public final boolean reinitialiser;
 	
 	/** de combien de pixels avance l'Event à chaque pas ? */
-	public int vitesseActuelle = VITESSE_PAR_DEFAUT; //1:trèsLent 2:lent 4:normal 8:rapide 16:trèsrapide 32:trèstrèsRapide
+	public Vitesse vitesseActuelle = VITESSE_PAR_DEFAUT;
 	/** toutes les combien de frames l'Event change-t-il d'animation ? */
-	public int frequenceActuelle = FREQUENCE_PAR_DEFAUT; //1:trèsAgité 2:agité 4:normal 8:mou 16:trèsMou
+	public Frequence frequenceActuelle = FREQUENCE_PAR_DEFAUT;
 	
 	/** un Event peut être déplacé par une Commande Event externe à son déplacement naturel nominal */
 	public Deplacement deplacementForce;

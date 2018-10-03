@@ -16,7 +16,7 @@ import map.LecteurMap;
 /**
  * Modifier la valeur d'une variable
  */
-public class ModifierVariable extends Commande implements CommandeEvent {
+public class ModifierVariable extends Commande implements CommandeEvent, CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(ModifierVariable.class);
 	
 	final int numeroVariable;

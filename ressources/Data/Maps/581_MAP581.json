@@ -69,6 +69,34 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "EV016",
+		"x": 12,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "for i in $game_map.events.keys\\n  event = $game_map.events[i]\\n  if event.name!=nil && event.name[\"EV011\"] && (event.x-$game_player.x).abs+(event.y-$game_player.y).abs>10\\n    event.erase\\n  end\\nend"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "cascade",
 		"x": 0,
@@ -84,8 +112,8 @@
 			],
 			"image": "cascade character",
 			"opacite": 225,
-			"vitesse": 16,
-			"frequence": 2,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -109,8 +137,8 @@
 			"commandes": [
 			],
 			"image": "Anémone bleue character",
-			"vitesse": 8,
-			"frequence": 8,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -159,8 +187,8 @@
 			],
 			"image": "cascade character",
 			"opacite": 225,
-			"vitesse": 16,
-			"frequence": 2,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -191,8 +219,8 @@
 			],
 			"image": "Poésie character",
 			"animationInitiale": 1,
-			"vitesse": 8,
-			"frequence": 8,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -217,8 +245,8 @@
 			],
 			"image": "cascade character",
 			"opacite": 225,
-			"vitesse": 16,
-			"frequence": 2,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -249,8 +277,8 @@
 			],
 			"image": "Fiolin character",
 			"animationInitiale": 1,
-			"vitesse": 8,
-			"frequence": 8,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -275,8 +303,8 @@
 			],
 			"image": "cascade character",
 			"opacite": 225,
-			"vitesse": 16,
-			"frequence": 2,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -460,8 +488,8 @@
 				"nom": "SupprimerEvent"
 			}
 			],
-			"vitesse": 24,
-			"frequence": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -486,8 +514,8 @@
 			],
 			"image": "fillette character",
 			"directionInitiale": 2,
-			"vitesse": 8,
-			"frequence": 8,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
