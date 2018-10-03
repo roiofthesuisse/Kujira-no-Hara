@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 import utilitaire.son.LecteurAudio;
 import utilitaire.son.Musique;
@@ -32,7 +33,7 @@ public class JouerFondSonore extends Commande implements CommandeEvent, Commande
 	 */
 	public JouerFondSonore(final String nomFichierSonore, final float volume, final int nombreDeFrames, 
 			final int piste) {
-		this.nomFichierSonore = nomFichierSonore;
+		this.nomFichierSonore = nomFichierSonore.replaceAll(InterpreteurDeJson.CARACTERES_INTERDITS, "_");
 		this.volume = volume;
 		this.nombreDeFrames = nombreDeFrames;
 		this.frame = 0;

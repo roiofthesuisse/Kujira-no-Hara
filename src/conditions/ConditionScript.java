@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import commandes.CommandeEvent;
 import main.Main;
 import map.Event;
 import map.Hitbox;
@@ -15,7 +16,7 @@ import map.Hitbox;
 /**
  * Condition basée sur l'interprétation d'un script ruby.
  */
-public class ConditionScript extends Condition {
+public class ConditionScript extends Condition implements CommandeEvent {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(ConditionScript.class);
 	

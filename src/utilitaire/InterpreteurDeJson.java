@@ -18,6 +18,7 @@ import org.json.JSONObject;
  */
 public abstract class InterpreteurDeJson {
 	private static final Logger LOG = LogManager.getLogger(InterpreteurDeJson.class);
+	public static final String CARACTERES_INTERDITS = "[^a-zA-Z\\d\\s\\(\\):\\.-]"; // ^ signifie "tout sauf"
 	
 	/**
 	 * Charger un objet JSON quelconque

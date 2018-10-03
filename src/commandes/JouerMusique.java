@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 import utilitaire.son.LecteurAudio;
 import utilitaire.son.Musique;
@@ -32,7 +33,7 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 	 */
 	public JouerMusique(final String nomFichierSonore, final float volume, final int nombreDeFrames, 
 			final int piste) {
-		this.nomFichierSonore = nomFichierSonore;
+		this.nomFichierSonore = nomFichierSonore.replaceAll(InterpreteurDeJson.CARACTERES_INTERDITS, "_");
 		this.volume = volume;
 		this.nombreDeFrames = nombreDeFrames;
 		this.frame = 0;
@@ -58,11 +59,11 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		if (frame == 0) {
 			// Démarrage de la musique
-			LecteurAudio.playBgm(nomFichierSonore, 0, piste);
+			LecteurAudio.playBgm(this.nomFichierSonore, 0, piste);
 			this.frame++;
 			
 			if (LecteurAudio.bgmEnCours[piste] == null) {
-				LOG.error("Impossible de démarrer la musique \""+nomFichierSonore+"\"");
+				LOG.error("Impossible de démarrer la musique \""+this.nomFichierSonore+"\"");
 			} else {
 				LOG.info("Démarrage de la musique.");
 			}
@@ -70,7 +71,7 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 			
 		} else if (frame < nombreDeFrames) {
 			// Augmentation progressive du volume
-			final float volumeProgressif = volume * (float) frame /(float) nombreDeFrames;
+			final float volumeProgressif = this.volume * (float) this.frame /(float) this.nombreDeFrames;
 			LecteurAudio.bgmEnCours[piste].modifierVolume(volumeProgressif);
 			this.frame++;
 			
@@ -78,7 +79,7 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 			
 		} else {
 			// Le volume final est atteint
-			LecteurAudio.bgmEnCours[piste].modifierVolume(volume);
+			LecteurAudio.bgmEnCours[piste].modifierVolume(this.volume);
 			this.frame = 0;
 			
 			LOG.info("La musique est démarrée.");

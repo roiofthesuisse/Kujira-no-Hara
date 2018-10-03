@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.Commande;
+import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 import utilitaire.son.LecteurAudio;
 import utilitaire.son.Musique;
@@ -21,7 +22,7 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	 * @param volume sonore (entre 0.0f et 1.0f)
 	 */
 	public JouerEffetSonore(final String nomFichierSonore, final float volume) {
-		this.nomFichierSonore = nomFichierSonore;
+		this.nomFichierSonore = nomFichierSonore.replaceAll(InterpreteurDeJson.CARACTERES_INTERDITS, "_");
 		this.volume = volume;
 	}
 	
