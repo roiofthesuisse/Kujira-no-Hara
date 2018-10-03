@@ -7,12 +7,12 @@ import org.apache.logging.log4j.Logger;
  * Fréquence d'animation d'un Event (en frames).
  */
 public enum Frequence {
-	LA_PLUS_BASSE("la plus basse", 16),
-	TRES_BASSE("tres basse", 12),
-    BASSE("basse", 8),
+	LA_PLUS_BASSE("la plus basse", 7),
+	TRES_BASSE("tres basse", 6),
+    BASSE("basse", 5),
     HAUTE("haute", 4),
-    TRES_HAUTE("tres haute", 2),
-    LA_PLUS_HAUTE("la plus haute", 1);
+    TRES_HAUTE("tres haute", 3),
+    LA_PLUS_HAUTE("la plus haute", 2);
 	
 	private static final Logger LOG = LogManager.getLogger(Frequence.class);
 	

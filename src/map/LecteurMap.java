@@ -427,9 +427,13 @@ public class LecteurMap extends Lecteur {
 						//dessiner la bandelette de décor médian
 						bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Main.TAILLE_D_UN_CARREAU;
 						if (bandeletteEvent > bandeletteActuelle) {
-							final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
-							ecran = Graphismes.superposerImages(ecran, imageBandelette,
-									-xCamera, bandeletteActuelle*Main.TAILLE_D_UN_CARREAU-yCamera);
+							try {
+								final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
+								ecran = Graphismes.superposerImages(ecran, imageBandelette,
+										-xCamera, bandeletteActuelle*Main.TAILLE_D_UN_CARREAU-yCamera);
+							} catch (RasterFormatException e) {
+								LOG.warn("Bandelette de décor médian impossible à découper !");
+							}
 							bandeletteActuelle = bandeletteEvent;
 						}
 					}

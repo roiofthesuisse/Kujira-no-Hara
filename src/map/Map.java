@@ -1,6 +1,7 @@
 package map;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.RasterFormatException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +19,7 @@ import map.Event.Direction;
 import map.PageEvent.Traversabilite;
 import map.positionInitiale.PositionInitiale;
 import utilitaire.InterpreteurDeJson;
+import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.son.Musique;
 
@@ -538,8 +540,22 @@ public class Map implements Sauvegardable {
 		} else {
 			vignette = this.imagesCoucheAvecHeros[0];
 		}
-		final int hauteurBandelette = (finBandelette-debutBandelette)*Main.TAILLE_D_UN_CARREAU;
-		return vignette.getSubimage(0, debutBandelette*Main.TAILLE_D_UN_CARREAU, vignette.getWidth(), hauteurBandelette);
+		// Quelle est la hauteur de la bandelette à decouper ?
+		final int debutDecoupageY = debutBandelette*Main.TAILLE_D_UN_CARREAU;
+		int hauteurBandelette = (finBandelette-debutBandelette)*Main.TAILLE_D_UN_CARREAU;
+		final int hauteurPossibleDeDecouper = vignette.getHeight() - debutDecoupageY - 1;
+		hauteurBandelette = Maths.min(hauteurBandelette, hauteurPossibleDeDecouper);
+		hauteurBandelette = Maths.max(hauteurBandelette, 0); // pas de bandelette de hauteur négative
+		// Découper la bandelette de décor médian
+		try {
+			return vignette.getSubimage(0, debutDecoupageY, vignette.getWidth(), hauteurBandelette);
+		} catch (RasterFormatException e) {
+			LOG.error("La bandelette de décor médian à découper dépasse de la vignette source !"
+					+ " hauteur de la vignette ("+vignette.getHeight()
+					+ ") < début du découpage ("+debutDecoupageY
+					+ ") + hauteur de la bandelette ("+hauteurBandelette+")", e);
+			throw e;
+		}
 	}
 
 	/**
