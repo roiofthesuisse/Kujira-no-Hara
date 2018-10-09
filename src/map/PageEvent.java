@@ -51,13 +51,6 @@ public class PageEvent {
 	public Boolean plat; //
 	public int directionInitiale;
 	public int animationInitiale;
-	
-	/**
-	 * Lorsque cette Page sera active, qui pourra traverser cet Event ?
-	 */
-	public enum Traversabilite {
-		TRAVERSABLE, OBSTACLE, TRAVERSABLE_PAR_LE_HEROS
-	}
 
 	//paramètres
 	public Vitesse vitesse;
@@ -70,7 +63,8 @@ public class PageEvent {
 	private boolean figerLesAutresEvents;
 	public boolean animeALArret;
 	public boolean animeEnMouvement;
-	public Traversabilite traversable;
+	public Passabilite traversable;
+	public boolean traversableParLeHeros;
 	public boolean directionFixe;
 	public boolean auDessusDeTout;
 	public int opacite;
@@ -136,8 +130,12 @@ public class PageEvent {
 		}
 		
 		// Apparence de l'Event lors de cette Page
-		this.directionInitiale = pageJSON.has("directionInitiale") ? pageJSON.getInt("directionInitiale") : Event.DIRECTION_PAR_DEFAUT;
-		this.animationInitiale = pageJSON.has("animationInitiale") ? pageJSON.getInt("animationInitiale") : 0;
+		this.directionInitiale = pageJSON.has("directionInitiale") 
+				? pageJSON.getInt("directionInitiale") 
+				: Event.DIRECTION_PAR_DEFAUT;
+		this.animationInitiale = pageJSON.has("animationInitiale") 
+				? pageJSON.getInt("animationInitiale") 
+				: 0;
 		
 		Integer tileDeLApparence = null;
 		if (pageJSON.has("image")) {
@@ -195,35 +193,58 @@ public class PageEvent {
 		} else {
 			this.figerLesAutresEvents = false;
 		}
-		this.animeALArret = pageJSON.has("animeALArret") ? pageJSON.getBoolean("animeALArret") : Event.ANIME_A_L_ARRET_PAR_DEFAUT;
-		this.animeEnMouvement = pageJSON.has("animeEnMouvement") ? pageJSON.getBoolean("animeEnMouvement") : Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
+		this.animeALArret = pageJSON.has("animeALArret") 
+				? pageJSON.getBoolean("animeALArret") 
+				: Event.ANIME_A_L_ARRET_PAR_DEFAUT;
+		this.animeEnMouvement = pageJSON.has("animeEnMouvement") 
+				? pageJSON.getBoolean("animeEnMouvement") 
+				: Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
 
+		// Traversabilité
+		this.traversableParLeHeros = Event.TRAVERSABLE_PAR_LE_HEROS_PAR_DEFAUT;
 		if (pageJSON.has("traversable")) {
+				// La passibilité est explictement spécifiée
 			if (pageJSON.getBoolean("traversable")) {
-				this.traversable = Traversabilite.TRAVERSABLE;
+				// La passibilité spécifiée est traversable
+				this.traversable = Passabilite.PASSABLE;
 			} else {
+				// La passabilité spécifiée est solide
+				// Mais elle dépend aussi de l'apparence
 				if (tileDeLApparence != null) {
-					//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
-					this.traversable = (map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE) ? Traversabilite.TRAVERSABLE : Traversabilite.OBSTACLE;
+					// Apparence de type "tile"
+					// Comme l'Event n'est pas marqué explicitement traversable, le tile impose sa passabilité 
+					this.traversable = map.tileset.passabiliteDeLaCase(tileDeLApparence);
 				} else if (this.image == null) {
-					this.traversable = Traversabilite.TRAVERSABLE_PAR_LE_HEROS;
+					// Pas d'apparence
+					this.traversable = Passabilite.OBSTACLE; // obstacle pour la plupart des Events
+					this.traversableParLeHeros = true; // mais pas le Héros
 				} else {
-					this.traversable = Traversabilite.OBSTACLE;
+					// Apparence de type "character"
+					this.traversable = Passabilite.OBSTACLE;
 				} 
 			}
 		} else {
+			// La passibilité n'est pas explicitement spécifiée
 			if (tileDeLApparence != null) {
-				//le tile impose sa traversabilité si l'Event n'est pas marqué explicitement traversable
-				this.traversable = (map.tileset.passabiliteDeLaCase(tileDeLApparence) != Passabilite.OBSTACLE) ? Traversabilite.TRAVERSABLE : Traversabilite.OBSTACLE;
+				// Apparence de type "tile"
+				// Comme l'Event n'est pas marqué explicitement traversable, le tile impose sa passabilité 
+				this.traversable = map.tileset.passabiliteDeLaCase(tileDeLApparence);
 			} else if (this.image == null) {
-				this.traversable = Traversabilite.TRAVERSABLE_PAR_LE_HEROS;
+				// Pas d'apparence
+				this.traversable = Passabilite.OBSTACLE; // obstacle pour la plupart des Events
+				this.traversableParLeHeros = true; // mais pas le Héros
 			} else {
-				this.traversable = Traversabilite.OBSTACLE;
+				// Apparence de type "character"
+				this.traversable = Passabilite.OBSTACLE;
 			}
 		}
 
-		this.directionFixe = pageJSON.has("directionFixe") ? pageJSON.getBoolean("directionFixe") : Event.DIRECTION_FIXE_PAR_DEFAUT;
-		this.auDessusDeTout = pageJSON.has("auDessusDeTout") ? pageJSON.getBoolean("auDessusDeTout") : Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
+		this.directionFixe = pageJSON.has("directionFixe")
+				? pageJSON.getBoolean("directionFixe")
+				: Event.DIRECTION_FIXE_PAR_DEFAUT;
+		this.auDessusDeTout = pageJSON.has("auDessusDeTout")
+				? pageJSON.getBoolean("auDessusDeTout")
+				: Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
 		if (pageJSON.has("plat")) {
 			this.plat = pageJSON.getBoolean("plat");
 		} else if (this.image != null) {
@@ -233,8 +254,12 @@ public class PageEvent {
 			// pas d'image d'apparence
 			this.plat = true;
 		}
-		this.modeDeFusion = pageJSON.has("modeDeFusion") ? ModeDeFusion.parNom(pageJSON.get("modeDeFusion")) : ModeDeFusion.NORMAL;
-		this.opacite = pageJSON.has("opacite") ? pageJSON.getInt("opacite") : Graphismes.OPACITE_MAXIMALE;
+		this.modeDeFusion = pageJSON.has("modeDeFusion")
+				? ModeDeFusion.parNom(pageJSON.get("modeDeFusion"))
+				: ModeDeFusion.NORMAL;
+		this.opacite = pageJSON.has("opacite")
+				? pageJSON.getInt("opacite")
+				: Graphismes.OPACITE_MAXIMALE;
 		
 		// Mouvement de l'Event lors de cette Page
 		try {

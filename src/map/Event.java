@@ -20,7 +20,6 @@ import conditions.Condition;
 import main.Commande;
 import main.Lecteur;
 import main.Main;
-import map.PageEvent.Traversabilite;
 import mouvements.Mouvement;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
@@ -42,8 +41,9 @@ public class Event implements Comparable<Event> {
 	public static final int NOMBRE_DE_VIGNETTES_PAR_IMAGE = 4;
 	public static final boolean ANIME_A_L_ARRET_PAR_DEFAUT = false;
 	public static final boolean ANIME_EN_MOUVEMENT_PAR_DEFAUT = true;
-	public static final Traversabilite TRAVERSABLE_PAR_DEFAUT = Traversabilite.OBSTACLE; //si une Page est active
-	public static final Traversabilite TRAVERSABLE_SI_VIDE = Traversabilite.TRAVERSABLE; //si aucune Page active
+	public static final Passabilite TRAVERSABLE_PAR_DEFAUT = Passabilite.OBSTACLE; //si une Page est active
+	public static final boolean TRAVERSABLE_PAR_LE_HEROS_PAR_DEFAUT = false;
+	public static final Passabilite TRAVERSABLE_SI_VIDE = Passabilite.PASSABLE; //si aucune Page active
 	public static final boolean DIRECTION_FIXE_PAR_DEFAUT = false;
 	public static final boolean AU_DESSUS_DE_TOUT_PAR_DEFAUT = false;
 	public static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAUT = false;
@@ -104,7 +104,8 @@ public class Event implements Comparable<Event> {
 	 */
 	public boolean animeALArretActuel = ANIME_A_L_ARRET_PAR_DEFAUT;
 	public boolean animeEnMouvementActuel = ANIME_EN_MOUVEMENT_PAR_DEFAUT;
-	public Traversabilite traversableActuel = TRAVERSABLE_PAR_DEFAUT;
+	public Passabilite traversableActuel = TRAVERSABLE_PAR_DEFAUT;
+	public boolean traversableParLeHerosActuel = TRAVERSABLE_PAR_LE_HEROS_PAR_DEFAUT;
 	public boolean directionFixeActuelle = DIRECTION_FIXE_PAR_DEFAUT;
 	public boolean auDessusDeToutActuel = AU_DESSUS_DE_TOUT_PAR_DEFAUT;
 	public Deplacement deplacementNaturelActuel;
@@ -442,6 +443,7 @@ public class Event implements Comparable<Event> {
 			this.auDessusDeToutActuel = page.auDessusDeTout;
 			this.animeEnMouvementActuel = page.animeEnMouvement;
 			this.traversableActuel = page.traversable;
+			this.traversableParLeHerosActuel = page.traversableParLeHeros;
 			this.directionFixeActuelle = page.directionFixe;
 			this.platActuel = page.plat;
 			this.opaciteActuelle = page.opacite;
@@ -468,6 +470,7 @@ public class Event implements Comparable<Event> {
 			this.auDessusDeToutActuel = Event.AU_DESSUS_DE_TOUT_PAR_DEFAUT;
 			this.animeEnMouvementActuel = Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
 			this.traversableActuel = Event.TRAVERSABLE_SI_VIDE;
+			this.traversableParLeHerosActuel = Event.TRAVERSABLE_PAR_LE_HEROS_PAR_DEFAUT;
 			this.directionFixeActuelle = Event.DIRECTION_FIXE_PAR_DEFAUT;
 			this.platActuel = Event.PLAT_SI_VIDE;
 			this.opaciteActuelle = Graphismes.OPACITE_MAXIMALE;
@@ -731,8 +734,12 @@ public class Event implements Comparable<Event> {
 		} else {
 			offsetY = 0;
 		}
-		final boolean reinitialiser = jsonEventGenerique.has("reinitialiser") ? jsonEventGenerique.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
-		final int vies = jsonEventGenerique.has("vies") ? jsonEventGenerique.getInt("vies") : interpreterVies(nomEvent);
+		final boolean reinitialiser = jsonEventGenerique.has("reinitialiser") 
+				? jsonEventGenerique.getBoolean("reinitialiser") 
+				: nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
+		final int vies = jsonEventGenerique.has("vies") 
+				? jsonEventGenerique.getInt("vies") 
+				: interpreterVies(nomEvent);
 		
 		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
 		return new Event(xEvent, yEvent, offsetY, nomEvent, id, vies, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);

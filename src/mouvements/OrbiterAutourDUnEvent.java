@@ -6,7 +6,7 @@ import main.Main;
 import map.Event;
 import map.Heros;
 import map.LecteurMap;
-import map.PageEvent.Traversabilite;
+import map.Passabilite;
 import utilitaire.Maths;
 
 /**
@@ -67,7 +67,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 		}
 		
 		//si l'Event est lui-même traversable, il peut faire son mouvement
-		if (event.traversableActuel == Traversabilite.TRAVERSABLE) {
+		if (event.traversableActuel == Passabilite.PASSABLE) {
 			return true;
 		}
 		

@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import main.Main;
 import map.Event;
 import map.Heros;
-import map.PageEvent.Traversabilite;
+import map.Passabilite;
 
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases
@@ -90,7 +90,7 @@ public class Sauter extends Mouvement {
 			}
 			
 			//si l'Event est lui-même traversable, il peut faire son mouvement
-			if (event.traversableActuel == Traversabilite.TRAVERSABLE) {
+			if (event.traversableActuel == Passabilite.PASSABLE) {
 				return true;
 			}
 			

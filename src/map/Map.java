@@ -16,7 +16,6 @@ import commandes.Sauvegarder.Sauvegardable;
 import main.Fenetre;
 import main.Main;
 import map.Event.Direction;
-import map.PageEvent.Traversabilite;
 import map.positionInitiale.PositionInitiale;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
@@ -622,7 +621,7 @@ public class Map implements Sauvegardable {
 		final int xCaseMax = (xmax-1)/Main.TAILLE_D_UN_CARREAU;
 		final int yCaseMax = (ymax-1)/Main.TAILLE_D_UN_CARREAU;
 		try {
-			//TODO ces 4 premiers cas purs sont des cas particuliers des 4 cas de chevauchement
+			// Remarque : ces 4 premiers cas purs sont des cas particuliers des 4 cas de chevauchement
 			//aucun des 4 coins de l'Event ne doivent être sur une case non passable
 			if (this.casePassable[xCaseMin][yCaseMin] == Passabilite.OBSTACLE) {
 				return false;
@@ -706,38 +705,38 @@ public class Map implements Sauvegardable {
 				
 				// Y a-t-il un choc physique ?
 				final boolean modeTraversable = 
-						event.traversableActuel == Traversabilite.TRAVERSABLE
-						|| autreEvent.traversableActuel == Traversabilite.TRAVERSABLE 
+						event.traversableActuel == Passabilite.PASSABLE
+						|| autreEvent.traversableActuel == Passabilite.PASSABLE 
 						// si l'un des deux est le Héros
-						|| (event.id == 0 && autreEvent.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS)
-						|| (autreEvent.id == 0 && event.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS);
-				
-				if(event.id==2){
-					LOG.info("obstacle event+heros "+(autreEvent.id == 0 && event.traversableActuel == Traversabilite.TRAVERSABLE_PAR_LE_HEROS));
-				}
+						|| (event.id == 0 && autreEvent.traversableParLeHerosActuel)
+						|| (autreEvent.id == 0 && event.traversableParLeHerosActuel);
 				
 				if (!modeTraversable) {
-					// Les deux Events sont solides
+					// Il y a potentiellement un choc physique
 					
-					if(event.id==2){
-						LOG.info("obstacle event "+autreEvent+" !!!");
-					}
-					
-					// Les deux Events se chevauchent-ils ?
-					xmin2 = autreEvent.x;
-					xmax2 = autreEvent.x + autreEvent.largeurHitbox;
-					ymin2 = autreEvent.y;
-					ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
-					if (Hitbox.lesDeuxRectanglesSeChevauchent(xmin, xmax, ymin, ymax, 
-						xmin2, xmax2, ymin2, ymax2, 
-						largeurHitbox, hauteurHitbox, 
-						autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
-					) {
-						if(event.id==2){
-							LOG.info("obstacle event "+autreEvent.id+" !!!!!!");
+					if (event.traversableActuel == Passabilite.OBSTACLE 
+							&& autreEvent.traversableActuel == Passabilite.OBSTACLE) {
+						// Les deux Events sont solides
+						
+						// Les deux Events se chevauchent-ils ?
+						xmin2 = autreEvent.x;
+						xmax2 = autreEvent.x + autreEvent.largeurHitbox;
+						ymin2 = autreEvent.y;
+						ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
+						if (Hitbox.lesDeuxRectanglesSeChevauchent(xmin, xmax, ymin, ymax, 
+							xmin2, xmax2, ymin2, ymax2, 
+							largeurHitbox, hauteurHitbox, 
+							autreEvent.largeurHitbox, autreEvent.hauteurHitbox) 
+						) {
+							return false;
 						}
-						return false;
+						
+					} else {
+						// Passabilités multilatérales
+						//TODO
+
 					}
+					
 				}
 			}
 		}

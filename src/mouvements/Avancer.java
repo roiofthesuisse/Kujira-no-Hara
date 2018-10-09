@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import main.Main;
 import map.Event;
 import map.Heros;
-import map.PageEvent.Traversabilite;
+import map.Passabilite;
 import map.Event.Direction;
 
 /**
@@ -91,7 +91,7 @@ public class Avancer extends Mouvement {
 		}
 		
 		//si l'Event est lui-même traversable, il peut faire son mouvement
-		if (event.traversableActuel == Traversabilite.TRAVERSABLE) {
+		if (event.traversableActuel == Passabilite.PASSABLE) {
 			return true;
 		}
 		
@@ -115,7 +115,8 @@ public class Avancer extends Mouvement {
 			break;
 		}
 		if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id)) {
-			// Aucun obstacle: on peut avancer tout droit
+			// Aucun obstacle
+			// On peut avancer tout droit
 			return true;
 		} else if (lObstacleEstUnCoinQueLOnPeutContourner(xAInspecter, yAInspecter, event)) {
 			// L'obstacle est un coin que l'on peut contourner

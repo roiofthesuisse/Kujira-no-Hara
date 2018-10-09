@@ -3,13 +3,13 @@ package mouvements;
 import java.util.HashMap;
 
 import map.Event;
-import map.PageEvent.Traversabilite;
+import map.Passabilite;
 
 /**
  * Rendre un Event traversable.
  */
 public class RendreTraversable extends Mouvement {
-	private Traversabilite nouveauTraversable;
+	private Passabilite nouveauTraversable;
 	
 	/**
 	 * Constructeur explicite
@@ -17,9 +17,9 @@ public class RendreTraversable extends Mouvement {
 	 */
 	public RendreTraversable(final boolean nouveauTraversable) {
 		if (nouveauTraversable) {
-			this.nouveauTraversable = Traversabilite.TRAVERSABLE;
+			this.nouveauTraversable = Passabilite.PASSABLE;
 		} else {
-			this.nouveauTraversable = Traversabilite.OBSTACLE;
+			this.nouveauTraversable = Passabilite.OBSTACLE;
 		}
 	}
 	
