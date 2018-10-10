@@ -238,6 +238,91 @@ public final class Hitbox {
 	}
 	
 	/**
+	 * Calcule si deux rectangles se chevauchent en prenant en compte les passabilités multilatérales.
+	 * @param xmin coordonnée x minimale du rectangle 1
+	 * @param xmax coordonnée x maximale du rectangle 1
+	 * @param ymin coordonnée y minimale du rectangle 1
+	 * @param ymax coordonnée y maximale du rectangle 1
+	 * @param xmin2 coordonnée x minimale du rectangle 2
+	 * @param xmax2 coordonnée x maximale du rectangle 2
+	 * @param ymin2 coordonnée y minimale du rectangle 2
+	 * @param ymax2 coordonnée y maximale du rectangle 2
+	 * @param passableAGauche1 passabilité latérale gauche de l'Event 1
+	 * @param passableADroite1 passabilité latérale droite de l'Event 1
+	 * @param passableEnBas1 passabilité latérale basse de l'Event 1
+	 * @param passableEnHaut1 passabilité latérale haute de l'Event 1
+	 * @param passableAGauche2 passabilité latérale gauche de l'Event 2
+	 * @param passableADroite2 passabilité latérale droite de l'Event 2
+	 * @param passableEnBas2 passabilité latérale basse de l'Event 2
+	 * @param passableEnHaut2 passabilité latérale haute de l'Event 2
+	 * @param largeur1 largeur de la Hitbox de l'Event 1
+	 * @param largeur2 largeur de la Hitbox de l'Event 2
+	 * @param hauteur1 hauteur de la Hitbox de l'Event 1
+	 * @param hauteur2 hauteur de la Hitbox de l'Event 2
+	 * @return true s'il y a un chevauchement interdit, false sinon
+	 */
+	public static final boolean lesDeuxRectanglesSeChevauchentMultilateralement(final int xmin, final int xmax, 
+			final int ymin, final int ymax, final int xmin2, final int xmax2, final int ymin2, final int ymax2,
+			final boolean passableAGauche1, final boolean passableADroite1, final boolean passableEnBas1, final boolean passableEnHaut1, 
+			final boolean passableAGauche2, final boolean passableADroite2, final boolean passableEnBas2, final boolean passableEnHaut2, 
+			final int largeur1, final int largeur2, final int hauteur1, final int hauteur2) {
+		boolean parLeCoin1;
+		boolean parLeCoin2;
+		boolean parLArete;
+		
+		// Chevauchement à gauche
+		final boolean chevauchementAGauche = xmin2 <= xmin && xmin <= xmax2 && xmax2 < xmax;
+		parLeCoin1 = ymin <= ymax2 && ymin2 <= ymax;
+		parLeCoin2 = ymin2 <= ymax && ymin <= ymax2;
+		parLArete = ymax <= ymax2 && ymin2 <= ymin;
+		if (chevauchementAGauche
+				&& (parLeCoin1 || parLeCoin2 || parLArete)
+				&& !passableAGauche1
+				&& !passableADroite2) {
+			return true;
+		}
+		
+		// Chevauchement à droite
+		final boolean chevauchementADroite = xmin < xmin2 && xmin2 <= xmax && xmax <= xmax2;
+		// pour le chevauchement à droite, les coins 1 et 2 sont juste inversés par rapport au chevauchement à gauche
+		// on garde donc les coins calculés pour le chevauchement à gauche
+		parLArete = ymax2 <= ymax && ymin <= ymin2;
+		if (chevauchementADroite
+				&& (parLeCoin1 || parLeCoin2 || parLArete) 
+				&& !passableADroite1
+				&& !passableAGauche2) {
+			return true;
+		}
+		
+		// Chevauchement en haut
+		final boolean chevauchementEnHaut = ymin2 <= ymin && ymin <= ymax2 && ymax2 < ymax;
+		parLeCoin1 = xmin <= xmax2 && xmin2 <= xmax;
+		parLeCoin2 = xmin2 <= xmax && xmin <= xmax2;
+		parLArete = xmax <= xmax2 && xmin2 <= xmin;
+		if (chevauchementEnHaut
+				&& (parLeCoin1 || parLeCoin2 || parLArete)
+				&& !passableEnHaut1 
+				&& !passableEnBas2) {
+			return true;
+		}
+		
+		// Chevauchement en bas
+		final boolean chevauchementEnBas = ymin < ymin2 && ymin2 <= ymax && ymax <= ymax2;
+		// pour le chevauchement en bas, les coins 1 et 2 sont juste inversés par rapport au chevauchement en haut
+		// on garde donc les coins calculés pour le chevauchement en haut
+		parLArete = xmax2 <= xmax && xmin <= xmin2;
+		if (chevauchementEnBas
+				&& (parLeCoin1 || parLeCoin2 || parLArete)
+				&& !passableEnBas1
+				&& !passableEnHaut2) {
+			return true;
+		}
+		
+		// Pas de chevauchement détecté...
+		return false;
+	}
+	
+	/**
 	 * Charger les Zones d'attaque du jeu à partir du fichier JSON.
 	 * @return zones d'attaque du jeu
 	 */

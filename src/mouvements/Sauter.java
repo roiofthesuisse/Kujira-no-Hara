@@ -9,6 +9,7 @@ import main.Main;
 import map.Event;
 import map.Heros;
 import map.Passabilite;
+import utilitaire.GestionClavier.ToucheRole;
 
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases
@@ -83,23 +84,31 @@ public class Sauter extends Mouvement {
 	public boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		
-		if (!event.saute) { //le Saut n'a pas commencé
-			//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
+		if (!event.saute) {
+			// Le Saut n'a pas encore commencé
+			
+			// Si c'est le Héros, il n'avance pas s'il est en animation d'attaque
 			if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 				return false;
 			}
 			
-			//si l'Event est lui-même traversable, il peut faire son mouvement
-			if (event.traversableActuel == Passabilite.PASSABLE) {
-				return true;
-			}
-			
+			// Calcul de la position d'arrivée
 			this.xEventAvantSaut = event.x;
 			this.yEventAvantSaut = event.y;
 			this.xEventApresSaut = xEventAvantSaut + this.x*Main.TAILLE_D_UN_CARREAU;
 			this.yEventApresSaut = yEventAvantSaut + this.y*Main.TAILLE_D_UN_CARREAU;
 			
-			//on ne peut pas Sauter en dehors de la Map
+			// Si l'Event est lui-même traversable, il peut évidemment faire son mouvement
+			if (event.traversableActuel == Passabilite.PASSABLE) {
+				return true;
+			}
+			
+			// Le Héros traverse tout si la touche de triche est pressée
+			if (event instanceof Heros && ToucheRole.TRICHE.enfoncee()) {
+				return true;
+			}
+
+			// On ne doit pas Sauter en dehors de la Map
 			if (this.xEventAvantSaut<0 
 				|| this.xEventAvantSaut+event.largeurHitbox>event.map.largeur*Main.TAILLE_D_UN_CARREAU
 				|| this.yEventApresSaut<0
@@ -108,12 +117,13 @@ public class Sauter extends Mouvement {
 				return false;
 			}
 			
-			//la case d'arrivée est-elle libre ?
+			// La case d'arrivée est-elle libre ?
 			final boolean reponse = event.map.calculerSiLaPlaceEstLibre(this.xEventApresSaut, this.yEventApresSaut, event.largeurHitbox, event.hauteurHitbox, event.id);
 			if (!reponse) {
-				LOG.warn("Saut impossible !");
+				LOG.warn("Saut impossible ! La zone d'arrivée est occupée.");
 			}
 			return reponse;
+			
 		} else {
 			//le Saut est en cours
 			return true;

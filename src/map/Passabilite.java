@@ -129,5 +129,15 @@ public enum Passabilite {
 				p1.passableEnHaut && p2.passableEnHaut);
 		return parCode(codeResultat);
 	}
+
+	/**
+	 * La passabilité est-elle multilatérale ?
+	 * C'est-à-dire ni passable ni complètement solide.
+	 * @param passabilite d'un Event ou d'un tile de décor
+	 * @return true si passabilité complexe, false sinon
+	 */
+	public static boolean estMultilateral(Passabilite passabilite) {
+		return passabilite != Passabilite.PASSABLE && passabilite != Passabilite.OBSTACLE;
+	}
 	
 }

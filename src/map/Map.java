@@ -621,6 +621,14 @@ public class Map implements Sauvegardable {
 		final int xCaseMax = (xmax-1)/Main.TAILLE_D_UN_CARREAU;
 		final int yCaseMax = (ymax-1)/Main.TAILLE_D_UN_CARREAU;
 		try {
+			// On considèrera l'Event comme solide durant le calcul
+			// Si tel n'est pas le cas, on affiche une alerte
+			if (Passabilite.estMultilateral(event.traversableActuel)) {
+				LOG.error("L'event a une passabilité multilatérale ! "
+						+ "Impossible de calculer ses collisions avec le décor ! "
+						+ "Il sera traité comme solide.");
+			}
+			
 			// Remarque : ces 4 premiers cas purs sont des cas particuliers des 4 cas de chevauchement
 			//aucun des 4 coins de l'Event ne doivent être sur une case non passable
 			if (this.casePassable[xCaseMin][yCaseMin] == Passabilite.OBSTACLE) {
@@ -714,15 +722,16 @@ public class Map implements Sauvegardable {
 				if (!modeTraversable) {
 					// Il y a potentiellement un choc physique
 					
+					xmin2 = autreEvent.x;
+					xmax2 = autreEvent.x + autreEvent.largeurHitbox;
+					ymin2 = autreEvent.y;
+					ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
+					
 					if (event.traversableActuel == Passabilite.OBSTACLE 
 							&& autreEvent.traversableActuel == Passabilite.OBSTACLE) {
 						// Les deux Events sont solides
 						
 						// Les deux Events se chevauchent-ils ?
-						xmin2 = autreEvent.x;
-						xmax2 = autreEvent.x + autreEvent.largeurHitbox;
-						ymin2 = autreEvent.y;
-						ymax2 = autreEvent.y + autreEvent.hauteurHitbox;
 						if (Hitbox.lesDeuxRectanglesSeChevauchent(xmin, xmax, ymin, ymax, 
 							xmin2, xmax2, ymin2, ymax2, 
 							largeurHitbox, hauteurHitbox, 
@@ -731,12 +740,19 @@ public class Map implements Sauvegardable {
 							return false;
 						}
 						
-					} else {
+					} else if (Passabilite.estMultilateral(event.traversableActuel)
+							|| Passabilite.estMultilateral(autreEvent.traversableActuel)) {
 						// Passabilités multilatérales
-						//TODO
-
+						if (Hitbox.lesDeuxRectanglesSeChevauchentMultilateralement(
+								xmin, xmax, ymin, ymax, xmin2, xmax2, ymin2, ymax2,
+								event.traversableActuel.passableAGauche, event.traversableActuel.passableADroite, 
+								event.traversableActuel.passableEnBas, event.traversableActuel.passableEnHaut, 
+								autreEvent.traversableActuel.passableAGauche, autreEvent.traversableActuel.passableADroite, 
+								autreEvent.traversableActuel.passableEnBas, autreEvent.traversableActuel.passableEnHaut, 
+								event.largeurHitbox, autreEvent.largeurHitbox, event.hauteurHitbox, autreEvent.hauteurHitbox)) {
+							return false;
+						}
 					}
-					
 				}
 			}
 		}
