@@ -95,9 +95,18 @@ class Exportation
         write_linebreak(file)
         file.write(sprintf("\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
         write_linebreak(file)
-        file.write(sprintf("\t\t\"volume\": %.2f,", map.bgm.volume.to_f/100))
+        volume_bgm = case map.bgm.volume
+          when 100 then "1.00"
+          when 0 then "0.00"
+          else sprintf("%.2f", map.bgm.volume.to_f/100)
+        end
+        file.write(sprintf("\t\t\"volume\": %s,", volume_bgm))
         write_linebreak(file)
-        file.write(sprintf("\t\t\"tempo\": %.2f", map.bgm.pitch.to_f/100))
+        tempo_bgm = case map.bgm.pitch
+          when 100 then"1.00"
+          else sprintf("%.2f", map.bgm.pitch.to_f/100)
+        end
+        file.write(sprintf("\t\t\"tempo\": %s", tempo_bgm))
         write_linebreak(file)
         file.write("\t},")
         write_linebreak(file)
@@ -109,9 +118,18 @@ class Exportation
         write_linebreak(file)
         file.write(sprintf("\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
         write_linebreak(file)
-        file.write(sprintf("\t\t\"volume\": %.2f,", map.bgs.volume.to_f/100))
+        volume_bgs = case map.bgs.volume
+          when 100 then "1.00"
+          when 0 then "0.00"
+          else sprintf("%.2f", map.bgs.volume.to_f/100)
+        end
+        file.write(sprintf("\t\t\"volume\": %s,", volume_bgs))
         write_linebreak(file)
-        file.write(sprintf("\t\t\"tempo\": %.2f", map.bgs.pitch.to_f/100))
+        tempo_bgs = case map.bgs.pitch 
+          when 100 then "1.00"
+          else sprintf("%.2f", map.bgs.pitch.to_f/100)
+        end
+        file.write(sprintf("\t\t\"tempo\": %s", tempo_bgs))
         write_linebreak(file)
         file.write("\t},")
         write_linebreak(file)
@@ -223,6 +241,9 @@ class Exportation
                 file.write("\t\t\t\t\"nom\": \"Contact\"")
                 write_linebreak(file)
                 file.write("\t\t\t}")
+                if c.switch1_valid || c.switch2_valid || c.variable_valid || c.self_switch_valid
+                  file.write(",")
+                end
                 write_linebreak(file)
               when 3
                 # Automatique
@@ -356,21 +377,25 @@ class Exportation
                 # Parcours predefini
                 i_mouvement = 0
                 mouvement = page.move_route.list[i_mouvement]
+                ignorer_ce_mouvement = (mouvement.code == 0)
                 while mouvement != nil
-                  ignorer_ce_mouvement = (mouvement.code == 0)
                   if !ignorer_ce_mouvement
                     ecrire_mouvement(mouvement, file)
                   end
                   i_mouvement += 1
                   mouvement = page.move_route.list[i_mouvement]
-                  if mouvement != nil && !ignorer_ce_mouvement
-                    file.write(",")
-                    write_linebreak(file)
+                  
+                  if mouvement != nil
+                    ignorer_ce_mouvement = (mouvement.code == 0)
+                    if !ignorer_ce_mouvement
+                      file.write(",")
+                      write_linebreak(file)
+                    end
                   end
                 end
               end
               write_linebreak(file)
-              file.write("\t\t\t\t],")
+              file.write("\t\t\t\t]")
               write_linebreak(file)
               file.write("\t\t\t},")
               write_linebreak(file)
@@ -434,28 +459,30 @@ class Exportation
             
             # Vitesse
             vitesse = case page.move_speed
-              when 0 then 1
-              when 1 then 2
-              when 2 then 4
-              when 3 then 8
-              when 4 then 12
-              when 5 then 16
-              else        24
+              when 1 then "tres lente"
+              when 2 then "lente"
+              when 3 then "moderee"
+              when 4 then "normale"
+              when 5 then "rapide"
+              when 6 then "tres rapide"
+              else        "vitesse inconnue"
             end
-            file.write(sprintf("\t\t\t\"vitesse\": %d,", vitesse))
+            file.write(sprintf("\t\t\t\"vitesse\": \"%s\",", vitesse))
             write_linebreak(file)
             
             # Frequence
-            frequence = case page.move_frequency
-              when 0 then 32
-              when 1 then 24
-              when 2 then 16
-              when 3 then 8
-              when 4 then 4
-              when 5 then 2
-              else        1
+            # Malheureusement, la frequence d'animation dans RM est la vitesse
+            #frequence = case page.move_frequency
+            frequence = case page.move_speed
+              when 1 then "la plus basse"
+              when 2 then "tres basse"
+              when 3 then "basse"
+              when 4 then "haute"
+              when 5 then "tres haute"
+              when 6 then "la plus haute"
+              else        "frequence inconnue"
             end
-            file.write(sprintf("\t\t\t\"frequence\": %d,", frequence))
+            file.write(sprintf("\t\t\t\"frequence\": \"%s\",", frequence))
             write_linebreak(file)
             
             # Fige les autres events
@@ -564,19 +591,23 @@ class Exportation
         tile_id = 384
         while tilesetInfo.passages[tile_id] != nil
           # Virgule entre les valeurs
-          if tile_id != 384
+          if tile_id != 384 # sauf au debut
+            if tile_id % 8 == 0
+              file.write("]")
+            end
             file.write(", ")
           end
           # Retour a la ligne
           if tile_id % 8 == 0
             write_linebreak(file)
-            file.write("\t\t")
+            file.write("\t\t[")
           end
           # Blocages individuels : 8 haut + 4 droite + 2 gauche + 1 bas
           passage = tilesetInfo.passages[tile_id]
           file.write(sprintf("%d", passage))
           tile_id += 1
         end
+        file.write("]")
         write_linebreak(file)
         file.write("\t],")
         write_linebreak(file)
@@ -588,18 +619,22 @@ class Exportation
         tile_id = 384
         while tilesetInfo.priorities[tile_id] != nil
           # virgule entre les valeurs
-          if tile_id != 384
+          if tile_id != 384 # sauf au debut
+            if tile_id % 8 == 0
+              file.write("]")
+            end
             file.write(", ")
           end
           # Retour a la ligne
           if tile_id % 8 == 0
             write_linebreak(file)
-            file.write("\t\t")
+            file.write("\t\t[")
           end
           # Ecriture de la valeur
           file.write(sprintf("%d", tilesetInfo.priorities[tile_id]))
           tile_id += 1
         end
+        file.write("]")
         write_linebreak(file)
         file.write("\t],")
         write_linebreak(file)
@@ -610,18 +645,22 @@ class Exportation
         tile_id = 384
         while tilesetInfo.terrain_tags[tile_id] != nil
           # Virgule entre les valeurs
-          if tile_id != 384
+          if tile_id != 384 # sauf au debut
+            if tile_id % 8 == 0
+              file.write("]")
+            end
             file.write(", ")
           end
           # Retour a la ligne
           if tile_id % 8 == 0
             write_linebreak(file)
-            file.write("\t\t")
+            file.write("\t\t[")
           end
           # Ecriture de la valeur
           file.write(sprintf("%d", tilesetInfo.terrain_tags[tile_id]))
           tile_id += 1
         end
+        file.write("]")
         write_linebreak(file)
         file.write("\t],")
         write_linebreak(file)
@@ -1000,7 +1039,8 @@ class Exportation
             # Attendre
             file.write("\t\t\t\t\"nom\": \"Attendre\",")
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d", commande.parameters[0]))
+            nombreDeFrames = commande.parameters[0] * 5 / 3
+            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d", nombreDeFrames))
             write_linebreak(file)
             
           when 108
@@ -1544,15 +1584,15 @@ class Exportation
             file.write(sprintf("\t\t\t\t\"nombreDeCarreaux\": %d,", commande.parameters[1]))
             write_linebreak(file)
             vitesse = case commande.parameters[2]
-              when 0 then 1
-              when 1 then 2
-              when 2 then 4
-              when 3 then 8
-              when 4 then 12
-              when 5 then 16
-              when 6 then 24
+              when 1 then "tres lente"
+              when 2 then "lente"
+              when 3 then "moderee"
+              when 4 then "normale"
+              when 5 then "rapide"
+              when 6 then "tres rapide"
+              else        "vitesse inconnue"
             end
-            file.write(sprintf("\t\t\t\t\"vitesse\": %d", vitesse))
+            file.write(sprintf("\t\t\t\t\"vitesse\": \"%s\"", vitesse))
             write_linebreak(file)
 
           when 204
@@ -1603,7 +1643,8 @@ class Exportation
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"gris\": %d,", commande.parameters[0].gray ))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"dureeTransition\": %d", commande.parameters[1]))
+            nombreDeFrames = commande.parameters[1] * 5 / 3
+            file.write(sprintf("\t\t\t\t\"dureeTransition\": %d", nombreDeFrames ))
             write_linebreak(file)
             
           when 206
@@ -1612,7 +1653,8 @@ class Exportation
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"opacite\": %d,", commande.parameters[0] ))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"dureeTransition\": %d", commande.parameters[1] ))
+            nombreDeFrames = commande.parameters[1] * 5 / 3
+            file.write(sprintf("\t\t\t\t\"dureeTransition\": %d", nombreDeFrames ))
             write_linebreak(file)
             
           when 207 
@@ -1707,7 +1749,8 @@ class Exportation
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"gris\": %d,", commande.parameters[0].gray ))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"dureeTransition\": %d", commande.parameters[1]))
+            nombreDeFrames = commande.parameters[1] * 5 / 3
+            file.write(sprintf("\t\t\t\t\"dureeTransition\": %d", nombreDeFrames ))
             write_linebreak(file)
             
           when 224
@@ -1721,7 +1764,8 @@ class Exportation
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"vitesse\": %d,", commande.parameters[1] ))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d", commande.parameters[2] ))
+            nombreDeFrames = commande.parameters[2] * 5 / 3
+            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d", nombreDeFrames))
             write_linebreak(file)
             
           when 231
@@ -1760,7 +1804,8 @@ class Exportation
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"numero\": %d,", commande.parameters[0] ))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d,", commande.parameters[1] ))
+            nombreDeFrames = commande.parameters[1] * 5 / 3
+            file.write(sprintf("\t\t\t\t\"nombreDeFrames\": %d,", nombreDeFrames ))
             write_linebreak(file)
             file.write(sprintf("\t\t\t\t\"centre\": %s,", commande.parameters[2]==1 ))
             write_linebreak(file)
@@ -1827,9 +1872,18 @@ class Exportation
             extension = File.extname(Dir.entries("./Audio/BGM").select{|s| s.index(nomFichier+'.') == 0}.first)
             file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"volume\": %.2f,", commande.parameters[0].volume.to_f/100))
+            volume_bgm = case commande.parameters[0].volume
+              when 100 then "1.00"
+              when 0 then "0.00"
+              else sprintf("%.2f", commande.parameters[0].volume.to_f/100)
+            end
+            file.write(sprintf("\t\t\t\t\"volume\": %s,", volume_bgm))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"tempo\": %.2f", commande.parameters[0].pitch.to_f/100))
+            tempo_bgm = case commande.parameters[0].pitch
+              when 100 then "1.00"
+              else sprintf("%.2f", commande.parameters[0].pitch.to_f/100)
+            end
+            file.write(sprintf("\t\t\t\t\"tempo\": %s", tempo_bgm))
             write_linebreak(file)
           
           when 242
@@ -1847,9 +1901,18 @@ class Exportation
             extension = File.extname(Dir.entries("./Audio/BGS").select{|s| s.index(nomFichier+'.') == 0}.first)
             file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"volume\": %.2f,", commande.parameters[0].volume.to_f/100))
+            volume_bgs = case commande.parameters[0].volume
+              when 100 then "1.00"
+              when 0 then "0.00"
+              else sprintf("%.2f", commande.parameters[0].volume.to_f/100)
+            end
+            file.write(sprintf("\t\t\t\t\"volume\": %s,", volume_bgs))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"tempo\": %.2f", commande.parameters[0].pitch.to_f/100))
+            tempo_bgs = case commande.parameters[0].pitch
+              when 100 then "1.00"
+              else sprintf("%.2f", commande.parameters[0].pitch.to_f/100)
+            end
+            file.write(sprintf("\t\t\t\t\"tempo\": %s", tempo_bgs))
             write_linebreak(file)
             
           when 246
@@ -1867,9 +1930,18 @@ class Exportation
             extension = File.extname(Dir.entries("./Audio/ME").select{|s| s.index(nomFichier+'.') == 0}.first)
             file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"volume\": %.2f,", commande.parameters[0].volume.to_f/100))
+            volume_me = case commande.parameters[0].volume
+              when 100 then "1.00"
+              when 0 then "0.00"
+              else sprintf("%.2f", commande.parameters[0].volume.to_f/100)
+            end
+            file.write(sprintf("\t\t\t\t\"volume\": %s,", volume_me))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"tempo\": %.2f", commande.parameters[0].pitch.to_f/100))
+            tempo_me = case commande.parameters[0].pitch
+              when 100 then "1.00"
+              else sprintf("%.2f", commande.parameters[0].pitch.to_f/100)
+            end
+            file.write(sprintf("\t\t\t\t\"tempo\": %s", tempo_me))
             write_linebreak(file)
             
           when 250
@@ -1880,9 +1952,18 @@ class Exportation
             extension = File.extname(Dir.entries("./Audio/SE").select{|s| s.index(nomFichier+'.') == 0}.first)
             file.write(sprintf("\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"volume\": %.2f,", commande.parameters[0].volume.to_f/100))
+            volume_se = case commande.parameters[0].volume
+              when 100 then "1.00"
+              when 0 then "0.00"
+              else sprintf("%.2f", commande.parameters[0].volume.to_f/100)
+            end
+            file.write(sprintf("\t\t\t\t\"volume\": %s,", volume_se))
             write_linebreak(file)
-            file.write(sprintf("\t\t\t\t\"tempo\": %.2f", commande.parameters[0].pitch.to_f/100))
+            tempo_se = case commande.parameters[0].pitch
+              when 100 then "1.00"
+              else sprintf("%.2f", commande.parameters[0].pitch.to_f/100)
+            end
+            file.write(sprintf("\t\t\t\t\"tempo\": %s", tempo_se))
             write_linebreak(file)
             
           when 251
@@ -2123,7 +2204,8 @@ class Exportation
         write_linebreak(file)
         file.write("\t\t\t\t\t\"nomCommande\": \"Attendre\",")
         write_linebreak(file)
-        file.write(sprintf("\t\t\t\t\t\"nombreDeFrames\": %d", mouvement.parameters[0]))
+        nombreDeFrames = mouvement.parameters[0] * 5 / 3
+        file.write(sprintf("\t\t\t\t\t\"nombreDeFrames\": %d", nombreDeFrames))
       when 16  # regarder vers le bas
         file.write("\t\t\t\t\t\"nom\": \"RegarderDansUneDirection\",")
         write_linebreak(file)
@@ -2186,28 +2268,28 @@ class Exportation
         file.write("\t\t\t\t\t\"nom\": \"ModifierVitesse\",")
         write_linebreak(file)
         vitesse = case mouvement.parameters[0]
-          when 0 then 1
-          when 1 then 2
-          when 2 then 4
-          when 3 then 8
-          when 4 then 12
-          when 5 then 16
-          else        24
+          when 1 then "tres lente"
+          when 2 then "lente"
+          when 3 then "moderee"
+          when 4 then "normale"
+          when 5 then "rapide"
+          when 6 then "tres rapide"
+          else        "vitesse inconnue"
         end
-        file.write(sprintf("\t\t\t\t\t\"vitesse\": %d,", vitesse))
+        file.write(sprintf("\t\t\t\t\t\"vitesse\": \"%s\"", vitesse))
       when 30 # modifier frequence
         file.write("\t\t\t\t\t\"nom\": \"ModifierFrequence\",")
         write_linebreak(file)
         frequence = case mouvement.parameters[0]
-          when 0 then 32
-          when 1 then 24
-          when 2 then 16
-          when 3 then 8
-          when 4 then 4
-          when 5 then 2
-          else        1
+          when 1 then "la plus basse"
+          when 2 then "tres basse"
+          when 3 then "basse"
+          when 4 then "haute"
+          when 5 then "tres haute"
+          when 6 then "la plus haute"
+          else        "frequence inconnue"
         end
-        file.write(sprintf("\t\t\t\t\t\"frequence\": %d,", frequence))
+        file.write(sprintf("\t\t\t\t\t\"frequence\": \"%s\"", frequence))
       when 31 # marche animee
         file.write("\t\t\t\t\t\"nom\": \"RendreAnimeEnMouvement\",")
         write_linebreak(file)
@@ -2286,9 +2368,18 @@ class Exportation
         extension = File.extname(Dir.entries("./Audio/SE").select{|s| s.index(nomFichier+'.') == 0}.first)
         file.write(sprintf("\t\t\t\t\t\"nomFichierSonore\": \"%s\",", nomFichier+extension))
         write_linebreak(file)
-        file.write(sprintf("\t\t\t\t\t\"volume\": %.2f,", mouvement.parameters[0].volume.to_f/100))
+        volume_se = case mouvement.parameters[0].volume
+          when 100 then "1.00"
+          when 0 then "0.00"
+          else sprintf("%.2f", mouvement.parameters[0].volume.to_f/100)
+        end
+        file.write(sprintf("\t\t\t\t\t\"volume\": %s,", volume_se))
         write_linebreak(file)
-        file.write(sprintf("\t\t\t\t\t\"tempo\": %.2f", mouvement.parameters[0].pitch.to_f/100))
+        tempo_se = case mouvement.parameters[0].pitch
+          when 100 then "1.00"
+          else sprintf("%.2f", mouvement.parameters[0].pitch.to_f/100)
+        end
+        file.write(sprintf("\t\t\t\t\t\"tempo\": %s", tempo_se))
       when 45 # script
         file.write("\t\t\t\t\t\"nom\": \"AppelerUnScript\",")
         write_linebreak(file)
