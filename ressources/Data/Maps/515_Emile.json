@@ -158,7 +158,7 @@
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": "lente",
-			"frequence": "la plus haute",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
@@ -172,59 +172,6 @@
 		"nom": "Clone[341][028]",
 		"x": 13,
 		"y": 5
-	},
-	{
-		"id": 1,
-		"nom": "Emile",
-		"x": 9,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Ci-gisent les restes d'\\c[02]Emile, l'enfant de cuivre\\c[01],\\ntant aimé des habitants de Wissenburg.\""
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "emile character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 12,
@@ -298,7 +245,7 @@
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": "lente",
-			"frequence": "la plus haute",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
@@ -308,49 +255,63 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][028]",
-		"x": 13,
-		"y": 12
-	},
-	{
-		"id": 2,
-		"nom": "EV002",
+		"id": 1,
+		"nom": "Emile",
 		"x": 9,
-		"y": 16,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 2
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
 			},
 			{
-				"nom": "EffacerImage",
-				"numero": 3
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
 			},
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 230,
-				"xDebutHeros": 26,
-				"yDebutHeros": 17
+				"nom": "Message",
+				"texte": "\"Ci-gisent les restes d'\\c[02]Emile, l'enfant de cuivre\\c[01],\\ntant aimé des habitants de Wissenburg.\""
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
+			"image": "emile character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][028]",
+		"x": 13,
+		"y": 12
 	},
 	{
 		"id": 13,
@@ -424,12 +385,51 @@
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": "lente",
-			"frequence": "la plus haute",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 9,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 230,
+				"xDebutHeros": 26,
+				"yDebutHeros": 17
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},

@@ -1,5 +1,5 @@
 {
-	"nom": "MAP583",
+	"nom": "Analyse des vitesses",
 	"tileset": "Ventre",
 	"largeur": 201,
 	"hauteur": 15,
@@ -178,7 +178,7 @@
 			"image": "Anémone bleue character",
 			"teinte": "220",
 			"vitesse": "tres rapide",
-			"frequence": "tres haute",
+			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -239,68 +239,7 @@
 			"image": "Anémone bleue character",
 			"teinte": "220",
 			"vitesse": "rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 0,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "Anémone bleue character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 25,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			"image": "Anémone bleue character",
-			"teinte": "220",
-			"vitesse": "rapide",
-			"frequence": "la plus basse",
+			"frequence": "tres haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -371,6 +310,67 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 0,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "Anémone bleue character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 25,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			"image": "Anémone bleue character",
+			"teinte": "220",
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 0,
@@ -422,11 +422,49 @@
 			"image": "Anémone bleue character",
 			"teinte": "220",
 			"vitesse": "tres rapide",
-			"frequence": "la plus basse",
+			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 1,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 25,
+				"valeur": true
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 500
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 25,
+				"valeur": false
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -483,49 +521,11 @@
 			"image": "Anémone bleue character",
 			"teinte": "220",
 			"vitesse": "rapide",
-			"frequence": "tres basse",
+			"frequence": "tres haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 1,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 25,
-				"valeur": true
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 500
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 25,
-				"valeur": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -582,7 +582,7 @@
 			"image": "Anémone bleue character",
 			"teinte": "220",
 			"vitesse": "tres rapide",
-			"frequence": "tres basse",
+			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -643,7 +643,7 @@
 			"image": "Anémone bleue character",
 			"teinte": "220",
 			"vitesse": "rapide",
-			"frequence": "basse",
+			"frequence": "tres haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -704,7 +704,7 @@
 			"image": "Anémone bleue character",
 			"teinte": "220",
 			"vitesse": "tres rapide",
-			"frequence": "basse",
+			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -765,7 +765,7 @@
 			"image": "Anémone bleue character",
 			"teinte": "220",
 			"vitesse": "rapide",
-			"frequence": "haute",
+			"frequence": "tres haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -826,7 +826,7 @@
 			"image": "Anémone bleue character",
 			"teinte": "220",
 			"vitesse": "tres rapide",
-			"frequence": "haute",
+			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,

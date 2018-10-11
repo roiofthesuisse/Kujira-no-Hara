@@ -1,5 +1,5 @@
 {
-	"nom": "Stockage Objets 2",
+	"nom": "Analyse des frequences",
 	"tileset": "Ventre",
 	"largeur": 20,
 	"hauteur": 15,
@@ -21,7 +21,7 @@
 	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
 	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
 	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
-	[0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008],
+	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
 	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
 	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
 	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
@@ -67,9 +67,9 @@
 	"events": [
 	{
 		"id": 1,
-		"nom": "Papillon",
-		"x": 2,
-		"y": 2,
+		"nom": "EV001",
+		"x": 4,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -79,80 +79,71 @@
 			],
 			"commandes": [
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				},
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			"image": "papillon character",
-			"vitesse": "lente",
-			"frequence": "tres basse",
+			"image": "sirène character",
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
 			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 25,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "sirène character",
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
 		"id": 2,
-		"nom": "Clone[582][1]",
-		"x": 2,
-		"y": 9
+		"nom": "EV002",
+		"x": 6,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 800
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 25,
+				"valeur": true
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	}
 	]
 }

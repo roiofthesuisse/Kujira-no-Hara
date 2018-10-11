@@ -74,9 +74,9 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0067,0068,0069,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0075,0076,0077,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0905,0067,0068,0069,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0913,0075,0076,0077,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0921,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -96,16 +96,16 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][008]",
-		"x": 5,
-		"y": 6
-	},
-	{
 		"id": 16,
 		"nom": "Clone[582][1]",
 		"x": 7,
 		"y": 14
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][008]",
+		"x": 5,
+		"y": 6
 	},
 	{
 		"id": 11,
@@ -165,6 +165,62 @@
 			{
 				"nom": "Message",
 				"texte": "/\\ Attention, montée abrupte !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Pancarte",
+		"x": 17,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "Maison du \\c[02]peintre\\c[01]"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -840,66 +896,41 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Pancarte",
-		"x": 17,
-		"y": 9,
+		"id": 7,
+		"nom": "Clone[341][030]",
+		"x": 7,
+		"y": 4
+	},
+	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 15,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "Maison du \\c[02]peintre\\c[01]"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 445,
+				"xDebutHeros": 16,
+				"yDebutHeros": 18
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][030]",
-		"x": 7,
-		"y": 4
 	},
 	{
 		"id": 2,
@@ -1547,37 +1578,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 15,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 445,
-				"xDebutHeros": 16,
-				"yDebutHeros": 18
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 13,
@@ -1607,12 +1607,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][005]",
-		"x": 12,
-		"y": 10
 	},
 	{
 		"id": 14,
@@ -1646,6 +1640,12 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "Clone[341][005]",
+		"x": 12,
+		"y": 10
+	},
+	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 14,
@@ -1677,16 +1677,16 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][006]",
-		"x": 4,
-		"y": 6
-	},
-	{
 		"id": 15,
 		"nom": "Clone[582][1]",
 		"x": 13,
 		"y": 12
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][006]",
+		"x": 4,
+		"y": 6
 	},
 	{
 		"id": 10,

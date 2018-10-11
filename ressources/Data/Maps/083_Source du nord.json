@@ -74,8 +74,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0248,0249,0250,-001,-001,-001,-001,-001,0248,0249,0250,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0256,0257,0258,-001,-001,-001,-001,-001,0256,0257,0258,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0264,0265,0266,-001,-001,-001,-001,-001,0264,0265,0266,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0893,0894,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0901,0902,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -126,59 +126,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Geyser",
-		"x": 14,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "cascade",
-		"x": 19,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 225,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 27,
 		"nom": "blocage",
 		"x": 17,
@@ -220,6 +167,85 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "cascade",
+		"x": 19,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 225,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "Geyser",
+		"x": 14,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 11,
+		"nom": "cascade",
+		"x": 18,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 200,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -767,10 +793,10 @@
 		]
 	},
 	{
-		"id": 11,
+		"id": 17,
 		"nom": "cascade",
-		"x": 18,
-		"y": 10,
+		"x": 17,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -781,14 +807,14 @@
 			"commandes": [
 			],
 			"image": "cascade character",
-			"opacite": 200,
+			"opacite": 150,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -935,10 +961,37 @@
 		]
 	},
 	{
-		"id": 17,
+		"id": 28,
+		"nom": "Geyser",
+		"x": 23,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
 		"nom": "cascade",
-		"x": 17,
-		"y": 5,
+		"x": 15,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -949,14 +1002,41 @@
 			"commandes": [
 			],
 			"image": "cascade character",
-			"opacite": 150,
+			"opacite": 225,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Geyser",
+		"x": 15,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1007,37 +1087,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Geyser",
-		"x": 15,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
+		"id": 18,
 		"nom": "cascade",
-		"x": 15,
-		"y": 10,
+		"x": 17,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -1091,57 +1144,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "cascade",
-		"x": 17,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 225,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Geyser",
+		"id": 24,
+		"nom": "Clone[341][002]",
 		"x": 20,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 18
 	},
 	{
 		"id": 13,
@@ -1170,10 +1176,55 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Clone[341][002]",
-		"x": 20,
-		"y": 18
+		"id": 2,
+		"nom": "jet d'eau",
+		"x": 19,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "jet d eau character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "cascade",
+		"x": 16,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 200,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 8,
@@ -1247,91 +1298,12 @@
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": "lente",
-			"frequence": "la plus haute",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 19,
-		"nom": "cascade",
-		"x": 16,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 200,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Geyser",
-		"x": 9,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "cascade",
-		"x": 16,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 200,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1429,7 +1401,7 @@
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": "lente",
-			"frequence": "la plus haute",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
@@ -1439,10 +1411,10 @@
 		]
 	},
 	{
-		"id": 20,
+		"id": 14,
 		"nom": "cascade",
-		"x": 15,
-		"y": 8,
+		"x": 16,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -1453,9 +1425,36 @@
 			"commandes": [
 			],
 			"image": "cascade character",
-			"opacite": 225,
+			"opacite": 200,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Geyser",
+		"x": 9,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -1536,7 +1535,7 @@
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": "lente",
-			"frequence": "la plus haute",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
@@ -1546,37 +1545,10 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Geyser",
-		"x": 25,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
+		"id": 20,
 		"nom": "cascade",
-		"x": 19,
-		"y": 10,
+		"x": 15,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -1708,7 +1680,7 @@
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": "lente",
-			"frequence": "la plus haute",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
@@ -1718,10 +1690,10 @@
 		]
 	},
 	{
-		"id": 21,
+		"id": 15,
 		"nom": "cascade",
-		"x": 18,
-		"y": 8,
+		"x": 19,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -1732,9 +1704,36 @@
 			"commandes": [
 			],
 			"image": "cascade character",
-			"opacite": 200,
+			"opacite": 225,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Geyser",
+		"x": 25,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -1815,12 +1814,38 @@
 			"image": "luciole character",
 			"opacite": 200,
 			"vitesse": "lente",
-			"frequence": "la plus haute",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "cascade",
+		"x": 18,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 200,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	}
