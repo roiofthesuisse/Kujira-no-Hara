@@ -6,6 +6,7 @@ import main.Main;
 import map.Event;
 import map.Heros;
 import map.Event.Direction;
+import utilitaire.Maths;
 import map.Passabilite;
 
 /**
@@ -47,24 +48,27 @@ public class PasEnDiagonale extends Avancer {
 	public final void calculDuMouvement(final Event event) {
 		event.avance = true;
 		
+		//il ne faut pas que l'Event aille plus loin que son objectif !
+		final int enjambee = Maths.min(event.vitesseActuelle.valeur, this.etapes - this.ceQuiAEteFait);
 		//déplacement :
 		switch (this.directionHorizontale) {
 			case Direction.GAUCHE : 
-				event.x -= event.vitesseActuelle.valeur; 
+				event.x -= enjambee; 
 				break;
 			case Direction.DROITE : 
-				event.x += event.vitesseActuelle.valeur; 
+				event.x += enjambee; 
 				break;
 		}
 		switch (this.directionVerticale) {
 			case Direction.BAS : 
-				event.y += event.vitesseActuelle.valeur; 
+				event.y += enjambee; 
 				break;
 			case Direction.HAUT : 
-				event.y -= event.vitesseActuelle.valeur; 
+				event.y -= enjambee; 
 				break;
 		}
-		this.ceQuiAEteFait += event.vitesseActuelle.valeur;
+		//on actualise la complétion du Mouvement
+		this.ceQuiAEteFait += enjambee;
 	}
 
 	/**

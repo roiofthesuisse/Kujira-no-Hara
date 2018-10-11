@@ -5,6 +5,7 @@ import java.util.HashMap;
 import main.Main;
 import map.Event;
 import map.Event.Direction;
+import utilitaire.Maths;
 
 /**
  * Déplacer un Event d'un pas dans la direction opposée à la direction de l'Event.
@@ -48,22 +49,25 @@ public class PasEnArriere extends Avancer {
 	public final void calculDuMouvement(final Event event) {
 		event.avance = true;
 		
+		//il ne faut pas que l'Event aille plus loin que son objectif !
+		final int enjambee = Maths.min(event.vitesseActuelle.valeur, this.etapes - this.ceQuiAEteFait);
 		//déplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
-				event.y -= event.vitesseActuelle.valeur; 
+				event.y -= enjambee; 
 				break;
 			case Direction.GAUCHE : 
-				event.x += event.vitesseActuelle.valeur; 
+				event.x += enjambee; 
 				break;
 			case Direction.DROITE : 
-				event.x -= event.vitesseActuelle.valeur; 
+				event.x -= enjambee; 
 				break;
 			case Direction.HAUT : 
-				event.y += event.vitesseActuelle.valeur; 
+				event.y += enjambee; 
 				break;
 		}
-		this.ceQuiAEteFait += event.vitesseActuelle.valeur;
+		//on actualise la complétion du Mouvement
+		this.ceQuiAEteFait += enjambee;
 	}
 
 }

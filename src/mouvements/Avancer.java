@@ -10,6 +10,7 @@ import map.Event;
 import map.Heros;
 import map.Passabilite;
 import map.Event.Direction;
+import utilitaire.Maths;
 
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases.
@@ -56,22 +57,25 @@ public class Avancer extends Mouvement {
 	public void calculDuMouvement(final Event event) {
 		event.avance = true;
 		
+		//il ne faut pas que l'Event aille plus loin que son objectif !
+		final int enjambee = Maths.min(this.vitesse, this.etapes - this.ceQuiAEteFait);
 		//déplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
-				event.y += this.vitesse; 
+				event.y += enjambee; 
 				break;
 			case Direction.GAUCHE : 
-				event.x -= this.vitesse; 
+				event.x -= enjambee; 
 				break;
 			case Direction.DROITE : 
-				event.x += this.vitesse; 
+				event.x += enjambee; 
 				break;
 			case Direction.HAUT : 
-				event.y -= this.vitesse; 
+				event.y -= enjambee; 
 				break;
 		}
-		this.ceQuiAEteFait += this.vitesse;
+		//on actualise la complétion du Mouvement
+		this.ceQuiAEteFait += enjambee;
 	}
 	
 	/**
@@ -95,25 +99,26 @@ public class Avancer extends Mouvement {
 			return true;
 		}
 		
-		//collisions avec le décor et les autres Events
+		//où sera l'Event après son pas ?
 		int xAInspecter = event.x;
 		int yAInspecter = event.y;
+		//il ne faut pas que l'Event aille plus loin que son objectif !
+		final int enjambee = Maths.min(this.vitesse, this.etapes - this.ceQuiAEteFait);
 		switch (this.direction) {
 		case Event.Direction.BAS : 
-			yAInspecter += this.vitesse; 
+			yAInspecter += enjambee; 
 			break;
 		case Event.Direction.GAUCHE : 
-			xAInspecter -= this.vitesse; 
+			xAInspecter -= enjambee; 
 			break;
 		case Event.Direction.DROITE : 
-			xAInspecter += this.vitesse; 
+			xAInspecter += enjambee; 
 			break;
 		case Event.Direction.HAUT : 
-			yAInspecter -= this.vitesse; 
-			break;
-		default : 
+			yAInspecter -= enjambee; 
 			break;
 		}
+		//calcul des collisions avec le décor et les autres Events
 		if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id)) {
 			// Aucun obstacle
 			// On peut avancer tout droit
