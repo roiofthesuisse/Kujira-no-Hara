@@ -115,7 +115,7 @@ public class LecteurMap extends Lecteur {
 		animerLesEvents(frame);
 
 		//TODO DEBUG pour voir la hitbox de l'attaque du héros
-		ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
+		//ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 		
 		//on dessine les évènements et la couche médiane
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera, true, vignetteAutotileActuelle);

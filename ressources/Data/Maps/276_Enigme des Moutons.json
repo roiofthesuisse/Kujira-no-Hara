@@ -26,7 +26,7 @@
 	[0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0021,0011,0011,0011,0011,0011,0011,0011,0011],
 	[0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,-007,-007,-007,-007,-007,-007,-007,-007,-007],
 	[0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,-007,-007,-007,-007,-007,-007,-007,0001,0001,0001,0001,-007,-007,-007,-007,-007,-007,-007,-007,-007],
-	[0809,0809,0809,0809,0809,0809,0809,0808,0024,0052,-007,-007,-007,-007,-007,-007,-007,0008,0052,0001,0053,0058,0042,0058,0058,0058,0058,0058,0058,0058],
+	[0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,-007,-007,-007,-007,-007,-007,-007,0001,0052,0001,0053,0058,0042,0058,0058,0058,0058,0058,0058,0058],
 	[0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,-007,-007,-007,-007,-007,-007,-007,0001,0001,0001,0038,0001,0001,0053,0817,0817,0817,0817,0817,0817],
 	[0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0038,0001,0001,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0001,0001,0001,0001,0001,0001,0001,0001,-007,-007,0038,0001,0001,0810,0809,0809,0809,0809,0809,0809],
@@ -57,9 +57,9 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0103,-001,0103,0103,0856,0857,0858,0858,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0111,0835,0111,0111,0072,0073,0073,0074,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0661,-001,-001,-001,-001,-001,-001,-001,0661,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0669,-001,-001,-001,-001,-001,-001,-001,0669,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0677,-001,-001,-001,-001,-001,-001,-001,0677,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0672,-001,-001,-001,0248,0249,0250,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,0248,0249,0250,0680,-001,-001,-001,0256,0257,0258,-001,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -111,10 +111,10 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][061]",
-		"x": 4,
-		"y": 18
+		"id": 27,
+		"nom": "Clone[341][001]",
+		"x": 17,
+		"y": 7
 	},
 	{
 		"id": 16,
@@ -182,45 +182,10 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "Clone[341][001]",
-		"x": 17,
-		"y": 7
-	},
-	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 29,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 514,
-				"xDebutHeros": 1,
-				"yDebutHeros": 46
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 5,
+		"nom": "Clone[341][061]",
+		"x": 4,
+		"y": 18
 	},
 	{
 		"id": 22,
@@ -258,10 +223,45 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][061]",
-		"x": 20,
-		"y": 17
+		"id": 11,
+		"nom": "EV011",
+		"x": 29,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 514,
+				"xDebutHeros": 1,
+				"yDebutHeros": 46
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 28,
+		"nom": "Clone[341][001]",
+		"x": 17,
+		"y": 8
 	},
 	{
 		"id": 17,
@@ -329,15 +329,15 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "Clone[341][001]",
-		"x": 17,
-		"y": 8
+		"id": 6,
+		"nom": "Clone[341][061]",
+		"x": 20,
+		"y": 17
 	},
 	{
-		"id": 23,
-		"nom": "Clone[1][28]",
-		"x": 12,
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 21,
 		"y": 17
 	},
 	{
@@ -376,16 +376,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 21,
+		"id": 23,
+		"nom": "Clone[1][28]",
+		"x": 12,
 		"y": 17
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][061]",
-		"x": 21,
-		"y": 18
 	},
 	{
 		"id": 18,
@@ -452,10 +446,16 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Clone[1][29]",
-		"x": 12,
-		"y": 16
+		"id": 7,
+		"nom": "Clone[341][061]",
+		"x": 21,
+		"y": 18
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 22,
+		"y": 15
 	},
 	{
 		"id": 13,
@@ -493,16 +493,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 22,
-		"y": 15
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][061]",
-		"x": 19,
-		"y": 7
+		"id": 24,
+		"nom": "Clone[1][29]",
+		"x": 12,
+		"y": 16
 	},
 	{
 		"id": 19,
@@ -565,6 +559,124 @@
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][061]",
+		"x": 19,
+		"y": 7
+	},
+	{
+		"id": 25,
+		"nom": "Clone[341][002]",
+		"x": 11,
+		"y": 16
+	},
+	{
+		"id": 3,
+		"nom": "Algue HP[1] RESET",
+		"x": 20,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
+			}
+			],
+			"image": "algues character",
+			"opacite": 200,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 276,
+				"numeroEvent": 3,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = nil"
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 0,
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 1,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "117-Fire01.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 4
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"image": "algues character",
+			"opacite": 200,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -1373,116 +1485,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Algue HP[1] RESET",
-		"x": 20,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
-			}
-			],
-			"image": "algues character",
-			"opacite": 200,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 276,
-				"numeroEvent": 3,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = nil"
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			}
-			],
-			"image": "algues character",
-			"opacite": 200,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 25,
-		"nom": "Clone[341][002]",
-		"x": 11,
-		"y": 16
+		"id": 9,
+		"nom": "Clone[341][061]",
+		"x": 25,
+		"y": 10
 	},
 	{
 		"id": 20,
@@ -1549,10 +1555,75 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][061]",
-		"x": 25,
-		"y": 10
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 5,
+		"y": 18
+	},
+	{
+		"id": 15,
+		"nom": "Mouton1",
+		"x": 10,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "OOT_Tektite_Jump.wav",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "Sauter",
+					"x": 2,
+					"y": 0
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "mouton character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 26,
@@ -1688,83 +1759,6 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Mouton1",
-		"x": 10,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "OOT_Tektite_Jump.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "Sauter",
-					"x": 2,
-					"y": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "mouton character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 5,
-		"y": 18
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][008]",
-		"x": 22,
-		"y": 14
-	},
-	{
 		"id": 10,
 		"nom": "EV010",
 		"x": 29,
@@ -1798,6 +1792,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][008]",
+		"x": 22,
+		"y": 14
 	}
 	]
 }
