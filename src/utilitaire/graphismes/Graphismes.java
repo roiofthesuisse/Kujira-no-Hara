@@ -43,7 +43,7 @@ public abstract class Graphismes {
 	public static final int[] TON_PAR_DEFAUT = new int[]{0, 127, 127, 127};
 	/** L'origine de l'image est son coin haut-gauche et non son centre */
 	private static final boolean ORIGINE_HAUT_GAUCHE = false;
-	private static final Color COULEUR_TRANSPARENTE = new Color(0,0,0,0);
+	private static final Color COULEUR_TRANSPARENTE = new Color(0, 0, 0, 0);
 	public static Graphics2D graphismes;
 
 	/**
@@ -100,8 +100,8 @@ public abstract class Graphismes {
 	 * @return écran sur lequel on a superposé l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, BufferedImage image2, int x, int y, 
-			final boolean centre, final int zoomX, final int zoomY, final int opacite, final ModeDeFusion modeDeFusion, 
-			final int angle) {
+			final boolean centre, final int zoomX, final int zoomY, final int opacite, 
+			final ModeDeFusion modeDeFusion, final int angle) {
 		final Graphics2D g2d = (Graphics2D) ecran.getGraphics();
 		
 		if (opacite <= 0) {
