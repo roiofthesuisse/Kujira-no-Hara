@@ -22,9 +22,9 @@ public abstract class InterpreteurDeJson {
 	
 	/**
 	 * Charger un objet JSON quelconque
-	 * @param nomFichier nom du fichier JSON à charger
-	 * @param adresse du fichier JSON à charger
-	 * @param parPrefixe trouver le fichier uniquement à partir du début de son nom
+	 * @param nomFichier nom du fichier JSON ï¿½ charger
+	 * @param adresse du fichier JSON ï¿½ charger
+	 * @param parPrefixe trouver le fichier uniquement ï¿½ partir du dï¿½but de son nom
 	 * @return objet JSON
 	 * @throws JSONException Erreur de syntaxe dans le fichier JSON
 	 * @throws IOException erreur d'ouverture de fichier
@@ -32,7 +32,7 @@ public abstract class InterpreteurDeJson {
 	public static JSONObject ouvrirJson(final String nomFichier, final String adresse, final boolean parPrefixe) throws JSONException, IOException {
 		final String nomTotal;
 		if (parPrefixe) {
-			// fichiers commençant par
+			// fichiers commenï¿½ant par
 			final File dossier = new File(adresse);
 			final File[] fichiersTrouves = dossier.listFiles(new FilenameFilter() {
 			    public boolean accept(final File dir, final String name) {
@@ -64,8 +64,8 @@ public abstract class InterpreteurDeJson {
 	
 	/**
 	 * Charger un objet JSON quelconque (par son nom exact)
-	 * @param nomFichier nom du fichier JSON à charger
-	 * @param adresse du fichier JSON à charger
+	 * @param nomFichier nom du fichier JSON ï¿½ charger
+	 * @param adresse du fichier JSON ï¿½ charger
 	 * @return objet JSON
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
@@ -74,21 +74,21 @@ public abstract class InterpreteurDeJson {
 	}
 	
 	/**
-	 * Charger le paramétrage d'une nouvelle Partie au format JSON.
-	 * @return objet JSON contenant le paramétrage d'une nouvelle Partie
+	 * Charger le paramï¿½trage d'une nouvelle Partie au format JSON.
+	 * @return objet JSON contenant le paramï¿½trage d'une nouvelle Partie
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONObject ouvrirJsonNouvellePartie() throws Exception {
-		return ouvrirJson("nouvellePartie", ".\\ressources\\Data\\");
+		return ouvrirJson("nouvellePartie", "./ressources/Data/");
 	}
 	
 	/**
-	 * Charger la liste des Quêtes du jeu au format JSON.
-	 * @return objet JSON contenant la liste des Quêtes du jeu
+	 * Charger la liste des Quï¿½tes du jeu au format JSON.
+	 * @return objet JSON contenant la liste des Quï¿½tes du jeu
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONArray ouvrirJsonQuetes() throws Exception {
-		final JSONObject jsonQuetes = ouvrirJson("quetes", ".\\ressources\\Data\\");
+		final JSONObject jsonQuetes = ouvrirJson("quetes", "./ressources/Data/");
 		return jsonQuetes.getJSONArray("quetes");
 	}
 	
@@ -98,7 +98,7 @@ public abstract class InterpreteurDeJson {
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONArray ouvrirJsonObjets() throws Exception {
-		final JSONObject jsonObjets = ouvrirJson("objets", ".\\ressources\\Data\\");
+		final JSONObject jsonObjets = ouvrirJson("objets", "./ressources/Data/");
 		return jsonObjets.getJSONArray("objets");
 	}
 	
@@ -108,7 +108,7 @@ public abstract class InterpreteurDeJson {
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONArray ouvrirJsonArmes() throws Exception {
-		final JSONObject jsonArmes = ouvrirJson("armes", ".\\ressources\\Data\\");
+		final JSONObject jsonArmes = ouvrirJson("armes", "./ressources/Data/");
 		return jsonArmes.getJSONArray("armes");
 	}
 	
@@ -118,63 +118,63 @@ public abstract class InterpreteurDeJson {
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONArray ouvrirJsonGadgets() throws Exception {
-		final JSONObject jsonGadgets = ouvrirJson("gadgets", ".\\ressources\\Data\\");
+		final JSONObject jsonGadgets = ouvrirJson("gadgets", "./ressources/Data/");
 		return jsonGadgets.getJSONArray("gadgets");
 	}
 	
 	/**
-	 * Charger la liste des Animations modèles du jeu au format JSON.
+	 * Charger la liste des Animations modï¿½les du jeu au format JSON.
 	 * @return objet JSON contenant la liste des Animations du jeu
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONArray ouvrirJsonAnimations() throws Exception {
-		final JSONObject jsonArmes = ouvrirJson("animations", ".\\ressources\\Data\\");
+		final JSONObject jsonArmes = ouvrirJson("animations", "./ressources/Data/");
 		return jsonArmes.getJSONArray("animations");
 	}
 	
 	/**
 	 * Charger une Map au format JSON.
-	 * @param numero de la Map à charger
+	 * @param numero de la Map ï¿½ charger
 	 * @return objet JSON contenant la description de la Map
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONObject ouvrirJsonMap(final int numero) throws Exception {
 		final String numeroA3Chiffres = String.format("%03d", numero) + "_";
-		return ouvrirJson(numeroA3Chiffres, ".\\ressources\\Data\\Maps\\", true);
+		return ouvrirJson(numeroA3Chiffres, "./ressources/Data/Maps/", true);
 	}
 	
 	/**
 	 * Charger un Tileset au format JSON.
-	 * @param nom du Tileset à charger
+	 * @param nom du Tileset ï¿½ charger
 	 * @return objet JSON contenant la description du Tileset
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONObject ouvrirJsonTileset(final String nom) throws Exception {
-		return ouvrirJson(""+nom, ".\\ressources\\Data\\Tilesets\\");
+		return ouvrirJson(""+nom, "./ressources/Data/Tilesets/");
 	}
 
 	/**
-	 * Charger un Event générique au format JSON.
-	 * Les Events génériques sont situés dans le dossier "ressources/Data/GenericEvents"
-	 * @param nomEvent nom de l'Event générique
-	 * @param artisanal est-ce que l'Event générique a été écrit à la main ?
+	 * Charger un Event gï¿½nï¿½rique au format JSON.
+	 * Les Events gï¿½nï¿½riques sont situï¿½s dans le dossier "ressources/Data/GenericEvents"
+	 * @param nomEvent nom de l'Event gï¿½nï¿½rique
+	 * @param artisanal est-ce que l'Event gï¿½nï¿½rique a ï¿½tï¿½ ï¿½crit ï¿½ la main ?
 	 * @return objet JSON contenant la description de l'Event
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONObject ouvrirJsonEventGenerique(final String nomEvent, final boolean artisanal) 
 			throws Exception {
-		final String sousDossier = artisanal ? "" : "Exportation\\";
+		final String sousDossier = artisanal ? "" : "Exportation/";
 		final String nomEventSansLesZeros = nomEvent.replace("[00", "[").replace("[0", "[");
-		return ouvrirJson(nomEventSansLesZeros, ".\\ressources\\Data\\GenericEvents\\"+sousDossier);
+		return ouvrirJson(nomEventSansLesZeros, "./ressources/Data/GenericEvents/"+sousDossier);
 	}
 
 	/**
-	 * Charger les Zones d'attaque du jeu décrites dans un fichier JSON.
+	 * Charger les Zones d'attaque du jeu dï¿½crites dans un fichier JSON.
 	 * @return zones d'attaque du jeu
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONArray ouvrirJsonZonesDAttaque() throws Exception {
-		final JSONObject jsonZones = ouvrirJson("zonesDAttaque", ".\\ressources\\Data\\");
+		final JSONObject jsonZones = ouvrirJson("zonesDAttaque", "./ressources/Data/");
 		return jsonZones.getJSONArray("zonesDAttaque");
 	}
 	

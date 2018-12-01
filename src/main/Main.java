@@ -23,7 +23,7 @@ import net.bull.javamelody.Parameter;
 import utilitaire.EmbeddedServer;
 
 /**
- * Point d'entrée du programme.
+ * Point d'entrï¿½e du programme.
  */
 public class Main {
 	//constantes
@@ -44,19 +44,19 @@ public class Main {
 	public static ArrayList<String> mesuresDePerformance = new ArrayList<String>();
 	
 	/**
-	 * Point d'entrée du programme
+	 * Point d'entrï¿½e du programme
 	 * @param args pas besoin d'arguments
 	 */
 	public static void main(final String[] args) {
-		// La première Fenêtre n'est pas en plein écran
+		// La premiï¿½re Fenï¿½tre n'est pas en plein ï¿½cran
 		fenetre = new Fenetre(false);
 		
 		// Le premier Lecteur est celui du Menu titre
 		final Menu menuTitre = Menu.creerMenuDepuisJson("Titre", null);
-		//la sélection initiale est "chargerPartie" s'il y a déjà une sauvegarde, sinon "nouvellePartie"
+		//la sï¿½lection initiale est "chargerPartie" s'il y a dï¿½jï¿½ une sauvegarde, sinon "nouvellePartie"
 		int selectionInitiale = 0;
 		try {
-			final int nombreDeFichiersDeSauvegarde = (int) Files.list(Paths.get(".\\saves")).count();
+			final int nombreDeFichiersDeSauvegarde = (int) Files.list(Paths.get("./saves")).count();
 			if (nombreDeFichiersDeSauvegarde > 0) {
 				selectionInitiale = 1;
 			}
@@ -68,16 +68,16 @@ public class Main {
 		// Mesurer les performances
 		//lancerSupervisionJavaMelody();
 		
-		// Accélération du calcul graphique
+		// Accï¿½lï¿½ration du calcul graphique
 		System.setProperty("sun.java2d.opengl", "True");
 		
-		// On démarre le lecteur
+		// On dï¿½marre le lecteur
 		while (!Main.quitterLeJeu) {
 			//on lance le Lecteur
-			Main.lecteur.demarrer(); //boucle tant que le Lecteur est allumé
+			Main.lecteur.demarrer(); //boucle tant que le Lecteur est allumï¿½
 			
-			//si on est ici, c'est que le Lecteur a été éteint par une Commande Event
-			//y en a-t-il un autre après ?
+			//si on est ici, c'est que le Lecteur a ï¿½tï¿½ ï¿½teint par une Commande Event
+			//y en a-t-il un autre aprï¿½s ?
 			if (Main.futurLecteur != null) {
 				if (!Main.quitterLeJeu) {
 					//on passe au Lecteur suivant
@@ -85,25 +85,25 @@ public class Main {
 					Main.futurLecteur = null;
 				}
 			} else {
-				//pas de Lecteur à suivre
-				//on éteint le jeu
+				//pas de Lecteur ï¿½ suivre
+				//on ï¿½teint le jeu
 				Main.quitterLeJeu = true;
 			}
 		}
-		// Il n'y a plus de Lecteur à suivre : le jeu est éteint
+		// Il n'y a plus de Lecteur ï¿½ suivre : le jeu est ï¿½teint
 		
 		// Export CSV
 		exporterCsv();
 		
-		// On ferme la Fenêtre
+		// On ferme la Fenï¿½tre
 		fenetre.fermer();
 		
-		LOG.info("Arrêt total du programme");
+		LOG.info("Arrï¿½t total du programme");
 		System.exit(0);
 	}
 	
 	/**
-	 * La Fenêtre a une partie sélectionnée, on l'ouvre.
+	 * La Fenï¿½tre a une partie sï¿½lectionnï¿½e, on l'ouvre.
 	 */
 	public static void ouvrirLaPartie() {
 		if (partie == null) {
@@ -140,8 +140,8 @@ public class Main {
 	}
 	
 	/**
-	 * Mémoriser la Partie actuelle
-	 * @param partieActuelle à faire mémoriser par la Fenetre
+	 * Mï¿½moriser la Partie actuelle
+	 * @param partieActuelle ï¿½ faire mï¿½moriser par la Fenetre
 	 */
 	public static void setPartieActuelle(final Partie partieActuelle) {
 		partie = partieActuelle;
@@ -156,15 +156,15 @@ public class Main {
 		parametresJavaMelody.put(Parameter.AUTHORIZED_USERS, "admin:password");
 		// Dossier d'enregistrement
 		parametresJavaMelody.put(Parameter.STORAGE_DIRECTORY, "C://Users/Public/tmp/javamelody");
-		// Fréquence d'échantillonnage
+		// Frï¿½quence d'ï¿½chantillonnage
 		parametresJavaMelody.put(Parameter.SAMPLING_SECONDS, "1.0");
 		// Emplacement des rapports d'analyse
 		parametresJavaMelody.put(Parameter.MONITORING_PATH, "/");
 		try {
-			// Démarrer le server d'affichage de l'analyse JavaMelody
-			LOG.info("Démarrage de JavaMelody...");
+			// Dï¿½marrer le server d'affichage de l'analyse JavaMelody
+			LOG.info("Dï¿½marrage de JavaMelody...");
 			EmbeddedServer.start(PORT_JAVAMELODY, parametresJavaMelody);
-			LOG.info("JavaMelody est démarré.");
+			LOG.info("JavaMelody est dï¿½marrï¿½.");
 		} catch (Exception e) {
 			LOG.error("Impossible de lancer l'analyse de performance avec JavaMelody.", e);
 		}

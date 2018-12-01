@@ -12,7 +12,7 @@ import main.Commande;
 import utilitaire.InterpreteurDeJson;
 
 /**
- * Pages de code commun à toutes les Maps.
+ * Pages de code commun ï¿½ toutes les Maps.
  */
 public class PageCommune extends PageEvent {
 	private static final Logger LOG = LogManager.getLogger(PageCommune.class);
@@ -21,36 +21,36 @@ public class PageCommune extends PageEvent {
 	
 	/**
 	 * Constructeur explicite
-	 * @param pageJSON objet JSON représentant la Page
+	 * @param pageJSON objet JSON reprï¿½sentant la Page
 	 */
 	public PageCommune(final JSONObject pageJSON) {
-		super(-1, pageJSON, -1, null); //pas d'Event correspondant, pas de numéro
+		super(-1, pageJSON, -1, null); //pas d'Event correspondant, pas de numï¿½ro
 		this.nom = pageJSON.getString("nom");
 		this.active = false;
 	}
 
 	/**
-	 * Activer la Page si les Conditions sont vérifiées.
+	 * Activer la Page si les Conditions sont vï¿½rifiï¿½es.
 	 */
 	public final void essayerDActiver() {
 		if (this.conditions!=null && this.conditions.size()>0) {
-			//la Page a des Conditions de déclenchement, on les analyse
+			//la Page a des Conditions de dï¿½clenchement, on les analyse
 			boolean cettePageConvient = true;
 			//si une Condition est fausse, la Page ne convient pas
 			for (int j = 0; j<this.conditions.size() && cettePageConvient; j++) {
 				final Condition cond = this.conditions.get(j);
 				if (!cond.estVerifiee()) {
-					//la Condition n'est pas vérifiée
+					//la Condition n'est pas vï¿½rifiï¿½e
 					cettePageConvient = false;
 				}
 			}
-			//si toutes les Conditions sont vérifiées, on active la Page
+			//si toutes les Conditions sont vï¿½rifiï¿½es, on active la Page
 			if (cettePageConvient) {
 				this.active = true;
 			}
 			
 		} else {
-			//aucune Condition nécessaire pour cette Page, donc la Page est activée
+			//aucune Condition nï¿½cessaire pour cette Page, donc la Page est activï¿½e
 			this.active = true;
 		}
 	}
@@ -67,10 +67,10 @@ public class PageCommune extends PageEvent {
 				while (onAvanceDansLesCommandes) {
 					final int ancienCurseur = curseurCommandes;
 					final Commande commande = this.commandes.get(curseurCommandes);
-					commande.page = this; //on apprend à la Commande depuis quelle Page elle est appelée
+					commande.page = this; //on apprend ï¿½ la Commande depuis quelle Page elle est appelï¿½e
 					curseurCommandes = commande.executer(curseurCommandes, commandes);
 					if (curseurCommandes==ancienCurseur) { 
-						//le curseur n'a pas changé, c'est donc une commande qui prend du temps
+						//le curseur n'a pas changï¿½, c'est donc une commande qui prend du temps
 						onAvanceDansLesCommandes = false;
 					}
 				}
@@ -83,14 +83,14 @@ public class PageCommune extends PageEvent {
 	}
 	
 	/**
-	 * Récupérer les Pages Communes décrites dans un fichier JSON.
-	 * @return Pages de code Event communes à toutes les Maps du jeu
+	 * Rï¿½cupï¿½rer les Pages Communes dï¿½crites dans un fichier JSON.
+	 * @return Pages de code Event communes ï¿½ toutes les Maps du jeu
 	 */
 	public static HashMap<Integer, PageCommune> recupererLesPagesCommunes() {
 		final HashMap<Integer, PageCommune> pagesCommunes = new HashMap<>();
 		final JSONObject jsonObjets;
 		try {
-			jsonObjets = InterpreteurDeJson.ouvrirJson("pagesCommunes", ".\\ressources\\Data\\");
+			jsonObjets = InterpreteurDeJson.ouvrirJson("pagesCommunes", "./ressources/Data/");
 		} catch (Exception e) {
 			LOG.error("Impossible d'ouvrir le fichier JSON des pages communes !", e);
 			return pagesCommunes;
