@@ -40,6 +40,7 @@ public class Arme implements Listable {
 	public final int id;
 	public ArrayList<String> nom;
 	private final ArrayList<String> description;
+	public final boolean equipable;
 	public String nomEffetSonoreAttaque;
 	public BufferedImage icone;
 	
@@ -65,6 +66,7 @@ public class Arme implements Listable {
 	 * @param id chaque Arme a un identifiant
 	 * @param nom de l'Arme (dans plusieurs langues)
 	 * @param description à afficher dans les Menus (dans plusieurs langues)
+	 * @param equipable peut-on équiper l'Arme depuis le Menu ?
 	 * @param nomEffetSonoreAttaque nom du fichier sonore joué lors de l'utilisation
 	 * @param framesDAnimation séquence des vignettes à afficher lors de l'animation d'attaque
 	 * @param hitbox zone d'attaque qu'on peut atteindre
@@ -72,12 +74,14 @@ public class Arme implements Listable {
 	 * @param frameFinCoup frame de l'animation d'attaque où le coup est terminé
 	 * @param nomIcone nom du fichier image de l'icone de l'Arme
 	 */
-	private Arme(final int id, final ArrayList<String> nom, final ArrayList<String> description, final String nomEffetSonoreAttaque, 
+	private Arme(final int id, final ArrayList<String> nom, final ArrayList<String> description, 
+			final boolean equipable, final String nomEffetSonoreAttaque,
 			final Integer[] framesDAnimation, final Hitbox hitbox, final int frameDebutCoup, 
 			final int frameFinCoup, final String nomIcone) {
 		this.id = id;
 		this.nom = nom;
 		this.description = description;
+		this.equipable = equipable;
 		this.nomEffetSonoreAttaque = nomEffetSonoreAttaque;
 		this.framesDAnimation = framesDAnimation;
 		this.hitbox = hitbox;
@@ -99,6 +103,7 @@ public class Arme implements Listable {
 		this( (int) parametres.get("numero"), 
 			Texte.construireTexteMultilingue(parametres.get("nom")),
 			Texte.construireTexteMultilingue(parametres.get("description")),
+			parametres.containsKey("equipable") ? (boolean) parametres.get("equipable") : true,
 			(String) parametres.get("nomEffetSonoreAttaque"),
 			(Integer[]) parametres.get("framesDAnimation"),
 			Hitbox.ZONES_D_ATTAQUE.get((Integer) parametres.get("zoneDAttaque")),
