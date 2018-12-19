@@ -141,6 +141,12 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[341][001]",
+		"x": 33,
+		"y": 11
+	},
+	{
 		"id": 5,
 		"nom": "Pancarte",
 		"x": 12,
@@ -166,7 +172,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "/\\ Village viking jaune\\n/\\ Passerelle vertébrale\\nV Station AGV"
+				"texte": "VILLAGE VIKING JAUNE\\nV Station AGV\\nV Plaines aquatiques"
 			},
 			{
 				"nom": "Attendre",
@@ -197,22 +203,66 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][001]",
-		"x": 33,
-		"y": 11
+		"id": 22,
+		"nom": "Pancarte",
+		"x": 36,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "VILLAGE VIKING JAUNE\\n> Grandes grottes"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 11,
-		"nom": "Clone[341][005]",
+		"nom": "Clone[341][169]",
 		"x": 36,
 		"y": 10
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][001]",
-		"x": 18,
-		"y": 7
 	},
 	{
 		"id": 17,
@@ -221,35 +271,10 @@
 		"y": 12
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 21,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 296,
-				"xDebutHeros": 14,
-				"yDebutHeros": 20
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 6,
+		"nom": "Clone[341][001]",
+		"x": 18,
+		"y": 7
 	},
 	{
 		"id": 1,
@@ -283,10 +308,35 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][001]",
-		"x": 18,
-		"y": 6
+		"id": 12,
+		"nom": "EV012",
+		"x": 21,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 296,
+				"xDebutHeros": 14,
+				"yDebutHeros": 20
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -315,35 +365,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 44,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 122,
-				"xDebutHeros": 1,
-				"yDebutHeros": 6
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 7,
+		"nom": "Clone[341][001]",
+		"x": 18,
+		"y": 6
 	},
 	{
 		"id": 13,
@@ -445,6 +470,68 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 44,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 122,
+				"xDebutHeros": 1,
+				"yDebutHeros": 6
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "EV019",
+		"x": 27,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 500,
+				"xDebutHeros": 19,
+				"yDebutHeros": 38
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -568,35 +655,10 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "EV019",
-		"x": 27,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 500,
-				"xDebutHeros": 19,
-				"yDebutHeros": 38
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 14,
+		"nom": "Clone[341][002]",
+		"x": 31,
+		"y": 6
 	},
 	{
 		"id": 3,
@@ -630,18 +692,6 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][002]",
-		"x": 31,
-		"y": 6
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][001]",
-		"x": 5,
-		"y": 12
-	},
-	{
 		"id": 20,
 		"nom": "oriflamme",
 		"x": 18,
@@ -663,6 +713,38 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][001]",
+		"x": 5,
+		"y": 12
+	},
+	{
+		"id": 15,
+		"nom": "Viking jaune",
+		"x": 26,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking2 petit character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -699,324 +781,6 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Viking jaune",
-		"x": 26,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking2 petit character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Courge",
-		"x": 12,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 6,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 7,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Armes efficaces"
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 2
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Effet"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 14,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Epée.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 6
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 7
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "SPLATCH.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			}
-			],
-			"image": "courge character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 289,
-				"numeroEvent": 10,
-				"numeroInterrupteurLocal": 3,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "111-Heal07.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": "Ecailles colorées",
-			"opacite": 225,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 21,
 		"nom": "oriflamme",
 		"x": 35,
@@ -1041,6 +805,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][169]",
+		"x": 12,
+		"y": 30
 	}
 	]
 }

@@ -1470,6 +1470,268 @@
 		]
 	},
 	{
+		"id": 167,
+		"nom": "Coffre gele HP[1]",
+		"x": 29,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 158
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 1,
+					"teinte": 0
+				}
+				]
+			},
+			"image": "glacon character",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 167,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 1,
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 10
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(341, 8)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 3,
+				"numero": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 10
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(341, 8)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
+				"numero": 2
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "TP_Pot_Shatter1.wav",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(341, 8)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 158
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 1,
+					"animation": 1,
+					"teinte": 0
+				}
+				]
+			},
+			"image": "glacon character",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 19,
 		"nom": "Torche",
 		"x": 4,
@@ -1487,28 +1749,28 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 2,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
+				"valeurADonner": 0,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 3,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
+				"valeurADonner": 0,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 15,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 16,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -2500,28 +2762,28 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 2,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
+				"valeurADonner": 0,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 3,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
+				"valeurADonner": 0,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 15,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 16,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -3281,14 +3543,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 151,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 152,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -3436,14 +3698,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 151,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 152,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -4620,6 +4882,12 @@
 		]
 	},
 	{
+		"id": 168,
+		"nom": "Clone[341][167]",
+		"x": 29,
+		"y": 8
+	},
+	{
 		"id": 20,
 		"nom": "Clone[341][017]",
 		"x": 4,
@@ -4842,7 +5110,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 1,
 					"teinte": 0
@@ -4854,7 +5122,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 2,
 					"teinte": 0
@@ -4866,7 +5134,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 3,
 					"teinte": 0
@@ -4878,7 +5146,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -4890,15 +5158,14 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 1,
 					"teinte": 0
 				}
 				]
 			},
-			"image": "glaçon character",
-			"opacite": 200,
+			"image": "glacon character",
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -5008,7 +5275,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 1,
 					"teinte": 0
@@ -5020,7 +5287,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 2,
 					"teinte": 0
@@ -5032,7 +5299,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 3,
 					"teinte": 0
@@ -5044,7 +5311,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -5056,15 +5323,14 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "glaçon character",
+					"image": "glacon character",
 					"direction": 0,
 					"animation": 1,
 					"teinte": 0
 				}
 				]
 			},
-			"image": "glaçon character",
-			"opacite": 200,
+			"image": "glacon character",
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -6115,6 +6381,268 @@
 		"y": 12
 	},
 	{
+		"id": 169,
+		"nom": "Courge gele HP[1] RESET",
+		"x": 29,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 158
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 1,
+					"teinte": 0
+				}
+				]
+			},
+			"image": "glacon character",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 341,
+				"numeroEvent": 169,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 1,
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 10
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(341, 5)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 3,
+				"numero": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 10
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(341, 5)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
+				"numero": 2
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "TP_Pot_Shatter1.wav",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(341, 5)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 158
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "glacon character",
+					"direction": 2,
+					"animation": 1,
+					"teinte": 0
+				}
+				]
+			},
+			"image": "glacon character",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 21,
 		"nom": "Statue poussable-tirable (v3)",
 		"x": 16,
@@ -6219,14 +6747,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 103,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 104,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -7829,6 +8357,12 @@
 		"nom": "Clone[341][113]",
 		"x": 28,
 		"y": 8
+	},
+	{
+		"id": 170,
+		"nom": "Clone[341][169]",
+		"x": 29,
+		"y": 9
 	},
 	{
 		"id": 22,
@@ -30955,14 +31489,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 122,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 123,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -31078,14 +31612,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 124,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 125,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -34387,6 +34921,237 @@
 		]
 	},
 	{
+		"id": 104,
+		"nom": "Clone[341][102]",
+		"x": 14,
+		"y": 12
+	},
+	{
+		"id": 67,
+		"nom": "Cube à pousser",
+		"x": 17,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 122,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 123,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 1,
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 2,
+				"numero": 2
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 124,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 125,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 122,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 124,
+				"comparerAUneAutreVariable": true,
+				"numero": 4
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 123,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 125,
+				"comparerAUneAutreVariable": true,
+				"numero": 5
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_IceBlock_Stop.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_IceBlock_Stop.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "cube character",
+			"teinte": "100",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 141,
 		"nom": "Feuilles HP[1] RESET",
 		"x": 5,
@@ -34813,240 +35578,9 @@
 		]
 	},
 	{
-		"id": 67,
-		"nom": "Cube à pousser",
-		"x": 17,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 122,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 123,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 1,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 2,
-				"numero": 2
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 124,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 125,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 122,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 124,
-				"comparerAUneAutreVariable": true,
-				"numero": 4
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 123,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 125,
-				"comparerAUneAutreVariable": true,
-				"numero": 5
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_IceBlock_Stop.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_IceBlock_Stop.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "cube character",
-			"teinte": "100",
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 104,
-		"nom": "Clone[341][102]",
-		"x": 14,
-		"y": 12
-	},
-	{
 		"id": 123,
 		"nom": "tourniquet HP[1] RESET",
-		"x": 30,
+		"x": 32,
 		"y": 1,
 		"pages": [
 		{
@@ -35123,7 +35657,7 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 21,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
+				"valeurADonner": 0,
 				"operationAFaire2": "terrain"
 			},
 			{
@@ -35297,7 +35831,7 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 21,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
+				"valeurADonner": 0,
 				"operationAFaire2": "terrain"
 			},
 			{
@@ -36233,14 +36767,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 122,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 123,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -36356,14 +36890,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 124,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 125,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -36444,7 +36978,7 @@
 	{
 		"id": 124,
 		"nom": "Clone[341][123]",
-		"x": 30,
+		"x": 32,
 		"y": 8
 	},
 	{
@@ -37209,6 +37743,17 @@
 				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "monnaie.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 5
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
@@ -37235,17 +37780,6 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 5
-			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_map.events[@event_id].life = 0"
@@ -37481,14 +38015,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 103,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 104,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -38886,6 +39420,17 @@
 				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "monnaie.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 1
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
@@ -38912,17 +39457,6 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 1
-			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_map.events[@event_id].life = 0"
@@ -40796,7 +41330,7 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 92,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "terrain"
 			},
 			{
@@ -40879,7 +41413,7 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 92,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "terrain"
 			},
 			{
@@ -42102,14 +42636,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 15,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 16,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -42369,14 +42903,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 15,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 16,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
+				"valeurADonner": -1,
 				"operationAFaire2": "coordonnee y"
 			},
 			{

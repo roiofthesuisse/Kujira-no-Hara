@@ -1,5 +1,5 @@
 {
-	"nom": "Descente",
+	"nom": "Entrée Ouest de la montagne",
 	"tileset": "Zone Enneigée",
 	"largeur": 30,
 	"hauteur": 30,
@@ -28,7 +28,7 @@
 	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0009,0017,0001,0001,0008,0001,0052,0001,0008,0021,0013,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0184,0041,0040,0052,0001,0001,0001,0001,0001,0001,0001,0001,0038,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0040,0001,0001,0001,0001,0001,0001,0001,0001,0001,0038,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
-	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0040,0001,0001,0008,0001,0001,0001,0001,0001,0001,0038,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
+	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0040,0001,0001,0001,0001,0001,0001,0001,0001,0001,0038,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0040,0001,0001,0001,0001,0001,0008,0052,0001,0001,0038,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0040,0001,0009,0011,0011,0011,0011,0011,0022,0001,0038,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0040,0001,0032,0009,0011,0011,0011,0022,0038,0001,0038,0037,0188,0172,0172,0172,0172,0172,0172,0172,0172],
@@ -185,6 +185,184 @@
 		"y": 18
 	},
 	{
+		"id": 12,
+		"nom": "scientifique",
+		"x": 12,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Du Haut de la Science.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Message",
+				"texte": "Mon jeune ami !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Moi, \\c[02]Astrophilius Wuerrenz\\c[01], grand scientifique,\\nvais t'apprendre quelque chose !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Au nom de la science !"
+			},
+			{
+				"nom": "Message",
+				"texte": "La trajectoire des lucioles suit grosso modo\\nle rotationnel du champ entropique."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il n'est pas nécessaire d'avoir fait de longues \\nétudes pour s'en apercevoir !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Cependant, la troisième équation du champ \\nentropique de \\c[02]MacTweepness Smith\\c[01] indique\\nla présence d'un second terme :"
+			},
+			{
+				"nom": "Message",
+				"texte": "Un second terme qui attire les lucioles \\nvers les monopoles du champ entropique !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je parle de l'équation du mouvement, tu suis ?"
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 30
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Zone enneigée.mid",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "poincare",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroMap": 262,
+				"numeroEvent": 12,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Du Haut de la Science.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai froid."
+			},
+			{
+				"nom": "Message",
+				"texte": "Au nom de la science !"
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 30
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Zone enneigée.mid",
+				"volume": 0.80,
+				"tempo": 1.00
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "poincare",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 20,
@@ -198,7 +376,7 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 3,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
+				"valeurADonner": 0,
 				"operationAFaire2": "coordonnee y"
 			},
 			{

@@ -364,6 +364,12 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "Clone[341][008]",
+		"x": 9,
+		"y": 5
+	},
+	{
 		"id": 1,
 		"nom": "Luciole",
 		"x": 22,
@@ -445,12 +451,6 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Clone[341][008]",
-		"x": 9,
-		"y": 5
-	},
-	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 12,
@@ -469,6 +469,44 @@
 				"numeroNouvelleMap": 210,
 				"xDebutHeros": 18,
 				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 19,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 220,
+				"modeDeFusion": "addition",
+				"defilementX": 5,
+				"defilementY": 2,
+				"zoom": 200,
+				"nuance": 180,
+				"nomImage": "006-Sandstorm02"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -563,40 +601,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 19,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 220,
-				"modeDeFusion": "addition",
-				"defilementX": 5,
-				"defilementY": 2,
-				"zoom": 200,
-				"nuance": 180,
-				"nomImage": "006-Sandstorm02"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 13,
@@ -615,63 +619,6 @@
 				"numeroNouvelleMap": 210,
 				"xDebutHeros": 19,
 				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 16,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Attack3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "017-Jump03.ogg",
-				"volume": 0.80,
-				"tempo": 0.80
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 269,
-				"xDebutHeros": 18,
-				"yDebutHeros": 10
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "052-Cannon01.ogg",
-				"volume": 0.40,
-				"tempo": 1.50
 			}
 			],
 			"vitesse": "moderee",
@@ -762,6 +709,63 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 16,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "OOT_YoungLink_Attack3.wav",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "017-Jump03.ogg",
+				"volume": 0.80,
+				"tempo": 0.80
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 269,
+				"xDebutHeros": 18,
+				"yDebutHeros": 10
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "052-Cannon01.ogg",
+				"volume": 0.40,
+				"tempo": 1.50
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
