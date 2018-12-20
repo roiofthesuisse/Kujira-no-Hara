@@ -29,7 +29,7 @@ public class EffacerImage extends Commande implements CommandeEvent {
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		getPartieActuelle().images.remove(new Integer(this.numero));
+		getPartieActuelle().images[this.numero] = null;
 		return curseurActuel+1;
 	}
 

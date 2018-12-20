@@ -98,7 +98,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	
 	/**
 	 * Constructeur générique
-	 * @param parametres liste de paramà¨tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public DeplacerImage(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"),
@@ -123,7 +123,11 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	 */
 	private void calculerDeplacement() {
 		final double progression = (double) this.dejaFait / (double) this.nombreDeFrames;
-		final Picture picture = getPartieActuelle().images.get(this.numero);
+		final Picture picture = getPartieActuelle().images[this.numero];
+		if (picture == null) {
+			LOG.error("Impossible de deplacer la Picture numero "+this.numero+" car elle est nulle.");
+			return;
+		}
 		
 		//initialisation des extrémums
 		if (this.dejaFait <= 0) {
@@ -202,7 +206,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			}
 		} else {
 			// On indique que la Picture a un déplacement propre, et on passe à  la Commande suivante
-			final Picture picture = getPartieActuelle().images.get(this.numero);
+			final Picture picture = getPartieActuelle().images[this.numero];
 			this.dejaFait = 0;
 			LOG.info("Déplacement d'image délégué au lecteur de map.");
 			picture.deplacementActuel = this;
@@ -212,7 +216,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	
 	/**
 	 * Le déplacement de l'image a été délégué par la Commande au LecteurMap afin de passer immédiatement à  la Commande suivante.
-	 * Ce déplacement s'effectue donc en parallà¨le, de manià¨re indépendante.
+	 * Ce déplacement s'effectue donc en parallele, de maniere indépendante.
 	 * @param picture image à  déplacer
 	 */
 	public final void executerCommeUnDeplacementPropre(final Picture picture) {

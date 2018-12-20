@@ -36,12 +36,16 @@ import utilitaire.graphismes.ModeDeFusion;
  * Une Partie est l'ensemble des informations liées à l'avancée du joueur dans le jeu.
  */
 public final class Partie implements Listable, Sauvegardable {
+	//constantes
 	private static final Logger LOG = LogManager.getLogger(Partie.class);
 	private static final int NOMBRE_D_INTERRUPTEURS = 100;
 	private static final int NOMBRE_DE_VARIABLES = 200;
+	private static final int NOMBRE_D_IMAGES = 50;
 	private static final int NOMBRE_DE_MOTS = 50;
 	/** Marge (en pixels) de la vignette de Partie dans le Menu */
 	private static final int MARGE = 16;
+	/** Numero de la variable dans laquelle est stocke le numero de l'image d'avancement de la partie */
+	private static final int NUMERO_VARIABLE_AVANCEMENT_PARTIE = 126;
 	
 	public int id;
 	public int numeroMap;
@@ -77,7 +81,7 @@ public final class Partie implements Listable, Sauvegardable {
 	/** effet météorologique en cours */
 	public Meteo meteo = null;
 	/** Images à afficher par dessus l'écran */
-	public HashMap<Integer, Picture> images = new HashMap<Integer, Picture>();
+	public Picture[] images = new Picture[NOMBRE_D_IMAGES];
 	/** Animations à afficher sur la Map */
 	public ArrayList<JouerAnimation> animations = new ArrayList<>();
 	
@@ -276,7 +280,7 @@ public final class Partie implements Listable, Sauvegardable {
 				deplacerImage.configurerEnCoursDeRoute(dejaFait, xDebut, yDebut, zoomXDebut, zoomYDebut, angleDebut, opaciteDebut, xFin, yFin);
 				picture.deplacementActuel = deplacerImage;
 			}
-			this.images.put(numero, picture);
+			this.images[numero] = picture;
 		}
 		// Animations
 		Animation.chargerLesAnimationsDuJeu();
@@ -412,12 +416,12 @@ public final class Partie implements Listable, Sauvegardable {
 		
 		// Image d'avancement
 		try {
-			final BufferedImage avancement = Graphismes.ouvrirImage("Pictures/Avancement", this.variables[126]+"");
+			final BufferedImage avancement = Graphismes.ouvrirImage("Pictures/Avancement", Integer.toString(this.variables[NUMERO_VARIABLE_AVANCEMENT_PARTIE]));
 			final int xVignette = largeur-avancement.getWidth()-MARGE;
 			final int yVignette = MARGE;
 			Graphismes.superposerImages(vignettePartie, avancement, xVignette, yVignette);
 		} catch (IOException e) {
-			LOG.error("Impossible d'ouvrir l'image d'avancement "+this.variables[126]);
+			LOG.error("Impossible d'ouvrir l'image d'avancement "+this.variables[NUMERO_VARIABLE_AVANCEMENT_PARTIE]);
 		}
 		
 		
@@ -540,8 +544,11 @@ public final class Partie implements Listable, Sauvegardable {
 		
 		//images
 		final JSONArray jsonImages = new JSONArray();
-		for (Picture picture : this.images.values()) {
-			jsonImages.put(picture.sauvegarderEnJson());
+		for (Picture picture : this.images) {
+			//toutes les places de la liste ne sont pas forcement occupees
+			if (this.images != null) {
+				jsonImages.put(picture.sauvegarderEnJson());
+			}
 		}
 		jsonPartie.put("images", jsonImages);
 		
