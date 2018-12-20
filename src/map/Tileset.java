@@ -21,7 +21,7 @@ import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Le Tileset associe � chaque brique de d�cor une passabilit� et une altitude.
+ * Le Tileset associe a chaque brique de decor une passabilite et une altitude.
  */
 public class Tileset {
 	//constantes
@@ -34,35 +34,35 @@ public class Tileset {
 	public final String nom;
 	/** nom de l'image du Tileset */
 	private final String nomImage;
-	/** image compl�te du Tileset */
+	/** image complete du Tileset */
 	private BufferedImage image;
 	/** Peut-on marcher sur cette case ? Ou bien est-ce un obstacle ? */
 	private final Passabilite[] passabilite;
-	/** Altitude d'affichage du carreau (0:sol, 2:h�ros) */
+	/** Altitude d'affichage du carreau (0:sol, 2:heros) */
 	private final int[] altitude; 
 	/** Terrain du carreau */
 	private final int[] terrain;
-	/** Carreaux du Tileset consid�r�s comme des portes */
+	/** Carreaux du Tileset consideres comme des portes */
 	public final ArrayList<Integer> portes;
-	/** carreaux d�coup�s dans l'image du Tileset */
+	/** carreaux decoupes dans l'image du Tileset */
 	public final BufferedImage[] carreaux;
 	
 	/** Nom de l'image de Panorama */
 	private final String nomImagePanorama;
-	/** Image � afficher derri�re le d�cor de la Map */
+	/** Image a afficher derriere le decor de la Map */
 	public BufferedImage imagePanorama;
-	/** Parallaxe (en pourcents) du Panorama par rapport au d�cor de la Map */
+	/** Parallaxe (en pourcents) du Panorama par rapport au decor de la Map */
 	public final int parallaxe;
-	/** Image du Brouillard � afficher sur la Map */
+	/** Image du Brouillard a afficher sur la Map */
 	public Brouillard brouillard;
-	/** Ton de l'�cran */
+	/** Ton de l'ecran */
 	public int[] ton;
 	/** Carreaux qui se lient entre eux automatiquement */
 	public HashMap<Integer, Autotile> autotiles;
 	
 	/**
 	 * Constructeur explicite
-	 * @param nomTileset nom de l'image de d�cor
+	 * @param nomTileset nom de l'image de decor
 	 * @throws Exception erreur lors de l'ouverture du fichier JSON ou des images
 	 */
 	public Tileset(final String nomTileset) throws Exception {
@@ -70,7 +70,7 @@ public class Tileset {
 
 		final JSONObject jsonTileset = InterpreteurDeJson.ouvrirJsonTileset(nomTileset);
 		
-		//lecture des passabilit�s
+		//lecture des passabilites
 		final JSONArray jsonPassabilite = jsonTileset.getJSONArray("passabilite");
 		final int nombreDeLignesTileset = jsonPassabilite.length();
 		final int nombreDeCarreauxTileset = nombreDeLignesTileset * LARGEUR_TILESET;
@@ -86,7 +86,7 @@ public class Tileset {
 		try {
 			this.image = Graphismes.ouvrirImage("Tilesets", this.nomImage);
 		} catch (IIOException ioe) {
-			// image manquante, on cr�e une fausse image
+			// image manquante, on cree une fausse image
 			LOG.warn("Impossible de charger l'image du tileset "+this.nomImage, ioe);
 			final int largeurImageTileset = LARGEUR_TILESET * Main.TAILLE_D_UN_CARREAU;
 			final int hauteurImageTileset = nombreDeLignesTileset * Main.TAILLE_D_UN_CARREAU;
@@ -104,7 +104,7 @@ public class Tileset {
 			}
 		}
 		
-		//d�coupage des carreaux
+		//decoupage des carreaux
 		this.carreaux = new BufferedImage[nombreDeCarreauxTileset];
 		for (int i = 0; i<LARGEUR_TILESET; i++) {
 			for (int j = 0; j<nombreDeLignesTileset; j++) {
@@ -122,7 +122,7 @@ public class Tileset {
 				}
 			}
 		} catch (JSONException e) {
-			LOG.error("Incompatibilit� entre le tableau des altitudes du Tileset JSON et de l'image du Tileset : "+this.nom, e);
+			LOG.error("Incompatibilite entre le tableau des altitudes du Tileset JSON et de l'image du Tileset : "+this.nom, e);
 		}
 		
 		//lecture des terrains
@@ -135,7 +135,7 @@ public class Tileset {
 				}
 			}
 		} catch (JSONException e) {
-			LOG.error("Incompatibilit� entre le tableau des terrains du Tileset JSON et de l'image du Tileset : "+this.nom, e);
+			LOG.error("Incompatibilite entre le tableau des terrains du Tileset JSON et de l'image du Tileset : "+this.nom, e);
 		}
 		
 		//panorama
@@ -151,7 +151,7 @@ public class Tileset {
 		//brouillard
 		this.brouillard  = Brouillard.creerBrouillardAPartirDeJson(jsonTileset);
 		
-		//ton de l'�cran
+		//ton de l'ecran
 		try {
 			final Iterator<Object> jsonTon = jsonTileset.getJSONArray("tonDeLEcran").iterator();
 			final int rouge = (int) jsonTon.next();
@@ -160,7 +160,7 @@ public class Tileset {
 			final int gris = (int) jsonTon.next();
 			this.ton = new int[] {gris, rouge, vert, bleu};
 		} catch (JSONException e) {
-			LOG.warn("Pas de ton d'�cran pour le tileset : "+this.nom);
+			LOG.warn("Pas de ton d'ecran pour le tileset : "+this.nom);
 		}
 		
 		//autotiles
@@ -182,8 +182,8 @@ public class Tileset {
 	}
 	
 	/**
-	 * La case de d�cor est-elle traversable ?
-	 * @param numeroDeLaCaseDansLeTileset num�rotation du Tileset
+	 * La case de decor est-elle traversable ?
+	 * @param numeroDeLaCaseDansLeTileset numerotation du Tileset
 	 * @return true si obstacle, false si passable
 	 */
 	public final Passabilite passabiliteDeLaCase(final int numeroDeLaCaseDansLeTileset) {
@@ -197,7 +197,7 @@ public class Tileset {
 	}
 	
 	/**
-	 * R�cup�re l'altitude associ�e � ce carreau de Tileset.
+	 * Recupere l'altitude associee a ce carreau de Tileset.
 	 * @param numeroCarreau dans le Tileset
 	 * @return true si obstacle, false si passable
 	 */
@@ -212,8 +212,8 @@ public class Tileset {
 	}
 
 	/**
-	 * Obtenir le terrain associ� � cette case du Tileset.
-	 * @param numeroCarreau num�ro de la case du Tileset
+	 * Obtenir le terrain associe a cette case du Tileset.
+	 * @param numeroCarreau numero de la case du Tileset
 	 * @return identitifaint de terrain
 	 */
 	public final int terrainDeLaCase(final int numeroCarreau) {

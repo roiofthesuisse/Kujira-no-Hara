@@ -23,7 +23,7 @@ import net.bull.javamelody.Parameter;
 import utilitaire.EmbeddedServer;
 
 /**
- * Point d'entr�e du programme.
+ * Point d'entree du programme.
  */
 public class Main {
 	//constantes
@@ -44,16 +44,16 @@ public class Main {
 	public static ArrayList<String> mesuresDePerformance = new ArrayList<String>();
 	
 	/**
-	 * Point d'entr�e du programme
+	 * Point d'entree du programme
 	 * @param args pas besoin d'arguments
 	 */
 	public static void main(final String[] args) {
-		// La premi�re Fen�tre n'est pas en plein �cran
+		// La premiere Fenetre n'est pas en plein ecran
 		fenetre = new Fenetre(false);
 		
 		// Le premier Lecteur est celui du Menu titre
 		final Menu menuTitre = Menu.creerMenuDepuisJson("Titre", null);
-		//la s�lection initiale est "chargerPartie" s'il y a d�j� une sauvegarde, sinon "nouvellePartie"
+		//la selection initiale est "chargerPartie" s'il y a deja une sauvegarde, sinon "nouvellePartie"
 		int selectionInitiale = 0;
 		try {
 			final int nombreDeFichiersDeSauvegarde = (int) Files.list(Paths.get("./saves")).count();
@@ -68,16 +68,16 @@ public class Main {
 		// Mesurer les performances
 		//lancerSupervisionJavaMelody();
 		
-		// Acc�l�ration du calcul graphique
+		// Acceleration du calcul graphique
 		System.setProperty("sun.java2d.opengl", "True");
 		
-		// On d�marre le lecteur
+		// On demarre le lecteur
 		while (!Main.quitterLeJeu) {
 			//on lance le Lecteur
-			Main.lecteur.demarrer(); //boucle tant que le Lecteur est allum�
+			Main.lecteur.demarrer(); //boucle tant que le Lecteur est allume
 			
-			//si on est ici, c'est que le Lecteur a �t� �teint par une Commande Event
-			//y en a-t-il un autre apr�s ?
+			//si on est ici, c'est que le Lecteur a ete eteint par une Commande Event
+			//y en a-t-il un autre apres ?
 			if (Main.futurLecteur != null) {
 				if (!Main.quitterLeJeu) {
 					//on passe au Lecteur suivant
@@ -85,25 +85,25 @@ public class Main {
 					Main.futurLecteur = null;
 				}
 			} else {
-				//pas de Lecteur � suivre
-				//on �teint le jeu
+				//pas de Lecteur a suivre
+				//on eteint le jeu
 				Main.quitterLeJeu = true;
 			}
 		}
-		// Il n'y a plus de Lecteur � suivre : le jeu est �teint
+		// Il n'y a plus de Lecteur a suivre : le jeu est eteint
 		
 		// Export CSV
 		exporterCsv();
 		
-		// On ferme la Fen�tre
+		// On ferme la Fenetre
 		fenetre.fermer();
 		
-		LOG.info("Arr�t total du programme");
+		LOG.info("Arret total du programme");
 		System.exit(0);
 	}
 	
 	/**
-	 * La Fen�tre a une partie s�lectionn�e, on l'ouvre.
+	 * La Fenetre a une partie selectionnee, on l'ouvre.
 	 */
 	public static void ouvrirLaPartie() {
 		if (partie == null) {
@@ -140,8 +140,8 @@ public class Main {
 	}
 	
 	/**
-	 * M�moriser la Partie actuelle
-	 * @param partieActuelle � faire m�moriser par la Fenetre
+	 * Memoriser la Partie actuelle
+	 * @param partieActuelle a faire memoriser par la Fenetre
 	 */
 	public static void setPartieActuelle(final Partie partieActuelle) {
 		partie = partieActuelle;
@@ -156,15 +156,15 @@ public class Main {
 		parametresJavaMelody.put(Parameter.AUTHORIZED_USERS, "admin:password");
 		// Dossier d'enregistrement
 		parametresJavaMelody.put(Parameter.STORAGE_DIRECTORY, "C://Users/Public/tmp/javamelody");
-		// Fr�quence d'�chantillonnage
+		// Frequence d'echantillonnage
 		parametresJavaMelody.put(Parameter.SAMPLING_SECONDS, "1.0");
 		// Emplacement des rapports d'analyse
 		parametresJavaMelody.put(Parameter.MONITORING_PATH, "/");
 		try {
-			// D�marrer le server d'affichage de l'analyse JavaMelody
-			LOG.info("D�marrage de JavaMelody...");
+			// Demarrer le server d'affichage de l'analyse JavaMelody
+			LOG.info("Demarrage de JavaMelody...");
 			EmbeddedServer.start(PORT_JAVAMELODY, parametresJavaMelody);
-			LOG.info("JavaMelody est d�marr�.");
+			LOG.info("JavaMelody est demarre.");
 		} catch (Exception e) {
 			LOG.error("Impossible de lancer l'analyse de performance avec JavaMelody.", e);
 		}

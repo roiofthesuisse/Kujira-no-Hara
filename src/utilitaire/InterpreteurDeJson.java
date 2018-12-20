@@ -22,9 +22,9 @@ public abstract class InterpreteurDeJson {
 	
 	/**
 	 * Charger un objet JSON quelconque
-	 * @param nomFichier nom du fichier JSON � charger
-	 * @param adresse du fichier JSON � charger
-	 * @param parPrefixe trouver le fichier uniquement � partir du d�but de son nom
+	 * @param nomFichier nom du fichier JSON a charger
+	 * @param adresse du fichier JSON a charger
+	 * @param parPrefixe trouver le fichier uniquement a partir du debut de son nom
 	 * @return objet JSON
 	 * @throws JSONException Erreur de syntaxe dans le fichier JSON
 	 * @throws IOException erreur d'ouverture de fichier
@@ -32,7 +32,7 @@ public abstract class InterpreteurDeJson {
 	public static JSONObject ouvrirJson(final String nomFichier, final String adresse, final boolean parPrefixe) throws JSONException, IOException {
 		final String nomTotal;
 		if (parPrefixe) {
-			// fichiers commen�ant par
+			// fichiers commencant par
 			final File dossier = new File(adresse);
 			final File[] fichiersTrouves = dossier.listFiles(new FilenameFilter() {
 			    public boolean accept(final File dir, final String name) {
@@ -64,8 +64,8 @@ public abstract class InterpreteurDeJson {
 	
 	/**
 	 * Charger un objet JSON quelconque (par son nom exact)
-	 * @param nomFichier nom du fichier JSON � charger
-	 * @param adresse du fichier JSON � charger
+	 * @param nomFichier nom du fichier JSON a charger
+	 * @param adresse du fichier JSON a charger
 	 * @return objet JSON
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
@@ -74,8 +74,8 @@ public abstract class InterpreteurDeJson {
 	}
 	
 	/**
-	 * Charger le param�trage d'une nouvelle Partie au format JSON.
-	 * @return objet JSON contenant le param�trage d'une nouvelle Partie
+	 * Charger le parametrage d'une nouvelle Partie au format JSON.
+	 * @return objet JSON contenant le parametrage d'une nouvelle Partie
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONObject ouvrirJsonNouvellePartie() throws Exception {
@@ -83,8 +83,8 @@ public abstract class InterpreteurDeJson {
 	}
 	
 	/**
-	 * Charger la liste des Qu�tes du jeu au format JSON.
-	 * @return objet JSON contenant la liste des Qu�tes du jeu
+	 * Charger la liste des Quetes du jeu au format JSON.
+	 * @return objet JSON contenant la liste des Quetes du jeu
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
 	public static JSONArray ouvrirJsonQuetes() throws Exception {
@@ -123,7 +123,7 @@ public abstract class InterpreteurDeJson {
 	}
 	
 	/**
-	 * Charger la liste des Animations mod�les du jeu au format JSON.
+	 * Charger la liste des Animations modeles du jeu au format JSON.
 	 * @return objet JSON contenant la liste des Animations du jeu
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
@@ -134,7 +134,7 @@ public abstract class InterpreteurDeJson {
 	
 	/**
 	 * Charger une Map au format JSON.
-	 * @param numero de la Map � charger
+	 * @param numero de la Map a charger
 	 * @return objet JSON contenant la description de la Map
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
@@ -145,7 +145,7 @@ public abstract class InterpreteurDeJson {
 	
 	/**
 	 * Charger un Tileset au format JSON.
-	 * @param nom du Tileset � charger
+	 * @param nom du Tileset a charger
 	 * @return objet JSON contenant la description du Tileset
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
@@ -154,10 +154,10 @@ public abstract class InterpreteurDeJson {
 	}
 
 	/**
-	 * Charger un Event g�n�rique au format JSON.
-	 * Les Events g�n�riques sont situ�s dans le dossier "ressources/Data/GenericEvents"
-	 * @param nomEvent nom de l'Event g�n�rique
-	 * @param artisanal est-ce que l'Event g�n�rique a �t� �crit � la main ?
+	 * Charger un Event generique au format JSON.
+	 * Les Events generiques sont situes dans le dossier "ressources/Data/GenericEvents"
+	 * @param nomEvent nom de l'Event generique
+	 * @param artisanal est-ce que l'Event generique a ete ecrit a la main ?
 	 * @return objet JSON contenant la description de l'Event
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */
@@ -169,7 +169,7 @@ public abstract class InterpreteurDeJson {
 	}
 
 	/**
-	 * Charger les Zones d'attaque du jeu d�crites dans un fichier JSON.
+	 * Charger les Zones d'attaque du jeu decrites dans un fichier JSON.
 	 * @return zones d'attaque du jeu
 	 * @throws Exception erreur dans la lecture du fichier JSON
 	 */

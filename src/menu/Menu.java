@@ -20,8 +20,8 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.son.LecteurAudio;
 
 /**
- * Un Menu est constitu� d'images et de Textes, �ventuellement S�lectionnables.
- * Le Menu pr�existe � son Lecteur. Le Menu ne conna�tra son Lecteur que lorsque le Lecteur sera instanci�.
+ * Un Menu est constitue d'images et de Textes, eventuellement Selectionnables.
+ * Le Menu preexiste a son Lecteur. Le Menu ne connaitra son Lecteur que lorsque le Lecteur sera instancie.
  */
 public class Menu {
 	//constantes
@@ -56,10 +56,10 @@ public class Menu {
 	 * @param images du Menu
 	 * @param listes tableaux bidimensionnels d'ElementsDeMenu
 	 * @param cartes du Menu
-	 * @param selectionInitiale ElementDeMenu s�lectionn� au d�but
+	 * @param selectionInitiale ElementDeMenu selectionne au debut
 	 * @param idTexteDescriptif identifiant de l'ElementDeMenu affichant les descriptions
-	 * @param menuParent Menu qui a appel� ce Menu
-	 * @param comportementAnnulation comportement du Menu � l'annulation
+	 * @param menuParent Menu qui a appele ce Menu
+	 * @param comportementAnnulation comportement du Menu a l'annulation
 	 */
 	@SuppressWarnings("unchecked")
 	public Menu(final BufferedImage fond, final ArrayList<Texte> textes, final ArrayList<ImageMenu> images, 
@@ -103,17 +103,17 @@ public class Menu {
 			}
 		}
 		
-		// Ajout de l'�ventuel ElementDeMenu de type Carte
+		// Ajout de l'eventuel ElementDeMenu de type Carte
 		if (cartes.size() >= 1) {
 			this.carte = cartes.get(0);
 			carte.menu = this;
 			LOG.info("Ce menu contient une carte.");
 		}
 		
-		// Texte descriptif de l'Element s�lectionn� par le curseur
+		// Texte descriptif de l'Element selectionne par le curseur
 		this.texteDescriptif = (Texte) this.elements.get((Integer) idTexteDescriptif);
 		
-		// S�lection du curseur au d�part
+		// Selection du curseur au depart
 		this.elementSelectionne = selectionInitiale;
 		if (selectionInitiale != null) {
 			selectionInitiale.selectionne = true;
@@ -128,7 +128,7 @@ public class Menu {
 	}
 	
 	/**
-	 * Confirmer l'El�ment de Menu s�lectionn�.
+	 * Confirmer l'Element de Menu selectionne.
 	 */
 	public final void confirmer() {
 		if (this.elementSelectionne != null) {
@@ -136,16 +136,16 @@ public class Menu {
 			this.elementSelectionne.executionDesCommandesDeConfirmation = true;
 			this.elementSelectionne.curseurComportementConfirmation = 0;
 		} else {
-			LOG.error("L'�l�ment s�lectionn� de ce menu est null.");
+			LOG.error("L'element selectionne de ce menu est null.");
 		}
 	}
 	
 	/**
-	 * S�lectionner l'El�ment S�lectionnable situ� dans cette direction
-	 * @param direction dans laquelle on recherche un nouvel El�ment � s�lectionner
+	 * Selectionner l'Element Selectionnable situe dans cette direction
+	 * @param direction dans laquelle on recherche un nouvel Element a selectionner
 	 */
 	public final void selectionnerElementDansLaDirection(final int direction) {
-		LOG.debug("D�placement depuis l'�lement de menu "+this.elementSelectionne.id+" dans la direction "+direction);
+		LOG.debug("Deplacement depuis l'element de menu "+this.elementSelectionne.id+" dans la direction "+direction);
 		ElementDeMenu elementASelectionner;
 		if (this.elementSelectionne.liste != null) {
 			// L'ElementDeMenu est dans une Liste
@@ -156,33 +156,33 @@ public class Menu {
 			}
 			// On reste dans la Liste
 		} else {
-			// L'ElementDeMenu n'appartient pas � une Liste
+			// L'ElementDeMenu n'appartient pas a une Liste
 			elementASelectionner = chercherSelectionnableDansLaDirection(direction);
 		}
 		selectionner(elementASelectionner);
 	}
 	
 	/**
-	 * S�lectionner cet El�ment de Menu.
-	 * @param elementASelectionner nouvel Element s�lectionn�
+	 * Selectionner cet Element de Menu.
+	 * @param elementASelectionner nouvel Element selectionne
 	 */
 	public final void selectionner(final ElementDeMenu elementASelectionner) {
 		if (elementASelectionner != null) {
-			//bruit de d�placement du curseur
+			//bruit de deplacement du curseur
 			if (this.elementSelectionne!=null 
 				&& (elementASelectionner.x!=this.elementSelectionne.x || elementASelectionner.y!=this.elementSelectionne.y)
 			) {
 				LecteurAudio.playSe(BRUIT_DEPLACEMENT_CURSEUR);
 			}
 			
-			//d�s�lection du pr�c�dent
+			//deselection du precedent
 			if (this.elementSelectionne != null) {
 				this.elementSelectionne.selectionne = false;
 				this.elementSelectionne.executionDesCommandesDeSurvol = false;
 				this.elementSelectionne.curseurComportementSurvol = 0;
 			}
 			
-			//s�lection du nouveau
+			//selection du nouveau
 			this.elementSelectionne = elementASelectionner;
 			elementASelectionner.selectionne = true;
 			this.elementSelectionne.executionDesCommandesDeSurvol = true;
@@ -191,12 +191,12 @@ public class Menu {
 	}
 	
 	/**
-	 * Obtenir la liste des El�ments S�lectionnables de ce Menu.
-	 * @return liste des S�lectionnables
+	 * Obtenir la liste des Elements Selectionnables de ce Menu.
+	 * @return liste des Selectionnables
 	 */
 	public final ArrayList<ElementDeMenu> getSelectionnables() {
 		if (this.selectionnables==null) {
-			//on ne l'a pas encore cr��e
+			//on ne l'a pas encore creee
 			this.selectionnables = new ArrayList<ElementDeMenu>();
 			for (Texte t : this.textes) {
 				if (t.selectionnable) {
@@ -209,20 +209,20 @@ public class Menu {
 				}
 			}
 		}
-		//on l'a cr��e
+		//on l'a creee
 		return this.selectionnables;
 	}
 	
 	/**
-	 * V�rifie si l'El�ment (x2,y2) est situ� dans la bonne direction par rapport � l'El�ment de r�f�rence (x1,y1).
-	 * @param direction dans laquelle il faut que l'El�ment test� se situe (par rapport � l'El�ment de r�f�rence) pour �tre valide
-	 * @param x1 coordonn�e x de l'El�ment de r�f�rence
-	 * @param y1 coordonn�e y de l'El�ment de r�f�rence
-	 * @param x2 coordonn�e x de l'El�ment test�
-	 * @param y2 coordonn�e y de l'El�ment test�
-	 * @param largeur tol�r�e pour l'�cart avec la direction voulue
-	 * @param hauteur tol�r�e pour l'�cart avec la direction voulue
-	 * @return true si l'El�ment test� est dans la bonne direction
+	 * Verifie si l'Element (x2,y2) est situe dans la bonne direction par rapport a l'Element de reference (x1,y1).
+	 * @param direction dans laquelle il faut que l'Element teste se situe (par rapport a l'Element de reference) pour etre valide
+	 * @param x1 coordonnee x de l'Element de reference
+	 * @param y1 coordonnee y de l'Element de reference
+	 * @param x2 coordonnee x de l'Element teste
+	 * @param y2 coordonnee y de l'Element teste
+	 * @param largeur toleree pour l'ecart avec la direction voulue
+	 * @param hauteur toleree pour l'ecart avec la direction voulue
+	 * @return true si l'Element teste est dans la bonne direction
 	 */
 	private Boolean estCandidatALaSelection(final int direction, final int x1, final int y1, final int x2, final int y2, final int largeur, final int hauteur) {
 		switch(direction) {
@@ -240,9 +240,9 @@ public class Menu {
 	}
 	
 	/**
-	 * Calculer quel est l'El�ment de Menu S�lectionnable situ� dans une certaine direction par rapport � celui-ci
-	 * @param direction dans laquelle on doit rechercher un El�ment � s�lectionner
-	 * @return El�ment de Menu situ� dans cette direction
+	 * Calculer quel est l'Element de Menu Selectionnable situe dans une certaine direction par rapport a celui-ci
+	 * @param direction dans laquelle on doit rechercher un Element a selectionner
+	 * @return Element de Menu situe dans cette direction
 	 */
 	private ElementDeMenu chercherSelectionnableDansLaDirection(final int direction) {
 		ElementDeMenu elementASelectionner = null;
@@ -258,7 +258,7 @@ public class Menu {
 				distance = deltaX*deltaX + deltaY*deltaY;
 				if (distanceMin==null || distance<distanceMin) {
 					elementASelectionner = s;
-					distanceMin = distance; //on m�morise le plus proche rencontr�
+					distanceMin = distance; //on memorise le plus proche rencontre
 				}
 			}
 		}
@@ -267,7 +267,7 @@ public class Menu {
 	
 	
 	/**
-	 * R�atualiser tous les Textes du Menu.
+	 * Reatualiser tous les Textes du Menu.
 	 */
 	public void reactualiserTousLesTextes() {
 		for (ElementDeMenu element : this.elements.values()) {
@@ -278,10 +278,10 @@ public class Menu {
 	}
 	
 	/**
-	 * Cr�e un objet Menu � partir d'un fichier JSON.
-	 * @param nom du fichier JSON d�crivant le Menu
-	 * @param menuParent �ventuel Menu qui a appel� ce Menu
-	 * @return Menu instanci�
+	 * Cree un objet Menu a partir d'un fichier JSON.
+	 * @param nom du fichier JSON decrivant le Menu
+	 * @param menuParent eventuel Menu qui a appele ce Menu
+	 * @return Menu instancie
 	 */
 	public static Menu creerMenuDepuisJson(final String nom, final Menu menuParent) {
 		final JSONObject jsonObject;
@@ -292,7 +292,7 @@ public class Menu {
 			return null;
 		}
 		
-		// Identifiant de l'ElementDeMenu d�j� s�lectionn� par d�faut
+		// Identifiant de l'ElementDeMenu deja selectionne par defaut
 		final int idSelectionInitiale;
 		if (jsonObject.has("selectionInitiale")) {
 			if (jsonObject.get("selectionInitiale") instanceof String) {
@@ -302,7 +302,7 @@ public class Menu {
 					idSelectionInitiale = Main.getPartieActuelle().id;
 					break;
 				default:
-					LOG.error("La s�lection initiale du menu \""+nom+"\" est inconnue : "+nomSelectionInitiale);
+					LOG.error("La selection initiale du menu \""+nom+"\" est inconnue : "+nomSelectionInitiale);
 					idSelectionInitiale = 0;
 					break;
 				}
@@ -333,12 +333,12 @@ public class Menu {
 			final JSONArray jsonComportementAnnulation = jsonObject.getJSONArray("comportementAnnulation");
 			Commande.recupererLesCommandes(comportementAnnulation, jsonComportementAnnulation);
 		} catch (JSONException e) {
-			LOG.warn("Pas de comportement en cas d'annulation sp�cifi� pour le menu "+nom+".\n"
-					+ "Comportement par d�faut : revenir au menu parent ou revenir � la map.");
+			LOG.warn("Pas de comportement en cas d'annulation specifie pour le menu "+nom+".\n"
+					+ "Comportement par defaut : revenir au menu parent ou revenir a la map.");
 			comportementAnnulation.add(new FermerMenu());
 		}
 
-		// El�ments du Menu
+		// Elements du Menu
 		final JSONArray jsonElements = jsonObject.getJSONArray("elements");
 		final ArrayList<Texte> textes = new ArrayList<Texte>();
 		final ArrayList<ImageMenu> images = new ArrayList<ImageMenu>();
