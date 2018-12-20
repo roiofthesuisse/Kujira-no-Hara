@@ -1,0 +1,43 @@
+{
+	"numero": 36,
+	"nom": "Terrain sécurisé",
+	"conditions": [
+		{
+			"nom": "Ou",
+			"conditions": [
+				{
+					"nom": "Terrain",
+					"idEvent": 0,
+					"terrain": 0
+				},
+				{
+					"nom": "Terrain",
+					"idEvent": 0,
+					"terrain": 7
+				}
+			]
+		}
+	],
+	"commandes": [
+		{
+			"nom": "ModifierVariable",
+			"numeroVariable": 23,
+			"operationAFaire": "rendre egal a",
+			"valeurADonner": 0,
+			"operationAFaire2": "coordonnee x"
+		},
+		{
+			"nom": "ModifierVariable",
+			"numeroVariable": 24,
+			"operationAFaire": "rendre egal a",
+			"valeurADonner": 0,
+			"operationAFaire2": "coordonnee y"
+		},
+		{
+			"nom": "ModifierVariable",
+			"numeroVariable": 20,
+			"operationAFaire": "rendre egal a",
+			"operationAFaire2": "numero de la map"
+		}
+	]
+}
