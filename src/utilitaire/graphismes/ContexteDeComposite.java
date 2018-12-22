@@ -44,7 +44,9 @@ public class ContexteDeComposite implements CompositeContext {
 		final float opacite = composite.opacite;
 		
 		// changer le ton de l'écran ?
-		final int[] ton = ModeDeFusion.TON_DE_L_ECRAN.nom.equals(composite.modeDeFusion.nom) ? composite.ton : null;
+		final int[] ton = ModeDeFusion.TON_DE_L_ECRAN.nom.equals(composite.modeDeFusion.nom) 
+				? composite.ton 
+				: null;
 		
 		//buffers
 		final DataBuffer srcDataBuffer = src.getDataBuffer();
@@ -61,6 +63,7 @@ public class ContexteDeComposite implements CompositeContext {
 		// On attend la fin de l'execution pour toutes les lignes de pixels de l'image
 		try {
 			while (!executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS)) {
+				// Le timeout a eu lieu
 				LOG.warn("L'opération graphique n'est pas encore terminée...");
 			}
 		} catch (InterruptedException e) {
@@ -171,7 +174,8 @@ public class ContexteDeComposite implements CompositeContext {
         		intBuffer.get(dstPixels);
         	}
 
-            for (int x = 0; x < largeur; x++) {     	
+			// On parcourt la ligne de pixels
+        	for (int x = 0; x < largeur; x++) {
                 //les pixels sont des INT_ARGB
             	int pixel;
             	if (ton == null) {

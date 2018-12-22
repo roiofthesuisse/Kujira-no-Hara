@@ -49,7 +49,7 @@ class Exportation
     if !File.directory?(EXPORT_FOLDER)
       Dir.mkdir(EXPORT_FOLDER)
     end
-    
+
     # On parcourt toutes les maps
     for map_id in 1...maps.size+1
       mapFile = sprintf("Data/Map%03d.rxdata", map_id)
@@ -1385,14 +1385,33 @@ class Exportation
                 end
             end
             
-            if commande.parameters[3] != 7
-              # pas de valeur a preciser pour l'argent et le numero de map
-              if commande.parameters[3] == 3
-                file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", commande.parameters[4]-1)) #id objet
-              else
-                file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", commande.parameters[4]))
-              end
+            case commande.parameters[3]
+            when 0 # valeur brute
+              file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", commande.parameters[4]))
               write_linebreak(file)
+            when 1 # numero de variable
+              file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", commande.parameters[4]))
+              write_linebreak(file)
+            when 2 # borne inferieure nombre aleatoire
+              file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", commande.parameters[4]))
+              write_linebreak(file)
+            when 3 # id objet
+              id_objet = commande.parameters[4]-1
+              file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", id_objet))
+              write_linebreak(file)
+            when 6 # coordonnees/direction/terrain d'un event
+              case commande.parameters[4]
+              when -1 # heros
+                id_event = 0
+              when 0 # cet event
+                id_event = -1
+              else # un event particulier
+                id_event = commande.parameters[4]
+              end
+              file.write(sprintf("\t\t\t\t\"valeurADonner\": %d,", id_event))
+              write_linebreak(file)
+            when 7
+              # pas de valeur a preciser pour l'argent et le numero de map
             end
             
             if commande.parameters[3] == 2

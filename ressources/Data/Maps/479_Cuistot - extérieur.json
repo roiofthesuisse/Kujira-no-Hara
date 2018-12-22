@@ -340,7 +340,7 @@
 		"id": 39,
 		"nom": "EV039",
 		"x": 0,
-		"y": 12,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -363,6 +363,37 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 0,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 588,
+				"xDebutHeros": 19,
+				"yDebutHeros": 12
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -490,7 +521,7 @@
 		"id": 23,
 		"nom": "EV023",
 		"x": 0,
-		"y": 9,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -502,9 +533,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 212,
-				"xDebutHeros": 98,
-				"yDebutHeros": 15
+				"numeroNouvelleMap": 588,
+				"xDebutHeros": 19,
+				"yDebutHeros": 11
 			}
 			],
 			"vitesse": "moderee",
@@ -560,10 +591,10 @@
 		"y": 14
 	},
 	{
-		"id": 40,
-		"nom": "EV040",
+		"id": 24,
+		"nom": "EV024",
 		"x": 0,
-		"y": 13,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -575,17 +606,17 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 313,
-				"xDebutHeros": 7,
-				"yDebutHeros": 7
+				"numeroNouvelleMap": 588,
+				"xDebutHeros": 19,
+				"yDebutHeros": 13
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -622,7 +653,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "< Passerelle vertébrale\\nV Grandes grottes"
+				"texte": "< Contrée Viking jaune\\nV Grandes grottes"
 			},
 			{
 				"nom": "Attendre",
@@ -641,37 +672,6 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 24,
-		"nom": "EV024",
-		"x": 0,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 212,
-				"xDebutHeros": 98,
-				"yDebutHeros": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -768,37 +768,6 @@
 		"y": 11
 	},
 	{
-		"id": 41,
-		"nom": "EV041",
-		"x": 0,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 313,
-				"xDebutHeros": 7,
-				"yDebutHeros": 7
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 36,
 		"nom": "Annonce du Lieu",
 		"x": 3,
@@ -819,14 +788,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 2,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
+				"valeurADonner": 0,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 3,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
+				"valeurADonner": 0,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -967,37 +936,6 @@
 		"nom": "Clone[021][44]",
 		"x": 27,
 		"y": 13
-	},
-	{
-		"id": 25,
-		"nom": "EV025",
-		"x": 0,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 212,
-				"xDebutHeros": 98,
-				"yDebutHeros": 17
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 31,

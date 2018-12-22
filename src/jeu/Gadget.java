@@ -39,6 +39,7 @@ public class Gadget implements Listable {
 	public final int id;
 	public final ArrayList<String> nom;
 	private final ArrayList<String> description;
+	public final boolean equipable;
 	public BufferedImage icone;
 	
 	/**
@@ -46,12 +47,15 @@ public class Gadget implements Listable {
 	 * @param id chaque Gadget a un identifiant
 	 * @param nom du Gadget (dans plusieurs langues)
 	 * @param description à afficher dans les Menus (dans plusieurs langues)
+	 * @param equipable peut-on équiper le Gadget depuis le Menu ?
 	 * @param nomIcone nom de l'image d'icone
 	 */
-	private Gadget(final int id, final ArrayList<String> nom, final ArrayList<String> description, final String nomIcone) {
+	private Gadget(final int id, final ArrayList<String> nom, final ArrayList<String> description, 
+			final boolean equipable, final String nomIcone) {
 		this.id = id;
 		this.nom = nom;
 		this.description = description;
+		this.equipable = equipable;
 		try {
 			this.icone = Graphismes.ouvrirImage("Icons", nomIcone);
 		} catch (IOException e) {
@@ -68,6 +72,7 @@ public class Gadget implements Listable {
 		this( (int) parametres.get("numero"), 
 			Texte.construireTexteMultilingue(parametres.get("nom")),
 			Texte.construireTexteMultilingue(parametres.get("description")),
+			parametres.containsKey("equipable") ? (boolean) parametres.get("equipable") : true,
 			(String) parametres.get("nomIcone")
 		);
 	}

@@ -5,7 +5,6 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RasterFormatException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 
 import commandes.Message;
@@ -16,7 +15,6 @@ import main.Fenetre;
 import main.Lecteur;
 import main.Main;
 import map.meteo.Meteo;
-import menu.Texte;
 import mouvements.Mouvement;
 import mouvements.RegarderUnEvent;
 import mouvements.Sauter;
@@ -31,17 +29,6 @@ import utilitaire.Maths;
  * Il reçoit les ordres du clavier pour les transcrire en actions.
  */
 public class LecteurMap extends Lecteur {
-	//jauges
-	private static final int X_AFFICHAGE_ARME = 563;
-	private static final int Y_AFFICHAGE_ARME = 4;
-	private static final int X_AFFICHAGE_GADGET = 612;
-	private static final int Y_AFFICHAGE_GADGET = 4;
-	private static final int X_AFFICHAGE_ARGENT = 4;
-	private static final int Y_AFFICHAGE_ARGENT = 450;
-	private static final int ESPACEMENT_ICONES = 4;
-	//icônes de jauges
-	public static final BufferedImage HUD_TOUCHES = chargerImageHudTouches();
-	public static final BufferedImage HUD_ARGENT = chargerImageHudArgent();
 	
 	public Map map;
 	/** vignette actuelle pour l'animation des Autotiles animés de la Map */
@@ -162,12 +149,15 @@ public class LecteurMap extends Lecteur {
 			// Réutiliser cette capture d'écran au début de la nouvelle Map
 			ecran = this.transition.calculer(ecran, this.map, frame);
 		}
-		
-		//afficher les images
-		ecran = Picture.dessinerLesImages(ecran);
+
+		//afficher les images basses
+		ecran = Picture.dessinerLesImages(ecran, true);
 		
 		//ajouter les jauges
-		ecran = dessinerLesJauges(ecran);
+		ecran = Jauges.dessinerLesJauges(ecran);
+
+		//afficher les images hautes
+		ecran = Picture.dessinerLesImages(ecran, false);
 		
 		//chronometre
 		final Chronometre chronometre = Main.getPartieActuelle().chronometre;
@@ -270,43 +260,6 @@ public class LecteurMap extends Lecteur {
 		if (meteo != null) {
 			ecran = Graphismes.superposerImages(ecran, meteo.calculerImage(frame), 0, 0);
 		}
-		return ecran;
-	}
-
-	/**
-	 * Dessiner à l'écran les jauges et informations extradiégétiques à destination du joueur
-	 * @param ecran sur lequel on dessine les jauges
-	 * @return écran avec les jauges dessinées
-	 */
-	private BufferedImage dessinerLesJauges(BufferedImage ecran) {
-		//touches
-		ecran = Graphismes.superposerImages(ecran, HUD_TOUCHES, 0, 0);
-		
-		//icone de l'Arme equipée
-		try {
-			ecran = Graphismes.superposerImages(ecran, Main.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
-		} catch (NullPointerException e) {
-			//pas d'Arme équipée
-		}
-		
-		//icone du Gadget équipé
-		try {
-			ecran = Graphismes.superposerImages(ecran, Main.getPartieActuelle().getGadgetEquipe().icone, X_AFFICHAGE_GADGET, Y_AFFICHAGE_GADGET);
-		} catch (NullPointerException e) {
-			//pas de Gadget équipé
-		}
-		
-		//argent
-		final int argent = Main.getPartieActuelle().argent;
-		if (argent > 0) {
-			ecran = Graphismes.superposerImages(ecran, HUD_ARGENT, X_AFFICHAGE_ARGENT, Y_AFFICHAGE_ARGENT);
-			final ArrayList<String> contenuTexte = new ArrayList<String>();
-			contenuTexte.add("" + argent);
-			final Texte texte = new Texte(contenuTexte, Color.white, Color.black, Texte.Taille.MOYENNE);
-			final BufferedImage texteImage = texte.getImage();
-			ecran = Graphismes.superposerImages(ecran, texteImage, X_AFFICHAGE_ARGENT+HUD_ARGENT.getWidth()+ESPACEMENT_ICONES, Y_AFFICHAGE_ARGENT);
-		}
-		
 		return ecran;
 	}
 
@@ -1025,32 +978,6 @@ public class LecteurMap extends Lecteur {
 	public final void equiperArmePrecedente() {
 		if (!this.stopEvent) { //on ne change pas d'Arme lorsqu'on lit un Message
 			Main.getPartieActuelle().equiperArmePrecedente();
-		}
-	}
-	
-	/**
-	 * Charge le petit carré blanc qui entoure l'Arme dans le HUD à l'écran.
-	 * @return image constitutive du HUD
-	 */
-	public static BufferedImage chargerImageHudTouches() {
-		try {
-			return Graphismes.ouvrirImage("Pictures", "carre arme kujira.png");
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	/**
-	 * Charge l'icône de l'argent.
-	 * @return image constitutive du HUD
-	 */
-	public static BufferedImage chargerImageHudArgent() {
-		try {
-			return Graphismes.ouvrirImage("Icons", "ecaille icon.png");
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
 		}
 	}
 

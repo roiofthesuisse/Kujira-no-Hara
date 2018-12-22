@@ -9,6 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
+import main.Main;
+import jeu.Partie;
 import map.Picture;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
@@ -88,21 +90,7 @@ public class AfficherImage extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
 		// On vérifie si ça n'a pas déjà été fait
-		final Picture pictureActuelle = getPartieActuelle().images.get(this.numero);
-		if (pictureActuelle != null 
-				&& pictureActuelle.nomImage.equals(this.nomImage)
-				&& (this.variables 
-						? pictureActuelle.x == getPartieActuelle().variables[this.x] 
-						&& pictureActuelle.y == getPartieActuelle().variables[this.y] 
-						: pictureActuelle.x == this.x 
-						&& pictureActuelle.y == this.y)
-				&& pictureActuelle.centre == this.centre
-				&& pictureActuelle.zoomX == this.zoomX
-				&& pictureActuelle.zoomY == this.zoomY
-				&& pictureActuelle.angle == this.angle
-				&& pictureActuelle.opacite == this.opacite
-				&& pictureActuelle.modeDeFusion.equals(this.modeDeFusion)
-		) {
+		if (this.dejaALEcran()) {
 			// L'image est déjà à l'écran
 			//LOG.warn("Image "+this.numero+" \""+this.nomImage+"\" déjà présente à l'écran !");
 			return curseurActuel+1;
@@ -129,9 +117,31 @@ public class AfficherImage extends Commande implements CommandeEvent {
 		}
 		
 		final Picture picture = new Picture(this.image, this.nomImage, this.numero, xAffichage, yAffichage, centre, zoomX, zoomY, this.opacite, this.modeDeFusion, this.angle);
-		getPartieActuelle().images.put(picture.numero, picture);
+		getPartieActuelle().images[picture.numero] = picture;
 		
 		return curseurActuel+1;
 	}
-
+	
+	/**
+	 * Est-ce que l'image à afficher est déjà à l'écran ?
+	 * @return true s'il n'y a rien à faire, false sinon
+	 */
+	private boolean dejaALEcran() {
+		final Partie partieActuelle = Main.getPartieActuelle();
+		final Picture pictureActuelle = partieActuelle.images[this.numero];
+		return pictureActuelle != null 
+				&& pictureActuelle.nomImage.equals(this.nomImage)
+				&& (this.variables 
+						? pictureActuelle.x == getPartieActuelle().variables[this.x] 
+						&& pictureActuelle.y == getPartieActuelle().variables[this.y] 
+						: pictureActuelle.x == this.x 
+						&& pictureActuelle.y == this.y)
+				&& pictureActuelle.centre == this.centre
+				&& pictureActuelle.zoomX == this.zoomX
+				&& pictureActuelle.zoomY == this.zoomY
+				&& pictureActuelle.angle == this.angle
+				&& pictureActuelle.opacite == this.opacite
+				&& pictureActuelle.modeDeFusion.equals(this.modeDeFusion);
+	}
+	
 }

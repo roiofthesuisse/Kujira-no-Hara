@@ -1,6 +1,7 @@
 package map;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import org.json.JSONObject;
 
@@ -14,6 +15,10 @@ import utilitaire.graphismes.ModeDeFusion;
  * Image à afficher à l'écran et ses paramètres.
  */
 public class Picture implements Sauvegardable {
+	//constantes
+	/** Au dela du separateur, les images seront affichees au dessus du HUD */
+	public static final int SEPARATEUR_IMAGES_BASSES = 5;
+	
 	public String nomImage;
 	public BufferedImage image;
 	public Integer numero; //Integer car utilisé comme clé d'une HashMap
@@ -66,17 +71,38 @@ public class Picture implements Sauvegardable {
 	/**
 	 * Dessiner les images.
 	 * @param ecran sur lequel on affiche les images
+	 * @param imagesBasses true pour les images basses, false pour les images hautes
 	 * @return écran avec les images dessinées
 	 */
-	public static BufferedImage dessinerLesImages(BufferedImage ecran) {
-		for (Picture picture : Main.getPartieActuelle().images.values()) {
-			// Déplacer les images (dont le déplacement a été délégué au LecteurMap par une Commande)
-			if (picture.deplacementActuel != null) {
-				picture.deplacementActuel.executerCommeUnDeplacementPropre(picture);
+	public static BufferedImage dessinerLesImages(BufferedImage ecran, final boolean imagesBasses) {
+		final Picture[] imagesADessiner = Main.getPartieActuelle().images;
+		
+		final int premiere, derniere;
+		// On affiche soit les images basses, soit les images hautes
+		if (imagesBasses) {
+			// images basses (en dessous du HUD)
+			premiere = 0;
+			derniere = SEPARATEUR_IMAGES_BASSES;
+		} else {
+			// images hautes (au dessus du HUD)
+			premiere = SEPARATEUR_IMAGES_BASSES + 1;
+			derniere = imagesADessiner.length - 1;
+		}
+		
+		Picture picture;
+		for (int i = premiere; i<=derniere; i++) {
+			picture = imagesADessiner[i];
+			// Toutes les places de la liste ne sont pas forcement occupees
+			if (picture != null) {
+				
+				// Déplacer les images (dont le déplacement a été délégué au LecteurMap par une Commande)
+				if (picture.deplacementActuel != null) {
+					picture.deplacementActuel.executerCommeUnDeplacementPropre(picture);
+				}
+				
+				// Afficher les images
+				ecran = Graphismes.superposerImages(ecran, picture.image, picture.x, picture.y, picture.centre, picture.zoomX, picture.zoomY, picture.opacite, picture.modeDeFusion, picture.angle);
 			}
-			
-			// Afficher les images
-			ecran = Graphismes.superposerImages(ecran, picture.image, picture.x, picture.y, picture.centre, picture.zoomX, picture.zoomY, picture.opacite, picture.modeDeFusion, picture.angle);
 		}
 		return ecran;
 	}

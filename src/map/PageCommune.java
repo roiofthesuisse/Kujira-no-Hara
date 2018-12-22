@@ -1,10 +1,10 @@
 package map;
 
+import java.io.File;
 import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import conditions.Condition;
@@ -12,45 +12,47 @@ import main.Commande;
 import utilitaire.InterpreteurDeJson;
 
 /**
- * Pages de code commun à toutes les Maps.
+ * Pages de code commun a toutes les Maps.
  */
 public class PageCommune extends PageEvent {
 	private static final Logger LOG = LogManager.getLogger(PageCommune.class);
+	private static final String DOSSIER_PAGES_COMMUNES = "./ressources/Data/PagesCommunes/";
+	
 	public boolean active;
 	public final String nom;
 	
 	/**
 	 * Constructeur explicite
-	 * @param pageJSON objet JSON représentant la Page
+	 * @param pageJSON objet JSON representant la Page
 	 */
 	public PageCommune(final JSONObject pageJSON) {
-		super(-1, pageJSON, -1, null); //pas d'Event correspondant, pas de numéro
+		super(-1, pageJSON, -1, null); //pas d'Event correspondant, pas de numero
 		this.nom = pageJSON.getString("nom");
 		this.active = false;
 	}
 
 	/**
-	 * Activer la Page si les Conditions sont vérifiées.
+	 * Activer la Page si les Conditions sont verifiees.
 	 */
 	public final void essayerDActiver() {
 		if (this.conditions!=null && this.conditions.size()>0) {
-			//la Page a des Conditions de déclenchement, on les analyse
+			//la Page a des Conditions de declenchement, on les analyse
 			boolean cettePageConvient = true;
 			//si une Condition est fausse, la Page ne convient pas
 			for (int j = 0; j<this.conditions.size() && cettePageConvient; j++) {
 				final Condition cond = this.conditions.get(j);
 				if (!cond.estVerifiee()) {
-					//la Condition n'est pas vérifiée
+					//la Condition n'est pas verifiee
 					cettePageConvient = false;
 				}
 			}
-			//si toutes les Conditions sont vérifiées, on active la Page
+			//si toutes les Conditions sont verifiees, on active la Page
 			if (cettePageConvient) {
 				this.active = true;
 			}
 			
 		} else {
-			//aucune Condition nécessaire pour cette Page, donc la Page est activée
+			//aucune Condition necessaire pour cette Page, donc la Page est activee
 			this.active = true;
 		}
 	}
@@ -67,10 +69,10 @@ public class PageCommune extends PageEvent {
 				while (onAvanceDansLesCommandes) {
 					final int ancienCurseur = curseurCommandes;
 					final Commande commande = this.commandes.get(curseurCommandes);
-					commande.page = this; //on apprend à la Commande depuis quelle Page elle est appelée
+					commande.page = this; //on apprend a la Commande depuis quelle Page elle est appelee
 					curseurCommandes = commande.executer(curseurCommandes, commandes);
 					if (curseurCommandes==ancienCurseur) { 
-						//le curseur n'a pas changé, c'est donc une commande qui prend du temps
+						//le curseur n'a pas change, c'est donc une commande qui prend du temps
 						onAvanceDansLesCommandes = false;
 					}
 				}
@@ -83,25 +85,34 @@ public class PageCommune extends PageEvent {
 	}
 	
 	/**
-	 * Récupérer les Pages Communes décrites dans un fichier JSON.
-	 * @return Pages de code Event communes à toutes les Maps du jeu
+	 * Recuperer les Pages Communes decrites dans un fichier JSON.
+	 * @return Pages de code Event communes a toutes les Maps du jeu
 	 */
 	public static HashMap<Integer, PageCommune> recupererLesPagesCommunes() {
 		final HashMap<Integer, PageCommune> pagesCommunes = new HashMap<>();
-		final JSONObject jsonObjets;
-		try {
-			jsonObjets = InterpreteurDeJson.ouvrirJson("pagesCommunes", ".\\ressources\\Data\\");
-		} catch (Exception e) {
-			LOG.error("Impossible d'ouvrir le fichier JSON des pages communes !", e);
-			return pagesCommunes;
-		}
-		
-		final JSONArray jsonPagesCommunes = jsonObjets.getJSONArray("pages");
-		for (Object o : jsonPagesCommunes) {
-			final JSONObject jsonPageCommune = (JSONObject) o;
-			final PageCommune pageCommune = new PageCommune(jsonPageCommune);
-			final Integer numeroPageCommune = jsonPageCommune.getInt("numero");
-			pagesCommunes.put(numeroPageCommune, pageCommune);
+		final File dossierPagesCommunes = new File(DOSSIER_PAGES_COMMUNES);
+		final File[] fichiersPagesCommunes = dossierPagesCommunes.listFiles();
+		if (fichiersPagesCommunes == null) {
+			LOG.error("Impossible d'ouvrir le dossier des pages communes !");
+		} else {
+			JSONObject jsonPageCommune;
+			final int tailleExtension = ".json".length();
+			String nomFichier, nomFichierSansExtension;
+			int tailleNomFichier;
+			for (File fichierPageCommune : fichiersPagesCommunes) {
+				try {
+					nomFichier = fichierPageCommune.getName();
+					tailleNomFichier = nomFichier.length();
+					nomFichierSansExtension = nomFichier.substring(0, tailleNomFichier-tailleExtension);
+					
+					jsonPageCommune = InterpreteurDeJson.ouvrirJson(nomFichierSansExtension, DOSSIER_PAGES_COMMUNES);
+					final PageCommune pageCommune = new PageCommune(jsonPageCommune);
+					final Integer numeroPageCommune = jsonPageCommune.getInt("numero");
+					pagesCommunes.put(numeroPageCommune, pageCommune);
+				} catch (Exception e) {
+					LOG.error("Impossible d'ouvrir le fichier JSON de page commune : "+fichierPageCommune.getName(), e);
+				}
+			}
 		}
 		return pagesCommunes;
 	}

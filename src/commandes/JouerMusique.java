@@ -79,10 +79,14 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 			
 		} else {
 			// Le volume final est atteint
-			LecteurAudio.bgmEnCours[piste].modifierVolume(this.volume);
-			this.frame = 0;
-			
-			LOG.info("La musique est démarrée.");
+			if (LecteurAudio.bgmEnCours[piste] != null) {
+				LecteurAudio.bgmEnCours[piste].modifierVolume(this.volume);
+				this.frame = 0;
+				
+				LOG.info("La musique est démarrée.");
+			} else {
+				LOG.error("Abandon de jouer la musique \""+this.nomFichierSonore+"\"");
+			}
 			return curseurActuel+1;
 		}
 	}

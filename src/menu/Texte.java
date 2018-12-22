@@ -25,7 +25,7 @@ import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Un Texte peut être sélectionnable, avoir un comportement au survol et à la confirmation.
+ * Un Texte peut etre selectionnable, avoir un comportement au survol et a la confirmation.
  */
 public class Texte extends ElementDeMenu {
 	//constantes
@@ -34,7 +34,7 @@ public class Texte extends ElementDeMenu {
 	private static final Pattern PATTERN_COULEUR = Pattern.compile("\\[[0-9]+\\].*");
 	private static final JSONObject JSON_INFORMATIONS_POLICE = chargerInformationsPolice();
 	private static final Color[] COULEURS_PAR_DEFAUT = chargerCouleurParDefaut();
-	/** Pour ne pas que le côté droit du texte ne soit coupé */
+	/** Pour ne pas que le cote droit du texte ne soit coupe */
 	public static final int MARGE_A_DROITE = 4;
 	/** A utiliser si le texte est vide */
 	private static final BufferedImage PIXEL_VIDE = Graphismes.imageVide(1, 1);
@@ -50,7 +50,7 @@ public class Texte extends ElementDeMenu {
 		
 		/** 
 		 * Constructeur explicite
-		 * @param nom désignant cette taille
+		 * @param nom designant cette taille
 		 */
 		Taille(final String nom) {
 			this.nom = nom;
@@ -58,8 +58,8 @@ public class Texte extends ElementDeMenu {
 		}
 		
 		/**
-		 * Obtenir un objet Taille à partir de son nom.
-		 * @param nom désignant une Taille
+		 * Obtenir un objet Taille a partir de son nom.
+		 * @param nom designant une Taille
 		 * @return Taille correspondante
 		 */
 		public static Taille getTailleParNom(final String nom) {
@@ -82,17 +82,17 @@ public class Texte extends ElementDeMenu {
 	public int opacite;
 	public Color couleurForcee = null;
 	public Color couleurContour = null;
-	/** Nombre maximal de caractères d'une ligne */
+	/** Nombre maximal de caracteres d'une ligne */
 	private int largeurMaximale;
 
 	/**
-	 * Constructeur implicite (opacité maximale, taille moyenne) pour les Menus
+	 * Constructeur implicite (opacite maximale, taille moyenne) pour les Menus
 	 * @param contenu du Texte (dans plusieurs langues)
-	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
-	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
-	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
+	 * @param xDebut position x a l'ecran du coin haut-gauche du Texte
+	 * @param yDebut position y a l'ecran du coin haut-gauche du Texte
+	 * @param selectionnable est-il selectionnable dans le cadre d'un Menu ?
 	 * @param c1 c1 comportement au survol
-	 * @param c2 c2 comportement à la confirmation
+	 * @param c2 c2 comportement a la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
 	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final boolean selectionnable, 
@@ -101,15 +101,15 @@ public class Texte extends ElementDeMenu {
 	}
 	
 	/**
-	 * Constructeur implicite (opacité maximale) pour les Menus
+	 * Constructeur implicite (opacite maximale) pour les Menus
 	 * @param contenu du Texte (dans plusieurs langues)
-	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
-	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
+	 * @param xDebut position x a l'ecran du coin haut-gauche du Texte
+	 * @param yDebut position y a l'ecran du coin haut-gauche du Texte
 	 * @param taille de la police
-	 * @param largeurMaximale limite de caractères d'une ligne
-	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
+	 * @param largeurMaximale limite de caracteres d'une ligne
+	 * @param selectionnable est-il selectionnable dans le cadre d'un Menu ?
 	 * @param c1 comportement au survol
-	 * @param c2 comportement à la confirmation
+	 * @param c2 comportement a la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
 	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final int largeurMaximale, 
@@ -120,14 +120,14 @@ public class Texte extends ElementDeMenu {
 	/**
 	 * Constructeur explicite pour les Menus
 	 * @param contenu du Texte (dans plusieurs langues)
-	 * @param xDebut position x à l'écran du coin haut-gauche du Texte
-	 * @param yDebut position y à l'écran du coin haut-gauche du Texte
-	 * @param taille des caractères
-	 * @param largeurMaximale limite de caractères d'une ligne
-	 * @param selectionnable est-il sélectionnable dans le cadre d'un Menu ?
+	 * @param xDebut position x a l'ecran du coin haut-gauche du Texte
+	 * @param yDebut position y a l'ecran du coin haut-gauche du Texte
+	 * @param taille des caracteres
+	 * @param largeurMaximale limite de caracteres d'une ligne
+	 * @param selectionnable est-il selectionnable dans le cadre d'un Menu ?
 	 * @param opacite transparence
 	 * @param c1 comportement au survol
-	 * @param c2 comportement à la confirmation
+	 * @param c2 comportement a la confirmation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
 	public Texte(final ArrayList<String> contenu, final int xDebut, final int yDebut, final Taille taille, final int largeurMaximale, 
@@ -163,7 +163,7 @@ public class Texte extends ElementDeMenu {
 	/**
 	 * Constructeur implicite pour les Messages d'un Event
 	 * @param contenu du Texte (dans plusieurs langues)
-	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
+	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par defaut
 	 */
 	public Texte(final ArrayList<String> contenu, final Color couleurForcee) {
 		this(contenu, couleurForcee, null, Taille.MOYENNE);
@@ -172,12 +172,12 @@ public class Texte extends ElementDeMenu {
 	/**
 	 * Constructeur explicite pour les Messages d'un Event
 	 * @param contenu du Texte (dans plusieurs langues)
-	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par défaut
-	 * @param taille autre que la taille par défaut
+	 * @param couleurForcee pour avoir un texte d'une autre couleur que celle par defaut
+	 * @param taille autre que la taille par defaut
 	 * @param couleurContour une autre couleur enrobe les lettres
 	 */
 	public Texte(final ArrayList<String> contenu, final Color couleurForcee, final Color couleurContour, final Taille taille) {
-		super(0, false, 0, 0, null, null, null); //on se fout de la gueule de la classe mère
+		super(0, false, 0, 0, null, null, null); //on se fout de la gueule de la classe mere
 		
 		this.couleurForcee = couleurForcee;
 		this.contenu = contenu;
@@ -207,7 +207,7 @@ public class Texte extends ElementDeMenu {
 			texteAAfficher = texteAAfficher.replace("\\m["+numeroMot+"]", mot != null ? mot : "");
 		}
 		
-		//découpage en lignes
+		//decoupage en lignes
         String[] texts = texteAAfficher.split("\\\\n");
         int nombreLignes = texts.length;
         if (texts.length <= 0) {
@@ -229,7 +229,7 @@ public class Texte extends ElementDeMenu {
 	        		textesListe.set(i, ligne.substring(0, coupure));
 	        		textesListe.add(i+1, ligne.substring(coupure+1));
 	        		nombreDeLignes++;
-	        		LOG.debug("La ligne \""+ligne+"\" a été scindée : "+textesListe.get(i)+"|"+textesListe.get(i+1));
+	        		LOG.debug("La ligne \""+ligne+"\" a ete scindee : "+textesListe.get(i)+"|"+textesListe.get(i+1));
 	        	}
 	        }
 	        
@@ -253,10 +253,10 @@ public class Texte extends ElementDeMenu {
         }
         final int hauteurDesLignes = fm.getHeight();
         g2d.dispose();
-        final int hauteurTotaleImage = (hauteurDesLignes + Texte.INTERLIGNE)*nombreLignes - Texte.INTERLIGNE; //on retire l'interligne inutile tout à la fin
+        final int hauteurTotaleImage = (hauteurDesLignes + Texte.INTERLIGNE)*nombreLignes - Texte.INTERLIGNE; //on retire l'interligne inutile tout a la fin
         img = new BufferedImage(largeurDesLignes, hauteurTotaleImage, Graphismes.TYPE_DES_IMAGES);
         
-        //réglage de la police
+        //reglage de la police
         g2d = img.createGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -269,14 +269,14 @@ public class Texte extends ElementDeMenu {
         g2d.setFont(font);
         fm = g2d.getFontMetrics();
         
-        //si aucune couleur forcée, couleur par défaut
+        //si aucune couleur forcee, couleur par defaut
         if (this.couleurForcee == null) {
         	g2d.setColor(Texte.COULEURS_PAR_DEFAUT[0]);
         } else {
         	g2d.setColor(this.couleurForcee);
         }
         
-        //on écrit chaque ligne
+        //on ecrit chaque ligne
         for (int i = 0; i<nombreLignes; i++) { 
         	int largeurALaquelleOnEcrit = 0;
         	final int hauteurALaquelleOnEcrit = i*(this.taille+Texte.INTERLIGNE) + fm.getAscent();
@@ -312,13 +312,13 @@ public class Texte extends ElementDeMenu {
         	}
         }
 	    
-        LOG.trace("Texte transformé en image : "+texteAAfficher);
+        LOG.trace("Texte transforme en image : "+texteAAfficher);
         return img;
 	}
 	
 	/**
 	 * Couper une ligne trop longue.
-	 * @param ligne à couper
+	 * @param ligne a couper
 	 * @return lieu de coupure
 	 */
 	private int couper(final String ligne) {
@@ -352,7 +352,7 @@ public class Texte extends ElementDeMenu {
 	}
 	
 	/**
-	 * Séparer les langues dans une liste.
+	 * Separer les langues dans une liste.
 	 * @param o soit le texte dans une langue unique au format String, soit le texte multilingue ArrayList<String>
 	 * @return liste du texte dans chaque langue
 	 */
@@ -373,20 +373,20 @@ public class Texte extends ElementDeMenu {
 	}
 	
 	/**
-	 * Charger le fichier de propritétés de la police d'écriture.
+	 * Charger le fichier de propritetes de la police d'ecriture.
 	 * @return objet JSON
 	 */
 	private static JSONObject chargerInformationsPolice() {
 		try {
-			return InterpreteurDeJson.ouvrirJson("police", ".\\ressources\\Data\\");
+			return InterpreteurDeJson.ouvrirJson("police", "./ressources/Data/");
 		} catch (Exception e) {
-			LOG.error("Impossible de lire le fichier des informations sur la police d'écriture.", e);
+			LOG.error("Impossible de lire le fichier des informations sur la police d'ecriture.", e);
 			return null;
 		}
 	}
 	
 	/**
-	 * Récupérer le nom de la police du jeu.
+	 * Recuperer le nom de la police du jeu.
 	 * @return nom de la police
 	 */
 	private static String chargerNomPolice() {
@@ -400,19 +400,19 @@ public class Texte extends ElementDeMenu {
 			// On essaye de l'installer
 			try {
 				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(".\\ressources\\Graphics\\Fonts\\"+police+".ttf")));
-				LOG.info("La police "+police+" a dû être installée.");
+				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("./ressources/Graphics/Fonts/"+police+".ttf")));
+				LOG.info("La police "+police+" a de etre installee.");
 				return police;
 			} catch (IOException|FontFormatException e) {
-				LOG.error("Impossible de charger la police personnalisée "+police, e);
-				LOG.info("La police par défaut "+POLICE_PAR_DEFAUT+" sera utilisée à la place.");
+				LOG.error("Impossible de charger la police personnalisee "+police, e);
+				LOG.info("La police par defaut "+POLICE_PAR_DEFAUT+" sera utilisee a la place.");
 			}
 		}
 		return POLICE_PAR_DEFAUT;
 	}
 	
 	/**
-	 * Récupérer les couleurs de la police du jeu.
+	 * Recuperer les couleurs de la police du jeu.
 	 * @return couleurs de la police
 	 */
 	private static Color[] chargerCouleurParDefaut() {
@@ -427,8 +427,8 @@ public class Texte extends ElementDeMenu {
 	}
 	
 	/**
-	 * Récupérer la taille de la police dans le fichier de propriétés.
-	 * @param taille libellé de la taille
+	 * Recuperer la taille de la police dans le fichier de proprietes.
+	 * @param taille libelle de la taille
 	 * @return nombre de pixels de hauteur
 	 */
 	private static int chargerTaille(final String taille) {
@@ -436,7 +436,7 @@ public class Texte extends ElementDeMenu {
 	}
 	
 	/**
-	 * Vérifier si la police du jeu est installée sur l'ordinateur de l'utilisateur.
+	 * Verifier si la police du jeu est installee sur l'ordinateur de l'utilisateur.
 	 * @param nomPolice police du jeu
 	 * @return disponible ou pas
 	 */
@@ -453,7 +453,7 @@ public class Texte extends ElementDeMenu {
 	}
 	
 	/**
-	 * Trouver des couleurs de sélection adaptées au Texte.
+	 * Trouver des couleurs de selection adaptees au Texte.
 	 * @return tableau conteneant deux couleurs RGBA
 	 */
 	public int[][] trouverCouleursDeSelectionAdaptees() {
@@ -463,7 +463,7 @@ public class Texte extends ElementDeMenu {
 		final String texteAAfficher = this.contenu.get(langue < this.contenu.size() ? langue : 0);
 		
 		if (texteAAfficher.contains("\\c[07]")) {
-			// sélection argentée pour les textes blancs
+			// selection argentee pour les textes blancs
 			couleursDeSelectionAdaptees[0] = new int[]{200, 255, 255, 100};
 			couleursDeSelectionAdaptees[1] = new int[]{100, 150, 200, 0};
 		} else {

@@ -214,6 +214,44 @@
 		"y": 8
 	},
 	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 21,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 100,
+				"modeDeFusion": "negatif",
+				"defilementX": 3,
+				"defilementY": 0,
+				"zoom": 200,
+				"nuance": 200,
+				"nomImage": "brouillard bleu clair2"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 1,
 		"nom": "Receptacle",
 		"x": 12,
@@ -358,44 +396,6 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 21,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 100,
-				"modeDeFusion": "negatif",
-				"defilementX": 3,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 200,
-				"nomImage": "brouillard bleu clair2"
-			},
-			{
-				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",

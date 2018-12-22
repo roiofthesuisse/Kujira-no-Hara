@@ -171,10 +171,10 @@
 	],
 	"events": [
 	{
-		"id": 38,
-		"nom": "EV038",
-		"x": 19,
-		"y": 3,
+		"id": 5,
+		"nom": "Torche murale",
+		"x": 13,
+		"y": 34,
 		"pages": [
 		{
 			"conditions": [
@@ -184,14 +184,40 @@
 			],
 			"commandes": [
 			],
-			"image": 457,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"image": "torche murale character",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Torche murale",
+		"x": 13,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -290,10 +316,10 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Torche murale",
-		"x": 13,
-		"y": 6,
+		"id": 38,
+		"nom": "EV038",
+		"x": 19,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -303,63 +329,36 @@
 			],
 			"commandes": [
 			],
-			"image": "torche murale character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "Torche murale",
-		"x": 13,
-		"y": 34,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 33,
-		"nom": "Livre",
-		"x": 25,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "livre ouvert character",
-			"directionInitiale": 2,
+			"image": 457,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 11,
+		"nom": "Torche murale",
+		"x": 13,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -437,10 +436,42 @@
 		]
 	},
 	{
-		"id": 11,
+		"id": 33,
+		"nom": "Livre",
+		"x": 25,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "livre ouvert character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 39,
+		"nom": "Clone[341][165]",
+		"x": 27,
+		"y": 31
+	},
+	{
+		"id": 6,
 		"nom": "Torche murale",
 		"x": 13,
-		"y": 16,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
@@ -451,6 +482,7 @@
 			"commandes": [
 			],
 			"image": "torche murale character",
+			"directionInitiale": 3,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -460,12 +492,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][004]",
-		"x": 8,
-		"y": 40
 	},
 	{
 		"id": 28,
@@ -499,10 +525,16 @@
 		]
 	},
 	{
-		"id": 6,
+		"id": 17,
+		"nom": "Clone[341][004]",
+		"x": 8,
+		"y": 40
+	},
+	{
+		"id": 1,
 		"nom": "Torche murale",
 		"x": 13,
-		"y": 24,
+		"y": 36,
 		"pages": [
 		{
 			"conditions": [
@@ -513,7 +545,6 @@
 			"commandes": [
 			],
 			"image": "torche murale character",
-			"directionInitiale": 3,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -525,16 +556,10 @@
 		]
 	},
 	{
-		"id": 39,
-		"nom": "Clone[341][165]",
-		"x": 27,
-		"y": 31
-	},
-	{
-		"id": 34,
-		"nom": "Livre",
+		"id": 12,
+		"nom": "Torche murale",
 		"x": 25,
-		"y": 30,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -544,12 +569,11 @@
 			],
 			"commandes": [
 			],
-			"image": "livre ouvert character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"image": "torche murale character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -631,10 +655,36 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 34,
+		"nom": "Livre",
+		"x": 25,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "livre ouvert character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
 		"nom": "Torche murale",
 		"x": 25,
-		"y": 16,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
@@ -645,6 +695,7 @@
 			"commandes": [
 			],
 			"image": "torche murale character",
+			"directionInitiale": 3,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -656,29 +707,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Torche murale",
-		"x": 13,
-		"y": 36,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 18,
+		"nom": "Clone[341][004]",
+		"x": 30,
+		"y": 40
 	},
 	{
 		"id": 29,
@@ -763,16 +795,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][004]",
-		"x": 30,
-		"y": 40
-	},
-	{
-		"id": 7,
+		"id": 13,
 		"nom": "Torche murale",
 		"x": 25,
-		"y": 24,
+		"y": 42,
 		"pages": [
 		{
 			"conditions": [
@@ -789,6 +815,101 @@
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Torche murale",
+		"x": 25,
+		"y": 36,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 24,
+		"nom": "Curé",
+		"x": 19,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "L'église saint Steeven est notre laboratoire \\nde théologie et de métaphysique quantique."
+			},
+			{
+				"nom": "Message",
+				"texte": "Cette croix que nous portons au cou \\nsymbolise le zéroième axiome d'Euclide, \\nfondement de la géométrie."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Deux droites non parallèles se coupent en\\nun unique point\"."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "cure character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1173,105 +1294,10 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Curé",
-		"x": 19,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "L'église saint Steeven est notre laboratoire \\nde théologie et de métaphysique quantique."
-			},
-			{
-				"nom": "Message",
-				"texte": "Cette croix que nous portons au cou \\nsymbolise le zéroième axiome d'Euclide, \\nfondement de la géométrie."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Deux droites non parallèles se coupent en\\nun unique point\"."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "cure character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
+		"id": 8,
 		"nom": "Torche murale",
 		"x": 25,
-		"y": 36,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Torche murale",
-		"x": 25,
-		"y": 42,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -1292,6 +1318,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][004]",
+		"x": 8,
+		"y": 12
 	},
 	{
 		"id": 30,
@@ -1400,83 +1432,31 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][004]",
-		"x": 8,
-		"y": 12
-	},
-	{
-		"id": 8,
-		"nom": "Torche murale",
-		"x": 25,
-		"y": 14,
+		"id": 36,
+		"nom": "EV036",
+		"x": 32,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Torche murale",
-		"x": 13,
-		"y": 42,
-		"pages": [
-		{
-			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 512,
+				"xDebutHeros": 6,
+				"yDebutHeros": 8
 			}
 			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Torche murale",
-		"x": 25,
-		"y": 26,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1547,35 +1527,87 @@
 		]
 	},
 	{
-		"id": 36,
-		"nom": "EV036",
-		"x": 32,
-		"y": 20,
+		"id": 3,
+		"nom": "Torche murale",
+		"x": 25,
+		"y": 26,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 512,
-				"xDebutHeros": 6,
-				"yDebutHeros": 8
-			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
+			"image": "torche murale character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 14,
+		"nom": "Torche murale",
+		"x": 13,
+		"y": 42,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Torche murale",
+		"x": 13,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][004]",
+		"x": 30,
+		"y": 12
 	},
 	{
 		"id": 31,
@@ -1603,16 +1635,41 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][004]",
-		"x": 30,
-		"y": 12
+		"id": 37,
+		"nom": "EV037",
+		"x": 19,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 537,
+				"xDebutHeros": 10,
+				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 9,
+		"id": 4,
 		"nom": "Torche murale",
-		"x": 13,
-		"y": 14,
+		"x": 25,
+		"y": 34,
 		"pages": [
 		{
 			"conditions": [
@@ -1624,6 +1681,31 @@
 			],
 			"image": "torche murale character",
 			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Torche murale",
+		"x": 25,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -1701,75 +1783,39 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Torche murale",
-		"x": 25,
-		"y": 6,
+		"id": 21,
+		"nom": "EV021",
+		"x": 21,
+		"y": 44,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Torche murale",
-		"x": 25,
-		"y": 34,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 37,
-		"nom": "EV037",
-		"x": 19,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 537,
-				"xDebutHeros": 10,
-				"yDebutHeros": 11
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 132,
+				"vert": 132,
+				"bleu": 142,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 120,
+				"modeDeFusion": "negatif",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 350,
+				"nomImage": "eglise effet lumière"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -1777,32 +1823,6 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 32,
-		"nom": "Livre",
-		"x": 14,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "livre ouvert character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1834,46 +1854,26 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "EV021",
-		"x": 21,
-		"y": 44,
+		"id": 32,
+		"nom": "Livre",
+		"x": 14,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 132,
-				"vert": 132,
-				"bleu": 142,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 120,
-				"modeDeFusion": "negatif",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 100,
-				"nuance": 350,
-				"nomImage": "eglise effet lumière"
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
+			"commandes": [
+			],
+			"image": "livre ouvert character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

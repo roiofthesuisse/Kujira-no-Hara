@@ -1,0 +1,61 @@
+{
+	"numero": 62,
+	"nom": "Bruit PUSH",
+	"conditions": [
+		{
+			"nom": "Appel"
+		}
+	],
+	"commandes": [
+		{
+			"nom": "ModifierVariable",
+			"numeroVariable": 105,
+			"operationAFaire": "rendre egal a",
+			"valeurADonner": -1,
+			"operationAFaire2": "coordonnee x"
+		},
+		{
+			"nom": "ModifierVariable",
+			"numeroVariable": 106,
+			"operationAFaire": "rendre egal a",
+			"valeurADonner": -1,
+			"operationAFaire2": "coordonnee y"
+		},
+		{
+			"nom": "ConditionVariable",
+			"numero": 0,
+			"numeroVariable": 103,
+			"inegalite": "!=",
+			"comparerAUneAutreVariable": true,
+			"valeurQuIlEstCenseAvoir": 105
+		},
+		{
+			"nom": "JouerEffetSonore",
+			"nomFichierSonore": "045-Push01.ogg",
+			"volume": 1.00,
+			"tempo": 1.50
+		},
+		{
+			"nom": "ConditionFin",
+			"numero": 0
+		},
+		{
+			"nom": "ConditionVariable",
+			"numero": 1,
+			"numeroVariable": 104,
+			"inegalite": "!=",
+			"comparerAUneAutreVariable": true,
+			"valeurQuIlEstCenseAvoir": 106
+		},
+		{
+			"nom": "JouerEffetSonore",
+			"nomFichierSonore": "045-Push01.ogg",
+			"volume": 1.00,
+			"tempo": 1.50
+		},
+		{
+			"nom": "ConditionFin",
+			"numero": 1
+		}
+	]
+}
