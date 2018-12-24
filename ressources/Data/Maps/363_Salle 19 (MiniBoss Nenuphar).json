@@ -111,6 +111,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][039]",
+		"x": 18,
+		"y": 10
+	},
+	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 8,
@@ -140,12 +146,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][039]",
-		"x": 18,
-		"y": 10
 	},
 	{
 		"id": 11,
@@ -392,7 +392,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 363,
 				"numeroEvent": 6,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -421,6 +420,121 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 24,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 2,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 666
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 13,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 333
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 4,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 2,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 3,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 13,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 3
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"opacite": 0,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 12,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -1056,7 +1170,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 363,
 				"numeroEvent": 1,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -1145,122 +1258,6 @@
 				"volume": 0.80,
 				"tempo": 1.00
 			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 24,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 2,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 666
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 13,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 333
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 4,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 2,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 3,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 13,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 3
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroMap": 363,
-				"numeroEvent": 12,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
 			{
 				"nom": "SupprimerEvent"
 			}
@@ -2058,7 +2055,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 363,
 				"numeroEvent": 7,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -2080,6 +2076,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][039]",
+		"x": 10,
+		"y": 10
 	},
 	{
 		"id": 13,
@@ -2106,12 +2108,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][039]",
-		"x": 10,
-		"y": 10
 	},
 	{
 		"id": 8,
@@ -2253,7 +2249,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 363,
 				"numeroEvent": 8,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -2274,6 +2269,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][039]",
+		"x": 10,
+		"y": 18
 	},
 	{
 		"id": 14,
@@ -2300,12 +2301,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][039]",
-		"x": 10,
-		"y": 18
 	},
 	{
 		"id": 9,
@@ -2447,7 +2442,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 363,
 				"numeroEvent": 9,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -2468,6 +2462,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][039]",
+		"x": 18,
+		"y": 18
 	},
 	{
 		"id": 15,
@@ -2499,12 +2499,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][039]",
-		"x": 18,
-		"y": 18
 	},
 	{
 		"id": 10,
@@ -2646,7 +2640,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 363,
 				"numeroEvent": 10,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true

@@ -9,6 +9,17 @@
                     "nom": "Commentaire"
                 },
                 {
+                    "volume": 1,
+                    "nomFichierSonore": "monnaie.mp3",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "variable": false,
+                    "nom": "AjouterArgent",
+                    "quantite": 1
+                },
+                {
                     "numeroInterrupteurLocal": 0,
                     "valeurADonner": true,
                     "nom": "ModifierInterrupteurLocal"
@@ -26,17 +37,6 @@
         {
             "commandes": [
                 {
-                    "volume": 1,
-                    "nomFichierSonore": "monnaie.mp3",
-                    "tempo": 1,
-                    "nom": "JouerEffetSonore"
-                },
-                {
-                    "variable": false,
-                    "nom": "AjouterArgent",
-                    "quantite": 1
-                },
-                {
                     "nom": "AppelerUnScript",
                     "script": "$game_map.events[@event_id].life = 0"
                 },
@@ -48,7 +48,6 @@
             "frequence": "basse",
             "conditions": [{
                 "valeurQuIlEstCenseAvoir": true,
-                "numeroMap": 341,
                 "numeroInterrupteurLocal": 0,
                 "nom": "InterrupteurLocal",
                 "numeroEvent": 163

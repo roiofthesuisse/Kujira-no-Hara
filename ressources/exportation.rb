@@ -316,8 +316,6 @@ class Exportation
               write_linebreak(file)
               file.write("\t\t\t\t\"nom\": \"InterrupteurLocal\",")
               write_linebreak(file)
-              file.write(sprintf("\t\t\t\t\"numeroMap\": %d,", map_id))
-              write_linebreak(file)
               file.write(sprintf("\t\t\t\t\"numeroEvent\": %d,", event_id))
               write_linebreak(file)
               numero_interrupteur_local = case c.self_switch_ch

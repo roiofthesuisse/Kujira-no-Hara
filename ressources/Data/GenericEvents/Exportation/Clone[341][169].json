@@ -1,6 +1,7 @@
 {
     "pages": [
         {
+            "directionInitiale": 2,
             "image": "glacon character",
             "commandes": [{
                 "texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon.",
@@ -17,7 +18,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 1
                     },
                     {
@@ -29,7 +30,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 2
                     },
                     {
@@ -41,7 +42,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 3
                     },
                     {
@@ -53,7 +54,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 0
                     },
                     {
@@ -65,7 +66,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 1
                     }
                 ],
@@ -79,6 +80,7 @@
             "vitesse": "tres rapide"
         },
         {
+            "directionInitiale": 2,
             "image": "glacon character",
             "commandes": [
                 {
@@ -101,7 +103,10 @@
                     "nom": "ModifierVariable",
                     "operationAFaire2": "valeur brute"
                 },
-                {"nom": "SupprimerEvent"},
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 5)"
+                },
                 {
                     "numero": 0,
                     "nom": "ConditionFin"
@@ -126,7 +131,10 @@
                     "nom": "ModifierVariable",
                     "operationAFaire2": "valeur brute"
                 },
-                {"nom": "SupprimerEvent"},
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 5)"
+                },
                 {
                     "numero": 1,
                     "nom": "ConditionFin"
@@ -145,14 +153,17 @@
                     "script": "$game_temp.animations.push([41, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
                 },
                 {
-                    "texte": "faire disparaitre le glacon",
+                    "texte": "transformer le glacon",
                     "nom": "Commentaire"
                 },
                 {
                     "nom": "AppelerUnScript",
                     "script": "$game_map.events[@event_id].life = 0"
                 },
-                {"nom": "SupprimerEvent"},
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 5)"
+                },
                 {
                     "numero": 2,
                     "nom": "ConditionFin"
@@ -174,7 +185,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 1
                     },
                     {
@@ -186,7 +197,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 2
                     },
                     {
@@ -198,7 +209,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 3
                     },
                     {
@@ -210,7 +221,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 0
                     },
                     {
@@ -222,7 +233,7 @@
                         "image": "glacon character",
                         "teinte": 0,
                         "nom": "ModifierApparence",
-                        "direction": 0,
+                        "direction": 2,
                         "animation": 1
                     }
                 ],
@@ -234,15 +245,15 @@
                 "valeurQuIlEstCenseAvoir": true,
                 "numeroInterrupteurLocal": 0,
                 "nom": "InterrupteurLocal",
-                "numeroEvent": 113
+                "numeroEvent": 169
             }],
             "directionFixe": true,
             "animeALArret": false,
             "vitesse": "tres rapide"
         }
     ],
-    "x": 28,
-    "y": 1,
-    "id": 113,
-    "nom": "Glacon HP[1] RESET"
+    "x": 29,
+    "y": 2,
+    "id": 169,
+    "nom": "Courge gele HP[1] RESET"
 }

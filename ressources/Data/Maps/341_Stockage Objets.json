@@ -572,7 +572,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 129,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -946,7 +945,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 111,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -1145,7 +1143,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 130,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -1564,7 +1561,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 167,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -1633,14 +1629,20 @@
 				"numero": 2
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
+				"nom": "Commentaire",
+				"texte": "animation de glace qui eclate"
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Pot_Shatter1.wav",
-				"volume": 1.00,
-				"tempo": 1.50
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([41, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "transformer le glacon"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -2751,7 +2753,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 19,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -3672,7 +3673,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 149,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -3737,7 +3737,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 149,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -3839,7 +3838,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 1,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -4585,7 +4583,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 131,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -5061,7 +5058,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 57,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -5178,7 +5174,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 113,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -5245,14 +5240,20 @@
 				"numero": 2
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
+				"nom": "Commentaire",
+				"texte": "animation de glace qui eclate"
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Pot_Shatter1.wav",
-				"volume": 1.00,
-				"tempo": 1.50
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([41, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "faire disparaitre le glacon"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -6142,7 +6143,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 39,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -6268,7 +6268,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 76,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -6475,7 +6474,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 169,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -6544,14 +6542,20 @@
 				"numero": 2
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
+				"nom": "Commentaire",
+				"texte": "animation de glace qui eclate"
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Pot_Shatter1.wav",
-				"volume": 1.00,
-				"tempo": 1.50
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([41, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "transformer le glacon"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -6721,7 +6725,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 21,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -7975,7 +7978,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 3,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -8240,7 +8242,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 40,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -8403,7 +8404,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 59,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -10760,7 +10760,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 59,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -13144,7 +13143,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 59,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -15528,7 +15526,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 59,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -18006,7 +18003,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 59,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -20460,7 +20456,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 96,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -20590,7 +20585,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 4,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -20932,7 +20926,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 78,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -21033,7 +21026,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 115,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -21605,7 +21597,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 23,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -21701,7 +21692,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 97,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -21831,7 +21821,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 5,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -22140,7 +22129,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 61,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -22643,7 +22631,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 135,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -23209,7 +23196,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 6,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -23298,7 +23284,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 43,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -24148,7 +24133,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 117,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -24225,7 +24209,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 117,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -24808,7 +24791,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 117,
 				"numeroInterrupteurLocal": 2,
 				"valeurQuIlEstCenseAvoir": true
@@ -24903,7 +24885,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 154,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -25128,7 +25109,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 25,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -26628,7 +26608,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 155,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -27066,7 +27045,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 100,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -27143,7 +27121,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 100,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -27724,7 +27701,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 100,
 				"numeroInterrupteurLocal": 2,
 				"valeurQuIlEstCenseAvoir": true
@@ -28401,7 +28377,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 8,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -28490,7 +28465,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 45,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -29264,7 +29238,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 119,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -29342,7 +29315,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 119,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -29919,7 +29891,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 119,
 				"numeroInterrupteurLocal": 2,
 				"valeurQuIlEstCenseAvoir": true
@@ -31446,7 +31417,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 157,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -32016,7 +31986,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 102,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -32111,7 +32080,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 28,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -32887,7 +32855,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 47,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -34156,7 +34123,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 159,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -34215,7 +34181,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 48,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -35225,7 +35190,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 141,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -35441,7 +35405,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 30,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -35557,7 +35520,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 30,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -35625,7 +35587,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 123,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -36540,7 +36501,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 49,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -37665,7 +37625,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 50,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -37773,7 +37732,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 161,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -37834,7 +37792,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 32,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -37989,7 +37946,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 143,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -39159,7 +39115,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 125,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -39300,7 +39255,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 107,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -39353,7 +39307,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 107,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -39450,7 +39403,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 163,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -39512,7 +39464,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 34,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -39738,7 +39689,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 71,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -40003,7 +39953,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 145,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -40079,7 +40028,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 127,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -40157,7 +40105,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 127,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -40738,7 +40685,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 127,
 				"numeroInterrupteurLocal": 2,
 				"valeurQuIlEstCenseAvoir": true
@@ -40833,7 +40779,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 35,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -41242,7 +41187,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 72,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -41292,7 +41236,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 109,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -41398,7 +41341,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 109,
 				"numeroInterrupteurLocal": 3,
 				"valeurQuIlEstCenseAvoir": true
@@ -42370,7 +42312,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 165,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -42451,7 +42392,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 165,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -42829,7 +42769,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 17,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
@@ -43427,7 +43366,6 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 147,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
@@ -43523,7 +43461,6 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroMap": 341,
 				"numeroEvent": 36,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
