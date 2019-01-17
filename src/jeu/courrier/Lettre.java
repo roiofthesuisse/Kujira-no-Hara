@@ -5,7 +5,7 @@ package jeu.courrier;
  */
 public abstract class Lettre {
 	protected int id;
-	protected Adresse personnage;
+	public Adresse personnage;
 	public String texte;
 
 }

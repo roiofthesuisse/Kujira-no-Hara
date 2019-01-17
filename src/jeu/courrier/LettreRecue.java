@@ -12,6 +12,18 @@ import menu.Listable;
  */
 public class LettreRecue extends Lettre implements Listable {
 
+	/**
+	 * Constructeur explicite
+	 * @param idLettre identifiant de la lettre envoyée
+	 * @param nomPersonnage expéditeur
+	 * @param texte contenu de la reponse
+	 */
+	public LettreRecue(final int idLettre, final String nomPersonnage, final String texte) {
+		 this.id = idLettre;
+		 this.personnage = Adresse.parNom(nomPersonnage);
+		 this.texte = texte;
+	}
+	
 	@Override
 	public final BufferedImage construireImagePourListe(final int largeur, final int hauteur) {
 		// icone

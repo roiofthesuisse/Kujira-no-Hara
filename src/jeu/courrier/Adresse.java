@@ -19,4 +19,18 @@ public enum Adresse {
 	Adresse(final String nomPersonnage) {
 		this.nomPersonnage = nomPersonnage;
 	}
+
+	/**
+	 * Obtenir une adresse par le nom du personnage.
+	 * @param nom du personnage
+	 * @return adresse
+	 */
+	public static Adresse parNom(final String nom) {
+		for (Adresse adresse : Adresse.values()) {
+			if (adresse.nomPersonnage.equals(nom)) {
+				return adresse;	
+			}
+		}
+		return null;
+	}
 }
