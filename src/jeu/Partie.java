@@ -18,6 +18,8 @@ import commandes.Sauvegarder;
 import commandes.Sauvegarder.Sauvegardable;
 import conditions.Condition;
 import jeu.Quete.AvancementQuete;
+import jeu.courrier.LettreAEnvoyer;
+import jeu.courrier.LettreRecue;
 import main.Commande;
 import main.Main;
 import map.Animation;
@@ -42,10 +44,12 @@ public final class Partie implements Listable, Sauvegardable {
 	private static final int NOMBRE_DE_VARIABLES = 200;
 	private static final int NOMBRE_D_IMAGES = 50;
 	private static final int NOMBRE_DE_MOTS = 50;
+	/** Numéro du mot correpsondant au nom du heros */
+	public static final int NOM_DU_HEROS = 0;
 	/** Marge (en pixels) de la vignette de Partie dans le Menu */
 	private static final int MARGE = 16;
 	/** Numero de la variable dans laquelle est stocke le numero de l'image d'avancement de la partie */
-	private static final int NUMERO_VARIABLE_AVANCEMENT_PARTIE = 126;
+	public static final int NUMERO_VARIABLE_AVANCEMENT_PARTIE = 126;
 	
 	public int id;
 	public int numeroMap;
@@ -74,6 +78,10 @@ public final class Partie implements Listable, Sauvegardable {
 	/** possède-t-on le gadget numéro i ? */
 	public boolean[] gadgetsPossedes;
 	public int nombreDeGadgetsPossedes;
+	/** Lettres a envoyer a des personnages du jeu */
+	public ArrayList<LettreAEnvoyer> lettresAEnvoyer;
+	/** Lettres recues de personnages du jeu */
+	public ArrayList<LettreRecue> lettresRecues;
 	
 	public int idArmeEquipee;
 	public int idGadgetEquipe;
@@ -121,6 +129,9 @@ public final class Partie implements Listable, Sauvegardable {
 		this.gadgetsPossedes = new boolean[Gadget.GADGETS_DU_JEU.length];
 		this.nombreDeGadgetsPossedes = 0;
 		this.idGadgetEquipe = -1;
+		// Courrier
+		this.lettresAEnvoyer = new ArrayList<>();
+		this.lettresRecues = new ArrayList<>();
 
 		LOG.info("Partie chargée.");
 	}
@@ -207,6 +218,16 @@ public final class Partie implements Listable, Sauvegardable {
 		}
 		this.gadgetsPossedes = tableauDesGadgetsPossedes;
 		this.nombreDeGadgetsPossedes = nombreDeGadgetsPossedes;
+		
+		//lettres a envoyer
+		final ArrayList<LettreAEnvoyer> lettresAEnvoyer = new ArrayList<>();
+		//TODO parse JSON
+		this.lettresAEnvoyer = lettresAEnvoyer;
+		
+		//lettres recues
+		final ArrayList<LettreRecue> lettresRecues = new ArrayList<>();
+		//TODO parse JSON
+		this.lettresRecues = lettresRecues;
 		
 		//interrupteurs
 		for (Object o : interrupteurs) {
@@ -421,25 +442,36 @@ public final class Partie implements Listable, Sauvegardable {
 			final int yVignette = MARGE;
 			Graphismes.superposerImages(vignettePartie, avancement, xVignette, yVignette);
 		} catch (IOException e) {
-			LOG.error("Impossible d'ouvrir l'image d'avancement "+this.variables[NUMERO_VARIABLE_AVANCEMENT_PARTIE]);
+			LOG.error("Impossible d'ouvrir l'image d'avancement "+avancement());
 		}
 		
 		
 		return vignettePartie;
 	}
 	
+	/**
+	 * Code correspondant à l'avancement de la Partie
+	 * @return code
+	 */
+	public int avancement() {
+		return this.variables[NUMERO_VARIABLE_AVANCEMENT_PARTIE];
+	}
+	
 	@Override
 	public ArrayList<Condition> getConditions() {
+		// Afficher toutes les parties dans le Menu
 		return null;
 	}
 
 	@Override
 	public ArrayList<Commande> getComportementSelection() {
+		// Rien ne se passe quand le curseur arrive au dessus de la Partie
 		return null;
 	}
 
 	@Override
 	public ArrayList<Commande> getComportementConfirmation() {
+		// On charge la Partie
 		final ArrayList<Commande> comportementConfirmation = new ArrayList<Commande>();
 		comportementConfirmation.add(new ChargerPartie(this.id));
 		return comportementConfirmation;
@@ -472,6 +504,16 @@ public final class Partie implements Listable, Sauvegardable {
 			}
 		}
 		jsonPartie.put("gadgetsPossedes", gadgetsPossedes);
+		
+		//lettres a envoyer
+		final JSONArray lettresAEnvoyerJson = new JSONArray();
+		//TODO convertir en JSON
+		jsonPartie.put("lettresAEnvoyer", lettresAEnvoyerJson);
+		
+		//lettres recues
+		final JSONArray lettresRecuesJson = new JSONArray();
+		//TODO convertir en JSON
+		jsonPartie.put("lettresRecues", lettresRecuesJson);
 		
 		//interrupteurs
 		final JSONArray interrupteurs = new JSONArray();
