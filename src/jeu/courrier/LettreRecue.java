@@ -13,26 +13,33 @@ import menu.Listable;
 public class LettreRecue extends Lettre implements Listable {
 
 	@Override
-	public BufferedImage construireImagePourListe(int largeur, int hauteur) {
-		// TODO Auto-generated method stub
+	public final BufferedImage construireImagePourListe(final int largeur, final int hauteur) {
+		// icone
+		// TODO
+		
+		// expediteur
+		// TODO
+		
+		// TODO
 		return null;
 	}
 
-	@Override
+	final @Override
 	public ArrayList<Condition> getConditions() {
-		// TODO Auto-generated method stub
+		// Toujours afficher les lettres recues
 		return null;
 	}
 
-	@Override
+	final @Override
 	public ArrayList<Commande> getComportementSelection() {
-		// TODO Auto-generated method stub
+		// Au survol, afficher le contenu de la lettre
+		//TODO
 		return null;
 	}
 
-	@Override
+	final @Override
 	public ArrayList<Commande> getComportementConfirmation() {
-		// TODO Auto-generated method stub
+		// Pas de confirmation
 		return null;
 	}
 

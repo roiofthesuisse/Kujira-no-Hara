@@ -1,7 +1,10 @@
 package jeu.courrier;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
@@ -29,7 +32,7 @@ import main.Main;
 public abstract class Poste {
 	private static final Logger LOG = LogManager.getLogger(Poste.class);
 	protected static final String[] JOUEUR = calculerIdentifiantJoueur();
-	private static final String SERVEUR = "http://www.roiofthesuisse.byethost7.com/";
+	private static final String SERVEUR = "http://www.roiofthesuisse.fr/kujiranohara/";
 	private static final String RECEVOIR = "kujiranohara_recevoirCourrier.php";
 	private static final String ENVOYER = "kujiranohara_envoyerCourrier.php";
 
@@ -39,54 +42,33 @@ public abstract class Poste {
 	 * @return reponse http
 	 */
 	public static String envoyerDuCourrier(final LettreAEnvoyer lettre) {
-		try {
-			// Requete POST
-			final URL url = new URL(SERVEUR+ENVOYER);
-			final URLConnection con = url.openConnection();
-			final HttpURLConnection http = (HttpURLConnection) con;
-			http.setRequestMethod("POST"); // PUT is another valid option
-			http.setDoOutput(true);
-			
-			// Arguments de la requete POST
-			final HashMap<String, String> arguments = new HashMap<>();
-			final Partie partie = Main.getPartieActuelle();
-			arguments.put("joueurIp", JOUEUR[0]);
-			arguments.put("joueurMac", JOUEUR[1]);
-			arguments.put("joueurNom", partie.mots[Partie.NOM_DU_HEROS]);
-			arguments.put("partieId", Integer.toString(partie.id));
-			arguments.put("lettreId", Integer.toString(lettre.id));
-			arguments.put("lettreDestinataire", lettre.personnage.nomPersonnage);
-			arguments.put("lettreTexte", lettre.texte);
-			final StringJoiner sj = new StringJoiner("&");
-			for (HashMap.Entry<String, String> entry : arguments.entrySet()) {
-			    sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
-			         + URLEncoder.encode(entry.getValue(), "UTF-8"));
-			}
-			final byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
-			final int length = out.length;
-			
-			// Envoyer la requete
-			http.setFixedLengthStreamingMode(length);
-			http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-			http.connect();
-			try (OutputStream os = http.getOutputStream()) {
-			    os.write(out);
-			}
-			
-			// Obtenir la reponse
-			final InputStream is = http.getInputStream();
-			final Scanner s = new Scanner(is);
-			s.useDelimiter("\\A");
-			final String reponse = s.next();
-			s.close();
-			is.close();
-			http.disconnect();
-			return reponse;
-			
-		} catch (IOException e) {
-			LOG.error("Impossible de recevoir le courrier !", e);
-			return null;
-		}
+		// Arguments
+		final HashMap<String, String> arguments = new HashMap<>();
+		final Partie partie = Main.getPartieActuelle();
+		arguments.put("joueurIp", JOUEUR[0]);
+		arguments.put("joueurMac", JOUEUR[1]);
+		arguments.put("joueurNom", partie.mots[Partie.NOM_DU_HEROS]);
+		arguments.put("partieId", Integer.toString(partie.id));
+		arguments.put("lettreId", Integer.toString(lettre.id));
+		arguments.put("lettreDestinataire", lettre.personnage.nomPersonnage);
+		arguments.put("lettreTexte", lettre.texte);
+		
+		return requetePost(SERVEUR+ENVOYER, arguments);
+	}
+	
+	public static void main(final String[] args) {
+		// Arguments
+		final HashMap<String, String> arguments = new HashMap<>();
+		arguments.put("joueurIp", "0.0.0.0");
+		arguments.put("joueurMac", "FF:FF:FF:FF:FF:FF:FF:FF");
+		arguments.put("joueurNom", "Robert");
+		arguments.put("partieId", "1");
+		arguments.put("lettreId", "1");
+		arguments.put("lettreDestinataire", Adresse.MATHUSALEM.nomPersonnage);
+		arguments.put("lettreTexte", "Bonjour mon vieux !\\nJ'espère que tout va bien pour toi.\\nAmitié,\\nRobert");
+		
+		final String reponse = requetePost(SERVEUR+ENVOYER, arguments);
+		LOG.info(reponse);
 	}
 	
 	/**
@@ -94,37 +76,78 @@ public abstract class Poste {
 	 * @return reponse http du serveur postal
 	 */
 	public static String recevoirLeCourrier() {
+		// Arguments
+		final HashMap<String, String> arguments = new HashMap<>();
+		final Partie partie = Main.getPartieActuelle();
+		arguments.put("ipJoueur", JOUEUR[0]);
+		arguments.put("macJoueur", JOUEUR[1]);
+		arguments.put("nomJoueur", partie.mots[Partie.NOM_DU_HEROS]);
+		arguments.put("idPartie", Integer.toString(partie.id));
+		arguments.put("idsLettres", idsDesLettresDontOnAttendUneReponse(partie));
+
+		return requetePost(SERVEUR+RECEVOIR, arguments);
+	}
+	
+	/**
+	 * Effectuer une requete POST vers le serveur postal.
+	 * @param urlString url du serveur et de sa page PHP
+	 * @param arguments de la requete POST
+	 * @return reponse HTTP
+	 */
+	private static String requetePost(final String urlString, final HashMap<String, String> arguments) {
 		try {
 			// Requete POST
-			final URL url = new URL(SERVEUR+RECEVOIR);
+			final URL url = new URL(urlString);
 			final URLConnection con = url.openConnection();
 			final HttpURLConnection http = (HttpURLConnection) con;
 			http.setRequestMethod("POST"); // PUT is another valid option
 			http.setDoOutput(true);
 			
-			// Arguments de la requete POST
-			final HashMap<String, String> arguments = new HashMap<>();
-			final Partie partie = Main.getPartieActuelle();
-			arguments.put("ipJoueur", JOUEUR[0]);
-			arguments.put("macJoueur", JOUEUR[1]);
-			arguments.put("nomJoueur", partie.mots[Partie.NOM_DU_HEROS]);
-			arguments.put("idPartie", Integer.toString(partie.id));
-			arguments.put("idsLettres", idsDesLettresDontOnAttendUneReponse(partie));
+			// Joindre les arguments de la requete POST
 			final StringJoiner sj = new StringJoiner("&");
 			for (HashMap.Entry<String, String> entry : arguments.entrySet()) {
 			    sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
 			         + URLEncoder.encode(entry.getValue(), "UTF-8"));
 			}
-			final byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
+			final String urlParameters = sj.toString();
+			/*
+			final byte[] out = urlParameters.getBytes(StandardCharsets.UTF_8);
 			final int length = out.length;
 			
-			// Envoyer la requete
+			// Envoyer la requete POST
 			http.setFixedLengthStreamingMode(length);
 			http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 			http.connect();
 			try (OutputStream os = http.getOutputStream()) {
 			    os.write(out);
+			    os.flush();
+				os.close();
 			}
+			*/
+			con.setDoOutput(true);
+			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+			wr.writeBytes(urlParameters);
+			wr.flush();
+			wr.close();
+			BufferedReader in = new BufferedReader(
+			        new InputStreamReader(con.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+			
+			//print result
+			String reponse = response.toString();
+			System.out.println(reponse);
+			return reponse;
+			/*
+			final int responseCode = http.getResponseCode();
+			System.out.println("\nSending 'POST' request to URL : " + url);
+			System.out.println("Post parameters : " + urlParameters);
+			System.out.println("Response Code : " + responseCode);
 			
 			// Obtenir la reponse
 			final InputStream is = http.getInputStream();
@@ -135,9 +158,9 @@ public abstract class Poste {
 			is.close();
 			http.disconnect();
 			return reponse;
-			
+			*/
 		} catch (IOException e) {
-			LOG.error("Impossible d'envoyer le courrier !", e);
+			LOG.error("Impossible d'envoyer la requete POST !", e);
 			return null;
 		}
 	}

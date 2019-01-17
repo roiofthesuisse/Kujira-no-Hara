@@ -6,6 +6,6 @@ package jeu.courrier;
 public abstract class Lettre {
 	protected int id;
 	protected Adresse personnage;
-	protected String texte;
+	public String texte;
 
 }
