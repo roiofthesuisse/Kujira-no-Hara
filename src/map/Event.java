@@ -21,6 +21,7 @@ import main.Commande;
 import main.Lecteur;
 import main.Main;
 import mouvements.Mouvement;
+import mouvements.Sauter;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
@@ -298,52 +299,6 @@ public class Event implements Comparable<Event> {
 				}
 			}
 		}
-	}
-
-	@Override
-	/**
-	 * Permet de dire si un Event est devant ou derrière un autre en terme d'affichage.
-	 */
-	public final int compareTo(final Event e) {
-		final int eEstDevant = -1;
-		final int thisEstDevant = 1;
-		if (this.auDessusDeToutActuel) {
-			if (e.auDessusDeToutActuel) {
-				final int thisY = this.y + this.hauteurHitbox;
-				final int eY = e.y + e.hauteurHitbox;
-				//les deux sont au dessus de tout, on applique la logique inversée
-				if (thisY > eY) {
-					return eEstDevant;
-				}
-				if (thisY < eY) {
-					return thisEstDevant;
-				}
-			} else {
-				return thisEstDevant;
-			}
-		} else {
-			if (e.auDessusDeToutActuel) {
-				return eEstDevant;
-			} else {
-				//y'en a-t-il un au sol ?
-				if (this.platActuel && !e.platActuel) {
-					return eEstDevant;
-				} else if (e.platActuel && !this.platActuel) {
-					return thisEstDevant;
-				}
-				
-				final int thisY = this.y + this.hauteurHitbox;
-				final int eY = e.y + e.hauteurHitbox;
-				//aucun n'est au dessus de tout, on applique la logique normale
-				if (thisY > eY) {
-					return thisEstDevant;
-				}
-				if (thisY < eY) {
-					return eEstDevant;
-				}
-			}
-		}
-		return 0;
 	}
 
 	/**
@@ -775,6 +730,88 @@ public class Event implements Comparable<Event> {
 	@Override
 	public final int hashCode() {
 		return Maths.NOMBRE_PREMIER1 + Maths.NOMBRE_PREMIER2 * this.id;
+	}
+
+	/**
+	 * Permet de dire si un Event est devant ou derrière un autre en terme d'affichage.
+	 */
+	@Override
+	public final int compareTo(final Event e) {
+		final int eEstDevant = -1;
+		final int thisEstDevant = 1;
+		if (this.auDessusDeToutActuel) {
+			if (e.auDessusDeToutActuel) {
+				final int thisY = this.y + this.hauteurHitbox;
+				final int eY = e.y + e.hauteurHitbox;
+				//les deux sont au dessus de tout, on applique la logique inversée
+				if (thisY > eY) {
+					return eEstDevant;
+				}
+				if (thisY < eY) {
+					return thisEstDevant;
+				}
+			} else {
+				return thisEstDevant;
+			}
+		} else {
+			if (e.auDessusDeToutActuel) {
+				return eEstDevant;
+			} else {
+				//y'en a-t-il un au sol ?
+				if (this.platActuel && !e.platActuel) {
+					return eEstDevant;
+				} else if (e.platActuel && !this.platActuel) {
+					return thisEstDevant;
+				}
+				
+				//si un event saute, on considere sa position au sol
+				final int thisY = this.positionAuSol() + this.hauteurHitbox;
+				final int eY = e.positionAuSol() + e.hauteurHitbox;
+				
+				if(this.nom.startsWith("Mouton") || e.nom.startsWith("Mouton")){
+					if(this.nom.startsWith("heros") || e.nom.startsWith("heros)")) {
+						if(this.saute || e.saute){
+							LOG.info("SAUT   this "+thisY+"    e "+eY);
+						}
+					}
+				}
+				
+				//aucun n'est au dessus de tout, on applique la logique normale
+				if (thisY > eY) {
+					return thisEstDevant;
+				}
+				if (thisY < eY) {
+					return eEstDevant;
+				}
+			}
+		}
+		return 0;
+	}
+	
+	/**
+	 * Position au sol de l'Event.
+	 * Si l'Event ne saute pas, c'est tout simplement sa coordonnee y.
+	 * @return coordonnee y, sauf si l'Event saute
+	 */
+	private int positionAuSol() {
+		if (this.saute) {
+			Sauter saut = null;
+			if (this.deplacementForce != null
+					&& this.deplacementForce.mouvements.size() > 0
+					&& this.deplacementForce.mouvements.get(0) instanceof Sauter
+			) {
+				saut = (Sauter) this.deplacementForce.mouvements.get(0);
+			} else if (this.deplacementNaturelActuel != null
+					&& this.deplacementNaturelActuel.mouvements.size() > 0
+					&& this.deplacementNaturelActuel.mouvements.get(0) instanceof Sauter
+			) {
+				saut = (Sauter) this.deplacementNaturelActuel.mouvements.get(0);
+			}
+			if (saut != null) {
+				return saut.yPourCamera();
+			}
+		}
+		return this.y;
 	}
 	
 }

@@ -588,7 +588,7 @@ public final class Partie implements Listable, Sauvegardable {
 		final JSONArray jsonImages = new JSONArray();
 		for (Picture picture : this.images) {
 			//toutes les places de la liste ne sont pas forcement occupees
-			if (this.images != null) {
+			if (picture != null) {
 				jsonImages.put(picture.sauvegarderEnJson());
 			}
 		}

@@ -251,5 +251,5 @@ public class Sauter extends Mouvement {
 	public int yPourCamera() {
 		return (this.ceQuiAEteFait*yEventApresSaut+(this.etapes-this.ceQuiAEteFait)*yEventAvantSaut)/this.etapes;
 	}
-	
+
 }
