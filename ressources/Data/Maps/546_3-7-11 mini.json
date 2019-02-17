@@ -90,6 +90,52 @@
 		]
 	},
 	{
+		"id": 22,
+		"nom": "Haïku",
+		"x": 2,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Daurades salées :\\nfroides gencives\\nchez le poissonnier.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[02]Matsuo Bashô\\c[02]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "Tremplin",
 		"x": 4,
@@ -294,39 +340,30 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Haïku",
-		"x": 2,
-		"y": 3,
+		"id": 17,
+		"nom": "Clone[341][008]",
+		"x": 13,
+		"y": 5
+	},
+	{
+		"id": 23,
+		"nom": "EV023",
+		"x": 20,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Daurades salées :\\nfroides gencives\\nchez le poissonnier.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 155,
+				"xDebutHeros": 8,
+				"yDebutHeros": 16
 			}
 			],
 			"vitesse": "moderee",
@@ -338,12 +375,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][008]",
-		"x": 13,
-		"y": 5
 	},
 	{
 		"id": 12,
@@ -550,47 +581,22 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 20,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 155,
-				"xDebutHeros": 8,
-				"yDebutHeros": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 18,
 		"nom": "Clone[341][008]",
 		"x": 7,
 		"y": 5
 	},
 	{
+		"id": 13,
+		"nom": "Clone[341][0021]",
+		"x": 7,
+		"y": 9
+	},
+	{
 		"id": 24,
 		"nom": "CoffrillageVide",
-		"x": 20,
-		"y": 14,
+		"x": 1,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -618,7 +624,7 @@
 				"valeur": false
 			}
 			],
-			"image": "Palourde coffre character",
+			"image": "Palourde doree coffre character",
 			"opacite": 0,
 			"directionInitiale": 3,
 			"vitesse": "tres rapide",
@@ -630,12 +636,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][0021]",
-		"x": 7,
-		"y": 9
 	},
 	{
 		"id": 19,
@@ -669,6 +669,12 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Clone[341][0021]",
+		"x": 13,
+		"y": 9
+	},
+	{
 		"id": 25,
 		"nom": "EV025",
 		"x": 0,
@@ -700,16 +706,16 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][0021]",
-		"x": 13,
-		"y": 9
+		"id": 9,
+		"nom": "Clone[341][023]",
+		"x": 17,
+		"y": 4
 	},
 	{
 		"id": 20,
 		"nom": "EV020",
 		"x": 10,
-		"y": 0,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
@@ -737,10 +743,28 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][023]",
-		"x": 17,
-		"y": 4
+		"id": 15,
+		"nom": "Blocage anti-évènement",
+		"x": 8,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 26,
@@ -840,7 +864,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
+					"image": "Palourde doree coffre character",
 					"direction": 0,
 					"animation": 3,
 					"teinte": 0
@@ -852,7 +876,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
+					"image": "Palourde doree coffre character",
 					"direction": 1,
 					"animation": 0,
 					"teinte": 0
@@ -864,7 +888,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
+					"image": "Palourde doree coffre character",
 					"direction": 1,
 					"animation": 1,
 					"teinte": 0
@@ -876,7 +900,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
+					"image": "Palourde doree coffre character",
 					"direction": 1,
 					"animation": 2,
 					"teinte": 0
@@ -888,7 +912,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
+					"image": "Palourde doree coffre character",
 					"direction": 1,
 					"animation": 3,
 					"teinte": 0
@@ -900,7 +924,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
+					"image": "Palourde doree coffre character",
 					"direction": 3,
 					"animation": 0,
 					"teinte": 0
@@ -1075,7 +1099,7 @@
 				"valeur": false
 			}
 			],
-			"image": "Palourde coffre character",
+			"image": "Palourde doree coffre character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1116,7 +1140,7 @@
 				"valeur": false
 			}
 			],
-			"image": "Palourde coffre character",
+			"image": "Palourde doree coffre character",
 			"directionInitiale": 3,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
@@ -1129,28 +1153,10 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Blocage anti-évènement",
-		"x": 8,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 21,
+		"nom": "Clone[341][047]",
+		"x": 10,
+		"y": 4
 	},
 	{
 		"id": 10,
@@ -1280,12 +1286,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][047]",
-		"x": 10,
-		"y": 4
 	}
 	]
 }

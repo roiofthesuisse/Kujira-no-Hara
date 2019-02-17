@@ -3,6 +3,7 @@ package map;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -168,16 +169,20 @@ public class Tileset {
 		this.autotiles = Autotile.chargerAutotiles(jsonTileset, jsonTilesetCousins, this);
 		
 		//portes
-		final JSONObject jsonTilesetPortes = InterpreteurDeJson.ouvrirJson(this.nom, "./ressources/Data/Tilesets/Portes/");
 		this.portes = new ArrayList<Integer>();
-		if (jsonTilesetPortes.has("portes")) {
-			final JSONArray jsonPortes = jsonTilesetPortes.getJSONArray("portes");
-			for (int i = 0; i<jsonPortes.length(); i++) {
-				final int carreauPorte = jsonPortes.getInt(i);
-				this.portes.add(carreauPorte);
+		try {
+			final JSONObject jsonTilesetPortes = InterpreteurDeJson.ouvrirJson(this.nom, "./ressources/Data/Tilesets/Portes/");
+			if (jsonTilesetPortes.has("portes")) {
+				final JSONArray jsonPortes = jsonTilesetPortes.getJSONArray("portes");
+				for (int i = 0; i<jsonPortes.length(); i++) {
+					final int carreauPorte = jsonPortes.getInt(i);
+					this.portes.add(carreauPorte);
+				}
+			} else {
+				LOG.warn("Pas de portes declarees dans le tileset : "+this.nom);
 			}
-		} else {
-			LOG.warn("Pas de portes pour le tileset : "+this.nom);
+		} catch (NoSuchFileException e) {
+			LOG.error("Pas de fichier listant les portes pour le tileset : "+this.nom, e);
 		}
 	}
 	

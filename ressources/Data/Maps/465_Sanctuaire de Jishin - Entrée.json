@@ -16,8 +16,8 @@
 	"couche0": [
 	[0140,0141,0108,0109,0108,0109,0108,0109,0108,0109,0108,0108,0108,0108,0108,0109,0108,0109,0108,0109,0108,0109,0108,0142,0143],
 	[0148,0149,0116,0117,0116,0117,0116,0117,0116,0117,0116,0116,0116,0116,0116,0117,0116,0117,0116,0117,0116,0117,0116,0150,0151],
-	[0118,0119,0160,0160,0160,0140,0141,0108,0108,0109,0108,0109,0160,0109,0108,0109,0108,0109,0142,0143,0160,0160,0160,0132,0133],
-	[0110,0111,0160,0160,0160,0148,0149,0116,0116,0117,0116,0117,0160,0117,0116,0117,0116,0117,0150,0151,0160,0160,0160,0124,0125],
+	[0118,0119,0160,0160,0160,0140,0141,0108,0108,0109,0070,0109,0160,0109,0070,0109,0108,0109,0142,0143,0160,0160,0160,0132,0133],
+	[0110,0111,0160,0160,0160,0148,0149,0116,0116,0117,0078,0117,0160,0117,0078,0117,0116,0117,0150,0151,0160,0160,0160,0124,0125],
 	[0118,0119,0140,0141,0108,0146,0147,0160,0161,0160,0160,0160,0160,0160,0160,0160,0161,0160,0144,0145,0109,0142,0143,0132,0133],
 	[0110,0111,0148,0149,0116,0154,0155,0161,0161,0161,0160,0160,0160,0160,0160,0161,0161,0161,0152,0153,0117,0150,0151,0124,0125],
 	[0118,0119,0110,0111,0160,0161,0161,0161,0161,0161,0161,0160,0160,0160,0161,0161,0161,0161,0161,0160,0160,0124,0125,0132,0133],
@@ -83,12 +83,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 5,
-		"nom": "Clone[341][003]",
-		"x": 20,
-		"y": 14
-	},
 	{
 		"id": 16,
 		"nom": "Serrure Donjon",
@@ -308,6 +302,12 @@
 		]
 	},
 	{
+		"id": 5,
+		"nom": "Clone[341][003]",
+		"x": 20,
+		"y": 14
+	},
+	{
 		"id": 11,
 		"nom": "Luciole",
 		"x": 17,
@@ -427,6 +427,12 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "Clone[341][003]",
+		"x": 4,
+		"y": 14
+	},
+	{
 		"id": 17,
 		"nom": "Panneau disparition arme",
 		"x": 12,
@@ -506,10 +512,35 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][003]",
-		"x": 4,
-		"y": 14
+		"id": 1,
+		"nom": "EV001",
+		"x": 12,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 58,
+				"xDebutHeros": 14,
+				"yDebutHeros": 4
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 12,
@@ -543,35 +574,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 12,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 58,
-				"xDebutHeros": 14,
-				"yDebutHeros": 4
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 7,
+		"nom": "Clone[341][003]",
+		"x": 4,
+		"y": 6
 	},
 	{
 		"id": 18,
@@ -658,38 +664,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][003]",
-		"x": 4,
-		"y": 6
-	},
-	{
-		"id": 2,
-		"nom": "buisson",
-		"x": 7,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "buisson fixe",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -928,6 +902,38 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "buisson",
+		"x": 7,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "buisson fixe",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][003]",
+		"x": 20,
+		"y": 6
+	},
+	{
 		"id": 19,
 		"nom": "Annonce du Lieu",
 		"x": 15,
@@ -1050,38 +1056,6 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][003]",
-		"x": 20,
-		"y": 6
-	},
-	{
-		"id": 3,
-		"nom": "buisson",
-		"x": 17,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "buisson fixe",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 14,
 		"nom": "Lankhor",
 		"x": 21,
@@ -1159,6 +1133,38 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "buisson",
+		"x": 17,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "buisson fixe",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][002]",
+		"x": 16,
+		"y": 10
+	},
+	{
 		"id": 20,
 		"nom": "EV020",
 		"x": 13,
@@ -1208,18 +1214,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][002]",
-		"x": 16,
-		"y": 10
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][059]",
-		"x": 8,
-		"y": 10
 	},
 	{
 		"id": 15,
@@ -1296,6 +1290,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][059]",
+		"x": 8,
+		"y": 10
 	},
 	{
 		"id": 10,

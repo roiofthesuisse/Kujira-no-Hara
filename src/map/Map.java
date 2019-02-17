@@ -139,9 +139,9 @@ public class Map implements Sauvegardable {
 		this.hauteur = jsonMap.getInt("hauteur");
 		this.defilementCameraX = largeur > (Fenetre.LARGEUR_ECRAN/Main.TAILLE_D_UN_CARREAU);
 		this.defilementCameraY = hauteur > (Fenetre.HAUTEUR_ECRAN/Main.TAILLE_D_UN_CARREAU);
-		this.layer0 = recupererCouche(jsonMap, 0);
-		this.layer1 = recupererCouche(jsonMap, 1);
-		this.layer2 = recupererCouche(jsonMap, 2);
+		this.layer0 = recupererCouche(jsonMap, 0, this.largeur, this.hauteur);
+		this.layer1 = recupererCouche(jsonMap, 1, this.largeur, this.hauteur);
+		this.layer2 = recupererCouche(jsonMap, 2, this.largeur, this.hauteur);
 		this.layers = new int[][][] {this.layer0, this.layer1, this.layer2};
 
 		// Transition qui introduit cette Map
@@ -471,9 +471,11 @@ public class Map implements Sauvegardable {
 	 * Va chercher une couche de décor en particulier dans le fichier JSON qui représente la Map.
 	 * @param jsonMap objet JSON représentant la map
 	 * @param numeroCouche numéro de la couche à récuperer
+	 * @param largeur de la map
+	 * @param hauteur de la map
 	 * @return un tableau bidimentionnel contenant le décor situé sur cette couche
 	 */
-	private int[][] recupererCouche(final JSONObject jsonMap, final int numeroCouche) {
+	public static int[][] recupererCouche(final JSONObject jsonMap, final int numeroCouche, final int largeur, final int hauteur) {
 		final int[][] couche = new int[largeur][hauteur];
 		final JSONArray array = jsonMap.getJSONArray("couche"+numeroCouche);
 		JSONArray ligne;

@@ -286,10 +286,88 @@
 		]
 	},
 	{
+		"id": 16,
+		"nom": "Clone[572][12]",
+		"x": 16,
+		"y": 10
+	},
+	{
+		"id": 11,
+		"nom": "oeil",
+		"x": 15,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cristal.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "oeil mural character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 11,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "oeil mural character",
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "Clone[572][5]",
 		"x": 6,
 		"y": 12
+	},
+	{
+		"id": 17,
+		"nom": "Clone[572][13]",
+		"x": 17,
+		"y": 10
 	},
 	{
 		"id": 1,
@@ -335,8 +413,25 @@
 				"script": "wait_for_event(@event_id)"
 			},
 			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].x == $game_variables[181] && $game_map.events[@event_id].y == $game_variables[182] ",
+				"nom": "ModifierVariable",
+				"numeroVariable": 184,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 185,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 182,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 185,
+				"comparerAUneAutreVariable": true,
 				"numero": 0
 			},
 			{
@@ -344,9 +439,111 @@
 				"texte": "la boule n'a pas avancé à cause d'un obstacle"
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 60,
-				"valeur": false
+				"nom": "Commentaire",
+				"texte": "on l'avance sur l'obstacle"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "est-on sur un miroir ?"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"miroir pivotant droite HP[1]\", 0) ",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "miroir droite"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rebondit vers la gauche"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(572, 2)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"miroir pivotant gauche HP[1]\", 0)",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "miroir gauche"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rebondit vers la droite"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(572, 3)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "obstacle quelconque"
 			},
 			{
 				"nom": "Commentaire",
@@ -354,10 +551,27 @@
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y+1])"
+				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "la boule est detruite"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 60,
+				"valeur": false
 			},
 			{
 				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -382,6 +596,74 @@
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "oeil",
+		"x": 16,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cristal.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 12,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 1,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -608,6 +890,12 @@
 		]
 	},
 	{
+		"id": 18,
+		"nom": "Clone[572][14]",
+		"x": 18,
+		"y": 10
+	},
+	{
 		"id": 2,
 		"nom": "boule de lumiere",
 		"x": 7,
@@ -651,8 +939,25 @@
 				"script": "wait_for_event(@event_id)"
 			},
 			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].x == $game_variables[181] && $game_map.events[@event_id].y == $game_variables[182] ",
+				"nom": "ModifierVariable",
+				"numeroVariable": 184,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 185,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 181,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 184,
+				"comparerAUneAutreVariable": true,
 				"numero": 0
 			},
 			{
@@ -660,9 +965,111 @@
 				"texte": "la boule n'a pas avancé à cause d'un obstacle"
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 60,
-				"valeur": false
+				"nom": "Commentaire",
+				"texte": "on l'avance sur l'obstacle"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "est-on sur un miroir ?"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"miroir pivotant droite HP[1]\", 0) ",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "miroir droite"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rebondit vers le bas"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(572, 1)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"miroir pivotant gauche HP[1]\", 0)",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "miroir gauche"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rebondit vers le haut"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(572, 4)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "obstacle quelconque"
 			},
 			{
 				"nom": "Commentaire",
@@ -670,10 +1077,27 @@
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x-1, $game_map.events[@event_id].y])"
+				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "la boule est detruite"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 60,
+				"valeur": false
 			},
 			{
 				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -698,6 +1122,74 @@
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "oeil",
+		"x": 17,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cristal.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 13,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 2,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -753,8 +1245,25 @@
 				"script": "wait_for_event(@event_id)"
 			},
 			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].x == $game_variables[181] && $game_map.events[@event_id].y == $game_variables[182] ",
+				"nom": "ModifierVariable",
+				"numeroVariable": 184,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 185,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 181,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 184,
+				"comparerAUneAutreVariable": true,
 				"numero": 0
 			},
 			{
@@ -762,9 +1271,111 @@
 				"texte": "la boule n'a pas avancé à cause d'un obstacle"
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 60,
-				"valeur": false
+				"nom": "Commentaire",
+				"texte": "on l'avance sur l'obstacle"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "est-on sur un miroir ?"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"miroir pivotant droite HP[1]\", 0) ",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "miroir droite"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rebondit vers le haut"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(572, 4)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"miroir pivotant gauche HP[1]\", 0)",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "miroir gauche"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rebondit vers le bas"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(572, 1)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "obstacle quelconque"
 			},
 			{
 				"nom": "Commentaire",
@@ -772,10 +1383,27 @@
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x+1, $game_map.events[@event_id].y])"
+				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "la boule est detruite"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 60,
+				"valeur": false
 			},
 			{
 				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -799,6 +1427,626 @@
 			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "oeil",
+		"x": 18,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cristal.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 14,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 3,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Cube bleu qui glisse",
+		"x": 13,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "----------------------------------------\\n1) CUBE IMMOBILE\\n----------------------------------------"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "il faut que le heros regarde le cube"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id, 0)",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le cube est immobile, on le pousse"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 30,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 31,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 64,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.x == $game_map.events[@event_id].x && $game_player.y == $game_map.events[@event_id].y-1",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "BAS",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "BAS",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 64,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y == $game_map.events[@event_id].y && $game_player.x == $game_map.events[@event_id].x+1",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "GAUCHE",
+				"numero": 5
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "GAUCHE",
+				"numero": 6
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 64,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y == $game_map.events[@event_id].y && $game_player.x == $game_map.events[@event_id].x-1",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "DROITE",
+				"numero": 8
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "DROITE",
+				"numero": 9
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 64,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.x == $game_map.events[@event_id].x && $game_player.y == $game_map.events[@event_id].y+1",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "HAUT",
+				"numero": 11
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "HAUT",
+				"numero": 12
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 64,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 12
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 11
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 64,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 13
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"sens": "fuir",
+					"idEvent": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 13
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "cube character",
+			"teinte": "120",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 9,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "----------------------------------------\\n2) CUBE DEMARRE\\n----------------------------------------"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le cube essaye de faire un premier pas"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 30,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 31,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 26,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 27,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "si le cube réussi à démarrer,\\nil fait un premier bruit"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 26,
+				"inegalite": "!=",
+				"valeurQuIlEstCenseAvoir": 30,
+				"comparerAUneAutreVariable": true,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_IceBlock_Stop.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 31,
+				"inegalite": "!=",
+				"valeurQuIlEstCenseAvoir": 31,
+				"comparerAUneAutreVariable": true,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_IceBlock_Stop.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on met le cube en mouvement"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"image": "cube character",
+			"teinte": "120",
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 9,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "------------------------------------------------------------\\n3) CUBE AVANCE ET S'ARRETE\\n------------------------------------------------------------"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 26,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 27,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 28,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 29,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "si le cube n'arrive plus à avancer, \\nil fait un second bruit"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 26,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 28,
+				"comparerAUneAutreVariable": true,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 27,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 29,
+				"comparerAUneAutreVariable": true,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "bruit d'arrêt du cube"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 30,
+				"inegalite": "!=",
+				"valeurQuIlEstCenseAvoir": 26,
+				"comparerAUneAutreVariable": true,
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_IceBlock_Stop.wav",
+				"volume": 0.80,
+				"tempo": 0.80
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 31,
+				"inegalite": "!=",
+				"valeurQuIlEstCenseAvoir": 27,
+				"comparerAUneAutreVariable": true,
+				"numero": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_IceBlock_Stop.wav",
+				"volume": 0.80,
+				"tempo": 0.80
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on remet le cube à l'arrêt"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 30,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 31,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "cube character",
+			"teinte": "120",
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -849,8 +2097,25 @@
 				"script": "wait_for_event(@event_id)"
 			},
 			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].x == $game_variables[181] && $game_map.events[@event_id].y == $game_variables[182] ",
+				"nom": "ModifierVariable",
+				"numeroVariable": 184,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 185,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 182,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 185,
+				"comparerAUneAutreVariable": true,
 				"numero": 0
 			},
 			{
@@ -858,9 +2123,111 @@
 				"texte": "la boule n'a pas avancé à cause d'un obstacle"
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 60,
-				"valeur": false
+				"nom": "Commentaire",
+				"texte": "on l'avance sur l'obstacle"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "est-on sur un miroir ?"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"miroir pivotant droite HP[1]\", 0) ",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "miroir droite"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rebondit vers la droite"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(572, 3)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"miroir pivotant gauche HP[1]\", 0)",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "miroir gauche"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rebondit vers la gauche"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(572, 2)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "obstacle quelconque"
 			},
 			{
 				"nom": "Commentaire",
@@ -868,10 +2235,27 @@
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y-1])"
+				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "la boule est detruite"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 60,
+				"valeur": false
 			},
 			{
 				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -900,6 +2284,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[572][11]",
+		"x": 15,
+		"y": 10
+	},
+	{
+		"id": 10,
+		"nom": "Clone[572][9]",
+		"x": 13,
+		"y": 11
 	}
 	]
 }

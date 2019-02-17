@@ -32,7 +32,7 @@
 	[0809,0809,0809,0808,0032,0032,0000,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0000,0038,0038,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0808,0032,0032,0000,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0000,0038,0038,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0808,0032,0032,0052,0000,0000,0000,0000,0000,0000,-007,-007,-007,0000,0000,0000,0000,0000,0000,0000,0038,0038,0810,0809,0809,0809,0809],
-	[0809,0809,0809,0808,0032,0032,0008,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0008,0052,0038,0038,0810,0809,0809,0809,0809],
+	[0809,0809,0809,0808,0032,0032,0008,0000,0000,0000,0000,0000,0000,-007,-007,-007,0000,0000,0000,0000,0000,0008,0052,0038,0038,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0808,0032,0057,0060,0060,0049,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0053,0060,0060,0061,0038,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0808,0057,0060,0060,0049,0032,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0038,0053,0060,0060,0061,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0816,0817,0817,0049,0032,0032,0052,0000,0000,0000,0000,0000,0000,0000,0000,0000,0008,0038,0038,0053,0817,0817,0818,0809,0809,0809,0809],
@@ -110,60 +110,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 38,
-		"nom": "Clone[341][0065]",
-		"x": 14,
-		"y": 14
-	},
-	{
-		"id": 16,
-		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "Blocage anti-évènement",
-		"x": 8,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
 	{
 		"id": 27,
 		"nom": "Réglages initiaux",
@@ -371,9 +317,33 @@
 		]
 	},
 	{
-		"id": 44,
+		"id": 5,
 		"nom": "Blocage anti-évènement",
-		"x": 9,
+		"x": 8,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Blocage anti-évènement",
+		"x": 15,
 		"y": 11,
 		"pages": [
 		{
@@ -395,18 +365,31 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 15,
+		"id": 38,
+		"nom": "Clone[341][0065]",
+		"x": 14,
+		"y": 14
+	},
+	{
+		"id": 33,
+		"nom": "EV033",
+		"x": 14,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 68,
+				"xDebutHeros": 12,
+				"yDebutHeros": 1
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -444,47 +427,10 @@
 		]
 	},
 	{
-		"id": 33,
-		"nom": "EV033",
-		"x": 14,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 68,
-				"xDebutHeros": 12,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 39,
-		"nom": "Clone[341][0065]",
-		"x": 16,
-		"y": 12
-	},
-	{
-		"id": 6,
+		"id": 11,
 		"nom": "Blocage anti-évènement",
-		"x": 8,
-		"y": 13,
+		"x": 17,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -505,10 +451,10 @@
 		]
 	},
 	{
-		"id": 17,
+		"id": 44,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 13,
+		"x": 9,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -3576,10 +3522,10 @@
 		]
 	},
 	{
-		"id": 45,
-		"nom": "Fleche",
-		"x": 14,
-		"y": 4,
+		"id": 17,
+		"nom": "Blocage anti-évènement",
+		"x": 20,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -3589,10 +3535,69 @@
 			],
 			"commandes": [
 			],
-			"image": "fleche balance",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Blocage anti-évènement",
+		"x": 8,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 39,
+		"nom": "Clone[341][0065]",
+		"x": 16,
+		"y": 12
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][0065]",
+		"x": 14,
+		"y": 12
+	},
+	{
+		"id": 12,
+		"nom": "Blocage anti-évènement",
+		"x": 18,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -3625,46 +3630,10 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][0065]",
+		"id": 45,
+		"nom": "Fleche",
 		"x": 14,
-		"y": 12
-	},
-	{
-		"id": 40,
-		"nom": "Clone[341][0067]",
-		"x": 12,
-		"y": 14
-	},
-	{
-		"id": 7,
-		"nom": "Blocage anti-évènement",
-		"x": 13,
-		"y": 15,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -3674,33 +3643,10 @@
 			],
 			"commandes": [
 			],
+			"image": "fleche balance",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -3779,9 +3725,87 @@
 		]
 	},
 	{
-		"id": 35,
+		"id": 18,
 		"nom": "Blocage anti-évènement",
-		"x": 10,
+		"x": 20,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "Blocage anti-évènement",
+		"x": 13,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 40,
+		"nom": "Clone[341][0067]",
+		"x": 12,
+		"y": 14
+	},
+	{
+		"id": 2,
+		"nom": "Blocage anti-évènement",
+		"x": 11,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Blocage anti-évènement",
+		"x": 18,
 		"y": 11,
 		"pages": [
 		{
@@ -3827,9 +3851,9 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 35,
 		"nom": "Blocage anti-évènement",
-		"x": 18,
+		"x": 10,
 		"y": 11,
 		"pages": [
 		{
@@ -3851,58 +3875,10 @@
 		]
 	},
 	{
-		"id": 2,
+		"id": 19,
 		"nom": "Blocage anti-évènement",
-		"x": 11,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 41,
-		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 15,
+		"x": 20,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -3948,10 +3924,10 @@
 		]
 	},
 	{
-		"id": 19,
+		"id": 8,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 12,
+		"x": 14,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -3972,10 +3948,40 @@
 		]
 	},
 	{
-		"id": 36,
+		"id": 41,
 		"nom": "Blocage anti-évènement",
-		"x": 8,
-		"y": 12,
+		"x": 19,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 25,
+		"nom": "Clone[341][0067]",
+		"x": 12,
+		"y": 12
+	},
+	{
+		"id": 3,
+		"nom": "Blocage anti-évènement",
+		"x": 12,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -4020,88 +4026,10 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 36,
 		"nom": "Blocage anti-évènement",
-		"x": 12,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 25,
-		"nom": "Clone[341][0067]",
-		"x": 12,
-		"y": 12
-	},
-	{
-		"id": 42,
-		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 15,
+		"x": 8,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -4214,15 +4142,33 @@
 		]
 	},
 	{
-		"id": 37,
-		"nom": "Clone[341][0065]",
-		"x": 16,
-		"y": 14
+		"id": 9,
+		"nom": "Blocage anti-évènement",
+		"x": 15,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 15,
+		"id": 20,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
+		"x": 14,
 		"y": 11,
 		"pages": [
 		{
@@ -4244,9 +4190,9 @@
 		]
 	},
 	{
-		"id": 4,
+		"id": 42,
 		"nom": "Blocage anti-évènement",
-		"x": 10,
+		"x": 19,
 		"y": 15,
 		"pages": [
 		{
@@ -4274,9 +4220,98 @@
 		"y": 13
 	},
 	{
-		"id": 43,
+		"id": 4,
 		"nom": "Blocage anti-évènement",
-		"x": 9,
+		"x": 10,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 37,
+		"nom": "Clone[341][0065]",
+		"x": 16,
+		"y": 14
+	},
+	{
+		"id": 32,
+		"nom": "EV032",
+		"x": 14,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 268,
+				"xDebutHeros": 16,
+				"yDebutHeros": 21
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
 		"y": 15,
 		"pages": [
 		{
@@ -4322,9 +4357,9 @@
 		]
 	},
 	{
-		"id": 10,
+		"id": 43,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
+		"x": 9,
 		"y": 15,
 		"pages": [
 		{
@@ -4334,41 +4369,6 @@
 			}
 			],
 			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 32,
-		"nom": "EV032",
-		"x": 14,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 268,
-				"xDebutHeros": 16,
-				"yDebutHeros": 21
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",

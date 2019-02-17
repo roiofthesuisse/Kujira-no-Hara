@@ -136,8 +136,17 @@ public enum Passabilite {
 	 * @param passabilite d'un Event ou d'un tile de décor
 	 * @return true si passabilité complexe, false sinon
 	 */
-	public static boolean estMultilateral(Passabilite passabilite) {
+	public static boolean estMultilateral(final Passabilite passabilite) {
 		return passabilite != Passabilite.PASSABLE && passabilite != Passabilite.OBSTACLE;
+	}
+	
+	/**
+	 * Comparaison
+	 * @param passabilite autre
+	 * @return true si egaux
+	 */
+	public boolean equals(final Passabilite passabilite) {
+		return this.code == passabilite.code;
 	}
 	
 }

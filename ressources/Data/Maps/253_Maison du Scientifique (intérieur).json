@@ -111,12 +111,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 19,
-		"y": 15
-	},
-	{
 		"id": 16,
 		"nom": "scientifique",
 		"x": 11,
@@ -140,7 +134,19 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Je suis le plus grand scientifique de l'univers,\\naprès Dieu bien sûr."
+				"texte": "Je suis le plus grand scientifique de l'univers,\\njuste après Dieu bien sûr."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je suis mathématicien, physicien, chimiste."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je sais aussi jongler avec trois balles."
+			},
+			{
+				"nom": "Message",
+				"texte": "Au nom de la science !"
 			},
 			{
 				"nom": "Attendre",
@@ -197,128 +203,28 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 78,
-				"etat": "FAITE",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "quete de la dynamite finie, blabla de remplissage"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"valeurADonner2": 2,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Et si, topologiquement parlant, Kujira était \\nle produit cartésien d'une bouteille de Klein\\net d'un cercle ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Mmmmh, non, ce serait trop simple..."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Avant de me faire avaler par la \\c[02]baleine\\c[01],\\nj'ai eu le temps de confier tous mes travaux\\nsur la relativité à mon ami \\c[02]Albert\\c[01]."
-			},
-			{
-				"nom": "Message",
-				"texte": "J'espère qu'il n'oubliera pas de publier \\nmes précieuses théories."
-			},
-			{
-				"nom": "Message",
-				"texte": "Au nom de la science !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu demandes si on peut sortir de Kujira ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Si Kujira se comporte comme un trou noir,\\ndeux possibilités existent :"
-			},
-			{
-				"nom": "Message",
-				"texte": "Premièrement, le trou noir a un horizon, \\net dans ce cas on ne peut pas sortir."
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais cela est contraire à la théorie quantique \\nde la conservation de l'information."
-			},
-			{
-				"nom": "Message",
-				"texte": "Deuxièmement, je dirais que les informations \\nenfermées (nous) y sont agrégées de façon \\nchaotique."
-			},
-			{
-				"nom": "Message",
-				"texte": "La seule chose qui peut recréer l'information\\nà partir du chaos est un démon de Maxwell."
-			},
-			{
-				"nom": "Message",
-				"texte": "Comment capturer un démon de Maxwell ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Avec une cage de Faraday tout simplement."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "quete de la dynamite"
 			},
 			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 54,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 4
+				"nom": "Message",
+				"texte": "Il y a quelque chose qui me turlupine..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Je peux fabriquer de la dynamite avec :\\n- du salpêtre\\n- de la moutarde\\n- de l'eau bénite"
+				"texte": "Ces satanés diamants ! Rédhibitoires au libre\\nvagabondage dans les grandes grottes !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ils entravent la science, et il ne saurait y avoir \\nde plus grand préjudice !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Si seulement on pouvait s'en débarasser..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour fabriquer de la dynamite, il me faurait :\\n- du salpêtre\\n- de la moutarde\\n- de l'eau bénite"
 			},
 			{
 				"nom": "Message",
@@ -327,17 +233,17 @@
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 72,
-				"numero": 5
+				"numero": 0
 			},
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 71,
-				"numero": 6
+				"numero": 1
 			},
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 73,
-				"numero": 7
+				"numero": 2
 			},
 			{
 				"nom": "Attendre",
@@ -425,7 +331,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 8
+				"numero": 3
 			},
 			{
 				"nom": "Message",
@@ -437,7 +343,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 8
+				"numero": 3
 			},
 			{
 				"nom": "Message",
@@ -449,7 +355,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 8
+				"numero": 3
 			},
 			{
 				"nom": "Attendre",
@@ -496,40 +402,25 @@
 				"numeroPageCommune": 55
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 7
+				"nom": "ModifierVariable",
+				"numeroVariable": 186,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"valeurADonner2": 4,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 6
+				"numero": 2
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "diamant pas encore découvert"
-			},
-			{
-				"nom": "Message",
-				"texte": "Je suis mathématicien, physicien, chimiste."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je sais aussi jongler avec trois balles."
-			},
-			{
-				"nom": "Message",
-				"texte": "Au nom de la science !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -565,8 +456,217 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "quete de la dynamite finie, blabla de remplissage"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 186,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 186,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 186,
+				"operationAFaire": "retirer",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 186,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "Et si, topologiquement parlant, Kujira était \\nle produit cartésien d'une bouteille de Klein\\net d'un cercle ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mmmmh, non, ce serait trop simple..."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 186,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "Message",
+				"texte": "Avant de me faire avaler par la \\c[02]baleine\\c[01],\\nj'ai eu le temps de confier tous mes travaux\\nsur la relativité à mon ami \\c[02]Albert\\c[01]."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'espère qu'il n'oubliera pas de publier \\nmes précieuses théories."
+			},
+			{
+				"nom": "Message",
+				"texte": "Au nom de la science !"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 186,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu demandes si on peut sortir de Kujira ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Si Kujira se comporte comme un trou noir,\\ndeux possibilités existent :"
+			},
+			{
+				"nom": "Message",
+				"texte": "Premièrement, le trou noir a un horizon, \\net dans ce cas on ne peut pas sortir."
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais cela est contraire à la théorie quantique \\nde la conservation de l'information."
+			},
+			{
+				"nom": "Message",
+				"texte": "Deuxièmement, je dirais que les informations \\nenfermées (nous) y sont agrégées de façon \\nchaotique."
+			},
+			{
+				"nom": "Message",
+				"texte": "La seule chose qui peut recréer l'information\\nà partir du chaos est un démon de Maxwell."
+			},
+			{
+				"nom": "Message",
+				"texte": "Comment capturer un démon de Maxwell ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Avec une cage de Faraday tout simplement."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 186,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 3,
+				"comparerAUneAutreVariable": false,
+				"numero": 4
+			},
+			{
+				"nom": "Message",
+				"texte": "As-tu lu mes publications scientifiques à propos \\nde l'octaédrite ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "L'octaédrite est un minerai.\\nJe dirais même plus : c'est un sel, l'octiure\\nde sodium."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tout le monde a déjà vu un cristal d'octaédrite\\npure : c'est ce qu'on appelle vernaculairement \\nun cristal de baleine."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le plus grand gisement d'octaédrite connu \\nà ce jour était à Wissenburg, en Autriche-\\nHongrie."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est le minerai de l'âme : il réfléchit\\nles fluctuations du champ entropique."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tout simplement fascinant !"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "poincare",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 19,
+		"y": 15
 	},
 	{
 		"id": 11,
@@ -575,16 +675,42 @@
 		"y": 17
 	},
 	{
+		"id": 6,
+		"nom": "Clone[341][039]",
+		"x": 17,
+		"y": 11
+	},
+	{
 		"id": 17,
 		"nom": "Clone[341][165]",
 		"x": 17,
 		"y": 7
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][039]",
-		"x": 17,
-		"y": 11
+		"id": 1,
+		"nom": "EV001",
+		"x": 8,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "solidesplaton character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 12,
@@ -625,32 +751,6 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 8,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "solidesplaton character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
 		}
 		]
 	},
@@ -717,32 +817,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 15,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "objet kujira 1",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 2,
 		"nom": "EV002",
 		"x": 18,
@@ -769,10 +843,61 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 15,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "objet kujira 1",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 8,
 		"nom": "Clone[341][004]",
 		"x": 8,
 		"y": 20
+	},
+	{
+		"id": 3,
+		"nom": "EV003",
+		"x": 20,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "solidesplaton character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 14,
@@ -813,10 +938,16 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 20,
-		"y": 9,
+		"id": 9,
+		"nom": "Clone[341][004]",
+		"x": 12,
+		"y": 20
+	},
+	{
+		"id": 4,
+		"nom": "EV004",
+		"x": 11,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -827,6 +958,7 @@
 			"commandes": [
 			],
 			"image": "solidesplaton character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -836,12 +968,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][004]",
-		"x": 12,
-		"y": 20
 	},
 	{
 		"id": 15,
@@ -880,32 +1006,6 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 11,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "solidesplaton character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

@@ -166,9 +166,77 @@
 	},
 	{
 		"id": 12,
-		"nom": "Clone[021][010]",
-		"x": 8,
-		"y": 12
+		"nom": "slimes verts",
+		"x": 3,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 11,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 8,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "faire tomber des slimes verts"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(8, 12, 21, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(9, 10, 21, 1)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 7,
@@ -206,12 +274,6 @@
 		"nom": "Clone[341][063]",
 		"x": 10,
 		"y": 2
-	},
-	{
-		"id": 13,
-		"nom": "Clone[021][010]",
-		"x": 10,
-		"y": 11
 	},
 	{
 		"id": 8,

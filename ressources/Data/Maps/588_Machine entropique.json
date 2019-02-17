@@ -111,6 +111,12 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[341][113]",
+		"x": 4,
+		"y": 7
+	},
+	{
 		"id": 5,
 		"nom": "Blocage anti-évènement",
 		"x": 7,
@@ -135,10 +141,35 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][113]",
-		"x": 4,
-		"y": 7
+		"id": 11,
+		"nom": "EV011",
+		"x": 20,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 479,
+				"xDebutHeros": 1,
+				"yDebutHeros": 14
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 22,
@@ -172,25 +203,18 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 20,
-		"y": 13,
+		"id": 6,
+		"nom": "Blocage anti-évènement",
+		"x": 6,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 479,
-				"xDebutHeros": 1,
-				"yDebutHeros": 14
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -446,10 +470,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Blocage anti-évènement",
-		"x": 6,
-		"y": 14,
+		"id": 1,
+		"nom": "Pancarte",
+		"x": 15,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -458,10 +482,38 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "CONTRÉE VIKING JAUNE\\n> Grandes grottes\\n< Passerelle vertébrale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -707,56 +759,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Pancarte",
-		"x": 15,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "CONTRÉE VIKING JAUNE\\n> Grandes grottes\\n< Passerelle vertébrale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 18,
+		"nom": "Clone[341][113]",
+		"x": 8,
+		"y": 11
 	},
 	{
 		"id": 7,
@@ -781,18 +787,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][113]",
-		"x": 8,
-		"y": 11
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][167]",
-		"x": 4,
-		"y": 12
 	},
 	{
 		"id": 13,
@@ -821,6 +815,18 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "Clone[341][167]",
+		"x": 4,
+		"y": 12
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][113]",
+		"x": 7,
+		"y": 10
+	},
+	{
 		"id": 8,
 		"nom": "brouillard de forêt",
 		"x": 18,
@@ -831,9 +837,22 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "neiger"
+			},
+			{
 				"nom": "ModifierMeteo",
 				"type": "neige",
 				"intensite": 9
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "desactiver le verglas"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 36,
+				"valeur": false
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -850,10 +869,10 @@
 		]
 	},
 	{
-		"id": 19,
+		"id": 3,
 		"nom": "Clone[341][113]",
 		"x": 7,
-		"y": 10
+		"y": 15
 	},
 	{
 		"id": 14,
@@ -874,43 +893,6 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][113]",
-		"x": 7,
-		"y": 15
-	},
-	{
-		"id": 9,
-		"nom": "EV009",
-		"x": 20,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 479,
-				"xDebutHeros": 1,
-				"yDebutHeros": 12
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1040,24 +1022,29 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "blocage invisible",
-		"x": 14,
-		"y": 17,
+		"id": 9,
+		"nom": "EV009",
+		"x": 20,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 479,
+				"xDebutHeros": 1,
+				"yDebutHeros": 12
+			}
 			],
-			"image": "algues character",
-			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1090,29 +1077,24 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "EV021",
-		"x": 0,
-		"y": 7,
+		"id": 15,
+		"nom": "blocage invisible",
+		"x": 14,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 589,
-				"xDebutHeros": 23,
-				"yDebutHeros": 19
-			}
 			],
+			"image": "algues character",
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1139,6 +1121,37 @@
 				"numeroNouvelleMap": 479,
 				"xDebutHeros": 1,
 				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "EV021",
+		"x": 0,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 589,
+				"xDebutHeros": 23,
+				"yDebutHeros": 19
 			}
 			],
 			"vitesse": "moderee",

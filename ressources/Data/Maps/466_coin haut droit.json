@@ -14,8 +14,8 @@
 		"tempo": 1.00
 	},
 	"couche0": [
-	[0232,0232,0140,0141,0108,0109,0108,0109,0108,0109,0108,0109,0108,0109,0108,0109,0108,0142,0143,0232,0232],
-	[0232,0232,0148,0149,0116,0117,0116,0117,0116,0117,0116,0117,0116,0117,0116,0117,0116,0150,0151,0232,0232],
+	[0232,0232,0140,0141,0108,0109,0108,0070,0108,0109,0108,0109,0108,0070,0108,0109,0108,0142,0143,0232,0232],
+	[0232,0232,0148,0149,0116,0117,0116,0078,0116,0117,0116,0117,0116,0078,0116,0117,0116,0150,0151,0232,0232],
 	[0140,0141,0146,0147,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0144,0145,0142,0143],
 	[0148,0149,0154,0155,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0152,0153,0150,0151],
 	[0110,0111,0161,0161,0161,0161,0161,0161,0161,0160,0160,0160,0161,0161,0161,0161,0161,0161,0161,0124,0125],
@@ -71,33 +71,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 11,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "dalles plan donjon5 character",
-			"directionInitiale": 1,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
 	{
 		"id": 16,
 		"nom": "EV016",
@@ -222,9 +195,9 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 9,
+		"id": 5,
+		"nom": "EV005",
+		"x": 11,
 		"y": 9,
 		"pages": [
 		{
@@ -236,8 +209,8 @@
 			"commandes": [
 			],
 			"image": "dalles plan donjon5 character",
-			"directionInitiale": 2,
-			"animationInitiale": 1,
+			"directionInitiale": 1,
+			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -372,31 +345,27 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 10,
-		"y": 0,
+		"id": 6,
+		"nom": "EV006",
+		"x": 9,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 487,
-				"xDebutHeros": 10,
-				"yDebutHeros": 11
-			}
 			],
+			"image": "dalles plan donjon5 character",
+			"directionInitiale": 2,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -478,6 +447,37 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 10,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 487,
+				"xDebutHeros": 10,
+				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,

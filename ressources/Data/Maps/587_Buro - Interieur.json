@@ -96,63 +96,6 @@
 	],
 	"events": [
 	{
-		"id": 27,
-		"nom": "EV027",
-		"x": 6,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 586,
-				"xDebutHeros": 14,
-				"yDebutHeros": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "vendeur",
-		"x": 10,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 5,
 		"nom": "EV005",
 		"x": 10,
@@ -195,10 +138,61 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Clone[341][0021]",
-		"x": 22,
-		"y": 7
+		"id": 16,
+		"nom": "vendeur",
+		"x": 10,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 27,
+		"nom": "EV027",
+		"x": 6,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 586,
+				"xDebutHeros": 14,
+				"yDebutHeros": 18
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 11,
@@ -221,6 +215,96 @@
 			{
 				"nom": "Message",
 				"texte": "Le vaisselier Zbøl, 600 écailles"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 22,
+		"nom": "Clone[341][0021]",
+		"x": 22,
+		"y": 7
+	},
+	{
+		"id": 6,
+		"nom": "EV006",
+		"x": 6,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "L'étagère Kraak, 50 écailles"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "EV017",
+		"x": 19,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "Le tabouret Grübelübøk, 100 écailles"
 			},
 			{
 				"nom": "Attendre",
@@ -289,9 +373,9 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "EV017",
-		"x": 19,
+		"id": 1,
+		"nom": "EV001",
+		"x": 8,
 		"y": 13,
 		"pages": [
 		{
@@ -308,91 +392,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Le tabouret Grübelübøk, 100 écailles"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 6,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "L'étagère Kraak, 50 écailles"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 23,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "La statue Søkøbaan, 400 écailles"
+				"texte": "Le tapis Kaarpet, 50 écailles le mètre carré"
 			},
 			{
 				"nom": "Attendre",
@@ -457,10 +457,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 8,
-		"y": 13,
+		"id": 23,
+		"nom": "EV023",
+		"x": 23,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -476,7 +476,49 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Le tapis Kaarpet, 50 écailles le mètre carré"
+				"texte": "La statue Søkøbaan, 400 écailles"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "EV007",
+		"x": 10,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "La poutre Kraak, 150 écailles"
 			},
 			{
 				"nom": "Attendre",
@@ -551,10 +593,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 10,
-		"y": 4,
+		"id": 2,
+		"nom": "EV002",
+		"x": 5,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -564,22 +606,8 @@
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
 				"nom": "Message",
-				"texte": "La poutre Kraak, 150 écailles"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"texte": "ø"
 			}
 			],
 			"vitesse": "moderee",
@@ -591,12 +619,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 24,
-		"nom": "Clone[341][004]",
-		"x": 23,
-		"y": 10
 	},
 	{
 		"id": 13,
@@ -641,74 +663,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 5,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Message",
-				"texte": "ø"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 19,
-		"nom": "EV019",
-		"x": 21,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "Le balais Brøm, 30 écailles"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 24,
+		"nom": "Clone[341][004]",
+		"x": 23,
+		"y": 10
 	},
 	{
 		"id": 8,
@@ -753,16 +711,10 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Clone[341][003]",
-		"x": 22,
-		"y": 10
-	},
-	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 18,
-		"y": 10,
+		"id": 19,
+		"nom": "EV019",
+		"x": 21,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -778,7 +730,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "La pancarte Paanø, 50 écailles"
+				"texte": "Le balais Brøm, 30 écailles"
 			},
 			{
 				"nom": "Attendre",
@@ -843,10 +795,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "EV020",
-		"x": 24,
-		"y": 4,
+		"id": 14,
+		"nom": "EV014",
+		"x": 18,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -862,7 +814,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "La calligraphie Baaschø, 20 écailles"
+				"texte": "La pancarte Paanø, 50 écailles"
 			},
 			{
 				"nom": "Attendre",
@@ -883,6 +835,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 25,
+		"nom": "Clone[341][003]",
+		"x": 22,
+		"y": 10
 	},
 	{
 		"id": 9,
@@ -927,10 +885,10 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "EV026",
+		"id": 20,
+		"nom": "EV020",
 		"x": 24,
-		"y": 10,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -946,49 +904,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Les vases Pøt A et Pøt B, 20 écailles"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 19,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "La table Splaatjke, 500 écailles"
+				"texte": "La calligraphie Baaschø, 20 écailles"
 			},
 			{
 				"nom": "Attendre",
@@ -1053,10 +969,10 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "EV021",
-		"x": 22,
-		"y": 13,
+		"id": 15,
+		"nom": "EV015",
+		"x": 19,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -1072,7 +988,49 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Le baril Tønnø, 20 écailles"
+				"texte": "La table Splaatjke, 500 écailles"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 26,
+		"nom": "EV026",
+		"x": 24,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "Les vases Pøt A et Pøt B, 20 écailles"
 			},
 			{
 				"nom": "Attendre",
@@ -1115,6 +1073,48 @@
 			{
 				"nom": "Message",
 				"texte": "La bibliothèque Tsundøku, 600 écailles"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "EV021",
+		"x": 22,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "Le baril Tønnø, 20 écailles"
 			},
 			{
 				"nom": "Attendre",

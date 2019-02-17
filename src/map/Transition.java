@@ -5,14 +5,10 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
 import main.Fenetre;
 import main.Lecteur;
-import main.Main;
 import map.Event.Direction;
 import utilitaire.graphismes.Graphismes;
 
@@ -180,42 +176,80 @@ public enum Transition {
 	
 	/**
 	 * Calculer la Direction du défilement.
-	 * @param xAncienHeros coordonnée x (en pixels) du Héros sur l'ancienne Map
-	 * @param yAncienHeros coordonnée y (en pixels) du Héros sur l'ancienne Map
-	 * @param xNouveauHeros coordonnée x (en pixels) du Héros sur la nouvelle Map
-	 * @param yNouveauHeros coordonnée y (en pixels) du Héros sur la nouvelle Map
-	 * @param largeurAncienneMap largeur (en carreaux) de l'ancienne Map
-	 * @param hauteurAncienneMap hauteur (en carreaux) de l'ancienne Map
-	 * @param largeurNouvelleMap largeur (en carreaux) de la nouvelle Map
-	 * @param hauteurNouvelleMap hauteur (en carreaux) de la nouvelle Map
+	 * @param xOrigine coordonnée x (en pixels) du Héros sur l'ancienne Map
+	 * @param yOrigine coordonnée y (en pixels) du Héros sur l'ancienne Map
+	 * @param xDestination coordonnée x (en pixels) du Héros sur la nouvelle Map
+	 * @param yDestination coordonnée y (en pixels) du Héros sur la nouvelle Map
+	 * @param largeurOrigine largeur (en carreaux) de l'ancienne Map
+	 * @param hauteurOrigine hauteur (en carreaux) de l'ancienne Map
+	 * @param largeurDestination largeur (en carreaux) de la nouvelle Map
+	 * @param hauteurDestination hauteur (en carreaux) de la nouvelle Map
 	 * @return direction de la Transition
 	 */
-	public static int calculerDirectionDefilement(final int xAncienHeros, final int yAncienHeros, final int xNouveauHeros, 
-			final int yNouveauHeros, final int largeurAncienneMap, final int hauteurAncienneMap, final int largeurNouvelleMap,
-			final int hauteurNouvelleMap) {
+// ancienne faon de faire, qui parfois produisait des resultats etranges :
+//	public static int calculerDirectionDefilement(final int xAncienHeros, final int yAncienHeros, final int xNouveauHeros, 
+//			final int yNouveauHeros, final int largeurAncienneMap, final int hauteurAncienneMap, final int largeurNouvelleMap,
+//			final int hauteurNouvelleMap) {
+//		
+//		// On calcule la direction globale de la transition par un vecteur
+//		final int xVecteurAncienneMap = xAncienHeros - largeurAncienneMap*Main.TAILLE_D_UN_CARREAU/2;
+//		final int yVecteurAncienneMap = yAncienHeros - hauteurAncienneMap*Main.TAILLE_D_UN_CARREAU/2;
+//		final int xVecteurNouvelleMap = xNouveauHeros - largeurNouvelleMap*Main.TAILLE_D_UN_CARREAU/2;
+//		final int yVecteurNouvelleMap = yNouveauHeros - hauteurNouvelleMap*Main.TAILLE_D_UN_CARREAU/2;
+//		
+//		final int deltaX = xVecteurAncienneMap - xVecteurNouvelleMap;
+//		final int deltaY = yVecteurAncienneMap - yVecteurNouvelleMap;
+//		if (Math.abs(deltaX) > Math.abs(deltaY)) {
+//			// La Transition est horizontale
+//			if (deltaX > 0) {
+//				return Direction.DROITE;
+//			} else {
+//				return Direction.GAUCHE;
+//			}
+//		} else {
+//			// La Transition est verticale
+//			if (deltaY > 0) {
+//				return Direction.BAS;
+//			} else {
+//				return Direction.HAUT;
+//			}
+//		}
+//	}
+	public static int calculerDirectionDefilement(
+			final int xOrigine, final int yOrigine, 
+			final int xDestination, final int yDestination, 
+			final int largeurOrigine, final int hauteurOrigine, 
+			final int largeurDestination, final int  hauteurDestination) {
+		// on initialise les scores
+		int scoreBas, scoreGauche, scoreDroite, scoreHaut;
+		scoreBas = 0;
+		scoreGauche = 0;
+		scoreDroite = 0;
+		scoreHaut = 0;
 		
-		// On calcule la direction globale de la transition par un vecteur
-		final int xVecteurAncienneMap = xAncienHeros - largeurAncienneMap*Main.TAILLE_D_UN_CARREAU/2;
-		final int yVecteurAncienneMap = yAncienHeros - hauteurAncienneMap*Main.TAILLE_D_UN_CARREAU/2;
-		final int xVecteurNouvelleMap = xNouveauHeros - largeurNouvelleMap*Main.TAILLE_D_UN_CARREAU/2;
-		final int yVecteurNouvelleMap = yNouveauHeros - hauteurNouvelleMap*Main.TAILLE_D_UN_CARREAU/2;
+		// on ajoute aux scores les distances par rapport aux cotes de la map
+		// bas
+		scoreBas += hauteurOrigine - yOrigine;
+		scoreBas += yDestination;
+		// gauche
+		scoreGauche += xOrigine;
+		scoreGauche += largeurDestination - xDestination;
+		// droite
+		scoreDroite += largeurOrigine - xOrigine;
+		scoreDroite += xDestination;
+		// haut
+		scoreHaut += yOrigine;
+		scoreHaut += hauteurDestination - yDestination;
 		
-		final int deltaX = xVecteurAncienneMap - xVecteurNouvelleMap;
-		final int deltaY = yVecteurAncienneMap - yVecteurNouvelleMap;
-		if (Math.abs(deltaX) > Math.abs(deltaY)) {
-			// La Transition est horizontale
-			if (deltaX > 0) {
-				return Direction.DROITE;
-			} else {
-				return Direction.GAUCHE;
-			}
+		// on renvoie celui qui a fait le plus petit score
+		if (scoreBas <= scoreGauche && scoreBas <= scoreDroite && scoreBas <= scoreHaut) {
+			return Direction.BAS;
+		} else if (scoreGauche <= scoreBas && scoreGauche <= scoreDroite && scoreGauche <= scoreHaut) {
+			return Direction.GAUCHE;
+		} else if (scoreDroite <= scoreBas && scoreDroite <= scoreGauche && scoreDroite <= scoreHaut) {
+			return Direction.DROITE;
 		} else {
-			// La Transition est verticale
-			if (deltaY > 0) {
-				return Direction.BAS;
-			} else {
-				return Direction.HAUT;
-			}
+			return Direction.HAUT;
 		}
 	}
 	
