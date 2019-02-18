@@ -544,7 +544,11 @@ public class Map implements Sauvegardable {
 		// Quelle est la hauteur de la bandelette à decouper ?
 		final int debutDecoupageY = debutBandelette*Main.TAILLE_D_UN_CARREAU;
 		int hauteurBandelette = (finBandelette-debutBandelette)*Main.TAILLE_D_UN_CARREAU;
-		final int hauteurPossibleDeDecouper = vignette.getHeight() - debutDecoupageY - 1;
+		// TODO avant il y avait aussi un "-1" ci-dessous 
+		// mais je l'ai retiré 
+		// parce qu'il produisait une ligne de pixels manquante tout en bas de l'écran
+		// a voir si dans le futur si ca casse quelque chose d'autre
+		final int hauteurPossibleDeDecouper = vignette.getHeight() - debutDecoupageY; 
 		hauteurBandelette = Maths.min(hauteurBandelette, hauteurPossibleDeDecouper);
 		hauteurBandelette = Maths.max(hauteurBandelette, 0); // pas de bandelette de hauteur négative
 		// Découper la bandelette de décor médian
