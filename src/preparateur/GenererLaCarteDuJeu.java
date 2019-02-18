@@ -116,9 +116,11 @@ public abstract class GenererLaCarteDuJeu {
 			25/*grottes ecailles*/,
 			27/*grotte premier combat*/,
 			32/*grotte statues dose*/,
+			33/*grotte statues dose*/,
 			39/*oursin cinematique*/,
 			41/*maison viking*/, 
 			46/*maitre cle*/,
+			49/*grotte allumeur reverberes*/,
 			51/*allumeur reverberes*/,
 			72/*mare drakar*/, 
 			149/*auberge moldo*/,
@@ -128,8 +130,11 @@ public abstract class GenererLaCarteDuJeu {
 			194/*tremplins dose*/, 
 			202/*tunnel moldo*/,
 			254/*pozzo*/,
+			259/*archibald radis*/,
 			268/*donjon feu*/, 
 			274/*dose*/,
+			287/*grotte moldo*/,
+			296/*maison viking jaune*/,
 			315/*arbre*/,
 			325/*donjon grenouille*/,
 			320/*grotte pozzo*/,
@@ -138,6 +143,7 @@ public abstract class GenererLaCarteDuJeu {
 			404/*tunnel maitre musique*/,
 			414/*grotte oursins glace*/,
 			418/*grotte braises*/,
+			480/*jean-pierre coffe*/,
 			510/*mercator*/
 			} );
 	
@@ -335,7 +341,8 @@ public abstract class GenererLaCarteDuJeu {
 		// on ajoute tous les lieux voisins a la liste des lieux a placer
 		for (Jonction jonction : lieu.jonctions) {
 			final Lieu lieuAJoindre = chercherUnLieuParId(jonction.idLieuDestination, lieux);
-			if (!lieuxAPlacer.contains(lieuAJoindre) // ce lieu est deja dans la liste de traitement en attente
+			if (lieuAJoindre != null
+					&& !lieuxAPlacer.contains(lieuAJoindre) // ce lieu est deja dans la liste de traitement en attente
 					&& !lieuxPlaces.contains(lieuAJoindre) // ce lieu a deja ete place
 					&& !LIEUX_GROTTES.contains(lieuAJoindre.id) // on masque les grottes
 			) {

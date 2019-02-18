@@ -768,14 +768,6 @@ public class Event implements Comparable<Event> {
 				final int thisY = this.positionAuSol() + this.hauteurHitbox;
 				final int eY = e.positionAuSol() + e.hauteurHitbox;
 				
-				if(this.nom.startsWith("Mouton") || e.nom.startsWith("Mouton")){
-					if(this.nom.startsWith("heros") || e.nom.startsWith("heros)")) {
-						if(this.saute || e.saute){
-							LOG.info("SAUT   this "+thisY+"    e "+eY);
-						}
-					}
-				}
-				
 				//aucun n'est au dessus de tout, on applique la logique normale
 				if (thisY > eY) {
 					return thisEstDevant;

@@ -154,7 +154,7 @@ public class LecteurMap extends Lecteur {
 		ecran = Picture.dessinerLesImages(ecran, true);
 		
 		//ajouter les jauges
-		ecran = Jauges.dessinerLesJauges(ecran);
+		//TODO ecran = Jauges.dessinerLesJauges(ecran);
 
 		//afficher les images hautes
 		ecran = Picture.dessinerLesImages(ecran, false);
