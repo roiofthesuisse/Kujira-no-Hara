@@ -72,6 +72,8 @@ public class PageEvent {
 	
 	//mouvement
 	public Deplacement deplacementNaturel = null;
+	/** Lorsqu'on parle a cet Event, faut-il se rapprocher ? */
+	private boolean seRapprocherDeSonInterlocuteur = false;
 	
 	/**
 	 * Constructeur générique
@@ -106,21 +108,21 @@ public class PageEvent {
 			Commande.recupererLesCommandesEvent(this.commandes, pageJSON.getJSONArray("commandes"));
 			if (this.commandes.size() > 0) {
 				//on apprend aux Commandes qui est leur Page
-				boolean laPageContientUnMessage = false;
 				for (Commande commande : this.commandes) {
 					commande.page = this;
-					
-					if (commande instanceof Message) {
-						laPageContientUnMessage = true;
-					}
 				}
-				
-				//on rapproche le Héros de l'Event si c'est un interlocuteur
+
+				// Si besoin, on se met bien en face de son interlocuteur
+				final boolean laPageContientUnMessage = this.contientUneCommandeMessage();
 				if (this.contientUneConditionParler() && laPageContientUnMessage) {
-					final ArrayList<Mouvement> mouvements = new ArrayList<>();
-					mouvements.add(new SeRapprocher(0, idEvent));
-					final Commande deplacement = new Deplacement(0, mouvements, true, false, true);
-					this.commandes.add(0, deplacement);
+					final boolean leRapprochementEstDejaMis = this.seRapprocherDeSonInterlocuteur;
+					if (!leRapprochementEstDejaMis) {
+						final ArrayList<Mouvement> mouvements = new ArrayList<>();
+						mouvements.add(new SeRapprocher(0, idEvent));
+						final Commande deplacement = new Deplacement(0, mouvements, true, false, true);
+						this.commandes.add(0, deplacement);
+						this.seRapprocherDeSonInterlocuteur = true;
+					}
 				}
 			} else {
 				LOG.trace("Liste de commandes vide pour la page "+this.numero+" de l'event "+idEvent);
@@ -288,6 +290,19 @@ public class PageEvent {
 				if (cond instanceof ConditionParler) {
 					return true;
 				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * La PageEvent contient-elle une Commande Message ?
+	 * @return présence d'une Commande Message
+	 */
+	private boolean contientUneCommandeMessage() {
+		for (Commande commande : this.commandes) {
+			if (commande instanceof Message) {
+				return true;
 			}
 		}
 		return false;

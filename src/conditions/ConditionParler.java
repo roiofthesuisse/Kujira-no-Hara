@@ -131,5 +131,9 @@ public class ConditionParler extends Condition implements CommandeEvent {
 	public final boolean estLieeAuHeros() {
 		return true;
 	}
+	
+	public final void sePlacerBienEnFaceDeLInterlocuteur() {
+		//TODO a faire avant chaque discussion
+	}
 
 }

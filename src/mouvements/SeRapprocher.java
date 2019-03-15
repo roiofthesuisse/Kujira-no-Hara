@@ -105,44 +105,57 @@ public class SeRapprocher extends Avancer {
 			// Nombre d'étapes ?
 			final int trajetX = this.xFinalEventARapprocher - this.xInitialEventARapprocher;
 			final int trajetY = this.yFinalEventARapprocher - this.yInitialEventARapprocher;
-			this.etapes = Maths.max(1,
-					Math.abs(trajetX/this.eventARapprocher.vitesseActuelle.valeur),
-					Math.abs(trajetY/this.eventARapprocher.vitesseActuelle.valeur));
+			this.etapes = Maths.max(
+					(int) Math.abs(Math.ceil(trajetX/this.eventARapprocher.vitesseActuelle.valeur)),
+					(int) Math.abs(Math.ceil(trajetY/this.eventARapprocher.vitesseActuelle.valeur)));
 			
 			this.initialisation = true;
 		}
 		
-		// Est-ce possible ?
-		final int nouveauX = (this.xInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) 
-				+ this.xFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
-		final int nouveauY = (this.yInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) 
-				+ this.yFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
-		final boolean mouvementPossible = this.eventARapprocher.map.calculerSiLaPlaceEstLibre(nouveauX, 
-				nouveauY, 
-				this.eventARapprocher.largeurHitbox, 
-				this.eventARapprocher.hauteurHitbox, 
-				this.eventARapprocher.id);
-
-		if (mouvementPossible) {
+		if (this.etapes == 0) {
+			// Il n'y a rien a faire : on est deja en face de l'interlocuteur
 			return true;
 		} else {
-			this.initialisation = false;
-			this.directionDurantLeMouvement = -1;
-			return false;
+		
+			// Est-ce possible ?
+			final int nouveauX = (this.xInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) 
+					+ this.xFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
+			final int nouveauY = (this.yInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) 
+					+ this.yFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
+			final boolean mouvementPossible = this.eventARapprocher.map.calculerSiLaPlaceEstLibre(nouveauX, 
+					nouveauY, 
+					this.eventARapprocher.largeurHitbox, 
+					this.eventARapprocher.hauteurHitbox, 
+					this.eventARapprocher.id);
+	
+			if (mouvementPossible) {
+				return true;
+			} else {
+				LOG.error("Impossible de se rapprocher de l'interlocuteur !");
+				this.initialisation = false;
+				this.directionDurantLeMouvement = -1;
+				return false;
+			}
 		}
 	}
 	
 	@Override
 	public final void calculDuMouvement(final Event event) {
-		event.avance = true;
+		// On se rapproche de l'interlocuteur si besoin
+		if (this.etapes > 0) {
+			event.avance = true;
+			this.ceQuiAEteFait++; // on incremente tout de suite, sinon la premiere etape ne fait rien
+			LOG.debug("On est en train de se rapprocher de l'interlocuteur... (etape "+this.ceQuiAEteFait+"/"+this.etapes+")");
+			
+			event.x = (this.xInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) + this.xFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
+			event.y = (this.yInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) + this.yFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
+			LOG.debug("Rapprochement de "+this.xInitialEventARapprocher+";"+this.yInitialEventARapprocher
+					+" vers "+event.x+";"+event.y);
+		}
 		
-		event.x = (this.xInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) + this.xFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
-		event.y = (this.yInitialEventARapprocher*(this.etapes-this.ceQuiAEteFait) + this.yFinalEventARapprocher*this.ceQuiAEteFait)/this.etapes;
-		LOG.debug("Rapprochement de "+this.xInitialEventARapprocher+";"+this.yInitialEventARapprocher
-				+" vers "+event.x+";"+event.y);
-		this.ceQuiAEteFait++;
 		// Il faudra réinitialiser le mouvement la prochaine fois
 		if (this.ceQuiAEteFait >= this.etapes) {
+			LOG.debug("On s'est rapproché de l'interlocuteur.");
 			this.initialisation = false;
 			this.directionDurantLeMouvement = -1;
 		}

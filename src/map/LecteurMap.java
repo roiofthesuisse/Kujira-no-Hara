@@ -601,13 +601,13 @@ public class LecteurMap extends Lecteur {
 	private BufferedImage dessinerEvent(final BufferedImage ecran, final Event event, final int xCamera, final int yCamera) {
 		final BufferedImage eventImage = event.imageActuelle;
 		
-		/*
+		
 		//DEBUG pour visualiser les collisions //TODO commenter
 		Graphics2D graphics = ecran.createGraphics();
 		graphics.setPaint(Color.blue);
 		graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
 		//voilà
-		*/
+		
 		
 		if (eventImage != null) { 
 			int largeur =  eventImage.getWidth();
