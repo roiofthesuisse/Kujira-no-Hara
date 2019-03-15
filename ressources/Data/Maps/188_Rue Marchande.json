@@ -208,8 +208,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0832,0833,0833,0834,-001,0913,0088,0089,0090,-001,-001,-001,0859,0840,0841,0841,0841,0842,0860,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0859,0840,0841,0841,0842,0860,0921,-001,-001,-001,-001,-001,-001,0859,0840,0841,0841,0841,0842,0860,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0859,0840,0841,0841,0842,0860,-001,-001,-001,-001,-001,-001,-001,0859,0848,0849,0849,0849,0850,0860,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0859,0840,0841,0841,0842,0860,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0859,0848,0849,0849,0850,0860,-001,-001,-001,-001,0832,0833,0833,0833,0833,0834,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0859,0840,0841,0841,0842,0860,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0080,0081,0082,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0859,0848,0849,0849,0850,0860,-001,-001,-001,-001,0832,0833,0833,0833,0833,0834,0088,0089,0090,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0372,-001,-001,-001,0859,0840,0841,0841,0841,0841,0842,0860,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0832,0833,0833,0834,-001,-001,-001,0859,0848,0849,0849,0849,0849,0850,0860,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0859,0840,0841,0841,0842,0860,-001,-001,-001,0067,0068,0069,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -231,16 +231,16 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][001]",
-		"x": 22,
-		"y": 30
-	},
-	{
 		"id": 16,
 		"nom": "Clone[341][001]",
 		"x": 22,
 		"y": 11
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][001]",
+		"x": 22,
+		"y": 30
 	},
 	{
 		"id": 11,
@@ -274,12 +274,6 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][001]",
-		"x": 14,
-		"y": 48
-	},
-	{
 		"id": 17,
 		"nom": "EV017",
 		"x": 35,
@@ -298,6 +292,43 @@
 				"numeroNouvelleMap": 608,
 				"xDebutHeros": 1,
 				"yDebutHeros": 8
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][001]",
+		"x": 14,
+		"y": 48
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 17,
+		"y": 69,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 205,
+				"xDebutHeros": 17,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -342,35 +373,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 17,
-		"y": 69,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 205,
-				"xDebutHeros": 17,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 18,
+		"nom": "Clone[341][001]",
+		"x": 21,
+		"y": 11
 	},
 	{
 		"id": 7,
@@ -419,18 +425,6 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][001]",
-		"x": 21,
-		"y": 11
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][001]",
-		"x": 14,
-		"y": 9
-	},
-	{
 		"id": 13,
 		"nom": "EV013",
 		"x": 22,
@@ -456,30 +450,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Enseigne",
-		"x": 19,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "enseignes character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"id": 2,
+		"nom": "Clone[341][001]",
+		"x": 14,
+		"y": 9
 	},
 	{
 		"id": 19,
@@ -513,10 +487,30 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][001]",
-		"x": 14,
-		"y": 8
+		"id": 8,
+		"nom": "Enseigne",
+		"x": 19,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "enseignes character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 14,
@@ -544,6 +538,12 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "Clone[341][001]",
+		"x": 14,
+		"y": 8
+	},
+	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 22,
@@ -558,6 +558,31 @@
 			"commandes": [
 			],
 			"image": 860,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 17,
+		"y": 31,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 859,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -596,31 +621,6 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 17,
-		"y": 31,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 859,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
 		}
 		]
 	},

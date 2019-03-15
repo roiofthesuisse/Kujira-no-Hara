@@ -963,22 +963,28 @@
 		"y": 19
 	},
 	{
-		"id": 12,
-		"nom": "Clone[341][002]",
-		"x": 5,
-		"y": 15
-	},
-	{
 		"id": 1,
 		"nom": "Clone[341][005]",
 		"x": 15,
 		"y": 13
 	},
 	{
+		"id": 12,
+		"nom": "Clone[341][002]",
+		"x": 5,
+		"y": 15
+	},
+	{
 		"id": 7,
 		"nom": "Clone[341][028]",
 		"x": 9,
 		"y": 17
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 16
 	},
 	{
 		"id": 13,
@@ -1084,47 +1090,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 16
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][028]",
 		"x": 10,
 		"y": 16
-	},
-	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 29,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 130,
-				"xDebutHeros": 1,
-				"yDebutHeros": 25
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 14,
@@ -1246,65 +1215,24 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][028]",
-		"x": 5,
-		"y": 11
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 9,
-		"y": 8,
+		"id": 3,
+		"nom": "EV003",
+		"x": 29,
+		"y": 18,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Dans le goût mordant du radis\\nje sens \\nle vent d'automne.\""
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "\"The pungent taste of the radish \\nbites into me\\nand I feel the autumn wind.\""
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 130,
+				"xDebutHeros": 1,
+				"yDebutHeros": 25
 			}
 			],
 			"vitesse": "moderee",
@@ -1316,6 +1244,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][028]",
+		"x": 5,
+		"y": 11
 	},
 	{
 		"id": 4,
@@ -1421,6 +1355,72 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 9,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Dans le goût mordant du radis\\nje sens \\nle vent d'automne.\""
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "\"The pungent taste of the radish \\nbites into me\\nand I feel the autumn wind.\""
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[02]Matsuo Bashô\\c[02]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},

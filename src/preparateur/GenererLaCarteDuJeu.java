@@ -26,7 +26,7 @@ import utilitaire.graphismes.Graphismes;
  */
 public abstract class GenererLaCarteDuJeu {
 	
-	private static final int NOMBRE_DE_MAPS = 610;
+	private static final int NOMBRE_DE_MAPS = 700;
 	private static final int ID_PREMIER_LIEU = 5;
 	private static final boolean[][][] CHIFFRES_A_DESSINER = new boolean[][][] {
 		new boolean[][]{
@@ -114,37 +114,95 @@ public abstract class GenererLaCarteDuJeu {
 			6/*sabre de krakatram*/, 
 			24/*decente aux algues*/, 
 			25/*grottes ecailles*/,
+			26/*grotte geysers dose*/,
 			27/*grotte premier combat*/,
+			31/*labyrinthe viking*/,
 			32/*grotte statues dose*/,
 			33/*grotte statues dose*/,
+			34/*grotte geysers dose*/,
+			38/*maison mathusalem*/,
 			39/*oursin cinematique*/,
-			41/*maison viking*/, 
+			40, 41/*maison viking*/, 
 			46/*maitre cle*/,
 			49/*grotte allumeur reverberes*/,
 			51/*allumeur reverberes*/,
-			72/*mare drakar*/, 
+			61/*grotte allumeur reverberes*/,
+			69/*taverne viking*/,
+			72/*mare drakar*/,
+			76/*cacarbre*/,
+			79/*cacarbre oree foret*/,
+			81/*maison colibri*/,
+			88/*maison viking*/,
+			95/*cacarbre*/,
+			103/*palais flivouille*/,
+			124, 123/*entrees des grottes*/,
+			125/*grotte intestins voilier*/,
+			137/*ermite*/,
+			139/*grotte statues*/,
+			140/*ogre*/,
+			145/*ogre*/,
 			149/*auberge moldo*/,
 			153/*maitre de musique*/,
 			162/*donjon pomme*/,
+			166/*auberge sorcieres*/,
+			169/*tunnel moldo*/,
+			148/*cacarbre*/,
+			172/*maison fillette*/,
 			173/*geographe*/,
+			186/*cacarbre spirale*/,
+			190/*blocs*/,
 			194/*tremplins dose*/, 
 			202/*tunnel moldo*/,
+			204/*eglise*/,
+			237/*maison tabula*/,
+			244/*echelle vers la montagne*/,
+			248/*vieux con*/,
+			253/*maison scientifique*/,
 			254/*pozzo*/,
+			256/*grotte musique*/,
 			259/*archibald radis*/,
+			267/*grotte spirale*/,
 			268/*donjon feu*/, 
+			269/*aeronaute*/,
 			274/*dose*/,
+			278/*cacarbre moutons*/,
+			285, 286/*grotte etoilee*/,
 			287/*grotte moldo*/,
 			296/*maison viking jaune*/,
+			305/*cacarbre*/,
 			315/*arbre*/,
+			316/*arbre aquatique*/,
 			325/*donjon grenouille*/,
 			320/*grotte pozzo*/,
+			335/*malediction crapo*/,
+			352/*tresor des 3 blocs*/,
 			353/*astronomes*/,
+			356/*cacarbre marais*/,
+			360/*maison colibri*/,
+			365/*grotte statues foret*/,
 			366/*grotte statues foret*/,
+			368/*flutini*/,
+			369/*donjon sablier*/,
+			372/*hibu*/,
+			373/*lucky*/,
 			404/*tunnel maitre musique*/,
 			414/*grotte oursins glace*/,
-			418/*grotte braises*/,
+			415/*grotte ballon geyser*/,
+			416, 417, 418/*grotte braises*/,
+			427/*macrodendron*/,
+			445/*maison peintre*/,
+			454/*ballon plaines aquatiques*/,
+			456/*coffre fort*/,
+			460/*partition*/,
+			461/*grotte trou-poisson moldo*/,
+			462/*cacarbre*/,
+			465/*donjon pyramide*/,
+			478/*maison mineurs*/,
 			480/*jean-pierre coffe*/,
-			510/*mercator*/
+			510/*mercator*/,
+			516/*grotte caillouteux*/,
+			593/*donjon glacier*/,
+			613/*maison chasseur*/
 			} );
 	
 	/**
@@ -292,6 +350,9 @@ public abstract class GenererLaCarteDuJeu {
 	 * @return true s'il y a un chevauchement
 	 */
 	private static boolean yATIlDesChevauchements(final List<Lieu> lieuxPlaces, final Lieu lieu) {
+		return lieuxPlaces.size() > 200;
+		// TODO
+		/*
 		for (Lieu lieu2 : lieuxPlaces) {
 			if (Hitbox.lesDeuxRectanglesSeChevauchent(lieu.x, lieu.x+lieu.largeur, 
 					lieu.y, lieu.y+lieu.hauteur, 
@@ -302,7 +363,7 @@ public abstract class GenererLaCarteDuJeu {
 				return true;
 			}
 		}
-		return false;
+		return false;*/
 	}
 	
 	/**

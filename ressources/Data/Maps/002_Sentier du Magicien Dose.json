@@ -105,12 +105,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][039]",
-		"x": 24,
-		"y": 13
-	},
-	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 0,
@@ -148,6 +142,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][039]",
+		"x": 24,
+		"y": 13
+	},
+	{
+		"id": 22,
+		"nom": "Clone[341][005]",
+		"x": 9,
+		"y": 18
 	},
 	{
 		"id": 11,
@@ -189,10 +195,10 @@
 		]
 	},
 	{
-		"id": 22,
+		"id": 17,
 		"nom": "Clone[341][005]",
 		"x": 9,
-		"y": 18
+		"y": 16
 	},
 	{
 		"id": 6,
@@ -380,10 +386,49 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][005]",
-		"x": 9,
-		"y": 16
+		"id": 1,
+		"nom": "Clone[021][002]",
+		"x": 19,
+		"y": 5
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 15,
+		"y": 27,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 14,
+				"xDebutHeros": 15,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 23,
@@ -427,49 +472,10 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 15,
-		"y": 27,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"rouge": 127,
-				"vert": 127,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 14,
-				"xDebutHeros": 15,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[021][002]",
-		"x": 19,
-		"y": 5
+		"id": 18,
+		"nom": "Clone[341][005]",
+		"x": 11,
+		"y": 16
 	},
 	{
 		"id": 7,
@@ -511,53 +517,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][005]",
-		"x": 11,
-		"y": 16
-	},
-	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 14,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"rouge": 127,
-				"vert": 127,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 274,
-				"xDebutHeros": 8,
-				"yDebutHeros": 15
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 2,
+		"nom": "Clone[021][002]",
+		"x": 18,
+		"y": 4
 	},
 	{
 		"id": 24,
@@ -973,10 +936,53 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[021][002]",
-		"x": 18,
-		"y": 4
+		"id": 13,
+		"nom": "EV013",
+		"x": 14,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 274,
+				"xDebutHeros": 8,
+				"yDebutHeros": 15
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][005]",
+		"x": 11,
+		"y": 18
 	},
 	{
 		"id": 8,
@@ -1018,34 +1024,41 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][005]",
-		"x": 11,
-		"y": 18
-	},
-	{
-		"id": 25,
-		"nom": "Enseigne",
-		"x": 12,
-		"y": 9,
+		"id": 14,
+		"nom": "EV014",
+		"x": 0,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 16,
+				"xDebutHeros": 28,
+				"yDebutHeros": 15
+			}
 			],
-			"image": "enseignes character",
-			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1076,10 +1089,36 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 0,
-		"y": 6,
+		"id": 25,
+		"nom": "Enseigne",
+		"x": 12,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "enseignes character",
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "EV009",
+		"x": 34,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -1099,9 +1138,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 16,
-				"xDebutHeros": 28,
-				"yDebutHeros": 15
+				"numeroNouvelleMap": 86,
+				"xDebutHeros": 1,
+				"yDebutHeros": 16
 			}
 			],
 			"vitesse": "moderee",
@@ -1193,10 +1232,10 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "EV009",
-		"x": 34,
-		"y": 16,
+		"id": 15,
+		"nom": "EV015",
+		"x": 0,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -1216,86 +1255,14 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 86,
-				"xDebutHeros": 1,
+				"numeroNouvelleMap": 16,
+				"xDebutHeros": 28,
 				"yDebutHeros": 16
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "Pancarte",
-		"x": 14,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ Maison du \\c[2]magicien Dose\\c[01]\\n> Mer d'Ibukuro\\n< Boutique de \\c[2]Mercator\\c[01]\\n< Clairière de \\c[2]Mathusalem\\c[01]"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ \\c[02]Wizard Ovose\\c[01]'s house\\n> Ibukuro sea\\n< \\c[02]Mercator\\c[01]'s shop\\n< \\c[02]Methuselah\\c[01]'s glade"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1384,76 +1351,70 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 0,
-		"y": 7,
+		"id": 26,
+		"nom": "Pancarte",
+		"x": 14,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierBrouillard",
-				"rouge": 127,
-				"vert": 127,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
 			},
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 16,
-				"xDebutHeros": 28,
-				"yDebutHeros": 16
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "/\\ Maison du \\c[2]magicien Dose\\c[01]\\n> Mer d'Ibukuro\\n< Boutique de \\c[2]Mercator\\c[01]\\n< Clairière de \\c[2]Mathusalem\\c[01]"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "/\\ \\c[02]Wizard Ovose\\c[01]'s house\\n> Ibukuro sea\\n< \\c[02]Mercator\\c[01]'s shop\\n< \\c[02]Methuselah\\c[01]'s glade"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 13,
-		"y": 27,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"rouge": 127,
-				"vert": 127,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 14,
-				"xDebutHeros": 13,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1497,6 +1458,45 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "EV010",
+		"x": 13,
+		"y": 27,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 14,
+				"xDebutHeros": 13,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

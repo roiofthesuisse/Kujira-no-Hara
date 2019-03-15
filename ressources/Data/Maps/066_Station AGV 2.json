@@ -111,16 +111,16 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[16][18]",
-		"x": 13,
-		"y": 9
-	},
-	{
 		"id": 16,
 		"nom": "Clone[582][6]",
 		"x": 15,
 		"y": 11
+	},
+	{
+		"id": 5,
+		"nom": "Clone[16][18]",
+		"x": 13,
+		"y": 9
 	},
 	{
 		"id": 11,
@@ -217,16 +217,45 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[582][8]",
+		"x": 15,
+		"y": 9
+	},
+	{
 		"id": 12,
 		"nom": "Clone[341][100]",
 		"x": 15,
 		"y": 20
 	},
 	{
-		"id": 1,
-		"nom": "Clone[582][8]",
-		"x": 15,
-		"y": 9
+		"id": 7,
+		"nom": "station AGV connue",
+		"x": 16,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 71,
+				"valeur": true
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -255,22 +284,24 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "station AGV connue",
-		"x": 16,
-		"y": 7,
+		"id": 2,
+		"nom": "EV002",
+		"x": 0,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 71,
-				"valeur": true
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 403,
+				"xDebutHeros": 28,
+				"yDebutHeros": 10
 			}
 			],
 			"vitesse": "moderee",
@@ -365,10 +396,16 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 0,
-		"y": 15,
+		"id": 8,
+		"nom": "Clone[582][5]",
+		"x": 18,
+		"y": 13
+	},
+	{
+		"id": 3,
+		"nom": "EV003",
+		"x": 29,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -380,9 +417,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 403,
-				"xDebutHeros": 28,
-				"yDebutHeros": 10
+				"numeroNouvelleMap": 28,
+				"xDebutHeros": 1,
+				"yDebutHeros": 21
 			}
 			],
 			"vitesse": "moderee",
@@ -394,12 +431,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[582][5]",
-		"x": 18,
-		"y": 13
 	},
 	{
 		"id": 14,
@@ -483,37 +514,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 29,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 28,
-				"xDebutHeros": 1,
-				"yDebutHeros": 21
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 0,
@@ -545,6 +545,12 @@
 		]
 	},
 	{
+		"id": 15,
+		"nom": "Clone[341][007]",
+		"x": 8,
+		"y": 17
+	},
+	{
 		"id": 4,
 		"nom": "EV004",
 		"x": 29,
@@ -574,12 +580,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][007]",
-		"x": 8,
-		"y": 17
 	},
 	{
 		"id": 10,
