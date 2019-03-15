@@ -433,7 +433,12 @@ class Exportation
             
             # Mode de fusion
             if page.graphic.blend_type != 0
-              file.write(sprintf("\t\t\t\"modeDeFusion\": %d,", page.graphic.blend_type))
+              modeDeFusion = case page.graphic.blend_type
+                when 0 then "normal"
+                when 1 then "addition"
+                when 2 then "negatif"
+              end
+              file.write(sprintf("\t\t\t\"modeDeFusion\": \"%s\",", modeDeFusion))
               write_linebreak(file)
             end
             
