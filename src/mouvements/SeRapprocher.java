@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import map.Event;
+import map.Vitesse;
 import utilitaire.Maths;
 
 /**
@@ -13,6 +14,7 @@ import utilitaire.Maths;
  */
 public class SeRapprocher extends Avancer {
 	protected static final Logger LOG = LogManager.getLogger(SeRapprocher.class);
+	private static final int VITESSE_DE_RAPPROCHEMENT = Vitesse.LENTE.valeur;
 	
 	private final Integer idEventARapprocher;
 	private final Integer idEventCible;
@@ -106,8 +108,8 @@ public class SeRapprocher extends Avancer {
 			final int trajetX = this.xFinalEventARapprocher - this.xInitialEventARapprocher;
 			final int trajetY = this.yFinalEventARapprocher - this.yInitialEventARapprocher;
 			this.etapes = Maths.max(
-					(int) Math.abs(Math.ceil(trajetX/this.eventARapprocher.vitesseActuelle.valeur)),
-					(int) Math.abs(Math.ceil(trajetY/this.eventARapprocher.vitesseActuelle.valeur)));
+					(int) Math.abs(Math.ceil(trajetX/VITESSE_DE_RAPPROCHEMENT)),
+					(int) Math.abs(Math.ceil(trajetY/VITESSE_DE_RAPPROCHEMENT)));
 			
 			this.initialisation = true;
 		}

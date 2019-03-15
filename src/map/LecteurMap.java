@@ -441,10 +441,8 @@ public class LecteurMap extends Lecteur {
 	private void animerLesEvents(final int frame) {		
 		try {
 			for (Event event : this.map.events) {
-				try {
-					if (event.frequenceActuelle == null) {
-						throw new FrequenceNulleException(event.nom, event.id);
-					}
+				if (event.frequenceActuelle != null) {
+				
 					final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle.valeur == 0) //fréquence d'animation
 					|| (event.avance && !event.avancaitALaFramePrecedente); //la première frame d'animation est un pas
 					
@@ -466,37 +464,15 @@ public class LecteurMap extends Lecteur {
 					}
 					event.avancaitALaFramePrecedente = event.avance;
 					
-				} catch (FrequenceNulleException e) {
-					LOG.error(e);
+				} else {
+					// Erreur : frequence nulle
+					final String nomEvent = (event.nom == null ? "null" : event.nom);
+					final int idEvent = (event.id == null ? -1 : event.id);
+					LOG.error("L'event "+idEvent+" '"+nomEvent+"' a une fréquence nulle !");
 				}
 			}
 		} catch (Exception e) {
 			LOG.error("erreur lors de l'animation des évènements dans la boucle d'affichage de la map :", e);
-		}
-	}
-	
-	/**
-	 * Exception lorsqu'un Event a une Fréquence nulle et qu'il est impossible de l'animer.
-	 */
-	private class FrequenceNulleException extends Exception {
-		private static final long serialVersionUID = 1L;
-		
-		private final String nomEvent;
-		private final int idEvent;
-		
-		/**
-		 * Constructeur explicite
-		 * @param nomEvent nom de l'Event concerné
-		 * @param idEvent id de l'Event concerné
-		 */
-		FrequenceNulleException(final String nomEvent, final Integer idEvent) {
-			this.nomEvent = (nomEvent == null ? "null" : nomEvent);
-			this.idEvent = (idEvent == null ? -1 : idEvent);
-		}
-		
-		@Override
-		public final String getMessage() {
-			return "L'event "+this.idEvent+" '"+this.nomEvent+"' a une fréquence nulle !";
 		}
 	}
 	
