@@ -57,12 +57,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 		}
 		
 		// Inertie : si on vient d'appuyer sur la touche, le Héros va moins vite
-		final int vitesse;
-		if (event instanceof Heros && !this.toucheEnfonceeALaFramePrecedente) {
-			vitesse = Math.max(1, event.pageActive.vitesse.valeur/2);
-		} else {
-			vitesse = event.pageActive.vitesse.valeur;
-		}
+		final int vitesse = vitesse(event);
 		
 		// Le Héros traverse tout si la touche de triche est pressée
 		if (event instanceof Heros && ToucheRole.TRICHE.enfoncee()) {
@@ -251,6 +246,21 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 		return ilYADeplacement;
 	}
 
+	/**
+	 * Vitesse avec laquelle l'Event avance a chaque frame
+	 * @param event qui doit avancer
+	 * @return avancee a chaque frame
+	 */
+	private int vitesse(final Event event) {
+		if (event instanceof Heros && !this.toucheEnfonceeALaFramePrecedente) {
+			// inertie : si on vient d'appuyer sur la touche, le Héros va moins vite
+			return Math.max(1, event.pageActive.vitesse.valeur/2);
+		} else {
+			// vitesse maximale de l'Event
+			return event.pageActive.vitesse.valeur;
+		}
+	}
+
 	@Override
 	protected final void calculDuMouvement(final Event event) {
 		event.y += this.deltaY;
@@ -295,8 +305,6 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 
 	@Override
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
-		event.avance = false;
-		
 		// Même si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
 		mettreEventDansLaDirectionDuMouvement();
 		
@@ -308,9 +316,120 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 			this.realignementY = 0;
 			
 		} else {
+			
+			// Le pas complet n'a pas pu etre fait
+			// mais on avance jusqu'a l'obstacle (pas incomplet)
+			avancerJusquALObstacle(event);
+
+			event.avance = false;
+			
 			// L'Event n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
 			if (!event.avancaitALaFramePrecedente && !event.avance && !event.animeALArretActuel) {
 				event.animation = 0;
+			}
+		}
+	}
+
+	/**
+	 * Le pas complet n'etait pas possible.
+	 * Mais on avance quand meme jusqu'a l'obstacle (c'est un pas incomplet).
+	 * @param event a deplacer
+	 */
+	private void avancerJusquALObstacle(final Event event) {
+		if (GestionClavier.ToucheRole.BAS.enfoncee()) {
+			// Avancer jusqu'à l'obstacle
+			// (recherche par dichotomie)
+			int distanceALObstacle = vitesse(event);
+			int nouvelleDistanceALObstacle;
+			int borneSup = distanceALObstacle;
+			int borneInf = 0;
+			while (distanceALObstacle > 0) {
+				nouvelleDistanceALObstacle = (borneInf+borneSup)/2;
+				if (nouvelleDistanceALObstacle == distanceALObstacle) {
+					break;
+				}
+				distanceALObstacle = nouvelleDistanceALObstacle;
+				if (unPasVers(Event.Direction.BAS, event, distanceALObstacle).mouvementPossible()){
+					borneInf = distanceALObstacle;
+				} else {
+					borneSup = distanceALObstacle;
+				}
+			}
+			if (distanceALObstacle != 0) {
+				event.y += distanceALObstacle;
+				LOG.info("distance a l'obstacle : "+distanceALObstacle);
+			}
+		}
+		if (GestionClavier.ToucheRole.GAUCHE.enfoncee()) {
+			// Avancer jusqu'à l'obstacle
+			// (recherche par dichotomie)
+			int distanceALObstacle = vitesse(event);
+			int nouvelleDistanceALObstacle;
+			int borneSup = distanceALObstacle;
+			int borneInf = 0;
+			while (distanceALObstacle > 0) {
+				nouvelleDistanceALObstacle = (borneInf+borneSup)/2;
+				if (nouvelleDistanceALObstacle == distanceALObstacle) {
+					break;
+				}
+				distanceALObstacle = nouvelleDistanceALObstacle;
+				if (unPasVers(Event.Direction.GAUCHE, event, distanceALObstacle).mouvementPossible()){
+					borneInf = distanceALObstacle;
+				} else {
+					borneSup = distanceALObstacle;
+				}
+			}
+			if (distanceALObstacle != 0) {
+				event.x -= distanceALObstacle;
+				LOG.info("distance a l'obstacle : "+distanceALObstacle);
+			}
+		}
+		if (GestionClavier.ToucheRole.DROITE.enfoncee()) {
+			// Avancer jusqu'à l'obstacle
+			// (recherche par dichotomie)
+			int distanceALObstacle = vitesse(event);
+			int nouvelleDistanceALObstacle;
+			int borneSup = distanceALObstacle;
+			int borneInf = 0;
+			while (distanceALObstacle > 0) {
+				nouvelleDistanceALObstacle = (borneInf+borneSup)/2;
+				if (nouvelleDistanceALObstacle == distanceALObstacle) {
+					break;
+				}
+				distanceALObstacle = nouvelleDistanceALObstacle;
+				if (unPasVers(Event.Direction.DROITE, event, distanceALObstacle).mouvementPossible()){
+					borneInf = distanceALObstacle;
+				} else {
+					borneSup = distanceALObstacle;
+				}
+			}
+			if (distanceALObstacle != 0) {
+				event.x += distanceALObstacle;
+				LOG.info("distance a l'obstacle : "+distanceALObstacle);
+			}
+		}
+		if (GestionClavier.ToucheRole.HAUT.enfoncee()) {
+			// Avancer jusqu'à l'obstacle
+			// (recherche par dichotomie)
+			int distanceALObstacle = vitesse(event);
+			int nouvelleDistanceALObstacle;
+			int borneSup = distanceALObstacle;
+			int borneInf = 0;
+			while (distanceALObstacle > 0) {
+				nouvelleDistanceALObstacle = (borneInf+borneSup)/2;
+				if (nouvelleDistanceALObstacle == distanceALObstacle) {
+					break;
+				}
+				distanceALObstacle = nouvelleDistanceALObstacle;
+				if (unPasVers(Event.Direction.HAUT, event, distanceALObstacle).mouvementPossible()){
+					borneInf = distanceALObstacle;
+				} else {
+					borneSup = distanceALObstacle;
+				}
+			}
+			if (distanceALObstacle != 0) {
+				event.y -= distanceALObstacle;
+				LOG.info("distance a l'obstacle : "+distanceALObstacle);
 			}
 		}
 	}

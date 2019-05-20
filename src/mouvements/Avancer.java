@@ -10,7 +10,6 @@ import map.Event;
 import map.Heros;
 import map.Passabilite;
 import map.Event.Direction;
-import utilitaire.Maths;
 
 /**
  * Déplacer un Event dans une Direction et d'un certain nombre de cases.
@@ -26,7 +25,7 @@ public class Avancer extends Mouvement {
 	/** Décalage de l'Event pour l'aider à franchir un coin */
 	protected int realignementX, realignementY;
 	/** Nombre de pixels parcourus à chaque pas */
-	private int vitesse;
+	private int enjambee;
 	
 	/**
 	 * Constructeur explicite
@@ -57,25 +56,23 @@ public class Avancer extends Mouvement {
 	public void calculDuMouvement(final Event event) {
 		event.avance = true;
 		
-		//il ne faut pas que l'Event aille plus loin que son objectif !
-		final int enjambee = Maths.min(this.vitesse, this.etapes - this.ceQuiAEteFait);
 		//déplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
-				event.y += enjambee; 
+				event.y += this.enjambee; 
 				break;
 			case Direction.GAUCHE : 
-				event.x -= enjambee; 
+				event.x -= this.enjambee; 
 				break;
 			case Direction.DROITE : 
-				event.x += enjambee; 
+				event.x += this.enjambee; 
 				break;
 			case Direction.HAUT : 
-				event.y -= enjambee; 
+				event.y -= this.enjambee; 
 				break;
 		}
 		//on actualise la complétion du Mouvement
-		this.ceQuiAEteFait += enjambee;
+		this.ceQuiAEteFait += this.enjambee;
 	}
 	
 	/**
@@ -87,7 +84,7 @@ public class Avancer extends Mouvement {
 		final Event event = this.deplacement.getEventADeplacer();
 		
 		//pas besoin d'aller à la vitesse de l'Event si l'objectif est très proche
-		this.vitesse = Math.min(this.etapes, event.vitesseActuelle.valeur);
+		this.enjambee = Math.min(this.etapes - this.ceQuiAEteFait, event.vitesseActuelle.valeur);
 		
 		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
@@ -102,20 +99,18 @@ public class Avancer extends Mouvement {
 		//où sera l'Event après son pas ?
 		int xAInspecter = event.x;
 		int yAInspecter = event.y;
-		//il ne faut pas que l'Event aille plus loin que son objectif !
-		final int enjambee = Maths.min(this.vitesse, this.etapes - this.ceQuiAEteFait);
 		switch (this.direction) {
 		case Event.Direction.BAS : 
-			yAInspecter += enjambee; 
+			yAInspecter += this.enjambee; 
 			break;
 		case Event.Direction.GAUCHE : 
-			xAInspecter -= enjambee; 
+			xAInspecter -= this.enjambee; 
 			break;
 		case Event.Direction.DROITE : 
-			xAInspecter += enjambee; 
+			xAInspecter += this.enjambee; 
 			break;
 		case Event.Direction.HAUT : 
-			yAInspecter -= enjambee; 
+			yAInspecter -= this.enjambee; 
 			break;
 		}
 		//calcul des collisions avec le décor et les autres Events
