@@ -321,6 +321,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 			// mais on avance jusqu'a l'obstacle (pas incomplet)
 			avancerJusquALObstacle(event);
 
+			// On arrete l'animation de marche
 			event.avance = false;
 			
 			// L'Event n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
@@ -336,102 +337,62 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	 * @param event a deplacer
 	 */
 	private void avancerJusquALObstacle(final Event event) {
+		int distanceALObstacle;
 		if (GestionClavier.ToucheRole.BAS.enfoncee()) {
-			// Avancer jusqu'à l'obstacle
-			// (recherche par dichotomie)
-			int distanceALObstacle = vitesse(event);
-			int nouvelleDistanceALObstacle;
-			int borneSup = distanceALObstacle;
-			int borneInf = 0;
-			while (distanceALObstacle > 0) {
-				nouvelleDistanceALObstacle = (borneInf+borneSup)/2;
-				if (nouvelleDistanceALObstacle == distanceALObstacle) {
-					break;
-				}
-				distanceALObstacle = nouvelleDistanceALObstacle;
-				if (unPasVers(Event.Direction.BAS, event, distanceALObstacle).mouvementPossible()){
-					borneInf = distanceALObstacle;
-				} else {
-					borneSup = distanceALObstacle;
-				}
-			}
+			distanceALObstacle = calculerLaDistanceALOBstacle(event, Event.Direction.BAS);
 			if (distanceALObstacle != 0) {
 				event.y += distanceALObstacle;
-				LOG.info("distance a l'obstacle : "+distanceALObstacle);
+				LOG.debug("distance a l'obstacle en bas : " + distanceALObstacle);
 			}
 		}
 		if (GestionClavier.ToucheRole.GAUCHE.enfoncee()) {
-			// Avancer jusqu'à l'obstacle
-			// (recherche par dichotomie)
-			int distanceALObstacle = vitesse(event);
-			int nouvelleDistanceALObstacle;
-			int borneSup = distanceALObstacle;
-			int borneInf = 0;
-			while (distanceALObstacle > 0) {
-				nouvelleDistanceALObstacle = (borneInf+borneSup)/2;
-				if (nouvelleDistanceALObstacle == distanceALObstacle) {
-					break;
-				}
-				distanceALObstacle = nouvelleDistanceALObstacle;
-				if (unPasVers(Event.Direction.GAUCHE, event, distanceALObstacle).mouvementPossible()){
-					borneInf = distanceALObstacle;
-				} else {
-					borneSup = distanceALObstacle;
-				}
-			}
+			distanceALObstacle = calculerLaDistanceALOBstacle(event, Event.Direction.GAUCHE);
 			if (distanceALObstacle != 0) {
 				event.x -= distanceALObstacle;
-				LOG.info("distance a l'obstacle : "+distanceALObstacle);
+				LOG.debug("distance a l'obstacle a gauche : " + distanceALObstacle);
 			}
 		}
 		if (GestionClavier.ToucheRole.DROITE.enfoncee()) {
-			// Avancer jusqu'à l'obstacle
-			// (recherche par dichotomie)
-			int distanceALObstacle = vitesse(event);
-			int nouvelleDistanceALObstacle;
-			int borneSup = distanceALObstacle;
-			int borneInf = 0;
-			while (distanceALObstacle > 0) {
-				nouvelleDistanceALObstacle = (borneInf+borneSup)/2;
-				if (nouvelleDistanceALObstacle == distanceALObstacle) {
-					break;
-				}
-				distanceALObstacle = nouvelleDistanceALObstacle;
-				if (unPasVers(Event.Direction.DROITE, event, distanceALObstacle).mouvementPossible()){
-					borneInf = distanceALObstacle;
-				} else {
-					borneSup = distanceALObstacle;
-				}
-			}
+			distanceALObstacle = calculerLaDistanceALOBstacle(event, Event.Direction.DROITE);
 			if (distanceALObstacle != 0) {
 				event.x += distanceALObstacle;
-				LOG.info("distance a l'obstacle : "+distanceALObstacle);
+				LOG.debug("distance a l'obstacle a droite : " + distanceALObstacle);
 			}
 		}
 		if (GestionClavier.ToucheRole.HAUT.enfoncee()) {
-			// Avancer jusqu'à l'obstacle
-			// (recherche par dichotomie)
-			int distanceALObstacle = vitesse(event);
-			int nouvelleDistanceALObstacle;
-			int borneSup = distanceALObstacle;
-			int borneInf = 0;
-			while (distanceALObstacle > 0) {
-				nouvelleDistanceALObstacle = (borneInf+borneSup)/2;
-				if (nouvelleDistanceALObstacle == distanceALObstacle) {
-					break;
-				}
-				distanceALObstacle = nouvelleDistanceALObstacle;
-				if (unPasVers(Event.Direction.HAUT, event, distanceALObstacle).mouvementPossible()){
-					borneInf = distanceALObstacle;
-				} else {
-					borneSup = distanceALObstacle;
-				}
-			}
+			distanceALObstacle = calculerLaDistanceALOBstacle(event, Event.Direction.HAUT);
 			if (distanceALObstacle != 0) {
 				event.y -= distanceALObstacle;
-				LOG.info("distance a l'obstacle : "+distanceALObstacle);
+				LOG.debug("distance a l'obstacle en haut : " + distanceALObstacle);
 			}
 		}
+	}
+	
+	/**
+	 * Quelle est la distance qui separe l'Event de l'obstacle en face de lui ?
+	 * @param event a faire avancer jusqu'a l'obstacle
+	 * @param direction dans laquelle l'event veut avancer
+	 * @return distance entre l'event et l'obstacle
+	 */
+	private int calculerLaDistanceALOBstacle(final Event event, final int direction) {
+		// Recherche par dichotomie
+		int distanceALObstacle = vitesse(event);
+		int nouvelleDistanceALObstacle;
+		int borneSup = distanceALObstacle;
+		int borneInf = 0;
+		while (distanceALObstacle > 0) {
+			nouvelleDistanceALObstacle = (borneInf + borneSup)/2;
+			if (nouvelleDistanceALObstacle == distanceALObstacle) {
+				break;
+			}
+			distanceALObstacle = nouvelleDistanceALObstacle;
+			if (unPasVers(direction, event, distanceALObstacle).mouvementPossible()) {
+				borneInf = distanceALObstacle;
+			} else {
+				borneSup = distanceALObstacle;
+			}
+		}
+		return distanceALObstacle;
 	}
 
 	@Override
