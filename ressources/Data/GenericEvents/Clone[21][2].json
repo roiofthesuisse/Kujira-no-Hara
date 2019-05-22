@@ -1,0 +1,45 @@
+{
+	"pages": [
+		{
+			"image": "Anémone bleue character",
+            "conditions": [
+            	{
+            		"nom": "Contact"
+            	},
+            	{
+            		"nom": "ConditionDansZoneDAttaque",
+            		"eventAttaquant": null,
+            		"eventCible": 0,
+            		"zone": 1
+            	}
+            
+            ],
+            "commandes": [
+				{
+					"nom": "Commentaire",
+					"texte": "Ennemi qui donne un coup."
+				},
+                {
+                	"nom": "AttendreLaFinDesDeplacements"
+                }
+			],
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": true,
+                "mouvements": [{
+                    "nom": "AvancerEnFonctionDUnEvent",
+                    "idEventObserve": 0
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+			},
+			"frequence": "basse",
+			"vitesse": "moderee",
+            "directionFixe": false,
+            "animeALArret": true,
+			"traversable": false,
+            "animeEnMouvement": true,
+			"auDessusDeTout": false
+		}
+	]
+}
