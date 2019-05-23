@@ -2,10 +2,12 @@ package conditions;
 
 import java.util.HashMap;
 
-import org.hamcrest.Condition;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import commandes.CommandeEvent;
-import map.Heros;
+import main.Main;
+import map.Event;
 import map.Hitbox;
 
 /**
@@ -14,6 +16,7 @@ import map.Hitbox;
  * par un autre vent quelconque avec une zone d'attaque specifiee.
  */
 public class ConditionDansZoneDAttaque extends Condition implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(ConditionDansZoneDAttaque.class);
 
     private final Integer idEventAttaquant;
     private final Integer idEventCible;
@@ -59,9 +62,9 @@ public class ConditionDansZoneDAttaque extends Condition implements CommandeEven
 
     @Override
     public final boolean estVerifiee() {
-        Event eventAttaquant;
-        Event eventCible;
-        Hitbox zoneDAttaque;
+        Event eventAttaquant = null;
+        Event eventCible = null;
+        Hitbox zoneDAttaque = null;
         
         // On cherche l'Event qui attaque
         if (this.idEventAttaquant == 0) {
@@ -69,14 +72,14 @@ public class ConditionDansZoneDAttaque extends Condition implements CommandeEven
             eventAttaquant = this.page.event.map.heros;
             boolean leHerosAttaqueAvecSonArme = (this.nomZone == null);
             if (leHerosAttaqueAvecSonArme) {
-                final boolean estCeQueLeHerosAUneArme = (getPartieActuelle().nombreDArmesPossedees > 0);
-                if (!leHerosAttaqueAvecSonArme) {
+                final boolean leHerosAUneArme = (getPartieActuelle().nombreDArmesPossedees > 0);
+                if (!leHerosAUneArme) {
                     // Le Heros n'a pas d'Arme !
                     return false; 
                 }
                 zoneDAttaque = Main.getPartieActuelle().getArmeEquipee().hitbox;
             }
-        } else if (eventAttaquant == null) {
+        } else if (this.idEventAttaquant == null) {
             // C'est cet Event qui attaque
             eventAttaquant = this.page.event;
         } else {
@@ -85,11 +88,11 @@ public class ConditionDansZoneDAttaque extends Condition implements CommandeEven
         }
         
         // On cherche l'event qui recoit l'attaque
-        if (this.idEventCible = null) {
+        if (this.idEventCible == null) {
             // C'est cet Event qui recoit l'attaque
             eventCible = this.page.event;
         } else if (this.idEventCible == 0) {
-            // C'est le Heros qui attaque
+            // C'est le Heros qui recoit l'attaque
             eventCible = this.page.event.map.heros;
         } else {
             // C'est un Event en particulier qui recoit l'attaque
