@@ -53,7 +53,12 @@ public class AllerVersEtiquette extends Commande implements CommandeEvent {
 			}
 		}
 		//la fin de Boucle n'a pas été trouvée
-		LOG.error("L'étiquette "+this.nomEtiquette+" n'a pas été trouvée !");
+		final String nomEvent = commandes.size()>0 
+				&& commandes.get(0).page != null 
+				&& commandes.get(0).page.event != null 
+				? commandes.get(0).page.event.nom
+				: "";
+		LOG.error("L'étiquette '"+this.nomEtiquette+"' de l'event '"+nomEvent+"' n'a pas été trouvée !");
 		return curseurActuel+1;
 	}
 

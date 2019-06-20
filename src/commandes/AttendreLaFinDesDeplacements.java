@@ -32,7 +32,7 @@ public class AttendreLaFinDesDeplacements extends Commande implements CommandeEv
 	
 	@Override
 	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
-		if (idEvent == -1) {
+		if (idEvent != null && idEvent == -1) {
 			//tout le monde
 			for (Event e : this.page.event.map.events) {
 				if (e.deplacementForce != null 
