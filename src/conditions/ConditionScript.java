@@ -27,13 +27,15 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	private static final String HEROS = "\\$game_player\\.";
 	private static final String X = "x";
 	private static final String Y = "y";
-	private static final String COORD_EVENT_DEBUT = "\\$game_map\\.events\\[";
-	private static final String COORD_EVENT_FIN = "\\]\\.";
+	private static final String EVENT_DEBUT = "\\$game_map\\.events\\[";
+	private static final String EVENT_FIN = "\\]\\.";
 	private static final String EVENT_ID = "@event_id";
 	private static final String RELATIF = "-?[0-9]+";
 	private static final String POSITIF = "[0-9]+";
-	private static final String COORD_EVENT_X = COORD_EVENT_DEBUT+POSITIF+COORD_EVENT_FIN+X;
-	private static final String COORD_EVENT_Y = COORD_EVENT_DEBUT+POSITIF+COORD_EVENT_FIN+Y;
+	private static final String POSITIF_OU_NIL = "([0-9]+|nil)";
+	private static final String CHAINE_OU_NIL = "(\".*\"|nil)";
+	private static final String COORD_EVENT_X = EVENT_DEBUT+POSITIF+EVENT_FIN+X;
+	private static final String COORD_EVENT_Y = EVENT_DEBUT+POSITIF+EVENT_FIN+Y;
 	private static final String COORD_HEROS_X = HEROS+X;
 	private static final String COORD_HEROS_Y = HEROS+Y;
 	private static final String VARIABLE_DEBUT = "\\$game_variables\\[";
@@ -50,10 +52,12 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	private static final String ABSOLU_FIN = "\\)\\.abs";
 	private static final String ABSOLUTION = ABSOLU_DEBUT+ESPACE+RELATIF+ESPACE+ABSOLU_FIN;
 	private static final String VIE_EVENT_FIN = "\\]\\.life";
-	private static final String VITALISATION = COORD_EVENT_DEBUT + POSITIF + VIE_EVENT_FIN;
-	private static final String CIBLAGE = "target_in_da_zone?("+POSITIF+","+POSITIF+")";
+	private static final String VITALISATION = EVENT_DEBUT + POSITIF + VIE_EVENT_FIN;
+	private static final String CIBLAGE = "target_in_da_zone?\\("+POSITIF+","+ESPACE+POSITIF+"\\)";
 	private static final String CIBLAGE_PAR_HEROS = HEROS+CIBLAGE;
-	private static final String CIBLAGE_PAR_EVENT = COORD_EVENT_DEBUT+POSITIF+COORD_EVENT_FIN+CIBLAGE;
+	private static final String CIBLAGE_PAR_EVENT = EVENT_DEBUT+POSITIF+EVENT_FIN+CIBLAGE;
+	private static final String APPARENCE = "lolilol\\(";
+	private static final String APPARENCIATION = EVENT_DEBUT+POSITIF+EVENT_FIN+APPARENCE+CHAINE_OU_NIL+","+ESPACE+POSITIF_OU_NIL+","+ESPACE+POSITIF_OU_NIL+"\\)";
 	
 	private static final String ET = "&&";
 	private static final String ETATION = RELATIF+ESPACE+ET+ESPACE+RELATIF;
@@ -290,6 +294,16 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(ABSOLUTION, ""+nombre);
 		}
 		
+		// Apparence, direction, animation d'un Event
+		p = Pattern.compile(APPARENCIATION);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("apparence, direction, animation de l'event");
+			final String chaine = extraireLaChaineOuNil(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF_OU_NIL);
+			return expression.replaceFirst(APPARENCIATION, ""+apparenceDeLEvent(nombres.get(0), chaine, nombres.get(nombres.size()-1), nombres.get(nombres.size()-2)));
+		}
+		
 		
 		//--------------------//
 		// Opérations unaires //
@@ -488,16 +502,38 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	/**
 	 * Trouver les nombres situés dans une chaine de caractères.
 	 * @param brut chaine de caractères contenant des nombres
+	 * @param relatifOuPositif les nombres attendus sont-ils positifs ou relatifs ?
 	 * @return nombres contenus
 	 */
-	private static ArrayList<Integer> extraireLesNombres(final String brut, String relatifOuPositif) {
+	private static ArrayList<Integer> extraireLesNombres(final String brut, final String relatifOuPositif) {
 		final Pattern p = Pattern.compile(relatifOuPositif);
 		final Matcher m = p.matcher(brut);
 		final ArrayList<Integer> nombres = new ArrayList<>();
 		while (m.find()) {
-			nombres.add(Integer.parseInt(m.group()));
+			final String nombre = m.group();
+			if ("nil".equals(nombre)) {
+				nombres.add(null);
+			} else {
+				nombres.add(Integer.parseInt(nombre));
+			}
 		}
 		return nombres;
+	}
+
+	/**
+	 * Trouver la chaine entre guillemets (ou nil) situee dans une chaine de caractères.
+	 * @param chaineBrute chaine de caractères contenant la chaine entre guillemets
+	 * @return chaine entre guillemets contenue
+	 */
+	private static String extraireLaChaineOuNil(final String chaineBrute) {
+		final Pattern p = Pattern.compile(CHAINE_OU_NIL);
+		final Matcher m = p.matcher(chaineBrute);
+		m.find();
+		String chaineExtraite = m.group(0);
+		if ("nil".equals(chaineExtraite)) {
+			chaineExtraite = null;
+		}
+		return chaineExtraite;
 	}
 
 	@Override
@@ -570,6 +606,26 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		final Event attaquant = this.page.event.map.eventsHash.get(idAttaquant);
 		final Event cible = this.page.event.map.eventsHash.get(idCible);
 		return Hitbox.ZONES_D_ATTAQUE.get(typeDeZone).estDansZoneDAttaque(cible, attaquant);
+	}
+	
+	private boolean apparenceDeLEvent(Integer idCible, String apparence, Integer direction, Integer animation) {
+		final Event cible = this.page.event.map.eventsHash.get(idCible);
+		if (apparence != null) {
+			if (!cible.pageDApparence.nomImage.equals(apparence.replace("\"", ""))) {
+				return false;
+			}
+		}
+		if (direction != null) {
+			if (cible.direction != direction.intValue()) {
+				return false;
+			}
+		}
+		if (animation != null) {
+			if (cible.animation != animation.intValue()) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }

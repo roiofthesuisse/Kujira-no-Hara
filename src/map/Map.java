@@ -555,11 +555,12 @@ public class Map implements Sauvegardable {
 		try {
 			return vignette.getSubimage(0, debutDecoupageY, vignette.getWidth(), hauteurBandelette);
 		} catch (RasterFormatException e) {
-			LOG.error("La bandelette de décor médian à découper dépasse de la vignette source !"
+			/*LOG.error("La bandelette de décor médian à découper dépasse de la vignette source !"
 					+ " hauteur de la vignette ("+vignette.getHeight()
 					+ ") < début du découpage ("+debutDecoupageY
 					+ ") + hauteur de la bandelette ("+hauteurBandelette+")", e);
-			throw e;
+			throw e;*/
+			return null;
 		}
 	}
 

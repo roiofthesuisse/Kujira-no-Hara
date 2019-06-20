@@ -382,8 +382,10 @@ public class LecteurMap extends Lecteur {
 						if (bandeletteEvent > bandeletteActuelle) {
 							try {
 								final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
+								if(imageBandelette!=null){
 								ecran = Graphismes.superposerImages(ecran, imageBandelette,
 										-xCamera, bandeletteActuelle*Main.TAILLE_D_UN_CARREAU-yCamera);
+								}
 							} catch (RasterFormatException e) {
 								LOG.warn("Bandelette de décor médian impossible à découper !");
 							}
@@ -579,9 +581,11 @@ public class LecteurMap extends Lecteur {
 		
 		
 		//DEBUG pour visualiser les collisions //TODO commenter
+		/*
 		Graphics2D graphics = ecran.createGraphics();
 		graphics.setPaint(Color.blue);
 		graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
+		*/
 		//voilà
 		
 		

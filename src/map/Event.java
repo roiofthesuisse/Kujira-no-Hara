@@ -632,7 +632,7 @@ public class Event implements Comparable<Event> {
 			return terrainEvent;
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
-			LOG.warn("Impossible de calculer le terrain car le héros est sorti de la map.", e);
+			LOG.warn("Impossible de calculer le terrain, car l'event \""+this.nom+"\" est sorti de la map ("+xEvent+";"+yEvent+")");
 			return 0;
 		}
 	}

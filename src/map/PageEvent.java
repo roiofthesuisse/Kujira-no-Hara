@@ -44,7 +44,7 @@ public class PageEvent {
 	public int curseurCommandes = 0;
 	
 	//apparence
-	private String nomImage;
+	public String nomImage;
 	public BufferedImage image;
 	public boolean apparenceEstUnTile;
 	/** par défaut, si image < 32px, l'Event est considéré comme plat (au sol) */

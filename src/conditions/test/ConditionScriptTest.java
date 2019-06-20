@@ -75,6 +75,8 @@ public class ConditionScriptTest {
 		liste.add("($game_map.events[22].x-$game_player.x).abs + ($game_map.events[22].y-$game_player.y).abs == 24"); attendu.add(true);
 		liste.add("Math.hypot($game_player.x-2, $game_player.y-2).round == 5"); attendu.add(true);
 		liste.add("Math.sqrt(65).round == 8"); attendu.add(true);
+		// TODO target in da zone
+		// TODO liste.add("$game_map.events[5].lolilol(nil, 8, nil)"); attendu.add(true);
 		
 		for (int i = 0; i<liste.size(); i++) {
 			final String s = liste.get(i);
