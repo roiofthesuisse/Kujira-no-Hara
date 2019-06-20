@@ -57,8 +57,9 @@ public final class Fenetre extends JFrame {
 		this.device = this.getGraphicsConfiguration().getDevice();
 		
 		// Démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
-		@SuppressWarnings("unused")
-		final JFXPanel fxPanel = new JFXPanel();
+		// TODO ne plus utiliser de fichiers MP3 !
+		//@SuppressWarnings("unused")
+		//final JFXPanel fxPanel = new JFXPanel();
 		
 		// Dimensionnement
 		if (this.pleinEcran) {
