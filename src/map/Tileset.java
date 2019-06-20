@@ -2,6 +2,7 @@ package map;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.awt.image.RasterFormatException;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
@@ -109,7 +110,14 @@ public class Tileset {
 		this.carreaux = new BufferedImage[nombreDeCarreauxTileset];
 		for (int i = 0; i<LARGEUR_TILESET; i++) {
 			for (int j = 0; j<nombreDeLignesTileset; j++) {
-				carreaux[LARGEUR_TILESET*j + i] = this.image.getSubimage(i*Main.TAILLE_D_UN_CARREAU, j*Main.TAILLE_D_UN_CARREAU, Main.TAILLE_D_UN_CARREAU, Main.TAILLE_D_UN_CARREAU);
+				try {
+					carreaux[LARGEUR_TILESET*j + i] = this.image.getSubimage(i*Main.TAILLE_D_UN_CARREAU, 
+							j*Main.TAILLE_D_UN_CARREAU, 
+							Main.TAILLE_D_UN_CARREAU, 
+							Main.TAILLE_D_UN_CARREAU);
+				} catch (RasterFormatException rfe) {
+					LOG.error("Impossible de découper en carreaux de Tileset ! Vérifier que l'image et le JSON coïncident.", rfe);
+				}
 			}
 		}
 		
