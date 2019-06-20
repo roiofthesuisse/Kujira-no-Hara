@@ -6,6 +6,7 @@ import java.util.HashMap;
 import main.Commande;
 import main.Main;
 import map.LecteurMap;
+import map.Vitesse;
 
 /**
  * Faire défiler la Map dans une direction donnée, pour la décentrer du Héros.
@@ -39,7 +40,7 @@ public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 	 */
 	public FaireDefilerLaMap(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("nombreDeCarreaux"),
-			parametres.containsKey("vitesse") ? (int) parametres.get("vitesse") : VITESSE_DEFILEMENT_PAR_DEFAUT,
+			parametres.containsKey("vitesse") ? Vitesse.parNom((String)parametres.get("vitesse")).valeur : VITESSE_DEFILEMENT_PAR_DEFAUT,
 			(int) parametres.get("direction")
 		);
 	}
