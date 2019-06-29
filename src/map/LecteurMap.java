@@ -36,6 +36,8 @@ public class LecteurMap extends Lecteur {
 	
 	/** si true, les évènements n'avancent plus naturellement (seuls mouvements forcés autorisés) */
 	public boolean stopEvent = false;
+	/** si true, le Héros n'avance plus naturellement (seuls mouvements forcés autorisés) */
+	public boolean stopHeros = false;
 	public Event eventQuiALanceStopEvent;
 	
 	/** Message à afficher dans la boîte de dialogue */
@@ -308,7 +310,9 @@ public class LecteurMap extends Lecteur {
 				}
 			}
 			//le Héros est calculé en dernier pour éviter les problèmes d'épée
-			activerUnePageEtLExecuter(this.map.heros);
+			if (!this.stopHeros) {
+				activerUnePageEtLExecuter(this.map.heros);
+			}
 			
 			//lire les PagesCommunes
 			lireLesPagesCommunes();
@@ -454,14 +458,20 @@ public class LecteurMap extends Lecteur {
 					}
 					//cas où l'Event est vraiment en mouvement
 					final boolean eventAvance = event.avance || event.avancaitALaFramePrecedente;
-					final boolean nAnimerQueLesDeplacementsForcesLorsDesDialogues = !this.stopEvent 
+					//l'animation des Events est-elle figee ?
+					final boolean animerLesEvents = !this.stopEvent 
 							|| (event.deplacementForce != null 
 								&& event.deplacementForce.mouvements.size() > 0 
 								&& event.deplacementForce.idEventCommanditaire == this.eventQuiALanceStopEvent.id);
+					//l'animation du Heros est-elle figee ?
+					final boolean animerLeHeros = !this.stopHeros || !(event instanceof Heros); //si pas le Heros, alors pas concerné
 					if (eventAvance
 							&& event.animeEnMouvementActuel
 							&& passerALAnimationSuivante
-							&& nAnimerQueLesDeplacementsForcesLorsDesDialogues) {
+							&& animerLesEvents
+							&& animerLeHeros //si pas le Heros, alors pas concerné
+					) {
+						//on poursuit l'animation de l'Event
 						event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
 					}
 					event.avancaitALaFramePrecedente = event.avance;
@@ -484,11 +494,11 @@ public class LecteurMap extends Lecteur {
 	 */
 	private void deplacerLesEvents() {
 		try {
-			//animer la marche du Héros si touche pressée
-			if ( GestionClavier.ToucheRole.HAUT.enfoncee()
-			  || GestionClavier.ToucheRole.GAUCHE.enfoncee()
-			  || GestionClavier.ToucheRole.BAS.enfoncee()
-			  || GestionClavier.ToucheRole.DROITE.enfoncee()) {
+			//animer la marche du Héros si touche de déplacement pressée
+			if (GestionClavier.ToucheRole.HAUT.enfoncee()
+					  || GestionClavier.ToucheRole.GAUCHE.enfoncee()
+					  || GestionClavier.ToucheRole.BAS.enfoncee()
+					  || GestionClavier.ToucheRole.DROITE.enfoncee()) {
 				map.heros.avance = true;
 			}
 			
@@ -733,7 +743,11 @@ public class LecteurMap extends Lecteur {
 	 * On quitte la Map temporairement (elle est mémorisée) pour parcourir le Menu.
 	 */
 	public final void ouvrirLeMenu() {
-		if (!this.stopEvent && this.autoriserMenu) { //impossible d'ouvrir le Menu en cas de stopEvent ou de Menu interdit
+		//impossible d'ouvrir le Menu en cas de stopEvent, stopHeros ou de Menu interdit
+		if (!this.stopEvent 
+				&& !this.stopHeros
+				&& this.autoriserMenu
+		) { 
 			final Commande menuPause = new OuvrirMenu("Statut", 0);
 			menuPause.executer(0, null);
 		}
@@ -884,7 +898,7 @@ public class LecteurMap extends Lecteur {
 		if (this.messageActuel!=null) {
 			//les touches directionnelles servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.haut();
-		} else if (!this.stopEvent) {
+		} else if (!this.stopEvent && !this.stopHeros) {
 			//les touches directionnelles servent à faire avancer le Héros
 			//this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -898,7 +912,7 @@ public class LecteurMap extends Lecteur {
 		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.gauche();
-		} else if (!this.stopEvent) {
+		} else if (!this.stopEvent && !this.stopHeros) {
 			//les touches directionnelles servent à faire avancer le Héros
 			//this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -912,7 +926,7 @@ public class LecteurMap extends Lecteur {
 		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.bas();
-		} else if (!this.stopEvent) {
+		} else if (!this.stopEvent && !this.stopHeros) {
 			//les touches directionnelles servent à faire avancer le Héros
 			//this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
@@ -926,7 +940,7 @@ public class LecteurMap extends Lecteur {
 		if (this.messageActuel!=null) {
 			//les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.droite();
-		} else if (!this.stopEvent) {
+		} else if (!this.stopEvent && !this.stopHeros) {
 			//les touches directionnelles servent à faire avancer le Héros
 			//this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;

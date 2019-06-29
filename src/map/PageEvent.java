@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import commandes.Deplacement;
 import commandes.Message;
 import conditions.Condition;
+import conditions.ConditionArriveeAuContact;
 import conditions.ConditionParler;
 import main.Commande;
 import main.Main;
@@ -61,6 +62,7 @@ public class PageEvent {
 	 * <p>automatiquement mis à true si la Page contient une condition Parler</p>
 	 */
 	private boolean figerLesAutresEvents;
+	private boolean figerLeHeros;
 	public boolean animeALArret;
 	public boolean animeEnMouvement;
 	public Passabilite traversable;
@@ -188,13 +190,12 @@ public class PageEvent {
 					+pageJSON.toString());
 			this.vitesse = Event.VITESSE_PAR_DEFAUT;
 		}
-		if (contientUneConditionParler()) {
-			this.figerLesAutresEvents = true;
-		} else if (pageJSON.has("figerLesAutresEvents")) {
-			this.figerLesAutresEvents = pageJSON.getBoolean("figerLesAutresEvents");
-		} else {
-			this.figerLesAutresEvents = false;
-		}
+
+		// Est-ce que cette Page fige les autres Events qu'elle ?
+		this.figerLesAutresEvents = cettePageFigeLesAutresEvents(pageJSON);
+		// Est-ce que cette page fige le Mouvement naturel du Héros ?
+		this.figerLeHeros = cettePageFigeLeHeros();
+
 		this.animeALArret = pageJSON.has("animeALArret") 
 				? pageJSON.getBoolean("animeALArret") 
 				: Event.ANIME_A_L_ARRET_PAR_DEFAUT;
@@ -279,15 +280,44 @@ public class PageEvent {
 	}
 	
 	/**
+	 * Est-ce que l'activation de cette page fige les autres Events ?
+	 * @param pageJSON objet JSON décrivant la page de comportements
+	 * @return true si la Page fige les autres Events
+	 */
+	private boolean cettePageFigeLesAutresEvents(JSONObject pageJSON) {
+		if (contientUneConditionParler()) {
+			return true;
+		} else if (pageJSON.has("figerLesAutresEvents")) {
+			return pageJSON.getBoolean("figerLesAutresEvents");
+		} else {
+			return false;
+		}
+	}
+	
+	/**
 	 * La PageEvent contient-elle une ConditionParler ?
 	 * Auquel cas, cette Page fige les autres Events de la Map pendant son execution.
 	 * @return présence d'une ConditionParler
 	 */
 	private boolean contientUneConditionParler() {
-		if (conditions != null) {
-			for (int i = 0; i<conditions.size(); i++) {
-				final Condition cond = conditions.get(i);
+		if (this.conditions != null) {
+			for (Condition cond : this.conditions) {
 				if (cond instanceof ConditionParler) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * L'activation de cette Page fige-t-elle le Heros dans son mouvement naturel ?
+	 * @return true si contient une condition ArriveeAuContact
+	 */
+	private boolean cettePageFigeLeHeros() {
+		if (this.conditions != null) {
+			for (Condition cond : this.conditions) {
+				if (cond instanceof ConditionArriveeAuContact) {
 					return true;
 				}
 			}
@@ -314,11 +344,18 @@ public class PageEvent {
 	 * On va donc lire les commandes une par une avec un curseur.
 	 */
 	public void executer() {
-		//si la page est une page "Parler", elle active le stopEvent qui fige tous les Events
-		if (figerLesAutresEvents) {
+		//figer les autres Events ?
+		//si la page est par exemple une page "Parler", elle active le stopEvent qui fige tous les Events
+		if (this.figerLesAutresEvents) {
 			this.event.map.lecteur.stopEvent = true;
 			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
 		}
+		//si la page est une page ArriveeAuContact, elle bloque les Mouvements naturels du héros
+		if (this.figerLeHeros) {
+			this.event.map.lecteur.stopHeros = true;
+			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
+		}
+		
 		//lecture des Commandes event
 		if (commandes != null) {
 			boolean onAvanceDansLesCommandes = true;
@@ -364,11 +401,21 @@ public class PageEvent {
 	 * Libérer les autres Events s'ils ont été figés par cette Page.
 	 */
 	private void refermerLaPage() {
+		//a la prochaine activation de la Page, on recommencera en haut du code event
 		curseurCommandes = 0;
-		if (figerLesAutresEvents) {
+		
+		// Libération des events figés
+		//si la Page figeait les autres Events, elle doit maintenant les liberer
+		if (this.figerLesAutresEvents) {
 			this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
 			this.event.map.lecteur.messagePrecedent = null; //plus besoin d'afficher le Message précédent dans un Choix
 		}
+		//si la Page figeait le Heros, elle doit maintenant le liberer
+		if (this.figerLeHeros) {
+			this.event.map.lecteur.stopHeros = false; //on désactive le stopHeros si fin de la page
+		}
+		
+		//desactivation de la Page, ainsi une nouvelle Page sera activee a la prochaine frame
 		this.event.pageActive = null;
 	}
 	

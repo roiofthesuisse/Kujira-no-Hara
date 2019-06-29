@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import main.Commande;
 import main.Main;
 import map.Event;
+import map.Heros;
 import map.LecteurMap;
 import mouvements.Mouvement;
 
@@ -182,13 +183,16 @@ public class Deplacement extends Commande implements CommandeEvent {
 		final LecteurMap lecteurMap = (LecteurMap) Main.lecteur;
 		//si le stopEvent est activé, on n'effectue pas les Mouvements
 		//sauf s'il s'agit d'Attendre
-		if (lecteurMap.stopEvent) {
+		final boolean lesMouvementsSontBloques = lecteurMap.stopEvent || (lecteurMap.stopHeros && getEventADeplacer() instanceof Heros);
+		if (lesMouvementsSontBloques) {
 			//les Mouvements sont bloqués
 			
 			final int idBloqueur = lecteurMap.eventQuiALanceStopEvent.id;
 			final int idCommanditaireDeCeDeplacement = this.page.event.id;
 			if (!this.naturel && idBloqueur == idCommanditaireDeCeDeplacement) {
-				//on effectue toutefois les Mouvements commandités par le bloqueur
+				//on effectue toutefois :
+				// - les Mouvements commandités par le bloqueur
+				// - et les Mouvements forcés
 				premierMouvement.executerLeMouvement(this);
 			}
 		} else {

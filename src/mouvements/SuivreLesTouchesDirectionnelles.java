@@ -404,6 +404,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	public final int getDirectionImposee() {
 		final Event event = this.deplacement.getEventADeplacer();
 		if (!event.map.lecteur.stopEvent //pas de gel des Events
+			&& !(event.map.lecteur.stopHeros && event instanceof Heros) //pas de gel du Héros
 				//&& event.animationAttaque <= 0 //pas en attaque
 				&& (event.deplacementForce == null || event.deplacementForce.mouvements.size() <= 0) //pas de Déplacement forcé
 		) {
