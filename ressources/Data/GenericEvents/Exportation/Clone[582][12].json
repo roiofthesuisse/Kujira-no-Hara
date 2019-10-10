@@ -1,0 +1,64 @@
+{
+    "pages": [
+        {
+            "directionInitiale": 3,
+            "image": "Ecailles colorées",
+            "commandes": [
+                {
+                    "texte": "ecaille rouge = 20 ecailles bleues",
+                    "nom": "Commentaire"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "monnaie.mp3",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "variable": false,
+                    "nom": "AjouterArgent",
+                    "quantite": 20
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": true,
+            "frequence": "la plus haute",
+            "conditions": [{"nom": "ArriveeAuContact"}],
+            "directionFixe": true,
+            "animeALArret": true,
+            "vitesse": "tres rapide"
+        },
+        {
+            "commandes": [
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life = 0"
+                },
+                {"nom": "SupprimerEvent"}
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 12
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        }
+    ],
+    "x": 12,
+    "y": 2,
+    "id": 12,
+    "nom": "Flouze HP[1]"
+}

@@ -1,0 +1,103 @@
+{
+    "pages": [
+        {
+            "directionInitiale": 1,
+            "image": "miroir pivotant character",
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "directionInitiale": 1,
+            "image": "miroir pivotant character",
+            "commandes": [
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "clac.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 0,
+                    "idArme": 0,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 172)"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 172)"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 172)"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 172)"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "la plus haute",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 171
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "tres rapide"
+        }
+    ],
+    "x": 24,
+    "y": 4,
+    "id": 171,
+    "nom": "miroir pivotant gauche HP[1]"
+}

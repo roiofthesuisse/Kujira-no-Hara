@@ -1,0 +1,204 @@
+{
+    "pages": [
+        {
+            "image": "champignon explosif character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "idArme": 1,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "idObjet": 30,
+                    "numero": 1,
+                    "nom": "ConditionObjetPossede"
+                },
+                {
+                    "touche": "ACTION",
+                    "numero": 2,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "117-Fire01.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 4,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "la plus haute",
+            "conditions": [{"nom": "ArriveeAuContact"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "tres rapide"
+        },
+        {
+            "directionInitiale": 1,
+            "image": "champignon explosif character",
+            "commandes": [
+                {
+                    "idAnimation": 4,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "idAnimation": 4,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "idAnimation": 6,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "texte": "Heros blessé",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 226,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 227,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "($game_player.x - $game_variables[226])**2 + ($game_player.y - $game_variables[227])**2 < 9"
+                },
+                {
+                    "numeroPageCommune": 56,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "numeroVariable": 4,
+                    "operationAFaire": "retirer",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "Faire exploser les rochers",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroInterrupteur": 83,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "la plus haute",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 24
+            }],
+            "directionFixe": true,
+            "animeALArret": true,
+            "vitesse": "tres rapide"
+        },
+        {
+            "opacite": 150,
+            "directionInitiale": 3,
+            "image": "champignon explosif character",
+            "commandes": [
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 333
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "la plus haute",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 1,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 24
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "tres rapide"
+        }
+    ],
+    "x": 6,
+    "y": 4,
+    "id": 24,
+    "nom": "Champignon explosif"
+}

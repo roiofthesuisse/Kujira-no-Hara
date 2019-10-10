@@ -1,0 +1,110 @@
+{
+    "pages": [{
+        "image": "flamme character",
+        "commandes": [
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "nomCommande": "Attendre",
+                    "nom": "AppelerUneCommande",
+                    "nombreDeFrames": 16
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
+                "tempo": 0.8,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "idAnimation": 4,
+                "idEvent": 0,
+                "nom": "JouerAnimation"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 5
+            },
+            {
+                "numeroVariable": 4,
+                "operationAFaire": "retirer",
+                "valeurADonner": 1,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "valeur brute"
+            },
+            {"nom": "SupprimerEvent"}
+        ],
+        "traversable": true,
+        "animeEnMouvement": true,
+        "auDessusDeTout": true,
+        "deplacement": {
+            "ignorerLesMouvementsImpossibles": false,
+            "repeterLeDeplacement": true,
+            "mouvements": [
+                {
+                    "opacite": 255,
+                    "nom": "ModifierOpacite"
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 0
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 0
+                },
+                {
+                    "opacite": 225,
+                    "nom": "ModifierOpacite"
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 0
+                },
+                {
+                    "opacite": 200,
+                    "nom": "ModifierOpacite"
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 0
+                },
+                {
+                    "opacite": 100,
+                    "nom": "ModifierOpacite"
+                },
+                {
+                    "nom": "Avancer",
+                    "nombreDeCarreaux": 1,
+                    "direction": 0
+                },
+                {
+                    "opacite": 0,
+                    "nom": "ModifierOpacite"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "erase"
+                }
+            ],
+            "attendreLaFinDuDeplacement": false,
+            "nom": "Deplacement"
+        },
+        "frequence": "basse",
+        "conditions": [{"nom": "Contact"}],
+        "directionFixe": false,
+        "animeALArret": true,
+        "vitesse": "moderee"
+    }],
+    "x": 4,
+    "y": 2,
+    "id": 3,
+    "nom": "Boule de feu bas"
+}

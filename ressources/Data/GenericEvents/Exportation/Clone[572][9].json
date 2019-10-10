@@ -1,0 +1,534 @@
+{
+    "pages": [
+        {
+            "image": "cube character",
+            "commandes": [
+                {
+                    "texte": "----------------------------------------\\n1) CUBE IMMOBILE\\n----------------------------------------",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "il faut que le heros regarde le cube",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id, 0)"
+                },
+                {
+                    "texte": "le cube est immobile, on le pousse",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 30,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 31,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "numeroInterrupteur": 64,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.x == $game_map.events[@event_id].x && $game_player.y == $game_map.events[@event_id].y-1"
+                },
+                {
+                    "touche": "BAS",
+                    "numero": 2,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "touche": "BAS",
+                    "numero": 3,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "numeroInterrupteur": 64,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.y == $game_map.events[@event_id].y && $game_player.x == $game_map.events[@event_id].x+1"
+                },
+                {
+                    "touche": "GAUCHE",
+                    "numero": 5,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "touche": "GAUCHE",
+                    "numero": 6,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "numeroInterrupteur": 64,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.y == $game_map.events[@event_id].y && $game_player.x == $game_map.events[@event_id].x-1"
+                },
+                {
+                    "touche": "DROITE",
+                    "numero": 8,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "touche": "DROITE",
+                    "numero": 9,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "numeroInterrupteur": 64,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 10,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.x == $game_map.events[@event_id].x && $game_player.y == $game_map.events[@event_id].y+1"
+                },
+                {
+                    "touche": "HAUT",
+                    "numero": 11,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "touche": "HAUT",
+                    "numero": 12,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "numeroInterrupteur": 64,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 12,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 11,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 10,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteur": 64,
+                    "numero": 13,
+                    "valeurQuIlEstCenseAvoir": false,
+                    "nom": "ConditionInterrupteur"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "sens": "fuir",
+                        "idEvent": 0,
+                        "nom": "RegarderUnEvent"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 13,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "teinte": "120",
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{"nom": "ArriveeAuContact"}],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "image": "cube character",
+            "commandes": [
+                {
+                    "texte": "----------------------------------------\\n2) CUBE DEMARRE\\n----------------------------------------",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "le cube essaye de faire un premier pas",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 30,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 31,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{"nom": "PasEnAvant"}],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "numeroVariable": 26,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 27,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "texte": "si le cube réussi à démarrer,\\nil fait un premier bruit",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 26,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 30,
+                    "inegalite": "!=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_IceBlock_Stop.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 31,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 31,
+                    "inegalite": "!=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_IceBlock_Stop.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "on met le cube en mouvement",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "teinte": "120",
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "tres haute",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 9
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "rapide"
+        },
+        {
+            "image": "cube character",
+            "commandes": [
+                {
+                    "texte": "------------------------------------------------------------\\n3) CUBE AVANCE ET S'ARRETE\\n------------------------------------------------------------",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 26,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 27,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": true,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{"nom": "PasEnAvant"}],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "numeroVariable": 28,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 29,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "texte": "si le cube n'arrive plus à avancer, \\nil fait un second bruit",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 26,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 28,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroVariable": 27,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 29,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "bruit d'arrêt du cube",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 30,
+                    "numero": 2,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 26,
+                    "inegalite": "!=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_IceBlock_Stop.wav",
+                    "tempo": 0.8,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 31,
+                    "numero": 3,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 27,
+                    "inegalite": "!=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_IceBlock_Stop.wav",
+                    "tempo": 0.8,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "texte": "on remet le cube à l'arrêt",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numeroVariable": 30,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 31,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "teinte": "120",
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "tres haute",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 1,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 9
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "rapide"
+        }
+    ],
+    "x": 13,
+    "y": 4,
+    "id": 9,
+    "nom": "Cube bleu qui glisse"
+}

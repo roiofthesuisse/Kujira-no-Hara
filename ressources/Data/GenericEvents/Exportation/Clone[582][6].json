@@ -1,0 +1,315 @@
+{
+    "pages": [
+        {
+            "image": "portique metro character",
+            "commandes": [
+                {
+                    "texte": "entrer dans le metro",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 3
+                },
+                {
+                    "idObjet": 5,
+                    "numero": 1,
+                    "nom": "ConditionObjetPossede"
+                },
+                {
+                    "idObjet": 5,
+                    "variable": false,
+                    "nom": "RetirerObjet",
+                    "quantite": 1
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "directionFixe": false,
+                            "nom": "RendreDirectionFixe"
+                        },
+                        {
+                            "image": "portique metro character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "volume": 0.8,
+                            "nomFichierSonore": "cloche ascenseur.mp3",
+                            "nomCommande": "JouerEffetSonore",
+                            "tempo": 1,
+                            "nom": "AppelerUneCommande"
+                        },
+                        {
+                            "image": "portique metro character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "portique metro character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "portique metro character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "directionFixe": true,
+                            "nom": "RendreDirectionFixe"
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "idEvent": -1,
+                    "nom": "AttendreLaFinDesDeplacements"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 3
+                    }],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroPageCommune": 55,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "numeroInterrupteur": 80,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroVariable": 154,
+                    "operationAFaire": "rendre egal a",
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "numero de la map"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{"nom": "ArriveeAuContact"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "directionInitiale": 3,
+            "image": "portique metro character",
+            "commandes": [
+                {
+                    "texte": "sortir du metro",
+                    "nom": "Commentaire"
+                },
+                {
+                    "touche": "BAS",
+                    "numero": 0,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    }],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroPageCommune": 55,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "portique metro character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 2,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "portique metro character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 2,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "portique metro character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 2,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "portique metro character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 2,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "idEvent": -1,
+                    "nom": "AttendreLaFinDesDeplacements"
+                },
+                {
+                    "numeroVariable": 20,
+                    "operationAFaire": "rendre egal a",
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "numero de la map"
+                },
+                {
+                    "numeroVariable": 20,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 154,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "texte": "le joueur n'a finalement  pas pris le metro",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "on lui rend son ticket",
+                    "nom": "Commentaire"
+                },
+                {
+                    "idObjet": 5,
+                    "variable": false,
+                    "nom": "AjouterObjet",
+                    "quantite": 1
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "texte": "le joueur a pris le metro",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "on ne lui rend pas son ticket",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteur": 80,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [
+                {"nom": "ArriveeAuContact"},
+                {
+                    "numeroInterrupteur": 80,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "nom": "Interrupteur"
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        }
+    ],
+    "x": 8,
+    "y": 2,
+    "id": 6,
+    "nom": "Portique metro"
+}

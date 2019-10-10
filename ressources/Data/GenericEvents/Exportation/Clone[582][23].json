@@ -1,0 +1,164 @@
+{
+    "pages": [
+        {
+            "directionInitiale": 3,
+            "image": "rocher gris character",
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "directionInitiale": 3,
+            "image": "rocher gris character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "($game_map.events[@event_id].x - $game_variables[226])**2 + ($game_map.events[@event_id].y - $game_variables[227])**2 < 9"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "volume": 1,
+                            "nomFichierSonore": "eboulement.ogg",
+                            "nomCommande": "JouerEffetSonore",
+                            "tempo": 1,
+                            "nom": "AppelerUneCommande"
+                        },
+                        {
+                            "image": "rocher gris character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 1
+                        },
+                        {
+                            "image": "rocher gris character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 6
+                        },
+                        {
+                            "image": "rocher gris character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 3
+                        },
+                        {
+                            "image": "rocher gris character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 3
+                        },
+                        {
+                            "traversable": true,
+                            "nom": "RendreTraversable"
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numeroVariable": 226,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numeroVariable": 227,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numeroInterrupteur": 83,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "numeroInterrupteur": 83,
+                "valeurQuIlEstCenseAvoir": true,
+                "nom": "Interrupteur"
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "directionInitiale": 3,
+            "image": "rocher gris character",
+            "commandes": [],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "animationInitiale": 3,
+            "frequence": "basse",
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 23
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        }
+    ],
+    "x": 5,
+    "y": 4,
+    "id": 23,
+    "nom": "Rocher a exploser [RESET]"
+}

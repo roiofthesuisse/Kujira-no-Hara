@@ -1,0 +1,316 @@
+{
+    "pages": [
+        {
+            "commandes": [
+                {
+                    "numeroVariable": 3,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "numeroVariable": 27,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "numeroVariable": 3,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 27,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroVariable": 2,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 26,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 2,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 26,
+                    "inegalite": "<=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "opacite": 255,
+                    "variables": false,
+                    "nomImage": "ecran noir",
+                    "numero": 2,
+                    "modeDeFusion": "normal",
+                    "x": 0,
+                    "centre": false,
+                    "y": 0,
+                    "nom": "AfficherImage",
+                    "zoomY": 100,
+                    "zoomX": 100
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteur": 68,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {"nom": "SupprimerEvent"}
+            ],
+            "traversable": true,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "opacite": 0,
+            "commandes": [
+                {
+                    "opacite": 255,
+                    "variables": false,
+                    "nomImage": "ecran noir",
+                    "numero": 2,
+                    "modeDeFusion": "normal",
+                    "x": 0,
+                    "centre": false,
+                    "y": 0,
+                    "nom": "AfficherImage",
+                    "zoomY": 100,
+                    "zoomX": 100
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteur": 68,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                }
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "haute",
+            "conditions": [{"nom": "Contact"}],
+            "directionFixe": true,
+            "animeALArret": true,
+            "vitesse": "normale"
+        },
+        {
+            "image": "barque character",
+            "commandes": [
+                {
+                    "opacite": 255,
+                    "variables": false,
+                    "nomImage": "ecran noir",
+                    "numero": 2,
+                    "modeDeFusion": "normal",
+                    "x": 0,
+                    "centre": false,
+                    "y": 0,
+                    "nom": "AfficherImage",
+                    "zoomY": 100,
+                    "zoomX": 100
+                },
+                {
+                    "opacite": 0,
+                    "variables": false,
+                    "numero": 2,
+                    "modeDeFusion": "normal",
+                    "x": 0,
+                    "centre": false,
+                    "y": 0,
+                    "nom": "DeplacerImage",
+                    "nombreDeFrames": 20,
+                    "zoomY": 100,
+                    "zoomX": 100
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(0)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 2
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "nom": "RegarderDansUneDirection",
+                            "direction": 2
+                        },
+                        {
+                            "directionFixe": true,
+                            "nom": "RendreDirectionFixe"
+                        },
+                        {
+                            "animeEnMouvement": false,
+                            "nom": "RendreAnimeEnMouvement"
+                        },
+                        {
+                            "nom": "Avancer",
+                            "nombreDeCarreaux": 1,
+                            "direction": 2
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(0)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 2
+                    }],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 2
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(0)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "animeEnMouvement": true,
+                            "nom": "RendreAnimeEnMouvement"
+                        },
+                        {
+                            "directionFixe": false,
+                            "nom": "RendreDirectionFixe"
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroPageCommune": 55,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nom": "Avancer",
+                        "nombreDeCarreaux": 1,
+                        "direction": 0
+                    }],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numeroPageCommune": 55,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "numeroInterrupteur": 68,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numero": 2,
+                    "nom": "EffacerImage"
+                },
+                {"nom": "SupprimerEvent"}
+            ],
+            "traversable": true,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "figerLesAutresEvents": true,
+            "frequence": "haute",
+            "conditions": [{
+                "numeroInterrupteur": 68,
+                "valeurQuIlEstCenseAvoir": true,
+                "nom": "Interrupteur"
+            }],
+            "directionFixe": true,
+            "animeALArret": true,
+            "vitesse": "normale"
+        }
+    ],
+    "x": 12,
+    "y": 9,
+    "id": 18,
+    "nom": "arrivée en barque"
+}

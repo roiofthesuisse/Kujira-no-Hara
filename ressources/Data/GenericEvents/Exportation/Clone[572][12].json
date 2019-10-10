@@ -1,0 +1,64 @@
+{
+    "pages": [
+        {
+            "directionInitiale": 1,
+            "image": "oeil mural character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "cristal.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "directionInitiale": 1,
+            "image": "oeil mural character",
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "animationInitiale": 1,
+            "frequence": "basse",
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 12
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        }
+    ],
+    "x": 16,
+    "y": 3,
+    "id": 12,
+    "nom": "oeil"
+}
