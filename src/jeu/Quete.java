@@ -25,18 +25,18 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Le joueur doit réussir des Quêtes durant le jeu.
- * Cette classe est une description inerte de la Quête, indépendante de l'action du joueur.
+ * Le joueur doit réussir des Quêtes durant le jeu. Cette classe est une
+ * description inerte de la Quête, indépendante de l'action du joueur.
  */
 public class Quete implements Listable {
-	//constantes
+	// constantes
 	private static final Logger LOG = LogManager.getLogger(Quete.class);
 	public static final String NOM_ICONE_QUETE_PAS_FAITE_PAR_DEFAUT = "quete a faire icon.png";
 	public static final String NOM_ICONE_QUETE_FAITE_PAR_DEFAUT = "quete faite icon.png";
 	public static final HashMap<String, BufferedImage> ICONES_MEMORISEES = new HashMap<String, BufferedImage>();
 	public static Quete[] quetesDuJeu;
-	
-	public Integer id; //Integer car clé d'une HashMap
+
+	public Integer id; // Integer car clé d'une HashMap
 	public ArrayList<String> nom;
 	public ArrayList<String> description;
 	private final String nomIconeQuetePasFaite;
@@ -46,25 +46,28 @@ public class Quete implements Listable {
 	public int numeroCarte;
 	public int xCarte;
 	public int yCarte;
-	
+
 	/**
-	 * Une Quête peut se présenter sous différents niveaux d'Avancement au fil du jeu.
+	 * Une Quête peut se présenter sous différents niveaux d'Avancement au fil du
+	 * jeu.
 	 */
 	public enum AvancementQuete {
 		INCONNUE("INCONNUE"), CONNUE("CONNUE"), FAITE("FAITE");
-		
+
 		public String nom;
-		
+
 		/**
 		 * Constructeur explicite
+		 * 
 		 * @param nom de l'Etat de Quête
 		 */
 		AvancementQuete(final String nom) {
 			this.nom = nom;
 		}
-		
+
 		/**
 		 * Obtenir un Avancement de Quête à partir de son nom.
+		 * 
 		 * @param nom de l'Etat de Quête
 		 * @return Etat de Quête
 		 */
@@ -77,20 +80,24 @@ public class Quete implements Listable {
 			return INCONNUE;
 		}
 	}
-	
+
 	/**
 	 * Constructeur explicite
-	 * @param id de la Quête
-	 * @param nom de la Quête
-	 * @param description de la Quête
-	 * @param nomIconeQuetePasFaite nom de l'icône affichée lorsque la Quête n'est pas encore faite
-	 * @param nomIconeQueteFaite nom de l'icône affichée lorsque la Quête a été  faite
-	 * @param numeroCarte numéro de la Carte sur laquelle figure la Quete
-	 * @param xCarte position x sur la carte des Quêtes
-	 * @param yCarte position y sur la carte des Quêtes
+	 * 
+	 * @param id                    de la Quête
+	 * @param nom                   de la Quête
+	 * @param description           de la Quête
+	 * @param nomIconeQuetePasFaite nom de l'icône affichée lorsque la Quête n'est
+	 *                              pas encore faite
+	 * @param nomIconeQueteFaite    nom de l'icône affichée lorsque la Quête a été
+	 *                              faite
+	 * @param numeroCarte           numéro de la Carte sur laquelle figure la Quete
+	 * @param xCarte                position x sur la carte des Quêtes
+	 * @param yCarte                position y sur la carte des Quêtes
 	 */
-	private Quete(final int id, final ArrayList<String> nom, final ArrayList<String> description, final String nomIconeQuetePasFaite, 
-			final String nomIconeQueteFaite, final int numeroCarte, final int xCarte, final int yCarte) {
+	private Quete(final int id, final ArrayList<String> nom, final ArrayList<String> description,
+			final String nomIconeQuetePasFaite, final String nomIconeQueteFaite, final int numeroCarte,
+			final int xCarte, final int yCarte) {
 		this.id = id;
 		this.nom = nom;
 		this.description = description;
@@ -100,25 +107,25 @@ public class Quete implements Listable {
 		this.xCarte = xCarte;
 		this.yCarte = yCarte;
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Quete(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("id"), 
-			Texte.construireTexteMultilingue(parametres.get("nom")),
-			Texte.construireTexteMultilingue(parametres.get("description")),
-			(String) (parametres.containsKey("nomIconeQuetePasFaite") ? parametres.get("nomIconeQuetePasFaite") : NOM_ICONE_QUETE_PAS_FAITE_PAR_DEFAUT),
-			(String) (parametres.containsKey("nomIconeQueteFaite") ? parametres.get("nomIconeQueteFaite") : NOM_ICONE_QUETE_FAITE_PAR_DEFAUT),
-			(int) parametres.get("numeroCarte"),
-			(int) parametres.get("xCarte"),
-			(int) parametres.get("yCarte")
-		);
+		this((int) parametres.get("id"), Texte.construireTexteMultilingue(parametres.get("nom")),
+				Texte.construireTexteMultilingue(parametres.get("description")),
+				(String) (parametres.containsKey("nomIconeQuetePasFaite") ? parametres.get("nomIconeQuetePasFaite")
+						: NOM_ICONE_QUETE_PAS_FAITE_PAR_DEFAUT),
+				(String) (parametres.containsKey("nomIconeQueteFaite") ? parametres.get("nomIconeQueteFaite")
+						: NOM_ICONE_QUETE_FAITE_PAR_DEFAUT),
+				(int) parametres.get("numeroCarte"), (int) parametres.get("xCarte"), (int) parametres.get("yCarte"));
 	}
 
 	/**
 	 * Charger les Quêtes du jeu via JSON.
+	 * 
 	 * @return nombre de Quêtes dans le jeu
 	 */
 	public static int chargerLesQuetesDuJeu() {
@@ -126,38 +133,40 @@ public class Quete implements Listable {
 		try {
 			jsonQuetes = InterpreteurDeJson.ouvrirJsonQuetes();
 		} catch (Exception e) {
-			//problème lors de l'ouverture du fichier JSON
+			// problème lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les quêtes du jeu.", e);
 			quetesDuJeu = null;
 			return 0;
 		}
-		
+
 		final ArrayList<Quete> quetes = new ArrayList<Quete>();
 		int i = 0;
 		for (Object objectQuete : jsonQuetes) {
 			final JSONObject jsonQuete = (JSONObject) objectQuete;
-			
+
 			final HashMap<String, Object> parametres = new HashMap<String, Object>();
 			parametres.put("numero", i);
-			
+
 			final Iterator<String> jsonParametres = jsonQuete.keys();
 			while (jsonParametres.hasNext()) {
 				final String parametre = jsonParametres.next();
 				parametres.put(parametre, jsonQuete.get(parametre));
 			}
-			
+
 			final Quete quete = new Quete(parametres);
 			quetes.add(quete);
 			i++;
 		}
-		
+
 		quetesDuJeu = new Quete[quetes.size()];
 		quetes.toArray(quetesDuJeu);
 		return quetesDuJeu.length;
 	}
-	
+
 	/**
-	 * Obtenir l'icône de cette Quête lorsqu'elle n'a pas encore été faite par le joueur.
+	 * Obtenir l'icône de cette Quête lorsqu'elle n'a pas encore été faite par le
+	 * joueur.
+	 * 
 	 * @return icône de la Quête non faite
 	 */
 	private BufferedImage getIconeQuetePasFaite() {
@@ -169,7 +178,7 @@ public class Quete implements Listable {
 					this.iconeQuetePasFaite = Graphismes.ouvrirImage("Icons", this.nomIconeQuetePasFaite);
 					ICONES_MEMORISEES.put(this.nomIconeQuetePasFaite, this.iconeQuetePasFaite);
 				} catch (IOException e) {
-					//l'image d'apparence n'existe pas
+					// l'image d'apparence n'existe pas
 					this.iconeQuetePasFaite = null;
 					ICONES_MEMORISEES.put(this.nomIconeQuetePasFaite, null);
 					LOG.error("Impossible de trouver l'icône de Quete : " + this.nomIconeQuetePasFaite);
@@ -178,9 +187,10 @@ public class Quete implements Listable {
 		}
 		return this.iconeQuetePasFaite;
 	}
-	
+
 	/**
 	 * Obtenir l'icône de cette Quête lorsqu'elle a été faite par le joueur.
+	 * 
 	 * @return icône de la Quête faite
 	 */
 	private BufferedImage getIconeQueteFaite() {
@@ -192,7 +202,7 @@ public class Quete implements Listable {
 					this.iconeQueteFaite = Graphismes.ouvrirImage("Icons", this.nomIconeQueteFaite);
 					ICONES_MEMORISEES.put(nomIconeQueteFaite, this.iconeQueteFaite);
 				} catch (IOException e) {
-					//l'image d'apparence n'existe pas
+					// l'image d'apparence n'existe pas
 					this.iconeQueteFaite = null;
 					ICONES_MEMORISEES.put(this.nomIconeQueteFaite, null);
 					LOG.error("Impossible de trouver l'icône de Quete : " + this.nomIconeQueteFaite);
@@ -201,13 +211,29 @@ public class Quete implements Listable {
 		}
 		return this.iconeQueteFaite;
 	}
-	
+
 	/**
-	 * Obtenir l'icône de la Quête.
-	 * @return icône de la Quête faite ou non faite, selon si la Quête est fait ou non.
+	 * Obtenir le nom de l'icone de la Quete.
+	 * 
+	 * @return nom de l'icone de la Quete faite ou non faite, selon si la Quete est
+	 *         faite ou non.
+	 */
+	public final String getNomIcone() {
+		if (Quete.AvancementQuete.FAITE.equals(Main.getPartieActuelle().avancementDesQuetes[this.id])) {
+			return this.nomIconeQueteFaite;
+		} else {
+			return this.nomIconeQuetePasFaite;
+		}
+	}
+
+	/**
+	 * Obtenir l'icone de la Quete.
+	 * 
+	 * @return icone de la Quete faite ou non faite, selon si la Quete est faite ou
+	 *         non.
 	 */
 	public final BufferedImage getIcone() {
-		if (Quete.AvancementQuete.FAITE.equals( Main.getPartieActuelle().avancementDesQuetes[this.id]) ) {
+		if (Quete.AvancementQuete.FAITE.equals(Main.getPartieActuelle().avancementDesQuetes[this.id])) {
 			return this.getIconeQueteFaite();
 		} else {
 			return this.getIconeQuetePasFaite();
@@ -215,9 +241,10 @@ public class Quete implements Listable {
 	}
 
 	/**
-	 * Enumerer les Quêtes du jeu.
-	 * @param possedes filtrer ou non sur les Quêtes connues
-	 * @return association entre numero et Quête
+	 * Enumerer les Quetes du jeu.
+	 * 
+	 * @param possedes filtrer ou non sur les Quetes connues
+	 * @return association entre numero et Quete
 	 */
 	public static final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
@@ -242,7 +269,7 @@ public class Quete implements Listable {
 	public final BufferedImage construireImagePourListe(final int largeurMinimale, final int hauteurMinimale) {
 		final Texte texte = new Texte(this.nom);
 		final BufferedImage imageTexte = texte.texteToImage();
-		
+
 		int largeur = imageTexte.getWidth() + Texte.MARGE_A_DROITE + this.getIcone().getWidth();
 		if (largeur < largeurMinimale) {
 			largeur = largeurMinimale;
@@ -251,17 +278,17 @@ public class Quete implements Listable {
 		if (hauteur < hauteurMinimale) {
 			hauteur = hauteurMinimale;
 		}
-		
+
 		BufferedImage image = new BufferedImage(largeur, hauteur, Graphismes.TYPE_DES_IMAGES);
-		image = Graphismes.superposerImages(image, this.getIcone(), 0, 0, false, 
-				Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
-				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
-		image = Graphismes.superposerImages(image, imageTexte, this.getIcone().getWidth()+Texte.MARGE_A_DROITE, 0, 
-				false, Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, 
+		image = Graphismes.superposerImages(image, this.getIcone(), 0, 0, false, Graphismes.PAS_D_HOMOTHETIE,
+				Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE, ModeDeFusion.NORMAL,
+				Graphismes.PAS_DE_ROTATION);
+		image = Graphismes.superposerImages(image, imageTexte, this.getIcone().getWidth() + Texte.MARGE_A_DROITE, 0,
+				false, Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, Graphismes.OPACITE_MAXIMALE,
 				ModeDeFusion.NORMAL, Graphismes.PAS_DE_ROTATION);
 		return image;
 	}
-	
+
 	@Override
 	public final ArrayList<Condition> getConditions() {
 		final ArrayList<Condition> conditions = new ArrayList<Condition>();

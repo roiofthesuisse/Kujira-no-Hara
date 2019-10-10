@@ -4,8 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RasterFormatException;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import commandes.Message;
 import commandes.OuvrirMenu;
@@ -20,33 +21,39 @@ import mouvements.RegarderUnEvent;
 import mouvements.Sauter;
 import utilitaire.GestionClavier;
 import utilitaire.GestionClavier.ToucheRole;
+import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
 import utilitaire.son.LecteurAudio;
-import utilitaire.Maths;
 
 /**
- * Le Lecteur de map affiche la Map et les Events.
- * Il reçoit les ordres du clavier pour les transcrire en actions.
+ * Le Lecteur de map affiche la Map et les Events. Il reçoit les ordres du
+ * clavier pour les transcrire en actions.
  */
 public class LecteurMap extends Lecteur {
-	
+
 	public Map map;
 	/** vignette actuelle pour l'animation des Autotiles animés de la Map */
 	private int vignetteAutotileActuelle = 0;
-	
-	/** si true, les évènements n'avancent plus naturellement (seuls mouvements forcés autorisés) */
+
+	/**
+	 * si true, les évènements n'avancent plus naturellement (seuls mouvements
+	 * forcés autorisés)
+	 */
 	public boolean stopEvent = false;
-	/** si true, le Héros n'avance plus naturellement (seuls mouvements forcés autorisés) */
+	/**
+	 * si true, le Héros n'avance plus naturellement (seuls mouvements forcés
+	 * autorisés)
+	 */
 	public boolean stopHeros = false;
 	public Event eventQuiALanceStopEvent;
-	
+
 	/** Message à afficher dans la boîte de dialogue */
 	public Message messageActuel = null;
 	public Message messagePrecedent = null;
-	
+
 	/** Autoriser ou interdire l'accès au Menu depuis la Map ? */
 	public boolean autoriserMenu = true;
-	
+
 	/** Position x de la caméra */
 	private int xCamera;
 	/** Position y de la caméra */
@@ -60,82 +67,88 @@ public class LecteurMap extends Lecteur {
 	/** Transition visuelle avec la Map précédente */
 	public Transition transition = Transition.AUCUNE;
 	public int[] tonActuel = null;
-	
+
+	/** Notifier le joueur a l'ecran concernant les nouvelles quetes */
+	public List<NotificationQuete> notificationsQuetes = new ArrayList<>();
+
 	/**
 	 * Constructeur vide
 	 */
-	public LecteurMap() { }
-	
+	public LecteurMap() {
+	}
+
 	/**
-	 * A chaque frame, calcule l'écran à afficher, avec le décor et les Events dessus.
+	 * A chaque frame, calcule l'écran à afficher, avec le décor et les Events
+	 * dessus.
+	 * 
 	 * @param frame dont l'écran est calculé
 	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
 	 * @return écran représentant la Map
 	 */
 	public final BufferedImage calculerAffichage(final int frame) {
-		//final long t0 = System.nanoTime(); //mesure de performances
-		
-		//éventuelle sortie vers la Map adjacente
+		// final long t0 = System.nanoTime(); //mesure de performances
+
+		// éventuelle sortie vers la Map adjacente
 		this.map.sortirVersLaMapAdjacente();
-		
-		//calcul de la position de la caméra par rapport à la Map
+
+		// calcul de la position de la caméra par rapport à la Map
 		this.xCamera = calculerXCamera();
 		this.yCamera = calculerYCamera();
-		
-		//ton
+
+		// ton
 		if (this.tonActuel == null) {
 			this.tonActuel = this.map.tileset.ton;
 		}
-		
-		//panorama
+
+		// panorama
 		BufferedImage ecran = dessinerPanorama(xCamera, yCamera);
-		
-		//on dessine le décor inférieur
+
+		// on dessine le décor inférieur
 		animerLesAutotiles();
 		ecran = dessinerDecorInferieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
-		
-		//lecture des commandes event
+
+		// lecture des commandes event
 		continuerLaLectureDesPagesDeCommandesEvent();
 
-		//déplacements des évènements
+		// déplacements des évènements
 		deplacerLesEvents();
-		
-		//animation des évènements
+
+		// animation des évènements
 		animerLesEvents(frame);
 
-		//TODO DEBUG pour voir la hitbox de l'attaque du héros
-		//ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
-		
-		//on dessine les évènements et la couche médiane
+		// TODO DEBUG pour voir la hitbox de l'attaque du héros
+		// ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
+
+		// on dessine les évènements et la couche médiane
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera, true, vignetteAutotileActuelle);
-		
-		//ajouter imageCoucheSurHeros à l'écran
+
+		// ajouter imageCoucheSurHeros à l'écran
 		ecran = dessinerDecorSuperieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
-		
-		//on dessine les évènements au dessus de tout et la couche médiane
+
+		// on dessine les évènements au dessus de tout et la couche médiane
 		ecran = dessinerLesEventsAuDessusDeTout(ecran, xCamera, yCamera, true);
-				
-		//on dessine les animations
+
+		// on dessine les animations
 		ecran = Animation.dessinerLesAnimations(ecran, xCamera, yCamera);
-		
-		//météo
+
+		// météo
 		ecran = dessinerMeteo(ecran, frame);
-		
-		//brouillard
+
+		// brouillard
 		if (map.brouillard != null) {
 			ecran = map.brouillard.dessinerLeBrouillard(ecran, xCamera, yCamera, frame);
 		}
-		
-		//ton
+
+		// ton
 		if (this.tonActuel != null) {
 			ecran = Graphismes.appliquerTon(ecran, this.tonActuel);
 		}
-		
-		//effet aquatique (lol)
+
+		// effet aquatique (lol)
 		if (this.map.ondulation != null) {
 			ecran = this.map.ondulation.faireOndulerLEcran(ecran, frame);
 		}
-		
+
 		// Transition visuelle avec la Map précédente
 		if (!this.allume) {
 			// Faire une capture d'écran juste avant l'arrêt de l'ancienne Map
@@ -152,49 +165,50 @@ public class LecteurMap extends Lecteur {
 			ecran = this.transition.calculer(ecran, this.map, frame);
 		}
 
-		//afficher les images basses
+		// afficher les images basses
 		ecran = Picture.dessinerLesImages(ecran, true);
-		
-		//ajouter les jauges
-		//TODO ecran = Jauges.dessinerLesJauges(ecran);
 
-		//afficher les images hautes
+		// ajouter les jauges
+		// TODO ecran = Jauges.dessinerLesJauges(ecran);
+
+		// afficher les images hautes
 		ecran = Picture.dessinerLesImages(ecran, false);
-		
-		//chronometre
+
+		// chronometre
 		final Chronometre chronometre = Main.getPartieActuelle().chronometre;
 		if (chronometre != null) {
 			ecran = chronometre.dessinerChronometre(ecran);
 		}
-		
-		//on affiche le message
+
+		// notifications de quetes
+		ecran = NotificationQuete.dessinerLesNotificationsDeQuetes(ecran, this.notificationsQuetes);
+
+		// on affiche le message
 		if (messageActuel != null) {
-			ecran = Graphismes.superposerImages(
-					ecran, 
-					this.messageActuel.image,
-					Message.positionBoiteMessage.xAffichage, 
-					Message.positionBoiteMessage.yAffichage);
+			ecran = Graphismes.superposerImages(ecran, this.messageActuel.image,
+					Message.positionBoiteMessage.xAffichage, Message.positionBoiteMessage.yAffichage);
 		}
-		
-		//supprimer events dont l'attribut "supprimé" est à true
+
+		// supprimer events dont l'attribut "supprimé" est à true
 		supprimerLesEventsASupprimer();
-		
+
 		ajouterLesEventsAAjouter();
-		
-		//this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
+
+		// this.fenetre.mesuresDePerformance.add(new Long(t1 - t0).toString());
 
 		return ecran;
 	}
 
 	/**
 	 * Dessiner l'image de fond (noir ou Panorama)
+	 * 
 	 * @param xCamera position x de la caméra
 	 * @param yCamera position y d ela caméra
 	 * @return image de fond
 	 */
 	private BufferedImage dessinerPanorama(final int xCamera, final int yCamera) {
 		if (this.map.panoramaActuel != null) {
-			//parallaxe
+			// parallaxe
 			int xPanorama = this.map.parallaxeActuelle * xCamera / Maths.POURCENTS;
 			int yPanorama = this.map.parallaxeActuelle * yCamera / Maths.POURCENTS;
 			final int xMax = this.map.panoramaActuel.getWidth() - Fenetre.LARGEUR_ECRAN;
@@ -209,14 +223,16 @@ public class LecteurMap extends Lecteur {
 			} else if (yPanorama < 0) {
 				yPanorama = 0;
 			}
-			return Graphismes.clonerUneImage(this.map.panoramaActuel.getSubimage(xPanorama, yPanorama, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN));
+			return Graphismes.clonerUneImage(this.map.panoramaActuel.getSubimage(xPanorama, yPanorama,
+					Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN));
 		} else {
 			return Graphismes.ecranColore(Color.BLACK);
 		}
 	}
 
 	/**
-	 * Les Autotiles animés ont plusieurs vignettes d'animation. De temps en temps, il faut changer de vignette.
+	 * Les Autotiles animés ont plusieurs vignettes d'animation. De temps en temps,
+	 * il faut changer de vignette.
 	 */
 	private void animerLesAutotiles() {
 		if (this.map.contientDesAutotilesAnimes && (this.frameActuelle % Autotile.FREQUENCE_ANIMATION_AUTOTILE == 0)) {
@@ -227,32 +243,39 @@ public class LecteurMap extends Lecteur {
 
 	/**
 	 * Dessiner à l'écran le décor situé au dessus du Héros.
-	 * @param ecran sur lequel dessiner le décor
-	 * @param xCamera position x de la caméra
-	 * @param yCamera position y de la caméra
+	 * 
+	 * @param ecran            sur lequel dessiner le décor
+	 * @param xCamera          position x de la caméra
+	 * @param yCamera          position y de la caméra
 	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile animé
 	 * @return écran avec le décor supérieur peint
 	 */
-	private BufferedImage dessinerDecorSuperieur(BufferedImage ecran, final int xCamera, final int yCamera, final int vignetteAutotile) {
-		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheDecorSuperieur(vignetteAutotile), -xCamera, -yCamera);
+	private BufferedImage dessinerDecorSuperieur(BufferedImage ecran, final int xCamera, final int yCamera,
+			final int vignetteAutotile) {
+		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheDecorSuperieur(vignetteAutotile), -xCamera,
+				-yCamera);
 		return ecran;
 	}
 
 	/**
 	 * Dessiner à l'écran le décor situé en dessous du Héros.
-	 * @param ecran sur lequel dessiner le décor
-	 * @param xCamera position x de la caméra
-	 * @param yCamera position y de la caméra
+	 * 
+	 * @param ecran            sur lequel dessiner le décor
+	 * @param xCamera          position x de la caméra
+	 * @param yCamera          position y de la caméra
 	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile animé
 	 * @return écran avec le décor inférieur peint
 	 */
-	private BufferedImage dessinerDecorInferieur(BufferedImage ecran, final int xCamera, final int yCamera, final int vignetteAutotile) {
-		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheDecorInferieur(vignetteAutotile), -xCamera, -yCamera);
+	private BufferedImage dessinerDecorInferieur(BufferedImage ecran, final int xCamera, final int yCamera,
+			final int vignetteAutotile) {
+		ecran = Graphismes.superposerImages(ecran, this.map.getImageCoucheDecorInferieur(vignetteAutotile), -xCamera,
+				-yCamera);
 		return ecran;
 	}
 
 	/**
 	 * Dessiner à l'écran les effets météorologiques.
+	 * 
 	 * @param ecran sur lequel on dessine
 	 * @param frame de l'effet météorologique
 	 * @return écran avec la météo
@@ -267,7 +290,8 @@ public class LecteurMap extends Lecteur {
 
 	/**
 	 * Pour le debug, on peut souhaiter afficher la HitBox du Héros à l'écran.
-	 * @param ecran sur lequel on dessine la Htibox du Héros
+	 * 
+	 * @param ecran   sur lequel on dessine la Htibox du Héros
 	 * @param xCamera position x de la caméra
 	 * @param yCamera position y de la caméra
 	 * @return écran avec la Hitbox du Héros dessinée dessus
@@ -284,10 +308,14 @@ public class LecteurMap extends Lecteur {
 				final int ymaxHitbox = coord[3];
 				final Graphics2D graphics = (Graphics2D) ecran.getGraphics();
 				graphics.setPaint(Color.magenta);
-				graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, yminHitbox-yCamera);
-				graphics.drawLine(xminHitbox-xCamera, ymaxHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
-				graphics.drawLine(xminHitbox-xCamera, yminHitbox-yCamera, xminHitbox-xCamera, ymaxHitbox-yCamera);
-				graphics.drawLine(xmaxHitbox-xCamera, yminHitbox-yCamera, xmaxHitbox-xCamera, ymaxHitbox-yCamera);
+				graphics.drawLine(xminHitbox - xCamera, yminHitbox - yCamera, xmaxHitbox - xCamera,
+						yminHitbox - yCamera);
+				graphics.drawLine(xminHitbox - xCamera, ymaxHitbox - yCamera, xmaxHitbox - xCamera,
+						ymaxHitbox - yCamera);
+				graphics.drawLine(xminHitbox - xCamera, yminHitbox - yCamera, xminHitbox - xCamera,
+						ymaxHitbox - yCamera);
+				graphics.drawLine(xmaxHitbox - xCamera, yminHitbox - yCamera, xmaxHitbox - xCamera,
+						ymaxHitbox - yCamera);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -299,33 +327,35 @@ public class LecteurMap extends Lecteur {
 	 * Lire la Page active de chaque Event de la Map.
 	 */
 	private void continuerLaLectureDesPagesDeCommandesEvent() {
-		//en cas de stopEvent, seul l'Event qui a figé tout le monde est lu (Commandes)
+		// en cas de stopEvent, seul l'Event qui a figé tout le monde est lu (Commandes)
 		if (stopEvent) {
 			activerUnePageEtLExecuter(this.eventQuiALanceStopEvent);
 		} else {
-			//lire tous les Events de la Map (sauf le Héros)
+			// lire tous les Events de la Map (sauf le Héros)
 			for (Event event : this.map.events) {
-				if (!event.equals(this.map.heros)) { //le Héros est calculé en dernier
+				if (!event.equals(this.map.heros)) { // le Héros est calculé en dernier
 					activerUnePageEtLExecuter(event);
 				}
 			}
-			//le Héros est calculé en dernier pour éviter les problèmes d'épée
+			// le Héros est calculé en dernier pour éviter les problèmes d'épée
 			if (!this.stopHeros) {
 				activerUnePageEtLExecuter(this.map.heros);
 			}
-			
-			//lire les PagesCommunes
+
+			// lire les PagesCommunes
 			lireLesPagesCommunes();
 		}
 	}
-	
+
 	/**
-	 * Activer une Page (si aucune n'est activée) de l'Event (s'il n'est pas supprimé et l'exécuter.
+	 * Activer une Page (si aucune n'est activée) de l'Event (s'il n'est pas
+	 * supprimé et l'exécuter.
+	 * 
 	 * @param event dont il faut activer une Page et l'exécuter
 	 */
 	private void activerUnePageEtLExecuter(final Event event) {
 		if (!event.supprime && !event.saute) {
-			if (event.pageActive == null || event.pageActive.commandes==null) {
+			if (event.pageActive == null || event.pageActive.commandes == null) {
 				event.activerUnePage();
 			}
 
@@ -334,7 +364,7 @@ public class LecteurMap extends Lecteur {
 			}
 		}
 	}
-	
+
 	/**
 	 * Lire les Pages de code commun.
 	 */
@@ -352,20 +382,21 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Calculer le nouvel écran, avec les Events dessinés dessus.
-	 * Ne pas oublier de récupérer le résultat de cette méthode.
-	 * @param ecran sur lequel on dessine les Events
-	 * @param xCamera position x de la caméra
-	 * @param yCamera position y de la caméra
-	 * @param dessinerLeHeros le Héros doit-il être visible sur l'ancienne Map ?
+	 * Calculer le nouvel écran, avec les Events dessinés dessus. Ne pas oublier de
+	 * récupérer le résultat de cette méthode.
+	 * 
+	 * @param ecran            sur lequel on dessine les Events
+	 * @param xCamera          position x de la caméra
+	 * @param yCamera          position y de la caméra
+	 * @param dessinerLeHeros  le Héros doit-il être visible sur l'ancienne Map ?
 	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile animé
 	 * @return écran avec les Events dessinés dessus
 	 */
-	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera, final boolean dessinerLeHeros, 
-			final int vignetteAutotile) {
+	private BufferedImage dessinerLesEvents(BufferedImage ecran, final int xCamera, final int yCamera,
+			final boolean dessinerLeHeros, final int vignetteAutotile) {
 		try {
-			Collections.sort(this.map.events); //on trie les events du plus derrière au plus devant
-			
+			Collections.sort(this.map.events); // on trie les events du plus derrière au plus devant
+
 			// On dessine les Events plats d'abord
 			for (Event event : this.map.events) {
 				if (!event.supprime && event.platActuel) {
@@ -374,21 +405,22 @@ public class LecteurMap extends Lecteur {
 					}
 				}
 			}
-			
+
 			// On dessine les Events normaux ensuite
 			int bandeletteActuelle = 0;
 			int bandeletteEvent = 0;
 			for (Event event : this.map.events) {
 				if (!event.supprime && !event.platActuel) {
 					if (!event.auDessusDeToutActuel) {
-						//dessiner la bandelette de décor médian
+						// dessiner la bandelette de décor médian
 						bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Main.TAILLE_D_UN_CARREAU;
 						if (bandeletteEvent > bandeletteActuelle) {
 							try {
-								final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteActuelle, bandeletteEvent);
-								if(imageBandelette!=null){
-								ecran = Graphismes.superposerImages(ecran, imageBandelette,
-										-xCamera, bandeletteActuelle*Main.TAILLE_D_UN_CARREAU-yCamera);
+								final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(
+										vignetteAutotile, bandeletteActuelle, bandeletteEvent);
+								if (imageBandelette != null) {
+									ecran = Graphismes.superposerImages(ecran, imageBandelette, -xCamera,
+											bandeletteActuelle * Main.TAILLE_D_UN_CARREAU - yCamera);
 								}
 							} catch (RasterFormatException e) {
 								LOG.warn("Bandelette de décor médian impossible à découper !");
@@ -396,36 +428,39 @@ public class LecteurMap extends Lecteur {
 							bandeletteActuelle = bandeletteEvent;
 						}
 					}
-					
-					//dessiner l'Event
+
+					// dessiner l'Event
 					if (dessinerLeHeros || !event.equals(map.heros)) {
 						ecran = dessinerEvent(ecran, event, xCamera, yCamera);
 					}
 				}
 			}
-			//dernière bandelette
-			final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteEvent, this.map.hauteur);
-			ecran = Graphismes.superposerImages(ecran, imageBandelette,
-					-xCamera, bandeletteActuelle*Main.TAILLE_D_UN_CARREAU-yCamera);
-			
+			// dernière bandelette
+			final BufferedImage imageBandelette = this.map.getImageCoucheDecorMedian(vignetteAutotile, bandeletteEvent,
+					this.map.hauteur);
+			ecran = Graphismes.superposerImages(ecran, imageBandelette, -xCamera,
+					bandeletteActuelle * Main.TAILLE_D_UN_CARREAU - yCamera);
+
 			// Les Events au dessus de tout seront dessinés après le décor supérieur
-			
+
 		} catch (Exception e) {
 			LOG.error("Erreur lors du dessin des évènements :", e);
 		}
 		return ecran;
 	}
-	
+
 	/**
-	 * Calculer le nouvel écran, avec les Events dessinés dessus.
-	 * Ne pas oublier de récupérer le résultat de cette méthode.
-	 * @param ecran sur lequel on dessine les Events
-	 * @param xCamera position x de la caméra
-	 * @param yCamera position y de la caméra
+	 * Calculer le nouvel écran, avec les Events dessinés dessus. Ne pas oublier de
+	 * récupérer le résultat de cette méthode.
+	 * 
+	 * @param ecran           sur lequel on dessine les Events
+	 * @param xCamera         position x de la caméra
+	 * @param yCamera         position y de la caméra
 	 * @param dessinerLeHeros le Héros doit-il être visible sur l'ancienne Map ?
 	 * @return écran avec les Events dessinés dessus
 	 */
-	private BufferedImage dessinerLesEventsAuDessusDeTout(BufferedImage ecran, final int xCamera, final int yCamera, final boolean dessinerLeHeros) {
+	private BufferedImage dessinerLesEventsAuDessusDeTout(BufferedImage ecran, final int xCamera, final int yCamera,
+			final boolean dessinerLeHeros) {
 		try {
 			for (Event event : this.map.events) {
 				if (!event.supprime && event.auDessusDeToutActuel) {
@@ -441,71 +476,71 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Donne la bonne valeur à l'attribut "animation" avant d'envoyer l'event à l'affichage.
+	 * Donne la bonne valeur à l'attribut "animation" avant d'envoyer l'event à
+	 * l'affichage.
+	 * 
 	 * @param frame d'animation des Events
 	 */
-	private void animerLesEvents(final int frame) {		
+	private void animerLesEvents(final int frame) {
 		try {
 			for (Event event : this.map.events) {
 				if (event.frequenceActuelle != null) {
-				
-					final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle.valeur == 0) //fréquence d'animation
-					|| (event.avance && !event.avancaitALaFramePrecedente); //la première frame d'animation est un pas
-					
-					//cas où l'Event est animé à l'arrêt
+
+					final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle.valeur == 0) // fréquence
+																											// d'animation
+							|| (event.avance && !event.avancaitALaFramePrecedente); // la première frame d'animation est
+																					// un pas
+
+					// cas où l'Event est animé à l'arrêt
 					if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
-						event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
+						event.animation = (event.animation + 1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
 					}
-					//cas où l'Event est vraiment en mouvement
+					// cas où l'Event est vraiment en mouvement
 					final boolean eventAvance = event.avance || event.avancaitALaFramePrecedente;
-					//l'animation des Events est-elle figee ?
-					final boolean animerLesEvents = !this.stopEvent 
-							|| (event.deplacementForce != null 
-								&& event.deplacementForce.mouvements.size() > 0 
-								&& event.deplacementForce.idEventCommanditaire == this.eventQuiALanceStopEvent.id);
-					//l'animation du Heros est-elle figee ?
-					final boolean animerLeHeros = !this.stopHeros || !(event instanceof Heros); //si pas le Heros, alors pas concerné
-					if (eventAvance
-							&& event.animeEnMouvementActuel
-							&& passerALAnimationSuivante
-							&& animerLesEvents
-							&& animerLeHeros //si pas le Heros, alors pas concerné
+					// l'animation des Events est-elle figee ?
+					final boolean animerLesEvents = !this.stopEvent
+							|| (event.deplacementForce != null && event.deplacementForce.mouvements.size() > 0
+									&& event.deplacementForce.idEventCommanditaire == this.eventQuiALanceStopEvent.id);
+					// l'animation du Heros est-elle figee ?
+					final boolean animerLeHeros = !this.stopHeros || !(event instanceof Heros); // si pas le Heros,
+																								// alors pas concerné
+					if (eventAvance && event.animeEnMouvementActuel && passerALAnimationSuivante && animerLesEvents
+							&& animerLeHeros // si pas le Heros, alors pas concerné
 					) {
-						//on poursuit l'animation de l'Event
-						event.animation = (event.animation+1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
+						// on poursuit l'animation de l'Event
+						event.animation = (event.animation + 1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
 					}
 					event.avancaitALaFramePrecedente = event.avance;
-					
+
 				} else {
 					// Erreur : frequence nulle
 					final String nomEvent = (event.nom == null ? "null" : event.nom);
 					final int idEvent = (event.id == null ? -1 : event.id);
-					LOG.error("L'event "+idEvent+" '"+nomEvent+"' a une fréquence nulle !");
+					LOG.error("L'event " + idEvent + " '" + nomEvent + "' a une fréquence nulle !");
 				}
 			}
 		} catch (Exception e) {
 			LOG.error("erreur lors de l'animation des évènements dans la boucle d'affichage de la map :", e);
 		}
 	}
-	
+
 	/**
-	 * Donne la bonne valeur aux positions x et y avant d'envoyer l'Event à l'affichage.
-	 * En cas de stopEvent, seuls les Mouvements commandités par l'Event qui a figé tout sont lus.
+	 * Donne la bonne valeur aux positions x et y avant d'envoyer l'Event à
+	 * l'affichage. En cas de stopEvent, seuls les Mouvements commandités par
+	 * l'Event qui a figé tout sont lus.
 	 */
 	private void deplacerLesEvents() {
 		try {
-			//animer la marche du Héros si touche de déplacement pressée
-			if (GestionClavier.ToucheRole.HAUT.enfoncee()
-					  || GestionClavier.ToucheRole.GAUCHE.enfoncee()
-					  || GestionClavier.ToucheRole.BAS.enfoncee()
-					  || GestionClavier.ToucheRole.DROITE.enfoncee()) {
+			// animer la marche du Héros si touche de déplacement pressée
+			if (GestionClavier.ToucheRole.HAUT.enfoncee() || GestionClavier.ToucheRole.GAUCHE.enfoncee()
+					|| GestionClavier.ToucheRole.BAS.enfoncee() || GestionClavier.ToucheRole.DROITE.enfoncee()) {
 				map.heros.avance = true;
 			}
-			
-			//déplacer chaque Event
-			for (Event event : this.map.events) {	
+
+			// déplacer chaque Event
+			for (Event event : this.map.events) {
 				if (!event.supprime) {
-					event.deplacer(); //on effectue le déplacement si possible (pas d'obstacles rencontrés)
+					event.deplacer(); // on effectue le déplacement si possible (pas d'obstacles rencontrés)
 				}
 			}
 		} catch (Exception e) {
@@ -514,126 +549,129 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Certains Events ont été marqués "à supprimer" durant la lecture des Commandes.
-	 * On les élimine maintenant, une fois que la lecture des Commandes est terminée.
-	 * En effet on ne peut pas supprimer des Events lorsqu'on est encore dans la boucle qui parcourt la liste des Events.
+	 * Certains Events ont été marqués "à supprimer" durant la lecture des
+	 * Commandes. On les élimine maintenant, une fois que la lecture des Commandes
+	 * est terminée. En effet on ne peut pas supprimer des Events lorsqu'on est
+	 * encore dans la boucle qui parcourt la liste des Events.
 	 */
 	private void supprimerLesEventsASupprimer() {
 		int nombreDEvents = this.map.events.size();
 		Event eventAsupprimer;
-		for (int i = 0; i<nombreDEvents; i++) {
+		for (int i = 0; i < nombreDEvents; i++) {
 			eventAsupprimer = this.map.events.get(i);
 			if (eventAsupprimer.supprime) {
 				this.map.events.remove(i);
-				LOG.info("Suppression de l'event "+eventAsupprimer.nom);
-				LOG.debug("Nombre d'events sur la map : "+this.map.events.size());
+				LOG.info("Suppression de l'event " + eventAsupprimer.nom);
+				LOG.debug("Nombre d'events sur la map : " + this.map.events.size());
 				nombreDEvents--;
 				i--;
 			}
 		}
 	}
-	
+
 	/**
 	 * Ajouter les nouveaux Events à ajouter à la Map pour le tour suivant.
 	 */
 	private void ajouterLesEventsAAjouter() {
 		int nombreDEvents = this.map.eventsAAjouter.size();
 		Event eventAajouter;
-		for (int i = 0; i<nombreDEvents; i++) {
+		for (int i = 0; i < nombreDEvents; i++) {
 			eventAajouter = this.map.eventsAAjouter.get(i);
-			
-			//on l'ajoute au hash des Events avec un numéro
+
+			// on l'ajoute au hash des Events avec un numéro
 			if (eventAajouter.id < 0) {
 				eventAajouter.id = this.map.calculerNouvelIdPourEventsHash();
 			}
 			this.map.eventsHash.put(eventAajouter.id, eventAajouter);
-			
-			//on l'ajoute à la liste des Events
+
+			// on l'ajoute à la liste des Events
 			this.map.events.add(eventAajouter);
 			eventAajouter.id = this.map.events.size();
-			
-			LOG.info("Ajout de l'event "+eventAajouter.nom);
-			LOG.debug("Nombre d'events sur la map : "+this.map.events.size());
+
+			LOG.info("Ajout de l'event " + eventAajouter.nom);
+			LOG.debug("Nombre d'events sur la map : " + this.map.events.size());
 			this.map.eventsAAjouter.remove(i);
 			nombreDEvents--;
 			i--;
 		}
 	}
-	
+
 	/**
 	 * Faire une capture d'écran des collisions
 	 */
 	public final void photographierCollision() {
-		final BufferedImage img = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN, Graphismes.TYPE_DES_IMAGES);
+		final BufferedImage img = new BufferedImage(Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN,
+				Graphismes.TYPE_DES_IMAGES);
 		final Graphics2D graphics = img.createGraphics();
 		graphics.setPaint(Color.white);
 		graphics.fillRect(0, 0, Fenetre.LARGEUR_ECRAN, Fenetre.HAUTEUR_ECRAN);
-		
+
 		img.setRGB(map.heros.x, map.heros.y, Color.red.getRGB());
 		img.setRGB(map.events.get(1).x, map.events.get(1).y, Color.blue.getRGB());
 		Graphismes.sauvegarderImage(img, "collision");
-		
+
 		// On n'aura plus jamais besoin de cette image
 		graphics.dispose();
 	}
 
 	/**
 	 * Dessine l'Event sur l'écran.
+	 * 
 	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
-	 * @param ecran sur lequel on dessine
-	 * @param event à dessiner
+	 * @param ecran   sur lequel on dessine
+	 * @param event   à dessiner
 	 * @param xCamera position x de la caméra
 	 * @param yCamera position y de la caméra
 	 * @return écran sur lequel on a dessiné l'Event demandé
 	 */
-	private BufferedImage dessinerEvent(final BufferedImage ecran, final Event event, final int xCamera, final int yCamera) {
+	private BufferedImage dessinerEvent(final BufferedImage ecran, final Event event, final int xCamera,
+			final int yCamera) {
 		final BufferedImage eventImage = event.imageActuelle;
-		
-		
-		//DEBUG pour visualiser les collisions //TODO commenter
+
+		// DEBUG pour visualiser les collisions //TODO commenter
 		/*
-		Graphics2D graphics = ecran.createGraphics();
-		graphics.setPaint(Color.blue);
-		graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox, event.hauteurHitbox);
-		*/
-		//voilà
-		
-		
-		if (eventImage != null) { 
-			int largeur =  eventImage.getWidth();
+		 * Graphics2D graphics = ecran.createGraphics(); graphics.setPaint(Color.blue);
+		 * graphics.fillRect(event.x-xCamera, event.y-yCamera, event.largeurHitbox,
+		 * event.hauteurHitbox);
+		 */
+		// voilà
+
+		if (eventImage != null) {
+			int largeur = eventImage.getWidth();
 			int hauteur = eventImage.getHeight();
-			//l'apparence de l'event est une des 16 parties de l'image de l'event (suivant la direction et l'animation)
+			// l'apparence de l'event est une des 16 parties de l'image de l'event (suivant
+			// la direction et l'animation)
 			if (!event.apparenceActuelleEstUnTile) {
 				largeur /= 4;
 				hauteur /= 4;
 			}
 			final int positionX = event.xImage();
 			final int positionY = event.yImage();
-			
+
 			final int direction = event.direction;
 			final int animation;
 			if (event.saute && !event.directionFixeActuelle) {
-				//l'Event est en train de sauter
-				animation = 0; //TODO attention : si la vignette normale de l'event n'est pas la vignette 0, l'event va changer d'apparence
-				
+				// l'Event est en train de sauter
+				animation = 0; // TODO attention : si la vignette normale de l'event n'est pas la vignette 0,
+								// l'event va changer d'apparence
+
 			} else {
-				//l'Event ne Saute pas
+				// l'Event ne Saute pas
 				animation = event.animation;
 			}
-			
+
 			final BufferedImage apparence;
 			try {
-				apparence = eventImage.getSubimage(animation*largeur, direction*hauteur, largeur, hauteur);
+				apparence = eventImage.getSubimage(animation * largeur, direction * hauteur, largeur, hauteur);
 			} catch (RasterFormatException rfe) {
-				LOG.error("La vignette d'Event est mal découpée "
-						+ "(animation:"+animation+";direction:"+direction+";"
-						+ "largeur:"+largeur+";hauteur:"+hauteur+")", rfe
-				);
+				LOG.error("La vignette d'Event est mal découpée " + "(animation:" + animation + ";direction:"
+						+ direction + ";" + "largeur:" + largeur + ";hauteur:" + hauteur + ")", rfe);
 				return ecran;
 			}
-			return Graphismes.superposerImages(ecran, apparence, positionX-xCamera, positionY-yCamera, event.opaciteActuelle, event.modeDeFusionActuel);
+			return Graphismes.superposerImages(ecran, apparence, positionX - xCamera, positionY - yCamera,
+					event.opaciteActuelle, event.modeDeFusionActuel);
 		} else {
-			//l'event n'a pas d'image
+			// l'event n'a pas d'image
 			return ecran;
 		}
 	}
@@ -642,112 +680,115 @@ public class LecteurMap extends Lecteur {
 	public final void keyPressed(final ToucheRole touchePressee) {
 		// action spécifique selon la touche
 		switch (touchePressee) {
-			case MENU : 
-				this.ouvrirLeMenu(); 
-				break;
-			case HAUT : 
-				this.haut(); 
-				break;
-			case GAUCHE : 
-				this.gauche(); 
-				break;
-			case BAS : 
-				this.bas(); 
-				break;
-			case DROITE : this.droite(); 
-				break;
-			case ARME_SUIVANTE : 
-				this.equiperArmeSuivante(); 
-				break;
-			case ACTION : 
-				this.action(); 
-				break;
-			case ARME_PRECEDENTE : 
-				this.equiperArmePrecedente(); 
-				break;
-			case ACTION_SECONDAIRE : 
-				//rien
-				break;
-			case CAPTURE_D_ECRAN : 
-				this.faireUneCaptureDEcran(); 
-				break;
-			case DEBUG :
-				LOG.debug("Map : \""+this.map.nom+"\" ("+this.map.largeur+"x"+this.map.hauteur+")");
-				LOG.debug("Events :");
-				for (Event e : this.map.events) {
-					LOG.debug("\t"+e.id+" : "+e.nom);
-					if (e.deplacementForce != null && e.deplacementForce.mouvements != null && e.deplacementForce.mouvements.size() > 0) {
-						StringBuilder mouvementsForces = new StringBuilder();
-						for (Mouvement m : e.deplacementForce.mouvements) {
-							mouvementsForces.append(m.getClass().getSimpleName())
-									.append(" ; ");
-						}
-						LOG.debug("\t\tDéplacement forcé : "+mouvementsForces.toString());
+		case MENU:
+			this.ouvrirLeMenu();
+			break;
+		case HAUT:
+			this.haut();
+			break;
+		case GAUCHE:
+			this.gauche();
+			break;
+		case BAS:
+			this.bas();
+			break;
+		case DROITE:
+			this.droite();
+			break;
+		case ARME_SUIVANTE:
+			this.equiperArmeSuivante();
+			break;
+		case ACTION:
+			this.action();
+			break;
+		case ARME_PRECEDENTE:
+			this.equiperArmePrecedente();
+			break;
+		case ACTION_SECONDAIRE:
+			// rien
+			break;
+		case CAPTURE_D_ECRAN:
+			this.faireUneCaptureDEcran();
+			break;
+		case DEBUG:
+			LOG.debug("Map : \"" + this.map.nom + "\" (" + this.map.largeur + "x" + this.map.hauteur + ")");
+			LOG.debug("Events :");
+			for (Event e : this.map.events) {
+				LOG.debug("\t" + e.id + " : " + e.nom);
+				if (e.deplacementForce != null && e.deplacementForce.mouvements != null
+						&& e.deplacementForce.mouvements.size() > 0) {
+					StringBuilder mouvementsForces = new StringBuilder();
+					for (Mouvement m : e.deplacementForce.mouvements) {
+						mouvementsForces.append(m.getClass().getSimpleName()).append(" ; ");
 					}
-					if (e.deplacementNaturelActuel != null && e.deplacementNaturelActuel.mouvements != null && e.deplacementNaturelActuel.mouvements.size() > 0) {
-						StringBuilder mouvementsNaturels = new StringBuilder();
-						for (Mouvement m : e.deplacementNaturelActuel.mouvements) {
-							mouvementsNaturels.append(m.getClass().getSimpleName())
-									.append(" ; ");
-						}
-						LOG.debug("\t\tDéplacement naturel : "+mouvementsNaturels.toString());
-					}
+					LOG.debug("\t\tDéplacement forcé : " + mouvementsForces.toString());
 				}
-				break;
-			default : 
-				break; // touche inconnue
+				if (e.deplacementNaturelActuel != null && e.deplacementNaturelActuel.mouvements != null
+						&& e.deplacementNaturelActuel.mouvements.size() > 0) {
+					StringBuilder mouvementsNaturels = new StringBuilder();
+					for (Mouvement m : e.deplacementNaturelActuel.mouvements) {
+						mouvementsNaturels.append(m.getClass().getSimpleName()).append(" ; ");
+					}
+					LOG.debug("\t\tDéplacement naturel : " + mouvementsNaturels.toString());
+				}
+			}
+			break;
+		default:
+			break; // touche inconnue
 		}
 	}
-	
+
 	/**
 	 * Ouvre une autre Map (dans un nouveau LecteurMap).
+	 * 
 	 * @warning cette méthode ne doit être appelée que par le nouveau Lecteur !
 	 * @param nouvelleMap sur laquelle le Héros voyage
 	 */
 	public final void devenirLeNouveauLecteurMap(final Map nouvelleMap) {
 		Main.futurLecteur = this;
 		Main.lecteur.allume = false;
-		
+
 		// On détruit le Tileset actuel si le prochain n'est pas le même
 		if (this.map.tileset != null && !this.map.tileset.nom.equals(nouvelleMap.tileset.nom)) {
 			this.map.tileset = null;
 		}
 	}
-	
+
 	/**
 	 * Prendre une capture d'écran de la Map sans le Héros ni les jauges.
+	 * 
 	 * @param afficherLeHeros le Héros doit-il être visible sur l'ancienne Map ?
 	 * @return capture de la Map
 	 */
 	private BufferedImage capturerLaMap(final boolean afficherLeHeros) {
 		BufferedImage capture = dessinerPanorama(this.xCamera, this.yCamera);
 		capture = dessinerDecorInferieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
-		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, afficherLeHeros, this.vignetteAutotileActuelle);
+		capture = dessinerLesEvents(capture, this.xCamera, this.yCamera, afficherLeHeros,
+				this.vignetteAutotileActuelle);
 		capture = Animation.dessinerLesAnimations(capture, this.xCamera, this.yCamera);
 		capture = dessinerDecorSuperieur(capture, this.xCamera, this.yCamera, this.vignetteAutotileActuelle);
 		capture = dessinerMeteo(capture, this.frameActuelle);
-		//brouillard
+		// brouillard
 		if (this.map.brouillard != null) {
 			capture = map.brouillard.dessinerLeBrouillard(capture, this.xCamera, this.yCamera, this.frameActuelle);
 		}
-		//ton
+		// ton
 		if (this.tonActuel != null) {
-			//capture = Graphismes.superposerImages(capture, capture, 0, 0, Graphismes.OPACITE_MAXIMALE, ModeDeFusion.TON_DE_L_ECRAN);
+			// capture = Graphismes.superposerImages(capture, capture, 0, 0,
+			// Graphismes.OPACITE_MAXIMALE, ModeDeFusion.TON_DE_L_ECRAN);
 			capture = Graphismes.appliquerTon(capture, this.tonActuel);
 		}
 		return capture;
 	}
 
 	/**
-	 * Ouvrir le Menu du jeu.
-	 * On quitte la Map temporairement (elle est mémorisée) pour parcourir le Menu.
+	 * Ouvrir le Menu du jeu. On quitte la Map temporairement (elle est mémorisée)
+	 * pour parcourir le Menu.
 	 */
 	public final void ouvrirLeMenu() {
-		//impossible d'ouvrir le Menu en cas de stopEvent, stopHeros ou de Menu interdit
-		if (!this.stopEvent 
-				&& !this.stopHeros
-				&& this.autoriserMenu
-		) { 
+		// impossible d'ouvrir le Menu en cas de stopEvent, stopHeros ou de Menu
+		// interdit
+		if (!this.stopEvent && !this.stopHeros && this.autoriserMenu) {
 			final Commande menuPause = new OuvrirMenu("Statut", 0);
 			menuPause.executer(0, null);
 		}
@@ -755,43 +796,40 @@ public class LecteurMap extends Lecteur {
 
 	@Override
 	public final void keyReleased(final ToucheRole toucheRelachee) {
-		remettreAZeroLAnimationDuHeros(); //s'il s'est arrêté
+		remettreAZeroLAnimationDuHeros(); // s'il s'est arrêté
 	}
-	
+
 	/**
 	 * Lorsque le Héros s'arrête de marcher, on arrête son animation.
 	 */
 	public final void remettreAZeroLAnimationDuHeros() {
 		final Event heros = map.heros;
-		if (!GestionClavier.ToucheRole.BAS.enfoncee()
-		 && !GestionClavier.ToucheRole.HAUT.enfoncee()
-		 && !GestionClavier.ToucheRole.GAUCHE.enfoncee()
-		 && !GestionClavier.ToucheRole.DROITE.enfoncee()) {
+		if (!GestionClavier.ToucheRole.BAS.enfoncee() && !GestionClavier.ToucheRole.HAUT.enfoncee()
+				&& !GestionClavier.ToucheRole.GAUCHE.enfoncee() && !GestionClavier.ToucheRole.DROITE.enfoncee()) {
 			heros.avance = false;
 			heros.animation = 0;
 		}
 	}
-	
+
 	/**
 	 * Calculer la position x de la caméra
+	 * 
 	 * @return position x de la caméra
 	 */
 	private int calculerXCamera() {
 		final int largeurMap = map.largeur;
-		if ( !this.map.defilementCameraX ) {
-			//map très petite, défilement inutile
+		if (!this.map.defilementCameraX) {
+			// map très petite, défilement inutile
 			return this.tremblementDeTerre;
 		} else {
-			//grande map, défilement possible
-			
+			// grande map, défilement possible
+
 			// Si l'event saute, la caméra est décorrélée de la position du Héros
 			final int xHeros;
-			if (this.map.heros.saute
-					&& this.map.heros.deplacementForce != null 
+			if (this.map.heros.saute && this.map.heros.deplacementForce != null
 					&& this.map.heros.deplacementForce.mouvements != null
 					&& this.map.heros.deplacementForce.mouvements.size() > 0
-					&& this.map.heros.deplacementForce.mouvements.get(0) instanceof Sauter
-			) {
+					&& this.map.heros.deplacementForce.mouvements.get(0) instanceof Sauter) {
 				// Le Héros est en train de sauter
 				final Sauter saut = (Sauter) this.map.heros.deplacementForce.mouvements.get(0);
 				xHeros = saut.xPourCamera();
@@ -799,43 +837,42 @@ public class LecteurMap extends Lecteur {
 				// Le Héros ne saute pas
 				xHeros = map.heros.x;
 			}
-			final int nouveauXCamera = xHeros - Fenetre.LARGEUR_ECRAN/2;
-			
-			if (nouveauXCamera<0) { //caméra ne déborde pas de la map à gauche
-				return (this.defilementX>0 ? this.defilementX : 0) 
-						+ this.tremblementDeTerre;
-			} else if (nouveauXCamera+Fenetre.LARGEUR_ECRAN > largeurMap*Main.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map à droite
-				return largeurMap*Main.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN 
-						+ (this.defilementX<0 ? this.defilementX : 0) 
-						+ this.tremblementDeTerre;
+			final int nouveauXCamera = xHeros - Fenetre.LARGEUR_ECRAN / 2;
+
+			if (nouveauXCamera < 0) { // caméra ne déborde pas de la map à gauche
+				return (this.defilementX > 0 ? this.defilementX : 0) + this.tremblementDeTerre;
+			} else if (nouveauXCamera + Fenetre.LARGEUR_ECRAN > largeurMap * Main.TAILLE_D_UN_CARREAU) { // caméra ne
+																											// déborde
+																											// pas de la
+																											// map à
+																											// droite
+				return largeurMap * Main.TAILLE_D_UN_CARREAU - Fenetre.LARGEUR_ECRAN
+						+ (this.defilementX < 0 ? this.defilementX : 0) + this.tremblementDeTerre;
 			} else {
-				return nouveauXCamera 
-						+ this.defilementX 
-						+ this.tremblementDeTerre;
+				return nouveauXCamera + this.defilementX + this.tremblementDeTerre;
 			}
 		}
 	}
-	
+
 	/**
 	 * Calculer la position y de la caméra
+	 * 
 	 * @return position y de la caméra
 	 */
 	private int calculerYCamera() {
 		final int hauteurMap = map.hauteur;
-		if ( !this.map.defilementCameraY ) { 
-			//map très petite, défilement inutile
+		if (!this.map.defilementCameraY) {
+			// map très petite, défilement inutile
 			return 0;
 		} else {
-			//grande map, défilement possible
-			
+			// grande map, défilement possible
+
 			// Si l'event saute, la caméra est décorrélée de la position du Héros
 			final int yHeros;
-			if (this.map.heros.saute
-					&& this.map.heros.deplacementForce != null 
+			if (this.map.heros.saute && this.map.heros.deplacementForce != null
 					&& this.map.heros.deplacementForce.mouvements != null
 					&& this.map.heros.deplacementForce.mouvements.size() > 0
-					&& this.map.heros.deplacementForce.mouvements.get(0) instanceof Sauter
-			) {
+					&& this.map.heros.deplacementForce.mouvements.get(0) instanceof Sauter) {
 				// Le Héros est en train de sauter
 				final Sauter saut = (Sauter) this.map.heros.deplacementForce.mouvements.get(0);
 				yHeros = saut.yPourCamera();
@@ -843,20 +880,26 @@ public class LecteurMap extends Lecteur {
 				// Le Héros ne saute pas
 				yHeros = map.heros.y;
 			}
-			int nouveauYCamera = yHeros - Fenetre.HAUTEUR_ECRAN/2;
-			
-			if (nouveauYCamera<0) { //caméra ne déborde pas de la map en haut
-				return 0 + (this.defilementY>0 ? this.defilementY : 0);
-			} else if (nouveauYCamera+Fenetre.HAUTEUR_ECRAN > hauteurMap*Main.TAILLE_D_UN_CARREAU) { //caméra ne déborde pas de la map en bas
-				return hauteurMap*Main.TAILLE_D_UN_CARREAU - Fenetre.HAUTEUR_ECRAN + (this.defilementY<0 ? this.defilementY : 0);
+			int nouveauYCamera = yHeros - Fenetre.HAUTEUR_ECRAN / 2;
+
+			if (nouveauYCamera < 0) { // caméra ne déborde pas de la map en haut
+				return 0 + (this.defilementY > 0 ? this.defilementY : 0);
+			} else if (nouveauYCamera + Fenetre.HAUTEUR_ECRAN > hauteurMap * Main.TAILLE_D_UN_CARREAU) { // caméra ne
+																											// déborde
+																											// pas de la
+																											// map en
+																											// bas
+				return hauteurMap * Main.TAILLE_D_UN_CARREAU - Fenetre.HAUTEUR_ECRAN
+						+ (this.defilementY < 0 ? this.defilementY : 0);
 			} else {
 				return nouveauYCamera + this.defilementY;
 			}
 		}
 	}
-	
+
 	/**
 	 * Actualiser et récupérer la caméra de la Map.
+	 * 
 	 * @return coordonnées x et y de la caméra sur la Map
 	 */
 	public int[] recupererCamera() {
@@ -865,9 +908,10 @@ public class LecteurMap extends Lecteur {
 		camera[1] = this.yCamera = calculerYCamera();
 		return camera;
 	}
-	
+
 	/**
 	 * Le Héros arrête son animation pour écouter un Message.
+	 * 
 	 * @param event avec lequel le Héros discute
 	 */
 	public final void normaliserApparenceDesInterlocuteursAvantMessage(final Event event) {
@@ -879,28 +923,29 @@ public class LecteurMap extends Lecteur {
 		}
 		// Le Héros arrête son attaque
 		heros.animationAttaque = 0;
-				
+
 		// Normaliser l'intelocuteur
 		// L'interlocuteur arrête son animation
 		if (!event.animeALArretActuel && !event.directionFixeActuelle) {
-			event.animation = 0; //TODO attention : si la vignette par défaut de l'event n'est pas la vignette 0, il va changer d'apparence
+			event.animation = 0; // TODO attention : si la vignette par défaut de l'event n'est pas la vignette
+									// 0, il va changer d'apparence
 		}
 		// L'interlocuteur se tourne vers le Héros
 		if (!event.directionFixeActuelle) {
 			event.direction = RegarderUnEvent.calculerDirectionDeRegard(event, heros);
 		}
 	}
-	
+
 	/**
 	 * Déplacer le Héros vers le haut
 	 */
 	public final void haut() {
-		if (this.messageActuel!=null) {
-			//les touches directionnelles servent au Message/Choix/EntrerUnNombre
+		if (this.messageActuel != null) {
+			// les touches directionnelles servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.haut();
 		} else if (!this.stopEvent && !this.stopHeros) {
-			//les touches directionnelles servent à faire avancer le Héros
-			//this.map.heros.mettreDansLaBonneDirection();
+			// les touches directionnelles servent à faire avancer le Héros
+			// this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
@@ -909,12 +954,12 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers la gauche
 	 */
 	public final void gauche() {
-		if (this.messageActuel!=null) {
-			//les touches servent au Message/Choix/EntrerUnNombre
+		if (this.messageActuel != null) {
+			// les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.gauche();
 		} else if (!this.stopEvent && !this.stopHeros) {
-			//les touches directionnelles servent à faire avancer le Héros
-			//this.map.heros.mettreDansLaBonneDirection();
+			// les touches directionnelles servent à faire avancer le Héros
+			// this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
@@ -923,12 +968,12 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers le bas
 	 */
 	public final void bas() {
-		if (this.messageActuel!=null) {
-			//les touches servent au Message/Choix/EntrerUnNombre
+		if (this.messageActuel != null) {
+			// les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.bas();
 		} else if (!this.stopEvent && !this.stopHeros) {
-			//les touches directionnelles servent à faire avancer le Héros
-			//this.map.heros.mettreDansLaBonneDirection();
+			// les touches directionnelles servent à faire avancer le Héros
+			// this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
@@ -937,22 +982,22 @@ public class LecteurMap extends Lecteur {
 	 * Déplacer le Héros vers la droite
 	 */
 	public final void droite() {
-		if (this.messageActuel!=null) {
-			//les touches servent au Message/Choix/EntrerUnNombre
+		if (this.messageActuel != null) {
+			// les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.droite();
 		} else if (!this.stopEvent && !this.stopHeros) {
-			//les touches directionnelles servent à faire avancer le Héros
-			//this.map.heros.mettreDansLaBonneDirection();
+			// les touches directionnelles servent à faire avancer le Héros
+			// this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
-	
+
 	/**
 	 * Attaquer ou parler (suivant si gentil ou méchant)
 	 */
 	public final void action() {
-		if (this.messageActuel!=null) {
-			//les touches servent au Message/Choix/EntrerUnNombre
+		if (this.messageActuel != null) {
+			// les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.action();
 		}
 	}
@@ -961,16 +1006,16 @@ public class LecteurMap extends Lecteur {
 	 * Transmettre à la Partie le changement d'Arme ordonné à la Fenêtre
 	 */
 	public final void equiperArmeSuivante() {
-		if (!this.stopEvent) { //on ne change pas d'Arme lorsqu'on lit un Message
+		if (!this.stopEvent) { // on ne change pas d'Arme lorsqu'on lit un Message
 			Main.getPartieActuelle().equiperArmeSuivante();
 		}
 	}
-	
+
 	/**
 	 * Transmettre à la Partie le changement d'Arme ordonné à la Fenêtre
 	 */
 	public final void equiperArmePrecedente() {
-		if (!this.stopEvent) { //on ne change pas d'Arme lorsqu'on lit un Message
+		if (!this.stopEvent) { // on ne change pas d'Arme lorsqu'on lit un Message
 			Main.getPartieActuelle().equiperArmePrecedente();
 		}
 	}
@@ -996,13 +1041,14 @@ public class LecteurMap extends Lecteur {
 			LecteurAudio.playBgs(map.nomBGS, map.volumeBGS, 0);
 		}
 	}
-	
+
 	/**
 	 * La Transition à partir de la Map précédente est-elle terminée ?
+	 * 
 	 * @return true si fini
 	 */
 	public final boolean laTransitionEstTerminee() {
 		return Transition.AUCUNE.equals(this.transition) || this.frameActuelle >= Transition.DUREE_TRANSITION;
 	}
-	
+
 }
