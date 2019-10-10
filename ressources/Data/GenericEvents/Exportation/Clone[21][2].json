@@ -510,77 +510,12 @@
                     "nom": "AppelerPageCommune"
                 },
                 {
-                    "texte": "On le transforme en butin avec la commande\\ntransform(map_id, event_id)",
+                    "texte": "On transforme le monstre en butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin",
                     "nom": "Commentaire"
                 },
                 {
-                    "numeroVariable": 8,
-                    "operationAFaire": "rendre egal a",
-                    "valeurADonner": 1,
-                    "valeurADonner2": 20,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "nombre aleatoire"
-                },
-                {
-                    "numeroVariable": 8,
-                    "numero": 8,
-                    "comparerAUneAutreVariable": false,
-                    "valeurQuIlEstCenseAvoir": 10,
-                    "inegalite": "<=",
-                    "nom": "ConditionVariable"
-                },
-                {
-                    "numeroVariable": 8,
-                    "numero": 9,
-                    "comparerAUneAutreVariable": false,
-                    "valeurQuIlEstCenseAvoir": 6,
-                    "inegalite": ">=",
-                    "nom": "ConditionVariable"
-                },
-                {
                     "nom": "AppelerUnScript",
-                    "script": "$game_map.events[@event_id].transform(341, 34)"
-                },
-                {
-                    "numero": 9,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "numeroVariable": 8,
-                    "numero": 10,
-                    "comparerAUneAutreVariable": false,
-                    "valeurQuIlEstCenseAvoir": 1,
-                    "inegalite": "==",
-                    "nom": "ConditionVariable"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_map.events[@event_id].transform(348, 8)"
-                },
-                {
-                    "numero": 10,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_map.events[@event_id].transform(348, 9)"
-                },
-                {
-                    "numero": 10,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "numero": 9,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "numero": 8,
-                    "nom": "ConditionSinon"
-                },
-                {"nom": "SupprimerEvent"},
-                {
-                    "numero": 8,
-                    "nom": "ConditionFin"
+                    "script": "$game_map.events[@event_id].transform(582, 11)"
                 },
                 {
                     "numero": 6,

@@ -100,33 +100,16 @@
                     "nom": "ModifierInterrupteur"
                 },
                 {
-                    "numeroVariable": 121,
-                    "numero": 1,
-                    "comparerAUneAutreVariable": false,
-                    "valeurQuIlEstCenseAvoir": 0,
-                    "inegalite": "==",
-                    "nom": "ConditionVariable"
+                    "numeroPageCommune": 64,
+                    "nom": "AppelerPageCommune"
                 },
                 {
-                    "texte": "C'est un Coffrillage !",
+                    "texte": "(en) It is a treasure shell !",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "C'est un coffrillage !",
                     "nom": "Message"
-                },
-                {
-                    "texte": "L'ouvrir ?",
-                    "nom": "Message"
-                },
-                {
-                    "numero": 0,
-                    "alternatives": [
-                        "Oui",
-                        "Non"
-                    ],
-                    "nom": "Choix"
-                },
-                {
-                    "numero": 0,
-                    "alternative": 0,
-                    "nom": "ChoixAlternative"
                 },
                 {
                     "ignorerLesMouvementsImpossibles": false,
@@ -284,8 +267,16 @@
                     "nom": "Deplacement"
                 },
                 {
+                    "texte": "(en) You find 20 blue scales !",
+                    "nom": "Commentaire"
+                },
+                {
                     "texte": "Vous trouvez 20 écailles bleues !",
                     "nom": "Message"
+                },
+                {
+                    "texte": "(en) It is the currency used in Kujira.",
+                    "nom": "Commentaire"
                 },
                 {
                     "texte": "C'est la monnaie utilisée dans Kujira.",
@@ -329,7 +320,7 @@
                 },
                 {
                     "idObjet": 48,
-                    "numero": 2,
+                    "numero": 1,
                     "nom": "ConditionObjetPossede"
                 },
                 {
@@ -341,7 +332,7 @@
                     "operationAFaire2": "nombre aleatoire"
                 },
                 {
-                    "numero": 2,
+                    "numero": 1,
                     "nom": "ConditionSinon"
                 },
                 {
@@ -353,7 +344,7 @@
                     "operationAFaire2": "nombre aleatoire"
                 },
                 {
-                    "numero": 2,
+                    "numero": 1,
                     "nom": "ConditionFin"
                 },
                 {
@@ -375,277 +366,17 @@
                     "nom": "ModifierInterrupteurLocal"
                 },
                 {
-                    "numero": 0,
-                    "alternative": 1,
-                    "nom": "ChoixAlternative"
-                },
-                {
-                    "numero": 0,
-                    "nom": "ChoixFin"
-                },
-                {
-                    "numero": 1,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "texte": "It is a Treasure Shell !",
-                    "nom": "Message"
-                },
-                {
-                    "texte": "Open it ?",
-                    "nom": "Message"
-                },
-                {
-                    "numero": 1,
-                    "alternatives": [
-                        "Yes",
-                        "No"
-                    ],
-                    "nom": "Choix"
-                },
-                {
-                    "numero": 1,
-                    "alternative": 0,
-                    "nom": "ChoixAlternative"
-                },
-                {
-                    "ignorerLesMouvementsImpossibles": false,
-                    "repeterLeDeplacement": false,
-                    "mouvements": [
-                        {
-                            "nom": "RegarderDansUneDirection",
-                            "direction": 3
-                        },
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 200
-                        }
-                    ],
-                    "idEventADeplacer": 0,
-                    "attendreLaFinDuDeplacement": false,
-                    "nom": "Deplacement"
-                },
-                {
-                    "volume": 1,
-                    "nomFichierSonore": "044-Chest01.ogg",
-                    "tempo": 0.5,
-                    "nom": "JouerEffetSonore"
-                },
-                {
-                    "volume": 1,
-                    "nomFichierSonore": "fanfare (coffre).mp3",
-                    "tempo": 1,
-                    "nom": "JouerEffetMusical"
-                },
-                {
-                    "ignorerLesMouvementsImpossibles": false,
-                    "repeterLeDeplacement": false,
-                    "mouvements": [
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 16
-                        },
-                        {
-                            "image": "Palourde coffre character",
-                            "teinte": 0,
-                            "nom": "ModifierApparence",
-                            "direction": 0,
-                            "animation": 3
-                        },
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 15
-                        },
-                        {
-                            "image": "Palourde coffre character",
-                            "teinte": 0,
-                            "nom": "ModifierApparence",
-                            "direction": 1,
-                            "animation": 0
-                        },
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 15
-                        },
-                        {
-                            "image": "Palourde coffre character",
-                            "teinte": 0,
-                            "nom": "ModifierApparence",
-                            "direction": 1,
-                            "animation": 1
-                        },
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 15
-                        },
-                        {
-                            "image": "Palourde coffre character",
-                            "teinte": 0,
-                            "nom": "ModifierApparence",
-                            "direction": 1,
-                            "animation": 2
-                        },
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 15
-                        },
-                        {
-                            "image": "Palourde coffre character",
-                            "teinte": 0,
-                            "nom": "ModifierApparence",
-                            "direction": 1,
-                            "animation": 3
-                        },
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 15
-                        },
-                        {
-                            "image": "Palourde coffre character",
-                            "teinte": 0,
-                            "nom": "ModifierApparence",
-                            "direction": 3,
-                            "animation": 0
-                        },
-                        {
-                            "directionFixe": true,
-                            "nom": "RendreDirectionFixe"
-                        },
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 25
-                        }
-                    ],
-                    "attendreLaFinDuDeplacement": false,
-                    "nom": "Deplacement"
-                },
-                {
-                    "nom": "Attendre",
-                    "nombreDeFrames": 133
-                },
-                {
-                    "volume": 1,
-                    "nomFichierSonore": "fanfare (objet trouvé).mp3",
-                    "tempo": 1,
-                    "nom": "JouerEffetMusical"
-                },
-                {
-                    "variable": false,
-                    "nom": "AjouterArgent",
-                    "quantite": 20
-                },
-                {
-                    "ignorerLesMouvementsImpossibles": false,
-                    "repeterLeDeplacement": false,
-                    "mouvements": [
-                        {
-                            "image": "Jiyounasu content character",
-                            "teinte": 0,
-                            "nom": "ModifierApparence",
-                            "direction": 0,
-                            "animation": 0
-                        },
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 100
-                        }
-                    ],
-                    "idEventADeplacer": 0,
-                    "attendreLaFinDuDeplacement": false,
-                    "nom": "Deplacement"
-                },
-                {
-                    "texte": "You find 20 blue scales !",
-                    "nom": "Message"
-                },
-                {
-                    "texte": "It is the currency used in Kujira.",
-                    "nom": "Message"
-                },
-                {
-                    "nom": "Attendre",
-                    "nombreDeFrames": 16
-                },
-                {
-                    "ignorerLesMouvementsImpossibles": false,
-                    "repeterLeDeplacement": false,
-                    "mouvements": [
-                        {
-                            "image": "Jiyounasu character",
-                            "teinte": 0,
-                            "nom": "ModifierApparence",
-                            "direction": 0,
-                            "animation": 0
-                        },
-                        {
-                            "nomCommande": "Attendre",
-                            "nom": "AppelerUneCommande",
-                            "nombreDeFrames": 8
-                        },
-                        {
-                            "image": "Jiyounasu character",
-                            "teinte": 0,
-                            "nom": "ModifierApparence",
-                            "direction": 0,
-                            "animation": 0
-                        },
-                        {
-                            "directionFixe": false,
-                            "nom": "RendreDirectionFixe"
-                        }
-                    ],
-                    "idEventADeplacer": 0,
-                    "attendreLaFinDuDeplacement": false,
-                    "nom": "Deplacement"
-                },
-                {
-                    "nom": "Attendre",
-                    "nombreDeFrames": 8
-                },
-                {
-                    "numeroInterrupteur": 12,
-                    "valeur": false,
-                    "nom": "ModifierInterrupteur"
-                },
-                {
-                    "numeroInterrupteurLocal": 2,
-                    "valeurADonner": true,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numero": 1,
-                    "alternative": 1,
-                    "nom": "ChoixAlternative"
-                },
-                {
-                    "numero": 1,
-                    "nom": "ChoixFin"
-                },
-                {
-                    "numero": 1,
-                    "nom": "ConditionFin"
-                },
-                {
                     "nom": "Attendre",
                     "nombreDeFrames": 3
                 },
                 {
+                    "numeroPageCommune": 65,
+                    "nom": "AppelerPageCommune"
+                },
+                {
                     "numeroInterrupteur": 12,
                     "valeur": false,
                     "nom": "ModifierInterrupteur"
-                },
-                {
-                    "numero": 0,
-                    "nom": "ConditionSinon"
                 },
                 {
                     "numero": 0,

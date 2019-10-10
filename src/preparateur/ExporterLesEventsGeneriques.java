@@ -11,9 +11,12 @@ import org.json.JSONObject;
 import utilitaire.InterpreteurDeJson;
 
 /**
- * Adapter les fichiers JSON du jeu au moteur Java sur des spécificités.
+ * Certains evements sont sur plusieurs maps, copies a partir d'un clone.
+ * On va placer les modeles des clones dans un meme dossier.
  */
 public abstract class ExporterLesEventsGeneriques {
+	
+	private static final int NOMBRE_DE_MAPS = 631;
 	
 	/**
 	 * Lancer le nettoyeur.
@@ -31,7 +34,7 @@ public abstract class ExporterLesEventsGeneriques {
 	private static void exporterLesEventsGeneriques() {
 		System.out.println("Recherche des events génériques :");
 		ArrayList<ArrayList<Integer>> localisationDesGeneriques = new ArrayList<>();
-		for (int numeroMap = 1; numeroMap <=582; numeroMap++) {
+		for (int numeroMap = 1; numeroMap <=NOMBRE_DE_MAPS; numeroMap++) {
 			try {
 				final JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(numeroMap);
 				final JSONArray jsonEvents = jsonMap.getJSONArray("events");
@@ -73,7 +76,7 @@ public abstract class ExporterLesEventsGeneriques {
 			}
 		}
 		System.out.println("---------------------------");
-		for (int numeroMap = 1; numeroMap <=582; numeroMap++) {
+		for (int numeroMap = 1; numeroMap <=NOMBRE_DE_MAPS; numeroMap++) {
 			try {
 				final JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(numeroMap);
 				final JSONArray jsonEvents = jsonMap.getJSONArray("events");

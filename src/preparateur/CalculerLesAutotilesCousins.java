@@ -15,7 +15,9 @@ import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Adapter les fichiers JSON du jeu au moteur Java sur des spécificités.
+ * Certains autotiles font une transition douce vers certains autres.
+ * La deuxième case de l'autotile représente l'autotile vers lequel une telle transition douce est possible.
+ * Ici on fait la liste des autotiles qui sont cousins.
  */
 public abstract class CalculerLesAutotilesCousins {
 	private static final Logger LOG = LogManager.getLogger(CalculerLesAutotilesCousins.class);
