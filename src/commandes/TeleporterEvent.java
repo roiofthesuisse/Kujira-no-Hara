@@ -1,7 +1,7 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import jeu.Partie;
 import main.Commande;
@@ -15,45 +15,45 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 	private Integer idEvent;
 	private int nouveauX;
 	private int nouveauY;
-	private boolean utiliserVariables; //false:valeurs true:variables 
-	
+	private boolean utiliserVariables; // false:valeurs true:variables
+
 	/**
 	 * Constructeur explicite
-	 * @param idEvent identifiant de l'Event à téléporter
-	 * @param nouveauX nouvelle coordonnée x de l'Event
-	 * @param nouveauY nouvelle coordonnée y de l'Event
+	 * 
+	 * @param idEvent           identifiant de l'Event à téléporter
+	 * @param nouveauX          nouvelle coordonnée x de l'Event
+	 * @param nouveauY          nouvelle coordonnée y de l'Event
 	 * @param utiliserVariables false si valeurs fixes, true si numéros de variables
 	 */
-	public TeleporterEvent(final Integer idEvent, final int nouveauX, final int nouveauY, final boolean utiliserVariables) {
+	public TeleporterEvent(final Integer idEvent, final int nouveauX, final int nouveauY,
+			final boolean utiliserVariables) {
 		this.idEvent = idEvent;
 		this.nouveauX = nouveauX;
 		this.nouveauY = nouveauY;
 		this.utiliserVariables = utiliserVariables;
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public TeleporterEvent(final HashMap<String, Object> parametres) {
-		this( 
-			parametres.containsKey("idEvent") ? (int) parametres.get("idEvent") : null, 
-			(int) parametres.get("nouveauX"),
-			(int) parametres.get("nouveauY"),
-			parametres.containsKey("variable") && (boolean) parametres.get("variable")
-		);
+		this(parametres.containsKey("idEvent") ? (int) parametres.get("idEvent") : null,
+				(int) parametres.get("nouveauX"), (int) parametres.get("nouveauY"),
+				parametres.containsKey("variable") && (boolean) parametres.get("variable"));
 	}
-	
+
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final Event cetEvent;
 		if (idEvent == null) {
-			//si idEvent n'est pas précisé, l'Event appelant est téléporté par défaut
+			// si idEvent n'est pas précisé, l'Event appelant est téléporté par défaut
 			cetEvent = this.page.event;
 		} else {
 			cetEvent = this.page.event.map.eventsHash.get((Integer) idEvent);
 		}
-		
+
 		if (utiliserVariables) {
 			final Partie partieActuelle = getPartieActuelle();
 			cetEvent.x = partieActuelle.variables[nouveauX] * Main.TAILLE_D_UN_CARREAU;
@@ -62,12 +62,12 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 			cetEvent.x = nouveauX * Main.TAILLE_D_UN_CARREAU;
 			cetEvent.y = nouveauY * Main.TAILLE_D_UN_CARREAU;
 		}
-		
+
 		// On interromp l'inertie
 		cetEvent.avancaitALaFramePrecedente = false;
 		cetEvent.avance = false;
-		
-		return curseurActuel+1;
+
+		return curseurActuel + 1;
 	}
 
 }

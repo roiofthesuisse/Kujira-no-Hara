@@ -1,7 +1,7 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,16 +14,17 @@ import main.Main;
  */
 public class OuvrirNouvellePartie extends Commande implements CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(OuvrirNouvellePartie.class);
-	
+
 	/**
 	 * Constructeur vide
 	 */
 	private OuvrirNouvellePartie() {
-		
+
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public OuvrirNouvellePartie(final HashMap<String, Object> parametres) {
@@ -31,12 +32,12 @@ public class OuvrirNouvellePartie extends Commande implements CommandeMenu {
 	}
 
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		LOG.info("nouvelle partie");
 		Main.setPartieActuelle(null);
 		Main.ouvrirLaPartie();
-		
-		return curseurActuel+1;
+
+		return curseurActuel + 1;
 	}
-	
+
 }

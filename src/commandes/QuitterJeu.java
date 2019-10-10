@@ -1,7 +1,7 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import main.Commande;
 import main.Main;
@@ -10,16 +10,17 @@ import main.Main;
  * Eteindre le jeu.
  */
 public class QuitterJeu extends Commande implements CommandeMenu {
-	
+
 	/**
 	 * Constructeur vide
 	 */
 	public QuitterJeu() {
-		
+
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public QuitterJeu(final HashMap<String, Object> parametres) {
@@ -27,10 +28,10 @@ public class QuitterJeu extends Commande implements CommandeMenu {
 	}
 
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		Main.quitterLeJeu = true;
-		
-		return curseurActuel+1;
+
+		return curseurActuel + 1;
 	}
 
 }

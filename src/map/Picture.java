@@ -70,6 +70,7 @@ public class Picture implements Sauvegardable {
 	
 	/**
 	 * Dessiner les images.
+	 * Une image basse est une image sous le HUD ; une image haute est au dessus du HUD.
 	 * @param ecran sur lequel on affiche les images
 	 * @param imagesBasses true pour les images basses, false pour les images hautes
 	 * @return écran avec les images dessinées

@@ -1,17 +1,17 @@
 package commandes;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import map.meteo.Trochoide;
 import map.meteo.Meteo;
 import map.meteo.Neige;
 import map.meteo.Pluie;
+import map.meteo.Trochoide;
 import map.meteo.TypeDeMeteo;
 
 /**
@@ -19,38 +19,38 @@ import map.meteo.TypeDeMeteo;
  */
 public class ModifierMeteo extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ModifierMeteo.class);
-	
+
 	private final TypeDeMeteo typeDeMeteo;
 	private final HashMap<String, Object> parametres;
-	
+
 	/**
 	 * Constructeur explicite
-	 * @param nom de l'intempérie souhaitée
+	 * 
+	 * @param nom        de l'intempérie souhaitée
 	 * @param parametres de l'intempérie souhaitée
 	 */
 	public ModifierMeteo(final String nom, final HashMap<String, Object> parametres) {
 		this.typeDeMeteo = TypeDeMeteo.obtenirParNom(nom);
-		LOG.info("Nouvelle météo : "+this.typeDeMeteo.nom);
+		LOG.info("Nouvelle météo : " + this.typeDeMeteo.nom);
 		this.parametres = parametres;
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public ModifierMeteo(final HashMap<String, Object> parametres) {
-		this( parametres.containsKey("type") ? (String) parametres.get("type") : null,
-			  parametres	
-		);
+		this(parametres.containsKey("type") ? (String) parametres.get("type") : null, parametres);
 	}
 
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final Meteo ancienneMeteo = getPartieActuelle().meteo;
 		Meteo nouvelleMeteo = null;
-		
+
 		final int intensite = parametres.containsKey("intensite") ? (int) parametres.get("intensite") : 0;
-		
+
 		switch (this.typeDeMeteo) {
 		case PLUIE:
 			nouvelleMeteo = new Pluie(intensite);
@@ -67,7 +67,8 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 			final int rayonY = (int) parametres.get("rayonY");
 			final String nomImage = (String) parametres.get("image");
 			try {
-				nouvelleMeteo = new Trochoide(intensite, dureeDeVie, vitesseX, vitesseY, vitesseRotation, rayonX, rayonY, nomImage);
+				nouvelleMeteo = new Trochoide(intensite, dureeDeVie, vitesseX, vitesseY, vitesseRotation, rayonX,
+						rayonY, nomImage);
 			} catch (IOException e) {
 				LOG.error("Impossible d'instancier la Météo personnalisée.", e);
 				nouvelleMeteo = ancienneMeteo;
@@ -76,16 +77,17 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 		default:
 			break;
 		}
-		
+
 		if (Meteo.verifierSiIdentiques(nouvelleMeteo, ancienneMeteo)) {
 			final String nouveauTypeMeteo = nouvelleMeteo != null ? nouvelleMeteo.getType().nom : "null";
 			final String ancienTypeMeteo = ancienneMeteo != null ? ancienneMeteo.getType().nom : "null";
-			LOG.warn("Cette météo est identique à l'ancienne, on ne fait rien. "+ancienTypeMeteo+"->"+nouveauTypeMeteo);
+			LOG.warn("Cette météo est identique à l'ancienne, on ne fait rien. " + ancienTypeMeteo + "->"
+					+ nouveauTypeMeteo);
 		} else {
-			//la nouvelle météo proposée est différente de l'ancienne
+			// la nouvelle météo proposée est différente de l'ancienne
 			getPartieActuelle().meteo = nouvelleMeteo;
 		}
-		
+
 		return curseurActuel + 1;
 	}
 }

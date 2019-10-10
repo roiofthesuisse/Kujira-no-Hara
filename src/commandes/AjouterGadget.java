@@ -1,7 +1,7 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import jeu.Partie;
 import main.Commande;
@@ -11,26 +11,28 @@ import main.Commande;
  */
 public class AjouterGadget extends Commande implements CommandeEvent {
 	int idGadget;
-	
+
 	/**
 	 * Constructeur explicite
+	 * 
 	 * @param idGadget identifiant du Gadget à ajouter : son numéro ou son nom
 	 */
 	public AjouterGadget(final int idGadget) {
-		//l'identifiant du Gadget est son numéro
+		// l'identifiant du Gadget est son numéro
 		this.idGadget = idGadget;
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AjouterGadget(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("idGadget") );
+		this((int) parametres.get("idGadget"));
 	}
-	
+
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final Partie partieActuelle = getPartieActuelle();
 		if (!partieActuelle.gadgetsPossedes[idGadget]) {
 			partieActuelle.gadgetsPossedes[idGadget] = true;
@@ -40,7 +42,7 @@ public class AjouterGadget extends Commande implements CommandeEvent {
 		if (partieActuelle.idGadgetEquipe < 0) {
 			partieActuelle.idGadgetEquipe = idGadget;
 		}
-		return curseurActuel+1;
+		return curseurActuel + 1;
 	}
 
 }

@@ -1,7 +1,7 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import main.Commande;
 import main.Main;
@@ -10,15 +10,16 @@ import main.Main;
  * Prendre une capture d'écran du jeu.
  */
 public class CaptureDEcran extends Commande implements CommandeEvent, CommandeMenu {
-	
+
 	/**
 	 * Constructeur explicite
 	 */
 	public CaptureDEcran() {
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public CaptureDEcran(final HashMap<String, Object> parametres) {
@@ -26,10 +27,10 @@ public class CaptureDEcran extends Commande implements CommandeEvent, CommandeMe
 	}
 
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		Main.lecteur.faireUneCaptureDEcran();
-		
-		return curseurActuel+1;
+
+		return curseurActuel + 1;
 	}
 
 }

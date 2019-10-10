@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -19,36 +20,38 @@ import utilitaire.graphismes.Graphismes;
  * Afficher un Message dans une boîte de dialogue
  */
 public class Message extends Commande implements CommandeEvent {
-	//constantes
+	// constantes
 	private static final Logger LOG = LogManager.getLogger(Message.class);
 	protected static final int MARGE_DU_TEXTE = 24;
 	protected static final String NOM_IMAGE_BOITE_MESSAGE = "parchotexte.png";
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage();
-	protected static final BufferedImage IMAGE_BOITE_MESSAGE_VIDE = Graphismes.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE_PLEINE);
+	protected static final BufferedImage IMAGE_BOITE_MESSAGE_VIDE = Graphismes
+			.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE_PLEINE);
 	protected static BufferedImage imageBoiteMessage = IMAGE_BOITE_MESSAGE_PLEINE;
 	protected static final boolean MASQUER_BOITE_MESSAGE_PAR_DEFAUT = false;
 	protected static final Position POSITION_BOITE_MESSAGE_PAR_DEFAUT = Position.BAS;
-	
+
 	public ArrayList<String> texte;
 	public BufferedImage image;
 	private boolean touchePresseePourQuitterLeMessage = false;
 	private boolean premiereFrameDAffichageDuMessage = true;
 	public static boolean masquerBoiteMessage = MASQUER_BOITE_MESSAGE_PAR_DEFAUT;
 	public static Position positionBoiteMessage = POSITION_BOITE_MESSAGE_PAR_DEFAUT;
-	
+
 	/**
 	 * Position de la boîte de Messages à l'écran.
 	 */
 	public enum Position {
 		BAS("bas", 76, 320), MILIEU("milieu", 76, 160), HAUT("haut", 76, 0);
-		
+
 		final String nom;
 		public final int xAffichage;
 		public final int yAffichage;
 
 		/**
 		 * Constructeur explicite
-		 * @param nom de la position
+		 * 
+		 * @param nom        de la position
 		 * @param xAffichage (en pixels)
 		 * @param yAffichage (en pixels)
 		 */
@@ -57,9 +60,10 @@ public class Message extends Commande implements CommandeEvent {
 			this.xAffichage = xAffichage;
 			this.yAffichage = yAffichage;
 		}
-		
+
 		/**
 		 * Récupérer la Position de la boîte de Messages par son nom.
+		 * 
 		 * @param nom de la position
 		 * @return position ainsi nommée
 		 */
@@ -72,45 +76,47 @@ public class Message extends Commande implements CommandeEvent {
 			return Position.BAS;
 		}
 	}
-	
+
 	/**
 	 * Constructeur explicite
+	 * 
 	 * @param texte affiché dans la boîte de dialogue
 	 */
 	public Message(final ArrayList<String> texte) {
 		this.texte = texte;
 		this.touchePresseePourQuitterLeMessage = false;
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public Message(final HashMap<String, Object> parametres) {
-		this( Texte.construireTexteMultilingue(parametres.get("texte")) );
+		this(Texte.construireTexteMultilingue(parametres.get("texte")));
 	}
 
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final LecteurMap lecteur = this.page.event.map.lecteur;
 		lecteur.normaliserApparenceDesInterlocuteursAvantMessage(this.page.event);
-		//si le Message à afficher est différent du Message affiché, on change !
+		// si le Message à afficher est différent du Message affiché, on change !
 		if (ilFautReactualiserLImageDuMessage(lecteur)) {
 			lecteur.messagePrecedent = lecteur.messageActuel;
 			lecteur.messageActuel = this;
 			this.image = produireImageDuMessage();
 		}
-		
-		//fermer le message
+
+		// fermer le message
 		if (this.touchePresseePourQuitterLeMessage) {
-			//on ferme le message
+			// on ferme le message
 			lecteur.messagePrecedent = this;
 			lecteur.messageActuel = null;
 			this.touchePresseePourQuitterLeMessage = false;
 			this.premiereFrameDAffichageDuMessage = true;
 			return redirectionSelonLeChoix(curseurActuel, commandes);
 		} else {
-			//on laisse le message ouvert
+			// on laisse le message ouvert
 			this.premiereFrameDAffichageDuMessage = false;
 			return curseurActuel;
 		}
@@ -118,50 +124,53 @@ public class Message extends Commande implements CommandeEvent {
 
 	/**
 	 * Faut-il réactualiser l'image du Message ?
+	 * 
 	 * @param lecteur de map
 	 * @return true s'il faut construire une nouvelle image de Message, false sinon
 	 */
 	protected boolean ilFautReactualiserLImageDuMessage(final LecteurMap lecteur) {
-		//le dialogue vient de commencer
+		// le dialogue vient de commencer
 		if (lecteur.messageActuel == null) {
 			return true;
 		}
-		
-		//le texte a changé mais pas encore l'image
+
+		// le texte a changé mais pas encore l'image
 		final int langue = Main.langue;
 		final ArrayList<String> texteActuel = lecteur.messageActuel.texte;
 		final String messageActuel = texteActuel.get(langue < texteActuel.size() ? langue : 0);
 		final String messageDesire = this.texte.get(langue < this.texte.size() ? langue : 0);
-		if ( (messageActuel == null && messageDesire != null) 
-		  || (messageActuel != null && !messageActuel.equals(messageDesire))) {
-			LOG.debug(messageActuel+" =/= "+messageDesire);
+		if ((messageActuel == null && messageDesire != null)
+				|| (messageActuel != null && !messageActuel.equals(messageDesire))) {
+			LOG.debug(messageActuel + " =/= " + messageDesire);
 			return true;
 		}
-		
-		//TODO utile ?
+
+		// TODO utile ?
 		if (this.premiereFrameDAffichageDuMessage) {
 			return true;
 		}
-		
+
 		return false;
 	}
 
 	/**
 	 * Charge l'image de fond de la boîte de dialogue.
+	 * 
 	 * @return image de fond de la boîte de dialogue
 	 */
 	private static BufferedImage chargerImageDeFondDeLaBoiteMessage() {
 		try {
 			return Graphismes.ouvrirImage("Pictures", NOM_IMAGE_BOITE_MESSAGE);
 		} catch (IOException e) {
-			LOG.error("impossible d'ouvrir l'image "+NOM_IMAGE_BOITE_MESSAGE, e);
+			LOG.error("impossible d'ouvrir l'image " + NOM_IMAGE_BOITE_MESSAGE, e);
 			return null;
 		}
 	}
-	
+
 	/**
-	 * Fabrique l'image du Message à partir de l'image de la boîte de dialogue et du texte.
-	 * Méthode dérivée par la classe Choix.
+	 * Fabrique l'image du Message à partir de l'image de la boîte de dialogue et du
+	 * texte. Méthode dérivée par la classe Choix.
+	 * 
 	 * @return image du Message
 	 */
 	protected BufferedImage produireImageDuMessage() {
@@ -174,35 +183,38 @@ public class Message extends Commande implements CommandeEvent {
 		LOG.debug("Texte du message actualisé");
 		return imageMessage;
 	}
-	
+
 	/**
-	 * Ce n'est pas un Choix, juste un Message Normal, donc la Commande suivante est juste après.
-	 * Méthode dérivée par la classe Choix.
+	 * Ce n'est pas un Choix, juste un Message Normal, donc la Commande suivante est
+	 * juste après. Méthode dérivée par la classe Choix.
+	 * 
 	 * @param curseurActuel curseur dans la lecture des Commandes
-	 * @param commandes en cours d'execution, dont fait notamment partie ce Message
+	 * @param commandes     en cours d'execution, dont fait notamment partie ce
+	 *                      Message
 	 * @return curseur incrémenté
 	 */
-	protected int redirectionSelonLeChoix(final int curseurActuel, final ArrayList<Commande> commandes) {
-		return curseurActuel+1;
+	protected int redirectionSelonLeChoix(final int curseurActuel, final List<Commande> commandes) {
+		return curseurActuel + 1;
 	}
-	
+
 	/**
 	 * Calculer la hauteur d'un texte.
+	 * 
 	 * @return hauteur du texte à l'écran (en pixels)
 	 */
 	protected final int calculerHauteurTexte() {
 		final int nombreDeLignesDuTexte;
 		if (this.texte == null || this.texte.size() == 0) {
-			//texte null
-			nombreDeLignesDuTexte = 0; 
+			// texte null
+			nombreDeLignesDuTexte = 0;
 		} else {
 			final int langue = Main.langue;
 			final String texteDansUneLangue = this.texte.get(langue < this.texte.size() ? langue : 0);
 			if ("".equals(texteDansUneLangue)) {
-				//texte vide
-				nombreDeLignesDuTexte = 0; 
+				// texte vide
+				nombreDeLignesDuTexte = 0;
 			} else {
-				//plusieurs lignes
+				// plusieurs lignes
 				nombreDeLignesDuTexte = 1 + StringUtils.countMatches(texteDansUneLangue, "\n");
 			}
 		}
@@ -210,27 +222,27 @@ public class Message extends Commande implements CommandeEvent {
 		final int hauteurTexte = nombreDeLignesDuTexte * hauteurLigne;
 		return hauteurTexte;
 	}
-	
+
 	/** Le Joueur appuie sur la touche pendant le Message */
 	public void haut() {
 		// rien
 	}
-	
+
 	/** Le Joueur appuie sur la touche pendant le Message */
 	public void bas() {
 		// rien
 	}
-	
+
 	/** Le Joueur appuie sur la touche pendant le Message */
 	public void gauche() {
 		// rien
 	}
-	
+
 	/** Le Joueur appuie sur la touche pendant le Message */
 	public void droite() {
 		// rien
 	}
-	
+
 	/** Le Joueur appuie sur la touche pendant le Message */
 	public void action() {
 		this.touchePresseePourQuitterLeMessage = true;

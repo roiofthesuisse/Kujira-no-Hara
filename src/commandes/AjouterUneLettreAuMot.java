@@ -1,7 +1,7 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import main.Commande;
 
@@ -11,30 +11,29 @@ import main.Commande;
 public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 	private final String lettre;
 	private final int numeroMot;
-	
+
 	/**
 	 * Constructeur explicite
-	 * @param lettre à ajouter à la fin du mot
+	 * 
+	 * @param lettre    à ajouter à la fin du mot
 	 * @param numeroMot numéro du mot auquel ajouter une lettre
 	 */
 	public AjouterUneLettreAuMot(final String lettre, final int numeroMot) {
 		this.lettre = lettre;
 		this.numeroMot = numeroMot;
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public AjouterUneLettreAuMot(final HashMap<String, Object> parametres) {
-		this( 
-				(String) parametres.get("lettre"),
-				(int) parametres.get("numeroMot")
-		);
+		this((String) parametres.get("lettre"), (int) parametres.get("numeroMot"));
 	}
-	
+
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final String mot = getPartieActuelle().mots[this.numeroMot];
 		if (mot == null) {
 			// mot vide
@@ -45,7 +44,7 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 			getPartieActuelle().mots[this.numeroMot] += this.lettre;
 			this.element.menu.reactualiserTousLesTextes();
 		}
-		return curseurActuel+1;
+		return curseurActuel + 1;
 	}
 
 }

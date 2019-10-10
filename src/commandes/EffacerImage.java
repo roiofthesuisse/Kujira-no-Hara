@@ -1,7 +1,7 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import main.Commande;
 
@@ -10,27 +10,29 @@ import main.Commande;
  */
 public class EffacerImage extends Commande implements CommandeEvent {
 	private int numero;
-	
+
 	/**
 	 * Constructeur explicite
+	 * 
 	 * @param numero de l'image à effacer
 	 */
 	public EffacerImage(final int numero) {
 		this.numero = numero;
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public EffacerImage(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("numero") );
+		this((int) parametres.get("numero"));
 	}
-	
+
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		getPartieActuelle().images[this.numero] = null;
-		return curseurActuel+1;
+		return curseurActuel + 1;
 	}
 
 }

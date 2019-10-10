@@ -1,7 +1,7 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import main.Commande;
 
@@ -10,27 +10,29 @@ import main.Commande;
  */
 public class EquiperArme extends Commande implements CommandeEvent {
 	int idArme;
-	
+
 	/**
 	 * Constructeur explicite
+	 * 
 	 * @param idArme identifiant de l'Arme à équiper
 	 */
 	public EquiperArme(final int idArme) {
 		this.idArme = idArme;
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public EquiperArme(final HashMap<String, Object> parametres) {
-		this( (int) parametres.get("idArme") );
+		this((int) parametres.get("idArme"));
 	}
-	
+
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		getPartieActuelle().equiperArme(this.idArme);
-		return curseurActuel+1;
+		return curseurActuel + 1;
 	}
 
 }

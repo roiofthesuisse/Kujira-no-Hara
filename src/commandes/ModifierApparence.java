@@ -2,6 +2,7 @@ package commandes;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,33 +16,35 @@ import utilitaire.graphismes.Graphismes;
  */
 public class ModifierApparence extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ModifierApparence.class);
-	
+
 	int eventId;
 	String nomNouvelleImage;
-	
+
 	/**
 	 * Constructeur implicite (cet Event)
+	 * 
 	 * @param nomNouvelleImage nom de l'image de la nouvelle apparence
 	 */
 	public ModifierApparence(final String nomNouvelleImage) {
-		this(nomNouvelleImage, -1); //c'est l'évènement qui donne l'ordre qui change d'apparence
+		this(nomNouvelleImage, -1); // c'est l'évènement qui donne l'ordre qui change d'apparence
 	}
-	
+
 	/**
 	 * Constructeur explicite
+	 * 
 	 * @param nomNouvelleImage nom de l'image de la nouvelle apparence
-	 * @param eventId numéro de l'Event à modifier
+	 * @param eventId          numéro de l'Event à modifier
 	 */
 	public ModifierApparence(final String nomNouvelleImage, final int eventId) {
 		this.nomNouvelleImage = nomNouvelleImage;
 		this.eventId = eventId;
 	}
-	
+
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final ArrayList<Event> events = this.page.event.map.events;
 		if (this.eventId == -1) {
-			this.eventId = this.page.event.id; //c'est l'évènement qui donne l'ordre qui change d'apparence
+			this.eventId = this.page.event.id; // c'est l'évènement qui donne l'ordre qui change d'apparence
 		}
 		for (Event e : events) {
 			if (e.id == this.eventId) {
@@ -53,7 +56,7 @@ public class ModifierApparence extends Commande implements CommandeEvent {
 				}
 			}
 		}
-		return curseurActuel+1;
+		return curseurActuel + 1;
 	}
 
 }

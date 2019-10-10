@@ -1,7 +1,7 @@
 package commandes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import main.Commande;
 import map.Event;
@@ -11,25 +11,27 @@ import map.Event;
  */
 public class SupprimerEvent extends Commande implements CommandeEvent {
 	private final Integer idEvent;
-	
+
 	/**
 	 * Constructeur explicite
+	 * 
 	 * @param idEvent id de l'Event à supprimer
 	 */
 	public SupprimerEvent(final Integer idEvent) {
 		this.idEvent = idEvent;
 	}
-	
+
 	/**
 	 * Constructeur générique
+	 * 
 	 * @param parametres liste de paramètres issus de JSON
 	 */
 	public SupprimerEvent(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("idEvent") ? (Integer) parametres.get("idEvent") : null);
 	}
-	
+
 	@Override
-	public final int executer(final int curseurActuel, final ArrayList<Commande> commandes) {
+	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final Event eventASupprimer;
 		if (this.idEvent == null) {
 			eventASupprimer = this.page.event;
@@ -38,7 +40,7 @@ public class SupprimerEvent extends Commande implements CommandeEvent {
 		}
 		eventASupprimer.pageActive = null;
 		eventASupprimer.map.supprimerEvenement(eventASupprimer.id);
-		return curseurActuel+1;
+		return curseurActuel + 1;
 	}
 
 }
