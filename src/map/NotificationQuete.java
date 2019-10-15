@@ -34,11 +34,11 @@ public class NotificationQuete {
 			"[Unknown quest type]" };
 
 	// Nom de l'icone pour chaque type de quete
-	private static final String NOM_ICONE_QUETE_PRINCIPALE = "quete principale a faire icon";
-	private static final String NOM_ICONE_QUETE_SECONDAIRE = "quete a faire icon";
-	private static final String NOM_ICONE_MYSTERE = "achievement icon";
-	private static final String NOM_ICONE_MYSTERE_RESOLU = "achievement obtenu icon";
-	private static final String NOM_ICONE_QUETE_TERMINEE = "quete faite icon";
+	private static final String NOM_ICONE_QUETE_PRINCIPALE = "quete principale a faire icon.png";
+	private static final String NOM_ICONE_QUETE_SECONDAIRE = "quete a faire icon.png";
+	private static final String NOM_ICONE_MYSTERE = "achievement icon.png";
+	private static final String NOM_ICONE_MYSTERE_RESOLU = "achievement obtenu icon.png";
+	private static final String NOM_ICONE_QUETE_TERMINEE = "quete faite icon.png";
 
 	private final List<String> nomQuete;
 	private int temps = 0;
