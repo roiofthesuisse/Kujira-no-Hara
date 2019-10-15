@@ -114,8 +114,11 @@ public abstract class LecteurAudio {
 			} else if (nom.endsWith(".mp3")) {
 				try {
 					musique = new MusiqueMp3(nom, Musique.TypeMusique.BGM, volume);
-				} catch (javafx.scene.media.MediaException e) {
-					LOG.error("Impossible de trouver le BGM \""+nom+"\" de la map", e);
+				} catch (javafx.scene.media.MediaException e1) {
+					LOG.error("Impossible de trouver le BGM \""+nom+"\" de la map", e1);
+					return;
+				} catch (java.lang.UnsatisfiedLinkError e2) {
+					LOG.error("Une librairie à la con manque pour lire les fichiers MP3",e2);
 					return;
 				}
 			} else {
