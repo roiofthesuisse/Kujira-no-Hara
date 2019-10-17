@@ -63,7 +63,12 @@ public abstract class LecteurAudio {
 		} else if (nom.endsWith(".wav")) {
 			musique = new MusiqueWav(nom, Musique.TypeMusique.ME, volume);
 		} else if (nom.endsWith(".mp3")) {
-			musique = new MusiqueMp3(nom, Musique.TypeMusique.ME, volume);
+			try {
+				musique = new MusiqueMp3(nom, Musique.TypeMusique.ME, volume);
+			} catch(java.lang.UnsatisfiedLinkError e) {
+				LOG.error("Une librairie à la con manque pour lire les fichiers MP3",e);
+				return;
+			}
 		} else {
 			LOG.error("Format audio inconnu : "+nom);
 			return;
