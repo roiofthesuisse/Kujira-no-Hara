@@ -110,8 +110,8 @@ public class NotificationQuete {
 			// dessiner cadre
 			int hauteurCadre = 32;
 			int largeurCadre = imageTexte.getWidth() + 4;
-			Color couleur = new Color(0, 0, 0, opacite);
-			resultat = Graphismes.dessinerRectangle(resultat, 0, 128 + 32 * i, largeurCadre, hauteurCadre, couleur);
+			Color couleur = new Color(0, 0, 0, opacite/2);
+			resultat = Graphismes.dessinerRectangle(resultat, 0, 128 + 32 * i, 32 + largeurCadre, hauteurCadre, couleur);
 
 			// dessiner icone
 			resultat = Graphismes.superposerImages(resultat, notification.icone, 0, 128 + 4 + 32 * i, false,
@@ -123,7 +123,12 @@ public class NotificationQuete {
 					Graphismes.PAS_D_HOMOTHETIE, Graphismes.PAS_D_HOMOTHETIE, opacite, ModeDeFusion.NORMAL,
 					Graphismes.PAS_DE_ROTATION);
 			i++;
+			notification.temps++; // le temps s'ecoule
 		}
+		
+		// retirer les vieilles notifications
+		notificationsQuetes.removeIf(notification -> notification.temps > DUREE_AFFICHAGE);
+		
 		return resultat;
 	}
 

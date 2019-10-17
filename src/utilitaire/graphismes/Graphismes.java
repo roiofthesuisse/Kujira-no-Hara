@@ -436,7 +436,7 @@ public abstract class Graphismes {
 			Color couleur) {
 		final Graphics2D g2d = (Graphics2D) ecran.getGraphics();
 		g2d.setColor(couleur);
-		g2d.drawRect(x, y, largeur, hauteur);
+		g2d.fillRect(x, y, largeur, hauteur);
 		return ecran;
 	}
 
