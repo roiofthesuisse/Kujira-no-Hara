@@ -303,7 +303,7 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)",
 				"numero": 0
 			},
 			{
@@ -381,7 +381,7 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)",
 				"numero": 0
 			},
 			{
@@ -616,6 +616,10 @@
 			{
 				"nom": "Commentaire",
 				"texte": "animation de scintillement"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -907,7 +911,7 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)",
 				"numero": 0
 			},
 			{
@@ -1213,7 +1217,7 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)",
 				"numero": 0
 			},
 			{
@@ -1896,6 +1900,21 @@
 				"operationAFaire2": "coordonnee y"
 			},
 			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 64,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "terrain"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 64,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 7,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
 				"nom": "Deplacement",
 				"ignorerLesMouvementsImpossibles": true,
 				"repeterLeDeplacement": false,
@@ -1909,6 +1928,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1934,7 +1957,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 28,
 				"comparerAUneAutreVariable": true,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1942,7 +1965,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 29,
 				"comparerAUneAutreVariable": true,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "Commentaire",
@@ -1954,7 +1977,7 @@
 				"inegalite": "!=",
 				"valeurQuIlEstCenseAvoir": 26,
 				"comparerAUneAutreVariable": true,
-				"numero": 2
+				"numero": 3
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -1964,7 +1987,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 2
+				"numero": 3
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1972,7 +1995,7 @@
 				"inegalite": "!=",
 				"valeurQuIlEstCenseAvoir": 27,
 				"comparerAUneAutreVariable": true,
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -1982,7 +2005,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "Attendre",
@@ -2018,7 +2041,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "Attendre",
@@ -2026,11 +2049,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
@@ -2038,7 +2061,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			}
 			],
 			"image": "cube character",

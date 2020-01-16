@@ -635,6 +635,10 @@
 				"texte": "Si tu entres dedans, tu vas avoir du mal à \\nte repérer tellement il est grand !"
 			},
 			{
+				"nom": "Message",
+				"texte": "Il existe bien un plan, mais il a été vendu \\nau \\c[2]Grand Pozzo\\c[0], un noble du marais."
+			},
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
@@ -1494,6 +1498,81 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 31,
+		"nom": "Colibri",
+		"x": 17,
+		"y": 27,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 76
+			},
+			{
+				"nom": "Message",
+				"texte": "Saluzalu !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le \\c[2]roi Flivouille\\c[0], de peur que se reproduise\\nla tragédie du \\c[2]peuple Grenouille\\c[0], a cédé \\ntout son pouvoir au \\c[2]peuple Colibri\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Les \\c[2]Colibris\\c[0] envoient dorénavant par courrier \\nleurs idées de lois au palais."
+			},
+			{
+				"nom": "Message",
+				"texte": "Les fonctionnaires les rédigent, puis elles sont \\nvotées par tous par courrier."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le \\c[2]roi Flivouille\\c[0] est convaincu que concentrer \\ntout le pouvoir d'une nation sur une seule \\npersonne représenterait un grand risque."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "colibri jaune character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},

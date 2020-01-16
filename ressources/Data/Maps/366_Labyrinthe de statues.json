@@ -111,27 +111,15 @@
 	],
 	"events": [
 	{
-		"id": 27,
-		"nom": "Clone[341][0021]",
-		"x": 10,
-		"y": 15
-	},
-	{
 		"id": 16,
 		"nom": "Clone[341][0021]",
 		"x": 15,
 		"y": 18
 	},
 	{
-		"id": 33,
+		"id": 27,
 		"nom": "Clone[341][0021]",
-		"x": 9,
-		"y": 14
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][0021]",
-		"x": 15,
+		"x": 10,
 		"y": 15
 	},
 	{
@@ -141,16 +129,16 @@
 		"y": 19
 	},
 	{
-		"id": 28,
+		"id": 22,
 		"nom": "Clone[341][0021]",
-		"x": 9,
+		"x": 15,
 		"y": 15
 	},
 	{
-		"id": 17,
+		"id": 33,
 		"nom": "Clone[341][0021]",
-		"x": 11,
-		"y": 19
+		"x": 9,
+		"y": 14
 	},
 	{
 		"id": 6,
@@ -175,6 +163,111 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 17,
+		"nom": "Clone[341][0021]",
+		"x": 11,
+		"y": 19
+	},
+	{
+		"id": 28,
+		"nom": "Clone[341][0021]",
+		"x": 9,
+		"y": 15
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 14,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 50,
+				"etat": "CONNUE",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 50,
+				"etat": "FAITE",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 51,
+				"avancement": "CONNUE"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][0021]",
+		"x": 9,
+		"y": 19
+	},
+	{
+		"id": 23,
+		"nom": "Clone[341][0021]",
+		"x": 14,
+		"y": 15
 	},
 	{
 		"id": 34,
@@ -420,111 +513,6 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "Clone[341][0021]",
-		"x": 14,
-		"y": 15
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][0021]",
-		"x": 9,
-		"y": 19
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 14,
-		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 2
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 127,
-				"vert": 127,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 50,
-				"etat": "CONNUE",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 50,
-				"etat": "FAITE",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 51,
-				"avancement": "CONNUE"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 29,
-		"nom": "Clone[341][0021]",
-		"x": 8,
-		"y": 15
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][0021]",
-		"x": 11,
-		"y": 20
-	},
-	{
 		"id": 7,
 		"nom": "Blocage anti-évènement",
 		"x": 10,
@@ -547,6 +535,36 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 18,
+		"nom": "Clone[341][0021]",
+		"x": 11,
+		"y": 20
+	},
+	{
+		"id": 29,
+		"nom": "Clone[341][0021]",
+		"x": 8,
+		"y": 15
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][039]",
+		"x": 11,
+		"y": 14
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][0021]",
+		"x": 9,
+		"y": 18
+	},
+	{
+		"id": 24,
+		"nom": "Clone[341][0021]",
+		"x": 13,
+		"y": 15
 	},
 	{
 		"id": 35,
@@ -601,36 +619,6 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Clone[341][0021]",
-		"x": 13,
-		"y": 15
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][0021]",
-		"x": 9,
-		"y": 18
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][039]",
-		"x": 11,
-		"y": 14
-	},
-	{
-		"id": 30,
-		"nom": "Clone[341][0021]",
-		"x": 9,
-		"y": 16
-	},
-	{
-		"id": 19,
-		"nom": "Clone[341][0021]",
-		"x": 13,
-		"y": 17
-	},
-	{
 		"id": 8,
 		"nom": "Blocage anti-évènement",
 		"x": 14,
@@ -655,16 +643,16 @@
 		]
 	},
 	{
-		"id": 25,
+		"id": 19,
 		"nom": "Clone[341][0021]",
-		"x": 12,
-		"y": 15
+		"x": 13,
+		"y": 17
 	},
 	{
-		"id": 14,
+		"id": 30,
 		"nom": "Clone[341][0021]",
-		"x": 16,
-		"y": 19
+		"x": 9,
+		"y": 16
 	},
 	{
 		"id": 3,
@@ -673,16 +661,16 @@
 		"y": 14
 	},
 	{
-		"id": 31,
+		"id": 14,
 		"nom": "Clone[341][0021]",
-		"x": 8,
-		"y": 16
+		"x": 16,
+		"y": 19
 	},
 	{
-		"id": 20,
+		"id": 25,
 		"nom": "Clone[341][0021]",
-		"x": 13,
-		"y": 18
+		"x": 12,
+		"y": 15
 	},
 	{
 		"id": 9,
@@ -691,16 +679,16 @@
 		"y": 22
 	},
 	{
-		"id": 26,
+		"id": 20,
 		"nom": "Clone[341][0021]",
-		"x": 11,
-		"y": 15
+		"x": 13,
+		"y": 18
 	},
 	{
-		"id": 15,
+		"id": 31,
 		"nom": "Clone[341][0021]",
-		"x": 15,
-		"y": 19
+		"x": 8,
+		"y": 16
 	},
 	{
 		"id": 4,
@@ -763,10 +751,22 @@
 		]
 	},
 	{
-		"id": 32,
+		"id": 15,
 		"nom": "Clone[341][0021]",
-		"x": 8,
-		"y": 17
+		"x": 15,
+		"y": 19
+	},
+	{
+		"id": 26,
+		"nom": "Clone[341][0021]",
+		"x": 11,
+		"y": 15
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][0021]",
+		"x": 15,
+		"y": 22
 	},
 	{
 		"id": 21,
@@ -775,10 +775,10 @@
 		"y": 15
 	},
 	{
-		"id": 10,
+		"id": 32,
 		"nom": "Clone[341][0021]",
-		"x": 15,
-		"y": 22
+		"x": 8,
+		"y": 17
 	}
 	]
 }

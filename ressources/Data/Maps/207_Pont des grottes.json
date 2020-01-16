@@ -66,6 +66,80 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "toc bois",
+		"x": 15,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "toc bois",
 		"x": 4,
@@ -140,9 +214,9 @@
 		]
 	},
 	{
-		"id": 16,
+		"id": 11,
 		"nom": "toc bois",
-		"x": 15,
+		"x": 10,
 		"y": 8,
 		"pages": [
 		{
@@ -245,9 +319,9 @@
 		]
 	},
 	{
-		"id": 11,
+		"id": 17,
 		"nom": "toc bois",
-		"x": 10,
+		"x": 16,
 		"y": 8,
 		"pages": [
 		{
@@ -393,9 +467,40 @@
 		]
 	},
 	{
-		"id": 17,
+		"id": 23,
+		"nom": "EV023",
+		"x": 18,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 479,
+				"xDebutHeros": 4,
+				"yDebutHeros": 22
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
 		"nom": "toc bois",
-		"x": 16,
+		"x": 11,
 		"y": 8,
 		"pages": [
 		{
@@ -492,9 +597,9 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 18,
 		"nom": "toc bois",
-		"x": 11,
+		"x": 17,
 		"y": 8,
 		"pages": [
 		{
@@ -561,37 +666,6 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 18,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 479,
-				"xDebutHeros": 4,
-				"yDebutHeros": 22
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -671,9 +745,9 @@
 		]
 	},
 	{
-		"id": 18,
+		"id": 13,
 		"nom": "toc bois",
-		"x": 17,
+		"x": 12,
 		"y": 8,
 		"pages": [
 		{
@@ -771,9 +845,9 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 8,
 		"nom": "toc bois",
-		"x": 12,
+		"x": 7,
 		"y": 8,
 		"pages": [
 		{
@@ -851,9 +925,9 @@
 		"y": 5
 	},
 	{
-		"id": 8,
+		"id": 14,
 		"nom": "toc bois",
-		"x": 7,
+		"x": 13,
 		"y": 8,
 		"pages": [
 		{
@@ -999,9 +1073,9 @@
 		]
 	},
 	{
-		"id": 14,
+		"id": 9,
 		"nom": "toc bois",
-		"x": 13,
+		"x": 8,
 		"y": 8,
 		"pages": [
 		{
@@ -1074,7 +1148,7 @@
 	},
 	{
 		"id": 20,
-		"nom": "EV020",
+		"nom": "placement anemone",
 		"x": 11,
 		"y": 5,
 		"pages": [
@@ -1083,12 +1157,84 @@
 			],
 			"commandes": [
 			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 7,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 14,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le heros a été placé au centre après la cinématique"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le heros vient de la droite"
+			},
+			{
 				"nom": "TeleporterEvent",
 				"idEvent": 19,
 				"variable": false,
-				"nouveauX": 10,
+				"nouveauX": 6,
 				"nouveauY": 8,
 				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le heros vient de la gauche"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 19,
+				"variable": false,
+				"nouveauX": 13,
+				"nouveauY": 8,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -1105,9 +1251,9 @@
 		]
 	},
 	{
-		"id": 9,
+		"id": 15,
 		"nom": "toc bois",
-		"x": 8,
+		"x": 14,
 		"y": 8,
 		"pages": [
 		{
@@ -1253,9 +1399,9 @@
 		]
 	},
 	{
-		"id": 15,
+		"id": 10,
 		"nom": "toc bois",
-		"x": 14,
+		"x": 9,
 		"y": 8,
 		"pages": [
 		{
@@ -1499,80 +1645,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "toc bois",
-		"x": 9,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]

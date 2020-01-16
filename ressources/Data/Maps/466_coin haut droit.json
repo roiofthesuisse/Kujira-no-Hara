@@ -222,6 +222,232 @@
 		]
 	},
 	{
+		"id": 11,
+		"nom": "Poesie",
+		"x": 13,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Poesie theme joyeux.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est elle, la princesse \\c[2]Irahna\\c[0] ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Qu'elle est belle !..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 11,
+				"idAnimation": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp2.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Message",
+				"texte": "Qu'est-ce que tu fais ici ?!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu es toujours dans les coups foireux !"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Pas du tout !", "Parle pour toi"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "Comme tu le sais sûrement, nous sommes \\ndans le sanctuaire de \\c[2]Jishin'\\c[1] !"
+			},
+			{
+				"nom": "Message",
+				"texte": "(elle n'écoute pas !)"
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "Comme tu le sais sûrement, nous sommes \\ndans le sanctuaire de \\c[2]Jishin'\\c[1] !"
+			},
+			{
+				"nom": "Message",
+				"texte": "(elle ne nie même pas !)"
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "On dit de lui qu'il donnait la vie aux statues !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Cet endroit a très probablement un lien avec \\nl'étang Hancvolocturakpah !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 60
+			},
+			{
+				"nom": "Message",
+				"texte": "Enfin, c'est juste ma théorie..."
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Donjon 5 (sous-sol).ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			}
+			],
+			"image": "kiria character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 11,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Message",
+				"texte": "Cet endroit a très probablement un lien avec \\nl'étang Hancvolocturakpah !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Message",
+				"texte": "Enfin, c'est juste ma théorie..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "kiria character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 17,
 		"nom": "EV017",
 		"x": 10,
@@ -639,6 +865,133 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "apparition de Poesie",
+		"x": 14,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 52,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "donjon terminé"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmePossedee",
+				"idArme": 2,
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 52,
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "donjon terminé"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "maillet pas encore trouvé"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,

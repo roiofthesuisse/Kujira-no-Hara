@@ -16,9 +16,9 @@
 	"couche0": [
 	[0036,0037,0004,0005,0004,0005,0016,0017,0018,0005,0004,0005,0004,0038,0039,0001,0001,0001,0001,0001,0001],
 	[0044,0045,0012,0013,0012,0013,0024,0025,0026,0013,0012,0013,0012,0046,0047,0001,0001,0001,0001,0001,0001],
-	[0048,0049,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0144,0145,0004,0005,0004,0005,0038,0039],
-	[0056,0057,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0152,0153,0012,0013,0012,0013,0046,0047],
-	[0064,0065,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,-008,-008,-008,-008,-008,-008,0006,0007],
+	[0048,0049,0000,0000,0000,0000,0093,0094,0095,0000,0000,0000,0000,0144,0145,0004,0005,0004,0005,0038,0039],
+	[0056,0057,0000,0000,0000,0000,0101,0102,0103,0000,0000,0000,0000,0152,0153,0012,0013,0012,0013,0046,0047],
+	[0064,0065,0000,0000,0000,0000,0109,0110,0111,0000,0000,0000,0000,-008,-008,-008,-008,-008,-008,0006,0007],
 	[0028,0029,0036,0037,0005,0038,0039,0000,0000,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0006,0007],
 	[0020,0021,0044,0045,0013,0046,0047,0000,0000,-008,-008,-008,0000,-008,0000,-008,0000,-008,-008,0006,0007],
 	[0028,0029,0020,0021,0000,0006,0007,0000,0000,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0014,0015],
@@ -108,12 +108,6 @@
 		"nom": "Clone[341][113]",
 		"x": 11,
 		"y": 4
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 10
 	},
 	{
 		"id": 17,
@@ -525,6 +519,115 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Blocage",
+		"x": 4,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[10].lolilol(nil, nil, 1)",
+				"numero": 0
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 7
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "029-Door06.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 13,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 2,
 		"nom": "Clone[341][171]",
 		"x": 14,
@@ -682,7 +785,7 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		}
 		]
 	},

@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 50,
 	"musique": {
-		"nomFichierSonore": "A l'Aube.mp3",
+		"nomFichierSonore": "",
 		"volume": 0.00,
 		"tempo": 1.00
 	},
@@ -170,6 +170,43 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
+	{
+		"id": 16,
+		"nom": "Clone[341][043]",
+		"x": 16,
+		"y": 25
+	},
+	{
+		"id": 27,
+		"nom": "EV027",
+		"x": 13,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 163,
+				"xDebutHeros": 15,
+				"yDebutHeros": 21
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
 	{
 		"id": 5,
 		"nom": "Rocher",
@@ -505,41 +542,10 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "EV027",
-		"x": 13,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 163,
-				"xDebutHeros": 15,
-				"yDebutHeros": 21
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "Clone[341][043]",
+		"id": 11,
+		"nom": "Clone[341][004]",
 		"x": 16,
-		"y": 25
+		"y": 8
 	},
 	{
 		"id": 22,
@@ -548,10 +554,10 @@
 		"y": 30
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 8
+		"id": 17,
+		"nom": "Clone[341][043]",
+		"x": 10,
+		"y": 20
 	},
 	{
 		"id": 6,
@@ -888,10 +894,54 @@
 		]
 	},
 	{
-		"id": 17,
+		"id": 12,
 		"nom": "Clone[341][043]",
 		"x": 10,
-		"y": 20
+		"y": 10
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 14,
+		"y": 35,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 23,
@@ -1574,54 +1624,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 14,
-		"y": 35,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
+		"id": 18,
 		"nom": "Clone[341][043]",
-		"x": 10,
-		"y": 10
+		"x": 16,
+		"y": 13
 	},
 	{
 		"id": 7,
@@ -1958,10 +1964,16 @@
 		]
 	},
 	{
-		"id": 18,
+		"id": 24,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 12
+	},
+	{
+		"id": 13,
 		"nom": "Clone[341][043]",
 		"x": 16,
-		"y": 13
+		"y": 10
 	},
 	{
 		"id": 2,
@@ -2410,16 +2422,10 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 19,
 		"nom": "Clone[341][043]",
-		"x": 16,
-		"y": 10
-	},
-	{
-		"id": 24,
-		"nom": "Clone[341][004]",
 		"x": 10,
-		"y": 12
+		"y": 30
 	},
 	{
 		"id": 8,
@@ -2471,10 +2477,16 @@
 		]
 	},
 	{
-		"id": 19,
+		"id": 25,
+		"nom": "Clone[341][004]",
+		"x": 15,
+		"y": 11
+	},
+	{
+		"id": 14,
 		"nom": "Clone[341][043]",
 		"x": 10,
-		"y": 30
+		"y": 32
 	},
 	{
 		"id": 3,
@@ -2923,16 +2935,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][043]",
-		"x": 10,
-		"y": 32
-	},
-	{
-		"id": 25,
+		"id": 20,
 		"nom": "Clone[341][004]",
-		"x": 15,
-		"y": 11
+		"x": 11,
+		"y": 28
 	},
 	{
 		"id": 9,
@@ -2984,10 +2990,16 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][004]",
-		"x": 11,
-		"y": 28
+		"id": 15,
+		"nom": "Clone[341][043]",
+		"x": 16,
+		"y": 34
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][043]",
+		"x": 10,
+		"y": 23
 	},
 	{
 		"id": 26,
@@ -3039,7 +3051,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "A l'Aube.mp3",
+				"nomFichierSonore": "",
 				"volume": 0.00,
 				"tempo": 1.00
 			},
@@ -3097,28 +3109,16 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][043]",
+		"id": 10,
+		"nom": "Clone[341][004]",
 		"x": 10,
-		"y": 23
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][043]",
-		"x": 16,
-		"y": 34
+		"y": 8
 	},
 	{
 		"id": 21,
 		"nom": "Clone[341][004]",
 		"x": 15,
 		"y": 23
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 8
 	}
 	]
 }

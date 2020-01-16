@@ -482,6 +482,69 @@
 		]
 	},
 	{
+		"id": 31,
+		"nom": "Fiolin",
+		"x": 18,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 42
+			},
+			{
+				"nom": "Message",
+				"texte": "Ça fait déjà un moment que \\c[2]ma soeur\\c[0] s'est \\naventurée dans ce donjon..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je commence à m'inquiéter..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "Fiolin character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 10,
@@ -767,6 +830,133 @@
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 32,
+		"nom": "apparition de Fiolin",
+		"x": 17,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 52,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "donjon terminé"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 31,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmePossedee",
+				"idArme": 2,
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 52,
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "donjon terminé"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 31,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "maillet pas encore trouvé"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 31,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
