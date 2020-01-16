@@ -369,8 +369,8 @@ public class LecteurMap extends Lecteur {
 	 * Lire les Pages de code commun.
 	 */
 	private void lireLesPagesCommunes() {
-		if (this.pagesCommunes.size() > 0) {
-			for (PageCommune pageCommune : this.pagesCommunes.values()) {
+		if (PageCommune.PAGES_COMMUNES.size() > 0) {
+			for (PageCommune pageCommune : PageCommune.PAGES_COMMUNES.values()) {
 				if (!pageCommune.active) {
 					pageCommune.essayerDActiver();
 				}

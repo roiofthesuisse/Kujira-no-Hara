@@ -94,6 +94,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	
 	private String script;
 	private final boolean modeTest;
+	public boolean interpretationImplementee = true;
 	
 	/**
 	 * Constructeur explicite
@@ -472,6 +473,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		
 		
 		LOG.error("Script impossible à interpréter : "+expression);
+		this.interpretationImplementee = false;
 		return "0";
 	}
 	

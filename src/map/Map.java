@@ -796,16 +796,16 @@ public class Map implements Sauvegardable {
 			Adjacence adjacence = null;
 			if (heros.x < 0) {
 				// Sortie par la gauche
-				adjacence = this.adjacences.get(new Integer(Direction.GAUCHE));
+				adjacence = this.adjacences.get((Integer) Direction.GAUCHE);
 			} else if (heros.x > this.largeur*Main.TAILLE_D_UN_CARREAU - Heros.LARGEUR_HITBOX_PAR_DEFAUT) {
 				// Sortie par la droite
-				adjacence = this.adjacences.get(new Integer(Direction.DROITE));
+				adjacence = this.adjacences.get((Integer) Direction.DROITE);
 			} else if (heros.y < 0) {
 				// Sortie par le haut
-				adjacence = this.adjacences.get(new Integer(Direction.HAUT));
+				adjacence = this.adjacences.get((Integer) Direction.HAUT);
 			} else if (heros.y > this.hauteur*Main.TAILLE_D_UN_CARREAU - Heros.HAUTEUR_HITBOX_PAR_DEFAUT) {
 				// Sortie par le bas
-				adjacence = this.adjacences.get(new Integer(Direction.BAS));
+				adjacence = this.adjacences.get((Integer) Direction.BAS);
 			} else {
 				// Le Héros est encore dans la Map
 				return;

@@ -11,12 +11,12 @@ import main.Commande;
 import utilitaire.InterpreteurDeJson;
 
 /**
- * Adapter les fichiers JSON du jeu au moteur Java sur des spécificités.
+ * Lister les scripts ruby qui ne sont pas encore interpretes
  */
 public abstract class ListerLesScripts {
 	
 	/**
-	 * Lancer le nettoyeur.
+	 * Lister les scripts ruby qui ne sont pas encore interpretes
 	 * @param args rien du tout
 	 */
 	public static void main(final String[] args) {
@@ -28,6 +28,11 @@ public abstract class ListerLesScripts {
 		for (String s : scripts) {
 			System.out.println(s);
 		}
+		System.out.println("-----------------------------");
+		System.out.println("-----------------------------");
+		System.out.println("-----------------------------");
+
+		System.out.println("Nombre de scripts non interprétés : "+scripts.size());
 	}
 	
 	private static ArrayList<String> listerLesConditionsScript() {
@@ -48,8 +53,20 @@ public abstract class ListerLesScripts {
 									try {
 										JSONObject jsonCommande = (JSONObject) oCommande;
 										final Commande commande = Commande.recupererUneCommande(jsonCommande);
-										if (commande instanceof ConditionScript || commande instanceof AppelerUnScript) {
-											scripts.add(commande.toString());
+										if (commande instanceof ConditionScript) {
+											ConditionScript condition = (ConditionScript) commande;
+											condition.estVerifiee();
+											if(!condition.interpretationImplementee) {
+												// ce format de condition script est inconnu
+												scripts.add(commande.toString());
+											}
+										} else if( commande instanceof AppelerUnScript) {
+											AppelerUnScript appel = (AppelerUnScript) commande;
+											appel.executer(0, null);
+											if(!appel.interpretationImplementee) {
+												// ce format de script est inconnu
+												scripts.add(commande.toString());
+											}
 										}
 									} catch (Exception e) {
 										//LOG.error("Commande irrécupérable : "+oCommande);
