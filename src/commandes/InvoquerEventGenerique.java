@@ -3,6 +3,9 @@ package commandes;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import main.Commande;
 import main.Main;
 import map.Event;
@@ -12,6 +15,7 @@ import map.Map;
  * Invoque un Event générique
  */
 public class InvoquerEventGenerique extends Commande implements CommandeEvent {
+	private static final Logger LOG = LogManager.getLogger(InvoquerEventGenerique.class);
 
 	private final int x;
 	private final int y;
@@ -49,6 +53,9 @@ public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 		if (map.calculerSiLaPlaceEstLibre(xPixel, yPixel, eventInvoque.largeurHitbox, eventInvoque.hauteurHitbox,
 				idEventInvoque)) {
 			map.eventsAAjouter.add(eventInvoque);
+		} else {
+			LOG.error("Impossible d'invoquer l'event générique \"" + nomEventInvoque + "\" aux coordonnées (" + xPixel
+					+ ";" + yPixel + ") car la place est prise !");
 		}
 		return curseurActuel + 1;
 	}

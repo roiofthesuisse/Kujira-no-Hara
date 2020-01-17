@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import main.Commande;
 import main.Main;
 import map.Event;
+import map.Map;
 import utilitaire.InterpreteurDeJson;
 
 /**
@@ -48,6 +49,7 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 
 	@Override
 	public int executer(int curseurActuel, List<Commande> commandes) {
+		Map mapCourante = this.page.event.map;
 		// Créer juste un Event à partir du JSON de la Map
 		// (pas la peine de créer toute la Map)
 		try {
@@ -60,7 +62,7 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 				JSONObject jsonEvent = (JSONObject) ev;
 				if (jsonEvent.getInt("id") == this.idEvent) {
 					// Instancier l'Event à invoquer
-					eventInvoque = Event.recupererUnEvent(jsonEvent, this.page.event.map);
+					eventInvoque = Event.recupererUnEvent(jsonEvent, mapCourante);
 					break onChercheLEventNumerote;
 				}
 			}
@@ -71,7 +73,7 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 				eventInvoque.x = this.x * Main.TAILLE_D_UN_CARREAU;
 				eventInvoque.y = this.y * Main.TAILLE_D_UN_CARREAU;
 				// Il sera ajouté à la Map courante à la prochaine frame
-				this.page.event.map.eventsAAjouter.add(eventInvoque);
+				mapCourante.eventsAAjouter.add(eventInvoque);
 				LOG.info("Invocation de l'event " + this.idEvent + " originaire de la map " + this.idMap);
 
 			} else {

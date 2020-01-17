@@ -13,7 +13,7 @@ import utilitaire.InterpreteurDeJson;
 /**
  * Lister les scripts ruby qui ne sont pas encore interpretes
  */
-public abstract class ListerLesScripts {
+public abstract class ListerLesScriptsRuby {
 	
 	/**
 	 * Lister les scripts ruby qui ne sont pas encore interpretes
