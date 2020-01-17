@@ -28,11 +28,11 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Un Event est un élément actif du décor, voire interactif.
- * Ses éventuels comportements sont représentés par une liste de Pages.
+ * Un Event est un élément actif du décor, voire interactif. Ses éventuels
+ * comportements sont représentés par une liste de Pages.
  */
 public class Event implements Comparable<Event> {
-	//constantes
+	// constantes
 	private static final Logger LOG = LogManager.getLogger(Event.class);
 	public static final Vitesse VITESSE_PAR_DEFAUT = Vitesse.MODEREE;
 	public static final Frequence FREQUENCE_PAR_DEFAUT = Frequence.BASSE;
@@ -42,9 +42,9 @@ public class Event implements Comparable<Event> {
 	public static final int NOMBRE_DE_VIGNETTES_PAR_IMAGE = 4;
 	public static final boolean ANIME_A_L_ARRET_PAR_DEFAUT = false;
 	public static final boolean ANIME_EN_MOUVEMENT_PAR_DEFAUT = true;
-	public static final Passabilite TRAVERSABLE_PAR_DEFAUT = Passabilite.OBSTACLE; //si une Page est active
+	public static final Passabilite TRAVERSABLE_PAR_DEFAUT = Passabilite.OBSTACLE; // si une Page est active
 	public static final boolean TRAVERSABLE_PAR_LE_HEROS_PAR_DEFAUT = false;
-	public static final Passabilite TRAVERSABLE_SI_VIDE = Passabilite.PASSABLE; //si aucune Page active
+	public static final Passabilite TRAVERSABLE_SI_VIDE = Passabilite.PASSABLE; // si aucune Page active
 	public static final boolean DIRECTION_FIXE_PAR_DEFAUT = false;
 	public static final boolean AU_DESSUS_DE_TOUT_PAR_DEFAUT = false;
 	public static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAUT = false;
@@ -53,54 +53,77 @@ public class Event implements Comparable<Event> {
 	public static final boolean PLAT_PAR_DEFAUT = false;
 	public static final boolean PLAT_SI_VIDE = true;
 	public static final String MARQUEUR_DE_REINITIALISATION = "RESET";
-	
+
 	/** Map à laquelle cet Event appartient */
 	public Map map;
 	/** nom de l'Event */
 	public String nom;
-	/** identifiant de l'Event pour les Mouvements, tels qu'écrits dans les fichiers JSON */
+	/**
+	 * identifiant de l'Event pour les Mouvements, tels qu'écrits dans les fichiers
+	 * JSON
+	 */
 	public Integer id;
-	/** distance (en pixels) entre le bord gauche de l'écran et le corps de l'Event */
+	/**
+	 * distance (en pixels) entre le bord gauche de l'écran et le corps de l'Event
+	 */
 	public int x;
 	/** distance (en pixels) entre le bord haut de l'écran et le corps de l'Event */
 	public int y;
 	/** vies a décrémenter pour qu'il disparaisse */
 	public int vies;
-	/** Faut-il réinitialiser les interrupteurs locaux de cet event à chaque changement de Map ? */
+	/**
+	 * Faut-il réinitialiser les interrupteurs locaux de cet event à chaque
+	 * changement de Map ?
+	 */
 	public final boolean reinitialiser;
-	
+
 	/** de combien de pixels avance l'Event à chaque pas ? */
 	public Vitesse vitesseActuelle = VITESSE_PAR_DEFAUT;
 	/** toutes les combien de frames l'Event change-t-il d'animation ? */
 	public Frequence frequenceActuelle = FREQUENCE_PAR_DEFAUT;
-	
-	/** un Event peut être déplacé par une Commande Event externe à son déplacement naturel nominal */
+
+	/**
+	 * un Event peut être déplacé par une Commande Event externe à son déplacement
+	 * naturel nominal
+	 */
 	public Deplacement deplacementForce;
-	
+
 	public BufferedImage imageActuelle = null;
 	public boolean apparenceActuelleEstUnTile;
 	public int opaciteActuelle = Graphismes.OPACITE_MAXIMALE;
 	public ModeDeFusion modeDeFusionActuel = ModeDeFusion.NORMAL;
-	/** par défaut, si l'image est plus petite que 32px, l'Event est considéré comme plat (au sol) */
+	/**
+	 * par défaut, si l'image est plus petite que 32px, l'Event est considéré comme
+	 * plat (au sol)
+	 */
 	public boolean platActuel = PLAT_PAR_DEFAUT;
 	public int direction;
 	public int animation;
-	
-	/** l'Event est-il en train d'avancer en ce moment même ? (utile pour l'animation) */
+
+	/**
+	 * l'Event est-il en train d'avancer en ce moment même ? (utile pour
+	 * l'animation)
+	 */
 	public boolean avance = false;
 	/** L'Event avançait-il à la frame précédente ? (utile pour l'animation) */
 	public boolean avancaitALaFramePrecedente = false;
-	/** l'Event est-il en train de sauter en ce moment même ? (utile pour l'animation) */
+	/**
+	 * l'Event est-il en train de sauter en ce moment même ? (utile pour
+	 * l'animation)
+	 */
 	public boolean saute = false;
-	public int coordonneeApparenteXLorsDuSaut; //en pixels
-	public int coordonneeApparenteYLorsDuSaut; //en pixels
-	
-	/**  L'Event est-il au contact du Héros ? (utile pour la Condition ArriveeAuContact */
+	public int coordonneeApparenteXLorsDuSaut; // en pixels
+	public int coordonneeApparenteYLorsDuSaut; // en pixels
+
+	/**
+	 * L'Event est-il au contact du Héros ? (utile pour la Condition
+	 * ArriveeAuContact
+	 */
 	public boolean estAuContactDuHerosMaintenant = false;
 	public boolean estAuContactDuHerosAvant = false;
 	public int frameDuContact;
-	
-	/** 
+
+	/**
 	 * Ces paramètres sont remplis automatiquement au chargement de la page.
 	 */
 	public boolean animeALArretActuel = ANIME_A_L_ARRET_PAR_DEFAUT;
@@ -110,31 +133,41 @@ public class Event implements Comparable<Event> {
 	public boolean directionFixeActuelle = DIRECTION_FIXE_PAR_DEFAUT;
 	public boolean auDessusDeToutActuel = AU_DESSUS_DE_TOUT_PAR_DEFAUT;
 	public Deplacement deplacementNaturelActuel;
-	
+
 	public int largeurHitbox = LARGEUR_HITBOX_PAR_DEFAUT;
 	public int hauteurHitbox = HAUTEUR_HITBOX_PAR_DEFAUT;
-	
+
 	/**
-	 * Décale l'affichage vers le bas.
-	 * En effet, décaler l'affichage dans les trois autres directions est possible en modifiant l'image.
+	 * Décale l'affichage vers le bas. En effet, décaler l'affichage dans les trois
+	 * autres directions est possible en modifiant l'image.
 	 */
-	int offsetY = 0; 
+	int offsetY = 0;
 	public ArrayList<PageEvent> pages;
-	/** Page dont on va lire les Commandes Event car toutes ses Conditions sont remplies */
+	/**
+	 * Page dont on va lire les Commandes Event car toutes ses Conditions sont
+	 * remplies
+	 */
 	public PageEvent pageActive = null;
-	/** Page dont on utilise l'apparence car les Conditions non liées au contact sont remplies */
+	/**
+	 * Page dont on utilise l'apparence car les Conditions non liées au contact sont
+	 * remplies
+	 */
 	public PageEvent pageDApparence = null;
 	public int numeroDeLaDernierePageDApparence = -1;
 	public boolean ilYAEuChangementDePageDApparence = true;
-	
+
 	/**
-	 * Lorsque ce marqueur est à true, on considère l'event comme supprimé.
-	 * Ce n'est qu'un simple marqueur : l'event n'est réellement supprimé qu'après la boucle for sur les events.
+	 * Lorsque ce marqueur est à true, on considère l'event comme supprimé. Ce n'est
+	 * qu'un simple marqueur : l'event n'est réellement supprimé qu'après la boucle
+	 * for sur les events.
 	 */
 	public boolean supprime = false;
-	/** Flag pour n'afficher qu'une seule fois le message d'erreur comme quoi l'Event s'est fait la malle */
+	/**
+	 * Flag pour n'afficher qu'une seule fois le message d'erreur comme quoi l'Event
+	 * s'est fait la malle
+	 */
 	public boolean sortiDeLaMap = false;
-	
+
 	/**
 	 * Tout Event regarde dans une Direction.
 	 */
@@ -143,44 +176,52 @@ public class Event implements Comparable<Event> {
 		public static final int GAUCHE = 1;
 		public static final int DROITE = 2;
 		public static final int HAUT = 3;
-		
+
 		/**
 		 * Calcule la direction opposée.
+		 * 
 		 * @param dir direction à inverser
 		 * @return direction opposée
 		 */
 		public static final int directionOpposee(final int dir) {
 			switch (dir) {
-				case Direction.BAS:
-					return Direction.HAUT;
-				case Direction.HAUT:
-					return Direction.BAS;
-				case Direction.GAUCHE:
-					return Direction.DROITE;
-				case Direction.DROITE:
-					return Direction.GAUCHE;
-				default:
-					return -1;
+			case Direction.BAS:
+				return Direction.HAUT;
+			case Direction.HAUT:
+				return Direction.BAS;
+			case Direction.GAUCHE:
+				return Direction.DROITE;
+			case Direction.DROITE:
+				return Direction.GAUCHE;
+			default:
+				return -1;
 			}
 		}
 	}
-	
+
 	/**
 	 * Constructeur explicite de l'Event
-	 * @param x position x (en pixels) où se trouve l'Event, en abscisse, de gauche à droite
-	 * @param y position x (en pixels) numero du carreau où se trouve l'Event, en ordonnée, de haut en bas
-	 * @param offsetY si on veut afficher l'Event plus bas que sa case réelle
-	 * @param nom de l'Event
-	 * @param id identifiant numérique de l'Event
-	 * @param vies de l'Event
+	 * 
+	 * @param x                                  position x (en pixels) où se trouve
+	 *                                           l'Event, en abscisse, de gauche à
+	 *                                           droite
+	 * @param y                                  position x (en pixels) numero du
+	 *                                           carreau où se trouve l'Event, en
+	 *                                           ordonnée, de haut en bas
+	 * @param offsetY                            si on veut afficher l'Event plus
+	 *                                           bas que sa case réelle
+	 * @param nom                                de l'Event
+	 * @param id                                 identifiant numérique de l'Event
+	 * @param vies                               de l'Event
 	 * @param reinitialiserLesInterupteursLocaux à chaque changement de Map ?
-	 * @param pages ensemble de Pages décrivant le comportement de l'Event
-	 * @param largeurHitbox largeur de la boîte de collision
-	 * @param hauteurHitbox hauteur de la boîte de collision
-	 * @param map de l'Event
+	 * @param pages                              ensemble de Pages décrivant le
+	 *                                           comportement de l'Event
+	 * @param largeurHitbox                      largeur de la boîte de collision
+	 * @param hauteurHitbox                      hauteur de la boîte de collision
+	 * @param map                                de l'Event
 	 */
-	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, 
-			final int vies, final boolean reinitialiserLesInterupteursLocaux, final ArrayList<PageEvent> pages, 
+	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id,
+			final int vies, final boolean reinitialiserLesInterupteursLocaux, final ArrayList<PageEvent> pages,
 			final int largeurHitbox, final int hauteurHitbox, final Map map) {
 		this.x = x;
 		this.y = y;
@@ -195,43 +236,53 @@ public class Event implements Comparable<Event> {
 		this.hauteurHitbox = hauteurHitbox;
 		this.deplacementForce = new Deplacement(null, new ArrayList<Mouvement>(), true, false, false);
 		initialiserLesPages();
-		if (pages!=null && pages.size()>=1) {
-			attribuerLesProprietesActuelles(pages.get(0)); //par défaut, propriétés de la première page
+		if (pages != null && pages.size() >= 1) {
+			attribuerLesProprietesActuelles(pages.get(0)); // par défaut, propriétés de la première page
 		}
 	}
-	
+
 	/**
 	 * Constructeur de l'Event utilisant un tableau de pages JSON
-	 * @param x coordonnée x (en pixels) où se trouve l'Event, en abscisse, de gauche à droite
-	 * @param y coordonnée y (en pixels) où se trouve l'Event, en ordonnée, de haut en bas
-	 * @param offsetY si on veut afficher l'Event plus bas que sa case réelle
-	 * @param nom de l'Event
-	 * @param id identifiant numérique de l'Event
-	 * @param vies de l'Event
+	 * 
+	 * @param x                                  coordonnée x (en pixels) où se
+	 *                                           trouve l'Event, en abscisse, de
+	 *                                           gauche à droite
+	 * @param y                                  coordonnée y (en pixels) où se
+	 *                                           trouve l'Event, en ordonnée, de
+	 *                                           haut en bas
+	 * @param offsetY                            si on veut afficher l'Event plus
+	 *                                           bas que sa case réelle
+	 * @param nom                                de l'Event
+	 * @param id                                 identifiant numérique de l'Event
+	 * @param vies                               de l'Event
 	 * @param reinitialiserLesInterupteursLocaux à chaque changement de Map ?
-	 * @param tableauDesPages tableau JSON contenant les Pages de comportement
-	 * @param largeurHitbox largeur de la boîte de collision
-	 * @param hauteurHitbox hauteur de la boîte de collision
-	 * @param map de l'Event
+	 * @param tableauDesPages                    tableau JSON contenant les Pages de
+	 *                                           comportement
+	 * @param largeurHitbox                      largeur de la boîte de collision
+	 * @param hauteurHitbox                      hauteur de la boîte de collision
+	 * @param map                                de l'Event
 	 */
-	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id, 
-			final int vies, final boolean reinitialiserLesInterupteursLocaux, final JSONArray tableauDesPages, 
+	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id,
+			final int vies, final boolean reinitialiserLesInterupteursLocaux, final JSONArray tableauDesPages,
 			final int largeurHitbox, final int hauteurHitbox, final Map map) {
-		this(x, y, offsetY, nom, id, vies, reinitialiserLesInterupteursLocaux, creerListeDesPagesViaJson(tableauDesPages, id, map), largeurHitbox, hauteurHitbox, map);
+		this(x, y, offsetY, nom, id, vies, reinitialiserLesInterupteursLocaux,
+				creerListeDesPagesViaJson(tableauDesPages, id, map), largeurHitbox, hauteurHitbox, map);
 	}
 
 	/**
 	 * Prend le tableau JSON des pages et crée la liste des Pages avec.
-	 * @param idEvent identifiant de l'Event
+	 * 
+	 * @param idEvent         identifiant de l'Event
 	 * @param tableauDesPages au format JSON
-	 * @param map de l'event
+	 * @param map             de l'event
 	 * @return liste des Pages de l'Event
 	 */
-	protected static ArrayList<PageEvent> creerListeDesPagesViaJson(final JSONArray tableauDesPages, final Integer idEvent, final Map map) {
+	protected static ArrayList<PageEvent> creerListeDesPagesViaJson(final JSONArray tableauDesPages,
+			final Integer idEvent, final Map map) {
 		final ArrayList<PageEvent> listeDesPages = new ArrayList<PageEvent>();
 		int i = 0;
 		for (Object pageJSON : tableauDesPages) {
-			listeDesPages.add( new PageEvent(i, (JSONObject) pageJSON, idEvent, map) );
+			listeDesPages.add(new PageEvent(i, (JSONObject) pageJSON, idEvent, map));
 			i++;
 		}
 		return listeDesPages;
@@ -245,8 +296,8 @@ public class Event implements Comparable<Event> {
 		try {
 			for (PageEvent page : this.pages) {
 				page.event = this;
-				if (page!=null) {
-					//numérotation des conditions et on apprend aux conditions qui est leur page
+				if (page != null) {
+					// numérotation des conditions et on apprend aux conditions qui est leur page
 					try {
 						for (Condition cond : page.conditions) {
 							cond.numero = numeroCondition;
@@ -254,47 +305,50 @@ public class Event implements Comparable<Event> {
 							numeroCondition++;
 						}
 					} catch (NullPointerException e1) {
-						//pas de conditions pour déclencher cette page
-						LOG.warn("La page "+page.numero+" de l'event "+this.nom+" ("+this.id+") n'a pas besoin de conditions pour se déclencher.");
+						// pas de conditions pour déclencher cette page
+						LOG.warn("La page " + page.numero + " de l'event " + this.nom + " (" + this.id
+								+ ") n'a pas besoin de conditions pour se déclencher.");
 					}
-					//on apprend aux commandes qui est leur page
+					// on apprend aux commandes qui est leur page
 					try {
 						for (Commande comm : page.commandes) {
 							comm.page = page;
 						}
 					} catch (NullPointerException e2) {
-						//pas de commandes dans cette page
-						LOG.warn("La page "+page.numero+" de l'event "+this.nom+" ("+this.id+") n'a pas de commandes.");
+						// pas de commandes dans cette page
+						LOG.warn("La page " + page.numero + " de l'event " + this.nom + " (" + this.id
+								+ ") n'a pas de commandes.");
 					}
 				}
 			}
 		} catch (NullPointerException e3) {
-			//pas de pages dans cet event
-			LOG.error("L'envent "+this.nom+" ("+this.id+") n'a pas de pages.");
+			// pas de pages dans cet event
+			LOG.error("L'envent " + this.nom + " (" + this.id + ") n'a pas de pages.");
 		}
 	}
 
 	/**
-	 * Faire faire un Mouvement à l'Event.
-	 * Ce Mouvement est soit issu du Déplacement naturel de l'Event, soit de son éventuel Déplacement forcé.
+	 * Faire faire un Mouvement à l'Event. Ce Mouvement est soit issu du Déplacement
+	 * naturel de l'Event, soit de son éventuel Déplacement forcé.
+	 * 
 	 * @Warning Cette méthode est overridée pour le Héros.
 	 */
 	public void deplacer() {
-		if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
-			//il y a un Déplacement forcé
+		if (this.deplacementForce != null && this.deplacementForce.mouvements.size() > 0) {
+			// il y a un Déplacement forcé
 			this.deplacementForce.executerLePremierMouvement();
-			
+
 		} else {
-			//pas de Déplacement forcé : on execute le Déplacement naturel
-			if (deplacementNaturelActuel!=null && this.deplacementNaturelActuel.mouvements.size()>0) {
-				//il y a un Déplacement naturel
+			// pas de Déplacement forcé : on execute le Déplacement naturel
+			if (deplacementNaturelActuel != null && this.deplacementNaturelActuel.mouvements.size() > 0) {
+				// il y a un Déplacement naturel
 				this.deplacementNaturelActuel.executerLePremierMouvement();
 			} else {
-				//pas de Déplacement du tout
+				// pas de Déplacement du tout
 				this.avance = false;
 				this.saute = false;
 				if (!this.animeALArretActuel && !this.avancaitALaFramePrecedente && !this.avance) {
-					//l'event ne bouge plus depuis 2 frames, on arrête son animation
+					// l'event ne bouge plus depuis 2 frames, on arrête son animation
 					this.animation = 0;
 				}
 			}
@@ -303,30 +357,31 @@ public class Event implements Comparable<Event> {
 
 	/**
 	 * Active la Page de l'Event qui vérifie toutes les Conditions de déclenchement.
-	 * S'il y a plusieurs Pages valides, on prend la dernière.
-	 * Les Commandes Event de la Page active choisie seront executées.
-	 * L'apparence de la Page d'apparence choisie sera utilisée.
+	 * S'il y a plusieurs Pages valides, on prend la dernière. Les Commandes Event
+	 * de la Page active choisie seront executées. L'apparence de la Page
+	 * d'apparence choisie sera utilisée.
 	 */
 	public final void activerUnePage() {
 		PageEvent pageQuOnChoisitEnRemplacement = null;
 		boolean onATrouveLaPageDApparence = false;
 		boolean onATrouveLaPageActive = true;
 		try {
-			for (int i = pages.size()-1; i>=0 && !onATrouveLaPageDApparence; i--) {
+			for (int i = pages.size() - 1; i >= 0 && !onATrouveLaPageDApparence; i--) {
 				final PageEvent page = pages.get(i);
-				
-				//par défaut une Page est valide, elle sera invalidée si une Condition est fausse
+
+				// par défaut une Page est valide, elle sera invalidée si une Condition est
+				// fausse
 				onATrouveLaPageActive = true;
 				boolean cettePageConvientPourLApparence = true;
-				
-				if (page.conditions!=null && page.conditions.size()>0) {
-					//la Page a des Conditions de déclenchement, on les analyse
 
-					//si une Condition est fausse, la Page ne convient pas
-					for (int j = 0; j<page.conditions.size() && cettePageConvientPourLApparence; j++) {
+				if (page.conditions != null && page.conditions.size() > 0) {
+					// la Page a des Conditions de déclenchement, on les analyse
+
+					// si une Condition est fausse, la Page ne convient pas
+					for (int j = 0; j < page.conditions.size() && cettePageConvientPourLApparence; j++) {
 						final Condition cond = page.conditions.get(j);
 						if (!cond.estVerifiee()) {
-							//la Condition n'est pas vérifiée
+							// la Condition n'est pas vérifiée
 							onATrouveLaPageActive = false;
 							if (!cond.estLieeAuHeros()) {
 								cettePageConvientPourLApparence = false;
@@ -334,35 +389,36 @@ public class Event implements Comparable<Event> {
 						}
 					}
 				} else {
-					//aucune condition nécessaire pour cette Page, donc la Page est choisie
+					// aucune condition nécessaire pour cette Page, donc la Page est choisie
 					onATrouveLaPageActive = true;
 					cettePageConvientPourLApparence = true;
 				}
-				
-				//si une Page eligible a été trouvée, pas besoin d'essayer les autres Pages
+
+				// si une Page eligible a été trouvée, pas besoin d'essayer les autres Pages
 				if (cettePageConvientPourLApparence) {
 					pageQuOnChoisitEnRemplacement = page;
 					onATrouveLaPageDApparence = true;
 				}
 			}
 		} catch (NullPointerException e2) {
-			//pas de Pages pour cet Event
-			LOG.warn("L'event "+this.id+" ("+this.nom+") n'a pas de pages.");
+			// pas de Pages pour cet Event
+			LOG.warn("L'event " + this.id + " (" + this.nom + ") n'a pas de pages.");
 			e2.printStackTrace();
 		}
 		if (!onATrouveLaPageDApparence) {
-			//aucune Page ne convient, l'Event n'est pas affiché
+			// aucune Page ne convient, l'Event n'est pas affiché
 			this.pageActive = null;
 			this.pageDApparence = null;
-			viderLesProprietesActuelles();		
+			viderLesProprietesActuelles();
 			return;
 		} else {
-			//une Page correspond au moins pour les Conditions non liées au Héros, on donne son apparence à l'Event
+			// une Page correspond au moins pour les Conditions non liées au Héros, on donne
+			// son apparence à l'Event
 			this.pageActive = null;
 			this.pageDApparence = pageQuOnChoisitEnRemplacement;
-			
-			//il est important de noter un véritable changement de Page (non vide)
-			//en effet cela implique de réinitialiser la direction initiale de l'Event
+
+			// il est important de noter un véritable changement de Page (non vide)
+			// en effet cela implique de réinitialiser la direction initiale de l'Event
 			if (this.pageDApparence.numero != this.numeroDeLaDernierePageDApparence) {
 				this.ilYAEuChangementDePageDApparence = true;
 				this.numeroDeLaDernierePageDApparence = this.pageDApparence.numero;
@@ -370,9 +426,9 @@ public class Event implements Comparable<Event> {
 				this.ilYAEuChangementDePageDApparence = false;
 			}
 			attribuerLesProprietesActuelles(this.pageDApparence);
-			
+
 			if (onATrouveLaPageActive) {
-				//même les Conditions liées au Héros correspondent, on execute la Page
+				// même les Conditions liées au Héros correspondent, on execute la Page
 				this.pageActive = pageQuOnChoisitEnRemplacement;
 			}
 		}
@@ -380,18 +436,20 @@ public class Event implements Comparable<Event> {
 
 	/**
 	 * On assigne les propriétés actuelles en utilisant celles d'une Page donnée.
+	 * 
 	 * @param page dont on récupère les propriétés pour les donner à l'Event
 	 */
 	private void attribuerLesProprietesActuelles(final PageEvent page) {
-		//apparence
+		// apparence
 		this.imageActuelle = page.image;
 		this.apparenceActuelleEstUnTile = page.apparenceEstUnTile;
-		
-		if (!(this instanceof Heros) //le Héros n'est pas redirigé aux changements de Page
-		&& ilYAEuChangementDePageDApparence) { //on ne réinitialise pas les propriétés sans vrai changement de Page 
+
+		if (!(this instanceof Heros) // le Héros n'est pas redirigé aux changements de Page
+				&& ilYAEuChangementDePageDApparence) { // on ne réinitialise pas les propriétés sans vrai changement de
+														// Page
 			this.direction = page.directionInitiale;
-		
-			//propriétés
+
+			// propriétés
 			this.vitesseActuelle = page.vitesse;
 			this.frequenceActuelle = page.frequence;
 			this.animeALArretActuel = page.animeALArret;
@@ -404,21 +462,22 @@ public class Event implements Comparable<Event> {
 			this.opaciteActuelle = page.opacite;
 			this.modeDeFusionActuel = page.modeDeFusion;
 		}
-		//déplacement
+		// déplacement
 		this.deplacementNaturelActuel = page.deplacementNaturel;
 	}
-	
+
 	/**
 	 * Faire disparaître l'Event à l'écran.
 	 */
 	private void viderLesProprietesActuelles() {
-		//apparence
+		// apparence
 		this.imageActuelle = null;
 		this.apparenceActuelleEstUnTile = false;
-		
-		if (!(this instanceof Heros) //le Héros n'est pas redirigé aux changements de Page
-		&& ilYAEuChangementDePageDApparence ) { //on ne réinitialise pas les propriétés sans vrai changement de Page 
-			//propriétés
+
+		if (!(this instanceof Heros) // le Héros n'est pas redirigé aux changements de Page
+				&& ilYAEuChangementDePageDApparence) { // on ne réinitialise pas les propriétés sans vrai changement de
+														// Page
+			// propriétés
 			this.vitesseActuelle = Event.VITESSE_PAR_DEFAUT;
 			this.frequenceActuelle = Event.FREQUENCE_PAR_DEFAUT;
 			this.animeALArretActuel = Event.ANIME_A_L_ARRET_PAR_DEFAUT;
@@ -431,12 +490,13 @@ public class Event implements Comparable<Event> {
 			this.opaciteActuelle = Graphismes.OPACITE_MAXIMALE;
 			this.modeDeFusionActuel = ModeDeFusion.NORMAL;
 		}
-		//déplacement
+		// déplacement
 		this.deplacementNaturelActuel = null;
 	}
-	
+
 	/**
 	 * Où afficher l'Event ?
+	 * 
 	 * @return position x de l'image de l'Event
 	 */
 	public final int xImage() {
@@ -450,13 +510,14 @@ public class Event implements Comparable<Event> {
 		if (this.apparenceActuelleEstUnTile) {
 			largeurVignette = this.imageActuelle.getWidth();
 		} else {
-			largeurVignette = this.imageActuelle.getWidth()/4;
+			largeurVignette = this.imageActuelle.getWidth() / 4;
 		}
-		return xBase + (this.largeurHitbox - largeurVignette)/2;
+		return xBase + (this.largeurHitbox - largeurVignette) / 2;
 	}
-	
+
 	/**
 	 * Où afficher l'Event ?
+	 * 
 	 * @return position y de l'image de l'Event
 	 */
 	public final int yImage() {
@@ -470,24 +531,28 @@ public class Event implements Comparable<Event> {
 		if (this.apparenceActuelleEstUnTile) {
 			hauteurVignette = this.imageActuelle.getHeight();
 		} else {
-			hauteurVignette = this.imageActuelle.getHeight()/4;
+			hauteurVignette = this.imageActuelle.getHeight() / 4;
 		}
 		return yBase + this.hauteurHitbox - hauteurVignette + this.offsetY;
 	}
-	
+
 	/**
-	 * Traduit les Events depuis le format JSON et les range dans la liste des Events de la Map.
-	 * @param events liste des Events de la Map
+	 * Traduit les Events depuis le format JSON et les range dans la liste des
+	 * Events de la Map.
+	 * 
+	 * @param events     liste des Events de la Map
 	 * @param eventsJSON tableau JSON contenant les Events au format JSON
-	 * @param map des Events
+	 * @param map        des Events
 	 */
 	public static void recupererLesEvents(final ArrayList<Event> events, final JSONArray eventsJSON, final Map map) {
-		// On effectue l'importation des Events en multithread : chaque Event a son thread.
+		// On effectue l'importation des Events en multithread : chaque Event a son
+		// thread.
 		final ExecutorService executor = Executors.newFixedThreadPool(Main.NOMBRE_DE_THREADS);
-		final Vector<Event> eventsVector = new Vector<Event>(); //le Vector est synchronisé, contrairement à l'ArrayList
+		final Vector<Event> eventsVector = new Vector<Event>(); // le Vector est synchronisé, contrairement à
+																// l'ArrayList
 		ThreadImporterLesEvents.initialiserParametreGlobaux(eventsVector, map);
 		for (Object ev : eventsJSON) {
-			executor.submit(new ThreadImporterLesEvents((JSONObject) ev)); //chaque thread modifie une ligne du dstOut
+			executor.submit(new ThreadImporterLesEvents((JSONObject) ev)); // chaque thread modifie une ligne du dstOut
 		}
 		executor.shutdown();
 		// On attend la fin de l'execution pour toutes les events JSON
@@ -498,49 +563,66 @@ public class Event implements Comparable<Event> {
 		} catch (InterruptedException e) {
 			LOG.error("Impossible d'attendre la fin de l'importation des Events !", e);
 		}
-		
+
 		// On transvase les Events du vector vers l'ArrayList
 		for (Event event : eventsVector) {
-			LOG.debug("Event importé : "+event.id+" ("+event.nom+")");
+			LOG.debug("Event importé : " + event.id + " (" + event.nom + ")");
 			events.add(event);
 		}
 	}
-	
+
+	/**
+	 * Récupérer un seul event dand le fichier JSON de la Map
+	 * 
+	 * @param ev  JSON de l'Event qu'on invoque
+	 * @param map dans laquelle on invoque l'Event
+	 * @return Event instancié
+	 */
+	public static Event recupererUnEvent(final JSONObject ev, final Map map) {
+		final Vector<Event> eventsVector = new Vector<Event>();
+		ThreadImporterLesEvents thread = new ThreadImporterLesEvents((JSONObject) ev);
+		ThreadImporterLesEvents.initialiserParametreGlobaux(eventsVector, map);
+		thread.run();
+		return eventsVector.get(0);
+	}
+
 	/**
 	 * Multithread pour importer les Events de la Map rapidement.
 	 */
 	protected static class ThreadImporterLesEvents implements Runnable {
 		static Vector<Event> events;
 		static Map map;
-		
+
 		final JSONObject jsonEvent;
-		
+
 		/**
 		 * Ces paramètres sont communs à tou
+		 * 
 		 * @param events liste pour récupérer les Events importés
-		 * @param map de ces Events
+		 * @param map    de ces Events
 		 */
 		public static void initialiserParametreGlobaux(final Vector<Event> events, final Map map) {
 			ThreadImporterLesEvents.events = events;
 			ThreadImporterLesEvents.map = map;
 		}
-		
+
 		/**
 		 * Initialisation du thread
+		 * 
 		 * @param ev objet JSON contenant les infos de l'Event à importer
 		 */
 		public ThreadImporterLesEvents(final JSONObject ev) {
-			 this.jsonEvent = ev;
+			this.jsonEvent = ev;
 		}
-		
+
 		@Override
 		public final void run() {
 			final String nomEvent = jsonEvent.getString("nom");
 			final Integer id = jsonEvent.getInt("id");
 			try {
-				//récupération des données dans le JSON
-				
-				int xEvent, yEvent; 
+				// récupération des données dans le JSON
+
+				int xEvent, yEvent;
 				try {
 					// coordonnées entières
 					xEvent = ((int) jsonEvent.get("x")) * Main.TAILLE_D_UN_CARREAU;
@@ -550,13 +632,14 @@ public class Event implements Comparable<Event> {
 					xEvent = (int) (jsonEvent.getDouble("x") * Main.TAILLE_D_UN_CARREAU);
 					yEvent = (int) (jsonEvent.getDouble("y") * Main.TAILLE_D_UN_CARREAU);
 				}
-				//instanciation de l'event
+				// instanciation de l'event
 				Event event;
-	
-				//on essaye de le créer à partir de la bibliothèque JSON GenericEvents
+
+				// on essaye de le créer à partir de la bibliothèque JSON GenericEvents
 				event = Event.creerEventGenerique(id, nomEvent, xEvent, yEvent, map);
-				
-				//si l'Event n'est pas générique, on le construit à partir de sa description dans la page JSON
+
+				// si l'Event n'est pas générique, on le construit à partir de sa description
+				// dans la page JSON
 				if (event == null) {
 					final int largeurHitbox;
 					if (jsonEvent.has("largeur")) {
@@ -576,21 +659,24 @@ public class Event implements Comparable<Event> {
 					} else {
 						offsetY = 0;
 					}
-					final boolean reinitialiser = jsonEvent.has("reinitialiser") ? jsonEvent.getBoolean("reinitialiser") : nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
+					final boolean reinitialiser = jsonEvent.has("reinitialiser") ? jsonEvent.getBoolean("reinitialiser")
+							: nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
 					final int vies = jsonEvent.has("vies") ? jsonEvent.getInt("vies") : interpreterVies(nomEvent);
-					
+
 					final JSONArray jsonPages = jsonEvent.getJSONArray("pages");
-					event = new Event(xEvent, yEvent, offsetY, nomEvent, id, vies, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
+					event = new Event(xEvent, yEvent, offsetY, nomEvent, id, vies, reinitialiser, jsonPages,
+							largeurHitbox, hauteurHitbox, map);
 				}
 				events.add(event);
 			} catch (Exception e) {
-				LOG.error("Impossible d'importer l'event "+id+" ("+nomEvent+") !", e);
+				LOG.error("Impossible d'importer l'event " + id + " (" + nomEvent + ") !", e);
 			}
 		}
 	}
-	
+
 	/**
 	 * Interpréter le nom de l'Event pour connaitre son nombre de vies
+	 * 
 	 * @param nomEvent nom de l'Event
 	 * @return nombre de vies de l'Event
 	 */
@@ -606,48 +692,53 @@ public class Event implements Comparable<Event> {
 		}
 		return 0;
 	}
-	
+
 	/**
 	 * Calculer le terrain de l'Event.
+	 * 
 	 * @return identifiant du terrain
 	 */
 	public final int calculerTerrain() {
-		final int xEvent = (this.x + this.largeurHitbox/2) / Main.TAILLE_D_UN_CARREAU;
-		final int yEvent = (this.y + this.hauteurHitbox/2) / Main.TAILLE_D_UN_CARREAU;
+		final int xEvent = (this.x + this.largeurHitbox / 2) / Main.TAILLE_D_UN_CARREAU;
+		final int yEvent = (this.y + this.hauteurHitbox / 2) / Main.TAILLE_D_UN_CARREAU;
 		try {
-	        //la couche la plus haute donne son terrain
-	        int carreauEvent = this.map.layer2[xEvent][yEvent];
-	        int terrainEvent = this.map.tileset.terrainDeLaCase(carreauEvent);
-	        if (terrainEvent == 0) {
-	            //si la couche la plus haute n'a pas de terrain, on prend le terrain de la couche médiane
-	            carreauEvent = this.map.layer1[xEvent][yEvent];
-	            terrainEvent = this.map.tileset.terrainDeLaCase(carreauEvent);
-	            if (terrainEvent == 0) {
-	                //si la couche médiane n'a pas de terrain non plus, on prend le terrain de la couche basse
-	            	carreauEvent = this.map.layer0[xEvent][yEvent];
-	            	terrainEvent = this.map.tileset.terrainDeLaCase(carreauEvent);
-	                //et tant pis si la couche basse n'a pas de terrain non plus (0)
-	            }
-	        }
+			// la couche la plus haute donne son terrain
+			int carreauEvent = this.map.layer2[xEvent][yEvent];
+			int terrainEvent = this.map.tileset.terrainDeLaCase(carreauEvent);
+			if (terrainEvent == 0) {
+				// si la couche la plus haute n'a pas de terrain, on prend le terrain de la
+				// couche médiane
+				carreauEvent = this.map.layer1[xEvent][yEvent];
+				terrainEvent = this.map.tileset.terrainDeLaCase(carreauEvent);
+				if (terrainEvent == 0) {
+					// si la couche médiane n'a pas de terrain non plus, on prend le terrain de la
+					// couche basse
+					carreauEvent = this.map.layer0[xEvent][yEvent];
+					terrainEvent = this.map.tileset.terrainDeLaCase(carreauEvent);
+					// et tant pis si la couche basse n'a pas de terrain non plus (0)
+				}
+			}
 			return terrainEvent;
-			
+
 		} catch (ArrayIndexOutOfBoundsException e) {
-			LOG.warn("Impossible de calculer le terrain, car l'event \""+this.nom+"\" est sorti de la map ("+xEvent+";"+yEvent+")");
+			LOG.warn("Impossible de calculer le terrain, car l'event \"" + this.nom + "\" est sorti de la map ("
+					+ xEvent + ";" + yEvent + ")");
 			return 0;
 		}
 	}
-	
+
 	/**
 	 * Créer un Event générique à partir de sa description JSON.
-	 * @param id de l'Event à créer
+	 * 
+	 * @param id         de l'Event à créer
 	 * @param nomFichier nom du fichier JSON de l'Event générique
-	 * @param xEvent (en pixels) position x de l'Event
-	 * @param yEvent (en pixels) position y de l'Event
-	 * @param map de l'Event
+	 * @param xEvent     (en pixels) position x de l'Event
+	 * @param yEvent     (en pixels) position y de l'Event
+	 * @param map        de l'Event
 	 * @return un Event créé
 	 */
-	public static Event creerEventGenerique(final int id, final String nomFichier, final int xEvent, 
-			final int yEvent, final Map map) {
+	public static Event creerEventGenerique(final int id, final String nomFichier, final int xEvent, final int yEvent,
+			final Map map) {
 		JSONObject jsonEventGenerique;
 		try {
 			try {
@@ -661,7 +752,8 @@ public class Event implements Comparable<Event> {
 		} catch (Exception e1) {
 			// L'Event générique n'existe pas
 			// Ni en artisanal, ni en exporté automatiquement
-			LOG.trace("Impossible de trouver le fichier JSON "+nomFichier+" pour contruire l'Event générique !", e1);
+			LOG.trace("Impossible de trouver le fichier JSON " + nomFichier + " pour contruire l'Event générique !",
+					e1);
 			return null;
 		}
 		final String nomEvent;
@@ -670,7 +762,7 @@ public class Event implements Comparable<Event> {
 		} else {
 			nomEvent = nomFichier;
 		}
-		
+
 		int largeurHitbox;
 		try {
 			largeurHitbox = jsonEventGenerique.getInt("largeur");
@@ -689,17 +781,16 @@ public class Event implements Comparable<Event> {
 		} else {
 			offsetY = 0;
 		}
-		final boolean reinitialiser = jsonEventGenerique.has("reinitialiser") 
-				? jsonEventGenerique.getBoolean("reinitialiser") 
+		final boolean reinitialiser = jsonEventGenerique.has("reinitialiser")
+				? jsonEventGenerique.getBoolean("reinitialiser")
 				: nomEvent.contains(MARQUEUR_DE_REINITIALISATION);
-		final int vies = jsonEventGenerique.has("vies") 
-				? jsonEventGenerique.getInt("vies") 
-				: interpreterVies(nomEvent);
-		
+		final int vies = jsonEventGenerique.has("vies") ? jsonEventGenerique.getInt("vies") : interpreterVies(nomEvent);
+
 		final JSONArray jsonPages = jsonEventGenerique.getJSONArray("pages");
-		return new Event(xEvent, yEvent, offsetY, nomEvent, id, vies, reinitialiser, jsonPages, largeurHitbox, hauteurHitbox, map);
+		return new Event(xEvent, yEvent, offsetY, nomEvent, id, vies, reinitialiser, jsonPages, largeurHitbox,
+				hauteurHitbox, map);
 	}
-	
+
 	/**
 	 * Vérifier l'égalité entre deux Events.
 	 */
@@ -723,7 +814,7 @@ public class Event implements Comparable<Event> {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Hashcode pour rendre plus rapide la méthode equals().
 	 */
@@ -733,7 +824,8 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Permet de dire si un Event est devant ou derrière un autre en terme d'affichage.
+	 * Permet de dire si un Event est devant ou derrière un autre en terme
+	 * d'affichage.
 	 */
 	@Override
 	public final int compareTo(final Event e) {
@@ -743,7 +835,7 @@ public class Event implements Comparable<Event> {
 			if (e.auDessusDeToutActuel) {
 				final int thisY = this.y + this.hauteurHitbox;
 				final int eY = e.y + e.hauteurHitbox;
-				//les deux sont au dessus de tout, on applique la logique inversée
+				// les deux sont au dessus de tout, on applique la logique inversée
 				if (thisY > eY) {
 					return eEstDevant;
 				}
@@ -757,18 +849,18 @@ public class Event implements Comparable<Event> {
 			if (e.auDessusDeToutActuel) {
 				return eEstDevant;
 			} else {
-				//y'en a-t-il un au sol ?
+				// y'en a-t-il un au sol ?
 				if (this.platActuel && !e.platActuel) {
 					return eEstDevant;
 				} else if (e.platActuel && !this.platActuel) {
 					return thisEstDevant;
 				}
-				
-				//si un event saute, on considere sa position au sol
+
+				// si un event saute, on considere sa position au sol
 				final int thisY = this.positionAuSol() + this.hauteurHitbox;
 				final int eY = e.positionAuSol() + e.hauteurHitbox;
-				
-				//aucun n'est au dessus de tout, on applique la logique normale
+
+				// aucun n'est au dessus de tout, on applique la logique normale
 				if (thisY > eY) {
 					return thisEstDevant;
 				}
@@ -779,24 +871,21 @@ public class Event implements Comparable<Event> {
 		}
 		return 0;
 	}
-	
+
 	/**
-	 * Position au sol de l'Event.
-	 * Si l'Event ne saute pas, c'est tout simplement sa coordonnee y.
+	 * Position au sol de l'Event. Si l'Event ne saute pas, c'est tout simplement sa
+	 * coordonnee y.
+	 * 
 	 * @return coordonnee y, sauf si l'Event saute
 	 */
 	private int positionAuSol() {
 		if (this.saute) {
 			Sauter saut = null;
-			if (this.deplacementForce != null
-					&& this.deplacementForce.mouvements.size() > 0
-					&& this.deplacementForce.mouvements.get(0) instanceof Sauter
-			) {
+			if (this.deplacementForce != null && this.deplacementForce.mouvements.size() > 0
+					&& this.deplacementForce.mouvements.get(0) instanceof Sauter) {
 				saut = (Sauter) this.deplacementForce.mouvements.get(0);
-			} else if (this.deplacementNaturelActuel != null
-					&& this.deplacementNaturelActuel.mouvements.size() > 0
-					&& this.deplacementNaturelActuel.mouvements.get(0) instanceof Sauter
-			) {
+			} else if (this.deplacementNaturelActuel != null && this.deplacementNaturelActuel.mouvements.size() > 0
+					&& this.deplacementNaturelActuel.mouvements.get(0) instanceof Sauter) {
 				saut = (Sauter) this.deplacementNaturelActuel.mouvements.get(0);
 			}
 			if (saut != null) {
@@ -805,5 +894,5 @@ public class Event implements Comparable<Event> {
 		}
 		return this.y;
 	}
-	
+
 }
