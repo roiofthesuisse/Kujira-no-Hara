@@ -9,7 +9,10 @@ import java.util.regex.Pattern;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import jeu.Partie;
 import main.Commande;
+import main.Main;
+import map.LecteurMap;
 
 /**
  * Appeler un script ruby.
@@ -21,13 +24,15 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	private static final String EVENT_ID = "@event_id";
 	private static final String ATTENDRE_CET_EVENT = "wait_for_event(@event_id)";
 	private static final String ATTENDRE_HEROS = "wait_for_event(0)";
-	private static final String POSITIF = "[0-9]+";
+	private static final String POSITIF = ESPACE+"[0-9]+"+ESPACE;
 	private static final String ATTENDRE_UN_EVENT = "wait_for_event\\(" + POSITIF + "\\)";
-	private static final String INVOQUER = "invoquer\\(" + ESPACE + POSITIF + ESPACE + "," + ESPACE + POSITIF + ESPACE
-			+ "," + ESPACE + POSITIF + ESPACE + "," + ESPACE + POSITIF + ESPACE + "\\)";
-	private static final String COORD_X_EVENT = "$game_map\\.events\\[" + POSITIF + "\\]\\.x";
-	private static final String COORD_Y_EVENT = "$game_map\\.events\\[" + POSITIF + "\\]\\.y";
-
+	private static final String INVOQUER = "invoquer\\(" +POSITIF + "," + POSITIF + "," +POSITIF + "," + POSITIF + "\\)";
+	private static final String COORD_X_EVENT = "\\$game_map\\.events\\[" + POSITIF + "\\]\\.x";
+	private static final String COORD_Y_EVENT = "\\$game_map\\.events\\[" + POSITIF + "\\]\\.y";
+	private static final String VARIABLE = "\\$game_variables\\[" + POSITIF + "\\]";
+	private static final String TRANSFORMER = "\\$game_map\\.events\\[" + POSITIF + "\\]\\.transform\\(" + POSITIF + ","
+			+ POSITIF + "\\)";
+	
 	private final String script;
 	private ArrayList<Commande> commandes;
 	private int curseur;
@@ -115,7 +120,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 
 		// Coordonnée x et y du Heros
 		if (expression.contains("$game_player.y") || expression.contains("$game_player.x")) {
-			System.out.println("coordonnée x et y du Heros");
+			System.out.println("Script ruby reconnu : coordonnée x et y du Heros");
 			Integer xHeros = this.page.event.map.heros.x;
 			Integer yHeros = this.page.event.map.heros.y;
 			return traiter(expression.replace("$game_player.y", yHeros.toString()).replace("$game_player.x",
@@ -124,18 +129,47 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 
 		// Id event
 		if (expression.contains(EVENT_ID)) {
+			System.out.println("Script ruby reconnu : "+EVENT_ID);
 			String eventId = Integer.toString(this.page.event.id);
 			return traiter(expression.replace(EVENT_ID, eventId));
 		}
 
-		// Coord x y event
-		// TODO
-
-		// Coord x y heros
-		// TODO
-
 		Pattern p;
 		Matcher m;
+
+		// Coordonnée x d'un Event
+		p = Pattern.compile(COORD_X_EVENT);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("Script ruby reconnu : " + COORD_X_EVENT);
+			String aRemplacer = m.group(0);
+			int idEvent = extraireLeNombre(aRemplacer);
+			int valeurVariable = getXEvent(idEvent);
+			return traiter(expression.replace(aRemplacer, Integer.toString(valeurVariable)));
+		}
+
+		// Coordonnée y d'un Event
+		p = Pattern.compile(COORD_Y_EVENT);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("Script ruby reconnu : " + COORD_Y_EVENT);
+			String aRemplacer = m.group(0);
+			int idEvent = extraireLeNombre(aRemplacer);
+			int valeurVariable = getYEvent(idEvent);
+			return traiter(expression.replace(aRemplacer, Integer.toString(valeurVariable)));
+		}
+
+		// Variable du jeu
+		p = Pattern.compile(VARIABLE);
+		m = p.matcher(expression);
+		if(m.find()) {
+			System.out.println("Script ruby reconnu : "+VARIABLE);
+			String aRemplacer = m.group(0);
+			int numeroVariable = extraireLeNombre(aRemplacer);
+			int valeurVariable = getValeurVariable(numeroVariable);
+			return traiter(expression.replace(aRemplacer, Integer.toString(valeurVariable)));
+		}
+
 
 		// -----------//
 		// Commandes //
@@ -160,7 +194,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 		p = Pattern.compile(ATTENDRE_UN_EVENT);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println(ATTENDRE_UN_EVENT);
+			System.out.println("Script ruby reconnu : "+ATTENDRE_UN_EVENT);
 			int idEvent = extraireLeNombre(m.group(0));
 			return new AttendreLaFinDesDeplacements(idEvent);
 		}
@@ -169,9 +203,18 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 		p = Pattern.compile(INVOQUER);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println(ATTENDRE_UN_EVENT);
+			System.out.println("Script ruby reconnu : "+ATTENDRE_UN_EVENT);
 			ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
 			return new InvoquerUnEvent(nombres.get(0), nombres.get(1), nombres.get(2), nombres.get(3));
+		}
+		
+		// Transformer un Event
+		p = Pattern.compile(TRANSFORMER);
+		m = p.matcher(expression);
+		if(m.find()) {
+			System.out.println("Script ruby reconnu : "+TRANSFORMER);
+			ArrayList<Integer> nombres = extraireLesNombres(m.group(0));
+			return new TransformerUnEvent(nombres.get(0), nombres.get(1), nombres.get(2));
 		}
 
 		// Autre
@@ -215,7 +258,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 		final Matcher m = p.matcher(nombreBrut);
 		m.find();
 		final String nombreExtrait = m.group(0);
-		return (int) Integer.parseInt(nombreExtrait);
+		return Integer.parseInt(nombreExtrait);
 	}
 
 	/**
@@ -238,6 +281,36 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 			}
 		}
 		return nombres;
+	}
+	
+	/**
+	 * Obtenir la valeur d'une Variable du Jeu.
+	 * Renvoyer une fausse valeur si le Jeu n'est pas instancié.
+	 * @param numeroVariable
+	 * @return
+	 */
+	private static int getValeurVariable(int numeroVariable) {
+		Partie partie = getPartieActuelle();
+		if(partie != null) {
+			return partie.variables[numeroVariable];
+		}
+		return 7;
+	}
+
+	private int getXEvent(int idEvent) {
+		Partie partie = getPartieActuelle();
+		if (partie != null) {
+			return ((LecteurMap) Main.lecteur).map.events.get(idEvent).x;
+		}
+		return 14;
+	}
+
+	private int getYEvent(int idEvent) {
+		Partie partie = getPartieActuelle();
+		if (partie != null) {
+			return ((LecteurMap) Main.lecteur).map.events.get(idEvent).y;
+		}
+		return 17;
 	}
 
 	@Override
