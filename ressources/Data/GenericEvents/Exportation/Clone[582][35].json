@@ -1,0 +1,112 @@
+{
+    "pages": [
+        {
+            "image": "souche character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionScript",
+                    "script": "Input.trigger?(Input::C)"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id, 0)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 11
+                },
+                {
+                    "intensite": 2,
+                    "nom": "TremblementDeTerre",
+                    "nombreDeFrames": 16,
+                    "vitesse": 9
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "vide mais pas invisible",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "OOT_Box_Blow.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 37,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "Fanfare (paquerette).mp3",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "commandes": [{"nom": "SupprimerEvent"}],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 35
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        }
+    ],
+    "x": 16,
+    "y": 4,
+    "id": 35,
+    "nom": "souche"
+}

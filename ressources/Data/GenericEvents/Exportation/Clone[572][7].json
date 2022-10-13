@@ -23,6 +23,10 @@
                     "nom": "ConditionArmeEquipee"
                 },
                 {
+                    "nomEtiquette": "flamme",
+                    "nom": "Etiquette"
+                },
+                {
                     "texte": "flamme",
                     "nom": "Commentaire"
                 },
@@ -60,6 +64,10 @@
                     "numero": 4,
                     "idArme": 0,
                     "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nomEtiquette": "herbe coupee",
+                    "nom": "Etiquette"
                 },
                 {
                     "texte": "herbe coupee",
@@ -105,21 +113,8 @@
                     "nombreDeFrames": 8
                 },
                 {
-                    "texte": "herbe coupee",
-                    "nom": "Commentaire"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_temp.animations.push([39, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
-                },
-                {
-                    "nom": "Attendre",
-                    "nombreDeFrames": 1
-                },
-                {
-                    "numeroInterrupteurLocal": 0,
-                    "valeurADonner": true,
-                    "nom": "ModifierInterrupteurLocal"
+                    "nomEtiquette": "herbe coupee",
+                    "nom": "AllerVersEtiquette"
                 },
                 {
                     "numero": 6,
@@ -135,21 +130,8 @@
                     "nombreDeFrames": 8
                 },
                 {
-                    "texte": "herbe coupee",
-                    "nom": "Commentaire"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_temp.animations.push([39, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
-                },
-                {
-                    "nom": "Attendre",
-                    "nombreDeFrames": 1
-                },
-                {
-                    "numeroInterrupteurLocal": 0,
-                    "valeurADonner": true,
-                    "nom": "ModifierInterrupteurLocal"
+                    "nomEtiquette": "herbe coupee",
+                    "nom": "AllerVersEtiquette"
                 },
                 {
                     "numero": 7,
@@ -165,6 +147,19 @@
                 },
                 {
                     "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionScript",
+                    "script": "$game_map.events[@event_id].event_arround?(\"Torche allumée HP[1]\",1)"
+                },
+                {
+                    "nomEtiquette": "flamme",
+                    "nom": "AllerVersEtiquette"
+                },
+                {
+                    "numero": 8,
                     "nom": "ConditionFin"
                 }
             ],

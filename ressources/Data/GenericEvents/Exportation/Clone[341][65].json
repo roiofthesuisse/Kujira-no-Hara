@@ -3,6 +3,15 @@
         "image": "cube character",
         "commandes": [
             {
+                "numeroInterrupteur": 12,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "texte": "On essaye de déplacer le cube...",
+                "nom": "Commentaire"
+            },
+            {
                 "numeroVariable": 122,
                 "operationAFaire": "rendre egal a",
                 "valeurADonner": -1,
@@ -15,11 +24,6 @@
                 "valeurADonner": -1,
                 "nom": "ModifierVariable",
                 "operationAFaire2": "coordonnee y"
-            },
-            {
-                "numeroInterrupteur": 12,
-                "valeur": true,
-                "nom": "ModifierInterrupteur"
             },
             {
                 "numero": 0,
@@ -118,6 +122,15 @@
                 "nom": "ConditionFin"
             },
             {
+                "texte": "Est-ce que le cube a été déplacé ?",
+                "nom": "Commentaire"
+            },
+            {
+                "numeroInterrupteur": 56,
+                "valeur": false,
+                "nom": "ModifierInterrupteur"
+            },
+            {
                 "numeroVariable": 124,
                 "operationAFaire": "rendre egal a",
                 "valeurADonner": -1,
@@ -152,10 +165,9 @@
                 "nom": "ConditionSinon"
             },
             {
-                "volume": 1,
-                "nomFichierSonore": "MC_IceBlock_Stop.wav",
-                "tempo": 1,
-                "nom": "JouerEffetSonore"
+                "numeroInterrupteur": 56,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
             },
             {
                 "numero": 5,
@@ -166,23 +178,303 @@
                 "nom": "ConditionSinon"
             },
             {
-                "volume": 1,
-                "nomFichierSonore": "MC_IceBlock_Stop.wav",
-                "tempo": 1,
-                "nom": "JouerEffetSonore"
+                "numeroInterrupteur": 56,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
             },
             {
                 "numero": 4,
                 "nom": "ConditionFin"
             },
             {
-                "nom": "Attendre",
-                "nombreDeFrames": 1
+                "numeroInterrupteur": 56,
+                "numero": 6,
+                "valeurQuIlEstCenseAvoir": false,
+                "nom": "ConditionInterrupteur"
             },
             {
-                "numeroInterrupteur": 12,
-                "valeur": false,
-                "nom": "ModifierInterrupteur"
+                "volume": 1,
+                "nomFichierSonore": "MC_IceBlock_Stop.wav",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "variable": true,
+                "nouveauY": 123,
+                "nouveauX": 122,
+                "nom": "TeleporterEvent",
+                "direction": 0
+            },
+            {
+                "numero": 7,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 0
+            },
+            {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 2
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 3
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 3
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 7,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 8,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 1
+            },
+            {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 2
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 3
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 3
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 0
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 8,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 9,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 2
+            },
+            {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 2
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 3
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 3
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 0
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 9,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 10,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 3
+            },
+            {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 2
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 3
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 3
+                    },
+                    {
+                        "image": "cube character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 0
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 10,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 9,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 8,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 7,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "AppelerUnScript",
+                "script": "wait_for_event(@event_id)"
+            },
+            {
+                "variable": true,
+                "nouveauY": 125,
+                "nouveauX": 124,
+                "nom": "TeleporterEvent",
+                "direction": 0
+            },
+            {
+                "numero": 6,
+                "nom": "ConditionFin"
             },
             {
                 "nom": "Attendre",
@@ -195,16 +487,16 @@
             }
         ],
         "traversable": false,
-        "animeEnMouvement": true,
+        "animeEnMouvement": false,
         "auDessusDeTout": false,
-        "frequence": "tres basse",
+        "frequence": "haute",
         "conditions": [{"nom": "ArriveeAuContact"}],
         "directionFixe": false,
         "animeALArret": false,
-        "vitesse": "lente"
+        "vitesse": "normale"
     }],
-    "x": 16,
+    "x": 17,
     "y": 1,
     "id": 65,
-    "nom": "Cube � pousser"
+    "nom": "Cube (32)"
 }

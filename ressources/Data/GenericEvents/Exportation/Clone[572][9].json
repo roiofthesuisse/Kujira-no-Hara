@@ -1,7 +1,7 @@
 {
     "pages": [
         {
-            "image": "cube character",
+            "image": "cube glissant character",
             "commandes": [
                 {
                     "texte": "----------------------------------------\\n1) CUBE IMMOBILE\\n----------------------------------------",
@@ -234,7 +234,7 @@
             "vitesse": "moderee"
         },
         {
-            "image": "cube character",
+            "image": "cube glissant character",
             "commandes": [
                 {
                     "texte": "----------------------------------------\\n2) CUBE DEMARRE\\n----------------------------------------",
@@ -284,7 +284,7 @@
                     "operationAFaire2": "coordonnee y"
                 },
                 {
-                    "texte": "si le cube réussi à démarrer,\\nil fait un premier bruit",
+                    "texte": "si le cube rÃ©ussi Ã  dÃ©marrer,\\nil fait un premier bruit",
                     "nom": "Commentaire"
                 },
                 {
@@ -349,7 +349,7 @@
             "vitesse": "rapide"
         },
         {
-            "image": "cube character",
+            "image": "cube glissant character",
             "commandes": [
                 {
                     "texte": "------------------------------------------------------------\\n3) CUBE AVANCE ET S'ARRETE\\n------------------------------------------------------------",
@@ -370,6 +370,21 @@
                     "operationAFaire2": "coordonnee y"
                 },
                 {
+                    "numeroVariable": 64,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "terrain"
+                },
+                {
+                    "numeroVariable": 64,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 7,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
                     "ignorerLesMouvementsImpossibles": true,
                     "repeterLeDeplacement": false,
                     "mouvements": [{"nom": "PasEnAvant"}],
@@ -379,6 +394,10 @@
                 {
                     "nom": "AppelerUnScript",
                     "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
                 },
                 {
                     "numeroVariable": 28,
@@ -395,12 +414,12 @@
                     "operationAFaire2": "coordonnee y"
                 },
                 {
-                    "texte": "si le cube n'arrive plus à avancer, \\nil fait un second bruit",
+                    "texte": "si le cube n'arrive plus Ã  avancer, \\nil fait un second bruit",
                     "nom": "Commentaire"
                 },
                 {
                     "numeroVariable": 26,
-                    "numero": 0,
+                    "numero": 1,
                     "comparerAUneAutreVariable": true,
                     "valeurQuIlEstCenseAvoir": 28,
                     "inegalite": "==",
@@ -408,19 +427,19 @@
                 },
                 {
                     "numeroVariable": 27,
-                    "numero": 1,
+                    "numero": 2,
                     "comparerAUneAutreVariable": true,
                     "valeurQuIlEstCenseAvoir": 29,
                     "inegalite": "==",
                     "nom": "ConditionVariable"
                 },
                 {
-                    "texte": "bruit d'arrêt du cube",
+                    "texte": "bruit d'arrÃªt du cube",
                     "nom": "Commentaire"
                 },
                 {
                     "numeroVariable": 30,
-                    "numero": 2,
+                    "numero": 3,
                     "comparerAUneAutreVariable": true,
                     "valeurQuIlEstCenseAvoir": 26,
                     "inegalite": "!=",
@@ -433,12 +452,12 @@
                     "nom": "JouerEffetSonore"
                 },
                 {
-                    "numero": 2,
+                    "numero": 3,
                     "nom": "ConditionFin"
                 },
                 {
                     "numeroVariable": 31,
-                    "numero": 3,
+                    "numero": 4,
                     "comparerAUneAutreVariable": true,
                     "valeurQuIlEstCenseAvoir": 27,
                     "inegalite": "!=",
@@ -451,7 +470,7 @@
                     "nom": "JouerEffetSonore"
                 },
                 {
-                    "numero": 3,
+                    "numero": 4,
                     "nom": "ConditionFin"
                 },
                 {
@@ -459,7 +478,7 @@
                     "nombreDeFrames": 1
                 },
                 {
-                    "texte": "on remet le cube à l'arrêt",
+                    "texte": "on remet le cube Ã  l'arrÃªt",
                     "nom": "Commentaire"
                 },
                 {
@@ -487,7 +506,7 @@
                     "nom": "ModifierInterrupteurLocal"
                 },
                 {
-                    "numero": 1,
+                    "numero": 2,
                     "nom": "ConditionSinon"
                 },
                 {
@@ -495,11 +514,11 @@
                     "nombreDeFrames": 1
                 },
                 {
-                    "numero": 1,
+                    "numero": 2,
                     "nom": "ConditionFin"
                 },
                 {
-                    "numero": 0,
+                    "numero": 1,
                     "nom": "ConditionSinon"
                 },
                 {
@@ -507,7 +526,7 @@
                     "nombreDeFrames": 1
                 },
                 {
-                    "numero": 0,
+                    "numero": 1,
                     "nom": "ConditionFin"
                 }
             ],

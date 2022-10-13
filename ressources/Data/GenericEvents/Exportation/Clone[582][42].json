@@ -1,0 +1,27 @@
+{
+    "pages": [{
+        "image": "feuille morte character",
+        "commandes": [
+            {
+                "nom": "AppelerUnScript",
+                "script": "leaftime = 7 * (1+@event_id%2)\\n$game_map.events[@event_id].offset_x(  -(6+@event_id%2)*32*((Time.now.to_f+@event_id%leaftime)%leaftime)/leaftime - (2+@event_id%2)*32*Math.sin( (2*Math::PI*((Time.now.to_f+@event_id%leaftime)%leaftime))/leaftime )  )\\n$game_map.events[@event_id].offset_y(   (5+@event_id%2)*32*((Time.now.to_f+@event_id%leaftime)%leaftime)/leaftime + (1+@event_id%2)*32*Math.sin( (2*Math::PI*((Time.now.to_f+@event_id%leaftime)%leaftime))/leaftime )  )"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 1
+            }
+        ],
+        "traversable": true,
+        "animeEnMouvement": false,
+        "auDessusDeTout": true,
+        "frequence": "basse",
+        "conditions": [],
+        "directionFixe": true,
+        "animeALArret": true,
+        "vitesse": "moderee"
+    }],
+    "x": 2,
+    "y": 1,
+    "id": 42,
+    "nom": "feuille morte"
+}

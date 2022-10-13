@@ -1,0 +1,272 @@
+{
+    "pages": [{
+        "opacite": 0,
+        "directionInitiale": 2,
+        "image": "goutte qui tombe character",
+        "commandes": [
+            {
+                "nomEtiquette": "placement_goutte",
+                "nom": "Etiquette"
+            },
+            {
+                "texte": "placer la goutte dans l'écran",
+                "nom": "Commentaire"
+            },
+            {
+                "numeroVariable": 249,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": -9,
+                "valeurADonner2": 9,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 250,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": -7,
+                "valeurADonner2": 7,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 249,
+                "operationAFaire": "ajouter",
+                "valeurADonner": 0,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "coordonnee x"
+            },
+            {
+                "numeroVariable": 250,
+                "operationAFaire": "ajouter",
+                "valeurADonner": 0,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "coordonnee y"
+            },
+            {
+                "variable": true,
+                "nouveauY": 250,
+                "nouveauX": 249,
+                "nom": "TeleporterEvent",
+                "direction": 0
+            },
+            {
+                "texte": "est-ce que X Y est dans la map ?",
+                "nom": "Commentaire"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionScript",
+                "script": "$game_map.valid?($game_variables[249], $game_variables[250])"
+            },
+            {
+                "texte": "est-ce que X Y est un trou ?",
+                "nom": "Commentaire"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionScript",
+                "script": "$game_map.terrain_tag($game_variables[249], $game_variables[250]) != 6"
+            },
+            {
+                "nomEtiquette": "animation_goutte",
+                "nom": "AllerVersEtiquette"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "texte": "Attente en cas d'échec du placement de la goutte\\npour ne pas créer de lags dans les couloirs étroits\\noù la goutte a beaucoup de chance d'échouer",
+                "nom": "Commentaire"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 1
+            },
+            {
+                "nomEtiquette": "placement_goutte",
+                "nom": "AllerVersEtiquette"
+            },
+            {
+                "texte": "--------------------------------------------------",
+                "nom": "Commentaire"
+            },
+            {
+                "nomEtiquette": "animation_goutte",
+                "nom": "Etiquette"
+            },
+            {
+                "texte": "Attendre un peu\\npour ne pas avoir toutes les gouttes en même temps",
+                "nom": "Commentaire"
+            },
+            {
+                "numeroVariable": 10,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 0,
+                "valeurADonner2": 2,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 10,
+                "numero": 2,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 3
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numeroVariable": 10,
+                "numero": 3,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 1,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 5
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "texte": "Offset",
+                "nom": "Commentaire"
+            },
+            {
+                "numeroVariable": 9,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": -15,
+                "valeurADonner2": 15,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 10,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": -31,
+                "valeurADonner2": 0,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "nom": "AppelerUnScript",
+                "script": "$game_map.events[@event_id].offset_x($game_variables[9])"
+            },
+            {
+                "nom": "AppelerUnScript",
+                "script": "$game_map.events[@event_id].offset_y($game_variables[10])"
+            },
+            {
+                "texte": "Animation",
+                "nom": "Commentaire"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 2
+                    },
+                    {
+                        "modeDeFusion": "addition",
+                        "nom": "ModifierModeDeFusion"
+                    },
+                    {
+                        "opacite": 255,
+                        "nom": "ModifierOpacite"
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "opacite": 0,
+                        "nom": "ModifierOpacite"
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "nom": "AppelerUnScript",
+                "script": "wait_for_event(@event_id)"
+            }
+        ],
+        "traversable": true,
+        "animeEnMouvement": false,
+        "auDessusDeTout": false,
+        "frequence": "basse",
+        "conditions": [],
+        "directionFixe": false,
+        "animeALArret": false,
+        "vitesse": "moderee"
+    }],
+    "x": 19,
+    "y": 4,
+    "id": 46,
+    "nom": "goutte de pluie"
+}

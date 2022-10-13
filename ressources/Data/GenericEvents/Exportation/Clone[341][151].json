@@ -8,8 +8,18 @@
                 "nom": "ConditionArmeEquipee"
             },
             {
+                "numero": 1,
+                "nom": "ConditionScript",
+                "script": "Input.trigger?(Input::C)"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionScript",
+                "script": "$game_player.target_in_da_zone?(@event_id, 0)"
+            },
+            {
                 "nom": "Attendre",
-                "nombreDeFrames": 3
+                "nombreDeFrames": 11
             },
             {
                 "intensite": 2,
@@ -46,6 +56,14 @@
             },
             {"nom": "SupprimerEvent"},
             {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
                 "numero": 0,
                 "nom": "ConditionFin"
             }
@@ -54,7 +72,7 @@
         "animeEnMouvement": false,
         "auDessusDeTout": false,
         "frequence": "basse",
-        "conditions": [{"nom": "Parler"}],
+        "conditions": [],
         "directionFixe": true,
         "animeALArret": false,
         "vitesse": "moderee"

@@ -11,22 +11,27 @@
                 {
                     "numero": 1,
                     "nom": "ConditionScript",
+                    "script": "!($game_player.interlocuteur_devant?)"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionScript",
                     "script": "$game_player.target_in_da_zone?(@event_id, 3)"
                 },
                 {
                     "touche": "ACTION",
-                    "numero": 2,
+                    "numero": 3,
                     "nom": "ConditionTouche"
                 },
                 {
                     "numeroInterrupteur": 12,
-                    "numero": 3,
+                    "numero": 4,
                     "valeurQuIlEstCenseAvoir": false,
                     "nom": "ConditionInterrupteur"
                 },
                 {
                     "numeroInterrupteur": 27,
-                    "numero": 4,
+                    "numero": 5,
                     "valeurQuIlEstCenseAvoir": false,
                     "nom": "ConditionInterrupteur"
                 },
@@ -63,52 +68,12 @@
                     "nom": "Deplacement"
                 },
                 {
-                    "idEvent": -1,
-                    "nom": "AttendreLaFinDesDeplacements"
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
                 },
                 {
-                    "numeroInterrupteurLocal": 0,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 1,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 2,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 3,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numero": 4,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "numeroInterrupteurLocal": 0,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 1,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 2,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 3,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
+                    "numero": 5,
+                    "nom": "ConditionFin"
                 },
                 {
                     "numero": 4,
@@ -116,55 +81,7 @@
                 },
                 {
                     "numero": 3,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "numeroInterrupteurLocal": 0,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 1,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 2,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 3,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numero": 3,
                     "nom": "ConditionFin"
-                },
-                {
-                    "numero": 2,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "numeroInterrupteurLocal": 0,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 1,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 2,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 3,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
                 },
                 {
                     "numero": 2,
@@ -172,55 +89,7 @@
                 },
                 {
                     "numero": 1,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "numeroInterrupteurLocal": 0,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 1,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 2,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 3,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numero": 1,
                     "nom": "ConditionFin"
-                },
-                {
-                    "numero": 0,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "numeroInterrupteurLocal": 0,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 1,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 2,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteurLocal": 3,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
                 },
                 {
                     "numero": 0,

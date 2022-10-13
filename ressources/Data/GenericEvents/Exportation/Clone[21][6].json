@@ -1,0 +1,801 @@
+{
+    "pages": [
+        {
+            "image": "patelle character",
+            "commandes": [
+                {
+                    "texte": "On initialise la vie du monstre dans le nom en haut.\\nComme ça chaque monstre a sa propre vie.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "Cette page c'est l'ia du monstre.\\nTu peux le mettre en processus parallèle si tu veux faire\\nquelque chose de compliqué ou juste mettre au contact\\npour un monstre minable comme celui-ci.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "texte": "la patelle attaque quand ele est alignée avec le héros",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 2,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 15,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee x"
+                },
+                {
+                    "numeroVariable": 2,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 15,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroInterrupteurLocal": 2,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 3,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "numeroVariable": 16,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "coordonnee y"
+                },
+                {
+                    "numeroVariable": 3,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": true,
+                    "valeurQuIlEstCenseAvoir": 16,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroInterrupteurLocal": 2,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "deplacement": {
+                "ignorerLesMouvementsImpossibles": true,
+                "repeterLeDeplacement": true,
+                "mouvements": [{
+                    "idEvent": 0,
+                    "nom": "RegarderUnEvent"
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            "frequence": "haute",
+            "conditions": [],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "normale"
+        },
+        {
+            "image": "patelle character",
+            "commandes": [
+                {
+                    "texte": "Comportement de l'ennemi qui donne un coup.\\nJe l'ai mis dans une nouvelle page pour avoir un proc parallèle\\net pouvoir attendre qu'il finisse son déplacement avant\\nd'attaquer, sinon il nous touche alors qu'il n'est même pas",
+                    "nom": "Commentaire"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "idEvent": 0,
+                        "nom": "RegarderUnEvent"
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "pfr.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionDirection",
+                    "direction": 0
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "patelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 1
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 21, 11)"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionDirection",
+                    "direction": 1
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "patelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 1
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 21, 5)"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionDirection",
+                    "direction": 2
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "patelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 1
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 21, 16)"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionDirection",
+                    "direction": 3
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "patelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 1
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 21, 8)"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 58
+                },
+                {
+                    "numeroInterrupteurLocal": 2,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 2,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 6
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "image": "patelle character",
+            "commandes": [
+                {
+                    "texte": "L'interrupteur local B est activé après que l'ennemi ait reçu\\nun coup.\\nOn met ça dans une autre page comme ça on peut le\\nre-attaquer à n'importe quel moment.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 1,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 6
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "image": "patelle character",
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "numeroInterrupteur": 12,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "nom": "Interrupteur"
+                }
+            ],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "image": "patelle character",
+            "commandes": [
+                {
+                    "texte": "Quand un ennemi est touché son interrupteur local A\\nest automatiquement activé.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "On lui inflige des dégâts selon l'arme équipée.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "--------------------------------------------------\\napparence : ouvert ou fermé ?\\n--------------------------------------------------",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 0,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 2,
+                    "nom": "ConditionInterrupteurLocal"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionDirection",
+                    "direction": 0
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "patelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 1
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionDirection",
+                    "direction": 1
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "patelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 1
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionDirection",
+                    "direction": 2
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "patelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 1
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionDirection",
+                    "direction": 3
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "patelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 1
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "image": "patelle character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    }],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "--------------------------------------------------\\nle marteau fonctionne toujours\\n--------------------------------------------------",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 5,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 3"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "--------------------------------------------------\\nles autres armes ne fonctionnent que s'il est ouvert\\n--------------------------------------------------",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 6,
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 2,
+                    "nom": "ConditionInterrupteurLocal"
+                },
+                {
+                    "numero": 7,
+                    "idArme": 0,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 1"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numero": 7,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 8,
+                    "idArme": 1,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 2"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "117-Fire01.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 4,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 90,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 10,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 8,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 9,
+                    "idArme": 3,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 1"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "MC_Enemy_Hit.wav",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numeroVariable": 90,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 10,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 9,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 10,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].life -= 1"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "TP_Slingshot_Shoot.wav",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "idAnimation": 1,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "numero": 10,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 11,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "132-Wind01.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numero": 11,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 6,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "texte": "--------------------------------------------------\\nOn regarde si il est mort.\\n--------------------------------------------------",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 12,
+                    "nom": "ConditionScript",
+                    "script": "$game_map.events[@event_id].life <= 0"
+                },
+                {
+                    "numeroPageCommune": 58,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "idObjet": 48,
+                    "numero": 13,
+                    "nom": "ConditionObjetPossede"
+                },
+                {
+                    "numeroVariable": 97,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 56,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numero": 13,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroVariable": 97,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 1,
+                    "valeurADonner2": 28,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "nombre aleatoire"
+                },
+                {
+                    "numero": 13,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroPageCommune": 71,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "numeroVariable": 137,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "texte": "On transforme le monstre en butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin",
+                    "nom": "Commentaire"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(582, 14)"
+                },
+                {
+                    "numero": 12,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 6
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "image": "patelle character",
+            "commandes": [
+                {
+                    "texte": "L'interrupteur local D est automatiquement activé quand\\nl'ennemi chage de terrain.\\nComme ça on peut le faire tomber dans les trous, l'eau, etc...",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 92,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": -1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "terrain"
+                },
+                {
+                    "numeroVariable": 92,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 5,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroPageCommune": 59,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "numeroVariable": 137,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 92,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 6,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroPageCommune": 60,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "numeroVariable": 137,
+                    "operationAFaire": "ajouter",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {"nom": "SupprimerEvent"},
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteurLocal": 3,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 3,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 6
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        }
+    ],
+    "x": 32,
+    "y": 6,
+    "id": 6,
+    "nom": "Patelle HP[1] RESET"
+}

@@ -9,6 +9,20 @@
                     "nom": "ConditionArmeEquipee"
                 },
                 {
+                    "numero": 1,
+                    "nom": "ConditionScript",
+                    "script": "Input.trigger?(Input::C)"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id, 0)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 11
+                },
+                {
                     "volume": 1,
                     "nomFichierSonore": "cristal.ogg",
                     "tempo": 1,
@@ -38,6 +52,14 @@
                     "nom": "ModifierInterrupteur"
                 },
                 {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
                     "numero": 0,
                     "nom": "ConditionFin"
                 }
@@ -65,7 +87,7 @@
                 "nom": "Deplacement"
             },
             "frequence": "la plus haute",
-            "conditions": [{"nom": "Parler"}],
+            "conditions": [],
             "directionFixe": true,
             "animeALArret": false,
             "vitesse": "tres rapide"
@@ -150,6 +172,20 @@
                     "nom": "ConditionArmeEquipee"
                 },
                 {
+                    "numero": 1,
+                    "nom": "ConditionScript",
+                    "script": "Input.trigger?(Input::C)"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id, 0)"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 11
+                },
+                {
                     "volume": 1,
                     "nomFichierSonore": "cristal.ogg",
                     "tempo": 1,
@@ -179,6 +215,14 @@
                     "nom": "ModifierInterrupteur"
                 },
                 {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
                     "numero": 0,
                     "nom": "ConditionFin"
                 }
@@ -187,15 +231,12 @@
             "animeEnMouvement": false,
             "auDessusDeTout": false,
             "frequence": "la plus haute",
-            "conditions": [
-                {"nom": "Parler"},
-                {
-                    "valeurQuIlEstCenseAvoir": true,
-                    "numeroInterrupteurLocal": 0,
-                    "nom": "InterrupteurLocal",
-                    "numeroEvent": 149
-                }
-            ],
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 149
+            }],
             "directionFixe": true,
             "animeALArret": false,
             "vitesse": "tres rapide"

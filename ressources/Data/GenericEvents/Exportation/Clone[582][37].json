@@ -1,0 +1,308 @@
+{
+    "pages": [{
+        "opacite": 0,
+        "image": "goutte qui tombe character",
+        "commandes": [
+            {
+                "nom": "AppelerUnScript",
+                "script": "$game_map.events[@event_id].offset_y(-12)"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "opacite": 0,
+                        "nom": "ModifierOpacite"
+                    },
+                    {
+                        "traversable": true,
+                        "nom": "RendreTraversable"
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numeroVariable": 8,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 1,
+                "valeurADonner2": 3,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 8,
+                "numero": 0,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 95
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numeroVariable": 8,
+                "numero": 1,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 1,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 61
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionSinon"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 45
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroVariable": 8,
+                "operationAFaire": "rendre egal a",
+                "valeurADonner": 1,
+                "valeurADonner2": 3,
+                "nom": "ModifierVariable",
+                "operationAFaire2": "nombre aleatoire"
+            },
+            {
+                "numeroVariable": 8,
+                "numero": 2,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 0,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 18
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numeroVariable": 8,
+                "numero": 3,
+                "comparerAUneAutreVariable": false,
+                "valeurQuIlEstCenseAvoir": 1,
+                "inegalite": "==",
+                "nom": "ConditionVariable"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 11
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionSinon"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 8
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [
+                    {
+                        "opacite": 255,
+                        "nom": "ModifierOpacite"
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 0
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 2
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 0,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 0
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 2
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 1,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 2,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 1
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "image": "goutte qui tombe character",
+                        "teinte": 0,
+                        "nom": "ModifierApparence",
+                        "direction": 3,
+                        "animation": 3
+                    },
+                    {
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 1
+                    },
+                    {
+                        "opacite": 0,
+                        "nom": "ModifierOpacite"
+                    }
+                ],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "nom": "AppelerUnScript",
+                "script": "wait_for_event(@event_id)"
+            }
+        ],
+        "traversable": true,
+        "animeEnMouvement": false,
+        "auDessusDeTout": false,
+        "frequence": "basse",
+        "conditions": [],
+        "directionFixe": false,
+        "animeALArret": false,
+        "vitesse": "moderee"
+    }],
+    "x": 18,
+    "y": 4,
+    "id": 37,
+    "nom": "goutte"
+}

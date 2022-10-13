@@ -4,7 +4,7 @@
             "directionInitiale": 3,
             "image": "torche character",
             "commandes": [{
-                "texte": "On met des HP à tous les éléments avec qui on veut pouvoir\\navoir des interractions via les armes.",
+                "texte": "On met des HP Ã  tous les Ã©lÃ©ments avec qui on veut pouvoir\\navoir des interractions via les armes.",
                 "nom": "Commentaire"
             }],
             "traversable": false,
@@ -45,6 +45,10 @@
                     "nom": "ConditionFin"
                 },
                 {
+                    "texte": "Saut vers la torche (liane)",
+                    "nom": "Commentaire"
+                },
+                {
                     "texte": "Je le fais en script parce que c'est mille fois plus simple.",
                     "nom": "Commentaire"
                 },
@@ -73,10 +77,6 @@
                 },
                 {
                     "numero": 2,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "numero": 2,
                     "nom": "ConditionFin"
                 },
                 {
@@ -87,10 +87,6 @@
                 {
                     "nom": "AppelerUnScript",
                     "script": "$game_map.events[@event_id].transform(341, 75)"
-                },
-                {
-                    "numero": 3,
-                    "nom": "ConditionSinon"
                 },
                 {
                     "numero": 3,
@@ -125,5 +121,5 @@
     "x": 16,
     "y": 6,
     "id": 76,
-    "nom": "Torche éteinte HP[1]"
+    "nom": "Torche Ã©teinte HP[1]"
 }

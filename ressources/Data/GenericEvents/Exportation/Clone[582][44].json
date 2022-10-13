@@ -1,0 +1,434 @@
+{
+    "pages": [
+        {
+            "image": "vide mais pas invisible",
+            "commandes": [
+                {
+                    "touche": "ACTION",
+                    "numero": 0,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "touche": "ACTION",
+                    "numero": 1,
+                    "nom": "ConditionTouche"
+                },
+                {
+                    "numero": 2,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionScript",
+                    "script": "$game_player.target_in_da_zone?(@event_id, 3)"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "134-Wind03.ogg",
+                    "tempo": 1.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "idAnimation": 5,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "Fanfare (paquerette).mp3",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "la plus haute",
+            "conditions": [],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "tres rapide"
+        },
+        {
+            "image": "Palourde coffre character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "nom": "ConditionDirection",
+                    "idEventConcerne": 0,
+                    "direction": 3
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroPageCommune": 64,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "texte": "(en) It is a treasure shell !",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "C'est un coffrillage !",
+                    "nom": "Message"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "nom": "RegarderDansUneDirection",
+                            "direction": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 200
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "044-Chest01.ogg",
+                    "tempo": 0.5,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (coffre).mp3",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 1,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 15
+                        },
+                        {
+                            "image": "Palourde coffre character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 0
+                        },
+                        {
+                            "directionFixe": true,
+                            "nom": "RendreDirectionFixe"
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 25
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 133
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (important).ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "idAnimation": 11,
+                    "idEvent": 0,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "Jiyounasu content character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 100
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "idObjet": 1,
+                    "variable": false,
+                    "nom": "AjouterObjet",
+                    "quantite": 1
+                },
+                {
+                    "texte": "(en) You get a crystal of the whale!",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "Vous gagnez un cristal de baleine !",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "(en) It's a magic piece of crystallized salt.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "C'est un superbe morceau de sel magique \\ncristallisé.",
+                    "nom": "Message"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "Jiyounasu character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 8
+                        },
+                        {
+                            "image": "Jiyounasu character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "directionFixe": false,
+                            "nom": "RendreDirectionFixe"
+                        }
+                    ],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "numeroPageCommune": 65,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 44
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "directionInitiale": 3,
+            "image": "Palourde coffre character",
+            "commandes": [
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroPageCommune": 64,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "texte": "(en) It's empty.",
+                    "nom": "Commentaire"
+                },
+                {
+                    "texte": "C'est vide.",
+                    "nom": "Message"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 8
+                },
+                {
+                    "numeroPageCommune": 65,
+                    "nom": "AppelerPageCommune"
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "la plus haute",
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 1,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 44
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "tres rapide"
+        }
+    ],
+    "x": 10,
+    "y": 4,
+    "id": 44,
+    "nom": "Trésor Ensablé (cristal de baleine)"
+}

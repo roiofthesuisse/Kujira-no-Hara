@@ -1,0 +1,634 @@
+{
+    "pages": [
+        {
+            "commandes": [
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "avancement": "CONNUE",
+                    "numero": 34,
+                    "nom": "ModifierAvancementQuete"
+                },
+                {
+                    "numeroVariable": 48,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 0,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nomCommande": "Attendre",
+                        "nom": "AppelerUneCommande",
+                        "nombreDeFrames": 33
+                    }],
+                    "idEventADeplacer": 0,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "FaireDefilerLaMap",
+                    "nombreDeCarreaux": 3,
+                    "direction": 1,
+                    "vitesse": "normale"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 33
+                },
+                {
+                    "idAnimation": 42,
+                    "idEvent": 10,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_temp.faceset = \"thaumaturge noir\""
+                },
+                {
+                    "texte": "Mais vas-tu m'écouter à la fin ?!",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "Le \\c[2]maître\\c[1] m'a dit de te confisquer cet \\ninstrument de malheur !",
+                    "nom": "Message"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "nom": "FaireDefilerLaMap",
+                    "nombreDeCarreaux": 3,
+                    "direction": 3,
+                    "vitesse": "normale"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 33
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_temp.faceset = \"fiolin moqueur\""
+                },
+                {
+                    "texte": "\\WAVE Nian nian nian !",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "\\WAVE Je n'entends rien ! Lalalère !",
+                    "nom": "Message"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "nom": "FaireDefilerLaMap",
+                    "nombreDeCarreaux": 3,
+                    "direction": 0,
+                    "vitesse": "normale"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 33
+                },
+                {
+                    "idAnimation": 42,
+                    "idEvent": 10,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_temp.faceset = \"thaumaturge noir\""
+                },
+                {
+                    "texte": "Tu ne perds rien pour attendre misérable \\npetite vermine !",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "Tu vas goûter à la colère des \\c[2]thaumaturges \\nnoirs\\c[1] !",
+                    "nom": "Message"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "nom": "FaireDefilerLaMap",
+                    "nombreDeCarreaux": 3,
+                    "direction": 2,
+                    "vitesse": "normale"
+                },
+                {
+                    "idAnimation": 2,
+                    "idEvent": 10,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [{
+                        "nom": "RegarderDansUneDirection",
+                        "direction": 2
+                    }],
+                    "idEventADeplacer": 10,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 33
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_temp.faceset = \"thaumaturge noir\""
+                },
+                {
+                    "texte": "Han ! Encore toi !",
+                    "nom": "Message"
+                },
+                {
+                    "texte": "Disparaissez tous !",
+                    "nom": "Message"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "nom": "RendreAnimeALArret",
+                            "animeALArret": false
+                        },
+                        {
+                            "image": "Fiolin character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        }
+                    ],
+                    "idEventADeplacer": 11,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "Thaumaturges Noirs.ogg",
+                    "tempo": 1,
+                    "nom": "JouerMusique"
+                },
+                {
+                    "idAnimation": 7,
+                    "idEvent": 10,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 11
+                },
+                {
+                    "type": "neige",
+                    "intensite": 9,
+                    "nom": "ModifierMeteo"
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 9,
+                    "idEvent": 13,
+                    "nouveauX": 4,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "idAnimation": 7,
+                    "idEvent": 13,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 8,
+                    "idEvent": 14,
+                    "nouveauX": 4,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "idAnimation": 7,
+                    "idEvent": 14,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 10,
+                    "idEvent": 15,
+                    "nouveauX": 20,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "idAnimation": 7,
+                    "idEvent": 15,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 11,
+                    "idEvent": 16,
+                    "nouveauX": 20,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "idAnimation": 7,
+                    "idEvent": 16,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 11
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 8,
+                    "idEvent": 17,
+                    "nouveauX": 10,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "idAnimation": 7,
+                    "idEvent": 17,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 11,
+                    "idEvent": 18,
+                    "nouveauX": 11,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "idAnimation": 7,
+                    "idEvent": 18,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 11
+                },
+                {
+                    "idAnimation": 7,
+                    "idEvent": 10,
+                    "nom": "JouerAnimation"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "nom": "RendreAnimeALArret",
+                            "animeALArret": false
+                        },
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "traversable": true,
+                            "nom": "RendreTraversable"
+                        }
+                    ],
+                    "idEventADeplacer": 10,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 12,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 19,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 20,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "idObjet": 30,
+                    "variable": false,
+                    "nom": "AjouterObjet",
+                    "quantite": 20
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 16
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{"nom": "ArriveeAuContact"}],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 12
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "commandes": [
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "fanfare (combatréussi).mp3",
+                    "tempo": 1,
+                    "nom": "JouerEffetMusical"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "Fiolin theme 1.mp3",
+                    "tempo": 1,
+                    "nom": "JouerMusique"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 3
+                },
+                {
+                    "numeroInterrupteurLocal": 1,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [
+                {
+                    "numeroVariable": 48,
+                    "valeurQuIlEstCenseAvoir": 2,
+                    "inegalite": ">=",
+                    "nom": "Variable"
+                },
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 12
+                }
+            ],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "commandes": [
+                {
+                    "type": "rien",
+                    "intensite": 5,
+                    "nom": "ModifierMeteo"
+                },
+                {
+                    "volume": 0.8,
+                    "nomFichierSonore": "Fiolin theme 1.mp3",
+                    "tempo": 1,
+                    "nom": "JouerMusique"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "Fiolin character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "x": 0,
+                            "y": 2,
+                            "nom": "Sauter"
+                        },
+                        {
+                            "nom": "RendreAnimeALArret",
+                            "animeALArret": false
+                        }
+                    ],
+                    "idEventADeplacer": 11,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 12,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 19,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 20,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "traversable": true,
+                            "nom": "RendreTraversable"
+                        }
+                    ],
+                    "idEventADeplacer": 13,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "traversable": true,
+                            "nom": "RendreTraversable"
+                        }
+                    ],
+                    "idEventADeplacer": 14,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "traversable": true,
+                            "nom": "RendreTraversable"
+                        }
+                    ],
+                    "idEventADeplacer": 15,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "opacite": 0,
+                            "nom": "ModifierOpacite"
+                        },
+                        {
+                            "traversable": true,
+                            "nom": "RendreTraversable"
+                        }
+                    ],
+                    "idEventADeplacer": 16,
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 17,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 18,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 10,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "variable": false,
+                    "nouveauY": 29,
+                    "idEvent": 12,
+                    "nouveauX": 0,
+                    "nom": "TeleporterEvent",
+                    "direction": 0
+                },
+                {
+                    "avancement": "FAITE",
+                    "numero": 34,
+                    "nom": "ModifierAvancementQuete"
+                },
+                {
+                    "nom": "Attendre",
+                    "nombreDeFrames": 1
+                },
+                {
+                    "numeroInterrupteur": 12,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {"nom": "SupprimerEvent"}
+            ],
+            "traversable": false,
+            "animeEnMouvement": true,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 1,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 12
+            }],
+            "directionFixe": false,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        }
+    ],
+    "x": 15,
+    "y": 9,
+    "id": 12,
+    "nom": "Histoire1"
+}

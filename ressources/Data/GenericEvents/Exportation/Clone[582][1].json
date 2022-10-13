@@ -1,43 +1,28 @@
 {
     "pages": [{
         "image": "papillon character",
-        "commandes": [],
+        "commandes": [
+            {
+                "nom": "AppelerUnScript",
+                "script": "$game_map.events[@event_id].offset_x(32*Math.sin(Time.now.to_f / (@event_id%3+2) % (2*Math::PI) ) + 96*Math.cos(Time.now.to_f / (@event_id%6+2) % (2*Math::PI) ))"
+            },
+            {
+                "nom": "AppelerUnScript",
+                "script": "$game_map.events[@event_id].offset_y(32*Math.cos(Time.now.to_f / (@event_id%4+2) % (2*Math::PI) ) + 64*Math.cos(Time.now.to_f / (@event_id%5+2) % (2*Math::PI) ))"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 1
+            }
+        ],
         "traversable": true,
-        "animeEnMouvement": true,
-        "auDessusDeTout": false,
-        "deplacement": {
-            "ignorerLesMouvementsImpossibles": true,
-            "repeterLeDeplacement": true,
-            "mouvements": [
-                {
-                    "nomCommande": "Attendre",
-                    "nom": "AppelerUneCommande",
-                    "nombreDeFrames": 83
-                },
-                {"nom": "PivoterAleatoirement"},
-                {"nom": "PasEnAvant"},
-                {"nom": "PivoterAleatoirement"},
-                {"nom": "PasEnAvant"},
-                {"nom": "PasEnAvant"},
-                {"nom": "PivoterAleatoirement"},
-                {"nom": "PasEnAvant"},
-                {"nom": "PivoterAleatoirement"},
-                {"nom": "PasEnAvant"},
-                {"nom": "PasEnAvant"},
-                {"nom": "PivoterAleatoirement"},
-                {"nom": "PasEnAvant"},
-                {"nom": "PivoterAleatoirement"},
-                {"nom": "PasEnAvant"},
-                {"nom": "PasEnAvant"}
-            ],
-            "attendreLaFinDuDeplacement": false,
-            "nom": "Deplacement"
-        },
-        "frequence": "tres basse",
-        "conditions": [{"nom": "Parler"}],
+        "animeEnMouvement": false,
+        "auDessusDeTout": true,
+        "frequence": "la plus haute",
+        "conditions": [],
         "directionFixe": false,
-        "animeALArret": false,
-        "vitesse": "lente"
+        "animeALArret": true,
+        "vitesse": "tres rapide"
     }],
     "x": 2,
     "y": 2,

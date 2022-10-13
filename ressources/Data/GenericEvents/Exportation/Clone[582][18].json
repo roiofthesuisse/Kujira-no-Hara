@@ -1,419 +1,95 @@
 {
-    "pages": [
-        {
-            "image": "lune character",
-            "commandes": [
-                {
-                    "numero": 0,
-                    "nom": "ConditionDirection",
-                    "idEventConcerne": 0,
-                    "direction": 1
-                },
-                {
-                    "numero": 1,
-                    "nom": "ConditionDirection",
-                    "direction": 0
-                },
-                {
-                    "volume": 1,
-                    "nomFichierSonore": "SWOOSH.wav",
-                    "tempo": 1,
-                    "nom": "JouerEffetSonore"
-                },
-                {
-                    "numero": 1,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "ignorerLesMouvementsImpossibles": false,
-                    "repeterLeDeplacement": false,
-                    "mouvements": [{
-                        "nom": "RegarderDansUneDirection",
-                        "direction": 3
-                    }],
-                    "attendreLaFinDuDeplacement": false,
-                    "nom": "Deplacement"
-                },
-                {
-                    "numero": 0,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "numero": 2,
-                    "nom": "ConditionDirection",
-                    "idEventConcerne": 0,
-                    "direction": 2
-                },
-                {
-                    "numero": 3,
-                    "nom": "ConditionDirection",
+    "pages": [{
+        "image": "lune character",
+        "commandes": [
+            {
+                "numero": 0,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 1
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionDirection",
+                "direction": 0
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "SWOOSH.wav",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "nom": "RegarderDansUneDirection",
                     "direction": 3
-                },
-                {
-                    "volume": 1,
-                    "nomFichierSonore": "SWOOSH.wav",
-                    "tempo": 1,
-                    "nom": "JouerEffetSonore"
-                },
-                {
-                    "numero": 3,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "ignorerLesMouvementsImpossibles": false,
-                    "repeterLeDeplacement": false,
-                    "mouvements": [{
-                        "nom": "RegarderDansUneDirection",
-                        "direction": 0
-                    }],
-                    "attendreLaFinDuDeplacement": false,
-                    "nom": "Deplacement"
-                },
-                {
-                    "numero": 2,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "nom": "Attendre",
-                    "nombreDeFrames": 1
-                }
-            ],
-            "traversable": true,
-            "animeEnMouvement": false,
-            "auDessusDeTout": true,
-            "frequence": "basse",
-            "conditions": [{"nom": "ArriveeAuContact"}],
-            "directionFixe": false,
-            "animeALArret": false,
-            "vitesse": "moderee"
-        },
-        {
-            "image": "lune character",
-            "commandes": [{
-                "numeroInterrupteurLocal": 0,
-                "valeurADonner": true,
-                "nom": "ModifierInterrupteurLocal"
-            }],
-            "traversable": true,
-            "animeEnMouvement": false,
-            "auDessusDeTout": true,
-            "frequence": "la plus haute",
-            "conditions": [{
-                "numeroInterrupteur": 81,
-                "valeurQuIlEstCenseAvoir": true,
-                "nom": "Interrupteur"
-            }],
-            "directionFixe": false,
-            "animeALArret": false,
-            "vitesse": "tres rapide"
-        },
-        {
-            "image": "lune character",
-            "commandes": [
-                {
-                    "texte": "-------------------------------------------------------------------\\nune figure lunaire est constituée de 4 arcs\\non compte donc la contribution de chaque arc\\npour chaque figure",
-                    "nom": "Commentaire"
-                },
-                {
-                    "texte": "------------------------------------------------------------------\\ncontribution de cet arc à la lune précédente\\n------------------------------------------------------------------",
-                    "nom": "Commentaire"
-                },
-                {
-                    "texte": "selon l'orientation de l'arc,\\non contribue à des figures contraires",
-                    "nom": "Commentaire"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_variables[217] = 5 ** ( ($game_map.events[@event_id].x - $game_variables[218])/2 + 5*($game_map.events[@event_id].y - $game_variables[219])/2 )"
-                },
-                {
-                    "numero": 0,
-                    "nom": "ConditionDirection",
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionDirection",
+                "idEventConcerne": 0,
+                "direction": 2
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionDirection",
+                "direction": 3
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "SWOOSH.wav",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionFin"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "nom": "RegarderDansUneDirection",
                     "direction": 0
-                },
-                {
-                    "numeroVariable": 201,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 204,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 206,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 208,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 209,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 211,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 212,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 214,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numero": 0,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "numeroVariable": 202,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 203,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 205,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 207,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 210,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 213,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 216,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 215,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numero": 0,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "texte": "------------------------------------------------------------------\\ncontribution de cet arc à la lune suivante\\n------------------------------------------------------------------",
-                    "nom": "Commentaire"
-                },
-                {
-                    "texte": "attention\\nla figure suivante se trouve de l'autre côté de l'arc",
-                    "nom": "Commentaire"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_variables[217] = 5 ** ( ($game_map.events[@event_id].x - $game_variables[218])/2 + 1 + 5*($game_map.events[@event_id].y - $game_variables[219])/2 )"
-                },
-                {
-                    "numero": 1,
-                    "nom": "ConditionDirection",
-                    "direction": 0
-                },
-                {
-                    "numeroVariable": 202,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 203,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 206,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 208,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 209,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 216,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 215,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 214,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numero": 1,
-                    "nom": "ConditionSinon"
-                },
-                {
-                    "numeroVariable": 201,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 204,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 205,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 207,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 210,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 211,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 212,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numeroVariable": 213,
-                    "operationAFaire": "ajouter",
-                    "valeurADonner": 217,
-                    "nom": "ModifierVariable",
-                    "operationAFaire2": "contenu de la variable"
-                },
-                {
-                    "numero": 1,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "numeroInterrupteurLocal": 0,
-                    "valeurADonner": false,
-                    "nom": "ModifierInterrupteurLocal"
-                },
-                {
-                    "numeroInterrupteur": 81,
-                    "valeur": false,
-                    "nom": "ModifierInterrupteur"
-                }
-            ],
-            "traversable": true,
-            "animeEnMouvement": false,
-            "auDessusDeTout": true,
-            "frequence": "la plus haute",
-            "conditions": [{
-                "valeurQuIlEstCenseAvoir": true,
-                "numeroInterrupteurLocal": 0,
-                "nom": "InterrupteurLocal",
-                "numeroEvent": 18
-            }],
-            "directionFixe": false,
-            "animeALArret": false,
-            "vitesse": "tres rapide"
-        }
-    ],
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "nom": "AppelerUnScript",
+                "script": "Lunes.compter"
+            },
+            {
+                "nom": "Attendre",
+                "nombreDeFrames": 1
+            }
+        ],
+        "traversable": true,
+        "animeEnMouvement": false,
+        "auDessusDeTout": true,
+        "frequence": "basse",
+        "conditions": [{"nom": "ArriveeAuContact"}],
+        "directionFixe": false,
+        "animeALArret": false,
+        "vitesse": "moderee"
+    }],
     "x": 1,
     "y": 4,
     "id": 18,

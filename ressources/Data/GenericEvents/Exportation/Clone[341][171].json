@@ -18,61 +18,101 @@
             "image": "miroir pivotant character",
             "commandes": [
                 {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 1)"
+                },
+                {
+                    "texte": "le miroir a été heurté par une boule de lumière\\nça ne compte pas",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "numeroInterrupteur": 56,
+                    "valeur": false,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 1,
+                    "idArme": 0,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numeroInterrupteur": 56,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 2,
+                    "idArme": 2,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numeroInterrupteur": 56,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 2,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 3,
+                    "idArme": 4,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numeroInterrupteur": 56,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 3,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 4,
+                    "idArme": 5,
+                    "nom": "ConditionArmeEquipee"
+                },
+                {
+                    "numeroInterrupteur": 56,
+                    "valeur": true,
+                    "nom": "ModifierInterrupteur"
+                },
+                {
+                    "numero": 4,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroInterrupteur": 56,
+                    "numero": 5,
+                    "valeurQuIlEstCenseAvoir": false,
+                    "nom": "ConditionInterrupteur"
+                },
+                {
                     "volume": 1,
                     "nomFichierSonore": "clac.ogg",
                     "tempo": 1,
                     "nom": "JouerEffetSonore"
                 },
                 {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_map.events[@event_id].transform(341, 172)"
+                },
+                {
+                    "numero": 5,
+                    "nom": "ConditionFin"
+                },
+                {
                     "numero": 0,
-                    "idArme": 0,
-                    "nom": "ConditionArmeEquipee"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_map.events[@event_id].transform(341, 172)"
-                },
-                {
-                    "numero": 0,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "numero": 1,
-                    "idArme": 2,
-                    "nom": "ConditionArmeEquipee"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_map.events[@event_id].transform(341, 172)"
-                },
-                {
-                    "numero": 1,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "numero": 2,
-                    "idArme": 4,
-                    "nom": "ConditionArmeEquipee"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_map.events[@event_id].transform(341, 172)"
-                },
-                {
-                    "numero": 2,
-                    "nom": "ConditionFin"
-                },
-                {
-                    "numero": 3,
-                    "idArme": 5,
-                    "nom": "ConditionArmeEquipee"
-                },
-                {
-                    "nom": "AppelerUnScript",
-                    "script": "$game_map.events[@event_id].transform(341, 172)"
-                },
-                {
-                    "numero": 3,
                     "nom": "ConditionFin"
                 },
                 {

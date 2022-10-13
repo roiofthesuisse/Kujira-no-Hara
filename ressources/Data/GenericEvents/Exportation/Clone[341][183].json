@@ -1,0 +1,62 @@
+{
+    "pages": [
+        {
+            "directionInitiale": 3,
+            "image": "soleil character",
+            "commandes": [
+                {
+                    "numero": 0,
+                    "nom": "ConditionScript",
+                    "script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)"
+                },
+                {
+                    "volume": 1,
+                    "nomFichierSonore": "cristal.ogg",
+                    "tempo": 1,
+                    "nom": "JouerEffetSonore"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "la plus haute",
+            "conditions": [],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "tres rapide"
+        },
+        {
+            "image": "soleil character",
+            "commandes": [],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "tres haute",
+            "conditions": [
+                {"nom": "Parler"},
+                {
+                    "valeurQuIlEstCenseAvoir": true,
+                    "numeroInterrupteurLocal": 0,
+                    "nom": "InterrupteurLocal",
+                    "numeroEvent": 183
+                }
+            ],
+            "directionFixe": true,
+            "animeALArret": true,
+            "vitesse": "rapide"
+        }
+    ],
+    "x": 19,
+    "y": 6,
+    "id": 183,
+    "nom": "Soleil"
+}

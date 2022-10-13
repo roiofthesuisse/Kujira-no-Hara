@@ -1,0 +1,369 @@
+{
+    "pages": [
+        {
+            "image": "coucou character",
+            "commandes": [
+                {
+                    "numeroVariable": 225,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "!=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "Sound_relative.play(@event_id, \"pendule tic\") "
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        },
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "Sound_relative.play(@event_id, \"pendule tac\") "
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        },
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_variables[225] = Time.new.min"
+                },
+                {
+                    "numeroVariable": 225,
+                    "operationAFaire": "modulo",
+                    "valeurADonner": 15,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "texte": "Toutes les 15 minutes, le coucou sonne",
+                    "nom": "Commentaire"
+                },
+                {
+                    "numeroVariable": 225,
+                    "numero": 1,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "==",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroVariable": 224,
+                    "operationAFaire": "rendre egal a",
+                    "valeurADonner": 4,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": true,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 1,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionSinon"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "Sound_relative.play(@event_id, \"pendule tic\") "
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        },
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "Sound_relative.play(@event_id, \"pendule tac\") "
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        },
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 0,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "$game_variables[225] = Time.new.min"
+                },
+                {
+                    "numeroVariable": 225,
+                    "operationAFaire": "modulo",
+                    "valeurADonner": 15,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        },
+        {
+            "image": "coucou character",
+            "commandes": [
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "Sound_relative.play(@event_id, \"pendule coucou\") "
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 0
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        },
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 1
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "Sound_relative.play(@event_id, \"pendule coucou\") "
+                },
+                {
+                    "ignorerLesMouvementsImpossibles": false,
+                    "repeterLeDeplacement": false,
+                    "mouvements": [
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 2
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        },
+                        {
+                            "image": "coucou character",
+                            "teinte": 0,
+                            "nom": "ModifierApparence",
+                            "direction": 3,
+                            "animation": 3
+                        },
+                        {
+                            "nomCommande": "Attendre",
+                            "nom": "AppelerUneCommande",
+                            "nombreDeFrames": 16
+                        }
+                    ],
+                    "attendreLaFinDuDeplacement": false,
+                    "nom": "Deplacement"
+                },
+                {
+                    "nom": "AppelerUnScript",
+                    "script": "wait_for_event(@event_id)"
+                },
+                {
+                    "numeroVariable": 224,
+                    "numero": 0,
+                    "comparerAUneAutreVariable": false,
+                    "valeurQuIlEstCenseAvoir": 0,
+                    "inegalite": "<=",
+                    "nom": "ConditionVariable"
+                },
+                {
+                    "numeroInterrupteurLocal": 0,
+                    "valeurADonner": false,
+                    "nom": "ModifierInterrupteurLocal"
+                },
+                {
+                    "numero": 0,
+                    "nom": "ConditionFin"
+                },
+                {
+                    "numeroVariable": 224,
+                    "operationAFaire": "retirer",
+                    "valeurADonner": 1,
+                    "nom": "ModifierVariable",
+                    "operationAFaire2": "valeur brute"
+                }
+            ],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "basse",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 40
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "moderee"
+        }
+    ],
+    "x": 2,
+    "y": 6,
+    "id": 40,
+    "nom": "coucou"
+}

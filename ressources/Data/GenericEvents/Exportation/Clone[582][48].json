@@ -1,0 +1,188 @@
+{
+    "pages": [{
+        "image": "bouton character",
+        "commandes": [
+            {
+                "texte": "--------------------------------------------------\\nbouton universel qui peut être activé par n'importe quoi\\n--------------------------------------------------",
+                "nom": "Commentaire"
+            },
+            {
+                "numeroInterrupteur": 56,
+                "valeur": false,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "texte": "heros",
+                "nom": "Commentaire"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionScript",
+                "script": "$game_map.events[@event_id].x == $game_player.x && $game_map.events[@event_id].y == $game_player.y"
+            },
+            {
+                "numeroInterrupteur": 56,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "numero": 0,
+                "nom": "ConditionFin"
+            },
+            {
+                "texte": "ballon",
+                "nom": "Commentaire"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionScript",
+                "script": "$game_map.events[@event_id].event_arround?(\"Ballon\", 0)"
+            },
+            {
+                "numeroInterrupteur": 56,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "numero": 1,
+                "nom": "ConditionFin"
+            },
+            {
+                "texte": "cubes",
+                "nom": "Commentaire"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionScript",
+                "script": "$game_map.events[@event_id].event_arround?(\"Cube (32)\", 0)"
+            },
+            {
+                "numeroInterrupteur": 56,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "numero": 2,
+                "nom": "ConditionFin"
+            },
+            {
+                "texte": "statue",
+                "nom": "Commentaire"
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionScript",
+                "script": "$game_map.events[@event_id].event_arround?(\"Statue poussable-tirable (v4)\", 0)"
+            },
+            {
+                "numeroInterrupteur": 56,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "numero": 3,
+                "nom": "ConditionFin"
+            },
+            {
+                "texte": "Briqueliane",
+                "nom": "Commentaire"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionScript",
+                "script": "$game_map.events[@event_id].event_arround?(\"Briqueliane HP[1] RESET\", 0)"
+            },
+            {
+                "numeroInterrupteur": 56,
+                "valeur": true,
+                "nom": "ModifierInterrupteur"
+            },
+            {
+                "numero": 4,
+                "nom": "ConditionFin"
+            },
+            {
+                "numeroInterrupteur": 56,
+                "numero": 5,
+                "valeurQuIlEstCenseAvoir": false,
+                "nom": "ConditionInterrupteur"
+            },
+            {
+                "numero": 6,
+                "nom": "ConditionDirection",
+                "direction": 0
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "033-Switch02.ogg",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "numero": 6,
+                "nom": "ConditionFin"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "image": "bouton character",
+                    "teinte": 0,
+                    "nom": "ModifierApparence",
+                    "direction": 3,
+                    "animation": 0
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 5,
+                "nom": "ConditionSinon"
+            },
+            {
+                "numero": 7,
+                "nom": "ConditionDirection",
+                "direction": 3
+            },
+            {
+                "volume": 1,
+                "nomFichierSonore": "033-Switch02.ogg",
+                "tempo": 1,
+                "nom": "JouerEffetSonore"
+            },
+            {
+                "numero": 7,
+                "nom": "ConditionFin"
+            },
+            {
+                "ignorerLesMouvementsImpossibles": false,
+                "repeterLeDeplacement": false,
+                "mouvements": [{
+                    "image": "bouton character",
+                    "teinte": 0,
+                    "nom": "ModifierApparence",
+                    "direction": 0,
+                    "animation": 0
+                }],
+                "attendreLaFinDuDeplacement": false,
+                "nom": "Deplacement"
+            },
+            {
+                "numero": 5,
+                "nom": "ConditionFin"
+            }
+        ],
+        "traversable": true,
+        "animeEnMouvement": false,
+        "auDessusDeTout": false,
+        "frequence": "basse",
+        "conditions": [],
+        "directionFixe": false,
+        "animeALArret": false,
+        "vitesse": "moderee"
+    }],
+    "x": 5,
+    "y": 6,
+    "id": 48,
+    "nom": "Bouton"
+}

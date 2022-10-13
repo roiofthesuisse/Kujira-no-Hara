@@ -1,0 +1,41 @@
+{
+    "pages": [
+        {
+            "image": "bloc serrure character",
+            "commandes": [{
+                "numeroPageCommune": 82,
+                "nom": "AppelerPageCommune"
+            }],
+            "traversable": false,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "la plus haute",
+            "conditions": [{"nom": "Parler"}],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "tres rapide"
+        },
+        {
+            "opacite": 0,
+            "directionInitiale": 1,
+            "commandes": [{"nom": "SupprimerEvent"}],
+            "traversable": true,
+            "animeEnMouvement": false,
+            "auDessusDeTout": false,
+            "frequence": "la plus haute",
+            "conditions": [{
+                "valeurQuIlEstCenseAvoir": true,
+                "numeroInterrupteurLocal": 0,
+                "nom": "InterrupteurLocal",
+                "numeroEvent": 175
+            }],
+            "directionFixe": true,
+            "animeALArret": false,
+            "vitesse": "tres rapide"
+        }
+    ],
+    "x": 20,
+    "y": 4,
+    "id": 175,
+    "nom": "Serrure"
+}
