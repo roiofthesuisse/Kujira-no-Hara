@@ -385,6 +385,8 @@ public class PageEvent {
 						//le curseur n'a pas chang�, c'est donc une commande qui prend du temps
 						//la lecture de cette Page sera continu�e a la frame suivante
 						onAvanceDansLesCommandes = false;
+						// une Commande qui prend du temps fait oublier le faceset
+						Message.oublierLeFaceset(commande, this.event);
 					}
 				} else {
 					//on a fini la page
@@ -408,7 +410,7 @@ public class PageEvent {
 		//si la Page figeait les autres Events, elle doit maintenant les liberer
 		if (this.figerLesAutresEvents) {
 			this.event.map.lecteur.stopEvent = false; //on d�sactive le stopEvent si fin de la page
-			this.event.map.lecteur.messagePrecedent = null; //plus besoin d'afficher le Message pr�c�dent dans un Choix
+			this.event.map.lecteur.messagePrecedent = null; // plus besoin d'afficher la question d'un Choix
 		}
 		//si la Page figeait le Heros, elle doit maintenant le liberer
 		if (this.figerLeHeros) {

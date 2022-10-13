@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import main.Commande;
 import main.Main;
+import map.Event;
 import map.LecteurMap;
 import menu.Texte;
 import utilitaire.graphismes.Graphismes;
@@ -28,7 +29,7 @@ public class Message extends Commande implements CommandeEvent {
 	protected static final int MARGE_Y_FACESET = 32;
 	protected static final int INTELIGNE = 24;
 	protected static final int LARGEUR_FACESET = 96;
-	protected static final int ECART_FACESET = 8;
+	protected static final int ECART_FACESET = 12;
 	protected static final String NOM_IMAGE_BOITE_MESSAGE = "parchotexte.png";
 	protected static final String NOM_IMAGE_BOITE_MESSAGE_FACESET = "parchotexte faceset.png";
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage(false);
@@ -108,11 +109,18 @@ public class Message extends Commande implements CommandeEvent {
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
+
+		// TODO si la Commande suivante est le Choix/EntrerUnNombre dont ce Message est
+		// la question, et qu'il y a la place dans la Commande suivante pour afficher la
+		// question, passer tout de suite à la COmmande suivante
+
 		final LecteurMap lecteur = this.page.event.map.lecteur;
 		lecteur.normaliserApparenceDesInterlocuteursAvantMessage(this.page.event);
 		// si le Message a afficher est diff�rent du Message affiche, on change !
 		if (ilFautReactualiserLImageDuMessage(lecteur)) {
-			lecteur.messagePrecedent = lecteur.messageActuel;
+			if (lecteur.messageActuel != null) {
+				lecteur.messagePrecedent = lecteur.messageActuel;
+			}
 			lecteur.messageActuel = this;
 			this.image = produireImageDuMessage();
 		}
@@ -204,6 +212,15 @@ public class Message extends Commande implements CommandeEvent {
 	}
 
 	/**
+	 * Position x ou il faut dessiner le texte, a l'interieur de l'image du Message
+	 * 
+	 * @return marge x
+	 */
+	protected final int xTexte() {
+		return (faceset == null) ? MARGE_X_TEXTE : MARGE_X_TEXTE_FACESET + LARGEUR_FACESET + ECART_FACESET;
+	}
+
+	/**
 	 * Ce n'est pas un Choix, juste un Message Normal, donc la Commande suivante est
 	 * juste apres. Methode derivee par la classe Choix.
 	 * 
@@ -277,6 +294,21 @@ public class Message extends Commande implements CommandeEvent {
 			return IMAGE_BOITE_MESSAGE_VIDE;
 		}
 		return (faceset == null) ? IMAGE_BOITE_MESSAGE_PLEINE : IMAGE_BOITE_MESSAGE_PLEINE_FACESET;
+	}
+
+	/**
+	 * Une Commande qui prend du temps a s'executer fait oublier le faceset
+	 * 
+	 * @param commande qui prend du temps
+	 * @param event    qui fige les autres (par un Message)
+	 */
+	public static void oublierLeFaceset(Commande commande, Event event) {
+		if (!(commande instanceof Message || commande instanceof AppelerUnScript)
+				&& event.map.lecteur.eventQuiALanceStopEvent == event) {
+			LOG.debug("L'Event " + event.nom + " a efface le faceset avec la Commande "
+					+ commande.getClass().getSimpleName());
+			Message.faceset = null;
+		}
 	}
 
 }

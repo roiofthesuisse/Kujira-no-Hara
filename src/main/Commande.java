@@ -210,10 +210,6 @@ public abstract class Commande {
 		try {
 			Class<?> classeCommande;
 			final String nomClasseCommande = commandeJson.getString("nom");
-			if ("Commentaire".equals(nomClasseCommande)) {
-				LOG.info("Commentaire : " + commandeJson.getString("texte"));
-				return null;
-			}
 			try {
 				// la Commande est juste une Commande du package "commandes"
 				classeCommande = Class.forName("commandes." + nomClasseCommande);

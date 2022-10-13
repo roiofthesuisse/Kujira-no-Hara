@@ -35,7 +35,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	private static final String TRANSFORMER = "\\$game_map\\.events\\[" + POSITIF + "\\]\\.transform\\(" + POSITIF + ","
 			+ POSITIF + "\\)";
 	
-	private final String script;
+	public final String script;
 	private ArrayList<Commande> commandes;
 	private int curseur;
 	public boolean interpretationImplementee;

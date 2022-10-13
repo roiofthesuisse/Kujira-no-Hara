@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
@@ -72,11 +74,13 @@ public class Choix extends Message {
 			BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(Message.imageBoiteMessage());
 
 			// Texte de base
-			if (this.texte == null || this.texte.size() == 0 || this.texte.get(0) == null
-					|| "".equals(this.texte.get(0))) {
+			if (CollectionUtils.isEmpty(this.texte) || StringUtils.isEmpty(this.texte.get(0))) {
 				if (this.page != null && this.page.event != null
 						&& this.page.event.map.lecteur.messagePrecedent != null) {
+					// FIXME la question du Choix n'est pas trouvee ! le messagePrecedent est null
 					this.texte = this.page.event.map.lecteur.messagePrecedent.texte;
+				} else {
+					LOG.warn("Impossible de trouver la question du choix !");
 				}
 			}
 			final Texte texteQuestion = new Texte(this.texte);
@@ -98,8 +102,22 @@ public class Choix extends Message {
 				final ArrayList<String> alternativeString = alternatives.get(i);
 				alternativesTexte.add(new Texte(alternativeString));
 				imagesAlternatives.add(alternativesTexte.get(i).getImage());
-				imageDesAlternatives = Graphismes.superposerImages(imageDesAlternatives, imagesAlternatives.get(i),
-						MARGE_X_TEXTE, MARGE_Y_TEXTE + imageQuestion.getHeight() + i * hauteurLigne);
+				if (faceset == null) {
+					// pas de faceset
+					imageDesAlternatives = Graphismes.superposerImages(imageDesAlternatives, imagesAlternatives.get(i),
+							xTexte(), MARGE_Y_TEXTE + imageQuestion.getHeight() + i * hauteurLigne);
+				} else {
+					// il y a un faceset
+					imageDesAlternatives = Graphismes.superposerImages(imageDesAlternatives, imagesAlternatives.get(i),
+							xTexte(),
+							MARGE_Y_TEXTE + imageQuestion.getHeight() + i * hauteurLigne);
+				}
+			}
+
+			// faceset
+			if (faceset != null) {
+				imageDesAlternatives = Graphismes.superposerImages(imageDesAlternatives, faceset, MARGE_X_TEXTE_FACESET,
+						MARGE_Y_FACESET);
 			}
 
 			// Differentes selections possibles
@@ -111,9 +129,9 @@ public class Choix extends Message {
 						.creerImageDeSelection(couleursDeSelectionAdaptees[0], couleursDeSelectionAdaptees[1]);
 				BufferedImage selectionPossible = Graphismes.clonerUneImage(Message.imageBoiteMessage());
 				selectionPossible = Graphismes.superposerImages(selectionPossible, surlignage,
-						MARGE_X_TEXTE - Texte.CONTOUR,
+						xTexte() - Texte.CONTOUR,
 						MARGE_Y_TEXTE + imageQuestion.getHeight() + i * hauteurLigne - Texte.CONTOUR);
-				selectionPossible = Graphismes.superposerImages(selectionPossible, imageQuestion, MARGE_X_TEXTE,
+				selectionPossible = Graphismes.superposerImages(selectionPossible, imageQuestion, xTexte(),
 						MARGE_Y_TEXTE);
 				selectionPossible = Graphismes.superposerImages(selectionPossible, imageDesAlternatives, // toutes les
 																											// alternatives
