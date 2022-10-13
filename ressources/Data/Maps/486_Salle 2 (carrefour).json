@@ -504,12 +504,16 @@
 				"idAnimation": 42
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Ça fait déjà un moment que \\c[2]ma soeur\\c[0] s'est \\naventurée dans ce donjon..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Je commence à m'inquiéter..."
+				"texte": "\\SHAKE Je... je ne dois pas m'inquiéter, n'est-ce pas ?"
 			},
 			{
 				"nom": "Attendre",
@@ -848,18 +852,9 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "maillet trouvé"
-			},
-			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 52,
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Commentaire",
@@ -880,11 +875,20 @@
 			},
 			{
 				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionArmePossedee",
@@ -894,32 +898,6 @@
 			{
 				"nom": "Commentaire",
 				"texte": "maillet trouvé"
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 52,
-				"numero": 3
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "donjon terminé"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 31,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
 			},
 			{
 				"nom": "ConditionSinon",
@@ -948,7 +926,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "SupprimerEvent"

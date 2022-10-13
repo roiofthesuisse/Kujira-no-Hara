@@ -24,11 +24,11 @@
 	[0002,0002,0002,0002,0002,0002,0002,0036,0037,0005,0004,0005,0004,0005,0016,0017,0018,0005,0004,0004,0038,0039,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0002,0044,0045,0013,0012,0013,0012,0013,0024,0025,0026,0013,0012,0012,0046,0047,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0002,0020,0021,0000,0008,0000,0001,0000,0001,0000,0001,0000,-004,0000,0006,0007,0002,0002,0002,0002,0002,0002,0002,0002],
-	[0002,0002,0002,0002,0002,0002,0002,0028,0029,0008,0002,0002,-004,-004,-004,-004,0000,-004,-004,0008,0014,0015,0002,0002,0002,0002,0002,0002,0002,0002],
+	[0002,0002,0002,0002,0002,0002,0002,0028,0029,0008,0099,0099,-004,-004,-004,-004,0000,-004,-004,0008,0014,0015,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0002,0020,0021,0000,0002,0002,-004,-006,-006,-006,-006,-006,-004,0000,0006,0007,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0002,0028,0029,0008,0002,0002,-004,-004,-006,-004,-004,-004,-004,0008,0014,0015,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0002,0020,0021,0000,0008,0000,-004,-006,-006,-006,-006,-006,-004,0000,0006,0007,0002,0002,0002,0002,0002,0002,0002,0002],
-	[0002,0002,0002,0002,0002,0002,0002,0028,0029,0008,0002,0002,-004,-004,-004,-004,-006,-004,-004,0008,0014,0015,0002,0002,0002,0002,0002,0002,0002,0002],
+	[0002,0002,0002,0002,0002,0002,0002,0028,0029,0008,0099,0099,-004,-004,-004,-004,-006,-004,-004,0008,0014,0015,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0002,0020,0021,0000,0002,0002,-004,-006,-006,-006,-006,-006,-004,0000,0006,0007,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0002,0028,0029,0008,0000,0008,-004,-004,-006,-004,-004,-004,-004,0008,0014,0015,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0002,0020,0021,0000,0010,0000,-004,-006,-006,-006,-006,-006,-004,0000,0006,0007,0002,0002,0002,0002,0002,0002,0002,0002],
@@ -145,6 +145,12 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "Clone[341][0105]",
+		"x": 21,
+		"y": 4
+	},
+	{
 		"id": 6,
 		"nom": "EV006",
 		"x": 15,
@@ -179,18 +185,6 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][0105]",
-		"x": 21,
-		"y": 4
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][055]",
-		"x": 15,
-		"y": 11
-	},
-	{
 		"id": 12,
 		"nom": "Blocage anti-évènement",
 		"x": 16,
@@ -215,6 +209,12 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][055]",
+		"x": 15,
+		"y": 11
+	},
+	{
 		"id": 7,
 		"nom": "Clone[021][002]",
 		"x": 9,
@@ -225,12 +225,6 @@
 		"nom": "Clone[341][055]",
 		"x": 14,
 		"y": 13
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][0105]",
-		"x": 20,
-		"y": 4
 	},
 	{
 		"id": 19,
@@ -273,10 +267,198 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "Clone[341][0105]",
+		"x": 20,
+		"y": 4
+	},
+	{
 		"id": 3,
 		"nom": "Clone[341][055]",
 		"x": 15,
 		"y": 15
+	},
+	{
+		"id": 20,
+		"nom": "Réglages initiaux",
+		"x": 25,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 5,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 18,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 10,
+				"variable": false,
+				"nouveauX": 13,
+				"nouveauY": 19,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 9,
@@ -680,194 +862,6 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Réglages initiaux",
-		"x": 25,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 5,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 16,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 16,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 0
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 1
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 5
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeur": true
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 0,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 2,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 3,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 4,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 30,
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 31,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 5,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 18,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 10,
-				"variable": false,
-				"nouveauX": 13,
-				"nouveauY": 19,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][055]",
-		"x": 14,
-		"y": 17
-	},
-	{
 		"id": 15,
 		"nom": "Blocage anti-évènement",
 		"x": 16,
@@ -890,6 +884,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][055]",
+		"x": 14,
+		"y": 17
 	},
 	{
 		"id": 10,

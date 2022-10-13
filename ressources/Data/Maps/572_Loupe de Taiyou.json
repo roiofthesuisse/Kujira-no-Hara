@@ -615,11 +615,15 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "animation de scintillement"
+				"texte": "courte attente pour que les torches aient le temps\\nde détecter la boule de lumière avant sa disparition"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "animation de scintillement"
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -709,6 +713,10 @@
 				"numero": 2
 			},
 			{
+				"nom": "Etiquette",
+				"nomEtiquette": "flamme"
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "flamme"
 			},
@@ -746,6 +754,10 @@
 				"nom": "ConditionArmeEquipee",
 				"idArme": 0,
 				"numero": 4
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "herbe coupee"
 			},
 			{
 				"nom": "Commentaire",
@@ -791,21 +803,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "herbe coupee"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.animations.push([39, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "herbe coupee"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -821,21 +820,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "herbe coupee"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.animations.push([39, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "herbe coupee"
 			},
 			{
 				"nom": "ConditionFin",
@@ -852,6 +838,19 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 0
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"Torche allumée HP[1]\",1)",
+				"numero": 8
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "flamme"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
 			}
 			],
 			"image": "trefle fleuri character",
@@ -1142,6 +1141,14 @@
 			{
 				"nom": "Commentaire",
 				"texte": "obstacle quelconque"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "courte attente pour que les torches aient le temps\\nde détecter la boule de lumière avant sa disparition"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "Commentaire",
@@ -1451,6 +1458,14 @@
 			},
 			{
 				"nom": "Commentaire",
+				"texte": "courte attente pour que les torches aient le temps\\nde détecter la boule de lumière avant sa disparition"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Commentaire",
 				"texte": "animation de scintillement"
 			},
 			{
@@ -1740,7 +1755,7 @@
 				"numero": 0
 			}
 			],
-			"image": "cube character",
+			"image": "cube glissant character",
 			"teinte": "120",
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1861,7 +1876,7 @@
 				"valeurADonner": true
 			}
 			],
-			"image": "cube character",
+			"image": "cube glissant character",
 			"teinte": "120",
 			"vitesse": "rapide",
 			"frequence": "tres haute",
@@ -2064,7 +2079,7 @@
 				"numero": 1
 			}
 			],
-			"image": "cube character",
+			"image": "cube glissant character",
 			"teinte": "120",
 			"vitesse": "rapide",
 			"frequence": "tres haute",
@@ -2257,6 +2272,14 @@
 			{
 				"nom": "Commentaire",
 				"texte": "obstacle quelconque"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "courte attente pour que les torches aient le temps\\nde détecter la boule de lumière avant sa disparition"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "Commentaire",

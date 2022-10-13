@@ -1,10 +1,10 @@
 {
 	"nom": "Salle 26 (MiniBoss Nenuphar)",
-	"tileset": "Sanctuaire de Ningyou",
+	"tileset": "Sanctuaire de Ningyo",
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Miniboss 4.mid",
+		"nomFichierSonore": "Miniboss 4.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -25,11 +25,11 @@
 	[0002,0002,0002,0002,0002,0002,0020,0021,0020,0021,0010,0010,0009,0000,0001,0000,0008,0009,0000,0010,0010,0006,0007,0006,0007,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0028,0029,0028,0029,0000,0009,0008,0008,0000,-008,0009,0008,0008,0000,0000,0014,0015,0014,0015,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0020,0021,0020,0021,0001,0000,-008,0008,0008,0001,0000,0000,-008,0008,0001,0006,0007,0006,0007,0002,0002,0002,0002,0002],
-	[0002,0002,0002,0002,0002,0002,0028,0029,0028,0029,0008,0000,0009,0000,0009,0008,0000,0009,0000,0009,0008,0014,0015,0014,0015,0002,0002,0002,0002,0002],
-	[0002,0002,0002,0002,0002,0002,0020,0021,0048,0049,0009,0001,0001,0000,0009,0000,0008,0001,0000,0008,0009,0050,0051,0006,0007,0002,0002,0002,0002,0002],
+	[0002,0002,0002,0002,0002,0002,0028,0029,0028,0029,0008,0000,0009,0000,-008,0008,-008,0009,0000,0009,0008,0014,0015,0014,0015,0002,0002,0002,0002,0002],
+	[0002,0002,0002,0002,0002,0002,0020,0021,0048,0049,0009,-008,0001,0000,0009,0000,0008,0001,0000,-008,0009,0050,0051,0006,0007,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0028,0029,0056,0057,0000,0008,0008,0008,0000,0008,0009,0008,0008,0001,0000,0058,0059,0014,0015,0002,0002,0002,0002,0002],
-	[0002,0002,0002,0002,0002,0002,0020,0021,0064,0065,0008,0000,0009,0000,0001,0000,0008,0009,0000,0009,0008,0066,0067,0006,0007,0002,0002,0002,0002,0002],
-	[0002,0002,0002,0002,0002,0002,0028,0029,0028,0029,0000,0009,0008,0008,0000,0000,0009,0008,0008,0000,0000,0014,0015,0014,0015,0002,0002,0002,0002,0002],
+	[0002,0002,0002,0002,0002,0002,0020,0021,0064,0065,0008,-008,0009,0000,0001,0000,0008,0009,0000,-008,0008,0066,0067,0006,0007,0002,0002,0002,0002,0002],
+	[0002,0002,0002,0002,0002,0002,0028,0029,0028,0029,0000,0009,0008,0008,-008,0000,-008,0008,0008,0000,0000,0014,0015,0014,0015,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0020,0021,0020,0021,0001,0000,-008,0008,0008,0001,0000,0000,-008,0008,0001,0006,0007,0006,0007,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0028,0029,0028,0029,0008,0000,0009,0000,0009,-008,0000,0009,0000,0009,0008,0014,0015,0014,0015,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0002,0020,0021,0052,0053,0022,0022,0023,0022,0023,0022,0023,0023,0023,0022,0022,0054,0055,0006,0007,0002,0002,0002,0002,0002],
@@ -564,6 +564,17 @@
 				]
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
 				"volume": 1.00,
@@ -608,6 +619,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -711,7 +726,7 @@
 			"commandes": [
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Miniboss 4.mid",
+				"nomFichierSonore": "Miniboss 4.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -831,8 +846,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -875,8 +890,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionScript",
@@ -892,16 +907,8 @@
 				"numero": 2
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -928,49 +935,72 @@
 			"commandes": [
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Miniboss 4.mid",
+				"nomFichierSonore": "Miniboss 4.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
-				"nom": "ConditionScript",
-				"script": "$game_player.target_in_da_zone?(@event_id, 5)",
+				"nom": "ConditionTouche",
+				"touche": "ACTION",
 				"numero": 0
 			},
 			{
 				"nom": "ConditionScript",
-				"script": "$game_player.character_name == \"Jiyounasu AttaqueEpee character\" || $game_player.character_name == \"Jiyounasu AttaqueTorche character\"",
+				"script": "$game_player.target_in_da_zone?(@event_id, 0)",
 				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 0,
+				"numero": 2
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 1,
+				"numero": 3
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 4
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 4
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 16,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 2
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
+				"numero": 5
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -978,8 +1008,8 @@
 				"valeur": false
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -1027,23 +1057,19 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 5
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 2
+				"numero": 5
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
+				"nom": "ConditionFin",
+				"numero": 4
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -1055,7 +1081,7 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -1281,8 +1307,8 @@
 			"commandes": [
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Donjon 2.mp3",
-				"volume": 0.80,
+				"nomFichierSonore": "Donjon 2.ogg",
+				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
@@ -1332,8 +1358,8 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Donjon 2.mp3",
-				"volume": 0.80,
+				"nomFichierSonore": "Donjon 2.ogg",
+				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
@@ -1418,6 +1444,17 @@
 				]
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
 				"volume": 1.00,
@@ -1462,6 +1499,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1565,7 +1606,7 @@
 			"commandes": [
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Miniboss 4.mid",
+				"nomFichierSonore": "Miniboss 4.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1575,7 +1616,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Miniboss 4.mid",
+				"nomFichierSonore": "Miniboss 4.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1699,8 +1740,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -1743,8 +1784,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -1819,8 +1860,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -1864,8 +1905,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -1939,8 +1980,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -1983,8 +2024,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionFin",
@@ -2078,8 +2119,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -2122,8 +2163,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -2198,8 +2239,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -2243,8 +2284,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -2318,8 +2359,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -2362,8 +2403,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionFin",
@@ -2469,8 +2510,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -2513,8 +2554,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -2589,8 +2630,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -2634,8 +2675,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -2709,8 +2750,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -2753,8 +2794,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionFin",
@@ -2848,8 +2889,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -2892,8 +2933,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -2968,8 +3009,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -3013,8 +3054,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -3088,8 +3129,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -3132,8 +3173,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ConditionFin",
@@ -3167,20 +3208,15 @@
 		{
 			"conditions": [
 			{
+				"nom": "Parler"
+			},
+			{
 				"nom": "Interrupteur",
 				"numeroInterrupteur": 3,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -3633,7 +3669,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 30
+				"valeurQuIlEstCenseAvoir": 15
 			}
 			],
 			"commandes": [
@@ -3929,6 +3965,71 @@
 		]
 	},
 	{
+		"id": 20,
+		"nom": "anti-bug transparent",
+		"x": 29,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 21,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "terrain"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 21,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 4,
 		"nom": "Goutte",
 		"x": 29,
@@ -3963,6 +4064,17 @@
 					"nombreDeFrames": 16
 				}
 				]
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -4009,6 +4121,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -4096,6 +4212,46 @@
 		"y": 8
 	},
 	{
+		"id": 21,
+		"nom": "blessé",
+		"x": 29,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 66
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 10,
 		"nom": "EV010",
 		"x": 25,
@@ -4160,16 +4316,8 @@
 				"nombreDeFrames": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -4206,24 +4354,6 @@
 				"intensite": 8,
 				"vitesse": 6,
 				"nombreDeFrames": 33
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
 			},
 			{
 				"nom": "Deplacement",
@@ -4285,8 +4415,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "Deplacement",
@@ -4329,8 +4459,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ModifierInterrupteur",

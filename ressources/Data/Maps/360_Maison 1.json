@@ -106,6 +106,10 @@
 				"numeroPageCommune": 76
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri jaune\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
 			},
@@ -161,67 +165,6 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 76
-			},
-			{
-				"nom": "Message",
-				"texte": "Saluzalu !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Bienvenue au village des Colibris !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "colibri jaune character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": true
 		}
 		]
 	},
@@ -250,6 +193,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[582][32]",
+		"x": 7,
+		"y": 7
 	},
 	{
 		"id": 8,

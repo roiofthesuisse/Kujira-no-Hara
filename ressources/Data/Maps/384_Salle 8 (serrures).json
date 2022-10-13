@@ -119,6 +119,227 @@
 		]
 	},
 	{
+		"id": 11,
+		"nom": "cinematique",
+		"x": 25,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Du Haut de la Science.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AttendreLaFinDesDeplacements",
+				"idEvent": -1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Le sanctuaire précédent était tout simple, \\nmais celui-ci, c'est vraiment le bazar !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poincare\""
+			},
+			{
+				"nom": "Message",
+				"texte": "L'architecte de ce sanctuaire n'est autre que \\n\\c[2]Steeven Blowfinster MacTweepness Smith\\c[1],\\nça n'est pas un sanctuaire ordinaire."
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais tu sais \\c[2]Rebeca\\c[1], nous-mêmes sommes \\ndes pointures, donc cela ne devrait pas \\nnous poser trop de soucis."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je plains surtout les malheureux dont le QI \\nest inférieur à 130 et qui se retrouvent ici."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ceux-là sont foutus."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si on peut récupérer quelques inventions \\nde \\c[2]Kaze\\c[1] l'érudit, on aura fait le plein \\nde matériel électronique pour l'année."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum gonfle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Et ça ne pose pas de problème de piller \\nles sanctuaires ?"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum eclate.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Ils ne sont pas censés servir à une prophétie \\nou quoi ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poincare\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Tout ce que je sais, c'est que les habitants \\nde Kujira seront super contents \\nsi on leur fabrique des réfrigérateurs."
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 60
+			},
+			{
+				"nom": "Message",
+				"texte": "On va essayer de ne pas trop détraquer \\nle sanctuaire et ça devrait être bon."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Donjon 3.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 11,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 9,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "Clone[341][055]",
 		"x": 17,
@@ -239,6 +460,32 @@
 		"y": 10
 	},
 	{
+		"id": 9,
+		"nom": "astrophilius",
+		"x": 23,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "poincare",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 4,
 		"nom": "EV004",
 		"x": 10,
@@ -259,6 +506,32 @@
 				"yDebutHeros": 18
 			}
 			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "rebeca",
+		"x": 25,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "rebeca character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,

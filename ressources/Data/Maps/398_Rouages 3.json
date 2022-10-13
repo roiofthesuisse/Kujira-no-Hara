@@ -313,6 +313,11 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 131,
+				"valeur": true
+			},
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 50
 			},
@@ -604,6 +609,57 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "tube",
+		"x": 10,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 3,
+			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 131,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 3,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 3,
 		"nom": "Pancarte",
 		"x": 10,
@@ -628,20 +684,20 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Do not hesitate to ring the return bell\\nto come back to the entrance of the dungeon."
+			},
+			{
 				"nom": "Message",
 				"texte": "N'hésitez pas à sonner la cloche de retour \\npour revenir au début du donjon."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -655,6 +711,57 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "tube",
+		"x": 10,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 2,
+			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 131,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]

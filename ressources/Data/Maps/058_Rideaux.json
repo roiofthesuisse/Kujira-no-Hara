@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Contrées Sud.mid",
+		"nomFichierSonore": "Contrées Sud.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -1161,7 +1161,7 @@
 		"id": 34,
 		"nom": "EV034",
 		"x": 0,
-		"y": 19,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -1563,7 +1563,7 @@
 		"id": 35,
 		"nom": "EV035",
 		"x": 0,
-		"y": 20,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
@@ -1940,12 +1940,6 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "Clone[341][030]",
-		"x": 2,
-		"y": 19
-	},
-	{
 		"id": 19,
 		"nom": "Cordon5",
 		"x": 19,
@@ -2186,7 +2180,7 @@
 		"id": 25,
 		"nom": "EV025",
 		"x": 0,
-		"y": 17,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
@@ -2372,10 +2366,137 @@
 		]
 	},
 	{
-		"id": 31,
-		"nom": "Clone[341][030]",
+		"id": 36,
+		"nom": "Annonce du Lieu",
 		"x": 2,
-		"y": 20
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 8,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AfficherImage",
+				"numero": 9,
+				"nomImage": "AnnonceLieu GrandesGrottes",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 0,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "DeplacerImage",
+				"numero": 9,
+				"nombreDeFrames": 16,
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 255,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 83
+			},
+			{
+				"nom": "DeplacerImage",
+				"numero": 9,
+				"nombreDeFrames": 16,
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 0,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 20,
@@ -2618,7 +2739,7 @@
 		"id": 26,
 		"nom": "EV026",
 		"x": 0,
-		"y": 18,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -3248,10 +3369,6 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 0,
 				"ignorerLesMouvementsImpossibles": false,
@@ -3266,22 +3383,14 @@
 					"teinte": 0
 				},
 				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
 					"nom": "RendreDirectionFixe",
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Commentaire",
@@ -3349,8 +3458,21 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "déséquipper l'arme du donjon"
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
+				"numero": 4
+			},
+			{
 				"nom": "EquiperArme",
-				"idArme": 2
+				"idArme": -1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
 			},
 			{
 				"nom": "RetirerArme",
@@ -3359,11 +3481,11 @@
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 92,
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "AjouterObjet",
@@ -3373,7 +3495,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "Commentaire",
@@ -3407,15 +3529,6 @@
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",

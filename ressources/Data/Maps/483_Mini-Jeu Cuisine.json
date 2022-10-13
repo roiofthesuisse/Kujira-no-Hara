@@ -96,6 +96,32 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "blocage",
+		"x": 15,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 2,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "boeuf",
 		"x": 15,
@@ -119,6 +145,11 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 2,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": true
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -206,6 +237,11 @@
 				]
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": false
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": false
@@ -221,32 +257,6 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "blocage",
-		"x": 15,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 2,
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	},
@@ -449,6 +459,16 @@
 				"numero": 7
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 9,
 				"operationAFaire": "rendre egal a",
@@ -569,6 +589,36 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "attendre que l'ingrédient ait sauté pour quitter la map\\nsinon lors de la prochaine partie, il finira son saut"
+			},
+			{
+				"nom": "Boucle",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "BoucleFin",
+				"numero": 0
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 480,
@@ -587,6 +637,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][004]",
+		"x": 13,
+		"y": 9
 	},
 	{
 		"id": 17,
@@ -615,10 +671,10 @@
 		]
 	},
 	{
-		"id": 6,
+		"id": 1,
 		"nom": "Clone[341][004]",
-		"x": 13,
-		"y": 9
+		"x": 26,
+		"y": 15
 	},
 	{
 		"id": 12,
@@ -662,10 +718,30 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 26,
-		"y": 15
+		"id": 18,
+		"nom": "blocage",
+		"x": 17,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 2,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 7,
@@ -691,6 +767,11 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 3,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": true
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -778,6 +859,11 @@
 				]
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": false
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": false
@@ -797,30 +883,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "blocage",
-		"x": 17,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 2,
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 24,
+		"y": 15
 	},
 	{
 		"id": 13,
@@ -920,12 +986,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 24,
-		"y": 15
-	},
-	{
 		"id": 8,
 		"nom": "tablette",
 		"x": 14,
@@ -949,6 +1009,11 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": true
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -1036,6 +1101,11 @@
 				]
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": false
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": false
@@ -1058,6 +1128,32 @@
 		"id": 3,
 		"nom": "blocage",
 		"x": 17,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 2,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "blocage",
+		"x": 16,
 		"y": 9,
 		"pages": [
 		{
@@ -1104,6 +1200,11 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 4,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": true
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -1191,6 +1292,11 @@
 				]
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": false
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": false
@@ -1206,32 +1312,6 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "blocage",
-		"x": 16,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 2,
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1285,6 +1365,11 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 5,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": true
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -1370,6 +1455,11 @@
 					"opacite": 255
 				}
 				]
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 132,
+				"valeur": false
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",

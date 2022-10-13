@@ -511,21 +511,37 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
+				"nomFichierSonore": "Viking1 femme.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That van provides us with horned helmets."
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est la camionnette où on vient chercher \\nnos casques à cornes."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Vikings had actually no horned helmet before."
+			},
+			{
 				"nom": "Message",
 				"texte": "Les vikings n'avaient pas de casques à cornes\\navant."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) When we discovered that van, we fell in love\\nand we served ourselves."
+			},
+			{
 				"nom": "Message",
-				"texte": "Lais lorsqu'on a découvert cette camionnette,\\non est tombés sous le charme et on s'est servis."
+				"texte": "Mais lorsqu'on a découvert cette camionnette,\\non est tombés sous le charme et on s'est servis."
 			},
 			{
 				"nom": "Attendre",
@@ -537,7 +553,7 @@
 				"valeur": false
 			}
 			],
-			"image": "viking petit character",
+			"image": "viking femme petit character",
 			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -689,6 +705,154 @@
 		]
 	},
 	{
+		"id": 25,
+		"nom": "Jizo",
+		"x": 19,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (jizo1).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est une statue jizo."
+			},
+			{
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 4,
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous lisez ses pensées grâce à la pierre du jizo."
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (jizo2).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Pour trouver ce qu'il veut, le sage sait \\nquoi faire :\\n1 pas vers la droite, 3 pas vers le haut,\\net il souffle vers la gauche !\""
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "Elle a l'air pensive..."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 50
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			"image": "jizo character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "Clone[341][004]",
 		"x": 16,
@@ -763,6 +927,12 @@
 		]
 	},
 	{
+		"id": 26,
+		"nom": "Clone[582][44]",
+		"x": 19,
+		"y": 24
+	},
+	{
 		"id": 10,
 		"nom": "Clone[341][004]",
 		"x": 17,
@@ -793,8 +963,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) /\\ Red viking village\\n/\\ \\c[2]Doctor Wuerrenz\\c[1]'s laboratory\\n\\/ Vast caves"
+			},
+			{
 				"nom": "Message",
-				"texte": "/\\ Contrée viking rouge\\n/\\ Laboratoire du \\c[02]professeur Wuerrenz\\c[01]\\n\\/ Grandes grottes"
+				"texte": "/\\ Village viking rouge\\n/\\ Laboratoire du \\c[2]professeur Wuerrenz\\c[1]\\n\\/ Grandes grottes"
 			},
 			{
 				"nom": "Attendre",

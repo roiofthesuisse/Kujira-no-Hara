@@ -20,7 +20,7 @@
 	[0052,0053,0032,0033,0034,0054,0055,0052,0053,0023,0022,0023,0022,0023,0022,0023,0054,0055,0000,0028,0029],
 	[0060,0061,0040,0041,0042,0062,0063,0060,0061,0031,0030,0031,0030,0031,0030,0031,0062,0063,0000,0020,0021],
 	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0144,0145],
-	[-004,-004,-004,0000,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,0152,0153],
+	[-004,-004,-004,0000,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,0000,-004,-004,-004,-004,0152,0153],
 	[0000,0000,0000,0000,0000,0000,0000,0000,0150,0142,0135,0135,0000,0000,0000,0010,0010,0010,0000,0000,0000],
 	[0036,0037,0016,0017,0018,0004,0005,0004,0005,0004,0005,0004,0038,0039,0000,0010,0010,0010,0000,0000,0000],
 	[0044,0045,0024,0025,0026,0012,0013,0012,0013,0012,0013,0012,0046,0047,0000,0010,0010,0010,0000,0000,0000],
@@ -205,6 +205,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 44,
+		"nom": "Clone[341][181]",
+		"x": 14,
+		"y": 9
 	},
 	{
 		"id": 33,
@@ -624,6 +630,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 45,
+		"nom": "Clone[341][181]",
+		"x": 15,
+		"y": 10
 	},
 	{
 		"id": 34,
@@ -1395,6 +1407,10 @@
 				"idEvent": -1
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est bon \\c[2]Fiolin\\c[1], je me suis changée !"
 			},
@@ -1463,8 +1479,12 @@
 				"idAnimation": 42
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
 				"nom": "Message",
-				"texte": "C'est trop dangereux, \\c[2]Poésie\\c[1] ! N'y va pas !"
+				"texte": "\\SHAKE C'est trop dangereux, \\c[2]Poésie\\c[1] ! N'y va pas !"
 			},
 			{
 				"nom": "Attendre",
@@ -1482,6 +1502,10 @@
 					"direction": 2
 				}
 				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
 			},
 			{
 				"nom": "Message",
@@ -1505,6 +1529,10 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Ce sont les restes des forges de Braënshwyck,\\nles mêmes que dans les contes \"\\c[2]Don Flatus\\c[1], \\nsac à vent\" et \"\\c[2]Emile\\c[1], l'enfant de cuivre\" !"
 			},
@@ -1523,7 +1551,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "On va peut-être y trouver des écrits originaux."
+				"texte": "On va peut-être y trouver des textes originaux."
+			},
+			{
+				"nom": "Message",
+				"texte": "Maintenant, je suis curieuse !"
 			},
 			{
 				"nom": "Attendre",
@@ -1544,8 +1576,12 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
 				"nom": "Message",
-				"texte": "Tu es complètement cinglée !"
+				"texte": "\\SHAKE Tu es complètement cinglée !"
 			},
 			{
 				"nom": "Message",
@@ -1553,7 +1589,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Ces ruines ont été aménagées en donjon \\npar \\c[2]Kazan'\\c[1] pour protéger le pouvoir \\ndes érudits !"
+				"texte": "Ces ruines ont été aménagées en donjon \\npar \\c[2]Kazan'\\c[1] pour protéger le secret \\ndes érudits !"
 			},
 			{
 				"nom": "Deplacement",
@@ -1595,6 +1631,10 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu ferais pareil si c'était des morceaux de \\nmusique !"
 			},
@@ -1630,6 +1670,10 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu dis n'importe quoi !"
 			},
@@ -1651,8 +1695,28 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Peut-être, mais ton \\c[2]professeur de piano\\c[1], \\nque tu admires tant, aurait fait pareil\\npour des morceaux de musiques, lui."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Celui qui se vautre dans la routine se réveille \\nun matin, il a 90 ans, il n'a rien fait de sa vie, \\net se lamente : \"comme le temps passe vite !\""
+			},
+			{
+				"nom": "Message",
+				"texte": "L'aventure, c'est ça qui ralentit le temps !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
 			},
 			{
 				"nom": "Message",
@@ -1731,6 +1795,10 @@
 				"idEvent": -1
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Poésie\\c[1], attends !"
 			},
@@ -1773,8 +1841,16 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Poésie\\c[1], je te préviens, ce n'est pas moi qui vais \\nramasser ta culotte !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
 			},
 			{
 				"nom": "Message",
@@ -1796,7 +1872,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[2]Poésie\\c[1] !"
+				"texte": "\\SHAKE \\c[2]Poésie\\c[1] !"
 			},
 			{
 				"nom": "ArreterMusique",
@@ -2079,6 +2155,12 @@
 		"y": 7
 	},
 	{
+		"id": 42,
+		"nom": "Clone[341][102]",
+		"x": 14,
+		"y": 6
+	},
+	{
 		"id": 37,
 		"nom": "blocage",
 		"x": 3,
@@ -2349,7 +2431,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est un Coffrillage !"
+				"texte": "C'est un coffrillage !"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -2505,7 +2587,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).mid",
+				"nomFichierSonore": "fanfare (important).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2739,6 +2821,12 @@
 		"nom": "Clone[341][008]",
 		"x": 13,
 		"y": 1
+	},
+	{
+		"id": 43,
+		"nom": "Clone[341][181]",
+		"x": 14,
+		"y": 10
 	},
 	{
 		"id": 32,

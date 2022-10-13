@@ -111,6 +111,12 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[341][028]",
+		"x": 14,
+		"y": 4
+	},
+	{
 		"id": 5,
 		"nom": "Pont cassé",
 		"x": 12,
@@ -214,18 +220,6 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][028]",
-		"x": 14,
-		"y": 4
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][002]",
-		"x": 17,
-		"y": 6
-	},
-	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 19,
@@ -252,7 +246,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Malédiction.mid",
+				"nomFichierSonore": "Malédiction.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -358,6 +352,18 @@
 		]
 	},
 	{
+		"id": 22,
+		"nom": "Clone[341][002]",
+		"x": 17,
+		"y": 6
+	},
+	{
+		"id": 17,
+		"nom": "Clone[341][028]",
+		"x": 15,
+		"y": 6
+	},
+	{
 		"id": 6,
 		"nom": "Parchemin",
 		"x": 10,
@@ -385,7 +391,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Sur le pont suspendu,\\nnos vies s’enroulent\\naux sarments de lierre.\""
+				"texte": "\"Sur le pont suspendu,\\nnos vies s'enroulent\\naux sarments de lierre.\""
 			},
 			{
 				"nom": "ConditionSinon",
@@ -424,10 +430,16 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][028]",
-		"x": 15,
+		"id": 23,
+		"nom": "Clone[1][29]",
+		"x": 18,
 		"y": 6
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 21
 	},
 	{
 		"id": 1,
@@ -570,15 +582,9 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 18,
 		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 21
-	},
-	{
-		"id": 23,
-		"nom": "Clone[1][29]",
-		"x": 18,
+		"x": 6,
 		"y": 6
 	},
 	{
@@ -638,10 +644,16 @@
 		]
 	},
 	{
-		"id": 18,
+		"id": 24,
+		"nom": "Clone[1][28]",
+		"x": 18,
+		"y": 7
+	},
+	{
+		"id": 13,
 		"nom": "Clone[341][028]",
-		"x": 6,
-		"y": 6
+		"x": 18,
+		"y": 21
 	},
 	{
 		"id": 2,
@@ -681,24 +693,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][028]",
-		"x": 18,
-		"y": 21
-	},
-	{
-		"id": 24,
-		"nom": "Clone[1][28]",
-		"x": 18,
-		"y": 7
-	},
-	{
-		"id": 19,
-		"nom": "Clone[341][008]",
-		"x": 0,
-		"y": 0
 	},
 	{
 		"id": 8,
@@ -754,6 +748,57 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][008]",
+		"x": 0,
+		"y": 0
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][028]",
+		"x": 10,
+		"y": 20
+	},
+	{
+		"id": 3,
+		"nom": "EV003",
+		"x": 12,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 33
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 47,
+				"xDebutHeros": 14,
+				"yDebutHeros": 28
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1190,57 +1235,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 12,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 127,
-				"vert": 127,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 33
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 47,
-				"xDebutHeros": 14,
-				"yDebutHeros": 28
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 20
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][008]",
-		"x": 1,
-		"y": 0
-	},
-	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 12,
@@ -1306,29 +1300,16 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "compteur de cristaux",
-		"x": 14,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cristaux compteur",
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"id": 20,
+		"nom": "Clone[341][008]",
+		"x": 1,
+		"y": 0
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][028]",
+		"x": 6,
+		"y": 21
 	},
 	{
 		"id": 4,
@@ -1472,10 +1453,232 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][028]",
-		"x": 6,
-		"y": 21
+		"id": 26,
+		"nom": "compteur de cristaux",
+		"x": 14,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cristaux compteur",
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "Colibri",
+		"x": 10,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 76
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri jaune\""
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 54,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est fantastique !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le lieu a été guéri !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "It is marvelous !"
+			},
+			{
+				"nom": "Message",
+				"texte": "This place has been healed !"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "Message",
+				"texte": "Saluzalu !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Regarde ça : cette zone a perdu sa vitalité."
+			},
+			{
+				"nom": "Message",
+				"texte": "Depuis quelques temps, des monstres \\nse promènent dans les galeries..."
+			},
+			{
+				"nom": "Message",
+				"texte": "...et des zones comme celle-ci meurent."
+			},
+			{
+				"nom": "Message",
+				"texte": "A mon avis, ce sont de mauvaises augures."
+			},
+			{
+				"nom": "Message",
+				"texte": "Les \\c[2]Thaumaturges noirs\\c[2] sont probablement\\nderrière tout ça !"
+			},
+			{
+				"nom": "Message",
+				"texte": "La vieille \\c[02]chamane\\c[01] m'a dit que\\nles cristaux de sel de baleine contenaient\\nde la magie."
+			},
+			{
+				"nom": "Message",
+				"texte": "Peut-être qu'en réunissant assez de cristaux, \\ncette magie pourrait \"guérir\" le lieu."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je l'espère vraiment."
+			},
+			{
+				"nom": "Message",
+				"texte": "Cela-dit, ils sont plutôt rares."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Message",
+				"texte": "Hellozello !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Look : this place lost its magic."
+			},
+			{
+				"nom": "Message",
+				"texte": "Monsters recently wander the galleries..."
+			},
+			{
+				"nom": "Message",
+				"texte": "...and such areas wilt."
+			},
+			{
+				"nom": "Message",
+				"texte": "In my humble opinion, these are bad omens."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Dark Thaumaturgists\\c[1] are probably behing it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "The old \\c[02]shaman\\c[01] told me that\\ncrystals of the whales do contain magic."
+			},
+			{
+				"nom": "Message",
+				"texte": "Gather crystals may heal this place."
+			},
+			{
+				"nom": "Message",
+				"texte": "I hope so."
+			},
+			{
+				"nom": "Message",
+				"texte": "Unfortunately, they remain rare."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "colibri jaune character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 10,
@@ -1536,197 +1739,6 @@
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "Colibri",
-		"x": 10,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 76
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 54,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est fantastique !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Le lieu a été guéri !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "It is marvelous !"
-			},
-			{
-				"nom": "Message",
-				"texte": "This place has been healed !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Saluzalu !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Regarde ça : cette zone a perdu sa magie."
-			},
-			{
-				"nom": "Message",
-				"texte": "Depuis quelques temps, des monstres \\nse promènent dans les galeries..."
-			},
-			{
-				"nom": "Message",
-				"texte": "...et des zones comme celle-ci meurent."
-			},
-			{
-				"nom": "Message",
-				"texte": "A mon avis, ce sont de mauvaises augures."
-			},
-			{
-				"nom": "Message",
-				"texte": "La vieille \\c[02]chamane\\c[01] m'a dit que\\nles cristaux de sel de baleine contenaient\\nde la magie."
-			},
-			{
-				"nom": "Message",
-				"texte": "Peut-être qu'en réunissant assez de cristaux, \\ncette magie pourrait \"guérir\" le lieu."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je l'espère vraiment."
-			},
-			{
-				"nom": "Message",
-				"texte": "Cela-dit, ils sont plutôt rares."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Hellozello !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Look : this place lost its magic."
-			},
-			{
-				"nom": "Message",
-				"texte": "Monsters recently wander the galleries..."
-			},
-			{
-				"nom": "Message",
-				"texte": "...and such areas wilt."
-			},
-			{
-				"nom": "Message",
-				"texte": "In my humble opinion, these are bad omens."
-			},
-			{
-				"nom": "Message",
-				"texte": "The old \\c[02]shaman\\c[01] told me that\\ncrystals of the whales do contain magic."
-			},
-			{
-				"nom": "Message",
-				"texte": "Gather crystals may heal this place."
-			},
-			{
-				"nom": "Message",
-				"texte": "I hope so."
-			},
-			{
-				"nom": "Message",
-				"texte": "Unfortunately, they remain rare."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "colibri jaune character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false

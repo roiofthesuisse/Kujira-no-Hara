@@ -98,8 +98,8 @@
 	{
 		"id": 27,
 		"nom": "EV027",
-		"x": 14,
-		"y": 14,
+		"x": 15,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -154,9 +154,9 @@
 	},
 	{
 		"id": 16,
-		"nom": "EV016",
+		"nom": "deplacer cubes",
 		"x": 13,
-		"y": 5,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -176,6 +176,10 @@
 				"valeurQuIlEstCenseAvoir": 13,
 				"comparerAUneAutreVariable": false,
 				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(12)"
 			},
 			{
 				"nom": "Deplacement",
@@ -232,16 +236,8 @@
 				]
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
 			},
 			{
 				"nom": "ModifierVariable",
@@ -257,6 +253,10 @@
 				"valeurQuIlEstCenseAvoir": 13,
 				"comparerAUneAutreVariable": false,
 				"numero": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(13)"
 			},
 			{
 				"nom": "Deplacement",
@@ -313,16 +313,8 @@
 				]
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
 			},
 			{
 				"nom": "ModifierVariable",
@@ -338,6 +330,10 @@
 				"valeurQuIlEstCenseAvoir": 13,
 				"comparerAUneAutreVariable": false,
 				"numero": 2
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(11)"
 			},
 			{
 				"nom": "Deplacement",
@@ -357,10 +353,6 @@
 					"nombreDeCarreaux": 1
 				}
 				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
 			},
 			{
 				"nom": "ConditionFin",
@@ -389,67 +381,21 @@
 	},
 	{
 		"id": 22,
-		"nom": "rien",
+		"nom": "animation",
 		"x": 13,
 		"y": 8,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 28,
-		"nom": "EV028",
-		"x": 14,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
+				"nom": "JouerAnimation",
+				"idAnimation": 18
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "Attendre",
+				"nombreDeFrames": 25
 			}
 			],
 			"vitesse": "moderee",
@@ -752,45 +698,44 @@
 	},
 	{
 		"id": 23,
-		"nom": "EV023",
-		"x": 11,
-		"y": 8,
+		"nom": "tube",
+		"x": 8,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
+				"nom": "Parler"
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 131,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 1,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -812,6 +757,147 @@
 		"nom": "Clone[341][0067]",
 		"x": 14,
 		"y": 13
+	},
+	{
+		"id": 29,
+		"nom": "sortir du ventilateur",
+		"x": 14,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 13,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "!=",
+				"valeurQuIlEstCenseAvoir": 13,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le heros vient de sortir de la zone ventilateur"
+			},
+			{
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 1,
+				"numero": 2
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "ACTION_SECONDAIRE",
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "rapide"
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 7,
@@ -1104,57 +1190,6 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 24,
-		"nom": "EV024",
-		"x": 14,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -1466,57 +1501,6 @@
 		"y": 14
 	},
 	{
-		"id": 26,
-		"nom": "EV026",
-		"x": 12,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 15,
 		"nom": "EV015",
 		"x": 6,
@@ -1555,30 +1539,48 @@
 	},
 	{
 		"id": 21,
-		"nom": "EV021",
-		"x": 14,
-		"y": 5,
+		"nom": "tube",
+		"x": 8,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 22,
-				"idAnimation": 18
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 25
+				"nom": "Parler"
 			}
 			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 131,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]

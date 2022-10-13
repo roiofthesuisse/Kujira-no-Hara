@@ -96,12 +96,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 18,
-		"y": 16
-	},
-	{
 		"id": 16,
 		"nom": "soufre",
 		"x": 15,
@@ -112,13 +106,13 @@
 			],
 			"commandes": [
 			{
-				"nom": "Commentaire",
-				"texte": "soufre et sac à soufre"
-			},
-			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 31,
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "soufre"
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -127,6 +121,10 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "sac à soufre"
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -146,6 +144,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 16
 	},
 	{
 		"id": 11,
@@ -187,12 +191,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 15
 	},
 	{
 		"id": 17,
@@ -248,36 +246,24 @@
 				"idAnimation": 2
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But! But!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Mais ! Mais !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) That smell..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Cette odeur..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "But ! But !"
-			},
-			{
-				"nom": "Message",
-				"texte": "That smell..."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
 			},
 			{
 				"nom": "Message",
@@ -346,42 +332,34 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator colere\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I know that smell!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Je connais cette odeur !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's the smell of a broke person!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est celle d'un type qui n'a pas de fric sur lui !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "I know that smell !"
-			},
-			{
-				"nom": "Message",
-				"texte": "It's the smell of the broke !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
 			},
 			{
 				"nom": "TremblementDeTerre",
 				"intensite": 3,
 				"vitesse": 9,
 				"nombreDeFrames": 166
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) GRRRRRRR!"
 			},
 			{
 				"nom": "Message",
@@ -394,88 +372,40 @@
 				"nombreDeFrames": 166
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 4
+				"nom": "Commentaire",
+				"texte": "(en) I, \\c[2]Mercator\\c[1], the great merchant, will not tolerate\\nsuch an insult!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Moi, \\c[2]Mercator\\c[1], le grand commerçant, je ne \\ntolèrerai pas cet affront !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "Message",
-				"texte": "I, \\c[2]Mercator\\c[1], the great merchant, \\ndo not tolerate this insult !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
 				"nom": "TremblementDeTerre",
 				"intensite": 3,
 				"vitesse": 9,
 				"nombreDeFrames": 166
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 5
+				"nom": "Commentaire",
+				"texte": "(en) One does not simply come at \\c[2]Mercator\\c[1] \\nwithout money!"
 			},
 			{
 				"nom": "Message",
 				"texte": "On n'entre pas chez le grand \\c[2]Mercator\\c[1] sans \\ntune !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "Message",
-				"texte": "One does not simply come at \\c[2]Mercator\\c[1] \\nwithout money !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
 				"nom": "TremblementDeTerre",
 				"intensite": 3,
 				"vitesse": 9,
 				"nombreDeFrames": 166
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 6
+				"nom": "Commentaire",
+				"texte": "(en) Begone, vermin! Tramp! Arrant knave!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Du balai, vermine ! Clochard ! Larron ! "
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "Message",
-				"texte": "Begone, vermin ! Tramp ! Arrant knave !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
+				"texte": "Du balai, vermine ! Clochard ! Vil larron ! "
 			},
 			{
 				"nom": "Attendre",
@@ -615,40 +545,28 @@
 				"idAnimation": 2
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Hohoho..."
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 7
+				"nom": "Commentaire",
+				"texte": "(en) (I can smell money!)"
 			},
 			{
 				"nom": "Message",
 				"texte": "(ça sent la tune !)"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You are welcome, dear Customer."
+			},
+			{
 				"nom": "Message",
 				"texte": "Bien le bonjour, cher client."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "Message",
-				"texte": "(It smells money !)"
-			},
-			{
-				"nom": "Message",
-				"texte": "You are welcome, dear Customer."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
 			},
 			{
 				"nom": "Attendre",
@@ -723,10 +641,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][003]",
-		"x": 15,
-		"y": 17
+		"id": 6,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 15
 	},
 	{
 		"id": 12,
@@ -766,36 +684,24 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Good day, dear Customer!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Bien le bonjour cher client !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You are in the shop of the great \\n\\c[2]Mercator\\c[1], and it's me!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous voici dans la boutique du grand \\n\\c[2]Mercator\\c[1], et c'est moi !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Good day, dear Customer!"
-			},
-			{
-				"nom": "Message",
-				"texte": "You are in the shop of the great \\n\\c[2]Mercator\\c[1], and it's me !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Deplacement",
@@ -817,20 +723,24 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) The available articles are here."
 			},
 			{
 				"nom": "Message",
 				"texte": "Les articles disponibles sont sur ce \\nprésentoir."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Show me what you want!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Montrez-moi donc ce qui vous ferait plaisir !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Ok|No thanks"
 			},
 			{
 				"nom": "Choix",
@@ -848,12 +758,24 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I see... you hesitate."
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah ! Je vois... vous êtes hésitant."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) (again a broke one!)"
+			},
+			{
 				"nom": "Message",
 				"texte": "(encore un fauché !)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come back when you have made you choice."
 			},
 			{
 				"nom": "Message",
@@ -862,53 +784,6 @@
 			{
 				"nom": "ChoixFin",
 				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "The available articles are here."
-			},
-			{
-				"nom": "Message",
-				"texte": "Show me what you want !"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Ok", "No thanks"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "I see... you hesitate."
-			},
-			{
-				"nom": "Message",
-				"texte": "(again a broke guy !)"
-			},
-			{
-				"nom": "Message",
-				"texte": "Come back when you have made you choice."
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -951,10 +826,10 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 1,
 		"nom": "Clone[341][003]",
-		"x": 18,
-		"y": 15
+		"x": 15,
+		"y": 17
 	},
 	{
 		"id": 18,
@@ -980,7 +855,31 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "planche"
+				"texte": "graine magique (foret)"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 162,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 159,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].transform(511, 12)"
+			},
+			{
+				"nom": "AllerVersEtiquette",
+				"nomEtiquette": "fin"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "planche (village viking)"
 			},
 			{
 				"nom": "ConditionVariable",
@@ -988,17 +887,17 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 67,
 				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionEtatQuete",
 				"idQuete": 54,
 				"etat": "FAITE",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1006,7 +905,7 @@
 				"inegalite": "<=",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"numero": 3
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1018,6 +917,10 @@
 			},
 			{
 				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
 				"numero": 2
 			},
 			{
@@ -1025,12 +928,8 @@
 				"numero": 1
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
 				"nom": "Commentaire",
-				"texte": "pierre du jizo"
+				"texte": "pierre du jizo (village viking)"
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1038,30 +937,30 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 67,
 				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 51,
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ConditionGadgetEquipe",
 				"idGadget": 4,
-				"numero": 5
+				"numero": 6
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 5
+				"numero": 6
 			},
 			{
 				"nom": "ConditionGadgetPossede",
 				"idGadget": 4,
-				"numero": 6
+				"numero": 7
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 6
+				"numero": 7
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1073,6 +972,10 @@
 			},
 			{
 				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionFin",
 				"numero": 6
 			},
 			{
@@ -1082,10 +985,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
 			},
 			{
 				"nom": "Commentaire",
@@ -1106,20 +1005,20 @@
 			{
 				"nom": "ConditionGadgetEquipe",
 				"idGadget": 3,
-				"numero": 7
+				"numero": 8
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 7
+				"numero": 8
 			},
 			{
 				"nom": "ConditionGadgetPossede",
 				"idGadget": 3,
-				"numero": 8
+				"numero": 9
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 8
+				"numero": 9
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1131,11 +1030,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 8
+				"numero": 9
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 7
+				"numero": 8
 			},
 			{
 				"nom": "Commentaire",
@@ -1144,21 +1043,21 @@
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 14,
-				"numero": 9
+				"numero": 10
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 9
+				"numero": 10
 			},
 			{
 				"nom": "ConditionEtatQuete",
 				"idQuete": 4,
 				"etat": "FAITE",
-				"numero": 10
+				"numero": 11
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 10
+				"numero": 11
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1170,11 +1069,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 10
+				"numero": 11
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 9
+				"numero": 10
 			},
 			{
 				"nom": "Commentaire",
@@ -1183,25 +1082,25 @@
 			{
 				"nom": "ConditionGadgetPossede",
 				"idGadget": 1,
-				"numero": 11
+				"numero": 12
 			},
 			{
 				"nom": "ConditionGadgetPossede",
 				"idGadget": 2,
-				"numero": 12
+				"numero": 13
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 12
+				"numero": 13
 			},
 			{
 				"nom": "ConditionGadgetEquipe",
 				"idGadget": 2,
-				"numero": 13
+				"numero": 14
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 13
+				"numero": 14
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1213,38 +1112,38 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 13
+				"numero": 14
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 12
+				"numero": 13
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 11
+				"numero": 12
 			},
 			{
 				"nom": "ConditionGadgetEquipe",
 				"idGadget": 1,
-				"numero": 14
+				"numero": 15
 			},
 			{
 				"nom": "ConditionGadgetPossede",
 				"idGadget": 2,
-				"numero": 15
+				"numero": 16
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 15
+				"numero": 16
 			},
 			{
 				"nom": "ConditionGadgetEquipe",
 				"idGadget": 2,
-				"numero": 16
+				"numero": 17
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 16
+				"numero": 17
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1256,6 +1155,10 @@
 			},
 			{
 				"nom": "ConditionFin",
+				"numero": 17
+			},
+			{
+				"nom": "ConditionFin",
 				"numero": 16
 			},
 			{
@@ -1264,11 +1167,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 14
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 11
+				"numero": 12
 			},
 			{
 				"nom": "Commentaire",
@@ -1280,7 +1179,7 @@
 				"inegalite": "<=",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 17
+				"numero": 18
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1292,7 +1191,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 17
+				"numero": 18
 			},
 			{
 				"nom": "Etiquette",
@@ -1317,10 +1216,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 16
+		"id": 7,
+		"nom": "Clone[341][003]",
+		"x": 18,
+		"y": 15
 	},
 	{
 		"id": 13,
@@ -1338,6 +1237,11 @@
 				"valeur": false
 			},
 			{
+				"nom": "ModifierMeteo",
+				"type": "rien",
+				"intensite": 5
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -1350,6 +1254,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 16
 	},
 	{
 		"id": 8,
@@ -1437,83 +1347,63 @@
 				"nombreDeFrames": 16
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There is the panacea that I bought \\nto the \\c[02]wizard Ovose\\c[01] in order to sell it \\nat a higher price."
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est de la panacée que j'achète chez le \\n\\c[02]magicien Dose\\c[01] pour la revendre plus cher."
+				"texte": "C'est la panacée que j'ai achetée \\nchez le \\c[2]magicien Dose\\c[1] pour la revendre \\nplus cher."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That potion heals wounds."
 			},
 			{
 				"nom": "Message",
 				"texte": "Cette potion soigne les blessures."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "There is some panacea that I buy to the \\n\\c[02]wizard Ovose\\c[01] to sell it expensiver."
-			},
-			{
-				"nom": "Message",
-				"texte": "This potion heals wounds."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 0,
-				"numero": 1
+				"numero": 0
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A ladleful of it will costs you 250 scales."
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est 250 écailles la louche."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "A ladleful of it costs 250 scales."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
 				"nom": "ConditionArgent",
 				"quantite": 250,
 				"inegalite": ">=",
-				"numero": 3
+				"numero": 1
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 4
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you want some?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous m'en achetez ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -1579,8 +1469,16 @@
 				"quantite": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You fill up your vase with panacea."
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous remplissez votre vase de panacée."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go to the \"object\" menu to use it \\nso that you get healed."
 			},
 			{
 				"nom": "Message",
@@ -1642,8 +1540,20 @@
 				"alternative": 1
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Huh?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (skinflint !)"
 			},
 			{
 				"nom": "Message",
@@ -1655,169 +1565,23 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "Message",
-				"texte": "Do you want it ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Yes", "No"],
 				"numero": 1
 			},
 			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 0,
-				"nombreDeCarreaux": 2,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 250
-			},
-			{
-				"nom": "RetirerObjet",
-				"idObjet": 0,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 2,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "You fill up your vase with panacea."
-			},
-			{
-				"nom": "Message",
-				"texte": "Go to the \"object\" menu to use it and get \\nhealed."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 3,
-				"nombreDeCarreaux": 2,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Huh ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "(skinflint !)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 5
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
 			},
 			{
 				"nom": "Message",
 				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 10 scales!"
 			},
 			{
 				"nom": "Message",
@@ -1828,6 +1592,10 @@
 				"texte": "Saperlipopette !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit here!"
+			},
+			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici."
 			},
@@ -1836,64 +1604,28 @@
 				"texte": "(grmbl...)"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "Message",
-				"texte": "WHAT ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "You have less than 10 scales !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saperlipopette !"
-			},
-			{
-				"nom": "Message",
-				"texte": "No credit !"
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
 				"numero": 1
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 6
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You first need to get a empty vase,\\nthen I will be able to swindle you."
 			},
 			{
 				"nom": "Message",
 				"texte": "Dépéchez-vous de vous procurer un \\nvase vide, que je puisse vous arnaquer."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "Message",
-				"texte": "You first need to get a empty vase."
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -1925,6 +1657,12 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 13,
+		"y": 17
 	},
 	{
 		"id": 14,
@@ -2020,12 +1758,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][004]",
-		"x": 13,
-		"y": 17
 	},
 	{
 		"id": 9,
@@ -2350,12 +2082,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 14
-	},
-	{
 		"id": 15,
 		"nom": "Ticket AGV",
 		"x": 13,
@@ -2374,62 +2100,50 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A HSA Ticket?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Un ticket AGV ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) With this, you will be able to travel through \\nthe kujirian arterial network !"
+			},
+			{
 				"nom": "Message",
 				"texte": "Avec ça vous pourrez faire un aller dans le \\nréseau artériel kujirien !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's very useful and very affordable, \\nsince it costs only 350 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est trèèèès pratique et très accessible, je \\nvous le fait pour seulement 350 écailles !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "A HSA Ticket ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "With this, you will be able to travel in the \\nkujirian arterial network !"
-			},
-			{
-				"nom": "Message",
-				"texte": "It is very useful and very affordable, \\nit costs only 350 scales !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionArgent",
 				"quantite": 350,
 				"inegalite": ">=",
-				"numero": 1
+				"numero": 0
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) Do you want one?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Alors, marché conclu ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -2440,6 +2154,10 @@
 				"nom": "ChoixAlternative",
 				"numero": 0,
 				"alternative": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! I've the feeling that we will get along !"
 			},
 			{
 				"nom": "Message",
@@ -2536,8 +2254,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Is it so?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (skinflint!)"
 			},
 			{
 				"nom": "Message",
@@ -2549,155 +2275,35 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 0
 			},
 			{
-				"nom": "Message",
-				"texte": "Then, do you want it ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Yes", "No"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Perfect ! We will get along !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 5,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 350
-			},
-			{
-				"nom": "Message",
-				"texte": "You bought a HSA ticket !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Reach the nearer HSA station and \\ntravel into the kujirian network !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Huh ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "(skinflint !)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
 			},
 			{
 				"nom": "Message",
 				"texte": "QUOI ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 350 scales!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 350 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Saperlipopette!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
 			},
 			{
 				"nom": "Message",
@@ -2708,32 +2314,8 @@
 				"texte": "(grmbl...)"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "WHAT ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "You have less than 350 scales !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saperlipopette !"
-			},
-			{
-				"nom": "Message",
-				"texte": "No credit !"
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -2755,6 +2337,12 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 14
 	},
 	{
 		"id": 10,
@@ -2779,28 +2367,16 @@
 				"numeroPageCommune": 76
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri vert\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Hellozello !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Boucle",
@@ -2812,7 +2388,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Choix",
@@ -2894,7 +2470,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Choix",
@@ -2976,7 +2552,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "BoucleFin",

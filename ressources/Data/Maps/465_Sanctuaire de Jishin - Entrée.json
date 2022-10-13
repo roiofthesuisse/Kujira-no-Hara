@@ -108,8 +108,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This stone block has a big lock."
+			},
+			{
 				"nom": "Message",
-				"texte": "Ce bloc de pierre est muni d'une grande \\nserrure..."
+				"texte": "Ce bloc de pierre est muni d'une grande \\nserrure."
 			},
 			{
 				"nom": "ConditionObjetPossede",
@@ -117,18 +121,12 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You use the dungeon key number \\v[47]..."
+			},
+			{
 				"nom": "Message",
-				"texte": "...utiliser la clé de Donjon n° \\v[47] ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
+				"texte": "Vous utilisez la clé de donjon n°\\v[47]..."
 			},
 			{
 				"nom": "ConditionVariable",
@@ -173,6 +171,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It is the right key!"
 			},
 			{
 				"nom": "Message",
@@ -225,29 +227,28 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It does not work."
+			},
+			{
 				"nom": "Message",
-				"texte": "Ca ne s'ouvre pas..."
+				"texte": "Ça ne s'ouvre pas."
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 1
 			},
 			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionSinon",
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You would need a dungeon key..."
+			},
+			{
 				"nom": "Message",
-				"texte": "...il vous faudrait une clé de donjon pour \\nl'ouvrir."
+				"texte": "Il vous faudrait une clé de donjon..."
 			},
 			{
 				"nom": "ConditionFin",
@@ -427,6 +428,12 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "Clone[341][003]",
+		"x": 4,
+		"y": 14
+	},
+	{
 		"id": 17,
 		"nom": "Panneau disparition arme",
 		"x": 12,
@@ -506,10 +513,35 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][003]",
-		"x": 4,
-		"y": 14
+		"id": 1,
+		"nom": "EV001",
+		"x": 12,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 58,
+				"xDebutHeros": 14,
+				"yDebutHeros": 4
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 12,
@@ -543,35 +575,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 12,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 58,
-				"xDebutHeros": 14,
-				"yDebutHeros": 4
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 7,
+		"nom": "Clone[341][003]",
+		"x": 4,
+		"y": 6
 	},
 	{
 		"id": 18,
@@ -658,38 +665,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][003]",
-		"x": 4,
-		"y": 6
-	},
-	{
-		"id": 2,
-		"nom": "buisson",
-		"x": 7,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "buisson fixe",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -928,6 +903,38 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "buisson",
+		"x": 7,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "buisson fixe",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][003]",
+		"x": 20,
+		"y": 6
+	},
+	{
 		"id": 19,
 		"nom": "Annonce du Lieu",
 		"x": 15,
@@ -1050,38 +1057,6 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][003]",
-		"x": 20,
-		"y": 6
-	},
-	{
-		"id": 3,
-		"nom": "buisson",
-		"x": 17,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "buisson fixe",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 14,
 		"nom": "Lankhor",
 		"x": 21,
@@ -1110,6 +1085,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"lankhor\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Je suis \\c[02]Lankhor\\c[01], le serrurier."
 			},
@@ -1132,6 +1111,11 @@
 			{
 				"nom": "Message",
 				"texte": "Tant pis."
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 93,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
@@ -1157,6 +1141,38 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 3,
+		"nom": "buisson",
+		"x": 17,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "buisson fixe",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][002]",
+		"x": 16,
+		"y": 10
 	},
 	{
 		"id": 20,
@@ -1208,18 +1224,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][002]",
-		"x": 16,
-		"y": 10
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][059]",
-		"x": 8,
-		"y": 10
 	},
 	{
 		"id": 15,
@@ -1296,6 +1300,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][059]",
+		"x": 8,
+		"y": 10
 	},
 	{
 		"id": 10,

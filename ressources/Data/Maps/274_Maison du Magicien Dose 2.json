@@ -122,12 +122,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 5,
-		"y": 13
-	},
-	{
 		"id": 12,
 		"nom": "Marmite de Panacée",
 		"x": 10,
@@ -627,31 +621,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Tabula le Terrible",
-		"x": 8,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "tabula le terrible",
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 5,
+		"y": 13
 	},
 	{
 		"id": 7,
@@ -739,16 +712,20 @@
 				"nombreDeFrames": 16
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is my pot of panacea:"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est ma marmite de panacée :"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He who drinks it \\ngets his wounds healed."
 			},
 			{
 				"nom": "Message",
@@ -757,17 +734,25 @@
 			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArgent",
+				"quantite": 210,
+				"inegalite": ">=",
 				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You can fill your empty vase for 210 scales."
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est 210 écailles le vase."
 			},
 			{
-				"nom": "ConditionArgent",
-				"quantite": 210,
-				"inegalite": ">=",
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) I want it!|No thanks"
 			},
 			{
 				"nom": "Choix",
@@ -896,6 +881,14 @@
 				"alternative": 1
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is it so?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
 			},
@@ -905,7 +898,23 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You can fill your empty vase for 210 scales."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est 210 écailles le vase."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...but you don't have enough scales."
 			},
 			{
 				"nom": "Message",
@@ -913,11 +922,19 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come back with an empty vase!"
 			},
 			{
 				"nom": "Message",
@@ -925,200 +942,19 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No cure, no adventure, little padawan!"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est toujours utile d'avoir de la panacée \\nsur soi quand on part à l'aventure, petit \\npadawan !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "This is my pot of panacea :"
-			},
-			{
-				"nom": "Message",
-				"texte": "He who drinks it gets healed."
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 0,
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "You can fill your empty vase for 210 scales."
-			},
-			{
-				"nom": "ConditionArgent",
-				"quantite": 210,
-				"inegalite": ">=",
-				"numero": 4
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["I buy it !", "I'm not interested."],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 1,
-				"nombreDeCarreaux": 2,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 210
-			},
-			{
-				"nom": "RetirerObjet",
-				"idObjet": 0,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 2,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "You bought panacea to the \\c[2]Wizard Ovose\\c[1]."
-			},
-			{
-				"nom": "Message",
-				"texte": "Go into the \"items\" menu to drink it \\nwhen you are injured."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 2,
-				"nombreDeCarreaux": 2,
-				"vitesse": "normale"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "Message",
-				"texte": "...but you don't have enough scales."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "Come back with an empty vase !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "No cure, no adventure, little padawan !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -1152,10 +988,31 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 14
+		"id": 18,
+		"nom": "Tabula le Terrible",
+		"x": 8,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tabula le terrible",
+			"opacite": 0,
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 13,
@@ -1189,6 +1046,12 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 14
+	},
+	{
 		"id": 19,
 		"nom": "Colibri",
 		"x": 12,
@@ -1211,20 +1074,28 @@
 				"numeroPageCommune": 76
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri jaune\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Welcome in the \\c[2]wizard Ovose\\c[1]'s house!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Bienvenue dans la maison du \\c[02]Magicien \\nDose\\c[01] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He is the greatest alchemist in Kujira!"
 			},
 			{
 				"nom": "Message",
@@ -1235,36 +1106,12 @@
 				"texte": "..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) But are there other ones?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Y en a-t-il seulement d'autres ?"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Hellozello !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Welcome in the \\c[02]wizard Ovose\\c[01]'s house !"
-			},
-			{
-				"nom": "Message",
-				"texte": "He is the most powerful alchemist in all Kujira !"
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Message",
-				"texte": "But are there other alchemists ?"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -1318,6 +1165,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "ConditionVariable",
 				"numeroVariable": 121,
 				"inegalite": "==",
@@ -1348,7 +1199,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Le pire, c'est que \\c[2]Tabula le Terrible\\c[1], le chef \\ndes vikings, va venir d'une minute à l'autre \\nchercher sa pommade pour les pieds !"
+				"texte": "\\SHAKE Le pire, c'est que \\c[2]Tabula le Terrible\\c[1], le chef \\ndes vikings, va venir d'une minute à l'autre \\nchercher sa pommade pour les pieds !"
 			},
 			{
 				"nom": "Message",
@@ -1369,6 +1220,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
 			},
 			{
 				"nom": "Message",
@@ -1400,8 +1255,12 @@
 				"nombreDeFrames": 33
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "Message",
-				"texte": "Pitiééééé !"
+				"texte": "\\SHAKE Pitiééééé !"
 			},
 			{
 				"nom": "ModifierAvancementQuete",
@@ -1409,8 +1268,12 @@
 				"avancement": "CONNUE"
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
 				"nom": "Choix",
-				"alternatives": ["Mmmm, ok ça marche", "Ca va pas non !?"],
+				"alternatives": ["Ok, pourquoi pas...", "Ça va pas, non !?"],
 				"numero": 0
 			},
 			{
@@ -1419,12 +1282,16 @@
 				"alternative": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Merci ! Merci beaucoup !"
 			},
 			{
 				"nom": "Message",
-				"texte": "Place toi vite dans mon dos ! Viiiiiite !"
+				"texte": "\\SHAKE Place toi vite dans mon dos ! Viiiiiite !"
 			},
 			{
 				"nom": "Deplacement",
@@ -1454,6 +1321,10 @@
 				"alternative": 1
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Bouhouhou, je suis fichu !"
 			},
@@ -1467,31 +1338,31 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Boohoohoo, I am so unfortunated !"
+				"texte": "Boohoohoo, I'm so sad!"
 			},
 			{
 				"nom": "Message",
-				"texte": "I am the most powerful wizard \\nin all Kujira and I do not have any hat !"
+				"texte": "I am the most powerful wizard \\nin all Kujira and I do not have any hat!"
 			},
 			{
 				"nom": "Message",
-				"texte": "How to hide my baldness and impose\\nwithout a hat ?!"
+				"texte": "How to hide my baldness and impose\\nwithout a hat?!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Boohoohoo !"
+				"texte": "Boohoohoo!"
 			},
 			{
 				"nom": "Message",
-				"texte": "And on top of that, the viking leader \\n\\c[2]Tabula the Terrible\\c[1] will shortly come \\nfor his foot ointment !"
+				"texte": "\\SHAKE And on top of that, the viking leader \\n\\c[2]Tabula the Terrible\\c[1] will shortly come \\nfor his foot ointment!"
 			},
 			{
 				"nom": "Message",
-				"texte": "He will break everything when he realizes\\nthat his wizard doesn't even have hair !"
+				"texte": "He will break everything when he realizes\\nthat his wizard doesn't even have hair!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Boohoohoo !"
+				"texte": "Boohoohoo!"
 			},
 			{
 				"nom": "Attendre",
@@ -1507,19 +1378,19 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Wait !"
+				"texte": "Wait!"
 			},
 			{
 				"nom": "Message",
-				"texte": "You little guy !"
+				"texte": "You little guy!"
 			},
 			{
 				"nom": "Message",
-				"texte": "You have a lot of hair, haven't you ?"
+				"texte": "You have a lot of hair, haven't you?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Could you stand behind me \\nto make believe that I have hair ?"
+				"texte": "Could you stand behind me \\nto make believe that I have hair?"
 			},
 			{
 				"nom": "Attendre",
@@ -1536,7 +1407,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Pleaaase !"
+				"texte": "\\SHAKE Pleaaase!"
 			},
 			{
 				"nom": "ModifierAvancementQuete",
@@ -1545,7 +1416,7 @@
 			},
 			{
 				"nom": "Choix",
-				"alternatives": ["Ok, why not...", "Are you a nuts ?"],
+				"alternatives": ["Ok, why not...", "Are you a nuts?"],
 				"numero": 1
 			},
 			{
@@ -1555,11 +1426,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Thanks ! Thanks a lot !"
+				"texte": "Thanks! Thanks a lot!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Place yourself in my back ! Quick !"
+				"texte": "\\SHAKE Place yourself in my back! Quick!"
 			},
 			{
 				"nom": "Deplacement",
@@ -1590,7 +1461,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Boohoohoo, I am done !"
+				"texte": "Boohoohoo, I am done!"
 			},
 			{
 				"nom": "ChoixFin",
@@ -1644,6 +1515,10 @@
 				"numero": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose cheveux\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) This is perfect!"
 			},
@@ -1665,7 +1540,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Ca fait tellement de bien de se sentir \\nchevelu !"
+				"texte": "Ça fait tellement de bien de se sentir \\nchevelu !"
 			},
 			{
 				"nom": "ArreterMusique",
@@ -1738,6 +1613,10 @@
 				"nomFichierSonore": "tabula graaah2.mp3",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
 			},
 			{
 				"nom": "Message",
@@ -1817,6 +1696,10 @@
 				"idAnimation": 42
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose cheveux\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Gloups"
 			},
@@ -1889,6 +1772,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
 				"nom": "Message",
 				"texte": "BWAAAAAAH !"
 			},
@@ -1921,6 +1808,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
 			},
 			{
 				"nom": "Commentaire",
@@ -1959,6 +1850,10 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) SPEAK, MAGICIAN!"
 			},
@@ -1994,12 +1889,16 @@
 				"idAnimation": 42
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose cheveux\""
+			},
+			{
 				"nom": "Commentaire",
-				"texte": "(en) Mm... mmm... myea."
+				"texte": "(en) \\SHAKE Mm... mmm... myea."
 			},
 			{
 				"nom": "Message",
-				"texte": "Mm... mmm... moui."
+				"texte": "\\SHAKE Mm... mmm... moui."
 			},
 			{
 				"nom": "Attendre",
@@ -2014,6 +1913,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
 			},
 			{
 				"nom": "Commentaire",
@@ -2059,20 +1962,24 @@
 				"idAnimation": 42
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) Ddd... dd... d... dthank you."
-			},
-			{
-				"nom": "Message",
-				"texte": "Mmm... mm... m... merci."
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose cheveux\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) D... ddd... dthere is your ointment."
+				"texte": "(en) \\SHAKE Ddd... dd... d... dthank you."
 			},
 			{
 				"nom": "Message",
-				"texte": "V... vvv... voici votre flacon."
+				"texte": "\\SHAKE Mmm... mm... m... merci."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE D... ddd... dthere is your ointment."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE V... vvv... voici votre flacon."
 			},
 			{
 				"nom": "Attendre",
@@ -2106,6 +2013,10 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) THANK YOU!"
 			},
@@ -2119,7 +2030,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "BON, BAH JE CASSERAI TOUT LA \\nPROCHAINE FOIS ALORS..."
+				"texte": "BON, BAH JE CASSERAI TOUT LA PROCHAINE FOIS \\nALORS..."
 			},
 			{
 				"nom": "Attendre",
@@ -2141,12 +2052,16 @@
 				"idAnimation": 42
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose cheveux\""
+			},
+			{
 				"nom": "Commentaire",
-				"texte": "(en) Ii... iii... if you want."
+				"texte": "(en) \\SHAKE Ii... iii... if you want."
 			},
 			{
 				"nom": "Message",
-				"texte": "Ss... sss... si vous voulez."
+				"texte": "\\SHAKE Ss... sss... si vous voulez."
 			},
 			{
 				"nom": "Attendre",
@@ -2169,6 +2084,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) HUHUHUHUHU!"
 			},
@@ -2178,11 +2097,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) YOU, MAGICIANS, ARE FUNNY, \\nAREN'T YOU ?"
+				"texte": "(en) YOU, MAGICIANS, ARE FUNNY, AREN'T YOU ?"
 			},
 			{
 				"nom": "Message",
-				"texte": "VOUS LES MAGICIENS VOUS ETES DES \\nMARRANTS HEIN ?"
+				"texte": "VOUS LES MAGICIENS VOUS ETES DES MARRANTS \\nHEIN ?"
 			},
 			{
 				"nom": "Commentaire",
@@ -2277,6 +2196,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
 				"nom": "Message",
 				"texte": "YAAAAAAAAA !"
 			},
@@ -2315,6 +2238,10 @@
 				"nom": "JouerAnimation",
 				"idEvent": 14,
 				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
 			},
 			{
 				"nom": "Commentaire",
@@ -2385,6 +2312,10 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) I appoint you my new assistant!"
 			},
@@ -2429,6 +2360,10 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "Message",
 				"texte": "..."
 			},
@@ -2446,7 +2381,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).mid",
+				"nomFichierSonore": "fanfare (important).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2553,12 +2488,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "Commentaire",
-				"texte": "(en) Place yourself in my back! Quick!"
+				"texte": "(en) \\SHAKE Place yourself in my back! Quick!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Place toi vite dans mon dos ! Viiiiiite !"
+				"texte": "\\SHAKE Place toi vite dans mon dos ! Viiiiiite !"
 			},
 			{
 				"nom": "Deplacement",
@@ -2625,6 +2564,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "ConditionVariable",
 				"numeroVariable": 121,
 				"inegalite": "==",
@@ -2654,11 +2597,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Young padawan, now that you have \\nsaved me,you are my new assistant !"
+				"texte": "Young padawan, now that you have \\nsaved me,you are my new assistant!"
 			},
 			{
 				"nom": "Message",
-				"texte": "To finish my potion I need :"
+				"texte": "To finish my potion I need:"
 			},
 			{
 				"nom": "Message",
@@ -2666,7 +2609,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "That is all for now, little padawan !"
+				"texte": "That is all for now, little padawan!"
 			},
 			{
 				"nom": "ConditionFin",
@@ -2737,7 +2680,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "What ? You already managed to find \\neverything ?!"
+				"texte": "What? You already managed to find \\neverything?!"
 			},
 			{
 				"nom": "Message",
@@ -2745,11 +2688,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "I did well to appoint you my assistant !"
+				"texte": "It was a good idea to appoint you my assistant!"
 			},
 			{
 				"nom": "Message",
-				"texte": "There is a crystal of the whale to thank \\nyou for making my shopping :"
+				"texte": "There is a crystal of the whale to thank \\nyou for making my shopping:"
 			},
 			{
 				"nom": "ConditionFin",
@@ -2797,7 +2740,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).mid",
+				"nomFichierSonore": "fanfare (important).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2855,7 +2798,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "You get a crystal of the whale !"
+				"texte": "You get a crystal of the whale!"
 			},
 			{
 				"nom": "Message",
@@ -3060,6 +3003,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Mmmmh..."
 			},
@@ -3090,6 +3037,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 50
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
 			},
 			{
 				"nom": "Message",
@@ -3236,11 +3187,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Oh ! You have a fish hair !"
+				"texte": "Oh ! You have a fish hair!"
 			},
 			{
 				"nom": "Message",
-				"texte": "I buy it for 300 scales !"
+				"texte": "I buy it for 300 scales!"
 			},
 			{
 				"nom": "Choix",
@@ -3321,11 +3272,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "You sell you fish hair for 300 scales !"
+				"texte": "You sell you fish hair for 300 scales!"
 			},
 			{
 				"nom": "Message",
-				"texte": "It's a chance that someone wants it !"
+				"texte": "It's a chance that someone wants it!"
 			},
 			{
 				"nom": "ConditionFin",
@@ -3419,7 +3370,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "It is the apple that I ordered to make \\nmy potions !"
+				"texte": "It's the apple that I ordered to make \\nmy potions!"
 			},
 			{
 				"nom": "Message",
@@ -3484,11 +3435,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "I see that you have an empty vase !"
+				"texte": "I see that you have an empty vase!"
 			},
 			{
 				"nom": "Message",
-				"texte": "My panacea is finished :\\nyou can buy it if you want."
+				"texte": "My panacea is finished:\\nyou can buy it if you want."
 			},
 			{
 				"nom": "ConditionFin",
@@ -3555,7 +3506,7 @@
 			},
 			{
 				"nom": "Choix",
-				"alternatives": ["Ok", "What is panacea ?"],
+				"alternatives": ["Ok", "What is panacea?"],
 				"numero": 3
 			},
 			{
@@ -3656,6 +3607,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Mmmmh..."
 			},
@@ -3686,6 +3641,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 50
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose chauve\""
 			},
 			{
 				"nom": "Message",
@@ -3832,11 +3791,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Oh ! You have a fish hair !"
+				"texte": "Oh ! You have a fish hair!"
 			},
 			{
 				"nom": "Message",
-				"texte": "I buy it for 300 scales !"
+				"texte": "I buy it for 300 scales!"
 			},
 			{
 				"nom": "Choix",
@@ -3917,11 +3876,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "You sell you fish hair for 300 scales !"
+				"texte": "You sell you fish hair for 300 scales!"
 			},
 			{
 				"nom": "Message",
-				"texte": "It's a chance that someone wants it !"
+				"texte": "It's a chance that someone wants it!"
 			},
 			{
 				"nom": "ConditionFin",
@@ -4020,11 +3979,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "I see that you have an empty vase !"
+				"texte": "I see that you have an empty vase!"
 			},
 			{
 				"nom": "Message",
-				"texte": "My panacea is finished :\\nyou can buy it if you want."
+				"texte": "My panacea is finished:\\nyou can buy it if you want."
 			},
 			{
 				"nom": "ConditionFin",
@@ -4091,7 +4050,7 @@
 			},
 			{
 				"nom": "Choix",
-				"alternatives": ["Ok", "What is panacea ?"],
+				"alternatives": ["Ok", "What is panacea?"],
 				"numero": 3
 			},
 			{
@@ -4170,10 +4129,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Livre",
+		"id": 3,
+		"nom": "parler au livre",
 		"x": 14,
-		"y": 11,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -4251,6 +4210,30 @@
 				"valeur": false
 			}
 			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Livre",
+		"x": 14,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
 			"image": "livre ouvert character",
 			"directionInitiale": 2,
 			"vitesse": "moderee",
@@ -4258,6 +4241,51 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "EV004",
+		"x": 10,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 48,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "gfhjgdf"
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 300
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

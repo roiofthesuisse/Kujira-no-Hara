@@ -1,6 +1,6 @@
 {
 	"nom": "24,5 poussière",
-	"tileset": "Sanctuaire de Ningyou",
+	"tileset": "Sanctuaire de Ningyo",
 	"largeur": 21,
 	"hauteur": 15,
 	"musique": {
@@ -9,8 +9,8 @@
 		"tempo": 1.00
 	},
 	"fondSonore": {
-		"nomFichierSonore": "010-River01.ogg",
-		"volume": 0.25,
+		"nomFichierSonore": "001-Wind01.ogg",
+		"volume": 0.00,
 		"tempo": 1.00
 	},
 	"couche0": [
@@ -20,11 +20,11 @@
 	[0002,0002,0028,0029,0008,0000,0001,0000,0000,0008,0000,0001,0000,0008,0000,0001,0000,0000,0001,0014,0015],
 	[0002,0002,0020,0021,0000,0036,0037,0004,0005,0004,0005,0004,0005,0004,0005,0004,0038,0039,0000,0006,0007],
 	[0002,0002,0020,0021,0009,0044,0045,0012,0013,0012,0013,0012,0013,0012,0013,0012,0046,0047,0009,0014,0015],
-	[0002,0002,0028,0029,0000,0020,0021,0000,-002,-008,-002,-008,-002,-008,-002,0000,0006,0007,0000,0006,0007],
-	[0036,0037,0146,0147,0009,0028,0029,0000,-002,-002,-002,-002,-002,-002,-002,0000,0014,0015,0009,0014,0015],
+	[0002,0002,0028,0029,0000,0020,0021,0000,0000,-008,0000,-008,0000,-008,0000,0000,0006,0007,0000,0006,0007],
+	[0036,0037,0146,0147,0009,0028,0029,0000,0000,0000,0000,0000,0000,0000,0000,0000,0014,0015,0009,0014,0015],
 	[0044,0045,0154,0155,0000,0020,0021,0001,0000,0135,0009,0158,0000,0166,0009,0001,0006,0007,0008,0050,0051],
-	[0028,0029,0000,0009,0001,0028,0029,0009,0008,0009,0000,0009,0008,0009,0000,0009,0014,0015,0000,0058,0059],
-	[0020,0021,0008,0000,0008,0020,0021,0000,0001,0000,0008,0000,0001,0000,0008,0000,0006,0007,0008,0066,0067],
+	[0028,0029,0010,0009,0001,0028,0029,0009,0008,0009,0000,0009,0008,0009,0000,0009,0014,0015,0000,0058,0059],
+	[0020,0021,0010,0000,0008,0020,0021,0000,0001,0000,0008,0000,0001,0000,0008,0000,0006,0007,0008,0066,0067],
 	[0028,0029,0000,0009,0001,0028,0029,0009,0008,0009,0128,0129,0023,0022,0023,0022,0054,0055,0009,0014,0015],
 	[0020,0021,0008,0000,0008,0020,0021,0000,0001,0000,0136,0137,0031,0030,0031,0030,0062,0063,0001,0006,0007],
 	[0028,0029,0009,0008,0009,0052,0053,0032,0033,0034,0054,0055,0128,0129,0023,0022,0023,0023,0022,0054,0055],
@@ -44,8 +44,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0122,0123],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
+	[-001,-001,-001,-001,-001,-001,-001,0088,0089,0090,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,0096,0097,0098,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"couche2": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -115,16 +115,12 @@
 				]
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
 				"nom": "AppelerUnScript",
 				"script": "wait_for_event(0)"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "JouerAnimation",
@@ -158,6 +154,101 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 22,
+		"nom": "EV022",
+		"x": 3,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 14,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "BAS",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 66,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 555,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 67,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 68,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": true,
+				"numeroNouvelleMap": 66,
+				"xDebutHeros": 67,
+				"yDebutHeros": 68
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -335,38 +426,6 @@
 				"numero": 3
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 16,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 21,
-				"variable": false,
-				"nouveauX": 10,
-				"nouveauY": 18,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 21,
-				"variable": false,
-				"nouveauX": 19,
-				"nouveauY": 16,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -439,6 +498,37 @@
 		]
 	},
 	{
+		"id": 23,
+		"nom": "EV023",
+		"x": 8,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 555,
+				"xDebutHeros": 8,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 18,
 		"nom": "EV018",
 		"x": 11,
@@ -476,16 +566,12 @@
 				]
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
 				"nom": "AppelerUnScript",
 				"script": "wait_for_event(0)"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "JouerAnimation",
@@ -538,6 +624,12 @@
 		"y": 9
 	},
 	{
+		"id": 24,
+		"nom": "Clone[021][020]",
+		"x": 4,
+		"y": 2
+	},
+	{
 		"id": 13,
 		"nom": "Clone[341][078]",
 		"x": 10,
@@ -587,16 +679,12 @@
 				]
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
 				"nom": "AppelerUnScript",
 				"script": "wait_for_event(0)"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "JouerAnimation",
@@ -651,6 +739,12 @@
 		"nom": "Clone[341][003]",
 		"x": 7,
 		"y": 6
+	},
+	{
+		"id": 25,
+		"nom": "Clone[341][004]",
+		"x": 2,
+		"y": 10
 	},
 	{
 		"id": 20,
@@ -888,9 +982,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 346,
-				"xDebutHeros": 8,
-				"yDebutHeros": 15
+				"numeroNouvelleMap": 557,
+				"xDebutHeros": 1,
+				"yDebutHeros": 9
 			}
 			],
 			"vitesse": "moderee",

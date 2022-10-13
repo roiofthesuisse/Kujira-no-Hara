@@ -668,6 +668,13 @@
 			"commandes": [
 			{
 				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
 				"numeroVariable": 3,
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 0,
@@ -675,11 +682,19 @@
 			},
 			{
 				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": ">",
+				"valeurQuIlEstCenseAvoir": 15,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
 				"numeroVariable": 3,
 				"inegalite": ">",
 				"valeurQuIlEstCenseAvoir": 19,
 				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
@@ -747,6 +762,22 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionSinon",

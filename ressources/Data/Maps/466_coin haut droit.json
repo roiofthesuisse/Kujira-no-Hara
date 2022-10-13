@@ -246,12 +246,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est elle, la princesse \\c[2]Irahna\\c[0] ?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Qu'elle est belle !..."
+				"texte": "\\WAVE Qu'elle est belle !..."
 			},
 			{
 				"nom": "Attendre",
@@ -286,8 +290,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie genee\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Qu'est-ce que tu fais ici ?!"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
 			},
 			{
 				"nom": "Message",
@@ -304,8 +316,16 @@
 				"alternative": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Comme tu le sais sûrement, nous sommes \\ndans le sanctuaire de \\c[2]Jishin'\\c[1] !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
 			},
 			{
 				"nom": "Message",
@@ -317,8 +337,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Comme tu le sais sûrement, nous sommes \\ndans le sanctuaire de \\c[2]Jishin'\\c[1] !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
 			},
 			{
 				"nom": "Message",
@@ -329,8 +357,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
 				"nom": "Message",
 				"texte": "On dit de lui qu'il donnait la vie aux statues !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
 			},
 			{
 				"nom": "Message",
@@ -345,6 +381,10 @@
 			{
 				"nom": "ArreterMusique",
 				"nombreDeFrames": 60
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
 				"nom": "Message",
@@ -412,6 +452,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Cet endroit a très probablement un lien avec \\nl'étang Hancvolocturakpah !"
 			},
@@ -420,6 +464,10 @@
 				"nomFichierSonore": "Gasp.wav",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
 				"nom": "Message",
@@ -883,18 +931,9 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "maillet trouvé"
-			},
-			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 52,
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Commentaire",
@@ -915,11 +954,20 @@
 			},
 			{
 				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionArmePossedee",
@@ -929,32 +977,6 @@
 			{
 				"nom": "Commentaire",
 				"texte": "maillet trouvé"
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 52,
-				"numero": 3
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "donjon terminé"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 11,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
 			},
 			{
 				"nom": "ConditionSinon",
@@ -983,7 +1005,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "SupprimerEvent"

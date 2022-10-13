@@ -141,12 +141,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[21][19]",
-		"x": 18,
-		"y": 25
-	},
-	{
 		"id": 5,
 		"nom": "Réglages initiaux",
 		"x": 36,
@@ -258,10 +252,66 @@
 		"y": 16
 	},
 	{
-		"id": 17,
-		"nom": "Clone[21][19]",
-		"x": 21,
-		"y": 17
+		"id": 22,
+		"nom": "invoquer oursin",
+		"x": 31,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 3
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(24, 17, 21, 19)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(14, 24, 21, 19)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 22,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 6,
@@ -374,18 +424,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 83
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "MiniBoss.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "015-Quake01.ogg",
-				"volume": 1.00,
-				"tempo": 0.50
 			},
 			{
 				"nom": "ModifierVariable",
@@ -555,24 +593,8 @@
 				"valeur": false
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "MiniBoss.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "015-Quake01.ogg",
-				"volume": 1.00,
-				"tempo": 0.50
 			}
 			],
 			"vitesse": "moderee",
@@ -589,7 +611,7 @@
 				"nom": "Variable",
 				"numeroVariable": 25,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 6
+				"valeurQuIlEstCenseAvoir": 5
 			}
 			],
 			"commandes": [
@@ -633,6 +655,37 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 39,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 84,
+				"xDebutHeros": 1,
+				"yDebutHeros": 12
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 12,
 		"nom": "Cristal de baleine",
 		"x": 19,
@@ -652,7 +705,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).mid",
+				"nomFichierSonore": "fanfare (important).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -876,24 +929,55 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 39,
-		"y": 20,
+		"id": 23,
+		"nom": "invoquer oursin",
+		"x": 31,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 4
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 84,
-				"xDebutHeros": 1,
-				"yDebutHeros": 12
+				"nom": "AppelerUnScript",
+				"script": "invoquer(24, 17, 21, 19)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(14, 24, 21, 19)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 23,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -905,12 +989,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 18,
-		"nom": "Clone[21][19]",
-		"x": 20,
-		"y": 16
 	},
 	{
 		"id": 7,
@@ -968,10 +1046,6 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
 			}
@@ -985,37 +1059,6 @@
 			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 0,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 399,
-				"xDebutHeros": 25,
-				"yDebutHeros": 15
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -1052,10 +1095,35 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][001]",
-		"x": 15,
-		"y": 25
+		"id": 13,
+		"nom": "EV013",
+		"x": 0,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 399,
+				"xDebutHeros": 25,
+				"yDebutHeros": 15
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 19,
@@ -1105,7 +1173,7 @@
 				"nom": "Variable",
 				"numeroVariable": 25,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 6
+				"valeurQuIlEstCenseAvoir": 5
 			}
 			],
 			"commandes": [
@@ -1149,35 +1217,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 0,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 399,
-				"xDebutHeros": 25,
-				"yDebutHeros": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 8,
+		"nom": "Clone[341][001]",
+		"x": 15,
+		"y": 25
 	},
 	{
 		"id": 3,
@@ -1549,7 +1592,7 @@
 				"nom": "Variable",
 				"numeroVariable": 25,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 6
+				"valeurQuIlEstCenseAvoir": 5
 			}
 			],
 			"commandes": [
@@ -1791,16 +1834,99 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 0,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 399,
+				"xDebutHeros": 25,
+				"yDebutHeros": 16
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "Clone[341][001]",
 		"x": 16,
 		"y": 25
 	},
 	{
-		"id": 15,
-		"nom": "Clone[21][19]",
-		"x": 17,
-		"y": 24
+		"id": 20,
+		"nom": "invoquer oursin",
+		"x": 31,
+		"y": 27,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(24, 17, 21, 19)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 20,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 4,
@@ -1885,6 +2011,64 @@
 		"nom": "Clone[341][001]",
 		"x": 22,
 		"y": 16
+	},
+	{
+		"id": 21,
+		"nom": "invoquer oursin",
+		"x": 31,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(14, 24, 21, 19)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 21,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	}
 	]
 }

@@ -4,8 +4,8 @@
 	"largeur": 25,
 	"hauteur": 20,
 	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
+		"nomFichierSonore": "Donjon 5.ogg",
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -81,12 +81,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][149]",
-		"x": 10,
-		"y": 7
-	},
-	{
 		"id": 16,
 		"nom": "mur (32)",
 		"x": 5,
@@ -113,10 +107,22 @@
 		]
 	},
 	{
+		"id": 5,
+		"nom": "Clone[341][149]",
+		"x": 10,
+		"y": 7
+	},
+	{
 		"id": 11,
 		"nom": "Clone[341][059]",
 		"x": 18,
 		"y": 5
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][149]",
+		"x": 12,
+		"y": 7
 	},
 	{
 		"id": 17,
@@ -150,10 +156,10 @@
 		]
 	},
 	{
-		"id": 6,
+		"id": 1,
 		"nom": "Clone[341][149]",
 		"x": 12,
-		"y": 7
+		"y": 9
 	},
 	{
 		"id": 12,
@@ -162,10 +168,104 @@
 		"y": 5
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][149]",
+		"id": 7,
+		"nom": "blocage",
 		"x": 12,
-		"y": 9
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 53,
+				"valeur": false
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 53,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "025-Door02.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "blocage character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 7,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -355,147 +455,16 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "blocage",
-		"x": 12,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 53,
-				"valeur": false
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 53,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "025-Door02.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "blocage character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][004]",
-		"x": 6,
-		"y": 9
-	},
-	{
 		"id": 2,
 		"nom": "Clone[341][149]",
 		"x": 10,
 		"y": 9
 	},
 	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 4,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 492,
-				"xDebutHeros": 24,
-				"yDebutHeros": 17
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 13,
+		"nom": "Clone[341][004]",
+		"x": 6,
+		"y": 9
 	},
 	{
 		"id": 19,
@@ -578,6 +547,43 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "EV008",
+		"x": 4,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 492,
+				"xDebutHeros": 24,
+				"yDebutHeros": 17
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][149]",
+		"x": 14,
+		"y": 9
+	},
+	{
 		"id": 14,
 		"nom": "EV014",
 		"x": 12,
@@ -609,12 +615,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][149]",
-		"x": 14,
-		"y": 9
-	},
-	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 4,
@@ -644,12 +644,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][149]",
-		"x": 10,
-		"y": 5
 	},
 	{
 		"id": 15,
@@ -702,6 +696,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][149]",
+		"x": 10,
+		"y": 5
 	},
 	{
 		"id": 10,

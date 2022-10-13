@@ -1,6 +1,6 @@
 {
 	"nom": "Salle 19 (MiniBoss Nenuphar)",
-	"tileset": "Sanctuaire de Ningyou",
+	"tileset": "Sanctuaire de Ningyo",
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
@@ -9,8 +9,8 @@
 		"tempo": 1.00
 	},
 	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
+		"nomFichierSonore": "010-River01.ogg",
+		"volume": 0.70,
 		"tempo": 1.00
 	},
 	"couche0": [
@@ -337,6 +337,46 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "blessé",
+		"x": 24,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 66
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "EV006",
 		"x": 29,
@@ -541,7 +581,7 @@
 	},
 	{
 		"id": 1,
-		"nom": "Nenuphar miniboss",
+		"nom": "Nenuphar (6)",
 		"x": 14,
 		"y": 10,
 		"pages": [
@@ -747,7 +787,7 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": true
@@ -824,7 +864,7 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
@@ -871,7 +911,7 @@
 			"vitesse": "rapide",
 			"frequence": "tres haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
@@ -1178,8 +1218,8 @@
 			"commandes": [
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Donjon 2.mp3",
-				"volume": 0.80,
+				"nomFichierSonore": "Donjon 2.ogg",
+				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
@@ -1254,8 +1294,8 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Donjon 2.mp3",
-				"volume": 0.80,
+				"nomFichierSonore": "Donjon 2.ogg",
+				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
@@ -2146,6 +2186,17 @@
 				]
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
 				"volume": 1.00,
@@ -2190,6 +2241,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -2339,6 +2394,17 @@
 				]
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
 				"volume": 1.00,
@@ -2383,6 +2449,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -2537,6 +2607,17 @@
 				]
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
 				"volume": 1.00,
@@ -2581,6 +2662,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",

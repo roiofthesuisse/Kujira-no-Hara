@@ -28,11 +28,11 @@ public abstract class ExporterLesEventsGeneriques {
 	}
 
 	/**
-	 * Certains events sont des clones d'un modèle.
-	 * Isoler ces modèles et les ranger dans le dossier des modèles pour clones.
+	 * Certains events sont des clones d'un modï¿½le.
+	 * Isoler ces modeles et les ranger dans le dossier des modeles pour clones.
 	 */
 	private static void exporterLesEventsGeneriques() {
-		System.out.println("Recherche des events génériques :");
+		System.out.println("Recherche des events generiques :");
 		ArrayList<ArrayList<Integer>> localisationDesGeneriques = new ArrayList<>();
 		for (int numeroMap = 1; numeroMap <=NOMBRE_DE_MAPS; numeroMap++) {
 			try {
@@ -88,7 +88,7 @@ public abstract class ExporterLesEventsGeneriques {
 						String nomModele = "";
 						rechercheDuModele: for (ArrayList<Integer> l : localisationDesGeneriques) {
 							if (l.get(0) == numeroMap && l.get(1) == idEvent) {
-								// On a trouvé le modèle
+								// On a trouve le modele
 								jsonModele = jsonEvent.toString(4);
 								
 								nomModele = "Clone["+numeroMap+"]["+idEvent+"]";

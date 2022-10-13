@@ -1,6 +1,6 @@
 {
 	"nom": "25 serpents",
-	"tileset": "Sanctuaire de Ningyou",
+	"tileset": "Sanctuaire de Ningyo",
 	"largeur": 21,
 	"hauteur": 15,
 	"musique": {
@@ -16,10 +16,10 @@
 	"couche0": [
 	[0028,0029,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,0144,0145,0016,0017,0018,0038,0039],
 	[0020,0021,0008,0009,0001,0000,0008,0009,0001,0000,0008,0009,0001,0001,0152,0153,0024,0025,0026,0046,0047],
-	[0028,0029,0009,0000,0009,0008,0009,0000,0009,0008,0009,0000,0009,0000,0000,0009,0008,0009,0009,0006,0007],
-	[0020,0021,0000,0008,0000,0001,0000,0008,0000,0001,0000,0008,0000,0000,0008,0009,-006,-006,-006,0014,0015],
-	[0028,0029,0008,0000,0000,0009,0008,0000,0000,0009,0008,0000,0000,0008,0009,0000,-006,-006,-006,0006,0007],
-	[0020,0021,0000,0008,0000,0001,0000,0008,0000,0001,0000,0008,0000,0009,0009,0000,-006,-006,-006,0014,0015],
+	[0028,0029,0009,0000,0009,0008,0009,0000,0009,0008,0009,0000,0009,-008,-008,-008,0008,0000,0000,0006,0007],
+	[0020,0021,0000,0008,0000,0001,0000,0008,0000,0001,0000,0008,0000,-008,-008,-008,0008,0009,0001,0014,0015],
+	[0028,0029,0008,0000,0000,0009,0008,0000,0000,0009,0008,0000,0000,-008,-008,-008,0009,0000,0009,0006,0007],
+	[0020,0021,0000,0008,0000,0001,0000,0008,0000,0001,0000,0008,0000,-008,-008,-008,0000,0008,0000,0014,0015],
 	[0020,0021,0008,0009,0001,0000,0008,0009,0001,0000,0008,0009,0001,0128,0129,0022,0023,0022,0023,0054,0055],
 	[0028,0029,0009,0000,0009,0008,0009,0000,0009,0008,0009,0000,0009,0136,0137,0030,0031,0030,0031,0062,0063],
 	[0048,0049,0000,0008,0000,0001,0000,0008,0000,0001,0000,0008,0000,0144,0145,0005,0004,0038,0039,0002,0002],
@@ -31,12 +31,12 @@
 	[0028,0029,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,0136,0137,0030,0031,0062,0063,0002,0002]
 	],
 	"couche1": [
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0072,0073,0074,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0080,0081,0082,-001,-001],
 	[-001,-001,-001,0240,0240,0240,0240,0240,0240,0240,0240,0240,0242,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0241,-001,-001,-001,-001,0011,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0241,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,0244,0240,0240,0240,0240,0240,0240,0242,-001,0241,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,0241,-001,-001,-001,-001,-001,-001,0241,-001,0241,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,0241,-001,-001,-001,-001,-001,-001,0241,-001,0241,-001,-001,-001,0182,-001,-001,-001,-001],
 	[-001,-001,-001,0241,-001,0244,0240,0240,-001,-001,0241,-001,0241,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,0241,-001,0241,-001,-001,-001,-001,0241,-001,0241,-001,-001,-001,-001,-001,-001,-001,-001],
 	[0104,0105,-001,0241,-001,0241,-001,0240,0240,0240,0243,-001,0241,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -146,7 +146,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 33
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -208,7 +208,7 @@
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
+				"numeroInterrupteurLocal": 2,
 				"valeurADonner": true
 			},
 			{
@@ -232,79 +232,6 @@
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 5,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 1,
-				"nombreDeCarreaux": 5,
-				"vitesse": "rapide"
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 3,
-				"nombreDeCarreaux": 4,
-				"vitesse": "rapide"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 0,
-				"nombreDeCarreaux": 4,
-				"vitesse": "rapide"
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 2,
-				"nombreDeCarreaux": 5,
-				"vitesse": "rapide"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": true
-			}
-			],
-			"image": "dodo-serpent character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"figerLesAutresEvents": true,
-			"animeEnMouvement": false,
-			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -378,9 +305,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 355,
-				"xDebutHeros": 20,
-				"yDebutHeros": 17
+				"numeroNouvelleMap": 556,
+				"xDebutHeros": 19,
+				"yDebutHeros": 9
 			}
 			],
 			"vitesse": "moderee",
@@ -560,8 +487,8 @@
 	{
 		"id": 17,
 		"nom": "Clone[341][004]",
-		"x": 13,
-		"y": 4
+		"x": 7,
+		"y": 1
 	},
 	{
 		"id": 1,
@@ -814,7 +741,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 33
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -876,7 +803,7 @@
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
+				"numeroInterrupteurLocal": 2,
 				"valeurADonner": true
 			},
 			{
@@ -900,79 +827,6 @@
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 1,
-				"nombreDeCarreaux": 5,
-				"vitesse": "rapide"
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 3,
-				"nombreDeCarreaux": 4,
-				"vitesse": "rapide"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 0,
-				"nombreDeCarreaux": 4,
-				"vitesse": "rapide"
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 2,
-				"nombreDeCarreaux": 5,
-				"vitesse": "rapide"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": true
-			}
-			],
-			"image": "dodo-serpent character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"figerLesAutresEvents": true,
-			"animeEnMouvement": false,
-			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -1025,41 +879,22 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 17,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 347,
-				"xDebutHeros": 10,
-				"yDebutHeros": 13
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 18,
+		"nom": "Clone[341][27]",
+		"x": 14,
+		"y": 3
 	},
 	{
 		"id": 13,
 		"nom": "Clone[021][002]",
 		"x": 12,
 		"y": 13
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][27]",
+		"x": 14,
+		"y": 2
 	},
 	{
 		"id": 8,
@@ -1088,6 +923,32 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "SupprimerEvent"
 			},
 			{
@@ -1107,16 +968,22 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][059]",
-		"x": 18,
-		"y": 5
+		"id": 19,
+		"nom": "Clone[341][27]",
+		"x": 13,
+		"y": 4
 	},
 	{
 		"id": 14,
 		"nom": "Clone[021][002]",
 		"x": 16,
 		"y": 11
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][0081]",
+		"x": 16,
+		"y": 5
 	},
 	{
 		"id": 9,
@@ -1179,70 +1046,41 @@
 		]
 	},
 	{
+		"id": 15,
+		"nom": "Clone[341][004]",
+		"x": 8,
+		"y": 1
+	},
+	{
 		"id": 4,
-		"nom": "Pancarte",
+		"nom": "EV004",
 		"x": 17,
-		"y": 3,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "Aux aventuriers distraits et étourdis qui \\nsont perdus ou coincés :"
-			},
-			{
-				"nom": "Message",
-				"texte": "Sonnez la cloche de retour !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 561,
+				"xDebutHeros": 17,
+				"yDebutHeros": 13
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][004]",
-		"x": 13,
-		"y": 5
 	},
 	{
 		"id": 10,

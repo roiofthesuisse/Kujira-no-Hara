@@ -16,7 +16,7 @@ import utilitaire.graphismes.Graphismes;
 
 /**
  * Certains autotiles font une transition douce vers certains autres.
- * La deuxième case de l'autotile représente l'autotile vers lequel une telle transition douce est possible.
+ * La deuxieme case de l'autotile represente l'autotile vers lequel une telle transition douce est possible.
  * Ici on fait la liste des autotiles qui sont cousins.
  */
 public abstract class CalculerLesAutotilesCousins {
@@ -66,7 +66,7 @@ public abstract class CalculerLesAutotilesCousins {
 						cousinages.put(cousinage);
 					}
 					jsonCousin.put("cousins", cousinages);
-					// écrire nouveau JSON
+					// ecrire nouveau JSON
 					PrintWriter out = new PrintWriter(".\\ressources\\Data\\Tilesets\\Cousins\\"+fichierTileset.getName());
 					out.println(jsonCousin.toString());
 					out.close();

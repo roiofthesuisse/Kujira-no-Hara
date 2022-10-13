@@ -147,12 +147,6 @@
 		"y": 30
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][028]",
-		"x": 12,
-		"y": 20
-	},
-	{
 		"id": 17,
 		"nom": "EV017",
 		"x": 35,
@@ -194,10 +188,10 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 6,
 		"nom": "Clone[341][028]",
-		"x": 14,
-		"y": 21
+		"x": 12,
+		"y": 20
 	},
 	{
 		"id": 1,
@@ -226,10 +220,10 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 12,
 		"nom": "Clone[341][028]",
-		"x": 15,
-		"y": 20
+		"x": 14,
+		"y": 21
 	},
 	{
 		"id": 18,
@@ -263,10 +257,10 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 7,
 		"nom": "Clone[341][028]",
-		"x": 13,
-		"y": 21
+		"x": 15,
+		"y": 20
 	},
 	{
 		"id": 2,
@@ -290,6 +284,43 @@
 			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][028]",
+		"x": 13,
+		"y": 21
+	},
+	{
+		"id": 8,
+		"nom": "EV008",
+		"x": 14,
+		"y": 39,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 85,
+				"xDebutHeros": 7,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -352,12 +383,12 @@
 				"nom": "ArreterChronometre"
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"archibald\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You found me!"
 			},
 			{
 				"nom": "Message",
@@ -368,28 +399,12 @@
 				"texte": "..."
 			},
 			{
-				"nom": "Message",
-				"texte": "Ca continue !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) But that's not it!"
 			},
 			{
 				"nom": "Message",
-				"texte": "You found me !"
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Let us go on !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"texte": "Mais ça n'est pas fini !"
 			},
 			{
 				"nom": "Attendre",
@@ -466,28 +481,16 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"archibald\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE Let's go!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Top Chrono !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "Go !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
+				"texte": "\\WAVE Top Chrono !"
 			},
 			{
 				"nom": "DemarrerChronometre",
@@ -505,36 +508,24 @@
 				"numero": 1
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 4
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"archibald\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Too late!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Trop tard !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You took more than 30 seconds!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu as dépassé les 30 secondes !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "Message",
-				"texte": "Too late !"
-			},
-			{
-				"nom": "Message",
-				"texte": "You have exceeded 30 seconds !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
 			},
 			{
 				"nom": "ModifierVariable",
@@ -549,10 +540,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -605,43 +592,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 14,
-		"y": 39,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 85,
-				"xDebutHeros": 7,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][135]",
-		"x": 14,
-		"y": 8
 	},
 	{
 		"id": 3,
@@ -1191,6 +1141,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][135]",
+		"x": 14,
+		"y": 8
 	},
 	{
 		"id": 9,

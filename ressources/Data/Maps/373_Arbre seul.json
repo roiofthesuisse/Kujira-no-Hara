@@ -102,6 +102,53 @@
 		"y": 13
 	},
 	{
+		"id": 6,
+		"nom": "brouillard",
+		"x": 19,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 0,
+				"modeDeFusion": "normal",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": ""
+			},
+			{
+				"nom": "ModifierMeteo",
+				"type": "rien",
+				"intensite": 5
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 1,
 		"nom": "Clone[341][061]",
 		"x": 14,
@@ -164,7 +211,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).mid",
+				"nomFichierSonore": "fanfare (important).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},

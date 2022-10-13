@@ -1,16 +1,16 @@
 {
 	"nom": "Sanctuaire de Ningyo - Entrée",
-	"tileset": "Sanctuaire de Ningyou",
+	"tileset": "Sanctuaire de Ningyo",
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Donjon 2.mp3",
-		"volume": 0.80,
+		"nomFichierSonore": "Donjon 2.ogg",
+		"volume": 1.00,
 		"tempo": 1.00
 	},
 	"fondSonore": {
 		"nomFichierSonore": "010-River01.ogg",
-		"volume": 0.80,
+		"volume": 0.70,
 		"tempo": 1.00
 	},
 	"couche0": [
@@ -723,6 +723,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"lankhor\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Tiens tiens..."
 			},
@@ -761,6 +765,11 @@
 			{
 				"nom": "Message",
 				"texte": "Tant pis."
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 93,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",

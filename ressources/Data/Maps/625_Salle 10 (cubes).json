@@ -16,7 +16,7 @@
 	"couche0": [
 	[0028,0029,0000,0000,0000,0036,0037,0005,0004,0005,0004,0118,0004,0005,0004,0005,0016,0017,0018,0038,0039],
 	[0020,0021,0000,0000,0000,0044,0045,0013,0012,0013,0012,0126,0012,0013,0012,0013,0024,0025,0026,0046,0047],
-	[0146,0147,0000,0000,0000,0020,0021,-004,0000,0000,0000,0000,0000,0000,0000,-004,0000,0000,0000,0006,0007],
+	[0146,0147,0000,0000,0000,0020,0021,-004,0000,0000,0000,0170,0000,0000,0000,-004,0000,0000,0000,0006,0007],
 	[0154,0155,0000,0000,0000,0020,0021,-004,0000,0000,0000,0000,0000,0000,0000,-004,0000,0000,0000,0014,0015],
 	[0036,0037,0004,0005,0004,0146,0147,-004,0000,0000,0000,0000,0000,0000,0000,-004,0000,0000,0000,0006,0007],
 	[0044,0045,0012,0013,0012,0154,0155,-004,-004,-004,-007,-007,-007,-004,-004,-004,-007,-007,-007,0014,0015],
@@ -66,6 +66,30 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Blocage anti-évènement",
+		"x": 11,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "EV005",
 		"x": 11,
@@ -97,9 +121,9 @@
 		]
 	},
 	{
-		"id": 16,
+		"id": 22,
 		"nom": "Blocage anti-évènement",
-		"x": 11,
+		"x": 16,
 		"y": 4,
 		"pages": [
 		{
@@ -127,9 +151,9 @@
 		"y": 2
 	},
 	{
-		"id": 22,
+		"id": 17,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
+		"x": 10,
 		"y": 4,
 		"pages": [
 		{
@@ -182,9 +206,9 @@
 		]
 	},
 	{
-		"id": 17,
+		"id": 23,
 		"nom": "Blocage anti-évènement",
-		"x": 10,
+		"x": 17,
 		"y": 4,
 		"pages": [
 		{
@@ -216,30 +240,6 @@
 		"nom": "Clone[572][9]",
 		"x": 8,
 		"y": 11
-	},
-	{
-		"id": 23,
-		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 7,
@@ -275,8 +275,32 @@
 	{
 		"id": 18,
 		"nom": "Clone[572][9]",
-		"x": 9,
-		"y": 7
+		"x": 11,
+		"y": 10
+	},
+	{
+		"id": 24,
+		"nom": "Blocage anti-évènement",
+		"x": 18,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 2,
@@ -458,61 +482,6 @@
 		"y": 8
 	},
 	{
-		"id": 24,
-		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 2,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 290,
-				"xDebutHeros": 2,
-				"yDebutHeros": 13
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 19,
 		"nom": "Réglages initiaux",
 		"x": 0,
@@ -594,10 +563,6 @@
 			{
 				"nom": "AjouterArme",
 				"idArme": 2
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 3
 			},
 			{
 				"nom": "AjouterGadget",
@@ -694,6 +659,37 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "EV008",
+		"x": 2,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 290,
+				"xDebutHeros": 2,
+				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 3,
 		"nom": "teleporteur",
 		"x": 0,
@@ -711,7 +707,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 626,
 				"xDebutHeros": 19,
-				"yDebutHeros": 8
+				"yDebutHeros": 9
 			}
 			],
 			"image": 28,
@@ -726,10 +722,63 @@
 		]
 	},
 	{
+		"id": 25,
+		"nom": "Blocage anti-évènement",
+		"x": 3,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 14,
 		"nom": "Clone[572][9]",
-		"x": 11,
-		"y": 10
+		"x": 9,
+		"y": 7
+	},
+	{
+		"id": 20,
+		"nom": "activer verglas",
+		"x": 0,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 36,
+				"valeur": true
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 9,
@@ -757,27 +806,22 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "activer verglas",
-		"x": 0,
-		"y": 1,
+		"id": 15,
+		"nom": "Blocage anti-évènement",
+		"x": 12,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 36,
-				"valeur": true
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -817,10 +861,10 @@
 		]
 	},
 	{
-		"id": 15,
+		"id": 26,
 		"nom": "Blocage anti-évènement",
-		"x": 12,
-		"y": 4,
+		"x": 3,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -839,12 +883,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][102]",
-		"x": 13,
-		"y": 2
 	},
 	{
 		"id": 21,
@@ -901,6 +939,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][102]",
+		"x": 13,
+		"y": 2
 	}
 	]
 }

@@ -25,7 +25,7 @@
 	[0172,0172,0172,0172,0172,0172,0172,0172,0176,0170,0177,0009,0011,0011,0011,0011,0011,0013,0179,0170,0171,0172,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0176,0177,0009,0010,0017,0009,0011,0003,0011,0013,0021,0012,0013,0179,0180,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0184,0009,0017,0009,0011,0017,0001,0001,0001,0021,0011,0013,0021,0013,0188,0172,0172,0172,0172,0172,0172,0172,0172],
-	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0009,0017,0001,0001,0008,0001,0052,0001,0008,0021,0013,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
+	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0009,0017,0001,0008,0001,0001,0052,0001,0008,0021,0013,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0184,0041,0040,0052,0001,0001,0001,0001,0001,0001,0001,0001,0038,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0040,0001,0001,0001,0001,0001,0001,0001,0001,0001,0038,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
 	[0172,0172,0172,0172,0172,0172,0172,0184,0040,0040,0001,0001,0001,0001,0001,0001,0001,0001,0001,0038,0038,0188,0172,0172,0172,0172,0172,0172,0172,0172],
@@ -56,8 +56,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0004,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0248,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,0256,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,0033,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -179,6 +179,12 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 18
+	},
+	{
 		"id": 12,
 		"nom": "scientifique",
 		"x": 12,
@@ -212,7 +218,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Au nom de la science !"
+				"texte": "\\WAVE Au nom de la science !"
 			},
 			{
 				"nom": "Message",
@@ -249,7 +255,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Zone enneigée.mid",
+				"nomFichierSonore": "Zone enneigée.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
@@ -327,7 +333,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Zone enneigée.mid",
+				"nomFichierSonore": "Zone enneigée.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			}
@@ -356,12 +362,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 18
-	},
-	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 20,
@@ -385,6 +385,10 @@
 				"valeurQuIlEstCenseAvoir": 15,
 				"comparerAUneAutreVariable": false,
 				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
 			},
 			{
 				"nom": "Deplacement",
@@ -416,8 +420,8 @@
 				]
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
 			},
 			{
 				"nom": "ConditionFin",
@@ -445,10 +449,143 @@
 		"y": 17
 	},
 	{
+		"id": 13,
+		"nom": "Clone[341][113]",
+		"x": 13,
+		"y": 10
+	},
+	{
 		"id": 8,
-		"nom": "Clone[341][002]",
-		"x": 11,
-		"y": 11
+		"nom": "Annonce du Lieu",
+		"x": 20,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 12,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 12,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AfficherImage",
+				"numero": 9,
+				"nomImage": "AnnonceLieu VikingJaune",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 0,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "DeplacerImage",
+				"numero": 9,
+				"nombreDeFrames": 16,
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 255,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 83
+			},
+			{
+				"nom": "DeplacerImage",
+				"numero": 9,
+				"nombreDeFrames": 16,
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 0,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 3,
@@ -458,102 +595,24 @@
 	},
 	{
 		"id": 9,
-		"nom": "Luciole",
-		"x": 12,
-		"y": 11,
+		"nom": "EV009",
+		"x": 14,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.mp3",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
+			"image": 10,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
 		}
@@ -564,125 +623,6 @@
 		"nom": "Clone[341][004]",
 		"x": 18,
 		"y": 18
-	},
-	{
-		"id": 10,
-		"nom": "Luciole",
-		"x": 12,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.mp3",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
 	}
 	]
 }

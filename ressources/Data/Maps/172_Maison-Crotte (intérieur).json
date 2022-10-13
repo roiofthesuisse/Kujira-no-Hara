@@ -169,16 +169,16 @@
 		"y": 17
 	},
 	{
-		"id": 12,
-		"nom": "Clone[341][003]",
-		"x": 15,
-		"y": 13
-	},
-	{
 		"id": 1,
 		"nom": "Clone[341][039]",
 		"x": 17,
 		"y": 20
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][003]",
+		"x": 15,
+		"y": 13
 	},
 	{
 		"id": 7,
@@ -214,12 +214,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][039]",
-		"x": 11,
-		"y": 20
 	},
 	{
 		"id": 13,
@@ -274,6 +268,39 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"emeline\""
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 52,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Après le sanctuaire de Jishin'"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu dois faire ce qu'\\c[2]Hibu\\c[1] te demandera."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il saura récompenser tes efforts lorsque \\nson plan aura été parachevé."
+			},
+			{
+				"nom": "Message",
+				"texte": "Moi aussi il... non rien."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Avant le sanctuaire de Jishin'"
+			},
+			{
 				"nom": "Message",
 				"texte": "Dans les grandes grottes, tu auras peut-être \\nla chance de rencontrer des personnalités\\nremarquables."
 			},
@@ -292,6 +319,10 @@
 			{
 				"nom": "Message",
 				"texte": "A leur façon..."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -326,10 +357,22 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "Clone[341][039]",
+		"x": 11,
+		"y": 20
+	},
+	{
 		"id": 8,
 		"nom": "Clone[341][004]",
 		"x": 9,
 		"y": 16
+	},
+	{
+		"id": 14,
+		"nom": "Clone[582][40]",
+		"x": 14,
+		"y": 12
 	},
 	{
 		"id": 3,
@@ -351,24 +394,14 @@
 	},
 	{
 		"id": 10,
-		"nom": "Obscurité",
-		"x": 21,
-		"y": 8,
+		"nom": "pas de decor sup",
+		"x": 16,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
 			],
 			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 50,
-				"modeDeFusion": "addition",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 0,
-				"nomImage": "001-Fog01"
-			},
 			{
 				"nom": "EffacerImage",
 				"numero": 3

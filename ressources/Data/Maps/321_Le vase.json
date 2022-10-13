@@ -361,11 +361,6 @@
 				"nombreDeFrames": 1
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
-				"numero": 3
-			},
-			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "MC_Enemy_Hit.wav",
 				"volume": 0.80,
@@ -385,32 +380,12 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 2
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -456,11 +431,6 @@
 				"nombreDeFrames": 1
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
-				"numero": 3
-			},
-			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "MC_Enemy_Hit.wav",
 				"volume": 0.80,
@@ -480,32 +450,12 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 2
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -552,11 +502,6 @@
 				"nombreDeFrames": 1
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
-				"numero": 3
-			},
-			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "MC_Enemy_Hit.wav",
 				"volume": 0.80,
@@ -572,32 +517,12 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 2
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -644,11 +569,6 @@
 				"nombreDeFrames": 1
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
-				"numero": 3
-			},
-			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "MC_Enemy_Hit.wav",
 				"volume": 0.80,
@@ -664,32 +584,12 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 2
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -722,9 +622,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 307,
-				"xDebutHeros": 1,
-				"yDebutHeros": 14
+				"numeroNouvelleMap": 549,
+				"xDebutHeros": 10,
+				"yDebutHeros": 5
 			}
 			],
 			"opacite": 0,
@@ -789,6 +689,49 @@
 				"numeroNouvelleMap": 246,
 				"xDebutHeros": 38,
 				"yDebutHeros": 12
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "quete du vase",
+		"x": 13,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 97,
+				"etat": "FAITE",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 98,
+				"avancement": "CONNUE"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -870,7 +813,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Au fond du vase,\\nsous la lune d’été,\\nune pieuvre rêve.\""
+				"texte": "\"Au fond du vase,\\nsous la lune d'été,\\nune pieuvre rêve.\""
 			},
 			{
 				"nom": "Message",

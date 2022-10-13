@@ -842,6 +842,19 @@
 				"texte": "Vous avez perdu !"
 			},
 			{
+				"nom": "AfficherImage",
+				"numero": 9,
+				"nomImage": "ecran noir",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 255,
+				"modeDeFusion": "normal"
+			},
+			{
 				"nom": "EffacerImage",
 				"numero": 6
 			},
@@ -895,6 +908,22 @@
 				"nombreDeFrames": 50
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "parfois, Lapinou se trompe..."
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 62,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 4
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "il ne se trompe que \\nquand il y a encore beaucoup de glands"
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 9,
 				"operationAFaire": "rendre egal a",
@@ -906,9 +935,50 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 9,
 				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 3,
+				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
+				"numero": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 92,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 92,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionSinon",
 				"numero": 4
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 92,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 92,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 6
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Lapinou se trompe"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -920,7 +990,11 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 4
+				"numero": 6
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Lapinou joue correctement"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -942,7 +1016,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 3,
 				"comparerAUneAutreVariable": false,
-				"numero": 5
+				"numero": 7
 			},
 			{
 				"nom": "ModifierVariable",
@@ -953,7 +1027,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 5
+				"numero": 7
 			},
 			{
 				"nom": "ConditionVariable",
@@ -961,7 +1035,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
-				"numero": 6
+				"numero": 8
 			},
 			{
 				"nom": "ModifierVariable",
@@ -972,7 +1046,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 6
+				"numero": 8
 			},
 			{
 				"nom": "ConditionVariable",
@@ -980,7 +1054,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 7
+				"numero": 9
 			},
 			{
 				"nom": "ModifierVariable",
@@ -992,7 +1066,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 7
+				"numero": 9
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1000,7 +1074,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 8
+				"numero": 10
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1011,7 +1085,15 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 8
+				"numero": 10
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 9
 			},
 			{
 				"nom": "ConditionFin",
@@ -1024,14 +1106,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
 			},
 			{
 				"nom": "AfficherImage",
@@ -1152,7 +1226,7 @@
 				"inegalite": "<=",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 9
+				"numero": 11
 			},
 			{
 				"nom": "Message",
@@ -1160,7 +1234,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 9
+				"numero": 11
 			},
 			{
 				"nom": "Message",
@@ -1168,7 +1242,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 9
+				"numero": 11
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1176,7 +1250,7 @@
 				"inegalite": "<=",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 10
+				"numero": 12
 			},
 			{
 				"nom": "Attendre",
@@ -1184,7 +1258,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).mid",
+				"nomFichierSonore": "fanfare (important).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1198,6 +1272,19 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 100,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AfficherImage",
+				"numero": 9,
+				"nomImage": "ecran noir",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 255,
+				"modeDeFusion": "normal"
 			},
 			{
 				"nom": "EffacerImage",
@@ -1216,37 +1303,8 @@
 				"yDebutHeros": 13
 			},
 			{
-				"nom": "EffacerImage",
-				"numero": 6
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 7
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 6
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 7
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 10
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 10
+				"numero": 12
 			},
 			{
 				"nom": "Attendre",

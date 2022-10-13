@@ -10,7 +10,7 @@
 	},
 	"fondSonore": {
 		"nomFichierSonore": "010-River01.ogg",
-		"volume": 1.00,
+		"volume": 0.80,
 		"tempo": 0.50
 	},
 	"couche0": [
@@ -21,7 +21,7 @@
 	[0008,0008,0008,0008,0016,0017,0004,0005,0004,0005,0210,0211,0016,0017,0001,0002,0003,0018,0019,0208,0209,0005,0004,0005,0004,0018,0019,0008,0008,0008],
 	[0008,0008,0008,0008,0024,0025,0012,0013,0012,0013,0218,0219,0024,0025,0009,0010,0011,0026,0027,0216,0217,0013,0012,0013,0012,0026,0027,0008,0008,0008],
 	[0008,0008,0008,0008,0028,0029,0016,0017,0005,0004,0005,0004,0210,0211,0000,0000,0000,0208,0209,0005,0004,0005,0004,0018,0019,0014,0015,0008,0008,0008],
-	[0008,0008,0008,0008,0020,0021,0024,0025,0013,0012,0013,0012,0218,0219,-007,-007,-007,0216,0217,0013,0012,0013,0012,0026,0027,0006,0007,0008,0008,0008],
+	[0008,0008,0008,0008,0020,0021,0024,0025,0013,0012,0013,0012,0218,0219,0000,0000,0000,0216,0217,0013,0012,0013,0012,0026,0027,0006,0007,0008,0008,0008],
 	[0008,0008,0008,0008,0028,0029,0020,0021,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0006,0007,0014,0015,0008,0008,0008],
 	[0008,0008,0008,0008,0020,0021,0028,0029,-008,-007,-007,-008,-008,-008,-008,-008,-008,-008,-008,-008,-007,-008,-008,0014,0015,0006,0007,0008,0008,0008],
 	[0008,0008,0008,0008,0028,0029,0020,0021,-008,-007,-007,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0006,0007,0014,0015,0008,0008,0008],
@@ -34,7 +34,7 @@
 	[0008,0008,0008,0008,0020,0021,0028,0029,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-007,-007,-008,0014,0015,0006,0007,0008,0008,0008],
 	[0008,0008,0008,0008,0028,0029,0020,0021,-008,-008,-007,-008,-008,-008,-008,-008,-008,-008,-008,-008,-007,-007,-008,0006,0007,0014,0015,0008,0008,0008],
 	[0008,0008,0008,0008,0020,0021,0028,0029,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0014,0015,0006,0007,0008,0008,0008],
-	[0008,0008,0008,0008,0028,0029,0032,0033,0023,0022,0023,0022,0194,0195,-007,-007,-007,0192,0193,0022,0023,0022,0023,0034,0035,0014,0015,0008,0008,0008],
+	[0008,0008,0008,0008,0028,0029,0032,0033,0023,0022,0023,0022,0194,0195,0000,0000,0000,0192,0193,0022,0023,0022,0023,0034,0035,0014,0015,0008,0008,0008],
 	[0008,0008,0008,0008,0020,0021,0040,0041,0031,0030,0031,0030,0202,0203,0000,0000,0000,0200,0201,0030,0031,0030,0031,0042,0043,0006,0007,0008,0008,0008],
 	[0008,0008,0008,0008,0032,0033,0023,0022,0023,0022,0194,0195,0032,0033,0037,0038,0039,0034,0035,0192,0193,0023,0022,0023,0022,0034,0035,0008,0008,0008],
 	[0008,0008,0008,0008,0040,0041,0031,0030,0031,0030,0202,0203,0040,0041,0045,0046,0047,0042,0043,0200,0201,0031,0030,0031,0030,0042,0043,0008,0008,0008],
@@ -368,6 +368,17 @@
 				]
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
 				"volume": 1.00,
@@ -388,6 +399,10 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1402,6 +1417,17 @@
 				]
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
 				"volume": 1.00,
@@ -1422,6 +1448,10 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -4288,6 +4318,17 @@
 				]
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
 				"volume": 1.00,
@@ -4308,6 +4349,10 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -7221,6 +7266,46 @@
 		]
 	},
 	{
+		"id": 59,
+		"nom": "blessé",
+		"x": 29,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 66
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 10,
 		"nom": "Goutte d'eau4",
 		"x": 26,
@@ -7273,6 +7358,17 @@
 				]
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
 				"volume": 1.00,
@@ -7293,6 +7389,10 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",

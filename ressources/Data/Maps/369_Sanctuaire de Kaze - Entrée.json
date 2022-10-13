@@ -4,7 +4,7 @@
 	"largeur": 21,
 	"hauteur": 15,
 	"musique": {
-		"nomFichierSonore": "Donjon 3.mp3",
+		"nomFichierSonore": "Donjon 3.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -94,28 +94,60 @@
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "Mais ce ne serait pas le petit \\n[001] ?"
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"lankhor\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Isn't that the little \\n[1]?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Moi, \\c[02]Lankhor\\c[01], serrurier de Kujira,\\nveille sur le temple de Kaze."
+				"texte": "Mais ce ne serait pas le petit \\n[1] ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I, \\c[2]Lankhor\\c[1], the locksmith of Kujira,\\nguard \\c[2]Kaze\\c[1]'s sanctuary."
+			},
+			{
+				"nom": "Message",
+				"texte": "Moi, \\c[02]Lankhor\\c[01], serrurier de Kujira,\\nveille sur le sanctuaire de \\c[2]Kaze\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Message to all the merry trespassers:"
 			},
 			{
 				"nom": "Message",
 				"texte": "Message adressé à tous les joyeux \\nprofanateurs de sanctuaires :"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) - The key of this dungeon has one tooth."
+			},
+			{
 				"nom": "Message",
 				"texte": "-La clé qui ouvre ce donjon n'a qu'une dent."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) - The key of this dungeon is yellow."
 			},
 			{
 				"nom": "Message",
 				"texte": "-La clé qui ouvre ce donjon est jaune."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) - The key of this dungeon has a triangular end."
+			},
+			{
 				"nom": "Message",
 				"texte": "-La clé qui ouvre ce donjon a un bout \\ntriangulaire."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) - The key of this dungeon is small."
 			},
 			{
 				"nom": "Message",
@@ -126,12 +158,25 @@
 				"texte": "..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Uh no!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Euh non..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) One of these assertions is wrong. \\nMy bad."
+			},
+			{
 				"nom": "Message",
 				"texte": "L'une de ces indications est fausse, \\nau temps pour moi."
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 93,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
@@ -177,8 +222,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This stone block has a big lock."
+			},
+			{
 				"nom": "Message",
-				"texte": "Ce bloc de pierre est muni d'une grande \\nserrure..."
+				"texte": "Ce bloc de pierre est muni d'une grande \\nserrure."
 			},
 			{
 				"nom": "ConditionObjetPossede",
@@ -186,18 +235,12 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You use the dungeon key number \\v[47]..."
+			},
+			{
 				"nom": "Message",
-				"texte": "...utiliser la clé de Donjon n° \\v[47] ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
+				"texte": "Vous utilisez la clé de donjon n°\\v[47]..."
 			},
 			{
 				"nom": "ConditionVariable",
@@ -244,21 +287,21 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It is the right key!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est la bonne clé !"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -298,29 +341,28 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It does not work."
+			},
+			{
 				"nom": "Message",
-				"texte": "Ca ne s'ouvre pas..."
+				"texte": "Ça ne s'ouvre pas."
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 1
 			},
 			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionSinon",
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You would need a dungeon key..."
+			},
+			{
 				"nom": "Message",
-				"texte": "...il vous faudrait une clé de donjon pour \\nl'ouvrir."
+				"texte": "Il vous faudrait une clé de donjon..."
 			},
 			{
 				"nom": "ConditionFin",
@@ -518,6 +560,24 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 0
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 50,
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 127,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -877,25 +937,20 @@
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "\"D'ouest ou d'est\\nsur les plants de riz\\nbruit du vent...\""
+				"nom": "Commentaire",
+				"texte": "(en) \"From the west or from the east\\nover rice plants\\nthe sound of the wind...\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
+				"texte": "\"D'ouest ou d'est,\\nsur les plants de riz\\nbruit du vent...\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Matsuo Bashô\\c[1]"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -933,9 +988,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 382,
-				"xDebutHeros": 14,
-				"yDebutHeros": 15
+				"numeroNouvelleMap": 730,
+				"xDebutHeros": 10,
+				"yDebutHeros": 13
 			}
 			],
 			"vitesse": "moderee",

@@ -19,7 +19,7 @@
 	[0002,0002,0036,0037,0004,0005,0004,0146,0147,0036,0037,0005,0038,0039,0144,0145,0004,0005,0004,0005,0004,0038,0039,0002,0002],
 	[0002,0002,0044,0045,0012,0013,0012,0154,0155,0044,0045,0013,0046,0047,0152,0153,0012,0013,0012,0013,0012,0046,0047,0002,0002],
 	[0002,0002,0020,0021,0036,0037,0004,0005,0004,0146,0147,0008,0144,0145,0004,0005,0004,0005,0004,0038,0039,0014,0015,0002,0002],
-	[0002,0002,0028,0029,0044,0045,0012,0013,0012,0154,0155,0002,0152,0153,0012,0013,0012,0013,0012,0046,0047,0006,0007,0002,0002],
+	[0002,0002,0028,0029,0044,0045,0012,0013,0012,0154,0155,0099,0152,0153,0012,0013,0012,0013,0012,0046,0047,0006,0007,0002,0002],
 	[0002,0002,0020,0021,0020,0021,-006,-006,-006,-006,0001,0000,0001,-006,-006,-006,-006,-006,-006,0006,0007,0014,0015,0002,0002],
 	[0002,0002,0028,0029,0028,0029,-006,-006,-006,-006,-004,-006,-006,-006,-006,-004,-006,-006,-006,0014,0015,0006,0007,0002,0002],
 	[0002,0002,0020,0021,0020,0021,-006,-006,-006,-006,-006,-006,-004,-006,-006,-006,-006,-006,-006,0006,0007,0014,0015,0002,0002],
@@ -248,138 +248,22 @@
 		"y": 12
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][055]",
-		"x": 12,
-		"y": 12
-	},
-	{
 		"id": 12,
 		"nom": "Clone[341][004]",
 		"x": 6,
 		"y": 6
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][055]",
+		"x": 12,
+		"y": 12
+	},
+	{
 		"id": 7,
 		"nom": "Clone[341][023]",
 		"x": 18,
 		"y": 19
-	},
-	{
-		"id": 13,
-		"nom": "Clochette",
-		"x": 11,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 18,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 18,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 18,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 18,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAnimeALArret",
-					"animeALArret": true
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "clochette.mp3",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "tres rapide"
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				},
-				{
-					"nom": "RendreAnimeALArret",
-					"animeALArret": false
-				}
-				]
-			},
-			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"image": "Clochette character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 2,
@@ -548,6 +432,122 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Clochette",
+		"x": 11,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 18,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 18,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 18,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 18,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "clochette.mp3",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "tres rapide"
+				},
+				{
+					"nom": "ModifierFrequence",
+					"frequence": "la plus haute"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 33
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				}
+				]
+			},
+			{
+				"nom": "AttendreLaFinDesDeplacements",
+				"idEvent": -1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"image": "Clochette character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]

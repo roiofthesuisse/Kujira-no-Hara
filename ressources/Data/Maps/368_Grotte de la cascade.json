@@ -4,7 +4,7 @@
 	"largeur": 40,
 	"hauteur": 40,
 	"musique": {
-		"nomFichierSonore": "Temple de Kujira.mid",
+		"nomFichierSonore": "Temple de Kujira.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -94,8 +94,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232,0232,0232],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232,0232,0232]
 	],
 	"couche2": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -185,25 +185,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 129,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 412,
-				"xDebutHeros": 15,
-				"yDebutHeros": 20
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 394,
@@ -211,8 +192,38 @@
 				"yDebutHeros": 20
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 6,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 412,
+				"xDebutHeros": 15,
+				"yDebutHeros": 20
 			}
 			],
 			"vitesse": "moderee",
@@ -238,6 +249,12 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
 			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 1,
@@ -288,6 +305,12 @@
 			{
 				"nom": "AttendreLaFinDesDeplacements",
 				"idEvent": -1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
 			},
 			{
 				"nom": "Deplacement",
@@ -397,8 +420,12 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
 				"nom": "Message",
-				"texte": "Ca s'est ouvert !"
+				"texte": "Ça s'est ouvert !"
 			},
 			{
 				"nom": "Attendre",
@@ -455,6 +482,26 @@
 				"nomFichierSonore": "Gasp2.wav",
 				"volume": 1.00,
 				"tempo": 1.10
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie genee\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Hiiiiiii !"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 129,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 127,
+				"valeur": true
 			},
 			{
 				"nom": "Attendre",
@@ -640,6 +687,84 @@
 		]
 	},
 	{
+		"id": 7,
+		"nom": "EV007",
+		"x": 31,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "si poesie n'est pas encore allee dans la grotte"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 26,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 1,
+				"variable": false,
+				"nouveauX": 39,
+				"nouveauY": 39,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 4,
+				"variable": false,
+				"nouveauX": 39,
+				"nouveauY": 39,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 2,
+				"variable": false,
+				"nouveauX": 39,
+				"nouveauY": 39,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 8,
+				"variable": false,
+				"nouveauX": 18,
+				"nouveauY": 12,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 9,
+				"variable": false,
+				"nouveauX": 20,
+				"nouveauY": 12,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 2,
 		"nom": "Poésie",
 		"x": 20,
@@ -658,6 +783,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 4,
 				"direction": 0,
@@ -673,7 +802,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Ca s'est ouvert !"
+				"texte": "Ça s'est ouvert !"
 			},
 			{
 				"nom": "ConditionFin",
@@ -697,6 +826,83 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "faux bouton",
+		"x": 37,
+		"y": 38,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 8,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x != $game_player.x || $game_map.events[@event_id].y != $game_player.y",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "bouton character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -727,6 +933,83 @@
 		]
 	},
 	{
+		"id": 9,
+		"nom": "faux bouton",
+		"x": 38,
+		"y": 38,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 9,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x != $game_player.x || $game_map.events[@event_id].y != $game_player.y",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "bouton character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 4,
 		"nom": "i2",
 		"x": 20,
@@ -739,6 +1022,12 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
 			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 4,
@@ -799,6 +1088,12 @@
 			{
 				"nom": "AttendreLaFinDesDeplacements",
 				"idEvent": -1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
 			},
 			{
 				"nom": "Deplacement",
@@ -908,8 +1203,12 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
 				"nom": "Message",
-				"texte": "Ca s'est ouvert !"
+				"texte": "Ça s'est ouvert !"
 			},
 			{
 				"nom": "Attendre",
@@ -966,6 +1265,26 @@
 				"nomFichierSonore": "Gasp2.wav",
 				"volume": 1.00,
 				"tempo": 1.10
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie genee\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Hiiiiiii !"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 129,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 127,
+				"valeur": true
 			},
 			{
 				"nom": "Attendre",

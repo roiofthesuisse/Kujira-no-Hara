@@ -10,7 +10,7 @@
 	},
 	"fondSonore": {
 		"nomFichierSonore": "010-River01.ogg",
-		"volume": 0.80,
+		"volume": 0.70,
 		"tempo": 0.50
 	},
 	"couche0": [
@@ -21,7 +21,7 @@
 	[0008,0008,0008,0008,0016,0017,0004,0005,0004,0005,0210,0211,0016,0017,0001,0002,0003,0018,0019,0208,0209,0005,0004,0005,0004,0018,0019,0008,0008,0008],
 	[0008,0008,0008,0008,0024,0025,0012,0013,0012,0013,0218,0219,0024,0025,0009,0010,0011,0026,0027,0216,0217,0013,0012,0013,0012,0026,0027,0008,0008,0008],
 	[0008,0008,0008,0008,0028,0029,0016,0017,0005,0004,0005,0004,0210,0211,0000,0000,0000,0208,0209,0005,0004,0005,0004,0018,0019,0014,0015,0008,0008,0008],
-	[0008,0008,0008,0008,0020,0021,0024,0025,0013,0012,0013,0012,0218,0219,-007,-007,-007,0216,0217,0013,0012,0013,0012,0026,0027,0006,0007,0008,0008,0008],
+	[0008,0008,0008,0008,0020,0021,0024,0025,0013,0012,0013,0012,0218,0219,0000,0000,0000,0216,0217,0013,0012,0013,0012,0026,0027,0006,0007,0008,0008,0008],
 	[0008,0008,0008,0008,0028,0029,0020,0021,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0006,0007,0014,0015,0008,0008,0008],
 	[0008,0008,0008,0008,0020,0021,0028,0029,-008,-007,-007,-008,-008,-008,-008,-008,-008,-008,-008,-008,-007,-008,-008,0014,0015,0006,0007,0008,0008,0008],
 	[0008,0008,0008,0008,0028,0029,0020,0021,-008,-007,-007,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0006,0007,0014,0015,0008,0008,0008],
@@ -34,7 +34,7 @@
 	[0008,0008,0008,0008,0020,0021,0028,0029,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-007,-007,-008,0014,0015,0006,0007,0008,0008,0008],
 	[0008,0008,0008,0008,0028,0029,0020,0021,-008,-008,-007,-008,-008,-008,-008,-008,-008,-008,-008,-008,-007,-007,-008,0006,0007,0014,0015,0008,0008,0008],
 	[0008,0008,0008,0008,0020,0021,0028,0029,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0014,0015,0006,0007,0008,0008,0008],
-	[0008,0008,0008,0008,0028,0029,0032,0033,0023,0022,0023,0022,0194,0195,-007,-007,-007,0192,0193,0022,0023,0022,0023,0034,0035,0014,0015,0008,0008,0008],
+	[0008,0008,0008,0008,0028,0029,0032,0033,0023,0022,0023,0022,0194,0195,0000,0000,0000,0192,0193,0022,0023,0022,0023,0034,0035,0014,0015,0008,0008,0008],
 	[0008,0008,0008,0008,0020,0021,0040,0041,0031,0030,0031,0030,0202,0203,0000,0000,0000,0200,0201,0030,0031,0030,0031,0042,0043,0006,0007,0008,0008,0008],
 	[0008,0008,0008,0008,0032,0033,0023,0022,0023,0022,0194,0195,0032,0033,0037,0038,0039,0034,0035,0192,0193,0023,0022,0023,0022,0034,0035,0008,0008,0008],
 	[0008,0008,0008,0008,0040,0041,0031,0030,0031,0030,0202,0203,0040,0041,0045,0046,0047,0042,0043,0200,0201,0031,0030,0031,0030,0042,0043,0008,0008,0008],
@@ -191,7 +191,7 @@
 	},
 	{
 		"id": 7,
-		"nom": "EV007",
+		"nom": "cinematique",
 		"x": 27,
 		"y": 10,
 		"pages": [
@@ -348,7 +348,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (erreur).mid",
+				"nomFichierSonore": "fanfare (erreur).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -520,48 +520,40 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "Message",
-				"texte": "Tu es pris au piège gamin !"
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"thaumaturge noir\""
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu as déjà deux des armes des \\c[02]érudits \\nlégendaires\\c[01], et nous, la confrérie des \\n\\c[02]thaumaturges noirs\\c[01], toujours rien, nada !"
+				"texte": "Tu es pris au piège !"
 			},
 			{
 				"nom": "Message",
-				"texte": "Y'en a marre !"
+				"texte": "Le trésor des \\c[2]érudits\\c[1] sera accaparé \\npar nous, la confrérie des \\c[2]thaumaturges noirs\\c[1] !"
 			},
 			{
 				"nom": "Message",
-				"texte": "Le \\c[02]Maître\\c[01] nous a autorisés à te tuer si jamais \\ntu te rapprochais trop de l'énergie des \\c[02]érudits\\c[01]."
+				"texte": "Le \\c[2]Maître\\c[1] nous a autorisés à te tuer \\nsi jamais tu devenais une gène."
 			},
 			{
 				"nom": "Message",
-				"texte": "Cette ancienne magie est trop puissante \\npour que tu puisses l'emmagasiner a dit \\nle \\c[02]Maître\\c[01]."
+				"texte": "Selon le \\c[2]Maître\\c[1], il vaut mieux pour toi que tu restes \\néloigné du pouvoir des érudits."
 			},
 			{
 				"nom": "Message",
-				"texte": "Seuls les \\c[02]thaumaturges noirs\\c[01] peuvent s'en \\nservir pour mettre fin aux jours de \\c[02]Kujira\\c[01] !"
+				"texte": "Nous autres, \\c[2]thaumaturges noirs\\c[1], l'utiliserons\\nà bon escient pour tuer \\c[2]Kujira la baleine\\c[1]."
 			},
 			{
 				"nom": "Message",
-				"texte": "Nous pensons aussi que la magie de \\c[02]Ningyo \\nl'érudit\\c[01] est cachée ici : dans le \\c[02]roi Crapo 1er\\c[01]."
+				"texte": "La mort est un sort préférable pour toi, crois-moi."
 			},
 			{
 				"nom": "Message",
-				"texte": "Pour nous en emparer, nous détruisons donc\\ncette \\c[02]stupide grenouille\\c[01] de l'intérieur avec \\ndes nénuphars toxiques."
+				"texte": "Les nénuphars putrides auront raison de toi."
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu vas périr en même temps que lui par \\nnotre poison végétal !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ta vie s'arrête ici, misérable enquiquineur."
-			},
-			{
-				"nom": "Message",
-				"texte": "Contemple l'écume de tes jours ! \\nHahahahaha !"
+				"texte": "Ton voyage s'arrête ici, enquiquineur."
 			},
 			{
 				"nom": "Attendre",

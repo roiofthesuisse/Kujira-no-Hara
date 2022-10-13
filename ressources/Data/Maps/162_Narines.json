@@ -171,43 +171,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[341][043]",
-		"x": 16,
-		"y": 25
-	},
-	{
-		"id": 27,
-		"nom": "EV027",
-		"x": 13,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 163,
-				"xDebutHeros": 15,
-				"yDebutHeros": 21
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 5,
 		"nom": "Rocher",
 		"x": 16,
@@ -542,10 +505,41 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][004]",
+		"id": 27,
+		"nom": "EV027",
+		"x": 13,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 163,
+				"xDebutHeros": 17,
+				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Clone[341][043]",
 		"x": 16,
-		"y": 8
+		"y": 25
 	},
 	{
 		"id": 22,
@@ -554,10 +548,10 @@
 		"y": 30
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][043]",
-		"x": 10,
-		"y": 20
+		"id": 11,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 8
 	},
 	{
 		"id": 6,
@@ -894,10 +888,10 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 17,
 		"nom": "Clone[341][043]",
 		"x": 10,
-		"y": 10
+		"y": 20
 	},
 	{
 		"id": 1,
@@ -944,690 +938,16 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "Poterie",
-		"x": 11,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 6,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 7,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Décalage théorique d'une case"
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 7,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 1,
-				"numero": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 6,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 2,
-				"numero": 2
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 6,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 3
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 7,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Armes efficaces"
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 4
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 5
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 6
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 9
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Effet"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 14,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 10
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 6,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": true,
-				"numero": 11
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 7,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 3,
-				"comparerAUneAutreVariable": true,
-				"numero": 12
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 13
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 12
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 12
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 11
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 11
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 10
-			}
-			],
-			"image": "pots character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 23,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 8,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 12,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Pot_Shatter1.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 7,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Rien"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 6,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Ecaille Verte"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Ecaille Bleue"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Energie"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "pots character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 23,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 5
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": "Ecailles colorées",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 23,
-				"numeroInterrupteurLocal": 2,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": "Ecailles colorées",
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 23,
-				"numeroInterrupteurLocal": 3,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "111-Heal07.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": "Ecailles colorées",
-			"opacite": 225,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"id": 12,
+		"nom": "Clone[341][043]",
+		"x": 10,
+		"y": 10
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][043]",
-		"x": 16,
-		"y": 13
+		"id": 23,
+		"nom": "Clone[341][004]",
+		"x": 11,
+		"y": 21
 	},
 	{
 		"id": 7,
@@ -1964,16 +1284,10 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 12
-	},
-	{
-		"id": 13,
+		"id": 18,
 		"nom": "Clone[341][043]",
 		"x": 16,
-		"y": 10
+		"y": 13
 	},
 	{
 		"id": 2,
@@ -2422,10 +1736,16 @@
 		]
 	},
 	{
-		"id": 19,
+		"id": 13,
 		"nom": "Clone[341][043]",
+		"x": 16,
+		"y": 10
+	},
+	{
+		"id": 24,
+		"nom": "Clone[341][004]",
 		"x": 10,
-		"y": 30
+		"y": 12
 	},
 	{
 		"id": 8,
@@ -2477,16 +1797,10 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Clone[341][004]",
-		"x": 15,
-		"y": 11
-	},
-	{
-		"id": 14,
+		"id": 19,
 		"nom": "Clone[341][043]",
 		"x": 10,
-		"y": 32
+		"y": 30
 	},
 	{
 		"id": 3,
@@ -2935,10 +2249,16 @@
 		]
 	},
 	{
-		"id": 20,
+		"id": 14,
+		"nom": "Clone[341][043]",
+		"x": 10,
+		"y": 32
+	},
+	{
+		"id": 25,
 		"nom": "Clone[341][004]",
-		"x": 11,
-		"y": 28
+		"x": 15,
+		"y": 11
 	},
 	{
 		"id": 9,
@@ -2990,16 +2310,10 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][043]",
-		"x": 16,
-		"y": 34
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][043]",
-		"x": 10,
-		"y": 23
+		"id": 20,
+		"nom": "Clone[341][004]",
+		"x": 11,
+		"y": 28
 	},
 	{
 		"id": 26,
@@ -3109,16 +2423,28 @@
 		]
 	},
 	{
-		"id": 10,
-		"nom": "Clone[341][004]",
+		"id": 4,
+		"nom": "Clone[341][043]",
 		"x": 10,
-		"y": 8
+		"y": 23
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][043]",
+		"x": 16,
+		"y": 34
 	},
 	{
 		"id": 21,
 		"nom": "Clone[341][004]",
 		"x": 15,
 		"y": 23
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 8
 	}
 	]
 }

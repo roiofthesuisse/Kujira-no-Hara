@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 25,
 	"musique": {
-		"nomFichierSonore": "Temple de Kujira.mid",
+		"nomFichierSonore": "Temple de Kujira.ogg",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
@@ -230,11 +230,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[02]Blutrik Obsten\\c[01] décida que pour féter ça\\nil fallait un banquet mémorable."
+				"texte": "\\c[02]Blutrik Obsten\\c[01] décida de fêter ça\\navec un banquet mémorable."
 			},
 			{
 				"nom": "Message",
-				"texte": "Il proposa donc à tout le village de partir \\nen haute mer pour pécher le plus gros\\npoisson du monde."
+				"texte": "Il proposa donc à tout le village de partir \\nen haute mer pour pêcher le plus gros\\npoisson du monde."
 			},
 			{
 				"nom": "DeplacerImage",
@@ -403,20 +403,13 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Temple de Kujira.mid",
+				"nomFichierSonore": "Temple de Kujira.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 129,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "EffacerImage",
@@ -441,12 +434,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][004]",
-		"x": 11,
-		"y": 13
 	},
 	{
 		"id": 1,
@@ -485,6 +472,22 @@
 				"idObjet": 39,
 				"variable": false,
 				"quantite": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
 			},
 			{
 				"nom": "Message",
@@ -547,10 +550,10 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 12,
 		"nom": "Clone[341][004]",
 		"x": 11,
-		"y": 14
+		"y": 13
 	},
 	{
 		"id": 2,
@@ -559,16 +562,16 @@
 		"y": 8
 	},
 	{
+		"id": 13,
+		"nom": "Clone[341][004]",
+		"x": 11,
+		"y": 14
+	},
+	{
 		"id": 8,
 		"nom": "Clone[341][004]",
 		"x": 11,
 		"y": 12
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][004]",
-		"x": 17,
-		"y": 14
 	},
 	{
 		"id": 3,
@@ -672,6 +675,12 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][004]",
+		"x": 17,
+		"y": 14
 	},
 	{
 		"id": 4,

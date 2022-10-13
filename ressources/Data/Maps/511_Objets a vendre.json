@@ -84,6 +84,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Une planche de bois ?"
 			},
@@ -150,6 +154,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterObjet",
 				"idObjet": 39,
 				"variable": false,
@@ -174,18 +190,6 @@
 			{
 				"nom": "Message",
 				"texte": "Mais l'art n'a pas de prix !"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -326,6 +330,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
 				"nom": "ConditionVariable",
@@ -733,6 +741,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
 				"nom": "Message",
 				"texte": "La pierre du jizo ?"
 			},
@@ -795,6 +807,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterGadget",
 				"idGadget": 4
 			},
@@ -810,18 +834,6 @@
 			{
 				"nom": "Message",
 				"texte": "Assignez-la dans le menu \"équipement\", \\net communiquez avec les statues jizo !"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -965,6 +977,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
 				"nom": "ConditionVariable",
 				"numeroVariable": 121,
 				"inegalite": "==",
@@ -1063,6 +1079,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterGadget",
 				"idGadget": 3
 			},
@@ -1082,18 +1110,6 @@
 			{
 				"nom": "Message",
 				"texte": "Assignez-le avec la touche \"W\"."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -1216,6 +1232,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterGadget",
 				"idGadget": 3
 			},
@@ -1235,18 +1263,6 @@
 			{
 				"nom": "Message",
 				"texte": "Assign it with the \"W\" key."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -1407,6 +1423,247 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "Objet évènementiel",
+		"x": 18,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Une graine magique !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Prisée par les botanistes, elle germera \\nen un instant si on la plante dans un rond \\nde terre bien meuble."
+			},
+			{
+				"nom": "Message",
+				"texte": "Elle coûte 40 écailles."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour un objet magique, c'est presque donné !"
+			},
+			{
+				"nom": "ConditionArgent",
+				"quantite": 40,
+				"inegalite": ">=",
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "Alors, marché conclu ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 18,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "RetirerArgent",
+				"variable": false,
+				"quantite": 40
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous achetez une graine magique."
+			},
+			{
+				"nom": "Message",
+				"texte": "À vous les jolies fleurs !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "(radin !)"
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Message",
+				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous avez moins de 40 écailles !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Diantre !"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est scandaleux d'être aussi pauvre !"
+			},
+			{
+				"nom": "Message",
+				"texte": "(grmbl...)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "objet kujira 2",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "Objet évènementiel",
 		"x": 14,
@@ -1423,6 +1680,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
 				"nom": "Message",
@@ -1492,6 +1753,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterObjet",
 				"idObjet": 35,
 				"variable": false,
@@ -1516,18 +1789,6 @@
 			{
 				"nom": "Message",
 				"texte": "C'est très joli, donc c'est forcément utile !"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -1686,6 +1947,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
 				"nom": "ConditionVariable",
 				"numeroVariable": 121,
 				"inegalite": "==",
@@ -1784,6 +2049,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterObjet",
 				"idObjet": 14,
 				"variable": false,
@@ -1801,18 +2078,6 @@
 			{
 				"nom": "Message",
 				"texte": "C'est bleu, ça colle et ça pue."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -1935,6 +2200,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterObjet",
 				"idObjet": 14,
 				"variable": false,
@@ -1952,18 +2229,6 @@
 			{
 				"nom": "Message",
 				"texte": "It is blue, gluey and stinky."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -2142,6 +2407,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Le tuba ?"
 			},
@@ -2204,6 +2473,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterGadget",
 				"idGadget": 2
 			},
@@ -2219,18 +2500,6 @@
 			{
 				"nom": "Message",
 				"texte": "Vous pouvez plonger la tête sous l'eau, à \\ncondition de savoir déjà nager !"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -2370,6 +2639,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
 				"nom": "ConditionVariable",
 				"numeroVariable": 121,
 				"inegalite": "==",
@@ -2434,6 +2707,18 @@
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
 				}
 				]
 			},
@@ -2580,6 +2865,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterObjet",
 				"idObjet": 31,
 				"variable": false,
@@ -2703,6 +3000,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
 				"nom": "Message",
 				"texte": "La tirelire ?"
 			},
@@ -2765,6 +3066,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterObjet",
 				"idObjet": 27,
 				"variable": false,
@@ -2782,18 +3095,6 @@
 			{
 				"nom": "Message",
 				"texte": "Votre nombre maximal d'écailles colorées\\npasse à 600 au lieu de 300."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -2933,6 +3234,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
 				"nom": "ConditionVariable",
@@ -3440,6 +3745,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
 				"nom": "Message",
 				"texte": "La tirelire enchantée ?"
 			},
@@ -3502,6 +3811,18 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "AjouterObjet",
 				"idObjet": 28,
 				"variable": false,
@@ -3525,18 +3846,6 @@
 			{
 				"nom": "Message",
 				"texte": "Votre nombre maximal d'écailles colorées\\npasse à 999 au lieu de 600."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
 			},
 			{
 				"nom": "Attendre",

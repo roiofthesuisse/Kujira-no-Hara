@@ -117,6 +117,12 @@
 		"y": 13
 	},
 	{
+		"id": 16,
+		"nom": "Clone[582][37]",
+		"x": 17,
+		"y": 11
+	},
+	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 0,
@@ -149,7 +155,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "EV006",
+		"nom": "grotte",
 		"x": 13,
 		"y": 9,
 		"pages": [
@@ -317,6 +323,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mathusalem\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) Well well well..."
 			},
@@ -369,6 +379,10 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mathusalem\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) Hey ! Hello there !"
 			},
@@ -383,6 +397,10 @@
 			{
 				"nom": "Message",
 				"texte": "Je ne t'ai jamais vu dans Kujira, c'est \\nétrange !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "Boucle",
@@ -401,6 +419,10 @@
 				"nom": "ChoixAlternative",
 				"numero": 0,
 				"alternative": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mathusalem\""
 			},
 			{
 				"nom": "Commentaire",
@@ -452,6 +474,10 @@
 				"alternative": 1
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mathusalem\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) I am the dean of Kujira."
 			},
@@ -489,6 +515,10 @@
 				"alternative": 2
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mathusalem\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) I'm looking for something important and \\nI think it's here."
 			},
@@ -521,6 +551,10 @@
 				"nombreDeFrames": 33
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mathusalem\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) I know!"
 			},
@@ -533,12 +567,12 @@
 				"texte": "(en) Given that you're smaller, can you go inside \\nfor me?"
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) Yes of course !|Uh..."
-			},
-			{
 				"nom": "Message",
 				"texte": "Comme tu es plus petit, ça te dirais d'aller \\nvoir là dedans pour moi ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes of course !|Uh..."
 			},
 			{
 				"nom": "Choix",
@@ -610,28 +644,6 @@
 				"nomFichierSonore": "Rencontre avec Mathusalem.mp3",
 				"volume": 0.00,
 				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
 			},
 			{
 				"nom": "Deplacement",
@@ -715,6 +727,10 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mathusalem\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) Did you find something?"
 			},
@@ -723,9 +739,43 @@
 				"texte": "Alors, tu as trouvé quelque chose ?"
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
 				"nom": "ConditionArmeEquipee",
 				"idArme": 0,
 				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionArmePossedee",
+				"idArme": 0,
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
 			},
 			{
 				"nom": "Commentaire",
@@ -733,7 +783,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "On dirait que non : je ne vois rien de plus sur \\ntoi qu'avant que tu n'entres dedans."
+				"texte": "On dirait que non : je ne vois rien de plus \\nsur toi qu'avant que tu n'entres dedans."
 			},
 			{
 				"nom": "Commentaire",
@@ -777,7 +827,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).mid",
+				"nomFichierSonore": "fanfare (important).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -863,6 +913,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mathusalem\""
 			},
 			{
 				"nom": "Commentaire",
@@ -997,298 +1051,6 @@
 				"inegalite": "<",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmePossedee",
-				"idArme": 0,
-				"numero": 3
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Looks like not."
-			},
-			{
-				"nom": "Message",
-				"texte": "On dirait que non : je ne vois rien de plus sur \\ntoi qu'avant que tu n'entres dedans."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) My map bizarrely stated that there were \\na magic item of great value inside."
-			},
-			{
-				"nom": "Message",
-				"texte": "Pourtant ma carte indiquait qu'il y avait un \\nobjet magique très précieux là dedans..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Perhaps someone took it before us."
-			},
-			{
-				"nom": "Message",
-				"texte": "Quelqu'un a dû la prendre avant nous."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I'm so disappointed.\\nI'm going home then."
-			},
-			{
-				"nom": "Message",
-				"texte": "Bon, bah il ne me reste plus qu'à faire \\ndemi-tour."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Take that as a reward for your efforts:"
-			},
-			{
-				"nom": "Message",
-				"texte": "Tiens, prends ça pour tes efforts :"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).mid",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 11
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 1,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You get a crystal of the whale!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous obtenez un cristal de baleine !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "It is a superb piece of crystallized magic \\nsalt of Kujira."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est un superbe morceau de sel magique \\nde Kujira cristallisé !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Now you're in Kujira, you'll have to get \\nused to it."
-			},
-			{
-				"nom": "Message",
-				"texte": "Maintenant que tu es dans Kujira tu fais \\npartie intégrante du décor, il va falloir que tu \\nt'y habitues."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) If you have questions or problems,\\nyou can come to see me at my glade."
-			},
-			{
-				"nom": "Message",
-				"texte": "Si tu as des questions ou des problèmes\\ntu peux venir me voir à ma clairière."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Currently nobody knows how to get out,\\nbut I think about it for several centuries."
-			},
-			{
-				"nom": "Message",
-				"texte": "Personne ici ne sait comment sortir, mais je \\ndois t'avouer que je planche sur la question\\ndepuis plusieurs siècles."
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 2
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 2,
-					"y": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 126,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
 				"numero": 4
 			},
 			{
@@ -1310,6 +1072,10 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 3
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mathusalem\""
 			},
 			{
 				"nom": "Commentaire",
@@ -1330,10 +1096,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "JouerMusique",
@@ -1383,6 +1145,7 @@
 				]
 			},
 			"image": "Mathusalem character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -1640,6 +1403,12 @@
 		"y": 11
 	},
 	{
+		"id": 14,
+		"nom": "Clone[582][37]",
+		"x": 18,
+		"y": 12
+	},
+	{
 		"id": 9,
 		"nom": "Pancarte",
 		"x": 26,
@@ -1738,6 +1507,12 @@
 		"y": 12
 	},
 	{
+		"id": 15,
+		"nom": "Clone[582][37]",
+		"x": 12,
+		"y": 10
+	},
+	{
 		"id": 10,
 		"nom": "Colibri",
 		"x": 14,
@@ -1754,6 +1529,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri vert\""
 			},
 			{
 				"nom": "AppelerPageCommune",
@@ -1902,6 +1681,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri vert\""
 			},
 			{
 				"nom": "AppelerPageCommune",

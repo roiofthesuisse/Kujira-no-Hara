@@ -23,7 +23,7 @@
 	[0002,0002,0002,0002,0002,0020,0021,0044,0045,0012,0013,0012,0013,0012,0013,0012,0046,0047,0006,0007,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0028,0029,0020,0021,-004,-004,-004,-006,-006,-006,-004,0006,0007,0014,0015,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0020,0021,0028,0029,-004,-006,-006,-006,-006,-004,-006,0014,0015,0006,0007,0002,0002,0002,0002,0002],
-	[0002,0002,0002,0002,0002,0028,0029,0020,0021,-006,-004,0002,0002,0002,-004,-006,0006,0007,0014,0015,0002,0002,0002,0002,0002],
+	[0002,0002,0002,0002,0002,0028,0029,0020,0021,-006,-004,0091,0091,0091,-004,-006,0006,0007,0014,0015,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0020,0021,0028,0029,-006,-006,-006,-006,-006,-006,-006,0014,0015,0006,0007,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0028,0029,0020,0021,0000,0001,-006,-006,-006,-004,-004,0006,0007,0014,0015,0002,0002,0002,0002,0002],
 	[0002,0002,0002,0002,0002,0020,0021,0028,0029,0008,0009,0008,0009,0008,0009,0008,0014,0015,0006,0007,0002,0002,0002,0002,0002],
@@ -304,6 +304,11 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 129,
+				"valeur": true
 			},
 			{
 				"nom": "ModifierVariable",
@@ -604,6 +609,57 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "tube",
+		"x": 14,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 3,
+			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 129,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 3,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 3,
 		"nom": "Pancarte",
 		"x": 10,
@@ -628,20 +684,20 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Do not hesitate to ring the return bell\\nto come back to the entrance of the dungeon."
+			},
+			{
 				"nom": "Message",
 				"texte": "N'hésitez pas à sonner la cloche de retour \\npour revenir au début du donjon."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -654,6 +710,57 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "tube",
+		"x": 14,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 2,
+			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 129,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

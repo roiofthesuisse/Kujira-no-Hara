@@ -19,7 +19,7 @@
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0800,0801,0801,0801,0801,0801,0801,0802,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0808,0000,0000,0000,0052,0008,0000,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0808,0000,0000,0000,0008,0000,0000,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0808,0000,0000,0000,0000,0000,0000,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0808,0000,0000,0000,0000,0000,0000,0810,0800,0801,0801,0801,0801,0801,0801,0801,0801,0801,0802,0809],
 	[0809,0808,0000,0000,0000,0000,0000,0008,0030,0024,0016,0011,0011,0011,0011,0011,0011,0011,0022,0810,0809],
 	[0809,0808,0000,0000,0000,0000,0000,0000,0021,0017,-003,-003,-003,-003,-003,-003,-003,-003,-003,0810,0809],
@@ -166,6 +166,33 @@
 		]
 	},
 	{
+		"id": 11,
+		"nom": "nom station",
+		"x": 14,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "metro nom character",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "Clone[582][6]",
 		"x": 14,
@@ -209,6 +236,33 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Enseigne",
+		"x": 5,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "enseignes character",
+			"directionInitiale": 2,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -263,6 +317,13 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 72,
 				"valeur": true
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "SupprimerEvent"
