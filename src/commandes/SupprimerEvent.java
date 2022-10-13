@@ -15,16 +15,16 @@ public class SupprimerEvent extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idEvent id de l'Event à supprimer
+	 * @param idEvent id de l'Event a supprimer
 	 */
 	public SupprimerEvent(final Integer idEvent) {
 		this.idEvent = idEvent;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public SupprimerEvent(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("idEvent") ? (Integer) parametres.get("idEvent") : null);

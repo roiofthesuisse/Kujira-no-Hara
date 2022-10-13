@@ -10,7 +10,7 @@ import map.Vitesse;
 import utilitaire.Maths;
 
 /**
- * Rapprocher un Event auprès d'un autre, jusqu'à ce qu'ils soient face à face.
+ * Rapprocher un Event auprï¿½s d'un autre, jusqu'ï¿½ ce qu'ils soient face a face.
  */
 public class SeRapprocher extends Avancer {
 	protected static final Logger LOG = LogManager.getLogger(SeRapprocher.class);
@@ -33,7 +33,7 @@ public class SeRapprocher extends Avancer {
 	 * @param idEventCible Event vers lequel on se rapproche
 	 */
 	public SeRapprocher(final Integer idEventARapprocher, final Integer idEventCible) {
-		//le -1 est bidon, il sera remplacé par la direction de l'Event lors de la vérification
+		//le -1 est bidon, il sera remplacï¿½ par la direction de l'Event lors de la vï¿½rification
 		super(-1, 1);
 		
 		this.idEventARapprocher = idEventARapprocher;
@@ -43,13 +43,13 @@ public class SeRapprocher extends Avancer {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public SeRapprocher(final HashMap<String, Object> parametres) {
 		this(
-				parametres.containsKey("idEventARapprocher") ? (int) parametres.get("idEventARapprocher") : 0, //par défaut, le Héros
-				parametres.containsKey("idEventCible") ? (int) parametres.get("idEventCible") : null //par défaut, cet Event
+				parametres.containsKey("idEventARapprocher") ? (int) parametres.get("idEventARapprocher") : 0, //par dï¿½faut, le Hï¿½ros
+				parametres.containsKey("idEventCible") ? (int) parametres.get("idEventCible") : null //par dï¿½faut, cet Event
 		);
 	}
 
@@ -60,11 +60,11 @@ public class SeRapprocher extends Avancer {
 			this.eventARapprocher = this.deplacement.page.event.map.eventsHash.get(this.idEventARapprocher);
 			this.eventCible = this.deplacement.page.event.map.eventsHash.get(this.idEventCible);
 			
-			// Coordonnées de départ
+			// Coordonnï¿½es de dï¿½part
 			this.xInitialEventARapprocher = this.eventARapprocher.x;
 			this.yInitialEventARapprocher = this.eventARapprocher.y;
 			
-			// Calcul des coordonnées d'arrivée
+			// Calcul des coordonnï¿½es d'arrivï¿½e
 			final int xmin1 = this.eventARapprocher.x;
 			final int xmax1 = xmin1 + this.eventARapprocher.largeurHitbox;
 			final int ymin1 = this.eventARapprocher.y;
@@ -73,15 +73,15 @@ public class SeRapprocher extends Avancer {
 			final int xmax2 = xmin2 + this.eventCible.largeurHitbox;
 			final int ymin2 = this.eventCible.y;
 			final int ymax2 = ymin2 + this.eventCible.hauteurHitbox;
-			// Où se situe-t-on par rapport à l'Event cible ?
+			// Oï¿½ se situe-t-on par rapport a l'Event cible ?
 			if (xmax1 <= xmin2) {
-				//on est à gauche
+				//on est a gauche
 				this.xFinalEventARapprocher = xmin2 - this.eventARapprocher.largeurHitbox;
 				this.yFinalEventARapprocher = (ymin2+ymax2 - this.eventARapprocher.hauteurHitbox)/2;
 				this.directionDurantLeMouvement = Event.Direction.DROITE;
 				
 			} else if (xmin1 >= xmax2) {
-				//on est à droite
+				//on est a droite
 				this.xFinalEventARapprocher = xmax2;
 				this.yFinalEventARapprocher = (ymin2+ymax2 - this.eventARapprocher.hauteurHitbox)/2;
 				this.directionDurantLeMouvement = Event.Direction.GAUCHE;
@@ -104,7 +104,7 @@ public class SeRapprocher extends Avancer {
 				return false;
 			}
 			
-			// Nombre d'étapes ?
+			// Nombre d'ï¿½tapes ?
 			final int trajetX = this.xFinalEventARapprocher - this.xInitialEventARapprocher;
 			final int trajetY = this.yFinalEventARapprocher - this.yInitialEventARapprocher;
 			this.etapes = Maths.max(
@@ -155,9 +155,9 @@ public class SeRapprocher extends Avancer {
 					+" vers "+event.x+";"+event.y);
 		}
 		
-		// Il faudra réinitialiser le mouvement la prochaine fois
+		// Il faudra rï¿½initialiser le mouvement la prochaine fois
 		if (this.ceQuiAEteFait >= this.etapes) {
-			LOG.debug("On s'est rapproché de l'interlocuteur.");
+			LOG.debug("On s'est rapprochï¿½ de l'interlocuteur.");
 			this.initialisation = false;
 			this.directionDurantLeMouvement = -1;
 		}

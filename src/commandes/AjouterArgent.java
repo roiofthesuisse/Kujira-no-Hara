@@ -14,16 +14,16 @@ public class AjouterArgent extends Commande implements CommandeEvent, CommandeMe
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param quantite à ajouter
+	 * @param quantite a ajouter
 	 */
 	public AjouterArgent(final int quantite) {
 		this.quantite = quantite;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AjouterArgent(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("quantite"));

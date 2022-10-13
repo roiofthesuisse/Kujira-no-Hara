@@ -31,28 +31,28 @@ public class Animation {
 	
 	/** Identifiant de l'animation */
 	private final int id;
-	/** Image dans laquelle on découpe les vignettes de l'Animation */
+	/** Image dans laquelle on dï¿½coupe les vignettes de l'Animation */
 	private BufferedImage image;
-	/** Les différentes étapes successives de l'animation */
+	/** Les diffï¿½rentes ï¿½tapes successives de l'animation */
 	public final ArrayList<Frame> frames;
 	
 	/**
-	 * La chronologie de l'Animation est décrite par Frame.
-	 * Chaque Frame liste les vignettes et sons à jouer à un moment précis.
+	 * La chronologie de l'Animation est dï¿½crite par Frame.
+	 * Chaque Frame liste les vignettes et sons a jouer a un moment prï¿½cis.
 	 */
 	public class Frame {
 		ArrayList<Picture> vignettes;
 		ArrayList<Son> sons;
 		
 		/**
-		 * Son à jouer lors de la Frame d'Animation.
+		 * Son a jouer lors de la Frame d'Animation.
 		 */
 		private class Son {
 			public String nom;
 			public float volume;
 			/** 
 			 * Constructeur explicite
-			 * @param nom du fichier sonore à jouer
+			 * @param nom du fichier sonore a jouer
 			 * @param volume sonore entre 0.0 et 1.0
 			 */
 			Son(final String nom, final float volume) {
@@ -63,8 +63,8 @@ public class Animation {
 		
 		/**
 		 * Constructeur explicite
-		 * @param image contenant toutes les vignettes utilisées dans l'Animation
-		 * @param jsonFrame objet JSON représentant la Frame
+		 * @param image contenant toutes les vignettes utilisï¿½es dans l'Animation
+		 * @param jsonFrame objet JSON reprï¿½sentant la Frame
 		 */
 		public Frame(final BufferedImage image, final JSONObject jsonFrame) {
 			//vignettes
@@ -85,11 +85,11 @@ public class Animation {
 				final int yVignette = jsonVignette.getInt("yVignette");
 				
 				final Picture vignette = new Picture(imageVignette,
-						null, //les animations ne sont pas des Pictures sauvegardée
-						-1, //Picture non référencée dans le LecteurMap
+						null, //les animations ne sont pas des Pictures sauvegardï¿½e
+						-1, //Picture non rï¿½fï¿½rencï¿½e dans le LecteurMap
 						xVignette,
 						yVignette,
-						true, //centré
+						true, //centrï¿½
 						jsonVignette.has("zoomX") ? jsonVignette.getInt("zoomX") : Graphismes.PAS_D_HOMOTHETIE,
 						jsonVignette.has("zoomY") ? (int) jsonVignette.getInt("zoomY") : Graphismes.PAS_D_HOMOTHETIE, 
 						jsonVignette.has("opacite") ? (int) jsonVignette.getInt("opacite") : Graphismes.OPACITE_MAXIMALE, 
@@ -117,7 +117,7 @@ public class Animation {
 	
 	/**
 	 * Constructeur explicite
-	 * @param jsonAnimation objet JSON représentant l'Animation
+	 * @param jsonAnimation objet JSON reprï¿½sentant l'Animation
 	 */
 	public Animation(final JSONObject jsonAnimation) {
 		this.id = jsonAnimation.getInt("id");
@@ -137,14 +137,14 @@ public class Animation {
 	
 	/**
 	 * Charger toutes les Animations du jeu.
-	 * @return tableau des Animations modèles
+	 * @return tableau des Animations modï¿½les
 	 */
 	public static Animation[] chargerLesAnimationsDuJeu() {
 		final JSONArray jsonAnimations;
 		try {
 			jsonAnimations = InterpreteurDeJson.ouvrirJsonAnimations();
 		} catch (Exception e) {
-			LOG.error("Impossible d'interpréter la liste des animations du jeu.", e);
+			LOG.error("Impossible d'interprï¿½ter la liste des animations du jeu.", e);
 			return null;
 		}
 		
@@ -166,11 +166,11 @@ public class Animation {
 	}
 
 	/**
-	 * Dessiner les Animations en cours sur l'écran
+	 * Dessiner les Animations en cours sur l'ecran
 	 * @param ecran sur lequel on dessine
-	 * @param xCamera position (en pixels) de la caméra par rapport au bord haut-gauche de la Map
-	 * @param yCamera position (en pixels) de la caméra par rapport au bord haut-gauche de la Map
-	 * @return écran avec les Animations dessinées dessus
+	 * @param xCamera position (en pixels) de la camï¿½ra par rapport au bord haut-gauche de la Map
+	 * @param yCamera position (en pixels) de la camï¿½ra par rapport au bord haut-gauche de la Map
+	 * @return ecran avec les Animations dessinï¿½es dessus
 	 */
 	public static BufferedImage dessinerLesAnimations(BufferedImage ecran, final int xCamera, final int yCamera) {
 		final Partie partie = Main.getPartieActuelle();
@@ -179,7 +179,7 @@ public class Animation {
 		for (int i = 0; i<nombreDAnimationsEnCours; i++) {
 			animationEnCours = partie.animations.get(i);
 			
-			// Détermination de la cible de l'animation
+			// Dï¿½termination de la cible de l'animation
 			final int xCible, yCible, xCentrage, yCentrage;
 			if (animationEnCours.xEcran >= 0 && animationEnCours.yEcran >= 0) {
 				// La cible est un point fixe de la Map
@@ -191,7 +191,7 @@ public class Animation {
 				// La cible est un Event
 				final Event eventCible;
 				if (animationEnCours.idEvent != null) {
-					// La cible est un Event spécifié
+					// La cible est un Event spï¿½cifiï¿½
 					eventCible = animationEnCours.page.event.map.eventsHash.get(animationEnCours.idEvent);
 				} else {
 					// La cible est cet Event
@@ -227,7 +227,7 @@ public class Animation {
 					}
 				}
 				// La prochaine fois, on jouera la frame suivante
-				LOG.trace("Frame n°"+animationEnCours.frameActuelle+" de l'animation");
+				LOG.trace("Frame nï¿½"+animationEnCours.frameActuelle+" de l'animation");
 				animationEnCours.frameActuelle++;
 			} catch (NullPointerException e0) {
 				LOG.error("Impossible de trouver l'animation "+animationEnCours.idAnimation);
@@ -236,8 +236,8 @@ public class Animation {
 				i--;
 				nombreDAnimationsEnCours--;
 			} catch (IndexOutOfBoundsException e1) {
-				LOG.debug("Fin de l'animation n°"+animationEnCours.frameActuelle);
-				// L'animation est terminée, on la retire de la file
+				LOG.debug("Fin de l'animation nï¿½"+animationEnCours.frameActuelle);
+				// L'animation est terminï¿½e, on la retire de la file
 				partie.animations.remove(i);
 				i--;
 				nombreDAnimationsEnCours--;

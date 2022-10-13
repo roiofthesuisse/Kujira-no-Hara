@@ -12,7 +12,7 @@ import map.Passabilite;
 import utilitaire.GestionClavier.ToucheRole;
 
 /**
- * Déplacer un Event dans une Direction et d'un certain nombre de cases
+ * Dï¿½placer un Event dans une Direction et d'un certain nombre de cases
  */
 public class Sauter extends Mouvement {
 	//constantes
@@ -29,13 +29,13 @@ public class Sauter extends Mouvement {
 	private int yEventApresSaut;
 	protected int direction;
 	private Integer distance = null;
-	/** Event fictif pour réserver la place d'arrivée du Saut */
+	/** Event fictif pour rï¿½server la place d'arrivï¿½e du Saut */
 	private Event eventDeReservation = null;
 	
 	/**
 	 * Constructeur explicite
-	 * @param x nombre de cases de déplacement en horizontal
-	 * @param y nombre de cases de déplacement en vertical
+	 * @param x nombre de cases de dï¿½placement en horizontal
+	 * @param y nombre de cases de dï¿½placement en vertical
 	 */
 	public Sauter(final int x, final int y) {
 		this.x = x;
@@ -44,8 +44,8 @@ public class Sauter extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Sauter(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("x"), 
@@ -53,7 +53,7 @@ public class Sauter extends Mouvement {
 	}
 	
 	/**
-	 * La direction du Saut est calculée selon le x et le y du Saut.
+	 * La direction du Saut est calculï¿½e selon le x et le y du Saut.
 	 */
 	protected final void calculerDirectionSaut() {
 		if (this.x > this.y) {
@@ -85,25 +85,25 @@ public class Sauter extends Mouvement {
 		final Event event = this.deplacement.getEventADeplacer();
 		
 		if (!event.saute) {
-			// Le Saut n'a pas encore commencé
+			// Le Saut n'a pas encore commencï¿½
 			
-			// Si c'est le Héros, il n'avance pas s'il est en animation d'attaque
+			// Si c'est le Hï¿½ros, il n'avance pas s'il est en animation d'attaque
 			if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 				return false;
 			}
 			
-			// Calcul de la position d'arrivée
+			// Calcul de la position d'arrivï¿½e
 			this.xEventAvantSaut = event.x;
 			this.yEventAvantSaut = event.y;
 			this.xEventApresSaut = xEventAvantSaut + this.x*Main.TAILLE_D_UN_CARREAU;
 			this.yEventApresSaut = yEventAvantSaut + this.y*Main.TAILLE_D_UN_CARREAU;
 			
-			// Si l'Event est lui-même traversable, il peut évidemment faire son mouvement
+			// Si l'Event est lui-mï¿½me traversable, il peut ï¿½videmment faire son mouvement
 			if (event.traversableActuel == Passabilite.PASSABLE) {
 				return true;
 			}
 			
-			// Le Héros traverse tout si la touche de triche est pressée
+			// Le Hï¿½ros traverse tout si la touche de triche est pressï¿½e
 			if (event instanceof Heros && ToucheRole.TRICHE.enfoncee()) {
 				return true;
 			}
@@ -117,10 +117,10 @@ public class Sauter extends Mouvement {
 				return false;
 			}
 			
-			// La case d'arrivée est-elle libre ?
+			// La case d'arrivï¿½e est-elle libre ?
 			final boolean reponse = event.map.calculerSiLaPlaceEstLibre(this.xEventApresSaut, this.yEventApresSaut, event.largeurHitbox, event.hauteurHitbox, event.id);
 			if (!reponse) {
-				LOG.warn("Saut impossible ! La zone d'arrivée est occupée.");
+				LOG.warn("Saut impossible ! La zone d'arrivï¿½e est occupï¿½e.");
 			}
 			return reponse;
 			
@@ -132,13 +132,13 @@ public class Sauter extends Mouvement {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incrémente le compteur "ceQuiAEteFait".
+	 * Puis incrï¿½mente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	public final void calculDuMouvement(final Event event) {
 		if (!event.saute) {
-			//le Mouvement n'a pas encore commencé, on initialise
-			LOG.info("Début du saut");
+			//le Mouvement n'a pas encore commencï¿½, on initialise
+			LOG.info("Dï¿½but du saut");
 			event.saute = true;
 			this.ceQuiAEteFait = 0;
 			calculerDistance();
@@ -149,7 +149,7 @@ public class Sauter extends Mouvement {
 			reserverLaPlaceDArrivee(event);
 		}
 
-		//déplacement :
+		//dï¿½placement :
 		final double t = (double) ceQuiAEteFait /(double) etapes;
 		final int x0 = xEventAvantSaut;
 		final int y0 = yEventAvantSaut;
@@ -166,13 +166,13 @@ public class Sauter extends Mouvement {
 		this.ceQuiAEteFait++;
 		
 		if (this.ceQuiAEteFait >= etapes) {
-			//le saut est fini, on déplace l'Event à l'arrivée
+			//le saut est fini, on dï¿½place l'Event a l'arrivï¿½e
 			LOG.info("Fin du saut");
 			event.x = this.xEventApresSaut;
 			event.y = this.yEventApresSaut;
 			
 			if (this.x!=0 || this.y!=0) {
-				event.direction = this.direction; //on garde la direction prise à cause du saut
+				event.direction = this.direction; //on garde la direction prise a cause du saut
 			}
 		}
 	}
@@ -189,7 +189,7 @@ public class Sauter extends Mouvement {
 	}
 	
 	/**
-	 * Placer un Event fictif pour réserver la position d'arrivée du Saut.
+	 * Placer un Event fictif pour rï¿½server la position d'arrivï¿½e du Saut.
 	 * @param event qui saute
 	 */
 	private void reserverLaPlaceDArrivee(final Event event) {
@@ -205,7 +205,7 @@ public class Sauter extends Mouvement {
 		event.saute = false;
 		this.distance = null;
 
-		//supprimer l'Event de réservation de place d'arrivée
+		//supprimer l'Event de rï¿½servation de place d'arrivï¿½e
 		if (this.eventDeReservation != null) {
 			this.eventDeReservation.supprime = true;
 		}
@@ -215,7 +215,7 @@ public class Sauter extends Mouvement {
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
 		event.saute = false;
 		this.distance = null;
-		//supprimer l'Event de réservation de place d'arrivée
+		//supprimer l'Event de rï¿½servation de place d'arrivï¿½e
 		if (this.eventDeReservation != null) {
 			this.eventDeReservation.supprime = true;
 		}
@@ -237,7 +237,7 @@ public class Sauter extends Mouvement {
 	}
 
 	/**
-	 * Position de la caméra pendant le saut.
+	 * Position de la camï¿½ra pendant le saut.
 	 * @return (en pixels)
 	 */
 	public int xPourCamera() {
@@ -245,7 +245,7 @@ public class Sauter extends Mouvement {
 	}
 	
 	/**
-	 * Position de la caméra pendant le saut.
+	 * Position de la camï¿½ra pendant le saut.
 	 * @return (en pixels)
 	 */
 	public int yPourCamera() {

@@ -19,15 +19,15 @@ public class ModifierFrequence extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nomNouvelleFrequence nom de la nouvelle Fréquence à donner à l'Event
+	 * @param nomNouvelleFrequence nom de la nouvelle Frï¿½quence a donner a l'Event
 	 */
 	public ModifierFrequence(final String nomNouvelleFrequence) {
 		this.nomNouvelleFrequence = nomNouvelleFrequence;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierFrequence(final HashMap<String, Object> parametres) {
 		this( (String) parametres.get("frequence") );
@@ -47,21 +47,21 @@ public class ModifierFrequence extends Mouvement {
 	@Override
 	protected final void calculDuMouvement(final Event event) {
 		if (this.nouvelleFrequence == null) {
-			// La Fréquence n'a pas encore été interprétée
+			// La Frï¿½quence n'a pas encore ï¿½tï¿½ interprï¿½tï¿½e
 			
-			// On l'interprète
+			// On l'interprï¿½te
 			this.nouvelleFrequence = Frequence.parNom(this.nomNouvelleFrequence);
 			
 			if (this.nouvelleFrequence == null) {
-				// La Fréquence n'a pas pu être interprétée !
-				LOG.error("Nom de fréquence inconnu : "+this.nomNouvelleFrequence);
+				// La Frï¿½quence n'a pas pu ï¿½tre interprï¿½tï¿½e !
+				LOG.error("Nom de frï¿½quence inconnu : "+this.nomNouvelleFrequence);
 				// On ne fera rien
 				this.nouvelleFrequence = event.frequenceActuelle;
 			}
 		}
-		// La nouvelle Fréquence a été interprétée
+		// La nouvelle Frï¿½quence a ï¿½tï¿½ interprï¿½tï¿½e
 		
-		// On assigne la nouvelle Fréquence
+		// On assigne la nouvelle Frï¿½quence
 		event.frequenceActuelle = this.nouvelleFrequence;
 	}
 

@@ -15,7 +15,7 @@ import map.Map;
 import utilitaire.InterpreteurDeJson;
 
 /**
- * Invoquer un Event sur la Map courante à partir du fichier JSON d'une Map
+ * Invoquer un Event sur la Map courante a partir du fichier JSON d'une Map
  */
 public class InvoquerUnEvent extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(InvoquerUnEvent.class);
@@ -38,9 +38,9 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public InvoquerUnEvent(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("x"), (int) parametres.get("y"), (int) parametres.get("idMap"),
@@ -50,10 +50,10 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 	@Override
 	public int executer(int curseurActuel, List<Commande> commandes) {
 		Map mapCourante = this.page.event.map;
-		// Créer juste un Event à partir du JSON de la Map
-		// (pas la peine de créer toute la Map)
+		// Crï¿½er juste un Event a partir du JSON de la Map
+		// (pas la peine de crï¿½er toute la Map)
 		try {
-			// Ouvrir le fichier JSON de la Map où se trouve l'Event à invoquer
+			// Ouvrir le fichier JSON de la Map oï¿½ se trouve l'Event a invoquer
 			JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(this.idMap);
 			// Chercher l'Event dans le fichier JSON de la Map
 			final JSONArray jsonEvents = jsonMap.getJSONArray("events");
@@ -61,25 +61,25 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 			onChercheLEventNumerote: for (Object ev : jsonEvents) {
 				JSONObject jsonEvent = (JSONObject) ev;
 				if (jsonEvent.getInt("id") == this.idEvent) {
-					// Instancier l'Event à invoquer
+					// Instancier l'Event a invoquer
 					eventInvoque = Event.recupererUnEvent(jsonEvent, mapCourante);
 					break onChercheLEventNumerote;
 				}
 			}
 			if (eventInvoque != null) {
-				// L'Event a été instancié avec succès
+				// L'Event a ï¿½tï¿½ instanciï¿½ avec succï¿½s
 
 				// Le placer sur la Map courante
 				eventInvoque.x = this.x * Main.TAILLE_D_UN_CARREAU;
 				eventInvoque.y = this.y * Main.TAILLE_D_UN_CARREAU;
-				// Il sera ajouté à la Map courante à la prochaine frame
+				// Il sera ajoutï¿½ a la Map courante a la prochaine frame
 				mapCourante.eventsAAjouter.add(eventInvoque);
 				LOG.info("Invocation de l'event " + this.idEvent + " originaire de la map " + this.idMap);
 
 			} else {
-				// L'event n'a pas été trouvé
+				// L'event n'a pas ï¿½tï¿½ trouvï¿½
 				LOG.error("Impossible d'invoquer l'event " + this.idEvent
-						+ ", il n'a pas été trouvé dans le JSON de la map " + this.idMap);
+						+ ", il n'a pas ï¿½tï¿½ trouvï¿½ dans le JSON de la map " + this.idMap);
 			}
 		} catch (Exception e) {
 			LOG.error("Impossible d'ouvrir le fichier JSON de la map " + this.idMap, e);

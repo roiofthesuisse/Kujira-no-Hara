@@ -15,9 +15,9 @@ public class AjouterObjet extends Commande implements CommandeEvent, CommandeMen
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idObjet  identifiant de l'Objet à ajouter : soit son nom, soit son
-	 *                 numéro
-	 * @param quantite à ajouter pour cet Objet
+	 * @param idObjet  identifiant de l'Objet a ajouter : soit son nom, soit son
+	 *                 numï¿½ro
+	 * @param quantite a ajouter pour cet Objet
 	 */
 	public AjouterObjet(final int idObjet, final int quantite) {
 		this.idObjet = idObjet;
@@ -25,20 +25,20 @@ public class AjouterObjet extends Commande implements CommandeEvent, CommandeMen
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AjouterObjet(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idObjet"), parametres.containsKey("quantite") //
 				? (int) parametres.get("quantite") //
-				: 1 // ajouter 1 par défaut
+				: 1 // ajouter 1 par dï¿½faut
 		);
 	}
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// on procède à l'ajout
+		// on procï¿½de a l'ajout
 		final int[] objetsPossedes = getPartieActuelle().objetsPossedes;
 		objetsPossedes[this.idObjet] += quantite;
 

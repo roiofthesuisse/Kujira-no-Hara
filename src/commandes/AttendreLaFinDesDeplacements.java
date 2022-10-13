@@ -15,17 +15,17 @@ public class AttendreLaFinDesDeplacements extends Commande implements CommandeEv
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idEvent identifiant de l'Event à attendre (-1 pour tous, 0 pour le
-	 *                héros, aucun pour celui-ci)
+	 * @param idEvent identifiant de l'Event a attendre (-1 pour tous, 0 pour le
+	 *                hï¿½ros, aucun pour celui-ci)
 	 */
 	public AttendreLaFinDesDeplacements(final Integer idEvent) {
 		this.idEvent = idEvent;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AttendreLaFinDesDeplacements(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("idEvent") ? (int) parametres.get("idEvent") : null);
@@ -50,7 +50,7 @@ public class AttendreLaFinDesDeplacements extends Commande implements CommandeEv
 				e = this.page.event;
 
 			} else if (idEvent == 0) {
-				// héros
+				// hï¿½ros
 				e = this.page.event.map.heros;
 
 			} else {

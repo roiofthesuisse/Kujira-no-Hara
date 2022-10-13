@@ -18,7 +18,7 @@ public class PageCommune extends PageEvent {
 	private static final Logger LOG = LogManager.getLogger(PageCommune.class);
 	private static final String DOSSIER_PAGES_COMMUNES = "./ressources/Data/PagesCommunes/";
 	
-	/** Pages de code commun à toutes les Maps */
+	/** Pages de code commun a toutes les Maps */
 	public final static HashMap<Integer, PageCommune> PAGES_COMMUNES = PageCommune.recupererLesPagesCommunes();
 	
 	public boolean active;

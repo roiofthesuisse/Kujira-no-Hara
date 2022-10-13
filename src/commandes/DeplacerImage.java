@@ -13,26 +13,26 @@ import map.Picture;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Démarrer une transition progressive de l'état actuel de l'image vers un état
- * d'arrivée. Cette transition peut concerner le position de l'image, son
- * opacité, son zoom, son angle. Il est également possible de changer de mode de
- * fusion, mais ce changement sera immédiat.
+ * Dï¿½marrer une transition progressive de l'ï¿½tat actuel de l'image vers un ï¿½tat
+ * d'arrivï¿½e. Cette transition peut concerner le position de l'image, son
+ * opacitï¿½, son zoom, son angle. Il est ï¿½galement possible de changer de mode de
+ * fusion, mais ce changement sera immï¿½diat.
  */
 public class DeplacerImage extends Commande implements CommandeEvent, Sauvegardable {
 	protected static final Logger LOG = LogManager.getLogger(DeplacerImage.class);
-	/** Le déplacement d'image est instantané */
+	/** Le dï¿½placement d'image est instantanï¿½ */
 	private static final int INSTANTANE = 0;
-	/** Par défaut, le déplacement n'est exécuté qu'une fois */
+	/** Par dï¿½faut, le dï¿½placement n'est exï¿½cutï¿½ qu'une fois */
 	private static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAULT = false;
 	/**
-	 * Par défaut, on n'attend pas la fin du déplacement avant de passer à  la
+	 * Par dï¿½faut, on n'attend pas la fin du dï¿½placement avant de passer a la
 	 * Commande suivante
 	 */
 	private static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAULT = false;
 
-	/** numéro de l'image à  déplacer */
-	private Integer numero; // Integer car utilisé comme clé d'une HashMap
-	/** durée (en frames) de la transition */
+	/** numï¿½ro de l'image a dï¿½placer */
+	private Integer numero; // Integer car utilisï¿½ comme clï¿½ d'une HashMap
+	/** durï¿½e (en frames) de la transition */
 	private int nombreDeFrames;
 	private int dejaFait;
 
@@ -40,7 +40,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	private Integer y;
 	/** la nouvelle origine est-elle le centre de l'image ? */
 	private Boolean centre;
-	/** les coordonnées sont-elles stockées dans des variables ? */
+	/** les coordonnï¿½es sont-elles stockï¿½es dans des variables ? */
 	private boolean variables;
 
 	private int xDebut;
@@ -57,32 +57,32 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	private int angleDebut;
 	private Integer angleFin;
 
-	/** Faut-il répéter en boucle le déplacement ? */
+	/** Faut-il rï¿½pï¿½ter en boucle le dï¿½placement ? */
 	private final boolean repeterLeDeplacement;
 	/**
-	 * Faut-il attendre la fin du déplacement pour passer à  la Commande suivante ?
+	 * Faut-il attendre la fin du dï¿½placement pour passer a la Commande suivante ?
 	 */
 	private final boolean attendreLaFinDuDeplacement;
 
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numero                     de l'image à  modifier
-	 * @param nombreDeFrames             durée de la transition
-	 * @param centre                     l'origine pour les nouvelles coordonnées de
+	 * @param numero                     de l'image a modifier
+	 * @param nombreDeFrames             durï¿½e de la transition
+	 * @param centre                     l'origine pour les nouvelles coordonnï¿½es de
 	 *                                   l'image est elle son centre ?
-	 * @param variables                  les nouvelles coordonnées sont-elles
-	 *                                   stockées dans des variables ?
-	 * @param x                          coordonnée d'arrivée
-	 * @param y                          coordonnée d'arrivée
-	 * @param zoomX                      zoom d'arrivée
-	 * @param zoomY                      zoom d'arrivée
-	 * @param opacite                    opacité d'arrivée
-	 * @param modeDeFusion               d'arrivée
-	 * @param angle                      d'arrivée
-	 * @param repeterLeDeplacement       le déplacement boucle-t-il ?
-	 * @param attendreLaFinDuDeplacement faut-il passer à  la Commande suivante
-	 *                                   immédiatement ?
+	 * @param variables                  les nouvelles coordonnï¿½es sont-elles
+	 *                                   stockï¿½es dans des variables ?
+	 * @param x                          coordonnï¿½e d'arrivï¿½e
+	 * @param y                          coordonnï¿½e d'arrivï¿½e
+	 * @param zoomX                      zoom d'arrivï¿½e
+	 * @param zoomY                      zoom d'arrivï¿½e
+	 * @param opacite                    opacitï¿½ d'arrivï¿½e
+	 * @param modeDeFusion               d'arrivï¿½e
+	 * @param angle                      d'arrivï¿½e
+	 * @param repeterLeDeplacement       le dï¿½placement boucle-t-il ?
+	 * @param attendreLaFinDuDeplacement faut-il passer a la Commande suivante
+	 *                                   immï¿½diatement ?
 	 */
 	public DeplacerImage(final Integer numero, final int nombreDeFrames, final Boolean centre, final boolean variables,
 			final Integer x, final Integer y, final Integer zoomX, final Integer zoomY, final Integer opacite,
@@ -107,7 +107,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
 	 * @param parametres liste de parametres issus de JSON
 	 */
@@ -131,8 +131,8 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	}
 
 	/**
-	 * Calculer le déplacement de l'image. C'est un état intermédiaire entre l'état
-	 * de début et l'état de fin.
+	 * Calculer le dï¿½placement de l'image. C'est un ï¿½tat intermï¿½diaire entre l'ï¿½tat
+	 * de dï¿½but et l'ï¿½tat de fin.
 	 */
 	private void calculerDeplacement() {
 		final double progression = (double) this.dejaFait / (double) this.nombreDeFrames;
@@ -142,14 +142,14 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			return;
 		}
 
-		// initialisation des extrémums
+		// initialisation des extrï¿½mums
 		if (this.dejaFait <= 0) {
 			this.xDebut = picture.x;
 			this.yDebut = picture.y;
 
 			if (this.x != null && this.y != null) {
 				if (this.variables) {
-					// valeurs stockées dans des variables
+					// valeurs stockï¿½es dans des variables
 					this.xFin = getPartieActuelle().variables[this.x];
 					this.yFin = getPartieActuelle().variables[this.y];
 				} else {
@@ -164,7 +164,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			this.angleDebut = picture.angle;
 			this.opaciteDebut = picture.opacite;
 
-			// n'est modifié que ce qui a été explicitement spécifié
+			// n'est modifiï¿½ que ce qui a ï¿½tï¿½ explicitement spï¿½cifiï¿½
 			if (this.modeDeFusion != null) {
 				picture.modeDeFusion = this.modeDeFusion;
 			}
@@ -173,7 +173,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			}
 		}
 
-		// n'est modifié que ce qui a été explicitement spécifié
+		// n'est modifiï¿½ que ce qui a ï¿½tï¿½ explicitement spï¿½cifiï¿½
 		if (this.x != null) {
 			picture.x = (int) Math.round(progression * this.xFin + (1 - progression) * this.xDebut);
 		}
@@ -199,7 +199,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		if (this.attendreLaFinDuDeplacement) {
 			calculerDeplacement();
-			// Tant que ce n'est pas terminé, on reste sur cette Commande
+			// Tant que ce n'est pas terminï¿½, on reste sur cette Commande
 			if (this.dejaFait < this.nombreDeFrames) {
 				// pas fini
 				this.dejaFait++;
@@ -209,32 +209,32 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 				this.dejaFait = 0;
 
 				if (this.repeterLeDeplacement) {
-					// On recommence à  zéro le déplacement
-					LOG.info("On recommence le déplacement d'image.");
+					// On recommence a zï¿½ro le dï¿½placement
+					LOG.info("On recommence le dï¿½placement d'image.");
 					return curseurActuel;
 				} else {
-					// On passe à  la Commande suivante
-					LOG.info("Fin du déplacement d'image.");
+					// On passe a la Commande suivante
+					LOG.info("Fin du dï¿½placement d'image.");
 					return curseurActuel + 1;
 				}
 			}
 		} else {
-			// On indique que la Picture a un déplacement propre, et on passe à  la Commande
+			// On indique que la Picture a un dï¿½placement propre, et on passe a la Commande
 			// suivante
 			final Picture picture = getPartieActuelle().images[this.numero];
 			this.dejaFait = 0;
-			LOG.info("Déplacement d'image délégué au lecteur de map.");
+			LOG.info("Dï¿½placement d'image dï¿½lï¿½guï¿½ au lecteur de map.");
 			picture.deplacementActuel = this;
 			return curseurActuel + 1;
 		}
 	}
 
 	/**
-	 * Le déplacement de l'image a été délégué par la Commande au LecteurMap afin de
-	 * passer immédiatement à  la Commande suivante. Ce déplacement s'effectue donc
-	 * en parallele, de maniere indépendante.
+	 * Le dï¿½placement de l'image a ï¿½tï¿½ dï¿½lï¿½guï¿½ par la Commande au LecteurMap afin de
+	 * passer immï¿½diatement a la Commande suivante. Ce dï¿½placement s'effectue donc
+	 * en parallele, de maniere indï¿½pendante.
 	 * 
-	 * @param picture image à  déplacer
+	 * @param picture image a dï¿½placer
 	 */
 	public final void executerCommeUnDeplacementPropre(final Picture picture) {
 		calculerDeplacement();
@@ -247,17 +247,17 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			this.dejaFait = 0;
 
 			if (!this.repeterLeDeplacement) {
-				// on empêche le renouvellement du déplacement
-				LOG.info("Fin du déplacement d'image délégué.");
+				// on empï¿½che le renouvellement du dï¿½placement
+				LOG.info("Fin du dï¿½placement d'image dï¿½lï¿½guï¿½.");
 				picture.deplacementActuel = null;
 			} else {
-				LOG.info("On recommence le déplacement d'image délégué.");
+				LOG.info("On recommence le dï¿½placement d'image dï¿½lï¿½guï¿½.");
 			}
 		}
 	}
 
 	/**
-	 * Générer un JSON du déplacement actuel de la Picture pour la Sauvegarde.
+	 * Gï¿½nï¿½rer un JSON du dï¿½placement actuel de la Picture pour la Sauvegarde.
 	 */
 	@Override
 	public JSONObject sauvegarderEnJson() {
@@ -303,19 +303,19 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	}
 
 	/**
-	 * Si le Déplacement d'image est reconstitué à partir d'une Sauvegarde, ses
-	 * attributs doivent être configurés comme ils l'étaient au moment de la
+	 * Si le Dï¿½placement d'image est reconstituï¿½ a partir d'une Sauvegarde, ses
+	 * attributs doivent ï¿½tre configurï¿½s comme ils l'ï¿½taient au moment de la
 	 * Sauvegarde.
 	 * 
-	 * @param dejaFait     avancement du déplacement
-	 * @param xDebut       coordonnées (en pixels) avant le déplacement
-	 * @param yDebut       coordonnées (en pixels) avant le déplacement
-	 * @param zoomXDebut   aggrandissement (en pourcents) avant le déplacement
-	 * @param zoomYDebut   aggrandissement (en pourcents) avant le déplacement
-	 * @param angleDebut   inclinaison avant le déplacement
-	 * @param opaciteDebut opacité avant le déplacement
-	 * @param xFin         coordonnées (en pixels) après le déplacement
-	 * @param yFin         coordonnées (en pixels) après le déplacement
+	 * @param dejaFait     avancement du dï¿½placement
+	 * @param xDebut       coordonnï¿½es (en pixels) avant le dï¿½placement
+	 * @param yDebut       coordonnï¿½es (en pixels) avant le dï¿½placement
+	 * @param zoomXDebut   aggrandissement (en pourcents) avant le dï¿½placement
+	 * @param zoomYDebut   aggrandissement (en pourcents) avant le dï¿½placement
+	 * @param angleDebut   inclinaison avant le dï¿½placement
+	 * @param opaciteDebut opacitï¿½ avant le dï¿½placement
+	 * @param xFin         coordonnï¿½es (en pixels) apres le dï¿½placement
+	 * @param yFin         coordonnï¿½es (en pixels) apres le dï¿½placement
 	 */
 	public void configurerEnCoursDeRoute(final int dejaFait, final int xDebut, final int yDebut, final int zoomXDebut,
 			final int zoomYDebut, final int angleDebut, final int opaciteDebut, final int xFin, final int yFin) {

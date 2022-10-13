@@ -8,7 +8,7 @@ import map.Event;
 import utilitaire.Maths.Inegalite;
 
 /**
- * Condition sur la distance qui sépare deux Events sur la Map.
+ * Condition sur la distance qui sï¿½pare deux Events sur la Map.
  */
 public class ConditionDistance extends Condition {
 	private final Object idEvent1;
@@ -18,8 +18,8 @@ public class ConditionDistance extends Condition {
 	
 	/**
 	 * Constructeur explicite
-	 * @param identifiant (numéro ou nom) du premier Event ; par défaut, le Héros
-	 * @param identifiant (numéro ou nom) du second Event ; par défaut, cet Event
+	 * @param identifiant (numï¿½ro ou nom) du premier Event ; par dï¿½faut, le Hï¿½ros
+	 * @param identifiant (numï¿½ro ou nom) du second Event ; par dï¿½faut, cet Event
 	 * @param distance entre les deux Events (en carreaux)
 	 * @param symboleInegalite pour la comparaison
 	 */
@@ -31,12 +31,12 @@ public class ConditionDistance extends Condition {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionDistance(final HashMap<String, Object> parametres) {
 		this(
-				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par défaut, le Héros
+				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par dï¿½faut, le Hï¿½ros
 				parametres.containsKey("idEvent2") ? parametres.get("idEvent2") : null, //par defaut, cet Event
 				(int) parametres.get("distance"),
 				parametres.containsKey("inegalite") ? (String) parametres.get("inegalite") : Inegalite.MOINS_OU_AUTANT.symbole
@@ -53,7 +53,7 @@ public class ConditionDistance extends Condition {
 				final int deltaY = event1.y - event2.y;
 				final double distanceReelle = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
 				if (inegalite.comparer(distanceReelle, distanceVoulue)) {
-					return true; //au moins un couple d'events doit être à la bonne distance 
+					return true; //au moins un couple d'events doit ï¿½tre a la bonne distance 
 				}
 			}
 		}

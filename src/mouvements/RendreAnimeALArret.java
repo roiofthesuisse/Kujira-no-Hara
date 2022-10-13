@@ -5,22 +5,22 @@ import java.util.HashMap;
 import map.Event;
 
 /**
- * Rendre un Event animé à l'arrêt.
+ * Rendre un Event animï¿½ a l'arrï¿½t.
  */
 public class RendreAnimeALArret extends Mouvement {
 	private boolean nouveauAnimeALArret;
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouveauAnimeALArret à donner à l'Event
+	 * @param nouveauAnimeALArret a donner a l'Event
 	 */
 	public RendreAnimeALArret(final boolean nouveauAnimeALArret) {
 		this.nouveauAnimeALArret = nouveauAnimeALArret;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RendreAnimeALArret(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("animeALArret") ? (boolean) parametres.get("animeALArret") : true );
@@ -54,7 +54,7 @@ public class RendreAnimeALArret extends Mouvement {
 
 	@Override
 	public final String toString() {
-		return "animé à l'arrêt : "+this.nouveauAnimeALArret;
+		return "animï¿½ a l'arrï¿½t : "+this.nouveauAnimeALArret;
 	}
 
 	@Override

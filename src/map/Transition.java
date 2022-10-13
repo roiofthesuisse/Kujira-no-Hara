@@ -32,7 +32,7 @@ public enum Transition {
 				int yTransitionNouvelleMap = 0;
 				int xTransitionAncienneMap = 0;
 				int yTransitionAncienneMap = 0;
-				int xDeplacementHeros = 0; //décalage à compenser du Héros qui marche sur la nouvelle Map
+				int xDeplacementHeros = 0; //dï¿½calage a compenser du Hï¿½ros qui marche sur la nouvelle Map
 				int yDeplacementHeros = 0;
 				//sens de la Transition
 				switch (this.direction) {
@@ -64,7 +64,7 @@ public enum Transition {
 				
 				return resultat;
 			} else {
-				//transition terminée
+				//transition terminï¿½e
 				return ecranNouvelleMap;
 			}
 		}
@@ -77,7 +77,7 @@ public enum Transition {
 				//transition en cours
 				final int x, y, largeur, hauteur;
 				if (frame <= DUREE_TRANSITION/2) {
-					// Rond qui rétrécit
+					// Rond qui rï¿½trï¿½cit
 					resultat = Graphismes.clonerUneImage(captureDeLaMapPrecedente);
 					Graphics2D g2d = resultat.createGraphics();
 					g2d.setColor(Color.black);
@@ -113,7 +113,7 @@ public enum Transition {
 					return resultat;
 				}
 			} else {
-				//transition terminée
+				//transition terminï¿½e
 				return ecranNouvelleMap;
 			}
 		}
@@ -125,7 +125,7 @@ public enum Transition {
 	
 	private final String nom;
 	public BufferedImage captureDeLaMapPrecedente;
-	/** Direction de la transition si défilement */
+	/** Direction de la transition si dï¿½filement */
 	public int direction;
 	/** Centre de la Transition circulaire */
 	public int xHerosAvant, xHerosApres, yHerosAvant, yHerosApres;
@@ -139,8 +139,8 @@ public enum Transition {
 	}
 	
 	/**
-	 * Retrouver une Transition à partir de son nom.
-	 * @param nom de la Transition cherchée
+	 * Retrouver une Transition a partir de son nom.
+	 * @param nom de la Transition cherchï¿½e
 	 * @return Transition qui porte ce nom
 	 */
 	public static final Transition parNom(final String nom) {
@@ -153,19 +153,19 @@ public enum Transition {
 	}
 	
 	/**
-	 * Calculer l'étape de la Transition en fonction de la frame.
-	 * @param ecranNouvelleMap écran de la nouvelle Map
-	 * @param nouvelleMap contenant la position intiale du Héros
+	 * Calculer l'ï¿½tape de la Transition en fonction de la frame.
+	 * @param ecranNouvelleMap ecran de la nouvelle Map
+	 * @param nouvelleMap contenant la position intiale du Hï¿½ros
 	 * @param frame du Lecteur de la nouvelle Map
 	 * @return image de Transition entre l'ancienne Map et la Nouvelle Map
 	 */
 	public abstract BufferedImage calculer(BufferedImage ecranNouvelleMap, Map nouvelleMap, int frame);
 
-	/** Trouver la tansition la plus adaptée si aucune n'est précisée
-	 * @param xHerosNouvelleMap coordonnée x (en carreaux) du Héros à l'arrivée sur la nouvelle Map
-	 * @param yHerosNouvelleMap coordonnée y (en carreaux) du Héros à l'arrivée sur la nouvelle Map
+	/** Trouver la tansition la plus adaptï¿½e si aucune n'est prï¿½cisï¿½e
+	 * @param xHerosNouvelleMap coordonnï¿½e x (en carreaux) du Hï¿½ros a l'arrivï¿½e sur la nouvelle Map
+	 * @param yHerosNouvelleMap coordonnï¿½e y (en carreaux) du Hï¿½ros a l'arrivï¿½e sur la nouvelle Map
 	 * @param tilesetNouvelleMap Tileset de la nouvelle Map
-	 * @return type de transition à effectuer
+	 * @return type de transition a effectuer
 	 */
 	public static Transition parDefaut(final int xHerosNouvelleMap, final int yHerosNouvelleMap, 
 			final Tileset tilesetNouvelleMap) {
@@ -175,11 +175,11 @@ public enum Transition {
 	}
 	
 	/**
-	 * Calculer la Direction du défilement.
-	 * @param xOrigine coordonnée x (en pixels) du Héros sur l'ancienne Map
-	 * @param yOrigine coordonnée y (en pixels) du Héros sur l'ancienne Map
-	 * @param xDestination coordonnée x (en pixels) du Héros sur la nouvelle Map
-	 * @param yDestination coordonnée y (en pixels) du Héros sur la nouvelle Map
+	 * Calculer la Direction du dï¿½filement.
+	 * @param xOrigine coordonnï¿½e x (en pixels) du Hï¿½ros sur l'ancienne Map
+	 * @param yOrigine coordonnï¿½e y (en pixels) du Hï¿½ros sur l'ancienne Map
+	 * @param xDestination coordonnï¿½e x (en pixels) du Hï¿½ros sur la nouvelle Map
+	 * @param yDestination coordonnï¿½e y (en pixels) du Hï¿½ros sur la nouvelle Map
 	 * @param largeurOrigine largeur (en carreaux) de l'ancienne Map
 	 * @param hauteurOrigine hauteur (en carreaux) de l'ancienne Map
 	 * @param largeurDestination largeur (en carreaux) de la nouvelle Map

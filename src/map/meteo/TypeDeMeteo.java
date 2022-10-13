@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /** 
- * Différentes sortes d'intempéries 
+ * Diffï¿½rentes sortes d'intempï¿½ries 
  */
 public enum TypeDeMeteo {
 	PLUIE("pluie"), NEIGE("neige"), TROCHOIDE("trochoide"), RIEN("rien");
@@ -15,16 +15,16 @@ public enum TypeDeMeteo {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nom du type d'intempérie
+	 * @param nom du type d'intempï¿½rie
 	 */
 	TypeDeMeteo(final String nom) {
 		this.nom = nom;		
 	}
 	
 	/**
-	 * Obtenir un type d'intempérie à partir de son nom.
-	 * @param nom du type d'intempérie
-	 * @return type d'intempérie
+	 * Obtenir un type d'intempï¿½rie a partir de son nom.
+	 * @param nom du type d'intempï¿½rie
+	 * @return type d'intempï¿½rie
 	 */
 	public static TypeDeMeteo obtenirParNom(final String nom) {
 		for (TypeDeMeteo type : TypeDeMeteo.values()) {
@@ -32,7 +32,7 @@ public enum TypeDeMeteo {
 				return type;
 			}
 		}
-		LOG.error("Effet météorologique inconnu : "+nom);
+		LOG.error("Effet mï¿½tï¿½orologique inconnu : "+nom);
 		return TypeDeMeteo.RIEN;
 	}
 }

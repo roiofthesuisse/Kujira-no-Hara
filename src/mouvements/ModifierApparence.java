@@ -8,7 +8,7 @@ import utilitaire.graphismes.Graphismes;
 /**
  * <p>Modifier l'apparence d'un Event.</p>
  * <ul>
- * <li>Image non précisée : pas de changement</li>
+ * <li>Image non prï¿½cisï¿½e : pas de changement</li>
  * <li>Image inexistante : l'Event devient invisible</li>
  * <li>Mauvaise direction ou animation : pas de changement</li>
  * </ul>
@@ -20,9 +20,9 @@ public class ModifierApparence extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nomImage à donner comme apparence à l'Event
-	 * @param nouvelleDirection à donner comme apparence à l'Event
-	 * @param nouvelleAnimation à donner comme apparence à l'Event
+	 * @param nomImage a donner comme apparence a l'Event
+	 * @param nouvelleDirection a donner comme apparence a l'Event
+	 * @param nouvelleAnimation a donner comme apparence a l'Event
 	 */
 	public ModifierApparence(final String nomImage, final int nouvelleDirection, final int nouvelleAnimation) {
 		this.nouvelleImage = nomImage;
@@ -31,8 +31,8 @@ public class ModifierApparence extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierApparence(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("image") ? (String) parametres.get("image") : null,

@@ -15,16 +15,16 @@ public class RetirerArgent extends Commande implements CommandeEvent, CommandeMe
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param quantite à ajouter
+	 * @param quantite a ajouter
 	 */
 	public RetirerArgent(final int quantite) {
 		this.quantite = quantite;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RetirerArgent(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("quantite"));
@@ -35,7 +35,7 @@ public class RetirerArgent extends Commande implements CommandeEvent, CommandeMe
 		final Partie partie = getPartieActuelle();
 		partie.argent -= quantite;
 
-		// on ne peut pas avoir de l'argent négatif
+		// on ne peut pas avoir de l'argent nï¿½gatif
 		if (partie.argent < 0) {
 			partie.argent = 0;
 		}

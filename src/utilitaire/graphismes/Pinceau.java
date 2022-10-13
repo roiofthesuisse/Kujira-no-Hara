@@ -6,8 +6,8 @@ import org.apache.logging.log4j.Logger;
 import utilitaire.Maths;
 
 /**
- * Le Pinceau va peindre un pixel de l'image à superposer sur l'image support.
- * La façon dont le pixel sera peint dépend du Composite utilisé.
+ * Le Pinceau va peindre un pixel de l'image a superposer sur l'image support.
+ * La faï¿½on dont le pixel sera peint dï¿½pend du Composite utilisï¿½.
  */
 public enum Pinceau {
 	PINCEAU_ADDITION {
@@ -63,12 +63,12 @@ public enum Pinceau {
 			final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
 			final int luminositeFiltre = (src[ROUGE] + src[VERT] + src[BLEU])/3;
 			
-			// Le filtre impose sa luminosité à l'écran
+			// Le filtre impose sa luminositï¿½ a l'ecran
 			final int l = luminositeFiltre * 2 - VALEUR_MAXIMALE;
 			final int luminositeEcran = (dst[ROUGE] + dst[VERT] + dst[BLEU])/3;
 			final float coefficientLuminosite = l>=0 ? ECLAIRCISSEMENT : ASSOMBRISSEMENT;
 			
-			// Dans la lumière, les couleurs sont plus vives ; dans l'obscurité, plus fades.
+			// Dans la lumiï¿½re, les couleurs sont plus vives ; dans l'obscuritï¿½, plus fades.
 			float saturation = 2.0f*luminositeFiltre / VALEUR_MAXIMALE;
 			final double coefficientSaturation = l>=0 ? VIVIFICATION : FADIFICATION;
 			saturation = (float) Maths.pow(saturation, coefficientSaturation);
@@ -76,7 +76,7 @@ public enum Pinceau {
 			final int deltaVert = dst[VERT] - luminositeEcran;
 			final int deltaBleu = dst[BLEU] - luminositeEcran;
 			
-			// Dans la lumière, l'image est plus jaune : dans l'obscurité, plus bleue.
+			// Dans la lumiï¿½re, l'image est plus jaune : dans l'obscuritï¿½, plus bleue.
 			final float coefficientJaune = l>=0 ? JAUNISSEMENT : 0;
 			final float coefficientBleu = l>=0 ? 0 : -BLEUISSEMENT;
 			
@@ -122,17 +122,17 @@ public enum Pinceau {
 	private static final int BLEU = 3;
 	
 	/**
-	 * Peindre un pixel de l'image à superposer sur l'image support.
-	 * @param src pixel à peindre
+	 * Peindre un pixel de l'image a superposer sur l'image support.
+	 * @param src pixel a peindre
 	 * @param dst pixel sur lequel on peint
-	 * @param resultat mélange entre les deux pixels
+	 * @param resultat mï¿½lange entre les deux pixels
 	 */
 	public abstract void peindre(int[] src, int[] dst, int[] resultat);
 
 	/**
-	 * Obtenir le pinceau correspondant à un Composite.
-	 * @param composite façon de peindre qu'on attend du pinceau
-	 * @return pinceau qui peint tel que décrit par le Composite
+	 * Obtenir le pinceau correspondant a un Composite.
+	 * @param composite faï¿½on de peindre qu'on attend du pinceau
+	 * @return pinceau qui peint tel que dï¿½crit par le Composite
 	 */
     public static Pinceau obtenirPinceauPour(final MonComposite composite) {
         switch (composite.modeDeFusion) {
@@ -149,14 +149,14 @@ public enum Pinceau {
             case TON_DE_L_ECRAN:
                 return Pinceau.PINCEAU_TON_DE_L_ECRAN;
             default:
-            	LOG.error("Blender non défini pour le mode de fusion : "+composite.modeDeFusion.nom);
+            	LOG.error("Blender non dï¿½fini pour le mode de fusion : "+composite.modeDeFusion.nom);
             	return null;
         }
     }
     
     /**
-     * Ne pas dépasser les valeurs limites d'un couleur.
-     * @param valeur à tronquer
+     * Ne pas dï¿½passer les valeurs limites d'un couleur.
+     * @param valeur a tronquer
      * @return troncature
      */
     private static int seuiller(final float valeur) {

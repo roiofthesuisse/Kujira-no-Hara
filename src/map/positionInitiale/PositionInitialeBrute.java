@@ -3,7 +3,7 @@ package map.positionInitiale;
 import map.Transition;
 
 /**
- * Une certaine façon de calculer la position du Héros à son arrivée sur la Map.
+ * Une certaine faï¿½on de calculer la position du Hï¿½ros a son arrivï¿½e sur la Map.
  */
 public class PositionInitialeBrute extends PositionInitiale {
 	final int xDebutHeros, yDebutHeros;
@@ -11,9 +11,9 @@ public class PositionInitialeBrute extends PositionInitiale {
 	
 	/**
 	 * Constructeur explicite
-	 * @param xDebutHeros position x (en pixels) initiale du Héros
-	 * @param yDebutHeros position y (en pixels) initiale du Héros
-	 * @param directionDebutHeros direction initiale du Héros
+	 * @param xDebutHeros position x (en pixels) initiale du Hï¿½ros
+	 * @param yDebutHeros position y (en pixels) initiale du Hï¿½ros
+	 * @param directionDebutHeros direction initiale du Hï¿½ros
 	 */
 	public PositionInitialeBrute(final int xDebutHeros, final int yDebutHeros, final int directionDebutHeros) {
 		this.xDebutHeros = xDebutHeros;
@@ -27,7 +27,7 @@ public class PositionInitialeBrute extends PositionInitiale {
 		resultat[0] = this.xDebutHeros;
 		resultat[1] = this.yDebutHeros;
 		resultat[2] = this.directionDebutHeros;
-		LOG.debug("Position intiale du héros sur la nouvelle map : "+resultat[0]+";"+resultat[1]+" direction : "+resultat[2]);
+		LOG.debug("Position intiale du hï¿½ros sur la nouvelle map : "+resultat[0]+";"+resultat[1]+" direction : "+resultat[2]);
 		return resultat;
 	}
 }

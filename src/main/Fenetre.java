@@ -23,7 +23,7 @@ import org.apache.logging.log4j.Logger;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * La Fenêtre affiche l'écran du jeu, mais a aussi un rôle de listener pour les entrées clavier.
+ * La Fenï¿½tre affiche l'ecran du jeu, mais a aussi un rï¿½le de listener pour les entrï¿½es clavier.
  */
 @SuppressWarnings("serial")
 public final class Fenetre extends JFrame {
@@ -43,32 +43,32 @@ public final class Fenetre extends JFrame {
 	
 	/**
 	 * Constructeur explicite
-	 * @param pleinEcran faut-il ouvrir la Fenêtre en plein écran ?
+	 * @param pleinEcran faut-il ouvrir la Fenï¿½tre en plein ecran ?
 	 */
 	Fenetre(final boolean pleinEcran) {
 		super(TITRE);
 		this.pleinEcran = pleinEcran;
 		
-		// Capteurs d'entrées
+		// Capteurs d'entrï¿½es
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		this.addKeyListener(new CapteurClavier()); //récupérer les entrées Clavier
+		this.addKeyListener(new CapteurClavier()); //rï¿½cupï¿½rer les entrï¿½es Clavier
 		this.addWindowListener(new CapteurFenetre()); //pauser le jeu si Fenetre inactive
-		this.addMouseListener(new CapteurSouris()); //plein écran si double-clic
+		this.addMouseListener(new CapteurSouris()); //plein ecran si double-clic
 		this.device = this.getGraphicsConfiguration().getDevice();
 		
-		// Démarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
+		// Dï¿½marrer JavaFX pour pouvoir ensuite lire des fichiers MP3
 		// TODO ne plus utiliser de fichiers MP3 !
 		//@SuppressWarnings("unused")
 		//final JFXPanel fxPanel = new JFXPanel();
 		
 		// Dimensionnement
 		if (this.pleinEcran) {
-			// Mode plein écran
+			// Mode plein ecran
 			this.setUndecorated(true);
 			this.device.setFullScreenWindow(this);
 			
 		} else {
-			// Mode fenêtré 
+			// Mode fenï¿½trï¿½ 
 			final Insets marges = obtenirLesMarges();
 			this.margeGauche = marges.left;
 			this.margeHaut = marges.top;
@@ -87,14 +87,14 @@ public final class Fenetre extends JFrame {
 			icones.add(iconeGrande);
 			this.setIconImages(icones);
 		} catch (IOException e) {
-			//problème avec les icones
-			LOG.error("Problème avec les icônes", e);
+			//problï¿½me avec les icones
+			LOG.error("Problï¿½me avec les icï¿½nes", e);
 		}
 		
-		// On fait apparaître la Fenêtre
+		// On fait apparaï¿½tre la Fenï¿½tre
 		this.setVisible(true);
 		
-		// Stratégie d'affichage
+		// Stratï¿½gie d'affichage
 		this.createBufferStrategy(1);
 		this.bufferStrategy = this.getBufferStrategy();
 		this.bufferStrategyGraphics = this.bufferStrategy.getDrawGraphics();
@@ -102,9 +102,9 @@ public final class Fenetre extends JFrame {
 
 	
 	/**
-	 * Calculer la taille des marges de la Fenêtre (variables selon l'Operating System).
-	 * En vérité la Fenêtre est un peu plus grande que l'écran : elle a des marges tout autour.
-	 * @return marges à prendre en compte
+	 * Calculer la taille des marges de la Fenï¿½tre (variables selon l'Operating System).
+	 * En vï¿½ritï¿½ la Fenï¿½tre est un peu plus grande que l'ecran : elle a des marges tout autour.
+	 * @return marges a prendre en compte
 	 */
 	public static Insets obtenirLesMarges() {
 		final JFrame fenetreBidon = new JFrame();
@@ -115,14 +115,14 @@ public final class Fenetre extends JFrame {
 	}
 	
 	/**
-	 * Changer l'image affichée dans la Fenêtre de jeu.
-	 * @param image nouvelle image à afficher dans la fenêtre
+	 * Changer l'image affichï¿½e dans la Fenï¿½tre de jeu.
+	 * @param image nouvelle image a afficher dans la fenï¿½tre
 	 */
 	public void actualiserAffichage(final BufferedImage image) {
 		//do {
-			// S'assurer que le contenu du tampon graphique reste cohérent
+			// S'assurer que le contenu du tampon graphique reste cohï¿½rent
 			//do {
-				// Il faut un nouveau contexte graphique à chaque tour de boucle pour valider la stratégie
+				// Il faut un nouveau contexte graphique a chaque tour de boucle pour valider la stratï¿½gie
 				//final Graphics graphics = this.bufferStrategy.getDrawGraphics();
 				final BufferedImage imageAgrandie;
 				if (this.device.getFullScreenWindow() != null) {
@@ -130,15 +130,15 @@ public final class Fenetre extends JFrame {
 				} else {
 					imageAgrandie = image;
 				}
-				// Dessiner l'écran de cette frame-ci
+				// Dessiner l'ecran de cette frame-ci
 				bufferStrategyGraphics.drawImage(imageAgrandie, this.margeGauche, this.margeHaut, null);
-				// Libérer le contexte graphique
+				// Libï¿½rer le contexte graphique
 				//graphics.dispose();
-				// Répéter le rendu si jamais le contenu du tampon est restauré
+				// Rï¿½pï¿½ter le rendu si jamais le contenu du tampon est restaurï¿½
 			//} while (this.bufferStrategy.contentsRestored());
 			// Afficher le tampon
 			this.bufferStrategy.show();
-			// Répéter le rendu si le tampon a été perdu
+			// Rï¿½pï¿½ter le rendu si le tampon a ï¿½tï¿½ perdu
 		//} while (this.bufferStrategy.contentsLost());
 		
 		// On n'aura plus jamais besoin de l'image
@@ -146,7 +146,7 @@ public final class Fenetre extends JFrame {
 	}
 
 	/**
-	 * Entrer ou quitter le mode plein écran.
+	 * Entrer ou quitter le mode plein ecran.
 	 */
 	public static void pleinEcran() {
 		if (Main.fenetre.device.isFullScreenSupported()) {
@@ -157,7 +157,7 @@ public final class Fenetre extends JFrame {
 	}
 	
 	/**
-	 * Calculer la largeur et la hauteur de l'écran en mode plein écran.
+	 * Calculer la largeur et la hauteur de l'ecran en mode plein ecran.
 	 * @return largeur (en pixels)
 	 */
 	private int getLargeurPleinEcran() {
@@ -170,7 +170,7 @@ public final class Fenetre extends JFrame {
 	}
 	
 	/**
-	 * Obtenir la hauteur de l'écran en mode plein écran.
+	 * Obtenir la hauteur de l'ecran en mode plein ecran.
 	 * @return hauteur (en pixels)
 	 */
 	private int getHauteurPleinEcran() {
@@ -178,7 +178,7 @@ public final class Fenetre extends JFrame {
 	}
 
 	/**
-	 * Fermer la Fenêtre.
+	 * Fermer la Fenï¿½tre.
 	 */
 	public void fermer() {
 		this.bufferStrategyGraphics.dispose();

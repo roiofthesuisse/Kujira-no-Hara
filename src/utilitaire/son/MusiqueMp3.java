@@ -28,7 +28,7 @@ public class MusiqueMp3 extends Musique {
 	public final void modifierVolume(final float nouveauVolume) {
 		((MediaPlayer) this.clip).setVolume(nouveauVolume);
 		
-		//mettre à jour les données
+		//mettre a jour les donnï¿½es
 		this.volumeActuel = nouveauVolume;
 	}
 	
@@ -46,10 +46,10 @@ public class MusiqueMp3 extends Musique {
 				final long dureeMs = (long) this.mp3Clip.getTotalDuration().toMillis();
 				if (dureeMs>0) {
 					dureeMillisecondes = dureeMs;
-					LOG.debug("Durée du MP3 "+nom+": "+dureeMs+" ms");
+					LOG.debug("Durï¿½e du MP3 "+nom+": "+dureeMs+" ms");
 					return dureeMs;
 				} else {
-					LOG.warn("Durée du MP3 inacessible !");
+					LOG.warn("Durï¿½e du MP3 inacessible !");
 					return Musique.DUREE_PAR_DEFAUT_ME;
 				}
 			}

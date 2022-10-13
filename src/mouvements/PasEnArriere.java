@@ -8,22 +8,22 @@ import map.Event.Direction;
 import utilitaire.Maths;
 
 /**
- * Déplacer un Event d'un pas dans la direction opposée à la direction de l'Event.
+ * Dï¿½placer un Event d'un pas dans la direction opposï¿½e a la direction de l'Event.
  */
 public class PasEnArriere extends Avancer {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nombreDePixels ditance parcourue à reculons (en pixels)
+	 * @param nombreDePixels ditance parcourue a reculons (en pixels)
 	 */
 	public PasEnArriere(final int nombreDePixels) {
-		//le -1 est bidon, il sera remplacé par la direction de l'Event lors de la vérification
+		//le -1 est bidon, il sera remplacï¿½ par la direction de l'Event lors de la vï¿½rification
 		super(-1, nombreDePixels);
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public PasEnArriere(final HashMap<String, Object> parametres) {
 		this( (parametres.containsKey("nombreDeCarreaux") ? (int) parametres.get("parametres") : 1) * Main.TAILLE_D_UN_CARREAU);
@@ -35,13 +35,13 @@ public class PasEnArriere extends Avancer {
 	 */
 	@Override
 	public final boolean mouvementPossible() {
-		//on peut avancer à reculons si on peut avancer en arrière
+		//on peut avancer a reculons si on peut avancer en arriï¿½re
 		final Event event = this.deplacement.getEventADeplacer();
-		this.direction = event.direction; //la direction affichée durant le Mouvement est celle de l'Event avant
+		this.direction = event.direction; //la direction affichï¿½e durant le Mouvement est celle de l'Event avant
 		final Avancer mouvementFictif = new Avancer(Event.Direction.directionOpposee(event.direction), Main.TAILLE_D_UN_CARREAU);
-		mouvementFictif.deplacement = this.deplacement; //Deplacement pour éviter la NullPointerException dans Avancer
+		mouvementFictif.deplacement = this.deplacement; //Deplacement pour ï¿½viter la NullPointerException dans Avancer
 		
-		//puis on lance la vérification traditionnelle
+		//puis on lance la vï¿½rification traditionnelle
 		return mouvementFictif.mouvementPossible();
 	}
 	
@@ -51,7 +51,7 @@ public class PasEnArriere extends Avancer {
 		
 		//il ne faut pas que l'Event aille plus loin que son objectif !
 		final int enjambee = Maths.min(event.vitesseActuelle.valeur, this.etapes - this.ceQuiAEteFait);
-		//déplacement :
+		//dï¿½placement :
 		switch (this.direction) {
 			case Direction.BAS : 
 				event.y -= enjambee; 
@@ -66,7 +66,7 @@ public class PasEnArriere extends Avancer {
 				event.y += enjambee; 
 				break;
 		}
-		//on actualise la complétion du Mouvement
+		//on actualise la complï¿½tion du Mouvement
 		this.ceQuiAEteFait += enjambee;
 	}
 

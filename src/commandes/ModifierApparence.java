@@ -26,14 +26,14 @@ public class ModifierApparence extends Commande implements CommandeEvent {
 	 * @param nomNouvelleImage nom de l'image de la nouvelle apparence
 	 */
 	public ModifierApparence(final String nomNouvelleImage) {
-		this(nomNouvelleImage, -1); // c'est l'évènement qui donne l'ordre qui change d'apparence
+		this(nomNouvelleImage, -1); // c'est l'ï¿½vï¿½nement qui donne l'ordre qui change d'apparence
 	}
 
 	/**
 	 * Constructeur explicite
 	 * 
 	 * @param nomNouvelleImage nom de l'image de la nouvelle apparence
-	 * @param eventId          numéro de l'Event à modifier
+	 * @param eventId          numï¿½ro de l'Event a modifier
 	 */
 	public ModifierApparence(final String nomNouvelleImage, final int eventId) {
 		this.nomNouvelleImage = nomNouvelleImage;
@@ -44,7 +44,7 @@ public class ModifierApparence extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final ArrayList<Event> events = this.page.event.map.events;
 		if (this.eventId == -1) {
-			this.eventId = this.page.event.id; // c'est l'évènement qui donne l'ordre qui change d'apparence
+			this.eventId = this.page.event.id; // c'est l'ï¿½vï¿½nement qui donne l'ordre qui change d'apparence
 		}
 		for (Event e : events) {
 			if (e.id == this.eventId) {

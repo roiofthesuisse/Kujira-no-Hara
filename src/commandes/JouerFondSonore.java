@@ -27,9 +27,9 @@ public class JouerFondSonore extends Commande implements CommandeEvent, Commande
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nomFichierSonore nom du fichier de la musique à jouer
+	 * @param nomFichierSonore nom du fichier de la musique a jouer
 	 * @param volume           sonore (entre 0.0f et 1.0f)
-	 * @param nombreDeFrames   durée de l'entrée en fondu
+	 * @param nombreDeFrames   durï¿½e de l'entrï¿½e en fondu
 	 * @param piste            sur laquelle jouer
 	 */
 	public JouerFondSonore(final String nomFichierSonore, final float volume, final int nombreDeFrames,
@@ -42,9 +42,9 @@ public class JouerFondSonore extends Commande implements CommandeEvent, Commande
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public JouerFondSonore(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("nomFichierSonore"),
@@ -56,14 +56,14 @@ public class JouerFondSonore extends Commande implements CommandeEvent, Commande
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		if (frame == 0) {
-			// Démarrage de la musique
+			// Dï¿½marrage de la musique
 			LecteurAudio.playBgs(nomFichierSonore, 0, piste);
 			this.frame++;
 
 			if (LecteurAudio.bgsEnCours[piste] == null) {
-				LOG.error("Impossible de démarrer le fond sonore \"" + nomFichierSonore + "\"");
+				LOG.error("Impossible de dï¿½marrer le fond sonore \"" + nomFichierSonore + "\"");
 			} else {
-				LOG.info("Démarrage du fond sonore.");
+				LOG.info("Dï¿½marrage du fond sonore.");
 			}
 			return curseurActuel;
 

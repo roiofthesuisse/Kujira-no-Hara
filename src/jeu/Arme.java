@@ -26,7 +26,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Le Héros peut utiliser un certain nombre d'Armes contre les Events ennemis.
+ * Le Hï¿½ros peut utiliser un certain nombre d'Armes contre les Events ennemis.
  */
 public class Arme implements Listable {
 	//constantes
@@ -34,8 +34,8 @@ public class Arme implements Listable {
 	public static final Arme[] ARMES_DU_JEU = chargerLesArmesDuJeu();
 	
 	/**
-	 * Chaque Arme possède un id propre. 
-	 * 0 pour l'épée, 1 pour la torche etc.
+	 * Chaque Arme possï¿½de un id propre. 
+	 * 0 pour l'ï¿½pï¿½e, 1 pour la torche etc.
 	 */
 	public final int id;
 	public ArrayList<String> nom;
@@ -45,33 +45,33 @@ public class Arme implements Listable {
 	public BufferedImage icone;
 	
 	/**
-	 * L'animation d'attaque est composée de plusieurs images.
-	 * Pour faire rester une image plus longtemps à l'écran, l'ajouter plusieurs fois à la liste.
-	 * La dernière image de la liste est affichée en premier, car l'affichage est décrémentaire.
+	 * L'animation d'attaque est composï¿½e de plusieurs images.
+	 * Pour faire rester une image plus longtemps a l'ecran, l'ajouter plusieurs fois a la liste.
+	 * La derniï¿½re image de la liste est affichï¿½e en premier, car l'affichage est dï¿½crï¿½mentaire.
 	 */
 	public Integer[] framesDAnimation;
 	public Hitbox hitbox;
 	/**
-	 * A partir de cette frame d'animation, l'attaque commence à avoir un effet.
-	 * L'intéraction devient possible avec un ennemi.
+	 * A partir de cette frame d'animation, l'attaque commence a avoir un effet.
+	 * L'intï¿½raction devient possible avec un ennemi.
 	 */
 	public int frameDebutCoup;
 	/**
-	 * A partir de cette frame d'animation, l'attaque arrête d'avoir un effet.
-	 * L'intéraction n'est plus possible avec l'ennemi.
+	 * A partir de cette frame d'animation, l'attaque arrï¿½te d'avoir un effet.
+	 * L'intï¿½raction n'est plus possible avec l'ennemi.
 	 */
 	public int frameFinCoup;
 	
 	/**
 	 * @param id chaque Arme a un identifiant
 	 * @param nom de l'Arme (dans plusieurs langues)
-	 * @param description à afficher dans les Menus (dans plusieurs langues)
-	 * @param equipable peut-on équiper l'Arme depuis le Menu ?
-	 * @param nomEffetSonoreAttaque nom du fichier sonore joué lors de l'utilisation
-	 * @param framesDAnimation séquence des vignettes à afficher lors de l'animation d'attaque
+	 * @param description a afficher dans les Menus (dans plusieurs langues)
+	 * @param equipable peut-on ï¿½quiper l'Arme depuis le Menu ?
+	 * @param nomEffetSonoreAttaque nom du fichier sonore jouï¿½ lors de l'utilisation
+	 * @param framesDAnimation sï¿½quence des vignettes a afficher lors de l'animation d'attaque
 	 * @param hitbox zone d'attaque qu'on peut atteindre
-	 * @param frameDebutCoup frame de l'animation d'attaque où le coup commence réellement
-	 * @param frameFinCoup frame de l'animation d'attaque où le coup est terminé
+	 * @param frameDebutCoup frame de l'animation d'attaque oï¿½ le coup commence rï¿½ellement
+	 * @param frameFinCoup frame de l'animation d'attaque oï¿½ le coup est terminï¿½
 	 * @param nomIcone nom du fichier image de l'icone de l'Arme
 	 */
 	private Arme(final int id, final ArrayList<String> nom, final ArrayList<String> description, 
@@ -96,8 +96,8 @@ public class Arme implements Listable {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Arme(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
@@ -114,7 +114,7 @@ public class Arme implements Listable {
 	}
 	
 	/**
-	 * @param idArme identifiant de l'arme souhaitée
+	 * @param idArme identifiant de l'arme souhaitï¿½e
 	 * @return arme dont l'identifiant est idArme
 	 */
 	public static Arme getArme(final int idArme) {
@@ -134,7 +134,7 @@ public class Arme implements Listable {
 		try {
 			jsonArmes = InterpreteurDeJson.ouvrirJsonArmes();
 		} catch (Exception e) {
-			//problème lors de l'ouverture du fichier JSON
+			//problï¿½me lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les armes du jeu.", e);
 			return null;
 		}
@@ -152,7 +152,7 @@ public class Arme implements Listable {
 				final String parametre = jsonParametres.next();
 				
 				if ("framesDAnimation".equals(parametre)) {
-					//paramètre : framesDAnimation
+					//paramï¿½tre : framesDAnimation
 					final JSONArray jsonArrayframesDAnimation = jsonArme.getJSONArray("framesDAnimation");
 					final ArrayList<Integer> framesDAnimationListe = new ArrayList<Integer>();
 					for (Object frameObject : jsonArrayframesDAnimation) {
@@ -163,7 +163,7 @@ public class Arme implements Listable {
 					framesDAnimationListe.toArray(framesDAnimation);
 					parametres.put("framesDAnimation", framesDAnimation);
 				} else {
-					//autres paramètres
+					//autres paramï¿½tres
 					parametres.put(parametre, jsonArme.get(parametre));
 				}
 			}
@@ -180,13 +180,13 @@ public class Arme implements Listable {
 
 	/**
 	 * Enumerer les Armes du jeu.
-	 * @param possedes filtrer ou non sur les Armes possédées
+	 * @param possedes filtrer ou non sur les Armes possï¿½dï¿½es
 	 * @return association entre numero et Arme
 	 */
 	public static final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
-			// seulement les Armes possédées
+			// seulement les Armes possï¿½dï¿½es
 			final boolean[] armesPossedees = Main.getPartieActuelle().armesPossedees;
 			for (int i = 0; i < armesPossedees.length; i++) {
 				if (armesPossedees[i]) {

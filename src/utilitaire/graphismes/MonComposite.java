@@ -10,8 +10,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Un Composite est utilisé par le Graphics2D d'une image pour effectuer les superpositions d'images.
- * Il contient les deux informations nécessaires à la superposition : le mode de fusion et l'opacité.
+ * Un Composite est utilisï¿½ par le Graphics2D d'une image pour effectuer les superpositions d'images.
+ * Il contient les deux informations nï¿½cessaires a la superposition : le mode de fusion et l'opacitï¿½.
  */
 public final class MonComposite implements Composite {
 	private static final Logger LOG = LogManager.getLogger(MonComposite.class);
@@ -21,9 +21,9 @@ public final class MonComposite implements Composite {
 	public int[] ton = null;
 	
 	/**
-	 * Générer un Composite qui effectuera la superposition telle que voulue
-	 * @param modeDeFusion façon dont on superpose les deux images
-	 * @param opacite de l'image à superposer (valeur réelle entre 0 et 1)
+	 * Gï¿½nï¿½rer un Composite qui effectuera la superposition telle que voulue
+	 * @param modeDeFusion faï¿½on dont on superpose les deux images
+	 * @param opacite de l'image a superposer (valeur rï¿½elle entre 0 et 1)
 	 * @return composite qui effectuera la superposition telle que voulue
 	 */
 	public static Composite creerComposite(final ModeDeFusion modeDeFusion, final float opacite) {
@@ -35,8 +35,8 @@ public final class MonComposite implements Composite {
 	}
 	
 	/**
-	 * Générer un Composite tonal qui effectuera la superposition telle que voulue
-	 * @param ton déformant les couleurs de l'image
+	 * Gï¿½nï¿½rer un Composite tonal qui effectuera la superposition telle que voulue
+	 * @param ton dï¿½formant les couleurs de l'image
 	 * @return composite qui effectuera la superposition telle que voulue
 	 */
 	public static Composite creerComposite(final int[] ton) {
@@ -47,8 +47,8 @@ public final class MonComposite implements Composite {
 
 	/**
 	 * Constructeur explicite
-	 * @param modeDeFusion façon dont on superpose les deux images
-	 * @param opacite de l'image superposée à l'image support
+	 * @param modeDeFusion faï¿½on dont on superpose les deux images
+	 * @param opacite de l'image superposï¿½e a l'image support
 	 */
 	private MonComposite(final ModeDeFusion modeDeFusion, final float opacite) {
 		this.modeDeFusion = modeDeFusion;
@@ -58,8 +58,8 @@ public final class MonComposite implements Composite {
 	@Override
 	public CompositeContext createContext(ColorModel srcColorModel, final ColorModel dstColorModel, final RenderingHints hints) {
 		if (!srcColorModel.equals(dstColorModel)) {
-			LOG.warn("Attention : les modèles de couleurs sont différents pour les deux images !\n"
-					+ "Chargez les images avec Graphismes.ouvrirImage() afin d'assurer la compatibilité.");
+			LOG.warn("Attention : les modï¿½les de couleurs sont diffï¿½rents pour les deux images !\n"
+					+ "Chargez les images avec Graphismes.ouvrirImage() afin d'assurer la compatibilitï¿½.");
 		}
 		return new ContexteDeComposite(this);
 	}

@@ -14,7 +14,7 @@ public class RegarderUnEvent extends RegarderDansUneDirection {
 	
 	/**
 	 * Constructeur explicite
-	 * @param idEvent identifiant de l'Event à regarder
+	 * @param idEvent identifiant de l'Event a regarder
 	 * @param sens "suivre" ou "fuir" du regard
 	 */
 	public RegarderUnEvent(final int idEvent, final Sens sens) {
@@ -24,13 +24,13 @@ public class RegarderUnEvent extends RegarderDansUneDirection {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RegarderUnEvent(final HashMap<String, Object> parametres) {
 		this(
-				(int) parametres.get("idEvent"), //0 est le Héros
-				parametres.containsKey("sens") ? (((String) parametres.get("sens")).equals("fuir") ? Sens.FUIR : Sens.SUIVRE) : Sens.SUIVRE //si non précisé : on suit
+				(int) parametres.get("idEvent"), //0 est le Hï¿½ros
+				parametres.containsKey("sens") ? (((String) parametres.get("sens")).equals("fuir") ? Sens.FUIR : Sens.SUIVRE) : Sens.SUIVRE //si non prï¿½cisï¿½ : on suit
 		);
 	}
 	
@@ -54,7 +54,7 @@ public class RegarderUnEvent extends RegarderDansUneDirection {
 	/**
 	 * A regarde B.
 	 * @param a Event qui regarde
-	 * @param b Event qui est regardé
+	 * @param b Event qui est regardï¿½
 	 * @return direction dans laquelle A va regarder
 	 */
 	public static int calculerDirectionDeRegard(final Event a, final Event b) {

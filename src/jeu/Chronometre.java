@@ -10,8 +10,8 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Le Chronometre s'affiche à l'écran et indique les secondes restantes.
- * Il peut être croissant ou décroissant.
+ * Le Chronometre s'affiche a l'ecran et indique les secondes restantes.
+ * Il peut ï¿½tre croissant ou dï¿½croissant.
  */
 public class Chronometre {
 	
@@ -36,7 +36,7 @@ public class Chronometre {
 	public BufferedImage dessinerChronometre(BufferedImage ecran) {
 		final int secondeActuelle = calculerLaSecondeActuelle();
 		
-		// Recalculer l'image du Chronomètre
+		// Recalculer l'image du Chronomï¿½tre
 		if (this.image==null || this.secondes!=secondeActuelle) {
 			this.image = calculerLImageDuChronometre(secondeActuelle);
 		}

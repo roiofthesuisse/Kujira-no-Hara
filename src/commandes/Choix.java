@@ -18,7 +18,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.son.LecteurAudio;
 
 /**
- * Un Choix donne la possibilite au joueur de choisir jusqu'a  quatre
+ * Un Choix donne la possibilite au joueur de choisir jusqu'aï¿½ quatre
  * alternatives. Le Choix s'affiche comme un Message, mais avec un curseur a
  * deplacer. Selon la selection du joueur, un embranchement different du code
  * Event est utilise.
@@ -69,7 +69,7 @@ public class Choix extends Message {
 	protected final BufferedImage produireImageDuMessage() {
 		// initialisation (la premiere fois, on fabrique toutes les images)
 		if (this.imagesDesSelectionsPossibles == null) {
-			BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(Message.imageBoiteMessage);
+			BufferedImage imageDesAlternatives = Graphismes.creerUneImageVideDeMemeTaille(Message.imageBoiteMessage());
 
 			// Texte de base
 			if (this.texte == null || this.texte.size() == 0 || this.texte.get(0) == null
@@ -99,7 +99,7 @@ public class Choix extends Message {
 				alternativesTexte.add(new Texte(alternativeString));
 				imagesAlternatives.add(alternativesTexte.get(i).getImage());
 				imageDesAlternatives = Graphismes.superposerImages(imageDesAlternatives, imagesAlternatives.get(i),
-						MARGE_DU_TEXTE, MARGE_DU_TEXTE + imageQuestion.getHeight() + i * hauteurLigne);
+						MARGE_X_TEXTE, MARGE_Y_TEXTE + imageQuestion.getHeight() + i * hauteurLigne);
 			}
 
 			// Differentes selections possibles
@@ -109,12 +109,12 @@ public class Choix extends Message {
 						.trouverCouleursDeSelectionAdaptees();
 				final BufferedImage surlignage = alternativesTexte.get(i)
 						.creerImageDeSelection(couleursDeSelectionAdaptees[0], couleursDeSelectionAdaptees[1]);
-				BufferedImage selectionPossible = Graphismes.clonerUneImage(imageBoiteMessage);
+				BufferedImage selectionPossible = Graphismes.clonerUneImage(Message.imageBoiteMessage());
 				selectionPossible = Graphismes.superposerImages(selectionPossible, surlignage,
-						MARGE_DU_TEXTE - Texte.CONTOUR,
-						MARGE_DU_TEXTE + imageQuestion.getHeight() + i * hauteurLigne - Texte.CONTOUR);
-				selectionPossible = Graphismes.superposerImages(selectionPossible, imageQuestion, MARGE_DU_TEXTE,
-						MARGE_DU_TEXTE);
+						MARGE_X_TEXTE - Texte.CONTOUR,
+						MARGE_Y_TEXTE + imageQuestion.getHeight() + i * hauteurLigne - Texte.CONTOUR);
+				selectionPossible = Graphismes.superposerImages(selectionPossible, imageQuestion, MARGE_X_TEXTE,
+						MARGE_Y_TEXTE);
 				selectionPossible = Graphismes.superposerImages(selectionPossible, imageDesAlternatives, // toutes les
 																											// alternatives
 																											// sur la

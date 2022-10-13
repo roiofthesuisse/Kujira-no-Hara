@@ -15,9 +15,9 @@ public class RetirerObjet extends Commande implements CommandeMenu, CommandeEven
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idObjet  identifiant de l'Objet à retirer : soit son nom, soit son
-	 *                 numéro
-	 * @param quantite à retirer pour cet Objet
+	 * @param idObjet  identifiant de l'Objet a retirer : soit son nom, soit son
+	 *                 numï¿½ro
+	 * @param quantite a retirer pour cet Objet
 	 */
 	public RetirerObjet(final int idObjet, final int quantite) {
 		this.idObjet = idObjet;
@@ -25,25 +25,25 @@ public class RetirerObjet extends Commande implements CommandeMenu, CommandeEven
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RetirerObjet(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idObjet"), parametres.containsKey("quantite") ? (int) parametres.get("quantite") : 1 // retirer
 																														// 1
 																														// par
-																														// défaut
+																														// dï¿½faut
 		);
 	}
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// on procède à la suppression
+		// on procï¿½de a la suppression
 		final int[] objetsPossedes = getPartieActuelle().objetsPossedes;
 		objetsPossedes[this.idObjet] -= quantite;
 
-		// on ne doit pas aller dans les négatifs
+		// on ne doit pas aller dans les nï¿½gatifs
 		if (objetsPossedes[this.idObjet] < 0) {
 			objetsPossedes[this.idObjet] = 0;
 		}

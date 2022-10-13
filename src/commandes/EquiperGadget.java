@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Equiper le Heros avec un Gadget qu'il possède
+ * Equiper le Heros avec un Gadget qu'il possï¿½de
  */
 public class EquiperGadget extends Commande implements CommandeEvent {
 	int idGadget;
@@ -14,16 +14,16 @@ public class EquiperGadget extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idGadget identifiant du gadget à équiper
+	 * @param idGadget identifiant du gadget a ï¿½quiper
 	 */
 	public EquiperGadget(final int idGadget) {
 		this.idGadget = idGadget;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public EquiperGadget(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idGadget"));

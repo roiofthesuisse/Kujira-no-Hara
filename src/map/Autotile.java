@@ -21,25 +21,25 @@ import utilitaire.graphismes.Graphismes;
 
 /**
  * Un Autotile est un carreau liable. 
- * Selon la nature de ses voisins, il prendra une apparence différente.
- * Un Autotile peut être animé. Il est alors constitué de plusieurs vignettes qui se succèderont dans le temps.
+ * Selon la nature de ses voisins, il prendra une apparence diffï¿½rente.
+ * Un Autotile peut ï¿½tre animï¿½. Il est alors constituï¿½ de plusieurs vignettes qui se succï¿½deront dans le temps.
  */
 public class Autotile {
 	// Constantes
 	private static final Logger LOG = LogManager.getLogger(Autotile.class);
-	/** fréquence d'animation des autotiles animés (eau, etc.) */
+	/** frï¿½quence d'animation des autotiles animï¿½s (eau, etc.) */
 	public static final int FREQUENCE_ANIMATION_AUTOTILE = 10;
 	/** largeur standard pour une image d'Autotile fixe */
 	public static final int LARGEUR_AUTOTILE_FIXE = 3*Main.TAILLE_D_UN_CARREAU;
 	/** nombre de vignettes qui composent l'animation d'un Autotile */
 	public static final int NOMBRE_VIGNETTES_AUTOTILE_ANIME = 4;
-	/** largeur standard pour une image d'Autotile animé */
+	/** largeur standard pour une image d'Autotile animï¿½ */
 	public static final int LARGEUR_AUTOTILE_ANIME = NOMBRE_VIGNETTES_AUTOTILE_ANIME*LARGEUR_AUTOTILE_FIXE;
 	/** hauteur standard pour une image d'Autotile */
 	public static final int HAUTEUR_AUTOTILE = 4*Main.TAILLE_D_UN_CARREAU;
-	/** l'Autotile est composé de 4 quarts */
+	/** l'Autotile est composï¿½ de 4 quarts */
 	public static final int TAILLE_MORCEAU = Main.TAILLE_D_UN_CARREAU/2;
-	/** décalage pour aller piocher dans la vignette d'animation suivante (en nombre de quarts de carreaux) */
+	/** dï¿½calage pour aller piocher dans la vignette d'animation suivante (en nombre de quarts de carreaux) */
 	public static final int DECALAGE_VIGNETTE_SUIVANTE = 6;
 	
 	//quart haut gauche
@@ -145,9 +145,9 @@ public class Autotile {
 	 * @param numero de l'Autotile connu par le Tileset
 	 * @param nomImage nom de l'image de l'Autotile
 	 * @param passabilite peut-on marcher sur cette case ?
-	 * @param altitude d'affichage dans le décor
-	 * @param terrain spécial qui peut avoir des propriétés particulières
-	 * @param cousins autres autotiles qui peuvent se lier à celui-ci
+	 * @param altitude d'affichage dans le dï¿½cor
+	 * @param terrain spï¿½cial qui peut avoir des propriï¿½tï¿½s particuliï¿½res
+	 * @param cousins autres autotiles qui peuvent se lier a celui-ci
 	 * @param tileset auquel appartient cet Autotile
 	 * @throws IOException impossible de charger l'image de l'Autotile
 	 */
@@ -159,7 +159,7 @@ public class Autotile {
 		try {
 			this.image = Graphismes.ouvrirImage("Autotile", this.nomImage);
 		} catch(IIOException ioe) {
-			// image manquante, on crée une fausse image
+			// image manquante, on crï¿½e une fausse image
 			LOG.error("Impossible de charger l'image de l'autotile "+this.nomImage, ioe);
 			this.image = new BufferedImage(LARGEUR_AUTOTILE_FIXE, HAUTEUR_AUTOTILE, Graphismes.TYPE_DES_IMAGES);
 			Graphics2D g2d = (Graphics2D) this.image.getGraphics();
@@ -193,12 +193,12 @@ public class Autotile {
 	 * @param y coordonnee y de la case sur la Map (en nombre de carreaux)
 	 * @param largeurMap largeur de la Map (en nombre de carreaux)
 	 * @param hauteurMap hauteur de la Map (en nombre de carreaux)
-	 * @param numeroCarreau numéro de ce carreau de décor issu du Tileset
-	 * @param layer une des trois couches de décor de l'éditeur de Maps
+	 * @param numeroCarreau numï¿½ro de ce carreau de dï¿½cor issu du Tileset
+	 * @param layer une des trois couches de dï¿½cor de l'ï¿½diteur de Maps
 	 * @return carreau liable avec la bonne apparence
 	 */
 	public final BufferedImage[] calculerAutotile(final int x, final int y, final int largeurMap, final int hauteurMap, final int numeroCarreau, final int[][] layer) {
-		// On veut déterminer les connexions du carreau
+		// On veut dï¿½terminer les connexions du carreau
 		boolean connexionBas = false;
 		boolean connexionGauche = false;
 		boolean connexionDroite = false;
@@ -208,25 +208,25 @@ public class Autotile {
 		boolean connexionHautGauche = false;
 		boolean connexionHautDroite = false;
 		
-		// On considère que le bord de l'écran est liable lui aussi
+		// On considï¿½re que le bord de l'ecran est liable lui aussi
 		if (y == 0) {
-			//bord supérieur de l'écran
+			//bord supï¿½rieur de l'ecran
 			connexionHaut = true;
 			connexionHautGauche = true;
 			connexionHautDroite = true;
 		} else if (y == hauteurMap-1) {
-			//bord inférieur de l'écran
+			//bord infï¿½rieur de l'ecran
 			connexionBas = true;
 			connexionBasGauche = true;
 			connexionBasDroite = true;
 		}
 		if (x == 0) {
-			//bord gauche de l'écran
+			//bord gauche de l'ecran
 			connexionGauche = true;
 			connexionHautGauche = true;
 			connexionBasGauche = true;
 		} else if (x == largeurMap-1) {
-			//bord droit de l'écran
+			//bord droit de l'ecran
 			connexionDroite = true;
 			connexionHautDroite = true;
 			connexionBasDroite = true;
@@ -251,7 +251,7 @@ public class Autotile {
 			connexionDroite = fautIlLierCeCarreauASonVoisin(numeroCarreau, numeroVoisin);
 		}
 		
-		// Selon les cas, ceux-là ne sont pas forcément utiles pour dessiner le carreau
+		// Selon les cas, ceux-lï¿½ ne sont pas forcï¿½ment utiles pour dessiner le carreau
 		if (!connexionHautGauche) {
 			numeroVoisin = layer[x-1][y-1];
 			connexionHautGauche = fautIlLierCeCarreauASonVoisin(numeroCarreau, numeroVoisin);
@@ -312,7 +312,7 @@ public class Autotile {
 			
 			resultats[i] = resultat;
 			
-			//préparation du tour de boucle suivant : on peint la vignette suivante
+			//prï¿½paration du tour de boucle suivant : on peint la vignette suivante
 			morceauChoisi1[0] += DECALAGE_VIGNETTE_SUIVANTE;
 			morceauChoisi2[0] += DECALAGE_VIGNETTE_SUIVANTE;
 			morceauChoisi3[0] += DECALAGE_VIGNETTE_SUIVANTE;
@@ -323,10 +323,10 @@ public class Autotile {
 	}
 
 	/**
-	 * Est-ce que le carreau Autotile est à lier à ce voisin ?
-	 * @param numeroCarreau numéro du carreau actuel selon le Tileset
-	 * @param numeroVoisin numéro du carreau voisin selon le Tileset
-	 * @return true si connexion, false si aucun lien de parenté
+	 * Est-ce que le carreau Autotile est a lier a ce voisin ?
+	 * @param numeroCarreau numï¿½ro du carreau actuel selon le Tileset
+	 * @param numeroVoisin numï¿½ro du carreau voisin selon le Tileset
+	 * @return true si connexion, false si aucun lien de parentï¿½
 	 */
 	private boolean fautIlLierCeCarreauASonVoisin(final int numeroCarreau, final int numeroVoisin) {
 		return (numeroVoisin == numeroCarreau)
@@ -336,12 +336,12 @@ public class Autotile {
 
 	/**
 	 * Choisir l'apparence du quart haut-gauche du carreau Autotile.
-	 * @param connexionHaut le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionGauche le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionHautGauche le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionDroite le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionBas le carreau Autotile est-il connecté à un voisin ?
-	 * @return coordonnées (en quarts de carreaux) du morceau d'Autotile à peindre sur le carreau
+	 * @param connexionHaut le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionGauche le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionHautGauche le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionDroite le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionBas le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @return coordonnï¿½es (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
 	 */
 	private int[] choisirLeQuartHautGaucheDuCarreau(final boolean connexionHaut, final boolean connexionGauche, final boolean connexionHautGauche, final boolean connexionDroite, final boolean connexionBas) {
 		final int xMorceauChoisi;
@@ -400,12 +400,12 @@ public class Autotile {
 	
 	/**
 	 * Choisir l'apparence du quart haut-droite du carreau Autotile.
-	 * @param connexionHaut le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionDroite le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionHautDroite le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionGauche le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionBas le carreau Autotile est-il connecté à un voisin ?
-	 * @return coordonnées (en quarts de carreaux) du morceau d'Autotile à peindre sur le carreau
+	 * @param connexionHaut le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionDroite le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionHautDroite le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionGauche le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionBas le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @return coordonnï¿½es (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
 	 */
 	private int[] choisirLeQuartHautDroiteDuCarreau(final boolean connexionHaut, final boolean connexionDroite, final boolean connexionHautDroite, final boolean connexionGauche, final boolean connexionBas) {
 		final int xMorceauChoisi;
@@ -462,12 +462,12 @@ public class Autotile {
 
 	/**
 	 * Choisir l'apparence du quart bas-gauche du carreau Autotile.
-	 * @param connexionBas le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionGauche le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionBasGauche le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionDroite le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionHaut le carreau Autotile est-il connecté à un voisin ?
-	 * @return coordonnées (en quarts de carreaux) du morceau d'Autotile à peindre sur le carreau
+	 * @param connexionBas le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionGauche le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionBasGauche le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionDroite le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionHaut le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @return coordonnï¿½es (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
 	 */
 	private int[] choisirLeQuartBasGaucheDuCarreau(final boolean connexionBas, final boolean connexionGauche, final boolean connexionBasGauche, final boolean connexionDroite, final boolean connexionHaut) {
 		final int xMorceauChoisi;
@@ -524,12 +524,12 @@ public class Autotile {
 	
 	/**
 	 * Choisir l'apparence du quart bas-droite du carreau Autotile.
-	 * @param connexionBas le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionDroite le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionBasDroite le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionGauche le carreau Autotile est-il connecté à un voisin ?
-	 * @param connexionHaut le carreau Autotile est-il connecté à un voisin ?
-	 * @return coordonnées (en quarts de carreaux) du morceau d'Autotile à peindre sur le carreau
+	 * @param connexionBas le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionDroite le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionBasDroite le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionGauche le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @param connexionHaut le carreau Autotile est-il connectï¿½ a un voisin ?
+	 * @return coordonnï¿½es (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
 	 */
 	private int[] choisirLeQuartBasDroiteDuCarreau(final boolean connexionBas, final boolean connexionDroite, final boolean connexionBasDroite, final boolean connexionGauche, final boolean connexionHaut) {
 		final int xMorceauChoisi;
@@ -587,7 +587,7 @@ public class Autotile {
 	
 	/**
 	 * Charger les Autotiles d'un Tileset.
-	 * @param jsonTileset objet JSON représentant un Tileset
+	 * @param jsonTileset objet JSON reprï¿½sentant un Tileset
 	 * @param fichierDesCousins objet JSON contenant d'autres informations sur le Tileset
 	 * @param tileset auquel appartiennent les Autotiles
 	 * @return Autotiles de ce Tileset
@@ -595,12 +595,12 @@ public class Autotile {
 	public static HashMap<Integer, Autotile> chargerAutotiles(final JSONObject jsonTileset, 
 			final JSONObject fichierDesCousins, 
 			final Tileset tileset) {
-		// On ouvre également le fichier des cousinages entre Autotiles
+		// On ouvre ï¿½galement le fichier des cousinages entre Autotiles
 		JSONArray jsonCousinagesDesAutotilesPourCeTileset = null;
 		try {
 			jsonCousinagesDesAutotilesPourCeTileset = fichierDesCousins.getJSONArray("cousins");
 		} catch (Exception e) {
-			LOG.error("Impossible de récupérer les cousinages d'autotiles pour le tileset "+tileset.nom, e);
+			LOG.error("Impossible de rï¿½cupï¿½rer les cousinages d'autotiles pour le tileset "+tileset.nom, e);
 		}
 		int iAutotile = 0;
 		

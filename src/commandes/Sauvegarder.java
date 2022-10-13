@@ -18,8 +18,8 @@ import main.Commande;
 import map.Map;
 
 /**
- * Sauvegarder la Partie ainsi que l'état de la Map actuelle dans un fichier
- * externe crypté.
+ * Sauvegarder la Partie ainsi que l'ï¿½tat de la Map actuelle dans un fichier
+ * externe cryptï¿½.
  */
 public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(Sauvegarder.class);
@@ -33,16 +33,16 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroSauvegarde numéro du fichier de Sauvegarde
+	 * @param numeroSauvegarde numï¿½ro du fichier de Sauvegarde
 	 */
 	private Sauvegarder(final Integer numeroSauvegarde) {
 		this.numeroSauvegarde = numeroSauvegarde;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Sauvegarder(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("numeroSauvegarde") ? (int) parametres.get("numeroSauvegarde") : null);
@@ -53,14 +53,14 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	 */
 	public interface Sauvegardable {
 		/**
-		 * Générer un JSON de l'état actuel de cet objet java pour la Sauvegarde.
+		 * Gï¿½nï¿½rer un JSON de l'ï¿½tat actuel de cet objet java pour la Sauvegarde.
 		 */
 		public JSONObject sauvegarderEnJson();
 	}
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// La Partie par défaut est la Partie actuelle
+		// La Partie par dï¿½faut est la Partie actuelle
 		if (this.numeroSauvegarde == null) {
 			this.numeroSauvegarde = getPartieActuelle().id;
 		}
@@ -68,14 +68,14 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 		final String nomFichierSauvegarde = PREFIXE_FICHIER_SAUVEGARDE + this.numeroSauvegarde + ".txt";
 		final String filename = NOM_DOSSIER_SAUVEGARDES + nomFichierSauvegarde;
 
-		// On crée le dossier des sauvegardes s'il n'existe pas
+		// On crï¿½e le dossier des sauvegardes s'il n'existe pas
 		File dossierSauvegardes = new File(NOM_DOSSIER_SAUVEGARDES);
 		if (!dossierSauvegardes.exists()) {
 			dossierSauvegardes.mkdir();
 		}
 
 		try {
-			// Générer le fichier de sauvegarde
+			// Gï¿½nï¿½rer le fichier de sauvegarde
 			final JSONObject jsonSauvegarde = genererSauvegarde();
 			final String jsonStringSauvegarde = jsonSauvegarde.toString();
 
@@ -87,7 +87,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 			fos.write(jsonStringSauvegardeCryptee);
 			fos.close();
 
-			LOG.info("Partie sauvegardée dans le fichier " + filename);
+			LOG.info("Partie sauvegardï¿½e dans le fichier " + filename);
 			LOG.debug(jsonStringSauvegarde);
 		} catch (IOException e) {
 			LOG.error("Impossible de sauvegarder la partie dans le fichier " + filename, e);
@@ -97,7 +97,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	}
 
 	/**
-	 * Produire un fichier JSON représentant la Partie et l'état actuel de la Map.
+	 * Produire un fichier JSON reprï¿½sentant la Partie et l'ï¿½tat actuel de la Map.
 	 * 
 	 * @return sauvegarde au format JSON
 	 */
@@ -126,17 +126,17 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	/**
 	 * Crypter la sauvegarde.
 	 * 
-	 * @param jsonStringSauvegarde texte de la Sauvegarde non crypté
-	 * @return texte de la Sauvegarde crypté
+	 * @param jsonStringSauvegarde texte de la Sauvegarde non cryptï¿½
+	 * @return texte de la Sauvegarde cryptï¿½
 	 */
 	private byte[] crypter(final String jsonStringSauvegarde) {
 		try {
-			// Hashage de la clé
+			// Hashage de la clï¿½
 			final SecretKeySpec cleHashee = construireCleDeCryptage();
 
-			// Cryptage du texte avec la clé hashée
+			// Cryptage du texte avec la clï¿½ hashï¿½e
 			byte[] text = jsonStringSauvegarde.getBytes("UTF8");
-			// On ajoute des ZZZZ à la fin pour avoir une taille multiple de 16
+			// On ajoute des ZZZZ a la fin pour avoir une taille multiple de 16
 			text = ajouterAppendice(text);
 
 			final Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
@@ -155,11 +155,11 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	}
 
 	/**
-	 * Ajouter des ZZZZ inutiles à la fin du fichier pour avoir une taille multiple
+	 * Ajouter des ZZZZ inutiles a la fin du fichier pour avoir une taille multiple
 	 * de 16.
 	 * 
-	 * @param text0 texte en entrée
-	 * @return texte rallongé avec des ZZZ
+	 * @param text0 texte en entrï¿½e
+	 * @return texte rallongï¿½ avec des ZZZ
 	 */
 	private byte[] ajouterAppendice(final byte[] text0) {
 		LOG.debug("text0 : " + text0.length);

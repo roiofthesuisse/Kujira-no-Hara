@@ -10,7 +10,7 @@ import jeu.Chronometre;
 import main.Commande;
 
 /**
- * Démarrer le Chronometre à partir d'une certaine valeur.
+ * Dï¿½marrer le Chronometre a partir d'une certaine valeur.
  */
 public class DemarrerChronometre extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(DemarrerChronometre.class);
@@ -30,9 +30,9 @@ public class DemarrerChronometre extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public DemarrerChronometre(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("croissant") ? (boolean) parametres.get("croissant") : false,
@@ -42,7 +42,7 @@ public class DemarrerChronometre extends Commande implements CommandeEvent {
 	@Override
 	public int executer(final int curseurActuel, final List<Commande> commandes) {
 		getPartieActuelle().chronometre = new Chronometre(this.croissant, this.nombreDeSecondesInitial);
-		LOG.debug("Chronomètre " + (this.croissant ? "croissant" : "décroissant") + " démarré à "
+		LOG.debug("Chronomï¿½tre " + (this.croissant ? "croissant" : "dï¿½croissant") + " dï¿½marrï¿½ a "
 				+ this.nombreDeSecondesInitial + " secondes.");
 		return curseurActuel + 1;
 	}

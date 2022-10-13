@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Enumération des touches utilisées par le jeu
+ * Enumï¿½ration des touches utilisï¿½es par le jeu
  */
 public abstract class GestionClavier {
 	private static final Logger LOG = LogManager.getLogger(GestionClavier.class);
@@ -35,8 +35,8 @@ public abstract class GestionClavier {
 		
 		/**
 		 * Constructeur explicite
-		 * @param keycode code officiel représentant la touche du clavier
-		 * @param nom écrit sur la touche du clavier
+		 * @param keycode code officiel reprï¿½sentant la touche du clavier
+		 * @param nom ï¿½crit sur la touche du clavier
 		 */
 		ToucheClavier(final int keycode, final String nom) {
 			this.keycode = keycode;
@@ -45,7 +45,7 @@ public abstract class GestionClavier {
 	}
 	
 	/**
-	 * Association entre les touches du clavier et leur rôle
+	 * Association entre les touches du clavier et leur rï¿½le
 	 */
 	public enum ToucheRole {
 		ACTION("ACTION", ToucheClavier.K),
@@ -69,7 +69,7 @@ public abstract class GestionClavier {
 		/**
 		 * Constructeur explicite
 		 * @param touches du clavier
-		 * @param nom du rôle associé à la touche
+		 * @param nom du rï¿½le associï¿½ a la touche
 		 */
 		ToucheRole(final String nom, final ToucheClavier... touches) {
 			this.touches = touches;
@@ -77,7 +77,7 @@ public abstract class GestionClavier {
 		}
 		
 		/**
-		 * Obtenir une Touche à partir de son keycode.
+		 * Obtenir une Touche a partir de son keycode.
 		 * @param keycode de la Touche
 		 * @return Touche qui a ce keycode
 		 */
@@ -89,12 +89,12 @@ public abstract class GestionClavier {
 					}
 				}
 			}
-			LOG.warn("une touche inconnue a été pressée : "+keycode); 
+			LOG.warn("une touche inconnue a ï¿½tï¿½ pressï¿½e : "+keycode); 
 			return null;
 		}
 		
 		/**
-		 * Obtenir une Touche à partir de son nom.
+		 * Obtenir une Touche a partir de son nom.
 		 * @param nom de la Touche
 		 * @return Touche qui porte ce nom
 		 */
@@ -106,12 +106,12 @@ public abstract class GestionClavier {
 					}
 				}
 			}
-			LOG.error("une touche inconnue a été mentionnée : "+nom); 
+			LOG.error("une touche inconnue a ï¿½tï¿½ mentionnï¿½e : "+nom); 
 			return null;
 		}
 		
 		/**
-		 * Une des touches du clavier correspondant à ce rôle est-elle enfoncée.
+		 * Une des touches du clavier correspondant a ce rï¿½le est-elle enfoncï¿½e.
 		 * @return true ou false
 		 */
 		public boolean enfoncee() {
@@ -124,7 +124,7 @@ public abstract class GestionClavier {
 		}
 		
 		/**
-		 * Frame d'appui d'une des touches du clavier correspondant à ce rôle.
+		 * Frame d'appui d'une des touches du clavier correspondant a ce rï¿½le.
 		 * @return la frame
 		 */
 		public Integer frameDAppui() {
@@ -137,8 +137,8 @@ public abstract class GestionClavier {
 		}
 
 		/**
-		 * Mutateur de l'enfoncement de toutes les touches du clavier correspondant à ce rôle.
-		 * @param b noter les touches du clavier comme enfoncées ou non
+		 * Mutateur de l'enfoncement de toutes les touches du clavier correspondant a ce rï¿½le.
+		 * @param b noter les touches du clavier comme enfoncï¿½es ou non
 		 */
 		public void enfoncee(final boolean b) {
 			for (ToucheClavier touche : this.touches) {
@@ -147,8 +147,8 @@ public abstract class GestionClavier {
 		}
 
 		/**
-		 * Mutateur de la frame d'appui de toutes les touches du clavier correspondant à ce rôle.
-		 * @param frame d'appui à assigner aux touches de ce rôle
+		 * Mutateur de la frame d'appui de toutes les touches du clavier correspondant a ce rï¿½le.
+		 * @param frame d'appui a assigner aux touches de ce rï¿½le
 		 */
 		public void frameDAppui(final Integer frame) {
 			for (ToucheClavier touche : this.touches) {
@@ -158,8 +158,8 @@ public abstract class GestionClavier {
 	}
 	
 	/**
-	 * Dit si la touche est une touche du clavier utilisée par le jeu.
-	 * @param keycode numéro de la touche
+	 * Dit si la touche est une touche du clavier utilisï¿½e par le jeu.
+	 * @param keycode numï¿½ro de la touche
 	 * @return true si la touche est utile, false sinon
 	 */
 	public static final boolean toucheConnue(final int keycode) {
@@ -168,7 +168,7 @@ public abstract class GestionClavier {
 	        	return true;
 	        }
 	    }
-		LOG.warn("une touche inconnue a été pressée : "+keycode); 
+		LOG.warn("une touche inconnue a ï¿½tï¿½ pressï¿½e : "+keycode); 
 		return false;
 	}
 	

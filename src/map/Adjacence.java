@@ -9,7 +9,7 @@ import map.positionInitiale.PositionInitiale;
 import map.positionInitiale.PositionInitialeParAdjacence;
 
 /** 
- * Map adjacente à une Map, permettant une téléportation automatique
+ * Map adjacente a une Map, permettant une tï¿½lï¿½portation automatique
  */
 public class Adjacence {
 	private static final Logger LOG = LogManager.getLogger(Adjacence.class);
@@ -21,7 +21,7 @@ public class Adjacence {
 	
 	/**
 	 * Constructeur explicite
-	 * @param numeroMap numéro de la Map adjacente
+	 * @param numeroMap numï¿½ro de la Map adjacente
 	 * @param direction dans laquelle on va pour se rendre sur cette Map
 	 * @param decalage perpendiculaire des cases
 	 * @param transition pour introduire la Map suivante
@@ -34,11 +34,11 @@ public class Adjacence {
 	}
 	
 	/**
-	 * Y aller à partir de la Map actuelle.
+	 * Y aller a partir de la Map actuelle.
 	 * @param heros qui quitte la Map
 	 */
 	public void allerALaMapAdjacente(final Heros heros) {
-		LOG.info("On sort pour aller à la map adjacente.");
+		LOG.info("On sort pour aller a la map adjacente.");
 		final LecteurMap nouveauLecteur = new LecteurMap();
 		nouveauLecteur.transition = this.transition;
 		// final int xHerosMapPrecedente, final int yHerosMapPrecedente
@@ -49,7 +49,7 @@ public class Adjacence {
 					this.numeroMap, 
 					nouveauLecteur, 
 					heros, 
-					null, //pas de Brouillard forcé
+					null, //pas de Brouillard forcï¿½
 					positionInitiale
 			);			
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);

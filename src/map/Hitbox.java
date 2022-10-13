@@ -17,7 +17,7 @@ import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Une hitbox peut être assignée à une arme afin de calculer sa portée et son étendue.
+ * Une hitbox peut ï¿½tre assignï¿½e a une arme afin de calculer sa portï¿½e et son ï¿½tendue.
  */
 public final class Hitbox {
 	private static final Logger LOG = LogManager.getLogger(Hitbox.class);
@@ -38,15 +38,15 @@ public final class Hitbox {
 	
 	/**
 	 * Cet Event cible est-il dans la zone d'attaque del'Event attaquant ?
-	 * @param cible un Event à atteindre
-	 * @param attaquant un Event qui cherche à atteindre la cible
+	 * @param cible un Event a atteindre
+	 * @param attaquant un Event qui cherche a atteindre la cible
 	 * @return true si l'Event est dans la zone d'attaque, false sinon
 	 */
 	public boolean estDansZoneDAttaque(final Event cible, final Event attaquant) {
 		final Partie partieActuelle = Main.getPartieActuelle();
 		final boolean estCeQueLeHerosAUneArme = (partieActuelle.nombreDArmesPossedees > 0) && partieActuelle.getArmeEquipee()!=null;
 		if (estCeQueLeHerosAUneArme) {
-			//on calcule les bords de la zone d'attaque en fonction de l'orientation du héros
+			//on calcule les bords de la zone d'attaque en fonction de l'orientation du hï¿½ros
 			final int[] coord = this.calculerCoordonneesAbsolues(attaquant);
 			final int xminHitbox = coord[0];
 			final int xmaxHitbox = coord[1];
@@ -66,7 +66,7 @@ public final class Hitbox {
 	}
 	
 	/**
-	 * Calcule les coordonnées x et y minimales et maximales du rectangle de la Hitbox.
+	 * Calcule les coordonnï¿½es x et y minimales et maximales du rectangle de la Hitbox.
 	 * @param attaquant l'Event qui attaque
 	 * @return xmin, xmax, ymin, ymax
 	 */
@@ -110,15 +110,15 @@ public final class Hitbox {
 	}
 
 	/**
-	 * Faire une capture d'écran avec deux rectangles
-	 * @param x1min coordonnée x minimale du rectangle rouge
-	 * @param x1max coordonnée x maximale du rectangle rouge
-	 * @param y1min coordonnée y minimale du rectangle rouge
-	 * @param y1max coordonnée y maximale du rectangle rouge
-	 * @param x2min coordonnée x minimale du rectangle bleu
-	 * @param x2max coordonnée x maximale du rectangle bleu
-	 * @param y2min coordonnée y minimale du rectangle bleu
-	 * @param y2max coordonnée y maximale du rectangle bleu
+	 * Faire une capture d'ecran avec deux rectangles
+	 * @param x1min coordonnï¿½e x minimale du rectangle rouge
+	 * @param x1max coordonnï¿½e x maximale du rectangle rouge
+	 * @param y1min coordonnï¿½e y minimale du rectangle rouge
+	 * @param y1max coordonnï¿½e y maximale du rectangle rouge
+	 * @param x2min coordonnï¿½e x minimale du rectangle bleu
+	 * @param x2max coordonnï¿½e x maximale du rectangle bleu
+	 * @param y2min coordonnï¿½e y minimale du rectangle bleu
+	 * @param y2max coordonnï¿½e y maximale du rectangle bleu
 	 */
 	public static void printCroisement(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max) {
 		//on part d'une image blanche
@@ -145,16 +145,16 @@ public final class Hitbox {
 	/**
 	 * Calcule si deux rectangles sont proches. 
 	 * S'ils ne sont pas proches, ils ne peuvent pas se croiser.
-	 * Utile pour éliminer des cas lors des calculs de collisions.
-	 * @param x1 coordonnée x minimale du rectangle 1
-	 * @param y1 coordonnée y minimale du rectangle 1
+	 * Utile pour ï¿½liminer des cas lors des calculs de collisions.
+	 * @param x1 coordonnï¿½e x minimale du rectangle 1
+	 * @param y1 coordonnï¿½e y minimale du rectangle 1
 	 * @param largeur1 largeur du rectangle 1
 	 * @param hauteur1 hauteur du rectangle 1
-	 * @param x2 coordonnée x minimale du rectangle 2
-	 * @param y2 coordonnée y minimale du rectangle 2
+	 * @param x2 coordonnï¿½e x minimale du rectangle 2
+	 * @param y2 coordonnï¿½e y minimale du rectangle 2
 	 * @param largeur2 largeur du rectangle 2
 	 * @param hauteur2 hauteur du rectangle 2
-	 * @return true si les rectancles ont une chance de se croiser, false s'ils sont trop éloignés pour que ce soit possible.
+	 * @return true si les rectancles ont une chance de se croiser, false s'ils sont trop ï¿½loignï¿½s pour que ce soit possible.
 	 */
 	private static boolean lesRectanglesSontProches(final int x1, final int y1, final int largeur1, final int hauteur1, final int x2, final int y2, final int largeur2, final int hauteur2) {
 		final int deltaX = x2 - x1;
@@ -171,22 +171,22 @@ public final class Hitbox {
 	
 	/**
 	 * Calcule si deux rectangles se chevauchent.
-	 * @param x1min coordonnée x minimale du rectangle 1
-	 * @param x1max coordonnée x maximale du rectangle 1
-	 * @param y1min coordonnée y minimale du rectangle 1
-	 * @param y1max coordonnée y maximale du rectangle 1
-	 * @param x2min coordonnée x minimale du rectangle 2
-	 * @param x2max coordonnée x maximale du rectangle 2
-	 * @param y2min coordonnée y minimale du rectangle 2
-	 * @param y2max coordonnée y maximale du rectangle 2
-	 * @param largHitbox largeur du rectangle 1 (non recalculé pour les performances)
-	 * @param hautHitbox hauteur du rectangle 1 (non recalculé pour les performances)
-	 * @param largHitboxAutre largeur du rectangle 2 (non recalculé pour les performances)
-	 * @param hautHitboxAutre hauteur du rectangle 2 (non recalculé pour les performances)
+	 * @param x1min coordonnï¿½e x minimale du rectangle 1
+	 * @param x1max coordonnï¿½e x maximale du rectangle 1
+	 * @param y1min coordonnï¿½e y minimale du rectangle 1
+	 * @param y1max coordonnï¿½e y maximale du rectangle 1
+	 * @param x2min coordonnï¿½e x minimale du rectangle 2
+	 * @param x2max coordonnï¿½e x maximale du rectangle 2
+	 * @param y2min coordonnï¿½e y minimale du rectangle 2
+	 * @param y2max coordonnï¿½e y maximale du rectangle 2
+	 * @param largHitbox largeur du rectangle 1 (non recalculï¿½ pour les performances)
+	 * @param hautHitbox hauteur du rectangle 1 (non recalculï¿½ pour les performances)
+	 * @param largHitboxAutre largeur du rectangle 2 (non recalculï¿½ pour les performances)
+	 * @param hautHitboxAutre hauteur du rectangle 2 (non recalculï¿½ pour les performances)
 	 * @return true si les rectangles se chevauchent, false sinon
 	 */
 	public static final boolean lesDeuxRectanglesSeChevauchent(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max, final int largHitbox, final int hautHitbox, final int largHitboxAutre, final int hautHitboxAutre) {
-		//si les deux rectangles sont très éloignés, il ne peut pas y avoir collision
+		//si les deux rectangles sont trï¿½s ï¿½loignï¿½s, il ne peut pas y avoir collision
 		if (!lesRectanglesSontProches(x1min, y1min, largHitbox, hautHitbox, x2min, y2min, largHitboxAutre, hautHitboxAutre)) {
 			return false;
 		}
@@ -201,21 +201,21 @@ public final class Hitbox {
 		}
 		
 		if (largHitbox==largHitboxAutre && hautHitbox==hautHitboxAutre) {
-			//si deux events ont la même taille, ils ne peuvent se chevaucher que par le coin
-			//(pour être plus exact : le cas où deux events de même taille se chevauchent par l'arête est un cas particulier de la formule du chevauchement par coin)
+			//si deux events ont la mï¿½me taille, ils ne peuvent se chevaucher que par le coin
+			//(pour ï¿½tre plus exact : le cas oï¿½ deux events de mï¿½me taille se chevauchent par l'arï¿½te est un cas particulier de la formule du chevauchement par coin)
 			return false;
 		}
 		
-		if (largHitbox!=largHitboxAutre) { //si deux events n'ont pas la même largeur, ils peuvent se chevaucher par arête horizontale
-			//deuxième cas : deux cotés de chevauchent
+		if (largHitbox!=largHitboxAutre) { //si deux events n'ont pas la mï¿½me largeur, ils peuvent se chevaucher par arï¿½te horizontale
+			//deuxiï¿½me cas : deux cotï¿½s de chevauchent
 			final boolean deuxCotesSeChevauchent = ((x1min<=x2min && x2max<=x1max)&&((y2min<=y1min && y1min<y2max && y2max<=y1max)||(y1min<=y2min && y2min<y1max && y1max<=y2max)))
 												|| ((x2min<=x1min && x1max<=x2max)&&((y1min<=y2min && y2min<y1max && y1max<=y2max)||(y2min<=y1min && y1min<y2max && y2max<=y1max)));
 			if (deuxCotesSeChevauchent) {
 				return true;
 			}
 		}
-		if (hautHitbox!=hautHitboxAutre) { //si deux events n'ont pas la même hauteur, ils peuvent se chevaucher par arête verticale
-			//deuxième cas : deux cotés de chevauchent
+		if (hautHitbox!=hautHitboxAutre) { //si deux events n'ont pas la mï¿½me hauteur, ils peuvent se chevaucher par arï¿½te verticale
+			//deuxiï¿½me cas : deux cotï¿½s de chevauchent
 			final boolean deuxCotesSeChevauchent = ((y1min<=y2min && y2max<=y1max)&&((x2min<=x1min && x1min<x2max && x2max<=x1max)||(x1min<=x2min && x2min<x1max && x1max<=x2max)))
 												|| ((y2min<=y1min && y1max<=y2max)&&((x1min<=x2min && x2min<x1max && x1max<=x2max)||(x2min<=x1min && x1min<x2max && x2max<=x1max)));
 			if (deuxCotesSeChevauchent) {
@@ -223,14 +223,14 @@ public final class Hitbox {
 			}
 		}
 		
-		//troisième cas : une hitbox incluse dans l'autre (pfff faut vraiment le faire exprès lol)
+		//troisiï¿½me cas : une hitbox incluse dans l'autre (pfff faut vraiment le faire exprï¿½s lol)
 		final boolean unInclusDansLAutre = ((x1min<=x2min && x2max<=x1max)&&(y1min<=y2min && y2max<=y1max))
 										|| ((x2min<=x1min && x1max<=x2max)&&(y2min<=y1min && y1max<=y2max));
 		if (unInclusDansLAutre) {
 			return true;
 		}
 		
-		// quatrième cas : superposition en croix
+		// quatriï¿½me cas : superposition en croix
 		final boolean superpositionEnCroix = ((x2min<=x1min && x1max<=x2max)&&(y1min<=y2min && y2max<=y1max))
 										  || ((x1min<=x2min && x2max<=x1max)&&(y2min<=y1min && y1max<=y2max));
 		
@@ -238,23 +238,23 @@ public final class Hitbox {
 	}
 	
 	/**
-	 * Calcule si deux rectangles se chevauchent en prenant en compte les passabilités multilatérales.
-	 * @param xmin coordonnée x minimale du rectangle 1
-	 * @param xmax coordonnée x maximale du rectangle 1
-	 * @param ymin coordonnée y minimale du rectangle 1
-	 * @param ymax coordonnée y maximale du rectangle 1
-	 * @param xmin2 coordonnée x minimale du rectangle 2
-	 * @param xmax2 coordonnée x maximale du rectangle 2
-	 * @param ymin2 coordonnée y minimale du rectangle 2
-	 * @param ymax2 coordonnée y maximale du rectangle 2
-	 * @param passableAGauche1 passabilité latérale gauche de l'Event 1
-	 * @param passableADroite1 passabilité latérale droite de l'Event 1
-	 * @param passableEnBas1 passabilité latérale basse de l'Event 1
-	 * @param passableEnHaut1 passabilité latérale haute de l'Event 1
-	 * @param passableAGauche2 passabilité latérale gauche de l'Event 2
-	 * @param passableADroite2 passabilité latérale droite de l'Event 2
-	 * @param passableEnBas2 passabilité latérale basse de l'Event 2
-	 * @param passableEnHaut2 passabilité latérale haute de l'Event 2
+	 * Calcule si deux rectangles se chevauchent en prenant en compte les passabilitï¿½s multilatï¿½rales.
+	 * @param xmin coordonnï¿½e x minimale du rectangle 1
+	 * @param xmax coordonnï¿½e x maximale du rectangle 1
+	 * @param ymin coordonnï¿½e y minimale du rectangle 1
+	 * @param ymax coordonnï¿½e y maximale du rectangle 1
+	 * @param xmin2 coordonnï¿½e x minimale du rectangle 2
+	 * @param xmax2 coordonnï¿½e x maximale du rectangle 2
+	 * @param ymin2 coordonnï¿½e y minimale du rectangle 2
+	 * @param ymax2 coordonnï¿½e y maximale du rectangle 2
+	 * @param passableAGauche1 passabilitï¿½ latï¿½rale gauche de l'Event 1
+	 * @param passableADroite1 passabilitï¿½ latï¿½rale droite de l'Event 1
+	 * @param passableEnBas1 passabilitï¿½ latï¿½rale basse de l'Event 1
+	 * @param passableEnHaut1 passabilitï¿½ latï¿½rale haute de l'Event 1
+	 * @param passableAGauche2 passabilitï¿½ latï¿½rale gauche de l'Event 2
+	 * @param passableADroite2 passabilitï¿½ latï¿½rale droite de l'Event 2
+	 * @param passableEnBas2 passabilitï¿½ latï¿½rale basse de l'Event 2
+	 * @param passableEnHaut2 passabilitï¿½ latï¿½rale haute de l'Event 2
 	 * @param largeur1 largeur de la Hitbox de l'Event 1
 	 * @param largeur2 largeur de la Hitbox de l'Event 2
 	 * @param hauteur1 hauteur de la Hitbox de l'Event 1
@@ -270,7 +270,7 @@ public final class Hitbox {
 		boolean parLeCoin2;
 		boolean parLArete;
 		
-		// Chevauchement à gauche
+		// Chevauchement a gauche
 		final boolean chevauchementAGauche = xmin2 <= xmin && xmin <= xmax2 && xmax2 < xmax;
 		parLeCoin1 = ymin <= ymax2 && ymin2 <= ymax;
 		parLeCoin2 = ymin2 <= ymax && ymin <= ymax2;
@@ -282,10 +282,10 @@ public final class Hitbox {
 			return true;
 		}
 		
-		// Chevauchement à droite
+		// Chevauchement a droite
 		final boolean chevauchementADroite = xmin < xmin2 && xmin2 <= xmax && xmax <= xmax2;
-		// pour le chevauchement à droite, les coins 1 et 2 sont juste inversés par rapport au chevauchement à gauche
-		// on garde donc les coins calculés pour le chevauchement à gauche
+		// pour le chevauchement a droite, les coins 1 et 2 sont juste inversï¿½s par rapport au chevauchement a gauche
+		// on garde donc les coins calculï¿½s pour le chevauchement a gauche
 		parLArete = ymax2 <= ymax && ymin <= ymin2;
 		if (chevauchementADroite
 				&& (parLeCoin1 || parLeCoin2 || parLArete) 
@@ -308,8 +308,8 @@ public final class Hitbox {
 		
 		// Chevauchement en bas
 		final boolean chevauchementEnBas = ymin < ymin2 && ymin2 <= ymax && ymax <= ymax2;
-		// pour le chevauchement en bas, les coins 1 et 2 sont juste inversés par rapport au chevauchement en haut
-		// on garde donc les coins calculés pour le chevauchement en haut
+		// pour le chevauchement en bas, les coins 1 et 2 sont juste inversï¿½s par rapport au chevauchement en haut
+		// on garde donc les coins calculï¿½s pour le chevauchement en haut
 		parLArete = xmax2 <= xmax && xmin <= xmin2;
 		if (chevauchementEnBas
 				&& (parLeCoin1 || parLeCoin2 || parLArete)
@@ -318,12 +318,12 @@ public final class Hitbox {
 			return true;
 		}
 		
-		// Pas de chevauchement détecté...
+		// Pas de chevauchement dï¿½tectï¿½...
 		return false;
 	}
 	
 	/**
-	 * Charger les Zones d'attaque du jeu à partir du fichier JSON.
+	 * Charger les Zones d'attaque du jeu a partir du fichier JSON.
 	 * @return zones d'attaque du jeu
 	 */
 	private static HashMap<Integer, Hitbox> chargerLesZonesDAttaqueDuJeu() {
@@ -331,7 +331,7 @@ public final class Hitbox {
 		try {
 			jsonZones = InterpreteurDeJson.ouvrirJsonZonesDAttaque();
 		} catch (Exception e) {
-			//problème lors de l'ouverture du fichier JSON
+			//problï¿½me lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les zones d'attaque du jeu.", e);
 			return null;
 		}

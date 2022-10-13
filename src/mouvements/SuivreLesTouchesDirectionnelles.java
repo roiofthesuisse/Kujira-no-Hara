@@ -21,11 +21,11 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	private int deltaX;
 	private int deltaY;
 	
-	/** Si l'Event marche vers un coin, on le décale légèrement pour qu'il puisse passer */
+	/** Si l'Event marche vers un coin, on le dï¿½cale lï¿½gï¿½rement pour qu'il puisse passer */
 	private boolean onPeutContournerUnCoin;
-	/** Décalage de l'Event pour l'aider à franchir un coin */
+	/** Dï¿½calage de l'Event pour l'aider a franchir un coin */
 	private int realignementX, realignementY;
-	/** Inertie : le Héros avance moins vite lors de la première frame d'appui */
+	/** Inertie : le Hï¿½ros avance moins vite lors de la premiï¿½re frame d'appui */
 	private boolean toucheEnfonceeALaFramePrecedente;
 	
 	/**
@@ -36,8 +36,8 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	}
 
 	/**
-	 * Constructeur paramétrique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur paramï¿½trique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public SuivreLesTouchesDirectionnelles(final HashMap<String, Object> parametres) {
 		this();
@@ -56,10 +56,10 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 			event.activerUnePage();
 		}
 		
-		// Inertie : si on vient d'appuyer sur la touche, le Héros va moins vite
+		// Inertie : si on vient d'appuyer sur la touche, le Hï¿½ros va moins vite
 		final int vitesse = vitesse(event);
 		
-		// Le Héros traverse tout si la touche de triche est pressée
+		// Le Hï¿½ros traverse tout si la touche de triche est pressï¿½e
 		if (event instanceof Heros && ToucheRole.TRICHE.enfoncee()) {
 			this.deltaX += GestionClavier.ToucheRole.DROITE.enfoncee() ? vitesse : 0;
 			this.deltaX += GestionClavier.ToucheRole.GAUCHE.enfoncee() ? -vitesse : 0;
@@ -210,7 +210,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 							this.realignementY = unPas.realignementY;
 						}
 					} else if (this.toucheEnfonceeALaFramePrecedente && event instanceof Heros) {
-						// Inertie : même si on ne presse plus les touches, le Héros avance encore un peu
+						// Inertie : mï¿½me si on ne presse plus les touches, le Hï¿½ros avance encore un peu
 						final int vitesseInertie = Math.max(1, event.pageActive.vitesse.valeur/2);
 						final Avancer unPas = unPasVers(event.direction, event, vitesseInertie);
 						if (unPas.mouvementPossible()) {
@@ -230,7 +230,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 									break;
 							}
 						} else if (unPas.onPeutContournerUnCoin) {
-							LOG.error("Contournement d'un obstacle suite à un mouvement inertiel.");
+							LOG.error("Contournement d'un obstacle suite a un mouvement inertiel.");
 							//contournement d'un coin
 							this.onPeutContournerUnCoin = true;
 							this.realignementX = unPas.realignementX;
@@ -253,7 +253,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	 */
 	private int vitesse(final Event event) {
 		if (event instanceof Heros && !this.toucheEnfonceeALaFramePrecedente) {
-			// inertie : si on vient d'appuyer sur la touche, le Héros va moins vite
+			// inertie : si on vient d'appuyer sur la touche, le Hï¿½ros va moins vite
 			return Math.max(1, event.pageActive.vitesse.valeur/2);
 		} else {
 			// vitesse maximale de l'Event
@@ -268,33 +268,33 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	}
 	
 	/**
-	 * Créer un pas dans la direction voulue.
-	 * Ce pas peut rester théorique pour permettre de calculer la possibilité (ou non) d'un Mouvement.
+	 * Crï¿½er un pas dans la direction voulue.
+	 * Ce pas peut rester thï¿½orique pour permettre de calculer la possibilitï¿½ (ou non) d'un Mouvement.
 	 * @param dir direction du pas
 	 * @param event qui doit avancer
-	 * @param vitesseForcee du pas, éventuellement différente de la vitesse de l'Event
-	 * @return un pas dans la direction demandée
+	 * @param vitesseForcee du pas, ï¿½ventuellement diffï¿½rente de la vitesse de l'Event
+	 * @return un pas dans la direction demandï¿½e
 	 */
 	private Avancer unPasVers(final int dir, final Event event, final int vitesseForcee) {
 		final Avancer pas = new Avancer(dir, vitesseForcee);
 		pas.deplacement = new Deplacement(event.id, new ArrayList<Mouvement>(), true, false, false);
-		pas.deplacement.page = event.pageActive; //on apprend au Déplacement quelle est sa Page
+		pas.deplacement.page = event.pageActive; //on apprend au Dï¿½placement quelle est sa Page
 		return pas;
 	}
 	
 	/**
-	 * Créer un pas dans la direction diagonale voulue.
-	 * Ce pas peut rester théorique pour permettre de calculer la possibilité (ou non) d'un Mouvement.
+	 * Crï¿½er un pas dans la direction diagonale voulue.
+	 * Ce pas peut rester thï¿½orique pour permettre de calculer la possibilitï¿½ (ou non) d'un Mouvement.
 	 * @param dirVerti direction verticale du pas
 	 * @param dirHori direction horizontale du pas
 	 * @param event qui doit avancer
-	 * @param vitesseForcee du pas, éventuellement différente de la vitesse de l'Event
-	 * @return un pas dans la direction demandée
+	 * @param vitesseForcee du pas, ï¿½ventuellement diffï¿½rente de la vitesse de l'Event
+	 * @return un pas dans la direction demandï¿½e
 	 */
 	private Mouvement unPasVers(final int dirVerti, final int dirHori, final Event event, final int vitesseForcee) {
 		final Mouvement pas = new PasEnDiagonale(dirVerti, dirHori, vitesseForcee);
 		pas.deplacement = new Deplacement(event.id, new ArrayList<Mouvement>(), true, false, false);
-		pas.deplacement.page = event.pageActive; //on apprend au Déplacement quelle est sa Page
+		pas.deplacement.page = event.pageActive; //on apprend au Dï¿½placement quelle est sa Page
 		return pas;
 	}
 
@@ -305,7 +305,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 
 	@Override
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
-		// Même si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
+		// Mï¿½me si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
 		mettreEventDansLaDirectionDuMouvement();
 		
 		if (this.onPeutContournerUnCoin) {
@@ -324,7 +324,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 			// On arrete l'animation de marche
 			event.avance = false;
 			
-			// L'Event n'attaque pas et ne bouge pas donc on remet sa première frame d'animation
+			// L'Event n'attaque pas et ne bouge pas donc on remet sa premiï¿½re frame d'animation
 			if (!event.avancaitALaFramePrecedente && !event.avance && !event.animeALArretActuel) {
 				event.animation = 0;
 			}
@@ -404,9 +404,9 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	public final int getDirectionImposee() {
 		final Event event = this.deplacement.getEventADeplacer();
 		if (!event.map.lecteur.stopEvent //pas de gel des Events
-			&& !(event.map.lecteur.stopHeros && event instanceof Heros) //pas de gel du Héros
+			&& !(event.map.lecteur.stopHeros && event instanceof Heros) //pas de gel du Hï¿½ros
 				//&& event.animationAttaque <= 0 //pas en attaque
-				&& (event.deplacementForce == null || event.deplacementForce.mouvements.size() <= 0) //pas de Déplacement forcé
+				&& (event.deplacementForce == null || event.deplacementForce.mouvements.size() <= 0) //pas de Dï¿½placement forcï¿½
 		) {
 			if (GestionClavier.ToucheRole.GAUCHE.enfoncee()) {
 				event.direction = Event.Direction.GAUCHE;
@@ -419,7 +419,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 			}
 		}
 		
-		//aucune direction n'est imposée
+		//aucune direction n'est imposï¿½e
 		return -1;
 	}
 

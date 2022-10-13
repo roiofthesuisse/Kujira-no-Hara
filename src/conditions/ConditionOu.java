@@ -6,7 +6,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 
 /**
- * ConditionOu est vraie si au moins une des conditions imbriquées est vraie.
+ * ConditionOu est vraie si au moins une des conditions imbriquï¿½es est vraie.
  *
  */
 public class ConditionOu extends Condition {
@@ -27,8 +27,8 @@ public class ConditionOu extends Condition {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionOu(final HashMap<String, Object> parametres) {
 		this(
@@ -51,12 +51,12 @@ public class ConditionOu extends Condition {
 	}
 
 	/**
-	 * Les sous-Conditions ont besoin de connaître à quelle PageEvent elles appartiennent
+	 * Les sous-Conditions ont besoin de connaï¿½tre a quelle PageEvent elles appartiennent
 	 */
 	private void apprendreLaPageAuxSousConditions() {
 		if (!this.pageTransmiseAuxSousConditions) {
 			for (Condition condition : this.conditions) {
-				// On apprend aux sous-Conditions à quelle Page elles appartiennent
+				// On apprend aux sous-Conditions a quelle Page elles appartiennent
 				condition.page = this.page;
 			}
 			this.pageTransmiseAuxSousConditions = true;

@@ -1,7 +1,7 @@
 package jeu.courrier;
 
 /**
- * Adresse pour envoyer du courrier à un personnage du jeu.
+ * Adresse pour envoyer du courrier a un personnage du jeu.
  */
 public enum Adresse {
 	MATHUSALEM("mathusalem"), 

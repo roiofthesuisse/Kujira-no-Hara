@@ -7,7 +7,7 @@ import commandes.CommandeMenu;
 import jeu.Partie;
 
 /**
- * Vérifie si le Héros possède cette Arme.
+ * Vï¿½rifie si le Hï¿½ros possï¿½de cette Arme.
  */
 public class ConditionArmePossedee extends Condition implements CommandeEvent, CommandeMenu {
 	public int idArme;
@@ -15,7 +15,7 @@ public class ConditionArmePossedee extends Condition implements CommandeEvent, C
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param idArme identifiant de l'Arme à vérifier
+	 * @param idArme identifiant de l'Arme a vï¿½rifier
 	 */
 	public ConditionArmePossedee(final int numero, final int idArme) {
 		this.numero = numero;
@@ -23,8 +23,8 @@ public class ConditionArmePossedee extends Condition implements CommandeEvent, C
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionArmePossedee(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
@@ -39,7 +39,7 @@ public class ConditionArmePossedee extends Condition implements CommandeEvent, C
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

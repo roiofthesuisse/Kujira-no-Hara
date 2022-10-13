@@ -11,10 +11,10 @@ import main.Main;
 import map.Event;
 
 /**
- * Est-ce que le Héros vient d'entrer en contact avec l'Event ?
+ * Est-ce que le Hï¿½ros vient d'entrer en contact avec l'Event ?
  * Le contact a deux sens :
- * - si l'Event est traversable, le contact signifie que le Héros est majoritairement superposé à lui ;
- * - si l'Event n'est pas traversable, le contact signifie que le Héros et l'Event se touchent par un côté de la Hitbox.
+ * - si l'Event est traversable, le contact signifie que le Hï¿½ros est majoritairement superposï¿½ a lui ;
+ * - si l'Event n'est pas traversable, le contact signifie que le Hï¿½ros et l'Event se touchent par un cï¿½tï¿½ de la Hitbox.
  */
 public class ConditionArriveeAuContact extends Condition  implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ConditionArriveeAuContact.class);
@@ -32,8 +32,8 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionArriveeAuContact(final HashMap<String, Object> parametres) {
 		this(
@@ -52,7 +52,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 		
 		final int frameActuelle = Main.lecteur.frameActuelle;
 		if ( event.frameDuContact != frameActuelle) {
-			//on n'est pas à jour ! on calcule s'il y a contact :
+			//on n'est pas a jour ! on calcule s'il y a contact :
 			final ConditionContact conditionContactMaintenant = new ConditionContact(this.numero, 0, null, this.typeDeContact);
 			conditionContactMaintenant.page = this.page;
 			final boolean leHerosEstAuContactDeLEventMaintenant = conditionContactMaintenant.estVerifiee();
@@ -61,11 +61,11 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 			event.estAuContactDuHerosMaintenant = leHerosEstAuContactDeLEventMaintenant;
 			event.frameDuContact = frameActuelle;
 		}
-		//on est à jour
+		//on est a jour
 		
-		//on était d'emblée sur l'Event à la première frame du LecteurMap
+		//on ï¿½tait d'emblï¿½e sur l'Event a la premiï¿½re frame du LecteurMap
 		if (frameActuelle <= 1 && event.estAuContactDuHerosMaintenant) {
-			LOG.debug("Condition ArriveeAuContact ignorée si c'est la position initiale du Héros sur la Map.");
+			LOG.debug("Condition ArriveeAuContact ignorï¿½e si c'est la position initiale du Hï¿½ros sur la Map.");
 			event.estAuContactDuHerosAvant = true;
 		}
 		
@@ -73,7 +73,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximité avec le Héros.
+	 * C'est une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return true 
 	 */
 	public final boolean estLieeAuHeros() {

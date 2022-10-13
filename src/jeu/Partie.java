@@ -35,7 +35,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Une Partie est l'ensemble des informations liées à l'avancée du joueur dans le jeu.
+ * Une Partie est l'ensemble des informations liï¿½es a l'avancï¿½e du joueur dans le jeu.
  */
 public final class Partie implements Listable, Sauvegardable {
 	//constantes
@@ -44,7 +44,7 @@ public final class Partie implements Listable, Sauvegardable {
 	private static final int NOMBRE_DE_VARIABLES = 200;
 	private static final int NOMBRE_D_IMAGES = 50;
 	private static final int NOMBRE_DE_MOTS = 50;
-	/** Numéro du mot correpsondant au nom du heros */
+	/** Numï¿½ro du mot correpsondant au nom du heros */
 	public static final int NOM_DU_HEROS = 0;
 	/** Marge (en pixels) de la vignette de Partie dans le Menu */
 	private static final int MARGE = 16;
@@ -54,10 +54,10 @@ public final class Partie implements Listable, Sauvegardable {
 	public int id;
 	public int numeroMap;
 	public Map map;
-	/** Brouillard à afficher sur la Map lorsqu'on charge une Partie sauvegardée */
+	/** Brouillard a afficher sur la Map lorsqu'on charge une Partie sauvegardï¿½e */
 	public Brouillard brouillardACharger;
 	
-	/** coordonnées x (en pixels) */
+	/** coordonnï¿½es x (en pixels) */
 	public int xHeros, yHeros;
 	public int directionHeros;
 	public int vie;
@@ -68,14 +68,14 @@ public final class Partie implements Listable, Sauvegardable {
 	public final ArrayList<String> interrupteursLocaux = new ArrayList<String>();
 	public final int[] variables = new int[NOMBRE_DE_VARIABLES];
 	
-	/** combien possède-t-on d'Objet numéro i ? */
+	/** combien possï¿½de-t-on d'Objet numï¿½ro i ? */
 	public int[] objetsPossedes;
-	/** la Quête numéro i a-t-elle été faite ? */
+	/** la Quï¿½te numï¿½ro i a-t-elle ï¿½tï¿½ faite ? */
 	public AvancementQuete[] avancementDesQuetes;
-	/** possède-t-on l'Arme numéro i ? */
+	/** possï¿½de-t-on l'Arme numï¿½ro i ? */
 	public boolean[] armesPossedees;
 	public int nombreDArmesPossedees;
-	/** possède-t-on le gadget numéro i ? */
+	/** possï¿½de-t-on le gadget numï¿½ro i ? */
 	public boolean[] gadgetsPossedes;
 	public int nombreDeGadgetsPossedes;
 	/** Lettres a envoyer a des personnages du jeu */
@@ -86,26 +86,26 @@ public final class Partie implements Listable, Sauvegardable {
 	public int idArmeEquipee;
 	public int idGadgetEquipe;
 	
-	/** effet météorologique en cours */
+	/** effet mï¿½tï¿½orologique en cours */
 	public Meteo meteo = null;
-	/** Images à afficher par dessus l'écran */
+	/** Images a afficher par dessus l'ecran */
 	public Picture[] images = new Picture[NOMBRE_D_IMAGES];
-	/** Animations à afficher sur la Map */
+	/** Animations a afficher sur la Map */
 	public ArrayList<JouerAnimation> animations = new ArrayList<>();
 	
-	/** Mot de passe à saisir lettre par lettre via un Menu */
+	/** Mot de passe a saisir lettre par lettre via un Menu */
 	public final int tailleMaximaleDuMot = 10;
 	public String[] mots = new String[NOMBRE_DE_MOTS];
-	/** Chronomètre a afficher à l'écran */
+	/** Chronomï¿½tre a afficher a l'ecran */
 	public Chronometre chronometre;
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge
-	 * @throws Exception le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
+	 * @throws Exception le JSON de paramï¿½trage d'une nouvelle Partie n'a pas ï¿½tï¿½ trouvï¿½
 	 */
 	private Partie() throws Exception {
 		final JSONObject jsonNouvellePartie = InterpreteurDeJson.ouvrirJsonNouvellePartie();
-		// Position du Héros
+		// Position du Hï¿½ros
 		this.numeroMap = jsonNouvellePartie.getInt("numeroMap");
 		this.brouillardACharger = null;
 		this.xHeros = jsonNouvellePartie.getInt("xHeros") * Main.TAILLE_D_UN_CARREAU;
@@ -114,7 +114,7 @@ public final class Partie implements Listable, Sauvegardable {
 		// Vie
 		this.vie = jsonNouvellePartie.getInt("vie");
 		this.vieMax = jsonNouvellePartie.getInt("vieMax");
-		// Quêtes
+		// Quï¿½tes
 		this.avancementDesQuetes = new AvancementQuete[ Quete.chargerLesQuetesDuJeu() ];
 		for (int i = 0; i<avancementDesQuetes.length; i++) {
 			avancementDesQuetes[i] = AvancementQuete.INCONNUE;
@@ -133,35 +133,35 @@ public final class Partie implements Listable, Sauvegardable {
 		this.lettresAEnvoyer = new ArrayList<>();
 		this.lettresRecues = new ArrayList<>();
 
-		LOG.info("Partie chargée.");
+		LOG.info("Partie chargï¿½e.");
 	}
 	
 	/**
 	 * Constructeur explicite
 	 * @param id du fichier de sauvegarde
-	 * @param numeroMap numéro de la Map où se trouve le Héros en reprenant la Partie
-	 * @param xHeros coordonnée x du Héros (en pixels) en reprenant la Partie
-	 * @param yHeros coordonnée y du Héros (en pixels) en reprenant la Partie
+	 * @param numeroMap numï¿½ro de la Map oï¿½ se trouve le Hï¿½ros en reprenant la Partie
+	 * @param xHeros coordonnï¿½e x du Hï¿½ros (en pixels) en reprenant la Partie
+	 * @param yHeros coordonnï¿½e y du Hï¿½ros (en pixels) en reprenant la Partie
 	 * @param directionHeros direction dans laquelle se trouve le Heros en reprenant la Partie
 	 * @param jsonBrouillard de la Map
-	 * @param vie niveau d'énergie vitale du Héros en reprenant la Partie
-	 * @param vieMax niveau maximal possible d'énergie vitale du Héros en reprenant la Partie
-	 * @param argent possédé
+	 * @param vie niveau d'ï¿½nergie vitale du Hï¿½ros en reprenant la Partie
+	 * @param vieMax niveau maximal possible d'ï¿½nergie vitale du Hï¿½ros en reprenant la Partie
+	 * @param argent possï¿½dï¿½
 	 * ----------------------------------------------------------------------------------------
-	 * @param objetsPossedes combien possède-t-on d'Objet numéro i ?
-	 * @param avancementDesQuetes la Quête numéro i a-t-elle été faite ?
-	 * @param armesPossedees possède-t-on l'Arme numéro i ?
-	 * @param gadgetsPossedes possède-t-on le Gadget numéro i ?
-	 * @param interrupteurs état des interrupteurs du jeu
-	 * @param variables état des variables locaux du jeu
-	 * @param interrupteursLocaux état des interrupteurs locaux du jeu
-	 * @param mots état des mots du jeu
-	 * @param chronometre état du chronomètre éventuel
-	 * @param images affichées à l'écran
+	 * @param objetsPossedes combien possï¿½de-t-on d'Objet numï¿½ro i ?
+	 * @param avancementDesQuetes la Quï¿½te numï¿½ro i a-t-elle ï¿½tï¿½ faite ?
+	 * @param armesPossedees possï¿½de-t-on l'Arme numï¿½ro i ?
+	 * @param gadgetsPossedes possï¿½de-t-on le Gadget numï¿½ro i ?
+	 * @param interrupteurs ï¿½tat des interrupteurs du jeu
+	 * @param variables ï¿½tat des variables locaux du jeu
+	 * @param interrupteursLocaux ï¿½tat des interrupteurs locaux du jeu
+	 * @param mots ï¿½tat des mots du jeu
+	 * @param chronometre ï¿½tat du chronomï¿½tre ï¿½ventuel
+	 * @param images affichï¿½es a l'ecran
 	 * ---------------------------------------------------------------------------------------- 
-	 * @param idArmeEquipee identifiant de l'Arme actuelle équipée
-	 * @param idGadgetEquipe identifiant du Gadget actuel équipé
-	 * @throws Exception le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
+	 * @param idArmeEquipee identifiant de l'Arme actuelle ï¿½quipï¿½e
+	 * @param idGadgetEquipe identifiant du Gadget actuel ï¿½quipï¿½
+	 * @throws Exception le JSON de paramï¿½trage d'une nouvelle Partie n'a pas ï¿½tï¿½ trouvï¿½
 	 */
 	public Partie(final int id, final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, 
 			final JSONObject jsonBrouillard, final int vie, final int vieMax, final int argent, final int idArmeEquipee, 
@@ -189,7 +189,7 @@ public final class Partie implements Listable, Sauvegardable {
 		}
 		this.objetsPossedes = tableauObjetsPossedes;
 		
-		//quêtes
+		//quï¿½tes
 		final AvancementQuete[] tableauAvancementDesQuetes = new AvancementQuete[Quete.quetesDuJeu.length];
 		for (Object o : avancementDesQuetes) {
 			final JSONObject avancementQuete = (JSONObject) o;
@@ -311,17 +311,17 @@ public final class Partie implements Listable, Sauvegardable {
 	}
 	
 	/**
-	 * Génère une nouvelle Partie vierge.
+	 * Gï¿½nï¿½re une nouvelle Partie vierge.
 	 * @return une nouvelle partie
-	 * @throws Exception le JSON de paramétrage d'une nouvelle Partie n'a pas été trouvé
+	 * @throws Exception le JSON de paramï¿½trage d'une nouvelle Partie n'a pas ï¿½tï¿½ trouvï¿½
 	 */
 	public static Partie creerNouvellePartie() throws Exception {
 		return new Partie();
 	}
 	
 	/**
-	 * Connaitre le Gadget actuellement équipé
-	 * @return Gadget équipé
+	 * Connaitre le Gadget actuellement ï¿½quipï¿½
+	 * @return Gadget ï¿½quipï¿½
 	 */
 	public Gadget getGadgetEquipe() {
 		return Gadget.getGadget(this.idGadgetEquipe);
@@ -329,7 +329,7 @@ public final class Partie implements Listable, Sauvegardable {
 	
 	/**
 	 * Equiper un Gadget au Heros
-	 * @param idGadget identifiant du Gadget à équiper
+	 * @param idGadget identifiant du Gadget a ï¿½quiper
 	 */
 	public void equiperGadget(final int idGadget) {
 		if (this.gadgetsPossedes[idGadget]) {
@@ -338,8 +338,8 @@ public final class Partie implements Listable, Sauvegardable {
 	}
 	
 	/**
-	 * Connaitre l'Arme actuellement équipée
-	 * @return Arme équipée
+	 * Connaitre l'Arme actuellement ï¿½quipï¿½e
+	 * @return Arme ï¿½quipï¿½e
 	 */
 	public Arme getArmeEquipee() {
 		return Arme.getArme(this.idArmeEquipee);
@@ -347,7 +347,7 @@ public final class Partie implements Listable, Sauvegardable {
 	
 	/**
 	 * Equiper une Arme au Heros
-	 * @param idArme identifiant de l'Arme à équiper
+	 * @param idArme identifiant de l'Arme a ï¿½quiper
 	 */
 	public void equiperArme(final int idArme) {
 		if (this.armesPossedees[idArme]) {
@@ -356,19 +356,19 @@ public final class Partie implements Listable, Sauvegardable {
 	}
 	
 	/**
-	 * Equiper l'Arme suivante dans la liste des Armes possédées par le Héros
+	 * Equiper l'Arme suivante dans la liste des Armes possï¿½dï¿½es par le Hï¿½ros
 	 */
 	public void equiperArmeSuivante() {
-		//pas d'Armes possédées
+		//pas d'Armes possï¿½dï¿½es
 		if (nombreDArmesPossedees<=0) {
 			return;
 		}
-		//si pas d'Arme équipée, on équipe la dernière possédée
+		//si pas d'Arme ï¿½quipï¿½e, on ï¿½quipe la derniï¿½re possï¿½dï¿½e
 		if (idArmeEquipee<0) {
 			idArmeEquipee += nombreDArmesPossedees-1;
 			return;
 		}
-		//on équipe l'Arme suivante
+		//on ï¿½quipe l'Arme suivante
 		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee + 1, nombreDArmesPossedees);
 		//affichage console
 		if (this.getArmeEquipee()!=null) {
@@ -377,22 +377,22 @@ public final class Partie implements Listable, Sauvegardable {
 	}
 	
 	/**
-	 * Equiper l'Arme précédente dans la liste des Armes possédées par le Héros
+	 * Equiper l'Arme prï¿½cï¿½dente dans la liste des Armes possï¿½dï¿½es par le Hï¿½ros
 	 */
 	public void equiperArmePrecedente() {		
-		//pas d'Armes possédées
+		//pas d'Armes possï¿½dï¿½es
 		if (nombreDArmesPossedees<=0) {
 			return;
 		}
-		//si pas d'Arme équipée, on équipe la dernière possédée
+		//si pas d'Arme ï¿½quipï¿½e, on ï¿½quipe la derniï¿½re possï¿½dï¿½e
 		if (idArmeEquipee<0) {
 			idArmeEquipee += nombreDArmesPossedees-1;
 			return;
 		}
-		//on équipe l'Arme précédente
+		//on ï¿½quipe l'Arme prï¿½cï¿½dente
 		this.idArmeEquipee = Maths.modulo(this.idArmeEquipee - 1, nombreDArmesPossedees);
 		//affichage console
-		LOG.info("arme précédente : "+ this.getArmeEquipee().nom);
+		LOG.info("arme prï¿½cï¿½dente : "+ this.getArmeEquipee().nom);
 	}
 
 	/**
@@ -413,7 +413,7 @@ public final class Partie implements Listable, Sauvegardable {
 					final Partie partie = ChargerPartie.chargerPartie(numeroPartie);
 					parties.put(numeroPartie, partie);
 				} catch (Exception e) {
-					LOG.error("Impossible de charger la partie numéro "+numeroPartie, e);
+					LOG.error("Impossible de charger la partie numï¿½ro "+numeroPartie, e);
 				}
 			}
 		}
@@ -427,10 +427,10 @@ public final class Partie implements Listable, Sauvegardable {
 		// Texte d'avancement
 		final ArrayList<String> blabla = new ArrayList<String>();
 		final StringBuilder francais = new StringBuilder();
-		francais.append(this.mots[0]); //nom du héros
+		francais.append(this.mots[0]); //nom du hï¿½ros
 		blabla.add(francais.toString());
 		final StringBuilder anglais = new StringBuilder();
-		anglais.append(this.mots[0]); //nom du héros
+		anglais.append(this.mots[0]); //nom du hï¿½ros
 		blabla.add(anglais.toString());
 		final BufferedImage nomPartie = new Texte(blabla).getImage();
 		Graphismes.superposerImages(vignettePartie, nomPartie, MARGE, MARGE);
@@ -450,7 +450,7 @@ public final class Partie implements Listable, Sauvegardable {
 	}
 	
 	/**
-	 * Code correspondant à l'avancement de la Partie
+	 * Code correspondant a l'avancement de la Partie
 	 * @return code
 	 */
 	public int avancement() {
@@ -571,7 +571,7 @@ public final class Partie implements Listable, Sauvegardable {
 		}
 		jsonPartie.put("objetsPossedes", objetsPossedes);
 		
-		//quêtes
+		//quï¿½tes
 		final JSONArray avancementQuetes = new JSONArray();
 		for (int i = 0; i<this.avancementDesQuetes.length; i++) {
 			if (this.avancementDesQuetes[i]!= null 

@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Modifier les options de la boîte de Messages.
+ * Modifier les options de la boï¿½te de Messages.
  */
 public class ModifierOptionsMessages extends Commande implements CommandeEvent {
 	private final boolean masquer;
@@ -14,8 +14,8 @@ public class ModifierOptionsMessages extends Commande implements CommandeEvent {
 
 	/**
 	 * 
-	 * @param masquer  la boîte de Messages ?
-	 * @param position de la boîte de Messages à l'écran
+	 * @param masquer  la boï¿½te de Messages ?
+	 * @param position de la boï¿½te de Messages a l'ecran
 	 */
 	public ModifierOptionsMessages(final boolean masquer, final String position) {
 		this.masquer = masquer;
@@ -23,9 +23,9 @@ public class ModifierOptionsMessages extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierOptionsMessages(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("masquer") ? (boolean) parametres.get("masquer") : false,
@@ -36,11 +36,6 @@ public class ModifierOptionsMessages extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		// masquer ?
 		Message.masquerBoiteMessage = this.masquer;
-		if (masquer) {
-			Message.imageBoiteMessage = Message.IMAGE_BOITE_MESSAGE_VIDE;
-		} else {
-			Message.imageBoiteMessage = Message.IMAGE_BOITE_MESSAGE_PLEINE;
-		}
 		// position
 		Message.positionBoiteMessage = Message.Position.parNom(this.position);
 		return curseurActuel + 1;

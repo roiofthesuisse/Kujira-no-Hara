@@ -12,15 +12,15 @@ public class RendrePlat extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouveauPlat à donner à l'Event
+	 * @param nouveauPlat a donner a l'Event
 	 */
 	public RendrePlat(final boolean nouveauPlat) {
 		this.nouveauPlat = nouveauPlat;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RendrePlat(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("plat") ? (boolean) parametres.get("plat") : true );

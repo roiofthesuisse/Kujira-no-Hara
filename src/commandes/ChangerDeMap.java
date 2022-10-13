@@ -16,7 +16,7 @@ import map.positionInitiale.PositionInitiale;
 import map.positionInitiale.PositionInitialeExhaustive;
 
 /**
- * Le Heros est téléporté sur une autre Map.
+ * Le Heros est tï¿½lï¿½portï¿½ sur une autre Map.
  */
 public class ChangerDeMap extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ChangerDeMap.class);
@@ -31,14 +31,14 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param variable            le lieu d'arrivée est défini par des variables
-	 * @param numeroNouvelleMap   numéro de la nouvelle Map
-	 * @param xDebutHeros         coordonnée x du Héros (en carreaux) à son arrivée
+	 * @param variable            le lieu d'arrivï¿½e est dï¿½fini par des variables
+	 * @param numeroNouvelleMap   numï¿½ro de la nouvelle Map
+	 * @param xDebutHeros         coordonnï¿½e x du Hï¿½ros (en carreaux) a son arrivï¿½e
 	 *                            sur la Map
-	 * @param yDebutHeros         coordonnée y du Héros (en carreaux) à son arrivée
+	 * @param yDebutHeros         coordonnï¿½e y du Hï¿½ros (en carreaux) a son arrivï¿½e
 	 *                            sur la Map
-	 * @param directionDebutHeros direction du Héros à son arrivée sur la Map
-	 * @param transition          visuelle pour passer d'une Map à l'autre (si null,
+	 * @param directionDebutHeros direction du Hï¿½ros a son arrivï¿½e sur la Map
+	 * @param transition          visuelle pour passer d'une Map a l'autre (si null,
 	 *                            choix automatique)
 	 */
 	public ChangerDeMap(final boolean variable, final int numeroNouvelleMap, final int xDebutHeros,
@@ -52,9 +52,9 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ChangerDeMap(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("variable") && (boolean) parametres.get("variable"),
@@ -70,19 +70,19 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		final Heros ancienHeros = ancienneMap.heros;
 
 		if (this.directionDebutHeros == -1) {
-			// aucune direction n'a été imposée pour le Héros, on garde l'ancienne
+			// aucune direction n'a ï¿½tï¿½ imposï¿½e pour le Hï¿½ros, on garde l'ancienne
 			this.directionDebutHeros = ancienHeros.direction;
 		}
 
-		// Si la Transition n'a pas été spécifiée par le code RM,
-		// on choisit la mieux adaptée automatiquement
+		// Si la Transition n'a pas ï¿½tï¿½ spï¿½cifiï¿½e par le code RM,
+		// on choisit la mieux adaptï¿½e automatiquement
 		if (this.transition == null) {
 			if (ancienneMap.leHerosEntreParUnePorte(ancienHeros.x / Main.TAILLE_D_UN_CARREAU,
 					ancienHeros.y / Main.TAILLE_D_UN_CARREAU)) {
 				// Transition en cas de franchissement de porte
 				this.transition = Transition.ROND;
 			} else {
-				// Transition par défaut
+				// Transition par dï¿½faut
 				this.transition = Transition.DEFILEMENT;
 			}
 		}
@@ -94,13 +94,13 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 			final int xDebutHerosInterprete;
 			final int yDebutHerosInterprete;
 			if (this.definiParDesVariables) {
-				// données à chercher dans les variables
+				// donnï¿½es a chercher dans les variables
 				final int[] variables = getPartieActuelle().variables;
 				numeroNouvelleMapInterprete = variables[numeroNouvelleMap];
 				xDebutHerosInterprete = variables[xDebutHeros];
 				yDebutHerosInterprete = variables[yDebutHeros];
 			} else {
-				// données brutes
+				// donnï¿½es brutes
 				numeroNouvelleMapInterprete = numeroNouvelleMap;
 				xDebutHerosInterprete = xDebutHeros;
 				yDebutHerosInterprete = yDebutHeros;
@@ -110,7 +110,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 					ancienHeros.x, ancienHeros.y, xDebutHerosInterprete, yDebutHerosInterprete);
 			final Map nouvelleMap = new Map(numeroNouvelleMapInterprete, nouveauLecteur, ancienHeros, null, // pas de
 																											// Brouillard
-																											// forcé
+																											// forcï¿½
 					positionInitiale);
 
 			nouveauLecteur.devenirLeNouveauLecteurMap(nouvelleMap);

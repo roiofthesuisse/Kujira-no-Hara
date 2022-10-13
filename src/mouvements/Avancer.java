@@ -12,7 +12,7 @@ import map.Passabilite;
 import map.Event.Direction;
 
 /**
- * Déplacer un Event dans une Direction et d'un certain nombre de cases.
+ * Dï¿½placer un Event dans une Direction et d'un certain nombre de cases.
  */
 public class Avancer extends Mouvement {
 	protected static final Logger LOG = LogManager.getLogger(Avancer.class);
@@ -20,11 +20,11 @@ public class Avancer extends Mouvement {
 	
 	/** Direction dans laquelle l'Event doit avancer */
 	protected int direction;
-	/** Si l'Event marche vers un coin, on le décale légèrement pour qu'il puisse passer */
+	/** Si l'Event marche vers un coin, on le dï¿½cale lï¿½gï¿½rement pour qu'il puisse passer */
 	protected boolean onPeutContournerUnCoin;
-	/** Décalage de l'Event pour l'aider à franchir un coin */
+	/** Dï¿½calage de l'Event pour l'aider a franchir un coin */
 	protected int realignementX, realignementY;
-	/** Nombre de pixels parcourus à chaque pas */
+	/** Nombre de pixels parcourus a chaque pas */
 	private int enjambee;
 	
 	/**
@@ -38,8 +38,8 @@ public class Avancer extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Avancer(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("direction"), 
@@ -49,14 +49,14 @@ public class Avancer extends Mouvement {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incrémente le compteur "ceQuiAEteFait".
+	 * Puis incrï¿½mente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	@Override
 	public void calculDuMouvement(final Event event) {
 		event.avance = true;
 		
-		//déplacement :
+		//dï¿½placement :
 		switch (this.direction) {
 			case Direction.BAS : 
 				event.y += this.enjambee; 
@@ -71,7 +71,7 @@ public class Avancer extends Mouvement {
 				event.y -= this.enjambee; 
 				break;
 		}
-		//on actualise la complétion du Mouvement
+		//on actualise la complï¿½tion du Mouvement
 		this.ceQuiAEteFait += this.enjambee;
 	}
 	
@@ -83,20 +83,20 @@ public class Avancer extends Mouvement {
 	public boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		
-		//pas besoin d'aller à la vitesse de l'Event si l'objectif est très proche
+		//pas besoin d'aller a la vitesse de l'Event si l'objectif est trï¿½s proche
 		this.enjambee = Math.min(this.etapes - this.ceQuiAEteFait, event.vitesseActuelle.valeur);
 		
-		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
+		//si c'est le Hï¿½ros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 			return false;
 		}
 		
-		//si l'Event est lui-même traversable, il peut faire son mouvement
+		//si l'Event est lui-mï¿½me traversable, il peut faire son mouvement
 		if (event.traversableActuel == Passabilite.PASSABLE) {
 			return true;
 		}
 		
-		//où sera l'Event après son pas ?
+		//oï¿½ sera l'Event apres son pas ?
 		int xAInspecter = event.x;
 		int yAInspecter = event.y;
 		switch (this.direction) {
@@ -113,7 +113,7 @@ public class Avancer extends Mouvement {
 			yAInspecter -= this.enjambee; 
 			break;
 		}
-		//calcul des collisions avec le décor et les autres Events
+		//calcul des collisions avec le dï¿½cor et les autres Events
 		if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id)) {
 			// Aucun obstacle
 			// On peut avancer tout droit
@@ -124,7 +124,7 @@ public class Avancer extends Mouvement {
 			this.onPeutContournerUnCoin = true;
 			return false;
 		} else {
-			// L'Event ne peut pas avancer à cause d'un obstacle infranchissable
+			// L'Event ne peut pas avancer a cause d'un obstacle infranchissable
 			this.onPeutContournerUnCoin = false;
 			return false;
 		}
@@ -138,7 +138,7 @@ public class Avancer extends Mouvement {
 
 	@Override
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
-		// Même si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
+		// Mï¿½me si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
 		mettreEventDansLaDirectionDuMouvement();
 		
 		if (this.onPeutContournerUnCoin) {
@@ -149,7 +149,7 @@ public class Avancer extends Mouvement {
 			this.realignementY = 0;
 			
 		} else {
-			// L'event ne bouge plus depuis 2 frames, on arrête son animation
+			// L'event ne bouge plus depuis 2 frames, on arrï¿½te son animation
 			if (!event.animeALArretActuel && !event.avancaitALaFramePrecedente && !event.avance) {
 				event.animation = 0; 
 			}
@@ -172,11 +172,11 @@ public class Avancer extends Mouvement {
 	}
 	
 	/**
-	 * Si l'Event ne peut pas avancer parce qu'il déborde légèrement sur un coin, on le réaligne pour l'aider à passer.
-	 * @param xAInspecter coordonnée X où l'Event voudrait aller
-	 * @param yAInspecter coordonnée Y où l'Event voudrait aller
+	 * Si l'Event ne peut pas avancer parce qu'il dï¿½borde lï¿½gï¿½rement sur un coin, on le rï¿½aligne pour l'aider a passer.
+	 * @param xAInspecter coordonnï¿½e X oï¿½ l'Event voudrait aller
+	 * @param yAInspecter coordonnï¿½e Y oï¿½ l'Event voudrait aller
 	 * @param event qui veut avancer
-	 * @return true si on peut l'aider à contourner le coin, false sinon
+	 * @return true si on peut l'aider a contourner le coin, false sinon
 	 */
 	private boolean lObstacleEstUnCoinQueLOnPeutContourner(final int xAInspecter, final int yAInspecter, final Event event) {
 		this.realignementX = 0;
@@ -193,8 +193,8 @@ public class Avancer extends Mouvement {
 			if (event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id)  //c'est un coin
 					&& Math.abs(this.realignementX) <= TOLERANCE_COIN) //le coin est petit
 			{
-				// On peut contourner le coin en décalant un peu l'Event
-				return event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, event.y, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
+				// On peut contourner le coin en dï¿½calant un peu l'Event
+				return event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, event.y, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut rï¿½aligner l'Event
 			} else {
 				// On essaye de contourner un coin droit
 				xAInspecterApresRealignement = (xAInspecter/Main.TAILLE_D_UN_CARREAU + 1) * Main.TAILLE_D_UN_CARREAU;
@@ -202,8 +202,8 @@ public class Avancer extends Mouvement {
 				if (event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id) //c'est un coin
 						&& Math.abs(this.realignementX) <= TOLERANCE_COIN) //le coin est petit
 				{
-					// On peut contourner le coin en décalant un peu l'Event
-					return event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, event.y, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
+					// On peut contourner le coin en dï¿½calant un peu l'Event
+					return event.map.calculerSiLaPlaceEstLibre(xAInspecterApresRealignement, event.y, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut rï¿½aligner l'Event
 				}
 			}
 			// L'obstacle n'est pas un coin que l'on peut contourner
@@ -217,8 +217,8 @@ public class Avancer extends Mouvement {
 			if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id) //c'est un coin
 					&& Math.abs(this.realignementY) <= TOLERANCE_COIN) //le coin est petit
 			{
-				// On peut contourner le coin en décalant un peu l'Event
-				return event.map.calculerSiLaPlaceEstLibre(event.x, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
+				// On peut contourner le coin en dï¿½calant un peu l'Event
+				return event.map.calculerSiLaPlaceEstLibre(event.x, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut rï¿½aligner l'Event
 			} else {
 				// On essaye de contourner un coin bas
 				yAInspecterApresRealignement = (yAInspecter/Main.TAILLE_D_UN_CARREAU + 1) * Main.TAILLE_D_UN_CARREAU;
@@ -226,8 +226,8 @@ public class Avancer extends Mouvement {
 				if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id) //c'est un coin
 						&& Math.abs(this.realignementY) <= TOLERANCE_COIN) //le coin est petit
 				{
-					// On peut contourner le coin en décalant un peu l'Event
-					return event.map.calculerSiLaPlaceEstLibre(event.x, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut réaligner l'Event
+					// On peut contourner le coin en dï¿½calant un peu l'Event
+					return event.map.calculerSiLaPlaceEstLibre(event.x, yAInspecterApresRealignement, event.largeurHitbox, event.hauteurHitbox, event.id); //on peut rï¿½aligner l'Event
 				}
 			}
 			// L'obstacle n'est pas un coin que l'on peut contourner
@@ -239,29 +239,29 @@ public class Avancer extends Mouvement {
 	}
 	
 	/**
-	 * Aider l'Event à contourner un coin.
+	 * Aider l'Event a contourner un coin.
 	 * @param event qui veut avancer
-	 * @param realignementX décalage en X pour ne pas qu'il soit bloqué sur le coin
-	 * @param realignementY décalage en Y pour ne pas qu'il soit bloqué sur le coin
+	 * @param realignementX dï¿½calage en X pour ne pas qu'il soit bloquï¿½ sur le coin
+	 * @param realignementY dï¿½calage en Y pour ne pas qu'il soit bloquï¿½ sur le coin
 	 */
 	public static void contournerUnCoin(final Event event, int realignementX, int realignementY) {
 		// On contourne un coin
 		if (realignementX != 0) {
-			// Le réalignement ne se fait pas plus rapidement que la vitesse de l'Event
+			// Le rï¿½alignement ne se fait pas plus rapidement que la vitesse de l'Event
 			if (Math.abs(realignementX) > event.vitesseActuelle.valeur) {
 				final int signeRealigmement = Math.abs(realignementX) / realignementX; //-1 ou +1
 				realignementX = event.vitesseActuelle.valeur * signeRealigmement;
 			}
-			// On réaligne l'Event pour qu'il puisse contourner un coin
+			// On rï¿½aligne l'Event pour qu'il puisse contourner un coin
 			event.x += realignementX;
 			
 		} else if (realignementY != 0) {
-			// Le réalignement ne se fait pas plus rapidement que la vitesse de l'Event
+			// Le rï¿½alignement ne se fait pas plus rapidement que la vitesse de l'Event
 			if (Math.abs(realignementY) > event.vitesseActuelle.valeur) {
 				final int signeRealigmement = Math.abs(realignementY) / realignementY; //-1 ou +1
 				realignementY = event.vitesseActuelle.valeur * signeRealigmement;
 			}
-			// On réaligne l'Event pour qu'il puisse contourner un coin
+			// On rï¿½aligne l'Event pour qu'il puisse contourner un coin
 			event.y += Math.abs(realignementY) <= Math.abs(event.vitesseActuelle.valeur) 
 					? realignementY 
 					: event.vitesseActuelle.valeur;

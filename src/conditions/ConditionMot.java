@@ -6,7 +6,7 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
 /**
- * Vérifier la valeur du mot de passe.
+ * Vï¿½rifier la valeur du mot de passe.
  */
 public class ConditionMot extends Condition implements CommandeEvent, CommandeMenu {
 	private final Object motAttendu;
@@ -15,8 +15,8 @@ public class ConditionMot extends Condition implements CommandeEvent, CommandeMe
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param motAttendu valeur attendue pour le mot de passe saisi par le joueur (ou bien numéro du mot)
-	 * @param numeroMot numéro du mot à comparer avec la valeur attendue
+	 * @param motAttendu valeur attendue pour le mot de passe saisi par le joueur (ou bien numï¿½ro du mot)
+	 * @param numeroMot numï¿½ro du mot a comparer avec la valeur attendue
 	 */
 	public ConditionMot(final int numero, final Object motAttendu, final int numeroMot) {
 		this.numero = numero;
@@ -25,8 +25,8 @@ public class ConditionMot extends Condition implements CommandeEvent, CommandeMe
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionMot(final HashMap<String, Object> parametres) {
 		this( 

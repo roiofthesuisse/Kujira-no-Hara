@@ -9,8 +9,8 @@ import commandes.Deplacement;
 import main.Commande;
 
 /**
- * Vérifie si ce Mouvement est possible.
- * L'Event considéré est mentionné dans l'objet Mouvement.
+ * Vï¿½rifie si ce Mouvement est possible.
+ * L'Event considï¿½rï¿½ est mentionnï¿½ dans l'objet Mouvement.
  */
 public class ConditionMouvementPossible extends Condition implements CommandeEvent {
 	private Deplacement deplacement;
@@ -18,7 +18,7 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	/**
 	 * Constructeur explicite
 	 * @param numero de la condition
-	 * @param deplacement qui ne contient qu'un Mouvement, ainsi que l'id de l'Event à déplacer
+	 * @param deplacement qui ne contient qu'un Mouvement, ainsi que l'id de l'Event a dï¿½placer
 	 */
 	public ConditionMouvementPossible(final int numero, final Deplacement deplacement) {
 		this.numero = numero;
@@ -26,8 +26,8 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionMouvementPossible(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
@@ -37,13 +37,13 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 
 	@Override
 	public final boolean estVerifiee() {
-		this.deplacement.page = this.page; //on apprend au Déplacement quelle est sa Page
+		this.deplacement.page = this.page; //on apprend au Dï¿½placement quelle est sa Page
 		final boolean resultat = this.deplacement.mouvements.get(0).mouvementPossible();
 		return resultat;
 	}
 
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

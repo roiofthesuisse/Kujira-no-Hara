@@ -9,7 +9,7 @@ import main.Commande;
  * Sortir de la Boucle actuelle.
  */
 public class BoucleSortir extends Commande implements CommandeEvent, CommandeMenu {
-	public int numero; // le numéro de Boucle est le même que le numéro de fin de Boucle qui correspond
+	public int numero; // le numï¿½ro de Boucle est le mï¿½me que le numï¿½ro de fin de Boucle qui correspond
 
 	/**
 	 * Constructeur explicite
@@ -21,17 +21,17 @@ public class BoucleSortir extends Commande implements CommandeEvent, CommandeMen
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public BoucleSortir(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numero"));
 	}
 
 	/**
-	 * Une Boucle est une Commande Event, elle peut être executée pour faire des
-	 * sauts de curseur. Son execution est instantanée.
+	 * Une Boucle est une Commande Event, elle peut ï¿½tre executï¿½e pour faire des
+	 * sauts de curseur. Son execution est instantanï¿½e.
 	 * 
 	 * @param curseurActuel position du curseur avant l'execution
 	 * @param commandes     liste des Commandes de la Page
@@ -41,8 +41,8 @@ public class BoucleSortir extends Commande implements CommandeEvent, CommandeMen
 		for (int i = 0; i < commandes.size(); i++) {
 			final Commande commande = commandes.get(i);
 
-			// puisqu'on sort de la Boucle, on efface le temps de début de boucle
-			// (ce temps sert à vérifier que la Boucle ne dure pas trop longtemps)
+			// puisqu'on sort de la Boucle, on efface le temps de dï¿½but de boucle
+			// (ce temps sert a vï¿½rifier que la Boucle ne dure pas trop longtemps)
 			if (commande instanceof Boucle) {
 				final Boucle debutDeBoucle = (Boucle) commande;
 				if (debutDeBoucle.numero == this.numero) {
@@ -50,22 +50,22 @@ public class BoucleSortir extends Commande implements CommandeEvent, CommandeMen
 				}
 			}
 
-			// aller à la fin de la Boucle
+			// aller a la fin de la Boucle
 			if (commande instanceof BoucleFin) {
 				final BoucleFin finDeBoucle = (BoucleFin) commande;
 				if (finDeBoucle.numero == this.numero) {
-					// la fin de Boucle a été trouvée
+					// la fin de Boucle a ï¿½tï¿½ trouvï¿½e
 					return i + 1;
 				}
 			}
 		}
-		// la fin de Boucle n'a pas été trouvée
-		System.err.println("La fin de la boucle numéro " + numero + " n'a pas été trouvée !");
+		// la fin de Boucle n'a pas ï¿½tï¿½ trouvï¿½e
+		System.err.println("La fin de la boucle numï¿½ro " + numero + " n'a pas ï¿½tï¿½ trouvï¿½e !");
 		return curseurActuel + 1;
 	}
 
 	/**
-	 * Les Commandes de Menu sont instantannées et donc n'utilisent pas de curseur.
+	 * Les Commandes de Menu sont instantannï¿½es et donc n'utilisent pas de curseur.
 	 */
 	public void executer() {
 		// rien

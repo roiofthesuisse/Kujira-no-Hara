@@ -10,27 +10,27 @@ import main.Commande;
 import map.Picture;
 
 /**
- * Figer une Image en supprimant son Déplacement.
+ * Figer une Image en supprimant son Dï¿½placement.
  */
 public class InterrompreDeplacementImage extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(InterrompreDeplacementImage.class);
 
-	/** numéro de l'image à déplacer */
-	private Integer numero; // Integer car utilisé comme clé d'une HashMap
+	/** numï¿½ro de l'image a dï¿½placer */
+	private Integer numero; // Integer car utilisï¿½ comme clï¿½ d'une HashMap
 
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numero de l'image à stopper
+	 * @param numero de l'image a stopper
 	 */
 	private InterrompreDeplacementImage(final int numero) {
 		this.numero = numero;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public InterrompreDeplacementImage(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numero"));

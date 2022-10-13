@@ -15,8 +15,8 @@ public class ModifierInterrupteur extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numero de l'interrupteur à modifier
-	 * @param valeur à donner à l'interrupteur
+	 * @param numero de l'interrupteur a modifier
+	 * @param valeur a donner a l'interrupteur
 	 */
 	public ModifierInterrupteur(final int numero, final boolean valeur) {
 		numeroInterrupteur = numero;
@@ -24,9 +24,9 @@ public class ModifierInterrupteur extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierInterrupteur(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroInterrupteur"), (boolean) parametres.get("valeur"));

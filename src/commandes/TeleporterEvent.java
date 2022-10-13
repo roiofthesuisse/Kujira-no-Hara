@@ -20,10 +20,10 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idEvent           identifiant de l'Event à téléporter
-	 * @param nouveauX          nouvelle coordonnée x de l'Event
-	 * @param nouveauY          nouvelle coordonnée y de l'Event
-	 * @param utiliserVariables false si valeurs fixes, true si numéros de variables
+	 * @param idEvent           identifiant de l'Event a tï¿½lï¿½porter
+	 * @param nouveauX          nouvelle coordonnï¿½e x de l'Event
+	 * @param nouveauY          nouvelle coordonnï¿½e y de l'Event
+	 * @param utiliserVariables false si valeurs fixes, true si numï¿½ros de variables
 	 */
 	public TeleporterEvent(final Integer idEvent, final int nouveauX, final int nouveauY,
 			final boolean utiliserVariables) {
@@ -34,9 +34,9 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public TeleporterEvent(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("idEvent") ? (int) parametres.get("idEvent") : null,
@@ -48,7 +48,7 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final Event cetEvent;
 		if (idEvent == null) {
-			// si idEvent n'est pas précisé, l'Event appelant est téléporté par défaut
+			// si idEvent n'est pas prï¿½cisï¿½, l'Event appelant est tï¿½lï¿½portï¿½ par dï¿½faut
 			cetEvent = this.page.event;
 		} else {
 			cetEvent = this.page.event.map.eventsHash.get((Integer) idEvent);

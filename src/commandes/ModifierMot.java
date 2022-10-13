@@ -16,7 +16,7 @@ public class ModifierMot extends Commande implements CommandeMenu, CommandeEvent
 	 * Constructeur explicite
 	 * 
 	 * @param nouveauMot nouvelle valeur du mot
-	 * @param numeroMot  numéro du mot à modifier
+	 * @param numeroMot  numï¿½ro du mot a modifier
 	 */
 	public ModifierMot(final String nouveauMot, final int numeroMot) {
 		this.nouveauMot = nouveauMot;
@@ -24,9 +24,9 @@ public class ModifierMot extends Commande implements CommandeMenu, CommandeEvent
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierMot(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("mot"), (int) parametres.get("numeroMot"));

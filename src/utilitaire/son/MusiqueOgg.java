@@ -25,7 +25,7 @@ public class MusiqueOgg extends Musique {
 			if (volume < VOLUME_MAXIMAL) {
 				this.modifierVolume(volume);
 			}
-			//durée
+			//durï¿½e
 			if (TypeMusique.ME.equals(type)) {
 				this.dureeMillisecondes = (long) calculerDuree(fichierOgg);
 			}
@@ -37,9 +37,9 @@ public class MusiqueOgg extends Musique {
 	}
 	
 	/**
-	 * Calculer la durée de la musique Ogg.
-	 * @param fichierOgg à mesurer
-	 * @return durée (en millisecondes)
+	 * Calculer la durï¿½e de la musique Ogg.
+	 * @param fichierOgg a mesurer
+	 * @return durï¿½e (en millisecondes)
 	 */
 	private double calculerDuree(final File fichierOgg) {
 		int debit = -1;
@@ -73,7 +73,7 @@ public class MusiqueOgg extends Musique {
 				}
 			}
 			for (int i = 0; i<taille-8-2-4; i++) {
-				// On cherche le débit
+				// On cherche le dï¿½bit
 				if (debit<0
 						&& t[i]==(byte)'v'
 						&& t[i+1]==(byte)'o'
@@ -91,15 +91,15 @@ public class MusiqueOgg extends Musique {
 				
 			}
 		} catch (IOException e) {
-			LOG.error("Erreur à la lecture du OGG.", e);
+			LOG.error("Erreur a la lecture du OGG.", e);
 		}
 		
 		if (debit<0 || longueur<0) {
-			LOG.error("Impossible de trouver la durée de ce OGG." + (debit<0 ? " Ce n'est pas un vorbis." : ""));
+			LOG.error("Impossible de trouver la durï¿½e de ce OGG." + (debit<0 ? " Ce n'est pas un vorbis." : ""));
 			return DUREE_PAR_DEFAUT_ME; //valeur bidon
 		} else {
 			final double duree = (double) (longueur*1000) / (double) debit;
-			LOG.debug("Durée du OGG : "+duree+" ms");
+			LOG.debug("Durï¿½e du OGG : "+duree+" ms");
 			return duree;
 		}
 	}
@@ -108,7 +108,7 @@ public class MusiqueOgg extends Musique {
 	public final void modifierVolume(final float nouveauVolume) {
 		((OggClip) this.clip).setGain(nouveauVolume);
 		
-		//mettre à jour les données
+		//mettre a jour les donnï¿½es
 		this.volumeActuel = nouveauVolume;
 	}
 	

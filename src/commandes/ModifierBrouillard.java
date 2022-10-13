@@ -12,8 +12,8 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Modifier l'image de Panorama pour en avoir une autre que celle associée par
- * défaut au Tileset. On peut également changer le degré de parallaxe.
+ * Modifier l'image de Panorama pour en avoir une autre que celle associï¿½e par
+ * dï¿½faut au Tileset. On peut ï¿½galement changer le degrï¿½ de parallaxe.
  */
 public class ModifierBrouillard extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(ModifierBrouillard.class);
@@ -29,11 +29,11 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * 
 	 * @param nomImage        nom de l'image de panorama
-	 * @param opacite         transparence de 0 à 255
+	 * @param opacite         transparence de 0 a 255
 	 * @param nomModeDeFusion normal, addition, soustraction...
-	 * @param defilementX     vitesse du défilement horizontal
-	 * @param defilementY     vitesse du défilement vertical
-	 * @param zoom            homothétie
+	 * @param defilementX     vitesse du dï¿½filement horizontal
+	 * @param defilementY     vitesse du dï¿½filement vertical
+	 * @param zoom            homothï¿½tie
 	 * @param ton             du brouillard (gris, rouge, vert, bleu)
 	 */
 	public ModifierBrouillard(final String nomImage, final Integer opacite, final String nomModeDeFusion,
@@ -48,9 +48,9 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierBrouillard(final HashMap<String, Object> parametres) {
 		// "null" signifie aucun changement par rapport au Brouillard actuel
@@ -70,11 +70,11 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final Brouillard brouillardActuel = this.page.event.map.brouillard;
 
-		// Y a-t-il déjà un Brouillard actuel ?
+		// Y a-t-il dï¿½jï¿½ un Brouillard actuel ?
 		if (brouillardActuel == null) {
 			// Il n'y a pas encore de Brouillard
-			// On crée un Brouillard tout neuf
-			// On utilise des valeurs par défaut si manquantes
+			// On crï¿½e un Brouillard tout neuf
+			// On utilise des valeurs par dï¿½faut si manquantes
 			this.page.event.map.brouillard = new Brouillard(this.nomImage,
 					this.opacite == null ? Graphismes.OPACITE_MAXIMALE : this.opacite,
 					this.nomModeDeFusion == null ? ModeDeFusion.NORMAL : ModeDeFusion.parNom(this.nomModeDeFusion),
@@ -83,7 +83,7 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 					this.ton == null ? Graphismes.TON_PAR_DEFAUT : this.ton);
 
 		} else {
-			// Il y a déjà un Brouillard
+			// Il y a dï¿½jï¿½ un Brouillard
 			// On modifie le Brouillard actuel
 			if ((this.nomImage == null || brouillardActuel.nomImage.equals(this.nomImage))
 					&& (this.opacite == null || brouillardActuel.opacite == this.opacite)
@@ -95,8 +95,8 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 				// Aucun changement
 				LOG.warn("Cette modification du brouillard ne change rien !");
 			} else {
-				// Différent d'avant !
-				// Si manquantes, on réutilise les valeurs du Brouillard actuel
+				// Diffï¿½rent d'avant !
+				// Si manquantes, on rï¿½utilise les valeurs du Brouillard actuel
 				this.page.event.map.brouillard = new Brouillard(
 						this.nomImage == null ? brouillardActuel.nomImage : this.nomImage,
 						this.opacite == null ? brouillardActuel.opacite : this.opacite,

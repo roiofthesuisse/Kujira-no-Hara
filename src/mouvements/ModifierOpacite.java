@@ -4,22 +4,22 @@ import java.util.HashMap;
 import map.Event;
 
 /**
- * Modifier l'opacité d'un Event.
+ * Modifier l'opacitï¿½ d'un Event.
  */
 public class ModifierOpacite extends Mouvement {
 	private int nouvelleOpacite;
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouvelleOpacite à donner à l'Event
+	 * @param nouvelleOpacite a donner a l'Event
 	 */
 	public ModifierOpacite(final int nouvelleOpacite) {
 		this.nouvelleOpacite = nouvelleOpacite;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierOpacite(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("opacite") );
@@ -53,7 +53,7 @@ public class ModifierOpacite extends Mouvement {
 
 	@Override
 	public final String toString() {
-		return "nouvelle opacité : " + this.nouvelleOpacite;
+		return "nouvelle opacitï¿½ : " + this.nouvelleOpacite;
 	}
 
 	@Override

@@ -32,8 +32,8 @@ public class Pivoter extends Mouvement {
 	}
 
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Pivoter(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("angle"));
@@ -41,7 +41,7 @@ public class Pivoter extends Mouvement {
 
 	@Override
 	protected void reinitialiserSpecifique() {
-		// Mouvement non spécifique
+		// Mouvement non spï¿½cifique
 	}
 
 	@Override
@@ -51,25 +51,25 @@ public class Pivoter extends Mouvement {
 
 	@Override
 	protected final void calculDuMouvement(final Event event) {
-		// rien car le travail est fait par la méthode getDirectionImposee()
+		// rien car le travail est fait par la Methode getDirectionImposee()
 		this.ceQuiAEteFait++;
 	}
 
 	@Override
 	protected void terminerLeMouvementSpecifique(final Event event) {
-		// Mouvement non spécifique
+		// Mouvement non spï¿½cifique
 
 	}
 
 	@Override
 	protected void ignorerLeMouvementSpecifique(final Event event) {
-		// Mouvement non spécifique
+		// Mouvement non spï¿½cifique
 
 	}
 
 	@Override
 	public final String toString() {
-		return "Pivoter d'un angle de " + angle + " degrés";
+		return "Pivoter d'un angle de " + angle + " degrï¿½s";
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class Pivoter extends Mouvement {
 	}
 
 	/**
-	 * Donne la direction à +90°
+	 * Donne la direction a +90ï¿½
 	 */
 	protected void pivoter90degres() {
 		switch (this.direction) {
@@ -138,7 +138,7 @@ public class Pivoter extends Mouvement {
 	}
 
 	/**
-	 * Donne la direction à -90°
+	 * Donne la direction a -90ï¿½
 	 */
 	protected void pivoterMoins90degres() {
 		switch (this.direction) {

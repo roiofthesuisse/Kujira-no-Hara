@@ -8,7 +8,7 @@ import jeu.Partie;
 import jeu.Quete.AvancementQuete;
 
 /**
- * Vérifie si le Héros connaît la Quête.
+ * Vï¿½rifie si le Hï¿½ros connaï¿½t la Quï¿½te.
  */
 public class ConditionEtatQuete extends Condition implements CommandeEvent, CommandeMenu {
 	public int idQuete;
@@ -17,8 +17,8 @@ public class ConditionEtatQuete extends Condition implements CommandeEvent, Comm
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param idQuete identifiant de la Quête à vérifier
-	 * @param avancementVoulu Etat de complétion attendu pour cette Quête 
+	 * @param idQuete identifiant de la Quï¿½te a vï¿½rifier
+	 * @param avancementVoulu Etat de complï¿½tion attendu pour cette Quï¿½te 
 	 */
 	public ConditionEtatQuete(final int numero, final int idQuete, final AvancementQuete avancementVoulu) {
 		this.numero = numero;
@@ -27,8 +27,8 @@ public class ConditionEtatQuete extends Condition implements CommandeEvent, Comm
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionEtatQuete(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
@@ -42,11 +42,11 @@ public class ConditionEtatQuete extends Condition implements CommandeEvent, Comm
 		final Partie partieActuelle = getPartieActuelle();
 		final AvancementQuete avancementReel = partieActuelle.avancementDesQuetes[idQuete];
 		return this.avancementVoulu.equals(avancementReel) 
-		|| (avancementVoulu.equals(AvancementQuete.CONNUE) && avancementReel.equals(AvancementQuete.FAITE)); //une quête faite est connue
+		|| (avancementVoulu.equals(AvancementQuete.CONNUE) && avancementReel.equals(AvancementQuete.FAITE)); //une quï¿½te faite est connue
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

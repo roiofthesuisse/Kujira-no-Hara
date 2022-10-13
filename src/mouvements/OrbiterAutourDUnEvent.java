@@ -10,7 +10,7 @@ import map.Passabilite;
 import utilitaire.Maths;
 
 /**
- * Déplacer un Event d'un pas en diagonale
+ * Dï¿½placer un Event d'un pas en diagonale
  */
 public class OrbiterAutourDUnEvent extends Mouvement {
 	private final Object idEventCentral;
@@ -22,7 +22,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param idEventCentral Event autour duquel il faut décrire un cercle
+	 * @param idEventCentral Event autour duquel il faut dï¿½crire un cercle
 	 */
 	public OrbiterAutourDUnEvent(final Object idEventCentral) {
 		this.etapes = Maths.ANGLE_TOUR_COMPLET;
@@ -30,8 +30,8 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public OrbiterAutourDUnEvent(final HashMap<String, Object> parametres) {
 		this(parametres.get("eventCentral"));
@@ -39,7 +39,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incrémente le compteur "ceQuiAEteFait".
+	 * Puis incrï¿½mente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	@Override
@@ -61,17 +61,17 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	public final boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		
-		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
+		//si c'est le Hï¿½ros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 			return false;
 		}
 		
-		//si l'Event est lui-même traversable, il peut faire son mouvement
+		//si l'Event est lui-mï¿½me traversable, il peut faire son mouvement
 		if (event.traversableActuel == Passabilite.PASSABLE) {
 			return true;
 		}
 		
-		//collisions avec le décor et les autres Events
+		//collisions avec le dï¿½cor et les autres Events
 		calculerNouvellesCoordonnees(event, trouverEventCentral());
 		return event.map.calculerSiLaPlaceEstLibre(this.nouveauX, this.nouveauY, event.largeurHitbox, event.hauteurHitbox, event.id);
 	}
@@ -82,8 +82,8 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	}
 	
 	/**
-	 * Calculer les déplacements (en pixels) en x et en y lors de cette frame-ci.
-	 * @param event à déplacer
+	 * Calculer les dï¿½placements (en pixels) en x et en y lors de cette frame-ci.
+	 * @param event a dï¿½placer
 	 * @param eventCentral centre du cercle
 	 */
 	private void calculerNouvellesCoordonnees(final Event event, final Event eventCentral) {	
@@ -98,14 +98,14 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 		final double angleActuel = angleActuel(deltaX, deltaY);
 		this.nouveauX = eventCentral.x + (int) (this.rayon * Math.cos(angleActuel + this.angleParcouruAChaqueEtape));
 		this.nouveauY = eventCentral.y + (int) (this.rayon * Math.sin(angleActuel + this.angleParcouruAChaqueEtape));
-		this.deplacementX = this.nouveauX - event.x; //utile pour connaître la direction regardée
-		this.deplacementY = this.nouveauY - event.y; //utile pour connaître la direction regardée
+		this.deplacementX = this.nouveauX - event.x; //utile pour connaï¿½tre la direction regardï¿½e
+		this.deplacementY = this.nouveauY - event.y; //utile pour connaï¿½tre la direction regardï¿½e
 	}
 	
 	/**
 	 * Angle (en radians) entre deux Events et l'axe des abscisses
-	 * @param deltaX écart horizontal
-	 * @param deltaY écart vertical
+	 * @param deltaX ï¿½cart horizontal
+	 * @param deltaY ï¿½cart vertical
 	 * @return radians
 	 */
 	private double angleActuel(final double deltaX, final double deltaY) {

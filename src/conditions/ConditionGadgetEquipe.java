@@ -7,7 +7,7 @@ import commandes.CommandeMenu;
 import jeu.Partie;
 
 /**
- * Vérifie si le Héros a équipé ce Gadget.
+ * Vï¿½rifie si le Hï¿½ros a ï¿½quipï¿½ ce Gadget.
  */
 public class ConditionGadgetEquipe extends Condition implements CommandeEvent, CommandeMenu {
 	public int idGadget;
@@ -15,7 +15,7 @@ public class ConditionGadgetEquipe extends Condition implements CommandeEvent, C
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param idGadget identifiant du Gadget à vérifier
+	 * @param idGadget identifiant du Gadget a vï¿½rifier
 	 */
 	public ConditionGadgetEquipe(final int numero, final int idGadget) {
 		this.numero = numero;
@@ -23,8 +23,8 @@ public class ConditionGadgetEquipe extends Condition implements CommandeEvent, C
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionGadgetEquipe(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
@@ -37,11 +37,11 @@ public class ConditionGadgetEquipe extends Condition implements CommandeEvent, C
 		if (partieActuelle.nombreDeGadgetsPossedes > 0) {
 			return partieActuelle.idGadgetEquipe == this.idGadget;
 		}
-		return false; //aucun Gadget possédé
+		return false; //aucun Gadget possï¿½dï¿½
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

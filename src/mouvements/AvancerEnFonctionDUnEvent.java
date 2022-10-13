@@ -10,7 +10,7 @@ import map.Event.Direction;
 import map.LecteurMap;
 
 /**
- * Approcher ou éloigner l'Event à déplacer d'un pas d'un autre Event.
+ * Approcher ou ï¿½loigner l'Event a dï¿½placer d'un pas d'un autre Event.
  */
 public class AvancerEnFonctionDUnEvent extends Avancer {
 	
@@ -19,13 +19,13 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	private Sens sens;
 	private int directionPossibleVerticale;
 	private int directionPossibleHorizontale;
-	/** La direction a-t-elle été décidée ? Si oui on n'y touche plus */
+	/** La direction a-t-elle ï¿½tï¿½ dï¿½cidï¿½e ? Si oui on n'y touche plus */
 	private boolean directionDecidee;
 
 	/**
 	 * Constructeur explicite
-	 * @param idEventObserve : id de l'Event en fonction duquel l'Event à déplacer avance
-	 * @param sens : l'event s'approche ou s'éloigne
+	 * @param idEventObserve : id de l'Event en fonction duquel l'Event a dï¿½placer avance
+	 * @param sens : l'event s'approche ou s'ï¿½loigne
 	 */
 	public AvancerEnFonctionDUnEvent(final int idEventObserve, final Sens sens) {
 		super(-1, Main.TAILLE_D_UN_CARREAU);
@@ -35,13 +35,13 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	}
 
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AvancerEnFonctionDUnEvent(final HashMap<String, Object> parametres) {
 		this(
-				(int) parametres.get("idEventObserve"), //0 est le Héros
-				parametres.containsKey("sens") ? (((String) parametres.get("sens")).equals("fuir") ? Sens.FUIR : Sens.SUIVRE) : Sens.SUIVRE //si non précisé : on suit
+				(int) parametres.get("idEventObserve"), //0 est le Hï¿½ros
+				parametres.containsKey("sens") ? (((String) parametres.get("sens")).equals("fuir") ? Sens.FUIR : Sens.SUIVRE) : Sens.SUIVRE //si non prï¿½cisï¿½ : on suit
 		);
 	}
 
@@ -56,7 +56,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 			final Event eventObservateur = this.deplacement.getEventADeplacer();
 			final Event eventObserve = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventObserve);
 			
-			//s'il est déjà arrivé auprès de sa cible, l'Event arrête d'avancer
+			//s'il est dï¿½jï¿½ arrivï¿½ auprï¿½s de sa cible, l'Event arrï¿½te d'avancer
 			if (this.sens == Sens.SUIVRE) {
 				final ConditionContact contact = new ConditionContact(-1, eventObservateur.id, eventObserve.id, TypeDeContact.SUPERPOSITION_PARTIELLE);
 				contact.page = this.deplacement.page;
@@ -65,7 +65,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 				}
 			}
 			
-			//calcul de la direction à prendre pour atteindre la cible
+			//calcul de la direction a prendre pour atteindre la cible
 			final int distanceVerticale = eventObservateur.y - eventObserve.y;
 			final int distanceHorizontale = eventObservateur.x - eventObserve.x;
 			calculerDirection(distanceVerticale, distanceHorizontale);
@@ -85,7 +85,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	}
 	
 	/**
-	 * Détermine la direction du Mouvement pour suivre l'event observé
+	 * Dï¿½termine la direction du Mouvement pour suivre l'event observï¿½
 	 * @param distanceVerticale difference entre le y destination et le y actuel
 	 * @param distanceHorizontale difference entre le x destination et le x actuel
 	 */
@@ -109,7 +109,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	}
 	
 	/**
-	 * Si le Mouvement est impossible dans la direction calculée, une autre direction est proposée.
+	 * Si le Mouvement est impossible dans la direction calculï¿½e, une autre direction est proposï¿½e.
 	 */
 	private void essayerAutreDirection() {
 		if (this.direction == Direction.HAUT || this.direction == Direction.BAS) {
@@ -117,7 +117,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 		} else {
 			this.direction = directionPossibleVerticale; 
 		}
-		//si l'Event fuit on prend la direction opposée
+		//si l'Event fuit on prend la direction opposï¿½e
 		if (this.sens == Sens.FUIR) {
 			this.direction = Event.Direction.directionOpposee(this.direction);
 		}

@@ -8,8 +8,8 @@ import utilitaire.Maths;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Intempérie personnalisable dont les particules ont une trajectoire trochoïdale.
- * <ul><li>t varie de 0 à dureeDeVie</li>
+ * Intempï¿½rie personnalisable dont les particules ont une trajectoire trochoï¿½dale.
+ * <ul><li>t varie de 0 a dureeDeVie</li>
  * <li>x = x0 + vitesseX * t + rayonX * sin(t * vitesseRotation)</li>
  * <li>y = y0 + vitesseY * t + rayonY * cos(t * vitesseRotation)</li></ul>
  * Si rayonX et rayonY sont nuls, le mouvement est rectiligne.
@@ -23,9 +23,9 @@ public class Trochoide extends Meteo {
 	
 	/**
 	 * Constructeur explicite
-	 * @param intensite proportionnelle au nombre de particules à l'écran
+	 * @param intensite proportionnelle au nombre de particules a l'ecran
 	 * @param dureeDeVie (en nombre de frames) d'une particule
-	 * @param vitesseX, vitesseY (en pixels par frame) de la direction générale des particules
+	 * @param vitesseX, vitesseY (en pixels par frame) de la direction gï¿½nï¿½rale des particules
 	 * @param vitesseRotation (pulsation en radians par frame) de la particule autour de son axe
 	 * @param rayonX, rayonY (en pixels) de la rotation de la particule autour de son axe
 	 * @param nomImage nom du fichier image de la particule
@@ -94,7 +94,7 @@ public class Trochoide extends Meteo {
 
 	@Override
 	protected final void ajouterUneParticule() {
-		//offset pour centrer les particules sur l'écran
+		//offset pour centrer les particules sur l'ecran
 		final int offsetX = (int) (vitesseX * dureeDeVieParticule)/2;
 		final int offsetY = (int) (vitesseY * dureeDeVieParticule)/2;
 		
@@ -106,7 +106,7 @@ public class Trochoide extends Meteo {
 			nouvelleParticule = this.rehabiliterParticule();
 			nouvelleParticule.reinitialiser(x0, y0, dureeDeVieParticule, 0);
 		} else {
-			// Le bassin est vide, il faut créer une nouvelle particule
+			// Le bassin est vide, il faut crï¿½er une nouvelle particule
 			nouvelleParticule = new Particule(x0, y0, dureeDeVieParticule, 0);
 		}
 		particules.add(nouvelleParticule);

@@ -32,7 +32,7 @@ public class Objet implements Listable {
 	private static final Logger LOG = LogManager.getLogger(Objet.class);
 	public static Objet[] objetsDuJeu = chargerLesObjetsDuJeu();
 	
-	public final Integer idObjet; //Integer car clé d'une HashMap
+	public final Integer idObjet; //Integer car clï¿½ d'une HashMap
 	public final ArrayList<String> nom;
 	private final String nomIcone;
 	private BufferedImage icone;
@@ -43,7 +43,7 @@ public class Objet implements Listable {
 	 * Constructeur explicite
 	 * @param idObjet dans le Menu
 	 * @param nom de l'Objet
-	 * @param nomIcone nom de l'icône de l'Objet affichée dans le Menu
+	 * @param nomIcone nom de l'icï¿½ne de l'Objet affichï¿½e dans le Menu
 	 * @param description de l'Objet
 	 * @param effet de l'Objet lorsqu'on le consomme
 	 */
@@ -56,8 +56,8 @@ public class Objet implements Listable {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	@SuppressWarnings("unchecked")
 	public Objet(final HashMap<String, Object> parametres) {
@@ -65,7 +65,7 @@ public class Objet implements Listable {
 			Texte.construireTexteMultilingue(parametres.get("nom")),
 			(String) parametres.get("nomIcone"),
 			Texte.construireTexteMultilingue(parametres.get("description")),
-			(ArrayList<Commande>) parametres.get("effet") //TODO à revoir, je doute que ça marche
+			(ArrayList<Commande>) parametres.get("effet") //TODO a revoir, je doute que ï¿½a marche
 		);
 	}
 
@@ -78,7 +78,7 @@ public class Objet implements Listable {
 		try {
 			jsonObjets = InterpreteurDeJson.ouvrirJsonObjets();
 		} catch (Exception e) {
-			//problème lors de l'ouverture du fichier JSON
+			//problï¿½me lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les objets du jeu.", e);
 			return null;
 		}
@@ -93,13 +93,13 @@ public class Objet implements Listable {
 				final String parametreObjet = jsonParametresObjet.next();
 				
 				if ("effet".equals(parametreObjet)) {
-					//paramètre : effet
+					//paramï¿½tre : effet
 					final ArrayList<CommandeMenu> effet = new ArrayList<CommandeMenu>();
 					final JSONArray jsonEffet = jsonObjet.getJSONArray("effet");
 					Commande.recupererLesCommandesMenu(effet, jsonEffet);
 					parametresObjet.put("effet", effet);
 				} else {
-					//autres paramètres
+					//autres paramï¿½tres
 					parametresObjet.put(parametreObjet, jsonObjet.get(parametreObjet));
 				}
 				
@@ -107,11 +107,11 @@ public class Objet implements Listable {
 			
 			final Objet objet = new Objet(parametresObjet);
 			
-			// On vérifie que les identifiants soient bien uniques
+			// On vï¿½rifie que les identifiants soient bien uniques
 			boolean identifiantUnique = true;
 			for (Objet objet2 : objets) {
 				if (objet2.idObjet.equals(objet.idObjet)) {
-					LOG.error("Les deux objets ont le même identifiant : "+objet.nom+", "+objet2.nom);
+					LOG.error("Les deux objets ont le mï¿½me identifiant : "+objet.nom+", "+objet2.nom);
 					identifiantUnique = false;
 				}
 			}
@@ -122,13 +122,13 @@ public class Objet implements Listable {
 		
 		final Objet[] objetsDuJeu = new Objet[objets.size()];
 		objets.toArray(objetsDuJeu);
-		LOG.debug("Objets créés : " + objetsDuJeu.length);
+		LOG.debug("Objets crï¿½ï¿½s : " + objetsDuJeu.length);
 		return objetsDuJeu;
 	}
 	
 	/**
-	 * Obtenir l'icône de cet Objet.
-	 * @return icône de l'Objet
+	 * Obtenir l'icï¿½ne de cet Objet.
+	 * @return icï¿½ne de l'Objet
 	 */
 	public final BufferedImage getIcone() {
 		if (this.icone == null) {
@@ -144,8 +144,8 @@ public class Objet implements Listable {
 	}
 	
 	/**
-	 * Fabriquer une liste de Conditions vérifiant la possession de cet Objet.
-	 * @return liste de Conditions destinée au Menu
+	 * Fabriquer une liste de Conditions vï¿½rifiant la possession de cet Objet.
+	 * @return liste de Conditions destinï¿½e au Menu
 	 */
 	public final ArrayList<Condition> getConditions() {
 		final ArrayList<Condition> conditions = new ArrayList<Condition>();
@@ -154,9 +154,9 @@ public class Objet implements Listable {
 	}
 	
 	/**
-	 * Liste de Commandes de Menu associée à l'Objet.
-	 * Si l'Objet est sélectionné dans le Menu, la description de l'Objet est affichée.
-	 * @return liste de Commandes destinée au Menu
+	 * Liste de Commandes de Menu associï¿½e a l'Objet.
+	 * Si l'Objet est sï¿½lectionnï¿½ dans le Menu, la description de l'Objet est affichï¿½e.
+	 * @return liste de Commandes destinï¿½e au Menu
 	 */
 	public final ArrayList<Commande> getComportementSelection() {
 		final ArrayList<Commande> comportementSelection = new ArrayList<Commande>();
@@ -165,8 +165,8 @@ public class Objet implements Listable {
 	}
 	
 	/**
-	 * Liste de Commandes de Menu associée à l'Objet.
-	 * Si l'Objet est validé dans le Menu, il est consommé.
+	 * Liste de Commandes de Menu associï¿½e a l'Objet.
+	 * Si l'Objet est validï¿½ dans le Menu, il est consommï¿½.
 	 * @return effet de l'Objet
 	 */
 	public final ArrayList<Commande> getComportementConfirmation() {
@@ -175,13 +175,13 @@ public class Objet implements Listable {
 
 	/**
 	 * Enumerer les Objets du jeu.
-	 * @param possedes filtrer ou non sur les Objets possédés
+	 * @param possedes filtrer ou non sur les Objets possï¿½dï¿½s
 	 * @return association entre numero et Objet
 	 */
 	public static final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
-			// seulement les Objets possédées
+			// seulement les Objets possï¿½dï¿½es
 			final int[] objetsPossedes = Main.getPartieActuelle().objetsPossedes;
 			for (int i = 0; i < objetsPossedes.length; i++) {
 				if (objetsPossedes[i]>0) {

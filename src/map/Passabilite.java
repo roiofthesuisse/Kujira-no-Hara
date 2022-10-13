@@ -4,9 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Une tuile de décor peut être traversable ou solide.
- * Les quatre faces de la tuile n'ont pas forcément la même passabilité :
- * on pourra y entrer par la gauche, mais pas forcément en resortir par la droite.
+ * Une tuile de dï¿½cor peut ï¿½tre traversable ou solide.
+ * Les quatre faces de la tuile n'ont pas forcï¿½ment la mï¿½me passabilitï¿½ :
+ * on pourra y entrer par la gauche, mais pas forcï¿½ment en resortir par la droite.
  */
 public enum Passabilite {
 	PASSABLE(true, true, true, true),
@@ -55,9 +55,9 @@ public enum Passabilite {
 	}
 	
 	/**
-	 * Obtenir la passabilité par son code.
-	 * @param code représentant la passabilité des quatre faces
-	 * @return passabilité dont c'est le code
+	 * Obtenir la passabilitï¿½ par son code.
+	 * @param code reprï¿½sentant la passabilitï¿½ des quatre faces
+	 * @return passabilitï¿½ dont c'est le code
 	 */
 	public static Passabilite parCode(int code) {
 		if (code > OBSTACLE.code) {
@@ -68,15 +68,15 @@ public enum Passabilite {
 				return p;
 			}
 		}
-		LOG.error("Code de passabilité inconnu : "+code);
+		LOG.error("Code de passabilitï¿½ inconnu : "+code);
 		return PASSABLE;
 	}
 
 	/**
-	 * Union des deux Passabilités.
-	 * @param p1 première passabilité
-	 * @param p2 seconbde passabilité
-	 * @return passabilités ajoutées
+	 * Union des deux Passabilitï¿½s.
+	 * @param p1 premiï¿½re passabilitï¿½
+	 * @param p2 seconbde passabilitï¿½
+	 * @return passabilitï¿½s ajoutï¿½es
 	 */
 	public static Passabilite union(final Passabilite p1, final Passabilite p2) {
 		if (p1 == null) {
@@ -94,12 +94,12 @@ public enum Passabilite {
 	}
 	
 	/**
-	 * Générer le code de passabilité d'une case.
+	 * Gï¿½nï¿½rer le code de passabilitï¿½ d'une case.
 	 * @param passableEnBas peut-on entrer sur cette case par le bas ?
 	 * @param passableAGauche peut-on entrer sur cette case par la gauche ?
 	 * @param passableADroite peut-on entrer sur cette case par la droite ?
 	 * @param passableEnHaut peut-on entrer sur cette case par le haut ?
-	 * @return code correspondant à cette passabilité
+	 * @return code correspondant a cette passabilitï¿½
 	 */
 	private static int genererCode(final boolean passableEnBas, final boolean passableAGauche, final boolean passableADroite, 
 			final boolean passableEnHaut) {
@@ -110,10 +110,10 @@ public enum Passabilite {
 	}
 
 	/**
-	 * Intersection des passabilités.
-	 * @param p1 Passabilité de base
-	 * @param p2 Passabilité à soustraire
-	 * @return obstacles ajoutés
+	 * Intersection des passabilitï¿½s.
+	 * @param p1 Passabilitï¿½ de base
+	 * @param p2 Passabilitï¿½ a soustraire
+	 * @return obstacles ajoutï¿½s
 	 */
 	public static Passabilite intersection(final Passabilite p1, final Passabilite p2) {
 		if (p1 == null) {
@@ -131,10 +131,10 @@ public enum Passabilite {
 	}
 
 	/**
-	 * La passabilité est-elle multilatérale ?
-	 * C'est-à-dire ni passable ni complètement solide.
-	 * @param passabilite d'un Event ou d'un tile de décor
-	 * @return true si passabilité complexe, false sinon
+	 * La passabilitï¿½ est-elle multilatï¿½rale ?
+	 * C'est-ï¿½-dire ni passable ni complï¿½tement solide.
+	 * @param passabilite d'un Event ou d'un tile de dï¿½cor
+	 * @return true si passabilitï¿½ complexe, false sinon
 	 */
 	public static boolean estMultilateral(final Passabilite passabilite) {
 		return passabilite != Passabilite.PASSABLE && passabilite != Passabilite.OBSTACLE;

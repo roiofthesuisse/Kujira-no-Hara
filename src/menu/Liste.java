@@ -14,15 +14,15 @@ import org.json.JSONObject;
 import map.Event.Direction;
 
 /**
- * Une Liste est un tableau d'ElementsDeMenu à plusieurs lignes et colonnes.
+ * Une Liste est un tableau d'ElementsDeMenu a plusieurs lignes et colonnes.
  * 
- * @param <T> est un collectable du jeu susceptible d'être listé.
+ * @param <T> est un collectable du jeu susceptible d'ï¿½tre listï¿½.
  */
 public class Liste<T extends Listable> {
 	private static final Logger LOG = LogManager.getLogger(Liste.class);
 	private static final String METHODE_OBTENIR_LISTABLES = "obtenirTousLesListables";
 	
-	/** Listables qui seront mentionnés par la Liste */
+	/** Listables qui seront mentionnï¿½s par la Liste */
 	Map<Integer, Listable> tousLesListables;
 	ArrayList<Integer> numerosDesListables;
 	
@@ -30,9 +30,9 @@ public class Liste<T extends Listable> {
 	private final int x;
 	/** Position y de la Liste */
 	private final int y;
-	/** Nombre de colonnes du tableau bidimensionnel affiché */
+	/** Nombre de colonnes du tableau bidimensionnel affichï¿½ */
 	private final int nombreDeColonnes;
-	/** Nombre de lignes visibles à l'écran à la fois */
+	/** Nombre de lignes visibles a l'ecran a la fois */
 	private final int nombreDeLignesVisibles;
 	/** Combien de lignes dans le tableau en tout ? */
 	private final int nombreDeLignesTotal;
@@ -41,14 +41,14 @@ public class Liste<T extends Listable> {
 	/** hauteur (en pixels) maximale pour l'image d'un des ElementsDeMenu de la Liste */
 	public int hauteurMaximaleElement;
 	
-	/** Espacement horizontal entre les éléments de la liste */
+	/** Espacement horizontal entre les ï¿½lï¿½ments de la liste */
 	final int margeADroite;
-	/** Espacement vertical entre les éléments de la liste */
+	/** Espacement vertical entre les ï¿½lï¿½ments de la liste */
 	final int interligne;
 	
-	/** numéro de l'ElementDeMenu sélectionné dans la Liste */
+	/** numï¿½ro de l'ElementDeMenu sï¿½lectionnï¿½ dans la Liste */
 	private int numeroElementSelectionne;
-	/** première ligne visibles à l'écran */
+	/** premiï¿½re ligne visibles a l'ecran */
 	private int premiereLigneVisible = 0;
 	/** ElementsDeMenu de la Liste */
 	public ArrayList<ImageMenu> elements;
@@ -60,15 +60,15 @@ public class Liste<T extends Listable> {
 	 * @param x position x de la Liste dans le Menu
 	 * @param y position y de la Liste dans le Menu
 	 * @param nombreDeColonnes nombre de colonnes du tableau
-	 * @param nombreDeLignesVisibles nombre de lignes visibles simultanément à l'écran
-	 * @param margeADroite espacement horizontal entre les éléments de la liste
-	 * @param largeurMinimaleElements largeur minimale pour un élément
-	 * @param hauteurMinimaleElements hauteur minimale pour un élément
-	 * @param interligne espacement horizontal entre les éléments de la liste
-	 * @param provenance quel est la nature du Listable à afficher ?
-	 * @param possedes n'affiche-t-on que les Listables possédés par le joueur ?
-	 * @param avec liste exhaustive des numéros des Listables à afficher
-	 * @param toutSauf liste exhaustive des numéros des Listables à ne pas afficher
+	 * @param nombreDeLignesVisibles nombre de lignes visibles simultanï¿½ment a l'ecran
+	 * @param margeADroite espacement horizontal entre les ï¿½lï¿½ments de la liste
+	 * @param largeurMinimaleElements largeur minimale pour un ï¿½lï¿½ment
+	 * @param hauteurMinimaleElements hauteur minimale pour un ï¿½lï¿½ment
+	 * @param interligne espacement horizontal entre les ï¿½lï¿½ments de la liste
+	 * @param provenance quel est la nature du Listable a afficher ?
+	 * @param possedes n'affiche-t-on que les Listables possï¿½dï¿½s par le joueur ?
+	 * @param avec liste exhaustive des numï¿½ros des Listables a afficher
+	 * @param toutSauf liste exhaustive des numï¿½ros des Listables a ne pas afficher
 	 */
 	public Liste(final int x, final int y, final int nombreDeColonnes, final int nombreDeLignesVisibles,
 			final int largeurMinimaleElements, final int hauteurMinimaleElements, final int margeADroite, final int interligne,
@@ -78,26 +78,26 @@ public class Liste<T extends Listable> {
 		this.y = y;
 		this.nombreDeColonnes = nombreDeColonnes;
 		this.nombreDeLignesVisibles = nombreDeLignesVisibles;
-		this.largeurMaximaleElement = largeurMinimaleElements; //pour l'instant fixé au minimum, mais sera augmenté éventuellement après
-		this.hauteurMaximaleElement = hauteurMinimaleElements; //pour l'instant fixé au minimum, mais sera augmenté éventuellement après
+		this.largeurMaximaleElement = largeurMinimaleElements; //pour l'instant fixï¿½ au minimum, mais sera augmentï¿½ ï¿½ventuellement apres
+		this.hauteurMaximaleElement = hauteurMinimaleElements; //pour l'instant fixï¿½ au minimum, mais sera augmentï¿½ ï¿½ventuellement apres
 		this.margeADroite = margeADroite;
 		this.interligne = interligne;
 		
-		// Recenser les Listables concernés par cette Liste
+		// Recenser les Listables concernï¿½s par cette Liste
 		recenserLesListablesAConsiderer(provenance, possedes, avec, toutSauf);
 		this.elements = genererLesImagesDesElements(largeurMinimaleElements, hauteurMinimaleElements);
 		
-		// Remplir le tableau bidimensionnel des éléments à afficher
+		// Remplir le tableau bidimensionnel des ï¿½lï¿½ments a afficher
 		this.nombreDeLignesTotal = this.elements.size() / this.nombreDeColonnes + (this.elements.size() % this.nombreDeColonnes != 0 ? 1 : 0);
 		determinerLesElementsAAfficher();
 	}
 	
 	/**
 	 * Recenser les Listables qui figureront dans la Liste.
-	 * @param provenance classe d'où proviennent les Listables
-	 * @param possedes considérer seulement les Listables possédés ou non
-	 * @param avec identifiants des collectables à inclure
-	 * @param toutSauf identifiants des collectables à ne pas inclure
+	 * @param provenance classe d'oï¿½ proviennent les Listables
+	 * @param possedes considï¿½rer seulement les Listables possï¿½dï¿½s ou non
+	 * @param avec identifiants des collectables a inclure
+	 * @param toutSauf identifiants des collectables a ne pas inclure
 	 */
 	@SuppressWarnings("unchecked")
 	private void recenserLesListablesAConsiderer(final Class<T> provenance, final Boolean possedes, 
@@ -107,7 +107,7 @@ public class Liste<T extends Listable> {
 			this.tousLesListables = (Map<Integer, Listable>) 
 					provenance.getDeclaredMethod(METHODE_OBTENIR_LISTABLES, Boolean.class).invoke(null, possedes);
 			
-			// Recensement des numéros des Listables à considérer
+			// Recensement des numï¿½ros des Listables a considï¿½rer
 			if (avec != null && avec.size()>0) {
 				// liste blanche
 				this.numerosDesListables = avec;
@@ -122,28 +122,28 @@ public class Liste<T extends Listable> {
 				}
 			}
 		} catch (NoSuchMethodException e) {
-			LOG.error("Impossible de trouve la méthode '"+METHODE_OBTENIR_LISTABLES+"' pour obtenir chaque "+provenance.getName(), e);
+			LOG.error("Impossible de trouve la Methode '"+METHODE_OBTENIR_LISTABLES+"' pour obtenir chaque "+provenance.getName(), e);
 		} catch (SecurityException e) {
-			LOG.error("Problème de sécurité ! Tous aux abris !", e);
+			LOG.error("Problï¿½me de sï¿½curitï¿½ ! Tous aux abris !", e);
 		} catch (IllegalAccessException e) {
-			LOG.error("Accès incorrect à la méthode d'un Listable.", e);
+			LOG.error("Accï¿½s incorrect a la Methode d'un Listable.", e);
 		} catch (IllegalArgumentException e) {
-			LOG.error("Arguments incorrects pour la méthode d'un Listable.", e);
+			LOG.error("Arguments incorrects pour la Methode d'un Listable.", e);
 		} catch (InvocationTargetException e) {
 			LOG.error("Impossible de joindre ce type de Listable.", e);
 		}
 	}
 	
 	/**
-	 * Générer l'ElementDeMenu de chaque Listable de la Liste.
-	 * @param largeurMinimaleElement largeur minimale des éléments de la liste
-	 * @param hauteurMinimaleElement hauteur minimale des éléments de la liste
+	 * Gï¿½nï¿½rer l'ElementDeMenu de chaque Listable de la Liste.
+	 * @param largeurMinimaleElement largeur minimale des ï¿½lï¿½ments de la liste
+	 * @param hauteurMinimaleElement hauteur minimale des ï¿½lï¿½ments de la liste
 	 * @return ElementsDeMenu de la Liste
 	 */
 	public ArrayList<ImageMenu> genererLesImagesDesElements(final int largeurMinimaleElement, final int hauteurMinimaleElement) {
 		final ArrayList<ImageMenu> elements = new ArrayList<ImageMenu>();
 		
-		// Créer un ElementDeMenu pour chaque numéro
+		// Crï¿½er un ElementDeMenu pour chaque numï¿½ro
 		Listable listable;
 		BufferedImage image;
 		ImageMenu element;
@@ -152,12 +152,12 @@ public class Liste<T extends Listable> {
 			image = listable.construireImagePourListe(largeurMinimaleElement, hauteurMinimaleElement);
 			element = new ImageMenu(
 					image, //apparence
-					0, 0, //coordonnées (en pixel) temporaires
-					-1, -1, //largeur/hauteur forcées
+					0, 0, //coordonnï¿½es (en pixel) temporaires
+					-1, -1, //largeur/hauteur forcï¿½es
 					null, //conditions
-					true, //sélectionnable
+					true, //sï¿½lectionnable
 					listable.getComportementSelection(), //comportement au survol
-					listable.getComportementConfirmation(), //comportement à la confirmation
+					listable.getComportementConfirmation(), //comportement a la confirmation
 					-1 //id temporaire de l'ElementDeMenu
 			);
 			elements.add(element);
@@ -168,7 +168,7 @@ public class Liste<T extends Listable> {
 	}
 	
 	/**
-	 * Remplir le tableau bidimensionnel des éléments à afficher à partir du contenu de la Liste.
+	 * Remplir le tableau bidimensionnel des ï¿½lï¿½ments a afficher a partir du contenu de la Liste.
 	 */
 	public final void determinerLesElementsAAfficher() {
 		this.elementsAffiches = new ImageMenu[this.nombreDeLignesVisibles][this.nombreDeColonnes];
@@ -203,12 +203,12 @@ public class Liste<T extends Listable> {
 	}
 
 	/**
-	 * Chercher un autre ElementDeMenu à sélectionner dans la Liste.
+	 * Chercher un autre ElementDeMenu a sï¿½lectionner dans la Liste.
 	 * @param direction dans laquelle chercher
-	 * @return ElementDeMenu à sélectionner, ou null si bord de Liste
+	 * @return ElementDeMenu a sï¿½lectionner, ou null si bord de Liste
 	 */
 	public ElementDeMenu selectionnerUnAutreElementDansLaListe(final int direction) {
-		// Déplacement du curseur dans le tableau
+		// Dï¿½placement du curseur dans le tableau
 		switch (direction) {
 			case Direction.GAUCHE :
 				if (this.numeroElementSelectionne % this.nombreDeColonnes == 0) {
@@ -244,16 +244,16 @@ public class Liste<T extends Listable> {
 				break;
 		}
 		
-		// On va au dernier Element lorsque la dernière ligne est lacunaire
+		// On va au dernier Element lorsque la derniï¿½re ligne est lacunaire
 		final int taille = this.elements.size();
 		if (this.numeroElementSelectionne >= taille) {
 			this.numeroElementSelectionne = taille - 1;
 		}
 		final ElementDeMenu nouvelElementSelectionne = this.elements.get(this.numeroElementSelectionne);
 
-		LOG.debug("nouvel élement sélectionné dans la liste : "+ this.numeroElementSelectionne);
+		LOG.debug("nouvel ï¿½lement sï¿½lectionnï¿½ dans la liste : "+ this.numeroElementSelectionne);
 		
-		// Eventuellement masquer/afficher certains ElementsDeMenu en fonction du nombre de lignes/colonnes à afficher
+		// Eventuellement masquer/afficher certains ElementsDeMenu en fonction du nombre de lignes/colonnes a afficher
 		boolean decalageDuTableau = false;
 		if (this.numeroElementSelectionne < this.premiereLigneVisible * this.nombreDeColonnes ) {
 			this.premiereLigneVisible--;
@@ -285,8 +285,8 @@ public class Liste<T extends Listable> {
 	}
 	
 	/**
-	 * Récupérer une Liste d'ElementsDeMenu.
-	 * @param jsonElement objet JSON représentant la Liste
+	 * Rï¿½cupï¿½rer une Liste d'ElementsDeMenu.
+	 * @param jsonElement objet JSON reprï¿½sentant la Liste
 	 * @param x position x (en pixels) de la Liste dans le Menu
 	 * @param y position y (en pixels) de la Liste dans le Menu
 	 * @return Liste d'ElementsDeMenu.
@@ -334,7 +334,7 @@ public class Liste<T extends Listable> {
 				liste = new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles, largeurMinimaleElements, hauteurMinimaleElements, margeADroite, interligne,
 						provenance, possedes, avec, tousSauf);
 			} catch (Exception e) {
-				LOG.error("Impossible de créer la liste d'éléments pour le menu !", e);
+				LOG.error("Impossible de crï¿½er la liste d'ï¿½lï¿½ments pour le menu !", e);
 			}
 			return liste;
 		} catch (ClassNotFoundException e) {

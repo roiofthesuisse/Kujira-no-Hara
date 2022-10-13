@@ -19,7 +19,7 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nomFichierSonore nom du fichier de l'effet sonore à jouer
+	 * @param nomFichierSonore nom du fichier de l'effet sonore a jouer
 	 * @param volume           sonore (entre 0.0f et 1.0f)
 	 */
 	public JouerEffetSonore(final String nomFichierSonore, final float volume) {
@@ -28,9 +28,9 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public JouerEffetSonore(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("nomFichierSonore"),

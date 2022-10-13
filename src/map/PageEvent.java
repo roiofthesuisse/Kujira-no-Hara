@@ -22,8 +22,8 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Un Event peut avoir plusieurs comportements. Chaque comportement est décrit par une Page de comportements.
- * La Page est déclenchée si certaines Conditions sont vérifiées, ses Commandes sont alors executées.
+ * Un Event peut avoir plusieurs comportements. Chaque comportement est dï¿½crit par une Page de comportements.
+ * La Page est dï¿½clenchï¿½e si certaines Conditions sont vï¿½rifiï¿½es, ses Commandes sont alors executï¿½es.
  */
 public class PageEvent {
 	private static final Logger LOG = LogManager.getLogger(PageEvent.class);
@@ -33,14 +33,14 @@ public class PageEvent {
 	/** numero de la Page */
 	public final int numero;
 	
-	/** Conditions de déclenchement de la Page */
+	/** Conditions de dï¿½clenchement de la Page */
 	public final ArrayList<Condition> conditions;
 	
-	/** liste de Commandes à executer dans l'ordre si les Conditions sont vérifiées */
+	/** liste de Commandes a executer dans l'ordre si les Conditions sont vï¿½rifiï¿½es */
 	public final ArrayList<Commande> commandes;
 	/**
 	 * Le curseur indique quelle Commande executer.
-	 * Il se déplace incrémentalement, mais on peut lui faire faire des sauts.
+	 * Il se dï¿½place incrï¿½mentalement, mais on peut lui faire faire des sauts.
 	 */
 	public int curseurCommandes = 0;
 	
@@ -48,18 +48,18 @@ public class PageEvent {
 	public String nomImage;
 	public BufferedImage image;
 	public boolean apparenceEstUnTile;
-	/** par défaut, si image < 32px, l'Event est considéré comme plat (au sol) */
+	/** par dï¿½faut, si image < 32px, l'Event est considï¿½rï¿½ comme plat (au sol) */
 	public Boolean plat; //
 	public int directionInitiale;
 	public int animationInitiale;
 
-	//paramètres
+	//paramï¿½tres
 	public Vitesse vitesse;
 	public Frequence frequence;
 	
 	/** 
 	 * <p>figer les autres Events pendant la lecture de cette Page</p>
-	 * <p>automatiquement mis à true si la Page contient une condition Parler</p>
+	 * <p>automatiquement mis a true si la Page contient une condition Parler</p>
 	 */
 	private boolean figerLesAutresEvents;
 	private boolean figerLeHeros;
@@ -78,17 +78,17 @@ public class PageEvent {
 	private boolean seRapprocherDeSonInterlocuteur = false;
 	
 	/**
-	 * Constructeur générique
-	 * La page de comportement est créée à partir du fichier JSON.
+	 * Constructeur gï¿½nï¿½rique
+	 * La page de comportement est crï¿½ï¿½e a partir du fichier JSON.
 	 * @param numero de la Page
-	 * @param pageJSON objet JSON décrivant la page de comportements
+	 * @param pageJSON objet JSON dï¿½crivant la page de comportements
 	 * @param idEvent identifiant de l'Event
 	 * @param map de l'Event
 	 */
 	public PageEvent(final int numero, final JSONObject pageJSON, final Integer idEvent, final Map map) {
 		this.numero = numero;
 		
-		// Conditions de déclenchement de la Page
+		// Conditions de dï¿½clenchement de la Page
 		this.conditions = new ArrayList<Condition>();
 		if (pageJSON.has("conditions")) {
 			Condition.recupererLesConditions(this.conditions, pageJSON.getJSONArray("conditions"));
@@ -168,32 +168,32 @@ public class PageEvent {
 			LOG.trace("Pas d'image d'apparence pour la page "+this.numero+" de l'event "+idEvent);
 		}
 	
-		// Propriétés de cette Page
+		// Propriï¿½tï¿½s de cette Page
 		try {
 			this.frequence = pageJSON.has("frequence") 
 					? Frequence.parNom(pageJSON.getString("frequence"))
 					: Event.FREQUENCE_PAR_DEFAUT;
 		} catch (Exception e) {
-			LOG.error("La fréquence de l'évent "+idEvent+" n'est pas une chaine de caractères : "
+			LOG.error("La frï¿½quence de l'ï¿½vent "+idEvent+" n'est pas une chaine de caractï¿½res : "
 					+pageJSON.toString());
 			this.frequence = Event.FREQUENCE_PAR_DEFAUT;
 		}
 		if (this.frequence == null) {
-			LOG.error("La fréquence de l'event "+idEvent+" est nulle ! Cela va créer une erreur lors de l'animation !");
+			LOG.error("La frï¿½quence de l'event "+idEvent+" est nulle ! Cela va crï¿½er une erreur lors de l'animation !");
 		}
 		try {
 			this.vitesse = pageJSON.has("vitesse")
 					? Vitesse.parNom(pageJSON.getString("vitesse"))
 					: Event.VITESSE_PAR_DEFAUT;
 		} catch (Exception e) {
-			LOG.error("La vitesse de l'event "+idEvent+" n'est pas une chaine de caractères : "
+			LOG.error("La vitesse de l'event "+idEvent+" n'est pas une chaine de caractï¿½res : "
 					+pageJSON.toString());
 			this.vitesse = Event.VITESSE_PAR_DEFAUT;
 		}
 
 		// Est-ce que cette Page fige les autres Events qu'elle ?
 		this.figerLesAutresEvents = cettePageFigeLesAutresEvents(pageJSON);
-		// Est-ce que cette page fige le Mouvement naturel du Héros ?
+		// Est-ce que cette page fige le Mouvement naturel du Hï¿½ros ?
 		this.figerLeHeros = cettePageFigeLeHeros();
 
 		this.animeALArret = pageJSON.has("animeALArret") 
@@ -203,39 +203,39 @@ public class PageEvent {
 				? pageJSON.getBoolean("animeEnMouvement") 
 				: Event.ANIME_EN_MOUVEMENT_PAR_DEFAUT;
 
-		// Traversabilité
+		// Traversabilitï¿½
 		this.traversableParLeHeros = Event.TRAVERSABLE_PAR_LE_HEROS_PAR_DEFAUT;
 		if (pageJSON.has("traversable")) {
-				// La passibilité est explictement spécifiée
+				// La passibilitï¿½ est explictement spï¿½cifiï¿½e
 			if (pageJSON.getBoolean("traversable")) {
-				// La passibilité spécifiée est traversable
+				// La passibilitï¿½ spï¿½cifiï¿½e est traversable
 				this.traversable = Passabilite.PASSABLE;
 			} else {
-				// La passabilité spécifiée est solide
-				// Mais elle dépend aussi de l'apparence
+				// La passabilitï¿½ spï¿½cifiï¿½e est solide
+				// Mais elle dï¿½pend aussi de l'apparence
 				if (tileDeLApparence != null) {
 					// Apparence de type "tile"
-					// Comme l'Event n'est pas marqué explicitement traversable, le tile impose sa passabilité 
+					// Comme l'Event n'est pas marquï¿½ explicitement traversable, le tile impose sa passabilitï¿½ 
 					this.traversable = map.tileset.passabiliteDeLaCase(tileDeLApparence);
 				} else if (this.image == null) {
 					// Pas d'apparence
 					this.traversable = Passabilite.OBSTACLE; // obstacle pour la plupart des Events
-					this.traversableParLeHeros = true; // mais pas le Héros
+					this.traversableParLeHeros = true; // mais pas le Hï¿½ros
 				} else {
 					// Apparence de type "character"
 					this.traversable = Passabilite.OBSTACLE;
 				} 
 			}
 		} else {
-			// La passibilité n'est pas explicitement spécifiée
+			// La passibilitï¿½ n'est pas explicitement spï¿½cifiï¿½e
 			if (tileDeLApparence != null) {
 				// Apparence de type "tile"
-				// Comme l'Event n'est pas marqué explicitement traversable, le tile impose sa passabilité 
+				// Comme l'Event n'est pas marquï¿½ explicitement traversable, le tile impose sa passabilitï¿½ 
 				this.traversable = map.tileset.passabiliteDeLaCase(tileDeLApparence);
 			} else if (this.image == null) {
 				// Pas d'apparence
 				this.traversable = Passabilite.OBSTACLE; // obstacle pour la plupart des Events
-				this.traversableParLeHeros = true; // mais pas le Héros
+				this.traversableParLeHeros = true; // mais pas le Hï¿½ros
 			} else {
 				// Apparence de type "character"
 				this.traversable = Passabilite.OBSTACLE;
@@ -251,7 +251,7 @@ public class PageEvent {
 		if (pageJSON.has("plat")) {
 			this.plat = pageJSON.getBoolean("plat");
 		} else if (this.image != null) {
-			//si non précisé, est déterminé en fonction de la taille de l'image
+			//si non prï¿½cisï¿½, est dï¿½terminï¿½ en fonction de la taille de l'image
 			this.plat = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Main.TAILLE_D_UN_CARREAU;
 		} else {
 			// pas d'image d'apparence
@@ -268,20 +268,20 @@ public class PageEvent {
 		try {
 			if (pageJSON.has("deplacement")) {
 				this.deplacementNaturel = (Deplacement) Commande.recupererUneCommande(pageJSON.getJSONObject("deplacement"));
-				this.deplacementNaturel.page = this; //on apprend au Déplacement quelle est sa Page
-				this.deplacementNaturel.naturel = true; //pour le distinguer des Déplacements forcés
+				this.deplacementNaturel.page = this; //on apprend au Dï¿½placement quelle est sa Page
+				this.deplacementNaturel.naturel = true; //pour le distinguer des Dï¿½placements forcï¿½s
 			} else {
-				//pas de déplacement pour cette Page
+				//pas de dï¿½placement pour cette Page
 				this.deplacementNaturel = null;
 			}
 		} catch (Exception e) {
-			LOG.warn("Erreur lors du chargement du déplacement naturel de la page "+this.numero+" de l'event "+idEvent, e);
+			LOG.warn("Erreur lors du chargement du dï¿½placement naturel de la page "+this.numero+" de l'event "+idEvent, e);
 		}
 	}
 	
 	/**
 	 * Est-ce que l'activation de cette page fige les autres Events ?
-	 * @param pageJSON objet JSON décrivant la page de comportements
+	 * @param pageJSON objet JSON dï¿½crivant la page de comportements
 	 * @return true si la Page fige les autres Events
 	 */
 	private boolean cettePageFigeLesAutresEvents(JSONObject pageJSON) {
@@ -297,7 +297,7 @@ public class PageEvent {
 	/**
 	 * La PageEvent contient-elle une ConditionParler ?
 	 * Auquel cas, cette Page fige les autres Events de la Map pendant son execution.
-	 * @return présence d'une ConditionParler
+	 * @return prï¿½sence d'une ConditionParler
 	 */
 	private boolean contientUneConditionParler() {
 		if (this.conditions != null) {
@@ -327,7 +327,7 @@ public class PageEvent {
 
 	/**
 	 * La PageEvent contient-elle une Commande Message ?
-	 * @return présence d'une Commande Message
+	 * @return prï¿½sence d'une Commande Message
 	 */
 	private boolean contientUneCommandeMessage() {
 		for (Commande commande : this.commandes) {
@@ -340,7 +340,7 @@ public class PageEvent {
 
 	/**
 	 * Executer la Page de comportement.
-	 * C'est-à-dire que les conditions de déclenchement ont été réunies.
+	 * C'est-ï¿½-dire que les conditions de dï¿½clenchement ont ï¿½tï¿½ rï¿½unies.
 	 * On va donc lire les commandes une par une avec un curseur.
 	 */
 	public void executer() {
@@ -350,7 +350,7 @@ public class PageEvent {
 			this.event.map.lecteur.stopEvent = true;
 			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
 		}
-		//si la page est une page ArriveeAuContact, elle bloque les Mouvements naturels du héros
+		//si la page est une page ArriveeAuContact, elle bloque les Mouvements naturels du hï¿½ros
 		if (this.figerLeHeros) {
 			this.event.map.lecteur.stopHeros = true;
 			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
@@ -359,15 +359,15 @@ public class PageEvent {
 		//lecture des Commandes event
 		if (commandes != null) {
 			boolean onAvanceDansLesCommandes = true;
-			//on n'enchaine durant la même frame que les commandes instantanées
-			//si une commande longue est rencontrée, on reporte la lecture de la Page à la frame suivante
+			//on n'enchaine durant la mï¿½me frame que les commandes instantanï¿½es
+			//si une commande longue est rencontrï¿½e, on reporte la lecture de la Page a la frame suivante
 			parcoursDesCommandes:
 			while (onAvanceDansLesCommandes) {
 				if (curseurCommandes < commandes.size()) {
 					//il y a encore des commandes dans la liste
 					final int ancienCurseur = curseurCommandes;
 					final Commande commande = this.commandes.get(curseurCommandes);
-					commande.page = this; //on apprend à la Commande depuis quelle Page elle est appelée
+					commande.page = this; //on apprend a la Commande depuis quelle Page elle est appelï¿½e
 					try {
 						curseurCommandes = commande.executer(curseurCommandes, commandes);
 					} catch (Exception e1) {
@@ -376,14 +376,14 @@ public class PageEvent {
 								+ "page " + this.numero
 								+ ", commande "+curseurCommandes
 								+ " ("+commande.getClass().getSimpleName()
-								+ ") a échoué :", e1
+								+ ") a ï¿½chouï¿½ :", e1
 						);
 						curseurCommandes++;
 						throw e1;
 					}
 					if (curseurCommandes == ancienCurseur) {
-						//le curseur n'a pas changé, c'est donc une commande qui prend du temps
-						//la lecture de cette Page sera continuée à la frame suivante
+						//le curseur n'a pas changï¿½, c'est donc une commande qui prend du temps
+						//la lecture de cette Page sera continuï¿½e a la frame suivante
 						onAvanceDansLesCommandes = false;
 					}
 				} else {
@@ -396,23 +396,23 @@ public class PageEvent {
 	}
 	
 	/**
-	 * Désactiver la Page.
-	 * Remettre le curseur des commandes à zéro.
-	 * Libérer les autres Events s'ils ont été figés par cette Page.
+	 * Dï¿½sactiver la Page.
+	 * Remettre le curseur des commandes a zï¿½ro.
+	 * Libï¿½rer les autres Events s'ils ont ï¿½tï¿½ figï¿½s par cette Page.
 	 */
 	private void refermerLaPage() {
 		//a la prochaine activation de la Page, on recommencera en haut du code event
 		curseurCommandes = 0;
 		
-		// Libération des events figés
+		// Libï¿½ration des events figï¿½s
 		//si la Page figeait les autres Events, elle doit maintenant les liberer
 		if (this.figerLesAutresEvents) {
-			this.event.map.lecteur.stopEvent = false; //on désactive le stopEvent si fin de la page
-			this.event.map.lecteur.messagePrecedent = null; //plus besoin d'afficher le Message précédent dans un Choix
+			this.event.map.lecteur.stopEvent = false; //on dï¿½sactive le stopEvent si fin de la page
+			this.event.map.lecteur.messagePrecedent = null; //plus besoin d'afficher le Message prï¿½cï¿½dent dans un Choix
 		}
 		//si la Page figeait le Heros, elle doit maintenant le liberer
 		if (this.figerLeHeros) {
-			this.event.map.lecteur.stopHeros = false; //on désactive le stopHeros si fin de la page
+			this.event.map.lecteur.stopHeros = false; //on dï¿½sactive le stopHeros si fin de la page
 		}
 		
 		//desactivation de la Page, ainsi une nouvelle Page sera activee a la prochaine frame

@@ -35,7 +35,7 @@ public abstract class Jauges {
 	private static final BufferedImage[] ICONE_VIE = chargerLesIconesDeVie();
 	
 	/**
-	 * Dessiner à l'écran les jauges et informations extradiégétiques à destination du joueur
+	 * Dessiner a l'ecran les jauges et informations extradiï¿½gï¿½tiques a destination du joueur
 	 * @param ecran sur lequel on dessine les jauges
 	 * @return ecran avec les jauges dessinees
 	 */
@@ -47,11 +47,11 @@ public abstract class Jauges {
 		// touches
 		ecran = Graphismes.superposerImages(ecran, HUD_TOUCHES, 0, 0);
 		
-		// Arme equipée
+		// Arme equipï¿½e
 		try {
 			ecran = Graphismes.superposerImages(ecran, Main.getPartieActuelle().getArmeEquipee().icone, X_AFFICHAGE_ARME, Y_AFFICHAGE_ARME);
 		} catch (NullPointerException e) {
-			//pas d'Arme équipee
+			//pas d'Arme ï¿½quipee
 		}
 		
 		// Gadget equipe
@@ -68,7 +68,7 @@ public abstract class Jauges {
 	}
 	
 	/**
-	 * Charge le petit carré blanc qui entoure l'Arme dans le HUD à l'écran.
+	 * Charge le petit carrï¿½ blanc qui entoure l'Arme dans le HUD a l'ecran.
 	 * @return image constitutive du HUD
 	 */
 	public static BufferedImage chargerImageHudTouches() {
@@ -81,7 +81,7 @@ public abstract class Jauges {
 	}
 	
 	/**
-	 * Charge l'icône de l'argent.
+	 * Charge l'icï¿½ne de l'argent.
 	 * @return image constitutive du HUD
 	 */
 	public static BufferedImage chargerImageHudArgent() {
@@ -118,7 +118,7 @@ public abstract class Jauges {
 	private static BufferedImage dessinerVies(BufferedImage ecran) {
 		final int vieDuHeros = Main.getPartieActuelle().variables[VARIABLE_VIE_HEROS];
 		if (vieDuHeros <= 0) {
-			// pas de vie à afficher
+			// pas de vie a afficher
 			return ecran;
 		}
 		

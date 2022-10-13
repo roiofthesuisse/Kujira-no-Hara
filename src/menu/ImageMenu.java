@@ -8,21 +8,21 @@ import jeu.Objet;
 import main.Commande;
 
 /**
- * Un Menu est composé d'Images.
+ * Un Menu est composï¿½ d'Images.
  */
 public class ImageMenu extends ElementDeMenu {
 	
 	/**
 	 * Constructeur explicite
-	 * @param apparence de l'Elément de Menu : une BufferedImage ou bien un tableau (largeur,hauteur) représentant une image vide
-	 * @param x position x à l'écran
-	 * @param y position y à l'écran
-	 * @param largeurForcee si spécifiée, l'image sera affichée dans un rectangle invisible de telle largeur
-	 * @param hauteurForcee si spécifiée, l'image sera affichée dans un rectangle invisible de telle hauteur
+	 * @param apparence de l'Elï¿½ment de Menu : une BufferedImage ou bien un tableau (largeur,hauteur) reprï¿½sentant une image vide
+	 * @param x position x a l'ecran
+	 * @param y position y a l'ecran
+	 * @param largeurForcee si spï¿½cifiï¿½e, l'image sera affichï¿½e dans un rectangle invisible de telle largeur
+	 * @param hauteurForcee si spï¿½cifiï¿½e, l'image sera affichï¿½e dans un rectangle invisible de telle hauteur
 	 * @param conditions d'affichage
-	 * @param selectionnable peut-on le sélectionner ?
+	 * @param selectionnable peut-on le sï¿½lectionner ?
 	 * @param comportementSelection comportement au survol
-	 * @param comportementConfirmation comportement à la validation
+	 * @param comportementConfirmation comportement a la validation
 	 * @param id identifiant de l'ElementDeMenu
 	 */
 	public ImageMenu(final BufferedImage apparence, 
@@ -33,13 +33,13 @@ public class ImageMenu extends ElementDeMenu {
 		super(id, selectionnable, x, y, comportementSelection, comportementConfirmation, conditions);
 		
 		if (apparence instanceof BufferedImage) {
-			//l'Elément a une image comme apparence
+			//l'Elï¿½ment a une image comme apparence
 			this.image = (BufferedImage) apparence;
 			this.largeur = largeurForcee>0 ? largeurForcee : this.image.getWidth();
 			this.hauteur = hauteurForcee>0 ? hauteurForcee : this.image.getHeight();
 		}
 		
-		//on associe les Commandes à leur ElementDeMenu
+		//on associe les Commandes a leur ElementDeMenu
 		if (comportementSelection != null && comportementSelection.size() > 0) {
 			for (Commande commande : comportementSelection) {
 				commande.element = this;
@@ -55,15 +55,15 @@ public class ImageMenu extends ElementDeMenu {
 	}
 	
 	/**
-	 * Constructeur explicite (basé sur un Objet).
-	 * Il faut posséder l'Objet pour que l'Image s'affiche.
-	 * L'Image est l'icône de l'Objet.
-	 * @param objet représenté par cette Image dans le Menu
-	 * @param x position x à l'écran
-	 * @param y position y à l'écran
-	 * @param largeurForcee si spécifiée, l'image sera affichée dans un rectangle invisible de telle largeur
-	 * @param hauteurForcee si spécifiée, l'image sera affichée dans un rectangle invisible de telle hauteur
-	 * @param selectionnable peut-on le sélectionner ?
+	 * Constructeur explicite (basï¿½ sur un Objet).
+	 * Il faut possï¿½der l'Objet pour que l'Image s'affiche.
+	 * L'Image est l'icï¿½ne de l'Objet.
+	 * @param objet reprï¿½sentï¿½ par cette Image dans le Menu
+	 * @param x position x a l'ecran
+	 * @param y position y a l'ecran
+	 * @param largeurForcee si spï¿½cifiï¿½e, l'image sera affichï¿½e dans un rectangle invisible de telle largeur
+	 * @param hauteurForcee si spï¿½cifiï¿½e, l'image sera affichï¿½e dans un rectangle invisible de telle hauteur
+	 * @param selectionnable peut-on le sï¿½lectionner ?
 	 * @param id identifiant de l'ElementDeMenu
 	 */
 	public ImageMenu(final Objet objet, final int x, final int y, final int largeurForcee, final int hauteurForcee, final boolean selectionnable, final int id) {

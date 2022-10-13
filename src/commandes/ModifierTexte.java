@@ -11,7 +11,7 @@ import main.Commande;
 import menu.Texte;
 
 /**
- * Afficher la description de l'Elément sélectionné dans le Menu.
+ * Afficher la description de l'Elï¿½ment sï¿½lectionnï¿½ dans le Menu.
  */
 public class ModifierTexte extends Commande implements CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(ModifierTexte.class);
@@ -22,17 +22,17 @@ public class ModifierTexte extends Commande implements CommandeMenu {
 	/**
 	 * Constructeur implicite
 	 * 
-	 * @param nouveauTexte à afficher comme
+	 * @param nouveauTexte a afficher comme
 	 */
 	public ModifierTexte(final ArrayList<String> nouveauTexte) {
 		this.nouveauTexte = nouveauTexte;
-		this.idElementDeMenu = null; // texte des descriptions par défaut du Menu
+		this.idElementDeMenu = null; // texte des descriptions par dï¿½faut du Menu
 	}
 
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nouveauTexte    à afficher comme
+	 * @param nouveauTexte    a afficher comme
 	 * @param idElementDeMenu identifiant de l'ElementDeMenu dont il faut changer le
 	 *                        texte
 	 */
@@ -42,9 +42,9 @@ public class ModifierTexte extends Commande implements CommandeMenu {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierTexte(final HashMap<String, Object> parametres) {
 		this(Texte.construireTexteMultilingue(parametres.get("nouveauTexte")),
@@ -63,7 +63,7 @@ public class ModifierTexte extends Commande implements CommandeMenu {
 			elementAModifier.contenu = this.nouveauTexte;
 			elementAModifier.actualiserImage();
 		} catch (ClassCastException e) {
-			LOG.error("L'élement de menu " + this.idElementDeMenu + " n'est pas un texte.", e);
+			LOG.error("L'ï¿½lement de menu " + this.idElementDeMenu + " n'est pas un texte.", e);
 		}
 		return curseurActuel + 1;
 	}

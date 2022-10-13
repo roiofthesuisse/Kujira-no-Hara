@@ -21,16 +21,16 @@ public class ChangerLangue extends Commande implements CommandeMenu {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nouvelleLangue numéro de la nouvelle langue à adopter
+	 * @param nouvelleLangue numï¿½ro de la nouvelle langue a adopter
 	 */
 	private ChangerLangue(final int nouvelleLangue) {
 		this.nouvelleLangue = nouvelleLangue;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ChangerLangue(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("langue"));
@@ -46,7 +46,7 @@ public class ChangerLangue extends Commande implements CommandeMenu {
 		}
 		for (Liste<Listable> liste : menu.listes) {
 			liste.elements = liste.genererLesImagesDesElements(liste.largeurMaximaleElement,
-					liste.hauteurMaximaleElement); // la taille maximale est supérieure à la taille minimale
+					liste.hauteurMaximaleElement); // la taille maximale est supï¿½rieure a la taille minimale
 			for (ImageMenu element : liste.elements) {
 				element.menu = menu;
 			}

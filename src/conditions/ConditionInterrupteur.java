@@ -6,7 +6,7 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
 /**
- * Vérifier la valeur d'un interrupteur
+ * Vï¿½rifier la valeur d'un interrupteur
  */
 public class ConditionInterrupteur extends Condition implements CommandeEvent, CommandeMenu {
 	int numeroInterrupteur;
@@ -14,7 +14,7 @@ public class ConditionInterrupteur extends Condition implements CommandeEvent, C
 	
 	/**
 	 * Constructeur explicite
-	 * @param numeroInterrupteur numéro de l'interrupteur à inspecter
+	 * @param numeroInterrupteur numï¿½ro de l'interrupteur a inspecter
 	 * @param valeur attendue pour cet interrupteur
 	 * @param numeroCondition identifiant de la condition
 	 */
@@ -25,8 +25,8 @@ public class ConditionInterrupteur extends Condition implements CommandeEvent, C
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionInterrupteur(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroInterrupteur"),
@@ -41,7 +41,7 @@ public class ConditionInterrupteur extends Condition implements CommandeEvent, C
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

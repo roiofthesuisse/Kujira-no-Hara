@@ -12,15 +12,15 @@ public class RendreDirectionFixe extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouvelleDirectionFixe à donner à l'Event
+	 * @param nouvelleDirectionFixe a donner a l'Event
 	 */
 	public RendreDirectionFixe(final boolean nouvelleDirectionFixe) {
 		this.nouvelleDirectionFixe = nouvelleDirectionFixe;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RendreDirectionFixe(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("directionFixe") ? (boolean) parametres.get("directionFixe") : true );

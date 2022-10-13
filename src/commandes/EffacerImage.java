@@ -14,16 +14,16 @@ public class EffacerImage extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numero de l'image à effacer
+	 * @param numero de l'image a effacer
 	 */
 	public EffacerImage(final int numero) {
 		this.numero = numero;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public EffacerImage(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numero"));

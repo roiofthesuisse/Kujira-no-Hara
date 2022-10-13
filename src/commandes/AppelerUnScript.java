@@ -24,6 +24,8 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	private static final String EVENT_ID = "@event_id";
 	private static final String ATTENDRE_CET_EVENT = "wait_for_event(@event_id)";
 	private static final String ATTENDRE_HEROS = "wait_for_event(0)";
+	private static final String AFFICHER_UN_FACESET = "\\$game_temp.faceset = \"[0-9A-Za-z ]+\"";
+	private static final String EFFACER_LE_FACESET = "\\$game_temp.faceset = nil";
 	private static final String POSITIF = ESPACE+"[0-9]+"+ESPACE;
 	private static final String ATTENDRE_UN_EVENT = "wait_for_event\\(" + POSITIF + "\\)";
 	private static final String INVOQUER = "invoquer\\(" +POSITIF + "," + POSITIF + "," +POSITIF + "," + POSITIF + "\\)";
@@ -41,7 +43,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param script à exécuter
+	 * @param script a exï¿½cuter
 	 */
 	public AppelerUnScript(final String script) {
 		this.script = script;
@@ -50,9 +52,9 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AppelerUnScript(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("script"));
@@ -62,7 +64,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	public final int executer(final int curseurActuel, final List<Commande> commandesEvent) {
 		// Initialisation
 		if (this.commandes == null) {
-			// On n'a pas encore parsé le script en liste de Commandes
+			// On n'a pas encore parsï¿½ le script en liste de Commandes
 			this.commandes = new ArrayList<>();
 
 			// Convertir toutes les expressions du script en Commandes
@@ -79,32 +81,32 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 
 		// Executer les Commandes equivalentes au script ruby
 		if (this.commandes != null && this.commandes.size() > 0) {
-			// On déjà parsé le script en liste de Commandes
+			// On dï¿½jï¿½ parsï¿½ le script en liste de Commandes
 			// On continue d'executer les Commandes de la liste
 			if (this.curseur < this.commandes.size()) {
-				// Il y a encore des Commandes à lire
+				// Il y a encore des Commandes a lire
 				this.curseur = this.commandes.get(curseur).executer(this.curseur, this.commandes);
 				return curseurActuel;
 			} else {
-				// Il n'y a plus de Commandes à lire
+				// Il n'y a plus de Commandes a lire
 				this.curseur = 0;
 				this.interpretationImplementee = true;
 				return curseurActuel + 1;
 			}
 		} else {
 			// Impossible de parser le script !
-			LOG.error("L'appel de ce script n'est pas encore implémenté !");
+			LOG.error("L'appel de ce script n'est pas encore implï¿½mentï¿½ !");
 			this.interpretationImplementee = false;
 			return curseurActuel + 1;
 		}
 	}
 
 	/**
-	 * Interpréter un script ruby.
+	 * Interprï¿½ter un script ruby.
 	 * 
 	 * @param expression (en ruby)
-	 * @return une chaine de caractère qui est un nombre lorsque l'interprétation
-	 *         est terminée.
+	 * @return une chaine de caractï¿½re qui est un nombre lorsque l'interprï¿½tation
+	 *         est terminï¿½e.
 	 */
 	private Commande traiter(String expression) {
 
@@ -118,9 +120,9 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 			return traiter(expression.trim());
 		}
 
-		// Coordonnée x et y du Heros
+		// Coordonnee x et y du Heros
 		if (expression.contains("$game_player.y") || expression.contains("$game_player.x")) {
-			System.out.println("Script ruby reconnu : coordonnée x et y du Heros");
+			System.out.println("Script ruby reconnu : coordonnï¿½e x et y du Heros");
 			Integer xHeros = this.page.event.map.heros.x;
 			Integer yHeros = this.page.event.map.heros.y;
 			return traiter(expression.replace("$game_player.y", yHeros.toString()).replace("$game_player.x",
@@ -137,7 +139,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 		Pattern p;
 		Matcher m;
 
-		// Coordonnée x d'un Event
+		// Coordonnï¿½e x d'un Event
 		p = Pattern.compile(COORD_X_EVENT);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -148,7 +150,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 			return traiter(expression.replace(aRemplacer, Integer.toString(valeurVariable)));
 		}
 
-		// Coordonnée y d'un Event
+		// Coordonnï¿½e y d'un Event
 		p = Pattern.compile(COORD_Y_EVENT);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -177,16 +179,16 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 		// Attendre cet Event / le Heros
 		Integer idEventAAttendre = null;
 		if (ATTENDRE_CET_EVENT.equals(this.script)) {
-			// Attendre la fin des déplacements de cet Events
+			// Attendre la fin des dï¿½placements de cet Events
 			idEventAAttendre = this.page.event.id;
 		} else if (ATTENDRE_HEROS.equals(script)) {
-			// Attendre la fin du Déplacement du Héros
+			// Attendre la fin du Dï¿½placement du Hï¿½ros
 			idEventAAttendre = this.page.event.map.heros.id;
 		}
 		if (idEventAAttendre != null) {
 			// Attendre l'Event
 			final AttendreLaFinDesDeplacements attendreEvent = new AttendreLaFinDesDeplacements(idEventAAttendre);
-			attendreEvent.page = this.page; // On dit à la commande qui est son Event
+			attendreEvent.page = this.page; // On dit a la commande qui est son Event
 			return attendreEvent;
 		}
 
@@ -197,6 +199,19 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 			System.out.println("Script ruby reconnu : "+ATTENDRE_UN_EVENT);
 			int idEvent = extraireLeNombre(m.group(0));
 			return new AttendreLaFinDesDeplacements(idEvent);
+		}
+
+		// Effacer le faceset
+		if (EFFACER_LE_FACESET.equals(this.script)) {
+			return new EffacerLeFaceset();
+		}
+		// Afficher un faceset
+		p = Pattern.compile(AFFICHER_UN_FACESET);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("Script ruby reconnu : "+AFFICHER_UN_FACESET);
+			String nomFaceset = extraireLeTexte(m.group(0));
+			return new AfficherUnFaceset(nomFaceset);
 		}
 
 		// Invoquer un Event
@@ -218,7 +233,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 		}
 
 		// Autre
-		// TODO restent à parser :
+		// TODO restent a parser :
 		// $game_map.events[@event_id].x == $game_variables[181] &&
 		// $game_map.events[@event_id].y == $game_variables[182]
 
@@ -242,15 +257,15 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 		// 1\nend\n$game_player.jump(x,y)
 
 		// Pas encore implemente
-		LOG.error("Script impossible à interpréter : " + expression);
+		LOG.error("Script impossible a interprï¿½ter : " + expression);
 		this.interpretationImplementee = false;
 		return null;
 	}
 
 	/**
-	 * Trouver le nombre situé dans une chaine de caractères.
+	 * Trouver le nombre situï¿½ dans une chaine de caractï¿½res.
 	 * 
-	 * @param nombreBrut chaine de caractères contenant un nombre
+	 * @param nombreBrut chaine de caractï¿½res contenant un nombre
 	 * @return nombre contenu
 	 */
 	private static int extraireLeNombre(final String nombreBrut) {
@@ -262,9 +277,9 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	}
 
 	/**
-	 * Trouver les nombres situés dans une chaine de caractères.
+	 * Trouver les nombres situï¿½s dans une chaine de caractï¿½res.
 	 * 
-	 * @param brut             chaine de caractères contenant des nombres
+	 * @param brut             chaine de caractï¿½res contenant des nombres
 	 * @param relatifOuPositif les nombres attendus sont-ils positifs ou relatifs ?
 	 * @return nombres contenus
 	 */
@@ -284,8 +299,18 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	}
 	
 	/**
+	 * Etraire le texte entre guillemets
+	 * 
+	 * @param brut chaine de caracteres contenant des guillemets
+	 * @return texte situe entre les guillemets
+	 */
+	private static String extraireLeTexte(final String brut) {
+		return brut.split("\"")[1];
+	}
+
+	/**
 	 * Obtenir la valeur d'une Variable du Jeu.
-	 * Renvoyer une fausse valeur si le Jeu n'est pas instancié.
+	 * Renvoyer une fausse valeur si le Jeu n'est pas instanciï¿½.
 	 * @param numeroVariable
 	 * @return
 	 */

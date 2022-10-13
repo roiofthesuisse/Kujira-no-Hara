@@ -5,7 +5,7 @@ import java.util.HashMap;
 import commandes.CommandeEvent;
 
 /**
- * Condition pour vérifier la valeur d'un interrupteur local d'un Event
+ * Condition pour vï¿½rifier la valeur d'un interrupteur local d'un Event
  */
 public class ConditionInterrupteurLocal extends Condition  implements CommandeEvent {
 	boolean valeurQuIlEstCenseAvoir;
@@ -16,10 +16,10 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param numeroMap numero de la Map où se trouve l'interrupteur local à vérifier
-	 * @param idEvent id de l'Event auquel appartient l'interrupteur local à vérifier
-	 * @param numeroInterrupteurLocal à vérifier (0 A ; 1 B ; 2 C ; 3 D)
-	 * @param valeur booléenne attendue
+	 * @param numeroMap numero de la Map oï¿½ se trouve l'interrupteur local a vï¿½rifier
+	 * @param idEvent id de l'Event auquel appartient l'interrupteur local a vï¿½rifier
+	 * @param numeroInterrupteurLocal a vï¿½rifier (0 A ; 1 B ; 2 C ; 3 D)
+	 * @param valeur boolï¿½enne attendue
 	 */
 	public ConditionInterrupteurLocal(final int numero, final Integer numeroMap, final Integer idEvent, final int numeroInterrupteurLocal, final boolean valeur) {
 		this.numero = numero;
@@ -30,8 +30,8 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionInterrupteurLocal(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,
@@ -59,7 +59,7 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

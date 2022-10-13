@@ -5,12 +5,12 @@ import java.util.HashMap;
 import utilitaire.Maths;
 
 /**
- * Pivoter un Event à 90 degrés aléatoirement dans le sens horaire ou anti-horaire.
+ * Pivoter un Event a 90 degrï¿½s alï¿½atoirement dans le sens horaire ou anti-horaire.
  */
 public class PivoterAleatoirement extends Pivoter {
 
 	private PivoterAleatoirement() {
-		super(-1); // la vraie valeur sera décidée à l'exécution
+		super(-1); // la vraie valeur sera dï¿½cidï¿½e a l'exï¿½cution
 	}
 	
 	public PivoterAleatoirement(HashMap<String, Object> parametres) {

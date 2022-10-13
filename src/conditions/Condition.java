@@ -16,34 +16,34 @@ import commandes.CommandeMenu;
 import main.Commande;
 
 /**
- * Une Condition peut servir à définir le moment de déclenchement d'une Page, ou
+ * Une Condition peut servir a dï¿½finir le moment de dï¿½clenchement d'une Page, ou
  * faire partie du code Event.
  */
 public abstract class Condition extends Commande {
 	private static final Logger LOG = LogManager.getLogger(Condition.class);
 
-	public int numero = -1; // le numéro de condition est le même que le numéro de fin de condition qui
+	public int numero = -1; // le numï¿½ro de condition est le mï¿½me que le numï¿½ro de fin de condition qui
 							// correspond
 
 	/**
-	 * La Condition est elle vérifiée ?
+	 * La Condition est elle vï¿½rifiï¿½e ?
 	 * 
-	 * @return true si vérifiée, false si non vérifiée
+	 * @return true si vï¿½rifiï¿½e, false si non vï¿½rifiï¿½e
 	 */
 	public abstract boolean estVerifiee();
 
 	/**
-	 * Une Condition est une Commande Event, elle peut être executée pour faire des
-	 * sauts de curseur. Son execution est instantanée.
+	 * Une Condition est une Commande Event, elle peut ï¿½tre executï¿½e pour faire des
+	 * sauts de curseur. Son execution est instantanï¿½e.
 	 * 
 	 * @param curseurActuel position du curseur avant l'execution
 	 * @param commandes     liste des Commandes de la Page
 	 * @return nouvelle position du curseur
 	 */
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// une Condition doit avoir un numéro pour être exécutée comme Commande Event
+		// une Condition doit avoir un numï¿½ro pour ï¿½tre exï¿½cutï¿½e comme Commande Event
 		if (this.numero == -1) {
-			LOG.error("La condition " + this.getClass().getName() + " n'a pas de numéro !");
+			LOG.error("La condition " + this.getClass().getName() + " n'a pas de numï¿½ro !");
 		}
 
 		if (estVerifiee()) {
@@ -54,17 +54,17 @@ public abstract class Condition extends Commande {
 			while (!onATrouveLaFinDeSi) {
 				nouveauCurseur++;
 				try {
-					// la fin de si a le même numero que la condition
+					// la fin de si a le mï¿½me numero que la condition
 					if (((Condition) commandes.get(nouveauCurseur)).numero == numero) {
 						onATrouveLaFinDeSi = true;
 					}
 				} catch (IndexOutOfBoundsException e) {
 					if (this instanceof CommandeEvent) {
-						LOG.error("L'évènement n°" + this.page.event.id + " n'a pas trouvé sa fin de condition "
+						LOG.error("L'ï¿½vï¿½nement nï¿½" + this.page.event.id + " n'a pas trouvï¿½ sa fin de condition "
 								+ this.numero + " :", e);
 					}
 					if (this instanceof CommandeMenu) {
-						LOG.error("L'élément de menu n°" + this.element.id + " n'a pas trouvé sa fin de condition "
+						LOG.error("L'ï¿½lï¿½ment de menu nï¿½" + this.element.id + " n'a pas trouvï¿½ sa fin de condition "
 								+ this.numero + " :", e);
 					}
 				} catch (Exception e) {
@@ -76,17 +76,17 @@ public abstract class Condition extends Commande {
 	}
 
 	/**
-	 * Est-ce que la Condition demande un mouvement particulier du Héros ? Contact,
-	 * ArrivéeAuContact, Parler...
+	 * Est-ce que la Condition demande un mouvement particulier du Hï¿½ros ? Contact,
+	 * Arrivï¿½eAuContact, Parler...
 	 * 
-	 * @return false si la Condition est à considérer pour l'apparence d'un Event,
+	 * @return false si la Condition est a considï¿½rer pour l'apparence d'un Event,
 	 *         false sinon
 	 */
 	public abstract boolean estLieeAuHeros();
 
 	/**
-	 * Les Commandes de Menu sont instantannées et donc n'utilisent pas de curseur.
-	 * Cette méthode, exigée par CommandeMenu, est la même pour toutes les
+	 * Les Commandes de Menu sont instantannï¿½es et donc n'utilisent pas de curseur.
+	 * Cette Methode, exigï¿½e par CommandeMenu, est la mï¿½me pour toutes les
 	 * Conditions.
 	 */
 	public void executer() {
@@ -107,23 +107,23 @@ public abstract class Condition extends Commande {
 				conditionJSON2 = (JSONObject) conditionJSON;
 				final Class<?> classeCondition = Class.forName("conditions.Condition" + conditionJSON2.get("nom"));
 				try {
-					// cas d'une Condition sans paramètres
+					// cas d'une Condition sans paramï¿½tres
 
 					final Constructor<?> constructeurCondition = classeCondition.getConstructor();
 					final Condition condition = (Condition) constructeurCondition.newInstance();
 					conditions.add(condition);
 
 				} catch (NoSuchMethodException e0) {
-					// cas d'une Condition utilisant des paramètres
+					// cas d'une Condition utilisant des paramï¿½tres
 
 					final Iterator<String> parametresNoms = ((JSONObject) conditionJSON).keys();
-					String parametreNom; // nom du paramètre pour instancier la Condition
-					Object parametreValeur; // valeur du paramètre pour instancier la Condition
+					String parametreNom; // nom du paramï¿½tre pour instancier la Condition
+					Object parametreValeur; // valeur du paramï¿½tre pour instancier la Condition
 					final HashMap<String, Object> parametres = new HashMap<String, Object>();
 					while (parametresNoms.hasNext()) {
 						parametreNom = parametresNoms.next();
-						if (!parametreNom.equals("nom")) { // le nom servait à trouver la classe, ici on ne s'intéresse
-															// qu'aux paramètres
+						if (!parametreNom.equals("nom")) { // le nom servait a trouver la classe, ici on ne s'intï¿½resse
+															// qu'aux paramï¿½tres
 							parametreValeur = ((JSONObject) conditionJSON).get(parametreNom);
 							parametres.put(parametreNom, parametreValeur);
 						}

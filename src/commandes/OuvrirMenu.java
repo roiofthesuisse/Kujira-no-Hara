@@ -23,8 +23,8 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	 * Constructeur explicite
 	 * 
 	 * @param nomMenu           du Menu
-	 * @param selectionInitiale identifiant de l'ElementDeMenu à sélectionner au
-	 *                          début ; null pour la sélection par défaut spécifique
+	 * @param selectionInitiale identifiant de l'ElementDeMenu a sï¿½lectionner au
+	 *                          dï¿½but ; null pour la sï¿½lection par dï¿½faut spï¿½cifique
 	 *                          au menu
 	 */
 	public OuvrirMenu(final String nomMenu, final Integer selectionInitiale) {
@@ -33,19 +33,19 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public OuvrirMenu(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("nomMenu"),
 				parametres.containsKey("selectionInitiale") ? (int) parametres.get("selectionInitiale") : null // on
 																												// laisse
 																												// la
-																												// sélection
+																												// sï¿½lection
 																												// initiale
 																												// par
-																												// défaut
+																												// dï¿½faut
 																												// du
 																												// menu
 		);
@@ -58,7 +58,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 
 			final Lecteur lecteur = Main.lecteur;
 			final LecteurMenu nouveauLecteur;
-			final Menu nouveauMenu = Menu.creerMenuDepuisJson(this.nomMenu, null); // pas de Menu parent car appelé
+			final Menu nouveauMenu = Menu.creerMenuDepuisJson(this.nomMenu, null); // pas de Menu parent car appelï¿½
 																					// depuis la Map
 			if (lecteur instanceof LecteurMenu) {
 				// Le Menu est ouvert depuis un autre Menu
@@ -76,7 +76,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 			return curseurActuel;
 
 		} else {
-			// On revient du Menu, on passe à la Commande suivante
+			// On revient du Menu, on passe a la Commande suivante
 			leMenuAEteOuvert = false;
 			return curseurActuel + 1;
 		}

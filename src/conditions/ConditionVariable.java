@@ -7,7 +7,7 @@ import commandes.CommandeMenu;
 import utilitaire.Maths.Inegalite;
 
 /**
- * Vérifier la valeur d'une variable
+ * Vï¿½rifier la valeur d'une variable
  */
 public class ConditionVariable extends Condition implements CommandeEvent, CommandeMenu {
 	private int numeroVariable;
@@ -16,12 +16,12 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	private final boolean comparerAUneAutreVariable;
 	
 	/**
-	 * Utiliser les constantes situées dans la classe pour définir le type de comparaison.
+	 * Utiliser les constantes situï¿½es dans la classe pour dï¿½finir le type de comparaison.
 	 * @param numero de la Condition
-	 * @param numeroVariable numéro de la variable
-	 * @param symboleInegalite = egal ; >= superieur large ; <= inferieur large ; > superieur strict ; < inferieur strict ; != différent
+	 * @param numeroVariable numï¿½ro de la variable
+	 * @param symboleInegalite = egal ; >= superieur large ; <= inferieur large ; > superieur strict ; < inferieur strict ; != diffï¿½rent
 	 * @param valeur comparative
-	 * @param comparerAUneAutreVariable auquel cas la valeur comparative est un numéro de variable
+	 * @param comparerAUneAutreVariable auquel cas la valeur comparative est un numï¿½ro de variable
 	 */
 	public ConditionVariable(final int numero, final int numeroVariable, final String symboleInegalite, final int valeur, final boolean comparerAUneAutreVariable) {
 		this.numero = numero;
@@ -32,8 +32,8 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionVariable(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
@@ -48,16 +48,16 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	public final boolean estVerifiee() {
 		final int[] variables = getPartieActuelle().variables;
 		if (this.comparerAUneAutreVariable) {
-			// Comparer la variable à une autre variable
+			// Comparer la variable a une autre variable
 			return inegalite.comparer(variables[numeroVariable], variables[valeurQuIlEstCenseAvoir]);
 		} else {
-			// Comparer à une valeur brute
+			// Comparer a une valeur brute
 			return inegalite.comparer(variables[numeroVariable], this.valeurQuIlEstCenseAvoir);
 		}
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

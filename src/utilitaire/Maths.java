@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Classe utilitaire qui contient des fonctions mathématiques.
+ * Classe utilitaire qui contient des fonctions mathï¿½matiques.
  */
 public abstract class Maths {
 	private static final Logger LOG = LogManager.getLogger(Maths.class);
@@ -19,12 +19,12 @@ public abstract class Maths {
 	public static final int ANGLE_DEMI_TOUR = 180;
 	public static final int ANGLE_TOUR_COMPLET = 360;
 	
-	/** Générateur de nombres aléatoires */
+	/** Gï¿½nï¿½rateur de nombres alï¿½atoires */
 	public static final Random generateurAleatoire = new Random();
 	
 	/**
 	 * Modulo
-	 * @param a nombre à diviser
+	 * @param a nombre a diviser
 	 * @param b diviseur
 	 * @return reste de la division de a par b
 	 */
@@ -53,7 +53,7 @@ public abstract class Maths {
 	}
 	
 	/** 
-	 * Inégalités possibles pour comparer des valeurs 
+	 * Inï¿½galitï¿½s possibles pour comparer des valeurs 
 	 */
 	public enum Inegalite {
 		PLUS_OU_AUTANT(">="), PLUS_STRICTEMENT(">"), MOINS_OU_AUTANT("<="), MOINS_STRICTEMENT("<"), AUTANT("=="), DIFFERENT("!=");
@@ -62,7 +62,7 @@ public abstract class Maths {
 		
 		/**
 		 * Constructeur explicite
-		 * @param symbole mathématique de comparaison
+		 * @param symbole mathï¿½matique de comparaison
 		 */
 		Inegalite(final String symbole) {
 			this.symbole = symbole;
@@ -70,8 +70,8 @@ public abstract class Maths {
 		
 		/**
 		 * Accesseur statique
-		 * @param symbole mathématique de comparaison
-		 * @return une des Inégalités possibles
+		 * @param symbole mathï¿½matique de comparaison
+		 * @return une des Inï¿½galitï¿½s possibles
 		 */
 		public static Inegalite getInegalite(final String symbole) {
 			for (Inegalite inegalite : Inegalite.values()) {
@@ -79,15 +79,15 @@ public abstract class Maths {
 					return inegalite;
 				}
 			}
-			LOG.error("Cette inegalité n'a pas été trouvée : "+symbole);
+			LOG.error("Cette inegalitï¿½ n'a pas ï¿½tï¿½ trouvï¿½e : "+symbole);
 			return null;
 		}
 		
 		/**
-		 * Effectuer la comparaison mathématique sur deux valeurs.
-		 * @param valeur1 à comparer
-		 * @param valeur2 à comparer
-		 * @return résultat de la comparaison
+		 * Effectuer la comparaison mathï¿½matique sur deux valeurs.
+		 * @param valeur1 a comparer
+		 * @param valeur2 a comparer
+		 * @return rï¿½sultat de la comparaison
 		 */
 		public boolean comparer(final double valeur1, final double valeur2) {
 			switch(this) {
@@ -104,7 +104,7 @@ public abstract class Maths {
 			case DIFFERENT:
 				return valeur1 != valeur2;
 			default:
-				LOG.error("Inégalité inconnue : " + this.symbole);
+				LOG.error("Inï¿½galitï¿½ inconnue : " + this.symbole);
 				return false;
 			}
 		}
@@ -112,7 +112,7 @@ public abstract class Maths {
 
 	/**
 	 * Maximum
-	 * @param nombres en entrée
+	 * @param nombres en entrï¿½e
 	 * @return plus grand des nombres
 	 */
 	public static int max(final int... nombres) {
@@ -127,7 +127,7 @@ public abstract class Maths {
 	
 	/**
 	 * Minimum
-	 * @param nombres en entrée
+	 * @param nombres en entrï¿½e
 	 * @return plus petit des nombres
 	 */
 	public static int min(final int... nombres) {
@@ -141,10 +141,10 @@ public abstract class Maths {
 	}
 	
 	/**
-	 * Puissance approximative, calculée rapidement
-	 * @param x à mettre à la puissance y
+	 * Puissance approximative, calculï¿½e rapidement
+	 * @param x a mettre a la puissance y
 	 * @param y exposant de x
-	 * @return x^y à peu près
+	 * @return x^y a peu prï¿½s
 	 */
 	public static double pow(final double x, final double y) {
 		final int partieEntiere = (int) y;
@@ -153,7 +153,7 @@ public abstract class Maths {
 		for (int i = 0; i<partieEntiere; i++ ) {
 			res *= x;
 		}
-		return res * (1.0-partieDecimale) + res*x * partieDecimale; //moyenne pondérée entre puissance entière précédente et puissance entière suivante
+		return res * (1.0-partieDecimale) + res*x * partieDecimale; //moyenne pondï¿½rï¿½e entre puissance entiï¿½re prï¿½cï¿½dente et puissance entiï¿½re suivante
 	}
 	
 	/**

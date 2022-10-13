@@ -11,7 +11,7 @@ import map.LecteurMap;
 import utilitaire.GestionClavier.ToucheRole;
 
 /**
- * La touche action vient d'être pressée à l'instant.
+ * La touche action vient d'ï¿½tre pressï¿½e a l'instant.
  */
 public class ConditionTouche extends Condition implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ConditionTouche.class);
@@ -22,8 +22,8 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	/** 
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param touches rôles à vérifier (séparées par des points-virgules)
-	 * @param toucheMaintenue touche actuellement enfoncée VS appui récent
+	 * @param touches rï¿½les a vï¿½rifier (sï¿½parï¿½es par des points-virgules)
+	 * @param toucheMaintenue touche actuellement enfoncï¿½e VS appui rï¿½cent
 	 */
 	public ConditionTouche(final int numero, final String touches, final boolean toucheMaintenue) {
 		this.numero = numero;
@@ -35,8 +35,8 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionTouche(final HashMap<String, Object> parametres) {
 		this(
@@ -49,7 +49,7 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	@Override
 	public final boolean estVerifiee() {
 		if (this.toucheMaintenue) {
-			// La touche est-elle enfoncée en ce moment ?
+			// La touche est-elle enfoncï¿½e en ce moment ?
 				for (ToucheRole toucheRole : this.touchesRoles) {
 					if (toucheRole == null) {
 						LOG.error("Touche inexistante !", this.touchesRoles);
@@ -61,9 +61,9 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 				return false;
 			
 		} else {
-			// Le joueur vient-il de presser la touche à l'instant ?
+			// Le joueur vient-il de presser la touche a l'instant ?
 			final LecteurMap lecteur = this.page.event.map.lecteur;
-			if (lecteur.frameActuelle > 1) { //pour éviter que l'Epée se déclenche en début de Map
+			if (lecteur.frameActuelle > 1) { //pour ï¿½viter que l'Epï¿½e se dï¿½clenche en dï¿½but de Map
 				for (ToucheRole toucheRole : this.touchesRoles) {
 					final Integer frameDAppui = toucheRole.frameDAppui();
 					if (frameDAppui != null && frameDAppui + 1 == lecteur.frameActuelle) {
@@ -76,7 +76,7 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

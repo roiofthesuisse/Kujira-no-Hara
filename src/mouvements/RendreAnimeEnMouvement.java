@@ -5,22 +5,22 @@ import java.util.HashMap;
 import map.Event;
 
 /**
- * Rendre un Event animé en Mouvement.
+ * Rendre un Event animï¿½ en Mouvement.
  */
 public class RendreAnimeEnMouvement extends Mouvement {
 	private boolean nouveauAnimeEnMouvement;
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouveauAnimeEnMouvement à donner à l'Event
+	 * @param nouveauAnimeEnMouvement a donner a l'Event
 	 */
 	public RendreAnimeEnMouvement(final boolean nouveauAnimeEnMouvement) {
 		this.nouveauAnimeEnMouvement = nouveauAnimeEnMouvement;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RendreAnimeEnMouvement(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("animeEnMouvement") ? (boolean) parametres.get("animeEnMouvement") : true );
@@ -54,7 +54,7 @@ public class RendreAnimeEnMouvement extends Mouvement {
 
 	@Override
 	public final String toString() {
-		return "animé en mouvement : "+this.nouveauAnimeEnMouvement;
+		return "animï¿½ en mouvement : "+this.nouveauAnimeEnMouvement;
 	}
 
 	@Override

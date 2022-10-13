@@ -1,24 +1,24 @@
 package utilitaire.graphismes;
 
 /**
- * Façon dont les images sont superposées.
+ * Faï¿½on dont les images sont superposï¿½es.
  */
 public enum ModeDeFusion {
 	/** Recouvrir en utilisant les couleurs de l'image */
 	NORMAL("normal"),
-	/** Recouvrir en utilisant les couleurs du négatif l'image */
+	/** Recouvrir en utilisant les couleurs du nï¿½gatif l'image */
 	NEGATIF("negatif"),
 	/** Eclaircir en utilisant les couleurs de l'image */
 	ADDITION("addition"),
-	/** Eclaircir en utilisant les couleurs du négatif de l'image */
+	/** Eclaircir en utilisant les couleurs du nï¿½gatif de l'image */
 	ADDITION_NEGATIF("addition negatif"), 
-	/** Assombrir en utilisant les couleurs du négatif de l'image */
+	/** Assombrir en utilisant les couleurs du nï¿½gatif de l'image */
 	SOUSTRACTION("soustraction"),
 	/** Assombrir en conservant les couleurs que sur l'image */
 	SOUSTRACTION_NEGATIF("soustraction negatif"), 
-	/** Assombrir ou éclairer (selon la distance au gris médian) */
+	/** Assombrir ou ï¿½clairer (selon la distance au gris mï¿½dian) */
 	TOPKEK("topkek"),
-	/** Pour modifier le ton de l'écran */
+	/** Pour modifier le ton de l'ecran */
 	TON_DE_L_ECRAN("ton de l'ecran");
 	
 	public final String nom;
@@ -32,7 +32,7 @@ public enum ModeDeFusion {
 	}
 	
 	/**
-	 * Obtenir le mode de fusion à partir de son nom
+	 * Obtenir le mode de fusion a partir de son nom
 	 * @param nom du mode de fusion
 	 * @return mode de fusion qui porte ce nom
 	 */

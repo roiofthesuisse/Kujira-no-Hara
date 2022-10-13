@@ -5,13 +5,13 @@ import java.util.HashMap;
 import map.Event;
 
 /**
- * Attendre au cours d'un Déplacement.
+ * Attendre au cours d'un Dï¿½placement.
  */
 public class Attendre extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nombreDeFrames à Attendre avant le prochain Mouvement
+	 * @param nombreDeFrames a Attendre avant le prochain Mouvement
 	 */
 	public Attendre(final int nombreDeFrames) {
 		this.etapes = nombreDeFrames;
@@ -19,8 +19,8 @@ public class Attendre extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Attendre(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("nombreDeFrames"));
@@ -53,7 +53,7 @@ public class Attendre extends Mouvement {
 
 	@Override
 	public final String toString() {
-		return "Attendre "+this.etapes+" frames dans le Déplacement de "+this.deplacement.getEventADeplacer().nom;
+		return "Attendre "+this.etapes+" frames dans le Dï¿½placement de "+this.deplacement.getEventADeplacer().nom;
 	}
 
 	@Override

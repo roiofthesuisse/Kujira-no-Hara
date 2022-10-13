@@ -19,10 +19,10 @@ public class Ondulation {
 	
 
     /**
-     * Faie onduler l'écran car on est sous l'eau bloup bloup bloup.
-     * @param ecran à déformer
+     * Faie onduler l'ecran car on est sous l'eau bloup bloup bloup.
+     * @param ecran a dï¿½former
      * @param frame temps
-     * @return écran déformé
+     * @return ecran dï¿½formï¿½
      */
 	public BufferedImage faireOndulerLEcran(BufferedImage ecran, int frame) {
 		WritableRaster rasterEcran = ecran.getRaster();

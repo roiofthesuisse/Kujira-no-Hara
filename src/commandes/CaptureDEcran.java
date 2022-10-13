@@ -7,7 +7,7 @@ import main.Commande;
 import main.Main;
 
 /**
- * Prendre une capture d'écran du jeu.
+ * Prendre une capture d'ecran du jeu.
  */
 public class CaptureDEcran extends Commande implements CommandeEvent, CommandeMenu {
 
@@ -18,9 +18,9 @@ public class CaptureDEcran extends Commande implements CommandeEvent, CommandeMe
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public CaptureDEcran(final HashMap<String, Object> parametres) {
 		this();

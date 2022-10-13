@@ -26,7 +26,7 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 	final int valeurADonner2;
 
 	/**
-	 * Opération à effectuer sur la variable
+	 * Opï¿½ration a effectuer sur la variable
 	 */
 	public static final String RENDRE_EGAL_A = "rendre egal a";
 	public static final String AJOUTER = "ajouter";
@@ -49,16 +49,16 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 	public static final String ARGENT_POSSEDE = "argent possede";
 
 	/**
-	 * Constructeur explicite Utiliser les constantes situées dans la classe pour
-	 * créer une telle opération.
+	 * Constructeur explicite Utiliser les constantes situï¿½es dans la classe pour
+	 * crï¿½er une telle opï¿½ration.
 	 * 
-	 * @param numeroVariable   numéro de la variable à modifier
+	 * @param numeroVariable   numï¿½ro de la variable a modifier
 	 * @param operationAFaire  0:rendreEgalA 1:ajouter 2:retirer 3:multiplier
 	 *                         4:diviser 5:modulo
 	 * @param operationAFaire2 0:valeur 1:contenuDeLaVariable 2:nombreAleatoire
-	 * @param valeurADonner    valeur brute, numéro de la variable, ou borne
-	 *                         inférieure aléatoire
-	 * @param valeurADonner2   éventuelle borne supérieure aléatoire
+	 * @param valeurADonner    valeur brute, numï¿½ro de la variable, ou borne
+	 *                         infï¿½rieure alï¿½atoire
+	 * @param valeurADonner2   ï¿½ventuelle borne supï¿½rieure alï¿½atoire
 	 */
 	public ModifierVariable(final int numeroVariable, final String operationAFaire, final String operationAFaire2,
 			final int valeurADonner, final int valeurADonner2) {
@@ -70,9 +70,9 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierVariable(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroVariable"), (String) parametres.get("operationAFaire"),
@@ -105,7 +105,7 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 			if (valeurADonner >= 0) {
 				event = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) valeurADonner);
 			} else {
-				// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
+				// si aucun identifiant d'Event n'est spï¿½cifiï¿½, on prend l'Event de la Commande
 				event = this.page.event;
 			}
 			valeur = (event.x + event.largeurHitbox / 2) / Main.TAILLE_D_UN_CARREAU;
@@ -114,7 +114,7 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 			if (valeurADonner >= 0) {
 				event = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) valeurADonner);
 			} else {
-				// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
+				// si aucun identifiant d'Event n'est spï¿½cifiï¿½, on prend l'Event de la Commande
 				event = this.page.event;
 			}
 			valeur = (event.y + event.hauteurHitbox / 2) / Main.TAILLE_D_UN_CARREAU;
@@ -123,7 +123,7 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 			if (valeurADonner >= 0) {
 				event = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) valeurADonner);
 			} else {
-				// si aucun identifiant d'Event n'est spécifié, on prend l'Event de la Commande
+				// si aucun identifiant d'Event n'est spï¿½cifiï¿½, on prend l'Event de la Commande
 				event = this.page.event;
 			}
 			valeur = event.calculerTerrain();
@@ -140,7 +140,7 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 			break;
 		}
 
-		// operationAFaire donne le type d'opération à effectuer
+		// operationAFaire donne le type d'opï¿½ration a effectuer
 		switch (operationAFaire) {
 		case RENDRE_EGAL_A:
 			partieActuelle.variables[numeroVariable] = valeur;

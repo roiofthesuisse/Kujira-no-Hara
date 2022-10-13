@@ -13,7 +13,7 @@ public class RendreTraversable extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouveauTraversable à donner à l'Event
+	 * @param nouveauTraversable a donner a l'Event
 	 */
 	public RendreTraversable(final boolean nouveauTraversable) {
 		if (nouveauTraversable) {
@@ -24,8 +24,8 @@ public class RendreTraversable extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RendreTraversable(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("traversable") ? (boolean) parametres.get("traversable") : true );

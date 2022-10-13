@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 import main.Fenetre;
 
 /**
- * Actions à effectuer quand la souris est utilisée
+ * Actions a effectuer quand la souris est utilisï¿½e
  */
 public class CapteurSouris implements MouseListener {
 	

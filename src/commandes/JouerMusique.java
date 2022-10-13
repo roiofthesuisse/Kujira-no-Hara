@@ -27,9 +27,9 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nomFichierSonore nom du fichier de la musique à jouer
+	 * @param nomFichierSonore nom du fichier de la musique a jouer
 	 * @param volume           sonore (entre 0.0f et 1.0f)
-	 * @param nombreDeFrames   durée de l'entrée en fondu
+	 * @param nombreDeFrames   durï¿½e de l'entrï¿½e en fondu
 	 * @param piste            sur laquelle jouer
 	 */
 	public JouerMusique(final String nomFichierSonore, final float volume, final int nombreDeFrames, final int piste) {
@@ -41,9 +41,9 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public JouerMusique(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("nomFichierSonore"),
@@ -55,14 +55,14 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		if (frame == 0) {
-			// Démarrage de la musique
+			// Dï¿½marrage de la musique
 			LecteurAudio.playBgm(this.nomFichierSonore, 0, piste);
 			this.frame++;
 
 			if (LecteurAudio.bgmEnCours[piste] == null) {
-				LOG.error("Impossible de démarrer la musique \"" + this.nomFichierSonore + "\"");
+				LOG.error("Impossible de dï¿½marrer la musique \"" + this.nomFichierSonore + "\"");
 			} else {
-				LOG.info("Démarrage de la musique.");
+				LOG.info("Dï¿½marrage de la musique.");
 			}
 			return curseurActuel;
 
@@ -80,7 +80,7 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 				LecteurAudio.bgmEnCours[piste].modifierVolume(this.volume);
 				this.frame = 0;
 
-				LOG.info("La musique est démarrée.");
+				LOG.info("La musique est dï¿½marrï¿½e.");
 			} else {
 				LOG.error("Abandon de jouer la musique \"" + this.nomFichierSonore + "\"");
 			}

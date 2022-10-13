@@ -23,23 +23,23 @@ import main.Main;
 import utilitaire.Maths;
 
 /**
- * CLasse utilitaire pour les opérations graphiques récurrentes.
+ * CLasse utilitaire pour les opï¿½rations graphiques rï¿½currentes.
  */
 public abstract class Graphismes {
 	// constantes
 	private static final Logger LOG = LogManager.getLogger(Graphismes.class);
-	/** Modèle de couleur unique pour toutes les images du jeu */
+	/** Modï¿½le de couleur unique pour toutes les images du jeu */
 	public static final ColorModel COLORMODEL = new BufferedImage(1, 1, Graphismes.TYPE_DES_IMAGES).getColorModel();
 	/** Type unique pour toutes les images du jeu */
 	public static final int TYPE_DES_IMAGES = BufferedImage.TYPE_INT_ARGB;
 
-	/** Valeur (en pourcents) représentant l'absence d'homothétie */
+	/** Valeur (en pourcents) reprï¿½sentant l'absence d'homothï¿½tie */
 	public static final int PAS_D_HOMOTHETIE = 100;
-	/** Valeur (en degrés) représentant l'absence de rotation */
+	/** Valeur (en degrï¿½s) reprï¿½sentant l'absence de rotation */
 	public static final int PAS_DE_ROTATION = 0;
-	/** Valeur (sur 255) représentant l'absence de transparence */
+	/** Valeur (sur 255) reprï¿½sentant l'absence de transparence */
 	public static final int OPACITE_MAXIMALE = 255;
-	/** Ton par défaut des images */
+	/** Ton par dï¿½faut des images */
 	public static final int[] TON_PAR_DEFAUT = new int[] { 0, 127, 127, 127 };
 	/** L'origine de l'image est son coin haut-gauche et non son centre */
 	private static final boolean ORIGINE_HAUT_GAUCHE = false;
@@ -50,10 +50,10 @@ public abstract class Graphismes {
 	 * Superposer deux images
 	 * 
 	 * @param ecran  image de fond, sur laquelle on va superposer l'autre
-	 * @param image2 image du dessus, superposée sur l'écran
-	 * @param x      position x où on superpose l'image2
-	 * @param y      position y où on superpose l'image2
-	 * @return écran sur lequel on a superposé l'image2
+	 * @param image2 image du dessus, superposï¿½e sur l'ecran
+	 * @param x      position x oï¿½ on superpose l'image2
+	 * @param y      position y oï¿½ on superpose l'image2
+	 * @return ecran sur lequel on a superposï¿½ l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x,
 			final int y) {
@@ -64,11 +64,11 @@ public abstract class Graphismes {
 	 * Superposer deux images
 	 * 
 	 * @param ecran   image de fond, sur laquelle on va superposer l'autre
-	 * @param image2  image du dessus, superposée sur l'écran
-	 * @param x       position x où on superpose l'image2
-	 * @param y       position y où on superpose l'image2
+	 * @param image2  image du dessus, superposï¿½e sur l'ecran
+	 * @param x       position x oï¿½ on superpose l'image2
+	 * @param y       position y oï¿½ on superpose l'image2
 	 * @param opacite transparence de l'image2 entre 0 et 255
-	 * @return écran sur lequel on a superposé l'image2
+	 * @return ecran sur lequel on a superposï¿½ l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x,
 			final int y, final int opacite) {
@@ -79,12 +79,12 @@ public abstract class Graphismes {
 	 * Superposer deux images
 	 * 
 	 * @param ecran        image de fond, sur laquelle on va superposer l'autre
-	 * @param image2       image du dessus, superposée sur l'écran
-	 * @param x            position x où on superpose l'image2
-	 * @param y            position y où on superpose l'image2
+	 * @param image2       image du dessus, superposï¿½e sur l'ecran
+	 * @param x            position x oï¿½ on superpose l'image2
+	 * @param y            position y oï¿½ on superpose l'image2
 	 * @param opacite      transparence de l'image2 entre 0 et 255
-	 * @param modeDeFusion façon dont on superpose les deux images
-	 * @return écran sur lequel on a superposé l'image2
+	 * @param modeDeFusion faï¿½on dont on superpose les deux images
+	 * @return ecran sur lequel on a superposï¿½ l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x,
 			final int y, final int opacite, final ModeDeFusion modeDeFusion) {
@@ -96,16 +96,16 @@ public abstract class Graphismes {
 	 * Superposer deux images
 	 * 
 	 * @param ecran        image de fond, sur laquelle on va superposer l'autre
-	 * @param image2       image du dessus, superposée sur l'écran
-	 * @param x            position x où on superpose l'image2
-	 * @param y            position y où on superpose l'image2
+	 * @param image2       image du dessus, superposï¿½e sur l'ecran
+	 * @param x            position x oï¿½ on superpose l'image2
+	 * @param y            position y oï¿½ on superpose l'image2
 	 * @param centre       l'origine de l'image est-elle son centre ?
 	 * @param zoomX        zoom horizontal (en pourcents)
 	 * @param zoomY        zoom vertical (en pourcents)
 	 * @param opacite      transparence de l'image2 entre 0 et 255
-	 * @param modeDeFusion façon dont on superpose les deux images
+	 * @param modeDeFusion faï¿½on dont on superpose les deux images
 	 * @param angle        de rotation de l'image
-	 * @return écran sur lequel on a superposé l'image2
+	 * @return ecran sur lequel on a superposï¿½ l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, BufferedImage image2, int x, int y,
 			final boolean centre, final int zoomX, final int zoomY, final int opacite, final ModeDeFusion modeDeFusion,
@@ -119,7 +119,7 @@ public abstract class Graphismes {
 		// transparence et mode de fusion
 		if (opacite < OPACITE_MAXIMALE || !ModeDeFusion.NORMAL.equals(modeDeFusion)) {
 			if (ModeDeFusion.TON_DE_L_ECRAN.equals(modeDeFusion)) {
-				LOG.warn("Pour modifier le ton de l'écran, utiliser plutôt la méthode Graphismes.appliquerTon().");
+				LOG.warn("Pour modifier le ton de l'ecran, utiliser plutï¿½t la Methode Graphismes.appliquerTon().");
 			}
 			final float alpha = (float) opacite / OPACITE_MAXIMALE;
 			final Composite comp = MonComposite.creerComposite(modeDeFusion, alpha);
@@ -145,12 +145,12 @@ public abstract class Graphismes {
 			// rotation de l'image
 			final double angleRadians = Math.toRadians(angle);
 
-			// La translation avant la rotation n'est pas forcément la même après la
-			// rotation, car la taille de l'image a changé
+			// La translation avant la rotation n'est pas forcï¿½ment la mï¿½me apres la
+			// rotation, car la taille de l'image a changï¿½
 			final double preTranslationX = image2.getWidth() / 2;
 			final double preTranslationY = image2.getHeight() / 2;
 
-			// On pivote les coins de l'image pour connaître la nouvelle largeur/hauteur
+			// On pivote les coins de l'image pour connaï¿½tre la nouvelle largeur/hauteur
 			final int[][] coins = new int[][] { { x, y }, { x + image2.getWidth(), y }, { x, y + image2.getHeight() },
 					{ x + image2.getWidth(), y + image2.getHeight() } };
 			final int[][] coinsPivotes = new int[4][2];
@@ -171,9 +171,9 @@ public abstract class Graphismes {
 
 			// Rotation de l'image
 			final AffineTransform tx = new AffineTransform();
-			tx.translate(postTranslationX, postTranslationY); // étape 3 : on la redécale sur son coin
-			tx.rotate(angleRadians); // étape 2 : on la tourne
-			tx.translate(-preTranslationX, -preTranslationY); // étape 1 : on décale l'image sur son centre
+			tx.translate(postTranslationX, postTranslationY); // ï¿½tape 3 : on la redï¿½cale sur son coin
+			tx.rotate(angleRadians); // ï¿½tape 2 : on la tourne
+			tx.translate(-preTranslationX, -preTranslationY); // ï¿½tape 1 : on dï¿½cale l'image sur son centre
 			final AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 			final BufferedImage imagePivotee = op.filter(image2, null);
 			final int nouveauX = x + (int) preTranslationX - postTranslationX;
@@ -185,15 +185,15 @@ public abstract class Graphismes {
 	}
 
 	/**
-	 * Opération graphique plus rapide adaptée aux Tilesets.
+	 * Opï¿½ration graphique plus rapide adaptï¿½e aux Tilesets.
 	 * 
 	 * @param dst  image sur laquelle on dessine
-	 * @param src  image de laquelle on prend le carreau à dessiner
-	 * @param xDst coordonnée (en pixels) où on dessine
-	 * @param yDst coordonnée (en pixels) où on dessine
-	 * @param xSrc coordonnée (en pixels) où on prend le carreau à dessiner
-	 * @param ySrc coordonnée (en pixels) où on prend le carreau à dessiner
-	 * @return image avec le carreau dessiné
+	 * @param src  image de laquelle on prend le carreau a dessiner
+	 * @param xDst coordonnï¿½e (en pixels) oï¿½ on dessine
+	 * @param yDst coordonnï¿½e (en pixels) oï¿½ on dessine
+	 * @param xSrc coordonnï¿½e (en pixels) oï¿½ on prend le carreau a dessiner
+	 * @param ySrc coordonnï¿½e (en pixels) oï¿½ on prend le carreau a dessiner
+	 * @return image avec le carreau dessinï¿½
 	 */
 	public static BufferedImage superposerPortionDImage(BufferedImage dst, BufferedImage src, int xDst, int yDst,
 			int xSrc, int ySrc) {
@@ -204,7 +204,7 @@ public abstract class Graphismes {
 	}
 
 	/**
-	 * Produire un rectangle de couleur pour l'afficher comme écran
+	 * Produire un rectangle de couleur pour l'afficher comme ecran
 	 * 
 	 * @return un rectangle de couleur
 	 */
@@ -234,7 +234,7 @@ public abstract class Graphismes {
 	}
 
 	/**
-	 * Produire un rectangle vide pour l'afficher comme écran
+	 * Produire un rectangle vide pour l'afficher comme ecran
 	 * 
 	 * @return un rectangle vide
 	 */
@@ -243,9 +243,9 @@ public abstract class Graphismes {
 	}
 
 	/**
-	 * Cloner une image modèle.
+	 * Cloner une image modï¿½le.
 	 * 
-	 * @param image à cloner
+	 * @param image a cloner
 	 * @return clone de l'image
 	 */
 	public static BufferedImage creerUneImageVideDeMemeTaille(final BufferedImage image) {
@@ -255,9 +255,9 @@ public abstract class Graphismes {
 	}
 
 	/**
-	 * Cloner une image modèle.
+	 * Cloner une image modï¿½le.
 	 * 
-	 * @param image à cloner
+	 * @param image a cloner
 	 * @return clone de l'image
 	 */
 	public static BufferedImage clonerUneImage(final BufferedImage image) {
@@ -269,8 +269,8 @@ public abstract class Graphismes {
 	/**
 	 * Enregistrer une image dans l'ordinateur
 	 * 
-	 * @param image à enregistrer
-	 * @param nom   de l'image enregistrée
+	 * @param image a enregistrer
+	 * @param nom   de l'image enregistrï¿½e
 	 */
 	public static void sauvegarderImage(final BufferedImage image, final String nom) {
 		final File directory = new File(String.valueOf("C:/Users/Public/kujira"));
@@ -289,10 +289,10 @@ public abstract class Graphismes {
 	/**
 	 * Redimensionner une image.
 	 * 
-	 * @param image   à redimensionner
+	 * @param image   a redimensionner
 	 * @param largeur de la nouvelle image
 	 * @param hauteur de la nouvelle image
-	 * @return image redimensionnée
+	 * @return image redimensionnï¿½e
 	 */
 	public static BufferedImage redimensionner(final BufferedImage image, final int largeur, final int hauteur) {
 		final Image tmp = image.getScaledInstance(largeur, hauteur, Image.SCALE_FAST);
@@ -308,13 +308,13 @@ public abstract class Graphismes {
 	/**
 	 * Charger une image du dossier de ressources.
 	 * 
-	 * @param dossier sous-dossier du dossier Picture où se trouve l'image
+	 * @param dossier sous-dossier du dossier Picture oï¿½ se trouve l'image
 	 * @param nom     de l'image
-	 * @return image chargée, compatible avec la configuration officielle
+	 * @return image chargï¿½e, compatible avec la configuration officielle
 	 * @throws IOException impossible d'ouvrir l'image
 	 */
 	public static BufferedImage ouvrirImage(final String dossier, final String nom) throws IOException {
-		String dossierSlashNom = dossier + "/" + nom.replaceAll("[^a-zA-Z0-9àéèç _\\.-]", "");
+		String dossierSlashNom = dossier + "/" + nom.replaceAll("[^a-zA-Z0-9Ã©Ã¨Ã Ã§ _\\.-]", "");
 		if (!nom.endsWith(".png")) {
 			dossierSlashNom += ".png";
 		}
@@ -335,11 +335,11 @@ public abstract class Graphismes {
 	 * Convertir une image qui n'est pas dans la bonne configuration.
 	 * 
 	 * @param image    dans une autre configuration
-	 * @param nomImage à loguer en cas d'erreur
+	 * @param nomImage a loguer en cas d'erreur
 	 * @return image dans la configuration officielle
 	 */
 	private static BufferedImage convertirEnImageCompatible(final BufferedImage image, final String nomImage) {
-		// Si l'image a déjà le bon ColorModel, tout va bien
+		// Si l'image a dï¿½jï¿½ le bon ColorModel, tout va bien
 		if (image.getColorModel().equals(COLORMODEL)) {
 			return image;
 		}
@@ -374,11 +374,11 @@ public abstract class Graphismes {
 	}
 
 	/**
-	 * Appliquer un ton à une image.
+	 * Appliquer un ton a une image.
 	 * 
 	 * @param image sur laquelle appliquer le ton
-	 * @param ton   à appliquer (gris, rouge, vert, bleu)
-	 * @return image modifiée
+	 * @param ton   a appliquer (gris, rouge, vert, bleu)
+	 * @return image modifiï¿½e
 	 */
 	public static BufferedImage appliquerTon(final BufferedImage image, final int[] ton) {
 		if (Graphismes.memeTon(ton, Graphismes.TON_PAR_DEFAUT)) {
@@ -401,7 +401,7 @@ public abstract class Graphismes {
 	/**
 	 * Comparer deux images. Sont-elles identiques ?
 	 * 
-	 * @param image1 première image
+	 * @param image1 premiï¿½re image
 	 * @param image2 seconde image
 	 * @return true si les images sont identiques
 	 */
@@ -411,7 +411,7 @@ public abstract class Graphismes {
 			return false;
 		}
 
-		// Comparaison pixel à pixel
+		// Comparaison pixel a pixel
 		for (int i = 0; i < image1.getWidth(); i++) {
 			for (int j = 0; j < image2.getWidth(); j++) {
 				if (image1.getRGB(i, j) != image2.getRGB(i, j)) {

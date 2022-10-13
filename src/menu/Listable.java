@@ -8,7 +8,7 @@ import main.Commande;
 
 
 /**
- * Un Listable peut avoir ses informations affichées dans une Liste.
+ * Un Listable peut avoir ses informations affichï¿½es dans une Liste.
  */
 public interface Listable {
 	/** Nom du package.dossier */
@@ -16,27 +16,27 @@ public interface Listable {
 	
 	/**
 	 * Construire une image qui sera l'apparence de l'ElementDeMenu dans la Liste. 
-	 * @param largeur minimale des éléments de la liste
-	 * @param hauteur minimale des éléments de la liste
+	 * @param largeur minimale des ï¿½lï¿½ments de la liste
+	 * @param hauteur minimale des ï¿½lï¿½ments de la liste
 	 * @return image d'informations sur le collectable
 	 */
 	BufferedImage construireImagePourListe(final int largeur, final int hauteur);
 	
 	/**
-	 * Obtenir les Conditions requises à l'affichage de l'ElementDeMenu.
+	 * Obtenir les Conditions requises a l'affichage de l'ElementDeMenu.
 	 * @return Conditions d'affichage
 	 */
 	ArrayList<Condition> getConditions();
 	
 	/**
 	 * Comportement au survol de l'ElementDeMenu.
-	 * @return CommandesMenu à executer
+	 * @return CommandesMenu a executer
 	 */
 	ArrayList<Commande> getComportementSelection();
 	
 	/**
-	 * Comportement à la confirmation de l'ElementDeMenu.
-	 * @return CommandesMenu à executer
+	 * Comportement a la confirmation de l'ElementDeMenu.
+	 * @return CommandesMenu a executer
 	 */
 	ArrayList<Commande> getComportementConfirmation();
 	

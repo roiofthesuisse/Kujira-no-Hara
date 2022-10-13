@@ -15,17 +15,17 @@ public class AjouterGadget extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idGadget identifiant du Gadget à ajouter : son numéro ou son nom
+	 * @param idGadget identifiant du Gadget a ajouter : son numï¿½ro ou son nom
 	 */
 	public AjouterGadget(final int idGadget) {
-		// l'identifiant du Gadget est son numéro
+		// l'identifiant du Gadget est son numï¿½ro
 		this.idGadget = idGadget;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AjouterGadget(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idGadget"));
@@ -38,7 +38,7 @@ public class AjouterGadget extends Commande implements CommandeEvent {
 			partieActuelle.gadgetsPossedes[idGadget] = true;
 			partieActuelle.nombreDeGadgetsPossedes++;
 		}
-		// Si actuellement rien d'équipé, on l'équipe
+		// Si actuellement rien d'ï¿½quipï¿½, on l'ï¿½quipe
 		if (partieActuelle.idGadgetEquipe < 0) {
 			partieActuelle.idGadgetEquipe = idGadget;
 		}

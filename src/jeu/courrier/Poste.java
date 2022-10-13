@@ -33,8 +33,8 @@ public abstract class Poste {
 	private static final String ENVOYER = "kujiranohara_envoyerCourrier.php";
 
 	/**
-	 * Envoyer une lettre à un personnage du jeu par la Poste.
-	 * @param lettre à envoyer
+	 * Envoyer une lettre a un personnage du jeu par la Poste.
+	 * @param lettre a envoyer
 	 * @return reponse http
 	 */
 	public static String envoyerDuCourrier(final LettreAEnvoyer lettre) {
@@ -68,9 +68,9 @@ public abstract class Poste {
 			final int debut = responseHttp.indexOf("DEBUT_COURRIER")+"DEBUT_COURRIER".length();
 			final int fin = responseHttp.lastIndexOf("FIN_COURRIER");
 			final String courrier = responseHttp.substring(debut, fin);
-			LOG.info("Le courrier a été reçu : \""+courrier+"\"");
+			LOG.info("Le courrier a ï¿½tï¿½ reï¿½u : \""+courrier+"\"");
 		} else {
-			LOG.info("Le courrier n'a pas été reçu.");
+			LOG.info("Le courrier n'a pas ï¿½tï¿½ reï¿½u.");
 		}
 	}
 	
@@ -94,11 +94,11 @@ public abstract class Poste {
 			final int debut = responseHttp.indexOf("|");
 			final int fin = responseHttp.lastIndexOf("|") + 1;
 			final String courrier = responseHttp.substring(debut, fin);
-			LOG.info("Le courrier a été reçu : \""+courrier+"\"");
+			LOG.info("Le courrier a ï¿½tï¿½ reï¿½u : \""+courrier+"\"");
 			return courrier;
 			
 		} else {
-			LOG.info("Le courrier n'a pas été reçu.");
+			LOG.info("Le courrier n'a pas ï¿½tï¿½ reï¿½u.");
 			return null;
 		}
 	}
@@ -144,7 +144,7 @@ public abstract class Poste {
 			in.close();
 			
 			//print result
-			LOG.info("La requete POST a été envoyée et sa réponse a été récupérée.");
+			LOG.info("La requete POST a ï¿½tï¿½ envoyï¿½e et sa rï¿½ponse a ï¿½tï¿½ rï¿½cupï¿½rï¿½e.");
 			return sbuf.toString();
 
 		} catch (IOException e) {
@@ -154,9 +154,9 @@ public abstract class Poste {
 	}
 	
 	/**
-	 * Obtenir la liste des lettres envoyées mais qui sont toujours sans réponse
+	 * Obtenir la liste des lettres envoyï¿½es mais qui sont toujours sans rï¿½ponse
 	 * @param partie actuelle
-	 * @return identifiants des lettres sans réponse
+	 * @return identifiants des lettres sans rï¿½ponse
 	 */
 	private static String idsDesLettresDontOnAttendUneReponse(final Partie partie) {
 		return partie.lettresAEnvoyer.stream()

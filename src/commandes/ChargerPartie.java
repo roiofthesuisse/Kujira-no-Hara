@@ -20,7 +20,7 @@ import main.Commande;
 import main.Main;
 
 /**
- * Charger une Partie dans le menu dédié
+ * Charger une Partie dans le menu dï¿½diï¿½
  */
 public class ChargerPartie extends Commande implements CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(ChargerPartie.class);
@@ -30,23 +30,23 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroDeSauvegarde numéro du fichier de sauvegarde à charger
+	 * @param numeroDeSauvegarde numï¿½ro du fichier de sauvegarde a charger
 	 */
 	public ChargerPartie(final int numeroDeSauvegarde) {
 		this.numeroDeSauvegarde = numeroDeSauvegarde;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ChargerPartie(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroSauvegarde"));
 	}
 
 	/**
-	 * Retirer les ZZZZ inutiles à la fin du fichier.
+	 * Retirer les ZZZZ inutiles a la fin du fichier.
 	 * 
 	 * @param partieDecryptee0 fichier avec des ZZZ
 	 * @return fichier sans les ZZZ
@@ -79,10 +79,10 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 	}
 
 	/**
-	 * Charger une Partie à partir du numéro de la Sauvegarde.
+	 * Charger une Partie a partir du numï¿½ro de la Sauvegarde.
 	 * 
 	 * @param numeroDeSauvegarde qui identifie le fichier de Sauvegarde
-	 * @return Partie chargée
+	 * @return Partie chargï¿½e
 	 * @throws JSONException le fichier de Sauvegarde n'a pas le bon format
 	 * @throws Exception     le fichier de Nouvelle Partie n'a pas le bon format
 	 */
@@ -114,20 +114,20 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 	}
 
 	/**
-	 * Décrypter un texte.
+	 * Dï¿½crypter un texte.
 	 * 
-	 * @param bytesCryptes fichier crypté
-	 * @param cle          de décryptage
-	 * @return texte décrypté
+	 * @param bytesCryptes fichier cryptï¿½
+	 * @param cle          de dï¿½cryptage
+	 * @return texte dï¿½cryptï¿½
 	 */
 	private static byte[] decrypter(final byte[] bytesCryptes, final SecretKeySpec cle) {
 		try {
 			LOG.debug(new String(bytesCryptes));
 
-			// Hashage de la clé
+			// Hashage de la clï¿½
 			final SecretKeySpec cleHashee = construireCleDeCryptage();
 
-			// Décryptage du texte avec la clé hashée
+			// Dï¿½cryptage du texte avec la clï¿½ hashï¿½e
 			final Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
 			final byte[] ivByte = new byte[cipher.getBlockSize()];
 			final IvParameterSpec ivParamsSpec = new IvParameterSpec(ivByte);
@@ -136,7 +136,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 
 			LOG.debug(new String(original));
 
-			// On retire les ZZZZ à la fin
+			// On retire les ZZZZ a la fin
 			return retirerLAppendice(original);
 
 		} catch (Exception e) {

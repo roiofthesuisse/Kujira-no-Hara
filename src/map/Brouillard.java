@@ -15,8 +15,8 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Le Brouillard est une image ajoutée en transparence par dessus la Map et ses Events.
- * Son intérêt est d'enrichir l'ambiance colorimétrique du décor.
+ * Le Brouillard est une image ajoutï¿½e en transparence par dessus la Map et ses Events.
+ * Son intï¿½rï¿½t est d'enrichir l'ambiance colorimï¿½trique du dï¿½cor.
  */
 public final class Brouillard implements Sauvegardable {
 	private static final Logger LOG = LogManager.getLogger(Brouillard.class);
@@ -36,14 +36,14 @@ public final class Brouillard implements Sauvegardable {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nomImage nom de l'image située dans le dossier "Graphics/Fogs/"
+	 * @param nomImage nom de l'image situï¿½e dans le dossier "Graphics/Fogs/"
 	 * @param opacite transparence de l'image
 	 * @param mode mode de superposition de l'image avec la Map
-	 * @param defilementX vitesse de déplacement du Brouillard suivant l'axe x
-	 * @param defilementY vitesse de déplacement du Brouillard suivant l'axe y
+	 * @param defilementX vitesse de dï¿½placement du Brouillard suivant l'axe x
+	 * @param defilementY vitesse de dï¿½placement du Brouillard suivant l'axe y
 	 * @param zoom taux d'aggrandissement de l'image (en pourcents)
 	 * @param ton du brouillard (gris, rouge, vert, bleu)
-	 * @throws IOException l'image n'a pas pu être chargée
+	 * @throws IOException l'image n'a pas pu ï¿½tre chargï¿½e
 	 */
 	public Brouillard(final String nomImage, final int opacite, final ModeDeFusion mode, final int defilementX, 
 			final int defilementY, final int zoom, final int[] ton) {
@@ -69,13 +69,13 @@ public final class Brouillard implements Sauvegardable {
 	
 	/**
 	 * Redimensionne une image selon un ratio.
-	 * @param image à redimensionner
+	 * @param image a redimensionner
 	 * @param ratio d'aggrandissement
-	 * @return image redimensionnée
+	 * @return image redimensionnï¿½e
 	 */
 	private static BufferedImage redimensionnerImage(final BufferedImage image, final double ratio) {
 		if (ratio == 1) {
-			//pas de redimensionnement à faire
+			//pas de redimensionnement a faire
 			return image;
 		}
 		
@@ -90,7 +90,7 @@ public final class Brouillard implements Sauvegardable {
 	
 	/**
 	 * Extrait le Brouillard de l'objet JSON de la Map.
-	 * @param jsonMap objet JSON représentant la Map
+	 * @param jsonMap objet JSON reprï¿½sentant la Map
 	 * @return Brouillard de la Map
 	 */
 	public static Brouillard creerBrouillardAPartirDeJson(final JSONObject jsonMap) {
@@ -102,13 +102,13 @@ public final class Brouillard implements Sauvegardable {
 			try {
 				defilementX = brouillardJson.getInt("defilementX");
 			} catch (JSONException e) {
-				//pas de défilement x
+				//pas de dï¿½filement x
 			}
 			int defilementY = 0;
 			try {
 				defilementY = brouillardJson.getInt("defilementY");
 			} catch (JSONException e) {
-				//pas de défilement y
+				//pas de dï¿½filement y
 			}
 			int zoom = Graphismes.PAS_D_HOMOTHETIE;
 			try {
@@ -135,10 +135,10 @@ public final class Brouillard implements Sauvegardable {
 	/**
 	 * Dessiner le Brouillard au dessus de la Map et ses Events.
 	 * @param ecran sur lequel on dessine
-	 * @param xCamera position x de la caméra
-	 * @param yCamera position y de la caméra
+	 * @param xCamera position x de la camï¿½ra
+	 * @param yCamera position y de la camï¿½ra
 	 * @param frame d'animation du Brouillard
-	 * @return écran sur lequel on a dessiné le Brouillard
+	 * @return ecran sur lequel on a dessinï¿½ le Brouillard
 	 */
 	public BufferedImage dessinerLeBrouillard(BufferedImage ecran, final int xCamera, final int yCamera, final int frame) {
 		if (this.image == null || this.opacite <= 0) {
@@ -174,8 +174,8 @@ public final class Brouillard implements Sauvegardable {
 					Brouillard.calculerAffichage(i, this.largeur, decalageX, xCamera), 
 					Brouillard.calculerAffichage(j, this.hauteur, decalageY, yCamera),
 					false,
-					Graphismes.PAS_D_HOMOTHETIE, //le zoom a déjà été pris en compte
-					Graphismes.PAS_D_HOMOTHETIE, //le zoom a déjà été pris en compte
+					Graphismes.PAS_D_HOMOTHETIE, //le zoom a dï¿½jï¿½ ï¿½tï¿½ pris en compte
+					Graphismes.PAS_D_HOMOTHETIE, //le zoom a dï¿½jï¿½ ï¿½tï¿½ pris en compte
 					this.opacite, 
 					this.mode,
 					Graphismes.PAS_DE_ROTATION
@@ -186,12 +186,12 @@ public final class Brouillard implements Sauvegardable {
 	}
 	
 	/**
-	 * Calcule la position où dessiner l'image du Brouillard.
-	 * @param numeroVignette l'écran est recouvert plusieurs fois avec l'image du Brouillard si elle est petite
+	 * Calcule la position oï¿½ dessiner l'image du Brouillard.
+	 * @param numeroVignette l'ecran est recouvert plusieurs fois avec l'image du Brouillard si elle est petite
 	 * @param tailleBrouillard taille de l'image du Brouillard
-	 * @param decalageTemporel l'image du Brouillard se déplace à l'écran
-	 * @param positionCamera position de la caméra par rapport au coin haut-gauche de la Map
-	 * @return position de la vignette par rapport au coin haut-gauche de l'écran
+	 * @param decalageTemporel l'image du Brouillard se dï¿½place a l'ecran
+	 * @param positionCamera position de la camï¿½ra par rapport au coin haut-gauche de la Map
+	 * @return position de la vignette par rapport au coin haut-gauche de l'ecran
 	 */
 	public static int calculerAffichage(final int numeroVignette, final int tailleBrouillard, final int decalageTemporel, final int positionCamera) {
 		return numeroVignette*tailleBrouillard + decalageTemporel - positionCamera;

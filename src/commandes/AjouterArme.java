@@ -15,18 +15,18 @@ public class AjouterArme extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param arme identifiant de l'Arme à ajouter : son numéro ou son nom
+	 * @param arme identifiant de l'Arme a ajouter : son numï¿½ro ou son nom
 	 */
 	public AjouterArme(final int arme) {
-		// l'identifiant de l'Arme est son numéro
+		// l'identifiant de l'Arme est son numï¿½ro
 		this.idArme = arme;
 
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AjouterArme(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idArme"));
@@ -39,7 +39,7 @@ public class AjouterArme extends Commande implements CommandeEvent {
 			partieActuelle.armesPossedees[idArme] = true;
 			partieActuelle.nombreDArmesPossedees++;
 		}
-		// Si actuellement rien d'équipé, on l'équipe
+		// Si actuellement rien d'ï¿½quipï¿½, on l'ï¿½quipe
 		if (partieActuelle.idArmeEquipee < 0) {
 			partieActuelle.idArmeEquipee = idArme;
 		}

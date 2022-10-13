@@ -23,7 +23,7 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroPageCommune numéro de la Page à appeler
+	 * @param numeroPageCommune numï¿½ro de la Page a appeler
 	 */
 	public AppelerPageCommune(final int numeroPageCommune) {
 		this.numeroPageCommune = numeroPageCommune;
@@ -37,9 +37,9 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AppelerPageCommune(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroPageCommune"));
@@ -53,14 +53,14 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 			return curseurActuel + 1;
 		}
 
-		// On apprend à la page commune qui est son event
+		// On apprend a la page commune qui est son event
 		this.pageCommune.event = this.page.event;
 
-		// Exécution
-		LOG.info("Exécution de la page commune " + this.numeroPageCommune + " " + this.pageCommune.nom);
+		// Exï¿½cution
+		LOG.info("Exï¿½cution de la page commune " + this.numeroPageCommune + " " + this.pageCommune.nom);
 		this.pageCommune.executer();
 
-		// La page a-t-elle été exécutée en entier ?
+		// La page a-t-elle ï¿½tï¿½ exï¿½cutï¿½e en entier ?
 		if (this.pageCommune.curseurCommandes == 0) {
 			// fini
 			return curseurActuel + 1;

@@ -12,15 +12,15 @@ public class RendreAuDessusDeTout extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouveauAuDessusDeTout à donner à l'Event
+	 * @param nouveauAuDessusDeTout a donner a l'Event
 	 */
 	public RendreAuDessusDeTout(final boolean nouveauAuDessusDeTout) {
 		this.nouveauAuDessusDeTout = nouveauAuDessusDeTout;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RendreAuDessusDeTout(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("auDessusDeTout") ? (boolean) parametres.get("auDessusDeTout") : true );

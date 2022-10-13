@@ -9,23 +9,23 @@ import map.Heros;
 import utilitaire.GestionClavier;
 
 /**
- * Le Héros colle l'event et regarde vers lui.
+ * Le Hï¿½ros colle l'event et regarde vers lui.
  */
 public class ConditionParler extends Condition implements CommandeEvent {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(ConditionParler.class);
-	public static final int DISTANCE_MAX_PAROLE = 4; //au dela de cette distance en pixels, le dialogue ne se déclenche pas
+	public static final int DISTANCE_MAX_PAROLE = 4; //au dela de cette distance en pixels, le dialogue ne se dï¿½clenche pas
 	
 	@Override
 	public final boolean estVerifiee() {
-		//1) pour Parler, premièrement, il faut appuyer sur la touche action :
+		//1) pour Parler, premiï¿½rement, il faut appuyer sur la touche action :
 		final ConditionTouche conditionToucheAction = new ConditionTouche(-1, GestionClavier.ToucheRole.ACTION.nom, false);
 		conditionToucheAction.page = this.page;
 		if (!conditionToucheAction.estVerifiee()) {
 			return false;
 		}
 		
-		//2) deuxièmement, il faut être situé face à son interlocuteur :
+		//2) deuxiï¿½mement, il faut ï¿½tre situï¿½ face a son interlocuteur :
 		
 		int pageActive;
 		try {
@@ -36,7 +36,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 		}
 		final int cettePage = this.page.numero;
 		//il faut d'abord que la page ne soit pas ouverte
-		if (pageActive!=cettePage) { //TODO vérifier si cette condition est utile
+		if (pageActive!=cettePage) { //TODO vï¿½rifier si cette condition est utile
 			final Event event = this.page.event;
 			final Heros heros = event.map.heros;
 			final int xmin1 = heros.x;
@@ -48,20 +48,20 @@ public class ConditionParler extends Condition implements CommandeEvent {
 			final int ymin2 = event.y;
 			final int ymax2 = event.y+event.hauteurHitbox;
 			final int dir = heros.direction;
-			//il faut être collé à l'évènement et regarder vers lui
+			//il faut ï¿½tre collï¿½ a l'ï¿½vï¿½nement et regarder vers lui
 			switch(dir) {
 				case Event.Direction.HAUT:
 					if ( Math.abs(ymin1-ymax2) > DISTANCE_MAX_PAROLE ) {
 						return false;
 					} else {
 						if ( heros.largeurHitbox <= event.largeurHitbox ) { 
-							//la longueur de contact est supérieure à la moitié de la taille du héros
+							//la longueur de contact est supï¿½rieure a la moitiï¿½ de la taille du hï¿½ros
 							final boolean grandeSurfaceDeContact =
 								((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) 
 								|| ((xmin2<=xmin1 && xmin1<xmax2) && xmax2-xmin1>heros.largeurHitbox/2);
 							return grandeSurfaceDeContact;
 						} else {
-							//le héros englobe l'event
+							//le hï¿½ros englobe l'event
 							final boolean surfaceDeContactMaximale =
 							 (xmin1<=xmin2 && xmax2<=xmax1);
 							return surfaceDeContactMaximale;
@@ -72,13 +72,13 @@ public class ConditionParler extends Condition implements CommandeEvent {
 						return false;
 					} else {
 						if ( heros.hauteurHitbox <= event.hauteurHitbox ) { 
-							//la longueur de contact est supérieure à la moitié de la taille du héros
+							//la longueur de contact est supï¿½rieure a la moitiï¿½ de la taille du hï¿½ros
 							final boolean grandeSurfaceDeContact =
 								((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) 
 								|| ((ymin2<=ymin1 && ymin1<ymax2) && ymax2-ymin1>heros.hauteurHitbox/2);
 							return grandeSurfaceDeContact;
 						} else {
-							//le héros englobe l'event
+							//le hï¿½ros englobe l'event
 							final boolean surfaceDeContactMaximale =
 								(ymin1<=ymin2 && ymax2<=ymax1);
 							return surfaceDeContactMaximale;
@@ -89,13 +89,13 @@ public class ConditionParler extends Condition implements CommandeEvent {
 						return false;
 					} else {
 						if ( heros.hauteurHitbox <= event.hauteurHitbox ) { 
-							//la longueur de contact est supérieure à la moitié de la taille du héros
+							//la longueur de contact est supï¿½rieure a la moitiï¿½ de la taille du hï¿½ros
 							final boolean grandeSurfaceDeContact =
 								((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) 
 								|| ((ymin2<=ymin1 && ymin1<ymax2) && ymax2-ymin1>heros.hauteurHitbox/2);
 							return grandeSurfaceDeContact;
 						} else {
-							//le héros englobe l'event
+							//le hï¿½ros englobe l'event
 							final boolean surfaceDeContactMaximale =
 								(ymin1<=ymin2 && ymax2<=ymax1);
 							return surfaceDeContactMaximale;
@@ -106,13 +106,13 @@ public class ConditionParler extends Condition implements CommandeEvent {
 						return false;
 					} else {
 						if ( heros.largeurHitbox <= event.largeurHitbox ) {
-							//la longueur de contact est supérieure à la moitié de la taille du héros
+							//la longueur de contact est supï¿½rieure a la moitiï¿½ de la taille du hï¿½ros
 							final boolean grandeSurfaceDeContact =
 								((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) 
 								|| ((xmin2<=xmin1 && xmin1<xmax2) && xmax2-xmin1>heros.largeurHitbox/2);
 							return grandeSurfaceDeContact;
 						} else {
-							//le héros englobe l'event
+							//le hï¿½ros englobe l'event
 							final boolean surfaceDeContactMaximale =
 								(xmin1<=xmin2 && xmax2<=xmax1);
 							return surfaceDeContactMaximale;
@@ -120,12 +120,12 @@ public class ConditionParler extends Condition implements CommandeEvent {
 					}
 			}
 		}
-		LOG.debug("ConditionParler.estVerifiee() n'a pas trouvé de cas correspondant.");
+		LOG.debug("ConditionParler.estVerifiee() n'a pas trouvï¿½ de cas correspondant.");
 		return false;
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximité avec le Héros.
+	 * C'est une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

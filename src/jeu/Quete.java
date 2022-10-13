@@ -25,8 +25,8 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Le joueur doit réussir des Quêtes durant le jeu. Cette classe est une
- * description inerte de la Quête, indépendante de l'action du joueur.
+ * Le joueur doit rï¿½ussir des Quï¿½tes durant le jeu. Cette classe est une
+ * description inerte de la Quï¿½te, indï¿½pendante de l'action du joueur.
  */
 public class Quete implements Listable {
 	// constantes
@@ -36,7 +36,7 @@ public class Quete implements Listable {
 	public static final HashMap<String, BufferedImage> ICONES_MEMORISEES = new HashMap<String, BufferedImage>();
 	public static Quete[] quetesDuJeu;
 
-	public Integer id; // Integer car clé d'une HashMap
+	public Integer id; // Integer car clï¿½ d'une HashMap
 	public ArrayList<String> nom;
 	public ArrayList<String> description;
 	private final String nomIconeQuetePasFaite;
@@ -48,7 +48,7 @@ public class Quete implements Listable {
 	public int yCarte;
 
 	/**
-	 * Une Quête peut se présenter sous différents niveaux d'Avancement au fil du
+	 * Une Quï¿½te peut se prï¿½senter sous diffï¿½rents niveaux d'Avancement au fil du
 	 * jeu.
 	 */
 	public enum AvancementQuete {
@@ -59,17 +59,17 @@ public class Quete implements Listable {
 		/**
 		 * Constructeur explicite
 		 * 
-		 * @param nom de l'Etat de Quête
+		 * @param nom de l'Etat de Quï¿½te
 		 */
 		AvancementQuete(final String nom) {
 			this.nom = nom;
 		}
 
 		/**
-		 * Obtenir un Avancement de Quête à partir de son nom.
+		 * Obtenir un Avancement de Quï¿½te a partir de son nom.
 		 * 
-		 * @param nom de l'Etat de Quête
-		 * @return Etat de Quête
+		 * @param nom de l'Etat de Quï¿½te
+		 * @return Etat de Quï¿½te
 		 */
 		public static AvancementQuete getEtat(final String nom) {
 			for (AvancementQuete etat : values()) {
@@ -84,16 +84,16 @@ public class Quete implements Listable {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param id                    de la Quête
-	 * @param nom                   de la Quête
-	 * @param description           de la Quête
-	 * @param nomIconeQuetePasFaite nom de l'icône affichée lorsque la Quête n'est
+	 * @param id                    de la Quï¿½te
+	 * @param nom                   de la Quï¿½te
+	 * @param description           de la Quï¿½te
+	 * @param nomIconeQuetePasFaite nom de l'icï¿½ne affichï¿½e lorsque la Quï¿½te n'est
 	 *                              pas encore faite
-	 * @param nomIconeQueteFaite    nom de l'icône affichée lorsque la Quête a été
+	 * @param nomIconeQueteFaite    nom de l'icï¿½ne affichï¿½e lorsque la Quï¿½te a ï¿½tï¿½
 	 *                              faite
-	 * @param numeroCarte           numéro de la Carte sur laquelle figure la Quete
-	 * @param xCarte                position x sur la carte des Quêtes
-	 * @param yCarte                position y sur la carte des Quêtes
+	 * @param numeroCarte           numï¿½ro de la Carte sur laquelle figure la Quete
+	 * @param xCarte                position x sur la carte des Quï¿½tes
+	 * @param yCarte                position y sur la carte des Quï¿½tes
 	 */
 	private Quete(final int id, final ArrayList<String> nom, final ArrayList<String> description,
 			final String nomIconeQuetePasFaite, final String nomIconeQueteFaite, final int numeroCarte,
@@ -109,9 +109,9 @@ public class Quete implements Listable {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Quete(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("id"), Texte.construireTexteMultilingue(parametres.get("nom")),
@@ -124,17 +124,17 @@ public class Quete implements Listable {
 	}
 
 	/**
-	 * Charger les Quêtes du jeu via JSON.
+	 * Charger les Quï¿½tes du jeu via JSON.
 	 * 
-	 * @return nombre de Quêtes dans le jeu
+	 * @return nombre de Quï¿½tes dans le jeu
 	 */
 	public static int chargerLesQuetesDuJeu() {
 		final JSONArray jsonQuetes;
 		try {
 			jsonQuetes = InterpreteurDeJson.ouvrirJsonQuetes();
 		} catch (Exception e) {
-			// problème lors de l'ouverture du fichier JSON
-			LOG.error("Impossible de charger les quêtes du jeu.", e);
+			// problï¿½me lors de l'ouverture du fichier JSON
+			LOG.error("Impossible de charger les quï¿½tes du jeu.", e);
 			quetesDuJeu = null;
 			return 0;
 		}
@@ -164,10 +164,10 @@ public class Quete implements Listable {
 	}
 
 	/**
-	 * Obtenir l'icône de cette Quête lorsqu'elle n'a pas encore été faite par le
+	 * Obtenir l'icï¿½ne de cette Quï¿½te lorsqu'elle n'a pas encore ï¿½tï¿½ faite par le
 	 * joueur.
 	 * 
-	 * @return icône de la Quête non faite
+	 * @return icï¿½ne de la Quï¿½te non faite
 	 */
 	private BufferedImage getIconeQuetePasFaite() {
 		if (this.iconeQuetePasFaite == null) {
@@ -181,7 +181,7 @@ public class Quete implements Listable {
 					// l'image d'apparence n'existe pas
 					this.iconeQuetePasFaite = null;
 					ICONES_MEMORISEES.put(this.nomIconeQuetePasFaite, null);
-					LOG.error("Impossible de trouver l'icône de Quete : " + this.nomIconeQuetePasFaite);
+					LOG.error("Impossible de trouver l'icï¿½ne de Quete : " + this.nomIconeQuetePasFaite);
 				}
 			}
 		}
@@ -189,9 +189,9 @@ public class Quete implements Listable {
 	}
 
 	/**
-	 * Obtenir l'icône de cette Quête lorsqu'elle a été faite par le joueur.
+	 * Obtenir l'icï¿½ne de cette Quï¿½te lorsqu'elle a ï¿½tï¿½ faite par le joueur.
 	 * 
-	 * @return icône de la Quête faite
+	 * @return icï¿½ne de la Quï¿½te faite
 	 */
 	private BufferedImage getIconeQueteFaite() {
 		if (this.iconeQueteFaite == null) {
@@ -205,7 +205,7 @@ public class Quete implements Listable {
 					// l'image d'apparence n'existe pas
 					this.iconeQueteFaite = null;
 					ICONES_MEMORISEES.put(this.nomIconeQueteFaite, null);
-					LOG.error("Impossible de trouver l'icône de Quete : " + this.nomIconeQueteFaite);
+					LOG.error("Impossible de trouver l'icï¿½ne de Quete : " + this.nomIconeQueteFaite);
 				}
 			}
 		}

@@ -2,8 +2,8 @@ package commandes;
 
 /**
  * Chaque Page de comportement d'un Event contient des Commandes.
- * Celles-ci sont executées dans l'ordre lorsque la page est déclenchée.
- * Lorsque la Commande est considérée comme terminée, le curseur se déplace à la Commande suivante.
+ * Celles-ci sont executï¿½es dans l'ordre lorsque la page est dï¿½clenchï¿½e.
+ * Lorsque la Commande est considï¿½rï¿½e comme terminï¿½e, le curseur se dï¿½place a la Commande suivante.
  */
 public interface CommandeEvent { 
 	

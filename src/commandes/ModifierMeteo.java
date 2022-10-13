@@ -15,7 +15,7 @@ import map.meteo.Trochoide;
 import map.meteo.TypeDeMeteo;
 
 /**
- * Changer l'effet météorologique actuel de la Map.
+ * Changer l'effet mï¿½tï¿½orologique actuel de la Map.
  */
 public class ModifierMeteo extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ModifierMeteo.class);
@@ -26,19 +26,19 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nom        de l'intempérie souhaitée
-	 * @param parametres de l'intempérie souhaitée
+	 * @param nom        de l'intempï¿½rie souhaitï¿½e
+	 * @param parametres de l'intempï¿½rie souhaitï¿½e
 	 */
 	public ModifierMeteo(final String nom, final HashMap<String, Object> parametres) {
 		this.typeDeMeteo = TypeDeMeteo.obtenirParNom(nom);
-		LOG.info("Nouvelle météo : " + this.typeDeMeteo.nom);
+		LOG.info("Nouvelle mï¿½tï¿½o : " + this.typeDeMeteo.nom);
 		this.parametres = parametres;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierMeteo(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("type") ? (String) parametres.get("type") : null, parametres);
@@ -70,7 +70,7 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 				nouvelleMeteo = new Trochoide(intensite, dureeDeVie, vitesseX, vitesseY, vitesseRotation, rayonX,
 						rayonY, nomImage);
 			} catch (IOException e) {
-				LOG.error("Impossible d'instancier la Météo personnalisée.", e);
+				LOG.error("Impossible d'instancier la Mï¿½tï¿½o personnalisï¿½e.", e);
 				nouvelleMeteo = ancienneMeteo;
 			}
 			break;
@@ -81,10 +81,10 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 		if (Meteo.verifierSiIdentiques(nouvelleMeteo, ancienneMeteo)) {
 			final String nouveauTypeMeteo = nouvelleMeteo != null ? nouvelleMeteo.getType().nom : "null";
 			final String ancienTypeMeteo = ancienneMeteo != null ? ancienneMeteo.getType().nom : "null";
-			LOG.warn("Cette météo est identique à l'ancienne, on ne fait rien. " + ancienTypeMeteo + "->"
+			LOG.warn("Cette mï¿½tï¿½o est identique a l'ancienne, on ne fait rien. " + ancienTypeMeteo + "->"
 					+ nouveauTypeMeteo);
 		} else {
-			// la nouvelle météo proposée est différente de l'ancienne
+			// la nouvelle mï¿½tï¿½o proposï¿½e est diffï¿½rente de l'ancienne
 			getPartieActuelle().meteo = nouvelleMeteo;
 		}
 

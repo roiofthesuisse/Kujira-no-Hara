@@ -14,17 +14,17 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.son.LecteurAudio;
 
 /**
- * La saisie de nombre donne la possibilité au joueur d'écrire un nombre demandé
- * par le jeu. Le nombre entré est mémorisé dans une Variable. S'affiche comme
- * un Message, mais avec un curseur à déplacer.
+ * La saisie de nombre donne la possibilitï¿½ au joueur d'ï¿½crire un nombre demandï¿½
+ * par le jeu. Le nombre entrï¿½ est mï¿½morisï¿½ dans une Variable. S'affiche comme
+ * un Message, mais avec un curseur a dï¿½placer.
  */
 public class EntrerUnNombre extends Message {
-	/** base décimale */
+	/** base dï¿½cimale */
 	private static final int NOMBRE_DE_CHIFFRES = 10;
 
-	/** Numéro de la Variable qui mémorise le code */
+	/** Numï¿½ro de la Variable qui mï¿½morise le code */
 	public int numeroDeVariable;
-	/** Tableau des chiffres rentrés par le joueur */
+	/** Tableau des chiffres rentrï¿½s par le joueur */
 	private int[] chiffresRentres;
 	private Texte[] chiffresRentresTexte;
 
@@ -38,9 +38,9 @@ public class EntrerUnNombre extends Message {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param texte            affiché dans la boîte de dialogue
-	 * @param numeroDeVariable numéro de la Variable qui mémorise le nombre
-	 * @param tailleDuNombre   longueur (en chiffres) du nombre entré
+	 * @param texte            affichï¿½ dans la boï¿½te de dialogue
+	 * @param numeroDeVariable numï¿½ro de la Variable qui mï¿½morise le nombre
+	 * @param tailleDuNombre   longueur (en chiffres) du nombre entrï¿½
 	 */
 	public EntrerUnNombre(final ArrayList<String> texte, final int numeroDeVariable, final int tailleDuNombre) {
 		super(texte);
@@ -57,9 +57,9 @@ public class EntrerUnNombre extends Message {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public EntrerUnNombre(final HashMap<String, Object> parametres) {
 		this(Texte.construireTexteMultilingue(parametres.get("texte")), (int) parametres.get("numeroDeVariable"),
@@ -67,8 +67,8 @@ public class EntrerUnNombre extends Message {
 	}
 
 	/**
-	 * Fabrique l'image du Message à partir de l'image de la boîte de dialogue et du
-	 * texte. Une image est fabriquée pour chaque alternative à sélectionner.
+	 * Fabrique l'image du Message a partir de l'image de la boï¿½te de dialogue et du
+	 * texte. Une image est fabriquï¿½e pour chaque alternative a sï¿½lectionner.
 	 * 
 	 * @return image du Message
 	 */
@@ -81,16 +81,16 @@ public class EntrerUnNombre extends Message {
 		final int hauteurTexte = calculerHauteurTexte();
 
 		// Superposition
-		imageDuMessage = Graphismes.clonerUneImage(Message.imageBoiteMessage);
+		imageDuMessage = Graphismes.clonerUneImage(Message.imageBoiteMessage());
 
 		imageDuMessage = Graphismes.superposerImages(imageDuMessage, surlignage,
-				MARGE_DU_TEXTE - Texte.CONTOUR + 2 * positionCurseur * largeurChiffre,
-				MARGE_DU_TEXTE + hauteurTexte - Texte.CONTOUR);
-		imageDuMessage = Graphismes.superposerImages(imageDuMessage, texteDeBase.getImage(), MARGE_DU_TEXTE,
-				MARGE_DU_TEXTE);
+				MARGE_X_TEXTE - Texte.CONTOUR + 2 * positionCurseur * largeurChiffre,
+				MARGE_Y_TEXTE + hauteurTexte - Texte.CONTOUR);
+		imageDuMessage = Graphismes.superposerImages(imageDuMessage, texteDeBase.getImage(), MARGE_X_TEXTE,
+				MARGE_Y_TEXTE);
 		for (int i = 0; i < chiffresRentres.length; i++) {
 			imageDuMessage = Graphismes.superposerImages(imageDuMessage, chiffresRentresTexte[i].getImage(),
-					MARGE_DU_TEXTE + 2 * i * largeurChiffre, MARGE_DU_TEXTE + hauteurTexte);
+					MARGE_X_TEXTE + 2 * i * largeurChiffre, MARGE_Y_TEXTE + hauteurTexte);
 		}
 		return imageDuMessage;
 	}

@@ -12,7 +12,7 @@ import main.Main;
 import utilitaire.InterpreteurDeJson;
 
 /**
- * Event particulier qui est déplacé par le joueur à l'aide du clavier
+ * Event particulier qui est dï¿½placï¿½ par le joueur a l'aide du clavier
  */
 public class Heros extends Event {
 	private static final Logger LOG = LogManager.getLogger(Heros.class);
@@ -20,18 +20,18 @@ public class Heros extends Event {
 	public static final Event MODELE = creerModele();
 	
 	/**
-	 * L'animation d'attaque vaut 0 si le héros n'attaque pas.
-	 * Au début d'une attaque, elle est mise au maximum (longueur de l'animation de l'attaque).
-	 * A chaque frame, elle est affichée puis décrémentée.
+	 * L'animation d'attaque vaut 0 si le hï¿½ros n'attaque pas.
+	 * Au dï¿½but d'une attaque, elle est mise au maximum (longueur de l'animation de l'attaque).
+	 * A chaque frame, elle est affichï¿½e puis dï¿½crï¿½mentï¿½e.
 	 */
 	public int animationAttaque = 0;
 
 	/**
 	 * Constructeur explicite
-	 * @param x position x (en pixels) du Héros sur la Map
-	 * @param y position y (en pixels) du Héros sur la Map
-	 * @param directionEnDebutDeMap directiondu Héros au début de la Map
-	 * @param map courante du Héros
+	 * @param x position x (en pixels) du Hï¿½ros sur la Map
+	 * @param y position y (en pixels) du Hï¿½ros sur la Map
+	 * @param directionEnDebutDeMap directiondu Hï¿½ros au dï¿½but de la Map
+	 * @param map courante du Hï¿½ros
 	 * @throws FileNotFoundException 
 	 */
 	public Heros(final int x, final int y, final int directionEnDebutDeMap, final Map map) throws FileNotFoundException {
@@ -40,16 +40,16 @@ public class Heros extends Event {
 	}
 	
 	/**
-	 * Le Héros est créé à partir d'un modèle.
-	 * Ce modèle est un Event générique.
-	 * @return Event modèle qui sert à la création du Héros
+	 * Le Hï¿½ros est crï¿½ï¿½ a partir d'un modï¿½le.
+	 * Ce modï¿½le est un Event gï¿½nï¿½rique.
+	 * @return Event modï¿½le qui sert a la crï¿½ation du Hï¿½ros
 	 */
 	private static Event creerModele() {
 		JSONObject jsonEventGenerique = null;
 		try {
 			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique("Heros", true);
 		} catch (Exception e) {
-			LOG.error("Impossible d'ouvrir le fichier JSON du héros !", e);
+			LOG.error("Impossible d'ouvrir le fichier JSON du hï¿½ros !", e);
 		}
 		
 		final int largeur = jsonEventGenerique.has("largeur") ? (int) jsonEventGenerique.getInt("largeur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
@@ -66,15 +66,15 @@ public class Heros extends Event {
 	@Override
 	public final void deplacer() {
 		if (animationAttaque > 0) {
-			//pas de déplacement si animation d'attaque
+			//pas de dï¿½placement si animation d'attaque
 			this.animation = Main.getPartieActuelle().getArmeEquipee().framesDAnimation[animationAttaque-1];
 			
 			animationAttaque--;
 		} else if (!this.map.lecteur.laTransitionEstTerminee()) {
-			//pas de déplacement du Héros si la Transition n'est pas terminée
+			//pas de dï¿½placement du Hï¿½ros si la Transition n'est pas terminï¿½e
 			
 		} else if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
-			//il y a un déplacement forcé
+			//il y a un dï¿½placement forcï¿½
 			this.deplacementForce.executerLePremierMouvement();
 		} else if (this.deplacementNaturelActuel != null) {
 			this.deplacementNaturelActuel.executerLePremierMouvement();

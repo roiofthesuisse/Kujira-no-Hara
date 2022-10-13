@@ -17,17 +17,26 @@ import menu.Texte;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Afficher un Message dans une boîte de dialogue
+ * Afficher un Message dans une boite de dialogue
  */
 public class Message extends Commande implements CommandeEvent {
 	// constantes
 	private static final Logger LOG = LogManager.getLogger(Message.class);
-	protected static final int MARGE_DU_TEXTE = 24;
+	protected static final int MARGE_X_TEXTE = 96;
+	protected static final int MARGE_X_TEXTE_FACESET = 54;
+	protected static final int MARGE_Y_TEXTE = 24;
+	protected static final int MARGE_Y_FACESET = 32;
+	protected static final int INTELIGNE = 24;
+	protected static final int LARGEUR_FACESET = 96;
+	protected static final int ECART_FACESET = 8;
 	protected static final String NOM_IMAGE_BOITE_MESSAGE = "parchotexte.png";
-	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage();
+	protected static final String NOM_IMAGE_BOITE_MESSAGE_FACESET = "parchotexte faceset.png";
+	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage(false);
+	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE_FACESET = chargerImageDeFondDeLaBoiteMessage(true);
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_VIDE = Graphismes
 			.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE_PLEINE);
-	protected static BufferedImage imageBoiteMessage = IMAGE_BOITE_MESSAGE_PLEINE;
+	// protected static BufferedImage imageBoiteMessage =
+	// IMAGE_BOITE_MESSAGE_PLEINE;
 	protected static final boolean MASQUER_BOITE_MESSAGE_PAR_DEFAUT = false;
 	protected static final Position POSITION_BOITE_MESSAGE_PAR_DEFAUT = Position.BAS;
 
@@ -37,12 +46,13 @@ public class Message extends Commande implements CommandeEvent {
 	private boolean premiereFrameDAffichageDuMessage = true;
 	public static boolean masquerBoiteMessage = MASQUER_BOITE_MESSAGE_PAR_DEFAUT;
 	public static Position positionBoiteMessage = POSITION_BOITE_MESSAGE_PAR_DEFAUT;
+	public static BufferedImage faceset;
 
 	/**
-	 * Position de la boîte de Messages à l'écran.
+	 * Position de la boite de Messages a l'ecran.
 	 */
 	public enum Position {
-		BAS("bas", 76, 320), MILIEU("milieu", 76, 160), HAUT("haut", 76, 0);
+		BAS("bas", 0, 320), MILIEU("milieu", 0, 160), HAUT("haut", 0, 0);
 
 		final String nom;
 		public final int xAffichage;
@@ -62,10 +72,10 @@ public class Message extends Commande implements CommandeEvent {
 		}
 
 		/**
-		 * Récupérer la Position de la boîte de Messages par son nom.
+		 * Rï¿½cupï¿½rer la Position de la boite de Messages par son nom.
 		 * 
 		 * @param nom de la position
-		 * @return position ainsi nommée
+		 * @return position ainsi nommï¿½e
 		 */
 		public static Position parNom(final String nom) {
 			for (Position position : Position.values()) {
@@ -80,7 +90,7 @@ public class Message extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param texte affiché dans la boîte de dialogue
+	 * @param texte affichï¿½ dans la boite de dialogue
 	 */
 	public Message(final ArrayList<String> texte) {
 		this.texte = texte;
@@ -88,9 +98,9 @@ public class Message extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Message(final HashMap<String, Object> parametres) {
 		this(Texte.construireTexteMultilingue(parametres.get("texte")));
@@ -100,7 +110,7 @@ public class Message extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final LecteurMap lecteur = this.page.event.map.lecteur;
 		lecteur.normaliserApparenceDesInterlocuteursAvantMessage(this.page.event);
-		// si le Message à afficher est différent du Message affiché, on change !
+		// si le Message a afficher est diffï¿½rent du Message affiche, on change !
 		if (ilFautReactualiserLImageDuMessage(lecteur)) {
 			lecteur.messagePrecedent = lecteur.messageActuel;
 			lecteur.messageActuel = this;
@@ -123,7 +133,7 @@ public class Message extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Faut-il réactualiser l'image du Message ?
+	 * Faut-il rï¿½actualiser l'image du Message ?
 	 * 
 	 * @param lecteur de map
 	 * @return true s'il faut construire une nouvelle image de Message, false sinon
@@ -134,7 +144,7 @@ public class Message extends Commande implements CommandeEvent {
 			return true;
 		}
 
-		// le texte a changé mais pas encore l'image
+		// le texte a changï¿½ mais pas encore l'image
 		final int langue = Main.langue;
 		final ArrayList<String> texteActuel = lecteur.messageActuel.texte;
 		final String messageActuel = texteActuel.get(langue < texteActuel.size() ? langue : 0);
@@ -154,44 +164,53 @@ public class Message extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Charge l'image de fond de la boîte de dialogue.
+	 * Charge l'image de fond de la boite de dialogue.
 	 * 
-	 * @return image de fond de la boîte de dialogue
+	 * @return image de fond de la boite de dialogue
 	 */
-	private static BufferedImage chargerImageDeFondDeLaBoiteMessage() {
+	private static BufferedImage chargerImageDeFondDeLaBoiteMessage(final boolean yATIlUnfaceset) {
+		String nomImageBoiteMessage = yATIlUnfaceset ? NOM_IMAGE_BOITE_MESSAGE_FACESET : NOM_IMAGE_BOITE_MESSAGE;
 		try {
-			return Graphismes.ouvrirImage("Pictures", NOM_IMAGE_BOITE_MESSAGE);
+			return Graphismes.ouvrirImage("Pictures", nomImageBoiteMessage);
 		} catch (IOException e) {
-			LOG.error("impossible d'ouvrir l'image " + NOM_IMAGE_BOITE_MESSAGE, e);
+			LOG.error("impossible d'ouvrir l'image " + nomImageBoiteMessage, e);
 			return null;
 		}
 	}
 
 	/**
-	 * Fabrique l'image du Message à partir de l'image de la boîte de dialogue et du
-	 * texte. Méthode dérivée par la classe Choix.
+	 * Fabrique l'image du Message a partir de l'image de la boite de dialogue et du
+	 * texte. Methode derivee par la classe Choix.
 	 * 
 	 * @return image du Message
 	 */
 	protected BufferedImage produireImageDuMessage() {
-		// Partir de la boîte de dialogue
-		BufferedImage imageMessage = Graphismes.clonerUneImage(Message.imageBoiteMessage);
+		// Partir de la boite de dialogue
+		BufferedImage imageMessage = Graphismes.clonerUneImage(imageBoiteMessage());
 		// Ajout du texte
 		final Texte t = new Texte(this.texte);
 		t.actualiserImage();
-		imageMessage = Graphismes.superposerImages(imageMessage, t.getImage(), MARGE_DU_TEXTE, MARGE_DU_TEXTE);
-		LOG.debug("Texte du message actualisé");
+		if (faceset != null) {
+			imageMessage = Graphismes.superposerImages(imageMessage, faceset, MARGE_X_TEXTE_FACESET,
+					MARGE_Y_FACESET);
+			imageMessage = Graphismes.superposerImages(imageMessage, t.getImage(),
+					MARGE_X_TEXTE_FACESET + LARGEUR_FACESET + ECART_FACESET,
+					MARGE_Y_TEXTE);
+		} else {
+			imageMessage = Graphismes.superposerImages(imageMessage, t.getImage(), MARGE_X_TEXTE, MARGE_Y_TEXTE);
+		}
+		LOG.debug("Texte du message actualise");
 		return imageMessage;
 	}
 
 	/**
 	 * Ce n'est pas un Choix, juste un Message Normal, donc la Commande suivante est
-	 * juste après. Méthode dérivée par la classe Choix.
+	 * juste apres. Methode derivee par la classe Choix.
 	 * 
 	 * @param curseurActuel curseur dans la lecture des Commandes
 	 * @param commandes     en cours d'execution, dont fait notamment partie ce
 	 *                      Message
-	 * @return curseur incrémenté
+	 * @return curseur incremente
 	 */
 	protected int redirectionSelonLeChoix(final int curseurActuel, final List<Commande> commandes) {
 		return curseurActuel + 1;
@@ -200,7 +219,7 @@ public class Message extends Commande implements CommandeEvent {
 	/**
 	 * Calculer la hauteur d'un texte.
 	 * 
-	 * @return hauteur du texte à l'écran (en pixels)
+	 * @return hauteur du texte a l'ecran (en pixels)
 	 */
 	protected final int calculerHauteurTexte() {
 		final int nombreDeLignesDuTexte;
@@ -247,4 +266,17 @@ public class Message extends Commande implements CommandeEvent {
 	public void action() {
 		this.touchePresseePourQuitterLeMessage = true;
 	}
+
+	/**
+	 * Obtenir l'image de la boite du message. Elle peut etre vide.
+	 * 
+	 * @return fond de la boite de texte
+	 */
+	public static BufferedImage imageBoiteMessage() {
+		if (masquerBoiteMessage) {
+			return IMAGE_BOITE_MESSAGE_VIDE;
+		}
+		return (faceset == null) ? IMAGE_BOITE_MESSAGE_PLEINE : IMAGE_BOITE_MESSAGE_PLEINE_FACESET;
+	}
+
 }

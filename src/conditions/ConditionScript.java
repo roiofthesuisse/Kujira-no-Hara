@@ -15,7 +15,7 @@ import map.Hitbox;
 import utilitaire.GestionClavier.ToucheRole;
 
 /**
- * Condition basée sur l'interprétation d'un script ruby.
+ * Condition basï¿½e sur l'interprï¿½tation d'un script ruby.
  */
 public class ConditionScript extends Condition implements CommandeEvent {
 	// constantes
@@ -106,7 +106,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	 * Constructeur explicite
 	 * 
 	 * @param numero   de la Condition
-	 * @param script   à interpréter
+	 * @param script   a interprï¿½ter
 	 * @param modeTest est-on en train de tester la classe ?
 	 */
 	public ConditionScript(final int numero, final String script, final boolean modeTest) {
@@ -116,13 +116,13 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionScript(final HashMap<String, Object> parametres) {
 		this(parametres.get("numero") != null ? (int) parametres.get("numero") : -1, (String) parametres.get("script"),
-				false // cas réel
+				false // cas rï¿½el
 		);
 	}
 
@@ -173,16 +173,16 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		// Input.trigger?(Input::C)
 		// ConditionScript : Input.trigger?(Input::X)
 
-		// ! ($game_map.events[@event_id].event_arround?("Anémone HP[1] RESET", 50) ||
+		// ! ($game_map.events[@event_id].event_arround?("Anï¿½mone HP[1] RESET", 50) ||
 		// $game_map.events[@event_id].event_arround?("Crevette HP[3] RESET", 50))
 	}
 
 	/**
-	 * Interpréter un script ruby.
+	 * Interprï¿½ter un script ruby.
 	 * 
 	 * @param expression (en ruby)
-	 * @return une chaine de caractère qui est un nombre lorsque l'interprétation
-	 *         est terminée.
+	 * @return une chaine de caractï¿½re qui est un nombre lorsque l'interprï¿½tation
+	 *         est terminï¿½e.
 	 */
 	private String traiter(final String expression) {
 		if (expression.contains(TRUE)) {
@@ -213,37 +213,37 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(EVENT_ID, "" + eventId());
 		}
 
-		// Coordonnée x event
+		// Coordonnï¿½e x event
 		p = Pattern.compile(COORD_EVENT_X);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("coordonnée x de l'event");
+			System.out.println("coordonnï¿½e x de l'event");
 			final Integer nombre = extraireLeNombre(m.group(0));
 			return expression.replaceFirst(COORD_EVENT_X, "" + coordonneeXEvent(nombre));
 		}
 
-		// Coordonnée y event
+		// Coordonnï¿½e y event
 		p = Pattern.compile(COORD_EVENT_Y);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("coordonnée y de l'event");
+			System.out.println("coordonnï¿½e y de l'event");
 			final Integer nombre = extraireLeNombre(m.group(0));
 			return expression.replaceFirst(COORD_EVENT_Y, "" + coordonneeYEvent(nombre));
 		}
 
-		// Coordonnée x héros
+		// Coordonnï¿½e x hï¿½ros
 		p = Pattern.compile(COORD_HEROS_X);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("coordonnée x du héros");
+			System.out.println("coordonnï¿½e x du hï¿½ros");
 			return expression.replaceFirst(COORD_HEROS_X, "" + coordonneeXHeros());
 		}
 
-		// Coordonnée y héros
+		// Coordonnï¿½e y hï¿½ros
 		p = Pattern.compile(COORD_HEROS_Y);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("coordonnée y du héros");
+			System.out.println("coordonnï¿½e y du hï¿½ros");
 			return expression.replaceFirst(COORD_HEROS_Y, "" + coordonneeYHeros());
 		}
 
@@ -265,7 +265,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(VITALISATION, "" + vieEvent(nombre));
 		}
 
-		// Ciblage par le héros
+		// Ciblage par le hï¿½ros
 		p = Pattern.compile(CIBLAGE_PAR_HEROS);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -322,7 +322,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 					nombres.get(nombres.size() - 1), nombres.get(nombres.size() - 2)));
 		}
 
-		// Touche enfoncée
+		// Touche enfoncï¿½e
 		// FIXME bonne touche ?
 		if (TOUCHE_C.equals(expression)) {
 			return ToucheRole.ACTION.enfoncee() ? "1" : "0";
@@ -332,10 +332,10 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		}
 
 		// --------------------//
-		// Opérations unaires //
+		// Opï¿½rations unaires //
 		// --------------------//
 
-		// Négation
+		// Nï¿½gation
 		p = Pattern.compile(NEGATION);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -343,7 +343,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(NEGATION, nombre == 0 ? "1" : "0");
 		}
 
-		// Parenthèses
+		// Parenthï¿½ses
 		p = Pattern.compile(PARENTHESAGE);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -352,7 +352,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		}
 
 		// --------------------------//
-		// Opérations arithmétiques //
+		// Opï¿½rations arithmï¿½tiques //
 		// --------------------------//
 
 		// Puissance
@@ -411,10 +411,10 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		}
 
 		// ---------------------//
-		// Relations d'égalité //
+		// Relations d'ï¿½galitï¿½ //
 		// ---------------------//
 
-		// Egalité
+		// Egalitï¿½
 		p = Pattern.compile(EGALISATION);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -422,7 +422,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(EGALISATION, nombres.get(0) == nombres.get(1) ? "1" : "0");
 		}
 
-		// Inférieur ou égal
+		// Infï¿½rieur ou ï¿½gal
 		p = Pattern.compile(INFERIORATION_LARGE);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -430,7 +430,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(INFERIORATION_LARGE, nombres.get(0) <= nombres.get(1) ? "1" : "0");
 		}
 
-		// Supérieur ou égal
+		// Supï¿½rieur ou ï¿½gal
 		p = Pattern.compile(SUPERIORATION_LARGE);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -438,7 +438,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(SUPERIORATION_LARGE, nombres.get(0) >= nombres.get(1) ? "1" : "0");
 		}
 
-		// Inférieur
+		// Infï¿½rieur
 		p = Pattern.compile(INFERIORATION);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -446,7 +446,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(INFERIORATION, nombres.get(0) < nombres.get(1) ? "1" : "0");
 		}
 
-		// Supérieur
+		// Supï¿½rieur
 		p = Pattern.compile(SUPERIORATION);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -454,7 +454,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(SUPERIORATION, nombres.get(0) > nombres.get(1) ? "1" : "0");
 		}
 
-		// Différent
+		// Diffï¿½rent
 		p = Pattern.compile(DIFFERENTIATION);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -463,7 +463,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		}
 
 		// --------------------------------//
-		// Opérations booléennes binaires //
+		// Opï¿½rations boolï¿½ennes binaires //
 		// --------------------------------//
 
 		// Et
@@ -494,27 +494,27 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(OUATION, remplacement);
 		}
 
-		LOG.error("Script impossible à interpréter : " + expression);
+		LOG.error("Script impossible a interprï¿½ter : " + expression);
 		this.interpretationImplementee = false;
 		return "0";
 	}
 
 	/**
-	 * Remplacer la dernière occurence.
+	 * Remplacer la derniï¿½re occurence.
 	 * 
 	 * @param expression   dans laquelle on cherche une occurrence
-	 * @param aReplacer    occurrence à remplacer
-	 * @param remplacement mot à mettre à la place
-	 * @return expression modifiée
+	 * @param aReplacer    occurrence a remplacer
+	 * @param remplacement mot a mettre a la place
+	 * @return expression modifiï¿½e
 	 */
 	public static String replaceLast(final String expression, final String aReplacer, final String remplacement) {
 		return expression.replaceFirst("(?s)(.*)" + aReplacer, "$1" + remplacement);
 	}
 
 	/**
-	 * Trouver le nombre situé dans une chaine de caractères.
+	 * Trouver le nombre situï¿½ dans une chaine de caractï¿½res.
 	 * 
-	 * @param nombreBrut chaine de caractères contenant un nombre
+	 * @param nombreBrut chaine de caractï¿½res contenant un nombre
 	 * @return nombre contenu
 	 */
 	private static int extraireLeNombre(final String nombreBrut) {
@@ -526,9 +526,9 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	}
 
 	/**
-	 * Trouver les nombres situés dans une chaine de caractères.
+	 * Trouver les nombres situï¿½s dans une chaine de caractï¿½res.
 	 * 
-	 * @param brut             chaine de caractères contenant des nombres
+	 * @param brut             chaine de caractï¿½res contenant des nombres
 	 * @param relatifOuPositif les nombres attendus sont-ils positifs ou relatifs ?
 	 * @return nombres contenus
 	 */
@@ -549,9 +549,9 @@ public class ConditionScript extends Condition implements CommandeEvent {
 
 	/**
 	 * Trouver la chaine entre guillemets (ou nil) situee dans une chaine de
-	 * caractères.
+	 * caractï¿½res.
 	 * 
-	 * @param chaineBrute chaine de caractères contenant la chaine entre guillemets
+	 * @param chaineBrute chaine de caractï¿½res contenant la chaine entre guillemets
 	 * @return chaine entre guillemets contenue
 	 */
 	private static String extraireLaChaineOuNil(final String chaineBrute) {

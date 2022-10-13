@@ -16,19 +16,19 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Afficher une image par dessus l'écran.
+ * Afficher une image par dessus l'ecran.
  */
 public class AfficherImage extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(AfficherImage.class);
 
 	private String nomImage;
 	public BufferedImage image;
-	/** numéro de l'image à déplacer */
-	private Integer numero; // Integer car utilisé comme clé d'une HashMap
+	/** numï¿½ro de l'image a dï¿½placer */
+	private Integer numero; // Integer car utilisï¿½ comme clï¿½ d'une HashMap
 
 	/** la nouvelle origine est-elle le centre de l'image ? */
 	private boolean centre;
-	/** les coordonnées sont-elles stockées dans des variables ? */
+	/** les coordonnees sont-elles stockï¿½es dans des variables ? */
 	private boolean variables;
 	private int x;
 	private int y;
@@ -41,18 +41,18 @@ public class AfficherImage extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nomImage     nom de l'image à afficher
-	 * @param numero       de l'image à afficher
+	 * @param nomImage     nom de l'image a afficher
+	 * @param numero       de l'image a afficher
 	 * @param centre       son origine est-elle son centre ? sinon, son origine est
 	 *                     son coin haut-gauche
-	 * @param variables    les coordonnées sont stockées dans des variables
-	 * @param x            coordonnée d'affichage à l'écran (en pixels)
-	 * @param y            coordonnée d'affichage à l'écran (en pixels)
-	 * @param zoomX        étirement horizontal (en pourcents)
-	 * @param zoomY        étirement vertical (en pourcents)
+	 * @param variables    les coordonnees sont stockï¿½es dans des variables
+	 * @param x            coordonnee d'affichage a l'ecran (en pixels)
+	 * @param y            coordonnee d'affichage a l'ecran (en pixels)
+	 * @param zoomX        ï¿½tirement horizontal (en pourcents)
+	 * @param zoomY        ï¿½tirement vertical (en pourcents)
 	 * @param opacite      de l'image (sur 255)
 	 * @param modeDeFusion de la superposition d'images
-	 * @param angle        de rotation de l'image (en degrés)
+	 * @param angle        de rotation de l'image (en degrï¿½s)
 	 */
 	public AfficherImage(final String nomImage, final int numero, final boolean centre, final boolean variables,
 			final int x, final int y, final int zoomX, final int zoomY, final int opacite,
@@ -71,9 +71,9 @@ public class AfficherImage extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AfficherImage(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("nomImage"), (int) parametres.get("numero"),
@@ -90,14 +90,14 @@ public class AfficherImage extends Commande implements CommandeEvent {
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// On vérifie si ça n'a pas déjà été fait
+		// On vï¿½rifie si ca n'a pas deja ete fait
 		if (this.dejaALEcran()) {
-			// L'image est déjà à l'écran
-			// LOG.warn("Image "+this.numero+" \""+this.nomImage+"\" déjà présente à l'écran
+			// L'image est deja a l'ecran
+			// LOG.warn("Image "+this.numero+" \""+this.nomImage+"\" deja prï¿½sente a l'ecran
 			// !");
 			return curseurActuel + 1;
 		}
-		// L'image n'est pas encore à l'écran
+		// L'image n'est pas encore a l'ecran
 
 		try {
 			this.image = Graphismes.ouvrirImage("Pictures", this.nomImage);
@@ -106,10 +106,10 @@ public class AfficherImage extends Commande implements CommandeEvent {
 			return curseurActuel + 1;
 		}
 
-		// coordonnées
+		// coordonnees
 		final int xAffichage, yAffichage;
 		if (this.variables) {
-			// valeurs stockées dans des variables
+			// valeurs stockees dans des variables
 			xAffichage = getPartieActuelle().variables[this.x];
 			yAffichage = getPartieActuelle().variables[this.y];
 		} else {
@@ -126,9 +126,9 @@ public class AfficherImage extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Est-ce que l'image à afficher est déjà à l'écran ?
+	 * Est-ce que l'image a afficher est deja a l'ecran ?
 	 * 
-	 * @return true s'il n'y a rien à faire, false sinon
+	 * @return true s'il n'y a rien a faire, false sinon
 	 */
 	private boolean dejaALEcran() {
 		final Partie partieActuelle = Main.getPartieActuelle();

@@ -17,48 +17,48 @@ import mouvements.Mouvement;
 
 /**
  * <p>
- * Un Déplacement est un ensemble de Mouvements subis par un Event.
+ * Un Dï¿½placement est un ensemble de Mouvements subis par un Event.
  * </p>
  * 
  * <p>
- * L'objet Déplacement a deux usages très différents :
+ * L'objet Dï¿½placement a deux usages trï¿½s diffï¿½rents :
  * <ol>
- * <li>Chaque Event possède un Déplacement naturel et un Déplacement forcé. Le
- * Déplacement forcé sera effectué en priorité (sauf s'il est vide) sur le
- * Déplacement naturel. Cela a lieu lorsque les Events sont déplacés avec la
- * méthode deplacer().</li>
- * <li>Un Déplacement est également une CommandeEvent qui permet d'ajouter des
- * Mouvements dans le Déplacement forcé d'un Event. L'Event qui ordonne le
- * Déplacement n'est pas forcément celui qui le subit. Ce Déplacement, qui
- * contient des ordres, n'est jamais effectué. C'est le Déplacement forcé de
- * l'Event-cible qui sera effectué une fois rempli. Ce remplissage a lieu lors
- * de l'execution des Commandes Event avec la méthode executer().</li>
+ * <li>Chaque Event possï¿½de un Dï¿½placement naturel et un Dï¿½placement forcï¿½. Le
+ * Dï¿½placement forcï¿½ sera effectuï¿½ en prioritï¿½ (sauf s'il est vide) sur le
+ * Dï¿½placement naturel. Cela a lieu lorsque les Events sont dï¿½placï¿½s avec la
+ * Methode deplacer().</li>
+ * <li>Un Dï¿½placement est ï¿½galement une CommandeEvent qui permet d'ajouter des
+ * Mouvements dans le Dï¿½placement forcï¿½ d'un Event. L'Event qui ordonne le
+ * Dï¿½placement n'est pas forcï¿½ment celui qui le subit. Ce Dï¿½placement, qui
+ * contient des ordres, n'est jamais effectuï¿½. C'est le Dï¿½placement forcï¿½ de
+ * l'Event-cible qui sera effectuï¿½ une fois rempli. Ce remplissage a lieu lors
+ * de l'execution des Commandes Event avec la Methode executer().</li>
  * </ol>
  * </p>
  */
 public class Deplacement extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(Deplacement.class);
 
-	/** id de l'Event qui va être déplacé */
-	public Integer idEventADeplacer; // Integer car clé d'une HashMap, et null lorsque "cet Event"
-	/** id de l'Event qui a réclamé ce Déplacement */
+	/** id de l'Event qui va ï¿½tre dï¿½placï¿½ */
+	public Integer idEventADeplacer; // Integer car clï¿½ d'une HashMap, et null lorsque "cet Event"
+	/** id de l'Event qui a rï¿½clamï¿½ ce Dï¿½placement */
 	public Integer idEventCommanditaire;
-	/** Mouvements constitutifs de ce Déplacement */
+	/** Mouvements constitutifs de ce Dï¿½placement */
 	public ArrayList<Mouvement> mouvements;
 	/**
 	 * faut-il interrompre les Mouvements impossibles, ou attendre qu'ils soient
 	 * possibles ?
 	 */
 	public boolean ignorerLesMouvementsImpossibles = false;
-	/** faut-il rejouer le Déplacement lorsqu'on l'a terminé ? */
+	/** faut-il rejouer le Dï¿½placement lorsqu'on l'a terminï¿½ ? */
 	public boolean repeterLeDeplacement = true;
 	/**
-	 * faut-il attendre la fin du Déplacement pour passer à la Commande suivante ?
+	 * faut-il attendre la fin du Dï¿½placement pour passer a la Commande suivante ?
 	 */
 	public boolean attendreLaFinDuDeplacement = false;
 	private boolean aEteAjouteAuxDeplacementsForces = false;
 	/**
-	 * le Mouvement est-il naturel ? (cette valeur est réassignée lors de
+	 * le Mouvement est-il naturel ? (cette valeur est rï¿½assignï¿½e lors de
 	 * l'instanciation de la Page)
 	 */
 	public boolean naturel = false;
@@ -66,17 +66,17 @@ public class Deplacement extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idEventADeplacer                id de l'Event à déplacer, null
-	 *                                        signifie "cet Event", 0 le Héros
+	 * @param idEventADeplacer                id de l'Event a dï¿½placer, null
+	 *                                        signifie "cet Event", 0 le Hï¿½ros
 	 * @param mouvements                      liste des Mouvements constitutifs du
-	 *                                        Déplacement
+	 *                                        Dï¿½placement
 	 * @param ignorerLesMouvementsImpossibles faut-il interrompre les Mouvements
 	 *                                        impossibles, ou attendre qu'ils soient
 	 *                                        possibles ?
-	 * @param repeterLeDeplacement            faut-il rejouer le Déplacement
-	 *                                        lorsqu'on l'a terminé ?
-	 * @param attendreLaFinDuDeplacement      faut-il attendre la fin du Déplacement
-	 *                                        pour passer à la Commande suivante ?
+	 * @param repeterLeDeplacement            faut-il rejouer le Dï¿½placement
+	 *                                        lorsqu'on l'a terminï¿½ ?
+	 * @param attendreLaFinDuDeplacement      faut-il attendre la fin du Dï¿½placement
+	 *                                        pour passer a la Commande suivante ?
 	 */
 	public Deplacement(final Integer idEventADeplacer, final ArrayList<Mouvement> mouvements,
 			final boolean ignorerLesMouvementsImpossibles, final boolean repeterLeDeplacement,
@@ -87,16 +87,16 @@ public class Deplacement extends Commande implements CommandeEvent {
 		this.repeterLeDeplacement = repeterLeDeplacement;
 		this.attendreLaFinDuDeplacement = attendreLaFinDuDeplacement;
 
-		// on apprend aux Mouvements le Déplacement dont ils font partie
+		// on apprend aux Mouvements le Dï¿½placement dont ils font partie
 		for (Mouvement mouvement : this.mouvements) {
 			mouvement.deplacement = this;
 		}
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Deplacement(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("idEventADeplacer") ? (Integer) parametres.get("idEventADeplacer") : null,
@@ -112,73 +112,73 @@ public class Deplacement extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Vide la liste des Mouvements forcés de l'Event, puis ajoute les nouveaux
-	 * Mouvements. Méthode appelée lors de l'exécution des Commandes. On passe à la
-	 * Commande suivante selon s'il faut attendre la fin du Déplacement.
+	 * Vide la liste des Mouvements forcï¿½s de l'Event, puis ajoute les nouveaux
+	 * Mouvements. Methode appelï¿½e lors de l'exï¿½cution des Commandes. On passe a la
+	 * Commande suivante selon s'il faut attendre la fin du Dï¿½placement.
 	 */
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		// IMPORTANT
-		// Nous nous trouvons actuellement dans le Déplacement qui contient les
-		// Mouvements à ajouter au Déplacement forcé d'un Event.
+		// Nous nous trouvons actuellement dans le Dï¿½placement qui contient les
+		// Mouvements a ajouter au Dï¿½placement forcï¿½ d'un Event.
 
 		final Event event = this.getEventADeplacer();
 		if (event == null) {
 			// Event introuvable
-			LOG.error("Déplacement impossible : l'Event " + this.idEventADeplacer + " n'existe pas !");
-			// on réinitialise le Deplacement (au cas où il est à nouveau executé dans le
+			LOG.error("Dï¿½placement impossible : l'Event " + this.idEventADeplacer + " n'existe pas !");
+			// on rï¿½initialise le Deplacement (au cas oï¿½ il est a nouveau executï¿½ dans le
 			// futur)
 			this.aEteAjouteAuxDeplacementsForces = false;
-			// on passe à la Commande suivante
+			// on passe a la Commande suivante
 			return curseurActuel + 1;
 		}
 
 		if (!this.aEteAjouteAuxDeplacementsForces) {
-			// interrompre l'ancien Déplacement forcé de l'Event
+			// interrompre l'ancien Dï¿½placement forcï¿½ de l'Event
 			if (event.deplacementForce.mouvements != null && event.deplacementForce.mouvements.size() >= 1) {
-				LOG.warn("Le déplacement de l'event " + this.idEventADeplacer + " a été interrompu et remplacé.");
+				LOG.warn("Le dï¿½placement de l'event " + this.idEventADeplacer + " a ï¿½tï¿½ interrompu et remplacï¿½.");
 			}
 			event.deplacementForce.mouvements = new ArrayList<Mouvement>();
 
-			// à la place, on ajoute dans la liste les nouveaux Mouvements forcés
+			// a la place, on ajoute dans la liste les nouveaux Mouvements forcï¿½s
 			for (Mouvement mvt : this.mouvements) {
 				mvt.reinitialiser();
 				event.deplacementForce.mouvements.add(mvt);
-				event.deplacementForce.page = this.page; // on indique le commanditaire de ce Déplacement
+				event.deplacementForce.page = this.page; // on indique le commanditaire de ce Dï¿½placement
 			}
-			// on précise le commanditaire qui a imposé ce Déplacement à un autre event
+			// on prï¿½cise le commanditaire qui a imposï¿½ ce Dï¿½placement a un autre event
 			event.deplacementForce.idEventCommanditaire = this.page.event.id;
-			// les nouvelles caractéristiques de Déplacement sont assignées au Déplacement
-			// forcé
+			// les nouvelles caractï¿½ristiques de Dï¿½placement sont assignï¿½es au Dï¿½placement
+			// forcï¿½
 			event.deplacementForce.attendreLaFinDuDeplacement = this.attendreLaFinDuDeplacement;
 			event.deplacementForce.ignorerLesMouvementsImpossibles = this.ignorerLesMouvementsImpossibles;
 			event.deplacementForce.repeterLeDeplacement = this.repeterLeDeplacement;
-			// voilà, les nouveaux Mouvements ont été planifiés
+			// voilï¿½, les nouveaux Mouvements ont ï¿½tï¿½ planifiï¿½s
 
 			this.aEteAjouteAuxDeplacementsForces = true;
 		}
 
-		// quand est-ce qu'on passe à la Commande suivante ?
+		// quand est-ce qu'on passe a la Commande suivante ?
 		if (!this.attendreLaFinDuDeplacement) {
-			// on ne se soucie pas du déroulement du Déplacement
+			// on ne se soucie pas du dï¿½roulement du Dï¿½placement
 
-			// on réinitialise le Deplacement (au cas où il est à nouveau executé dans le
+			// on rï¿½initialise le Deplacement (au cas oï¿½ il est a nouveau executï¿½ dans le
 			// futur)
 			this.aEteAjouteAuxDeplacementsForces = false;
-			// on passe immédiatement à la Commande suivante
+			// on passe immï¿½diatement a la Commande suivante
 			return curseurActuel + 1;
 		} else {
-			// on attend la fin du Déplacement avant de passer à la Commande suivante
+			// on attend la fin du Dï¿½placement avant de passer a la Commande suivante
 			if (event.deplacementForce.mouvements.size() <= 0) {
-				// la liste a été totalement consommée
+				// la liste a ï¿½tï¿½ totalement consommï¿½e
 
-				// on réinitialise le Deplacement (au cas où il est à nouveau executé dans le
+				// on rï¿½initialise le Deplacement (au cas oï¿½ il est a nouveau executï¿½ dans le
 				// futur)
 				this.aEteAjouteAuxDeplacementsForces = false;
-				// on passe à la Commande suivante
+				// on passe a la Commande suivante
 				return curseurActuel + 1;
 			} else {
-				// la liste contient encore des Mouvements à effectuer
+				// la liste contient encore des Mouvements a effectuer
 
 				// on reste ici
 				return curseurActuel;
@@ -187,49 +187,49 @@ public class Deplacement extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Tout Mouvement déplace un Event de la Map en particulier.
+	 * Tout Mouvement dï¿½place un Event de la Map en particulier.
 	 * 
-	 * @return Event qui va être déplacé
+	 * @return Event qui va ï¿½tre dï¿½placï¿½
 	 */
 	public final Event getEventADeplacer() {
 		if (this.idEventADeplacer != null) {
-			// un numéro d'Event à déplacer a été spécifié dans le JSON
+			// un numï¿½ro d'Event a dï¿½placer a ï¿½tï¿½ spï¿½cifiï¿½ dans le JSON
 			return ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
 		} else {
-			// aucun numéro n'a été spécifié, on déplace l'Event qui a lancé la Commande
+			// aucun numï¿½ro n'a ï¿½tï¿½ spï¿½cifiï¿½, on dï¿½place l'Event qui a lancï¿½ la Commande
 			return this.page.event;
 		}
 	}
 
 	/**
-	 * Executer le premier Mouvement du Déplacement. Méthode appelée lorsqu'il faut
-	 * déplacer les Events.
+	 * Executer le premier Mouvement du Dï¿½placement. Methode appelï¿½e lorsqu'il faut
+	 * dï¿½placer les Events.
 	 */
 	public final void executerLePremierMouvement() {
 		// IMPORTANT
-		// Nous nous trouvons actuellement dans le Déplacement forcé ou naturel d'un
+		// Nous nous trouvons actuellement dans le Dï¿½placement forcï¿½ ou naturel d'un
 		// Event.
 
 		final Mouvement premierMouvement = this.mouvements.get(0);
 
 		final LecteurMap lecteurMap = (LecteurMap) Main.lecteur;
-		// si le stopEvent est activé, on n'effectue pas les Mouvements
+		// si le stopEvent est activï¿½, on n'effectue pas les Mouvements
 		// sauf s'il s'agit d'Attendre
 		final boolean lesMouvementsSontBloques = lecteurMap.stopEvent
 				|| (lecteurMap.stopHeros && getEventADeplacer() instanceof Heros);
 		if (lesMouvementsSontBloques) {
-			// les Mouvements sont bloqués
+			// les Mouvements sont bloquï¿½s
 
 			final int idBloqueur = lecteurMap.eventQuiALanceStopEvent.id;
 			final int idCommanditaireDeCeDeplacement = this.page.event.id;
 			if (!this.naturel && idBloqueur == idCommanditaireDeCeDeplacement) {
 				// on effectue toutefois :
-				// - les Mouvements commandités par le bloqueur
-				// - et les Mouvements forcés
+				// - les Mouvements commanditï¿½s par le bloqueur
+				// - et les Mouvements forcï¿½s
 				premierMouvement.executerLeMouvement(this);
 			}
 		} else {
-			// les Mouvements ne sont pas bloqués
+			// les Mouvements ne sont pas bloquï¿½s
 			premierMouvement.executerLeMouvement(this);
 		}
 	}

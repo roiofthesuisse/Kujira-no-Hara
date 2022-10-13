@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Equiper le Heros avec une Arme qu'il possède
+ * Equiper le Heros avec une Arme qu'il possï¿½de
  */
 public class EquiperArme extends Commande implements CommandeEvent {
 	int idArme;
@@ -14,16 +14,16 @@ public class EquiperArme extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idArme identifiant de l'Arme à équiper
+	 * @param idArme identifiant de l'Arme a ï¿½quiper
 	 */
 	public EquiperArme(final int idArme) {
 		this.idArme = idArme;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public EquiperArme(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idArme"));

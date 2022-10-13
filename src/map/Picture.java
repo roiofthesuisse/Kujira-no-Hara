@@ -12,7 +12,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Image à afficher à l'écran et ses paramètres.
+ * Image a afficher a l'ecran et ses paramï¿½tres.
  */
 public class Picture implements Sauvegardable {
 	//constantes
@@ -21,10 +21,10 @@ public class Picture implements Sauvegardable {
 	
 	public String nomImage;
 	public BufferedImage image;
-	public Integer numero; //Integer car utilisé comme clé d'une HashMap
-	/** coordonnée x d'affichage par rapport au coin de l'écran */
+	public Integer numero; //Integer car utilisï¿½ comme clï¿½ d'une HashMap
+	/** coordonnï¿½e x d'affichage par rapport au coin de l'ecran */
 	public int x;
-	/** coordonnée y d'affichage par rapport au coin de l'écran */
+	/** coordonnï¿½e y d'affichage par rapport au coin de l'ecran */
 	public int y;
 	/** la nouvelle origine est-elle le centre de l'image ? */
 	public boolean centre;
@@ -36,7 +36,7 @@ public class Picture implements Sauvegardable {
 	public ModeDeFusion modeDeFusion;
 	/** angle de rotation de l'image */
 	public int angle;
-	/** L'image bouge-t-elle d'elle-même ? */
+	/** L'image bouge-t-elle d'elle-mï¿½me ? */
 	public DeplacerImage deplacementActuel;
 	
 	/**
@@ -44,14 +44,14 @@ public class Picture implements Sauvegardable {
 	 * @param image nom du fichier image
 	 * @param nomImage (pour la sauvegarde uniquement)
 	 * @param numero de l'image pour le LecteurMap
-	 * @param x coordonnée x d'affichage à l'écran (en pixels)
-	 * @param y coordonnée y d'affichage à l'écran (en pixels)
+	 * @param x coordonnï¿½e x d'affichage a l'ecran (en pixels)
+	 * @param y coordonnï¿½e y d'affichage a l'ecran (en pixels)
 	 * @param centre l'origine de l'image est-elle son centre ?
 	 * @param zoomX zoom horizontal (en pourcents)
 	 * @param zoomY zoom vertical (en pourcents)
 	 * @param opacite de l'image (sur 255)
 	 * @param modeDeFusion de la superposition d'images
-	 * @param angle de rotation de l'image (en degrés)
+	 * @param angle de rotation de l'image (en degrï¿½s)
 	 */
 	public Picture(final BufferedImage image, final String nomImage, final int numero, final int x, final int y, final boolean centre, 
 			final int zoomX, final int zoomY, final int opacite, final ModeDeFusion modeDeFusion, final int angle) {
@@ -73,7 +73,7 @@ public class Picture implements Sauvegardable {
 	 * Une image basse est une image sous le HUD ; une image haute est au dessus du HUD.
 	 * @param ecran sur lequel on affiche les images
 	 * @param imagesBasses true pour les images basses, false pour les images hautes
-	 * @return écran avec les images dessinées
+	 * @return ecran avec les images dessinï¿½es
 	 */
 	public static BufferedImage dessinerLesImages(BufferedImage ecran, final boolean imagesBasses) {
 		final Picture[] imagesADessiner = Main.getPartieActuelle().images;
@@ -96,7 +96,7 @@ public class Picture implements Sauvegardable {
 			// Toutes les places de la liste ne sont pas forcement occupees
 			if (picture != null) {
 				
-				// Déplacer les images (dont le déplacement a été délégué au LecteurMap par une Commande)
+				// Dï¿½placer les images (dont le dï¿½placement a ï¿½tï¿½ dï¿½lï¿½guï¿½ au LecteurMap par une Commande)
 				if (picture.deplacementActuel != null) {
 					picture.deplacementActuel.executerCommeUnDeplacementPropre(picture);
 				}
@@ -109,7 +109,7 @@ public class Picture implements Sauvegardable {
 	}
 	
 	/**
-	 * Générer un JSON de la Picture (et son éventuel déplacement actuel) pour la Sauvegarde.
+	 * Gï¿½nï¿½rer un JSON de la Picture (et son ï¿½ventuel dï¿½placement actuel) pour la Sauvegarde.
 	 */
 	@Override
 	public JSONObject sauvegarderEnJson() {

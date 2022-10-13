@@ -5,7 +5,7 @@ import java.util.HashMap;
 import map.Event;
 
 /**
- * Fait regarder l'event dans une direction donnée.
+ * Fait regarder l'event dans une direction donnï¿½e.
  */
 public class RegarderDansUneDirection extends Mouvement {
 	
@@ -22,8 +22,8 @@ public class RegarderDansUneDirection extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RegarderDansUneDirection(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("direction"));
@@ -47,22 +47,22 @@ public class RegarderDansUneDirection extends Mouvement {
 	 */
 	@Override
 	protected final void calculDuMouvement(final Event event) {
-		//rien car le travail est fait par la méthode getDirectionImposee()
+		//rien car le travail est fait par la Methode getDirectionImposee()
 		this.ceQuiAEteFait++;
 	}
 
 	@Override
 	protected void terminerLeMouvementSpecifique(final Event event) {
-		// Mouvement non spécifique	
+		// Mouvement non spï¿½cifique	
 	}
 
 	@Override
 	protected void ignorerLeMouvementSpecifique(final Event event) {
-		// Mouvement non spécifique
+		// Mouvement non spï¿½cifique
 	}
 	
 	/**
-	 * Cette méthode est dérivée dans la classe RegarderUnEvent.
+	 * Cette Methode est derivee dans la classe RegarderUnEvent.
 	 */
 	@Override
 	public int getDirectionImposee() {

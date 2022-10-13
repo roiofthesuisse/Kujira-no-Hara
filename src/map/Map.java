@@ -23,27 +23,27 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.son.Musique;
 
 /**
- * Une Map est un décor rectangulaire constitué de briques issues du Tileset.
- * Le Heros et les Events se déplacent dedans.
+ * Une Map est un dï¿½cor rectangulaire constituï¿½ de briques issues du Tileset.
+ * Le Heros et les Events se dï¿½placent dedans.
  */
 public class Map implements Sauvegardable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Map.class);
-	/** Chaque carreau du Tileset possède une altitude intrinsèque */
+	/** Chaque carreau du Tileset possï¿½de une altitude intrinsï¿½que */
 	private static final int NOMBRE_ALTITUDES = 6;
-	/** L'altitude médiane est celle affichée avec les Events ; les autres altitudes sont soit dessous, soit dessus */
+	/** L'altitude mï¿½diane est celle affichï¿½e avec les Events ; les autres altitudes sont soit dessous, soit dessus */
 	private static final int ALTITUDE_MEDIANE = 1;
-	/** Le décor est constitué de 3 couches, afin de pouvoir superposer plusieurs carreaux au même endroit de la Map */
+	/** Le dï¿½cor est constituï¿½ de 3 couches, afin de pouvoir superposer plusieurs carreaux au mï¿½me endroit de la Map */
 	private static final int NOMBRE_LAYERS = 3;
-	/** La position intiale du Héros sur cette Map est décrite par 5 paramètres */
+	/** La position intiale du Hï¿½ros sur cette Map est dï¿½crite par 5 paramï¿½tres */
 	private static final int POSITION_INITIALE_PAR_X_Y_ET_DIRECTION = 5;
-	/** La position intiale du Héros sur cette Map est décrite par 2 paramètres */
+	/** La position intiale du Hï¿½ros sur cette Map est dï¿½crite par 2 paramï¿½tres */
 	private static final int POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION = 2;
 	
-	/** Numéro du fichier JSON de la Map */
+	/** Numï¿½ro du fichier JSON de la Map */
 	public final int numero;
 	public String nom;
-	/** Lecteur chargé de lire cette Map */
+	/** Lecteur chargï¿½ de lire cette Map */
 	public LecteurMap lecteur;
 	/** Nom de la musique */
 	public String nomBGM;
@@ -51,57 +51,57 @@ public class Map implements Sauvegardable {
 	/** Nom du bruit de fond */
 	public String nomBGS;
 	public Float volumeBGS;
-	/** Nom du Tileset utilisé */
+	/** Nom du Tileset utilisï¿½ */
 	public String nomTileset;
-	/** Image contenant les tuiles constitutives de décor possibles */
+	/** Image contenant les tuiles constitutives de dï¿½cor possibles */
 	public Tileset tileset;
-	/** Image de panorama actuel affiché derrière la Map */
+	/** Image de panorama actuel affichï¿½ derriï¿½re la Map */
 	public BufferedImage panoramaActuel;
 	/** Taux de parallaxe entre la Map et le Panorama */
 	public int parallaxeActuelle;
 	/** Dimensions de la Map (en nombre de cases) */
 	public final int largeur, hauteur;
-	/** Trois couches de décor pour pouvoir placer plusieurs tuiles sur la même case */
+	/** Trois couches de dï¿½cor pour pouvoir placer plusieurs tuiles sur la mï¿½me case */
 	public final int[][] layer0, layer1, layer2;
 	public final int[][][] layers;
-	/** en cas d'Autotile animé */
+	/** en cas d'Autotile animï¿½ */
 	private BufferedImage[] imagesCoucheSousHeros;
-	/** en cas d'Autotile animé */
+	/** en cas d'Autotile animï¿½ */
 	private BufferedImage[] imagesCoucheAvecHeros;
-	/** en cas d'Autotile animé */
+	/** en cas d'Autotile animï¿½ */
 	private BufferedImage[] imagesCoucheSurHeros;
-	/** Le décor contient-il des autotiles animés ? */
+	/** Le dï¿½cor contient-il des autotiles animï¿½s ? */
 	public boolean contientDesAutotilesAnimes;
-	/** Brouillard affiché par dessus de décor et les Events */
+	/** Brouillard affichï¿½ par dessus de dï¿½cor et les Events */
 	public Brouillard brouillard;
-	/** liste des Events rangés par coordonnée y */
+	/** liste des Events rangï¿½s par coordonnï¿½e y */
 	public ArrayList<Event> events;
-	/** hashmap des Events rangés par id, 0 pour le Héros */
+	/** hashmap des Events rangï¿½s par id, 0 pour le Hï¿½ros */
 	public HashMap<Integer, Event> eventsHash;
-	/** liste des Events à ajouter au tour suivant */
+	/** liste des Events a ajouter au tour suivant */
 	public ArrayList<Event> eventsAAjouter = new ArrayList<Event>();
-	/** Event numéro 0, dirigé par le joueur */
+	/** Event numï¿½ro 0, dirigï¿½ par le joueur */
 	public Heros heros;
-	/** Coordonnées du héros (en pixels) à l'initialisation de la Map */
+	/** Coordonnï¿½es du hï¿½ros (en pixels) a l'initialisation de la Map */
 	public int xDebutHeros, yDebutHeros;
-	/** Direction dans laquelle regarde le Héros à l'initialisation de la Map */
+	/** Direction dans laquelle regarde le Hï¿½ros a l'initialisation de la Map */
 	public int directionDebutHeros;
 	/** La case x;y est-elle passable ? */
 	public Passabilite[][] casePassable;
-	/** Pour faire défiler la caméra ailleurs que centrée sur le Héros */
+	/** Pour faire dï¿½filer la camï¿½ra ailleurs que centrï¿½e sur le Hï¿½ros */
 	public final boolean defilementCameraX, defilementCameraY;
 	/** Effet d'ondulation sur la Map */
 	public Ondulation ondulation;
 	
-	/** Maps adjacentes à celle-ci */
+	/** Maps adjacentes a celle-ci */
 	public HashMap<Integer, Adjacence> adjacences;
 	
 	/**
 	 * Constructeur explicite
-	 * @param numero de la Map, c'est-à-dire numéro du fichier map (au format JSON) à charger
+	 * @param numero de la Map, c'est-ï¿½-dire numï¿½ro du fichier map (au format JSON) a charger
 	 * @param lecteur de la Map
-	 * @param ancienHeros heros de la Map précédente
-	 * @param brouillardForce brouillard imposé au chargement de partie
+	 * @param ancienHeros heros de la Map prï¿½cï¿½dente
+	 * @param brouillardForce brouillard imposï¿½ au chargement de partie
 	 * @param positionInitiale [xDebutHeros, yDebutHerosArg, directionDebutHeros] ou bien [xAncienneMapHeros, yAncienneMapHeros, decalageDebutHeros, directionDebutHeros]
 	 * @throws Exception Impossible de charger la Map
 	 */
@@ -109,7 +109,7 @@ public class Map implements Sauvegardable {
 			final PositionInitiale positionInitiale) throws Exception {
 		this.numero = numero;
 		this.lecteur = lecteur;
-		lecteur.map = this; //on prévient le Lecteur qu'il a une Map
+		lecteur.map = this; //on prï¿½vient le Lecteur qu'il a une Map
 		
 		//la map est un fichier JSON
 		final JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(this.numero);
@@ -147,13 +147,13 @@ public class Map implements Sauvegardable {
 		// Transition qui introduit cette Map
 		final Transition transition = lecteur.transition;
 		
-		// Position initiale du Héros
+		// Position initiale du Hï¿½ros
 		final int[] positionInitialeDuHeros = positionInitiale.calculer(this.largeur, this.hauteur, transition);
-		this.xDebutHeros = positionInitialeDuHeros[0]; //position x (en pixels) initiale du Héros
-		this.yDebutHeros = positionInitialeDuHeros[1]; //position y (en pixels) initiale du Héros
-		this.directionDebutHeros = positionInitialeDuHeros[2]; //direction initiale du Héros
+		this.xDebutHeros = positionInitialeDuHeros[0]; //position x (en pixels) initiale du Hï¿½ros
+		this.yDebutHeros = positionInitialeDuHeros[1]; //position y (en pixels) initiale du Hï¿½ros
+		this.directionDebutHeros = positionInitialeDuHeros[2]; //direction initiale du Hï¿½ros
 		
-		// Maps adjacentes à celle-ci
+		// Maps adjacentes a celle-ci
 		if (jsonMap.has("adjacences")) {
 			this.adjacences = new HashMap<Integer, Adjacence>();
 			final JSONArray adjacencesJsonArray = jsonMap.getJSONArray("adjacences");
@@ -174,34 +174,34 @@ public class Map implements Sauvegardable {
 		long t0 = System.nanoTime();
 		//chargement du tileset
 		try {
-			//si jamais le Tileset est le même, pas la peine de le recréer
+			//si jamais le Tileset est le mï¿½me, pas la peine de le recrï¿½er
 			final Tileset tilesetActuel = ((LecteurMap) Main.lecteur).map.tileset;
 			if (this.nomTileset.equals(tilesetActuel.nom)) {
 				this.tileset = tilesetActuel;
-				LOG.info("Le Tileset n'a pas changé, on garde le même.");
+				LOG.info("Le Tileset n'a pas changï¿½, on garde le mï¿½me.");
 			} else {
-				throw new Exception("Le Tileset a changé.");
+				throw new Exception("Le Tileset a changï¿½.");
 			}
 		} catch (Exception e1) {
 			//impossible de convertir le Lecteur en LecteurMap car c'est un LecteurMenu
 			//ou bien
 			//le Lecteur actuel est null
 			//ou bien
-			//le Tileset a changé
+			//le Tileset a changï¿½
 			try {
-				LOG.info("Le Tileset a changé, il faut le recharger.");
+				LOG.info("Le Tileset a changï¿½, il faut le recharger.");
 				this.tileset = new Tileset(this.nomTileset);
 			} catch (IOException e2) {
-				LOG.error("Erreur lors de la création du Tileset :", e2);
+				LOG.error("Erreur lors de la crï¿½ation du Tileset :", e2);
 			}
 		}
 		long t1 = System.nanoTime();
 			
-		//on dessine la couche de décor inférieure, qui sera sous le héros et les évènements
+		//on dessine la couche de dï¿½cor infï¿½rieure, qui sera sous le hï¿½ros et les ï¿½vï¿½nements
 			this.imagesCoucheSousHeros = creerCoucheDeDecor(0, ALTITUDE_MEDIANE-1);
-		//on dessine la couche de décor médiane, qui sera avec le héros et les évènements
+		//on dessine la couche de dï¿½cor mï¿½diane, qui sera avec le hï¿½ros et les ï¿½vï¿½nements
 			this.imagesCoucheAvecHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE, ALTITUDE_MEDIANE);
-		//on dessine la couche de décor supérieure, qui sera au dessus du héros et des évènements
+		//on dessine la couche de dï¿½cor supï¿½rieure, qui sera au dessus du hï¿½ros et des ï¿½vï¿½nements
 			this.imagesCoucheSurHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE+1, NOMBRE_ALTITUDES-1);
 			long t2 = System.nanoTime();
 			Main.mesuresDePerformance.add((t1-t0)+";"+(t2-t1));
@@ -210,14 +210,14 @@ public class Map implements Sauvegardable {
 			importerLesEvenements(jsonMap, this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros);
 			
 		//informations sur la Transition
-			final int xAncienHeros = ancienHeros != null ? ancienHeros.x : 0; //pas d'ancien Héros en cas de chargement de Partie
+			final int xAncienHeros = ancienHeros != null ? ancienHeros.x : 0; //pas d'ancien Hï¿½ros en cas de chargement de Partie
 			final int yAncienHeros = ancienHeros != null ? ancienHeros.y : 0;
 			final int largeurAncienneMap = ancienHeros != null ? ancienHeros.map.largeur : 0;
 			final int hauteurAncienneMap = ancienHeros != null ? ancienHeros.map.hauteur : 0;
-			//TODO faire de calculerDirectionDefilement une méthode propre au type DEFILEMENT
+			//TODO faire de calculerDirectionDefilement une Methode propre au type DEFILEMENT
 			transition.direction = Transition.calculerDirectionDefilement(xAncienHeros, yAncienHeros, this.xDebutHeros, 
 					this.yDebutHeros, largeurAncienneMap, hauteurAncienneMap, this.largeur, this.hauteur);
-			//TODO faire une méthode calculerTransition() qui fait ceci pour ROND
+			//TODO faire une Methode calculerTransition() qui fait ceci pour ROND
 			if (Transition.ROND.equals(transition)) {
 				// Calcul du centre du rond
 				final int[] ancienneCamera = ancienHeros.map.lecteur.recupererCamera();
@@ -228,15 +228,15 @@ public class Map implements Sauvegardable {
 				transition.yHerosApres = yDebutHeros + Heros.HAUTEUR_HITBOX_PAR_DEFAUT/2 - nouvelleCamera[1];
 			}
 			
-		// TODO ce correctif sur la position initiale du Héros aurait sa place dans la méthode importerLesEvenements()
-		//correctif sur la position x y initiale du Héros
-		//le Héros n'est pas forcément pile sur le coin haut-gauche du carreau téléporteur
+		// TODO ce correctif sur la position initiale du Hï¿½ros aurait sa place dans la Methode importerLesEvenements()
+		//correctif sur la position x y initiale du Hï¿½ros
+		//le Hï¿½ros n'est pas forcï¿½ment pile sur le coin haut-gauche du carreau tï¿½lï¿½porteur
 			if (Transition.ROND.equals(transition)) {
-				// Si c'est une Transition ronde, on recentre le Héros sur la case
+				// Si c'est une Transition ronde, on recentre le Hï¿½ros sur la case
 				this.heros.x = this.heros.x - (this.heros.x % Main.TAILLE_D_UN_CARREAU) + Main.TAILLE_D_UN_CARREAU/2 - this.heros.largeurHitbox/2;
 				this.heros.y = this.heros.y - (this.heros.y % Main.TAILLE_D_UN_CARREAU) + Main.TAILLE_D_UN_CARREAU/2 - this.heros.hauteurHitbox/2;
 			} else if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_X_Y_ET_DIRECTION) {
-				// Si c'est un défilement, on reporte le décalage de la Map précédente
+				// Si c'est un dï¿½filement, on reporte le dï¿½calage de la Map prï¿½cï¿½dente
 				final int ecartX = positionInitialeDuHeros[3];
 				final int ecartY = positionInitialeDuHeros[4];
 				if (transition.direction == Direction.BAS || transition.direction == Direction.HAUT) {
@@ -246,19 +246,19 @@ public class Map implements Sauvegardable {
 				}
 			}
 			
-		//création de la liste des cases passables
+		//crï¿½ation de la liste des cases passables
 			creerListeDesCasesPassables();
 		
 		//panorama
 			this.panoramaActuel = this.tileset.imagePanorama;
 			this.parallaxeActuelle = this.tileset.parallaxe;
 			
-		//création du Brouillard
+		//crï¿½ation du Brouillard
 			if (brouillardForce != null) {
-				// chargement du précédent Brouillard sauvegardé
+				// chargement du prï¿½cï¿½dent Brouillard sauvegardï¿½
 				this.brouillard = brouillardForce;
 			} else {
-				// arrivée sur la Map donc chargement du Brouillard natif
+				// arrivï¿½e sur la Map donc chargement du Brouillard natif
 				this.brouillard = Brouillard.creerBrouillardAPartirDeJson(jsonMap);
 				if (this.brouillard == null) {
 					this.brouillard = this.tileset.brouillard;
@@ -267,10 +267,10 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * L'affichage est un sandwich : une partie du décor est affichée par dessus les Events, une autre dessous, et une autre au même niveau.
-	 * @param altitudeMin première altitude de cette couche de décor
-	 * @param altitudeMax dernière altitude (incluse) de cette couche de décor
-	 * @return vignettes de la couche de décor
+	 * L'affichage est un sandwich : une partie du dï¿½cor est affichï¿½e par dessus les Events, une autre dessous, et une autre au mï¿½me niveau.
+	 * @param altitudeMin premiï¿½re altitude de cette couche de dï¿½cor
+	 * @param altitudeMax derniï¿½re altitude (incluse) de cette couche de dï¿½cor
+	 * @return vignettes de la couche de dï¿½cor
 	 */
 	private BufferedImage[] creerCoucheDeDecor(final int altitudeMin, final int altitudeMax) {
 		final BufferedImage[] vignettesDeCetteCouche = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
@@ -292,7 +292,7 @@ public class Map implements Sauvegardable {
 						final int[][] layer = layers[k];
 						numeroCarreau = layer[i][j];
 						if (numeroCarreau != -1) {
-							//case non-vide, il y a quelque chose à dessiner
+							//case non-vide, il y a quelque chose a dessiner
 							altitudeCarreau = this.tileset.altitudeDeLaCase(numeroCarreau);
 							if (altitudeCarreau == altitudeActuelle) {
 								if (numeroCarreau >= 0) {
@@ -317,50 +317,50 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * Dessine à l'écran un carreau du Tileset aux coordonnées (xEcran;yEcran).
-	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
+	 * Dessine a l'ecran un carreau du Tileset aux coordonnï¿½es (xEcran;yEcran).
+	 * @warning Ne pas oublier de rï¿½cupï¿½rer le rï¿½sultat de cette Methode.
 	 * @param ecran sur lequel on doit dessiner un carreau
-	 * @param xEcran position x où dessiner le carreau à l'écran
-	 * @param yEcran position y où dessiner le carreau à l'écran
-	 * @param numeroCarreau numéro du carreau à dessiner
-	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
+	 * @param xEcran position x oï¿½ dessiner le carreau a l'ecran
+	 * @param yEcran position y oï¿½ dessiner le carreau a l'ecran
+	 * @param numeroCarreau numï¿½ro du carreau a dessiner
+	 * @param tilesetUtilise Tileset utilisï¿½ pour interprï¿½ter le dï¿½cor de la Map
 	 */
 	public final void dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise) {
 		final BufferedImage dessinCarreau = tilesetUtilise.carreaux[numeroCarreau];
 		Graphismes.superposerImages(ecran, dessinCarreau, xEcran*Main.TAILLE_D_UN_CARREAU, yEcran*Main.TAILLE_D_UN_CARREAU);
-		//TODO essayer la méthode superposerPortion, plus rapide ?
+		//TODO essayer la Methode superposerPortion, plus rapide ?
 		/*final int xTile = (numeroCarreau%8) * Main.TAILLE_D_UN_CARREAU;
 		final int yTile = (numeroCarreau/8) * Main.TAILLE_D_UN_CARREAU;
 		Graphismes.superposerPortionDImage(ecran, tilesetUtilise.image, xEcran, yEcran, xTile, yTile);*/
 	}
 	
 	/**
-	 * Dessiner à l'écran un carreau issu d'un autotile.
-	 * @warning Ne pas oublier de récupérer le résultat de cette méthode.
-	 * @param decorAnime partie animée du décor (à peindre dans le cas d'un Autotile animé)
-	 * @param x coordonnée x du carreau sur la Map
-	 * @param y coordonnée y du carreau sur la Map
-	 * @param numeroCarreau numéro de l'autotile (numéro négatif)
-	 * @param tilesetUtilise Tileset utilisé pour interpréter le décor de la Map
-	 * @param layer couche de décor à laquelle appartient le carreau
-	 * @return nombre de vignettes nécessaires pour constituer le décor éventuellement animé
+	 * Dessiner a l'ecran un carreau issu d'un autotile.
+	 * @warning Ne pas oublier de rï¿½cupï¿½rer le rï¿½sultat de cette Methode.
+	 * @param decorAnime partie animï¿½e du dï¿½cor (ï¿½ peindre dans le cas d'un Autotile animï¿½)
+	 * @param x coordonnï¿½e x du carreau sur la Map
+	 * @param y coordonnï¿½e y du carreau sur la Map
+	 * @param numeroCarreau numï¿½ro de l'autotile (numï¿½ro nï¿½gatif)
+	 * @param tilesetUtilise Tileset utilisï¿½ pour interprï¿½ter le dï¿½cor de la Map
+	 * @param layer couche de dï¿½cor a laquelle appartient le carreau
+	 * @return nombre de vignettes nï¿½cessaires pour constituer le dï¿½cor ï¿½ventuellement animï¿½
 	 */
 	public final int dessinerAutotile(final BufferedImage[] decorAnime, final int x, final int y,
 			final int numeroCarreau, final Tileset tilesetUtilise, final int[][] layer) {
 		final Autotile autotile = tilesetUtilise.autotiles.get(numeroCarreau);
 		
-		//on prévient la Map qu'elle aura un décor animé
+		//on prï¿½vient la Map qu'elle aura un dï¿½cor animï¿½
 		if (autotile.anime && !this.contientDesAutotilesAnimes) {
 			this.contientDesAutotilesAnimes = true;
-			LOG.debug("Cette map contient des autotiles animés.");
+			LOG.debug("Cette map contient des autotiles animï¿½s.");
 		}
 		
-		// on crée les vignettes manquantes pour l'animation du décor
+		// on crï¿½e les vignettes manquantes pour l'animation du dï¿½cor
 		if (this.contientDesAutotilesAnimes && decorAnime[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME - 1] == null) {
 			for (int i = 1; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {
 				decorAnime[i] = Graphismes.clonerUneImage(decorAnime[0]);
 			}
-			LOG.debug("Création des différentes vignettes d'animation du décor.");
+			LOG.debug("Crï¿½ation des diffï¿½rentes vignettes d'animation du dï¿½cor.");
 		}
 		
 		final int nombreDeVignettes = this.contientDesAutotilesAnimes ? Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME : 1;
@@ -369,12 +369,12 @@ public class Map implements Sauvegardable {
 		final BufferedImage[] dessinCarreau = autotile.calculerAutotile(x, y, this.largeur, this.hauteur, numeroCarreau, layer);
 		
 		if (autotile.anime) {
-			//décor animé : on dessine les 4 étapes de l'animation du décor
+			//dï¿½cor animï¿½ : on dessine les 4 ï¿½tapes de l'animation du dï¿½cor
 			for (int i = 0; i<nombreDeVignettes; i++) {
 				Graphismes.superposerImages(decorAnime[i], dessinCarreau[i], x*Main.TAILLE_D_UN_CARREAU, y*Main.TAILLE_D_UN_CARREAU);
 			}
 		} else {
-			//décor fixe
+			//dï¿½cor fixe
 			for (int i = 0; i<nombreDeVignettes; i++) {
 				Graphismes.superposerImages(decorAnime[i], dessinCarreau[0], x*Main.TAILLE_D_UN_CARREAU, y*Main.TAILLE_D_UN_CARREAU);
 			}
@@ -384,17 +384,17 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Constitue la liste des Events de la Map en allant lire dans le fichier JSON décrivant la Map.
-	 * @param jsonMap objet JSON décrivant la Map
-	 * @param xDebutHeros position initiale (en pixels) du Héros sur la Map
-	 * @param yDebutHeros position initiale (en pixels) du Héros sur la Map
-	 * @param directionDebutHeros direction initiale du Héros sur la Map
+	 * Constitue la liste des Events de la Map en allant lire dans le fichier JSON dï¿½crivant la Map.
+	 * @param jsonMap objet JSON dï¿½crivant la Map
+	 * @param xDebutHeros position initiale (en pixels) du Hï¿½ros sur la Map
+	 * @param yDebutHeros position initiale (en pixels) du Hï¿½ros sur la Map
+	 * @param directionDebutHeros direction initiale du Hï¿½ros sur la Map
 	 */
 	private void importerLesEvenements(final JSONObject jsonMap, final int xDebutHeros, final int yDebutHeros, final int directionDebutHeros) {
 		try {
 			this.events = new ArrayList<Event>();
 			this.eventsHash = new HashMap<Integer, Event>();
-			//d'abord le héros
+			//d'abord le hï¿½ros
 			this.heros = new Heros(this.xDebutHeros, this.yDebutHeros, this.directionDebutHeros, this);
 			this.events.add(heros);
 			//this.eventsHash.put(0, heros);
@@ -405,16 +405,16 @@ public class Map implements Sauvegardable {
 			LOG.error("Erreur lors de la constitution de la liste des events :", e3);
 		}
 		
-		// Numérotation des Events
+		// Numï¿½rotation des Events
 		for (Event event : this.events) {
 			event.map = this;
-			if (this.eventsHash.containsKey(event.id)) { //la numérotation des Events comporte un doublon !
-				LOG.error("CONFLIT : les events "+this.eventsHash.get(event.id).nom+" et "+event.nom+" portent le même id : "+event.id);
+			if (this.eventsHash.containsKey(event.id)) { //la numï¿½rotation des Events comporte un doublon !
+				LOG.error("CONFLIT : les events "+this.eventsHash.get(event.id).nom+" et "+event.nom+" portent le mï¿½me id : "+event.id);
 			}
 			this.eventsHash.put(event.id, event);
 		}
 		
-		// Réinitialisation des interrupteurs locaux (si besoin)
+		// Rï¿½initialisation des interrupteurs locaux (si besoin)
 		for (Event eventAReinitialiser : this.events) {
 			if (eventAReinitialiser.reinitialiser) {
 				ModifierInterrupteurLocal.reinitialiserEvent(eventAReinitialiser);
@@ -423,7 +423,7 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Création d'un tableau pour connaitre les passabilités de la Map plus rapidement par la suite.
+	 * Crï¿½ation d'un tableau pour connaitre les passabilitï¿½s de la Map plus rapidement par la suite.
 	 */
 	private void creerListeDesCasesPassables() {
 		this.casePassable = new Passabilite[this.largeur][this.hauteur];
@@ -435,13 +435,13 @@ public class Map implements Sauvegardable {
 				// On cherche la plus haute couche dont le tile a une altitude de 0
 				int coucheDeBase = -1;
 				for (int k = 0; k<NOMBRE_LAYERS; k++) {
-					couche = layers[k]; //couche de décor
+					couche = layers[k]; //couche de dï¿½cor
 					numeroDeLaCaseDansLeTileset = couche[i][j];
 					if (this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset) == 0) {
 						coucheDeBase = k;
 					}
 				}
-				// Ce tile servira de base au calcul de la passabilité
+				// Ce tile servira de base au calcul de la passabilitï¿½
 				final Passabilite passabiliteDeBase;
 				if (coucheDeBase == -1) {
 					passabiliteDeBase = Passabilite.PASSABLE;
@@ -451,7 +451,7 @@ public class Map implements Sauvegardable {
 				}
 				this.casePassable[i][j] = passabiliteDeBase;
 				
-				// De cette Passabilité de base, on va soustraire les obstacles
+				// De cette Passabilitï¿½ de base, on va soustraire les obstacles
 				int tuileSuivante;
 				Passabilite passabiliteSuivante;
 				for (int k = coucheDeBase+1; k<NOMBRE_LAYERS; k++) {
@@ -462,18 +462,18 @@ public class Map implements Sauvegardable {
 						this.casePassable[i][j] = Passabilite.intersection(this.casePassable[i][j], passabiliteSuivante);
 					}
 				}
-				// Voilà
+				// Voilï¿½
 			}
 		}
 	}
 
 	/**
-	 * Va chercher une couche de décor en particulier dans le fichier JSON qui représente la Map.
-	 * @param jsonMap objet JSON représentant la map
-	 * @param numeroCouche numéro de la couche à récuperer
+	 * Va chercher une couche de dï¿½cor en particulier dans le fichier JSON qui reprï¿½sente la Map.
+	 * @param jsonMap objet JSON reprï¿½sentant la map
+	 * @param numeroCouche numï¿½ro de la couche a rï¿½cuperer
 	 * @param largeur de la map
 	 * @param hauteur de la map
-	 * @return un tableau bidimentionnel contenant le décor situé sur cette couche
+	 * @return un tableau bidimentionnel contenant le dï¿½cor situï¿½ sur cette couche
 	 */
 	public static int[][] recupererCouche(final JSONObject jsonMap, final int numeroCouche, final int largeur, final int hauteur) {
 		final int[][] couche = new int[largeur][hauteur];
@@ -496,9 +496,9 @@ public class Map implements Sauvegardable {
 
 	/**
 	 * Inscrire l'Event dans la liste des Events en attente de suppression.
-	 * L'Event sera supprimé à la fin de la boucle d'affichage.
-	 * @param idEventASupprimer numéro de l'Event qu'il faut inscrire à la suppression
-	 * @return booléen pour savoir si l'Event à supprimer a bien été trouvé dans la liste des évènements
+	 * L'Event sera supprimï¿½ a la fin de la boucle d'affichage.
+	 * @param idEventASupprimer numï¿½ro de l'Event qu'il faut inscrire a la suppression
+	 * @return boolï¿½en pour savoir si l'Event a supprimer a bien ï¿½tï¿½ trouvï¿½ dans la liste des ï¿½vï¿½nements
 	 */
 	public final boolean supprimerEvenement(final int idEventASupprimer) {
 		for (Event event : this.events) {
@@ -507,15 +507,15 @@ public class Map implements Sauvegardable {
 				return true;
 			}
 		}
-		LOG.warn("L'évènement à supprimer id:"+idEventASupprimer+" n'a pas été trouvé dans la liste.");
+		LOG.warn("L'ï¿½vï¿½nement a supprimer id:"+idEventASupprimer+" n'a pas ï¿½tï¿½ trouvï¿½ dans la liste.");
 		return false;
 	}
 
 	/**
-	 * Obtenir le décor à afficher par dessus les Events.
-	 * Ce décor est composé du décor fixe et d'éventuels autotiles animés.
-	 * @param vignetteAutotileActuelle vignette de l'Autotile à afficher
-	 * @return décor supérieur, avec l'autotile dépendant de la frame
+	 * Obtenir le dï¿½cor a afficher par dessus les Events.
+	 * Ce dï¿½cor est composï¿½ du dï¿½cor fixe et d'ï¿½ventuels autotiles animï¿½s.
+	 * @param vignetteAutotileActuelle vignette de l'Autotile a afficher
+	 * @return dï¿½cor supï¿½rieur, avec l'autotile dï¿½pendant de la frame
 	 */
 	public final BufferedImage getImageCoucheDecorSuperieur(final int vignetteAutotileActuelle) {
 		if (this.imagesCoucheSurHeros[1] != null) {
@@ -526,13 +526,13 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * Obtenir le décor à afficher au même niveau que les Events.
-	 * Ce décor est composé du décor fixe et d'éventuels autotiles animés.
-	 * Il doit être découpé en bandelettes pour s'intercaler avec les Events.
-	 * @param vignetteAutotileActuelle vignette de l'Autotile à afficher
-	 * @param debutBandelette à découper
-	 * @param finBandelette à découper
-	 * @return bandelette de décor médian, avec l'autotile dépendant de la frame
+	 * Obtenir le dï¿½cor a afficher au mï¿½me niveau que les Events.
+	 * Ce dï¿½cor est composï¿½ du dï¿½cor fixe et d'ï¿½ventuels autotiles animï¿½s.
+	 * Il doit ï¿½tre dï¿½coupï¿½ en bandelettes pour s'intercaler avec les Events.
+	 * @param vignetteAutotileActuelle vignette de l'Autotile a afficher
+	 * @param debutBandelette a dï¿½couper
+	 * @param finBandelette a dï¿½couper
+	 * @return bandelette de dï¿½cor mï¿½dian, avec l'autotile dï¿½pendant de la frame
 	 */
 	public final BufferedImage getImageCoucheDecorMedian(final int vignetteAutotileActuelle, final int debutBandelette, final int finBandelette) {
 		final BufferedImage vignette;
@@ -541,23 +541,23 @@ public class Map implements Sauvegardable {
 		} else {
 			vignette = this.imagesCoucheAvecHeros[0];
 		}
-		// Quelle est la hauteur de la bandelette à decouper ?
+		// Quelle est la hauteur de la bandelette a decouper ?
 		final int debutDecoupageY = debutBandelette*Main.TAILLE_D_UN_CARREAU;
 		int hauteurBandelette = (finBandelette-debutBandelette)*Main.TAILLE_D_UN_CARREAU;
 		// TODO avant il y avait aussi un "-1" ci-dessous 
-		// mais je l'ai retiré 
-		// parce qu'il produisait une ligne de pixels manquante tout en bas de l'écran
+		// mais je l'ai retirï¿½ 
+		// parce qu'il produisait une ligne de pixels manquante tout en bas de l'ecran
 		// a voir si dans le futur si ca casse quelque chose d'autre
 		final int hauteurPossibleDeDecouper = vignette.getHeight() - debutDecoupageY; 
 		hauteurBandelette = Maths.min(hauteurBandelette, hauteurPossibleDeDecouper);
-		hauteurBandelette = Maths.max(hauteurBandelette, 0); // pas de bandelette de hauteur négative
-		// Découper la bandelette de décor médian
+		hauteurBandelette = Maths.max(hauteurBandelette, 0); // pas de bandelette de hauteur nï¿½gative
+		// Dï¿½couper la bandelette de dï¿½cor mï¿½dian
 		try {
 			return vignette.getSubimage(0, debutDecoupageY, vignette.getWidth(), hauteurBandelette);
 		} catch (RasterFormatException e) {
-			/*LOG.error("La bandelette de décor médian à découper dépasse de la vignette source !"
+			/*LOG.error("La bandelette de dï¿½cor mï¿½dian a dï¿½couper dï¿½passe de la vignette source !"
 					+ " hauteur de la vignette ("+vignette.getHeight()
-					+ ") < début du découpage ("+debutDecoupageY
+					+ ") < dï¿½but du dï¿½coupage ("+debutDecoupageY
 					+ ") + hauteur de la bandelette ("+hauteurBandelette+")", e);
 			throw e;*/
 			return null;
@@ -565,10 +565,10 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Obtenir le décor à afficher en dessous des Events.
-	 * Ce décor est composé du décor fixe et d'éventuels autotiles animés.
+	 * Obtenir le dï¿½cor a afficher en dessous des Events.
+	 * Ce dï¿½cor est composï¿½ du dï¿½cor fixe et d'ï¿½ventuels autotiles animï¿½s.
 	 * @param vignetteAutotileActuelle frame actuelle du Lecteur
-	 * @return décor inférieur, avec l'autotile dépendant de la frame
+	 * @return dï¿½cor infï¿½rieur, avec l'autotile dï¿½pendant de la frame
 	 */
 	public final BufferedImage getImageCoucheDecorInferieur(final int vignetteAutotileActuelle) {
 		if (this.imagesCoucheSousHeros[1] != null) {
@@ -579,13 +579,13 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * Calcule si on peut poser un Event sur la Map à cet endroit-là.
-	 * Ne pas utiliser cette méthode si l'Event à poser est traversable, car la réponse est forcément oui.
+	 * Calcule si on peut poser un Event sur la Map a cet endroit-lï¿½.
+	 * Ne pas utiliser cette Methode si l'Event a poser est traversable, car la rï¿½ponse est forcï¿½ment oui.
 	 * @param xmin position x (en pixels) de l'Event qu'on veut poser
 	 * @param ymin position y (en pixels) de l'Event qu'on veut poser
-	 * @param largeurHitbox largeur de l'Event à poser
-	 * @param hauteurHitbox hauteur de l'Event à poser
-	 * @param numeroEvent numéro de l'Event à poser
+	 * @param largeurHitbox largeur de l'Event a poser
+	 * @param hauteurHitbox hauteur de l'Event a poser
+	 * @param numeroEvent numï¿½ro de l'Event a poser
 	 * @return true si on peut poser un nouvel Event ici, false sinon
 	 */
 	public final boolean calculerSiLaPlaceEstLibre(final int xmin, final int ymin, final int largeurHitbox, final int hauteurHitbox, final int numeroEvent) {
@@ -593,51 +593,51 @@ public class Map implements Sauvegardable {
 		final int xmax = xmin + largeurHitbox;
 		final int ymax = ymin + hauteurHitbox;
 		
-		// Est-ce que le décor permet de passer ici ?
+		// Est-ce que le dï¿½cor permet de passer ici ?
 		if (!lEventEstSurUnDecorTraversable(event, xmin, ymin, xmax, ymax)) {
-			// Le décor n'est pas traversable ici !
+			// Le dï¿½cor n'est pas traversable ici !
 			// La place n'est pas libre !
 			return false;
 		}
 		
 		// Est-ce que les autres Events permettent de passer ici ?
 		if (!lEventNEmpietePasSurUnAutreEvent(event, xmin, ymin, xmax, ymax, largeurHitbox, hauteurHitbox, numeroEvent)) {
-			// L'Event empiète sur un autre Event !
+			// L'Event empiï¿½te sur un autre Event !
 			// La place n'est pas libre !
 			return false;
 		}
 		
-		// La place est libre à cet endroit
+		// La place est libre a cet endroit
 		return true;
 	}
 	
 	/**
-	 * Est-ce qu'on peut poser l'Event ici malgré le décor ?
+	 * Est-ce qu'on peut poser l'Event ici malgrï¿½ le dï¿½cor ?
 	 * @param event qu'on voudrait placer ici
-	 * @param xmin coordonnée (en pixels) de là où on veut placer l'Event
-	 * @param ymin coordonnée (en pixels) de là où on veut placer l'Event
-	 * @param xmax coordonnée (en pixels) de là où on veut placer l'Event
-	 * @param ymax coordonnée (en pixels) de là où on veut placer l'Event
-	 * @return true si le décor est traversable ici, false sinon.
+	 * @param xmin coordonnï¿½e (en pixels) de lï¿½ oï¿½ on veut placer l'Event
+	 * @param ymin coordonnï¿½e (en pixels) de lï¿½ oï¿½ on veut placer l'Event
+	 * @param xmax coordonnï¿½e (en pixels) de lï¿½ oï¿½ on veut placer l'Event
+	 * @param ymax coordonnï¿½e (en pixels) de lï¿½ oï¿½ on veut placer l'Event
+	 * @return true si le dï¿½cor est traversable ici, false sinon.
 	 */
 	public final boolean lEventEstSurUnDecorTraversable(final Event event, final int xmin, final int ymin, final int xmax, final int ymax) {
 		
-		/** Coordonnées (en nombre de cases) des cases où se situent les coins de l'Event */
+		/** Coordonnï¿½es (en nombre de cases) des cases oï¿½ se situent les coins de l'Event */
 		final int xCaseMin = xmin/Main.TAILLE_D_UN_CARREAU;
 		final int yCaseMin = ymin/Main.TAILLE_D_UN_CARREAU;
 		final int xCaseMax = (xmax-1)/Main.TAILLE_D_UN_CARREAU;
 		final int yCaseMax = (ymax-1)/Main.TAILLE_D_UN_CARREAU;
 		try {
-			// On considèrera l'Event comme solide durant le calcul
+			// On considï¿½rera l'Event comme solide durant le calcul
 			// Si tel n'est pas le cas, on affiche une alerte
 			if (Passabilite.estMultilateral(event.traversableActuel)) {
-				LOG.error("L'event a une passabilité multilatérale ! "
-						+ "Impossible de calculer ses collisions avec le décor ! "
-						+ "Il sera traité comme solide.");
+				LOG.error("L'event a une passabilitï¿½ multilatï¿½rale ! "
+						+ "Impossible de calculer ses collisions avec le dï¿½cor ! "
+						+ "Il sera traitï¿½ comme solide.");
 			}
 			
 			// Remarque : ces 4 premiers cas purs sont des cas particuliers des 4 cas de chevauchement
-			//aucun des 4 coins de l'Event ne doivent être sur une case non passable
+			//aucun des 4 coins de l'Event ne doivent ï¿½tre sur une case non passable
 			if (this.casePassable[xCaseMin][yCaseMin] == Passabilite.OBSTACLE) {
 				return false;
 			}
@@ -651,8 +651,8 @@ public class Map implements Sauvegardable {
 				return false;
 			}
 			
-			//chevauchement entre deux cases et passabilités directionnelles
-			/** Coordonnées (en nombre de cases) de la case où se situe le centre de l'Event */
+			//chevauchement entre deux cases et passabilitï¿½s directionnelles
+			/** Coordonnï¿½es (en nombre de cases) de la case oï¿½ se situe le centre de l'Event */
 			final int xCaseCentre = ((xmin+xmax)/2) / Main.TAILLE_D_UN_CARREAU;
 			final int yCaseCentre = ((ymin+ymax)/2) / Main.TAILLE_D_UN_CARREAU;
 			/** l'Event chevauche-t-il deux cases ? */
@@ -684,7 +684,7 @@ public class Map implements Sauvegardable {
 			//l'Event sort de la Map !
 			
 			if (!event.sortiDeLaMap) { //on n'affiche le message d'erreur qu'une fois
-				LOG.warn("L'event "+event.id+" ("+event.nom+") est sorti de la map !"); //TODO ni le numéro, ni le nom ne semblent correspondre à l'Event qui sort
+				LOG.warn("L'event "+event.id+" ("+event.nom+") est sorti de la map !"); //TODO ni le numï¿½ro, ni le nom ne semblent correspondre a l'Event qui sort
 				LOG.trace(e);
 			}
 			event.sortiDeLaMap = true;
@@ -694,15 +694,15 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * Est-ce qu'on peut poser l'Event ici malgré les autres Events ?
+	 * Est-ce qu'on peut poser l'Event ici malgrï¿½ les autres Events ?
 	 * @param event qu'on voudrait placer ici
-	 * @param xmin coordonnée (en pixel) de là où on veut placer l'Event
-	 * @param ymin coordonnée (en pixel) de là où on veut placer l'Event
-	 * @param xmax coordonnée (en pixel) de là où on veut placer l'Event
-	 * @param ymax coordonnée (en pixel) de là où on veut placer l'Event
+	 * @param xmin coordonnï¿½e (en pixel) de lï¿½ oï¿½ on veut placer l'Event
+	 * @param ymin coordonnï¿½e (en pixel) de lï¿½ oï¿½ on veut placer l'Event
+	 * @param xmax coordonnï¿½e (en pixel) de lï¿½ oï¿½ on veut placer l'Event
+	 * @param ymax coordonnï¿½e (en pixel) de lï¿½ oï¿½ on veut placer l'Event
 	 * @param largeurHitbox largeur (en pixels) de l'Event
 	 * @param hauteurHitbox largeur (en pixels) de l'Event
-	 * @param numeroEvent numéro de l'Event
+	 * @param numeroEvent numï¿½ro de l'Event
 	 * @return true si les Events alentours font suffisamment de place pour cet Event, false sinon.
 	 */
 	private boolean lEventNEmpietePasSurUnAutreEvent(final Event event, final int xmin, final int ymin, 
@@ -714,15 +714,15 @@ public class Map implements Sauvegardable {
 		int ymax2;
 		for (Event autreEvent : this.events) {
 			
-			// Il ne faut pas qu'un Event interfère avec lui-même
+			// Il ne faut pas qu'un Event interfï¿½re avec lui-mï¿½me
 			if (numeroEvent != autreEvent.id) {
-				// Ce n'est pas le même Event
+				// Ce n'est pas le mï¿½me Event
 				
 				// Y a-t-il un choc physique ?
 				final boolean modeTraversable = 
 						event.traversableActuel == Passabilite.PASSABLE
 						|| autreEvent.traversableActuel == Passabilite.PASSABLE 
-						// si l'un des deux est le Héros
+						// si l'un des deux est le Hï¿½ros
 						|| (event.id == 0 && autreEvent.traversableParLeHerosActuel)
 						|| (autreEvent.id == 0 && event.traversableParLeHerosActuel);
 				
@@ -749,7 +749,7 @@ public class Map implements Sauvegardable {
 						
 					} else if (Passabilite.estMultilateral(event.traversableActuel)
 							|| Passabilite.estMultilateral(autreEvent.traversableActuel)) {
-						// Passabilités multilatérales
+						// Passabilitï¿½s multilatï¿½rales
 						if (Hitbox.lesDeuxRectanglesSeChevauchentMultilateralement(
 								xmin, xmax, ymin, ymax, xmin2, xmax2, ymin2, ymax2,
 								event.traversableActuel.passableAGauche, event.traversableActuel.passableADroite, 
@@ -768,7 +768,7 @@ public class Map implements Sauvegardable {
 	
 	/**
 	 * Inventer un id pour un nouvel Event de eventHash.
-	 * @return id inédit
+	 * @return id inï¿½dit
 	 */
 	public final int calculerNouvelIdPourEventsHash() {
 		//on invente un tout nouvel id
@@ -789,7 +789,7 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Si le Héros sort de la Map, il va vers une éventuelle Map adjacente automatiquement.
+	 * Si le Hï¿½ros sort de la Map, il va vers une ï¿½ventuelle Map adjacente automatiquement.
 	 */
 	public void sortirVersLaMapAdjacente() {
 		if (this.adjacences != null && !this.adjacences.isEmpty()) {
@@ -807,7 +807,7 @@ public class Map implements Sauvegardable {
 				// Sortie par le bas
 				adjacence = this.adjacences.get((Integer) Direction.BAS);
 			} else {
-				// Le Héros est encore dans la Map
+				// Le Hï¿½ros est encore dans la Map
 				return;
 			}
 			
@@ -818,10 +818,10 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * Le Héros est-il en train d'entrer par une porte ?
-	 * @param xHerosMapPrecedente coordonnée x (en carreaux) du Héros sur l'ancienne Map
-	 * @param yHerosMapPrecedente coordonnée y (en carreaux) du Héros sur l'ancienne Map
-	 * @return true si le Héros passe par une porte, false sinon
+	 * Le Hï¿½ros est-il en train d'entrer par une porte ?
+	 * @param xHerosMapPrecedente coordonnï¿½e x (en carreaux) du Hï¿½ros sur l'ancienne Map
+	 * @param yHerosMapPrecedente coordonnï¿½e y (en carreaux) du Hï¿½ros sur l'ancienne Map
+	 * @return true si le Hï¿½ros passe par une porte, false sinon
 	 */
 	public boolean leHerosEntreParUnePorte(final int xHerosMapPrecedente, final int yHerosMapPrecedente) {
 		boolean onATrouveUnePorte = false;
@@ -830,19 +830,19 @@ public class Map implements Sauvegardable {
 				try {
 					final Integer carreauDuHeros0 = this.layer0[xHerosMapPrecedente + i][yHerosMapPrecedente + j];
 					if (this.tileset.portes.contains(carreauDuHeros0)) {
-						// On a trouvé une porte à proximité !
+						// On a trouvï¿½ une porte a proximitï¿½ !
 						onATrouveUnePorte = true;
 						break rechercheDePorteAutour;
 					}
 					final Integer carreauDuHeros1 = this.layer1[xHerosMapPrecedente + i][yHerosMapPrecedente + j];
 					if (this.tileset.portes.contains(carreauDuHeros1)) {
-						// On a trouvé une porte à proximité !
+						// On a trouvï¿½ une porte a proximitï¿½ !
 						onATrouveUnePorte = true;
 						break rechercheDePorteAutour;
 					}
 					final Integer carreauDuHeros2 = this.layer2[xHerosMapPrecedente + i][yHerosMapPrecedente + j];
 					if (this.tileset.portes.contains(carreauDuHeros2)) {
-						// On a trouvé une porte à proximité !
+						// On a trouvï¿½ une porte a proximitï¿½ !
 						onATrouveUnePorte = true;
 						break rechercheDePorteAutour;
 					}
@@ -851,7 +851,7 @@ public class Map implements Sauvegardable {
 				}
 			}
 		}
-		LOG.info(onATrouveUnePorte ? "Le héros est entré par une porte." : "Le héros n'est pas entré par une porte.");
+		LOG.info(onATrouveUnePorte ? "Le hï¿½ros est entrï¿½ par une porte." : "Le hï¿½ros n'est pas entrï¿½ par une porte.");
 		return onATrouveUnePorte;
 	}
 

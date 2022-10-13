@@ -15,16 +15,16 @@ public class RetirerGadget extends Commande implements CommandeEvent, CommandeMe
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idGadget identifiant du Gadget à retirer (numéro)
+	 * @param idGadget identifiant du Gadget a retirer (numï¿½ro)
 	 */
 	public RetirerGadget(final int idGadget) {
 		this.idGadget = idGadget;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public RetirerGadget(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idGadget"));
@@ -32,13 +32,13 @@ public class RetirerGadget extends Commande implements CommandeEvent, CommandeMe
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// on procède à la suppression
+		// on procï¿½de a la suppression
 		final Partie partieActuelle = getPartieActuelle();
 		final boolean[] gadgetsPossedes = partieActuelle.gadgetsPossedes;
 		if (gadgetsPossedes[idGadget]) {
 			gadgetsPossedes[this.idGadget] = false;
 			partieActuelle.nombreDeGadgetsPossedes--;
-			partieActuelle.idGadgetEquipe = -1; // -1 pour signifier qu'aucun Gadget n'est équipé
+			partieActuelle.idGadgetEquipe = -1; // -1 pour signifier qu'aucun Gadget n'est ï¿½quipï¿½
 		}
 		return curseurActuel + 1;
 	}

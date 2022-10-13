@@ -9,9 +9,9 @@ import map.LecteurMap;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Modifier le ton de l'écran. Utile pour les ambiances lumineuses. Le ton de
- * l'écran est propre au Tileset, donc le changement de ton est conservé d'une
- * Map à l'autre si le Tileset est le même
+ * Modifier le ton de l'ecran. Utile pour les ambiances lumineuses. Le ton de
+ * l'ecran est propre au Tileset, donc le changement de ton est conservï¿½ d'une
+ * Map a l'autre si le Tileset est le mï¿½me
  */
 public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	// constante
@@ -26,10 +26,10 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param rouge           importance du rouge dans le nouveau ton de l'écran
-	 * @param vert            importance du vert dans le nouveau ton de l'écran
-	 * @param bleu            importance du bleu dans le nouveau ton de l'écran
-	 * @param gris            désaturation de l'image
+	 * @param rouge           importance du rouge dans le nouveau ton de l'ecran
+	 * @param vert            importance du vert dans le nouveau ton de l'ecran
+	 * @param bleu            importance du bleu dans le nouveau ton de l'ecran
+	 * @param gris            dï¿½saturation de l'image
 	 * @param dureeTransition (en nombre de frames)
 	 */
 	public ModifierTonDeLEcran(final int rouge, final int vert, final int bleu, final int gris,
@@ -43,9 +43,9 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierTonDeLEcran(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("rouge") ? (int) parametres.get("rouge") : MEDIANE,
@@ -57,7 +57,7 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// Début de la transition
+		// Dï¿½but de la transition
 		if (this.dejaFait == 0) {
 			if (((LecteurMap) Main.lecteur).tonActuel != null) {
 				for (int i = 0; i < 4; i++) {
@@ -73,7 +73,7 @@ public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 		}
 
 		if (this.dureeTransition == 0) {
-			// transition instantanée
+			// transition instantanï¿½e
 			for (int i = 0; i < 4; i++) {
 				((LecteurMap) Main.lecteur).tonActuel[i] = this.tonFinal[i];
 			}

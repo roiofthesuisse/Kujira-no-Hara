@@ -13,7 +13,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.son.LecteurAudio;
 
 /**
- * Le Lecteur de Menu a pour rôle de produire l'image à afficher à l'écran s'il s'agit d'un Menu.
+ * Le Lecteur de Menu a pour rï¿½le de produire l'image a afficher a l'ecran s'il s'agit d'un Menu.
  */
 public class LecteurMenu extends Lecteur {
 	public Menu menu;
@@ -23,21 +23,21 @@ public class LecteurMenu extends Lecteur {
 	 * Constructeur explicite
 	 * @param menu que va lire ce Lecteur
 	 * @param lecteurMapMemorise Lecteur de la Map sur laquelle on se trouvait avant d'entrer dans le Menu
-	 * @param selectionInitiale identifiant de l'ElementDeMenu sélectionné au début imposé par ce changement de Menu
+	 * @param selectionInitiale identifiant de l'ElementDeMenu sï¿½lectionnï¿½ au dï¿½but imposï¿½ par ce changement de Menu
 	 */
 	public LecteurMenu(final Menu menu, final LecteurMap lecteurMapMemorise, 
 			final Integer selectionInitiale) {
 		this.menu = menu;
-		menu.lecteur = this; //on prévient le Lecteur qu'il a un Menu
+		menu.lecteur = this; //on prï¿½vient le Lecteur qu'il a un Menu
 		
-		// Le changement de Menu impose peut-être sa propre sélection initiale
+		// Le changement de Menu impose peut-ï¿½tre sa propre sï¿½lection initiale
 		if (selectionInitiale != null) {
 			final ElementDeMenu elementSelectionneInitialement = this.menu.elements.get(selectionInitiale);
 			if (elementSelectionneInitialement.selectionnable) {
 				this.menu.elementSelectionne = elementSelectionneInitialement;
 				elementSelectionneInitialement.selectionne = true;
 			} else {
-				LOG.error("Impossible de faire de l'élement de menu "+selectionInitiale+" la sélection initiale.");
+				LOG.error("Impossible de faire de l'ï¿½lement de menu "+selectionInitiale+" la sï¿½lection initiale.");
 			}
 		}
 		
@@ -46,9 +46,9 @@ public class LecteurMenu extends Lecteur {
 	}
 	
 	/**
-	 * Constituer l'image de l'écran, avec tous les éléments du Menu
-	 * @param frame de l'écran calculé
-	 * @return écran
+	 * Constituer l'image de l'ecran, avec tous les ï¿½lï¿½ments du Menu
+	 * @param frame de l'ecran calculï¿½
+	 * @return ecran
 	 */
 	public final BufferedImage calculerAffichage(final int frame) {
 		BufferedImage ecran = Graphismes.ecranColore(Color.BLACK);
@@ -75,14 +75,14 @@ public class LecteurMenu extends Lecteur {
 			ecran = Graphismes.superposerImages(ecran, this.menu.fond, 0, 0);
 		}
 
-		//affichage de la sélection
+		//affichage de la sï¿½lection
 		final ElementDeMenu selectionnable = this.menu.elementSelectionne;
 		if (selectionnable!=null && selectionnable.selectionnable && selectionnable.selectionne) {
 			final BufferedImage selection = selectionnable.creerImageDeSelection(null, null);
 			ecran = Graphismes.superposerImages(ecran, selection, selectionnable.x-ImageMenu.CONTOUR, selectionnable.y-ImageMenu.CONTOUR);
 		}
 		
-		//affichage des éléments de menu
+		//affichage des ï¿½lï¿½ments de menu
 		for (ImageMenu element : this.menu.images) {
 			if (element.ilFautAfficherCetElement()) {
 				ecran = Graphismes.superposerImages(ecran, 
@@ -166,7 +166,7 @@ public class LecteurMenu extends Lecteur {
 	
 	/**
 	 * Ouvrir un autre Menu.
-	 * @warning cette méthode ne doit être appelée que par le nouveau Lecteur !
+	 * @warning cette Methode ne doit ï¿½tre appelï¿½e que par le nouveau Lecteur !
 	 */
 	public final void changerMenu() {
 		Main.futurLecteur = this;
@@ -175,7 +175,7 @@ public class LecteurMenu extends Lecteur {
 	
 	/**
 	 * Changer de Menu pour aller au Menu suivant.
-	 * @param selectionInitiale identifiant de l'ElementDeMenu sélectionné au début
+	 * @param selectionInitiale identifiant de l'ElementDeMenu sï¿½lectionnï¿½ au dï¿½but
 	 */
 	public final void allerAuMenuSuivant(final int selectionInitiale) {
 		if (this.menu.menuSuivant!=null) {
@@ -184,8 +184,8 @@ public class LecteurMenu extends Lecteur {
 	}
 	
 	/**
-	 * Changer de Menu pour aller au Menu précédent.
-	 * @param selectionInitiale identifiant de l'ElementDeMenu sélectionné au début
+	 * Changer de Menu pour aller au Menu prï¿½cï¿½dent.
+	 * @param selectionInitiale identifiant de l'ElementDeMenu sï¿½lectionnï¿½ au dï¿½but
 	 */
 	public final void allerAuMenuPrecedent(final int selectionInitiale) {
 		if (this.menu.menuPrecedent!=null) {
@@ -205,7 +205,7 @@ public class LecteurMenu extends Lecteur {
 	}
 	
 	/**
-	 * Commandes à executer lorsqu'on annule le Menu.
+	 * Commandes a executer lorsqu'on annule le Menu.
 	 */
 	private void executerLeComportementDAnnulation() {
 		int i = 0;

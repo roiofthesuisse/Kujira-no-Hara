@@ -7,7 +7,7 @@ import main.Main;
 import utilitaire.GestionClavier;
 
 /**
- * Actions à effectuer quand le Clavier est utilisé.
+ * Actions a effectuer quand le Clavier est utilisï¿½.
  */
 public class CapteurClavier implements KeyListener {
 	
@@ -23,7 +23,7 @@ public class CapteurClavier implements KeyListener {
 		final GestionClavier.ToucheRole touchePressee = GestionClavier.ToucheRole.getToucheRole(keycode);
 		if (touchePressee != null && !touchePressee.enfoncee()) {
 			touchePressee.enfoncee(true);
-			touchePressee.frameDAppui((Integer) Main.lecteur.frameActuelle); // mémorisation de la frame d'appui
+			touchePressee.frameDAppui((Integer) Main.lecteur.frameActuelle); // mï¿½morisation de la frame d'appui
 			
 			Main.lecteur.keyPressed(touchePressee);
 		}

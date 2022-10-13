@@ -18,8 +18,8 @@ import main.Lecteur;
 import main.Main;
 
 /**
- * Tout Composite possède un Contexte.
- * Celui-ci applique le Pinceau pour peindre chaque pixel de l'image superposée sur l'image support.
+ * Tout Composite possï¿½de un Contexte.
+ * Celui-ci applique le Pinceau pour peindre chaque pixel de l'image superposï¿½e sur l'image support.
  */
 public class ContexteDeComposite implements CompositeContext {
 	protected static final Logger LOG = LogManager.getLogger(ContexteDeComposite.class);
@@ -29,7 +29,7 @@ public class ContexteDeComposite implements CompositeContext {
 
     /**
      * Constructeur explicite
-     * @param composite définissant la nature de la superposition d'images
+     * @param composite dï¿½finissant la nature de la superposition d'images
      */
     public ContexteDeComposite(final MonComposite composite) {
         this.composite = composite;
@@ -43,7 +43,7 @@ public class ContexteDeComposite implements CompositeContext {
 		
 		final float opacite = composite.opacite;
 		
-		// changer le ton de l'écran ?
+		// changer le ton de l'ecran ?
 		final int[] ton = ModeDeFusion.TON_DE_L_ECRAN.nom.equals(composite.modeDeFusion.nom) 
 				? composite.ton 
 				: null;
@@ -52,7 +52,7 @@ public class ContexteDeComposite implements CompositeContext {
 		final DataBuffer srcDataBuffer = src.getDataBuffer();
 		final DataBuffer dstDataBuffer = dstIn.getDataBuffer();
 		
-		// On effectue l'opération graphique en multithread : chaque ligne de pixel a son thread.
+		// On effectue l'opï¿½ration graphique en multithread : chaque ligne de pixel a son thread.
 		final ExecutorService executor = Executors.newFixedThreadPool(Main.NOMBRE_DE_THREADS);
 		ThreadOperationGraphique.initialiserParametreGlobaux(srcDataBuffer, dstDataBuffer, largeur, 
 				src, dstIn, dstOut, pinceau, opacite, ton);
@@ -64,13 +64,13 @@ public class ContexteDeComposite implements CompositeContext {
 		try {
 			while (!executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS)) {
 				// Le timeout a eu lieu
-				LOG.warn("L'opération graphique n'est pas encore terminée...");
+				LOG.warn("L'opï¿½ration graphique n'est pas encore terminï¿½e...");
 			}
 		} catch (InterruptedException e) {
-			LOG.error("Impossible d'attendre la fin de l'opération graphique !", e);
+			LOG.error("Impossible d'attendre la fin de l'opï¿½ration graphique !", e);
 		}
 		
-		// Le dstOut contient à présent le mélange entre le src et le dstIn.
+		// Le dstOut contient a prï¿½sent le mï¿½lange entre le src et le dstIn.
 	}
 
 
@@ -80,8 +80,8 @@ public class ContexteDeComposite implements CompositeContext {
 	}
 	
 	/**
-	 * L'opération graphique est réalisée en multithread pour aller plus vite.
-	 * Chaque ligne de pixels de l'image correspond à un thread.
+	 * L'opï¿½ration graphique est rï¿½alisï¿½e en multithread pour aller plus vite.
+	 * Chaque ligne de pixels de l'image correspond a un thread.
 	 */
 	protected static class ThreadOperationGraphique implements Runnable {
 		private final int y;
@@ -96,16 +96,16 @@ public class ContexteDeComposite implements CompositeContext {
 		private static int[] ton;
 		
 		/**
-		 * Ces paramètres sont communs à toutes les lignes de pixels de l'image.
-		 * @param srcDataBuffer tampon de l'image apposée
+		 * Ces paramï¿½tres sont communs a toutes les lignes de pixels de l'image.
+		 * @param srcDataBuffer tampon de l'image apposï¿½e
 		 * @param dstDataBuffer tampon de l'image cible
 		 * @param largeur de l'image
-		 * @param src raster de l'image apposée
-		 * @param dstIn raster de l'image apposée
-		 * @param dstOut raster du résultat du mélange
-		 * @param pinceau qui effectue le mélange sur chaque pixel
-		 * @param opacite de l'opération graphique
-		 * @param ton null dans le cas normal, non null dans le cas d'un ton d'écran
+		 * @param src raster de l'image apposï¿½e
+		 * @param dstIn raster de l'image apposï¿½e
+		 * @param dstOut raster du rï¿½sultat du mï¿½lange
+		 * @param pinceau qui effectue le mï¿½lange sur chaque pixel
+		 * @param opacite de l'opï¿½ration graphique
+		 * @param ton null dans le cas normal, non null dans le cas d'un ton d'ecran
 		 */
 		public static void initialiserParametreGlobaux(final DataBuffer srcDataBuffer, final DataBuffer dstDataBuffer, 
 				final int largeur, final Raster src, final Raster dstIn, final WritableRaster dstOut, 
@@ -124,7 +124,7 @@ public class ContexteDeComposite implements CompositeContext {
 		
 		/**
 		 * Initialisation du thread
-		 * @param y numéro de la ligne de pixels
+		 * @param y numï¿½ro de la ligne de pixels
 		 */
 		public ThreadOperationGraphique(final int y) {
 			this.y = y;
@@ -140,7 +140,7 @@ public class ContexteDeComposite implements CompositeContext {
 	        final int[] dstPixels = new int[largeur];      
 	        final byte[] dstPixelsBytes = new byte[largeur*4]; //4 bytes pour faire un int
 			
-			//récupérer le tableau de pixels
+			//rï¿½cupï¿½rer le tableau de pixels
 	        if (ton == null) {
 	        	if (srcDataBuffer.getDataType() == DataBuffer.TYPE_INT) {
 		            src.getDataElements(0, y, largeur, 1, srcPixels);
@@ -154,10 +154,10 @@ public class ContexteDeComposite implements CompositeContext {
 	        				     .asIntBuffer();
 	        		intBuffer.get(srcPixels);
 	        	}
-	        	// le pixel de l'image source sera utilisé comme source
+	        	// le pixel de l'image source sera utilisï¿½ comme source
 	        	srcPixel  = new int[4];
 	        } else {
-	        	// ton de l'écran utilisé comme source
+	        	// ton de l'ecran utilisï¿½ comme source
 	        	srcPixel = ton;
 	        }
         	
@@ -192,10 +192,10 @@ public class ContexteDeComposite implements CompositeContext {
                 dstPixel[2] = (pixel >>  8) & 0xFF;
                 dstPixel[3] = (pixel      ) & 0xFF;
                 
-                //calcul du résultat
+                //calcul du rï¿½sultat
                 pinceau.peindre(srcPixel, dstPixel, result);
                 
-                //pondérer le résultat selon l'opacité globale
+                //pondï¿½rer le rï¿½sultat selon l'opacitï¿½ globale
                 dstPixels[x] = ((int) (dstPixel[0] + (result[0] - dstPixel[0]) * opacite) & 0xFF) << 24 |
 		                       ((int) (dstPixel[1] + (result[1] - dstPixel[1]) * opacite) & 0xFF) << 16 |
 		                       ((int) (dstPixel[2] + (result[2] - dstPixel[2]) * opacite) & 0xFF) <<  8 |

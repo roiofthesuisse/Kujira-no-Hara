@@ -19,8 +19,8 @@ import menu.Texte.Taille;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Tout Elément constitutif d'un Menu : Image, Texte, Liste... Un Elément de
- * Menu est éventuellement sélectionnable (surlignage jaune).
+ * Tout Elï¿½ment constitutif d'un Menu : Image, Texte, Liste... Un Elï¿½ment de
+ * Menu est ï¿½ventuellement sï¿½lectionnable (surlignage jaune).
  */
 public abstract class ElementDeMenu {
 	// constantes
@@ -34,33 +34,33 @@ public abstract class ElementDeMenu {
 
 	/** Cet ElementDeMenu est il Selectionnable ? */
 	public final boolean selectionnable;
-	/** Cet ElementDeMenu est il selectionné ? */
+	/** Cet ElementDeMenu est il selectionnï¿½ ? */
 	public boolean selectionne = false;
 	/** Faut-il lire les Commandes de survol ? */
 	public boolean executionDesCommandesDeSurvol = false;
-	/** Commandes à executer au survol */
+	/** Commandes a executer au survol */
 	protected final List<Commande> comportementSurvol;
-	/** Curseur de l'execution des commandes à executer au survol */
+	/** Curseur de l'execution des commandes a executer au survol */
 	public int curseurComportementSurvol = 0;
 	/** Faut-il lire les Commandes de confirmation ? */
 	public boolean executionDesCommandesDeConfirmation = false;
-	/** Commandes à executer à la confirmation */
+	/** Commandes a executer a la confirmation */
 	protected final List<Commande> comportementConfirmation;
-	/** Curseur de l'execution des commandes à executer à la confirmation */
+	/** Curseur de l'execution des commandes a executer a la confirmation */
 	public int curseurComportementConfirmation = 0;
-	/** L'ElementDeMenu est-il masqué ? */
+	/** L'ElementDeMenu est-il masquï¿½ ? */
 	public boolean invisible = false;
 
 	/** Conditions d'affichage */
 	public final List<Condition> conditions;
 
-	/** L'ElementDeMenu appartient à une Liste */
+	/** L'ElementDeMenu appartient a une Liste */
 	@SuppressWarnings("rawtypes")
 	public Liste liste = null;
 
-	/** L'élément de Menu peut être une image */
+	/** L'ï¿½lï¿½ment de Menu peut ï¿½tre une image */
 	protected BufferedImage image;
-	/** Surlignage de l'image lors de la Sélection */
+	/** Surlignage de l'image lors de la Sï¿½lection */
 	public BufferedImage imageDeSelection = null;
 	public int x;
 	public int y;
@@ -71,11 +71,11 @@ public abstract class ElementDeMenu {
 	 * Constructeur pour obliger l'affectation
 	 * 
 	 * @param id                       identifiant de l'ElementDeMenu
-	 * @param selectionnable           peut-on sélectionner cet ElementDeMenu ?
-	 * @param x                        position sur l'écran
-	 * @param y                        position sur l'écran
-	 * @param comportementSelection    CommandesMenu executées lors du survol
-	 * @param comportementConfirmation CommandesMenu executées lors de la
+	 * @param selectionnable           peut-on sï¿½lectionner cet ElementDeMenu ?
+	 * @param x                        position sur l'ecran
+	 * @param y                        position sur l'ecran
+	 * @param comportementSelection    CommandesMenu executï¿½es lors du survol
+	 * @param comportementConfirmation CommandesMenu executï¿½es lors de la
 	 *                                 confirmation
 	 * @param conditions               d'affichage
 	 */
@@ -92,9 +92,9 @@ public abstract class ElementDeMenu {
 	}
 
 	/**
-	 * Lorsqu'il est sélectionné, le Sélectionnable est surligné en jaune.
+	 * Lorsqu'il est sï¿½lectionnï¿½, le Sï¿½lectionnable est surlignï¿½ en jaune.
 	 * 
-	 * @return image contenant le surlignage jaune adapté au Sélectionnable
+	 * @return image contenant le surlignage jaune adaptï¿½ au Sï¿½lectionnable
 	 */
 	public final BufferedImage creerImageDeSelection(final int[] couleurCentreSelection,
 			final int[] couleurContourSelection) {
@@ -103,7 +103,7 @@ public abstract class ElementDeMenu {
 			final int larg;
 			final int haut;
 			// largeur et hauteur sont soit la taille de l'image, soit un rectangle de
-			// taille forcée par le JSON
+			// taille forcï¿½e par le JSON
 			larg = this.largeur + 2 * ImageMenu.CONTOUR;
 			haut = this.hauteur + 2 * ImageMenu.CONTOUR;
 			final BufferedImage selection = new BufferedImage(larg, haut, Graphismes.TYPE_DES_IMAGES);
@@ -116,7 +116,7 @@ public abstract class ElementDeMenu {
 					g = 0;
 					b = 0;
 					a = 0;
-					// couleur au centre de la sélection
+					// couleur au centre de la sï¿½lection
 					if (couleurCentreSelection != null) {
 						r1 = couleurCentreSelection[0];
 						g1 = couleurCentreSelection[1];
@@ -128,7 +128,7 @@ public abstract class ElementDeMenu {
 						b1 = COULEUR_CENTRE_SELECTION_PAR_DEFAUT[2];
 						a1 = COULEUR_CENTRE_SELECTION_PAR_DEFAUT[3];
 					}
-					// couleur à l'extérieur de la sélection
+					// couleur a l'extï¿½rieur de la sï¿½lection
 					if (couleurContourSelection != null) {
 						r2 = couleurContourSelection[0];
 						g2 = couleurContourSelection[1];
@@ -141,7 +141,7 @@ public abstract class ElementDeMenu {
 						a2 = COULEUR_CONTOUR_SELECTION_PAR_DEFAUT[3];
 					}
 					double rate = 0.0, hypotenuse = 0.0;
-					// calcul du taux "rate" d'éloignement avec le centre de la sélection
+					// calcul du taux "rate" d'ï¿½loignement avec le centre de la sï¿½lection
 					if (i >= ImageMenu.CONTOUR && i <= larg - ImageMenu.CONTOUR) {
 						// centre centre
 						if (j >= ImageMenu.CONTOUR && j <= haut - ImageMenu.CONTOUR) {
@@ -197,8 +197,8 @@ public abstract class ElementDeMenu {
 							rate = 1.0 - hypotenuse / (double) ImageMenu.CONTOUR;
 						}
 					}
-					// calcul de la couleur en fonction du taux "rate" d'éloignement du centre de la
-					// sélection
+					// calcul de la couleur en fonction du taux "rate" d'ï¿½loignement du centre de la
+					// sï¿½lection
 					r = (int) (r1 * rate + r2 * (1 - rate));
 					g = (int) (g1 * rate + g2 * (1 - rate));
 					b = (int) (b1 * rate + b2 * (1 - rate));
@@ -213,17 +213,17 @@ public abstract class ElementDeMenu {
 	}
 
 	/**
-	 * Commandes de Menu à executer à la confirmation de l'ElementDeMenu.
+	 * Commandes de Menu a executer a la confirmation de l'ElementDeMenu.
 	 */
 	public void executerLesCommandesDeConfirmation() {
-		LOG.info("Execution des commandes de confirmation de l'élément de menu.");
+		LOG.info("Execution des commandes de confirmation de l'ï¿½lï¿½ment de menu.");
 		boolean commandeInstantanee = true;
 		int nouvelleValeurDuCurseur;
 		try {
 			while (commandeInstantanee) {
 				final Commande commandeActuelle = this.comportementConfirmation
 						.get(this.curseurComportementConfirmation);
-				LOG.debug("Commande de menu executée : " + commandeActuelle.getClass());
+				LOG.debug("Commande de menu executï¿½e : " + commandeActuelle.getClass());
 				nouvelleValeurDuCurseur = commandeActuelle.executer(this.curseurComportementConfirmation,
 						this.comportementConfirmation);
 				commandeInstantanee = (nouvelleValeurDuCurseur != this.curseurComportementConfirmation);
@@ -231,14 +231,14 @@ public abstract class ElementDeMenu {
 			}
 		} catch (IndexOutOfBoundsException e) {
 			// fin de la lecture des commandes
-			LOG.trace("Fin de la lecture des commandes de confirmation de l'élément de menu.", e);
+			LOG.trace("Fin de la lecture des commandes de confirmation de l'ï¿½lï¿½ment de menu.", e);
 			this.curseurComportementConfirmation = 0;
 			this.executionDesCommandesDeConfirmation = false; // ne lire qu'une seule fois
 		}
 	}
 
 	/**
-	 * Commandes de Menu à executer au survol de l'ElementDeMenu.
+	 * Commandes de Menu a executer au survol de l'ElementDeMenu.
 	 */
 	public void executerLesCommandesDeSurvol() {
 		boolean commandeInstantanee = true;
@@ -253,26 +253,26 @@ public abstract class ElementDeMenu {
 			}
 		} catch (IndexOutOfBoundsException e) {
 			// fin de la lecture des commandes
-			LOG.trace("Fin de la lecture des commandes de survol de l'élément de menu.", e);
+			LOG.trace("Fin de la lecture des commandes de survol de l'ï¿½lï¿½ment de menu.", e);
 			this.curseurComportementSurvol = 0;
 			this.executionDesCommandesDeSurvol = false;
 		}
 	}
 
 	/**
-	 * Faut-il afficher l'Element ? Ses Conditions sont-elles toutes vérifiées ?
+	 * Faut-il afficher l'Element ? Ses Conditions sont-elles toutes vï¿½rifiï¿½es ?
 	 * 
 	 * @return true s'il faut afficher l'Element, false sinon
 	 */
 	public final boolean ilFautAfficherCetElement() {
-		// L'ElementDeMenu est-il masqué ?
+		// L'ElementDeMenu est-il masquï¿½ ?
 		if (this.invisible) {
 			return false;
 		}
 
 		// Conditions d'affichage
 		if (this.conditions == null || this.conditions.size() <= 0) {
-			// pas de contrainte particulière sur l'affichage
+			// pas de contrainte particuliï¿½re sur l'affichage
 			return true;
 		}
 		// on essaye toutes les Conditions
@@ -287,17 +287,17 @@ public abstract class ElementDeMenu {
 	public abstract BufferedImage getImage();
 
 	/**
-	 * Récuperer les Elements du Menuà partir d'un tableau d'objets JSON.
+	 * Rï¿½cuperer les Elements du Menuï¿½ partir d'un tableau d'objets JSON.
 	 * 
-	 * @param idSelectionInitiale identifiant de l'ElementDeMenu sélectionné
-	 *                            d'emblée
+	 * @param idSelectionInitiale identifiant de l'ElementDeMenu sï¿½lectionnï¿½
+	 *                            d'emblï¿½e
 	 * @param jsonElements        tableau JSON des ElementsDeMenu
 	 * @param images              liste des ElementsDeMenu graphiques
 	 * @param textes              liste des ElementsDeMenu textuels
 	 * @param listes              tableaux bidimensionnels contenant des
 	 *                            ElementsDeMenu
 	 * @param nom                 du Menu
-	 * @return ElementDeMenu sélectionné d'emblée
+	 * @return ElementDeMenu sï¿½lectionnï¿½ d'emblï¿½e
 	 */
 	public static ElementDeMenu recupererLesElementsDeMenu(final int idSelectionInitiale, final JSONArray jsonElements,
 			final ArrayList<ImageMenu> images, final ArrayList<Texte> textes,
@@ -315,12 +315,12 @@ public abstract class ElementDeMenu {
 			final int y = (int) jsonElement.get("y");
 
 			if ("Liste".equals(type)) {
-				// On a affaire à une Liste d'ElementsDeMenu
+				// On a affaire a une Liste d'ElementsDeMenu
 				@SuppressWarnings("rawtypes")
 				final Liste liste = Liste.recupererElementDeMenuListe(jsonElement, x, y);
 				listes.add(liste);
 
-				// On sélectionne le premier de la Liste
+				// On sï¿½lectionne le premier de la Liste
 				if (liste.elements != null && liste.elements.size() > 0) {
 					selectionInitiale = (ElementDeMenu) liste.elements.get(0);
 				}
@@ -333,7 +333,7 @@ public abstract class ElementDeMenu {
 				final int hauteur = jsonElement.has("hauteur") ? (int) jsonElement.get("hauteur") : -1;
 
 				if ("Objet".equals(type)) {
-					// L'ElementDeMenu est un icône d'Objet
+					// L'ElementDeMenu est un icï¿½ne d'Objet
 					final int idObjet = jsonElement.getInt("idObjet");
 
 					final Objet objet = Objet.objetsDuJeu[idObjet];
@@ -347,28 +347,28 @@ public abstract class ElementDeMenu {
 					cartes.add(new Carte(x, y, largeur, hauteur, id));
 
 				} else {
-					// L'ElementDeMenu n'est pas un icône d'Objet
+					// L'ElementDeMenu n'est pas un icï¿½ne d'Objet
 
-					// L'ElementDeMenu est-il sélectionnable ?
+					// L'ElementDeMenu est-il sï¿½lectionnable ?
 					final boolean selectionnable = (boolean) jsonElement.get("selectionnable");
 
-					// CommandesMenu executées au survol de l'Elément de Menu
+					// CommandesMenu executï¿½es au survol de l'Elï¿½ment de Menu
 					final ArrayList<Commande> commandesAuSurvol = new ArrayList<Commande>();
 					try {
 						final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
 						Commande.recupererLesCommandes(commandesAuSurvol, jsonCommandesSurvol);
 					} catch (JSONException e) {
-						LOG.warn("[Menu " + nom + "] Pas de commandes au survol pour l'élément de menu : " + id);
+						LOG.warn("[Menu " + nom + "] Pas de commandes au survol pour l'ï¿½lï¿½ment de menu : " + id);
 					}
 
-					// CommandesMenu executées à la confirmation de l'Elément de Menu
+					// CommandesMenu executï¿½es a la confirmation de l'Elï¿½ment de Menu
 					final ArrayList<Commande> commandesALaConfirmation = new ArrayList<Commande>();
 					try {
 						final JSONArray jsonCommandesConfirmation = jsonElement.getJSONArray("commandesConfirmation");
 						Commande.recupererLesCommandes(commandesALaConfirmation, jsonCommandesConfirmation);
 					} catch (JSONException e) {
 						LOG.warn(
-								"[Menu " + nom + "] Pas de commandes à la confirmation pour l'élément de menu : " + id);
+								"[Menu " + nom + "] Pas de commandes a la confirmation pour l'ï¿½lï¿½ment de menu : " + id);
 					}
 
 					if ("Texte".equals(type)) {
@@ -414,7 +414,7 @@ public abstract class ElementDeMenu {
 						}
 
 					} else {
-						LOG.error("Type inconnu pour un élement de menu  : " + type);
+						LOG.error("Type inconnu pour un ï¿½lement de menu  : " + type);
 					}
 				}
 

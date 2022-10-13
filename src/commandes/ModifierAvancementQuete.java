@@ -12,7 +12,7 @@ import map.LecteurMap;
 import map.NotificationQuete;
 
 /**
- * Modifier l'état d'avancement de la Quête.
+ * Modifier l'ï¿½tat d'avancement de la Quï¿½te.
  */
 public class ModifierAvancementQuete extends Commande implements CommandeEvent {
 
@@ -22,8 +22,8 @@ public class ModifierAvancementQuete extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroQuete identifiant de la Quête à faire évoluer
-	 * @param avancement  nouvel état de la Quête
+	 * @param numeroQuete identifiant de la Quï¿½te a faire ï¿½voluer
+	 * @param avancement  nouvel ï¿½tat de la Quï¿½te
 	 */
 	public ModifierAvancementQuete(final int numeroQuete, final AvancementQuete avancement) {
 		this.numeroQuete = numeroQuete;
@@ -31,9 +31,9 @@ public class ModifierAvancementQuete extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierAvancementQuete(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numero"), AvancementQuete.getEtat((String) parametres.get("avancement")));

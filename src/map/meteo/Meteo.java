@@ -10,8 +10,8 @@ import main.Lecteur;
 import utilitaire.Maths;
 
 /**
- * Effet météorologique sur la Map.
- * La Météo est constituée de particules animées à l'écran.
+ * Effet mï¿½tï¿½orologique sur la Map.
+ * La Mï¿½tï¿½o est constituï¿½e de particules animï¿½es a l'ecran.
  */
 public abstract class Meteo {
 	protected static final Logger LOG = LogManager.getLogger(Meteo.class);
@@ -19,39 +19,39 @@ public abstract class Meteo {
 	protected static int ratioIntensiteNombreDeParticules;
 	
 	/**
-	 * Obtenir le type de cette Météo.
-	 * @return élément de l'énumération TypeDeMeteo
+	 * Obtenir le type de cette Mï¿½tï¿½o.
+	 * @return ï¿½lï¿½ment de l'ï¿½numï¿½ration TypeDeMeteo
 	 */
 	public abstract TypeDeMeteo getType();
 	public int intensite;
 	protected int nombreDeParticulesNecessaires;
 	/** Particules en cours d'utilisation */
 	protected ArrayList<Particule> particules = new ArrayList<Particule>();
-	/** Particules inusitées */
+	/** Particules inusitï¿½es */
 	protected ArrayList<Particule> bassinDeParticules = new ArrayList<Particule>();
 	
 	/**
-	 * Fabriquer l'image représentant l'effet Météo.
-	 * @param numeroFrame numéro de la frame actuelle du LecteurMap
-	 * @return image de l'effet Météo à superposer à l'écran
+	 * Fabriquer l'image reprï¿½sentant l'effet Mï¿½tï¿½o.
+	 * @param numeroFrame numï¿½ro de la frame actuelle du LecteurMap
+	 * @return image de l'effet Mï¿½tï¿½o a superposer a l'ecran
 	 */
 	public abstract BufferedImage calculerImage(int numeroFrame);
 
 	/**
-	 * Ajouter une goutte à la pluie.
+	 * Ajouter une goutte a la pluie.
 	 */
 	protected abstract void ajouterUneParticule();
 	
 	/**
-	 * Ajouter des gouttes à la pluie en fonction de l'intensité voulue pour l'intempérie.
-	 * @param numeroFrame numéro de la frame actuelle du LecteurMap
+	 * Ajouter des gouttes a la pluie en fonction de l'intensitï¿½ voulue pour l'intempï¿½rie.
+	 * @param numeroFrame numï¿½ro de la frame actuelle du LecteurMap
 	 */
 	protected final void ajouterDesParticulesSiNecessaire(final int numeroFrame) {
 		final int deficit = nombreDeParticulesNecessaires - recenserLesParticules();
 		if (deficit > 0) {
 			final int lenteurDApparition = dureeDeVieParticule / Lecteur.DUREE_FRAME;
 			final int probabilite = 1000/(Lecteur.DUREE_FRAME*deficit) + lenteurDApparition;
-			LOG.trace(particules.size()+"/"+nombreDeParticulesNecessaires+" => probabilité : 1/"+probabilite);
+			LOG.trace(particules.size()+"/"+nombreDeParticulesNecessaires+" => probabilitï¿½ : 1/"+probabilite);
 			for (int i = 0; i<=deficit; i++) {
 				if (Maths.generateurAleatoire.nextInt(probabilite+1) == 0) {
 					ajouterUneParticule();
@@ -69,26 +69,26 @@ public abstract class Meteo {
 		for (Particule p : particules) {
 			compte += p.resteAVivre;
 		}
-		return 2*compte/dureeDeVieParticule; //fois deux car l'âge moyen est 50% de la durée de vie
+		return 2*compte/dureeDeVieParticule; //fois deux car l'ï¿½ge moyen est 50% de la durï¿½e de vie
 	}
 	
 	/**
 	 * Calculer la position horizontale de la particule au cours du temps.
-	 * @param particule et ses caractéristiques
+	 * @param particule et ses caractï¿½ristiques
 	 * @return position horizontale de la particule
 	 */
 	protected abstract int calculerXParticule(Particule particule);
 	
 	/**
 	 * Calculer la position verticale de la particule au cours du temps.
-	 * @param particule et ses caractéristiques
+	 * @param particule et ses caractï¿½ristiques
 	 * @return position horizontale de la particule
 	 */
 	protected abstract int calculerYParticule(Particule particule);
 	
 	/**
 	 * Ranger une particule dans le bassin pour la mettre en attente.
-	 * @param particule à mettre de côté
+	 * @param particule a mettre de cï¿½tï¿½
 	 */
 	protected final void congedierParticule(final Particule particule) {
 		this.bassinDeParticules.add(particule);
@@ -97,7 +97,7 @@ public abstract class Meteo {
 	
 	/**
 	 * Prendre une particule du bassin pour la remettre en service.
-	 * @return particule trouvée dans le bassin
+	 * @return particule trouvï¿½e dans le bassin
 	 */
 	protected final Particule rehabiliterParticule() {
 		final Particule particule = this.bassinDeParticules.get(0);
@@ -106,10 +106,10 @@ public abstract class Meteo {
 	}
 	
 	/**
-	 * Vérifier si deux Météos sont identiques.
-	 * @param m1 une météo
-	 * @param m2 une autre météo
-	 * @return si elles sont équivalentes
+	 * Vï¿½rifier si deux Mï¿½tï¿½os sont identiques.
+	 * @param m1 une mï¿½tï¿½o
+	 * @param m2 une autre mï¿½tï¿½o
+	 * @return si elles sont ï¿½quivalentes
 	 */
 	public static boolean verifierSiIdentiques(final Meteo m1, final Meteo m2) {
 		if (m1 == null && m2 == null) {

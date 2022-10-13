@@ -7,12 +7,12 @@ import main.Commande;
 import utilitaire.son.LecteurAudio;
 
 /**
- * Arrêter le fond sonore.
+ * Arrï¿½ter le fond sonore.
  */
 public class ArreterFondSonore extends Commande implements CommandeEvent, CommandeMenu {
-	/** Durée totale de l'arrêt en fondu */
+	/** Durï¿½e totale de l'arrï¿½t en fondu */
 	private final int nombreDeFrames;
-	/** Compteur de frames de l'arrêt en fondu */
+	/** Compteur de frames de l'arrï¿½t en fondu */
 	private int frame;
 	private float volumeInitial;
 	private int piste;
@@ -20,8 +20,8 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nombreDeFrames durée totale de l'arrêt en fondu
-	 * @param piste          à arrêter
+	 * @param nombreDeFrames durï¿½e totale de l'arrï¿½t en fondu
+	 * @param piste          a arrï¿½ter
 	 */
 	private ArreterFondSonore(final int nombreDeFrames, final int piste) {
 		this.nombreDeFrames = nombreDeFrames;
@@ -29,9 +29,9 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ArreterFondSonore(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("nombreDeFrames") ? (int) parametres.get("nombreDeFrames") : 0,
@@ -40,13 +40,13 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// On mémorise le volume initial
+		// On mï¿½morise le volume initial
 		if (frame == 0) {
 			volumeInitial = LecteurAudio.bgsEnCours[piste].volumeActuel;
 		}
 
 		if (frame < nombreDeFrames) {
-			// Arrêt en fondu
+			// Arrï¿½t en fondu
 			final float nouveauVolume = volumeInitial * (float) (nombreDeFrames - frame) / (float) nombreDeFrames;
 			LecteurAudio.bgsEnCours[piste].modifierVolume(nouveauVolume);
 			frame++;
@@ -54,7 +54,7 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 			return curseurActuel;
 
 		} else {
-			// L'arrêt en fondu est terminé
+			// L'arrï¿½t en fondu est terminï¿½
 			LecteurAudio.stopBgs(piste);
 			frame = 0;
 

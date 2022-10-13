@@ -12,7 +12,7 @@ import menu.LecteurMenu;
 import menu.Menu;
 
 /**
- * Passer à un autre Menu
+ * Passer a un autre Menu
  */
 public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(AllerVersUnAutreMenu.class);
@@ -26,10 +26,10 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 	 * Constructeur explicite
 	 * 
 	 * @param nouveauMenu       Menu qui remplacera l'actuel
-	 * @param selectionInitiale identifiant de l'ElementDeMenu à sélectionner au
-	 *                          début
-	 * @param estUnMenuFrere    le Menu d'arrivée est-il hierarchiquement équivalent
-	 *                          au Menu de départ ?
+	 * @param selectionInitiale identifiant de l'ElementDeMenu a sï¿½lectionner au
+	 *                          dï¿½but
+	 * @param estUnMenuFrere    le Menu d'arrivï¿½e est-il hierarchiquement ï¿½quivalent
+	 *                          au Menu de dï¿½part ?
 	 */
 	public AllerVersUnAutreMenu(final String nouveauMenu, final Integer selectionInitiale,
 			final boolean estUnMenuFrere) {
@@ -39,9 +39,9 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public AllerVersUnAutreMenu(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("menu"), (Integer) parametres.get("selectionInitiale"),
@@ -53,10 +53,10 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 		// Quel est le Menu parent du prochain Menu ?
 		Menu menuParent;
 		if (estUnMenuFrere) {
-			// Le Menu actuel est le frère du prochain Menu, ils ont le même Menu parent
+			// Le Menu actuel est le frï¿½re du prochain Menu, ils ont le mï¿½me Menu parent
 			menuParent = this.element.menu.menuParent;
 		} else {
-			// Le Menu actuel est le père du prochain Menu
+			// Le Menu actuel est le pï¿½re du prochain Menu
 			menuParent = this.element.menu;
 		}
 
@@ -66,7 +66,7 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 		// Transmettre le lecteur de Map
 		final LecteurMap lecteurMapMemorise = this.element.menu.lecteur.lecteurMapMemorise;
 
-		// Démarrer le nouveau Menu
+		// Dï¿½marrer le nouveau Menu
 		final LecteurMenu nouveauLecteur = new LecteurMenu(nouveauMenu, lecteurMapMemorise, this.selectionInitiale);
 		nouveauLecteur.changerMenu();
 

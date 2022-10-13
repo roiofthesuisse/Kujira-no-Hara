@@ -24,17 +24,17 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroMap               numéro de la Map où se situe l'interrupteur
-	 *                                local à modifier
+	 * @param numeroMap               numï¿½ro de la Map oï¿½ se situe l'interrupteur
+	 *                                local a modifier
 	 * @param idEvent                 id de l'Event auquel appartient l'interrupteur
-	 *                                local à modifier
+	 *                                local a modifier
 	 * @param numeroInterrupteurLocal 0, 1, 2 ou 3 pour dire A, B, C ou D
-	 * @param valeur                  à donner à l'interrupteur local
+	 * @param valeur                  a donner a l'interrupteur local
 	 */
 	public ModifierInterrupteurLocal(final Integer numeroMap, final Integer idEvent, final int numeroInterrupteurLocal,
 			final boolean valeur) {
-		this.numeroMap = numeroMap; // peut être null si signifie "cette Map"
-		this.idEvent = idEvent; // peut être null si signifie "cet Event"
+		this.numeroMap = numeroMap; // peut ï¿½tre null si signifie "cette Map"
+		this.idEvent = idEvent; // peut ï¿½tre null si signifie "cet Event"
 		this.numeroInterrupteurLocal = numeroInterrupteurLocal;
 		this.valeurADonner = valeur;
 	}
@@ -43,16 +43,16 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 	 * Constructeur implicite (cette Map, cet Event)
 	 * 
 	 * @param numeroInterrupteurLocal 0, 1, 2 ou 3 pour dire A, B, C ou D
-	 * @param valeur                  à donner à l'interrupteur local
+	 * @param valeur                  a donner a l'interrupteur local
 	 */
 	public ModifierInterrupteurLocal(final int numeroInterrupteurLocal, final boolean valeur) {
 		this(null, null, numeroInterrupteurLocal, valeur);
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierInterrupteurLocal(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("numeroMap") ? (int) parametres.get("numeroMap") : null,
@@ -76,31 +76,31 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 		if (valeurADonner) {
 			if (!interrupteursLocaux.contains(code)) {
 				getPartieActuelle().interrupteursLocaux.add(code);
-				LOG.debug("Interrupteur local " + code + " allumé.");
+				LOG.debug("Interrupteur local " + code + " allumï¿½.");
 			}
 		} else {
 			if (interrupteursLocaux.contains(code)) {
 				getPartieActuelle().interrupteursLocaux.remove(code);
-				LOG.debug("Interrupteur local " + code + " éteint.");
+				LOG.debug("Interrupteur local " + code + " ï¿½teint.");
 			}
 		}
 		return curseurActuel + 1;
 	}
 
 	/**
-	 * Réinitialiser les interrupteurs locaux en rapport avec cet Event.
+	 * Rï¿½initialiser les interrupteurs locaux en rapport avec cet Event.
 	 * 
-	 * @param event à réinitialiser
+	 * @param event a rï¿½initialiser
 	 */
 	public static void reinitialiserEvent(final Event event) {
 		final String debutDuCode = "m" + event.map.numero + "e" + event.id;
-		LOG.debug("Réinitialisation des interrupteurs locaux de l'event " + debutDuCode);
+		LOG.debug("Rï¿½initialisation des interrupteurs locaux de l'event " + debutDuCode);
 		int tailleListe = getPartieActuelle().interrupteursLocaux.size();
 		String code;
 		for (int i = 0; i < tailleListe; i++) {
 			code = getPartieActuelle().interrupteursLocaux.get(i);
 			if (code.startsWith(debutDuCode)) {
-				LOG.trace("Réinitialisation de l'interrupteur local " + code);
+				LOG.trace("Rï¿½initialisation de l'interrupteur local " + code);
 				getPartieActuelle().interrupteursLocaux.remove(i);
 				tailleListe--;
 			}

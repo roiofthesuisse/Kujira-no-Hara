@@ -8,7 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Classe utilitaire chargée de lire les fichiers audio du jeu.
+ * Classe utilitaire chargï¿½e de lire les fichiers audio du jeu.
  */
 public abstract class LecteurAudio {
 	private static final Logger LOG = LogManager.getLogger(LecteurAudio.class);
@@ -20,7 +20,7 @@ public abstract class LecteurAudio {
 	
 	/**
 	 * Jouer un effet sonore.
-	 * Volume sonore maximal par défaut.
+	 * Volume sonore maximal par dï¿½faut.
 	 * @param nom du fichier audio
 	 */
 	public static synchronized void playSe(final String nom) {
@@ -44,10 +44,10 @@ public abstract class LecteurAudio {
 			LOG.error("Format audio inconnu : "+nom);
 			return;
 		}
-		LOG.debug("SE démarré : "+nom);
+		LOG.debug("SE dï¿½marrï¿½ : "+nom);
 		musique.jouerUneSeuleFois(null);
 		
-		// On met à jour les données
+		// On met a jour les donnï¿½es
 		seEnCours.add(musique);
 	}
 	
@@ -66,7 +66,7 @@ public abstract class LecteurAudio {
 			try {
 				musique = new MusiqueMp3(nom, Musique.TypeMusique.ME, volume);
 			} catch(java.lang.UnsatisfiedLinkError e) {
-				LOG.error("Une librairie à la con manque pour lire les fichiers MP3",e);
+				LOG.error("Une librairie a la con manque pour lire les fichiers MP3",e);
 				return;
 			}
 		} else {
@@ -81,7 +81,7 @@ public abstract class LecteurAudio {
 				bgm.modifierVolume(0);
 			}
 		}
-		LOG.debug("ME démarré : "+nom);
+		LOG.debug("ME dï¿½marrï¿½ : "+nom);
 		musique.jouerUneSeuleFois(volumeBgmMemorise);
 	}
 	
@@ -99,15 +99,15 @@ public abstract class LecteurAudio {
 		}
 		
 		if (LecteurAudio.bgmEnCours[piste] != null && nom.equals(LecteurAudio.bgmEnCours[piste].nom)) {
-			// Même morceau que le précédent
+			// Mï¿½me morceau que le prï¿½cï¿½dent
 			if (bgmEnCours[piste].volumeActuel != volume) {
 				// Modification du volume uniquement
 				bgmEnCours[piste].modifierVolume(volume);
 			}
 		} else {
-			// Morceau différent du précédent
+			// Morceau diffï¿½rent du prï¿½cï¿½dent
 			
-			// On éteint la musique actuelle
+			// On ï¿½teint la musique actuelle
 			stopBgm(piste);
 			
 			// On lance la nouvelle
@@ -123,11 +123,11 @@ public abstract class LecteurAudio {
 					LOG.error("Impossible de trouver le BGM \""+nom+"\" de la map", e1);
 					return;
 				} catch (java.lang.UnsatisfiedLinkError e2) {
-					LOG.error("Une librairie à la con manque pour lire les fichiers MP3",e2);
+					LOG.error("Une librairie a la con manque pour lire les fichiers MP3",e2);
 					return;
 				}
 			} else {
-				//c'est sûrement encore un connard qui a oublié l'extension du fichier audio dans le JSON
+				//c'est sï¿½rement encore un connard qui a oubliï¿½ l'extension du fichier audio dans le JSON
 				final File dossierAudio = new File(Musique.DOSSIER_AUDIO + Musique.TypeMusique.BGM.nom + "/");
 				final File[] fichiersTrouves = dossierAudio.listFiles(new FilenameFilter() {
 				    public boolean accept(final File dir, final String nomTotal) {
@@ -143,36 +143,36 @@ public abstract class LecteurAudio {
 					} else if (vraiNom.endsWith(".mp3")) {
 						musique = new MusiqueMp3(vraiNom, Musique.TypeMusique.BGM, volume);
 					} else {
-						// format non géré
+						// format non gï¿½rï¿½
 						LOG.error("Format audio inconnu : " + nom);
 						return;
 					}
-					LOG.warn("Le vrai nom du fichier audio \"" + nom +"\" devrait être \""+ vraiNom +"\"");
+					LOG.warn("Le vrai nom du fichier audio \"" + nom +"\" devrait ï¿½tre \""+ vraiNom +"\"");
 				} else {
-					// pas de fichier trouvé
+					// pas de fichier trouvï¿½
 					LOG.error("Fichier audio introuvable : " + nom);
 					return;
 				}
 			}
-			LOG.debug("BGM démarré : "+nom);
+			LOG.debug("BGM dï¿½marrï¿½ : "+nom);
 			musique.jouerEnBoucle();
 				
-			// On met à jour les données
+			// On met a jour les donnï¿½es
 			LecteurAudio.bgmEnCours[piste] = musique;
 		}
 	}
 	
 	/**
-	 * Arrêter la musique actuellement jouée.
-	 * @param piste à arrêter
+	 * Arrï¿½ter la musique actuellement jouï¿½e.
+	 * @param piste a arrï¿½ter
 	 */
 	public static synchronized void stopBgm(final int piste) {
 		if (LecteurAudio.bgmEnCours[piste] != null) {
 			LecteurAudio.bgmEnCours[piste].arreter();
-			LOG.debug("Arrêt du BGM");
+			LOG.debug("Arrï¿½t du BGM");
 			LecteurAudio.bgmEnCours[piste] = null;
 		} else {
-			LOG.debug("Le BGM est déjà arrêté.");
+			LOG.debug("Le BGM est dï¿½jï¿½ arrï¿½tï¿½.");
 		}
 	}
 
@@ -188,9 +188,9 @@ public abstract class LecteurAudio {
 			return;
 		}
 			
-		// Si on est déjà en train de jouer le bon fond sonore, on ne fait rien
+		// Si on est dï¿½jï¿½ en train de jouer le bon fond sonore, on ne fait rien
 		if (LecteurAudio.bgsEnCours[piste] == null || !nom.equals(LecteurAudio.bgsEnCours[piste].nom)) {
-			// On éteint le fond sonore actuel
+			// On ï¿½teint le fond sonore actuel
 			stopBgs(piste);
 
 			// On lance le nouveau
@@ -205,10 +205,10 @@ public abstract class LecteurAudio {
 				LOG.error("Format audio inconnu : "+nom);
 				return;
 			}
-			LOG.debug("BGS démarré : "+nom);
+			LOG.debug("BGS dï¿½marrï¿½ : "+nom);
 			musique.jouerEnBoucle();
 				
-			// On met à jour les données
+			// On met a jour les donnï¿½es
 			LecteurAudio.bgsEnCours[piste] = musique;
 			
 		// Modification du volume uniquement
@@ -218,21 +218,21 @@ public abstract class LecteurAudio {
 	}
 	
 	/**
-	 * Arrêter le fond sonore actuellement joué.
-	 * @param piste à arrêter
+	 * Arrï¿½ter le fond sonore actuellement jouï¿½.
+	 * @param piste a arrï¿½ter
 	 */
 	public static synchronized void stopBgs(final int piste) {
 		if (LecteurAudio.bgsEnCours[piste] != null) {
 			LecteurAudio.bgsEnCours[piste].arreter();
-			LOG.debug("Arrêt du BGS");
+			LOG.debug("Arrï¿½t du BGS");
 			LecteurAudio.bgsEnCours[piste] = null;
 		} else {
-			LOG.debug("Le BGS est déjà arrêté.");
+			LOG.debug("Le BGS est dï¿½jï¿½ arrï¿½tï¿½.");
 		}
 	}
 	
 	/**
-	 * Redémarrer toutes les Musiques du jeu après la pause.
+	 * Redï¿½marrer toutes les Musiques du jeu apres la pause.
 	 */
 	public static void redemarrerToutesLesMusiques() {
 		for (Musique bgm : bgmEnCours) {

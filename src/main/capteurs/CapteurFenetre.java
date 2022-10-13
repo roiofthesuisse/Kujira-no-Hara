@@ -10,7 +10,7 @@ import main.Main;
 import utilitaire.son.LecteurAudio;
 
 /**
- * Actions à effectuer lorsque la Fenêtre du jeu est modifiée.
+ * Actions a effectuer lorsque la Fenï¿½tre du jeu est modifiï¿½e.
  */
 public class CapteurFenetre extends WindowAdapter {
 	private static final Logger LOG = LogManager.getLogger(CapteurFenetre.class);
@@ -22,13 +22,13 @@ public class CapteurFenetre extends WindowAdapter {
 	
 	@Override
 	public final void windowGainedFocus(final WindowEvent arg0) {
-		LOG.info("Fenêtre réactivée");
+		LOG.info("Fenï¿½tre rï¿½activï¿½e");
 		LecteurAudio.redemarrerToutesLesMusiques();
 	}
 
 	@Override
 	public final void windowLostFocus(final WindowEvent arg0) {
-		LOG.info("Fenêtre désactivée");
+		LOG.info("Fenï¿½tre dï¿½sactivï¿½e");
 		LecteurAudio.mettreEnPauseToutesLesMusiques();
 	}
 	

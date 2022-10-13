@@ -28,7 +28,7 @@ public class Neige extends Meteo {
 	
 	/**
 	 * Pluie
-	 * @param intensite de l'intempérie
+	 * @param intensite de l'intempï¿½rie
 	 */
 	public Neige(final int intensite) {
 		dureeDeVieParticule = DURREE_DE_VIE_FLOCON;
@@ -115,7 +115,7 @@ public class Neige extends Meteo {
 	protected final void ajouterUneParticule() {
 		final int tailleFlocon = Maths.generateurAleatoire.nextInt(RATIO_ENTRE_LES_DEUX_TAILLES_DE_FLOCONS);
 		final int vitesse = tailleFlocon == 0 ? VITESSE_Y_FLOCON1 : VITESSE_Y_FLOCON2;
-		final int offsetFlocons = vitesse*dureeDeVieParticule; //pour combler le manque de flocons en bas de l'écran
+		final int offsetFlocons = vitesse*dureeDeVieParticule; //pour combler le manque de flocons en bas de l'ecran
 		
 		final Particule nouvelleParticule;
 		final int x0 = Maths.generateurAleatoire.nextInt(Fenetre.LARGEUR_ECRAN);
@@ -125,7 +125,7 @@ public class Neige extends Meteo {
 			nouvelleParticule = this.rehabiliterParticule();
 			nouvelleParticule.reinitialiser(x0, y0, dureeDeVieParticule, tailleFlocon);
 		} else {
-			// Le bassin est vide, il faut créer une nouvelle particule
+			// Le bassin est vide, il faut crï¿½er une nouvelle particule
 			nouvelleParticule = new Particule(x0, y0, dureeDeVieParticule, tailleFlocon);
 		}
 		particules.add(nouvelleParticule);

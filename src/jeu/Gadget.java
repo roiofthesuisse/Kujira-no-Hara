@@ -25,7 +25,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Le Héros peut utiliser un certain nombre de Gadgets sur la Map. 
+ * Le Hï¿½ros peut utiliser un certain nombre de Gadgets sur la Map. 
  */
 public class Gadget implements Listable {
 	//constantes
@@ -33,7 +33,7 @@ public class Gadget implements Listable {
 	public static final Gadget[] GADGETS_DU_JEU = chargerLesGadgetsDuJeu();
 	
 	/**
-	 * Chaque Gadget possède un id propre. 
+	 * Chaque Gadget possï¿½de un id propre. 
 	 * 0 pour les bottes, 1 pour le panier, etc.
 	 */
 	public final int id;
@@ -46,8 +46,8 @@ public class Gadget implements Listable {
 	 * Constructeur explicite
 	 * @param id chaque Gadget a un identifiant
 	 * @param nom du Gadget (dans plusieurs langues)
-	 * @param description à afficher dans les Menus (dans plusieurs langues)
-	 * @param equipable peut-on équiper le Gadget depuis le Menu ?
+	 * @param description a afficher dans les Menus (dans plusieurs langues)
+	 * @param equipable peut-on ï¿½quiper le Gadget depuis le Menu ?
 	 * @param nomIcone nom de l'image d'icone
 	 */
 	private Gadget(final int id, final ArrayList<String> nom, final ArrayList<String> description, 
@@ -65,8 +65,8 @@ public class Gadget implements Listable {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public Gadget(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
@@ -78,7 +78,7 @@ public class Gadget implements Listable {
 	}
 	
 	/**
-	 * @param idGadget identifiant du Gadget souhaité
+	 * @param idGadget identifiant du Gadget souhaitï¿½
 	 * @return Gadget dont l'identifiant est idGadget
 	 */
 	public static Gadget getGadget(final int idGadget) {
@@ -98,7 +98,7 @@ public class Gadget implements Listable {
 		try {
 			jsonGadgets = InterpreteurDeJson.ouvrirJsonGadgets();
 		} catch (Exception e) {
-			//problème lors de l'ouverture du fichier JSON
+			//problï¿½me lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les gadgets du jeu.", e);
 			return null;
 		}
@@ -129,13 +129,13 @@ public class Gadget implements Listable {
 
 	/**
 	 * Enumerer les Gadgets du jeu.
-	 * @param possedes filtrer ou non sur les Gadgets possédés
+	 * @param possedes filtrer ou non sur les Gadgets possï¿½dï¿½s
 	 * @return association entre numero et Gadget
 	 */
 	public static final Map<Integer, Listable> obtenirTousLesListables(final Boolean possedes) {
 		final Map<Integer, Listable> listablesPossedes = new HashMap<Integer, Listable>();
 		if (possedes) {
-			// seulement les Gadgets possédées
+			// seulement les Gadgets possï¿½dï¿½es
 			final boolean[] gadgetsPossedes = Main.getPartieActuelle().gadgetsPossedes;
 			for (int i = 0; i < gadgetsPossedes.length; i++) {
 				if (gadgetsPossedes[i]) {

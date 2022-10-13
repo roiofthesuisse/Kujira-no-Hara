@@ -14,45 +14,45 @@ import commandes.Deplacement;
 import map.Event;
 
 /**
- * Toute CommandeEvent qui provoque le Mouvement d'un Event doit implémenter cette interface.
+ * Toute CommandeEvent qui provoque le Mouvement d'un Event doit implï¿½menter cette interface.
  */
 public abstract class Mouvement {
 	private static final Logger LOG = LogManager.getLogger(Mouvement.class);
 	
-	/** Nombre d'étapes du Mouvement qui ont été faites */
+	/** Nombre d'ï¿½tapes du Mouvement qui ont ï¿½tï¿½ faites */
 	protected int ceQuiAEteFait;
-	/** Nombre d'étapes à faire */
+	/** Nombre d'ï¿½tapes a faire */
 	protected int etapes;
-	/** Déplacement dont fait partie ce Mouvement */
+	/** Dï¿½placement dont fait partie ce Mouvement */
 	public Deplacement deplacement;
 
-	/** "suivre" ou "fuir" l'Event observé */
+	/** "suivre" ou "fuir" l'Event observï¿½ */
 	protected enum Sens {
 		SUIVRE, FUIR
 	};
 	
 	/**
-	 * Si la Page de comportement doit être rejouée, il faut réinitialiser cette Commande.
-	 * Réinitialiser un mouvement le déclare non fait, et change la direction en cas de mouvement aléatoire.
+	 * Si la Page de comportement doit ï¿½tre rejouï¿½e, il faut rï¿½initialiser cette Commande.
+	 * Rï¿½initialiser un mouvement le dï¿½clare non fait, et change la direction en cas de mouvement alï¿½atoire.
 	 */
 	public final void reinitialiser() {
-		// Réinitialisation spécifique à ce type de Mouvement en particulier
+		// Rï¿½initialisation spï¿½cifique a ce type de Mouvement en particulier
 		this.reinitialiserSpecifique();
 		
-		// Réinitialisation commune à tous les Mouvements
+		// Rï¿½initialisation commune a tous les Mouvements
 		this.ceQuiAEteFait = 0;
 	}
 	
 	/**
-	 * Actions à effectuer pour pouvoir éventuellement rejouer le Mouvement encore.
-	 * Spécifique à un type de Mouvement.
+	 * Actions a effectuer pour pouvoir ï¿½ventuellement rejouer le Mouvement encore.
+	 * Spï¿½cifique a un type de Mouvement.
 	 */
 	protected abstract void reinitialiserSpecifique();
 	
 	/**
-	 * Procéder aux modifications de données permettant au LecteurMap d'afficher l'Event au bon endroit.
-	 * Méthode appelée lors de l'exécution des Déplacements.
-	 * @param deplacement (naturel ou forcé d'un Event) dont fait partie ce Mouvement
+	 * Procï¿½der aux modifications de donnï¿½es permettant au LecteurMap d'afficher l'Event au bon endroit.
+	 * Methode appelï¿½e lors de l'exï¿½cution des Dï¿½placements.
+	 * @param deplacement (naturel ou forcï¿½ d'un Event) dont fait partie ce Mouvement
 	 */
 	public final void executerLeMouvement(final Deplacement deplacement) {
 		try {
@@ -64,20 +64,20 @@ public abstract class Mouvement {
 
 				// Quelle sera la commande suivante ?
 				if ( this.ceQuiAEteFait >= this.etapes ) {
-					// Déclarer le Mouvement comme terminé (car il est réellement terminé)
+					// Dï¿½clarer le Mouvement comme terminï¿½ (car il est rï¿½ellement terminï¿½)
 					terminerLeMouvement(event);
 				}
 				
 				mettreEventDansLaDirectionDuMouvement();
 				
 			} else {
-				// Déclarer le Mouvement comme terminé (car ignoré)
+				// Dï¿½clarer le Mouvement comme terminï¿½ (car ignorï¿½)
 				ignorerLeMouvement(event);
 				event.avance = false;
 			}
 			
 		} catch (Exception e) {
-			LOG.error("Erreur lors du mouvement de l'évènement :", e);
+			LOG.error("Erreur lors du mouvement de l'ï¿½vï¿½nement :", e);
 		}
 	}
 	
@@ -91,23 +91,23 @@ public abstract class Mouvement {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incrémente le compteur "ceQuiAEteFait".
+	 * Puis incrï¿½mente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	protected abstract void calculDuMouvement(Event event);
 	
 	/** 
-	 * Déclarer le Mouvement comme terminé.
+	 * Dï¿½clarer le Mouvement comme terminï¿½.
 	 * @param event subissant le Mouvement
 	 */
 	private void terminerLeMouvement(final Event event) {
-		// Finalisation spécifique à ce type de Mouvement en particulier
-		terminerLeMouvementSpecifique(event); //dépend du type de Mouvement
+		// Finalisation spï¿½cifique a ce type de Mouvement en particulier
+		terminerLeMouvementSpecifique(event); //dï¿½pend du type de Mouvement
 		
-		// Finalisation commune à tous les Mouvements
+		// Finalisation commune a tous les Mouvements
 		this.reinitialiser();
 		
-		// Est-on dans un Déplacement naturel ou forcé ?
+		// Est-on dans un Dï¿½placement naturel ou forcï¿½ ?
 		final Deplacement deplacementNaturelOuForce;
 		if (this.deplacement.naturel) {
 			deplacementNaturelOuForce = event.deplacementNaturelActuel;
@@ -115,7 +115,7 @@ public abstract class Mouvement {
 			deplacementNaturelOuForce = event.deplacementForce;
 		}
 		
-		// On regarde si la Page n'a pas changé,
+		// On regarde si la Page n'a pas changï¿½,
 		// Car on ne remet pas en bout de file un Mouvement naturel issu d'une autre Page 
 		final Integer pageAvant = this.deplacement.page.numero;
 		final Integer pageMaintenant;
@@ -129,55 +129,55 @@ public abstract class Mouvement {
 		final boolean laPageEstToujoursLaMeme = pageAvant.equals(pageMaintenant);
 		
 		
-		// Si le Déplacement est perpétuel, on remet ce Mouvement en fin de liste
+		// Si le Dï¿½placement est perpï¿½tuel, on remet ce Mouvement en fin de liste
 		if (this.deplacement.repeterLeDeplacement) {
-			if (!this.deplacement.naturel //un Mouvement forcé perpétuel ne s'arrête pas même si la Page de l'Event change
-			|| laPageEstToujoursLaMeme) { //un Mouvement naturel perpétuel s'arrête si la Page change
+			if (!this.deplacement.naturel //un Mouvement forcï¿½ perpï¿½tuel ne s'arrï¿½te pas mï¿½me si la Page de l'Event change
+			|| laPageEstToujoursLaMeme) { //un Mouvement naturel perpï¿½tuel s'arrï¿½te si la Page change
 				deplacementNaturelOuForce.mouvements.add(this);
 			} else {
 				LOG.warn("On ne remet pas en bout de file le Mouvement "+this.getClass().getName()
 						+" car la Page de l'Event "+this.deplacement.page.event.id+" ("
-						+this.deplacement.page.event.nom+") a changé : de "+pageAvant+" vers "+pageMaintenant);
+						+this.deplacement.page.event.nom+") a changï¿½ : de "+pageAvant+" vers "+pageMaintenant);
 			}
 
 		}
 		
 		// On retire ce Mouvement de la liste
 		final String messageDErreurPotentiel = "Impossible de retirer le premier Mouvement " + this.toString() 
-		+ " du Déplacement " + (this.deplacement.naturel ? "naturel" : "forcé")
+		+ " du Dï¿½placement " + (this.deplacement.naturel ? "naturel" : "forcï¿½")
 		+ " de l'Event " + event.id + " (" + event.nom + ")";
-		if (laPageEstToujoursLaMeme || !this.deplacement.naturel) { //un Déplacement forcé est au niveau de l'Event, pas de la Page
+		if (laPageEstToujoursLaMeme || !this.deplacement.naturel) { //un Dï¿½placement forcï¿½ est au niveau de l'Event, pas de la Page
 				if (deplacementNaturelOuForce.mouvements.size() >= 1) {
 					if (deplacementNaturelOuForce.mouvements.get(0).equals(this)) {
 						deplacementNaturelOuForce.mouvements.remove(0);
 					} else {
-						LOG.error(messageDErreurPotentiel+" car le premier mouvement du déplacement est un tout autre mouvement : "
+						LOG.error(messageDErreurPotentiel+" car le premier mouvement du dï¿½placement est un tout autre mouvement : "
 								+ deplacementNaturelOuForce.mouvements.get(0).getClass().getName());
 					}
 				} else {
-					LOG.error(messageDErreurPotentiel+" car le déplacement est vide.");
+					LOG.error(messageDErreurPotentiel+" car le dï¿½placement est vide.");
 				}
 		} else {
-			LOG.error(messageDErreurPotentiel+" car la page active a changé (page "+pageAvant+" -> page "+pageMaintenant+").");
+			LOG.error(messageDErreurPotentiel+" car la page active a changï¿½ (page "+pageAvant+" -> page "+pageMaintenant+").");
 		}
 	}
 	
 	/**
-	 * Actions à effectuer lors de la fin du Mouvement.
-	 * Spécifique à un type de Mouvement.
+	 * Actions a effectuer lors de la fin du Mouvement.
+	 * Spï¿½cifique a un type de Mouvement.
 	 * @param event subissant le Mouvement
 	 */
 	protected abstract void terminerLeMouvementSpecifique(Event event);
 	
 	/** 
-	 * Déclarer le Mouvement comme terminé car ignoré.
+	 * Dï¿½clarer le Mouvement comme terminï¿½ car ignorï¿½.
 	 * @param event subissant le Mouvement
 	 */
 	private void ignorerLeMouvement(final Event event) {
-		// Interruption spécifique à ce type de Mouvement en particulier
+		// Interruption spï¿½cifique a ce type de Mouvement en particulier
 		ignorerLeMouvementSpecifique(event);
 		
-		// Interruption commune à tous les Mouvements
+		// Interruption commune a tous les Mouvements
 		if (this.deplacement.ignorerLesMouvementsImpossibles) {
 			//on ignore ce Mouvement impossible et on passe au suivant
 			terminerLeMouvement(event);
@@ -185,21 +185,21 @@ public abstract class Mouvement {
 	}
 	
 	/**
-	 * Actions à effectuer lors de l'ignorage du Mouvement.
-	 * Spécifique à un type de Mouvement.
+	 * Actions a effectuer lors de l'ignorage du Mouvement.
+	 * Spï¿½cifique a un type de Mouvement.
 	 * @param event subissant le Mouvement
 	 */
 	protected abstract void ignorerLeMouvementSpecifique(Event event);
 	
 	/**
-	 * Décrire le Mouvement textuellement
+	 * Dï¿½crire le Mouvement textuellement
 	 * @return description du Mouvement
 	 */
 	public abstract String toString();
 	
 	/**
 	 * Pendant le Mouvement, l'Event est suceptible de changer de direction.
-	 * Il faut tourner l'Event dans la direction dictée par le Mouvement.
+	 * Il faut tourner l'Event dans la direction dictï¿½e par le Mouvement.
 	 */
 	public final void mettreEventDansLaDirectionDuMouvement() {
 		final Event event = this.deplacement.getEventADeplacer();
@@ -212,14 +212,14 @@ public abstract class Mouvement {
 	}
 	
 	/**
-	 * Quelle est la direction imposée par le Mouvement à l'Event ?
-	 * @return direction imposée par le Mouvement à l'Event ou -1 si aucune.
+	 * Quelle est la direction imposï¿½e par le Mouvement a l'Event ?
+	 * @return direction imposï¿½e par le Mouvement a l'Event ou -1 si aucune.
 	 */
 	public abstract int getDirectionImposee();
 	
 	/**
-	 * Traduit un JSONArray représentant les Mouvements en une liste de Mouvements.
-	 * @param mouvementsJSON JSONArray représentant les Mouvements
+	 * Traduit un JSONArray reprï¿½sentant les Mouvements en une liste de Mouvements.
+	 * @param mouvementsJSON JSONArray reprï¿½sentant les Mouvements
 	 * @return liste des Mouvements
 	 */
 	public static ArrayList<Mouvement> recupererLesMouvements(final JSONArray mouvementsJSON) {
@@ -233,8 +233,8 @@ public abstract class Mouvement {
 	}
 	
 	/**
-	 * Traduit un objet JSON représentant un Mouvement en un vrai objet Mouvement.
-	 * @param mouvementJSON objet JSON représentant un Mouvement
+	 * Traduit un objet JSON reprï¿½sentant un Mouvement en un vrai objet Mouvement.
+	 * @param mouvementJSON objet JSON reprï¿½sentant un Mouvement
 	 * @return un objet Mouvement
 	 */
 	private static Mouvement recupererUnMouvement(final JSONObject mouvementJSON) {
@@ -244,12 +244,12 @@ public abstract class Mouvement {
 		try {
 			classeMouvement = Class.forName("mouvements." + nomClasseMouvement);
 			final Iterator<String> parametresNoms = ((JSONObject) mouvementJSON).keys();
-			String parametreNom; //nom du paramètre pour instancier le mouvement
-			Object parametreValeur; //valeur du paramètre pour instancier le mouvement
+			String parametreNom; //nom du paramï¿½tre pour instancier le mouvement
+			Object parametreValeur; //valeur du paramï¿½tre pour instancier le mouvement
 			final HashMap<String, Object> parametres = new HashMap<String, Object>();
 			while (parametresNoms.hasNext()) {
 				parametreNom = parametresNoms.next();
-				if (!parametreNom.equals("nom")) { //le nom servait à trouver la classe, ici on ne s'intéresse qu'aux paramètres
+				if (!parametreNom.equals("nom")) { //le nom servait a trouver la classe, ici on ne s'intï¿½resse qu'aux paramï¿½tres
 					parametreValeur = ((JSONObject) mouvementJSON).get(parametreNom);
 					parametres.put( parametreNom, parametreValeur );
 				}

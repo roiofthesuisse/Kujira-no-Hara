@@ -7,7 +7,7 @@ import main.Commande;
 import map.LecteurMap;
 
 /**
- * Faire trembler l'écran.
+ * Faire trembler l'ecran.
  */
 public class TremblementDeTerre extends Commande implements CommandeEvent {
 	/** Nombre de millisecondes dans une seconde */
@@ -25,7 +25,7 @@ public class TremblementDeTerre extends Commande implements CommandeEvent {
 	 * 
 	 * @param intensite      du tremblement de terre
 	 * @param vitesse        du tremblement de terre
-	 * @param nombreDeFrames durée du tremblement de terre
+	 * @param nombreDeFrames durï¿½e du tremblement de terre
 	 */
 	private TremblementDeTerre(final int intensite, final Object vitesse, final int nombreDeFrames) {
 		this.intensite = intensite;
@@ -38,9 +38,9 @@ public class TremblementDeTerre extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur gï¿½nï¿½rique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public TremblementDeTerre(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("intensite"), parametres.get("vitesse"), (int) parametres.get("nombreDeFrames"));

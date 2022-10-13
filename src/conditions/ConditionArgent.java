@@ -7,7 +7,7 @@ import commandes.CommandeMenu;
 import utilitaire.Maths.Inegalite;
 
 /**
- * Le joueur possède-t-il assez d'argent ?
+ * Le joueur possï¿½de-t-il assez d'argent ?
  */
 public class ConditionArgent extends Condition implements CommandeEvent, CommandeMenu {
 
@@ -17,8 +17,8 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param quantite d'argent à posséder
-	 * @param symbole de l'Inégalité à utiliser pour comparer l'argent
+	 * @param quantite d'argent a possï¿½der
+	 * @param symbole de l'Inï¿½galitï¿½ a utiliser pour comparer l'argent
 	 */
 	public ConditionArgent(final int numero, final Integer quantite, final String symbole) {
 		this.numero = numero;
@@ -27,8 +27,8 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ConditionArgent(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,

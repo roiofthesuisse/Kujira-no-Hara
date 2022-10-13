@@ -13,15 +13,15 @@ public class ModifierModeDeFusion extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nouveauModeDeFusion à donner à l'Event
+	 * @param nouveauModeDeFusion a donner a l'Event
 	 */
 	public ModifierModeDeFusion(final ModeDeFusion nouveauModeDeFusion) {
 		this.nouveauModeDeFusion = nouveauModeDeFusion;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierModeDeFusion(final HashMap<String, Object> parametres) {
 		this( ModeDeFusion.parNom((String) parametres.get("modeDeFusion")) );

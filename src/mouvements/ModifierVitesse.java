@@ -19,15 +19,15 @@ public class ModifierVitesse extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nomNouvelleVitesse nom de la nouvelle vitesse à donner à l'Event
+	 * @param nomNouvelleVitesse nom de la nouvelle vitesse a donner a l'Event
 	 */
 	public ModifierVitesse(final String nomNouvelleVitesse) {
 		this.nomNouvelleVitesse = nomNouvelleVitesse;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur gï¿½nï¿½rique
+	 * @param parametres liste de paramï¿½tres issus de JSON
 	 */
 	public ModifierVitesse(final HashMap<String, Object> parametres) {
 		this( (String) parametres.get("vitesse") );
@@ -47,19 +47,19 @@ public class ModifierVitesse extends Mouvement {
 	@Override
 	protected final void calculDuMouvement(final Event event) {
 		if (this.nouvelleVitesse == null) {
-			// La Vitesse n'a pas encore été interprétée
+			// La Vitesse n'a pas encore ï¿½tï¿½ interprï¿½tï¿½e
 			
-			// On l'interprète
+			// On l'interprï¿½te
 			this.nouvelleVitesse = Vitesse.parNom(this.nomNouvelleVitesse);
 			
 			if (this.nouvelleVitesse == null) {
-				// La Vitesse n'a pas pu être interprétée !
+				// La Vitesse n'a pas pu ï¿½tre interprï¿½tï¿½e !
 				LOG.error("Nom de vitesse inconnu : "+this.nomNouvelleVitesse);
 				// On ne fera rien
 				this.nouvelleVitesse = event.vitesseActuelle;
 			}
 		}
-		// La nouvelle Vitesse a été interprétée
+		// La nouvelle Vitesse a ï¿½tï¿½ interprï¿½tï¿½e
 		
 		// On assigne la nouvelle Vitesse
 		event.vitesseActuelle = this.nouvelleVitesse;

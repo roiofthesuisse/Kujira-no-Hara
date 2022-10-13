@@ -12,8 +12,8 @@ import utilitaire.graphismes.Graphismes;
 import map.PageCommune;
 
 /**
- * Le lecteur peut être un lecteur de menu ou un lecteur de map.
- * Le rôle du lecteur est d'afficher dans la fenêtre la succession des écrans au cours du temps.
+ * Le lecteur peut ï¿½tre un lecteur de menu ou un lecteur de map.
+ * Le rï¿½le du lecteur est d'afficher dans la fenï¿½tre la succession des ecrans au cours du temps.
  */
 public abstract class Lecteur {	
 	protected static final Logger LOG = LogManager.getLogger(Lecteur.class);
@@ -21,71 +21,71 @@ public abstract class Lecteur {
 	private BufferedImage ecranAtuel;
 	
 	/**
-	 * Durée minimale d'une frame (en millisecondes).
-	 * Il est interdit qu'une frame dure moins longtemps, afin que l'animation soit compréhensible.
-	 * La frame peut durer plus longtemps si l'ordinateur a du mal à faire tourner le bousin.
+	 * Durï¿½e minimale d'une frame (en millisecondes).
+	 * Il est interdit qu'une frame dure moins longtemps, afin que l'animation soit comprï¿½hensible.
+	 * La frame peut durer plus longtemps si l'ordinateur a du mal a faire tourner le bousin.
 	 */
 	public static final int DUREE_FRAME = 30;
 	
 	/**
-	 * Est-ce que le Lecteur est allumé ?
-	 * Si le Lecteur est allumé, l'affichage de l'écran est actualisé en continu.
-	 * Si le Lecteur est éteint, l'affichage arrête sa boucle, et la Fenêtre doit démarrer un nouveau Lecteur.
+	 * Est-ce que le Lecteur est allumï¿½ ?
+	 * Si le Lecteur est allumï¿½, l'affichage de l'ecran est actualisï¿½ en continu.
+	 * Si le Lecteur est ï¿½teint, l'affichage arrï¿½te sa boucle, et la Fenï¿½tre doit dï¿½marrer un nouveau Lecteur.
 	 */
 	public boolean allume = true;
 	
 	/** 
-	 * Numéro de la frame en cours (en temps réel).
-	 * Une frame est une image affichée à l'écran pendant une courte durée.
+	 * Numï¿½ro de la frame en cours (en temps rï¿½el).
+	 * Une frame est une image affichï¿½e a l'ecran pendant une courte durï¿½e.
 	 * A chaque nouveau Lecteur, on repart de 0.
 	 */
 	public int frameActuelle = 0;
 	
 	/**
-	 * Le rôle d'un Lecteur est de calculer l'écran à afficher dans la Fenêtre.
-	 * @param frame de l'écran à calculer
-	 * @return écran à afficher maintenant
+	 * Le rï¿½le d'un Lecteur est de calculer l'ecran a afficher dans la Fenï¿½tre.
+	 * @param frame de l'ecran a calculer
+	 * @return ecran a afficher maintenant
 	 */
 	public abstract  BufferedImage calculerAffichage(int frame);
 	
 	/**
-	 * Prévenir le Lecteur qu'une touche a été pressée, pour qu'il en déduise une action à faire.
-	 * La touche envoyée ne dois pas être nulle !
-	 * @param touchePressee touche pressée
+	 * Prï¿½venir le Lecteur qu'une touche a ï¿½tï¿½ pressï¿½e, pour qu'il en dï¿½duise une action a faire.
+	 * La touche envoyï¿½e ne dois pas ï¿½tre nulle !
+	 * @param touchePressee touche pressï¿½e
 	 */
 	public abstract void keyPressed(ToucheRole touchePressee);
 	
 	/**
-	 * Prévenir le Lecteur qu'une touche a été relachée, pour qu'il en déduise une action à faire.
-	 * La touche envoyée ne dois pas être nulle !
-	 * @param toucheRelachee touche relachée
+	 * Prï¿½venir le Lecteur qu'une touche a ï¿½tï¿½ relachï¿½e, pour qu'il en dï¿½duise une action a faire.
+	 * La touche envoyï¿½e ne dois pas ï¿½tre nulle !
+	 * @param toucheRelachee touche relachï¿½e
 	 */
 	public abstract void keyReleased(ToucheRole toucheRelachee);
 	
 	/**
-	 * Faire une capture de l'écran actuel.
+	 * Faire une capture de l'ecran actuel.
 	 */
 	public final void faireUneCaptureDEcran() {
 		final String nomImage = "capture ecran kujira "+new Date().getTime();
-		LOG.info("Capture d'écran : "+nomImage);
+		LOG.info("Capture d'ecran : "+nomImage);
 		Graphismes.sauvegarderImage(this.ecranAtuel, nomImage);
 	}
 	
 	/***
-	 * Récupérer le nom du BGM qu'il faut jouer pour accompagner le Menu ou la Map
+	 * Rï¿½cupï¿½rer le nom du BGM qu'il faut jouer pour accompagner le Menu ou la Map
 	 */
 	protected abstract void lireMusique();
 	
 	/**
-	 * Démarrer le Lecteur.
-	 * Le Lecteur est allumé, la musique est lue, un écran est affiché à chaque frame.
-	 * Si jamais "allume" est mis à false, le Lecteur s'arrête et la Fenetre devra lancer le prochain Lecteur.
+	 * Dï¿½marrer le Lecteur.
+	 * Le Lecteur est allumï¿½, la musique est lue, un ecran est affichï¿½ a chaque frame.
+	 * Si jamais "allume" est mis a false, le Lecteur s'arrï¿½te et la Fenetre devra lancer le prochain Lecteur.
 	 */
 	public final void demarrer() {
 		this.allume = true;
 		LOG.info("-------------------------------------------------------------");
-		LOG.info("Un nouveau "+this.typeDeLecteur()+" vient d'être démarré.");
-		//démarrer la Musique de la Map/du Menu
+		LOG.info("Un nouveau "+this.typeDeLecteur()+" vient d'ï¿½tre dï¿½marrï¿½.");
+		//dï¿½marrer la Musique de la Map/du Menu
 		lireMusique();
 		
 		long t1, t2;
@@ -96,11 +96,11 @@ public abstract class Lecteur {
 			t2 = System.currentTimeMillis();
 			dureeEffectiveDeLaFrame = t2-t1;
 			if (dureeEffectiveDeLaFrame < Lecteur.DUREE_FRAME) {
-				//si l'affichage a pris moins de temps que la durée attendue, on attend que la frame se termine
+				//si l'affichage a pris moins de temps que la durï¿½e attendue, on attend que la frame se termine
 				try {
 					Thread.sleep(Lecteur.DUREE_FRAME-dureeEffectiveDeLaFrame);
 				} catch (InterruptedException e) {
-					LOG.error("La boucle de lecture du jeu dans Lecteur.demarrer() n'a pas réussi son sleep().", e);
+					LOG.error("La boucle de lecture du jeu dans Lecteur.demarrer() n'a pas rï¿½ussi son sleep().", e);
 				}
 			} else {
 				//l'affichage a pris trop de temps
@@ -109,9 +109,9 @@ public abstract class Lecteur {
 			Main.fenetre.actualiserAffichage(this.ecranAtuel);
 			this.frameActuelle++;
 		}
-		//si on est ici, c'est qu'une Commande Event a éteint le Lecteur
-		//la Fenêtre va devoir le remplacer par le futur Lecteur (si elle en a un de rechange)
-		LOG.info("Le "+typeDeLecteur()+" actuel vient d'être arrêté à la frame "+this.frameActuelle);
+		//si on est ici, c'est qu'une Commande Event a ï¿½teint le Lecteur
+		//la Fenï¿½tre va devoir le remplacer par le futur Lecteur (si elle en a un de rechange)
+		LOG.info("Le "+typeDeLecteur()+" actuel vient d'ï¿½tre arrï¿½tï¿½ a la frame "+this.frameActuelle);
 	}
 
 	/**

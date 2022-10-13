@@ -7,21 +7,21 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Permet d'uniformiser le contrôle de la Musique malgré les différents formats audio.
+ * Permet d'uniformiser le contrï¿½le de la Musique malgrï¿½ les diffï¿½rents formats audio.
  */
 public abstract class Musique {
 	//constantes
 	protected static final Logger LOG = LogManager.getLogger(Musique.class);
 	public static final float VOLUME_MAXIMAL = 1.0f;
-	/** Un SE trop long sera tronqué */
+	/** Un SE trop long sera tronquï¿½ */
 	private static final long DUREE_MAXIMALE_SE = 20000; //en millisecondes
-	/** Quand il est impossible de calculer la durée du ME */
+	/** Quand il est impossible de calculer la durï¿½e du ME */
 	protected static final long DUREE_PAR_DEFAUT_ME = 20000; //en millisecondes
 	protected static final long DELAI_AVANT_ME = 500; //en millisecondes
 	protected static final String DOSSIER_AUDIO = "./ressources/Audio/";
 	
 	/**
-	 * Le clip peut être un Clip javax ou bien un OggClip.
+	 * Le clip peut ï¿½tre un Clip javax ou bien un OggClip.
 	 */
 	protected Object clip;
 	protected InputStream stream;
@@ -33,7 +33,7 @@ public abstract class Musique {
 	public float volumeActuel;
 	
 	/**
-	 * Différents formats de fichiers audio possibles
+	 * Diffï¿½rents formats de fichiers audio possibles
 	 */
 	public enum FormatAudio {
 		WAV("WAV"), OGG("OGG"), MP3("MP3");
@@ -49,7 +49,7 @@ public abstract class Musique {
 	}
 	
 	/**
-	 * Différents types de fichiers audio possibles
+	 * Diffï¿½rents types de fichiers audio possibles
 	 */
 	public enum TypeMusique {
 		BGM("BGM"), BGS("BGS"), ME("ME"), SE("SE");
@@ -65,7 +65,7 @@ public abstract class Musique {
 	}
 	
 	/**
-	 * Thread parallèle qui joue la Musique.
+	 * Thread parallï¿½le qui joue la Musique.
 	 */
 	abstract class LancerSon implements Runnable {
 		private final TypeMusique type;
@@ -80,8 +80,8 @@ public abstract class Musique {
 		abstract long obtenirDuree();
 		
 		/**
-		 * Refermer le clip à la fin de son execution.
-		 * Si c'est un ME, redémarrer le BGM mis en silence.
+		 * Refermer le clip a la fin de son execution.
+		 * Si c'est un ME, redï¿½marrer le BGM mis en silence.
 		 */
 		protected void fermerALaFin() {
 			if (TypeMusique.SE.equals(this.type)) {
@@ -100,13 +100,13 @@ public abstract class Musique {
 					LOG.error("Impossible d'attendre la fin de la musique "+nom, e);
 				}
 		    	
-		    	// redémarrer le BGM après la fin du ME
+		    	// redï¿½marrer le BGM apres la fin du ME
 		    	for (int i = 0; i<LecteurAudio.NOMBRE_DE_PISTES; i++) {
 		    		final Musique bgm = LecteurAudio.bgmEnCours[i];
 			    	if (bgm != null) {
 			    		Float ancienVolume = this.volumeBgmMemorise[i];
 			    		if (ancienVolume == null) {
-			    			LOG.warn("Le ME est arrêté sans volume BGM à restituer.");
+			    			LOG.warn("Le ME est arrï¿½tï¿½ sans volume BGM a restituer.");
 			    			ancienVolume = Musique.VOLUME_MAXIMAL;
 			    		}
 			    		bgm.modifierVolume(ancienVolume);
@@ -131,24 +131,24 @@ public abstract class Musique {
 	
 	/**
 	 * Modifier le volume de la Musique.
-	 * @param nouveauVolume à appliquer
+	 * @param nouveauVolume a appliquer
 	 */
 	public abstract void modifierVolume(float nouveauVolume);
 	
 	/**
-	 * Jouer un fichier sonore qui s'arrêtera tout seul arrivé à la fin.
-	 * @param volumeBgmMemorise on a mémorisé les volumes des BGM avant de lancer un ME
+	 * Jouer un fichier sonore qui s'arrï¿½tera tout seul arrivï¿½ a la fin.
+	 * @param volumeBgmMemorise on a mï¿½morisï¿½ les volumes des BGM avant de lancer un ME
 	 */
 	public abstract void jouerUneSeuleFois(Float[] volumeBgmMemorise);
 	
 	/**
-	 * Jouer une fichier sonore qui tourne en boucle sans s'arrêter.
+	 * Jouer une fichier sonore qui tourne en boucle sans s'arrï¿½ter.
 	 */
 	public abstract void jouerEnBoucle();
 
 	/**
-	 * Arrêter cette Musique.
-	 * Il y a potentiellement deux threads à fermer : le Clip et l'InputStream.
+	 * Arrï¿½ter cette Musique.
+	 * Il y a potentiellement deux threads a fermer : le Clip et l'InputStream.
 	 * Ne pas utiliser autrement que via LecteurAudio.arreterBgm().
 	 */
 	public final void arreter() {
@@ -169,7 +169,7 @@ public abstract class Musique {
 	}
 	
 	/**
-	 * Arrêter la Musique en fonction du format audio.
+	 * Arrï¿½ter la Musique en fonction du format audio.
 	 */
 	public abstract void arreterSpecifique();
 	
@@ -179,7 +179,7 @@ public abstract class Musique {
 	public abstract void mettreEnPause();
 	
 	/**
-	 * Continuer la lecture de la Musique après la pause.
+	 * Continuer la lecture de la Musique apres la pause.
 	 */
 	public abstract void reprendreApresPause();
 

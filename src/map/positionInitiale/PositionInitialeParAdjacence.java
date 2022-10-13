@@ -5,7 +5,7 @@ import map.Transition;
 import map.Event.Direction;
 
 /**
- * Une certaine façon de calculer la position du Héros à son arrivée sur la Map.
+ * Une certaine faï¿½on de calculer la position du Hï¿½ros a son arrivï¿½e sur la Map.
  */
 public class PositionInitialeParAdjacence extends PositionInitiale {
 	final int directionDebutHeros;
@@ -15,10 +15,10 @@ public class PositionInitialeParAdjacence extends PositionInitiale {
 	
 	/**
 	 * Constructeur explicite
-	 * @param decalageDebutHeros décalage (en nombre de cases) du Héros par rapport à l'ancienne Map
-	 * @param directionDebutHeros direction initiale du Héros
-	 * @param xHerosMapPrecedente coordonnée x (en pixels) du Héros sur la Map précédente
-	 * @param yHerosMapPrecedente coordonnée y (en pixels) du Héros sur la Map précédente
+	 * @param decalageDebutHeros dï¿½calage (en nombre de cases) du Hï¿½ros par rapport a l'ancienne Map
+	 * @param directionDebutHeros direction initiale du Hï¿½ros
+	 * @param xHerosMapPrecedente coordonnï¿½e x (en pixels) du Hï¿½ros sur la Map prï¿½cï¿½dente
+	 * @param yHerosMapPrecedente coordonnï¿½e y (en pixels) du Hï¿½ros sur la Map prï¿½cï¿½dente
 	 */
 	public PositionInitialeParAdjacence(final int decalageDebutHeros, final int directionDebutHeros, 
 			final int xHerosMapPrecedente, final int yHerosMapPrecedente) {
@@ -52,7 +52,7 @@ public class PositionInitialeParAdjacence extends PositionInitiale {
 			LOG.error("Direction inconnue !");
 			break;
 		}
-		LOG.debug("Position intiale du héros sur la nouvelle map : "+resultat[0]+";"+resultat[1]+" direction : "+resultat[2]);
+		LOG.debug("Position intiale du hï¿½ros sur la nouvelle map : "+resultat[0]+";"+resultat[1]+" direction : "+resultat[2]);
 		return resultat;
 	}
 }

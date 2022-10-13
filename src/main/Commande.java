@@ -25,30 +25,30 @@ import map.PageEvent;
 import menu.ElementDeMenu;
 
 /**
- * Une Commande modifie l'état du jeu. Elle peut être lancée par une Page
- * d'Event, ou par un Elément de Menu.
+ * Une Commande modifie l'ï¿½tat du jeu. Elle peut ï¿½tre lancï¿½e par une Page
+ * d'Event, ou par un Elï¿½ment de Menu.
  */
 public abstract class Commande {
-	// clé de cryptage
+	// clï¿½ de cryptage
 	private static final Logger LOG = LogManager.getLogger(Commande.class);
 	private static final String CLE_CRYPTAGE_SAUVEGARDE = "t0p_k3k";
 	private static final int NOMBRE_OCTETS_HASH = 16;
 
-	/** [CommandeEvent] Eventuelle Page d'Event qui a appelé cette Commande */
+	/** [CommandeEvent] Eventuelle Page d'Event qui a appelï¿½ cette Commande */
 	public PageEvent page;
-	/** [CommandeMenu] Element de Menu qui a appelé cette Commande de Menu */
+	/** [CommandeMenu] Element de Menu qui a appelï¿½ cette Commande de Menu */
 	public ElementDeMenu element;
 
 	/**
-	 * Execute la Commande totalement ou partiellement. Le curseur peut être
-	 * inchangé (attendre n frames...) ; le curseur peut être incrémenté
+	 * Execute la Commande totalement ou partiellement. Le curseur peut ï¿½tre
+	 * inchangï¿½ (attendre n frames...) ; le curseur peut ï¿½tre incremente
 	 * (assignement de variable...) ; le curseur peut faire un grand saut (boucles,
 	 * conditions...).
 	 * 
-	 * @param curseurActuel position du curseur avant que la Commande soit executée
+	 * @param curseurActuel position du curseur avant que la Commande soit executï¿½e
 	 * @param commandes     liste des Commandes de la Page de comportement en train
-	 *                      d'être lue
-	 * @return nouvelle position du curseur après l'execution totale ou partielle de
+	 *                      d'ï¿½tre lue
+	 * @return nouvelle position du curseur apres l'execution totale ou partielle de
 	 *         la Commande
 	 */
 	public abstract int executer(int curseurActuel, List<Commande> commandes);
@@ -58,13 +58,13 @@ public abstract class Commande {
 	}
 
 	/**
-	 * Construire la clé de cryptage.
+	 * Construire la clï¿½ de cryptage.
 	 * 
-	 * @return clé de cryptage
+	 * @return clï¿½ de cryptage
 	 */
 	protected static final SecretKeySpec construireCleDeCryptage() {
 		try {
-			// Hashage de la clé
+			// Hashage de la clï¿½
 			byte[] cle = CLE_CRYPTAGE_SAUVEGARDE.getBytes("UTF-8");
 			final MessageDigest sha = MessageDigest.getInstance("SHA-1");
 			cle = sha.digest(cle);
@@ -82,20 +82,20 @@ public abstract class Commande {
 
 	/**
 	 * <p>
-	 * Récupérer la liste des Events candidats potentiellement désignés par la
+	 * Rï¿½cupï¿½rer la liste des Events candidats potentiellement dï¿½signï¿½s par la
 	 * Condition.
 	 * </p>
 	 * <p>
-	 * L'id peut être :
+	 * L'id peut ï¿½tre :
 	 * <ul>
 	 * <li>null : cet Event</li>
-	 * <li>Integer : unique et identifié par son numéro</li>
-	 * <li>String : non-unique et identifié par son nom</li>
+	 * <li>Integer : unique et identifiï¿½ par son numï¿½ro</li>
+	 * <li>String : non-unique et identifiï¿½ par son nom</li>
 	 * </ul>
 	 * </p>
 	 * 
 	 * @param id identifiant de l'Event
-	 * @return liste des Events candidats à la Condition
+	 * @return liste des Events candidats a la Condition
 	 */
 	protected ArrayList<Event> recupererLesEventsCandidats(final Object id) {
 		final ArrayList<Event> events = new ArrayList<Event>();
@@ -103,7 +103,7 @@ public abstract class Commande {
 			// null signifie cet Event
 			events.add(this.page.event);
 		} else if (id instanceof Integer) {
-			// l'Event est identifié par son numero
+			// l'Event est identifiï¿½ par son numero
 			final Event event;
 			if ((Integer) id == 0) {
 				event = this.page.event.map.heros;
@@ -112,7 +112,7 @@ public abstract class Commande {
 			}
 			events.add(event);
 		} else {
-			// l'Event est identifié par son nom ; potentiellement plusieurs candidats
+			// l'Event est identifiï¿½ par son nom ; potentiellement plusieurs candidats
 			final String nomEvent = (String) id;
 			for (Event event : this.page.event.map.events) {
 				if (nomEvent.equals(event.nom)) {
@@ -135,7 +135,7 @@ public abstract class Commande {
 		for (Object commandeJSON : commandesJSON) {
 			final Commande commande = recupererUneCommande((JSONObject) commandeJSON);
 			if (commande != null) {
-				// on vérifie que c'est bien une CommandeEvent
+				// on vï¿½rifie que c'est bien une CommandeEvent
 				if (commande instanceof CommandeEvent) {
 					commandes.add(commande);
 				} else {
@@ -157,7 +157,7 @@ public abstract class Commande {
 		for (Object commandeJSON : commandesJSON) {
 			final Commande commande = recupererUneCommande((JSONObject) commandeJSON);
 			if (commande != null) {
-				// on vérifie que c'est bien une CommandeMenu
+				// on vï¿½rifie que c'est bien une CommandeMenu
 				if (commande instanceof CommandeMenu) {
 					commandes.add((CommandeMenu) commande);
 				} else {
@@ -180,13 +180,13 @@ public abstract class Commande {
 				final String nomClasseCommande = ((JSONObject) commandeJSON).getString("nom");
 				final Class<?> classeCommande = Class.forName("commandes." + nomClasseCommande);
 				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
-				String parametreNom; // nom du paramètre pour instancier la Commande Event
-				Object parametreValeur; // valeur du paramètre pour instancier la Commande Event
+				String parametreNom; // nom du paramï¿½tre pour instancier la Commande Event
+				Object parametreValeur; // valeur du paramï¿½tre pour instancier la Commande Event
 				final HashMap<String, Object> parametres = new HashMap<String, Object>();
 				while (parametresNoms.hasNext()) {
 					parametreNom = parametresNoms.next();
-					if (!parametreNom.equals("nom")) { // le nom servait à trouver la classe, ici on ne s'intéresse
-														// qu'aux paramètres
+					if (!parametreNom.equals("nom")) { // le nom servait a trouver la classe, ici on ne s'intï¿½resse
+														// qu'aux paramï¿½tres
 						parametreValeur = ((JSONObject) commandeJSON).get(parametreNom);
 						parametres.put(parametreNom, parametreValeur);
 					}
@@ -201,9 +201,9 @@ public abstract class Commande {
 	}
 
 	/**
-	 * Traduit un objet JSON représentant une Commande en vrai objet Commande.
+	 * Traduit un objet JSON reprï¿½sentant une Commande en vrai objet Commande.
 	 * 
-	 * @param commandeJson objet JSON représentant une Commande
+	 * @param commandeJson objet JSON reprï¿½sentant une Commande
 	 * @return objet Commande
 	 */
 	public static Commande recupererUneCommande(final JSONObject commandeJson) {
@@ -222,13 +222,13 @@ public abstract class Commande {
 				classeCommande = Class.forName("conditions." + nomClasseCommande);
 			}
 			final Iterator<String> parametresNoms = commandeJson.keys();
-			String parametreNom; // nom du paramètre pour instancier la Commande Event
-			Object parametreValeur; // valeur du paramètre pour instancier la Commande Event
+			String parametreNom; // nom du paramï¿½tre pour instancier la Commande Event
+			Object parametreValeur; // valeur du paramï¿½tre pour instancier la Commande Event
 			final HashMap<String, Object> parametres = new HashMap<String, Object>();
 			while (parametresNoms.hasNext()) {
 				parametreNom = parametresNoms.next();
-				if (!parametreNom.equals("nom")) { // le nom servait à trouver la classe, ici on ne s'intéresse qu'aux
-													// paramètres
+				if (!parametreNom.equals("nom")) { // le nom servait a trouver la classe, ici on ne s'intï¿½resse qu'aux
+													// paramï¿½tres
 					parametreValeur = commandeJson.get(parametreNom);
 					parametres.put(parametreNom, parametreValeur);
 				}

@@ -9,7 +9,7 @@ import main.Commande;
 import menu.Listable;
 
 /**
- * Lettre à envoyer à un personnage du jeu via la poste.
+ * Lettre a envoyer a un personnage du jeu via la poste.
  */
 public class LettreAEnvoyer extends Lettre implements Listable {
 	public EtatCourrier etat;
@@ -19,7 +19,7 @@ public class LettreAEnvoyer extends Lettre implements Listable {
 		// icone
 		// TODO
 		
-		// Première ligne (destinataire)
+		// Premiï¿½re ligne (destinataire)
 		// TODO
 
 		// TODO
@@ -42,7 +42,7 @@ public class LettreAEnvoyer extends Lettre implements Listable {
 
 	@Override
 	public final ArrayList<Commande> getComportementConfirmation() {
-		// Ouvrir le menu d'édition de lettre
+		// Ouvrir le menu d'ï¿½dition de lettre
 		// TODO
 		return null;
 	}
