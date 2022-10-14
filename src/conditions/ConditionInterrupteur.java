@@ -25,8 +25,8 @@ public class ConditionInterrupteur extends Condition implements CommandeEvent, C
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionInterrupteur(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroInterrupteur"),

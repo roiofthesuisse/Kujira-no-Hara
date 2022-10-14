@@ -26,8 +26,8 @@ public class ModifierFrequence extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierFrequence(final HashMap<String, Object> parametres) {
 		this( (String) parametres.get("frequence") );
@@ -47,7 +47,7 @@ public class ModifierFrequence extends Mouvement {
 	@Override
 	protected final void calculDuMouvement(final Event event) {
 		if (this.nouvelleFrequence == null) {
-			// La Fr�quence n'a pas encore �t� interpr�t�e
+			// La Fr�quence n'a pas encore ete interpr�t�e
 			
 			// On l'interpr�te
 			this.nouvelleFrequence = Frequence.parNom(this.nomNouvelleFrequence);
@@ -59,7 +59,7 @@ public class ModifierFrequence extends Mouvement {
 				this.nouvelleFrequence = event.frequenceActuelle;
 			}
 		}
-		// La nouvelle Fr�quence a �t� interpr�t�e
+		// La nouvelle Fr�quence a ete interpr�t�e
 		
 		// On assigne la nouvelle Fr�quence
 		event.frequenceActuelle = this.nouvelleFrequence;

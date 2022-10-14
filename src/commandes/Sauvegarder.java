@@ -40,9 +40,9 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public Sauvegarder(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("numeroSauvegarde") ? (int) parametres.get("numeroSauvegarde") : null);
@@ -158,7 +158,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	 * Ajouter des ZZZZ inutiles a la fin du fichier pour avoir une taille multiple
 	 * de 16.
 	 * 
-	 * @param text0 texte en entr�e
+	 * @param text0 texte en entree
 	 * @return texte rallong� avec des ZZZ
 	 */
 	private byte[] ajouterAppendice(final byte[] text0) {

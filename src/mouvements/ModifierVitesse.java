@@ -26,8 +26,8 @@ public class ModifierVitesse extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierVitesse(final HashMap<String, Object> parametres) {
 		this( (String) parametres.get("vitesse") );
@@ -47,7 +47,7 @@ public class ModifierVitesse extends Mouvement {
 	@Override
 	protected final void calculDuMouvement(final Event event) {
 		if (this.nouvelleVitesse == null) {
-			// La Vitesse n'a pas encore �t� interpr�t�e
+			// La Vitesse n'a pas encore ete interpr�t�e
 			
 			// On l'interpr�te
 			this.nouvelleVitesse = Vitesse.parNom(this.nomNouvelleVitesse);
@@ -59,7 +59,7 @@ public class ModifierVitesse extends Mouvement {
 				this.nouvelleVitesse = event.vitesseActuelle;
 			}
 		}
-		// La nouvelle Vitesse a �t� interpr�t�e
+		// La nouvelle Vitesse a ete interpr�t�e
 		
 		// On assigne la nouvelle Vitesse
 		event.vitesseActuelle = this.nouvelleVitesse;

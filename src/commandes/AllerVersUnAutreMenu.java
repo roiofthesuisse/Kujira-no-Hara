@@ -39,9 +39,9 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public AllerVersUnAutreMenu(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("menu"), (Integer) parametres.get("selectionInitiale"),
@@ -66,7 +66,7 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 		// Transmettre le lecteur de Map
 		final LecteurMap lecteurMapMemorise = this.element.menu.lecteur.lecteurMapMemorise;
 
-		// D�marrer le nouveau Menu
+		// Demarrer le nouveau Menu
 		final LecteurMenu nouveauLecteur = new LecteurMenu(nouveauMenu, lecteurMapMemorise, this.selectionInitiale);
 		nouveauLecteur.changerMenu();
 

@@ -17,8 +17,8 @@ public class ImageMenu extends ElementDeMenu {
 	 * @param apparence de l'El�ment de Menu : une BufferedImage ou bien un tableau (largeur,hauteur) repr�sentant une image vide
 	 * @param x position x a l'ecran
 	 * @param y position y a l'ecran
-	 * @param largeurForcee si sp�cifi�e, l'image sera affich�e dans un rectangle invisible de telle largeur
-	 * @param hauteurForcee si sp�cifi�e, l'image sera affich�e dans un rectangle invisible de telle hauteur
+	 * @param largeurForcee si sp�cifi�e, l'image sera affichee dans un rectangle invisible de telle largeur
+	 * @param hauteurForcee si sp�cifi�e, l'image sera affichee dans un rectangle invisible de telle hauteur
 	 * @param conditions d'affichage
 	 * @param selectionnable peut-on le s�lectionner ?
 	 * @param comportementSelection comportement au survol
@@ -61,8 +61,8 @@ public class ImageMenu extends ElementDeMenu {
 	 * @param objet repr�sent� par cette Image dans le Menu
 	 * @param x position x a l'ecran
 	 * @param y position y a l'ecran
-	 * @param largeurForcee si sp�cifi�e, l'image sera affich�e dans un rectangle invisible de telle largeur
-	 * @param hauteurForcee si sp�cifi�e, l'image sera affich�e dans un rectangle invisible de telle hauteur
+	 * @param largeurForcee si sp�cifi�e, l'image sera affichee dans un rectangle invisible de telle largeur
+	 * @param hauteurForcee si sp�cifi�e, l'image sera affichee dans un rectangle invisible de telle hauteur
 	 * @param selectionnable peut-on le s�lectionner ?
 	 * @param id identifiant de l'ElementDeMenu
 	 */

@@ -29,15 +29,14 @@ public class Message extends Commande implements CommandeEvent {
 	protected static final int MARGE_Y_FACESET = 32;
 	protected static final int INTELIGNE = 24;
 	protected static final int LARGEUR_FACESET = 96;
-	protected static final int ECART_FACESET = 12;
+	protected static final int ECART_FACESET = 16;
 	protected static final String NOM_IMAGE_BOITE_MESSAGE = "parchotexte.png";
 	protected static final String NOM_IMAGE_BOITE_MESSAGE_FACESET = "parchotexte faceset.png";
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE = chargerImageDeFondDeLaBoiteMessage(false);
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_PLEINE_FACESET = chargerImageDeFondDeLaBoiteMessage(true);
 	protected static final BufferedImage IMAGE_BOITE_MESSAGE_VIDE = Graphismes
 			.creerUneImageVideDeMemeTaille(IMAGE_BOITE_MESSAGE_PLEINE);
-	// protected static BufferedImage imageBoiteMessage =
-	// IMAGE_BOITE_MESSAGE_PLEINE;
+	// protected static BufferedImage imageBoiteMessage = IMAGE_BOITE_MESSAGE_PLEINE;
 	protected static final boolean MASQUER_BOITE_MESSAGE_PAR_DEFAUT = false;
 	protected static final Position POSITION_BOITE_MESSAGE_PAR_DEFAUT = Position.BAS;
 
@@ -73,10 +72,10 @@ public class Message extends Commande implements CommandeEvent {
 		}
 
 		/**
-		 * R�cup�rer la Position de la boite de Messages par son nom.
+		 * recuperer la Position de la boite de Messages par son nom.
 		 * 
 		 * @param nom de la position
-		 * @return position ainsi nomm�e
+		 * @return position ainsi nommee
 		 */
 		public static Position parNom(final String nom) {
 			for (Position position : Position.values()) {
@@ -91,7 +90,7 @@ public class Message extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param texte affich� dans la boite de dialogue
+	 * @param texte affiche dans la boite de dialogue
 	 */
 	public Message(final ArrayList<String> texte) {
 		this.texte = texte;
@@ -99,9 +98,9 @@ public class Message extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public Message(final HashMap<String, Object> parametres) {
 		this(Texte.construireTexteMultilingue(parametres.get("texte")));
@@ -110,19 +109,37 @@ public class Message extends Commande implements CommandeEvent {
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 
-		// TODO si la Commande suivante est le Choix/EntrerUnNombre dont ce Message est
-		// la question, et qu'il y a la place dans la Commande suivante pour afficher la
-		// question, passer tout de suite à la COmmande suivante
-
 		final LecteurMap lecteur = this.page.event.map.lecteur;
 		lecteur.normaliserApparenceDesInterlocuteursAvantMessage(this.page.event);
-		// si le Message a afficher est diff�rent du Message affiche, on change !
+		// si le Message a afficher est different du Message affiche, on change !
 		if (ilFautReactualiserLImageDuMessage(lecteur)) {
 			if (lecteur.messageActuel != null) {
 				lecteur.messagePrecedent = lecteur.messageActuel;
 			}
 			lecteur.messageActuel = this;
 			this.image = produireImageDuMessage();
+		}
+
+		// Si la Commande suivante est le Choix/EntrerUnNombre
+		// dont ce Message est la question
+		// et qu'il y a la place dans la Commande suivante pour afficher la question
+		// passer tout de suite à la Commande suivante
+		if (!(this instanceof Choix || this instanceof EntrerUnNombre)) {
+			int i = 1;
+			onChercheLeChoixDontCeMessageEstLaQuestion: 
+			while (curseurActuel + i < commandes.size()) {
+				Commande commandeSuivante = commandes.get(curseurActuel + i);
+				if (commandeSuivante instanceof Commentaire) {
+					i++;
+					continue onChercheLeChoixDontCeMessageEstLaQuestion;
+				}
+				if (commandeSuivante instanceof Choix && ((Choix) commandeSuivante).ilYALaPlacePourLaQuestion(this.texte)
+						|| commandeSuivante instanceof EntrerUnNombre && ((EntrerUnNombre) commandeSuivante).ilYALaPlacePourLaQuestion(this.texte)) {
+
+					return redirectionSelonLeChoix(curseurActuel, commandes);
+				}
+				break onChercheLeChoixDontCeMessageEstLaQuestion;
+			}
 		}
 
 		// fermer le message
@@ -141,7 +158,7 @@ public class Message extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Faut-il r�actualiser l'image du Message ?
+	 * Faut-il reactualiser l'image du Message ?
 	 * 
 	 * @param lecteur de map
 	 * @return true s'il faut construire une nouvelle image de Message, false sinon

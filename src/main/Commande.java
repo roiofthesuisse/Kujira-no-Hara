@@ -82,7 +82,7 @@ public abstract class Commande {
 
 	/**
 	 * <p>
-	 * R�cup�rer la liste des Events candidats potentiellement d�sign�s par la
+	 * recuperer la liste des Events candidats potentiellement d�sign�s par la
 	 * Condition.
 	 * </p>
 	 * <p>
@@ -180,13 +180,13 @@ public abstract class Commande {
 				final String nomClasseCommande = ((JSONObject) commandeJSON).getString("nom");
 				final Class<?> classeCommande = Class.forName("commandes." + nomClasseCommande);
 				final Iterator<String> parametresNoms = ((JSONObject) commandeJSON).keys();
-				String parametreNom; // nom du param�tre pour instancier la Commande Event
-				Object parametreValeur; // valeur du param�tre pour instancier la Commande Event
+				String parametreNom; // nom du parametre pour instancier la Commande Event
+				Object parametreValeur; // valeur du parametre pour instancier la Commande Event
 				final HashMap<String, Object> parametres = new HashMap<String, Object>();
 				while (parametresNoms.hasNext()) {
 					parametreNom = parametresNoms.next();
 					if (!parametreNom.equals("nom")) { // le nom servait a trouver la classe, ici on ne s'int�resse
-														// qu'aux param�tres
+														// qu'aux parametres
 						parametreValeur = ((JSONObject) commandeJSON).get(parametreNom);
 						parametres.put(parametreNom, parametreValeur);
 					}
@@ -218,13 +218,13 @@ public abstract class Commande {
 				classeCommande = Class.forName("conditions." + nomClasseCommande);
 			}
 			final Iterator<String> parametresNoms = commandeJson.keys();
-			String parametreNom; // nom du param�tre pour instancier la Commande Event
-			Object parametreValeur; // valeur du param�tre pour instancier la Commande Event
+			String parametreNom; // nom du parametre pour instancier la Commande Event
+			Object parametreValeur; // valeur du parametre pour instancier la Commande Event
 			final HashMap<String, Object> parametres = new HashMap<String, Object>();
 			while (parametresNoms.hasNext()) {
 				parametreNom = parametresNoms.next();
 				if (!parametreNom.equals("nom")) { // le nom servait a trouver la classe, ici on ne s'int�resse qu'aux
-													// param�tres
+													// parametres
 					parametreValeur = commandeJson.get(parametreNom);
 					parametres.put(parametreNom, parametreValeur);
 				}

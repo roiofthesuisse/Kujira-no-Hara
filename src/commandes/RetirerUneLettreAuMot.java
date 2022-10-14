@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Retirer la dernière lettre du mot de passe.
+ * Retirer la derniï¿½re lettre du mot de passe.
  */
 public class RetirerUneLettreAuMot extends Commande implements CommandeMenu {
 	final int numeroMot;
@@ -14,16 +14,16 @@ public class RetirerUneLettreAuMot extends Commande implements CommandeMenu {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroMot numéro du mot auquel il faut retirer une lettre
+	 * @param numeroMot numï¿½ro du mot auquel il faut retirer une lettre
 	 */
 	public RetirerUneLettreAuMot(final int numeroMot) {
 		this.numeroMot = numeroMot;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public RetirerUneLettreAuMot(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroMot"));

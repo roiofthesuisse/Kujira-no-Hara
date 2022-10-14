@@ -30,7 +30,7 @@ public class Liste<T extends Listable> {
 	private final int x;
 	/** Position y de la Liste */
 	private final int y;
-	/** Nombre de colonnes du tableau bidimensionnel affich� */
+	/** Nombre de colonnes du tableau bidimensionnel affiche */
 	private final int nombreDeColonnes;
 	/** Nombre de lignes visibles a l'ecran a la fois */
 	private final int nombreDeLignesVisibles;
@@ -124,7 +124,7 @@ public class Liste<T extends Listable> {
 		} catch (NoSuchMethodException e) {
 			LOG.error("Impossible de trouve la Methode '"+METHODE_OBTENIR_LISTABLES+"' pour obtenir chaque "+provenance.getName(), e);
 		} catch (SecurityException e) {
-			LOG.error("Probl�me de s�curit� ! Tous aux abris !", e);
+			LOG.error("probleme de s�curit� ! Tous aux abris !", e);
 		} catch (IllegalAccessException e) {
 			LOG.error("Acc�s incorrect a la Methode d'un Listable.", e);
 		} catch (IllegalArgumentException e) {
@@ -285,7 +285,7 @@ public class Liste<T extends Listable> {
 	}
 	
 	/**
-	 * R�cup�rer une Liste d'ElementsDeMenu.
+	 * recuperer une Liste d'ElementsDeMenu.
 	 * @param jsonElement objet JSON repr�sentant la Liste
 	 * @param x position x (en pixels) de la Liste dans le Menu
 	 * @param y position y (en pixels) de la Liste dans le Menu

@@ -23,9 +23,9 @@ public class ModifierOptionsMessages extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierOptionsMessages(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("masquer") ? (boolean) parametres.get("masquer") : false,

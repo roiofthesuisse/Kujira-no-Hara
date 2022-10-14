@@ -25,8 +25,8 @@ public class ConditionMot extends Condition implements CommandeEvent, CommandeMe
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionMot(final HashMap<String, Object> parametres) {
 		this( 

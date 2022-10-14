@@ -79,7 +79,7 @@ public abstract class Maths {
 					return inegalite;
 				}
 			}
-			LOG.error("Cette inegalit� n'a pas �t� trouv�e : "+symbole);
+			LOG.error("Cette inegalit� n'a pas ete trouv�e : "+symbole);
 			return null;
 		}
 		
@@ -112,7 +112,7 @@ public abstract class Maths {
 
 	/**
 	 * Maximum
-	 * @param nombres en entr�e
+	 * @param nombres en entree
 	 * @return plus grand des nombres
 	 */
 	public static int max(final int... nombres) {
@@ -127,7 +127,7 @@ public abstract class Maths {
 	
 	/**
 	 * Minimum
-	 * @param nombres en entr�e
+	 * @param nombres en entree
 	 * @return plus petit des nombres
 	 */
 	public static int min(final int... nombres) {
@@ -165,22 +165,11 @@ public abstract class Maths {
 		float resultat = 1f;
 		if (valeur != null) {
 			try {
-				// Double ?
-				resultat = new Float((double) valeur);
-			} catch (ClassCastException e1) {
-				try {
-					// Float ?
-					resultat = (float) valeur;
-				} catch (ClassCastException e3) {
-					try {
-						// Int ?
-						resultat = new Float((int) valeur);
-						LOG.warn("Conversion de int vers float de la valeur : "+valeur);
-					} catch (ClassCastException e2) {
-						// Autre !
-						LOG.error("Impossible de convertir en float "+valeur, e3);
-					}
-				}
+				// Int, Double ou Float ?
+				resultat = (float) valeur;
+			} catch (ClassCastException e3) {
+					// Autre !
+					LOG.error("Impossible de convertir en float " + valeur, e3);
 			}
 		} else {
 			// Null ?

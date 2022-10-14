@@ -48,7 +48,7 @@ public class Quete implements Listable {
 	public int yCarte;
 
 	/**
-	 * Une Qu�te peut se pr�senter sous diff�rents niveaux d'Avancement au fil du
+	 * Une Qu�te peut se pr�senter sous differents niveaux d'Avancement au fil du
 	 * jeu.
 	 */
 	public enum AvancementQuete {
@@ -87,9 +87,9 @@ public class Quete implements Listable {
 	 * @param id                    de la Qu�te
 	 * @param nom                   de la Qu�te
 	 * @param description           de la Qu�te
-	 * @param nomIconeQuetePasFaite nom de l'ic�ne affich�e lorsque la Qu�te n'est
+	 * @param nomIconeQuetePasFaite nom de l'ic�ne affichee lorsque la Qu�te n'est
 	 *                              pas encore faite
-	 * @param nomIconeQueteFaite    nom de l'ic�ne affich�e lorsque la Qu�te a �t�
+	 * @param nomIconeQueteFaite    nom de l'ic�ne affichee lorsque la Qu�te a �t�
 	 *                              faite
 	 * @param numeroCarte           num�ro de la Carte sur laquelle figure la Quete
 	 * @param xCarte                position x sur la carte des Qu�tes
@@ -109,9 +109,9 @@ public class Quete implements Listable {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public Quete(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("id"), Texte.construireTexteMultilingue(parametres.get("nom")),
@@ -133,7 +133,7 @@ public class Quete implements Listable {
 		try {
 			jsonQuetes = InterpreteurDeJson.ouvrirJsonQuetes();
 		} catch (Exception e) {
-			// probl�me lors de l'ouverture du fichier JSON
+			// probleme lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les qu�tes du jeu.", e);
 			quetesDuJeu = null;
 			return 0;
@@ -164,7 +164,7 @@ public class Quete implements Listable {
 	}
 
 	/**
-	 * Obtenir l'ic�ne de cette Qu�te lorsqu'elle n'a pas encore �t� faite par le
+	 * Obtenir l'ic�ne de cette Qu�te lorsqu'elle n'a pas encore ete faite par le
 	 * joueur.
 	 * 
 	 * @return ic�ne de la Qu�te non faite
@@ -189,7 +189,7 @@ public class Quete implements Listable {
 	}
 
 	/**
-	 * Obtenir l'ic�ne de cette Qu�te lorsqu'elle a �t� faite par le joueur.
+	 * Obtenir l'ic�ne de cette Qu�te lorsqu'elle a ete faite par le joueur.
 	 * 
 	 * @return ic�ne de la Qu�te faite
 	 */

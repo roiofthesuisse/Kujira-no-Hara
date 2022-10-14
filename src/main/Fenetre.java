@@ -10,20 +10,18 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javafx.embed.swing.JFXPanel;
-import main.capteurs.CapteurClavier;
-import main.capteurs.CapteurFenetre;
-import main.capteurs.CapteurSouris;
-
 import javax.swing.JFrame;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import main.capteurs.CapteurClavier;
+import main.capteurs.CapteurFenetre;
+import main.capteurs.CapteurSouris;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * La Fen�tre affiche l'ecran du jeu, mais a aussi un r�le de listener pour les entr�es clavier.
+ * La Fenetre affiche l'ecran du jeu, mais a aussi un role de listener pour les entrees clavier.
  */
 @SuppressWarnings("serial")
 public final class Fenetre extends JFrame {
@@ -43,20 +41,20 @@ public final class Fenetre extends JFrame {
 	
 	/**
 	 * Constructeur explicite
-	 * @param pleinEcran faut-il ouvrir la Fen�tre en plein ecran ?
+	 * @param pleinEcran faut-il ouvrir la Fenetre en plein ecran ?
 	 */
 	Fenetre(final boolean pleinEcran) {
 		super(TITRE);
 		this.pleinEcran = pleinEcran;
 		
-		// Capteurs d'entr�es
+		// Capteurs d'entrees
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		this.addKeyListener(new CapteurClavier()); //r�cup�rer les entr�es Clavier
+		this.addKeyListener(new CapteurClavier()); //recuperer les entrees Clavier
 		this.addWindowListener(new CapteurFenetre()); //pauser le jeu si Fenetre inactive
 		this.addMouseListener(new CapteurSouris()); //plein ecran si double-clic
 		this.device = this.getGraphicsConfiguration().getDevice();
 		
-		// D�marrer JavaFX pour pouvoir ensuite lire des fichiers MP3
+		// Demarrer JavaFX pour pouvoir ensuite lire des fichiers MP3
 		// TODO ne plus utiliser de fichiers MP3 !
 		//@SuppressWarnings("unused")
 		//final JFXPanel fxPanel = new JFXPanel();
@@ -68,7 +66,7 @@ public final class Fenetre extends JFrame {
 			this.device.setFullScreenWindow(this);
 			
 		} else {
-			// Mode fen�tr� 
+			// Mode fenetre 
 			final Insets marges = obtenirLesMarges();
 			this.margeGauche = marges.left;
 			this.margeHaut = marges.top;
@@ -87,14 +85,14 @@ public final class Fenetre extends JFrame {
 			icones.add(iconeGrande);
 			this.setIconImages(icones);
 		} catch (IOException e) {
-			//probl�me avec les icones
-			LOG.error("Probl�me avec les ic�nes", e);
+			//probleme avec les icones
+			LOG.error("probleme avec les ic�nes", e);
 		}
 		
-		// On fait appara�tre la Fen�tre
+		// On fait apparaitre la Fenetre
 		this.setVisible(true);
 		
-		// Strat�gie d'affichage
+		// Strategie d'affichage
 		this.createBufferStrategy(1);
 		this.bufferStrategy = this.getBufferStrategy();
 		this.bufferStrategyGraphics = this.bufferStrategy.getDrawGraphics();
@@ -102,8 +100,8 @@ public final class Fenetre extends JFrame {
 
 	
 	/**
-	 * Calculer la taille des marges de la Fen�tre (variables selon l'Operating System).
-	 * En v�rit� la Fen�tre est un peu plus grande que l'ecran : elle a des marges tout autour.
+	 * Calculer la taille des marges de la Fenetre (variables selon l'Operating System).
+	 * En verite la Fenetre est un peu plus grande que l'ecran : elle a des marges tout autour.
 	 * @return marges a prendre en compte
 	 */
 	public static Insets obtenirLesMarges() {
@@ -115,14 +113,14 @@ public final class Fenetre extends JFrame {
 	}
 	
 	/**
-	 * Changer l'image affich�e dans la Fen�tre de jeu.
-	 * @param image nouvelle image a afficher dans la fen�tre
+	 * Changer l'image affichee dans la Fenetre de jeu.
+	 * @param image nouvelle image a afficher dans la Fenetre
 	 */
 	public void actualiserAffichage(final BufferedImage image) {
 		//do {
 			// S'assurer que le contenu du tampon graphique reste coh�rent
 			//do {
-				// Il faut un nouveau contexte graphique a chaque tour de boucle pour valider la strat�gie
+				// Il faut un nouveau contexte graphique a chaque tour de boucle pour valider la strategie
 				//final Graphics graphics = this.bufferStrategy.getDrawGraphics();
 				final BufferedImage imageAgrandie;
 				if (this.device.getFullScreenWindow() != null) {
@@ -132,13 +130,13 @@ public final class Fenetre extends JFrame {
 				}
 				// Dessiner l'ecran de cette frame-ci
 				bufferStrategyGraphics.drawImage(imageAgrandie, this.margeGauche, this.margeHaut, null);
-				// Lib�rer le contexte graphique
+				// Liberer le contexte graphique
 				//graphics.dispose();
-				// R�p�ter le rendu si jamais le contenu du tampon est restaur�
+				// Repeter le rendu si jamais le contenu du tampon est restaure
 			//} while (this.bufferStrategy.contentsRestored());
 			// Afficher le tampon
 			this.bufferStrategy.show();
-			// R�p�ter le rendu si le tampon a �t� perdu
+			// Repeter le rendu si le tampon a ete perdu
 		//} while (this.bufferStrategy.contentsLost());
 		
 		// On n'aura plus jamais besoin de l'image
@@ -178,7 +176,7 @@ public final class Fenetre extends JFrame {
 	}
 
 	/**
-	 * Fermer la Fen�tre.
+	 * Fermer la Fenetre.
 	 */
 	public void fermer() {
 		this.bufferStrategyGraphics.dispose();

@@ -48,9 +48,9 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierBrouillard(final HashMap<String, Object> parametres) {
 		// "null" signifie aucun changement par rapport au Brouillard actuel
@@ -95,7 +95,7 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 				// Aucun changement
 				LOG.warn("Cette modification du brouillard ne change rien !");
 			} else {
-				// Diff�rent d'avant !
+				// different d'avant !
 				// Si manquantes, on r�utilise les valeurs du Brouillard actuel
 				this.page.event.map.brouillard = new Brouillard(
 						this.nomImage == null ? brouillardActuel.nomImage : this.nomImage,

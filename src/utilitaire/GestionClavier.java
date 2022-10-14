@@ -45,7 +45,7 @@ public abstract class GestionClavier {
 	}
 	
 	/**
-	 * Association entre les touches du clavier et leur r�le
+	 * Association entre les touches du clavier et leur role
 	 */
 	public enum ToucheRole {
 		ACTION("ACTION", ToucheClavier.K),
@@ -69,7 +69,7 @@ public abstract class GestionClavier {
 		/**
 		 * Constructeur explicite
 		 * @param touches du clavier
-		 * @param nom du r�le associ� a la touche
+		 * @param nom du role associ� a la touche
 		 */
 		ToucheRole(final String nom, final ToucheClavier... touches) {
 			this.touches = touches;
@@ -89,7 +89,7 @@ public abstract class GestionClavier {
 					}
 				}
 			}
-			LOG.warn("une touche inconnue a �t� press�e : "+keycode); 
+			LOG.warn("une touche inconnue a ete press�e : "+keycode); 
 			return null;
 		}
 		
@@ -106,12 +106,12 @@ public abstract class GestionClavier {
 					}
 				}
 			}
-			LOG.error("une touche inconnue a �t� mentionn�e : "+nom); 
+			LOG.error("une touche inconnue a ete mentionn�e : "+nom); 
 			return null;
 		}
 		
 		/**
-		 * Une des touches du clavier correspondant a ce r�le est-elle enfonc�e.
+		 * Une des touches du clavier correspondant a ce role est-elle enfonc�e.
 		 * @return true ou false
 		 */
 		public boolean enfoncee() {
@@ -124,7 +124,7 @@ public abstract class GestionClavier {
 		}
 		
 		/**
-		 * Frame d'appui d'une des touches du clavier correspondant a ce r�le.
+		 * Frame d'appui d'une des touches du clavier correspondant a ce role.
 		 * @return la frame
 		 */
 		public Integer frameDAppui() {
@@ -137,7 +137,7 @@ public abstract class GestionClavier {
 		}
 
 		/**
-		 * Mutateur de l'enfoncement de toutes les touches du clavier correspondant a ce r�le.
+		 * Mutateur de l'enfoncement de toutes les touches du clavier correspondant a ce role.
 		 * @param b noter les touches du clavier comme enfonc�es ou non
 		 */
 		public void enfoncee(final boolean b) {
@@ -147,8 +147,8 @@ public abstract class GestionClavier {
 		}
 
 		/**
-		 * Mutateur de la frame d'appui de toutes les touches du clavier correspondant a ce r�le.
-		 * @param frame d'appui a assigner aux touches de ce r�le
+		 * Mutateur de la frame d'appui de toutes les touches du clavier correspondant a ce role.
+		 * @param frame d'appui a assigner aux touches de ce role
 		 */
 		public void frameDAppui(final Integer frame) {
 			for (ToucheClavier touche : this.touches) {
@@ -168,7 +168,7 @@ public abstract class GestionClavier {
 	        	return true;
 	        }
 	    }
-		LOG.warn("une touche inconnue a �t� press�e : "+keycode); 
+		LOG.warn("une touche inconnue a ete press�e : "+keycode); 
 		return false;
 	}
 	

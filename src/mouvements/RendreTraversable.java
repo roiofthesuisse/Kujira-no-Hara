@@ -24,8 +24,8 @@ public class RendreTraversable extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public RendreTraversable(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("traversable") ? (boolean) parametres.get("traversable") : true );

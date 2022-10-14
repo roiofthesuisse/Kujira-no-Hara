@@ -31,13 +31,13 @@ public class Map implements Sauvegardable {
 	private static final Logger LOG = LogManager.getLogger(Map.class);
 	/** Chaque carreau du Tileset poss�de une altitude intrins�que */
 	private static final int NOMBRE_ALTITUDES = 6;
-	/** L'altitude m�diane est celle affich�e avec les Events ; les autres altitudes sont soit dessous, soit dessus */
+	/** L'altitude m�diane est celle affichee avec les Events ; les autres altitudes sont soit dessous, soit dessus */
 	private static final int ALTITUDE_MEDIANE = 1;
 	/** Le d�cor est constitu� de 3 couches, afin de pouvoir superposer plusieurs carreaux au m�me endroit de la Map */
 	private static final int NOMBRE_LAYERS = 3;
-	/** La position intiale du H�ros sur cette Map est d�crite par 5 param�tres */
+	/** La position intiale du H�ros sur cette Map est d�crite par 5 parametres */
 	private static final int POSITION_INITIALE_PAR_X_Y_ET_DIRECTION = 5;
-	/** La position intiale du H�ros sur cette Map est d�crite par 2 param�tres */
+	/** La position intiale du H�ros sur cette Map est d�crite par 2 parametres */
 	private static final int POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION = 2;
 	
 	/** Num�ro du fichier JSON de la Map */
@@ -55,7 +55,7 @@ public class Map implements Sauvegardable {
 	public String nomTileset;
 	/** Image contenant les tuiles constitutives de d�cor possibles */
 	public Tileset tileset;
-	/** Image de panorama actuel affich� derri�re la Map */
+	/** Image de panorama actuel affiche derri�re la Map */
 	public BufferedImage panoramaActuel;
 	/** Taux de parallaxe entre la Map et le Panorama */
 	public int parallaxeActuelle;
@@ -72,7 +72,7 @@ public class Map implements Sauvegardable {
 	private BufferedImage[] imagesCoucheSurHeros;
 	/** Le d�cor contient-il des autotiles anim�s ? */
 	public boolean contientDesAutotilesAnimes;
-	/** Brouillard affich� par dessus de d�cor et les Events */
+	/** Brouillard affiche par dessus de d�cor et les Events */
 	public Brouillard brouillard;
 	/** liste des Events rang�s par coordonn�e y */
 	public ArrayList<Event> events;
@@ -88,7 +88,7 @@ public class Map implements Sauvegardable {
 	public int directionDebutHeros;
 	/** La case x;y est-elle passable ? */
 	public Passabilite[][] casePassable;
-	/** Pour faire d�filer la cam�ra ailleurs que centr�e sur le H�ros */
+	/** Pour faire d�filer la cam�ra ailleurs que centree sur le H�ros */
 	public final boolean defilementCameraX, defilementCameraY;
 	/** Effet d'ondulation sur la Map */
 	public Ondulation ondulation;
@@ -160,7 +160,7 @@ public class Map implements Sauvegardable {
 			for (Object o : adjacencesJsonArray) {
 				final JSONObject jsonAdjacence = (JSONObject) o;
 				
-				final Integer direction = new Integer(jsonAdjacence.getInt("direction"));
+				final Integer direction = Integer.valueOf(jsonAdjacence.getInt("direction"));
 				final int decalage = jsonAdjacence.has("decalage") ? jsonAdjacence.getInt("decalage") : 0;
 				final Transition transitionVersLAdjacence = jsonAdjacence.has("transition") 
 						? Transition.parNom(jsonAdjacence.getString("transition")) 
@@ -267,7 +267,7 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * L'affichage est un sandwich : une partie du d�cor est affich�e par dessus les Events, une autre dessous, et une autre au m�me niveau.
+	 * L'affichage est un sandwich : une partie du d�cor est affichee par dessus les Events, une autre dessous, et une autre au m�me niveau.
 	 * @param altitudeMin premi�re altitude de cette couche de d�cor
 	 * @param altitudeMax derni�re altitude (incluse) de cette couche de d�cor
 	 * @return vignettes de la couche de d�cor
@@ -312,13 +312,13 @@ public class Map implements Sauvegardable {
 		}
 		
 		final long t1 = System.nanoTime();
-		Main.mesuresDePerformance.add(new Long(t1 - t0).toString());
+		Main.mesuresDePerformance.add(Long.valueOf(t1 - t0).toString());
 		return vignettesDeCetteCouche;
 	}
 	
 	/**
 	 * Dessine a l'ecran un carreau du Tileset aux coordonn�es (xEcran;yEcran).
-	 * @warning Ne pas oublier de r�cup�rer le r�sultat de cette Methode.
+	 * @warning Ne pas oublier de recuperer le r�sultat de cette Methode.
 	 * @param ecran sur lequel on doit dessiner un carreau
 	 * @param xEcran position x o� dessiner le carreau a l'ecran
 	 * @param yEcran position y o� dessiner le carreau a l'ecran
@@ -336,7 +336,7 @@ public class Map implements Sauvegardable {
 	
 	/**
 	 * Dessiner a l'ecran un carreau issu d'un autotile.
-	 * @warning Ne pas oublier de r�cup�rer le r�sultat de cette Methode.
+	 * @warning Ne pas oublier de recuperer le r�sultat de cette Methode.
 	 * @param decorAnime partie anim�e du d�cor (� peindre dans le cas d'un Autotile anim�)
 	 * @param x coordonn�e x du carreau sur la Map
 	 * @param y coordonn�e y du carreau sur la Map
@@ -360,7 +360,7 @@ public class Map implements Sauvegardable {
 			for (int i = 1; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {
 				decorAnime[i] = Graphismes.clonerUneImage(decorAnime[0]);
 			}
-			LOG.debug("Cr�ation des diff�rentes vignettes d'animation du d�cor.");
+			LOG.debug("Cr�ation des differentes vignettes d'animation du d�cor.");
 		}
 		
 		final int nombreDeVignettes = this.contientDesAutotilesAnimes ? Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME : 1;
@@ -498,7 +498,7 @@ public class Map implements Sauvegardable {
 	 * Inscrire l'Event dans la liste des Events en attente de suppression.
 	 * L'Event sera supprim� a la fin de la boucle d'affichage.
 	 * @param idEventASupprimer num�ro de l'Event qu'il faut inscrire a la suppression
-	 * @return bool�en pour savoir si l'Event a supprimer a bien �t� trouv� dans la liste des �v�nements
+	 * @return bool�en pour savoir si l'Event a supprimer a bien ete trouv� dans la liste des �v�nements
 	 */
 	public final boolean supprimerEvenement(final int idEventASupprimer) {
 		for (Event event : this.events) {
@@ -507,7 +507,7 @@ public class Map implements Sauvegardable {
 				return true;
 			}
 		}
-		LOG.warn("L'�v�nement a supprimer id:"+idEventASupprimer+" n'a pas �t� trouv� dans la liste.");
+		LOG.warn("L'�v�nement a supprimer id:"+idEventASupprimer+" n'a pas ete trouv� dans la liste.");
 		return false;
 	}
 

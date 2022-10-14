@@ -21,9 +21,9 @@ public class FermerMenu extends Commande implements CommandeMenu {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public FermerMenu(final HashMap<String, Object> parametres) {
 		this();

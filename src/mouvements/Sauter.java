@@ -44,8 +44,8 @@ public class Sauter extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public Sauter(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("x"), 

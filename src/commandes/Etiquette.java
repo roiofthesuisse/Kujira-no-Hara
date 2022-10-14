@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Une Etiquette vers laquelle on peut déplacer le curseur.
+ * Une Etiquette vers laquelle on peut dï¿½placer le curseur.
  */
 public class Etiquette extends Commande implements CommandeEvent {
 	/** Nom de l'Etiquette */
@@ -22,17 +22,17 @@ public class Etiquette extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public Etiquette(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("nomEtiquette"));
 	}
 
 	/**
-	 * L'Etiquette en soi n'a aucun effet, ce n'est qu'un point de repère. Son
-	 * execution est instantanée.
+	 * L'Etiquette en soi n'a aucun effet, ce n'est qu'un point de repï¿½re. Son
+	 * execution est instantanï¿½e.
 	 * 
 	 * @param curseurActuel position du curseur avant l'execution
 	 * @param commandes     liste des Commandes de la Page

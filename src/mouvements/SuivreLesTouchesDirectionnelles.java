@@ -37,7 +37,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 
 	/**
 	 * Constructeur param�trique
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public SuivreLesTouchesDirectionnelles(final HashMap<String, Object> parametres) {
 		this();
@@ -272,7 +272,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	 * Ce pas peut rester th�orique pour permettre de calculer la possibilit� (ou non) d'un Mouvement.
 	 * @param dir direction du pas
 	 * @param event qui doit avancer
-	 * @param vitesseForcee du pas, �ventuellement diff�rente de la vitesse de l'Event
+	 * @param vitesseForcee du pas, �ventuellement differente de la vitesse de l'Event
 	 * @return un pas dans la direction demand�e
 	 */
 	private Avancer unPasVers(final int dir, final Event event, final int vitesseForcee) {
@@ -288,7 +288,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	 * @param dirVerti direction verticale du pas
 	 * @param dirHori direction horizontale du pas
 	 * @param event qui doit avancer
-	 * @param vitesseForcee du pas, �ventuellement diff�rente de la vitesse de l'Event
+	 * @param vitesseForcee du pas, �ventuellement differente de la vitesse de l'Event
 	 * @return un pas dans la direction demand�e
 	 */
 	private Mouvement unPasVers(final int dirVerti, final int dirHori, final Event event, final int vitesseForcee) {

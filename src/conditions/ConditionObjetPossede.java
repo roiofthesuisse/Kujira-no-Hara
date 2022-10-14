@@ -6,14 +6,14 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
 /**
- * Le joueur possède-t-il l'Objet ?
+ * Le joueur possï¿½de-t-il l'Objet ?
  */
 public class ConditionObjetPossede extends Condition implements CommandeEvent, CommandeMenu {
 	private int idObjet;
 	
 	/**
 	 * Constructeur partiel
-	 * Réservé aux Conditions de Pages
+	 * Rï¿½servï¿½ aux Conditions de Pages
 	 * @param idObjet identifiant de l'Objet
 	 */
 	public ConditionObjetPossede(final int idObjet) {
@@ -22,7 +22,7 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	
 	/**
 	 * Constructeur explicite
-	 * @param numeroCondition numéro de la Condition
+	 * @param numeroCondition numï¿½ro de la Condition
 	 * @param idObjet identifiant de l'Objet
 	 */
 	public ConditionObjetPossede(final int numeroCondition, final int idObjet) {
@@ -31,8 +31,8 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	}
 		
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionObjetPossede(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1,

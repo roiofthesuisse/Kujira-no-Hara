@@ -12,8 +12,8 @@ import map.Tileset;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Modifier l'image de Panorama pour en avoir une autre que celle associée par
- * défaut au Tileset. On peut également changer le degré de parallaxe.
+ * Modifier l'image de Panorama pour en avoir une autre que celle associï¿½e par
+ * dï¿½faut au Tileset. On peut ï¿½galement changer le degrï¿½ de parallaxe.
  */
 public class ModifierPanorama extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(ModifierPanorama.class);
@@ -25,7 +25,7 @@ public class ModifierPanorama extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * 
 	 * @param nomImage  nom de l'image de panorama
-	 * @param parallaxe (en pourcents) du Panorama par rapport au décor de la Map
+	 * @param parallaxe (en pourcents) du Panorama par rapport au dï¿½cor de la Map
 	 */
 	public ModifierPanorama(final String nomImage, final int parallaxe) {
 		this.nomImage = nomImage;
@@ -33,9 +33,9 @@ public class ModifierPanorama extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierPanorama(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("nomImage"),

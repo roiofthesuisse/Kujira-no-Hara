@@ -13,7 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import map.Event.Direction;
-import map.Hitbox;
 import map.Map;
 import map.Passabilite;
 import map.Tileset;
@@ -650,7 +649,7 @@ public abstract class GenererLaCarteDuJeu {
 		/**
 		 * Comparaison
 		 * @param lieu autre
-		 * @return true si c'est le même
+		 * @return true si c'est le mï¿½me
 		 */
 		public final boolean equals(final Lieu lieu) {
 			return lieu.id == this.id;

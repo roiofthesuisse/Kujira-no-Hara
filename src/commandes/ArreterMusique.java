@@ -34,9 +34,9 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ArreterMusique(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("nombreDeFrames") ? (int) parametres.get("nombreDeFrames") : 0,

@@ -19,7 +19,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	private Sens sens;
 	private int directionPossibleVerticale;
 	private int directionPossibleHorizontale;
-	/** La direction a-t-elle �t� d�cid�e ? Si oui on n'y touche plus */
+	/** La direction a-t-elle ete d�cid�e ? Si oui on n'y touche plus */
 	private boolean directionDecidee;
 
 	/**
@@ -35,8 +35,8 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 	}
 
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public AvancerEnFonctionDUnEvent(final HashMap<String, Object> parametres) {
 		this(

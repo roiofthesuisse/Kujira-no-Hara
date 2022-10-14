@@ -13,7 +13,7 @@ import map.Picture;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * D�marrer une transition progressive de l'�tat actuel de l'image vers un �tat
+ * Demarrer une transition progressive de l'�tat actuel de l'image vers un �tat
  * d'arriv�e. Cette transition peut concerner le position de l'image, son
  * opacit�, son zoom, son angle. Il est �galement possible de changer de mode de
  * fusion, mais ce changement sera imm�diat.
@@ -57,7 +57,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	private int angleDebut;
 	private Integer angleFin;
 
-	/** Faut-il r�p�ter en boucle le d�placement ? */
+	/** Faut-il Repeter en boucle le d�placement ? */
 	private final boolean repeterLeDeplacement;
 	/**
 	 * Faut-il attendre la fin du d�placement pour passer a la Commande suivante ?
@@ -107,7 +107,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
 	 * @param parametres liste de parametres issus de JSON
 	 */
@@ -164,7 +164,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			this.angleDebut = picture.angle;
 			this.opaciteDebut = picture.opacite;
 
-			// n'est modifi� que ce qui a �t� explicitement sp�cifi�
+			// n'est modifi� que ce qui a ete explicitement sp�cifi�
 			if (this.modeDeFusion != null) {
 				picture.modeDeFusion = this.modeDeFusion;
 			}
@@ -173,7 +173,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			}
 		}
 
-		// n'est modifi� que ce qui a �t� explicitement sp�cifi�
+		// n'est modifi� que ce qui a ete explicitement sp�cifi�
 		if (this.x != null) {
 			picture.x = (int) Math.round(progression * this.xFin + (1 - progression) * this.xDebut);
 		}
@@ -230,7 +230,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	}
 
 	/**
-	 * Le d�placement de l'image a �t� d�l�gu� par la Commande au LecteurMap afin de
+	 * Le d�placement de l'image a ete d�l�gu� par la Commande au LecteurMap afin de
 	 * passer imm�diatement a la Commande suivante. Ce d�placement s'effectue donc
 	 * en parallele, de maniere ind�pendante.
 	 * 

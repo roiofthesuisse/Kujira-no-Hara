@@ -32,9 +32,9 @@ public class TransformerUnEvent extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public TransformerUnEvent(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idEventCible"), (int) parametres.get("idMap"),

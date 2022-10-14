@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import main.Commande;
+import main.Main;
 import map.LecteurMap;
 import menu.Menu;
 import menu.Texte;
@@ -38,7 +41,7 @@ public class EntrerUnNombre extends Message {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param texte            affich� dans la bo�te de dialogue
+	 * @param texte            affiche dans la bo�te de dialogue
 	 * @param numeroDeVariable num�ro de la Variable qui m�morise le nombre
 	 * @param tailleDuNombre   longueur (en chiffres) du nombre entr�
 	 */
@@ -57,9 +60,9 @@ public class EntrerUnNombre extends Message {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public EntrerUnNombre(final HashMap<String, Object> parametres) {
 		this(Texte.construireTexteMultilingue(parametres.get("texte")), (int) parametres.get("numeroDeVariable"),
@@ -92,6 +95,11 @@ public class EntrerUnNombre extends Message {
 			imageDuMessage = Graphismes.superposerImages(imageDuMessage, chiffresRentresTexte[i].getImage(),
 					MARGE_X_TEXTE + 2 * i * largeurChiffre, MARGE_Y_TEXTE + hauteurTexte);
 		}
+
+		// TODO afficher le faceset
+		// TODO afficher la question
+		// TODO decaler tout le reste en fonction du faceset
+
 		return imageDuMessage;
 	}
 
@@ -150,6 +158,18 @@ public class EntrerUnNombre extends Message {
 		// on modifie la valeur de la variable
 		getPartieActuelle().variables[this.numeroDeVariable] = nombre;
 		return curseurActuel + 1;
+	}
+
+	/**
+	 * Y a-t-il la place dans la boite de Message pour ecrire la question et
+	 * l'entree de nombre ?
+	 * 
+	 * @param traductions question dans plusieurs langues
+	 * @return true si on peut caser les deux
+	 */
+	public boolean ilYALaPlacePourLaQuestion(ArrayList<String> traductions) {
+		String texteQuestion = traductions.get(Main.langue < traductions.size() ? Main.langue : 0);
+		return (StringUtils.countMatches(texteQuestion, "\n") + 1) + 1 <= 4;
 	}
 
 }

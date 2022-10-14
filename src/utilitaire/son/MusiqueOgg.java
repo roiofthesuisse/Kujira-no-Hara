@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-import utilitaire.son.Musique.TypeMusique;
-
 /**
  * Fichier audio au format OGG.
  */

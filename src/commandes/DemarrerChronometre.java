@@ -10,7 +10,7 @@ import jeu.Chronometre;
 import main.Commande;
 
 /**
- * D�marrer le Chronometre a partir d'une certaine valeur.
+ * Demarrer le Chronometre a partir d'une certaine valeur.
  */
 public class DemarrerChronometre extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(DemarrerChronometre.class);
@@ -30,9 +30,9 @@ public class DemarrerChronometre extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public DemarrerChronometre(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("croissant") ? (boolean) parametres.get("croissant") : false,

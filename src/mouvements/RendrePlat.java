@@ -19,8 +19,8 @@ public class RendrePlat extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public RendrePlat(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("plat") ? (boolean) parametres.get("plat") : true );

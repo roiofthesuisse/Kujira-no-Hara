@@ -21,9 +21,9 @@ public class DemarrerAnimationAttaque extends Commande implements CommandeEvent 
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public DemarrerAnimationAttaque(final HashMap<String, Object> parametres) {
 		this();
@@ -32,7 +32,7 @@ public class DemarrerAnimationAttaque extends Commande implements CommandeEvent 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final Heros heros = this.page.event.map.heros;
-		// pas d'attaque si Mouvement forcé en cours
+		// pas d'attaque si Mouvement forcï¿½ en cours
 		if (heros.deplacementForce == null || heros.deplacementForce.mouvements.size() <= 0) {
 			final Arme armeActuelle = getPartieActuelle().getArmeEquipee();
 			heros.animationAttaque = armeActuelle.framesDAnimation.length;

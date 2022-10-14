@@ -38,9 +38,9 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public InvoquerUnEvent(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("x"), (int) parametres.get("y"), (int) parametres.get("idMap"),
@@ -67,7 +67,7 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 				}
 			}
 			if (eventInvoque != null) {
-				// L'Event a �t� instanci� avec succ�s
+				// L'Event a ete instanci� avec succ�s
 
 				// Le placer sur la Map courante
 				eventInvoque.x = this.x * Main.TAILLE_D_UN_CARREAU;
@@ -77,9 +77,9 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 				LOG.info("Invocation de l'event " + this.idEvent + " originaire de la map " + this.idMap);
 
 			} else {
-				// L'event n'a pas �t� trouv�
+				// L'event n'a pas ete trouv�
 				LOG.error("Impossible d'invoquer l'event " + this.idEvent
-						+ ", il n'a pas �t� trouv� dans le JSON de la map " + this.idMap);
+						+ ", il n'a pas ete trouv� dans le JSON de la map " + this.idMap);
 			}
 		} catch (Exception e) {
 			LOG.error("Impossible d'ouvrir le fichier JSON de la map " + this.idMap, e);

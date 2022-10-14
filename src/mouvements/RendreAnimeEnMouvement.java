@@ -19,8 +19,8 @@ public class RendreAnimeEnMouvement extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public RendreAnimeEnMouvement(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("animeEnMouvement") ? (boolean) parametres.get("animeEnMouvement") : true );

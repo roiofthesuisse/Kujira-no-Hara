@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Equiper le Heros avec une Arme qu'il possède
+ * Equiper le Heros avec une Arme qu'il possï¿½de
  */
 public class AutoriserMenu extends Commande implements CommandeEvent {
 	/** Autoriser : true, interdire : false */
@@ -15,16 +15,16 @@ public class AutoriserMenu extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param autoriser l'accès au Menu ou pas ?
+	 * @param autoriser l'accï¿½s au Menu ou pas ?
 	 */
 	public AutoriserMenu(final boolean autoriser) {
 		this.autoriser = autoriser;
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public AutoriserMenu(final HashMap<String, Object> parametres) {
 		this((boolean) parametres.get("autoriser"));

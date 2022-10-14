@@ -43,8 +43,8 @@ public class SeRapprocher extends Avancer {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public SeRapprocher(final HashMap<String, Object> parametres) {
 		this(

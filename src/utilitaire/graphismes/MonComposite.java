@@ -58,7 +58,7 @@ public final class MonComposite implements Composite {
 	@Override
 	public CompositeContext createContext(ColorModel srcColorModel, final ColorModel dstColorModel, final RenderingHints hints) {
 		if (!srcColorModel.equals(dstColorModel)) {
-			LOG.warn("Attention : les mod�les de couleurs sont diff�rents pour les deux images !\n"
+			LOG.warn("Attention : les mod�les de couleurs sont differents pour les deux images !\n"
 					+ "Chargez les images avec Graphismes.ouvrirImage() afin d'assurer la compatibilit�.");
 		}
 		return new ContexteDeComposite(this);

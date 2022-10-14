@@ -36,9 +36,9 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierMeteo(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("type") ? (String) parametres.get("type") : null, parametres);
@@ -84,7 +84,7 @@ public class ModifierMeteo extends Commande implements CommandeEvent {
 			LOG.warn("Cette m�t�o est identique a l'ancienne, on ne fait rien. " + ancienTypeMeteo + "->"
 					+ nouveauTypeMeteo);
 		} else {
-			// la nouvelle m�t�o propos�e est diff�rente de l'ancienne
+			// la nouvelle m�t�o propos�e est differente de l'ancienne
 			getPartieActuelle().meteo = nouvelleMeteo;
 		}
 

@@ -10,7 +10,7 @@ import utilitaire.Maths;
 import map.Passabilite;
 
 /**
- * Déplacer un Event d'un pas en diagonale
+ * Dï¿½placer un Event d'un pas en diagonale
  */
 public class PasEnDiagonale extends Avancer {
 	int directionVerticale;
@@ -29,8 +29,8 @@ public class PasEnDiagonale extends Avancer {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public PasEnDiagonale(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("directionVerticale"),
@@ -41,7 +41,7 @@ public class PasEnDiagonale extends Avancer {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incrémente le compteur "ceQuiAEteFait".
+	 * Puis incrï¿½mente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	@Override
@@ -50,7 +50,7 @@ public class PasEnDiagonale extends Avancer {
 		
 		//il ne faut pas que l'Event aille plus loin que son objectif !
 		final int enjambee = Maths.min(event.vitesseActuelle.valeur, this.etapes - this.ceQuiAEteFait);
-		//déplacement :
+		//dï¿½placement :
 		switch (this.directionHorizontale) {
 			case Direction.GAUCHE : 
 				event.x -= enjambee; 
@@ -67,7 +67,7 @@ public class PasEnDiagonale extends Avancer {
 				event.y -= enjambee; 
 				break;
 		}
-		//on actualise la complétion du Mouvement
+		//on actualise la complï¿½tion du Mouvement
 		this.ceQuiAEteFait += enjambee;
 	}
 
@@ -79,17 +79,17 @@ public class PasEnDiagonale extends Avancer {
 	public final boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		
-		//si c'est le Héros, il n'avance pas s'il est en animation d'attaque
+		//si c'est le Hï¿½ros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 			return false;
 		}
 		
-		//si l'Event est lui-même traversable, il peut faire son mouvement
+		//si l'Event est lui-mï¿½me traversable, il peut faire son mouvement
 		if (event.traversableActuel == Passabilite.PASSABLE) {
 			return true;
 		}
 		
-		//collisions avec le décor et les autres Events
+		//collisions avec le dï¿½cor et les autres Events
 		int xAInspecter = event.x;
 		int yAInspecter = event.y;
 		switch (this.directionVerticale) {
@@ -119,10 +119,10 @@ public class PasEnDiagonale extends Avancer {
 	@Override
 	public final int getDirectionImposee() {
 		if (this.deplacement.getEventADeplacer().direction == this.directionVerticale) {
-			//si l'Event regarde déjà dans une des deux directions de la diagonale, on prend celle-ci
+			//si l'Event regarde dï¿½jï¿½ dans une des deux directions de la diagonale, on prend celle-ci
 			return this.directionVerticale;
 		} else {
-			//sinon par défaut on prend la composante horizontale de la diagonale
+			//sinon par dï¿½faut on prend la composante horizontale de la diagonale
 			return this.directionHorizontale;
 		}
 	}

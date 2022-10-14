@@ -68,9 +68,9 @@ public abstract class Poste {
 			final int debut = responseHttp.indexOf("DEBUT_COURRIER")+"DEBUT_COURRIER".length();
 			final int fin = responseHttp.lastIndexOf("FIN_COURRIER");
 			final String courrier = responseHttp.substring(debut, fin);
-			LOG.info("Le courrier a �t� re�u : \""+courrier+"\"");
+			LOG.info("Le courrier a ete re�u : \""+courrier+"\"");
 		} else {
-			LOG.info("Le courrier n'a pas �t� re�u.");
+			LOG.info("Le courrier n'a pas ete re�u.");
 		}
 	}
 	
@@ -94,11 +94,11 @@ public abstract class Poste {
 			final int debut = responseHttp.indexOf("|");
 			final int fin = responseHttp.lastIndexOf("|") + 1;
 			final String courrier = responseHttp.substring(debut, fin);
-			LOG.info("Le courrier a �t� re�u : \""+courrier+"\"");
+			LOG.info("Le courrier a ete re�u : \""+courrier+"\"");
 			return courrier;
 			
 		} else {
-			LOG.info("Le courrier n'a pas �t� re�u.");
+			LOG.info("Le courrier n'a pas ete re�u.");
 			return null;
 		}
 	}
@@ -144,7 +144,7 @@ public abstract class Poste {
 			in.close();
 			
 			//print result
-			LOG.info("La requete POST a �t� envoy�e et sa r�ponse a �t� r�cup�r�e.");
+			LOG.info("La requete POST a ete envoy�e et sa r�ponse a ete r�cup�r�e.");
 			return sbuf.toString();
 
 		} catch (IOException e) {

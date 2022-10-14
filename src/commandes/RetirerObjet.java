@@ -25,9 +25,9 @@ public class RetirerObjet extends Commande implements CommandeMenu, CommandeEven
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public RetirerObjet(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idObjet"), parametres.containsKey("quantite") ? (int) parametres.get("quantite") : 1 // retirer

@@ -11,7 +11,7 @@ import map.Map;
  */
 public class ConditionDirection extends Condition implements CommandeEvent {
 	/**
-	 * 0 : le Héros
+	 * 0 : le Hï¿½ros
 	 * null : cet Event
 	 */
 	private final Integer idEventConcerne; 
@@ -20,7 +20,7 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param event dont on vérifie la direction (0 : le Héros, null : cet Event)
+	 * @param event dont on vï¿½rifie la direction (0 : le Hï¿½ros, null : cet Event)
 	 * @param direction attendue
 	 */
 	public ConditionDirection(final int numero, final Integer event, final int direction) {
@@ -30,8 +30,8 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionDirection(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
@@ -49,7 +49,7 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 			//cet Event
 			eventConcerne = this.page.event;
 		} else if (idEventConcerne == 0) {
-			//le Héros
+			//le Hï¿½ros
 			eventConcerne = map.heros;
 		} else {
 			//un Event particulier
@@ -59,7 +59,7 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

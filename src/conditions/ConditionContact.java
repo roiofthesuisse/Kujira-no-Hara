@@ -39,8 +39,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionContact(final HashMap<String, Object> parametres) {
 		this( 
@@ -53,7 +53,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	
 	
 	/**
-	 * La nature du Contact peut �tre de plusieurs degr�s diff�rents.
+	 * La nature du Contact peut �tre de plusieurs degr�s differents.
 	 */
 	public enum TypeDeContact {
 		/**
@@ -213,7 +213,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		}
 		
 		/**
-		 * R�cup�rer un type de contact a partir de son nom.
+		 * recuperer un type de contact a partir de son nom.
 		 * @param nom du type de contact
 		 * @return le type de contact voulu, ou null si le nom n'existe pas
 		 */
@@ -264,7 +264,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 					final int ymin2 = event2.y;
 					final int ymax2 = event2.y + event2.hauteurHitbox;
 					
-					// deux interpr�tations tr�s diff�rentes du Contact selon la traversabilit� de l'event
+					// deux interpr�tations tr�s differentes du Contact selon la traversabilit� de l'event
 					// si un event traversable est situ� sur un d�cor impraticable, le contact est solide
 					final boolean modeTraversable = event2.traversableActuel == Passabilite.PASSABLE && event2SurUnDecorPassable
 							|| event1.traversableActuel == Passabilite.PASSABLE && event1SurUnDecorPassable

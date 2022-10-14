@@ -19,7 +19,7 @@ import map.Event;
 public abstract class Mouvement {
 	private static final Logger LOG = LogManager.getLogger(Mouvement.class);
 	
-	/** Nombre d'�tapes du Mouvement qui ont �t� faites */
+	/** Nombre d'�tapes du Mouvement qui ont ete faites */
 	protected int ceQuiAEteFait;
 	/** Nombre d'�tapes a faire */
 	protected int etapes;
@@ -244,12 +244,12 @@ public abstract class Mouvement {
 		try {
 			classeMouvement = Class.forName("mouvements." + nomClasseMouvement);
 			final Iterator<String> parametresNoms = ((JSONObject) mouvementJSON).keys();
-			String parametreNom; //nom du param�tre pour instancier le mouvement
-			Object parametreValeur; //valeur du param�tre pour instancier le mouvement
+			String parametreNom; //nom du parametre pour instancier le mouvement
+			Object parametreValeur; //valeur du parametre pour instancier le mouvement
 			final HashMap<String, Object> parametres = new HashMap<String, Object>();
 			while (parametresNoms.hasNext()) {
 				parametreNom = parametresNoms.next();
-				if (!parametreNom.equals("nom")) { //le nom servait a trouver la classe, ici on ne s'int�resse qu'aux param�tres
+				if (!parametreNom.equals("nom")) { //le nom servait a trouver la classe, ici on ne s'int�resse qu'aux parametres
 					parametreValeur = ((JSONObject) mouvementJSON).get(parametreNom);
 					parametres.put( parametreNom, parametreValeur );
 				}

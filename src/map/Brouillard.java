@@ -174,8 +174,8 @@ public final class Brouillard implements Sauvegardable {
 					Brouillard.calculerAffichage(i, this.largeur, decalageX, xCamera), 
 					Brouillard.calculerAffichage(j, this.hauteur, decalageY, yCamera),
 					false,
-					Graphismes.PAS_D_HOMOTHETIE, //le zoom a d�j� �t� pris en compte
-					Graphismes.PAS_D_HOMOTHETIE, //le zoom a d�j� �t� pris en compte
+					Graphismes.PAS_D_HOMOTHETIE, //le zoom a d�j� ete pris en compte
+					Graphismes.PAS_D_HOMOTHETIE, //le zoom a d�j� ete pris en compte
 					this.opacite, 
 					this.mode,
 					Graphismes.PAS_DE_ROTATION

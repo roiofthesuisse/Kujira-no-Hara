@@ -9,21 +9,21 @@ import org.apache.logging.log4j.Logger;
 import main.Commande;
 
 /**
- * Une des différentes Alternatives du Choix.
+ * Une des differentes Alternatives du Choix.
  */
 public class ChoixAlternative extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ChoixAlternative.class);
 
-	/** Numéro du Choix */
+	/** Numï¿½ro du Choix */
 	public int numeroChoix;
-	/** Numéro d'Alternative au sein du Choix */
+	/** Numï¿½ro d'Alternative au sein du Choix */
 	public int numeroAlternative;
 
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroChoix       numéro identifiant du Choix
-	 * @param numeroAlternative numéro de l'Alternative au sein du Choix
+	 * @param numeroChoix       numï¿½ro identifiant du Choix
+	 * @param numeroAlternative numï¿½ro de l'Alternative au sein du Choix
 	 */
 	public ChoixAlternative(final int numeroChoix, final int numeroAlternative) {
 		this.numeroChoix = numeroChoix;
@@ -31,9 +31,9 @@ public class ChoixAlternative extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ChoixAlternative(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numero"), (int) parametres.get("alternative"));
@@ -41,7 +41,7 @@ public class ChoixAlternative extends Commande implements CommandeEvent {
 
 	/**
 	 * Les Alternatives d'un Choix permettent des sauts de curseur dans le code
-	 * Event. Leur execution est instantanée.
+	 * Event. Leur execution est instantanï¿½e.
 	 * 
 	 * @param curseurActuel position du curseur avant l'execution
 	 * @param commandes     liste des Commandes de la Page
@@ -54,13 +54,13 @@ public class ChoixAlternative extends Commande implements CommandeEvent {
 			if (commande instanceof ChoixFin) {
 				final ChoixFin finDeChoix = (ChoixFin) commande;
 				if (finDeChoix.numero == this.numeroChoix) {
-					// la fin de ce Choix a été trouvée
+					// la fin de ce Choix a ete trouvï¿½e
 					return i + 1;
 				}
 			}
 		}
-		// la fin de Boucle n'a pas été trouvée
-		LOG.error("La fin du choix numéro " + numeroChoix + " n'a pas été trouvée !");
+		// la fin de Boucle n'a pas ete trouvï¿½e
+		LOG.error("La fin du choix numï¿½ro " + numeroChoix + " n'a pas ete trouvï¿½e !");
 		return curseurActuel + 1;
 	}
 

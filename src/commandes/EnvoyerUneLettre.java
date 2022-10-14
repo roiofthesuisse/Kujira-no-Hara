@@ -32,9 +32,9 @@ public class EnvoyerUneLettre extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public EnvoyerUneLettre(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idLettre"));
@@ -49,19 +49,19 @@ public class EnvoyerUneLettre extends Commande implements CommandeEvent {
 				final String responseHttp = Poste.envoyerDuCourrier(lettre);
 				if (responseHttp.contains("ok")) { // TODO comment reconnaitre le succes ?
 					// Succes de l'envoi
-					LOG.info("La lettre " + idLettre + " a pu être envoyée.");
+					LOG.info("La lettre " + idLettre + " a pu ï¿½tre envoyï¿½e.");
 					lettre.etat = EtatCourrier.ENVOYEE_PAS_REPONDUE;
 
 				} else {
 					// Echec de l'envoi
-					LOG.error("La lettre " + idLettre + " n'a pas pu être envoyée !");
+					LOG.error("La lettre " + idLettre + " n'a pas pu ï¿½tre envoyï¿½e !");
 				}
 
 			} else {
 				LOG.error("La lettre " + idLettre + " est vierge !");
 			}
 		} else {
-			LOG.error("La lettre " + idLettre + " a déjà été envoyée !");
+			LOG.error("La lettre " + idLettre + " a dï¿½jï¿½ ete envoyï¿½e !");
 		}
 		return curseurActuel + 1;
 	}

@@ -21,9 +21,9 @@ public class BoucleSortir extends Commande implements CommandeEvent, CommandeMen
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public BoucleSortir(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numero"));
@@ -54,13 +54,13 @@ public class BoucleSortir extends Commande implements CommandeEvent, CommandeMen
 			if (commande instanceof BoucleFin) {
 				final BoucleFin finDeBoucle = (BoucleFin) commande;
 				if (finDeBoucle.numero == this.numero) {
-					// la fin de Boucle a �t� trouv�e
+					// la fin de Boucle a ete trouv�e
 					return i + 1;
 				}
 			}
 		}
-		// la fin de Boucle n'a pas �t� trouv�e
-		System.err.println("La fin de la boucle num�ro " + numero + " n'a pas �t� trouv�e !");
+		// la fin de Boucle n'a pas ete trouv�e
+		System.err.println("La fin de la boucle num�ro " + numero + " n'a pas ete trouv�e !");
 		return curseurActuel + 1;
 	}
 

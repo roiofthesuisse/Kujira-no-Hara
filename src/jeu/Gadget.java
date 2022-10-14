@@ -65,8 +65,8 @@ public class Gadget implements Listable {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public Gadget(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
@@ -98,7 +98,7 @@ public class Gadget implements Listable {
 		try {
 			jsonGadgets = InterpreteurDeJson.ouvrirJsonGadgets();
 		} catch (Exception e) {
-			//probl�me lors de l'ouverture du fichier JSON
+			//probleme lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les gadgets du jeu.", e);
 			return null;
 		}

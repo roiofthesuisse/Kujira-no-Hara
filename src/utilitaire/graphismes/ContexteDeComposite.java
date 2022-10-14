@@ -96,7 +96,7 @@ public class ContexteDeComposite implements CompositeContext {
 		private static int[] ton;
 		
 		/**
-		 * Ces param�tres sont communs a toutes les lignes de pixels de l'image.
+		 * Ces parametres sont communs a toutes les lignes de pixels de l'image.
 		 * @param srcDataBuffer tampon de l'image appos�e
 		 * @param dstDataBuffer tampon de l'image cible
 		 * @param largeur de l'image
@@ -140,7 +140,7 @@ public class ContexteDeComposite implements CompositeContext {
 	        final int[] dstPixels = new int[largeur];      
 	        final byte[] dstPixelsBytes = new byte[largeur*4]; //4 bytes pour faire un int
 			
-			//r�cup�rer le tableau de pixels
+			//recuperer le tableau de pixels
 	        if (ton == null) {
 	        	if (srcDataBuffer.getDataType() == DataBuffer.TYPE_INT) {
 		            src.getDataElements(0, y, largeur, 1, srcPixels);

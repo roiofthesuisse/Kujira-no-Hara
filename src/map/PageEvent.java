@@ -53,7 +53,7 @@ public class PageEvent {
 	public int directionInitiale;
 	public int animationInitiale;
 
-	//param�tres
+	//parametres
 	public Vitesse vitesse;
 	public Frequence frequence;
 	
@@ -78,7 +78,7 @@ public class PageEvent {
 	private boolean seRapprocherDeSonInterlocuteur = false;
 	
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * La page de comportement est cr��e a partir du fichier JSON.
 	 * @param numero de la Page
 	 * @param pageJSON objet JSON d�crivant la page de comportements
@@ -340,7 +340,7 @@ public class PageEvent {
 
 	/**
 	 * Executer la Page de comportement.
-	 * C'est-�-dire que les conditions de d�clenchement ont �t� r�unies.
+	 * C'est-�-dire que les conditions de d�clenchement ont ete r�unies.
 	 * On va donc lire les commandes une par une avec un curseur.
 	 */
 	public void executer() {
@@ -400,7 +400,7 @@ public class PageEvent {
 	/**
 	 * D�sactiver la Page.
 	 * Remettre le curseur des commandes a z�ro.
-	 * Lib�rer les autres Events s'ils ont �t� fig�s par cette Page.
+	 * Liberer les autres Events s'ils ont ete fig�s par cette Page.
 	 */
 	private void refermerLaPage() {
 		//a la prochaine activation de la Page, on recommencera en haut du code event

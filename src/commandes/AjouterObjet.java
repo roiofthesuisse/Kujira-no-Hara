@@ -25,9 +25,9 @@ public class AjouterObjet extends Commande implements CommandeEvent, CommandeMen
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public AjouterObjet(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idObjet"), parametres.containsKey("quantite") //

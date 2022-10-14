@@ -17,7 +17,7 @@ public class ConditionChronometre extends Condition implements CommandeEvent {
 	 * Constructeur explicite
 	 * @param numero de la Condition
 	 * @param nombreDeSecondes auquel on comapre le Chronometre
-	 * @param symboleInegalite = egal ; >= superieur large ; <= inferieur large ; > superieur strict ; < inferieur strict ; != différent
+	 * @param symboleInegalite = egal ; >= superieur large ; <= inferieur large ; > superieur strict ; < inferieur strict ; != different
 	 */
 	public ConditionChronometre(final int numero, final int nombreDeSecondes, final String symboleInegalite) {
 		this.numero = numero;
@@ -26,8 +26,8 @@ public class ConditionChronometre extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionChronometre(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
@@ -42,7 +42,7 @@ public class ConditionChronometre extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

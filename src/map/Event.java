@@ -124,7 +124,7 @@ public class Event implements Comparable<Event> {
 	public int frameDuContact;
 
 	/**
-	 * Ces param�tres sont remplis automatiquement au chargement de la page.
+	 * Ces parametres sont remplis automatiquement au chargement de la page.
 	 */
 	public boolean animeALArretActuel = ANIME_A_L_ARRET_PAR_DEFAUT;
 	public boolean animeEnMouvementActuel = ANIME_EN_MOUVEMENT_PAR_DEFAUT;
@@ -394,7 +394,7 @@ public class Event implements Comparable<Event> {
 					cettePageConvientPourLApparence = true;
 				}
 
-				// si une Page eligible a �t� trouv�e, pas besoin d'essayer les autres Pages
+				// si une Page eligible a ete trouv�e, pas besoin d'essayer les autres Pages
 				if (cettePageConvientPourLApparence) {
 					pageQuOnChoisitEnRemplacement = page;
 					onATrouveLaPageDApparence = true;
@@ -406,7 +406,7 @@ public class Event implements Comparable<Event> {
 			e2.printStackTrace();
 		}
 		if (!onATrouveLaPageDApparence) {
-			// aucune Page ne convient, l'Event n'est pas affich�
+			// aucune Page ne convient, l'Event n'est pas affiche
 			this.pageActive = null;
 			this.pageDApparence = null;
 			viderLesProprietesActuelles();
@@ -572,7 +572,7 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * R�cup�rer un seul event dand le fichier JSON de la Map
+	 * recuperer un seul event dand le fichier JSON de la Map
 	 * 
 	 * @param ev  JSON de l'Event qu'on invoque
 	 * @param map dans laquelle on invoque l'Event
@@ -596,9 +596,9 @@ public class Event implements Comparable<Event> {
 		final JSONObject jsonEvent;
 
 		/**
-		 * Ces param�tres sont communs a tou
+		 * Ces parametres sont communs a tou
 		 * 
-		 * @param events liste pour r�cup�rer les Events import�s
+		 * @param events liste pour recuperer les Events import�s
 		 * @param map    de ces Events
 		 */
 		public static void initialiserParametreGlobaux(final Vector<Event> events, final Map map) {
@@ -638,7 +638,7 @@ public class Event implements Comparable<Event> {
 				// on essaye de le cr�er a partir de la biblioth�que JSON GenericEvents
 				event = Event.creerEventGenerique(id, nomEvent, xEvent, yEvent, map);
 
-				// si l'Event n'est pas g�n�rique, on le construit a partir de sa description
+				// si l'Event n'est pas generique, on le construit a partir de sa description
 				// dans la page JSON
 				if (event == null) {
 					final int largeurHitbox;
@@ -728,10 +728,10 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Cr�er un Event g�n�rique a partir de sa description JSON.
+	 * Cr�er un Event generique a partir de sa description JSON.
 	 * 
 	 * @param id         de l'Event a cr�er
-	 * @param nomFichier nom du fichier JSON de l'Event g�n�rique
+	 * @param nomFichier nom du fichier JSON de l'Event generique
 	 * @param xEvent     (en pixels) position x de l'Event
 	 * @param yEvent     (en pixels) position y de l'Event
 	 * @param map        de l'Event
@@ -742,17 +742,17 @@ public class Event implements Comparable<Event> {
 		JSONObject jsonEventGenerique;
 		try {
 			try {
-				// Essayer de trouver un Event g�n�rique artisanal
+				// Essayer de trouver un Event generique artisanal
 				jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomFichier, true);
 			} catch (Exception e0) {
-				// L'Event g�n�rique artisanal n'existe pas
-				// Essayer de trouver un Event g�n�rique export� automatiquement
+				// L'Event generique artisanal n'existe pas
+				// Essayer de trouver un Event generique export� automatiquement
 				jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique(nomFichier, false);
 			}
 		} catch (Exception e1) {
-			// L'Event g�n�rique n'existe pas
+			// L'Event generique n'existe pas
 			// Ni en artisanal, ni en export� automatiquement
-			LOG.trace("Impossible de trouver le fichier JSON " + nomFichier + " pour contruire l'Event g�n�rique !",
+			LOG.trace("Impossible de trouver le fichier JSON " + nomFichier + " pour contruire l'Event generique !",
 					e1);
 			return null;
 		}

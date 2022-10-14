@@ -22,7 +22,7 @@ public class Heros extends Event {
 	/**
 	 * L'animation d'attaque vaut 0 si le h�ros n'attaque pas.
 	 * Au d�but d'une attaque, elle est mise au maximum (longueur de l'animation de l'attaque).
-	 * A chaque frame, elle est affich�e puis d�cr�ment�e.
+	 * A chaque frame, elle est affichee puis d�cr�ment�e.
 	 */
 	public int animationAttaque = 0;
 
@@ -41,7 +41,7 @@ public class Heros extends Event {
 	
 	/**
 	 * Le H�ros est cr�� a partir d'un mod�le.
-	 * Ce mod�le est un Event g�n�rique.
+	 * Ce mod�le est un Event generique.
 	 * @return Event mod�le qui sert a la cr�ation du H�ros
 	 */
 	private static Event creerModele() {

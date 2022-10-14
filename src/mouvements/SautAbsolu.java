@@ -6,7 +6,7 @@ import main.Main;
 import map.Event;
 
 /**
- * Déplacer un Event sur une case destination définie
+ * Dï¿½placer un Event sur une case destination dï¿½finie
  */
 public class SautAbsolu extends Sauter {
 	
@@ -15,8 +15,8 @@ public class SautAbsolu extends Sauter {
 
 	/**
 	 * Constructeur explicite
-	 * @param xDestination : coordonnée x de la case destination (en nombre de carreaux)
-	 * @param yDestination : coordonnée y de la case destination (en nombre de carreaux)
+	 * @param xDestination : coordonnï¿½e x de la case destination (en nombre de carreaux)
+	 * @param yDestination : coordonnï¿½e y de la case destination (en nombre de carreaux)
 	 */
 	public SautAbsolu(final int xDestination, final int yDestination) {
 		super(0, 0);
@@ -25,8 +25,8 @@ public class SautAbsolu extends Sauter {
 	}
 
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public SautAbsolu(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("xDestination"), (int) parametres.get("yDestination"));

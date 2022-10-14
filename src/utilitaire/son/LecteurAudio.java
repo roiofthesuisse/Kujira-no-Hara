@@ -105,7 +105,7 @@ public abstract class LecteurAudio {
 				bgmEnCours[piste].modifierVolume(volume);
 			}
 		} else {
-			// Morceau diff�rent du pr�c�dent
+			// Morceau different du pr�c�dent
 			
 			// On �teint la musique actuelle
 			stopBgm(piste);
@@ -232,7 +232,7 @@ public abstract class LecteurAudio {
 	}
 	
 	/**
-	 * Red�marrer toutes les Musiques du jeu apres la pause.
+	 * ReDemarrer toutes les Musiques du jeu apres la pause.
 	 */
 	public static void redemarrerToutesLesMusiques() {
 		for (Musique bgm : bgmEnCours) {

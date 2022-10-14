@@ -6,7 +6,7 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
 /**
- * Balise "fin" de la Condition située parmi les Commandes Event.
+ * Balise "fin" de la Condition situï¿½e parmi les Commandes Event.
  */
 public class ConditionFin extends Condition implements CommandeEvent, CommandeMenu {
 
@@ -19,8 +19,8 @@ public class ConditionFin extends Condition implements CommandeEvent, CommandeMe
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionFin(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numero"));
@@ -32,7 +32,7 @@ public class ConditionFin extends Condition implements CommandeEvent, CommandeMe
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

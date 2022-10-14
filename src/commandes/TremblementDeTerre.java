@@ -38,9 +38,9 @@ public class TremblementDeTerre extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public TremblementDeTerre(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("intensite"), parametres.get("vitesse"), (int) parametres.get("nombreDeFrames"));

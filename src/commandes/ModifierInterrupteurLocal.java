@@ -50,9 +50,9 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierInterrupteurLocal(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("numeroMap") ? (int) parametres.get("numeroMap") : null,

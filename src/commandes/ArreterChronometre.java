@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Arrêter le Chronometre.
+ * Arrï¿½ter le Chronometre.
  */
 public class ArreterChronometre extends Commande implements CommandeEvent {
 
@@ -17,9 +17,9 @@ public class ArreterChronometre extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ArreterChronometre(final HashMap<String, Object> parametres) {
 		this();

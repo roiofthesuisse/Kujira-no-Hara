@@ -29,9 +29,9 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ArreterFondSonore(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("nombreDeFrames") ? (int) parametres.get("nombreDeFrames") : 0,

@@ -28,9 +28,9 @@ public class JouerEffetSonore extends Commande implements CommandeEvent, Command
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public JouerEffetSonore(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("nomFichierSonore"),

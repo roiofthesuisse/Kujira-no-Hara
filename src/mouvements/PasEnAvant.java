@@ -6,25 +6,25 @@ import main.Main;
 import map.Event;
 
 /**
- * Déplacer un Event dans sa direction actuelle.
+ * Dï¿½placer un Event dans sa direction actuelle.
  */
 public class PasEnAvant extends Avancer {
 
-	/** La direction a-t-elle été décidée ? Si oui on n'y touche plus */
+	/** La direction a-t-elle ete dï¿½cidï¿½e ? Si oui on n'y touche plus */
 	private boolean directionDecidee;
 	
 	/**
 	 * Constructeur explicite
 	 */
 	public PasEnAvant() {
-		//le -1 est bidon, il sera remplacé par la direction de l'Event lors de la vérification
+		//le -1 est bidon, il sera remplacï¿½ par la direction de l'Event lors de la vï¿½rification
 		super(-1, Main.TAILLE_D_UN_CARREAU);
 		this.directionDecidee = false;
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public PasEnAvant(final HashMap<String, Object> parametres) {
 		this();
@@ -43,7 +43,7 @@ public class PasEnAvant extends Avancer {
 			this.directionDecidee = true;
 		}
 		
-		//puis on lance la vérification traditionnelle
+		//puis on lance la vï¿½rification traditionnelle
 		return super.mouvementPossible();
 	}
 	

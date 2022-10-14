@@ -3,6 +3,9 @@ package menu;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import main.Commande;
 import main.Lecteur;
 import main.Main;
@@ -13,7 +16,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.son.LecteurAudio;
 
 /**
- * Le Lecteur de Menu a pour r�le de produire l'image a afficher a l'ecran s'il s'agit d'un Menu.
+ * Le Lecteur de Menu a pour role de produire l'image a afficher a l'ecran s'il s'agit d'un Menu.
  */
 public class LecteurMenu extends Lecteur {
 	public Menu menu;
@@ -121,7 +124,9 @@ public class LecteurMenu extends Lecteur {
 		}
 		
 		//afficher le Texte descriptif
-		if (this.menu.texteDescriptif != null && !this.menu.texteDescriptif.contenu.equals("")) {
+		if (this.menu.texteDescriptif != null 
+				&& !CollectionUtils.isEmpty(this.menu.texteDescriptif.contenu) 
+				&& !StringUtils.isEmpty(this.menu.texteDescriptif.contenu.get(0))) {
 			ecran = Graphismes.superposerImages(ecran, this.menu.texteDescriptif.getImage(), this.menu.texteDescriptif.x, this.menu.texteDescriptif.y);
 		}
 		

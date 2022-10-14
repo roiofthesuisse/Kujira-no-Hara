@@ -24,9 +24,9 @@ public class ModifierMot extends Commande implements CommandeMenu, CommandeEvent
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierMot(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("mot"), (int) parametres.get("numeroMot"));

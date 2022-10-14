@@ -31,8 +31,8 @@ public class ModifierApparence extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierApparence(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("image") ? (String) parametres.get("image") : null,

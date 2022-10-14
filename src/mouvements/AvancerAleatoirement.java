@@ -7,7 +7,7 @@ import map.Event.Direction;
 import utilitaire.Maths;
 
 /**
- * Déplacer un Event dans une Direction aléatoire et d'un certain nombre de cases
+ * Dï¿½placer un Event dans une Direction alï¿½atoire et d'un certain nombre de cases
  */
 public class AvancerAleatoirement extends Avancer {
 	//constantes
@@ -21,8 +21,8 @@ public class AvancerAleatoirement extends Avancer {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public AvancerAleatoirement(final HashMap<String, Object> parametres) {
 		this();
@@ -31,7 +31,7 @@ public class AvancerAleatoirement extends Avancer {
 	@Override
 	public final void reinitialiserSpecifique() {
 		int nouvelleDirection = Maths.generateurAleatoire.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES);
-		//ne pas faire demi-tour, ça donne l'impression que l'Event ne sait pas où il va
+		//ne pas faire demi-tour, ï¿½a donne l'impression que l'Event ne sait pas oï¿½ il va
 		if ( (  this.direction==Direction.BAS && nouvelleDirection==Direction.HAUT) 
 			|| (this.direction==Direction.GAUCHE && nouvelleDirection==Direction.DROITE) 
 			|| (this.direction==Direction.DROITE && nouvelleDirection==Direction.GAUCHE) 

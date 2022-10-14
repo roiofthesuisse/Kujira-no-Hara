@@ -9,20 +9,20 @@ import map.Event;
 import map.PageEvent;
 
 /**
- * Executer une Commande comme si c'était un Mouvement.
- * Attention : ça ne marche qu'avec des Commandes très simples.
+ * Executer une Commande comme si c'ï¿½tait un Mouvement.
+ * Attention : ï¿½a ne marche qu'avec des Commandes trï¿½s simples.
  */
 public class AppelerUneCommande extends Mouvement implements CommandeEvent {
 	final Commande commande;
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 * @throws ClassNotFoundException cette Commande n'existe pas
-	 * @throws NoSuchMethodException cette Commande n'a pas de constructeur générique
-	 * @throws SecurityException l'insécurité règne
-	 * @throws InstantiationException paramètres manquants lors de l'instanciation de la Commande
-	 * @throws IllegalAccessException accès interdit
+	 * @throws NoSuchMethodException cette Commande n'a pas de constructeur generique
+	 * @throws SecurityException l'insï¿½curitï¿½ rï¿½gne
+	 * @throws InstantiationException parametres manquants lors de l'instanciation de la Commande
+	 * @throws IllegalAccessException accï¿½s interdit
 	 * @throws IllegalArgumentException mauvais arguments
 	 * @throws InvocationTargetException impossible d'invoquer cette Commande
 	 */

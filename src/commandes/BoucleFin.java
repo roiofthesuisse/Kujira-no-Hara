@@ -9,12 +9,12 @@ import org.apache.logging.log4j.Logger;
 import main.Commande;
 
 /**
- * Une Boucle répète indéfiniment les Commandes qu'elle contient.
+ * Une Boucle rï¿½pï¿½te indï¿½finiment les Commandes qu'elle contient.
  */
 public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(BoucleFin.class);
 
-	public int numero; // le numéro de Boucle est le même que le numéro de fin de Boucle qui correspond
+	public int numero; // le numï¿½ro de Boucle est le mï¿½me que le numï¿½ro de fin de Boucle qui correspond
 
 	/**
 	 * Constructeur explicite
@@ -26,17 +26,17 @@ public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public BoucleFin(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numero"));
 	}
 
 	/**
-	 * Une Boucle est une Commande Event, elle peut être executée pour faire des
-	 * sauts de curseur. Son execution est instantanée.
+	 * Une Boucle est une Commande Event, elle peut ï¿½tre executï¿½e pour faire des
+	 * sauts de curseur. Son execution est instantanï¿½e.
 	 * 
 	 * @param curseurActuel position du curseur avant l'execution
 	 * @param commandes     liste des Commandes de la Page
@@ -49,18 +49,18 @@ public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 			if (commande instanceof Boucle) {
 				final Boucle debutDeBoucle = (Boucle) commande;
 				if (debutDeBoucle.numero == this.numero) {
-					// le début de Boucle a été trouvé
+					// le dï¿½but de Boucle a ete trouvï¿½
 					return i;
 				}
 			}
 		}
-		// le début de Boucle n'a pas été trouvé
-		LOG.error("Le début de boucle numéro " + numero + " n'a pas été trouvé !");
+		// le dï¿½but de Boucle n'a pas ete trouvï¿½
+		LOG.error("Le dï¿½but de boucle numï¿½ro " + numero + " n'a pas ete trouvï¿½ !");
 		return curseurActuel + 1;
 	}
 
 	/**
-	 * Les Commandes de Menu sont instantannées et donc n'utilisent pas de curseur.
+	 * Les Commandes de Menu sont instantannï¿½es et donc n'utilisent pas de curseur.
 	 */
 	public void executer() {
 		// rien

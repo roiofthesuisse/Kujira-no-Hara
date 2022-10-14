@@ -7,8 +7,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import main.Commande;
-import main.Lecteur;
-import main.Main;
 import map.PageCommune;
 
 /**
@@ -37,9 +35,9 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public AppelerPageCommune(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroPageCommune"));
@@ -60,7 +58,7 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 		LOG.info("Ex�cution de la page commune " + this.numeroPageCommune + " " + this.pageCommune.nom);
 		this.pageCommune.executer();
 
-		// La page a-t-elle �t� ex�cut�e en entier ?
+		// La page a-t-elle ete ex�cut�e en entier ?
 		if (this.pageCommune.curseurCommandes == 0) {
 			// fini
 			return curseurActuel + 1;

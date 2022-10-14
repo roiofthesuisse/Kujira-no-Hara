@@ -99,7 +99,7 @@ public class Menu {
 				image.menu = this;
 				maxId++;
 				image.id = maxId;
-				this.elements.put(new Integer(maxId), image);
+				this.elements.put(Integer.valueOf(maxId), image);
 			}
 		}
 		

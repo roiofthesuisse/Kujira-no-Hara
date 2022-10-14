@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 
 import main.Commande;
+import main.Main;
 import map.LecteurMap;
 import menu.Menu;
 import menu.Texte;
@@ -77,7 +78,6 @@ public class Choix extends Message {
 			if (CollectionUtils.isEmpty(this.texte) || StringUtils.isEmpty(this.texte.get(0))) {
 				if (this.page != null && this.page.event != null
 						&& this.page.event.map.lecteur.messagePrecedent != null) {
-					// FIXME la question du Choix n'est pas trouvee ! le messagePrecedent est null
 					this.texte = this.page.event.map.lecteur.messagePrecedent.texte;
 				} else {
 					LOG.warn("Impossible de trouver la question du choix !");
@@ -207,6 +207,18 @@ public class Choix extends Message {
 			alternatives.add(alternativeMultiLingue);
 		}
 		return alternatives;
+	}
+
+	/**
+	 * Y a-t-il la place dans la boite de Message pour ecrire la question et les
+	 * alternatives du Choix ?
+	 * 
+	 * @param traductions question dans plusieurs langues
+	 * @return true si on peut caser les deux
+	 */
+	public boolean ilYALaPlacePourLaQuestion(ArrayList<String> traductions) {
+		String texteQuestion = traductions.get(Main.langue < traductions.size() ? Main.langue : 0);
+		return (StringUtils.countMatches(texteQuestion, "\n") + 1) + this.alternatives.size() <= 4;
 	}
 
 }

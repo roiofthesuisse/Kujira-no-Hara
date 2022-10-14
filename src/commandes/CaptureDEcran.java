@@ -18,9 +18,9 @@ public class CaptureDEcran extends Commande implements CommandeEvent, CommandeMe
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public CaptureDEcran(final HashMap<String, Object> parametres) {
 		this();

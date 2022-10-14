@@ -116,9 +116,9 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionScript(final HashMap<String, Object> parametres) {
 		this(parametres.get("numero") != null ? (int) parametres.get("numero") : -1, (String) parametres.get("script"),
@@ -454,7 +454,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(SUPERIORATION, nombres.get(0) > nombres.get(1) ? "1" : "0");
 		}
 
-		// Diff�rent
+		// different
 		p = Pattern.compile(DIFFERENTIATION);
 		m = p.matcher(expression);
 		if (m.find()) {

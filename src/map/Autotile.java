@@ -16,12 +16,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import main.Main;
-import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
  * Un Autotile est un carreau liable. 
- * Selon la nature de ses voisins, il prendra une apparence diff�rente.
+ * Selon la nature de ses voisins, il prendra une apparence differente.
  * Un Autotile peut �tre anim�. Il est alors constitu� de plusieurs vignettes qui se succ�deront dans le temps.
  */
 public class Autotile {
@@ -600,7 +599,7 @@ public class Autotile {
 		try {
 			jsonCousinagesDesAutotilesPourCeTileset = fichierDesCousins.getJSONArray("cousins");
 		} catch (Exception e) {
-			LOG.error("Impossible de r�cup�rer les cousinages d'autotiles pour le tileset "+tileset.nom, e);
+			LOG.error("Impossible de recuperer les cousinages d'autotiles pour le tileset "+tileset.nom, e);
 		}
 		int iAutotile = 0;
 		

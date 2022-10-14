@@ -70,7 +70,7 @@ public final class Partie implements Listable, Sauvegardable {
 	
 	/** combien poss�de-t-on d'Objet num�ro i ? */
 	public int[] objetsPossedes;
-	/** la Qu�te num�ro i a-t-elle �t� faite ? */
+	/** la Qu�te num�ro i a-t-elle ete faite ? */
 	public AvancementQuete[] avancementDesQuetes;
 	/** poss�de-t-on l'Arme num�ro i ? */
 	public boolean[] armesPossedees;
@@ -101,7 +101,7 @@ public final class Partie implements Listable, Sauvegardable {
 	
 	/**
 	 * Constructeur d'une nouvelle Partie vierge
-	 * @throws Exception le JSON de param�trage d'une nouvelle Partie n'a pas �t� trouv�
+	 * @throws Exception le JSON de param�trage d'une nouvelle Partie n'a pas ete trouv�
 	 */
 	private Partie() throws Exception {
 		final JSONObject jsonNouvellePartie = InterpreteurDeJson.ouvrirJsonNouvellePartie();
@@ -149,7 +149,7 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @param argent poss�d�
 	 * ----------------------------------------------------------------------------------------
 	 * @param objetsPossedes combien poss�de-t-on d'Objet num�ro i ?
-	 * @param avancementDesQuetes la Qu�te num�ro i a-t-elle �t� faite ?
+	 * @param avancementDesQuetes la Qu�te num�ro i a-t-elle ete faite ?
 	 * @param armesPossedees poss�de-t-on l'Arme num�ro i ?
 	 * @param gadgetsPossedes poss�de-t-on le Gadget num�ro i ?
 	 * @param interrupteurs �tat des interrupteurs du jeu
@@ -157,11 +157,11 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @param interrupteursLocaux �tat des interrupteurs locaux du jeu
 	 * @param mots �tat des mots du jeu
 	 * @param chronometre �tat du chronom�tre �ventuel
-	 * @param images affich�es a l'ecran
+	 * @param images affichees a l'ecran
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle �quip�e
 	 * @param idGadgetEquipe identifiant du Gadget actuel �quip�
-	 * @throws Exception le JSON de param�trage d'une nouvelle Partie n'a pas �t� trouv�
+	 * @throws Exception le JSON de param�trage d'une nouvelle Partie n'a pas ete trouv�
 	 */
 	public Partie(final int id, final int numeroMap, final int xHeros, final int yHeros, final int directionHeros, 
 			final JSONObject jsonBrouillard, final int vie, final int vieMax, final int argent, final int idArmeEquipee, 
@@ -313,7 +313,7 @@ public final class Partie implements Listable, Sauvegardable {
 	/**
 	 * G�n�re une nouvelle Partie vierge.
 	 * @return une nouvelle partie
-	 * @throws Exception le JSON de param�trage d'une nouvelle Partie n'a pas �t� trouv�
+	 * @throws Exception le JSON de param�trage d'une nouvelle Partie n'a pas ete trouv�
 	 */
 	public static Partie creerNouvellePartie() throws Exception {
 		return new Partie();

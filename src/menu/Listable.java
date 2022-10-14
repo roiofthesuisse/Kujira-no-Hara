@@ -8,7 +8,7 @@ import main.Commande;
 
 
 /**
- * Un Listable peut avoir ses informations affich�es dans une Liste.
+ * Un Listable peut avoir ses informations affichees dans une Liste.
  */
 public interface Listable {
 	/** Nom du package.dossier */

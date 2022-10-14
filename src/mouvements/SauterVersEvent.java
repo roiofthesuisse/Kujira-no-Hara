@@ -34,15 +34,15 @@ public class SauterVersEvent extends Sauter {
 	}
 
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public SauterVersEvent(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idEventObserve"), (int) parametres.get("nombreDeCases"));
 	}
 
 	/**
-	 * Cases possibles pour l'arrivée du saut.
+	 * Cases possibles pour l'arrivï¿½e du saut.
 	 */
 	private final class Carreau implements Comparable<Carreau> {
 		int x;
@@ -51,9 +51,9 @@ public class SauterVersEvent extends Sauter {
 		
 		/**
 		 * Constructeur explicite
-		 * @param x coordonnée x en carreaux
-		 * @param y coordonnée y en carreaux
-		 * @param distanceAuCarre distance entre le carreau et l'Event observé.
+		 * @param x coordonnï¿½e x en carreaux
+		 * @param y coordonnï¿½e y en carreaux
+		 * @param distanceAuCarre distance entre le carreau et l'Event observï¿½.
 		 */
 		private Carreau(final int x, final int y, final int distanceAuCarre) {
 			this.x = x;
@@ -99,7 +99,7 @@ public class SauterVersEvent extends Sauter {
 			final int yArrivee = eventObservateur.y + deltaYSauteurArrivee;
 			final int deltaXArriveeCible = eventObserve.x - xArrivee;
 			final int deltaYArriveeCible = eventObserve.y - yArrivee;
-			// On n'ajoute le carreau dans la liste que si l'arrivée se trouve entre le sauteur et la cible
+			// On n'ajoute le carreau dans la liste que si l'arrivï¿½e se trouve entre le sauteur et la cible
 			if (deltaXSauteurArrivee * deltaXArriveeCible >= 0 && deltaYSauteurArrivee * deltaYArriveeCible >= 0) {
 				final int distanceAuCarre = deltaXArriveeCible * deltaXArriveeCible + deltaYArriveeCible * deltaYArriveeCible;
 				final Carreau carreau = new Carreau(i, j, distanceAuCarre);
@@ -122,7 +122,7 @@ public class SauterVersEvent extends Sauter {
 	}
 
 	/**
-	 * Détermine la direction du Mouvement pour suivre l'event observé
+	 * Dï¿½termine la direction du Mouvement pour suivre l'event observï¿½
 	 * @param distanceVerticale difference entre le y destination et le y actuel
 	 * @param distanceHorizontale difference entre le x destination et le x actuel
 	 */

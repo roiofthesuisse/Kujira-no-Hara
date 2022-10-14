@@ -43,7 +43,7 @@ public class Objet implements Listable {
 	 * Constructeur explicite
 	 * @param idObjet dans le Menu
 	 * @param nom de l'Objet
-	 * @param nomIcone nom de l'ic�ne de l'Objet affich�e dans le Menu
+	 * @param nomIcone nom de l'ic�ne de l'Objet affichee dans le Menu
 	 * @param description de l'Objet
 	 * @param effet de l'Objet lorsqu'on le consomme
 	 */
@@ -56,8 +56,8 @@ public class Objet implements Listable {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	@SuppressWarnings("unchecked")
 	public Objet(final HashMap<String, Object> parametres) {
@@ -78,7 +78,7 @@ public class Objet implements Listable {
 		try {
 			jsonObjets = InterpreteurDeJson.ouvrirJsonObjets();
 		} catch (Exception e) {
-			//probl�me lors de l'ouverture du fichier JSON
+			//probleme lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les objets du jeu.", e);
 			return null;
 		}
@@ -93,13 +93,13 @@ public class Objet implements Listable {
 				final String parametreObjet = jsonParametresObjet.next();
 				
 				if ("effet".equals(parametreObjet)) {
-					//param�tre : effet
+					//parametre : effet
 					final ArrayList<CommandeMenu> effet = new ArrayList<CommandeMenu>();
 					final JSONArray jsonEffet = jsonObjet.getJSONArray("effet");
 					Commande.recupererLesCommandesMenu(effet, jsonEffet);
 					parametresObjet.put("effet", effet);
 				} else {
-					//autres param�tres
+					//autres parametres
 					parametresObjet.put(parametreObjet, jsonObjet.get(parametreObjet));
 				}
 				
@@ -155,7 +155,7 @@ public class Objet implements Listable {
 	
 	/**
 	 * Liste de Commandes de Menu associ�e a l'Objet.
-	 * Si l'Objet est s�lectionn� dans le Menu, la description de l'Objet est affich�e.
+	 * Si l'Objet est s�lectionn� dans le Menu, la description de l'Objet est affichee.
 	 * @return liste de Commandes destin�e au Menu
 	 */
 	public final ArrayList<Commande> getComportementSelection() {

@@ -27,8 +27,8 @@ public class ConditionOu extends Condition {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionOu(final HashMap<String, Object> parametres) {
 		this(

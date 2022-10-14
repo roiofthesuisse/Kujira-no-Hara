@@ -23,9 +23,9 @@ public class Attendre extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public Attendre(final HashMap<String, Object> parametres) {
 		this((Integer) parametres.get("nombreDeFrames"));
@@ -39,7 +39,7 @@ public class Attendre extends Commande implements CommandeEvent {
 			return curseurActuel;
 		} else {
 			// On a fini d'attendre
-			this.ceQuiAEteFait = 0; // réinitialisation
+			this.ceQuiAEteFait = 0; // rï¿½initialisation
 			return curseurActuel + 1;
 		}
 	}

@@ -82,7 +82,7 @@ public class LecteurMap extends Lecteur {
 	 * dessus.
 	 * 
 	 * @param frame dont l'ecran est calcul�
-	 * @warning Ne pas oublier de r�cup�rer le r�sultat de cette Methode.
+	 * @warning Ne pas oublier de recuperer le r�sultat de cette Methode.
 	 * @return ecran repr�sentant la Map
 	 */
 	public final BufferedImage calculerAffichage(final int frame) {
@@ -337,7 +337,7 @@ public class LecteurMap extends Lecteur {
 					activerUnePageEtLExecuter(event);
 				}
 			}
-			// le H�ros est calcul� en dernier pour �viter les probl�mes d'�p�e
+			// le H�ros est calcul� en dernier pour �viter les problemes d'�p�e
 			if (!this.stopHeros) {
 				activerUnePageEtLExecuter(this.map.heros);
 			}
@@ -383,7 +383,7 @@ public class LecteurMap extends Lecteur {
 
 	/**
 	 * Calculer le nouvel ecran, avec les Events dessin�s dessus. Ne pas oublier de
-	 * r�cup�rer le r�sultat de cette Methode.
+	 * recuperer le r�sultat de cette Methode.
 	 * 
 	 * @param ecran            sur lequel on dessine les Events
 	 * @param xCamera          position x de la cam�ra
@@ -451,7 +451,7 @@ public class LecteurMap extends Lecteur {
 
 	/**
 	 * Calculer le nouvel ecran, avec les Events dessin�s dessus. Ne pas oublier de
-	 * r�cup�rer le r�sultat de cette Methode.
+	 * recuperer le r�sultat de cette Methode.
 	 * 
 	 * @param ecran           sur lequel on dessine les Events
 	 * @param xCamera         position x de la cam�ra
@@ -549,7 +549,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Certains Events ont �t� marqu�s "� supprimer" durant la lecture des
+	 * Certains Events ont ete marqu�s "� supprimer" durant la lecture des
 	 * Commandes. On les �limine maintenant, une fois que la lecture des Commandes
 	 * est termin�e. En effet on ne peut pas supprimer des Events lorsqu'on est
 	 * encore dans la boucle qui parcourt la liste des Events.
@@ -617,7 +617,7 @@ public class LecteurMap extends Lecteur {
 	/**
 	 * Dessine l'Event sur l'ecran.
 	 * 
-	 * @warning Ne pas oublier de r�cup�rer le r�sultat de cette Methode.
+	 * @warning Ne pas oublier de recuperer le r�sultat de cette Methode.
 	 * @param ecran   sur lequel on dessine
 	 * @param event   a dessiner
 	 * @param xCamera position x de la cam�ra
@@ -898,7 +898,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Actualiser et r�cup�rer la cam�ra de la Map.
+	 * Actualiser et recuperer la cam�ra de la Map.
 	 * 
 	 * @return coordonn�es x et y de la cam�ra sur la Map
 	 */
@@ -910,27 +910,27 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Le H�ros arr�te son animation pour �couter un Message.
+	 * Le Heros arrete son animation pour ecouter un Message.
 	 * 
-	 * @param event avec lequel le H�ros discute
+	 * @param event avec lequel le Heros discute
 	 */
 	public final void normaliserApparenceDesInterlocuteursAvantMessage(final Event event) {
-		// Normaliser le H�ros
+		// Normaliser le Heros
 		final Heros heros = this.map.heros;
-		// Le H�ros arr�te son animation
+		// Le Heros arrete son animation
 		if (!heros.animeALArretActuel) {
 			heros.animation = 0;
 		}
-		// Le H�ros arr�te son attaque
+		// Le Heros arrete son attaque
 		heros.animationAttaque = 0;
 
 		// Normaliser l'intelocuteur
-		// L'interlocuteur arr�te son animation
+		// L'interlocuteur arrete son animation
 		if (!event.animeALArretActuel && !event.directionFixeActuelle) {
 			event.animation = 0; // TODO attention : si la vignette par d�faut de l'event n'est pas la vignette
 									// 0, il va changer d'apparence
 		}
-		// L'interlocuteur se tourne vers le H�ros
+		// L'interlocuteur se tourne vers le Heros
 		if (!event.directionFixeActuelle) {
 			event.direction = RegarderUnEvent.calculerDirectionDeRegard(event, heros);
 		}
@@ -1003,7 +1003,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Transmettre a la Partie le changement d'Arme ordonn� a la Fen�tre
+	 * Transmettre a la Partie le changement d'Arme ordonn� a la Fenetre
 	 */
 	public final void equiperArmeSuivante() {
 		if (!this.stopEvent) { // on ne change pas d'Arme lorsqu'on lit un Message
@@ -1012,7 +1012,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Transmettre a la Partie le changement d'Arme ordonn� a la Fen�tre
+	 * Transmettre a la Partie le changement d'Arme ordonn� a la Fenetre
 	 */
 	public final void equiperArmePrecedente() {
 		if (!this.stopEvent) { // on ne change pas d'Arme lorsqu'on lit un Message

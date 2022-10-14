@@ -1,7 +1,6 @@
 package map;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 import org.json.JSONObject;
 
@@ -12,7 +11,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Image a afficher a l'ecran et ses param�tres.
+ * Image a afficher a l'ecran et ses parametres.
  */
 public class Picture implements Sauvegardable {
 	//constantes
@@ -96,7 +95,7 @@ public class Picture implements Sauvegardable {
 			// Toutes les places de la liste ne sont pas forcement occupees
 			if (picture != null) {
 				
-				// D�placer les images (dont le d�placement a �t� d�l�gu� au LecteurMap par une Commande)
+				// D�placer les images (dont le d�placement a ete d�l�gu� au LecteurMap par une Commande)
 				if (picture.deplacementActuel != null) {
 					picture.deplacementActuel.executerCommeUnDeplacementPropre(picture);
 				}

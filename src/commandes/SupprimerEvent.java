@@ -22,9 +22,9 @@ public class SupprimerEvent extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public SupprimerEvent(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("idEvent") ? (Integer) parametres.get("idEvent") : null);

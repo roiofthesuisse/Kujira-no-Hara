@@ -331,7 +331,7 @@ public final class Hitbox {
 		try {
 			jsonZones = InterpreteurDeJson.ouvrirJsonZonesDAttaque();
 		} catch (Exception e) {
-			//probl�me lors de l'ouverture du fichier JSON
+			//probleme lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les zones d'attaque du jeu.", e);
 			return null;
 		}

@@ -22,7 +22,7 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	/** 
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param touches r�les a v�rifier (s�par�es par des points-virgules)
+	 * @param touches roles a v�rifier (s�par�es par des points-virgules)
 	 * @param toucheMaintenue touche actuellement enfonc�e VS appui r�cent
 	 */
 	public ConditionTouche(final int numero, final String touches, final boolean toucheMaintenue) {
@@ -35,8 +35,8 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionTouche(final HashMap<String, Object> parametres) {
 		this(

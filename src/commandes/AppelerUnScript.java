@@ -52,9 +52,9 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public AppelerUnScript(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("script"));

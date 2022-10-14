@@ -47,7 +47,7 @@ public class Arme implements Listable {
 	/**
 	 * L'animation d'attaque est compos�e de plusieurs images.
 	 * Pour faire rester une image plus longtemps a l'ecran, l'ajouter plusieurs fois a la liste.
-	 * La derni�re image de la liste est affich�e en premier, car l'affichage est d�cr�mentaire.
+	 * La derni�re image de la liste est affichee en premier, car l'affichage est d�cr�mentaire.
 	 */
 	public Integer[] framesDAnimation;
 	public Hitbox hitbox;
@@ -96,8 +96,8 @@ public class Arme implements Listable {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public Arme(final HashMap<String, Object> parametres) {
 		this( (int) parametres.get("numero"), 
@@ -134,7 +134,7 @@ public class Arme implements Listable {
 		try {
 			jsonArmes = InterpreteurDeJson.ouvrirJsonArmes();
 		} catch (Exception e) {
-			//probl�me lors de l'ouverture du fichier JSON
+			//probleme lors de l'ouverture du fichier JSON
 			LOG.error("Impossible de charger les armes du jeu.", e);
 			return null;
 		}
@@ -152,7 +152,7 @@ public class Arme implements Listable {
 				final String parametre = jsonParametres.next();
 				
 				if ("framesDAnimation".equals(parametre)) {
-					//param�tre : framesDAnimation
+					//parametre : framesDAnimation
 					final JSONArray jsonArrayframesDAnimation = jsonArme.getJSONArray("framesDAnimation");
 					final ArrayList<Integer> framesDAnimationListe = new ArrayList<Integer>();
 					for (Object frameObject : jsonArrayframesDAnimation) {
@@ -163,7 +163,7 @@ public class Arme implements Listable {
 					framesDAnimationListe.toArray(framesDAnimation);
 					parametres.put("framesDAnimation", framesDAnimation);
 				} else {
-					//autres param�tres
+					//autres parametres
 					parametres.put(parametre, jsonArme.get(parametre));
 				}
 			}

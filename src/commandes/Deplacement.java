@@ -21,7 +21,7 @@ import mouvements.Mouvement;
  * </p>
  * 
  * <p>
- * L'objet D�placement a deux usages tr�s diff�rents :
+ * L'objet D�placement a deux usages tr�s differents :
  * <ol>
  * <li>Chaque Event poss�de un D�placement naturel et un D�placement forc�. Le
  * D�placement forc� sera effectu� en priorit� (sauf s'il est vide) sur le
@@ -94,9 +94,9 @@ public class Deplacement extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public Deplacement(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("idEventADeplacer") ? (Integer) parametres.get("idEventADeplacer") : null,
@@ -136,7 +136,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 		if (!this.aEteAjouteAuxDeplacementsForces) {
 			// interrompre l'ancien D�placement forc� de l'Event
 			if (event.deplacementForce.mouvements != null && event.deplacementForce.mouvements.size() >= 1) {
-				LOG.warn("Le d�placement de l'event " + this.idEventADeplacer + " a �t� interrompu et remplac�.");
+				LOG.warn("Le d�placement de l'event " + this.idEventADeplacer + " a ete interrompu et remplac�.");
 			}
 			event.deplacementForce.mouvements = new ArrayList<Mouvement>();
 
@@ -153,7 +153,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 			event.deplacementForce.attendreLaFinDuDeplacement = this.attendreLaFinDuDeplacement;
 			event.deplacementForce.ignorerLesMouvementsImpossibles = this.ignorerLesMouvementsImpossibles;
 			event.deplacementForce.repeterLeDeplacement = this.repeterLeDeplacement;
-			// voil�, les nouveaux Mouvements ont �t� planifi�s
+			// voil�, les nouveaux Mouvements ont ete planifi�s
 
 			this.aEteAjouteAuxDeplacementsForces = true;
 		}
@@ -170,7 +170,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 		} else {
 			// on attend la fin du D�placement avant de passer a la Commande suivante
 			if (event.deplacementForce.mouvements.size() <= 0) {
-				// la liste a �t� totalement consomm�e
+				// la liste a ete totalement consomm�e
 
 				// on r�initialise le Deplacement (au cas o� il est a nouveau execut� dans le
 				// futur)
@@ -193,10 +193,10 @@ public class Deplacement extends Commande implements CommandeEvent {
 	 */
 	public final Event getEventADeplacer() {
 		if (this.idEventADeplacer != null) {
-			// un num�ro d'Event a d�placer a �t� sp�cifi� dans le JSON
+			// un num�ro d'Event a d�placer a ete sp�cifi� dans le JSON
 			return ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
 		} else {
-			// aucun num�ro n'a �t� sp�cifi�, on d�place l'Event qui a lanc� la Commande
+			// aucun num�ro n'a ete sp�cifi�, on d�place l'Event qui a lanc� la Commande
 			return this.page.event;
 		}
 	}

@@ -12,7 +12,7 @@ import map.Event;
 import map.Map;
 
 /**
- * Invoque un Event générique
+ * Invoque un Event generique
  */
 public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(InvoquerEventGenerique.class);
@@ -24,9 +24,9 @@ public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param x               position x de l'Event générique invoqué
-	 * @param y               position y de l'Event générique invoqué
-	 * @param nomEventInvoque nom de l'Event générique invoqué
+	 * @param x               position x de l'Event generique invoquï¿½
+	 * @param y               position y de l'Event generique invoquï¿½
+	 * @param nomEventInvoque nom de l'Event generique invoquï¿½
 	 */
 	public InvoquerEventGenerique(final int x, final int y, final String nomEventInvoque) {
 		this.x = x;
@@ -35,9 +35,9 @@ public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public InvoquerEventGenerique(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("x"), (int) parametres.get("y"), (String) parametres.get("nomEventInvoque"));
@@ -54,7 +54,7 @@ public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 				idEventInvoque)) {
 			map.eventsAAjouter.add(eventInvoque);
 		} else {
-			LOG.error("Impossible d'invoquer l'event générique \"" + nomEventInvoque + "\" aux coordonnées (" + xPixel
+			LOG.error("Impossible d'invoquer l'event generique \"" + nomEventInvoque + "\" aux coordonnï¿½es (" + xPixel
 					+ ";" + yPixel + ") car la place est prise !");
 		}
 		return curseurActuel + 1;

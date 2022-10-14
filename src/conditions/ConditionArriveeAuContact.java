@@ -32,8 +32,8 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionArriveeAuContact(final HashMap<String, Object> parametres) {
 		this(

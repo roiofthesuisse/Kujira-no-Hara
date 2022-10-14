@@ -52,9 +52,9 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ChangerDeMap(final HashMap<String, Object> parametres) {
 		this(parametres.containsKey("variable") && (boolean) parametres.get("variable"),
@@ -70,11 +70,11 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		final Heros ancienHeros = ancienneMap.heros;
 
 		if (this.directionDebutHeros == -1) {
-			// aucune direction n'a �t� impos�e pour le H�ros, on garde l'ancienne
+			// aucune direction n'a ete impos�e pour le H�ros, on garde l'ancienne
 			this.directionDebutHeros = ancienHeros.direction;
 		}
 
-		// Si la Transition n'a pas �t� sp�cifi�e par le code RM,
+		// Si la Transition n'a pas ete sp�cifi�e par le code RM,
 		// on choisit la mieux adapt�e automatiquement
 		if (this.transition == null) {
 			if (ancienneMap.leHerosEntreParUnePorte(ancienHeros.x / Main.TAILLE_D_UN_CARREAU,

@@ -22,8 +22,8 @@ public class AppelerUnScript extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public AppelerUnScript(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("script"));

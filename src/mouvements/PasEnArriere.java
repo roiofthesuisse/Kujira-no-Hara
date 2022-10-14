@@ -22,8 +22,8 @@ public class PasEnArriere extends Avancer {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public PasEnArriere(final HashMap<String, Object> parametres) {
 		this( (parametres.containsKey("nombreDeCarreaux") ? (int) parametres.get("parametres") : 1) * Main.TAILLE_D_UN_CARREAU);
@@ -37,7 +37,7 @@ public class PasEnArriere extends Avancer {
 	public final boolean mouvementPossible() {
 		//on peut avancer a reculons si on peut avancer en arri�re
 		final Event event = this.deplacement.getEventADeplacer();
-		this.direction = event.direction; //la direction affich�e durant le Mouvement est celle de l'Event avant
+		this.direction = event.direction; //la direction affichee durant le Mouvement est celle de l'Event avant
 		final Avancer mouvementFictif = new Avancer(Event.Direction.directionOpposee(event.direction), Main.TAILLE_D_UN_CARREAU);
 		mouvementFictif.deplacement = this.deplacement; //Deplacement pour �viter la NullPointerException dans Avancer
 		

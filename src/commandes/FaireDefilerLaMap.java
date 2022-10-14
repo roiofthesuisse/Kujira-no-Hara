@@ -9,7 +9,7 @@ import map.LecteurMap;
 import map.Vitesse;
 
 /**
- * Faire défiler la Map dans une direction donnée, pour la décentrer du Héros.
+ * Faire dï¿½filer la Map dans une direction donnï¿½e, pour la dï¿½centrer du Hï¿½ros.
  */
 public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 	// constantes
@@ -25,9 +25,9 @@ public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nombreDeCarreaux du défilement
-	 * @param vitesse          du défilement
-	 * @param direction        du défilement
+	 * @param nombreDeCarreaux du dï¿½filement
+	 * @param vitesse          du dï¿½filement
+	 * @param direction        du dï¿½filement
 	 */
 	public FaireDefilerLaMap(final int nombreDeCarreaux, final int vitesse, final int direction) {
 		this.nombreDePixels = Main.TAILLE_D_UN_CARREAU * nombreDeCarreaux;
@@ -36,9 +36,9 @@ public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public FaireDefilerLaMap(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("nombreDeCarreaux"),
@@ -49,13 +49,13 @@ public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// réinitialisation de la Commande au cas où elle est jouée plusieurs fois
+		// rï¿½initialisation de la Commande au cas oï¿½ elle est jouï¿½e plusieurs fois
 		if (!this.initialisationFaite) {
 			this.dejaFait = 0;
 			this.initialisationFaite = true;
 		}
 
-		// on déplace la caméra
+		// on dï¿½place la camï¿½ra
 		final LecteurMap lecteurMap = (LecteurMap) Main.lecteur;
 		switch (direction) {
 		case 0:

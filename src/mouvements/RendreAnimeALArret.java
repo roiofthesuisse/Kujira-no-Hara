@@ -19,8 +19,8 @@ public class RendreAnimeALArret extends Mouvement {
 	}
 	
 	/**
-	 * Constructeur g�n�rique
-	 * @param parametres liste de param�tres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public RendreAnimeALArret(final HashMap<String, Object> parametres) {
 		this( parametres.containsKey("animeALArret") ? (boolean) parametres.get("animeALArret") : true );

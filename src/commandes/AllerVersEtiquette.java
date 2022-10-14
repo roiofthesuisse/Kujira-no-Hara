@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 import main.Commande;
 
 /**
- * Une des différentes Alternatives du Choix.
+ * Une des differentes Alternatives du Choix.
  */
 public class AllerVersEtiquette extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(AllerVersEtiquette.class);
@@ -27,9 +27,9 @@ public class AllerVersEtiquette extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public AllerVersEtiquette(final HashMap<String, Object> parametres) {
 		this((String) parametres.get("nomEtiquette"));
@@ -37,7 +37,7 @@ public class AllerVersEtiquette extends Commande implements CommandeEvent {
 
 	/**
 	 * Les Alternatives d'un Choix permettent des sauts de curseur dans le code
-	 * Event. Leur execution est instantanée.
+	 * Event. Leur execution est instantanï¿½e.
 	 * 
 	 * @param curseurActuel position du curseur avant l'execution
 	 * @param commandes     liste des Commandes de la Page
@@ -50,15 +50,15 @@ public class AllerVersEtiquette extends Commande implements CommandeEvent {
 			if (commande instanceof Etiquette) {
 				final Etiquette etiquette = (Etiquette) commande;
 				if (etiquette.nomEtiquette == this.nomEtiquette) {
-					// la fin de ce Choix a été trouvée
+					// la fin de ce Choix a ete trouvï¿½e
 					return i + 1;
 				}
 			}
 		}
-		// la fin de Boucle n'a pas été trouvée
+		// la fin de Boucle n'a pas ete trouvï¿½e
 		final String nomEvent = commandes.size() > 0 && commandes.get(0).page != null
 				&& commandes.get(0).page.event != null ? commandes.get(0).page.event.nom : "";
-		LOG.error("L'étiquette '" + this.nomEtiquette + "' de l'event '" + nomEvent + "' n'a pas été trouvée !");
+		LOG.error("L'ï¿½tiquette '" + this.nomEtiquette + "' de l'event '" + nomEvent + "' n'a pas ete trouvï¿½e !");
 		return curseurActuel + 1;
 	}
 

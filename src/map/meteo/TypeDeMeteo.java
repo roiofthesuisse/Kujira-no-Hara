@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /** 
- * Diff�rentes sortes d'intemp�ries 
+ * differentes sortes d'intemp�ries 
  */
 public enum TypeDeMeteo {
 	PLUIE("pluie"), NEIGE("neige"), TROCHOIDE("trochoide"), RIEN("rien");

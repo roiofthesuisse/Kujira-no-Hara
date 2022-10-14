@@ -6,7 +6,7 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
 /**
- * Balise "sinon" de la Condition située parmi les Commandes Event.
+ * Balise "sinon" de la Condition situï¿½e parmi les Commandes Event.
  */
 public class ConditionSinon extends Condition implements CommandeEvent, CommandeMenu {
 
@@ -19,8 +19,8 @@ public class ConditionSinon extends Condition implements CommandeEvent, Commande
 	}
 	
 	/**
-	 * Constructeur générique
-	 * @param parametres liste de paramètres issus de JSON
+	 * Constructeur generique
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ConditionSinon(final HashMap<String, Object> parametres) {
 		this( parametres.get("numero") != null ? (int) parametres.get("numero") : -1);
@@ -32,7 +32,7 @@ public class ConditionSinon extends Condition implements CommandeEvent, Commande
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Hï¿½ros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

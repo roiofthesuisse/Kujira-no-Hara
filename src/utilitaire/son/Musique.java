@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Permet d'uniformiser le contr�le de la Musique malgr� les diff�rents formats audio.
+ * Permet d'uniformiser le controle de la Musique malgr� les differents formats audio.
  */
 public abstract class Musique {
 	//constantes
@@ -33,7 +33,7 @@ public abstract class Musique {
 	public float volumeActuel;
 	
 	/**
-	 * Diff�rents formats de fichiers audio possibles
+	 * differents formats de fichiers audio possibles
 	 */
 	public enum FormatAudio {
 		WAV("WAV"), OGG("OGG"), MP3("MP3");
@@ -49,7 +49,7 @@ public abstract class Musique {
 	}
 	
 	/**
-	 * Diff�rents types de fichiers audio possibles
+	 * differents types de fichiers audio possibles
 	 */
 	public enum TypeMusique {
 		BGM("BGM"), BGS("BGS"), ME("ME"), SE("SE");
@@ -81,7 +81,7 @@ public abstract class Musique {
 		
 		/**
 		 * Refermer le clip a la fin de son execution.
-		 * Si c'est un ME, red�marrer le BGM mis en silence.
+		 * Si c'est un ME, reDemarrer le BGM mis en silence.
 		 */
 		protected void fermerALaFin() {
 			if (TypeMusique.SE.equals(this.type)) {
@@ -100,7 +100,7 @@ public abstract class Musique {
 					LOG.error("Impossible d'attendre la fin de la musique "+nom, e);
 				}
 		    	
-		    	// red�marrer le BGM apres la fin du ME
+		    	// reDemarrer le BGM apres la fin du ME
 		    	for (int i = 0; i<LecteurAudio.NOMBRE_DE_PISTES; i++) {
 		    		final Musique bgm = LecteurAudio.bgmEnCours[i];
 			    	if (bgm != null) {

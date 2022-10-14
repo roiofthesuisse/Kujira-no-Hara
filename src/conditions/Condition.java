@@ -107,23 +107,23 @@ public abstract class Condition extends Commande {
 				conditionJSON2 = (JSONObject) conditionJSON;
 				final Class<?> classeCondition = Class.forName("conditions.Condition" + conditionJSON2.get("nom"));
 				try {
-					// cas d'une Condition sans param�tres
+					// cas d'une Condition sans parametres
 
 					final Constructor<?> constructeurCondition = classeCondition.getConstructor();
 					final Condition condition = (Condition) constructeurCondition.newInstance();
 					conditions.add(condition);
 
 				} catch (NoSuchMethodException e0) {
-					// cas d'une Condition utilisant des param�tres
+					// cas d'une Condition utilisant des parametres
 
 					final Iterator<String> parametresNoms = ((JSONObject) conditionJSON).keys();
-					String parametreNom; // nom du param�tre pour instancier la Condition
-					Object parametreValeur; // valeur du param�tre pour instancier la Condition
+					String parametreNom; // nom du parametre pour instancier la Condition
+					Object parametreValeur; // valeur du parametre pour instancier la Condition
 					final HashMap<String, Object> parametres = new HashMap<String, Object>();
 					while (parametresNoms.hasNext()) {
 						parametreNom = parametresNoms.next();
 						if (!parametreNom.equals("nom")) { // le nom servait a trouver la classe, ici on ne s'int�resse
-															// qu'aux param�tres
+															// qu'aux parametres
 							parametreValeur = ((JSONObject) conditionJSON).get(parametreNom);
 							parametres.put(parametreNom, parametreValeur);
 						}

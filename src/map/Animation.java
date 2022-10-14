@@ -33,7 +33,7 @@ public class Animation {
 	private final int id;
 	/** Image dans laquelle on d�coupe les vignettes de l'Animation */
 	private BufferedImage image;
-	/** Les diff�rentes �tapes successives de l'animation */
+	/** Les differentes �tapes successives de l'animation */
 	public final ArrayList<Frame> frames;
 	
 	/**

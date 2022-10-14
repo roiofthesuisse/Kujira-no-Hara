@@ -11,14 +11,14 @@ import utilitaire.son.LecteurAudio;
 import utilitaire.son.Musique;
 
 /**
- * Arrêter la musique.
+ * Arrï¿½ter la musique.
  */
 public class ArreterLesEffetsSonores extends Commande implements CommandeEvent, CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(ArreterLesEffetsSonores.class);
 
-	/** Durée totale de l'arrêt en fondu */
+	/** Durï¿½e totale de l'arrï¿½t en fondu */
 	private final static int DUREE_FONDU = 10;
-	/** Compteur de frames de l'arrêt en fondu */
+	/** Compteur de frames de l'arrï¿½t en fondu */
 	private int frame;
 
 	/**
@@ -29,9 +29,9 @@ public class ArreterLesEffetsSonores extends Commande implements CommandeEvent, 
 	}
 
 	/**
-	 * Constructeur générique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de paramètres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ArreterLesEffetsSonores(final HashMap<String, Object> parametres) {
 		this();
@@ -44,7 +44,7 @@ public class ArreterLesEffetsSonores extends Commande implements CommandeEvent, 
 			se.arreter();
 			i--;
 		}
-		LOG.info("Arrêt des effets sonores.");
+		LOG.info("Arrï¿½t des effets sonores.");
 		return curseurActuel + 1;
 	}
 

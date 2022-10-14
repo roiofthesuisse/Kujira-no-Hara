@@ -70,9 +70,9 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 	}
 
 	/**
-	 * Constructeur g�n�rique
+	 * Constructeur generique
 	 * 
-	 * @param parametres liste de param�tres issus de JSON
+	 * @param parametres liste de parametres issus de JSON
 	 */
 	public ModifierVariable(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("numeroVariable"), (String) parametres.get("operationAFaire"),
