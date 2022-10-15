@@ -11,10 +11,10 @@ import main.Main;
 import map.Event;
 
 /**
- * Est-ce que le H�ros vient d'entrer en contact avec l'Event ?
+ * Est-ce que le Heros vient d'entrer en contact avec l'Event ?
  * Le contact a deux sens :
- * - si l'Event est traversable, le contact signifie que le H�ros est majoritairement superpos� a lui ;
- * - si l'Event n'est pas traversable, le contact signifie que le H�ros et l'Event se touchent par un c�t� de la Hitbox.
+ * - si l'Event est traversable, le contact signifie que le Heros est majoritairement superpos� a lui ;
+ * - si l'Event n'est pas traversable, le contact signifie que le Heros et l'Event se touchent par un c�t� de la Hitbox.
  */
 public class ConditionArriveeAuContact extends Condition  implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ConditionArriveeAuContact.class);
@@ -65,7 +65,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 		
 		//on �tait d'embl�e sur l'Event a la premi�re frame du LecteurMap
 		if (frameActuelle <= 1 && event.estAuContactDuHerosMaintenant) {
-			LOG.debug("Condition ArriveeAuContact ignor�e si c'est la position initiale du H�ros sur la Map.");
+			LOG.debug("Condition ArriveeAuContact ignor�e si c'est la position initiale du Heros sur la Map.");
 			event.estAuContactDuHerosAvant = true;
 		}
 		
@@ -73,7 +73,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximit� avec le H�ros.
+	 * C'est une Condition qui implique une proximit� avec le Heros.
 	 * @return true 
 	 */
 	public final boolean estLieeAuHeros() {

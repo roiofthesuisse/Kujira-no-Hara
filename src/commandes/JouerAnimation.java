@@ -9,8 +9,8 @@ import org.apache.logging.log4j.Logger;
 import main.Commande;
 
 /**
- * Une Animation peut cibler un Event, ou bien �tre positionn�e en des
- * coordonn�es sp�cifiques.
+ * Une Animation peut cibler un Event, ou bien etre positionn�e en des
+ * Coordonnees sp�cifiques.
  */
 public class JouerAnimation extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(JouerAnimation.class);
@@ -27,9 +27,9 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 	 * @param idAnimation identifiant de l'Animation a jouer
 	 * @param idEvent     identifiant de l'Event sur lequel on affiche l'Animation ;
 	 *                    "null" vaut pour "cet Event"
-	 * @param xEcran      position x de la Map o� on affiche l'animation (facultatif
+	 * @param xEcran      position x de la Map Ou on affiche l'animation (facultatif
 	 *                    si Event)
-	 * @param yEcran      position y de la Map o� on affiche l'animation (facultatif
+	 * @param yEcran      position y de la Map Ou on affiche l'animation (facultatif
 	 *                    si Event)
 	 */
 	private JouerAnimation(final int idAnimation, final Integer idEvent, final int xEcran, final int yEcran) {
@@ -48,7 +48,7 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 		this((int) parametres.get("idAnimation"),
 				parametres.containsKey("idEvent") ? (int) parametres.get("idEvent") : null, // soit on utilise l'idEvent
 				parametres.containsKey("xEcran") ? (int) parametres.get("xEcran") : -1, // soit on utilise des
-																						// coordonn�es
+																						// Coordonnees
 				parametres.containsKey("yEcran") ? (int) parametres.get("yEcran") : -1);
 	}
 
@@ -67,12 +67,12 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 				lieuDeLExplosion = "cet event";
 			}
 
-			// On v�rifie qu'il n'y a pas d�j� une animation sur cet Event
+			// On v�rifie qu'il n'y a pas deja une animation sur cet Event
 			int nombreDAnimations = getPartieActuelle().animations.size();
 			JouerAnimation animation;
 			for (int i = 0; i < nombreDAnimations; i++) {
 				animation = getPartieActuelle().animations.get(i);
-				// Est-ce qu'il y a d�j� une animation sur l'Event concern� ?
+				// Est-ce qu'il y a deja une animation sur l'Event concern� ?
 				if (this.idEvent == animation.idEvent) {
 					// On retire les animations actuellement associ�es a cet Event
 					getPartieActuelle().animations.remove(i);
@@ -81,9 +81,9 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 				}
 			}
 		} else {
-			// L'animation est d�finie par ses coordonn�es
+			// L'animation est d�finie par ses Coordonnees
 			this.idEvent = null;
-			lieuDeLExplosion = "aux coordonn�es " + this.xEcran + ";" + this.yEcran;
+			lieuDeLExplosion = "aux Coordonnees " + this.xEcran + ";" + this.yEcran;
 		}
 
 		// On ajoute la nouvelle animation

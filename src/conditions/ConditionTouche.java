@@ -11,7 +11,7 @@ import map.LecteurMap;
 import utilitaire.GestionClavier.ToucheRole;
 
 /**
- * La touche action vient d'�tre press�e a l'instant.
+ * La touche action vient d'etre press�e a l'instant.
  */
 public class ConditionTouche extends Condition implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ConditionTouche.class);
@@ -76,7 +76,7 @@ public class ConditionTouche extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le H�ros.
+	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

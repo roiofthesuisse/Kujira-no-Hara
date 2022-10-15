@@ -54,11 +54,11 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 		// On apprend a la page commune qui est son event
 		this.pageCommune.event = this.page.event;
 
-		// Ex�cution
-		LOG.info("Ex�cution de la page commune " + this.numeroPageCommune + " " + this.pageCommune.nom);
+		// execution
+		LOG.info("execution de la page commune " + this.numeroPageCommune + " " + this.pageCommune.nom);
 		this.pageCommune.executer();
 
-		// La page a-t-elle ete ex�cut�e en entier ?
+		// La page a-t-elle ete execut�e en entier ?
 		if (this.pageCommune.curseurCommandes == 0) {
 			// fini
 			return curseurActuel + 1;

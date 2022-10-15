@@ -40,7 +40,7 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 			getPartieActuelle().mots[this.numeroMot] = this.lettre;
 			this.element.menu.reactualiserTousLesTextes();
 		} else if (mot.length() < getPartieActuelle().tailleMaximaleDuMot) {
-			// mot d�j� rempli
+			// mot deja rempli
 			getPartieActuelle().mots[this.numeroMot] += this.lettre;
 			this.element.menu.reactualiserTousLesTextes();
 		}

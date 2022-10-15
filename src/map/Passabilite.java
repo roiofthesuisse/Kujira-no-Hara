@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Une tuile de d�cor peut �tre traversable ou solide.
+ * Une tuile de d�cor peut etre traversable ou solide.
  * Les quatre faces de la tuile n'ont pas forc�ment la m�me passabilit� :
  * on pourra y entrer par la gauche, mais pas forc�ment en resortir par la droite.
  */

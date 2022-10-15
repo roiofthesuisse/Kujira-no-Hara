@@ -15,8 +15,8 @@ public class SautAbsolu extends Sauter {
 
 	/**
 	 * Constructeur explicite
-	 * @param xDestination : coordonn�e x de la case destination (en nombre de carreaux)
-	 * @param yDestination : coordonn�e y de la case destination (en nombre de carreaux)
+	 * @param xDestination : Coordonnee x de la case destination (en nombre de carreaux)
+	 * @param yDestination : Coordonnee y de la case destination (en nombre de carreaux)
 	 */
 	public SautAbsolu(final int xDestination, final int yDestination) {
 		super(0, 0);

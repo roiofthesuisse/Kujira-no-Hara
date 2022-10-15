@@ -33,7 +33,7 @@ public class LecteurMenu extends Lecteur {
 		this.menu = menu;
 		menu.lecteur = this; //on pr�vient le Lecteur qu'il a un Menu
 		
-		// Le changement de Menu impose peut-�tre sa propre s�lection initiale
+		// Le changement de Menu impose peut-etre sa propre s�lection initiale
 		if (selectionInitiale != null) {
 			final ElementDeMenu elementSelectionneInitialement = this.menu.elements.get(selectionInitiale);
 			if (elementSelectionneInitialement.selectionnable) {
@@ -171,7 +171,7 @@ public class LecteurMenu extends Lecteur {
 	
 	/**
 	 * Ouvrir un autre Menu.
-	 * @warning cette Methode ne doit �tre appel�e que par le nouveau Lecteur !
+	 * @warning cette Methode ne doit etre appel�e que par le nouveau Lecteur !
 	 */
 	public final void changerMenu() {
 		Main.futurLecteur = this;

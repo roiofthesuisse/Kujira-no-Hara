@@ -28,8 +28,8 @@ public class ConditionPendantDureeDAttaque extends Condition implements Commande
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximit� avec le H�ros.
-	 * En effet, elle sert de signal du coup donn� par le H�ros a un Event avec une Arme.
+	 * C'est une Condition qui implique une proximit� avec le Heros.
+	 * En effet, elle sert de signal du coup donn� par le Heros a un Event avec une Arme.
 	 * @return true 
 	 */
 	public final boolean estLieeAuHeros() {

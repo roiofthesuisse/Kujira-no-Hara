@@ -54,7 +54,7 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 			return curseurActuel;
 
 		} else {
-			// L'arr�t en fondu est termin�
+			// L'arr�t en fondu est termine
 			LecteurAudio.stopBgs(piste);
 			frame = 0;
 

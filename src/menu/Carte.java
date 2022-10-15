@@ -20,7 +20,7 @@ public class Carte extends ElementDeMenu {
 	protected Carte (final int x, final int y, final int largeur, final int hauteur, final int id) {
 		super(
 				id, 
-				false, // non sélectionnable
+				false, // non sï¿½lectionnable
 				x, y, 
 				null,
 				null,
@@ -37,7 +37,7 @@ public class Carte extends ElementDeMenu {
 			this.xCarteActuel = xCarteFutur;
 			this.yCarteActuel = yCarteFutur;
 		} else if (xCarteActuel != xCarteFutur || yCarteActuel != yCarteFutur) {
-			// Déplacement du cadrage
+			// Deplacement du cadrage
 			this.xCarteActuel = 2*xCarteActuel/3 + xCarteFutur/3;
 			this.yCarteActuel = 2*yCarteActuel/3 + yCarteFutur/3;
 		}
@@ -45,7 +45,7 @@ public class Carte extends ElementDeMenu {
 		int xCadrage = xCarteActuel-largeur/2;
 		int yCadrage = yCarteActuel-hauteur/2;
 		
-		// Ne pas dépasser les bords de l'image
+		// Ne pas dï¿½passer les bords de l'image
 		if (xCadrage < 0) {
 			xCadrage = 0;
 		}
@@ -73,7 +73,7 @@ public class Carte extends ElementDeMenu {
 				this.numeroCarte = numeroCarte;
 				LOG.info("Nouvelle image de carte : "+numeroCarte);
 				
-				// Réinitialisation des coordonnées du cadrage
+				// Rï¿½initialisation des Coordonnees du cadrage
 				this.xCarteActuel = -1;
 				this.yCarteActuel = -1;
 			} catch (IOException e) {
@@ -81,7 +81,7 @@ public class Carte extends ElementDeMenu {
 			}
 		}
 		
-		// Nouvelles coordonnées du cadrage
+		// Nouvelles Coordonnees du cadrage
 		this.xCarteFutur = xCarte;
 		this.yCarteFutur = yCarte;
 		

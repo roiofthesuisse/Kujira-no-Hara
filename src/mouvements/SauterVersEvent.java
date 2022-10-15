@@ -51,8 +51,8 @@ public class SauterVersEvent extends Sauter {
 		
 		/**
 		 * Constructeur explicite
-		 * @param x coordonn�e x en carreaux
-		 * @param y coordonn�e y en carreaux
+		 * @param x Coordonnee x en carreaux
+		 * @param y Coordonnee y en carreaux
 		 * @param distanceAuCarre distance entre le carreau et l'Event observ�.
 		 */
 		private Carreau(final int x, final int y, final int distanceAuCarre) {

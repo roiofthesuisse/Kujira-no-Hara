@@ -33,7 +33,7 @@ public abstract class Condition extends Commande {
 	public abstract boolean estVerifiee();
 
 	/**
-	 * Une Condition est une Commande Event, elle peut �tre execut�e pour faire des
+	 * Une Condition est une Commande Event, elle peut etre execut�e pour faire des
 	 * sauts de curseur. Son execution est instantan�e.
 	 * 
 	 * @param curseurActuel position du curseur avant l'execution
@@ -41,7 +41,7 @@ public abstract class Condition extends Commande {
 	 * @return nouvelle position du curseur
 	 */
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// une Condition doit avoir un num�ro pour �tre ex�cut�e comme Commande Event
+		// une Condition doit avoir un num�ro pour etre execut�e comme Commande Event
 		if (this.numero == -1) {
 			LOG.error("La condition " + this.getClass().getName() + " n'a pas de num�ro !");
 		}
@@ -76,7 +76,7 @@ public abstract class Condition extends Commande {
 	}
 
 	/**
-	 * Est-ce que la Condition demande un mouvement particulier du H�ros ? Contact,
+	 * Est-ce que la Condition demande un mouvement particulier du Heros ? Contact,
 	 * Arriv�eAuContact, Parler...
 	 * 
 	 * @return false si la Condition est a consid�rer pour l'apparence d'un Event,

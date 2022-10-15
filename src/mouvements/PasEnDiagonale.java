@@ -50,7 +50,7 @@ public class PasEnDiagonale extends Avancer {
 		
 		//il ne faut pas que l'Event aille plus loin que son objectif !
 		final int enjambee = Maths.min(event.vitesseActuelle.valeur, this.etapes - this.ceQuiAEteFait);
-		//d�placement :
+		//deplacement :
 		switch (this.directionHorizontale) {
 			case Direction.GAUCHE : 
 				event.x -= enjambee; 
@@ -79,7 +79,7 @@ public class PasEnDiagonale extends Avancer {
 	public final boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		
-		//si c'est le H�ros, il n'avance pas s'il est en animation d'attaque
+		//si c'est le Heros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 			return false;
 		}
@@ -119,7 +119,7 @@ public class PasEnDiagonale extends Avancer {
 	@Override
 	public final int getDirectionImposee() {
 		if (this.deplacement.getEventADeplacer().direction == this.directionVerticale) {
-			//si l'Event regarde d�j� dans une des deux directions de la diagonale, on prend celle-ci
+			//si l'Event regarde deja dans une des deux directions de la diagonale, on prend celle-ci
 			return this.directionVerticale;
 		} else {
 			//sinon par d�faut on prend la composante horizontale de la diagonale

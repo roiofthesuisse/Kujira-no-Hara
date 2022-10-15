@@ -35,7 +35,7 @@ public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 	}
 
 	/**
-	 * Une Boucle est une Commande Event, elle peut �tre execut�e pour faire des
+	 * Une Boucle est une Commande Event, elle peut etre execut�e pour faire des
 	 * sauts de curseur. Son execution est instantan�e.
 	 * 
 	 * @param curseurActuel position du curseur avant l'execution

@@ -37,13 +37,13 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 
 	@Override
 	public final boolean estVerifiee() {
-		this.deplacement.page = this.page; //on apprend au D�placement quelle est sa Page
+		this.deplacement.page = this.page; //on apprend au Deplacement quelle est sa Page
 		final boolean resultat = this.deplacement.mouvements.get(0).mouvementPossible();
 		return resultat;
 	}
 
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le H�ros.
+	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

@@ -21,11 +21,11 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	private int deltaX;
 	private int deltaY;
 	
-	/** Si l'Event marche vers un coin, on le d�cale l�g�rement pour qu'il puisse passer */
+	/** Si l'Event marche vers un coin, on le decale l�g�rement pour qu'il puisse passer */
 	private boolean onPeutContournerUnCoin;
 	/** D�calage de l'Event pour l'aider a franchir un coin */
 	private int realignementX, realignementY;
-	/** Inertie : le H�ros avance moins vite lors de la premi�re frame d'appui */
+	/** Inertie : le Heros avance moins vite lors de la premi�re frame d'appui */
 	private boolean toucheEnfonceeALaFramePrecedente;
 	
 	/**
@@ -56,10 +56,10 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 			event.activerUnePage();
 		}
 		
-		// Inertie : si on vient d'appuyer sur la touche, le H�ros va moins vite
+		// Inertie : si on vient d'appuyer sur la touche, le Heros va moins vite
 		final int vitesse = vitesse(event);
 		
-		// Le H�ros traverse tout si la touche de triche est press�e
+		// Le Heros traverse tout si la touche de triche est press�e
 		if (event instanceof Heros && ToucheRole.TRICHE.enfoncee()) {
 			this.deltaX += GestionClavier.ToucheRole.DROITE.enfoncee() ? vitesse : 0;
 			this.deltaX += GestionClavier.ToucheRole.GAUCHE.enfoncee() ? -vitesse : 0;
@@ -210,7 +210,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 							this.realignementY = unPas.realignementY;
 						}
 					} else if (this.toucheEnfonceeALaFramePrecedente && event instanceof Heros) {
-						// Inertie : m�me si on ne presse plus les touches, le H�ros avance encore un peu
+						// Inertie : m�me si on ne presse plus les touches, le Heros avance encore un peu
 						final int vitesseInertie = Math.max(1, event.pageActive.vitesse.valeur/2);
 						final Avancer unPas = unPasVers(event.direction, event, vitesseInertie);
 						if (unPas.mouvementPossible()) {
@@ -253,7 +253,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	 */
 	private int vitesse(final Event event) {
 		if (event instanceof Heros && !this.toucheEnfonceeALaFramePrecedente) {
-			// inertie : si on vient d'appuyer sur la touche, le H�ros va moins vite
+			// inertie : si on vient d'appuyer sur la touche, le Heros va moins vite
 			return Math.max(1, event.pageActive.vitesse.valeur/2);
 		} else {
 			// vitesse maximale de l'Event
@@ -278,7 +278,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	private Avancer unPasVers(final int dir, final Event event, final int vitesseForcee) {
 		final Avancer pas = new Avancer(dir, vitesseForcee);
 		pas.deplacement = new Deplacement(event.id, new ArrayList<Mouvement>(), true, false, false);
-		pas.deplacement.page = event.pageActive; //on apprend au D�placement quelle est sa Page
+		pas.deplacement.page = event.pageActive; //on apprend au Deplacement quelle est sa Page
 		return pas;
 	}
 	
@@ -294,7 +294,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	private Mouvement unPasVers(final int dirVerti, final int dirHori, final Event event, final int vitesseForcee) {
 		final Mouvement pas = new PasEnDiagonale(dirVerti, dirHori, vitesseForcee);
 		pas.deplacement = new Deplacement(event.id, new ArrayList<Mouvement>(), true, false, false);
-		pas.deplacement.page = event.pageActive; //on apprend au D�placement quelle est sa Page
+		pas.deplacement.page = event.pageActive; //on apprend au Deplacement quelle est sa Page
 		return pas;
 	}
 
@@ -404,9 +404,9 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	public final int getDirectionImposee() {
 		final Event event = this.deplacement.getEventADeplacer();
 		if (!event.map.lecteur.stopEvent //pas de gel des Events
-			&& !(event.map.lecteur.stopHeros && event instanceof Heros) //pas de gel du H�ros
+			&& !(event.map.lecteur.stopHeros && event instanceof Heros) //pas de gel du Heros
 				//&& event.animationAttaque <= 0 //pas en attaque
-				&& (event.deplacementForce == null || event.deplacementForce.mouvements.size() <= 0) //pas de D�placement forc�
+				&& (event.deplacementForce == null || event.deplacementForce.mouvements.size() <= 0) //pas de Deplacement forc�
 		) {
 			if (GestionClavier.ToucheRole.GAUCHE.enfoncee()) {
 				event.direction = Event.Direction.GAUCHE;

@@ -51,7 +51,7 @@ public class PasEnArriere extends Avancer {
 		
 		//il ne faut pas que l'Event aille plus loin que son objectif !
 		final int enjambee = Maths.min(event.vitesseActuelle.valeur, this.etapes - this.ceQuiAEteFait);
-		//d�placement :
+		//deplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
 				event.y -= enjambee; 

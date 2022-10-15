@@ -44,7 +44,7 @@ public class Boucle extends Commande implements CommandeEvent, CommandeMenu {
 	}
 
 	/**
-	 * Une Boucle est une Commande Event, elle peut �tre execut�e pour faire des
+	 * Une Boucle est une Commande Event, elle peut etre execut�e pour faire des
 	 * sauts de curseur. Son execution est instantan�e.
 	 * 
 	 * @param curseurActuel position du curseur avant l'execution
@@ -57,7 +57,7 @@ public class Boucle extends Commande implements CommandeEvent, CommandeMenu {
 			this.debutBoucle = System.currentTimeMillis();
 		}
 
-		// cas o� la boucle a dur� trop longtemps
+		// cas Ou la boucle a dur� trop longtemps
 		if (!laBoucleAttendUneActionDuJoueur(commandes)
 				&& System.currentTimeMillis() - this.debutBoucle >= Lecteur.DUREE_FRAME / TIMEOUT_FRACTION_DE_FRAME) {
 			LOG.warn("Boucle interrompue car a dur� trop longtemps.");
@@ -97,7 +97,7 @@ public class Boucle extends Commande implements CommandeEvent, CommandeMenu {
 				if (commande instanceof BoucleFin && ((BoucleFin) commande).numero == this.numero) {
 					onATrouveLaFinDeBoucle = true;
 				}
-				// les Conditions de r�ponse du Joueur sont situ�es entre les deux
+				// les Conditions de r�ponse du Joueur sont situees entre les deux
 				if (commande instanceof ConditionTouche && onATrouveLeDebutDeBoucle && !onATrouveLaFinDeBoucle) {
 					this.laBoucleAttendUneActionDuJoueur = true;
 					break;

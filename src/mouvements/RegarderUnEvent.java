@@ -29,7 +29,7 @@ public class RegarderUnEvent extends RegarderDansUneDirection {
 	 */
 	public RegarderUnEvent(final HashMap<String, Object> parametres) {
 		this(
-				(int) parametres.get("idEvent"), //0 est le H�ros
+				(int) parametres.get("idEvent"), //0 est le Heros
 				parametres.containsKey("sens") ? (((String) parametres.get("sens")).equals("fuir") ? Sens.FUIR : Sens.SUIVRE) : Sens.SUIVRE //si non pr�cis� : on suit
 		);
 	}

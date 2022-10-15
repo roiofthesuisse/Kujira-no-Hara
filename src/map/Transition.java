@@ -32,7 +32,7 @@ public enum Transition {
 				int yTransitionNouvelleMap = 0;
 				int xTransitionAncienneMap = 0;
 				int yTransitionAncienneMap = 0;
-				int xDeplacementHeros = 0; //d�calage a compenser du H�ros qui marche sur la nouvelle Map
+				int xDeplacementHeros = 0; //d�calage a compenser du Heros qui marche sur la nouvelle Map
 				int yDeplacementHeros = 0;
 				//sens de la Transition
 				switch (this.direction) {
@@ -64,7 +64,7 @@ public enum Transition {
 				
 				return resultat;
 			} else {
-				//transition termin�e
+				//transition terminee
 				return ecranNouvelleMap;
 			}
 		}
@@ -113,7 +113,7 @@ public enum Transition {
 					return resultat;
 				}
 			} else {
-				//transition termin�e
+				//transition terminee
 				return ecranNouvelleMap;
 			}
 		}
@@ -155,15 +155,15 @@ public enum Transition {
 	/**
 	 * Calculer l'�tape de la Transition en fonction de la frame.
 	 * @param ecranNouvelleMap ecran de la nouvelle Map
-	 * @param nouvelleMap contenant la position intiale du H�ros
+	 * @param nouvelleMap contenant la position intiale du Heros
 	 * @param frame du Lecteur de la nouvelle Map
 	 * @return image de Transition entre l'ancienne Map et la Nouvelle Map
 	 */
 	public abstract BufferedImage calculer(BufferedImage ecranNouvelleMap, Map nouvelleMap, int frame);
 
 	/** Trouver la tansition la plus adapt�e si aucune n'est pr�cis�e
-	 * @param xHerosNouvelleMap coordonn�e x (en carreaux) du H�ros a l'arriv�e sur la nouvelle Map
-	 * @param yHerosNouvelleMap coordonn�e y (en carreaux) du H�ros a l'arriv�e sur la nouvelle Map
+	 * @param xHerosNouvelleMap Coordonnee x (en carreaux) du Heros a l'arriv�e sur la nouvelle Map
+	 * @param yHerosNouvelleMap Coordonnee y (en carreaux) du Heros a l'arriv�e sur la nouvelle Map
 	 * @param tilesetNouvelleMap Tileset de la nouvelle Map
 	 * @return type de transition a effectuer
 	 */
@@ -176,10 +176,10 @@ public enum Transition {
 	
 	/**
 	 * Calculer la Direction du d�filement.
-	 * @param xOrigine coordonn�e x (en pixels) du H�ros sur l'ancienne Map
-	 * @param yOrigine coordonn�e y (en pixels) du H�ros sur l'ancienne Map
-	 * @param xDestination coordonn�e x (en pixels) du H�ros sur la nouvelle Map
-	 * @param yDestination coordonn�e y (en pixels) du H�ros sur la nouvelle Map
+	 * @param xOrigine Coordonnee x (en pixels) du Heros sur l'ancienne Map
+	 * @param yOrigine Coordonnee y (en pixels) du Heros sur l'ancienne Map
+	 * @param xDestination Coordonnee x (en pixels) du Heros sur la nouvelle Map
+	 * @param yDestination Coordonnee y (en pixels) du Heros sur la nouvelle Map
 	 * @param largeurOrigine largeur (en carreaux) de l'ancienne Map
 	 * @param hauteurOrigine hauteur (en carreaux) de l'ancienne Map
 	 * @param largeurDestination largeur (en carreaux) de la nouvelle Map

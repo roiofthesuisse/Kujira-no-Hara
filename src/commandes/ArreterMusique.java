@@ -45,9 +45,9 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// On ne fait rien si la musique est d�j� arr�t�e
+		// On ne fait rien si la musique est deja arr�t�e
 		if (LecteurAudio.bgmEnCours == null || LecteurAudio.bgmEnCours[piste] == null) {
-			LOG.warn("La musique est d�j� arr�t�e.");
+			LOG.warn("La musique est deja arr�t�e.");
 			return curseurActuel + 1;
 		}
 
@@ -65,7 +65,7 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 			return curseurActuel;
 
 		} else {
-			// L'arr�t en fondu est termin�
+			// L'arr�t en fondu est termine
 			LecteurAudio.stopBgm(piste);
 			frame = 0;
 

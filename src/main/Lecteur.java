@@ -10,7 +10,7 @@ import utilitaire.GestionClavier.ToucheRole;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Le lecteur peut �tre un lecteur de menu ou un lecteur de map.
+ * Le lecteur peut etre un lecteur de menu ou un lecteur de map.
  * Le role du lecteur est d'afficher dans la Fenetre la succession des ecrans au cours du temps.
  */
 public abstract class Lecteur {	
@@ -48,14 +48,14 @@ public abstract class Lecteur {
 	
 	/**
 	 * Pr�venir le Lecteur qu'une touche a ete press�e, pour qu'il en d�duise une action a faire.
-	 * La touche envoy�e ne dois pas �tre nulle !
+	 * La touche envoy�e ne dois pas etre nulle !
 	 * @param touchePressee touche press�e
 	 */
 	public abstract void keyPressed(ToucheRole touchePressee);
 	
 	/**
 	 * Pr�venir le Lecteur qu'une touche a ete relach�e, pour qu'il en d�duise une action a faire.
-	 * La touche envoy�e ne dois pas �tre nulle !
+	 * La touche envoy�e ne dois pas etre nulle !
 	 * @param toucheRelachee touche relach�e
 	 */
 	public abstract void keyReleased(ToucheRole toucheRelachee);
@@ -82,7 +82,7 @@ public abstract class Lecteur {
 	public final void demarrer() {
 		this.allume = true;
 		LOG.info("-------------------------------------------------------------");
-		LOG.info("Un nouveau "+this.typeDeLecteur()+" vient d'�tre d�marr�.");
+		LOG.info("Un nouveau "+this.typeDeLecteur()+" vient d'etre d�marr�.");
 		//Demarrer la Musique de la Map/du Menu
 		lireMusique();
 		
@@ -109,7 +109,7 @@ public abstract class Lecteur {
 		}
 		//si on est ici, c'est qu'une Commande Event a �teint le Lecteur
 		//la Fenetre va devoir le remplacer par le futur Lecteur (si elle en a un de rechange)
-		LOG.info("Le "+typeDeLecteur()+" actuel vient d'�tre arr�t� a la frame "+this.frameActuelle);
+		LOG.info("Le "+typeDeLecteur()+" actuel vient d'etre arr�t� a la frame "+this.frameActuelle);
 	}
 
 	/**

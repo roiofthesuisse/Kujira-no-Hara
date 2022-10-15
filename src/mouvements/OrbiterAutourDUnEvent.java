@@ -61,7 +61,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	public final boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		
-		//si c'est le H�ros, il n'avance pas s'il est en animation d'attaque
+		//si c'est le Heros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 			return false;
 		}
@@ -82,7 +82,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	}
 	
 	/**
-	 * Calculer les d�placements (en pixels) en x et en y lors de cette frame-ci.
+	 * Calculer les deplacements (en pixels) en x et en y lors de cette frame-ci.
 	 * @param event a d�placer
 	 * @param eventCentral centre du cercle
 	 */
@@ -98,8 +98,8 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 		final double angleActuel = angleActuel(deltaX, deltaY);
 		this.nouveauX = eventCentral.x + (int) (this.rayon * Math.cos(angleActuel + this.angleParcouruAChaqueEtape));
 		this.nouveauY = eventCentral.y + (int) (this.rayon * Math.sin(angleActuel + this.angleParcouruAChaqueEtape));
-		this.deplacementX = this.nouveauX - event.x; //utile pour conna�tre la direction regard�e
-		this.deplacementY = this.nouveauY - event.y; //utile pour conna�tre la direction regard�e
+		this.deplacementX = this.nouveauX - event.x; //utile pour connaetre la direction regard�e
+		this.deplacementY = this.nouveauY - event.y; //utile pour connaetre la direction regard�e
 	}
 	
 	/**

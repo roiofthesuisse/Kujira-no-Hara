@@ -25,11 +25,11 @@ public class NotificationQuete {
 	private static final int DUREE_FONDU = 20;
 
 	// Message d'annonce de la nouvelle quete
-	private static final String[] ANNONCE_QUETE_PRINCIPALE = new String[] { "Quête principale : ", "Main quest: " };
-	private static final String[] ANNONCE_QUETE_SECONDAIRE = new String[] { "Quête secondaire : ", "Side quest: " };
-	private static final String[] ANNONCE_MYSTERE = new String[] { "Mystère : ", "Mystery: " };
-	private static final String[] ANNONCE_MYSTERE_RESOLU = new String[] { "Mystère résolu : ", "Mystery solved: " };
-	private static final String[] ANNONCE_QUETE_TERMINEE = new String[] { "Quête terminée : ", "Completed quest: " };
+	private static final String[] ANNONCE_QUETE_PRINCIPALE = new String[] { "Quï¿½te principale : ", "Main quest: " };
+	private static final String[] ANNONCE_QUETE_SECONDAIRE = new String[] { "Quï¿½te secondaire : ", "Side quest: " };
+	private static final String[] ANNONCE_MYSTERE = new String[] { "Mystï¿½re : ", "Mystery: " };
+	private static final String[] ANNONCE_MYSTERE_RESOLU = new String[] { "Mystï¿½re rï¿½solu : ", "Mystery solved: " };
+	private static final String[] ANNONCE_QUETE_TERMINEE = new String[] { "Quï¿½te terminee : ", "Completed quest: " };
 	private static final String[] ANNONCE_TYPE_INCONNU = new String[] { "[Type de quete inconnu]",
 			"[Unknown quest type]" };
 

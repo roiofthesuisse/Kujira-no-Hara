@@ -47,19 +47,19 @@ public class ModifierFrequence extends Mouvement {
 	@Override
 	protected final void calculDuMouvement(final Event event) {
 		if (this.nouvelleFrequence == null) {
-			// La Fr�quence n'a pas encore ete interpr�t�e
+			// La Fr�quence n'a pas encore ete interpret�e
 			
-			// On l'interpr�te
+			// On l'interprete
 			this.nouvelleFrequence = Frequence.parNom(this.nomNouvelleFrequence);
 			
 			if (this.nouvelleFrequence == null) {
-				// La Fr�quence n'a pas pu �tre interpr�t�e !
+				// La Fr�quence n'a pas pu etre interpret�e !
 				LOG.error("Nom de fr�quence inconnu : "+this.nomNouvelleFrequence);
 				// On ne fera rien
 				this.nouvelleFrequence = event.frequenceActuelle;
 			}
 		}
-		// La nouvelle Fr�quence a ete interpr�t�e
+		// La nouvelle Fr�quence a ete interpret�e
 		
 		// On assigne la nouvelle Fr�quence
 		event.frequenceActuelle = this.nouvelleFrequence;

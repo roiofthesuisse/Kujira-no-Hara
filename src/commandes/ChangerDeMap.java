@@ -33,11 +33,11 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	 * 
 	 * @param variable            le lieu d'arriv�e est d�fini par des variables
 	 * @param numeroNouvelleMap   num�ro de la nouvelle Map
-	 * @param xDebutHeros         coordonn�e x du H�ros (en carreaux) a son arriv�e
+	 * @param xDebutHeros         Coordonnee x du Heros (en carreaux) a son arriv�e
 	 *                            sur la Map
-	 * @param yDebutHeros         coordonn�e y du H�ros (en carreaux) a son arriv�e
+	 * @param yDebutHeros         Coordonnee y du Heros (en carreaux) a son arriv�e
 	 *                            sur la Map
-	 * @param directionDebutHeros direction du H�ros a son arriv�e sur la Map
+	 * @param directionDebutHeros direction du Heros a son arriv�e sur la Map
 	 * @param transition          visuelle pour passer d'une Map a l'autre (si null,
 	 *                            choix automatique)
 	 */
@@ -70,7 +70,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 		final Heros ancienHeros = ancienneMap.heros;
 
 		if (this.directionDebutHeros == -1) {
-			// aucune direction n'a ete impos�e pour le H�ros, on garde l'ancienne
+			// aucune direction n'a ete impos�e pour le Heros, on garde l'ancienne
 			this.directionDebutHeros = ancienHeros.direction;
 		}
 

@@ -53,7 +53,7 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 		// Cr�er juste un Event a partir du JSON de la Map
 		// (pas la peine de cr�er toute la Map)
 		try {
-			// Ouvrir le fichier JSON de la Map o� se trouve l'Event a invoquer
+			// Ouvrir le fichier JSON de la Map Ou se trouve l'Event a invoquer
 			JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(this.idMap);
 			// Chercher l'Event dans le fichier JSON de la Map
 			final JSONArray jsonEvents = jsonMap.getJSONArray("events");

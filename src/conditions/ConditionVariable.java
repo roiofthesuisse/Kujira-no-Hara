@@ -16,7 +16,7 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	private final boolean comparerAUneAutreVariable;
 	
 	/**
-	 * Utiliser les constantes situ�es dans la classe pour d�finir le type de comparaison.
+	 * Utiliser les constantes situees dans la classe pour d�finir le type de comparaison.
 	 * @param numero de la Condition
 	 * @param numeroVariable num�ro de la variable
 	 * @param symboleInegalite = egal ; >= superieur large ; <= inferieur large ; > superieur strict ; < inferieur strict ; != different
@@ -57,7 +57,7 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le H�ros.
+	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

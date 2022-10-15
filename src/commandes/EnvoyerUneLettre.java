@@ -49,19 +49,19 @@ public class EnvoyerUneLettre extends Commande implements CommandeEvent {
 				final String responseHttp = Poste.envoyerDuCourrier(lettre);
 				if (responseHttp.contains("ok")) { // TODO comment reconnaitre le succes ?
 					// Succes de l'envoi
-					LOG.info("La lettre " + idLettre + " a pu �tre envoy�e.");
+					LOG.info("La lettre " + idLettre + " a pu etre envoy�e.");
 					lettre.etat = EtatCourrier.ENVOYEE_PAS_REPONDUE;
 
 				} else {
 					// Echec de l'envoi
-					LOG.error("La lettre " + idLettre + " n'a pas pu �tre envoy�e !");
+					LOG.error("La lettre " + idLettre + " n'a pas pu etre envoy�e !");
 				}
 
 			} else {
 				LOG.error("La lettre " + idLettre + " est vierge !");
 			}
 		} else {
-			LOG.error("La lettre " + idLettre + " a d�j� ete envoy�e !");
+			LOG.error("La lettre " + idLettre + " a deja ete envoy�e !");
 		}
 		return curseurActuel + 1;
 	}

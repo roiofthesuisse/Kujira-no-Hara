@@ -24,7 +24,7 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroMap               num�ro de la Map o� se situe l'interrupteur
+	 * @param numeroMap               num�ro de la Map Ou se situe l'interrupteur
 	 *                                local a modifier
 	 * @param idEvent                 id de l'Event auquel appartient l'interrupteur
 	 *                                local a modifier
@@ -33,8 +33,8 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 	 */
 	public ModifierInterrupteurLocal(final Integer numeroMap, final Integer idEvent, final int numeroInterrupteurLocal,
 			final boolean valeur) {
-		this.numeroMap = numeroMap; // peut �tre null si signifie "cette Map"
-		this.idEvent = idEvent; // peut �tre null si signifie "cet Event"
+		this.numeroMap = numeroMap; // peut etre null si signifie "cette Map"
+		this.idEvent = idEvent; // peut etre null si signifie "cet Event"
 		this.numeroInterrupteurLocal = numeroInterrupteurLocal;
 		this.valeurADonner = valeur;
 	}

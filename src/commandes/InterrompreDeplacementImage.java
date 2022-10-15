@@ -10,7 +10,7 @@ import main.Commande;
 import map.Picture;
 
 /**
- * Figer une Image en supprimant son D�placement.
+ * Figer une Image en supprimant son Deplacement.
  */
 public class InterrompreDeplacementImage extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(InterrompreDeplacementImage.class);

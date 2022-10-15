@@ -16,7 +16,7 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param numeroMap numero de la Map o� se trouve l'interrupteur local a v�rifier
+	 * @param numeroMap numero de la Map Ou se trouve l'interrupteur local a v�rifier
 	 * @param idEvent id de l'Event auquel appartient l'interrupteur local a v�rifier
 	 * @param numeroInterrupteurLocal a v�rifier (0 A ; 1 B ; 2 C ; 3 D)
 	 * @param valeur bool�enne attendue
@@ -59,7 +59,7 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le H�ros.
+	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

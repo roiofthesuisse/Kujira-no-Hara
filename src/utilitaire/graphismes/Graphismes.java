@@ -51,8 +51,8 @@ public abstract class Graphismes {
 	 * 
 	 * @param ecran  image de fond, sur laquelle on va superposer l'autre
 	 * @param image2 image du dessus, superpos�e sur l'ecran
-	 * @param x      position x o� on superpose l'image2
-	 * @param y      position y o� on superpose l'image2
+	 * @param x      position x Ou on superpose l'image2
+	 * @param y      position y Ou on superpose l'image2
 	 * @return ecran sur lequel on a superpos� l'image2
 	 */
 	public static final BufferedImage superposerImages(BufferedImage ecran, final BufferedImage image2, final int x,
@@ -65,8 +65,8 @@ public abstract class Graphismes {
 	 * 
 	 * @param ecran   image de fond, sur laquelle on va superposer l'autre
 	 * @param image2  image du dessus, superpos�e sur l'ecran
-	 * @param x       position x o� on superpose l'image2
-	 * @param y       position y o� on superpose l'image2
+	 * @param x       position x Ou on superpose l'image2
+	 * @param y       position y Ou on superpose l'image2
 	 * @param opacite transparence de l'image2 entre 0 et 255
 	 * @return ecran sur lequel on a superpos� l'image2
 	 */
@@ -80,8 +80,8 @@ public abstract class Graphismes {
 	 * 
 	 * @param ecran        image de fond, sur laquelle on va superposer l'autre
 	 * @param image2       image du dessus, superpos�e sur l'ecran
-	 * @param x            position x o� on superpose l'image2
-	 * @param y            position y o� on superpose l'image2
+	 * @param x            position x Ou on superpose l'image2
+	 * @param y            position y Ou on superpose l'image2
 	 * @param opacite      transparence de l'image2 entre 0 et 255
 	 * @param modeDeFusion fa�on dont on superpose les deux images
 	 * @return ecran sur lequel on a superpos� l'image2
@@ -97,8 +97,8 @@ public abstract class Graphismes {
 	 * 
 	 * @param ecran        image de fond, sur laquelle on va superposer l'autre
 	 * @param image2       image du dessus, superpos�e sur l'ecran
-	 * @param x            position x o� on superpose l'image2
-	 * @param y            position y o� on superpose l'image2
+	 * @param x            position x Ou on superpose l'image2
+	 * @param y            position y Ou on superpose l'image2
 	 * @param centre       l'origine de l'image est-elle son centre ?
 	 * @param zoomX        zoom horizontal (en pourcents)
 	 * @param zoomY        zoom vertical (en pourcents)
@@ -150,7 +150,7 @@ public abstract class Graphismes {
 			final double preTranslationX = image2.getWidth() / 2;
 			final double preTranslationY = image2.getHeight() / 2;
 
-			// On pivote les coins de l'image pour conna�tre la nouvelle largeur/hauteur
+			// On pivote les coins de l'image pour connaetre la nouvelle largeur/hauteur
 			final int[][] coins = new int[][] { { x, y }, { x + image2.getWidth(), y }, { x, y + image2.getHeight() },
 					{ x + image2.getWidth(), y + image2.getHeight() } };
 			final int[][] coinsPivotes = new int[4][2];
@@ -171,9 +171,9 @@ public abstract class Graphismes {
 
 			// Rotation de l'image
 			final AffineTransform tx = new AffineTransform();
-			tx.translate(postTranslationX, postTranslationY); // �tape 3 : on la red�cale sur son coin
+			tx.translate(postTranslationX, postTranslationY); // �tape 3 : on la redecale sur son coin
 			tx.rotate(angleRadians); // �tape 2 : on la tourne
-			tx.translate(-preTranslationX, -preTranslationY); // �tape 1 : on d�cale l'image sur son centre
+			tx.translate(-preTranslationX, -preTranslationY); // �tape 1 : on decale l'image sur son centre
 			final AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 			final BufferedImage imagePivotee = op.filter(image2, null);
 			final int nouveauX = x + (int) preTranslationX - postTranslationX;
@@ -189,10 +189,10 @@ public abstract class Graphismes {
 	 * 
 	 * @param dst  image sur laquelle on dessine
 	 * @param src  image de laquelle on prend le carreau a dessiner
-	 * @param xDst coordonn�e (en pixels) o� on dessine
-	 * @param yDst coordonn�e (en pixels) o� on dessine
-	 * @param xSrc coordonn�e (en pixels) o� on prend le carreau a dessiner
-	 * @param ySrc coordonn�e (en pixels) o� on prend le carreau a dessiner
+	 * @param xDst Coordonnee (en pixels) Ou on dessine
+	 * @param yDst Coordonnee (en pixels) Ou on dessine
+	 * @param xSrc Coordonnee (en pixels) Ou on prend le carreau a dessiner
+	 * @param ySrc Coordonnee (en pixels) Ou on prend le carreau a dessiner
 	 * @return image avec le carreau dessin�
 	 */
 	public static BufferedImage superposerPortionDImage(BufferedImage dst, BufferedImage src, int xDst, int yDst,
@@ -308,7 +308,7 @@ public abstract class Graphismes {
 	/**
 	 * Charger une image du dossier de ressources.
 	 * 
-	 * @param dossier sous-dossier du dossier Picture o� se trouve l'image
+	 * @param dossier sous-dossier du dossier Picture Ou se trouve l'image
 	 * @param nom     de l'image
 	 * @return image charg�e, compatible avec la configuration officielle
 	 * @throws IOException impossible d'ouvrir l'image
@@ -339,7 +339,7 @@ public abstract class Graphismes {
 	 * @return image dans la configuration officielle
 	 */
 	private static BufferedImage convertirEnImageCompatible(final BufferedImage image, final String nomImage) {
-		// Si l'image a d�j� le bon ColorModel, tout va bien
+		// Si l'image a deja le bon ColorModel, tout va bien
 		if (image.getColorModel().equals(COLORMODEL)) {
 			return image;
 		}

@@ -54,7 +54,7 @@ public class InvoquerEventGenerique extends Commande implements CommandeEvent {
 				idEventInvoque)) {
 			map.eventsAAjouter.add(eventInvoque);
 		} else {
-			LOG.error("Impossible d'invoquer l'event generique \"" + nomEventInvoque + "\" aux coordonn�es (" + xPixel
+			LOG.error("Impossible d'invoquer l'event generique \"" + nomEventInvoque + "\" aux Coordonnees (" + xPixel
 					+ ";" + yPixel + ") car la place est prise !");
 		}
 		return curseurActuel + 1;

@@ -47,19 +47,19 @@ public class ModifierVitesse extends Mouvement {
 	@Override
 	protected final void calculDuMouvement(final Event event) {
 		if (this.nouvelleVitesse == null) {
-			// La Vitesse n'a pas encore ete interpr�t�e
+			// La Vitesse n'a pas encore ete interpret�e
 			
-			// On l'interpr�te
+			// On l'interprete
 			this.nouvelleVitesse = Vitesse.parNom(this.nomNouvelleVitesse);
 			
 			if (this.nouvelleVitesse == null) {
-				// La Vitesse n'a pas pu �tre interpr�t�e !
+				// La Vitesse n'a pas pu etre interpret�e !
 				LOG.error("Nom de vitesse inconnu : "+this.nomNouvelleVitesse);
 				// On ne fera rien
 				this.nouvelleVitesse = event.vitesseActuelle;
 			}
 		}
-		// La nouvelle Vitesse a ete interpr�t�e
+		// La nouvelle Vitesse a ete interpret�e
 		
 		// On assigne la nouvelle Vitesse
 		event.vitesseActuelle = this.nouvelleVitesse;

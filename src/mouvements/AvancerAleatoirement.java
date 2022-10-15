@@ -31,7 +31,7 @@ public class AvancerAleatoirement extends Avancer {
 	@Override
 	public final void reinitialiserSpecifique() {
 		int nouvelleDirection = Maths.generateurAleatoire.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES);
-		//ne pas faire demi-tour, �a donne l'impression que l'Event ne sait pas o� il va
+		//ne pas faire demi-tour, �a donne l'impression que l'Event ne sait pas Ou il va
 		if ( (  this.direction==Direction.BAS && nouvelleDirection==Direction.HAUT) 
 			|| (this.direction==Direction.GAUCHE && nouvelleDirection==Direction.DROITE) 
 			|| (this.direction==Direction.DROITE && nouvelleDirection==Direction.GAUCHE) 

@@ -6,7 +6,7 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
 /**
- * Balise "fin" de la Condition situ�e parmi les Commandes Event.
+ * Balise "fin" de la Condition situee parmi les Commandes Event.
  */
 public class ConditionFin extends Condition implements CommandeEvent, CommandeMenu {
 
@@ -32,7 +32,7 @@ public class ConditionFin extends Condition implements CommandeEvent, CommandeMe
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le H�ros.
+	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

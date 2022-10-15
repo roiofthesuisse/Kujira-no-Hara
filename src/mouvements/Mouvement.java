@@ -23,7 +23,7 @@ public abstract class Mouvement {
 	protected int ceQuiAEteFait;
 	/** Nombre d'�tapes a faire */
 	protected int etapes;
-	/** D�placement dont fait partie ce Mouvement */
+	/** Deplacement dont fait partie ce Mouvement */
 	public Deplacement deplacement;
 
 	/** "suivre" ou "fuir" l'Event observ� */
@@ -32,7 +32,7 @@ public abstract class Mouvement {
 	};
 	
 	/**
-	 * Si la Page de comportement doit �tre rejou�e, il faut r�initialiser cette Commande.
+	 * Si la Page de comportement doit etre rejou�e, il faut r�initialiser cette Commande.
 	 * R�initialiser un mouvement le d�clare non fait, et change la direction en cas de mouvement al�atoire.
 	 */
 	public final void reinitialiser() {
@@ -51,7 +51,7 @@ public abstract class Mouvement {
 	
 	/**
 	 * Proc�der aux modifications de donn�es permettant au LecteurMap d'afficher l'Event au bon endroit.
-	 * Methode appel�e lors de l'ex�cution des D�placements.
+	 * Methode appel�e lors de l'execution des Deplacements.
 	 * @param deplacement (naturel ou forc� d'un Event) dont fait partie ce Mouvement
 	 */
 	public final void executerLeMouvement(final Deplacement deplacement) {
@@ -64,14 +64,14 @@ public abstract class Mouvement {
 
 				// Quelle sera la commande suivante ?
 				if ( this.ceQuiAEteFait >= this.etapes ) {
-					// D�clarer le Mouvement comme termin� (car il est r�ellement termin�)
+					// D�clarer le Mouvement comme termine (car il est r�ellement termine)
 					terminerLeMouvement(event);
 				}
 				
 				mettreEventDansLaDirectionDuMouvement();
 				
 			} else {
-				// D�clarer le Mouvement comme termin� (car ignor�)
+				// D�clarer le Mouvement comme termine (car ignor�)
 				ignorerLeMouvement(event);
 				event.avance = false;
 			}
@@ -97,7 +97,7 @@ public abstract class Mouvement {
 	protected abstract void calculDuMouvement(Event event);
 	
 	/** 
-	 * D�clarer le Mouvement comme termin�.
+	 * D�clarer le Mouvement comme termine.
 	 * @param event subissant le Mouvement
 	 */
 	private void terminerLeMouvement(final Event event) {
@@ -107,7 +107,7 @@ public abstract class Mouvement {
 		// Finalisation commune a tous les Mouvements
 		this.reinitialiser();
 		
-		// Est-on dans un D�placement naturel ou forc� ?
+		// Est-on dans un Deplacement naturel ou forc� ?
 		final Deplacement deplacementNaturelOuForce;
 		if (this.deplacement.naturel) {
 			deplacementNaturelOuForce = event.deplacementNaturelActuel;
@@ -129,7 +129,7 @@ public abstract class Mouvement {
 		final boolean laPageEstToujoursLaMeme = pageAvant.equals(pageMaintenant);
 		
 		
-		// Si le D�placement est perp�tuel, on remet ce Mouvement en fin de liste
+		// Si le Deplacement est perp�tuel, on remet ce Mouvement en fin de liste
 		if (this.deplacement.repeterLeDeplacement) {
 			if (!this.deplacement.naturel //un Mouvement forc� perp�tuel ne s'arr�te pas m�me si la Page de l'Event change
 			|| laPageEstToujoursLaMeme) { //un Mouvement naturel perp�tuel s'arr�te si la Page change
@@ -144,18 +144,18 @@ public abstract class Mouvement {
 		
 		// On retire ce Mouvement de la liste
 		final String messageDErreurPotentiel = "Impossible de retirer le premier Mouvement " + this.toString() 
-		+ " du D�placement " + (this.deplacement.naturel ? "naturel" : "forc�")
+		+ " du Deplacement " + (this.deplacement.naturel ? "naturel" : "forc�")
 		+ " de l'Event " + event.id + " (" + event.nom + ")";
-		if (laPageEstToujoursLaMeme || !this.deplacement.naturel) { //un D�placement forc� est au niveau de l'Event, pas de la Page
+		if (laPageEstToujoursLaMeme || !this.deplacement.naturel) { //un Deplacement forc� est au niveau de l'Event, pas de la Page
 				if (deplacementNaturelOuForce.mouvements.size() >= 1) {
 					if (deplacementNaturelOuForce.mouvements.get(0).equals(this)) {
 						deplacementNaturelOuForce.mouvements.remove(0);
 					} else {
-						LOG.error(messageDErreurPotentiel+" car le premier mouvement du d�placement est un tout autre mouvement : "
+						LOG.error(messageDErreurPotentiel+" car le premier mouvement du deplacement est un tout autre mouvement : "
 								+ deplacementNaturelOuForce.mouvements.get(0).getClass().getName());
 					}
 				} else {
-					LOG.error(messageDErreurPotentiel+" car le d�placement est vide.");
+					LOG.error(messageDErreurPotentiel+" car le deplacement est vide.");
 				}
 		} else {
 			LOG.error(messageDErreurPotentiel+" car la page active a chang� (page "+pageAvant+" -> page "+pageMaintenant+").");
@@ -170,7 +170,7 @@ public abstract class Mouvement {
 	protected abstract void terminerLeMouvementSpecifique(Event event);
 	
 	/** 
-	 * D�clarer le Mouvement comme termin� car ignor�.
+	 * D�clarer le Mouvement comme termine car ignor�.
 	 * @param event subissant le Mouvement
 	 */
 	private void ignorerLeMouvement(final Event event) {

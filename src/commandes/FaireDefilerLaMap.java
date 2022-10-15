@@ -9,7 +9,7 @@ import map.LecteurMap;
 import map.Vitesse;
 
 /**
- * Faire d�filer la Map dans une direction donn�e, pour la d�centrer du H�ros.
+ * Faire d�filer la Map dans une direction donn�e, pour la d�centrer du Heros.
  */
 public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 	// constantes
@@ -49,7 +49,7 @@ public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// r�initialisation de la Commande au cas o� elle est jou�e plusieurs fois
+		// r�initialisation de la Commande au cas Ou elle est jou�e plusieurs fois
 		if (!this.initialisationFaite) {
 			this.dejaFait = 0;
 			this.initialisationFaite = true;

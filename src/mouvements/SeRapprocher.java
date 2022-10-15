@@ -48,7 +48,7 @@ public class SeRapprocher extends Avancer {
 	 */
 	public SeRapprocher(final HashMap<String, Object> parametres) {
 		this(
-				parametres.containsKey("idEventARapprocher") ? (int) parametres.get("idEventARapprocher") : 0, //par d�faut, le H�ros
+				parametres.containsKey("idEventARapprocher") ? (int) parametres.get("idEventARapprocher") : 0, //par d�faut, le Heros
 				parametres.containsKey("idEventCible") ? (int) parametres.get("idEventCible") : null //par d�faut, cet Event
 		);
 	}
@@ -60,11 +60,11 @@ public class SeRapprocher extends Avancer {
 			this.eventARapprocher = this.deplacement.page.event.map.eventsHash.get(this.idEventARapprocher);
 			this.eventCible = this.deplacement.page.event.map.eventsHash.get(this.idEventCible);
 			
-			// Coordonn�es de d�part
+			// Coordonnees de d�part
 			this.xInitialEventARapprocher = this.eventARapprocher.x;
 			this.yInitialEventARapprocher = this.eventARapprocher.y;
 			
-			// Calcul des coordonn�es d'arriv�e
+			// Calcul des Coordonnees d'arriv�e
 			final int xmin1 = this.eventARapprocher.x;
 			final int xmax1 = xmin1 + this.eventARapprocher.largeurHitbox;
 			final int ymin1 = this.eventARapprocher.y;
@@ -73,7 +73,7 @@ public class SeRapprocher extends Avancer {
 			final int xmax2 = xmin2 + this.eventCible.largeurHitbox;
 			final int ymin2 = this.eventCible.y;
 			final int ymax2 = ymin2 + this.eventCible.hauteurHitbox;
-			// O� se situe-t-on par rapport a l'Event cible ?
+			// Ou se situe-t-on par rapport a l'Event cible ?
 			if (xmax1 <= xmin2) {
 				//on est a gauche
 				this.xFinalEventARapprocher = xmin2 - this.eventARapprocher.largeurHitbox;

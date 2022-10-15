@@ -64,7 +64,7 @@ public class ContexteDeComposite implements CompositeContext {
 		try {
 			while (!executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS)) {
 				// Le timeout a eu lieu
-				LOG.warn("L'op�ration graphique n'est pas encore termin�e...");
+				LOG.warn("L'op�ration graphique n'est pas encore terminee...");
 			}
 		} catch (InterruptedException e) {
 			LOG.error("Impossible d'attendre la fin de l'op�ration graphique !", e);

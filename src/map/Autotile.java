@@ -21,7 +21,7 @@ import utilitaire.graphismes.Graphismes;
 /**
  * Un Autotile est un carreau liable. 
  * Selon la nature de ses voisins, il prendra une apparence differente.
- * Un Autotile peut �tre anim�. Il est alors constitu� de plusieurs vignettes qui se succ�deront dans le temps.
+ * Un Autotile peut etre anim�. Il est alors constitu� de plusieurs vignettes qui se succ�deront dans le temps.
  */
 public class Autotile {
 	// Constantes
@@ -340,7 +340,7 @@ public class Autotile {
 	 * @param connexionHautGauche le carreau Autotile est-il connect� a un voisin ?
 	 * @param connexionDroite le carreau Autotile est-il connect� a un voisin ?
 	 * @param connexionBas le carreau Autotile est-il connect� a un voisin ?
-	 * @return coordonn�es (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
+	 * @return Coordonnees (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
 	 */
 	private int[] choisirLeQuartHautGaucheDuCarreau(final boolean connexionHaut, final boolean connexionGauche, final boolean connexionHautGauche, final boolean connexionDroite, final boolean connexionBas) {
 		final int xMorceauChoisi;
@@ -404,7 +404,7 @@ public class Autotile {
 	 * @param connexionHautDroite le carreau Autotile est-il connect� a un voisin ?
 	 * @param connexionGauche le carreau Autotile est-il connect� a un voisin ?
 	 * @param connexionBas le carreau Autotile est-il connect� a un voisin ?
-	 * @return coordonn�es (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
+	 * @return Coordonnees (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
 	 */
 	private int[] choisirLeQuartHautDroiteDuCarreau(final boolean connexionHaut, final boolean connexionDroite, final boolean connexionHautDroite, final boolean connexionGauche, final boolean connexionBas) {
 		final int xMorceauChoisi;
@@ -466,7 +466,7 @@ public class Autotile {
 	 * @param connexionBasGauche le carreau Autotile est-il connect� a un voisin ?
 	 * @param connexionDroite le carreau Autotile est-il connect� a un voisin ?
 	 * @param connexionHaut le carreau Autotile est-il connect� a un voisin ?
-	 * @return coordonn�es (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
+	 * @return Coordonnees (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
 	 */
 	private int[] choisirLeQuartBasGaucheDuCarreau(final boolean connexionBas, final boolean connexionGauche, final boolean connexionBasGauche, final boolean connexionDroite, final boolean connexionHaut) {
 		final int xMorceauChoisi;
@@ -528,7 +528,7 @@ public class Autotile {
 	 * @param connexionBasDroite le carreau Autotile est-il connect� a un voisin ?
 	 * @param connexionGauche le carreau Autotile est-il connect� a un voisin ?
 	 * @param connexionHaut le carreau Autotile est-il connect� a un voisin ?
-	 * @return coordonn�es (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
+	 * @return Coordonnees (en quarts de carreaux) du morceau d'Autotile a peindre sur le carreau
 	 */
 	private int[] choisirLeQuartBasDroiteDuCarreau(final boolean connexionBas, final boolean connexionDroite, final boolean connexionBasDroite, final boolean connexionGauche, final boolean connexionHaut) {
 		final int xMorceauChoisi;

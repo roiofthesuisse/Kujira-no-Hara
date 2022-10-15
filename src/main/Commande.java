@@ -25,7 +25,7 @@ import map.PageEvent;
 import menu.ElementDeMenu;
 
 /**
- * Une Commande modifie l'�tat du jeu. Elle peut �tre lanc�e par une Page
+ * Une Commande modifie l'�tat du jeu. Elle peut etre lanc�e par une Page
  * d'Event, ou par un El�ment de Menu.
  */
 public abstract class Commande {
@@ -40,14 +40,14 @@ public abstract class Commande {
 	public ElementDeMenu element;
 
 	/**
-	 * Execute la Commande totalement ou partiellement. Le curseur peut �tre
-	 * inchang� (attendre n frames...) ; le curseur peut �tre incremente
+	 * Execute la Commande totalement ou partiellement. Le curseur peut etre
+	 * inchang� (attendre n frames...) ; le curseur peut etre incremente
 	 * (assignement de variable...) ; le curseur peut faire un grand saut (boucles,
 	 * conditions...).
 	 * 
 	 * @param curseurActuel position du curseur avant que la Commande soit execut�e
 	 * @param commandes     liste des Commandes de la Page de comportement en train
-	 *                      d'�tre lue
+	 *                      d'etre lue
 	 * @return nouvelle position du curseur apres l'execution totale ou partielle de
 	 *         la Commande
 	 */
@@ -86,7 +86,7 @@ public abstract class Commande {
 	 * Condition.
 	 * </p>
 	 * <p>
-	 * L'id peut �tre :
+	 * L'id peut etre :
 	 * <ul>
 	 * <li>null : cet Event</li>
 	 * <li>Integer : unique et identifi� par son num�ro</li>

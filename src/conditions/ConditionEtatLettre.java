@@ -9,7 +9,7 @@ import jeu.courrier.EtatCourrier;
 import main.Main;
 
 /**
- * Où en est la lettre ?
+ * Ou en est la lettre ?
  */
 public class ConditionEtatLettre extends Condition implements CommandeEvent, CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(ConditionEtatLettre.class);

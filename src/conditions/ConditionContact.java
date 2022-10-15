@@ -12,10 +12,10 @@ import map.Map;
 import map.Passabilite;
 
 /**
- * Est-ce que le H�ros est en contact avec l'Event ?
+ * Est-ce que le Heros est en contact avec l'Event ?
  * Le contact a deux sens :
- * - si l'Event est traversable, le contact signifie que le H�ros est majoritairement superpos� a lui ;
- * - si l'Event n'est pas traversable, le contact signifie que le H�ros et l'Event se touchent par un c�t� de la Hitbox.
+ * - si l'Event est traversable, le contact signifie que le Heros est majoritairement superpos� a lui ;
+ * - si l'Event n'est pas traversable, le contact signifie que le Heros et l'Event se touchent par un c�t� de la Hitbox.
  */
 public class ConditionContact extends Condition  implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(ConditionContact.class);
@@ -27,7 +27,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param idEvent1 identifiant (num�ro ou nom) du premier Event ; par d�faut, le H�ros
+	 * @param idEvent1 identifiant (num�ro ou nom) du premier Event ; par d�faut, le Heros
 	 * @param idEvent2 identifiant (num�ro ou nom) du second Event ; par d�faut, cet Event
 	 * @param typeDeContact de la Condition
 	 */
@@ -45,7 +45,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	public ConditionContact(final HashMap<String, Object> parametres) {
 		this( 
 				parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
-				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par d�faut, le H�ros
+				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par d�faut, le Heros
 				parametres.containsKey("idEvent2") ? parametres.get("idEvent2") : null, //par defaut, cet Event
 				parametres.containsKey("typeDeContact") ? TypeDeContact.obtenirParNom((String) parametres.get("typeDeContact")) : TypeDeContact.SUPERPOSITION_MAJORITAIRE
 		);
@@ -53,7 +53,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	
 	
 	/**
-	 * La nature du Contact peut �tre de plusieurs degr�s differents.
+	 * La nature du Contact peut etre de plusieurs degr�s differents.
 	 */
 	public enum TypeDeContact {
 		/**
@@ -84,12 +84,12 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 			public boolean ilYASuperposition(final int xmin1, final int xmax1, final int ymin1, final int ymax1, 
 					final int xmin2, final int xmax2, final int ymin2, final int ymax2) {
 				return ((xmin2<=xmin1&&xmax1<=xmax2) //vraiment dedans
-						|| (xmin1<=xmin2&&xmin2<xmax1&&xmax1<=xmax2) //� cheval (h�ros a gauche)
-						|| (xmin2<=xmin1&&xmin1<xmax2&&xmax2<=xmax1))//� cheval (h�ros a droite)
+						|| (xmin1<=xmin2&&xmin2<xmax1&&xmax1<=xmax2) //� cheval (Heros a gauche)
+						|| (xmin2<=xmin1&&xmin1<xmax2&&xmax2<=xmax1))//� cheval (Heros a droite)
 							&&
 						((ymin2<=ymin1&&ymax1<=ymax2) //vraiment dedans
-						|| (ymin1<=ymin2&&ymin2<ymax1&&ymax1<=ymax2)  //� cheval (h�ros en haut)
-						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1)); //� cheval (h�ros en bas)
+						|| (ymin1<=ymin2&&ymin2<ymax1&&ymax1<=ymax2)  //� cheval (Heros en haut)
+						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1)); //� cheval (Heros en bas)
 			}
 		},
 		/**
@@ -123,12 +123,12 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 				final int largeurHitbox = Math.min(xmax1 - xmin1, xmax2 - xmin2);
 				final int hauteurHitbox = Math.min(ymax1 - ymin1, ymax2 - ymin2);
 				return ((xmin2<=xmin1&&xmax1<=xmax2) //vraiment dedans
-						|| (xmin1<=xmin2&&xmin2<xmax1&&xmax1<=xmax2 && 2*(xmax1-xmin2)>=largeurHitbox) //� cheval mais beaucoup (h�ros a gauche)
-						|| (xmin2<=xmin1&&xmin1<xmax2&&xmax2<=xmax1 && 2*(xmax2-xmin1)>=largeurHitbox))//� cheval mais beaucoup (h�ros a droite)
+						|| (xmin1<=xmin2&&xmin2<xmax1&&xmax1<=xmax2 && 2*(xmax1-xmin2)>=largeurHitbox) //� cheval mais beaucoup (Heros a gauche)
+						|| (xmin2<=xmin1&&xmin1<xmax2&&xmax2<=xmax1 && 2*(xmax2-xmin1)>=largeurHitbox))//� cheval mais beaucoup (Heros a droite)
 							&&
 						((ymin2<=ymin1&&ymax1<=ymax2) //vraiment dedans
-						|| (ymin1<=ymin2&&ymin2<ymax1&&ymax1<=ymax2 && 2*(ymax1-ymin2)>=hauteurHitbox)  //� cheval mais beaucoup (h�ros en haut)
-						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1 && 2*(ymax2-ymin1)>=hauteurHitbox)); //� cheval mais beaucoup (h�ros en bas)
+						|| (ymin1<=ymin2&&ymin2<ymax1&&ymax1<=ymax2 && 2*(ymax1-ymin2)>=hauteurHitbox)  //� cheval mais beaucoup (Heros en haut)
+						|| (ymin2<=ymin1&&ymin1<ymax2&&ymax2<=ymax1 && 2*(ymax2-ymin1)>=hauteurHitbox)); //� cheval mais beaucoup (Heros en bas)
 			}
 		},
 		/**
@@ -157,14 +157,14 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		/**
 		 * Y a-t-il contact entre les deux Events ?
 		 * @param traversable si l'un des deux Events est traversable
-		 * @param xmin1 coordonn�e x minimale de l'Event 1
-		 * @param xmax1 coordonn�e x maximale de l'Event 1
-		 * @param ymin1 coordonn�e y minimale de l'Event 1
-		 * @param ymax1 coordonn�e y maximale de l'Event 1
-		 * @param xmin2 coordonn�e x minimale de l'Event 2
-		 * @param xmax2 coordonn�e x maximale de l'Event 2
-		 * @param ymin2 coordonn�e y minimale de l'Event 2
-		 * @param ymax2 coordonn�e y maximale de l'Event 2
+		 * @param xmin1 Coordonnee x minimale de l'Event 1
+		 * @param xmax1 Coordonnee x maximale de l'Event 1
+		 * @param ymin1 Coordonnee y minimale de l'Event 1
+		 * @param ymax1 Coordonnee y maximale de l'Event 1
+		 * @param xmin2 Coordonnee x minimale de l'Event 2
+		 * @param xmax2 Coordonnee x maximale de l'Event 2
+		 * @param ymin2 Coordonnee y minimale de l'Event 2
+		 * @param ymax2 Coordonnee y maximale de l'Event 2
 		 * @return true si contact, false sinon
 		 */
 		public boolean ilYAContact(final boolean traversable, final int xmin1, final int xmax1, final int ymin1, 
@@ -178,28 +178,28 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 		
 		/** 
 		 * Si aucun des deux events n'est traversable, le contact prend en compte les bords des Events.
-		 * @param xmin1 coordonn�e x minimale de l'Event 1
-		 * @param xmax1 coordonn�e x maximale de l'Event 1
-		 * @param ymin1 coordonn�e y minimale de l'Event 1
-		 * @param ymax1 coordonn�e y maximale de l'Event 1
-		 * @param xmin2 coordonn�e x minimale de l'Event 2
-		 * @param xmax2 coordonn�e x maximale de l'Event 2
-		 * @param ymin2 coordonn�e y minimale de l'Event 2
-		 * @param ymax2 coordonn�e y maximale de l'Event 2
+		 * @param xmin1 Coordonnee x minimale de l'Event 1
+		 * @param xmax1 Coordonnee x maximale de l'Event 1
+		 * @param ymin1 Coordonnee y minimale de l'Event 1
+		 * @param ymax1 Coordonnee y maximale de l'Event 1
+		 * @param xmin2 Coordonnee x minimale de l'Event 2
+		 * @param xmax2 Coordonnee x maximale de l'Event 2
+		 * @param ymin2 Coordonnee y minimale de l'Event 2
+		 * @param ymax2 Coordonnee y maximale de l'Event 2
 		 * @return true si contact, false sinon
 		 */
 		public abstract boolean ilYAContactExterne(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2);
 		
 		/** 
 		 * Si un des deux events est traversable, le contact se fait par recouvrement
-		 * @param xmin1 coordonn�e x minimale de l'Event 1
-		 * @param xmax1 coordonn�e x maximale de l'Event 1
-		 * @param ymin1 coordonn�e y minimale de l'Event 1
-		 * @param ymax1 coordonn�e y maximale de l'Event 1
-		 * @param xmin2 coordonn�e x minimale de l'Event 2
-		 * @param xmax2 coordonn�e x maximale de l'Event 2
-		 * @param ymin2 coordonn�e y minimale de l'Event 2
-		 * @param ymax2 coordonn�e y maximale de l'Event 2
+		 * @param xmin1 Coordonnee x minimale de l'Event 1
+		 * @param xmax1 Coordonnee x maximale de l'Event 1
+		 * @param ymin1 Coordonnee y minimale de l'Event 1
+		 * @param ymax1 Coordonnee y maximale de l'Event 1
+		 * @param xmin2 Coordonnee x minimale de l'Event 2
+		 * @param xmax2 Coordonnee x maximale de l'Event 2
+		 * @param ymin2 Coordonnee y minimale de l'Event 2
+		 * @param ymax2 Coordonnee y maximale de l'Event 2
 		 * @return true si contact, false sinon
 		 */
 		public abstract boolean ilYASuperposition(int xmin1, int xmax1, int ymin1, int ymax1, int xmin2, int xmax2, int ymin2, int ymax2);
@@ -264,16 +264,16 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 					final int ymin2 = event2.y;
 					final int ymax2 = event2.y + event2.hauteurHitbox;
 					
-					// deux interpr�tations tr�s differentes du Contact selon la traversabilit� de l'event
-					// si un event traversable est situ� sur un d�cor impraticable, le contact est solide
+					// deux interpretations tr�s differentes du Contact selon la traversabilit� de l'event
+					// si un event traversable est situe sur un d�cor impraticable, le contact est solide
 					final boolean modeTraversable = event2.traversableActuel == Passabilite.PASSABLE && event2SurUnDecorPassable
 							|| event1.traversableActuel == Passabilite.PASSABLE && event1SurUnDecorPassable
-							// si l'un des deux est le H�ros
+							// si l'un des deux est le Heros
 							|| (event1.id == 0 && event2.traversableParLeHerosActuel) && event2SurUnDecorPassable
 							|| (event2.id == 0 && event1.traversableParLeHerosActuel) && event1SurUnDecorPassable;
 					
 					if (this.typeDeContact.ilYAContact(modeTraversable, xmin1, xmax1, ymin1, ymax1, xmin2, xmax2, ymin2, ymax2)) {
-						//au moins un couple d'events doit �tre en contact
+						//au moins un couple d'events doit etre en contact
 						return true;
 					}
 					
@@ -285,11 +285,11 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximit� avec le H�ros.
+	 * C'est une Condition qui implique une proximit� avec le Heros.
 	 * @return true 
 	 */
 	public final boolean estLieeAuHeros() {
-		//l'un des deux events en Contact est-il le H�ros ?
+		//l'un des deux events en Contact est-il le Heros ?
 		return idEvent1 instanceof Integer && (Integer) idEvent1 == 0 || idEvent2 instanceof Integer && (Integer) idEvent2 == 0;
 	}
 	

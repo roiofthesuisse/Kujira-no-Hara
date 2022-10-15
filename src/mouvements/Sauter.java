@@ -34,8 +34,8 @@ public class Sauter extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param x nombre de cases de d�placement en horizontal
-	 * @param y nombre de cases de d�placement en vertical
+	 * @param x nombre de cases de deplacement en horizontal
+	 * @param y nombre de cases de deplacement en vertical
 	 */
 	public Sauter(final int x, final int y) {
 		this.x = x;
@@ -87,7 +87,7 @@ public class Sauter extends Mouvement {
 		if (!event.saute) {
 			// Le Saut n'a pas encore commenc�
 			
-			// Si c'est le H�ros, il n'avance pas s'il est en animation d'attaque
+			// Si c'est le Heros, il n'avance pas s'il est en animation d'attaque
 			if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 				return false;
 			}
@@ -103,7 +103,7 @@ public class Sauter extends Mouvement {
 				return true;
 			}
 			
-			// Le H�ros traverse tout si la touche de triche est press�e
+			// Le Heros traverse tout si la touche de triche est press�e
 			if (event instanceof Heros && ToucheRole.TRICHE.enfoncee()) {
 				return true;
 			}
@@ -149,7 +149,7 @@ public class Sauter extends Mouvement {
 			reserverLaPlaceDArrivee(event);
 		}
 
-		//d�placement :
+		//deplacement :
 		final double t = (double) ceQuiAEteFait /(double) etapes;
 		final int x0 = xEventAvantSaut;
 		final int y0 = yEventAvantSaut;

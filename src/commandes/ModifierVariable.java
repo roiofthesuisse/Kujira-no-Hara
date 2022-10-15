@@ -49,7 +49,7 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 	public static final String ARGENT_POSSEDE = "argent possede";
 
 	/**
-	 * Constructeur explicite Utiliser les constantes situ�es dans la classe pour
+	 * Constructeur explicite Utiliser les constantes situees dans la classe pour
 	 * cr�er une telle op�ration.
 	 * 
 	 * @param numeroVariable   num�ro de la variable a modifier

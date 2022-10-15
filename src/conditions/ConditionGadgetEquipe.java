@@ -7,7 +7,7 @@ import commandes.CommandeMenu;
 import jeu.Partie;
 
 /**
- * V�rifie si le H�ros a �quip� ce Gadget.
+ * V�rifie si le Heros a �quip� ce Gadget.
  */
 public class ConditionGadgetEquipe extends Condition implements CommandeEvent, CommandeMenu {
 	public int idGadget;
@@ -41,7 +41,7 @@ public class ConditionGadgetEquipe extends Condition implements CommandeEvent, C
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le H�ros.
+	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

@@ -36,14 +36,14 @@ public final class Brouillard implements Sauvegardable {
 	
 	/**
 	 * Constructeur explicite
-	 * @param nomImage nom de l'image situ�e dans le dossier "Graphics/Fogs/"
+	 * @param nomImage nom de l'image situee dans le dossier "Graphics/Fogs/"
 	 * @param opacite transparence de l'image
 	 * @param mode mode de superposition de l'image avec la Map
-	 * @param defilementX vitesse de d�placement du Brouillard suivant l'axe x
-	 * @param defilementY vitesse de d�placement du Brouillard suivant l'axe y
+	 * @param defilementX vitesse de deplacement du Brouillard suivant l'axe x
+	 * @param defilementY vitesse de deplacement du Brouillard suivant l'axe y
 	 * @param zoom taux d'aggrandissement de l'image (en pourcents)
 	 * @param ton du brouillard (gris, rouge, vert, bleu)
-	 * @throws IOException l'image n'a pas pu �tre charg�e
+	 * @throws IOException l'image n'a pas pu etre charg�e
 	 */
 	public Brouillard(final String nomImage, final int opacite, final ModeDeFusion mode, final int defilementX, 
 			final int defilementY, final int zoom, final int[] ton) {
@@ -174,8 +174,8 @@ public final class Brouillard implements Sauvegardable {
 					Brouillard.calculerAffichage(i, this.largeur, decalageX, xCamera), 
 					Brouillard.calculerAffichage(j, this.hauteur, decalageY, yCamera),
 					false,
-					Graphismes.PAS_D_HOMOTHETIE, //le zoom a d�j� ete pris en compte
-					Graphismes.PAS_D_HOMOTHETIE, //le zoom a d�j� ete pris en compte
+					Graphismes.PAS_D_HOMOTHETIE, //le zoom a deja ete pris en compte
+					Graphismes.PAS_D_HOMOTHETIE, //le zoom a deja ete pris en compte
 					this.opacite, 
 					this.mode,
 					Graphismes.PAS_DE_ROTATION
@@ -186,7 +186,7 @@ public final class Brouillard implements Sauvegardable {
 	}
 	
 	/**
-	 * Calcule la position o� dessiner l'image du Brouillard.
+	 * Calcule la position Ou dessiner l'image du Brouillard.
 	 * @param numeroVignette l'ecran est recouvert plusieurs fois avec l'image du Brouillard si elle est petite
 	 * @param tailleBrouillard taille de l'image du Brouillard
 	 * @param decalageTemporel l'image du Brouillard se d�place a l'ecran

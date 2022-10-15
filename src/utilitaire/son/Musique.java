@@ -21,7 +21,7 @@ public abstract class Musique {
 	protected static final String DOSSIER_AUDIO = "./ressources/Audio/";
 	
 	/**
-	 * Le clip peut �tre un Clip javax ou bien un OggClip.
+	 * Le clip peut etre un Clip javax ou bien un OggClip.
 	 */
 	protected Object clip;
 	protected InputStream stream;

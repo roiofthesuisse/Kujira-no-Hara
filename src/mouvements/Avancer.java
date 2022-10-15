@@ -20,7 +20,7 @@ public class Avancer extends Mouvement {
 	
 	/** Direction dans laquelle l'Event doit avancer */
 	protected int direction;
-	/** Si l'Event marche vers un coin, on le d�cale l�g�rement pour qu'il puisse passer */
+	/** Si l'Event marche vers un coin, on le decale l�g�rement pour qu'il puisse passer */
 	protected boolean onPeutContournerUnCoin;
 	/** D�calage de l'Event pour l'aider a franchir un coin */
 	protected int realignementX, realignementY;
@@ -56,7 +56,7 @@ public class Avancer extends Mouvement {
 	public void calculDuMouvement(final Event event) {
 		event.avance = true;
 		
-		//d�placement :
+		//deplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
 				event.y += this.enjambee; 
@@ -86,7 +86,7 @@ public class Avancer extends Mouvement {
 		//pas besoin d'aller a la vitesse de l'Event si l'objectif est tr�s proche
 		this.enjambee = Math.min(this.etapes - this.ceQuiAEteFait, event.vitesseActuelle.valeur);
 		
-		//si c'est le H�ros, il n'avance pas s'il est en animation d'attaque
+		//si c'est le Heros, il n'avance pas s'il est en animation d'attaque
 		if (event instanceof Heros && ((Heros) event).animationAttaque > 0) { 
 			return false;
 		}
@@ -96,7 +96,7 @@ public class Avancer extends Mouvement {
 			return true;
 		}
 		
-		//o� sera l'Event apres son pas ?
+		//Ou sera l'Event apres son pas ?
 		int xAInspecter = event.x;
 		int yAInspecter = event.y;
 		switch (this.direction) {
@@ -173,8 +173,8 @@ public class Avancer extends Mouvement {
 	
 	/**
 	 * Si l'Event ne peut pas avancer parce qu'il d�borde l�g�rement sur un coin, on le r�aligne pour l'aider a passer.
-	 * @param xAInspecter coordonn�e X o� l'Event voudrait aller
-	 * @param yAInspecter coordonn�e Y o� l'Event voudrait aller
+	 * @param xAInspecter Coordonnee X Ou l'Event voudrait aller
+	 * @param yAInspecter Coordonnee Y Ou l'Event voudrait aller
 	 * @param event qui veut avancer
 	 * @return true si on peut l'aider a contourner le coin, false sinon
 	 */

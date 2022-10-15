@@ -5,7 +5,7 @@ import java.util.HashMap;
 import map.Event;
 
 /**
- * Attendre au cours d'un D�placement.
+ * Attendre au cours d'un Deplacement.
  */
 public class Attendre extends Mouvement {
 	
@@ -53,7 +53,7 @@ public class Attendre extends Mouvement {
 
 	@Override
 	public final String toString() {
-		return "Attendre "+this.etapes+" frames dans le D�placement de "+this.deplacement.getEventADeplacer().nom;
+		return "Attendre "+this.etapes+" frames dans le Deplacement de "+this.deplacement.getEventADeplacer().nom;
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package jeu.courrier;
 
 /**
- * Où en est la lettre?
+ * Ou en est la lettre?
  */
 public enum EtatCourrier {
 	PAS_ENVOYEE("pas envoyee"), 

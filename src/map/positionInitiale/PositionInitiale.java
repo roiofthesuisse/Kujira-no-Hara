@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import map.Transition;
 
 /**
- * Position initiale du Héros sur la Map.
+ * Position initiale du Heros sur la Map.
  */
 public abstract class PositionInitiale {
 	protected static final Logger LOG = LogManager.getLogger(PositionInitiale.class);

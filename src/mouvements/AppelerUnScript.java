@@ -45,12 +45,12 @@ public class AppelerUnScript extends Mouvement {
 		this.etapes = 2;
 		if(this.ceQuiAEteFait == 0) {
 			// initialiser
-			Commande commande = new commandes.AppelerUnScript(this.script);
-			commande.page = this.deplacement.page;
+			this.commande = new commandes.AppelerUnScript(this.script);
+			this.commande.page = this.deplacement.page;
 			this.ceQuiAEteFait = 1;
 		}
 		
-		int resultat = commande.executer(0, null);
+		int resultat = this.commande.executer(0, null);
 		if(resultat > 0) {
 			// Le script a ete execute, fin du mouvement
 			this.ceQuiAEteFait = 2;

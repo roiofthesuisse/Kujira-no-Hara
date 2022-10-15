@@ -51,7 +51,7 @@ public class ConditionOu extends Condition {
 	}
 
 	/**
-	 * Les sous-Conditions ont besoin de conna�tre a quelle PageEvent elles appartiennent
+	 * Les sous-Conditions ont besoin de connaetre a quelle PageEvent elles appartiennent
 	 */
 	private void apprendreLaPageAuxSousConditions() {
 		if (!this.pageTransmiseAuxSousConditions) {

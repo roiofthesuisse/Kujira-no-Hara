@@ -9,7 +9,7 @@ public class ConditionAnimationAttaque extends Condition implements CommandeEven
 	
 	/**
 	 * Constructeur vide
-	 * Réservé aux Conditions de Pages 
+	 * Rï¿½servï¿½ aux Conditions de Pages 
 	 */
 	public ConditionAnimationAttaque() {
 	}
@@ -29,7 +29,7 @@ public class ConditionAnimationAttaque extends Condition implements CommandeEven
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximité avec le Héros.
+	 * Ce n'est pas une Condition qui implique une proximitï¿½ avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

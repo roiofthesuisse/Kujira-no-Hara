@@ -10,7 +10,7 @@ import utilitaire.Maths;
 public class PivoterAleatoirement extends Pivoter {
 
 	private PivoterAleatoirement() {
-		super(-1); // la vraie valeur sera d�cid�e a l'ex�cution
+		super(-1); // la vraie valeur sera d�cid�e a l'execution
 	}
 	
 	public PivoterAleatoirement(HashMap<String, Object> parametres) {

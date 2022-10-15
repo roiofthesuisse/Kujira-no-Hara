@@ -7,7 +7,7 @@ import commandes.CommandeMenu;
 import jeu.Partie;
 
 /**
- * V�rifie si le H�ros poss�de cette Arme.
+ * V�rifie si le Heros poss�de cette Arme.
  */
 public class ConditionArmePossedee extends Condition implements CommandeEvent, CommandeMenu {
 	public int idArme;
@@ -39,7 +39,7 @@ public class ConditionArmePossedee extends Condition implements CommandeEvent, C
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le H�ros.
+	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

@@ -144,7 +144,7 @@ public class Animation {
 		try {
 			jsonAnimations = InterpreteurDeJson.ouvrirJsonAnimations();
 		} catch (Exception e) {
-			LOG.error("Impossible d'interpr�ter la liste des animations du jeu.", e);
+			LOG.error("Impossible d'interpreter la liste des animations du jeu.", e);
 			return null;
 		}
 		
@@ -237,7 +237,7 @@ public class Animation {
 				nombreDAnimationsEnCours--;
 			} catch (IndexOutOfBoundsException e1) {
 				LOG.debug("Fin de l'animation n�"+animationEnCours.frameActuelle);
-				// L'animation est termin�e, on la retire de la file
+				// L'animation est terminee, on la retire de la file
 				partie.animations.remove(i);
 				i--;
 				nombreDAnimationsEnCours--;

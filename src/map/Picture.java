@@ -21,9 +21,9 @@ public class Picture implements Sauvegardable {
 	public String nomImage;
 	public BufferedImage image;
 	public Integer numero; //Integer car utilis� comme cl� d'une HashMap
-	/** coordonn�e x d'affichage par rapport au coin de l'ecran */
+	/** Coordonnee x d'affichage par rapport au coin de l'ecran */
 	public int x;
-	/** coordonn�e y d'affichage par rapport au coin de l'ecran */
+	/** Coordonnee y d'affichage par rapport au coin de l'ecran */
 	public int y;
 	/** la nouvelle origine est-elle le centre de l'image ? */
 	public boolean centre;
@@ -43,8 +43,8 @@ public class Picture implements Sauvegardable {
 	 * @param image nom du fichier image
 	 * @param nomImage (pour la sauvegarde uniquement)
 	 * @param numero de l'image pour le LecteurMap
-	 * @param x coordonn�e x d'affichage a l'ecran (en pixels)
-	 * @param y coordonn�e y d'affichage a l'ecran (en pixels)
+	 * @param x Coordonnee x d'affichage a l'ecran (en pixels)
+	 * @param y Coordonnee y d'affichage a l'ecran (en pixels)
 	 * @param centre l'origine de l'image est-elle son centre ?
 	 * @param zoomX zoom horizontal (en pourcents)
 	 * @param zoomY zoom vertical (en pourcents)
@@ -95,7 +95,7 @@ public class Picture implements Sauvegardable {
 			// Toutes les places de la liste ne sont pas forcement occupees
 			if (picture != null) {
 				
-				// D�placer les images (dont le d�placement a ete d�l�gu� au LecteurMap par une Commande)
+				// D�placer les images (dont le deplacement a ete d�l�gu� au LecteurMap par une Commande)
 				if (picture.deplacementActuel != null) {
 					picture.deplacementActuel.executerCommeUnDeplacementPropre(picture);
 				}
@@ -108,7 +108,7 @@ public class Picture implements Sauvegardable {
 	}
 	
 	/**
-	 * G�n�rer un JSON de la Picture (et son �ventuel d�placement actuel) pour la Sauvegarde.
+	 * G�n�rer un JSON de la Picture (et son �ventuel deplacement actuel) pour la Sauvegarde.
 	 */
 	@Override
 	public JSONObject sauvegarderEnJson() {

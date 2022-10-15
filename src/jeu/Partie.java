@@ -41,7 +41,7 @@ public final class Partie implements Listable, Sauvegardable {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(Partie.class);
 	private static final int NOMBRE_D_INTERRUPTEURS = 100;
-	private static final int NOMBRE_DE_VARIABLES = 200;
+	private static final int NOMBRE_DE_VARIABLES = 300;
 	private static final int NOMBRE_D_IMAGES = 50;
 	private static final int NOMBRE_DE_MOTS = 50;
 	/** Num�ro du mot correpsondant au nom du heros */
@@ -57,7 +57,7 @@ public final class Partie implements Listable, Sauvegardable {
 	/** Brouillard a afficher sur la Map lorsqu'on charge une Partie sauvegard�e */
 	public Brouillard brouillardACharger;
 	
-	/** coordonn�es x (en pixels) */
+	/** Coordonnees x (en pixels) */
 	public int xHeros, yHeros;
 	public int directionHeros;
 	public int vie;
@@ -96,7 +96,7 @@ public final class Partie implements Listable, Sauvegardable {
 	/** Mot de passe a saisir lettre par lettre via un Menu */
 	public final int tailleMaximaleDuMot = 10;
 	public String[] mots = new String[NOMBRE_DE_MOTS];
-	/** Chronom�tre a afficher a l'ecran */
+	/** Chronometre a afficher a l'ecran */
 	public Chronometre chronometre;
 	
 	/**
@@ -105,7 +105,7 @@ public final class Partie implements Listable, Sauvegardable {
 	 */
 	private Partie() throws Exception {
 		final JSONObject jsonNouvellePartie = InterpreteurDeJson.ouvrirJsonNouvellePartie();
-		// Position du H�ros
+		// Position du Heros
 		this.numeroMap = jsonNouvellePartie.getInt("numeroMap");
 		this.brouillardACharger = null;
 		this.xHeros = jsonNouvellePartie.getInt("xHeros") * Main.TAILLE_D_UN_CARREAU;
@@ -139,13 +139,13 @@ public final class Partie implements Listable, Sauvegardable {
 	/**
 	 * Constructeur explicite
 	 * @param id du fichier de sauvegarde
-	 * @param numeroMap num�ro de la Map o� se trouve le H�ros en reprenant la Partie
-	 * @param xHeros coordonn�e x du H�ros (en pixels) en reprenant la Partie
-	 * @param yHeros coordonn�e y du H�ros (en pixels) en reprenant la Partie
+	 * @param numeroMap num�ro de la Map Ou se trouve le Heros en reprenant la Partie
+	 * @param xHeros Coordonnee x du Heros (en pixels) en reprenant la Partie
+	 * @param yHeros Coordonnee y du Heros (en pixels) en reprenant la Partie
 	 * @param directionHeros direction dans laquelle se trouve le Heros en reprenant la Partie
 	 * @param jsonBrouillard de la Map
-	 * @param vie niveau d'�nergie vitale du H�ros en reprenant la Partie
-	 * @param vieMax niveau maximal possible d'�nergie vitale du H�ros en reprenant la Partie
+	 * @param vie niveau d'�nergie vitale du Heros en reprenant la Partie
+	 * @param vieMax niveau maximal possible d'�nergie vitale du Heros en reprenant la Partie
 	 * @param argent poss�d�
 	 * ----------------------------------------------------------------------------------------
 	 * @param objetsPossedes combien poss�de-t-on d'Objet num�ro i ?
@@ -156,7 +156,7 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @param variables �tat des variables locaux du jeu
 	 * @param interrupteursLocaux �tat des interrupteurs locaux du jeu
 	 * @param mots �tat des mots du jeu
-	 * @param chronometre �tat du chronom�tre �ventuel
+	 * @param chronometre �tat du chronometre �ventuel
 	 * @param images affichees a l'ecran
 	 * ---------------------------------------------------------------------------------------- 
 	 * @param idArmeEquipee identifiant de l'Arme actuelle �quip�e
@@ -356,7 +356,7 @@ public final class Partie implements Listable, Sauvegardable {
 	}
 	
 	/**
-	 * Equiper l'Arme suivante dans la liste des Armes poss�d�es par le H�ros
+	 * Equiper l'Arme suivante dans la liste des Armes poss�d�es par le Heros
 	 */
 	public void equiperArmeSuivante() {
 		//pas d'Armes poss�d�es
@@ -377,7 +377,7 @@ public final class Partie implements Listable, Sauvegardable {
 	}
 	
 	/**
-	 * Equiper l'Arme pr�c�dente dans la liste des Armes poss�d�es par le H�ros
+	 * Equiper l'Arme pr�c�dente dans la liste des Armes poss�d�es par le Heros
 	 */
 	public void equiperArmePrecedente() {		
 		//pas d'Armes poss�d�es
@@ -427,10 +427,10 @@ public final class Partie implements Listable, Sauvegardable {
 		// Texte d'avancement
 		final ArrayList<String> blabla = new ArrayList<String>();
 		final StringBuilder francais = new StringBuilder();
-		francais.append(this.mots[0]); //nom du h�ros
+		francais.append(this.mots[0]); //nom du Heros
 		blabla.add(francais.toString());
 		final StringBuilder anglais = new StringBuilder();
-		anglais.append(this.mots[0]); //nom du h�ros
+		anglais.append(this.mots[0]); //nom du Heros
 		blabla.add(anglais.toString());
 		final BufferedImage nomPartie = new Texte(blabla).getImage();
 		Graphismes.superposerImages(vignettePartie, nomPartie, MARGE, MARGE);

@@ -20,7 +20,7 @@ public class Heros extends Event {
 	public static final Event MODELE = creerModele();
 	
 	/**
-	 * L'animation d'attaque vaut 0 si le h�ros n'attaque pas.
+	 * L'animation d'attaque vaut 0 si le Heros n'attaque pas.
 	 * Au d�but d'une attaque, elle est mise au maximum (longueur de l'animation de l'attaque).
 	 * A chaque frame, elle est affichee puis d�cr�ment�e.
 	 */
@@ -28,10 +28,10 @@ public class Heros extends Event {
 
 	/**
 	 * Constructeur explicite
-	 * @param x position x (en pixels) du H�ros sur la Map
-	 * @param y position y (en pixels) du H�ros sur la Map
-	 * @param directionEnDebutDeMap directiondu H�ros au d�but de la Map
-	 * @param map courante du H�ros
+	 * @param x position x (en pixels) du Heros sur la Map
+	 * @param y position y (en pixels) du Heros sur la Map
+	 * @param directionEnDebutDeMap directiondu Heros au d�but de la Map
+	 * @param map courante du Heros
 	 * @throws FileNotFoundException 
 	 */
 	public Heros(final int x, final int y, final int directionEnDebutDeMap, final Map map) throws FileNotFoundException {
@@ -40,16 +40,16 @@ public class Heros extends Event {
 	}
 	
 	/**
-	 * Le H�ros est cr�� a partir d'un mod�le.
+	 * Le Heros est cr�� a partir d'un mod�le.
 	 * Ce mod�le est un Event generique.
-	 * @return Event mod�le qui sert a la cr�ation du H�ros
+	 * @return Event mod�le qui sert a la cr�ation du Heros
 	 */
 	private static Event creerModele() {
 		JSONObject jsonEventGenerique = null;
 		try {
 			jsonEventGenerique = InterpreteurDeJson.ouvrirJsonEventGenerique("Heros", true);
 		} catch (Exception e) {
-			LOG.error("Impossible d'ouvrir le fichier JSON du h�ros !", e);
+			LOG.error("Impossible d'ouvrir le fichier JSON du Heros !", e);
 		}
 		
 		final int largeur = jsonEventGenerique.has("largeur") ? (int) jsonEventGenerique.getInt("largeur") : Event.LARGEUR_HITBOX_PAR_DEFAUT;
@@ -66,15 +66,15 @@ public class Heros extends Event {
 	@Override
 	public final void deplacer() {
 		if (animationAttaque > 0) {
-			//pas de d�placement si animation d'attaque
+			//pas de deplacement si animation d'attaque
 			this.animation = Main.getPartieActuelle().getArmeEquipee().framesDAnimation[animationAttaque-1];
 			
 			animationAttaque--;
 		} else if (!this.map.lecteur.laTransitionEstTerminee()) {
-			//pas de d�placement du H�ros si la Transition n'est pas termin�e
+			//pas de deplacement du Heros si la Transition n'est pas terminee
 			
 		} else if (this.deplacementForce!=null && this.deplacementForce.mouvements.size()>0) {
-			//il y a un d�placement forc�
+			//il y a un deplacement forc�
 			this.deplacementForce.executerLePremierMouvement();
 		} else if (this.deplacementNaturelActuel != null) {
 			this.deplacementNaturelActuel.executerLePremierMouvement();

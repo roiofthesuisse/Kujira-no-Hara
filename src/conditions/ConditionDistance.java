@@ -18,7 +18,7 @@ public class ConditionDistance extends Condition {
 	
 	/**
 	 * Constructeur explicite
-	 * @param identifiant (num�ro ou nom) du premier Event ; par d�faut, le H�ros
+	 * @param identifiant (num�ro ou nom) du premier Event ; par d�faut, le Heros
 	 * @param identifiant (num�ro ou nom) du second Event ; par d�faut, cet Event
 	 * @param distance entre les deux Events (en carreaux)
 	 * @param symboleInegalite pour la comparaison
@@ -36,7 +36,7 @@ public class ConditionDistance extends Condition {
 	 */
 	public ConditionDistance(final HashMap<String, Object> parametres) {
 		this(
-				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par d�faut, le H�ros
+				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par d�faut, le Heros
 				parametres.containsKey("idEvent2") ? parametres.get("idEvent2") : null, //par defaut, cet Event
 				(int) parametres.get("distance"),
 				parametres.containsKey("inegalite") ? (String) parametres.get("inegalite") : Inegalite.MOINS_OU_AUTANT.symbole
@@ -53,7 +53,7 @@ public class ConditionDistance extends Condition {
 				final int deltaY = event1.y - event2.y;
 				final double distanceReelle = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
 				if (inegalite.comparer(distanceReelle, distanceVoulue)) {
-					return true; //au moins un couple d'events doit �tre a la bonne distance 
+					return true; //au moins un couple d'events doit etre a la bonne distance 
 				}
 			}
 		}

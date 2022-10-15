@@ -147,7 +147,7 @@ public abstract class LecteurAudio {
 						LOG.error("Format audio inconnu : " + nom);
 						return;
 					}
-					LOG.warn("Le vrai nom du fichier audio \"" + nom +"\" devrait �tre \""+ vraiNom +"\"");
+					LOG.warn("Le vrai nom du fichier audio \"" + nom +"\" devrait etre \""+ vraiNom +"\"");
 				} else {
 					// pas de fichier trouv�
 					LOG.error("Fichier audio introuvable : " + nom);
@@ -172,7 +172,7 @@ public abstract class LecteurAudio {
 			LOG.debug("Arr�t du BGM");
 			LecteurAudio.bgmEnCours[piste] = null;
 		} else {
-			LOG.debug("Le BGM est d�j� arr�t�.");
+			LOG.debug("Le BGM est deja arr�t�.");
 		}
 	}
 
@@ -188,7 +188,7 @@ public abstract class LecteurAudio {
 			return;
 		}
 			
-		// Si on est d�j� en train de jouer le bon fond sonore, on ne fait rien
+		// Si on est deja en train de jouer le bon fond sonore, on ne fait rien
 		if (LecteurAudio.bgsEnCours[piste] == null || !nom.equals(LecteurAudio.bgsEnCours[piste].nom)) {
 			// On �teint le fond sonore actuel
 			stopBgs(piste);
@@ -227,7 +227,7 @@ public abstract class LecteurAudio {
 			LOG.debug("Arr�t du BGS");
 			LecteurAudio.bgsEnCours[piste] = null;
 		} else {
-			LOG.debug("Le BGS est d�j� arr�t�.");
+			LOG.debug("Le BGS est deja arr�t�.");
 		}
 	}
 	

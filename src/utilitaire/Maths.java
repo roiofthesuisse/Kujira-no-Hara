@@ -1,5 +1,7 @@
 package utilitaire;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
@@ -162,19 +164,40 @@ public abstract class Maths {
 	 * @return float
 	 */
 	public static final float toFloat(final Object valeur) {
-		float resultat = 1f;
-		if (valeur != null) {
-			try {
-				// Int, Double ou Float ?
-				resultat = (float) valeur;
-			} catch (ClassCastException e3) {
-					// Autre !
-					LOG.error("Impossible de convertir en float " + valeur, e3);
-			}
-		} else {
-			// Null ?
+		if (valeur == null) {
 			LOG.error("Impossible de convertir en float null", new NullPointerException());
+			return 1f;
 		}
-		return resultat;
+		if (valeur instanceof Double) {
+			return ((Double) valeur).floatValue();
+		} else if (valeur instanceof Float) {
+			return ((Float) valeur).floatValue();
+		} else if (valeur instanceof Integer) {
+			return ((Integer) valeur).floatValue();
+		}
+		try {
+			// Int, Double ou Float ?
+			return (float) valeur;
+		} catch (ClassCastException e3) {
+			// Autre !
+			LOG.error("Impossible de convertir en float " + valeur, e3);
+			return 1f;
+		}
+	}
+
+	/**
+	 * Arrondir un nombre decimal a un certain nombre de chiffres
+	 * 
+	 * @param value
+	 * @param places
+	 * @return
+	 */
+	public static double round(double value, int places) {
+		if (places < 0)
+			throw new IllegalArgumentException();
+
+		BigDecimal bd = BigDecimal.valueOf(value);
+		bd = bd.setScale(places, RoundingMode.HALF_UP);
+		return bd.doubleValue();
 	}
 }

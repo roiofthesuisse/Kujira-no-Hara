@@ -42,7 +42,7 @@ public class DemarrerChronometre extends Commande implements CommandeEvent {
 	@Override
 	public int executer(final int curseurActuel, final List<Commande> commandes) {
 		getPartieActuelle().chronometre = new Chronometre(this.croissant, this.nombreDeSecondesInitial);
-		LOG.debug("Chronom�tre " + (this.croissant ? "croissant" : "d�croissant") + " d�marr� a "
+		LOG.debug("Chronometre " + (this.croissant ? "croissant" : "d�croissant") + " d�marr� a "
 				+ this.nombreDeSecondesInitial + " secondes.");
 		return curseurActuel + 1;
 	}

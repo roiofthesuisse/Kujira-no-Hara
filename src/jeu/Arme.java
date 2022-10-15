@@ -26,7 +26,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Le H�ros peut utiliser un certain nombre d'Armes contre les Events ennemis.
+ * Le Heros peut utiliser un certain nombre d'Armes contre les Events ennemis.
  */
 public class Arme implements Listable {
 	//constantes
@@ -70,8 +70,8 @@ public class Arme implements Listable {
 	 * @param nomEffetSonoreAttaque nom du fichier sonore jou� lors de l'utilisation
 	 * @param framesDAnimation s�quence des vignettes a afficher lors de l'animation d'attaque
 	 * @param hitbox zone d'attaque qu'on peut atteindre
-	 * @param frameDebutCoup frame de l'animation d'attaque o� le coup commence r�ellement
-	 * @param frameFinCoup frame de l'animation d'attaque o� le coup est termin�
+	 * @param frameDebutCoup frame de l'animation d'attaque Ou le coup commence r�ellement
+	 * @param frameFinCoup frame de l'animation d'attaque Ou le coup est termine
 	 * @param nomIcone nom du fichier image de l'icone de l'Arme
 	 */
 	private Arme(final int id, final ArrayList<String> nom, final ArrayList<String> description, 

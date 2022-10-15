@@ -17,20 +17,20 @@ import mouvements.Mouvement;
 
 /**
  * <p>
- * Un D�placement est un ensemble de Mouvements subis par un Event.
+ * Un Deplacement est un ensemble de Mouvements subis par un Event.
  * </p>
  * 
  * <p>
- * L'objet D�placement a deux usages tr�s differents :
+ * L'objet Deplacement a deux usages tr�s differents :
  * <ol>
- * <li>Chaque Event poss�de un D�placement naturel et un D�placement forc�. Le
- * D�placement forc� sera effectu� en priorit� (sauf s'il est vide) sur le
- * D�placement naturel. Cela a lieu lorsque les Events sont d�plac�s avec la
+ * <li>Chaque Event poss�de un Deplacement naturel et un Deplacement forc�. Le
+ * Deplacement forc� sera effectu� en priorit� (sauf s'il est vide) sur le
+ * Deplacement naturel. Cela a lieu lorsque les Events sont d�plac�s avec la
  * Methode deplacer().</li>
- * <li>Un D�placement est �galement une CommandeEvent qui permet d'ajouter des
- * Mouvements dans le D�placement forc� d'un Event. L'Event qui ordonne le
- * D�placement n'est pas forc�ment celui qui le subit. Ce D�placement, qui
- * contient des ordres, n'est jamais effectu�. C'est le D�placement forc� de
+ * <li>Un Deplacement est �galement une CommandeEvent qui permet d'ajouter des
+ * Mouvements dans le Deplacement forc� d'un Event. L'Event qui ordonne le
+ * Deplacement n'est pas forc�ment celui qui le subit. Ce Deplacement, qui
+ * contient des ordres, n'est jamais effectu�. C'est le Deplacement forc� de
  * l'Event-cible qui sera effectu� une fois rempli. Ce remplissage a lieu lors
  * de l'execution des Commandes Event avec la Methode executer().</li>
  * </ol>
@@ -39,21 +39,21 @@ import mouvements.Mouvement;
 public class Deplacement extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(Deplacement.class);
 
-	/** id de l'Event qui va �tre d�plac� */
+	/** id de l'Event qui va etre d�plac� */
 	public Integer idEventADeplacer; // Integer car cl� d'une HashMap, et null lorsque "cet Event"
-	/** id de l'Event qui a r�clam� ce D�placement */
+	/** id de l'Event qui a r�clam� ce Deplacement */
 	public Integer idEventCommanditaire;
-	/** Mouvements constitutifs de ce D�placement */
+	/** Mouvements constitutifs de ce Deplacement */
 	public ArrayList<Mouvement> mouvements;
 	/**
 	 * faut-il interrompre les Mouvements impossibles, ou attendre qu'ils soient
 	 * possibles ?
 	 */
 	public boolean ignorerLesMouvementsImpossibles = false;
-	/** faut-il rejouer le D�placement lorsqu'on l'a termin� ? */
+	/** faut-il rejouer le Deplacement lorsqu'on l'a termine ? */
 	public boolean repeterLeDeplacement = true;
 	/**
-	 * faut-il attendre la fin du D�placement pour passer a la Commande suivante ?
+	 * faut-il attendre la fin du Deplacement pour passer a la Commande suivante ?
 	 */
 	public boolean attendreLaFinDuDeplacement = false;
 	private boolean aEteAjouteAuxDeplacementsForces = false;
@@ -67,15 +67,15 @@ public class Deplacement extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * 
 	 * @param idEventADeplacer                id de l'Event a d�placer, null
-	 *                                        signifie "cet Event", 0 le H�ros
+	 *                                        signifie "cet Event", 0 le Heros
 	 * @param mouvements                      liste des Mouvements constitutifs du
-	 *                                        D�placement
+	 *                                        Deplacement
 	 * @param ignorerLesMouvementsImpossibles faut-il interrompre les Mouvements
 	 *                                        impossibles, ou attendre qu'ils soient
 	 *                                        possibles ?
-	 * @param repeterLeDeplacement            faut-il rejouer le D�placement
-	 *                                        lorsqu'on l'a termin� ?
-	 * @param attendreLaFinDuDeplacement      faut-il attendre la fin du D�placement
+	 * @param repeterLeDeplacement            faut-il rejouer le Deplacement
+	 *                                        lorsqu'on l'a termine ?
+	 * @param attendreLaFinDuDeplacement      faut-il attendre la fin du Deplacement
 	 *                                        pour passer a la Commande suivante ?
 	 */
 	public Deplacement(final Integer idEventADeplacer, final ArrayList<Mouvement> mouvements,
@@ -87,7 +87,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 		this.repeterLeDeplacement = repeterLeDeplacement;
 		this.attendreLaFinDuDeplacement = attendreLaFinDuDeplacement;
 
-		// on apprend aux Mouvements le D�placement dont ils font partie
+		// on apprend aux Mouvements le Deplacement dont ils font partie
 		for (Mouvement mouvement : this.mouvements) {
 			mouvement.deplacement = this;
 		}
@@ -113,20 +113,20 @@ public class Deplacement extends Commande implements CommandeEvent {
 
 	/**
 	 * Vide la liste des Mouvements forc�s de l'Event, puis ajoute les nouveaux
-	 * Mouvements. Methode appel�e lors de l'ex�cution des Commandes. On passe a la
-	 * Commande suivante selon s'il faut attendre la fin du D�placement.
+	 * Mouvements. Methode appel�e lors de l'execution des Commandes. On passe a la
+	 * Commande suivante selon s'il faut attendre la fin du Deplacement.
 	 */
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		// IMPORTANT
-		// Nous nous trouvons actuellement dans le D�placement qui contient les
-		// Mouvements a ajouter au D�placement forc� d'un Event.
+		// Nous nous trouvons actuellement dans le Deplacement qui contient les
+		// Mouvements a ajouter au Deplacement forc� d'un Event.
 
 		final Event event = this.getEventADeplacer();
 		if (event == null) {
 			// Event introuvable
-			LOG.error("D�placement impossible : l'Event " + this.idEventADeplacer + " n'existe pas !");
-			// on r�initialise le Deplacement (au cas o� il est a nouveau execut� dans le
+			LOG.error("Deplacement impossible : l'Event " + this.idEventADeplacer + " n'existe pas !");
+			// on r�initialise le Deplacement (au cas Ou il est a nouveau execut� dans le
 			// futur)
 			this.aEteAjouteAuxDeplacementsForces = false;
 			// on passe a la Commande suivante
@@ -134,9 +134,9 @@ public class Deplacement extends Commande implements CommandeEvent {
 		}
 
 		if (!this.aEteAjouteAuxDeplacementsForces) {
-			// interrompre l'ancien D�placement forc� de l'Event
+			// interrompre l'ancien Deplacement forc� de l'Event
 			if (event.deplacementForce.mouvements != null && event.deplacementForce.mouvements.size() >= 1) {
-				LOG.warn("Le d�placement de l'event " + this.idEventADeplacer + " a ete interrompu et remplac�.");
+				LOG.warn("Le deplacement de l'event " + this.idEventADeplacer + " a ete interrompu et remplac�.");
 			}
 			event.deplacementForce.mouvements = new ArrayList<Mouvement>();
 
@@ -144,11 +144,11 @@ public class Deplacement extends Commande implements CommandeEvent {
 			for (Mouvement mvt : this.mouvements) {
 				mvt.reinitialiser();
 				event.deplacementForce.mouvements.add(mvt);
-				event.deplacementForce.page = this.page; // on indique le commanditaire de ce D�placement
+				event.deplacementForce.page = this.page; // on indique le commanditaire de ce Deplacement
 			}
-			// on pr�cise le commanditaire qui a impos� ce D�placement a un autre event
+			// on pr�cise le commanditaire qui a impos� ce Deplacement a un autre event
 			event.deplacementForce.idEventCommanditaire = this.page.event.id;
-			// les nouvelles caract�ristiques de D�placement sont assign�es au D�placement
+			// les nouvelles caract�ristiques de Deplacement sont assign�es au Deplacement
 			// forc�
 			event.deplacementForce.attendreLaFinDuDeplacement = this.attendreLaFinDuDeplacement;
 			event.deplacementForce.ignorerLesMouvementsImpossibles = this.ignorerLesMouvementsImpossibles;
@@ -160,19 +160,19 @@ public class Deplacement extends Commande implements CommandeEvent {
 
 		// quand est-ce qu'on passe a la Commande suivante ?
 		if (!this.attendreLaFinDuDeplacement) {
-			// on ne se soucie pas du d�roulement du D�placement
+			// on ne se soucie pas du d�roulement du Deplacement
 
-			// on r�initialise le Deplacement (au cas o� il est a nouveau execut� dans le
+			// on r�initialise le Deplacement (au cas Ou il est a nouveau execut� dans le
 			// futur)
 			this.aEteAjouteAuxDeplacementsForces = false;
 			// on passe imm�diatement a la Commande suivante
 			return curseurActuel + 1;
 		} else {
-			// on attend la fin du D�placement avant de passer a la Commande suivante
+			// on attend la fin du Deplacement avant de passer a la Commande suivante
 			if (event.deplacementForce.mouvements.size() <= 0) {
 				// la liste a ete totalement consomm�e
 
-				// on r�initialise le Deplacement (au cas o� il est a nouveau execut� dans le
+				// on r�initialise le Deplacement (au cas Ou il est a nouveau execut� dans le
 				// futur)
 				this.aEteAjouteAuxDeplacementsForces = false;
 				// on passe a la Commande suivante
@@ -189,7 +189,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 	/**
 	 * Tout Mouvement d�place un Event de la Map en particulier.
 	 * 
-	 * @return Event qui va �tre d�plac�
+	 * @return Event qui va etre d�plac�
 	 */
 	public final Event getEventADeplacer() {
 		if (this.idEventADeplacer != null) {
@@ -202,12 +202,12 @@ public class Deplacement extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Executer le premier Mouvement du D�placement. Methode appel�e lorsqu'il faut
+	 * Executer le premier Mouvement du Deplacement. Methode appel�e lorsqu'il faut
 	 * d�placer les Events.
 	 */
 	public final void executerLePremierMouvement() {
 		// IMPORTANT
-		// Nous nous trouvons actuellement dans le D�placement forc� ou naturel d'un
+		// Nous nous trouvons actuellement dans le Deplacement forc� ou naturel d'un
 		// Event.
 
 		final Mouvement premierMouvement = this.mouvements.get(0);

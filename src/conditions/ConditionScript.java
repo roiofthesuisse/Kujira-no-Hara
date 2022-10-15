@@ -15,7 +15,7 @@ import map.Hitbox;
 import utilitaire.GestionClavier.ToucheRole;
 
 /**
- * Condition bas�e sur l'interpr�tation d'un script ruby.
+ * Condition bas�e sur l'interpretation d'un script ruby.
  */
 public class ConditionScript extends Condition implements CommandeEvent {
 	// constantes
@@ -61,6 +61,8 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	private static final String APPARENCE = "lolilol\\(";
 	private static final String APPARENCIATION = EVENT_DEBUT + POSITIF + EVENT_FIN + APPARENCE + CHAINE_OU_NIL + ","
 			+ ESPACE + POSITIF_OU_NIL + "," + ESPACE + POSITIF_OU_NIL + "\\)";
+	private static final String APPARENCE_HEROS = "prout\\(";
+	private static final String APPARENCIATION_HEROS = HEROS + APPARENCE_HEROS + CHAINE_OU_NIL + "," + ESPACE + POSITIF_OU_NIL + "," + ESPACE + POSITIF_OU_NIL + "\\)";
 
 	private static final String ET = "&&";
 	private static final String ETATION = RELATIF + ESPACE + ET + ESPACE + RELATIF;
@@ -106,7 +108,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	 * Constructeur explicite
 	 * 
 	 * @param numero   de la Condition
-	 * @param script   a interpr�ter
+	 * @param script   a interpreter
 	 * @param modeTest est-on en train de tester la classe ?
 	 */
 	public ConditionScript(final int numero, final String script, final boolean modeTest) {
@@ -178,11 +180,11 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	}
 
 	/**
-	 * Interpr�ter un script ruby.
+	 * interpreter un script ruby.
 	 * 
 	 * @param expression (en ruby)
-	 * @return une chaine de caract�re qui est un nombre lorsque l'interpr�tation
-	 *         est termin�e.
+	 * @return une chaine de caractere qui est un nombre lorsque l'interpretation
+	 *         est terminee.
 	 */
 	private String traiter(final String expression) {
 		if (expression.contains(TRUE)) {
@@ -213,37 +215,37 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(EVENT_ID, "" + eventId());
 		}
 
-		// Coordonn�e x event
+		// Coordonnee x event
 		p = Pattern.compile(COORD_EVENT_X);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("coordonn�e x de l'event");
+			System.out.println("Coordonnee x de l'event");
 			final Integer nombre = extraireLeNombre(m.group(0));
 			return expression.replaceFirst(COORD_EVENT_X, "" + coordonneeXEvent(nombre));
 		}
 
-		// Coordonn�e y event
+		// Coordonnee y event
 		p = Pattern.compile(COORD_EVENT_Y);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("coordonn�e y de l'event");
+			System.out.println("Coordonnee y de l'event");
 			final Integer nombre = extraireLeNombre(m.group(0));
 			return expression.replaceFirst(COORD_EVENT_Y, "" + coordonneeYEvent(nombre));
 		}
 
-		// Coordonn�e x h�ros
+		// Coordonnee x Heros
 		p = Pattern.compile(COORD_HEROS_X);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("coordonn�e x du h�ros");
+			System.out.println("Coordonnee x du Heros");
 			return expression.replaceFirst(COORD_HEROS_X, "" + coordonneeXHeros());
 		}
 
-		// Coordonn�e y h�ros
+		// Coordonnee y Heros
 		p = Pattern.compile(COORD_HEROS_Y);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("coordonn�e y du h�ros");
+			System.out.println("Coordonnee y du Heros");
 			return expression.replaceFirst(COORD_HEROS_Y, "" + coordonneeYHeros());
 		}
 
@@ -265,7 +267,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(VITALISATION, "" + vieEvent(nombre));
 		}
 
-		// Ciblage par le h�ros
+		// Ciblage par le Heros
 		p = Pattern.compile(CIBLAGE_PAR_HEROS);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -319,8 +321,19 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			final String chaine = extraireLaChaineOuNil(m.group(0));
 			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF_OU_NIL);
 			return expression.replaceFirst(APPARENCIATION, "" + apparenceDeLEvent(nombres.get(0), chaine,
-					nombres.get(nombres.size() - 1), nombres.get(nombres.size() - 2)));
+					nombres.get(nombres.size() - 2), nombres.get(nombres.size() - 1)));
 		}
+
+		// Apparence, direction, animation du Heros
+		p = Pattern.compile(APPARENCIATION_HEROS);
+		m = p.matcher(expression);
+		if (m.find()) {
+			System.out.println("apparence, direction, animation de l'event");
+			final String chaine = extraireLaChaineOuNil(m.group(0));
+			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF_OU_NIL);
+			return expression.replaceFirst(APPARENCIATION_HEROS, "" + apparenceDeLEvent(this.page.event.map.heros, chaine, nombres.get(nombres.size() - 2), nombres.get(nombres.size() - 1)));
+		}
+
 
 		// Touche enfonc�e
 		// FIXME bonne touche ?
@@ -494,7 +507,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(OUATION, remplacement);
 		}
 
-		LOG.error("Script impossible a interpr�ter : " + expression);
+		LOG.error("Script impossible a interpreter : " + expression);
 		this.interpretationImplementee = false;
 		return "0";
 	}
@@ -512,9 +525,9 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	}
 
 	/**
-	 * Trouver le nombre situ� dans une chaine de caract�res.
+	 * Trouver le nombre situe dans une chaine de caracteres.
 	 * 
-	 * @param nombreBrut chaine de caract�res contenant un nombre
+	 * @param nombreBrut chaine de caracteres contenant un nombre
 	 * @return nombre contenu
 	 */
 	private static int extraireLeNombre(final String nombreBrut) {
@@ -526,9 +539,9 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	}
 
 	/**
-	 * Trouver les nombres situ�s dans une chaine de caract�res.
+	 * Trouver les nombres situes dans une chaine de caracteres.
 	 * 
-	 * @param brut             chaine de caract�res contenant des nombres
+	 * @param brut             chaine de caracteres contenant des nombres
 	 * @param relatifOuPositif les nombres attendus sont-ils positifs ou relatifs ?
 	 * @return nombres contenus
 	 */
@@ -549,9 +562,9 @@ public class ConditionScript extends Condition implements CommandeEvent {
 
 	/**
 	 * Trouver la chaine entre guillemets (ou nil) situee dans une chaine de
-	 * caract�res.
+	 * caracteres.
 	 * 
-	 * @param chaineBrute chaine de caract�res contenant la chaine entre guillemets
+	 * @param chaineBrute chaine de caracteres contenant la chaine entre guillemets
 	 * @return chaine entre guillemets contenue
 	 */
 	private static String extraireLaChaineOuNil(final String chaineBrute) {
@@ -639,6 +652,10 @@ public class ConditionScript extends Condition implements CommandeEvent {
 
 	private boolean apparenceDeLEvent(Integer idCible, String apparence, Integer direction, Integer animation) {
 		final Event cible = this.page.event.map.eventsHash.get(idCible);
+		return apparenceDeLEvent(cible, apparence, direction, animation);
+	}
+
+	private boolean apparenceDeLEvent(Event cible, String apparence, Integer direction, Integer animation) {
 		if (apparence != null) {
 			if (!cible.pageDApparence.nomImage.equals(apparence.replace("\"", ""))) {
 				return false;

@@ -6,7 +6,7 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
 /**
- * Balise "sinon" de la Condition situ�e parmi les Commandes Event.
+ * Balise "sinon" de la Condition situee parmi les Commandes Event.
  */
 public class ConditionSinon extends Condition implements CommandeEvent, CommandeMenu {
 
@@ -32,7 +32,7 @@ public class ConditionSinon extends Condition implements CommandeEvent, Commande
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le H�ros.
+	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

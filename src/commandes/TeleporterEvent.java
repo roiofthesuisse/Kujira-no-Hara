@@ -21,8 +21,8 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * 
 	 * @param idEvent           identifiant de l'Event a t�l�porter
-	 * @param nouveauX          nouvelle coordonn�e x de l'Event
-	 * @param nouveauY          nouvelle coordonn�e y de l'Event
+	 * @param nouveauX          nouvelle Coordonnee x de l'Event
+	 * @param nouveauY          nouvelle Coordonnee y de l'Event
 	 * @param utiliserVariables false si valeurs fixes, true si num�ros de variables
 	 */
 	public TeleporterEvent(final Integer idEvent, final int nouveauX, final int nouveauY,

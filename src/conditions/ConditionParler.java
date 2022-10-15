@@ -9,7 +9,7 @@ import map.Heros;
 import utilitaire.GestionClavier;
 
 /**
- * Le H�ros colle l'event et regarde vers lui.
+ * Le Heros colle l'event et regarde vers lui.
  */
 public class ConditionParler extends Condition implements CommandeEvent {
 	//constantes
@@ -25,7 +25,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 			return false;
 		}
 		
-		//2) deuxi�mement, il faut �tre situ� face a son interlocuteur :
+		//2) deuxi�mement, il faut etre situe face a son interlocuteur :
 		
 		int pageActive;
 		try {
@@ -48,20 +48,20 @@ public class ConditionParler extends Condition implements CommandeEvent {
 			final int ymin2 = event.y;
 			final int ymax2 = event.y+event.hauteurHitbox;
 			final int dir = heros.direction;
-			//il faut �tre coll� a l'�v�nement et regarder vers lui
+			//il faut etre coll� a l'�v�nement et regarder vers lui
 			switch(dir) {
 				case Event.Direction.HAUT:
 					if ( Math.abs(ymin1-ymax2) > DISTANCE_MAX_PAROLE ) {
 						return false;
 					} else {
 						if ( heros.largeurHitbox <= event.largeurHitbox ) { 
-							//la longueur de contact est sup�rieure a la moiti� de la taille du h�ros
+							//la longueur de contact est sup�rieure a la moiti� de la taille du Heros
 							final boolean grandeSurfaceDeContact =
 								((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) 
 								|| ((xmin2<=xmin1 && xmin1<xmax2) && xmax2-xmin1>heros.largeurHitbox/2);
 							return grandeSurfaceDeContact;
 						} else {
-							//le h�ros englobe l'event
+							//le Heros englobe l'event
 							final boolean surfaceDeContactMaximale =
 							 (xmin1<=xmin2 && xmax2<=xmax1);
 							return surfaceDeContactMaximale;
@@ -72,13 +72,13 @@ public class ConditionParler extends Condition implements CommandeEvent {
 						return false;
 					} else {
 						if ( heros.hauteurHitbox <= event.hauteurHitbox ) { 
-							//la longueur de contact est sup�rieure a la moiti� de la taille du h�ros
+							//la longueur de contact est sup�rieure a la moiti� de la taille du Heros
 							final boolean grandeSurfaceDeContact =
 								((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) 
 								|| ((ymin2<=ymin1 && ymin1<ymax2) && ymax2-ymin1>heros.hauteurHitbox/2);
 							return grandeSurfaceDeContact;
 						} else {
-							//le h�ros englobe l'event
+							//le Heros englobe l'event
 							final boolean surfaceDeContactMaximale =
 								(ymin1<=ymin2 && ymax2<=ymax1);
 							return surfaceDeContactMaximale;
@@ -89,13 +89,13 @@ public class ConditionParler extends Condition implements CommandeEvent {
 						return false;
 					} else {
 						if ( heros.hauteurHitbox <= event.hauteurHitbox ) { 
-							//la longueur de contact est sup�rieure a la moiti� de la taille du h�ros
+							//la longueur de contact est sup�rieure a la moiti� de la taille du Heros
 							final boolean grandeSurfaceDeContact =
 								((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) 
 								|| ((ymin2<=ymin1 && ymin1<ymax2) && ymax2-ymin1>heros.hauteurHitbox/2);
 							return grandeSurfaceDeContact;
 						} else {
-							//le h�ros englobe l'event
+							//le Heros englobe l'event
 							final boolean surfaceDeContactMaximale =
 								(ymin1<=ymin2 && ymax2<=ymax1);
 							return surfaceDeContactMaximale;
@@ -106,13 +106,13 @@ public class ConditionParler extends Condition implements CommandeEvent {
 						return false;
 					} else {
 						if ( heros.largeurHitbox <= event.largeurHitbox ) {
-							//la longueur de contact est sup�rieure a la moiti� de la taille du h�ros
+							//la longueur de contact est sup�rieure a la moiti� de la taille du Heros
 							final boolean grandeSurfaceDeContact =
 								((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) 
 								|| ((xmin2<=xmin1 && xmin1<xmax2) && xmax2-xmin1>heros.largeurHitbox/2);
 							return grandeSurfaceDeContact;
 						} else {
-							//le h�ros englobe l'event
+							//le Heros englobe l'event
 							final boolean surfaceDeContactMaximale =
 								(xmin1<=xmin2 && xmax2<=xmax1);
 							return surfaceDeContactMaximale;
@@ -125,7 +125,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximit� avec le H�ros.
+	 * C'est une Condition qui implique une proximit� avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

@@ -17,7 +17,7 @@ import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
 
 /**
- * Une hitbox peut �tre assign�e a une arme afin de calculer sa port�e et son �tendue.
+ * Une hitbox peut etre assign�e a une arme afin de calculer sa port�e et son �tendue.
  */
 public final class Hitbox {
 	private static final Logger LOG = LogManager.getLogger(Hitbox.class);
@@ -46,7 +46,7 @@ public final class Hitbox {
 		final Partie partieActuelle = Main.getPartieActuelle();
 		final boolean estCeQueLeHerosAUneArme = (partieActuelle.nombreDArmesPossedees > 0) && partieActuelle.getArmeEquipee()!=null;
 		if (estCeQueLeHerosAUneArme) {
-			//on calcule les bords de la zone d'attaque en fonction de l'orientation du h�ros
+			//on calcule les bords de la zone d'attaque en fonction de l'orientation du Heros
 			final int[] coord = this.calculerCoordonneesAbsolues(attaquant);
 			final int xminHitbox = coord[0];
 			final int xmaxHitbox = coord[1];
@@ -66,7 +66,7 @@ public final class Hitbox {
 	}
 	
 	/**
-	 * Calcule les coordonn�es x et y minimales et maximales du rectangle de la Hitbox.
+	 * Calcule les Coordonnees x et y minimales et maximales du rectangle de la Hitbox.
 	 * @param attaquant l'Event qui attaque
 	 * @return xmin, xmax, ymin, ymax
 	 */
@@ -111,14 +111,14 @@ public final class Hitbox {
 
 	/**
 	 * Faire une capture d'ecran avec deux rectangles
-	 * @param x1min coordonn�e x minimale du rectangle rouge
-	 * @param x1max coordonn�e x maximale du rectangle rouge
-	 * @param y1min coordonn�e y minimale du rectangle rouge
-	 * @param y1max coordonn�e y maximale du rectangle rouge
-	 * @param x2min coordonn�e x minimale du rectangle bleu
-	 * @param x2max coordonn�e x maximale du rectangle bleu
-	 * @param y2min coordonn�e y minimale du rectangle bleu
-	 * @param y2max coordonn�e y maximale du rectangle bleu
+	 * @param x1min Coordonnee x minimale du rectangle rouge
+	 * @param x1max Coordonnee x maximale du rectangle rouge
+	 * @param y1min Coordonnee y minimale du rectangle rouge
+	 * @param y1max Coordonnee y maximale du rectangle rouge
+	 * @param x2min Coordonnee x minimale du rectangle bleu
+	 * @param x2max Coordonnee x maximale du rectangle bleu
+	 * @param y2min Coordonnee y minimale du rectangle bleu
+	 * @param y2max Coordonnee y maximale du rectangle bleu
 	 */
 	public static void printCroisement(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max) {
 		//on part d'une image blanche
@@ -146,12 +146,12 @@ public final class Hitbox {
 	 * Calcule si deux rectangles sont proches. 
 	 * S'ils ne sont pas proches, ils ne peuvent pas se croiser.
 	 * Utile pour �liminer des cas lors des calculs de collisions.
-	 * @param x1 coordonn�e x minimale du rectangle 1
-	 * @param y1 coordonn�e y minimale du rectangle 1
+	 * @param x1 Coordonnee x minimale du rectangle 1
+	 * @param y1 Coordonnee y minimale du rectangle 1
 	 * @param largeur1 largeur du rectangle 1
 	 * @param hauteur1 hauteur du rectangle 1
-	 * @param x2 coordonn�e x minimale du rectangle 2
-	 * @param y2 coordonn�e y minimale du rectangle 2
+	 * @param x2 Coordonnee x minimale du rectangle 2
+	 * @param y2 Coordonnee y minimale du rectangle 2
 	 * @param largeur2 largeur du rectangle 2
 	 * @param hauteur2 hauteur du rectangle 2
 	 * @return true si les rectancles ont une chance de se croiser, false s'ils sont trop �loign�s pour que ce soit possible.
@@ -171,14 +171,14 @@ public final class Hitbox {
 	
 	/**
 	 * Calcule si deux rectangles se chevauchent.
-	 * @param x1min coordonn�e x minimale du rectangle 1
-	 * @param x1max coordonn�e x maximale du rectangle 1
-	 * @param y1min coordonn�e y minimale du rectangle 1
-	 * @param y1max coordonn�e y maximale du rectangle 1
-	 * @param x2min coordonn�e x minimale du rectangle 2
-	 * @param x2max coordonn�e x maximale du rectangle 2
-	 * @param y2min coordonn�e y minimale du rectangle 2
-	 * @param y2max coordonn�e y maximale du rectangle 2
+	 * @param x1min Coordonnee x minimale du rectangle 1
+	 * @param x1max Coordonnee x maximale du rectangle 1
+	 * @param y1min Coordonnee y minimale du rectangle 1
+	 * @param y1max Coordonnee y maximale du rectangle 1
+	 * @param x2min Coordonnee x minimale du rectangle 2
+	 * @param x2max Coordonnee x maximale du rectangle 2
+	 * @param y2min Coordonnee y minimale du rectangle 2
+	 * @param y2max Coordonnee y maximale du rectangle 2
 	 * @param largHitbox largeur du rectangle 1 (non recalcul� pour les performances)
 	 * @param hautHitbox hauteur du rectangle 1 (non recalcul� pour les performances)
 	 * @param largHitboxAutre largeur du rectangle 2 (non recalcul� pour les performances)
@@ -202,7 +202,7 @@ public final class Hitbox {
 		
 		if (largHitbox==largHitboxAutre && hautHitbox==hautHitboxAutre) {
 			//si deux events ont la m�me taille, ils ne peuvent se chevaucher que par le coin
-			//(pour �tre plus exact : le cas o� deux events de m�me taille se chevauchent par l'ar�te est un cas particulier de la formule du chevauchement par coin)
+			//(pour etre plus exact : le cas Ou deux events de m�me taille se chevauchent par l'ar�te est un cas particulier de la formule du chevauchement par coin)
 			return false;
 		}
 		
@@ -239,14 +239,14 @@ public final class Hitbox {
 	
 	/**
 	 * Calcule si deux rectangles se chevauchent en prenant en compte les passabilit�s multilat�rales.
-	 * @param xmin coordonn�e x minimale du rectangle 1
-	 * @param xmax coordonn�e x maximale du rectangle 1
-	 * @param ymin coordonn�e y minimale du rectangle 1
-	 * @param ymax coordonn�e y maximale du rectangle 1
-	 * @param xmin2 coordonn�e x minimale du rectangle 2
-	 * @param xmax2 coordonn�e x maximale du rectangle 2
-	 * @param ymin2 coordonn�e y minimale du rectangle 2
-	 * @param ymax2 coordonn�e y maximale du rectangle 2
+	 * @param xmin Coordonnee x minimale du rectangle 1
+	 * @param xmax Coordonnee x maximale du rectangle 1
+	 * @param ymin Coordonnee y minimale du rectangle 1
+	 * @param ymax Coordonnee y maximale du rectangle 1
+	 * @param xmin2 Coordonnee x minimale du rectangle 2
+	 * @param xmax2 Coordonnee x maximale du rectangle 2
+	 * @param ymin2 Coordonnee y minimale du rectangle 2
+	 * @param ymax2 Coordonnee y maximale du rectangle 2
 	 * @param passableAGauche1 passabilit� lat�rale gauche de l'Event 1
 	 * @param passableADroite1 passabilit� lat�rale droite de l'Event 1
 	 * @param passableEnBas1 passabilit� lat�rale basse de l'Event 1

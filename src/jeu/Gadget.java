@@ -25,7 +25,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Le H�ros peut utiliser un certain nombre de Gadgets sur la Map. 
+ * Le Heros peut utiliser un certain nombre de Gadgets sur la Map. 
  */
 public class Gadget implements Listable {
 	//constantes

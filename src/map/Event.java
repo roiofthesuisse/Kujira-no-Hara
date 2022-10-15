@@ -83,7 +83,7 @@ public class Event implements Comparable<Event> {
 	public Frequence frequenceActuelle = FREQUENCE_PAR_DEFAUT;
 
 	/**
-	 * un Event peut �tre d�plac� par une Commande Event externe a son d�placement
+	 * un Event peut etre d�plac� par une Commande Event externe a son deplacement
 	 * naturel nominal
 	 */
 	public Deplacement deplacementForce;
@@ -116,7 +116,7 @@ public class Event implements Comparable<Event> {
 	public int coordonneeApparenteYLorsDuSaut; // en pixels
 
 	/**
-	 * L'Event est-il au contact du H�ros ? (utile pour la Condition
+	 * L'Event est-il au contact du Heros ? (utile pour la Condition
 	 * ArriveeAuContact
 	 */
 	public boolean estAuContactDuHerosMaintenant = false;
@@ -138,10 +138,11 @@ public class Event implements Comparable<Event> {
 	public int hauteurHitbox = HAUTEUR_HITBOX_PAR_DEFAUT;
 
 	/**
-	 * D�cale l'affichage vers le bas. En effet, d�caler l'affichage dans les trois
+	 * Decale l'affichage vers le bas. En effet, decaler l'affichage dans les trois
 	 * autres directions est possible en modifiant l'image.
 	 */
-	int offsetY = 0;
+	public int offsetY = 0;
+	public int offsetX = 0;
 	public ArrayList<PageEvent> pages;
 	/**
 	 * Page dont on va lire les Commandes Event car toutes ses Conditions sont
@@ -202,11 +203,11 @@ public class Event implements Comparable<Event> {
 	/**
 	 * Constructeur explicite de l'Event
 	 * 
-	 * @param x                                  position x (en pixels) o� se trouve
+	 * @param x                                  position x (en pixels) Ou se trouve
 	 *                                           l'Event, en abscisse, de gauche �
 	 *                                           droite
 	 * @param y                                  position x (en pixels) numero du
-	 *                                           carreau o� se trouve l'Event, en
+	 *                                           carreau Ou se trouve l'Event, en
 	 *                                           ordonn�e, de haut en bas
 	 * @param offsetY                            si on veut afficher l'Event plus
 	 *                                           bas que sa case r�elle
@@ -244,10 +245,10 @@ public class Event implements Comparable<Event> {
 	/**
 	 * Constructeur de l'Event utilisant un tableau de pages JSON
 	 * 
-	 * @param x                                  coordonn�e x (en pixels) o� se
+	 * @param x                                  Coordonnee x (en pixels) Ou se
 	 *                                           trouve l'Event, en abscisse, de
 	 *                                           gauche a droite
-	 * @param y                                  coordonn�e y (en pixels) o� se
+	 * @param y                                  Coordonnee y (en pixels) Ou se
 	 *                                           trouve l'Event, en ordonn�e, de
 	 *                                           haut en bas
 	 * @param offsetY                            si on veut afficher l'Event plus
@@ -328,23 +329,23 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Faire faire un Mouvement a l'Event. Ce Mouvement est soit issu du D�placement
-	 * naturel de l'Event, soit de son �ventuel D�placement forc�.
+	 * Faire faire un Mouvement a l'Event. Ce Mouvement est soit issu du Deplacement
+	 * naturel de l'Event, soit de son �ventuel Deplacement forc�.
 	 * 
-	 * @Warning Cette Methode est overrid�e pour le H�ros.
+	 * @Warning Cette Methode est overrid�e pour le Heros.
 	 */
 	public void deplacer() {
 		if (this.deplacementForce != null && this.deplacementForce.mouvements.size() > 0) {
-			// il y a un D�placement forc�
+			// il y a un Deplacement forc�
 			this.deplacementForce.executerLePremierMouvement();
 
 		} else {
-			// pas de D�placement forc� : on execute le D�placement naturel
+			// pas de Deplacement forc� : on execute le Deplacement naturel
 			if (deplacementNaturelActuel != null && this.deplacementNaturelActuel.mouvements.size() > 0) {
-				// il y a un D�placement naturel
+				// il y a un Deplacement naturel
 				this.deplacementNaturelActuel.executerLePremierMouvement();
 			} else {
-				// pas de D�placement du tout
+				// pas de Deplacement du tout
 				this.avance = false;
 				this.saute = false;
 				if (!this.animeALArretActuel && !this.avancaitALaFramePrecedente && !this.avance) {
@@ -412,7 +413,7 @@ public class Event implements Comparable<Event> {
 			viderLesProprietesActuelles();
 			return;
 		} else {
-			// une Page correspond au moins pour les Conditions non li�es au H�ros, on donne
+			// une Page correspond au moins pour les Conditions non li�es au Heros, on donne
 			// son apparence a l'Event
 			this.pageActive = null;
 			this.pageDApparence = pageQuOnChoisitEnRemplacement;
@@ -428,7 +429,7 @@ public class Event implements Comparable<Event> {
 			attribuerLesProprietesActuelles(this.pageDApparence);
 
 			if (onATrouveLaPageActive) {
-				// m�me les Conditions li�es au H�ros correspondent, on execute la Page
+				// m�me les Conditions li�es au Heros correspondent, on execute la Page
 				this.pageActive = pageQuOnChoisitEnRemplacement;
 			}
 		}
@@ -444,7 +445,7 @@ public class Event implements Comparable<Event> {
 		this.imageActuelle = page.image;
 		this.apparenceActuelleEstUnTile = page.apparenceEstUnTile;
 
-		if (!(this instanceof Heros) // le H�ros n'est pas redirig� aux changements de Page
+		if (!(this instanceof Heros) // le Heros n'est pas redirig� aux changements de Page
 				&& ilYAEuChangementDePageDApparence) { // on ne r�initialise pas les propri�t�s sans vrai changement de
 														// Page
 			this.direction = page.directionInitiale;
@@ -462,19 +463,19 @@ public class Event implements Comparable<Event> {
 			this.opaciteActuelle = page.opacite;
 			this.modeDeFusionActuel = page.modeDeFusion;
 		}
-		// d�placement
+		// deplacement
 		this.deplacementNaturelActuel = page.deplacementNaturel;
 	}
 
 	/**
-	 * Faire dispara�tre l'Event a l'ecran.
+	 * Faire disparaetre l'Event a l'ecran.
 	 */
 	private void viderLesProprietesActuelles() {
 		// apparence
 		this.imageActuelle = null;
 		this.apparenceActuelleEstUnTile = false;
 
-		if (!(this instanceof Heros) // le H�ros n'est pas redirig� aux changements de Page
+		if (!(this instanceof Heros) // le Heros n'est pas redirig� aux changements de Page
 				&& ilYAEuChangementDePageDApparence) { // on ne r�initialise pas les propri�t�s sans vrai changement de
 														// Page
 			// propri�t�s
@@ -490,12 +491,12 @@ public class Event implements Comparable<Event> {
 			this.opaciteActuelle = Graphismes.OPACITE_MAXIMALE;
 			this.modeDeFusionActuel = ModeDeFusion.NORMAL;
 		}
-		// d�placement
+		// deplacement
 		this.deplacementNaturelActuel = null;
 	}
 
 	/**
-	 * O� afficher l'Event ?
+	 * Ou afficher l'Event ?
 	 * 
 	 * @return position x de l'image de l'Event
 	 */
@@ -512,11 +513,11 @@ public class Event implements Comparable<Event> {
 		} else {
 			largeurVignette = this.imageActuelle.getWidth() / 4;
 		}
-		return xBase + (this.largeurHitbox - largeurVignette) / 2;
+		return xBase + (this.largeurHitbox - largeurVignette) / 2 + this.offsetX;
 	}
 
 	/**
-	 * O� afficher l'Event ?
+	 * Ou afficher l'Event ?
 	 * 
 	 * @return position y de l'image de l'Event
 	 */
@@ -558,7 +559,7 @@ public class Event implements Comparable<Event> {
 		// On attend la fin de l'execution pour toutes les events JSON
 		try {
 			while (!executor.awaitTermination(Lecteur.DUREE_FRAME, TimeUnit.MILLISECONDS)) {
-				LOG.warn("L'import des Events n'est pas encore termin�...");
+				LOG.warn("L'import des Events n'est pas encore termine...");
 			}
 		} catch (InterruptedException e) {
 			LOG.error("Impossible d'attendre la fin de l'importation des Events !", e);
@@ -624,11 +625,11 @@ public class Event implements Comparable<Event> {
 
 				int xEvent, yEvent;
 				try {
-					// coordonn�es enti�res
+					// Coordonnees enti�res
 					xEvent = ((int) jsonEvent.get("x")) * Main.TAILLE_D_UN_CARREAU;
 					yEvent = ((int) jsonEvent.get("y")) * Main.TAILLE_D_UN_CARREAU;
 				} catch (ClassCastException e) {
-					// coordonn�es non enti�res
+					// Coordonnees non enti�res
 					xEvent = (int) (jsonEvent.getDouble("x") * Main.TAILLE_D_UN_CARREAU);
 					yEvent = (int) (jsonEvent.getDouble("y") * Main.TAILLE_D_UN_CARREAU);
 				}
@@ -675,7 +676,7 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Interpr�ter le nom de l'Event pour connaitre son nombre de vies
+	 * interpreter le nom de l'Event pour connaitre son nombre de vies
 	 * 
 	 * @param nomEvent nom de l'Event
 	 * @return nombre de vies de l'Event

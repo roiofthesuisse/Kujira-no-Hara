@@ -32,7 +32,7 @@ public abstract class ListerLesScriptsRuby {
 		System.out.println("-----------------------------");
 		System.out.println("-----------------------------");
 
-		System.out.println("Nombre de scripts non interprétés : "+scripts.size());
+		System.out.println("Nombre de scripts non interpretes : " + scripts.size());
 	}
 	
 	private static ArrayList<String> listerLesConditionsScript() {
@@ -69,7 +69,7 @@ public abstract class ListerLesScriptsRuby {
 											}
 										}
 									} catch (Exception e) {
-										//LOG.error("Commande irrécupérable : "+oCommande);
+										//LOG.error("Commande irrï¿½cupï¿½rable : "+oCommande);
 									}
 								}
 							} catch (Exception e) {

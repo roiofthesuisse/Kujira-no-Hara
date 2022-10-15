@@ -41,7 +41,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	public boolean stopEvent = false;
 	/**
-	 * si true, le H�ros n'avance plus naturellement (seuls mouvements forc�s
+	 * si true, le Heros n'avance plus naturellement (seuls mouvements forc�s
 	 * autoris�s)
 	 */
 	public boolean stopHeros = false;
@@ -110,13 +110,13 @@ public class LecteurMap extends Lecteur {
 		// lecture des commandes event
 		continuerLaLectureDesPagesDeCommandesEvent();
 
-		// d�placements des �v�nements
+		// deplacements des �v�nements
 		deplacerLesEvents();
 
 		// animation des �v�nements
 		animerLesEvents(frame);
 
-		// TODO DEBUG pour voir la hitbox de l'attaque du h�ros
+		// TODO DEBUG pour voir la hitbox de l'attaque du Heros
 		// ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 
 		// on dessine les �v�nements et la couche m�diane
@@ -242,7 +242,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Dessiner a l'ecran le d�cor situ� au dessus du H�ros.
+	 * Dessiner a l'ecran le d�cor situe au dessus du Heros.
 	 * 
 	 * @param ecran            sur lequel dessiner le d�cor
 	 * @param xCamera          position x de la cam�ra
@@ -258,7 +258,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Dessiner a l'ecran le d�cor situ� en dessous du H�ros.
+	 * Dessiner a l'ecran le d�cor situe en dessous du Heros.
 	 * 
 	 * @param ecran            sur lequel dessiner le d�cor
 	 * @param xCamera          position x de la cam�ra
@@ -289,12 +289,12 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Pour le debug, on peut souhaiter afficher la HitBox du H�ros a l'ecran.
+	 * Pour le debug, on peut souhaiter afficher la HitBox du Heros a l'ecran.
 	 * 
-	 * @param ecran   sur lequel on dessine la Htibox du H�ros
+	 * @param ecran   sur lequel on dessine la Htibox du Heros
 	 * @param xCamera position x de la cam�ra
 	 * @param yCamera position y de la cam�ra
-	 * @return ecran avec la Hitbox du H�ros dessin�e dessus
+	 * @return ecran avec la Hitbox du Heros dessin�e dessus
 	 */
 	@SuppressWarnings("unused")
 	private BufferedImage dessinerLaHitboxDuHeros(BufferedImage ecran, final int xCamera, final int yCamera) {
@@ -331,13 +331,13 @@ public class LecteurMap extends Lecteur {
 		if (stopEvent) {
 			activerUnePageEtLExecuter(this.eventQuiALanceStopEvent);
 		} else {
-			// lire tous les Events de la Map (sauf le H�ros)
+			// lire tous les Events de la Map (sauf le Heros)
 			for (Event event : this.map.events) {
-				if (!event.equals(this.map.heros)) { // le H�ros est calcul� en dernier
+				if (!event.equals(this.map.heros)) { // le Heros est calcul� en dernier
 					activerUnePageEtLExecuter(event);
 				}
 			}
-			// le H�ros est calcul� en dernier pour �viter les problemes d'�p�e
+			// le Heros est calcul� en dernier pour �viter les problemes d'�p�e
 			if (!this.stopHeros) {
 				activerUnePageEtLExecuter(this.map.heros);
 			}
@@ -349,9 +349,9 @@ public class LecteurMap extends Lecteur {
 
 	/**
 	 * Activer une Page (si aucune n'est activ�e) de l'Event (s'il n'est pas
-	 * supprim� et l'ex�cuter.
+	 * supprim� et l'executer.
 	 * 
-	 * @param event dont il faut activer une Page et l'ex�cuter
+	 * @param event dont il faut activer une Page et l'executer
 	 */
 	private void activerUnePageEtLExecuter(final Event event) {
 		if (!event.supprime && !event.saute) {
@@ -388,7 +388,7 @@ public class LecteurMap extends Lecteur {
 	 * @param ecran            sur lequel on dessine les Events
 	 * @param xCamera          position x de la cam�ra
 	 * @param yCamera          position y de la cam�ra
-	 * @param dessinerLeHeros  le H�ros doit-il �tre visible sur l'ancienne Map ?
+	 * @param dessinerLeHeros  le Heros doit-il etre visible sur l'ancienne Map ?
 	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile anim�
 	 * @return ecran avec les Events dessin�s dessus
 	 */
@@ -456,7 +456,7 @@ public class LecteurMap extends Lecteur {
 	 * @param ecran           sur lequel on dessine les Events
 	 * @param xCamera         position x de la cam�ra
 	 * @param yCamera         position y de la cam�ra
-	 * @param dessinerLeHeros le H�ros doit-il �tre visible sur l'ancienne Map ?
+	 * @param dessinerLeHeros le Heros doit-il etre visible sur l'ancienne Map ?
 	 * @return ecran avec les Events dessin�s dessus
 	 */
 	private BufferedImage dessinerLesEventsAuDessusDeTout(BufferedImage ecran, final int xCamera, final int yCamera,
@@ -491,11 +491,11 @@ public class LecteurMap extends Lecteur {
 							|| (event.avance && !event.avancaitALaFramePrecedente); // la premi�re frame d'animation est
 																					// un pas
 
-					// cas o� l'Event est anim� a l'arr�t
+					// cas Ou l'Event est anim� a l'arr�t
 					if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
 						event.animation = (event.animation + 1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
 					}
-					// cas o� l'Event est vraiment en mouvement
+					// cas Ou l'Event est vraiment en mouvement
 					final boolean eventAvance = event.avance || event.avancaitALaFramePrecedente;
 					// l'animation des Events est-elle figee ?
 					final boolean animerLesEvents = !this.stopEvent
@@ -531,7 +531,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private void deplacerLesEvents() {
 		try {
-			// animer la marche du H�ros si touche de d�placement press�e
+			// animer la marche du Heros si touche de deplacement press�e
 			if (GestionClavier.ToucheRole.HAUT.enfoncee() || GestionClavier.ToucheRole.GAUCHE.enfoncee()
 					|| GestionClavier.ToucheRole.BAS.enfoncee() || GestionClavier.ToucheRole.DROITE.enfoncee()) {
 				map.heros.avance = true;
@@ -540,18 +540,18 @@ public class LecteurMap extends Lecteur {
 			// d�placer chaque Event
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
-					event.deplacer(); // on effectue le d�placement si possible (pas d'obstacles rencontr�s)
+					event.deplacer(); // on effectue le deplacement si possible (pas d'obstacles rencontr�s)
 				}
 			}
 		} catch (Exception e) {
-			LOG.error("Erreur lors du d�placement des �v�nements :", e);
+			LOG.error("Erreur lors du deplacement des �v�nements :", e);
 		}
 	}
 
 	/**
 	 * Certains Events ont ete marqu�s "� supprimer" durant la lecture des
 	 * Commandes. On les �limine maintenant, une fois que la lecture des Commandes
-	 * est termin�e. En effet on ne peut pas supprimer des Events lorsqu'on est
+	 * est terminee. En effet on ne peut pas supprimer des Events lorsqu'on est
 	 * encore dans la boucle qui parcourt la liste des Events.
 	 */
 	private void supprimerLesEventsASupprimer() {
@@ -721,7 +721,7 @@ public class LecteurMap extends Lecteur {
 					for (Mouvement m : e.deplacementForce.mouvements) {
 						mouvementsForces.append(m.getClass().getSimpleName()).append(" ; ");
 					}
-					LOG.debug("\t\tD�placement forc� : " + mouvementsForces.toString());
+					LOG.debug("\t\tDeplacement forc� : " + mouvementsForces.toString());
 				}
 				if (e.deplacementNaturelActuel != null && e.deplacementNaturelActuel.mouvements != null
 						&& e.deplacementNaturelActuel.mouvements.size() > 0) {
@@ -729,7 +729,7 @@ public class LecteurMap extends Lecteur {
 					for (Mouvement m : e.deplacementNaturelActuel.mouvements) {
 						mouvementsNaturels.append(m.getClass().getSimpleName()).append(" ; ");
 					}
-					LOG.debug("\t\tD�placement naturel : " + mouvementsNaturels.toString());
+					LOG.debug("\t\tDeplacement naturel : " + mouvementsNaturels.toString());
 				}
 			}
 			break;
@@ -741,8 +741,8 @@ public class LecteurMap extends Lecteur {
 	/**
 	 * Ouvre une autre Map (dans un nouveau LecteurMap).
 	 * 
-	 * @warning cette Methode ne doit �tre appel�e que par le nouveau Lecteur !
-	 * @param nouvelleMap sur laquelle le H�ros voyage
+	 * @warning cette Methode ne doit etre appel�e que par le nouveau Lecteur !
+	 * @param nouvelleMap sur laquelle le Heros voyage
 	 */
 	public final void devenirLeNouveauLecteurMap(final Map nouvelleMap) {
 		Main.futurLecteur = this;
@@ -755,9 +755,9 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Prendre une capture d'ecran de la Map sans le H�ros ni les jauges.
+	 * Prendre une capture d'ecran de la Map sans le Heros ni les jauges.
 	 * 
-	 * @param afficherLeHeros le H�ros doit-il �tre visible sur l'ancienne Map ?
+	 * @param afficherLeHeros le Heros doit-il etre visible sur l'ancienne Map ?
 	 * @return capture de la Map
 	 */
 	private BufferedImage capturerLaMap(final boolean afficherLeHeros) {
@@ -800,7 +800,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Lorsque le H�ros s'arr�te de marcher, on arr�te son animation.
+	 * Lorsque le Heros s'arr�te de marcher, on arr�te son animation.
 	 */
 	public final void remettreAZeroLAnimationDuHeros() {
 		final Event heros = map.heros;
@@ -824,17 +824,17 @@ public class LecteurMap extends Lecteur {
 		} else {
 			// grande map, d�filement possible
 
-			// Si l'event saute, la cam�ra est d�corr�l�e de la position du H�ros
+			// Si l'event saute, la cam�ra est d�corr�l�e de la position du Heros
 			final int xHeros;
 			if (this.map.heros.saute && this.map.heros.deplacementForce != null
 					&& this.map.heros.deplacementForce.mouvements != null
 					&& this.map.heros.deplacementForce.mouvements.size() > 0
 					&& this.map.heros.deplacementForce.mouvements.get(0) instanceof Sauter) {
-				// Le H�ros est en train de sauter
+				// Le Heros est en train de sauter
 				final Sauter saut = (Sauter) this.map.heros.deplacementForce.mouvements.get(0);
 				xHeros = saut.xPourCamera();
 			} else {
-				// Le H�ros ne saute pas
+				// Le Heros ne saute pas
 				xHeros = map.heros.x;
 			}
 			final int nouveauXCamera = xHeros - Fenetre.LARGEUR_ECRAN / 2;
@@ -867,17 +867,17 @@ public class LecteurMap extends Lecteur {
 		} else {
 			// grande map, d�filement possible
 
-			// Si l'event saute, la cam�ra est d�corr�l�e de la position du H�ros
+			// Si l'event saute, la cam�ra est d�corr�l�e de la position du Heros
 			final int yHeros;
 			if (this.map.heros.saute && this.map.heros.deplacementForce != null
 					&& this.map.heros.deplacementForce.mouvements != null
 					&& this.map.heros.deplacementForce.mouvements.size() > 0
 					&& this.map.heros.deplacementForce.mouvements.get(0) instanceof Sauter) {
-				// Le H�ros est en train de sauter
+				// Le Heros est en train de sauter
 				final Sauter saut = (Sauter) this.map.heros.deplacementForce.mouvements.get(0);
 				yHeros = saut.yPourCamera();
 			} else {
-				// Le H�ros ne saute pas
+				// Le Heros ne saute pas
 				yHeros = map.heros.y;
 			}
 			int nouveauYCamera = yHeros - Fenetre.HAUTEUR_ECRAN / 2;
@@ -900,7 +900,7 @@ public class LecteurMap extends Lecteur {
 	/**
 	 * Actualiser et recuperer la cam�ra de la Map.
 	 * 
-	 * @return coordonn�es x et y de la cam�ra sur la Map
+	 * @return Coordonnees x et y de la cam�ra sur la Map
 	 */
 	public int[] recupererCamera() {
 		final int[] camera = new int[2];
@@ -937,56 +937,56 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * D�placer le H�ros vers le haut
+	 * D�placer le Heros vers le haut
 	 */
 	public final void haut() {
 		if (this.messageActuel != null) {
 			// les touches directionnelles servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.haut();
 		} else if (!this.stopEvent && !this.stopHeros) {
-			// les touches directionnelles servent a faire avancer le H�ros
+			// les touches directionnelles servent a faire avancer le Heros
 			// this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
 
 	/**
-	 * D�placer le H�ros vers la gauche
+	 * D�placer le Heros vers la gauche
 	 */
 	public final void gauche() {
 		if (this.messageActuel != null) {
 			// les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.gauche();
 		} else if (!this.stopEvent && !this.stopHeros) {
-			// les touches directionnelles servent a faire avancer le H�ros
+			// les touches directionnelles servent a faire avancer le Heros
 			// this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
 
 	/**
-	 * D�placer le H�ros vers le bas
+	 * D�placer le Heros vers le bas
 	 */
 	public final void bas() {
 		if (this.messageActuel != null) {
 			// les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.bas();
 		} else if (!this.stopEvent && !this.stopHeros) {
-			// les touches directionnelles servent a faire avancer le H�ros
+			// les touches directionnelles servent a faire avancer le Heros
 			// this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
 	}
 
 	/**
-	 * D�placer le H�ros vers la droite
+	 * D�placer le Heros vers la droite
 	 */
 	public final void droite() {
 		if (this.messageActuel != null) {
 			// les touches servent au Message/Choix/EntrerUnNombre
 			this.messageActuel.droite();
 		} else if (!this.stopEvent && !this.stopHeros) {
-			// les touches directionnelles servent a faire avancer le H�ros
+			// les touches directionnelles servent a faire avancer le Heros
 			// this.map.heros.mettreDansLaBonneDirection();
 			this.map.heros.avance = true;
 		}
@@ -1043,7 +1043,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * La Transition a partir de la Map pr�c�dente est-elle termin�e ?
+	 * La Transition a partir de la Map pr�c�dente est-elle terminee ?
 	 * 
 	 * @return true si fini
 	 */

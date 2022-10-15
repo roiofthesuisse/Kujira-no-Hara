@@ -5,7 +5,7 @@ import map.Transition;
 import utilitaire.Maths;
 
 /**
- * Une certaine fa�on de calculer la position du H�ros a son arriv�e sur la Map.
+ * Une certaine fa�on de calculer la position du Heros a son arriv�e sur la Map.
  */
 public class PositionInitialeExhaustive extends PositionInitiale {
 	final int directionDebutHeros;
@@ -16,11 +16,11 @@ public class PositionInitialeExhaustive extends PositionInitiale {
 	
 	/**
 	 * Constructeur explicite
-	 * @param directionDebutHeros direction initiale du H�ros
-	 * @param xHerosMapPrecedente coordonn�e x (en pixels) du H�ros sur la Map pr�c�dente
-	 * @param yHerosMapPrecedente coordonn�e y (en pixels) du H�ros sur la Map pr�c�dente
-	 * @param xHerosNouvelleMap coordonn�e x (en carreaux) du H�ros sur la nouvelle Map 
-	 * @param yHerosNouvelleMap coordonn�e y (en carreaux) du H�ros sur la nouvelle Map 
+	 * @param directionDebutHeros direction initiale du Heros
+	 * @param xHerosMapPrecedente Coordonnee x (en pixels) du Heros sur la Map pr�c�dente
+	 * @param yHerosMapPrecedente Coordonnee y (en pixels) du Heros sur la Map pr�c�dente
+	 * @param xHerosNouvelleMap Coordonnee x (en carreaux) du Heros sur la nouvelle Map 
+	 * @param yHerosNouvelleMap Coordonnee y (en carreaux) du Heros sur la nouvelle Map 
 	 */
 	public PositionInitialeExhaustive(final int directionDebutHeros, 
 			final int xHerosMapPrecedente, final int yHerosMapPrecedente, final int xHerosNouvelleMap,
@@ -38,7 +38,7 @@ public class PositionInitialeExhaustive extends PositionInitiale {
 		resultat[0] = this.xHerosNouvelleMap*Main.TAILLE_D_UN_CARREAU;
 		resultat[1] = this.yHerosNouvelleMap*Main.TAILLE_D_UN_CARREAU;
 		if (Transition.DEFILEMENT.equals(transition)) {
-			// La transition DEFILEMENT est plus jolie en tenant compte de l'�cart du H�ros
+			// La transition DEFILEMENT est plus jolie en tenant compte de l'�cart du Heros
 			int ecartX = Maths.modulo(this.xHerosMapPrecedente, Main.TAILLE_D_UN_CARREAU);
 			int ecartY = Maths.modulo(this.yHerosMapPrecedente, Main.TAILLE_D_UN_CARREAU);
 			if (ecartX > Main.TAILLE_D_UN_CARREAU/2) {
@@ -51,7 +51,7 @@ public class PositionInitialeExhaustive extends PositionInitiale {
 			resultat[1] += ecartY;
 		}
 		resultat[2] = this.directionDebutHeros;
-		LOG.debug("Position intiale du h�ros sur la nouvelle map : "+resultat[0]+";"+resultat[1]+" direction : "+resultat[2]);
+		LOG.debug("Position intiale du Heros sur la nouvelle map : "+resultat[0]+";"+resultat[1]+" direction : "+resultat[2]);
 		return resultat;
 	}
 }

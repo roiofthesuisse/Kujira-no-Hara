@@ -16,7 +16,7 @@ public class AttendreLaFinDesDeplacements extends Commande implements CommandeEv
 	 * Constructeur explicite
 	 * 
 	 * @param idEvent identifiant de l'Event a attendre (-1 pour tous, 0 pour le
-	 *                h�ros, aucun pour celui-ci)
+	 *                Heros, aucun pour celui-ci)
 	 */
 	public AttendreLaFinDesDeplacements(final Integer idEvent) {
 		this.idEvent = idEvent;
@@ -50,7 +50,7 @@ public class AttendreLaFinDesDeplacements extends Commande implements CommandeEv
 				e = this.page.event;
 
 			} else if (idEvent == 0) {
-				// h�ros
+				// Heros
 				e = this.page.event.map.heros;
 
 			} else {

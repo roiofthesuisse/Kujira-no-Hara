@@ -20,12 +20,12 @@ import utilitaire.graphismes.ModeDeFusion;
  */
 public class DeplacerImage extends Commande implements CommandeEvent, Sauvegardable {
 	protected static final Logger LOG = LogManager.getLogger(DeplacerImage.class);
-	/** Le d�placement d'image est instantan� */
+	/** Le deplacement d'image est instantan� */
 	private static final int INSTANTANE = 0;
-	/** Par d�faut, le d�placement n'est ex�cut� qu'une fois */
+	/** Par d�faut, le deplacement n'est execut� qu'une fois */
 	private static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAULT = false;
 	/**
-	 * Par d�faut, on n'attend pas la fin du d�placement avant de passer a la
+	 * Par d�faut, on n'attend pas la fin du deplacement avant de passer a la
 	 * Commande suivante
 	 */
 	private static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAULT = false;
@@ -40,7 +40,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	private Integer y;
 	/** la nouvelle origine est-elle le centre de l'image ? */
 	private Boolean centre;
-	/** les coordonn�es sont-elles stock�es dans des variables ? */
+	/** les Coordonnees sont-elles stock�es dans des variables ? */
 	private boolean variables;
 
 	private int xDebut;
@@ -57,10 +57,10 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	private int angleDebut;
 	private Integer angleFin;
 
-	/** Faut-il Repeter en boucle le d�placement ? */
+	/** Faut-il Repeter en boucle le deplacement ? */
 	private final boolean repeterLeDeplacement;
 	/**
-	 * Faut-il attendre la fin du d�placement pour passer a la Commande suivante ?
+	 * Faut-il attendre la fin du deplacement pour passer a la Commande suivante ?
 	 */
 	private final boolean attendreLaFinDuDeplacement;
 
@@ -69,18 +69,18 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	 * 
 	 * @param numero                     de l'image a modifier
 	 * @param nombreDeFrames             dur�e de la transition
-	 * @param centre                     l'origine pour les nouvelles coordonn�es de
+	 * @param centre                     l'origine pour les nouvelles Coordonnees de
 	 *                                   l'image est elle son centre ?
-	 * @param variables                  les nouvelles coordonn�es sont-elles
+	 * @param variables                  les nouvelles Coordonnees sont-elles
 	 *                                   stock�es dans des variables ?
-	 * @param x                          coordonn�e d'arriv�e
-	 * @param y                          coordonn�e d'arriv�e
+	 * @param x                          Coordonnee d'arriv�e
+	 * @param y                          Coordonnee d'arriv�e
 	 * @param zoomX                      zoom d'arriv�e
 	 * @param zoomY                      zoom d'arriv�e
 	 * @param opacite                    opacit� d'arriv�e
 	 * @param modeDeFusion               d'arriv�e
 	 * @param angle                      d'arriv�e
-	 * @param repeterLeDeplacement       le d�placement boucle-t-il ?
+	 * @param repeterLeDeplacement       le deplacement boucle-t-il ?
 	 * @param attendreLaFinDuDeplacement faut-il passer a la Commande suivante
 	 *                                   imm�diatement ?
 	 */
@@ -131,7 +131,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	}
 
 	/**
-	 * Calculer le d�placement de l'image. C'est un �tat interm�diaire entre l'�tat
+	 * Calculer le deplacement de l'image. C'est un �tat interm�diaire entre l'�tat
 	 * de d�but et l'�tat de fin.
 	 */
 	private void calculerDeplacement() {
@@ -199,7 +199,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		if (this.attendreLaFinDuDeplacement) {
 			calculerDeplacement();
-			// Tant que ce n'est pas termin�, on reste sur cette Commande
+			// Tant que ce n'est pas termine, on reste sur cette Commande
 			if (this.dejaFait < this.nombreDeFrames) {
 				// pas fini
 				this.dejaFait++;
@@ -209,29 +209,29 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 				this.dejaFait = 0;
 
 				if (this.repeterLeDeplacement) {
-					// On recommence a z�ro le d�placement
-					LOG.info("On recommence le d�placement d'image.");
+					// On recommence a z�ro le deplacement
+					LOG.info("On recommence le deplacement d'image.");
 					return curseurActuel;
 				} else {
 					// On passe a la Commande suivante
-					LOG.info("Fin du d�placement d'image.");
+					LOG.info("Fin du deplacement d'image.");
 					return curseurActuel + 1;
 				}
 			}
 		} else {
-			// On indique que la Picture a un d�placement propre, et on passe a la Commande
+			// On indique que la Picture a un deplacement propre, et on passe a la Commande
 			// suivante
 			final Picture picture = getPartieActuelle().images[this.numero];
 			this.dejaFait = 0;
-			LOG.info("D�placement d'image d�l�gu� au lecteur de map.");
+			LOG.info("Deplacement d'image d�l�gu� au lecteur de map.");
 			picture.deplacementActuel = this;
 			return curseurActuel + 1;
 		}
 	}
 
 	/**
-	 * Le d�placement de l'image a ete d�l�gu� par la Commande au LecteurMap afin de
-	 * passer imm�diatement a la Commande suivante. Ce d�placement s'effectue donc
+	 * Le deplacement de l'image a ete d�l�gu� par la Commande au LecteurMap afin de
+	 * passer imm�diatement a la Commande suivante. Ce deplacement s'effectue donc
 	 * en parallele, de maniere ind�pendante.
 	 * 
 	 * @param picture image a d�placer
@@ -247,17 +247,17 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 			this.dejaFait = 0;
 
 			if (!this.repeterLeDeplacement) {
-				// on emp�che le renouvellement du d�placement
-				LOG.info("Fin du d�placement d'image d�l�gu�.");
+				// on emp�che le renouvellement du deplacement
+				LOG.info("Fin du deplacement d'image d�l�gu�.");
 				picture.deplacementActuel = null;
 			} else {
-				LOG.info("On recommence le d�placement d'image d�l�gu�.");
+				LOG.info("On recommence le deplacement d'image d�l�gu�.");
 			}
 		}
 	}
 
 	/**
-	 * G�n�rer un JSON du d�placement actuel de la Picture pour la Sauvegarde.
+	 * G�n�rer un JSON du deplacement actuel de la Picture pour la Sauvegarde.
 	 */
 	@Override
 	public JSONObject sauvegarderEnJson() {
@@ -303,19 +303,19 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	}
 
 	/**
-	 * Si le D�placement d'image est reconstitu� a partir d'une Sauvegarde, ses
-	 * attributs doivent �tre configur�s comme ils l'�taient au moment de la
+	 * Si le Deplacement d'image est reconstitu� a partir d'une Sauvegarde, ses
+	 * attributs doivent etre configur�s comme ils l'�taient au moment de la
 	 * Sauvegarde.
 	 * 
-	 * @param dejaFait     avancement du d�placement
-	 * @param xDebut       coordonn�es (en pixels) avant le d�placement
-	 * @param yDebut       coordonn�es (en pixels) avant le d�placement
-	 * @param zoomXDebut   aggrandissement (en pourcents) avant le d�placement
-	 * @param zoomYDebut   aggrandissement (en pourcents) avant le d�placement
-	 * @param angleDebut   inclinaison avant le d�placement
-	 * @param opaciteDebut opacit� avant le d�placement
-	 * @param xFin         coordonn�es (en pixels) apres le d�placement
-	 * @param yFin         coordonn�es (en pixels) apres le d�placement
+	 * @param dejaFait     avancement du deplacement
+	 * @param xDebut       Coordonnees (en pixels) avant le deplacement
+	 * @param yDebut       Coordonnees (en pixels) avant le deplacement
+	 * @param zoomXDebut   aggrandissement (en pourcents) avant le deplacement
+	 * @param zoomYDebut   aggrandissement (en pourcents) avant le deplacement
+	 * @param angleDebut   inclinaison avant le deplacement
+	 * @param opaciteDebut opacit� avant le deplacement
+	 * @param xFin         Coordonnees (en pixels) apres le deplacement
+	 * @param yFin         Coordonnees (en pixels) apres le deplacement
 	 */
 	public void configurerEnCoursDeRoute(final int dejaFait, final int xDebut, final int yDebut, final int zoomXDebut,
 			final int zoomYDebut, final int angleDebut, final int opaciteDebut, final int xFin, final int yFin) {

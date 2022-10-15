@@ -58,7 +58,7 @@ public abstract class ElementDeMenu {
 	@SuppressWarnings("rawtypes")
 	public Liste liste = null;
 
-	/** L'�l�ment de Menu peut �tre une image */
+	/** L'�l�ment de Menu peut etre une image */
 	protected BufferedImage image;
 	/** Surlignage de l'image lors de la S�lection */
 	public BufferedImage imageDeSelection = null;

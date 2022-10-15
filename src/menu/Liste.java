@@ -16,7 +16,7 @@ import map.Event.Direction;
 /**
  * Une Liste est un tableau d'ElementsDeMenu a plusieurs lignes et colonnes.
  * 
- * @param <T> est un collectable du jeu susceptible d'�tre list�.
+ * @param <T> est un collectable du jeu susceptible d'etre list�.
  */
 public class Liste<T extends Listable> {
 	private static final Logger LOG = LogManager.getLogger(Liste.class);
@@ -94,7 +94,7 @@ public class Liste<T extends Listable> {
 	
 	/**
 	 * Recenser les Listables qui figureront dans la Liste.
-	 * @param provenance classe d'o� proviennent les Listables
+	 * @param provenance classe d'Ou proviennent les Listables
 	 * @param possedes consid�rer seulement les Listables poss�d�s ou non
 	 * @param avec identifiants des collectables a inclure
 	 * @param toutSauf identifiants des collectables a ne pas inclure
@@ -152,7 +152,7 @@ public class Liste<T extends Listable> {
 			image = listable.construireImagePourListe(largeurMinimaleElement, hauteurMinimaleElement);
 			element = new ImageMenu(
 					image, //apparence
-					0, 0, //coordonn�es (en pixel) temporaires
+					0, 0, //Coordonnees (en pixel) temporaires
 					-1, -1, //largeur/hauteur forc�es
 					null, //conditions
 					true, //s�lectionnable
@@ -208,7 +208,7 @@ public class Liste<T extends Listable> {
 	 * @return ElementDeMenu a s�lectionner, ou null si bord de Liste
 	 */
 	public ElementDeMenu selectionnerUnAutreElementDansLaListe(final int direction) {
-		// D�placement du curseur dans le tableau
+		// Deplacement du curseur dans le tableau
 		switch (direction) {
 			case Direction.GAUCHE :
 				if (this.numeroElementSelectionne % this.nombreDeColonnes == 0) {

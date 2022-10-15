@@ -70,7 +70,7 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final Brouillard brouillardActuel = this.page.event.map.brouillard;
 
-		// Y a-t-il d�j� un Brouillard actuel ?
+		// Y a-t-il deja un Brouillard actuel ?
 		if (brouillardActuel == null) {
 			// Il n'y a pas encore de Brouillard
 			// On cr�e un Brouillard tout neuf
@@ -83,7 +83,7 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 					this.ton == null ? Graphismes.TON_PAR_DEFAUT : this.ton);
 
 		} else {
-			// Il y a d�j� un Brouillard
+			// Il y a deja un Brouillard
 			// On modifie le Brouillard actuel
 			if ((this.nomImage == null || brouillardActuel.nomImage.equals(this.nomImage))
 					&& (this.opacite == null || brouillardActuel.opacite == this.opacite)

@@ -174,7 +174,7 @@ public class PageEvent {
 					? Frequence.parNom(pageJSON.getString("frequence"))
 					: Event.FREQUENCE_PAR_DEFAUT;
 		} catch (Exception e) {
-			LOG.error("La fr�quence de l'�vent "+idEvent+" n'est pas une chaine de caract�res : "
+			LOG.error("La fr�quence de l'�vent "+idEvent+" n'est pas une chaine de caracteres : "
 					+pageJSON.toString());
 			this.frequence = Event.FREQUENCE_PAR_DEFAUT;
 		}
@@ -186,14 +186,14 @@ public class PageEvent {
 					? Vitesse.parNom(pageJSON.getString("vitesse"))
 					: Event.VITESSE_PAR_DEFAUT;
 		} catch (Exception e) {
-			LOG.error("La vitesse de l'event "+idEvent+" n'est pas une chaine de caract�res : "
+			LOG.error("La vitesse de l'event "+idEvent+" n'est pas une chaine de caracteres : "
 					+pageJSON.toString());
 			this.vitesse = Event.VITESSE_PAR_DEFAUT;
 		}
 
 		// Est-ce que cette Page fige les autres Events qu'elle ?
 		this.figerLesAutresEvents = cettePageFigeLesAutresEvents(pageJSON);
-		// Est-ce que cette page fige le Mouvement naturel du H�ros ?
+		// Est-ce que cette page fige le Mouvement naturel du Heros ?
 		this.figerLeHeros = cettePageFigeLeHeros();
 
 		this.animeALArret = pageJSON.has("animeALArret") 
@@ -220,7 +220,7 @@ public class PageEvent {
 				} else if (this.image == null) {
 					// Pas d'apparence
 					this.traversable = Passabilite.OBSTACLE; // obstacle pour la plupart des Events
-					this.traversableParLeHeros = true; // mais pas le H�ros
+					this.traversableParLeHeros = true; // mais pas le Heros
 				} else {
 					// Apparence de type "character"
 					this.traversable = Passabilite.OBSTACLE;
@@ -235,7 +235,7 @@ public class PageEvent {
 			} else if (this.image == null) {
 				// Pas d'apparence
 				this.traversable = Passabilite.OBSTACLE; // obstacle pour la plupart des Events
-				this.traversableParLeHeros = true; // mais pas le H�ros
+				this.traversableParLeHeros = true; // mais pas le Heros
 			} else {
 				// Apparence de type "character"
 				this.traversable = Passabilite.OBSTACLE;
@@ -251,7 +251,7 @@ public class PageEvent {
 		if (pageJSON.has("plat")) {
 			this.plat = pageJSON.getBoolean("plat");
 		} else if (this.image != null) {
-			//si non pr�cis�, est d�termin� en fonction de la taille de l'image
+			//si non pr�cis�, est d�termine en fonction de la taille de l'image
 			this.plat = (this.image.getHeight()/Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE) <= Main.TAILLE_D_UN_CARREAU;
 		} else {
 			// pas d'image d'apparence
@@ -268,14 +268,14 @@ public class PageEvent {
 		try {
 			if (pageJSON.has("deplacement")) {
 				this.deplacementNaturel = (Deplacement) Commande.recupererUneCommande(pageJSON.getJSONObject("deplacement"));
-				this.deplacementNaturel.page = this; //on apprend au D�placement quelle est sa Page
-				this.deplacementNaturel.naturel = true; //pour le distinguer des D�placements forc�s
+				this.deplacementNaturel.page = this; //on apprend au Deplacement quelle est sa Page
+				this.deplacementNaturel.naturel = true; //pour le distinguer des Deplacements forc�s
 			} else {
-				//pas de d�placement pour cette Page
+				//pas de deplacement pour cette Page
 				this.deplacementNaturel = null;
 			}
 		} catch (Exception e) {
-			LOG.warn("Erreur lors du chargement du d�placement naturel de la page "+this.numero+" de l'event "+idEvent, e);
+			LOG.warn("Erreur lors du chargement du deplacement naturel de la page "+this.numero+" de l'event "+idEvent, e);
 		}
 	}
 	
@@ -350,7 +350,7 @@ public class PageEvent {
 			this.event.map.lecteur.stopEvent = true;
 			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
 		}
-		//si la page est une page ArriveeAuContact, elle bloque les Mouvements naturels du h�ros
+		//si la page est une page ArriveeAuContact, elle bloque les Mouvements naturels du Heros
 		if (this.figerLeHeros) {
 			this.event.map.lecteur.stopHeros = true;
 			this.event.map.lecteur.eventQuiALanceStopEvent = this.event;
