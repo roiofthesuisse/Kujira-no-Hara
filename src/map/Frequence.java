@@ -4,14 +4,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Fréquence d'animation d'un Event (en frames).
+ * Frï¿½quence d'animation d'un Event (en frames).
  */
 public enum Frequence {
-	LA_PLUS_BASSE("la plus basse", 7),
-	TRES_BASSE("tres basse", 6),
-    BASSE("basse", 5),
-    HAUTE("haute", 4),
-    TRES_HAUTE("tres haute", 3),
+	// Puissances de 2, avec un ratio 30/25
+	LA_PLUS_BASSE("la plus basse", 77),
+	TRES_BASSE("tres basse", 38),
+    BASSE("basse", 19),
+    HAUTE("haute", 10),
+    TRES_HAUTE("tres haute", 5),
     LA_PLUS_HAUTE("la plus haute", 2);
 	
 	private static final Logger LOG = LogManager.getLogger(Frequence.class);
@@ -31,7 +32,7 @@ public enum Frequence {
 	
 	/**
 	 * Trouver une vitesse par son nom.
-	 * @param nom de la vitesse cherchée
+	 * @param nom de la vitesse cherchï¿½e
 	 * @return vitesse correspondant
 	 */
 	public static Frequence parNom(final String nom) {
@@ -40,7 +41,7 @@ public enum Frequence {
 				return frequence;
 			}
 		}
-		LOG.error("Fréquence inconnue : "+(nom == null ? "null" : nom));
+		LOG.error("Frï¿½quence inconnue : "+(nom == null ? "null" : nom));
 		return null;
 	}
 }

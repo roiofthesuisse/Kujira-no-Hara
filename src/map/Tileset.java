@@ -1,10 +1,10 @@
 package map;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RasterFormatException;
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,7 +17,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.awt.Color;
 import main.Main;
 import utilitaire.InterpreteurDeJson;
 import utilitaire.graphismes.Graphismes;
@@ -116,7 +115,7 @@ public class Tileset {
 							Main.TAILLE_D_UN_CARREAU, 
 							Main.TAILLE_D_UN_CARREAU);
 				} catch (RasterFormatException rfe) {
-					LOG.error("Impossible de découper en carreaux de Tileset ! Vérifier que l'image et le JSON coïncident.", rfe);
+					LOG.error("Impossible de dï¿½couper en carreaux de Tileset ! Vï¿½rifier que l'image et le JSON coï¿½ncident.", rfe);
 				}
 			}
 		}
@@ -189,7 +188,7 @@ public class Tileset {
 			} else {
 				LOG.warn("Pas de portes declarees dans le tileset : "+this.nom);
 			}
-		} catch (NoSuchFileException e) {
+		} catch (IOException e) {
 			LOG.error("Pas de fichier listant les portes pour le tileset : "+this.nom, e);
 		}
 	}

@@ -41,12 +41,12 @@ public abstract class LecteurAudio {
 		} else if (nom.endsWith(".mp3")) {
 			musique = new MusiqueMp3(nom, Musique.TypeMusique.SE, volume);
 		} else {
-			LOG.error("Format audio inconnu : "+nom);
+			LOG.error("Format audio inconnu : " + nom);
 			return;
 		}
-		LOG.debug("SE d�marr� : "+nom);
+		LOG.debug("SE d�marr� : " + nom);
 		musique.jouerUneSeuleFois(null);
-		
+
 		// On met a jour les donn�es
 		seEnCours.add(musique);
 	}

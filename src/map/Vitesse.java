@@ -7,12 +7,13 @@ import org.apache.logging.log4j.Logger;
  * Vitesse d'un Event (en pixels par frame).
  */
 public enum Vitesse {
+	// Puissances de 2 avec un ratio 25/30
 	TRES_LENTE("tres lente", 1),
 	LENTE("lente", 2),
-    MODEREE("moderee", 5),
-    NORMALE("normale", 8),
+    MODEREE("moderee", 3),
+	NORMALE("normale", 6),
     RAPIDE("rapide", 13),
-    TRES_RAPIDE("tres rapide", 20);
+    TRES_RAPIDE("tres rapide", 26);
 	
 	private static final Logger LOG = LogManager.getLogger(Vitesse.class);
 	
@@ -31,7 +32,7 @@ public enum Vitesse {
 	
 	/**
 	 * Trouver une vitesse par son nom.
-	 * @param nom de la vitesse cherchée
+	 * @param nom de la vitesse cherchï¿½e
 	 * @return vitesse correspondant
 	 */
 	public static Vitesse parNom(final String nom) {
