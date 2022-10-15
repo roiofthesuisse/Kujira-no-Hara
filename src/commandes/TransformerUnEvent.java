@@ -51,7 +51,9 @@ public class TransformerUnEvent extends Commande implements CommandeEvent {
 		int y = eventCible.y;
 		Commande supprimerEventCible, invoquerUnEvent;
 		supprimerEventCible = new SupprimerEvent(this.idEventCible);
+		supprimerEventCible.page = this.page; // on met la Commande au courant de qui est sa Page
 		invoquerUnEvent = new InvoquerUnEvent(x, y, this.idMapModele, this.idEventModele);
+		invoquerUnEvent.page = this.page; // on met la Commande au courant de qui est sa Page
 
 		// Supprimer l'Event cible
 		supprimerEventCible.executer(0, commandes);

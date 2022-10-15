@@ -143,7 +143,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 
 		boolean fini = false;
 		while (!fini) {
-			System.out.println(s);
+			LOG.trace("Est-ce que la condition est verifiee ? " + s);
 			s = traiter(s);
 			try {
 				// fini
@@ -196,7 +196,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 
 		// Trim
 		if (expression.startsWith(" ") || expression.endsWith(" ")) {
-			System.out.println("trim");
+			LOG.trace("trim");
 			return expression.trim();
 		}
 
@@ -211,7 +211,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(EVENT_ID);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println(EVENT_ID);
+			LOG.trace(EVENT_ID);
 			return expression.replaceFirst(EVENT_ID, "" + eventId());
 		}
 
@@ -219,7 +219,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(COORD_EVENT_X);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("Coordonnee x de l'event");
+			LOG.trace("Coordonnee x de l'event");
 			final Integer nombre = extraireLeNombre(m.group(0));
 			return expression.replaceFirst(COORD_EVENT_X, "" + coordonneeXEvent(nombre));
 		}
@@ -228,7 +228,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(COORD_EVENT_Y);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("Coordonnee y de l'event");
+			LOG.trace("Coordonnee y de l'event");
 			final Integer nombre = extraireLeNombre(m.group(0));
 			return expression.replaceFirst(COORD_EVENT_Y, "" + coordonneeYEvent(nombre));
 		}
@@ -237,7 +237,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(COORD_HEROS_X);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("Coordonnee x du Heros");
+			LOG.trace("Coordonnee x du Heros");
 			return expression.replaceFirst(COORD_HEROS_X, "" + coordonneeXHeros());
 		}
 
@@ -245,7 +245,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(COORD_HEROS_Y);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("Coordonnee y du Heros");
+			LOG.trace("Coordonnee y du Heros");
 			return expression.replaceFirst(COORD_HEROS_Y, "" + coordonneeYHeros());
 		}
 
@@ -253,7 +253,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(VARIABILISATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("variable");
+			LOG.trace("variable");
 			final Integer nombre = extraireLeNombre(m.group(0));
 			return expression.replaceFirst(VARIABILISATION, "" + variable(nombre));
 		}
@@ -262,7 +262,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(VITALISATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("vie de l'event");
+			LOG.trace("vie de l'event");
 			final Integer nombre = extraireLeNombre(m.group(0));
 			return expression.replaceFirst(VITALISATION, "" + vieEvent(nombre));
 		}
@@ -271,7 +271,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(CIBLAGE_PAR_HEROS);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("ciblage par le heros");
+			LOG.trace("ciblage par le heros");
 			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF);
 			return expression.replaceFirst(CIBLAGE_PAR_HEROS, "" + ciblage(0, nombres.get(0), nombres.get(1)));
 		}
@@ -280,7 +280,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(CIBLAGE_PAR_EVENT);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("ciblage par un event");
+			LOG.trace("ciblage par un event");
 			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF);
 			return expression.replaceFirst(CIBLAGE_PAR_EVENT,
 					"" + ciblage(nombres.get(0), nombres.get(1), nombres.get(2)));
@@ -317,7 +317,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(APPARENCIATION);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("apparence, direction, animation de l'event");
+			LOG.trace("apparence, direction, animation de l'event");
 			final String chaine = extraireLaChaineOuNil(m.group(0));
 			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF_OU_NIL);
 			return expression.replaceFirst(APPARENCIATION, "" + apparenceDeLEvent(nombres.get(0), chaine,
@@ -328,7 +328,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		p = Pattern.compile(APPARENCIATION_HEROS);
 		m = p.matcher(expression);
 		if (m.find()) {
-			System.out.println("apparence, direction, animation de l'event");
+			LOG.trace("apparence, direction, animation de l'event");
 			final String chaine = extraireLaChaineOuNil(m.group(0));
 			final ArrayList<Integer> nombres = extraireLesNombres(m.group(0), POSITIF_OU_NIL);
 			return expression.replaceFirst(APPARENCIATION_HEROS, "" + apparenceDeLEvent(this.page.event.map.heros, chaine, nombres.get(nombres.size() - 2), nombres.get(nombres.size() - 1)));
