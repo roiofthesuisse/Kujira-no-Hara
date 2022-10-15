@@ -64,7 +64,7 @@ public abstract class Mouvement {
 
 				// Quelle sera la commande suivante ?
 				if ( this.ceQuiAEteFait >= this.etapes ) {
-					// D�clarer le Mouvement comme termine (car il est r�ellement termine)
+					// D�clarer le Mouvement comme termine (car il est reellement termine)
 					terminerLeMouvement(event);
 				}
 				
@@ -131,8 +131,8 @@ public abstract class Mouvement {
 		
 		// Si le Deplacement est perp�tuel, on remet ce Mouvement en fin de liste
 		if (this.deplacement.repeterLeDeplacement) {
-			if (!this.deplacement.naturel //un Mouvement forc� perp�tuel ne s'arr�te pas m�me si la Page de l'Event change
-			|| laPageEstToujoursLaMeme) { //un Mouvement naturel perp�tuel s'arr�te si la Page change
+			if (!this.deplacement.naturel //un Mouvement forc� perp�tuel ne s'arrete pas m�me si la Page de l'Event change
+			|| laPageEstToujoursLaMeme) { //un Mouvement naturel perp�tuel s'arrete si la Page change
 				deplacementNaturelOuForce.mouvements.add(this);
 			} else {
 				LOG.warn("On ne remet pas en bout de file le Mouvement "+this.getClass().getName()

@@ -30,7 +30,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroDeSauvegarde num�ro du fichier de sauvegarde a charger
+	 * @param numeroDeSauvegarde Numero du fichier de sauvegarde a charger
 	 */
 	public ChargerPartie(final int numeroDeSauvegarde) {
 		this.numeroDeSauvegarde = numeroDeSauvegarde;
@@ -79,7 +79,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 	}
 
 	/**
-	 * Charger une Partie a partir du num�ro de la Sauvegarde.
+	 * Charger une Partie a partir du Numero de la Sauvegarde.
 	 * 
 	 * @param numeroDeSauvegarde qui identifie le fichier de Sauvegarde
 	 * @return Partie charg�e

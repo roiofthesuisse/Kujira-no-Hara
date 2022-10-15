@@ -9,7 +9,7 @@ import main.Commande;
  * Sortir de la Boucle actuelle.
  */
 public class BoucleSortir extends Commande implements CommandeEvent, CommandeMenu {
-	public int numero; // le num�ro de Boucle est le m�me que le num�ro de fin de Boucle qui correspond
+	public int numero; // le Numero de Boucle est le m�me que le Numero de fin de Boucle qui correspond
 
 	/**
 	 * Constructeur explicite
@@ -60,7 +60,7 @@ public class BoucleSortir extends Commande implements CommandeEvent, CommandeMen
 			}
 		}
 		// la fin de Boucle n'a pas ete trouv�e
-		System.err.println("La fin de la boucle num�ro " + numero + " n'a pas ete trouv�e !");
+		System.err.println("La fin de la boucle Numero " + numero + " n'a pas ete trouv�e !");
 		return curseurActuel + 1;
 	}
 

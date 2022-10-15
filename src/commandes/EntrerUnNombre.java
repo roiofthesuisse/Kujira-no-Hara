@@ -25,7 +25,7 @@ public class EntrerUnNombre extends Message {
 	/** base d�cimale */
 	private static final int NOMBRE_DE_CHIFFRES = 10;
 
-	/** Num�ro de la Variable qui m�morise le code */
+	/** Numero de la Variable qui m�morise le code */
 	public int numeroDeVariable;
 	/** Tableau des chiffres rentr�s par le joueur */
 	private int[] chiffresRentres;
@@ -42,7 +42,7 @@ public class EntrerUnNombre extends Message {
 	 * Constructeur explicite
 	 * 
 	 * @param texte            affiche dans la bo�te de dialogue
-	 * @param numeroDeVariable num�ro de la Variable qui m�morise le nombre
+	 * @param numeroDeVariable Numero de la Variable qui m�morise le nombre
 	 * @param tailleDuNombre   longueur (en chiffres) du nombre entr�
 	 */
 	public EntrerUnNombre(final ArrayList<String> texte, final int numeroDeVariable, final int tailleDuNombre) {

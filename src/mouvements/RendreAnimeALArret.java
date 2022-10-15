@@ -5,7 +5,7 @@ import java.util.HashMap;
 import map.Event;
 
 /**
- * Rendre un Event anim� a l'arr�t.
+ * Rendre un Event anim� a l'arret.
  */
 public class RendreAnimeALArret extends Mouvement {
 	private boolean nouveauAnimeALArret;
@@ -54,7 +54,7 @@ public class RendreAnimeALArret extends Mouvement {
 
 	@Override
 	public final String toString() {
-		return "anim� a l'arr�t : "+this.nouveauAnimeALArret;
+		return "anim� a l'arret : "+this.nouveauAnimeALArret;
 	}
 
 	@Override

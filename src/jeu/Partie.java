@@ -44,7 +44,7 @@ public final class Partie implements Listable, Sauvegardable {
 	private static final int NOMBRE_DE_VARIABLES = 300;
 	private static final int NOMBRE_D_IMAGES = 50;
 	private static final int NOMBRE_DE_MOTS = 50;
-	/** Num�ro du mot correpsondant au nom du heros */
+	/** Numero du mot correpsondant au nom du heros */
 	public static final int NOM_DU_HEROS = 0;
 	/** Marge (en pixels) de la vignette de Partie dans le Menu */
 	private static final int MARGE = 16;
@@ -68,14 +68,14 @@ public final class Partie implements Listable, Sauvegardable {
 	public final ArrayList<String> interrupteursLocaux = new ArrayList<String>();
 	public final int[] variables = new int[NOMBRE_DE_VARIABLES];
 	
-	/** combien poss�de-t-on d'Objet num�ro i ? */
+	/** combien poss�de-t-on d'Objet Numero i ? */
 	public int[] objetsPossedes;
-	/** la Qu�te num�ro i a-t-elle ete faite ? */
+	/** la Qu�te Numero i a-t-elle ete faite ? */
 	public AvancementQuete[] avancementDesQuetes;
-	/** poss�de-t-on l'Arme num�ro i ? */
+	/** poss�de-t-on l'Arme Numero i ? */
 	public boolean[] armesPossedees;
 	public int nombreDArmesPossedees;
-	/** poss�de-t-on le gadget num�ro i ? */
+	/** poss�de-t-on le gadget Numero i ? */
 	public boolean[] gadgetsPossedes;
 	public int nombreDeGadgetsPossedes;
 	/** Lettres a envoyer a des personnages du jeu */
@@ -139,7 +139,7 @@ public final class Partie implements Listable, Sauvegardable {
 	/**
 	 * Constructeur explicite
 	 * @param id du fichier de sauvegarde
-	 * @param numeroMap num�ro de la Map Ou se trouve le Heros en reprenant la Partie
+	 * @param numeroMap Numero de la Map Ou se trouve le Heros en reprenant la Partie
 	 * @param xHeros Coordonnee x du Heros (en pixels) en reprenant la Partie
 	 * @param yHeros Coordonnee y du Heros (en pixels) en reprenant la Partie
 	 * @param directionHeros direction dans laquelle se trouve le Heros en reprenant la Partie
@@ -148,10 +148,10 @@ public final class Partie implements Listable, Sauvegardable {
 	 * @param vieMax niveau maximal possible d'�nergie vitale du Heros en reprenant la Partie
 	 * @param argent poss�d�
 	 * ----------------------------------------------------------------------------------------
-	 * @param objetsPossedes combien poss�de-t-on d'Objet num�ro i ?
-	 * @param avancementDesQuetes la Qu�te num�ro i a-t-elle ete faite ?
-	 * @param armesPossedees poss�de-t-on l'Arme num�ro i ?
-	 * @param gadgetsPossedes poss�de-t-on le Gadget num�ro i ?
+	 * @param objetsPossedes combien poss�de-t-on d'Objet Numero i ?
+	 * @param avancementDesQuetes la Qu�te Numero i a-t-elle ete faite ?
+	 * @param armesPossedees poss�de-t-on l'Arme Numero i ?
+	 * @param gadgetsPossedes poss�de-t-on le Gadget Numero i ?
 	 * @param interrupteurs �tat des interrupteurs du jeu
 	 * @param variables �tat des variables locaux du jeu
 	 * @param interrupteursLocaux �tat des interrupteurs locaux du jeu
@@ -413,7 +413,7 @@ public final class Partie implements Listable, Sauvegardable {
 					final Partie partie = ChargerPartie.chargerPartie(numeroPartie);
 					parties.put(numeroPartie, partie);
 				} catch (Exception e) {
-					LOG.error("Impossible de charger la partie num�ro "+numeroPartie, e);
+					LOG.error("Impossible de charger la partie Numero "+numeroPartie, e);
 				}
 			}
 		}

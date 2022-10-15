@@ -15,10 +15,10 @@ public class AjouterGadget extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idGadget identifiant du Gadget a ajouter : son num�ro ou son nom
+	 * @param idGadget identifiant du Gadget a ajouter : son Numero ou son nom
 	 */
 	public AjouterGadget(final int idGadget) {
-		// l'identifiant du Gadget est son num�ro
+		// l'identifiant du Gadget est son Numero
 		this.idGadget = idGadget;
 	}
 

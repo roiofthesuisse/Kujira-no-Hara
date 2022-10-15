@@ -89,7 +89,7 @@ public abstract class GestionClavier {
 					}
 				}
 			}
-			LOG.warn("une touche inconnue a ete press�e : "+keycode); 
+			LOG.warn("une touche inconnue a ete pressee : "+keycode); 
 			return null;
 		}
 		
@@ -159,7 +159,7 @@ public abstract class GestionClavier {
 	
 	/**
 	 * Dit si la touche est une touche du clavier utilis�e par le jeu.
-	 * @param keycode num�ro de la touche
+	 * @param keycode Numero de la touche
 	 * @return true si la touche est utile, false sinon
 	 */
 	public static final boolean toucheConnue(final int keycode) {
@@ -168,7 +168,7 @@ public abstract class GestionClavier {
 	        	return true;
 	        }
 	    }
-		LOG.warn("une touche inconnue a ete press�e : "+keycode); 
+		LOG.warn("une touche inconnue a ete pressee : "+keycode); 
 		return false;
 	}
 	

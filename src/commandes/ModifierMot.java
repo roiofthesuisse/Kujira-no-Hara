@@ -16,7 +16,7 @@ public class ModifierMot extends Commande implements CommandeMenu, CommandeEvent
 	 * Constructeur explicite
 	 * 
 	 * @param nouveauMot nouvelle valeur du mot
-	 * @param numeroMot  num�ro du mot a modifier
+	 * @param numeroMot  Numero du mot a modifier
 	 */
 	public ModifierMot(final String nouveauMot, final int numeroMot) {
 		this.nouveauMot = nouveauMot;

@@ -144,7 +144,7 @@ public abstract class Poste {
 			in.close();
 			
 			//print result
-			LOG.info("La requete POST a ete envoy�e et sa r�ponse a ete r�cup�r�e.");
+			LOG.info("La requete POST a ete envoyee et sa r�ponse a ete r�cup�r�e.");
 			return sbuf.toString();
 
 		} catch (IOException e) {
@@ -154,7 +154,7 @@ public abstract class Poste {
 	}
 	
 	/**
-	 * Obtenir la liste des lettres envoy�es mais qui sont toujours sans r�ponse
+	 * Obtenir la liste des lettres envoyees mais qui sont toujours sans r�ponse
 	 * @param partie actuelle
 	 * @return identifiants des lettres sans r�ponse
 	 */

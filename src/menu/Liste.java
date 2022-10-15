@@ -46,7 +46,7 @@ public class Liste<T extends Listable> {
 	/** Espacement vertical entre les �l�ments de la liste */
 	final int interligne;
 	
-	/** num�ro de l'ElementDeMenu s�lectionn� dans la Liste */
+	/** Numero de l'ElementDeMenu s�lectionn� dans la Liste */
 	private int numeroElementSelectionne;
 	/** premi�re ligne visibles a l'ecran */
 	private int premiereLigneVisible = 0;
@@ -67,8 +67,8 @@ public class Liste<T extends Listable> {
 	 * @param interligne espacement horizontal entre les �l�ments de la liste
 	 * @param provenance quel est la nature du Listable a afficher ?
 	 * @param possedes n'affiche-t-on que les Listables poss�d�s par le joueur ?
-	 * @param avec liste exhaustive des num�ros des Listables a afficher
-	 * @param toutSauf liste exhaustive des num�ros des Listables a ne pas afficher
+	 * @param avec liste exhaustive des Numeros des Listables a afficher
+	 * @param toutSauf liste exhaustive des Numeros des Listables a ne pas afficher
 	 */
 	public Liste(final int x, final int y, final int nombreDeColonnes, final int nombreDeLignesVisibles,
 			final int largeurMinimaleElements, final int hauteurMinimaleElements, final int margeADroite, final int interligne,
@@ -107,7 +107,7 @@ public class Liste<T extends Listable> {
 			this.tousLesListables = (Map<Integer, Listable>) 
 					provenance.getDeclaredMethod(METHODE_OBTENIR_LISTABLES, Boolean.class).invoke(null, possedes);
 			
-			// Recensement des num�ros des Listables a consid�rer
+			// Recensement des Numeros des Listables a consid�rer
 			if (avec != null && avec.size()>0) {
 				// liste blanche
 				this.numerosDesListables = avec;
@@ -143,7 +143,7 @@ public class Liste<T extends Listable> {
 	public ArrayList<ImageMenu> genererLesImagesDesElements(final int largeurMinimaleElement, final int hauteurMinimaleElement) {
 		final ArrayList<ImageMenu> elements = new ArrayList<ImageMenu>();
 		
-		// Cr�er un ElementDeMenu pour chaque num�ro
+		// Cr�er un ElementDeMenu pour chaque Numero
 		Listable listable;
 		BufferedImage image;
 		ImageMenu element;

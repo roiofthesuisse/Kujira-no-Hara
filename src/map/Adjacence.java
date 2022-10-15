@@ -21,7 +21,7 @@ public class Adjacence {
 	
 	/**
 	 * Constructeur explicite
-	 * @param numeroMap num�ro de la Map adjacente
+	 * @param numeroMap Numero de la Map adjacente
 	 * @param direction dans laquelle on va pour se rendre sur cette Map
 	 * @param decalage perpendiculaire des cases
 	 * @param transition pour introduire la Map suivante

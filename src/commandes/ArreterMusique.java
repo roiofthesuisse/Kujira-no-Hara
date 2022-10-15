@@ -10,14 +10,14 @@ import main.Commande;
 import utilitaire.son.LecteurAudio;
 
 /**
- * Arr�ter la musique.
+ * arreter la musique.
  */
 public class ArreterMusique extends Commande implements CommandeEvent, CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(ArreterMusique.class);
 
-	/** Dur�e totale de l'arr�t en fondu */
+	/** Duree totale de l'arret en fondu */
 	private final int nombreDeFrames;
-	/** Compteur de frames de l'arr�t en fondu */
+	/** Compteur de frames de l'arret en fondu */
 	private int frame;
 	private float volumeInitial;
 	private int piste;
@@ -25,8 +25,8 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nombreDeFrames dur�e totale de l'arr�t en fondu
-	 * @param piste          a arr�ter
+	 * @param nombreDeFrames Duree totale de l'arret en fondu
+	 * @param piste          a arreter
 	 */
 	private ArreterMusique(final int nombreDeFrames, final int piste) {
 		this.nombreDeFrames = nombreDeFrames;
@@ -45,9 +45,9 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// On ne fait rien si la musique est deja arr�t�e
+		// On ne fait rien si la musique est deja arretee
 		if (LecteurAudio.bgmEnCours == null || LecteurAudio.bgmEnCours[piste] == null) {
-			LOG.warn("La musique est deja arr�t�e.");
+			LOG.warn("La musique est deja arretee.");
 			return curseurActuel + 1;
 		}
 
@@ -57,7 +57,7 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 		}
 
 		if (frame < nombreDeFrames) {
-			// Arr�t en fondu
+			// arret en fondu
 			final float nouveauVolume = volumeInitial * (float) (nombreDeFrames - frame) / (float) nombreDeFrames;
 			LecteurAudio.bgmEnCours[piste].modifierVolume(nouveauVolume);
 			frame++;
@@ -65,11 +65,11 @@ public class ArreterMusique extends Commande implements CommandeEvent, CommandeM
 			return curseurActuel;
 
 		} else {
-			// L'arr�t en fondu est termine
+			// L'arret en fondu est termine
 			LecteurAudio.stopBgm(piste);
 			frame = 0;
 
-			LOG.info("Arr�t total de la musique.");
+			LOG.info("arret total de la musique.");
 			return curseurActuel + 1;
 		}
 	}

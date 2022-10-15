@@ -18,8 +18,8 @@ public class ConditionDistance extends Condition {
 	
 	/**
 	 * Constructeur explicite
-	 * @param identifiant (num�ro ou nom) du premier Event ; par d�faut, le Heros
-	 * @param identifiant (num�ro ou nom) du second Event ; par d�faut, cet Event
+	 * @param identifiant (Numero ou nom) du premier Event ; par d�faut, le Heros
+	 * @param identifiant (Numero ou nom) du second Event ; par d�faut, cet Event
 	 * @param distance entre les deux Events (en carreaux)
 	 * @param symboleInegalite pour la comparaison
 	 */

@@ -15,7 +15,7 @@ public abstract class Musique {
 	public static final float VOLUME_MAXIMAL = 1.0f;
 	/** Un SE trop long sera tronqu� */
 	private static final long DUREE_MAXIMALE_SE = 20000; //en millisecondes
-	/** Quand il est impossible de calculer la dur�e du ME */
+	/** Quand il est impossible de calculer la Duree du ME */
 	protected static final long DUREE_PAR_DEFAUT_ME = 20000; //en millisecondes
 	protected static final long DELAI_AVANT_ME = 500; //en millisecondes
 	protected static final String DOSSIER_AUDIO = "./ressources/Audio/";
@@ -106,7 +106,7 @@ public abstract class Musique {
 			    	if (bgm != null) {
 			    		Float ancienVolume = this.volumeBgmMemorise[i];
 			    		if (ancienVolume == null) {
-			    			LOG.warn("Le ME est arr�t� sans volume BGM a restituer.");
+			    			LOG.warn("Le ME est arrete sans volume BGM a restituer.");
 			    			ancienVolume = Musique.VOLUME_MAXIMAL;
 			    		}
 			    		bgm.modifierVolume(ancienVolume);
@@ -136,18 +136,18 @@ public abstract class Musique {
 	public abstract void modifierVolume(float nouveauVolume);
 	
 	/**
-	 * Jouer un fichier sonore qui s'arr�tera tout seul arriv� a la fin.
+	 * Jouer un fichier sonore qui s'arretera tout seul arriv� a la fin.
 	 * @param volumeBgmMemorise on a m�moris� les volumes des BGM avant de lancer un ME
 	 */
 	public abstract void jouerUneSeuleFois(Float[] volumeBgmMemorise);
 	
 	/**
-	 * Jouer une fichier sonore qui tourne en boucle sans s'arr�ter.
+	 * Jouer une fichier sonore qui tourne en boucle sans s'arreter.
 	 */
 	public abstract void jouerEnBoucle();
 
 	/**
-	 * Arr�ter cette Musique.
+	 * arreter cette Musique.
 	 * Il y a potentiellement deux threads a fermer : le Clip et l'InputStream.
 	 * Ne pas utiliser autrement que via LecteurAudio.arreterBgm().
 	 */
@@ -169,7 +169,7 @@ public abstract class Musique {
 	}
 	
 	/**
-	 * Arr�ter la Musique en fonction du format audio.
+	 * arreter la Musique en fonction du format audio.
 	 */
 	public abstract void arreterSpecifique();
 	

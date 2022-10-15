@@ -89,7 +89,7 @@ public abstract class Commande {
 	 * L'id peut etre :
 	 * <ul>
 	 * <li>null : cet Event</li>
-	 * <li>Integer : unique et identifi� par son num�ro</li>
+	 * <li>Integer : unique et identifi� par son Numero</li>
 	 * <li>String : non-unique et identifi� par son nom</li>
 	 * </ul>
 	 * </p>

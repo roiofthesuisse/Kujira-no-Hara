@@ -56,7 +56,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 			final Event eventObservateur = this.deplacement.getEventADeplacer();
 			final Event eventObserve = ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventObserve);
 			
-			//s'il est deja arriv� aupr�s de sa cible, l'Event arr�te d'avancer
+			//s'il est deja arriv� aupr�s de sa cible, l'Event arrete d'avancer
 			if (this.sens == Sens.SUIVRE) {
 				final ConditionContact contact = new ConditionContact(-1, eventObservateur.id, eventObserve.id, TypeDeContact.SUPERPOSITION_PARTIELLE);
 				contact.page = this.deplacement.page;

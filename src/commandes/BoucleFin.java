@@ -14,7 +14,7 @@ import main.Commande;
 public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(BoucleFin.class);
 
-	public int numero; // le num�ro de Boucle est le m�me que le num�ro de fin de Boucle qui correspond
+	public int numero; // le Numero de Boucle est le m�me que le Numero de fin de Boucle qui correspond
 
 	/**
 	 * Constructeur explicite
@@ -55,7 +55,7 @@ public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 			}
 		}
 		// le d�but de Boucle n'a pas ete trouv�
-		LOG.error("Le d�but de boucle num�ro " + numero + " n'a pas ete trouv� !");
+		LOG.error("Le d�but de boucle Numero " + numero + " n'a pas ete trouv� !");
 		return curseurActuel + 1;
 	}
 

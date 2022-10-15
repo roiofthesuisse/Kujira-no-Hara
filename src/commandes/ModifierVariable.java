@@ -52,11 +52,11 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 	 * Constructeur explicite Utiliser les constantes situees dans la classe pour
 	 * cr�er une telle op�ration.
 	 * 
-	 * @param numeroVariable   num�ro de la variable a modifier
+	 * @param numeroVariable   Numero de la variable a modifier
 	 * @param operationAFaire  0:rendreEgalA 1:ajouter 2:retirer 3:multiplier
 	 *                         4:diviser 5:modulo
 	 * @param operationAFaire2 0:valeur 1:contenuDeLaVariable 2:nombreAleatoire
-	 * @param valeurADonner    valeur brute, num�ro de la variable, ou borne
+	 * @param valeurADonner    valeur brute, Numero de la variable, ou borne
 	 *                         inf�rieure al�atoire
 	 * @param valeurADonner2   �ventuelle borne sup�rieure al�atoire
 	 */

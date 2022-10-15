@@ -28,7 +28,7 @@ public class MusiqueWav extends Musique {
 			if (volume < VOLUME_MAXIMAL) {
 				this.modifierVolume(volume);
 			}
-			//dur�e
+			//Duree
 			if (TypeMusique.ME.equals(type)) {
 				this.dureeMillisecondes = ((Clip) clip).getMicrosecondLength();
 			}

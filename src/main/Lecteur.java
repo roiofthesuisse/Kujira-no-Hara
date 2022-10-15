@@ -19,22 +19,22 @@ public abstract class Lecteur {
 	private BufferedImage ecranAtuel;
 	
 	/**
-	 * Dur�e minimale d'une frame (en millisecondes).
+	 * Duree minimale d'une frame (en millisecondes).
 	 * Il est interdit qu'une frame dure moins longtemps, afin que l'animation soit compr�hensible.
 	 * La frame peut durer plus longtemps si l'ordinateur a du mal a faire tourner le bousin.
 	 */
 	public static final int DUREE_FRAME = 30;
 	
 	/**
-	 * Est-ce que le Lecteur est allum� ?
-	 * Si le Lecteur est allum�, l'affichage de l'ecran est actualis� en continu.
-	 * Si le Lecteur est �teint, l'affichage arr�te sa boucle, et la Fenetre doit Demarrer un nouveau Lecteur.
+	 * Est-ce que le Lecteur est allume ?
+	 * Si le Lecteur est allume, l'affichage de l'ecran est actualise en continu.
+	 * Si le Lecteur est eteint, l'affichage arrete sa boucle, et la Fenetre doit Demarrer un nouveau Lecteur.
 	 */
 	public boolean allume = true;
 	
 	/** 
-	 * Num�ro de la frame en cours (en temps r�el).
-	 * Une frame est une image affichee a l'ecran pendant une courte dur�e.
+	 * Numero de la frame en cours (en temps reel).
+	 * Une frame est une image affichee a l'ecran pendant une courte Duree.
 	 * A chaque nouveau Lecteur, on repart de 0.
 	 */
 	public int frameActuelle = 0;
@@ -47,15 +47,15 @@ public abstract class Lecteur {
 	public abstract  BufferedImage calculerAffichage(int frame);
 	
 	/**
-	 * Pr�venir le Lecteur qu'une touche a ete press�e, pour qu'il en d�duise une action a faire.
-	 * La touche envoy�e ne dois pas etre nulle !
-	 * @param touchePressee touche press�e
+	 * Pr�venir le Lecteur qu'une touche a ete pressee, pour qu'il en d�duise une action a faire.
+	 * La touche envoyee ne dois pas etre nulle !
+	 * @param touchePressee touche pressee
 	 */
 	public abstract void keyPressed(ToucheRole touchePressee);
 	
 	/**
 	 * Pr�venir le Lecteur qu'une touche a ete relach�e, pour qu'il en d�duise une action a faire.
-	 * La touche envoy�e ne dois pas etre nulle !
+	 * La touche envoyee ne dois pas etre nulle !
 	 * @param toucheRelachee touche relach�e
 	 */
 	public abstract void keyReleased(ToucheRole toucheRelachee);
@@ -76,8 +76,8 @@ public abstract class Lecteur {
 	
 	/**
 	 * Demarrer le Lecteur.
-	 * Le Lecteur est allum�, la musique est lue, un ecran est affiche a chaque frame.
-	 * Si jamais "allume" est mis a false, le Lecteur s'arr�te et la Fenetre devra lancer le prochain Lecteur.
+	 * Le Lecteur est allume, la musique est lue, un ecran est affiche a chaque frame.
+	 * Si jamais "allume" est mis a false, le Lecteur s'arrete et la Fenetre devra lancer le prochain Lecteur.
 	 */
 	public final void demarrer() {
 		this.allume = true;
@@ -94,11 +94,11 @@ public abstract class Lecteur {
 			t2 = System.currentTimeMillis();
 			dureeEffectiveDeLaFrame = t2-t1;
 			if (dureeEffectiveDeLaFrame < Lecteur.DUREE_FRAME) {
-				//si l'affichage a pris moins de temps que la dur�e attendue, on attend que la frame se termine
+				//si l'affichage a pris moins de temps que la Duree attendue, on attend que la frame se termine
 				try {
 					Thread.sleep(Lecteur.DUREE_FRAME-dureeEffectiveDeLaFrame);
 				} catch (InterruptedException e) {
-					LOG.error("La boucle de lecture du jeu dans Lecteur.demarrer() n'a pas r�ussi son sleep().", e);
+					LOG.error("La boucle de lecture du jeu dans Lecteur.demarrer() n'a pas reussi son sleep().", e);
 				}
 			} else {
 				//l'affichage a pris trop de temps
@@ -107,9 +107,9 @@ public abstract class Lecteur {
 			Main.fenetre.actualiserAffichage(this.ecranAtuel);
 			this.frameActuelle++;
 		}
-		//si on est ici, c'est qu'une Commande Event a �teint le Lecteur
+		//si on est ici, c'est qu'une Commande Event a eteint le Lecteur
 		//la Fenetre va devoir le remplacer par le futur Lecteur (si elle en a un de rechange)
-		LOG.info("Le "+typeDeLecteur()+" actuel vient d'etre arr�t� a la frame "+this.frameActuelle);
+		LOG.info("Le "+typeDeLecteur()+" actuel vient d'etre arrete a la frame "+this.frameActuelle);
 	}
 
 	/**

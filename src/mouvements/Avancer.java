@@ -149,7 +149,7 @@ public class Avancer extends Mouvement {
 			this.realignementY = 0;
 			
 		} else {
-			// L'event ne bouge plus depuis 2 frames, on arr�te son animation
+			// L'event ne bouge plus depuis 2 frames, on arrete son animation
 			if (!event.animeALArretActuel && !event.avancaitALaFramePrecedente && !event.avance) {
 				event.animation = 0; 
 			}

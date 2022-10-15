@@ -23,7 +23,7 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 	 * @param idEvent           identifiant de l'Event a t�l�porter
 	 * @param nouveauX          nouvelle Coordonnee x de l'Event
 	 * @param nouveauY          nouvelle Coordonnee y de l'Event
-	 * @param utiliserVariables false si valeurs fixes, true si num�ros de variables
+	 * @param utiliserVariables false si valeurs fixes, true si Numeros de variables
 	 */
 	public TeleporterEvent(final Integer idEvent, final int nouveauX, final int nouveauY,
 			final boolean utiliserVariables) {

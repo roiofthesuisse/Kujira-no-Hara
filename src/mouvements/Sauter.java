@@ -103,7 +103,7 @@ public class Sauter extends Mouvement {
 				return true;
 			}
 			
-			// Le Heros traverse tout si la touche de triche est press�e
+			// Le Heros traverse tout si la touche de triche est pressee
 			if (event instanceof Heros && ToucheRole.TRICHE.enfoncee()) {
 				return true;
 			}

@@ -16,7 +16,7 @@ public class RetirerObjet extends Commande implements CommandeMenu, CommandeEven
 	 * Constructeur explicite
 	 * 
 	 * @param idObjet  identifiant de l'Objet a retirer : soit son nom, soit son
-	 *                 num�ro
+	 *                 Numero
 	 * @param quantite a retirer pour cet Objet
 	 */
 	public RetirerObjet(final int idObjet, final int quantite) {

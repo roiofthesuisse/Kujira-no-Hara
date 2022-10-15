@@ -46,10 +46,10 @@ public class MusiqueMp3 extends Musique {
 				final long dureeMs = (long) this.mp3Clip.getTotalDuration().toMillis();
 				if (dureeMs>0) {
 					dureeMillisecondes = dureeMs;
-					LOG.debug("Dur�e du MP3 "+nom+": "+dureeMs+" ms");
+					LOG.debug("Duree du MP3 "+nom+": "+dureeMs+" ms");
 					return dureeMs;
 				} else {
-					LOG.warn("Dur�e du MP3 inacessible !");
+					LOG.warn("Duree du MP3 inacessible !");
 					return Musique.DUREE_PAR_DEFAUT_ME;
 				}
 			}

@@ -124,7 +124,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 	 */
 	public ConditionScript(final HashMap<String, Object> parametres) {
 		this(parametres.get("numero") != null ? (int) parametres.get("numero") : -1, (String) parametres.get("script"),
-				false // cas r�el
+				false // cas reel
 		);
 	}
 

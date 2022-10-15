@@ -40,7 +40,7 @@ public class Map implements Sauvegardable {
 	/** La position intiale du Heros sur cette Map est d�crite par 2 parametres */
 	private static final int POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION = 2;
 	
-	/** Num�ro du fichier JSON de la Map */
+	/** Numero du fichier JSON de la Map */
 	public final int numero;
 	public String nom;
 	/** Lecteur charg� de lire cette Map */
@@ -80,7 +80,7 @@ public class Map implements Sauvegardable {
 	public HashMap<Integer, Event> eventsHash;
 	/** liste des Events a ajouter au tour suivant */
 	public ArrayList<Event> eventsAAjouter = new ArrayList<Event>();
-	/** Event num�ro 0, dirig� par le joueur */
+	/** Event Numero 0, dirig� par le joueur */
 	public Heros heros;
 	/** Coordonnees du Heros (en pixels) a l'initialisation de la Map */
 	public int xDebutHeros, yDebutHeros;
@@ -98,7 +98,7 @@ public class Map implements Sauvegardable {
 	
 	/**
 	 * Constructeur explicite
-	 * @param numero de la Map, c'est-�-dire num�ro du fichier map (au format JSON) a charger
+	 * @param numero de la Map, c'est-�-dire Numero du fichier map (au format JSON) a charger
 	 * @param lecteur de la Map
 	 * @param ancienHeros heros de la Map pr�c�dente
 	 * @param brouillardForce brouillard impos� au chargement de partie
@@ -322,7 +322,7 @@ public class Map implements Sauvegardable {
 	 * @param ecran sur lequel on doit dessiner un carreau
 	 * @param xEcran position x Ou dessiner le carreau a l'ecran
 	 * @param yEcran position y Ou dessiner le carreau a l'ecran
-	 * @param numeroCarreau num�ro du carreau a dessiner
+	 * @param numeroCarreau Numero du carreau a dessiner
 	 * @param tilesetUtilise Tileset utilis� pour interpreter le d�cor de la Map
 	 */
 	public final void dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise) {
@@ -340,7 +340,7 @@ public class Map implements Sauvegardable {
 	 * @param decorAnime partie anim�e du d�cor (� peindre dans le cas d'un Autotile anim�)
 	 * @param x Coordonnee x du carreau sur la Map
 	 * @param y Coordonnee y du carreau sur la Map
-	 * @param numeroCarreau num�ro de l'autotile (num�ro n�gatif)
+	 * @param numeroCarreau Numero de l'autotile (Numero n�gatif)
 	 * @param tilesetUtilise Tileset utilis� pour interpreter le d�cor de la Map
 	 * @param layer couche de d�cor a laquelle appartient le carreau
 	 * @return nombre de vignettes n�cessaires pour constituer le d�cor �ventuellement anim�
@@ -405,10 +405,10 @@ public class Map implements Sauvegardable {
 			LOG.error("Erreur lors de la constitution de la liste des events :", e3);
 		}
 		
-		// Num�rotation des Events
+		// Numerotation des Events
 		for (Event event : this.events) {
 			event.map = this;
-			if (this.eventsHash.containsKey(event.id)) { //la num�rotation des Events comporte un doublon !
+			if (this.eventsHash.containsKey(event.id)) { //la Numerotation des Events comporte un doublon !
 				LOG.error("CONFLIT : les events "+this.eventsHash.get(event.id).nom+" et "+event.nom+" portent le m�me id : "+event.id);
 			}
 			this.eventsHash.put(event.id, event);
@@ -470,7 +470,7 @@ public class Map implements Sauvegardable {
 	/**
 	 * Va chercher une couche de d�cor en particulier dans le fichier JSON qui repr�sente la Map.
 	 * @param jsonMap objet JSON repr�sentant la map
-	 * @param numeroCouche num�ro de la couche a r�cuperer
+	 * @param numeroCouche Numero de la couche a r�cuperer
 	 * @param largeur de la map
 	 * @param hauteur de la map
 	 * @return un tableau bidimentionnel contenant le d�cor situe sur cette couche
@@ -497,7 +497,7 @@ public class Map implements Sauvegardable {
 	/**
 	 * Inscrire l'Event dans la liste des Events en attente de suppression.
 	 * L'Event sera supprim� a la fin de la boucle d'affichage.
-	 * @param idEventASupprimer num�ro de l'Event qu'il faut inscrire a la suppression
+	 * @param idEventASupprimer Numero de l'Event qu'il faut inscrire a la suppression
 	 * @return bool�en pour savoir si l'Event a supprimer a bien ete trouv� dans la liste des �v�nements
 	 */
 	public final boolean supprimerEvenement(final int idEventASupprimer) {
@@ -585,7 +585,7 @@ public class Map implements Sauvegardable {
 	 * @param ymin position y (en pixels) de l'Event qu'on veut poser
 	 * @param largeurHitbox largeur de l'Event a poser
 	 * @param hauteurHitbox hauteur de l'Event a poser
-	 * @param numeroEvent num�ro de l'Event a poser
+	 * @param numeroEvent Numero de l'Event a poser
 	 * @return true si on peut poser un nouvel Event ici, false sinon
 	 */
 	public final boolean calculerSiLaPlaceEstLibre(final int xmin, final int ymin, final int largeurHitbox, final int hauteurHitbox, final int numeroEvent) {
@@ -684,7 +684,7 @@ public class Map implements Sauvegardable {
 			//l'Event sort de la Map !
 			
 			if (!event.sortiDeLaMap) { //on n'affiche le message d'erreur qu'une fois
-				LOG.warn("L'event "+event.id+" ("+event.nom+") est sorti de la map !"); //TODO ni le num�ro, ni le nom ne semblent correspondre a l'Event qui sort
+				LOG.warn("L'event "+event.id+" ("+event.nom+") est sorti de la map !"); //TODO ni le Numero, ni le nom ne semblent correspondre a l'Event qui sort
 				LOG.trace(e);
 			}
 			event.sortiDeLaMap = true;
@@ -702,7 +702,7 @@ public class Map implements Sauvegardable {
 	 * @param ymax Coordonnee (en pixel) de l� Ou on veut placer l'Event
 	 * @param largeurHitbox largeur (en pixels) de l'Event
 	 * @param hauteurHitbox largeur (en pixels) de l'Event
-	 * @param numeroEvent num�ro de l'Event
+	 * @param numeroEvent Numero de l'Event
 	 * @return true si les Events alentours font suffisamment de place pour cet Event, false sinon.
 	 */
 	private boolean lEventNEmpietePasSurUnAutreEvent(final Event event, final int xmin, final int ymin, 

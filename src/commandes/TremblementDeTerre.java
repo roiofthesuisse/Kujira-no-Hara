@@ -25,7 +25,7 @@ public class TremblementDeTerre extends Commande implements CommandeEvent {
 	 * 
 	 * @param intensite      du tremblement de terre
 	 * @param vitesse        du tremblement de terre
-	 * @param nombreDeFrames dur�e du tremblement de terre
+	 * @param nombreDeFrames Duree du tremblement de terre
 	 */
 	private TremblementDeTerre(final int intensite, final Object vitesse, final int nombreDeFrames) {
 		this.intensite = intensite;

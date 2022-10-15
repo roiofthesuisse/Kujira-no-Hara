@@ -11,14 +11,14 @@ import utilitaire.son.LecteurAudio;
 import utilitaire.son.Musique;
 
 /**
- * Arr�ter la musique.
+ * arreter la musique.
  */
 public class ArreterLesEffetsSonores extends Commande implements CommandeEvent, CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(ArreterLesEffetsSonores.class);
 
-	/** Dur�e totale de l'arr�t en fondu */
+	/** Duree totale de l'arret en fondu */
 	private final static int DUREE_FONDU = 10;
-	/** Compteur de frames de l'arr�t en fondu */
+	/** Compteur de frames de l'arret en fondu */
 	private int frame;
 
 	/**
@@ -44,7 +44,7 @@ public class ArreterLesEffetsSonores extends Commande implements CommandeEvent, 
 			se.arreter();
 			i--;
 		}
-		LOG.info("Arr�t des effets sonores.");
+		LOG.info("arret des effets sonores.");
 		return curseurActuel + 1;
 	}
 

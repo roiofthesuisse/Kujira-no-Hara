@@ -25,7 +25,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Le joueur doit r�ussir des Qu�tes durant le jeu. Cette classe est une
+ * Le joueur doit reussir des Qu�tes durant le jeu. Cette classe est une
  * description inerte de la Qu�te, ind�pendante de l'action du joueur.
  */
 public class Quete implements Listable {
@@ -91,7 +91,7 @@ public class Quete implements Listable {
 	 *                              pas encore faite
 	 * @param nomIconeQueteFaite    nom de l'ic�ne affichee lorsque la Qu�te a �t�
 	 *                              faite
-	 * @param numeroCarte           num�ro de la Carte sur laquelle figure la Quete
+	 * @param numeroCarte           Numero de la Carte sur laquelle figure la Quete
 	 * @param xCarte                position x sur la carte des Qu�tes
 	 * @param yCarte                position y sur la carte des Qu�tes
 	 */

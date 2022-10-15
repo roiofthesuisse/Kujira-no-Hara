@@ -22,7 +22,7 @@ public class ConditionObjetPossede extends Condition implements CommandeEvent, C
 	
 	/**
 	 * Constructeur explicite
-	 * @param numeroCondition num�ro de la Condition
+	 * @param numeroCondition Numero de la Condition
 	 * @param idObjet identifiant de l'Objet
 	 */
 	public ConditionObjetPossede(final int numeroCondition, final int idObjet) {

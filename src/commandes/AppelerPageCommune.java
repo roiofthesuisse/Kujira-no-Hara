@@ -21,7 +21,7 @@ public class AppelerPageCommune extends Commande implements CommandeEvent, Comma
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroPageCommune num�ro de la Page a appeler
+	 * @param numeroPageCommune Numero de la Page a appeler
 	 */
 	public AppelerPageCommune(final int numeroPageCommune) {
 		this.numeroPageCommune = numeroPageCommune;

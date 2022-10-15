@@ -159,7 +159,7 @@ public class Event implements Comparable<Event> {
 
 	/**
 	 * Lorsque ce marqueur est a true, on consid�re l'event comme supprim�. Ce n'est
-	 * qu'un simple marqueur : l'event n'est r�ellement supprim� qu'apres la boucle
+	 * qu'un simple marqueur : l'event n'est reellement supprim� qu'apres la boucle
 	 * for sur les events.
 	 */
 	public boolean supprime = false;
@@ -210,7 +210,7 @@ public class Event implements Comparable<Event> {
 	 *                                           carreau Ou se trouve l'Event, en
 	 *                                           ordonn�e, de haut en bas
 	 * @param offsetY                            si on veut afficher l'Event plus
-	 *                                           bas que sa case r�elle
+	 *                                           bas que sa case reelle
 	 * @param nom                                de l'Event
 	 * @param id                                 identifiant num�rique de l'Event
 	 * @param vies                               de l'Event
@@ -252,7 +252,7 @@ public class Event implements Comparable<Event> {
 	 *                                           trouve l'Event, en ordonn�e, de
 	 *                                           haut en bas
 	 * @param offsetY                            si on veut afficher l'Event plus
-	 *                                           bas que sa case r�elle
+	 *                                           bas que sa case reelle
 	 * @param nom                                de l'Event
 	 * @param id                                 identifiant num�rique de l'Event
 	 * @param vies                               de l'Event
@@ -298,7 +298,7 @@ public class Event implements Comparable<Event> {
 			for (PageEvent page : this.pages) {
 				page.event = this;
 				if (page != null) {
-					// num�rotation des conditions et on apprend aux conditions qui est leur page
+					// Numerotation des conditions et on apprend aux conditions qui est leur page
 					try {
 						for (Condition cond : page.conditions) {
 							cond.numero = numeroCondition;
@@ -349,7 +349,7 @@ public class Event implements Comparable<Event> {
 				this.avance = false;
 				this.saute = false;
 				if (!this.animeALArretActuel && !this.avancaitALaFramePrecedente && !this.avance) {
-					// l'event ne bouge plus depuis 2 frames, on arr�te son animation
+					// l'event ne bouge plus depuis 2 frames, on arrete son animation
 					this.animation = 0;
 				}
 			}

@@ -32,7 +32,7 @@ public abstract class Meteo {
 	
 	/**
 	 * Fabriquer l'image repr�sentant l'effet M�t�o.
-	 * @param numeroFrame num�ro de la frame actuelle du LecteurMap
+	 * @param numeroFrame Numero de la frame actuelle du LecteurMap
 	 * @return image de l'effet M�t�o a superposer a l'ecran
 	 */
 	public abstract BufferedImage calculerImage(int numeroFrame);
@@ -44,7 +44,7 @@ public abstract class Meteo {
 	
 	/**
 	 * Ajouter des gouttes a la pluie en fonction de l'intensit� voulue pour l'intemp�rie.
-	 * @param numeroFrame num�ro de la frame actuelle du LecteurMap
+	 * @param numeroFrame Numero de la frame actuelle du LecteurMap
 	 */
 	protected final void ajouterDesParticulesSiNecessaire(final int numeroFrame) {
 		final int deficit = nombreDeParticulesNecessaires - recenserLesParticules();
@@ -69,7 +69,7 @@ public abstract class Meteo {
 		for (Particule p : particules) {
 			compte += p.resteAVivre;
 		}
-		return 2*compte/dureeDeVieParticule; //fois deux car l'�ge moyen est 50% de la dur�e de vie
+		return 2*compte/dureeDeVieParticule; //fois deux car l'�ge moyen est 50% de la Duree de vie
 	}
 	
 	/**

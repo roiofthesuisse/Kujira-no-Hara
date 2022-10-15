@@ -15,10 +15,10 @@ public class AjouterArme extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param arme identifiant de l'Arme a ajouter : son num�ro ou son nom
+	 * @param arme identifiant de l'Arme a ajouter : son Numero ou son nom
 	 */
 	public AjouterArme(final int arme) {
-		// l'identifiant de l'Arme est son num�ro
+		// l'identifiant de l'Arme est son Numero
 		this.idArme = arme;
 
 	}

@@ -11,7 +11,7 @@ import map.LecteurMap;
 import utilitaire.GestionClavier.ToucheRole;
 
 /**
- * La touche action vient d'etre press�e a l'instant.
+ * La touche action vient d'etre pressee a l'instant.
  */
 public class ConditionTouche extends Condition implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ConditionTouche.class);

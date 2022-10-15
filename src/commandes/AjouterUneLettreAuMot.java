@@ -16,7 +16,7 @@ public class AjouterUneLettreAuMot extends Commande implements CommandeMenu {
 	 * Constructeur explicite
 	 * 
 	 * @param lettre    a ajouter a la fin du mot
-	 * @param numeroMot num�ro du mot auquel ajouter une lettre
+	 * @param numeroMot Numero du mot auquel ajouter une lettre
 	 */
 	public AjouterUneLettreAuMot(final String lettre, final int numeroMot) {
 		this.lettre = lettre;

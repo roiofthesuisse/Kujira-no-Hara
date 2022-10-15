@@ -193,10 +193,10 @@ public class Deplacement extends Commande implements CommandeEvent {
 	 */
 	public final Event getEventADeplacer() {
 		if (this.idEventADeplacer != null) {
-			// un num�ro d'Event a d�placer a ete sp�cifi� dans le JSON
+			// un Numero d'Event a d�placer a ete sp�cifi� dans le JSON
 			return ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
 		} else {
-			// aucun num�ro n'a ete sp�cifi�, on d�place l'Event qui a lanc� la Commande
+			// aucun Numero n'a ete sp�cifi�, on d�place l'Event qui a lanc� la Commande
 			return this.page.event;
 		}
 	}

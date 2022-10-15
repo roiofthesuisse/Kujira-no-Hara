@@ -124,7 +124,7 @@ public class ContexteDeComposite implements CompositeContext {
 		
 		/**
 		 * Initialisation du thread
-		 * @param y num�ro de la ligne de pixels
+		 * @param y Numero de la ligne de pixels
 		 */
 		public ThreadOperationGraphique(final int y) {
 			this.y = y;

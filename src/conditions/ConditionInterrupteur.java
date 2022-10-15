@@ -14,7 +14,7 @@ public class ConditionInterrupteur extends Condition implements CommandeEvent, C
 	
 	/**
 	 * Constructeur explicite
-	 * @param numeroInterrupteur num�ro de l'interrupteur a inspecter
+	 * @param numeroInterrupteur Numero de l'interrupteur a inspecter
 	 * @param valeur attendue pour cet interrupteur
 	 * @param numeroCondition identifiant de la condition
 	 */

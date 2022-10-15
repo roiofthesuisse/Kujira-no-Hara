@@ -59,7 +59,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 		// Inertie : si on vient d'appuyer sur la touche, le Heros va moins vite
 		final int vitesse = vitesse(event);
 		
-		// Le Heros traverse tout si la touche de triche est press�e
+		// Le Heros traverse tout si la touche de triche est pressee
 		if (event instanceof Heros && ToucheRole.TRICHE.enfoncee()) {
 			this.deltaX += GestionClavier.ToucheRole.DROITE.enfoncee() ? vitesse : 0;
 			this.deltaX += GestionClavier.ToucheRole.GAUCHE.enfoncee() ? -vitesse : 0;

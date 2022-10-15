@@ -15,7 +15,7 @@ public class RetirerArme extends Commande implements CommandeEvent, CommandeMenu
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idArme identifiant de l'Arme a retirer (num�ro)
+	 * @param idArme identifiant de l'Arme a retirer (Numero)
 	 */
 	public RetirerArme(final int idArme) {
 		this.idArme = idArme;

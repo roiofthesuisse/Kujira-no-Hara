@@ -22,7 +22,7 @@ import main.Commande;
 public abstract class Condition extends Commande {
 	private static final Logger LOG = LogManager.getLogger(Condition.class);
 
-	public int numero = -1; // le num�ro de condition est le m�me que le num�ro de fin de condition qui
+	public int numero = -1; // le Numero de condition est le m�me que le Numero de fin de condition qui
 							// correspond
 
 	/**
@@ -41,9 +41,9 @@ public abstract class Condition extends Commande {
 	 * @return nouvelle position du curseur
 	 */
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// une Condition doit avoir un num�ro pour etre execut�e comme Commande Event
+		// une Condition doit avoir un Numero pour etre execut�e comme Commande Event
 		if (this.numero == -1) {
-			LOG.error("La condition " + this.getClass().getName() + " n'a pas de num�ro !");
+			LOG.error("La condition " + this.getClass().getName() + " n'a pas de Numero !");
 		}
 
 		if (estVerifiee()) {

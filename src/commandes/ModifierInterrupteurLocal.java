@@ -24,7 +24,7 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroMap               num�ro de la Map Ou se situe l'interrupteur
+	 * @param numeroMap               Numero de la Map Ou se situe l'interrupteur
 	 *                                local a modifier
 	 * @param idEvent                 id de l'Event auquel appartient l'interrupteur
 	 *                                local a modifier
@@ -76,12 +76,12 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 		if (valeurADonner) {
 			if (!interrupteursLocaux.contains(code)) {
 				getPartieActuelle().interrupteursLocaux.add(code);
-				LOG.debug("Interrupteur local " + code + " allum�.");
+				LOG.debug("Interrupteur local " + code + " allume.");
 			}
 		} else {
 			if (interrupteursLocaux.contains(code)) {
 				getPartieActuelle().interrupteursLocaux.remove(code);
-				LOG.debug("Interrupteur local " + code + " �teint.");
+				LOG.debug("Interrupteur local " + code + " eteint.");
 			}
 		}
 		return curseurActuel + 1;

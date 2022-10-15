@@ -30,9 +30,9 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	 */
 	private static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAULT = false;
 
-	/** num�ro de l'image a d�placer */
+	/** Numero de l'image a d�placer */
 	private Integer numero; // Integer car utilis� comme cl� d'une HashMap
-	/** dur�e (en frames) de la transition */
+	/** Duree (en frames) de la transition */
 	private int nombreDeFrames;
 	private int dejaFait;
 
@@ -68,7 +68,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	 * Constructeur explicite
 	 * 
 	 * @param numero                     de l'image a modifier
-	 * @param nombreDeFrames             dur�e de la transition
+	 * @param nombreDeFrames             Duree de la transition
 	 * @param centre                     l'origine pour les nouvelles Coordonnees de
 	 *                                   l'image est elle son centre ?
 	 * @param variables                  les nouvelles Coordonnees sont-elles

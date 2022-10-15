@@ -57,7 +57,7 @@ public class Arme implements Listable {
 	 */
 	public int frameDebutCoup;
 	/**
-	 * A partir de cette frame d'animation, l'attaque arr�te d'avoir un effet.
+	 * A partir de cette frame d'animation, l'attaque arrete d'avoir un effet.
 	 * L'int�raction n'est plus possible avec l'ennemi.
 	 */
 	public int frameFinCoup;
@@ -70,7 +70,7 @@ public class Arme implements Listable {
 	 * @param nomEffetSonoreAttaque nom du fichier sonore jou� lors de l'utilisation
 	 * @param framesDAnimation s�quence des vignettes a afficher lors de l'animation d'attaque
 	 * @param hitbox zone d'attaque qu'on peut atteindre
-	 * @param frameDebutCoup frame de l'animation d'attaque Ou le coup commence r�ellement
+	 * @param frameDebutCoup frame de l'animation d'attaque Ou le coup commence reellement
 	 * @param frameFinCoup frame de l'animation d'attaque Ou le coup est termine
 	 * @param nomIcone nom du fichier image de l'icone de l'Arme
 	 */

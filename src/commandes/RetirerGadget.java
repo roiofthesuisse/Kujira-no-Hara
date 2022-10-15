@@ -15,7 +15,7 @@ public class RetirerGadget extends Commande implements CommandeEvent, CommandeMe
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idGadget identifiant du Gadget a retirer (num�ro)
+	 * @param idGadget identifiant du Gadget a retirer (Numero)
 	 */
 	public RetirerGadget(final int idGadget) {
 		this.idGadget = idGadget;

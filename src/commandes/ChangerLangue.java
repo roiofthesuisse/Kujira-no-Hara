@@ -21,7 +21,7 @@ public class ChangerLangue extends Commande implements CommandeMenu {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nouvelleLangue num�ro de la nouvelle langue a adopter
+	 * @param nouvelleLangue Numero de la nouvelle langue a adopter
 	 */
 	private ChangerLangue(final int nouvelleLangue) {
 		this.nouvelleLangue = nouvelleLangue;

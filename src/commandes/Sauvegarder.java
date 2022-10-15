@@ -33,7 +33,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroSauvegarde num�ro du fichier de Sauvegarde
+	 * @param numeroSauvegarde Numero du fichier de Sauvegarde
 	 */
 	private Sauvegarder(final Integer numeroSauvegarde) {
 		this.numeroSauvegarde = numeroSauvegarde;

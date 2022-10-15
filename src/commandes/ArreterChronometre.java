@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Arr�ter le Chronometre.
+ * arreter le Chronometre.
  */
 public class ArreterChronometre extends Commande implements CommandeEvent {
 

@@ -192,7 +192,7 @@ public class Autotile {
 	 * @param y coordonnee y de la case sur la Map (en nombre de carreaux)
 	 * @param largeurMap largeur de la Map (en nombre de carreaux)
 	 * @param hauteurMap hauteur de la Map (en nombre de carreaux)
-	 * @param numeroCarreau num�ro de ce carreau de d�cor issu du Tileset
+	 * @param numeroCarreau Numero de ce carreau de d�cor issu du Tileset
 	 * @param layer une des trois couches de d�cor de l'�diteur de Maps
 	 * @return carreau liable avec la bonne apparence
 	 */
@@ -323,8 +323,8 @@ public class Autotile {
 
 	/**
 	 * Est-ce que le carreau Autotile est a lier a ce voisin ?
-	 * @param numeroCarreau num�ro du carreau actuel selon le Tileset
-	 * @param numeroVoisin num�ro du carreau voisin selon le Tileset
+	 * @param numeroCarreau Numero du carreau actuel selon le Tileset
+	 * @param numeroVoisin Numero du carreau voisin selon le Tileset
 	 * @return true si connexion, false si aucun lien de parent�
 	 */
 	private boolean fautIlLierCeCarreauASonVoisin(final int numeroCarreau, final int numeroVoisin) {

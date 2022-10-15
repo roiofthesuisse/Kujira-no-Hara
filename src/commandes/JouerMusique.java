@@ -29,7 +29,7 @@ public class JouerMusique extends Commande implements CommandeEvent, CommandeMen
 	 * 
 	 * @param nomFichierSonore nom du fichier de la musique a jouer
 	 * @param volume           sonore (entre 0.0f et 1.0f)
-	 * @param nombreDeFrames   dur�e de l'entree en fondu
+	 * @param nombreDeFrames   Duree de l'entree en fondu
 	 * @param piste            sur laquelle jouer
 	 */
 	public JouerMusique(final String nomFichierSonore, final float volume, final int nombreDeFrames, final int piste) {

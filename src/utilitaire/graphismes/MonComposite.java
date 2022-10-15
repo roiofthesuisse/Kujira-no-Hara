@@ -23,7 +23,7 @@ public final class MonComposite implements Composite {
 	/**
 	 * G�n�rer un Composite qui effectuera la superposition telle que voulue
 	 * @param modeDeFusion fa�on dont on superpose les deux images
-	 * @param opacite de l'image a superposer (valeur r�elle entre 0 et 1)
+	 * @param opacite de l'image a superposer (valeur reelle entre 0 et 1)
 	 * @return composite qui effectuera la superposition telle que voulue
 	 */
 	public static Composite creerComposite(final ModeDeFusion modeDeFusion, final float opacite) {

@@ -15,8 +15,8 @@ public class ConditionMot extends Condition implements CommandeEvent, CommandeMe
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param motAttendu valeur attendue pour le mot de passe saisi par le joueur (ou bien num�ro du mot)
-	 * @param numeroMot num�ro du mot a comparer avec la valeur attendue
+	 * @param motAttendu valeur attendue pour le mot de passe saisi par le joueur (ou bien Numero du mot)
+	 * @param numeroMot Numero du mot a comparer avec la valeur attendue
 	 */
 	public ConditionMot(final int numero, final Object motAttendu, final int numeroMot) {
 		this.numero = numero;

@@ -27,8 +27,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param idEvent1 identifiant (num�ro ou nom) du premier Event ; par d�faut, le Heros
-	 * @param idEvent2 identifiant (num�ro ou nom) du second Event ; par d�faut, cet Event
+	 * @param idEvent1 identifiant (Numero ou nom) du premier Event ; par d�faut, le Heros
+	 * @param idEvent2 identifiant (Numero ou nom) du second Event ; par d�faut, cet Event
 	 * @param typeDeContact de la Condition
 	 */
 	public ConditionContact(final int numero, final Object idEvent1, final Object idEvent2, final TypeDeContact typeDeContact) {

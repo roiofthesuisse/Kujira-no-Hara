@@ -18,10 +18,10 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	/**
 	 * Utiliser les constantes situees dans la classe pour d�finir le type de comparaison.
 	 * @param numero de la Condition
-	 * @param numeroVariable num�ro de la variable
+	 * @param numeroVariable Numero de la variable
 	 * @param symboleInegalite = egal ; >= superieur large ; <= inferieur large ; > superieur strict ; < inferieur strict ; != different
 	 * @param valeur comparative
-	 * @param comparerAUneAutreVariable auquel cas la valeur comparative est un num�ro de variable
+	 * @param comparerAUneAutreVariable auquel cas la valeur comparative est un Numero de variable
 	 */
 	public ConditionVariable(final int numero, final int numeroVariable, final String symboleInegalite, final int valeur, final boolean comparerAUneAutreVariable) {
 		this.numero = numero;

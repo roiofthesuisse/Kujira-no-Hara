@@ -151,7 +151,7 @@ public class LecteurMap extends Lecteur {
 
 		// Transition visuelle avec la Map pr�c�dente
 		if (!this.allume) {
-			// Faire une capture d'ecran juste avant l'arr�t de l'ancienne Map
+			// Faire une capture d'ecran juste avant l'arret de l'ancienne Map
 			final Lecteur futurLecteur0 = Main.futurLecteur;
 			if (futurLecteur0 instanceof LecteurMap) {
 				final LecteurMap futurLecteur = (LecteurMap) futurLecteur0;
@@ -491,7 +491,7 @@ public class LecteurMap extends Lecteur {
 							|| (event.avance && !event.avancaitALaFramePrecedente); // la premi�re frame d'animation est
 																					// un pas
 
-					// cas Ou l'Event est anim� a l'arr�t
+					// cas Ou l'Event est anim� a l'arret
 					if (!event.avance && event.animeALArretActuel && passerALAnimationSuivante) {
 						event.animation = (event.animation + 1) % Event.NOMBRE_DE_VIGNETTES_PAR_IMAGE;
 					}
@@ -531,7 +531,7 @@ public class LecteurMap extends Lecteur {
 	 */
 	private void deplacerLesEvents() {
 		try {
-			// animer la marche du Heros si touche de deplacement press�e
+			// animer la marche du Heros si touche de deplacement pressee
 			if (GestionClavier.ToucheRole.HAUT.enfoncee() || GestionClavier.ToucheRole.GAUCHE.enfoncee()
 					|| GestionClavier.ToucheRole.BAS.enfoncee() || GestionClavier.ToucheRole.DROITE.enfoncee()) {
 				map.heros.avance = true;
@@ -578,7 +578,7 @@ public class LecteurMap extends Lecteur {
 		for (int i = 0; i < nombreDEvents; i++) {
 			eventAajouter = this.map.eventsAAjouter.get(i);
 
-			// on l'ajoute au hash des Events avec un num�ro
+			// on l'ajoute au hash des Events avec un Numero
 			if (eventAajouter.id < 0) {
 				eventAajouter.id = this.map.calculerNouvelIdPourEventsHash();
 			}
@@ -796,11 +796,11 @@ public class LecteurMap extends Lecteur {
 
 	@Override
 	public final void keyReleased(final ToucheRole toucheRelachee) {
-		remettreAZeroLAnimationDuHeros(); // s'il s'est arr�t�
+		remettreAZeroLAnimationDuHeros(); // s'il s'est arrete
 	}
 
 	/**
-	 * Lorsque le Heros s'arr�te de marcher, on arr�te son animation.
+	 * Lorsque le Heros s'arrete de marcher, on arrete son animation.
 	 */
 	public final void remettreAZeroLAnimationDuHeros() {
 		final Event heros = map.heros;

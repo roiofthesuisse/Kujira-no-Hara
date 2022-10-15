@@ -14,16 +14,16 @@ import main.Commande;
 public class ChoixAlternative extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(ChoixAlternative.class);
 
-	/** Num�ro du Choix */
+	/** Numero du Choix */
 	public int numeroChoix;
-	/** Num�ro d'Alternative au sein du Choix */
+	/** Numero d'Alternative au sein du Choix */
 	public int numeroAlternative;
 
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroChoix       num�ro identifiant du Choix
-	 * @param numeroAlternative num�ro de l'Alternative au sein du Choix
+	 * @param numeroChoix       Numero identifiant du Choix
+	 * @param numeroAlternative Numero de l'Alternative au sein du Choix
 	 */
 	public ChoixAlternative(final int numeroChoix, final int numeroAlternative) {
 		this.numeroChoix = numeroChoix;
@@ -60,7 +60,7 @@ public class ChoixAlternative extends Commande implements CommandeEvent {
 			}
 		}
 		// la fin de Boucle n'a pas ete trouv�e
-		LOG.error("La fin du choix num�ro " + numeroChoix + " n'a pas ete trouv�e !");
+		LOG.error("La fin du choix Numero " + numeroChoix + " n'a pas ete trouv�e !");
 		return curseurActuel + 1;
 	}
 

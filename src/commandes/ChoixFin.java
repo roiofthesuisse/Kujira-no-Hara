@@ -9,7 +9,7 @@ import main.Commande;
  * Fin du Choix, pour d�limiter la derni�re Alternative.
  */
 public class ChoixFin extends Commande implements CommandeEvent {
-	/** Num�ro du Choix */
+	/** Numero du Choix */
 	public int numero;
 
 	/**

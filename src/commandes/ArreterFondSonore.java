@@ -7,12 +7,12 @@ import main.Commande;
 import utilitaire.son.LecteurAudio;
 
 /**
- * Arr�ter le fond sonore.
+ * arreter le fond sonore.
  */
 public class ArreterFondSonore extends Commande implements CommandeEvent, CommandeMenu {
-	/** Dur�e totale de l'arr�t en fondu */
+	/** Duree totale de l'arret en fondu */
 	private final int nombreDeFrames;
-	/** Compteur de frames de l'arr�t en fondu */
+	/** Compteur de frames de l'arret en fondu */
 	private int frame;
 	private float volumeInitial;
 	private int piste;
@@ -20,8 +20,8 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param nombreDeFrames dur�e totale de l'arr�t en fondu
-	 * @param piste          a arr�ter
+	 * @param nombreDeFrames Duree totale de l'arret en fondu
+	 * @param piste          a arreter
 	 */
 	private ArreterFondSonore(final int nombreDeFrames, final int piste) {
 		this.nombreDeFrames = nombreDeFrames;
@@ -46,7 +46,7 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 		}
 
 		if (frame < nombreDeFrames) {
-			// Arr�t en fondu
+			// arret en fondu
 			final float nouveauVolume = volumeInitial * (float) (nombreDeFrames - frame) / (float) nombreDeFrames;
 			LecteurAudio.bgsEnCours[piste].modifierVolume(nouveauVolume);
 			frame++;
@@ -54,7 +54,7 @@ public class ArreterFondSonore extends Commande implements CommandeEvent, Comman
 			return curseurActuel;
 
 		} else {
-			// L'arr�t en fondu est termine
+			// L'arret en fondu est termine
 			LecteurAudio.stopBgs(piste);
 			frame = 0;
 

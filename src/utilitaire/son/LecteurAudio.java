@@ -107,7 +107,7 @@ public abstract class LecteurAudio {
 		} else {
 			// Morceau different du pr�c�dent
 			
-			// On �teint la musique actuelle
+			// On eteint la musique actuelle
 			stopBgm(piste);
 			
 			// On lance la nouvelle
@@ -163,16 +163,16 @@ public abstract class LecteurAudio {
 	}
 	
 	/**
-	 * Arr�ter la musique actuellement jou�e.
-	 * @param piste a arr�ter
+	 * arreter la musique actuellement jou�e.
+	 * @param piste a arreter
 	 */
 	public static synchronized void stopBgm(final int piste) {
 		if (LecteurAudio.bgmEnCours[piste] != null) {
 			LecteurAudio.bgmEnCours[piste].arreter();
-			LOG.debug("Arr�t du BGM");
+			LOG.debug("arret du BGM");
 			LecteurAudio.bgmEnCours[piste] = null;
 		} else {
-			LOG.debug("Le BGM est deja arr�t�.");
+			LOG.debug("Le BGM est deja arrete.");
 		}
 	}
 
@@ -190,7 +190,7 @@ public abstract class LecteurAudio {
 			
 		// Si on est deja en train de jouer le bon fond sonore, on ne fait rien
 		if (LecteurAudio.bgsEnCours[piste] == null || !nom.equals(LecteurAudio.bgsEnCours[piste].nom)) {
-			// On �teint le fond sonore actuel
+			// On eteint le fond sonore actuel
 			stopBgs(piste);
 
 			// On lance le nouveau
@@ -218,16 +218,16 @@ public abstract class LecteurAudio {
 	}
 	
 	/**
-	 * Arr�ter le fond sonore actuellement jou�.
-	 * @param piste a arr�ter
+	 * arreter le fond sonore actuellement jou�.
+	 * @param piste a arreter
 	 */
 	public static synchronized void stopBgs(final int piste) {
 		if (LecteurAudio.bgsEnCours[piste] != null) {
 			LecteurAudio.bgsEnCours[piste].arreter();
-			LOG.debug("Arr�t du BGS");
+			LOG.debug("arret du BGS");
 			LecteurAudio.bgsEnCours[piste] = null;
 		} else {
-			LOG.debug("Le BGS est deja arr�t�.");
+			LOG.debug("Le BGS est deja arrete.");
 		}
 	}
 	

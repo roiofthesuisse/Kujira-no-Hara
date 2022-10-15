@@ -33,7 +33,7 @@ public class ModifierApparence extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * 
 	 * @param nomNouvelleImage nom de l'image de la nouvelle apparence
-	 * @param eventId          num�ro de l'Event a modifier
+	 * @param eventId          Numero de l'Event a modifier
 	 */
 	public ModifierApparence(final String nomNouvelleImage, final int eventId) {
 		this.nomNouvelleImage = nomNouvelleImage;

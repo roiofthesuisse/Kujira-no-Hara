@@ -32,7 +32,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * 
 	 * @param variable            le lieu d'arriv�e est d�fini par des variables
-	 * @param numeroNouvelleMap   num�ro de la nouvelle Map
+	 * @param numeroNouvelleMap   Numero de la nouvelle Map
 	 * @param xDebutHeros         Coordonnee x du Heros (en carreaux) a son arriv�e
 	 *                            sur la Map
 	 * @param yDebutHeros         Coordonnee y du Heros (en carreaux) a son arriv�e

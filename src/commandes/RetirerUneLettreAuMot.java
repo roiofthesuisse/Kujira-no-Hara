@@ -14,7 +14,7 @@ public class RetirerUneLettreAuMot extends Commande implements CommandeMenu {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param numeroMot num�ro du mot auquel il faut retirer une lettre
+	 * @param numeroMot Numero du mot auquel il faut retirer une lettre
 	 */
 	public RetirerUneLettreAuMot(final int numeroMot) {
 		this.numeroMot = numeroMot;
