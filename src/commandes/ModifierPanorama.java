@@ -25,7 +25,7 @@ public class ModifierPanorama extends Commande implements CommandeEvent {
 	 * Constructeur explicite
 	 * 
 	 * @param nomImage  nom de l'image de panorama
-	 * @param parallaxe (en pourcents) du Panorama par rapport au d�cor de la Map
+	 * @param parallaxe (en pourcents) du Panorama par rapport au decor de la Map
 	 */
 	public ModifierPanorama(final String nomImage, final int parallaxe) {
 		this.nomImage = nomImage;

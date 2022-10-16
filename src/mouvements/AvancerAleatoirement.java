@@ -7,7 +7,7 @@ import map.Event.Direction;
 import utilitaire.Maths;
 
 /**
- * D�placer un Event dans une Direction al�atoire et d'un certain nombre de cases
+ * Deplacer un Event dans une Direction al�atoire et d'un certain nombre de cases
  */
 public class AvancerAleatoirement extends Avancer {
 	//constantes

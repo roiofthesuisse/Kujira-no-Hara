@@ -8,7 +8,7 @@ import map.Event.Direction;
 import utilitaire.Maths;
 
 /**
- * D�placer un Event d'un pas dans la direction oppos�e a la direction de l'Event.
+ * Deplacer un Event d'un pas dans la direction oppos�e a la direction de l'Event.
  */
 public class PasEnArriere extends Avancer {
 	
@@ -66,7 +66,7 @@ public class PasEnArriere extends Avancer {
 				event.y += enjambee; 
 				break;
 		}
-		//on actualise la compl�tion du Mouvement
+		//on actualise la completion du Mouvement
 		this.ceQuiAEteFait += enjambee;
 	}
 

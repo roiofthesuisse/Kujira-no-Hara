@@ -15,8 +15,8 @@ import map.Picture;
 public class InterrompreDeplacementImage extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(InterrompreDeplacementImage.class);
 
-	/** Numero de l'image a d�placer */
-	private Integer numero; // Integer car utilis� comme cl� d'une HashMap
+	/** Numero de l'image a deplacer */
+	private Integer numero; // Integer car utilis� comme cla d'une HashMap
 
 	/**
 	 * Constructeur explicite

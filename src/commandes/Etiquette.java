@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Une Etiquette vers laquelle on peut d�placer le curseur.
+ * Une Etiquette vers laquelle on peut deplacer le curseur.
  */
 public class Etiquette extends Commande implements CommandeEvent {
 	/** Nom de l'Etiquette */

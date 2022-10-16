@@ -16,12 +16,12 @@ import main.Lecteur;
 public class Boucle extends Commande implements CommandeEvent, CommandeMenu {
 	protected static final Logger LOG = LogManager.getLogger(Boucle.class);
 	/**
-	 * Au bout de cette fraction de la frame, on consid�re que le calcul est trop
+	 * Au bout de cette fraction de la frame, on considere que le calcul est trop
 	 * long
 	 */
 	private static final int TIMEOUT_FRACTION_DE_FRAME = 4;
 
-	public int numero; // le Numero de Boucle est le m�me que le Numero de fin de Boucle qui correspond
+	public int numero; // le Numero de Boucle est le meme que le Numero de fin de Boucle qui correspond
 	public long debutBoucle = -1;
 	private Boolean laBoucleAttendUneActionDuJoueur = null;
 

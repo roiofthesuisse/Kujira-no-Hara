@@ -10,7 +10,7 @@ import map.Event.Direction;
 import map.LecteurMap;
 
 /**
- * Approcher ou �loigner l'Event a d�placer d'un pas d'un autre Event.
+ * Approcher ou �loigner l'Event a deplacer d'un pas d'un autre Event.
  */
 public class AvancerEnFonctionDUnEvent extends Avancer {
 	
@@ -24,7 +24,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 
 	/**
 	 * Constructeur explicite
-	 * @param idEventObserve : id de l'Event en fonction duquel l'Event a d�placer avance
+	 * @param idEventObserve : id de l'Event en fonction duquel l'Event a deplacer avance
 	 * @param sens : l'event s'approche ou s'�loigne
 	 */
 	public AvancerEnFonctionDUnEvent(final int idEventObserve, final Sens sens) {

@@ -649,7 +649,7 @@ public abstract class GenererLaCarteDuJeu {
 		/**
 		 * Comparaison
 		 * @param lieu autre
-		 * @return true si c'est le m�me
+		 * @return true si c'est le meme
 		 */
 		public final boolean equals(final Lieu lieu) {
 			return lieu.id == this.id;

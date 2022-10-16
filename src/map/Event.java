@@ -28,7 +28,7 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Un Event est un �l�ment actif du d�cor, voire interactif. Ses �ventuels
+ * Un Event est un �l�ment actif du decor, voire interactif. Ses �ventuels
  * comportements sont repr�sent�s par une liste de Pages.
  */
 public class Event implements Comparable<Event> {
@@ -101,14 +101,14 @@ public class Event implements Comparable<Event> {
 	public int animation;
 
 	/**
-	 * l'Event est-il en train d'avancer en ce moment m�me ? (utile pour
+	 * l'Event est-il en train d'avancer en ce moment meme ? (utile pour
 	 * l'animation)
 	 */
 	public boolean avance = false;
 	/** L'Event avan�ait-il a la frame pr�c�dente ? (utile pour l'animation) */
 	public boolean avancaitALaFramePrecedente = false;
 	/**
-	 * l'Event est-il en train de sauter en ce moment m�me ? (utile pour
+	 * l'Event est-il en train de sauter en ce moment meme ? (utile pour
 	 * l'animation)
 	 */
 	public boolean saute = false;
@@ -158,7 +158,7 @@ public class Event implements Comparable<Event> {
 	public boolean ilYAEuChangementDePageDApparence = true;
 
 	/**
-	 * Lorsque ce marqueur est a true, on consid�re l'event comme supprim�. Ce n'est
+	 * Lorsque ce marqueur est a true, on considere l'event comme supprim�. Ce n'est
 	 * qu'un simple marqueur : l'event n'est reellement supprim� qu'apres la boucle
 	 * for sur les events.
 	 */
@@ -429,7 +429,7 @@ public class Event implements Comparable<Event> {
 			attribuerLesProprietesActuelles(this.pageDApparence);
 
 			if (onATrouveLaPageActive) {
-				// m�me les Conditions li�es au Heros correspondent, on execute la Page
+				// meme les Conditions li�es au Heros correspondent, on execute la Page
 				this.pageActive = pageQuOnChoisitEnRemplacement;
 			}
 		}
@@ -445,10 +445,12 @@ public class Event implements Comparable<Event> {
 		this.imageActuelle = page.image;
 		this.apparenceActuelleEstUnTile = page.apparenceEstUnTile;
 
-		if (!(this instanceof Heros) // le Heros n'est pas redirig� aux changements de Page
-				&& ilYAEuChangementDePageDApparence) { // on ne r�initialise pas les propri�t�s sans vrai changement de
-														// Page
-			this.direction = page.directionInitiale;
+		if (ilYAEuChangementDePageDApparence) { // on ne r�initialise pas les propri�t�s sans vrai changement de Page
+			
+			// Ne pas changer la direction de l'Event lors du changement de page
+			if (page.directionFixe) {
+				this.direction = page.directionInitiale;
+			}
 
 			// propri�t�s
 			this.vitesseActuelle = page.vitesse;

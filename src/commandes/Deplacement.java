@@ -21,7 +21,7 @@ import mouvements.Mouvement;
  * </p>
  * 
  * <p>
- * L'objet Deplacement a deux usages tr�s differents :
+ * L'objet Deplacement a deux usages tres differents :
  * <ol>
  * <li>Chaque Event poss�de un Deplacement naturel et un Deplacement forc�. Le
  * Deplacement forc� sera effectu� en priorit� (sauf s'il est vide) sur le
@@ -40,7 +40,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 	private static final Logger LOG = LogManager.getLogger(Deplacement.class);
 
 	/** id de l'Event qui va etre d�plac� */
-	public Integer idEventADeplacer; // Integer car cl� d'une HashMap, et null lorsque "cet Event"
+	public Integer idEventADeplacer; // Integer car cla d'une HashMap, et null lorsque "cet Event"
 	/** id de l'Event qui a r�clam� ce Deplacement */
 	public Integer idEventCommanditaire;
 	/** Mouvements constitutifs de ce Deplacement */
@@ -66,7 +66,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param idEventADeplacer                id de l'Event a d�placer, null
+	 * @param idEventADeplacer                id de l'Event a deplacer, null
 	 *                                        signifie "cet Event", 0 le Heros
 	 * @param mouvements                      liste des Mouvements constitutifs du
 	 *                                        Deplacement
@@ -187,23 +187,23 @@ public class Deplacement extends Commande implements CommandeEvent {
 	}
 
 	/**
-	 * Tout Mouvement d�place un Event de la Map en particulier.
+	 * Tout Mouvement deplace un Event de la Map en particulier.
 	 * 
 	 * @return Event qui va etre d�plac�
 	 */
 	public final Event getEventADeplacer() {
 		if (this.idEventADeplacer != null) {
-			// un Numero d'Event a d�placer a ete sp�cifi� dans le JSON
+			// un Numero d'Event a deplacer a ete sp�cifi� dans le JSON
 			return ((LecteurMap) Main.lecteur).map.eventsHash.get((Integer) this.idEventADeplacer);
 		} else {
-			// aucun Numero n'a ete sp�cifi�, on d�place l'Event qui a lanc� la Commande
+			// aucun Numero n'a ete sp�cifi�, on deplace l'Event qui a lanc� la Commande
 			return this.page.event;
 		}
 	}
 
 	/**
 	 * Executer le premier Mouvement du Deplacement. Methode appel�e lorsqu'il faut
-	 * d�placer les Events.
+	 * deplacer les Events.
 	 */
 	public final void executerLePremierMouvement() {
 		// IMPORTANT

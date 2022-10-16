@@ -40,7 +40,7 @@ public class PageEvent {
 	public final ArrayList<Commande> commandes;
 	/**
 	 * Le curseur indique quelle Commande executer.
-	 * Il se d�place incr�mentalement, mais on peut lui faire faire des sauts.
+	 * Il se deplace incrementalement, mais on peut lui faire faire des sauts.
 	 */
 	public int curseurCommandes = 0;
 	
@@ -211,11 +211,11 @@ public class PageEvent {
 				// La passibilit� sp�cifi�e est traversable
 				this.traversable = Passabilite.PASSABLE;
 			} else {
-				// La passabilit� sp�cifi�e est solide
+				// La passabilite sp�cifi�e est solide
 				// Mais elle d�pend aussi de l'apparence
 				if (tileDeLApparence != null) {
 					// Apparence de type "tile"
-					// Comme l'Event n'est pas marqu� explicitement traversable, le tile impose sa passabilit� 
+					// Comme l'Event n'est pas marqu� explicitement traversable, le tile impose sa passabilite 
 					this.traversable = map.tileset.passabiliteDeLaCase(tileDeLApparence);
 				} else if (this.image == null) {
 					// Pas d'apparence
@@ -230,7 +230,7 @@ public class PageEvent {
 			// La passibilit� n'est pas explicitement sp�cifi�e
 			if (tileDeLApparence != null) {
 				// Apparence de type "tile"
-				// Comme l'Event n'est pas marqu� explicitement traversable, le tile impose sa passabilit� 
+				// Comme l'Event n'est pas marqu� explicitement traversable, le tile impose sa passabilite 
 				this.traversable = map.tileset.passabiliteDeLaCase(tileDeLApparence);
 			} else if (this.image == null) {
 				// Pas d'apparence
@@ -359,7 +359,7 @@ public class PageEvent {
 		//lecture des Commandes event
 		if (commandes != null) {
 			boolean onAvanceDansLesCommandes = true;
-			//on n'enchaine durant la m�me frame que les commandes instantan�es
+			//on n'enchaine durant la meme frame que les commandes instantan�es
 			//si une commande longue est rencontr�e, on reporte la lecture de la Page a la frame suivante
 			parcoursDesCommandes:
 			while (onAvanceDansLesCommandes) {

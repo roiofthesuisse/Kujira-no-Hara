@@ -32,7 +32,7 @@ public class Pluie extends Meteo {
 	
 	/**
 	 * Pluie
-	 * @param intensite de l'intempérie
+	 * @param intensite de l'intempï¿½rie
 	 */
 	public Pluie(final int intensite) {
 		dureeDeVieParticule = DUREE_DE_VIE_GOUTTE;
@@ -57,18 +57,18 @@ public class Pluie extends Meteo {
 					imageMeteo, 
 					imageGoutte, 
 					calculerXParticule(goutte), 
-					calculerYParticule(goutte) - HAUTEUR_GOUTTE1, //pour que la flaque soit au même endroit que la goutte
+					calculerYParticule(goutte) - HAUTEUR_GOUTTE1, //pour que la flaque soit au meme endroit que la goutte
 					Graphismes.OPACITE_MAXIMALE
 				);
 			}
 				
 			goutte.resteAVivre--;
 			
-			//la goutte atteint le sol, on affiche une éclaboussure
-			if (goutte.type == 0) { //seules les grosses gouttes font une éclaboussure
+			//la goutte atteint le sol, on affiche une ï¿½claboussure
+			if (goutte.type == 0) { //seules les grosses gouttes font une ï¿½claboussure
 				if (goutte.resteAVivre <= 0 
 						&& goutte.resteAVivre > FRAME_DE_FIN_DE_L_ECLABOUSSURE1) {
-					//éclaboussure au sol
+					//ï¿½claboussure au sol
 					imageMeteo = Graphismes.superposerImages(
 						imageMeteo, 
 						IMAGE_ECLABOUSSURE1, 
@@ -79,7 +79,7 @@ public class Pluie extends Meteo {
 				} else if (goutte.resteAVivre <= FRAME_DE_FIN_DE_L_ECLABOUSSURE1 
 						&& goutte.resteAVivre > FRAME_DE_FIN_DE_L_ECLABOUSSURE2) {
 					
-					//éclaboussure au sol
+					//ï¿½claboussure au sol
 					imageMeteo = Graphismes.superposerImages(
 						imageMeteo, 
 						IMAGE_ECLABOUSSURE2, 
@@ -116,7 +116,7 @@ public class Pluie extends Meteo {
 			nouvelleParticule = this.rehabiliterParticule();
 			nouvelleParticule.reinitialiser(x0, y0, dureeDeVieParticule, tailleGoutte);
 		} else {
-			// Le bassin est vide, il faut créer une nouvelle particule
+			// Le bassin est vide, il faut crï¿½er une nouvelle particule
 			nouvelleParticule = new Particule(x0, y0, dureeDeVieParticule, tailleGoutte);
 		}
 		particules.add(nouvelleParticule);
@@ -149,8 +149,8 @@ public class Pluie extends Meteo {
 	}
 	
 	/**
-	 * Charger l'image de l'éclaboussure.
-	 * @return image de l'éclaboussure
+	 * Charger l'image de l'ï¿½claboussure.
+	 * @return image de l'ï¿½claboussure
 	 */
 	private static BufferedImage chargerImageEclaboussure1() {
 		try {
@@ -162,8 +162,8 @@ public class Pluie extends Meteo {
 	}
 	
 	/**
-	 * Charger l'image de l'éclaboussure.
-	 * @return image de l'éclaboussure
+	 * Charger l'image de l'ï¿½claboussure.
+	 * @return image de l'ï¿½claboussure
 	 */
 	private static BufferedImage chargerImageEclaboussure2() {
 		try {

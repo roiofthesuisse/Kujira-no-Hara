@@ -9,7 +9,7 @@ import main.Commande;
  * Sortir de la Boucle actuelle.
  */
 public class BoucleSortir extends Commande implements CommandeEvent, CommandeMenu {
-	public int numero; // le Numero de Boucle est le m�me que le Numero de fin de Boucle qui correspond
+	public int numero; // le Numero de Boucle est le meme que le Numero de fin de Boucle qui correspond
 
 	/**
 	 * Constructeur explicite

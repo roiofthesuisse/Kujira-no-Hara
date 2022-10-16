@@ -179,14 +179,14 @@ public final class Hitbox {
 	 * @param x2max Coordonnee x maximale du rectangle 2
 	 * @param y2min Coordonnee y minimale du rectangle 2
 	 * @param y2max Coordonnee y maximale du rectangle 2
-	 * @param largHitbox largeur du rectangle 1 (non recalcul� pour les performances)
-	 * @param hautHitbox hauteur du rectangle 1 (non recalcul� pour les performances)
-	 * @param largHitboxAutre largeur du rectangle 2 (non recalcul� pour les performances)
-	 * @param hautHitboxAutre hauteur du rectangle 2 (non recalcul� pour les performances)
+	 * @param largHitbox largeur du rectangle 1 (non recalcula pour les performances)
+	 * @param hautHitbox hauteur du rectangle 1 (non recalcula pour les performances)
+	 * @param largHitboxAutre largeur du rectangle 2 (non recalcula pour les performances)
+	 * @param hautHitboxAutre hauteur du rectangle 2 (non recalcula pour les performances)
 	 * @return true si les rectangles se chevauchent, false sinon
 	 */
 	public static final boolean lesDeuxRectanglesSeChevauchent(final int x1min, final int x1max, final int y1min, final int y1max, final int x2min, final int x2max, final int y2min, final int y2max, final int largHitbox, final int hautHitbox, final int largHitboxAutre, final int hautHitboxAutre) {
-		//si les deux rectangles sont tr�s �loign�s, il ne peut pas y avoir collision
+		//si les deux rectangles sont tres �loign�s, il ne peut pas y avoir collision
 		if (!lesRectanglesSontProches(x1min, y1min, largHitbox, hautHitbox, x2min, y2min, largHitboxAutre, hautHitboxAutre)) {
 			return false;
 		}
@@ -201,12 +201,12 @@ public final class Hitbox {
 		}
 		
 		if (largHitbox==largHitboxAutre && hautHitbox==hautHitboxAutre) {
-			//si deux events ont la m�me taille, ils ne peuvent se chevaucher que par le coin
-			//(pour etre plus exact : le cas Ou deux events de m�me taille se chevauchent par l'ar�te est un cas particulier de la formule du chevauchement par coin)
+			//si deux events ont la meme taille, ils ne peuvent se chevaucher que par le coin
+			//(pour etre plus exact : le cas Ou deux events de meme taille se chevauchent par l'ar�te est un cas particulier de la formule du chevauchement par coin)
 			return false;
 		}
 		
-		if (largHitbox!=largHitboxAutre) { //si deux events n'ont pas la m�me largeur, ils peuvent se chevaucher par ar�te horizontale
+		if (largHitbox!=largHitboxAutre) { //si deux events n'ont pas la meme largeur, ils peuvent se chevaucher par ar�te horizontale
 			//deuxi�me cas : deux cot�s de chevauchent
 			final boolean deuxCotesSeChevauchent = ((x1min<=x2min && x2max<=x1max)&&((y2min<=y1min && y1min<y2max && y2max<=y1max)||(y1min<=y2min && y2min<y1max && y1max<=y2max)))
 												|| ((x2min<=x1min && x1max<=x2max)&&((y1min<=y2min && y2min<y1max && y1max<=y2max)||(y2min<=y1min && y1min<y2max && y2max<=y1max)));
@@ -214,7 +214,7 @@ public final class Hitbox {
 				return true;
 			}
 		}
-		if (hautHitbox!=hautHitboxAutre) { //si deux events n'ont pas la m�me hauteur, ils peuvent se chevaucher par ar�te verticale
+		if (hautHitbox!=hautHitboxAutre) { //si deux events n'ont pas la meme hauteur, ils peuvent se chevaucher par ar�te verticale
 			//deuxi�me cas : deux cot�s de chevauchent
 			final boolean deuxCotesSeChevauchent = ((y1min<=y2min && y2max<=y1max)&&((x2min<=x1min && x1min<x2max && x2max<=x1max)||(x1min<=x2min && x2min<x1max && x1max<=x2max)))
 												|| ((y2min<=y1min && y1max<=y2max)&&((x1min<=x2min && x2min<x1max && x1max<=x2max)||(x2min<=x1min && x1min<x2max && x2max<=x1max)));
@@ -238,7 +238,7 @@ public final class Hitbox {
 	}
 	
 	/**
-	 * Calcule si deux rectangles se chevauchent en prenant en compte les passabilit�s multilat�rales.
+	 * Calcule si deux rectangles se chevauchent en prenant en compte les passabilites multilat�rales.
 	 * @param xmin Coordonnee x minimale du rectangle 1
 	 * @param xmax Coordonnee x maximale du rectangle 1
 	 * @param ymin Coordonnee y minimale du rectangle 1
@@ -247,14 +247,14 @@ public final class Hitbox {
 	 * @param xmax2 Coordonnee x maximale du rectangle 2
 	 * @param ymin2 Coordonnee y minimale du rectangle 2
 	 * @param ymax2 Coordonnee y maximale du rectangle 2
-	 * @param passableAGauche1 passabilit� lat�rale gauche de l'Event 1
-	 * @param passableADroite1 passabilit� lat�rale droite de l'Event 1
-	 * @param passableEnBas1 passabilit� lat�rale basse de l'Event 1
-	 * @param passableEnHaut1 passabilit� lat�rale haute de l'Event 1
-	 * @param passableAGauche2 passabilit� lat�rale gauche de l'Event 2
-	 * @param passableADroite2 passabilit� lat�rale droite de l'Event 2
-	 * @param passableEnBas2 passabilit� lat�rale basse de l'Event 2
-	 * @param passableEnHaut2 passabilit� lat�rale haute de l'Event 2
+	 * @param passableAGauche1 passabilite lat�rale gauche de l'Event 1
+	 * @param passableADroite1 passabilite lat�rale droite de l'Event 1
+	 * @param passableEnBas1 passabilite lat�rale basse de l'Event 1
+	 * @param passableEnHaut1 passabilite lat�rale haute de l'Event 1
+	 * @param passableAGauche2 passabilite lat�rale gauche de l'Event 2
+	 * @param passableADroite2 passabilite lat�rale droite de l'Event 2
+	 * @param passableEnBas2 passabilite lat�rale basse de l'Event 2
+	 * @param passableEnHaut2 passabilite lat�rale haute de l'Event 2
 	 * @param largeur1 largeur de la Hitbox de l'Event 1
 	 * @param largeur2 largeur de la Hitbox de l'Event 2
 	 * @param hauteur1 hauteur de la Hitbox de l'Event 1

@@ -19,7 +19,7 @@ import utilitaire.son.LecteurAudio;
 /**
  * La saisie de nombre donne la possibilit� au joueur d'�crire un nombre demand�
  * par le jeu. Le nombre entr� est m�moris� dans une Variable. S'affiche comme
- * un Message, mais avec un curseur a d�placer.
+ * un Message, mais avec un curseur a deplacer.
  */
 public class EntrerUnNombre extends Message {
 	/** base d�cimale */
@@ -27,7 +27,7 @@ public class EntrerUnNombre extends Message {
 
 	/** Numero de la Variable qui m�morise le code */
 	public int numeroDeVariable;
-	/** Tableau des chiffres rentr�s par le joueur */
+	/** Tableau des chiffres rentres par le joueur */
 	private int[] chiffresRentres;
 	private Texte[] chiffresRentresTexte;
 

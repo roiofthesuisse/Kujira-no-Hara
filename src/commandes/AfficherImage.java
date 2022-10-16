@@ -23,8 +23,8 @@ public class AfficherImage extends Commande implements CommandeEvent {
 
 	private String nomImage;
 	public BufferedImage image;
-	/** Numero de l'image a d�placer */
-	private Integer numero; // Integer car utilis� comme cl� d'une HashMap
+	/** Numero de l'image a deplacer */
+	private Integer numero; // Integer car utilis� comme cla d'une HashMap
 
 	/** la nouvelle origine est-elle le centre de l'image ? */
 	private boolean centre;

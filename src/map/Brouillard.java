@@ -16,7 +16,7 @@ import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Le Brouillard est une image ajout�e en transparence par dessus la Map et ses Events.
- * Son int�r�t est d'enrichir l'ambiance colorim�trique du d�cor.
+ * Son int�r�t est d'enrichir l'ambiance colorim�trique du decor.
  */
 public final class Brouillard implements Sauvegardable {
 	private static final Logger LOG = LogManager.getLogger(Brouillard.class);
@@ -189,7 +189,7 @@ public final class Brouillard implements Sauvegardable {
 	 * Calcule la position Ou dessiner l'image du Brouillard.
 	 * @param numeroVignette l'ecran est recouvert plusieurs fois avec l'image du Brouillard si elle est petite
 	 * @param tailleBrouillard taille de l'image du Brouillard
-	 * @param decalageTemporel l'image du Brouillard se d�place a l'ecran
+	 * @param decalageTemporel l'image du Brouillard se deplace a l'ecran
 	 * @param positionCamera position de la cam�ra par rapport au coin haut-gauche de la Map
 	 * @return position de la vignette par rapport au coin haut-gauche de l'ecran
 	 */

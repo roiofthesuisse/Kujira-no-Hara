@@ -11,7 +11,7 @@ import utilitaire.graphismes.Graphismes;
 /**
  * Modifier le ton de l'ecran. Utile pour les ambiances lumineuses. Le ton de
  * l'ecran est propre au Tileset, donc le changement de ton est conserv� d'une
- * Map a l'autre si le Tileset est le m�me
+ * Map a l'autre si le Tileset est le meme
  */
 public class ModifierTonDeLEcran extends Commande implements CommandeEvent {
 	// constante

@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Permet d'uniformiser le controle de la Musique malgr� les differents formats audio.
+ * Permet d'uniformiser le controle de la Musique malgre les differents formats audio.
  */
 public abstract class Musique {
 	//constantes

@@ -7,12 +7,12 @@ import org.apache.logging.log4j.Logger;
 
 import main.Main;
 import map.Event;
+import map.Event.Direction;
 import map.Heros;
 import map.Passabilite;
-import map.Event.Direction;
 
 /**
- * D�placer un Event dans une Direction et d'un certain nombre de cases.
+ * Deplacer un Event dans une Direction et d'un certain nombre de cases.
  */
 public class Avancer extends Mouvement {
 	protected static final Logger LOG = LogManager.getLogger(Avancer.class);
@@ -20,9 +20,9 @@ public class Avancer extends Mouvement {
 	
 	/** Direction dans laquelle l'Event doit avancer */
 	protected int direction;
-	/** Si l'Event marche vers un coin, on le decale l�g�rement pour qu'il puisse passer */
+	/** Si l'Event marche vers un coin, on le decale legerement pour qu'il puisse passer */
 	protected boolean onPeutContournerUnCoin;
-	/** D�calage de l'Event pour l'aider a franchir un coin */
+	/** Decalage de l'Event pour l'aider a franchir un coin */
 	protected int realignementX, realignementY;
 	/** Nombre de pixels parcourus a chaque pas */
 	private int enjambee;
@@ -49,13 +49,13 @@ public class Avancer extends Mouvement {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incr�mente le compteur "ceQuiAEteFait".
+	 * Puis incremente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	@Override
 	public void calculDuMouvement(final Event event) {
 		event.avance = true;
-		
+
 		//deplacement :
 		switch (this.direction) {
 			case Direction.BAS : 
@@ -71,7 +71,7 @@ public class Avancer extends Mouvement {
 				event.y -= this.enjambee; 
 				break;
 		}
-		//on actualise la compl�tion du Mouvement
+		//on actualise la completion du Mouvement
 		this.ceQuiAEteFait += this.enjambee;
 	}
 	
@@ -83,7 +83,7 @@ public class Avancer extends Mouvement {
 	public boolean mouvementPossible() {
 		final Event event = this.deplacement.getEventADeplacer();
 		
-		//pas besoin d'aller a la vitesse de l'Event si l'objectif est tr�s proche
+		//pas besoin d'aller a la vitesse de l'Event si l'objectif est tres proche
 		this.enjambee = Math.min(this.etapes - this.ceQuiAEteFait, event.vitesseActuelle.valeur);
 		
 		//si c'est le Heros, il n'avance pas s'il est en animation d'attaque
@@ -91,7 +91,7 @@ public class Avancer extends Mouvement {
 			return false;
 		}
 		
-		//si l'Event est lui-m�me traversable, il peut faire son mouvement
+		//si l'Event est lui-meme traversable, il peut faire son mouvement
 		if (event.traversableActuel == Passabilite.PASSABLE) {
 			return true;
 		}
@@ -113,7 +113,8 @@ public class Avancer extends Mouvement {
 			yAInspecter -= this.enjambee; 
 			break;
 		}
-		//calcul des collisions avec le d�cor et les autres Events
+
+		//calcul des collisions avec le decor et les autres Events
 		if (event.map.calculerSiLaPlaceEstLibre(xAInspecter, yAInspecter, event.largeurHitbox, event.hauteurHitbox, event.id)) {
 			// Aucun obstacle
 			// On peut avancer tout droit
@@ -138,7 +139,7 @@ public class Avancer extends Mouvement {
 
 	@Override
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
-		// M�me si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
+		// meme si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
 		mettreEventDansLaDirectionDuMouvement();
 		
 		if (this.onPeutContournerUnCoin) {
@@ -172,10 +173,12 @@ public class Avancer extends Mouvement {
 	}
 	
 	/**
-	 * Si l'Event ne peut pas avancer parce qu'il d�borde l�g�rement sur un coin, on le r�aligne pour l'aider a passer.
+	 * Si l'Event ne peut pas avancer parce qu'il butte legerement sur un coin, on
+	 * le r�aligne pour l'aider a passer.
+	 * 
 	 * @param xAInspecter Coordonnee X Ou l'Event voudrait aller
 	 * @param yAInspecter Coordonnee Y Ou l'Event voudrait aller
-	 * @param event qui veut avancer
+	 * @param event       qui veut avancer
 	 * @return true si on peut l'aider a contourner le coin, false sinon
 	 */
 	private boolean lObstacleEstUnCoinQueLOnPeutContourner(final int xAInspecter, final int yAInspecter, final Event event) {
@@ -241,8 +244,8 @@ public class Avancer extends Mouvement {
 	/**
 	 * Aider l'Event a contourner un coin.
 	 * @param event qui veut avancer
-	 * @param realignementX d�calage en X pour ne pas qu'il soit bloqu� sur le coin
-	 * @param realignementY d�calage en Y pour ne pas qu'il soit bloqu� sur le coin
+	 * @param realignementX decalage en X pour ne pas qu'il soit bloqu� sur le coin
+	 * @param realignementY decalage en Y pour ne pas qu'il soit bloqu� sur le coin
 	 */
 	public static void contournerUnCoin(final Event event, int realignementX, int realignementY) {
 		// On contourne un coin

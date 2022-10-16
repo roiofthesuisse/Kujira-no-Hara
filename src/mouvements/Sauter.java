@@ -12,7 +12,7 @@ import map.Passabilite;
 import utilitaire.GestionClavier.ToucheRole;
 
 /**
- * D�placer un Event dans une Direction et d'un certain nombre de cases
+ * Deplacer un Event dans une Direction et d'un certain nombre de cases
  */
 public class Sauter extends Mouvement {
 	//constantes
@@ -98,7 +98,7 @@ public class Sauter extends Mouvement {
 			this.xEventApresSaut = xEventAvantSaut + this.x*Main.TAILLE_D_UN_CARREAU;
 			this.yEventApresSaut = yEventAvantSaut + this.y*Main.TAILLE_D_UN_CARREAU;
 			
-			// Si l'Event est lui-m�me traversable, il peut �videmment faire son mouvement
+			// Si l'Event est lui-meme traversable, il peut �videmment faire son mouvement
 			if (event.traversableActuel == Passabilite.PASSABLE) {
 				return true;
 			}
@@ -132,7 +132,7 @@ public class Sauter extends Mouvement {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incr�mente le compteur "ceQuiAEteFait".
+	 * Puis incremente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	public final void calculDuMouvement(final Event event) {
@@ -166,7 +166,7 @@ public class Sauter extends Mouvement {
 		this.ceQuiAEteFait++;
 		
 		if (this.ceQuiAEteFait >= etapes) {
-			//le saut est fini, on d�place l'Event a l'arriv�e
+			//le saut est fini, on deplace l'Event a l'arriv�e
 			LOG.info("Fin du saut");
 			event.x = this.xEventApresSaut;
 			event.y = this.yEventApresSaut;

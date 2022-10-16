@@ -6,7 +6,7 @@ import main.Main;
 import map.Event;
 
 /**
- * D�placer un Event sur une case destination d�finie
+ * Deplacer un Event sur une case destination d�finie
  */
 public class SautAbsolu extends Sauter {
 	

@@ -62,7 +62,7 @@ public class LecteurMap extends Lecteur {
 	public int defilementX;
 	/** D�filement Y de la cam�ra */
 	public int defilementY;
-	/** D�calage (en pixels) de l'ecran a cause du tremblement de terre */
+	/** Decalage (en pixels) de l'ecran a cause du tremblement de terre */
 	public int tremblementDeTerre;
 	/** Transition visuelle avec la Map pr�c�dente */
 	public Transition transition = Transition.AUCUNE;
@@ -78,7 +78,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * A chaque frame, calcule l'ecran a afficher, avec le d�cor et les Events
+	 * A chaque frame, calcule l'ecran a afficher, avec le decor et les Events
 	 * dessus.
 	 * 
 	 * @param frame dont l'ecran est calcul�
@@ -103,7 +103,7 @@ public class LecteurMap extends Lecteur {
 		// panorama
 		BufferedImage ecran = dessinerPanorama(xCamera, yCamera);
 
-		// on dessine le d�cor inf�rieur
+		// on dessine le decor inf�rieur
 		animerLesAutotiles();
 		ecran = dessinerDecorInferieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
 
@@ -242,13 +242,13 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Dessiner a l'ecran le d�cor situe au dessus du Heros.
+	 * Dessiner a l'ecran le decor situe au dessus du Heros.
 	 * 
-	 * @param ecran            sur lequel dessiner le d�cor
+	 * @param ecran            sur lequel dessiner le decor
 	 * @param xCamera          position x de la cam�ra
 	 * @param yCamera          position y de la cam�ra
 	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile anim�
-	 * @return ecran avec le d�cor sup�rieur peint
+	 * @return ecran avec le decor sup�rieur peint
 	 */
 	private BufferedImage dessinerDecorSuperieur(BufferedImage ecran, final int xCamera, final int yCamera,
 			final int vignetteAutotile) {
@@ -258,13 +258,13 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Dessiner a l'ecran le d�cor situe en dessous du Heros.
+	 * Dessiner a l'ecran le decor situe en dessous du Heros.
 	 * 
-	 * @param ecran            sur lequel dessiner le d�cor
+	 * @param ecran            sur lequel dessiner le decor
 	 * @param xCamera          position x de la cam�ra
 	 * @param yCamera          position y de la cam�ra
 	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile anim�
-	 * @return ecran avec le d�cor inf�rieur peint
+	 * @return ecran avec le decor inf�rieur peint
 	 */
 	private BufferedImage dessinerDecorInferieur(BufferedImage ecran, final int xCamera, final int yCamera,
 			final int vignetteAutotile) {
@@ -333,11 +333,11 @@ public class LecteurMap extends Lecteur {
 		} else {
 			// lire tous les Events de la Map (sauf le Heros)
 			for (Event event : this.map.events) {
-				if (!event.equals(this.map.heros)) { // le Heros est calcul� en dernier
+				if (!event.equals(this.map.heros)) { // le Heros est calcula en dernier
 					activerUnePageEtLExecuter(event);
 				}
 			}
-			// le Heros est calcul� en dernier pour �viter les problemes d'�p�e
+			// le Heros est calcula en dernier pour �viter les problemes d'�p�e
 			if (!this.stopHeros) {
 				activerUnePageEtLExecuter(this.map.heros);
 			}
@@ -412,7 +412,7 @@ public class LecteurMap extends Lecteur {
 			for (Event event : this.map.events) {
 				if (!event.supprime && !event.platActuel) {
 					if (!event.auDessusDeToutActuel) {
-						// dessiner la bandelette de d�cor m�dian
+						// dessiner la bandelette de decor m�dian
 						bandeletteEvent = (event.y + event.hauteurHitbox - 1) / Main.TAILLE_D_UN_CARREAU;
 						if (bandeletteEvent > bandeletteActuelle) {
 							try {
@@ -423,7 +423,7 @@ public class LecteurMap extends Lecteur {
 											bandeletteActuelle * Main.TAILLE_D_UN_CARREAU - yCamera);
 								}
 							} catch (RasterFormatException e) {
-								LOG.warn("Bandelette de d�cor m�dian impossible a d�couper !");
+								LOG.warn("Bandelette de decor m�dian impossible a d�couper !");
 							}
 							bandeletteActuelle = bandeletteEvent;
 						}
@@ -441,7 +441,7 @@ public class LecteurMap extends Lecteur {
 			ecran = Graphismes.superposerImages(ecran, imageBandelette, -xCamera,
 					bandeletteActuelle * Main.TAILLE_D_UN_CARREAU - yCamera);
 
-			// Les Events au dessus de tout seront dessin�s apres le d�cor sup�rieur
+			// Les Events au dessus de tout seront dessin�s apres le decor sup�rieur
 
 		} catch (Exception e) {
 			LOG.error("Erreur lors du dessin des �v�nements :", e);
@@ -537,10 +537,10 @@ public class LecteurMap extends Lecteur {
 				map.heros.avance = true;
 			}
 
-			// d�placer chaque Event
+			// deplacer chaque Event
 			for (Event event : this.map.events) {
 				if (!event.supprime) {
-					event.deplacer(); // on effectue le deplacement si possible (pas d'obstacles rencontr�s)
+					event.deplacer(); // on effectue le deplacement si possible (pas d'obstacles rencontres)
 				}
 			}
 		} catch (Exception e) {
@@ -748,7 +748,7 @@ public class LecteurMap extends Lecteur {
 		Main.futurLecteur = this;
 		Main.lecteur.allume = false;
 
-		// On d�truit le Tileset actuel si le prochain n'est pas le m�me
+		// On d�truit le Tileset actuel si le prochain n'est pas le meme
 		if (this.map.tileset != null && !this.map.tileset.nom.equals(nouvelleMap.tileset.nom)) {
 			this.map.tileset = null;
 		}
@@ -819,12 +819,12 @@ public class LecteurMap extends Lecteur {
 	private int calculerXCamera() {
 		final int largeurMap = map.largeur;
 		if (!this.map.defilementCameraX) {
-			// map tr�s petite, d�filement inutile
+			// map tres petite, d�filement inutile
 			return this.tremblementDeTerre;
 		} else {
 			// grande map, d�filement possible
 
-			// Si l'event saute, la cam�ra est d�corr�l�e de la position du Heros
+			// Si l'event saute, la cam�ra est decorr�l�e de la position du Heros
 			final int xHeros;
 			if (this.map.heros.saute && this.map.heros.deplacementForce != null
 					&& this.map.heros.deplacementForce.mouvements != null
@@ -862,12 +862,12 @@ public class LecteurMap extends Lecteur {
 	private int calculerYCamera() {
 		final int hauteurMap = map.hauteur;
 		if (!this.map.defilementCameraY) {
-			// map tr�s petite, d�filement inutile
+			// map tres petite, d�filement inutile
 			return 0;
 		} else {
 			// grande map, d�filement possible
 
-			// Si l'event saute, la cam�ra est d�corr�l�e de la position du Heros
+			// Si l'event saute, la cam�ra est decorr�l�e de la position du Heros
 			final int yHeros;
 			if (this.map.heros.saute && this.map.heros.deplacementForce != null
 					&& this.map.heros.deplacementForce.mouvements != null
@@ -937,7 +937,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * D�placer le Heros vers le haut
+	 * Deplacer le Heros vers le haut
 	 */
 	public final void haut() {
 		if (this.messageActuel != null) {
@@ -951,7 +951,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * D�placer le Heros vers la gauche
+	 * Deplacer le Heros vers la gauche
 	 */
 	public final void gauche() {
 		if (this.messageActuel != null) {
@@ -965,7 +965,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * D�placer le Heros vers le bas
+	 * Deplacer le Heros vers le bas
 	 */
 	public final void bas() {
 		if (this.messageActuel != null) {
@@ -979,7 +979,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * D�placer le Heros vers la droite
+	 * Deplacer le Heros vers la droite
 	 */
 	public final void droite() {
 		if (this.messageActuel != null) {

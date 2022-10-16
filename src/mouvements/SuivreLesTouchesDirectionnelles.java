@@ -21,9 +21,9 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	private int deltaX;
 	private int deltaY;
 	
-	/** Si l'Event marche vers un coin, on le decale l�g�rement pour qu'il puisse passer */
+	/** Si l'Event marche vers un coin, on le decale legerement pour qu'il puisse passer */
 	private boolean onPeutContournerUnCoin;
-	/** D�calage de l'Event pour l'aider a franchir un coin */
+	/** Decalage de l'Event pour l'aider a franchir un coin */
 	private int realignementX, realignementY;
 	/** Inertie : le Heros avance moins vite lors de la premi�re frame d'appui */
 	private boolean toucheEnfonceeALaFramePrecedente;
@@ -210,8 +210,8 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 							this.realignementY = unPas.realignementY;
 						}
 					} else if (this.toucheEnfonceeALaFramePrecedente && event instanceof Heros) {
-						// Inertie : m�me si on ne presse plus les touches, le Heros avance encore un peu
-						final int vitesseInertie = Math.max(1, event.pageActive.vitesse.valeur/2);
+						// Inertie : meme si on ne presse plus les touches, le Heros avance encore un peu
+						final int vitesseInertie = Math.max(1, event.vitesseActuelle.valeur / 2);
 						final Avancer unPas = unPasVers(event.direction, event, vitesseInertie);
 						if (unPas.mouvementPossible()) {
 							ilYADeplacement = true;
@@ -254,10 +254,10 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	private int vitesse(final Event event) {
 		if (event instanceof Heros && !this.toucheEnfonceeALaFramePrecedente) {
 			// inertie : si on vient d'appuyer sur la touche, le Heros va moins vite
-			return Math.max(1, event.pageActive.vitesse.valeur/2);
+			return Math.max(1, event.vitesseActuelle.valeur / 2);
 		} else {
 			// vitesse maximale de l'Event
-			return event.pageActive.vitesse.valeur;
+			return event.vitesseActuelle.valeur;
 		}
 	}
 
@@ -305,7 +305,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 
 	@Override
 	protected final void ignorerLeMouvementSpecifique(final Event event) {
-		// M�me si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
+		// meme si Avancer est impossible (mur...), l'Event regarde dans la direction du Mouvement
 		mettreEventDansLaDirectionDuMouvement();
 		
 		if (this.onPeutContournerUnCoin) {

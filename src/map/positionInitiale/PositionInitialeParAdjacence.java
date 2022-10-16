@@ -15,7 +15,7 @@ public class PositionInitialeParAdjacence extends PositionInitiale {
 	
 	/**
 	 * Constructeur explicite
-	 * @param decalageDebutHeros d�calage (en nombre de cases) du Heros par rapport a l'ancienne Map
+	 * @param decalageDebutHeros decalage (en nombre de cases) du Heros par rapport a l'ancienne Map
 	 * @param directionDebutHeros direction initiale du Heros
 	 * @param xHerosMapPrecedente Coordonnee x (en pixels) du Heros sur la Map pr�c�dente
 	 * @param yHerosMapPrecedente Coordonnee y (en pixels) du Heros sur la Map pr�c�dente

@@ -22,7 +22,7 @@ import main.Commande;
 public abstract class Condition extends Commande {
 	private static final Logger LOG = LogManager.getLogger(Condition.class);
 
-	public int numero = -1; // le Numero de condition est le m�me que le Numero de fin de condition qui
+	public int numero = -1; // le Numero de condition est le meme que le Numero de fin de condition qui
 							// correspond
 
 	/**
@@ -54,7 +54,7 @@ public abstract class Condition extends Commande {
 			while (!onATrouveLaFinDeSi) {
 				nouveauCurseur++;
 				try {
-					// la fin de si a le m�me numero que la condition
+					// la fin de si a le meme numero que la condition
 					if (((Condition) commandes.get(nouveauCurseur)).numero == numero) {
 						onATrouveLaFinDeSi = true;
 					}
@@ -79,14 +79,14 @@ public abstract class Condition extends Commande {
 	 * Est-ce que la Condition demande un mouvement particulier du Heros ? Contact,
 	 * Arriv�eAuContact, Parler...
 	 * 
-	 * @return false si la Condition est a consid�rer pour l'apparence d'un Event,
+	 * @return false si la Condition est a considerer pour l'apparence d'un Event,
 	 *         false sinon
 	 */
 	public abstract boolean estLieeAuHeros();
 
 	/**
 	 * Les Commandes de Menu sont instantann�es et donc n'utilisent pas de curseur.
-	 * Cette Methode, exig�e par CommandeMenu, est la m�me pour toutes les
+	 * Cette Methode, exig�e par CommandeMenu, est la meme pour toutes les
 	 * Conditions.
 	 */
 	public void executer() {

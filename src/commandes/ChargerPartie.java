@@ -127,7 +127,7 @@ public class ChargerPartie extends Commande implements CommandeMenu {
 			// Hashage de la cl�
 			final SecretKeySpec cleHashee = construireCleDeCryptage();
 
-			// D�cryptage du texte avec la cl� hash�e
+			// D�cryptage du texte avec la cla hash�e
 			final Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
 			final byte[] ivByte = new byte[cipher.getBlockSize()];
 			final IvParameterSpec ivParamsSpec = new IvParameterSpec(ivByte);

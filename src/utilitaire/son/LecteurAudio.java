@@ -99,7 +99,7 @@ public abstract class LecteurAudio {
 		}
 		
 		if (LecteurAudio.bgmEnCours[piste] != null && nom.equals(LecteurAudio.bgmEnCours[piste].nom)) {
-			// M�me morceau que le pr�c�dent
+			// meme morceau que le pr�c�dent
 			if (bgmEnCours[piste].volumeActuel != volume) {
 				// Modification du volume uniquement
 				bgmEnCours[piste].modifierVolume(volume);

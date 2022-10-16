@@ -6,7 +6,7 @@ import main.Main;
 import map.Event;
 
 /**
- * D�placer un Event dans sa direction actuelle.
+ * Deplacer un Event dans sa direction actuelle.
  */
 public class PasEnAvant extends Avancer {
 

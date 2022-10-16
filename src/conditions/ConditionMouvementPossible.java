@@ -18,7 +18,7 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	/**
 	 * Constructeur explicite
 	 * @param numero de la condition
-	 * @param deplacement qui ne contient qu'un Mouvement, ainsi que l'id de l'Event a d�placer
+	 * @param deplacement qui ne contient qu'un Mouvement, ainsi que l'id de l'Event a deplacer
 	 */
 	public ConditionMouvementPossible(final int numero, final Deplacement deplacement) {
 		this.numero = numero;

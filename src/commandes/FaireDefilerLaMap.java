@@ -55,7 +55,7 @@ public class FaireDefilerLaMap extends Commande implements CommandeEvent {
 			this.initialisationFaite = true;
 		}
 
-		// on d�place la cam�ra
+		// on deplace la cam�ra
 		final LecteurMap lecteurMap = (LecteurMap) Main.lecteur;
 		switch (direction) {
 		case 0:

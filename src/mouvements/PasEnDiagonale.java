@@ -4,13 +4,13 @@ import java.util.HashMap;
 
 import main.Main;
 import map.Event;
-import map.Heros;
 import map.Event.Direction;
-import utilitaire.Maths;
+import map.Heros;
 import map.Passabilite;
+import utilitaire.Maths;
 
 /**
- * D�placer un Event d'un pas en diagonale
+ * Deplacer un Event d'un pas en diagonale
  */
 public class PasEnDiagonale extends Avancer {
 	int directionVerticale;
@@ -41,7 +41,7 @@ public class PasEnDiagonale extends Avancer {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incr�mente le compteur "ceQuiAEteFait".
+	 * Puis incremente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	@Override
@@ -67,7 +67,7 @@ public class PasEnDiagonale extends Avancer {
 				event.y -= enjambee; 
 				break;
 		}
-		//on actualise la compl�tion du Mouvement
+		//on actualise la completion du Mouvement
 		this.ceQuiAEteFait += enjambee;
 	}
 
@@ -84,12 +84,12 @@ public class PasEnDiagonale extends Avancer {
 			return false;
 		}
 		
-		//si l'Event est lui-m�me traversable, il peut faire son mouvement
+		//si l'Event est lui-meme traversable, il peut faire son mouvement
 		if (event.traversableActuel == Passabilite.PASSABLE) {
 			return true;
 		}
 		
-		//collisions avec le d�cor et les autres Events
+		//collisions avec le decor et les autres Events
 		int xAInspecter = event.x;
 		int yAInspecter = event.y;
 		switch (this.directionVerticale) {

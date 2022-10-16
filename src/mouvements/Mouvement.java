@@ -91,7 +91,7 @@ public abstract class Mouvement {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incr�mente le compteur "ceQuiAEteFait".
+	 * Puis incremente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	protected abstract void calculDuMouvement(Event event);
@@ -131,7 +131,7 @@ public abstract class Mouvement {
 		
 		// Si le Deplacement est perp�tuel, on remet ce Mouvement en fin de liste
 		if (this.deplacement.repeterLeDeplacement) {
-			if (!this.deplacement.naturel //un Mouvement forc� perp�tuel ne s'arrete pas m�me si la Page de l'Event change
+			if (!this.deplacement.naturel //un Mouvement forc� perp�tuel ne s'arrete pas meme si la Page de l'Event change
 			|| laPageEstToujoursLaMeme) { //un Mouvement naturel perp�tuel s'arrete si la Page change
 				deplacementNaturelOuForce.mouvements.add(this);
 			} else {

@@ -95,7 +95,7 @@ public class Liste<T extends Listable> {
 	/**
 	 * Recenser les Listables qui figureront dans la Liste.
 	 * @param provenance classe d'Ou proviennent les Listables
-	 * @param possedes consid�rer seulement les Listables poss�d�s ou non
+	 * @param possedes considerer seulement les Listables poss�d�s ou non
 	 * @param avec identifiants des collectables a inclure
 	 * @param toutSauf identifiants des collectables a ne pas inclure
 	 */
@@ -107,7 +107,7 @@ public class Liste<T extends Listable> {
 			this.tousLesListables = (Map<Integer, Listable>) 
 					provenance.getDeclaredMethod(METHODE_OBTENIR_LISTABLES, Boolean.class).invoke(null, possedes);
 			
-			// Recensement des Numeros des Listables a consid�rer
+			// Recensement des Numeros des Listables a considerer
 			if (avec != null && avec.size()>0) {
 				// liste blanche
 				this.numerosDesListables = avec;

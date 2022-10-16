@@ -145,7 +145,7 @@ public abstract class Graphismes {
 			// rotation de l'image
 			final double angleRadians = Math.toRadians(angle);
 
-			// La translation avant la rotation n'est pas forc�ment la m�me apres la
+			// La translation avant la rotation n'est pas forc�ment la meme apres la
 			// rotation, car la taille de l'image a chang�
 			final double preTranslationX = image2.getWidth() / 2;
 			final double preTranslationY = image2.getHeight() / 2;

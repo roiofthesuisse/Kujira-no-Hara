@@ -10,7 +10,7 @@ import map.Passabilite;
 import utilitaire.Maths;
 
 /**
- * D�placer un Event d'un pas en diagonale
+ * Deplacer un Event d'un pas en diagonale
  */
 public class OrbiterAutourDUnEvent extends Mouvement {
 	private final Object idEventCentral;
@@ -39,7 +39,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	
 	/** 
 	 * Applique l'effet du Mouvement sur la Map et les Events.
-	 * Puis incr�mente le compteur "ceQuiAEteFait".
+	 * Puis incremente le compteur "ceQuiAEteFait".
 	 * @param event subissant le Mouvement
 	 */
 	@Override
@@ -66,12 +66,12 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 			return false;
 		}
 		
-		//si l'Event est lui-m�me traversable, il peut faire son mouvement
+		//si l'Event est lui-meme traversable, il peut faire son mouvement
 		if (event.traversableActuel == Passabilite.PASSABLE) {
 			return true;
 		}
 		
-		//collisions avec le d�cor et les autres Events
+		//collisions avec le decor et les autres Events
 		calculerNouvellesCoordonnees(event, trouverEventCentral());
 		return event.map.calculerSiLaPlaceEstLibre(this.nouveauX, this.nouveauY, event.largeurHitbox, event.hauteurHitbox, event.id);
 	}
@@ -83,7 +83,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	
 	/**
 	 * Calculer les deplacements (en pixels) en x et en y lors de cette frame-ci.
-	 * @param event a d�placer
+	 * @param event a deplacer
 	 * @param eventCentral centre du cercle
 	 */
 	private void calculerNouvellesCoordonnees(final Event event, final Event eventCentral) {	

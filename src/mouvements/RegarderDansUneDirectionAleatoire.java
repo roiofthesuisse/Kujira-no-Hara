@@ -6,7 +6,7 @@ import map.Event.Direction;
 import utilitaire.Maths;
 
 /**
- * D�placer un Event dans une Direction al�atoire et d'un certain nombre de cases
+ * Deplacer un Event dans une Direction al�atoire et d'un certain nombre de cases
  */
 public class RegarderDansUneDirectionAleatoire extends RegarderDansUneDirection {
 	//constantes
@@ -30,7 +30,7 @@ public class RegarderDansUneDirectionAleatoire extends RegarderDansUneDirection 
 	@Override
 	public final void reinitialiserSpecifique() {
 		int nouvelleDirection = Maths.generateurAleatoire.nextInt(NOMBRE_DE_DIRECTIONS_POSSIBLES);
-		//ne pas utiliser la m�me direction que la direction actuelle sinon aucun changement
+		//ne pas utiliser la meme direction que la direction actuelle sinon aucun changement
 		if ( (  this.direction==Direction.BAS && nouvelleDirection==Direction.BAS) 
 			|| (this.direction==Direction.GAUCHE && nouvelleDirection==Direction.GAUCHE) 
 			|| (this.direction==Direction.DROITE && nouvelleDirection==Direction.DROITE) 

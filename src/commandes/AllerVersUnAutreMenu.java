@@ -53,7 +53,7 @@ public class AllerVersUnAutreMenu extends Commande implements CommandeMenu {
 		// Quel est le Menu parent du prochain Menu ?
 		Menu menuParent;
 		if (estUnMenuFrere) {
-			// Le Menu actuel est le fr�re du prochain Menu, ils ont le m�me Menu parent
+			// Le Menu actuel est le fr�re du prochain Menu, ils ont le meme Menu parent
 			menuParent = this.element.menu.menuParent;
 		} else {
 			// Le Menu actuel est le p�re du prochain Menu

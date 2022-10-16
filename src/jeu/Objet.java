@@ -32,7 +32,7 @@ public class Objet implements Listable {
 	private static final Logger LOG = LogManager.getLogger(Objet.class);
 	public static Objet[] objetsDuJeu = chargerLesObjetsDuJeu();
 	
-	public final Integer idObjet; //Integer car cl� d'une HashMap
+	public final Integer idObjet; //Integer car cla d'une HashMap
 	public final ArrayList<String> nom;
 	private final String nomIcone;
 	private BufferedImage icone;
@@ -111,7 +111,7 @@ public class Objet implements Listable {
 			boolean identifiantUnique = true;
 			for (Objet objet2 : objets) {
 				if (objet2.idObjet.equals(objet.idObjet)) {
-					LOG.error("Les deux objets ont le m�me identifiant : "+objet.nom+", "+objet2.nom);
+					LOG.error("Les deux objets ont le meme identifiant : "+objet.nom+", "+objet2.nom);
 					identifiantUnique = false;
 				}
 			}

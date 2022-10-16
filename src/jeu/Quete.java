@@ -36,7 +36,7 @@ public class Quete implements Listable {
 	public static final HashMap<String, BufferedImage> ICONES_MEMORISEES = new HashMap<String, BufferedImage>();
 	public static Quete[] quetesDuJeu;
 
-	public Integer id; // Integer car cl� d'une HashMap
+	public Integer id; // Integer car cla d'une HashMap
 	public ArrayList<String> nom;
 	public ArrayList<String> description;
 	private final String nomIconeQuetePasFaite;

@@ -30,8 +30,8 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	 */
 	private static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAULT = false;
 
-	/** Numero de l'image a d�placer */
-	private Integer numero; // Integer car utilis� comme cl� d'une HashMap
+	/** Numero de l'image a deplacer */
+	private Integer numero; // Integer car utilis� comme cla d'une HashMap
 	/** Duree (en frames) de la transition */
 	private int nombreDeFrames;
 	private int dejaFait;
@@ -234,7 +234,7 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	 * passer imm�diatement a la Commande suivante. Ce deplacement s'effectue donc
 	 * en parallele, de maniere ind�pendante.
 	 * 
-	 * @param picture image a d�placer
+	 * @param picture image a deplacer
 	 */
 	public final void executerCommeUnDeplacementPropre(final Picture picture) {
 		calculerDeplacement();

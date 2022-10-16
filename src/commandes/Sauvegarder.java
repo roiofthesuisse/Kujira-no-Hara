@@ -134,7 +134,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 			// Hashage de la cl�
 			final SecretKeySpec cleHashee = construireCleDeCryptage();
 
-			// Cryptage du texte avec la cl� hash�e
+			// Cryptage du texte avec la cla hash�e
 			byte[] text = jsonStringSauvegarde.getBytes("UTF8");
 			// On ajoute des ZZZZ a la fin pour avoir une taille multiple de 16
 			text = ajouterAppendice(text);

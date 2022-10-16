@@ -18,7 +18,7 @@ public class ConditionEtatQuete extends Condition implements CommandeEvent, Comm
 	 * Constructeur explicite
 	 * @param numero de la Condition
 	 * @param idQuete identifiant de la Qu�te a v�rifier
-	 * @param avancementVoulu Etat de compl�tion attendu pour cette Qu�te 
+	 * @param avancementVoulu Etat de completion attendu pour cette Qu�te 
 	 */
 	public ConditionEtatQuete(final int numero, final int idQuete, final AvancementQuete avancementVoulu) {
 		this.numero = numero;

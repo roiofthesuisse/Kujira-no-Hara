@@ -10,7 +10,7 @@ import map.PageEvent;
 
 /**
  * Executer une Commande comme si c'�tait un Mouvement.
- * Attention : �a ne marche qu'avec des Commandes tr�s simples.
+ * Attention : �a ne marche qu'avec des Commandes tres simples.
  */
 public class AppelerUneCommande extends Mouvement implements CommandeEvent {
 	final Commande commande;

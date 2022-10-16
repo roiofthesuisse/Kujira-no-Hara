@@ -20,7 +20,7 @@ public class Picture implements Sauvegardable {
 	
 	public String nomImage;
 	public BufferedImage image;
-	public Integer numero; //Integer car utilis� comme cl� d'une HashMap
+	public Integer numero; //Integer car utilis� comme cla d'une HashMap
 	/** Coordonnee x d'affichage par rapport au coin de l'ecran */
 	public int x;
 	/** Coordonnee y d'affichage par rapport au coin de l'ecran */
@@ -35,7 +35,7 @@ public class Picture implements Sauvegardable {
 	public ModeDeFusion modeDeFusion;
 	/** angle de rotation de l'image */
 	public int angle;
-	/** L'image bouge-t-elle d'elle-m�me ? */
+	/** L'image bouge-t-elle d'elle-meme ? */
 	public DeplacerImage deplacementActuel;
 	
 	/**
@@ -95,7 +95,7 @@ public class Picture implements Sauvegardable {
 			// Toutes les places de la liste ne sont pas forcement occupees
 			if (picture != null) {
 				
-				// D�placer les images (dont le deplacement a ete d�l�gu� au LecteurMap par une Commande)
+				// Deplacer les images (dont le deplacement a ete d�l�gu� au LecteurMap par une Commande)
 				if (picture.deplacementActuel != null) {
 					picture.deplacementActuel.executerCommeUnDeplacementPropre(picture);
 				}

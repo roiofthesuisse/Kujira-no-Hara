@@ -48,7 +48,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 			final int ymin2 = event.y;
 			final int ymax2 = event.y+event.hauteurHitbox;
 			final int dir = heros.direction;
-			//il faut etre coll� a l'�v�nement et regarder vers lui
+			//il faut etre colla a l'�v�nement et regarder vers lui
 			switch(dir) {
 				case Event.Direction.HAUT:
 					if ( Math.abs(ymin1-ymax2) > DISTANCE_MAX_PAROLE ) {

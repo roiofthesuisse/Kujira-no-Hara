@@ -23,8 +23,8 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.son.Musique;
 
 /**
- * Une Map est un d�cor rectangulaire constitu� de briques issues du Tileset.
- * Le Heros et les Events se d�placent dedans.
+ * Une Map est un decor rectangulaire constitu� de briques issues du Tileset.
+ * Le Heros et les Events se deplacent dedans.
  */
 public class Map implements Sauvegardable {
 	//constantes
@@ -33,7 +33,7 @@ public class Map implements Sauvegardable {
 	private static final int NOMBRE_ALTITUDES = 6;
 	/** L'altitude m�diane est celle affichee avec les Events ; les autres altitudes sont soit dessous, soit dessus */
 	private static final int ALTITUDE_MEDIANE = 1;
-	/** Le d�cor est constitu� de 3 couches, afin de pouvoir superposer plusieurs carreaux au m�me endroit de la Map */
+	/** Le decor est constitu� de 3 couches, afin de pouvoir superposer plusieurs carreaux au meme endroit de la Map */
 	private static final int NOMBRE_LAYERS = 3;
 	/** La position intiale du Heros sur cette Map est d�crite par 5 parametres */
 	private static final int POSITION_INITIALE_PAR_X_Y_ET_DIRECTION = 5;
@@ -53,7 +53,7 @@ public class Map implements Sauvegardable {
 	public Float volumeBGS;
 	/** Nom du Tileset utilis� */
 	public String nomTileset;
-	/** Image contenant les tuiles constitutives de d�cor possibles */
+	/** Image contenant les tuiles constitutives de decor possibles */
 	public Tileset tileset;
 	/** Image de panorama actuel affiche derri�re la Map */
 	public BufferedImage panoramaActuel;
@@ -61,7 +61,7 @@ public class Map implements Sauvegardable {
 	public int parallaxeActuelle;
 	/** Dimensions de la Map (en nombre de cases) */
 	public final int largeur, hauteur;
-	/** Trois couches de d�cor pour pouvoir placer plusieurs tuiles sur la m�me case */
+	/** Trois couches de decor pour pouvoir placer plusieurs tuiles sur la meme case */
 	public final int[][] layer0, layer1, layer2;
 	public final int[][][] layers;
 	/** en cas d'Autotile anim� */
@@ -70,9 +70,9 @@ public class Map implements Sauvegardable {
 	private BufferedImage[] imagesCoucheAvecHeros;
 	/** en cas d'Autotile anim� */
 	private BufferedImage[] imagesCoucheSurHeros;
-	/** Le d�cor contient-il des autotiles anim�s ? */
+	/** Le decor contient-il des autotiles anim�s ? */
 	public boolean contientDesAutotilesAnimes;
-	/** Brouillard affiche par dessus de d�cor et les Events */
+	/** Brouillard affiche par dessus de decor et les Events */
 	public Brouillard brouillard;
 	/** liste des Events rang�s par Coordonnee y */
 	public ArrayList<Event> events;
@@ -174,11 +174,11 @@ public class Map implements Sauvegardable {
 		long t0 = System.nanoTime();
 		//chargement du tileset
 		try {
-			//si jamais le Tileset est le m�me, pas la peine de le recr�er
+			//si jamais le Tileset est le meme, pas la peine de le recr�er
 			final Tileset tilesetActuel = ((LecteurMap) Main.lecteur).map.tileset;
 			if (this.nomTileset.equals(tilesetActuel.nom)) {
 				this.tileset = tilesetActuel;
-				LOG.info("Le Tileset n'a pas chang�, on garde le m�me.");
+				LOG.info("Le Tileset n'a pas chang�, on garde le meme.");
 			} else {
 				throw new Exception("Le Tileset a chang�.");
 			}
@@ -197,11 +197,11 @@ public class Map implements Sauvegardable {
 		}
 		long t1 = System.nanoTime();
 			
-		//on dessine la couche de d�cor inf�rieure, qui sera sous le Heros et les �v�nements
+		//on dessine la couche de decor inf�rieure, qui sera sous le Heros et les �v�nements
 			this.imagesCoucheSousHeros = creerCoucheDeDecor(0, ALTITUDE_MEDIANE-1);
-		//on dessine la couche de d�cor m�diane, qui sera avec le Heros et les �v�nements
+		//on dessine la couche de decor m�diane, qui sera avec le Heros et les �v�nements
 			this.imagesCoucheAvecHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE, ALTITUDE_MEDIANE);
-		//on dessine la couche de d�cor sup�rieure, qui sera au dessus du Heros et des �v�nements
+		//on dessine la couche de decor sup�rieure, qui sera au dessus du Heros et des �v�nements
 			this.imagesCoucheSurHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE+1, NOMBRE_ALTITUDES-1);
 			long t2 = System.nanoTime();
 			Main.mesuresDePerformance.add((t1-t0)+";"+(t2-t1));
@@ -236,7 +236,7 @@ public class Map implements Sauvegardable {
 				this.heros.x = this.heros.x - (this.heros.x % Main.TAILLE_D_UN_CARREAU) + Main.TAILLE_D_UN_CARREAU/2 - this.heros.largeurHitbox/2;
 				this.heros.y = this.heros.y - (this.heros.y % Main.TAILLE_D_UN_CARREAU) + Main.TAILLE_D_UN_CARREAU/2 - this.heros.hauteurHitbox/2;
 			} else if (positionInitialeDuHeros.length == POSITION_INITIALE_PAR_X_Y_ET_DIRECTION) {
-				// Si c'est un d�filement, on reporte le d�calage de la Map pr�c�dente
+				// Si c'est un d�filement, on reporte le decalage de la Map pr�c�dente
 				final int ecartX = positionInitialeDuHeros[3];
 				final int ecartY = positionInitialeDuHeros[4];
 				if (transition.direction == Direction.BAS || transition.direction == Direction.HAUT) {
@@ -267,10 +267,10 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * L'affichage est un sandwich : une partie du d�cor est affichee par dessus les Events, une autre dessous, et une autre au m�me niveau.
-	 * @param altitudeMin premi�re altitude de cette couche de d�cor
-	 * @param altitudeMax derni�re altitude (incluse) de cette couche de d�cor
-	 * @return vignettes de la couche de d�cor
+	 * L'affichage est un sandwich : une partie du decor est affichee par dessus les Events, une autre dessous, et une autre au meme niveau.
+	 * @param altitudeMin premi�re altitude de cette couche de decor
+	 * @param altitudeMax derni�re altitude (incluse) de cette couche de decor
+	 * @return vignettes de la couche de decor
 	 */
 	private BufferedImage[] creerCoucheDeDecor(final int altitudeMin, final int altitudeMax) {
 		final BufferedImage[] vignettesDeCetteCouche = new BufferedImage[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME];
@@ -323,7 +323,7 @@ public class Map implements Sauvegardable {
 	 * @param xEcran position x Ou dessiner le carreau a l'ecran
 	 * @param yEcran position y Ou dessiner le carreau a l'ecran
 	 * @param numeroCarreau Numero du carreau a dessiner
-	 * @param tilesetUtilise Tileset utilis� pour interpreter le d�cor de la Map
+	 * @param tilesetUtilise Tileset utilis� pour interpreter le decor de la Map
 	 */
 	public final void dessinerCarreau(final BufferedImage ecran, final int xEcran, final int yEcran, final int numeroCarreau, final Tileset tilesetUtilise) {
 		final BufferedImage dessinCarreau = tilesetUtilise.carreaux[numeroCarreau];
@@ -337,30 +337,30 @@ public class Map implements Sauvegardable {
 	/**
 	 * Dessiner a l'ecran un carreau issu d'un autotile.
 	 * @warning Ne pas oublier de recuperer le r�sultat de cette Methode.
-	 * @param decorAnime partie anim�e du d�cor (� peindre dans le cas d'un Autotile anim�)
+	 * @param decorAnime partie anim�e du decor (� peindre dans le cas d'un Autotile anim�)
 	 * @param x Coordonnee x du carreau sur la Map
 	 * @param y Coordonnee y du carreau sur la Map
 	 * @param numeroCarreau Numero de l'autotile (Numero n�gatif)
-	 * @param tilesetUtilise Tileset utilis� pour interpreter le d�cor de la Map
-	 * @param layer couche de d�cor a laquelle appartient le carreau
-	 * @return nombre de vignettes n�cessaires pour constituer le d�cor �ventuellement anim�
+	 * @param tilesetUtilise Tileset utilis� pour interpreter le decor de la Map
+	 * @param layer couche de decor a laquelle appartient le carreau
+	 * @return nombre de vignettes n�cessaires pour constituer le decor �ventuellement anim�
 	 */
 	public final int dessinerAutotile(final BufferedImage[] decorAnime, final int x, final int y,
 			final int numeroCarreau, final Tileset tilesetUtilise, final int[][] layer) {
 		final Autotile autotile = tilesetUtilise.autotiles.get(numeroCarreau);
 		
-		//on pr�vient la Map qu'elle aura un d�cor anim�
+		//on pr�vient la Map qu'elle aura un decor anim�
 		if (autotile.anime && !this.contientDesAutotilesAnimes) {
 			this.contientDesAutotilesAnimes = true;
 			LOG.debug("Cette map contient des autotiles anim�s.");
 		}
 		
-		// on cr�e les vignettes manquantes pour l'animation du d�cor
+		// on cr�e les vignettes manquantes pour l'animation du decor
 		if (this.contientDesAutotilesAnimes && decorAnime[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME - 1] == null) {
 			for (int i = 1; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {
 				decorAnime[i] = Graphismes.clonerUneImage(decorAnime[0]);
 			}
-			LOG.debug("Cr�ation des differentes vignettes d'animation du d�cor.");
+			LOG.debug("Cr�ation des differentes vignettes d'animation du decor.");
 		}
 		
 		final int nombreDeVignettes = this.contientDesAutotilesAnimes ? Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME : 1;
@@ -369,12 +369,12 @@ public class Map implements Sauvegardable {
 		final BufferedImage[] dessinCarreau = autotile.calculerAutotile(x, y, this.largeur, this.hauteur, numeroCarreau, layer);
 		
 		if (autotile.anime) {
-			//d�cor anim� : on dessine les 4 �tapes de l'animation du d�cor
+			//decor anim� : on dessine les 4 �tapes de l'animation du decor
 			for (int i = 0; i<nombreDeVignettes; i++) {
 				Graphismes.superposerImages(decorAnime[i], dessinCarreau[i], x*Main.TAILLE_D_UN_CARREAU, y*Main.TAILLE_D_UN_CARREAU);
 			}
 		} else {
-			//d�cor fixe
+			//decor fixe
 			for (int i = 0; i<nombreDeVignettes; i++) {
 				Graphismes.superposerImages(decorAnime[i], dessinCarreau[0], x*Main.TAILLE_D_UN_CARREAU, y*Main.TAILLE_D_UN_CARREAU);
 			}
@@ -409,7 +409,7 @@ public class Map implements Sauvegardable {
 		for (Event event : this.events) {
 			event.map = this;
 			if (this.eventsHash.containsKey(event.id)) { //la Numerotation des Events comporte un doublon !
-				LOG.error("CONFLIT : les events "+this.eventsHash.get(event.id).nom+" et "+event.nom+" portent le m�me id : "+event.id);
+				LOG.error("CONFLIT : les events "+this.eventsHash.get(event.id).nom+" et "+event.nom+" portent le meme id : "+event.id);
 			}
 			this.eventsHash.put(event.id, event);
 		}
@@ -423,7 +423,7 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Cr�ation d'un tableau pour connaitre les passabilit�s de la Map plus rapidement par la suite.
+	 * Cr�ation d'un tableau pour connaitre les passabilites de la Map plus rapidement par la suite.
 	 */
 	private void creerListeDesCasesPassables() {
 		this.casePassable = new Passabilite[this.largeur][this.hauteur];
@@ -435,13 +435,13 @@ public class Map implements Sauvegardable {
 				// On cherche la plus haute couche dont le tile a une altitude de 0
 				int coucheDeBase = -1;
 				for (int k = 0; k<NOMBRE_LAYERS; k++) {
-					couche = layers[k]; //couche de d�cor
+					couche = layers[k]; //couche de decor
 					numeroDeLaCaseDansLeTileset = couche[i][j];
 					if (this.tileset.altitudeDeLaCase(numeroDeLaCaseDansLeTileset) == 0) {
 						coucheDeBase = k;
 					}
 				}
-				// Ce tile servira de base au calcul de la passabilit�
+				// Ce tile servira de base au calcul de la passabilite
 				final Passabilite passabiliteDeBase;
 				if (coucheDeBase == -1) {
 					passabiliteDeBase = Passabilite.PASSABLE;
@@ -451,7 +451,7 @@ public class Map implements Sauvegardable {
 				}
 				this.casePassable[i][j] = passabiliteDeBase;
 				
-				// De cette Passabilit� de base, on va soustraire les obstacles
+				// De cette passabilite de base, on va soustraire les obstacles
 				int tuileSuivante;
 				Passabilite passabiliteSuivante;
 				for (int k = coucheDeBase+1; k<NOMBRE_LAYERS; k++) {
@@ -468,12 +468,12 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Va chercher une couche de d�cor en particulier dans le fichier JSON qui repr�sente la Map.
+	 * Va chercher une couche de decor en particulier dans le fichier JSON qui repr�sente la Map.
 	 * @param jsonMap objet JSON repr�sentant la map
 	 * @param numeroCouche Numero de la couche a r�cuperer
 	 * @param largeur de la map
 	 * @param hauteur de la map
-	 * @return un tableau bidimentionnel contenant le d�cor situe sur cette couche
+	 * @return un tableau bidimentionnel contenant le decor situe sur cette couche
 	 */
 	public static int[][] recupererCouche(final JSONObject jsonMap, final int numeroCouche, final int largeur, final int hauteur) {
 		final int[][] couche = new int[largeur][hauteur];
@@ -512,10 +512,10 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Obtenir le d�cor a afficher par dessus les Events.
-	 * Ce d�cor est compos� du d�cor fixe et d'�ventuels autotiles anim�s.
+	 * Obtenir le decor a afficher par dessus les Events.
+	 * Ce decor est compos� du decor fixe et d'�ventuels autotiles anim�s.
 	 * @param vignetteAutotileActuelle vignette de l'Autotile a afficher
-	 * @return d�cor sup�rieur, avec l'autotile d�pendant de la frame
+	 * @return decor sup�rieur, avec l'autotile d�pendant de la frame
 	 */
 	public final BufferedImage getImageCoucheDecorSuperieur(final int vignetteAutotileActuelle) {
 		if (this.imagesCoucheSurHeros[1] != null) {
@@ -526,13 +526,13 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * Obtenir le d�cor a afficher au m�me niveau que les Events.
-	 * Ce d�cor est compos� du d�cor fixe et d'�ventuels autotiles anim�s.
+	 * Obtenir le decor a afficher au meme niveau que les Events.
+	 * Ce decor est compos� du decor fixe et d'�ventuels autotiles anim�s.
 	 * Il doit etre d�coup� en bandelettes pour s'intercaler avec les Events.
 	 * @param vignetteAutotileActuelle vignette de l'Autotile a afficher
 	 * @param debutBandelette a d�couper
 	 * @param finBandelette a d�couper
-	 * @return bandelette de d�cor m�dian, avec l'autotile d�pendant de la frame
+	 * @return bandelette de decor m�dian, avec l'autotile d�pendant de la frame
 	 */
 	public final BufferedImage getImageCoucheDecorMedian(final int vignetteAutotileActuelle, final int debutBandelette, final int finBandelette) {
 		final BufferedImage vignette;
@@ -551,11 +551,11 @@ public class Map implements Sauvegardable {
 		final int hauteurPossibleDeDecouper = vignette.getHeight() - debutDecoupageY; 
 		hauteurBandelette = Maths.min(hauteurBandelette, hauteurPossibleDeDecouper);
 		hauteurBandelette = Maths.max(hauteurBandelette, 0); // pas de bandelette de hauteur n�gative
-		// D�couper la bandelette de d�cor m�dian
+		// D�couper la bandelette de decor m�dian
 		try {
 			return vignette.getSubimage(0, debutDecoupageY, vignette.getWidth(), hauteurBandelette);
 		} catch (RasterFormatException e) {
-			/*LOG.error("La bandelette de d�cor m�dian a d�couper d�passe de la vignette source !"
+			/*LOG.error("La bandelette de decor m�dian a d�couper d�passe de la vignette source !"
 					+ " hauteur de la vignette ("+vignette.getHeight()
 					+ ") < d�but du d�coupage ("+debutDecoupageY
 					+ ") + hauteur de la bandelette ("+hauteurBandelette+")", e);
@@ -565,10 +565,10 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Obtenir le d�cor a afficher en dessous des Events.
-	 * Ce d�cor est compos� du d�cor fixe et d'�ventuels autotiles anim�s.
+	 * Obtenir le decor a afficher en dessous des Events.
+	 * Ce decor est compos� du decor fixe et d'�ventuels autotiles anim�s.
 	 * @param vignetteAutotileActuelle frame actuelle du Lecteur
-	 * @return d�cor inf�rieur, avec l'autotile d�pendant de la frame
+	 * @return decor inf�rieur, avec l'autotile d�pendant de la frame
 	 */
 	public final BufferedImage getImageCoucheDecorInferieur(final int vignetteAutotileActuelle) {
 		if (this.imagesCoucheSousHeros[1] != null) {
@@ -593,9 +593,9 @@ public class Map implements Sauvegardable {
 		final int xmax = xmin + largeurHitbox;
 		final int ymax = ymin + hauteurHitbox;
 		
-		// Est-ce que le d�cor permet de passer ici ?
+		// Est-ce que le decor permet de passer ici ?
 		if (!lEventEstSurUnDecorTraversable(event, xmin, ymin, xmax, ymax)) {
-			// Le d�cor n'est pas traversable ici !
+			// Le decor n'est pas traversable ici !
 			// La place n'est pas libre !
 			return false;
 		}
@@ -612,27 +612,27 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * Est-ce qu'on peut poser l'Event ici malgr� le d�cor ?
+	 * Est-ce qu'on peut poser l'Event ici malgre le decor ?
 	 * @param event qu'on voudrait placer ici
-	 * @param xmin Coordonnee (en pixels) de l� Ou on veut placer l'Event
-	 * @param ymin Coordonnee (en pixels) de l� Ou on veut placer l'Event
-	 * @param xmax Coordonnee (en pixels) de l� Ou on veut placer l'Event
-	 * @param ymax Coordonnee (en pixels) de l� Ou on veut placer l'Event
-	 * @return true si le d�cor est traversable ici, false sinon.
+	 * @param xmin Coordonnee (en pixels) de la ou on veut placer l'Event
+	 * @param ymin Coordonnee (en pixels) de la ou on veut placer l'Event
+	 * @param xmax Coordonnee (en pixels) de la ou on veut placer l'Event
+	 * @param ymax Coordonnee (en pixels) de la ou on veut placer l'Event
+	 * @return true si le decor est traversable ici, false sinon.
 	 */
 	public final boolean lEventEstSurUnDecorTraversable(final Event event, final int xmin, final int ymin, final int xmax, final int ymax) {
 		
-		/** Coordonnees (en nombre de cases) des cases Ou se situent les coins de l'Event */
+		/** Coordonnees (en nombre de cases) des cases ou se situent les coins de l'Event */
 		final int xCaseMin = xmin/Main.TAILLE_D_UN_CARREAU;
 		final int yCaseMin = ymin/Main.TAILLE_D_UN_CARREAU;
 		final int xCaseMax = (xmax-1)/Main.TAILLE_D_UN_CARREAU;
 		final int yCaseMax = (ymax-1)/Main.TAILLE_D_UN_CARREAU;
 		try {
-			// On consid�rera l'Event comme solide durant le calcul
+			// On considerera l'Event comme solide durant le calcul
 			// Si tel n'est pas le cas, on affiche une alerte
 			if (Passabilite.estMultilateral(event.traversableActuel)) {
-				LOG.error("L'event a une passabilit� multilat�rale ! "
-						+ "Impossible de calculer ses collisions avec le d�cor ! "
+				LOG.warn("L'event a une passabilite multilat�rale ! "
+						+ "Impossible de calculer ses collisions avec le decor ! "
 						+ "Il sera trait� comme solide.");
 			}
 			
@@ -651,7 +651,7 @@ public class Map implements Sauvegardable {
 				return false;
 			}
 			
-			//chevauchement entre deux cases et passabilit�s directionnelles
+			//chevauchement entre deux cases et passabilites directionnelles
 			/** Coordonnees (en nombre de cases) de la case Ou se situe le centre de l'Event */
 			final int xCaseCentre = ((xmin+xmax)/2) / Main.TAILLE_D_UN_CARREAU;
 			final int yCaseCentre = ((ymin+ymax)/2) / Main.TAILLE_D_UN_CARREAU;
@@ -694,12 +694,12 @@ public class Map implements Sauvegardable {
 	}
 	
 	/**
-	 * Est-ce qu'on peut poser l'Event ici malgr� les autres Events ?
+	 * Est-ce qu'on peut poser l'Event ici malgre les autres Events ?
 	 * @param event qu'on voudrait placer ici
-	 * @param xmin Coordonnee (en pixel) de l� Ou on veut placer l'Event
-	 * @param ymin Coordonnee (en pixel) de l� Ou on veut placer l'Event
-	 * @param xmax Coordonnee (en pixel) de l� Ou on veut placer l'Event
-	 * @param ymax Coordonnee (en pixel) de l� Ou on veut placer l'Event
+	 * @param xmin Coordonnee (en pixel) de la Ou on veut placer l'Event
+	 * @param ymin Coordonnee (en pixel) de la Ou on veut placer l'Event
+	 * @param xmax Coordonnee (en pixel) de la Ou on veut placer l'Event
+	 * @param ymax Coordonnee (en pixel) de la Ou on veut placer l'Event
 	 * @param largeurHitbox largeur (en pixels) de l'Event
 	 * @param hauteurHitbox largeur (en pixels) de l'Event
 	 * @param numeroEvent Numero de l'Event
@@ -714,9 +714,9 @@ public class Map implements Sauvegardable {
 		int ymax2;
 		for (Event autreEvent : this.events) {
 			
-			// Il ne faut pas qu'un Event interf�re avec lui-m�me
+			// Il ne faut pas qu'un Event interf�re avec lui-meme
 			if (numeroEvent != autreEvent.id) {
-				// Ce n'est pas le m�me Event
+				// Ce n'est pas le meme Event
 				
 				// Y a-t-il un choc physique ?
 				final boolean modeTraversable = 
@@ -749,7 +749,7 @@ public class Map implements Sauvegardable {
 						
 					} else if (Passabilite.estMultilateral(event.traversableActuel)
 							|| Passabilite.estMultilateral(autreEvent.traversableActuel)) {
-						// Passabilit�s multilat�rales
+						// passabilites multilat�rales
 						if (Hitbox.lesDeuxRectanglesSeChevauchentMultilateralement(
 								xmin, xmax, ymin, ymax, xmin2, xmax2, ymin2, ymax2,
 								event.traversableActuel.passableAGauche, event.traversableActuel.passableADroite, 

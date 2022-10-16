@@ -29,14 +29,14 @@ import menu.ElementDeMenu;
  * d'Event, ou par un El�ment de Menu.
  */
 public abstract class Commande {
-	// cl� de cryptage
+	// cla de cryptage
 	private static final Logger LOG = LogManager.getLogger(Commande.class);
 	private static final String CLE_CRYPTAGE_SAUVEGARDE = "t0p_k3k";
 	private static final int NOMBRE_OCTETS_HASH = 16;
 
-	/** [CommandeEvent] Eventuelle Page d'Event qui a appel� cette Commande */
+	/** [CommandeEvent] Eventuelle Page d'Event qui a appela cette Commande */
 	public PageEvent page;
-	/** [CommandeMenu] Element de Menu qui a appel� cette Commande de Menu */
+	/** [CommandeMenu] Element de Menu qui a appela cette Commande de Menu */
 	public ElementDeMenu element;
 
 	/**
@@ -58,9 +58,9 @@ public abstract class Commande {
 	}
 
 	/**
-	 * Construire la cl� de cryptage.
+	 * Construire la cla de cryptage.
 	 * 
-	 * @return cl� de cryptage
+	 * @return cla de cryptage
 	 */
 	protected static final SecretKeySpec construireCleDeCryptage() {
 		try {

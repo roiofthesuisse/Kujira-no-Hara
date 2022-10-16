@@ -32,7 +32,7 @@ public enum Transition {
 				int yTransitionNouvelleMap = 0;
 				int xTransitionAncienneMap = 0;
 				int yTransitionAncienneMap = 0;
-				int xDeplacementHeros = 0; //d�calage a compenser du Heros qui marche sur la nouvelle Map
+				int xDeplacementHeros = 0; //decalage a compenser du Heros qui marche sur la nouvelle Map
 				int yDeplacementHeros = 0;
 				//sens de la Transition
 				switch (this.direction) {

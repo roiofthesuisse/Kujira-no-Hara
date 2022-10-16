@@ -14,7 +14,7 @@ import main.Commande;
 public class BoucleFin extends Commande implements CommandeEvent, CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(BoucleFin.class);
 
-	public int numero; // le Numero de Boucle est le m�me que le Numero de fin de Boucle qui correspond
+	public int numero; // le Numero de Boucle est le meme que le Numero de fin de Boucle qui correspond
 
 	/**
 	 * Constructeur explicite

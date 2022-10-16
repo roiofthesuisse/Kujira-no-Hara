@@ -264,8 +264,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 					final int ymin2 = event2.y;
 					final int ymax2 = event2.y + event2.hauteurHitbox;
 					
-					// deux interpretations tr�s differentes du Contact selon la traversabilit� de l'event
-					// si un event traversable est situe sur un d�cor impraticable, le contact est solide
+					// deux interpretations tres differentes du Contact selon la traversabilit� de l'event
+					// si un event traversable est situe sur un decor impraticable, le contact est solide
 					final boolean modeTraversable = event2.traversableActuel == Passabilite.PASSABLE && event2SurUnDecorPassable
 							|| event1.traversableActuel == Passabilite.PASSABLE && event1SurUnDecorPassable
 							// si l'un des deux est le Heros

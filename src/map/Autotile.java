@@ -38,7 +38,7 @@ public class Autotile {
 	public static final int HAUTEUR_AUTOTILE = 4*Main.TAILLE_D_UN_CARREAU;
 	/** l'Autotile est compos� de 4 quarts */
 	public static final int TAILLE_MORCEAU = Main.TAILLE_D_UN_CARREAU/2;
-	/** d�calage pour aller piocher dans la vignette d'animation suivante (en nombre de quarts de carreaux) */
+	/** decalage pour aller piocher dans la vignette d'animation suivante (en nombre de quarts de carreaux) */
 	public static final int DECALAGE_VIGNETTE_SUIVANTE = 6;
 	
 	//quart haut gauche
@@ -144,7 +144,7 @@ public class Autotile {
 	 * @param numero de l'Autotile connu par le Tileset
 	 * @param nomImage nom de l'image de l'Autotile
 	 * @param passabilite peut-on marcher sur cette case ?
-	 * @param altitude d'affichage dans le d�cor
+	 * @param altitude d'affichage dans le decor
 	 * @param terrain sp�cial qui peut avoir des propri�t�s particuli�res
 	 * @param cousins autres autotiles qui peuvent se lier a celui-ci
 	 * @param tileset auquel appartient cet Autotile
@@ -192,8 +192,8 @@ public class Autotile {
 	 * @param y coordonnee y de la case sur la Map (en nombre de carreaux)
 	 * @param largeurMap largeur de la Map (en nombre de carreaux)
 	 * @param hauteurMap hauteur de la Map (en nombre de carreaux)
-	 * @param numeroCarreau Numero de ce carreau de d�cor issu du Tileset
-	 * @param layer une des trois couches de d�cor de l'�diteur de Maps
+	 * @param numeroCarreau Numero de ce carreau de decor issu du Tileset
+	 * @param layer une des trois couches de decor de l'�diteur de Maps
 	 * @return carreau liable avec la bonne apparence
 	 */
 	public final BufferedImage[] calculerAutotile(final int x, final int y, final int largeurMap, final int hauteurMap, final int numeroCarreau, final int[][] layer) {
@@ -207,7 +207,7 @@ public class Autotile {
 		boolean connexionHautGauche = false;
 		boolean connexionHautDroite = false;
 		
-		// On consid�re que le bord de l'ecran est liable lui aussi
+		// On considere que le bord de l'ecran est liable lui aussi
 		if (y == 0) {
 			//bord sup�rieur de l'ecran
 			connexionHaut = true;
@@ -250,7 +250,7 @@ public class Autotile {
 			connexionDroite = fautIlLierCeCarreauASonVoisin(numeroCarreau, numeroVoisin);
 		}
 		
-		// Selon les cas, ceux-l� ne sont pas forc�ment utiles pour dessiner le carreau
+		// Selon les cas, ceux-la ne sont pas forc�ment utiles pour dessiner le carreau
 		if (!connexionHautGauche) {
 			numeroVoisin = layer[x-1][y-1];
 			connexionHautGauche = fautIlLierCeCarreauASonVoisin(numeroCarreau, numeroVoisin);
