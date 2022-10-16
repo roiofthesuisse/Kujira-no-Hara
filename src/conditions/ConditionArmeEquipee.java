@@ -7,7 +7,7 @@ import commandes.CommandeMenu;
 import jeu.Partie;
 
 /**
- * V�rifie si le Heros a �quip� cette Arme.
+ * verifie si le Heros a �quip� cette Arme.
  */
 public class ConditionArmeEquipee extends Condition implements CommandeEvent, CommandeMenu {
 	public int idArme;
@@ -15,7 +15,7 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param idArme identifiant de l'Arme a v�rifier
+	 * @param idArme identifiant de l'Arme a verifier
 	 */
 	public ConditionArmeEquipee(final int numero, final int idArme) {
 		this.numero = numero;
@@ -43,7 +43,7 @@ public class ConditionArmeEquipee extends Condition implements CommandeEvent, Co
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
+	 * Ce n'est pas une Condition qui implique une proximite avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

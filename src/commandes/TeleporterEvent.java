@@ -48,7 +48,7 @@ public class TeleporterEvent extends Commande implements CommandeEvent {
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
 		final Event cetEvent;
 		if (idEvent == null) {
-			// si idEvent n'est pas pr�cis�, l'Event appelant est t�l�port� par d�faut
+			// si idEvent n'est pas pr�cis�, l'Event appelant est t�l�port� par defaut
 			cetEvent = this.page.event;
 		} else {
 			cetEvent = this.page.event.map.eventsHash.get((Integer) idEvent);

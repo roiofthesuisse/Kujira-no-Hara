@@ -69,7 +69,7 @@ public abstract class ListerLesScriptsRuby {
 											}
 										}
 									} catch (Exception e) {
-										//LOG.error("Commande irr�cup�rable : "+oCommande);
+										//LOG.error("Commande irrecuperable : "+oCommande);
 									}
 								}
 							} catch (Exception e) {

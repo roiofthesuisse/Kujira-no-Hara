@@ -13,7 +13,7 @@ import utilitaire.graphismes.ModeDeFusion;
 
 /**
  * Modifier l'image de Panorama pour en avoir une autre que celle associ�e par
- * d�faut au Tileset. On peut �galement changer le degr� de parallaxe.
+ * defaut au Tileset. On peut �galement changer le degr� de parallaxe.
  */
 public class ModifierBrouillard extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(ModifierBrouillard.class);
@@ -73,8 +73,8 @@ public class ModifierBrouillard extends Commande implements CommandeEvent {
 		// Y a-t-il deja un Brouillard actuel ?
 		if (brouillardActuel == null) {
 			// Il n'y a pas encore de Brouillard
-			// On cr�e un Brouillard tout neuf
-			// On utilise des valeurs par d�faut si manquantes
+			// On cree un Brouillard tout neuf
+			// On utilise des valeurs par defaut si manquantes
 			this.page.event.map.brouillard = new Brouillard(this.nomImage,
 					this.opacite == null ? Graphismes.OPACITE_MAXIMALE : this.opacite,
 					this.nomModeDeFusion == null ? ModeDeFusion.NORMAL : ModeDeFusion.parNom(this.nomModeDeFusion),

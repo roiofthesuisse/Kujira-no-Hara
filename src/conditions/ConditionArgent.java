@@ -18,7 +18,7 @@ public class ConditionArgent extends Condition implements CommandeEvent, Command
 	 * Constructeur explicite
 	 * @param numero de la Condition
 	 * @param quantite d'argent a poss�der
-	 * @param symbole de l'In�galit� a utiliser pour comparer l'argent
+	 * @param symbole de l'Inegalite a utiliser pour comparer l'argent
 	 */
 	public ConditionArgent(final int numero, final Integer quantite, final String symbole) {
 		this.numero = numero;

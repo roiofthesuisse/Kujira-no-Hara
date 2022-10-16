@@ -135,7 +135,7 @@ public abstract class Commande {
 		for (Object commandeJSON : commandesJSON) {
 			final Commande commande = recupererUneCommande((JSONObject) commandeJSON);
 			if (commande != null) {
-				// on v�rifie que c'est bien une CommandeEvent
+				// on verifie que c'est bien une CommandeEvent
 				if (commande instanceof CommandeEvent) {
 					commandes.add(commande);
 				} else {
@@ -157,7 +157,7 @@ public abstract class Commande {
 		for (Object commandeJSON : commandesJSON) {
 			final Commande commande = recupererUneCommande((JSONObject) commandeJSON);
 			if (commande != null) {
-				// on v�rifie que c'est bien une CommandeMenu
+				// on verifie que c'est bien une CommandeMenu
 				if (commande instanceof CommandeMenu) {
 					commandes.add((CommandeMenu) commande);
 				} else {

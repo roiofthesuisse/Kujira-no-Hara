@@ -20,7 +20,7 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param event dont on v�rifie la direction (0 : le Heros, null : cet Event)
+	 * @param event dont on verifie la direction (0 : le Heros, null : cet Event)
 	 * @param direction attendue
 	 */
 	public ConditionDirection(final int numero, final Integer event, final int direction) {
@@ -59,7 +59,7 @@ public class ConditionDirection extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
+	 * Ce n'est pas une Condition qui implique une proximite avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

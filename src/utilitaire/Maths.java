@@ -55,7 +55,7 @@ public abstract class Maths {
 	}
 	
 	/** 
-	 * In�galit�s possibles pour comparer des valeurs 
+	 * Inegalites possibles pour comparer des valeurs 
 	 */
 	public enum Inegalite {
 		PLUS_OU_AUTANT(">="), PLUS_STRICTEMENT(">"), MOINS_OU_AUTANT("<="), MOINS_STRICTEMENT("<"), AUTANT("=="), DIFFERENT("!=");
@@ -73,7 +73,7 @@ public abstract class Maths {
 		/**
 		 * Accesseur statique
 		 * @param symbole math�matique de comparaison
-		 * @return une des In�galit�s possibles
+		 * @return une des Inegalites possibles
 		 */
 		public static Inegalite getInegalite(final String symbole) {
 			for (Inegalite inegalite : Inegalite.values()) {
@@ -106,7 +106,7 @@ public abstract class Maths {
 			case DIFFERENT:
 				return valeur1 != valeur2;
 			default:
-				LOG.error("In�galit� inconnue : " + this.symbole);
+				LOG.error("Inegalite inconnue : " + this.symbole);
 				return false;
 			}
 		}

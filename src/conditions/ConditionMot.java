@@ -6,7 +6,7 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
 /**
- * V�rifier la valeur du mot de passe.
+ * verifier la valeur du mot de passe.
  */
 public class ConditionMot extends Condition implements CommandeEvent, CommandeMenu {
 	private final Object motAttendu;

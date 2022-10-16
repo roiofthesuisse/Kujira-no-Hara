@@ -22,7 +22,7 @@ public class OrbiterAutourDUnEvent extends Mouvement {
 	
 	/**
 	 * Constructeur explicite
-	 * @param idEventCentral Event autour duquel il faut d�crire un cercle
+	 * @param idEventCentral Event autour duquel il faut decrire un cercle
 	 */
 	public OrbiterAutourDUnEvent(final Object idEventCentral) {
 		this.etapes = Maths.ANGLE_TOUR_COMPLET;

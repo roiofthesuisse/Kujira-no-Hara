@@ -60,7 +60,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// La Partie par d�faut est la Partie actuelle
+		// La Partie par defaut est la Partie actuelle
 		if (this.numeroSauvegarde == null) {
 			this.numeroSauvegarde = getPartieActuelle().id;
 		}
@@ -68,7 +68,7 @@ public class Sauvegarder extends Commande implements CommandeMenu, CommandeEvent
 		final String nomFichierSauvegarde = PREFIXE_FICHIER_SAUVEGARDE + this.numeroSauvegarde + ".txt";
 		final String filename = NOM_DOSSIER_SAUVEGARDES + nomFichierSauvegarde;
 
-		// On cr�e le dossier des sauvegardes s'il n'existe pas
+		// On cree le dossier des sauvegardes s'il n'existe pas
 		File dossierSauvegardes = new File(NOM_DOSSIER_SAUVEGARDES);
 		if (!dossierSauvegardes.exists()) {
 			dossierSauvegardes.mkdir();

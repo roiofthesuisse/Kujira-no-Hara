@@ -27,8 +27,8 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param idEvent1 identifiant (Numero ou nom) du premier Event ; par d�faut, le Heros
-	 * @param idEvent2 identifiant (Numero ou nom) du second Event ; par d�faut, cet Event
+	 * @param idEvent1 identifiant (Numero ou nom) du premier Event ; par defaut, le Heros
+	 * @param idEvent2 identifiant (Numero ou nom) du second Event ; par defaut, cet Event
 	 * @param typeDeContact de la Condition
 	 */
 	public ConditionContact(final int numero, final Object idEvent1, final Object idEvent2, final TypeDeContact typeDeContact) {
@@ -45,7 +45,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	public ConditionContact(final HashMap<String, Object> parametres) {
 		this( 
 				parametres.containsKey("numero") ? (int) parametres.get("numero") : -1,
-				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par d�faut, le Heros
+				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par defaut, le Heros
 				parametres.containsKey("idEvent2") ? parametres.get("idEvent2") : null, //par defaut, cet Event
 				parametres.containsKey("typeDeContact") ? TypeDeContact.obtenirParNom((String) parametres.get("typeDeContact")) : TypeDeContact.SUPERPOSITION_MAJORITAIRE
 		);
@@ -285,7 +285,7 @@ public class ConditionContact extends Condition  implements CommandeEvent {
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximit� avec le Heros.
+	 * C'est une Condition qui implique une proximite avec le Heros.
 	 * @return true 
 	 */
 	public final boolean estLieeAuHeros() {

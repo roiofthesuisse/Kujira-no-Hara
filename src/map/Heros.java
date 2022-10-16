@@ -40,7 +40,7 @@ public class Heros extends Event {
 	}
 	
 	/**
-	 * Le Heros est cr�� a partir d'un mod�le.
+	 * Le Heros est cree a partir d'un mod�le.
 	 * Ce mod�le est un Event generique.
 	 * @return Event mod�le qui sert a la cr�ation du Heros
 	 */

@@ -32,7 +32,7 @@ public class AjouterObjet extends Commande implements CommandeEvent, CommandeMen
 	public AjouterObjet(final HashMap<String, Object> parametres) {
 		this((int) parametres.get("idObjet"), parametres.containsKey("quantite") //
 				? (int) parametres.get("quantite") //
-				: 1 // ajouter 1 par d�faut
+				: 1 // ajouter 1 par defaut
 		);
 	}
 

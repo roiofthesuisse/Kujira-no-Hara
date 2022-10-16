@@ -116,7 +116,7 @@ public class Pluie extends Meteo {
 			nouvelleParticule = this.rehabiliterParticule();
 			nouvelleParticule.reinitialiser(x0, y0, dureeDeVieParticule, tailleGoutte);
 		} else {
-			// Le bassin est vide, il faut cr�er une nouvelle particule
+			// Le bassin est vide, il faut creer une nouvelle particule
 			nouvelleParticule = new Particule(x0, y0, dureeDeVieParticule, tailleGoutte);
 		}
 		particules.add(nouvelleParticule);

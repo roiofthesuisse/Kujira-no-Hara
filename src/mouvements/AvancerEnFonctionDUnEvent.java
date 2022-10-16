@@ -117,7 +117,7 @@ public class AvancerEnFonctionDUnEvent extends Avancer {
 		} else {
 			this.direction = directionPossibleVerticale; 
 		}
-		//si l'Event fuit on prend la direction oppos�e
+		//si l'Event fuit on prend la direction opposee
 		if (this.sens == Sens.FUIR) {
 			this.direction = Event.Direction.directionOpposee(this.direction);
 		}

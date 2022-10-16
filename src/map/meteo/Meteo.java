@@ -20,7 +20,7 @@ public abstract class Meteo {
 	
 	/**
 	 * Obtenir le type de cette M�t�o.
-	 * @return �l�ment de l'�num�ration TypeDeMeteo
+	 * @return element de l'�num�ration TypeDeMeteo
 	 */
 	public abstract TypeDeMeteo getType();
 	public int intensite;
@@ -106,7 +106,7 @@ public abstract class Meteo {
 	}
 	
 	/**
-	 * V�rifier si deux M�t�os sont identiques.
+	 * verifier si deux M�t�os sont identiques.
 	 * @param m1 une m�t�o
 	 * @param m2 une autre m�t�o
 	 * @return si elles sont �quivalentes

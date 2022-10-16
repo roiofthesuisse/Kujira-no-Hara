@@ -5,7 +5,7 @@ import java.util.HashMap;
 import commandes.CommandeEvent;
 
 /**
- * V�rifier si le Lecteur de Map a fig� tous les Events.
+ * verifier si le Lecteur de Map a fig� tous les Events.
  */
 public class ConditionStopEvent extends Condition implements CommandeEvent {
 	boolean valeurQuIlEstCenseAvoir;
@@ -44,7 +44,7 @@ public class ConditionStopEvent extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
+	 * Ce n'est pas une Condition qui implique une proximite avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

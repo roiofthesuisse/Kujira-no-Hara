@@ -18,8 +18,8 @@ public class ConditionDistance extends Condition {
 	
 	/**
 	 * Constructeur explicite
-	 * @param identifiant (Numero ou nom) du premier Event ; par d�faut, le Heros
-	 * @param identifiant (Numero ou nom) du second Event ; par d�faut, cet Event
+	 * @param identifiant (Numero ou nom) du premier Event ; par defaut, le Heros
+	 * @param identifiant (Numero ou nom) du second Event ; par defaut, cet Event
 	 * @param distance entre les deux Events (en carreaux)
 	 * @param symboleInegalite pour la comparaison
 	 */
@@ -36,7 +36,7 @@ public class ConditionDistance extends Condition {
 	 */
 	public ConditionDistance(final HashMap<String, Object> parametres) {
 		this(
-				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par d�faut, le Heros
+				parametres.containsKey("idEvent1") ? parametres.get("idEvent1") : 0, //par defaut, le Heros
 				parametres.containsKey("idEvent2") ? parametres.get("idEvent2") : null, //par defaut, cet Event
 				(int) parametres.get("distance"),
 				parametres.containsKey("inegalite") ? (String) parametres.get("inegalite") : Inegalite.MOINS_OU_AUTANT.symbole

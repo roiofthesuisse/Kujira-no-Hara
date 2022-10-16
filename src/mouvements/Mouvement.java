@@ -32,14 +32,14 @@ public abstract class Mouvement {
 	};
 	
 	/**
-	 * Si la Page de comportement doit etre rejou�e, il faut r�initialiser cette Commande.
-	 * R�initialiser un mouvement le d�clare non fait, et change la direction en cas de mouvement al�atoire.
+	 * Si la Page de comportement doit etre rejou�e, il faut reinitialiser cette Commande.
+	 * reinitialiser un mouvement le d�clare non fait, et change la direction en cas de mouvement al�atoire.
 	 */
 	public final void reinitialiser() {
-		// R�initialisation sp�cifique a ce type de Mouvement en particulier
+		// reinitialisation sp�cifique a ce type de Mouvement en particulier
 		this.reinitialiserSpecifique();
 		
-		// R�initialisation commune a tous les Mouvements
+		// reinitialisation commune a tous les Mouvements
 		this.ceQuiAEteFait = 0;
 	}
 	
@@ -50,7 +50,7 @@ public abstract class Mouvement {
 	protected abstract void reinitialiserSpecifique();
 	
 	/**
-	 * Proc�der aux modifications de donn�es permettant au LecteurMap d'afficher l'Event au bon endroit.
+	 * Proc�der aux modifications de donnees permettant au LecteurMap d'afficher l'Event au bon endroit.
 	 * Methode appel�e lors de l'execution des Deplacements.
 	 * @param deplacement (naturel ou forc� d'un Event) dont fait partie ce Mouvement
 	 */
@@ -77,7 +77,7 @@ public abstract class Mouvement {
 			}
 			
 		} catch (Exception e) {
-			LOG.error("Erreur lors du mouvement de l'�v�nement :", e);
+			LOG.error("Erreur lors du mouvement de l'evenement :", e);
 		}
 	}
 	
@@ -192,7 +192,7 @@ public abstract class Mouvement {
 	protected abstract void ignorerLeMouvementSpecifique(Event event);
 	
 	/**
-	 * D�crire le Mouvement textuellement
+	 * decrire le Mouvement textuellement
 	 * @return description du Mouvement
 	 */
 	public abstract String toString();

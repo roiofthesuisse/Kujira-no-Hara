@@ -3,7 +3,7 @@ package utilitaire;
 import java.util.Random;
 
 /**
- * Pour générer des nombres aléatoires
+ * Pour gï¿½nï¿½rer des nombres alï¿½atoires
  */
 public class GenerateurAleatoire extends Random {
 	private static final long serialVersionUID = 1L;
@@ -11,10 +11,10 @@ public class GenerateurAleatoire extends Random {
 	private static GenerateurAleatoire instance = new GenerateurAleatoire();
 	
 	/**
-	 * Générer un nombre aléatoire
-	 * @param a borne inférieure incluse
-	 * @param b borne supérieure exclue
-	 * @return nombre aléatoire entre a (inclus) et b (exclu)
+	 * Gï¿½nï¿½rer un nombre alï¿½atoire
+	 * @param a borne infï¿½rieure incluse
+	 * @param b borne superieure exclue
+	 * @return nombre alï¿½atoire entre a (inclus) et b (exclu)
 	 */
 	public static final int nombreEntre(final int a, final int b) {
 		return instance.nextInt(b-a)+a;

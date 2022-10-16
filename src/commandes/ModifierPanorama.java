@@ -13,7 +13,7 @@ import utilitaire.graphismes.Graphismes;
 
 /**
  * Modifier l'image de Panorama pour en avoir une autre que celle associ�e par
- * d�faut au Tileset. On peut �galement changer le degr� de parallaxe.
+ * defaut au Tileset. On peut �galement changer le degr� de parallaxe.
  */
 public class ModifierPanorama extends Commande implements CommandeEvent {
 	protected static final Logger LOG = LogManager.getLogger(ModifierPanorama.class);

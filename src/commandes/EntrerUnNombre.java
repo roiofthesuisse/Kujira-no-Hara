@@ -41,7 +41,7 @@ public class EntrerUnNombre extends Message {
 	/**
 	 * Constructeur explicite
 	 * 
-	 * @param texte            affiche dans la bo�te de dialogue
+	 * @param texte            affiche dans la boite de dialogue
 	 * @param numeroDeVariable Numero de la Variable qui m�morise le nombre
 	 * @param tailleDuNombre   longueur (en chiffres) du nombre entr�
 	 */
@@ -70,7 +70,7 @@ public class EntrerUnNombre extends Message {
 	}
 
 	/**
-	 * Fabrique l'image du Message a partir de l'image de la bo�te de dialogue et du
+	 * Fabrique l'image du Message a partir de l'image de la boite de dialogue et du
 	 * texte. Une image est fabriqu�e pour chaque alternative a s�lectionner.
 	 * 
 	 * @return image du Message

@@ -144,7 +144,7 @@ public abstract class Poste {
 			in.close();
 			
 			//print result
-			LOG.info("La requete POST a ete envoyee et sa r�ponse a ete r�cup�r�e.");
+			LOG.info("La requete POST a ete envoyee et sa r�ponse a ete recuper�e.");
 			return sbuf.toString();
 
 		} catch (IOException e) {

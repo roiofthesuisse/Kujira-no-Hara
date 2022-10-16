@@ -25,7 +25,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	private boolean onPeutContournerUnCoin;
 	/** Decalage de l'Event pour l'aider a franchir un coin */
 	private int realignementX, realignementY;
-	/** Inertie : le Heros avance moins vite lors de la premi�re frame d'appui */
+	/** Inertie : le Heros avance moins vite lors de la premiere frame d'appui */
 	private boolean toucheEnfonceeALaFramePrecedente;
 	
 	/**
@@ -268,7 +268,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	}
 	
 	/**
-	 * Cr�er un pas dans la direction voulue.
+	 * creer un pas dans la direction voulue.
 	 * Ce pas peut rester th�orique pour permettre de calculer la possibilit� (ou non) d'un Mouvement.
 	 * @param dir direction du pas
 	 * @param event qui doit avancer
@@ -283,7 +283,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 	}
 	
 	/**
-	 * Cr�er un pas dans la direction diagonale voulue.
+	 * creer un pas dans la direction diagonale voulue.
 	 * Ce pas peut rester th�orique pour permettre de calculer la possibilit� (ou non) d'un Mouvement.
 	 * @param dirVerti direction verticale du pas
 	 * @param dirHori direction horizontale du pas
@@ -324,7 +324,7 @@ public class SuivreLesTouchesDirectionnelles extends Mouvement {
 			// On arrete l'animation de marche
 			event.avance = false;
 			
-			// L'Event n'attaque pas et ne bouge pas donc on remet sa premi�re frame d'animation
+			// L'Event n'attaque pas et ne bouge pas donc on remet sa premiere frame d'animation
 			if (!event.avancaitALaFramePrecedente && !event.avance && !event.animeALArretActuel) {
 				event.animation = 0;
 			}

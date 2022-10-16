@@ -28,8 +28,8 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Un Event est un �l�ment actif du decor, voire interactif. Ses �ventuels
- * comportements sont repr�sent�s par une liste de Pages.
+ * Un Event est un element actif du decor, voire interactif. Ses �ventuels
+ * comportements sont representes par une liste de Pages.
  */
 public class Event implements Comparable<Event> {
 	// constantes
@@ -72,7 +72,7 @@ public class Event implements Comparable<Event> {
 	/** vies a d�cr�menter pour qu'il disparaisse */
 	public int vies;
 	/**
-	 * Faut-il r�initialiser les interrupteurs locaux de cet event a chaque
+	 * Faut-il reinitialiser les interrupteurs locaux de cet event a chaque
 	 * changement de Map ?
 	 */
 	public final boolean reinitialiser;
@@ -93,7 +93,7 @@ public class Event implements Comparable<Event> {
 	public int opaciteActuelle = Graphismes.OPACITE_MAXIMALE;
 	public ModeDeFusion modeDeFusionActuel = ModeDeFusion.NORMAL;
 	/**
-	 * par d�faut, si l'image est plus petite que 32px, l'Event est consid�r� comme
+	 * par defaut, si l'image est plus petite que 32px, l'Event est consid�r� comme
 	 * plat (au sol)
 	 */
 	public boolean platActuel = PLAT_PAR_DEFAUT;
@@ -158,8 +158,8 @@ public class Event implements Comparable<Event> {
 	public boolean ilYAEuChangementDePageDApparence = true;
 
 	/**
-	 * Lorsque ce marqueur est a true, on considere l'event comme supprim�. Ce n'est
-	 * qu'un simple marqueur : l'event n'est reellement supprim� qu'apres la boucle
+	 * Lorsque ce marqueur est a true, on considere l'event comme supprime. Ce n'est
+	 * qu'un simple marqueur : l'event n'est reellement supprime qu'apres la boucle
 	 * for sur les events.
 	 */
 	public boolean supprime = false;
@@ -179,10 +179,10 @@ public class Event implements Comparable<Event> {
 		public static final int HAUT = 3;
 
 		/**
-		 * Calcule la direction oppos�e.
+		 * Calcule la direction opposee.
 		 * 
 		 * @param dir direction a inverser
-		 * @return direction oppos�e
+		 * @return direction opposee
 		 */
 		public static final int directionOpposee(final int dir) {
 			switch (dir) {
@@ -208,17 +208,17 @@ public class Event implements Comparable<Event> {
 	 *                                           droite
 	 * @param y                                  position x (en pixels) numero du
 	 *                                           carreau Ou se trouve l'Event, en
-	 *                                           ordonn�e, de haut en bas
+	 *                                           ordonnee, de haut en bas
 	 * @param offsetY                            si on veut afficher l'Event plus
 	 *                                           bas que sa case reelle
 	 * @param nom                                de l'Event
-	 * @param id                                 identifiant num�rique de l'Event
+	 * @param id                                 identifiant numerique de l'Event
 	 * @param vies                               de l'Event
 	 * @param reinitialiserLesInterupteursLocaux a chaque changement de Map ?
-	 * @param pages                              ensemble de Pages d�crivant le
+	 * @param pages                              ensemble de Pages decrivant le
 	 *                                           comportement de l'Event
-	 * @param largeurHitbox                      largeur de la bo�te de collision
-	 * @param hauteurHitbox                      hauteur de la bo�te de collision
+	 * @param largeurHitbox                      largeur de la boite de collision
+	 * @param hauteurHitbox                      hauteur de la boite de collision
 	 * @param map                                de l'Event
 	 */
 	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id,
@@ -238,7 +238,7 @@ public class Event implements Comparable<Event> {
 		this.deplacementForce = new Deplacement(null, new ArrayList<Mouvement>(), true, false, false);
 		initialiserLesPages();
 		if (pages != null && pages.size() >= 1) {
-			attribuerLesProprietesActuelles(pages.get(0)); // par d�faut, propri�t�s de la premi�re page
+			attribuerLesProprietesActuelles(pages.get(0)); // par defaut, proprietes de la premiere page
 		}
 	}
 
@@ -249,18 +249,18 @@ public class Event implements Comparable<Event> {
 	 *                                           trouve l'Event, en abscisse, de
 	 *                                           gauche a droite
 	 * @param y                                  Coordonnee y (en pixels) Ou se
-	 *                                           trouve l'Event, en ordonn�e, de
+	 *                                           trouve l'Event, en ordonnee, de
 	 *                                           haut en bas
 	 * @param offsetY                            si on veut afficher l'Event plus
 	 *                                           bas que sa case reelle
 	 * @param nom                                de l'Event
-	 * @param id                                 identifiant num�rique de l'Event
+	 * @param id                                 identifiant numerique de l'Event
 	 * @param vies                               de l'Event
 	 * @param reinitialiserLesInterupteursLocaux a chaque changement de Map ?
 	 * @param tableauDesPages                    tableau JSON contenant les Pages de
 	 *                                           comportement
-	 * @param largeurHitbox                      largeur de la bo�te de collision
-	 * @param hauteurHitbox                      hauteur de la bo�te de collision
+	 * @param largeurHitbox                      largeur de la boite de collision
+	 * @param hauteurHitbox                      hauteur de la boite de collision
 	 * @param map                                de l'Event
 	 */
 	public Event(final Integer x, final Integer y, final int offsetY, final String nom, final Integer id,
@@ -271,7 +271,7 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Prend le tableau JSON des pages et cr�e la liste des Pages avec.
+	 * Prend le tableau JSON des pages et cree la liste des Pages avec.
 	 * 
 	 * @param idEvent         identifiant de l'Event
 	 * @param tableauDesPages au format JSON
@@ -306,9 +306,9 @@ public class Event implements Comparable<Event> {
 							numeroCondition++;
 						}
 					} catch (NullPointerException e1) {
-						// pas de conditions pour d�clencher cette page
+						// pas de conditions pour declencher cette page
 						LOG.warn("La page " + page.numero + " de l'event " + this.nom + " (" + this.id
-								+ ") n'a pas besoin de conditions pour se d�clencher.");
+								+ ") n'a pas besoin de conditions pour se declencher.");
 					}
 					// on apprend aux commandes qui est leur page
 					try {
@@ -357,7 +357,7 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Active la Page de l'Event qui v�rifie toutes les Conditions de d�clenchement.
+	 * Active la Page de l'Event qui verifie toutes les Conditions de declenchement.
 	 * S'il y a plusieurs Pages valides, on prend la derni�re. Les Commandes Event
 	 * de la Page active choisie seront execut�es. L'apparence de la Page
 	 * d'apparence choisie sera utilis�e.
@@ -370,19 +370,19 @@ public class Event implements Comparable<Event> {
 			for (int i = pages.size() - 1; i >= 0 && !onATrouveLaPageDApparence; i--) {
 				final PageEvent page = pages.get(i);
 
-				// par d�faut une Page est valide, elle sera invalid�e si une Condition est
+				// par defaut une Page est valide, elle sera invalid�e si une Condition est
 				// fausse
 				onATrouveLaPageActive = true;
 				boolean cettePageConvientPourLApparence = true;
 
 				if (page.conditions != null && page.conditions.size() > 0) {
-					// la Page a des Conditions de d�clenchement, on les analyse
+					// la Page a des Conditions de declenchement, on les analyse
 
 					// si une Condition est fausse, la Page ne convient pas
 					for (int j = 0; j < page.conditions.size() && cettePageConvientPourLApparence; j++) {
 						final Condition cond = page.conditions.get(j);
 						if (!cond.estVerifiee()) {
-							// la Condition n'est pas v�rifi�e
+							// la Condition n'est pas verifi�e
 							onATrouveLaPageActive = false;
 							if (!cond.estLieeAuHeros()) {
 								cettePageConvientPourLApparence = false;
@@ -419,7 +419,7 @@ public class Event implements Comparable<Event> {
 			this.pageDApparence = pageQuOnChoisitEnRemplacement;
 
 			// il est important de noter un v�ritable changement de Page (non vide)
-			// en effet cela implique de r�initialiser la direction initiale de l'Event
+			// en effet cela implique de reinitialiser la direction initiale de l'Event
 			if (this.pageDApparence.numero != this.numeroDeLaDernierePageDApparence) {
 				this.ilYAEuChangementDePageDApparence = true;
 				this.numeroDeLaDernierePageDApparence = this.pageDApparence.numero;
@@ -436,23 +436,23 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * On assigne les propri�t�s actuelles en utilisant celles d'une Page donn�e.
+	 * On assigne les proprietes actuelles en utilisant celles d'une Page donnee.
 	 * 
-	 * @param page dont on r�cup�re les propri�t�s pour les donner a l'Event
+	 * @param page dont on recupere les proprietes pour les donner a l'Event
 	 */
 	private void attribuerLesProprietesActuelles(final PageEvent page) {
 		// apparence
 		this.imageActuelle = page.image;
 		this.apparenceActuelleEstUnTile = page.apparenceEstUnTile;
 
-		if (ilYAEuChangementDePageDApparence) { // on ne r�initialise pas les propri�t�s sans vrai changement de Page
+		if (ilYAEuChangementDePageDApparence) { // on ne reinitialise pas les proprietes sans vrai changement de Page
 			
 			// Ne pas changer la direction de l'Event lors du changement de page
 			if (page.directionFixe) {
 				this.direction = page.directionInitiale;
 			}
 
-			// propri�t�s
+			// proprietes
 			this.vitesseActuelle = page.vitesse;
 			this.frequenceActuelle = page.frequence;
 			this.animeALArretActuel = page.animeALArret;
@@ -477,10 +477,10 @@ public class Event implements Comparable<Event> {
 		this.imageActuelle = null;
 		this.apparenceActuelleEstUnTile = false;
 
-		if (!(this instanceof Heros) // le Heros n'est pas redirig� aux changements de Page
-				&& ilYAEuChangementDePageDApparence) { // on ne r�initialise pas les propri�t�s sans vrai changement de
+		if (!(this instanceof Heros) // le Heros n'est pas redirige aux changements de Page
+				&& ilYAEuChangementDePageDApparence) { // on ne reinitialise pas les proprietes sans vrai changement de
 														// Page
-			// propri�t�s
+			// proprietes
 			this.vitesseActuelle = Event.VITESSE_PAR_DEFAUT;
 			this.frequenceActuelle = Event.FREQUENCE_PAR_DEFAUT;
 			this.animeALArretActuel = Event.ANIME_A_L_ARRET_PAR_DEFAUT;
@@ -569,7 +569,7 @@ public class Event implements Comparable<Event> {
 
 		// On transvase les Events du vector vers l'ArrayList
 		for (Event event : eventsVector) {
-			LOG.debug("Event import� : " + event.id + " (" + event.nom + ")");
+			LOG.debug("Event importe : " + event.id + " (" + event.nom + ")");
 			events.add(event);
 		}
 	}
@@ -601,7 +601,7 @@ public class Event implements Comparable<Event> {
 		/**
 		 * Ces parametres sont communs a tou
 		 * 
-		 * @param events liste pour recuperer les Events import�s
+		 * @param events liste pour recuperer les Events importes
 		 * @param map    de ces Events
 		 */
 		public static void initialiserParametreGlobaux(final Vector<Event> events, final Map map) {
@@ -623,7 +623,7 @@ public class Event implements Comparable<Event> {
 			final String nomEvent = jsonEvent.getString("nom");
 			final Integer id = jsonEvent.getInt("id");
 			try {
-				// r�cup�ration des donn�es dans le JSON
+				// recuperation des donnees dans le JSON
 
 				int xEvent, yEvent;
 				try {
@@ -638,7 +638,7 @@ public class Event implements Comparable<Event> {
 				// instanciation de l'event
 				Event event;
 
-				// on essaye de le cr�er a partir de la biblioth�que JSON GenericEvents
+				// on essaye de le creer a partir de la biblioth�que JSON GenericEvents
 				event = Event.creerEventGenerique(id, nomEvent, xEvent, yEvent, map);
 
 				// si l'Event n'est pas generique, on le construit a partir de sa description
@@ -731,14 +731,14 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * Cr�er un Event generique a partir de sa description JSON.
+	 * creer un Event generique a partir de sa description JSON.
 	 * 
-	 * @param id         de l'Event a cr�er
+	 * @param id         de l'Event a creer
 	 * @param nomFichier nom du fichier JSON de l'Event generique
 	 * @param xEvent     (en pixels) position x de l'Event
 	 * @param yEvent     (en pixels) position y de l'Event
 	 * @param map        de l'Event
-	 * @return un Event cr��
+	 * @return un Event cree
 	 */
 	public static Event creerEventGenerique(final int id, final String nomFichier, final int xEvent, final int yEvent,
 			final Map map) {
@@ -795,7 +795,7 @@ public class Event implements Comparable<Event> {
 	}
 
 	/**
-	 * V�rifier l'�galit� entre deux Events.
+	 * verifier l'egalite entre deux Events.
 	 */
 	@Override
 	public final boolean equals(final Object o) {

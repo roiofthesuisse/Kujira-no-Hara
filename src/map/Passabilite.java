@@ -74,7 +74,7 @@ public enum Passabilite {
 
 	/**
 	 * Union des deux passabilites.
-	 * @param p1 premi�re passabilite
+	 * @param p1 premiere passabilite
 	 * @param p2 seconbde passabilite
 	 * @return passabilites ajout�es
 	 */

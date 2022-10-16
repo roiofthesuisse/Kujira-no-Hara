@@ -17,7 +17,7 @@ public class PasEnAvant extends Avancer {
 	 * Constructeur explicite
 	 */
 	public PasEnAvant() {
-		//le -1 est bidon, il sera remplac� par la direction de l'Event lors de la v�rification
+		//le -1 est bidon, il sera remplac� par la direction de l'Event lors de la verification
 		super(-1, Main.TAILLE_D_UN_CARREAU);
 		this.directionDecidee = false;
 	}
@@ -43,7 +43,7 @@ public class PasEnAvant extends Avancer {
 			this.directionDecidee = true;
 		}
 		
-		//puis on lance la v�rification traditionnelle
+		//puis on lance la verification traditionnelle
 		return super.mouvementPossible();
 	}
 	

@@ -35,9 +35,9 @@ public class Map implements Sauvegardable {
 	private static final int ALTITUDE_MEDIANE = 1;
 	/** Le decor est constitu� de 3 couches, afin de pouvoir superposer plusieurs carreaux au meme endroit de la Map */
 	private static final int NOMBRE_LAYERS = 3;
-	/** La position intiale du Heros sur cette Map est d�crite par 5 parametres */
+	/** La position intiale du Heros sur cette Map est decrite par 5 parametres */
 	private static final int POSITION_INITIALE_PAR_X_Y_ET_DIRECTION = 5;
-	/** La position intiale du Heros sur cette Map est d�crite par 2 parametres */
+	/** La position intiale du Heros sur cette Map est decrite par 2 parametres */
 	private static final int POSITION_INITIALE_PAR_DECALAGE_ET_DIRECTION = 2;
 	
 	/** Numero du fichier JSON de la Map */
@@ -80,7 +80,7 @@ public class Map implements Sauvegardable {
 	public HashMap<Integer, Event> eventsHash;
 	/** liste des Events a ajouter au tour suivant */
 	public ArrayList<Event> eventsAAjouter = new ArrayList<Event>();
-	/** Event Numero 0, dirig� par le joueur */
+	/** Event Numero 0, dirige par le joueur */
 	public Heros heros;
 	/** Coordonnees du Heros (en pixels) a l'initialisation de la Map */
 	public int xDebutHeros, yDebutHeros;
@@ -174,7 +174,7 @@ public class Map implements Sauvegardable {
 		long t0 = System.nanoTime();
 		//chargement du tileset
 		try {
-			//si jamais le Tileset est le meme, pas la peine de le recr�er
+			//si jamais le Tileset est le meme, pas la peine de le recreer
 			final Tileset tilesetActuel = ((LecteurMap) Main.lecteur).map.tileset;
 			if (this.nomTileset.equals(tilesetActuel.nom)) {
 				this.tileset = tilesetActuel;
@@ -197,11 +197,11 @@ public class Map implements Sauvegardable {
 		}
 		long t1 = System.nanoTime();
 			
-		//on dessine la couche de decor inf�rieure, qui sera sous le Heros et les �v�nements
+		//on dessine la couche de decor inf�rieure, qui sera sous le Heros et les evenements
 			this.imagesCoucheSousHeros = creerCoucheDeDecor(0, ALTITUDE_MEDIANE-1);
-		//on dessine la couche de decor m�diane, qui sera avec le Heros et les �v�nements
+		//on dessine la couche de decor m�diane, qui sera avec le Heros et les evenements
 			this.imagesCoucheAvecHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE, ALTITUDE_MEDIANE);
-		//on dessine la couche de decor sup�rieure, qui sera au dessus du Heros et des �v�nements
+		//on dessine la couche de decor superieure, qui sera au dessus du Heros et des evenements
 			this.imagesCoucheSurHeros = creerCoucheDeDecor(ALTITUDE_MEDIANE+1, NOMBRE_ALTITUDES-1);
 			long t2 = System.nanoTime();
 			Main.mesuresDePerformance.add((t1-t0)+";"+(t2-t1));
@@ -268,7 +268,7 @@ public class Map implements Sauvegardable {
 	
 	/**
 	 * L'affichage est un sandwich : une partie du decor est affichee par dessus les Events, une autre dessous, et une autre au meme niveau.
-	 * @param altitudeMin premi�re altitude de cette couche de decor
+	 * @param altitudeMin premiere altitude de cette couche de decor
 	 * @param altitudeMax derni�re altitude (incluse) de cette couche de decor
 	 * @return vignettes de la couche de decor
 	 */
@@ -355,7 +355,7 @@ public class Map implements Sauvegardable {
 			LOG.debug("Cette map contient des autotiles anim�s.");
 		}
 		
-		// on cr�e les vignettes manquantes pour l'animation du decor
+		// on cree les vignettes manquantes pour l'animation du decor
 		if (this.contientDesAutotilesAnimes && decorAnime[Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME - 1] == null) {
 			for (int i = 1; i<Autotile.NOMBRE_VIGNETTES_AUTOTILE_ANIME; i++) {
 				decorAnime[i] = Graphismes.clonerUneImage(decorAnime[0]);
@@ -384,8 +384,8 @@ public class Map implements Sauvegardable {
 	}
 
 	/**
-	 * Constitue la liste des Events de la Map en allant lire dans le fichier JSON d�crivant la Map.
-	 * @param jsonMap objet JSON d�crivant la Map
+	 * Constitue la liste des Events de la Map en allant lire dans le fichier JSON decrivant la Map.
+	 * @param jsonMap objet JSON decrivant la Map
 	 * @param xDebutHeros position initiale (en pixels) du Heros sur la Map
 	 * @param yDebutHeros position initiale (en pixels) du Heros sur la Map
 	 * @param directionDebutHeros direction initiale du Heros sur la Map
@@ -414,7 +414,7 @@ public class Map implements Sauvegardable {
 			this.eventsHash.put(event.id, event);
 		}
 		
-		// R�initialisation des interrupteurs locaux (si besoin)
+		// reinitialisation des interrupteurs locaux (si besoin)
 		for (Event eventAReinitialiser : this.events) {
 			if (eventAReinitialiser.reinitialiser) {
 				ModifierInterrupteurLocal.reinitialiserEvent(eventAReinitialiser);
@@ -496,9 +496,9 @@ public class Map implements Sauvegardable {
 
 	/**
 	 * Inscrire l'Event dans la liste des Events en attente de suppression.
-	 * L'Event sera supprim� a la fin de la boucle d'affichage.
+	 * L'Event sera supprime a la fin de la boucle d'affichage.
 	 * @param idEventASupprimer Numero de l'Event qu'il faut inscrire a la suppression
-	 * @return bool�en pour savoir si l'Event a supprimer a bien ete trouv� dans la liste des �v�nements
+	 * @return bool�en pour savoir si l'Event a supprimer a bien ete trouv� dans la liste des evenements
 	 */
 	public final boolean supprimerEvenement(final int idEventASupprimer) {
 		for (Event event : this.events) {
@@ -507,7 +507,7 @@ public class Map implements Sauvegardable {
 				return true;
 			}
 		}
-		LOG.warn("L'�v�nement a supprimer id:"+idEventASupprimer+" n'a pas ete trouv� dans la liste.");
+		LOG.warn("L'evenement a supprimer id:"+idEventASupprimer+" n'a pas ete trouv� dans la liste.");
 		return false;
 	}
 
@@ -515,7 +515,7 @@ public class Map implements Sauvegardable {
 	 * Obtenir le decor a afficher par dessus les Events.
 	 * Ce decor est compos� du decor fixe et d'�ventuels autotiles anim�s.
 	 * @param vignetteAutotileActuelle vignette de l'Autotile a afficher
-	 * @return decor sup�rieur, avec l'autotile d�pendant de la frame
+	 * @return decor superieur, avec l'autotile d�pendant de la frame
 	 */
 	public final BufferedImage getImageCoucheDecorSuperieur(final int vignetteAutotileActuelle) {
 		if (this.imagesCoucheSurHeros[1] != null) {
@@ -830,19 +830,19 @@ public class Map implements Sauvegardable {
 				try {
 					final Integer carreauDuHeros0 = this.layer0[xHerosMapPrecedente + i][yHerosMapPrecedente + j];
 					if (this.tileset.portes.contains(carreauDuHeros0)) {
-						// On a trouv� une porte a proximit� !
+						// On a trouv� une porte a proximite !
 						onATrouveUnePorte = true;
 						break rechercheDePorteAutour;
 					}
 					final Integer carreauDuHeros1 = this.layer1[xHerosMapPrecedente + i][yHerosMapPrecedente + j];
 					if (this.tileset.portes.contains(carreauDuHeros1)) {
-						// On a trouv� une porte a proximit� !
+						// On a trouv� une porte a proximite !
 						onATrouveUnePorte = true;
 						break rechercheDePorteAutour;
 					}
 					final Integer carreauDuHeros2 = this.layer2[xHerosMapPrecedente + i][yHerosMapPrecedente + j];
 					if (this.tileset.portes.contains(carreauDuHeros2)) {
-						// On a trouv� une porte a proximit� !
+						// On a trouv� une porte a proximite !
 						onATrouveUnePorte = true;
 						break rechercheDePorteAutour;
 					}

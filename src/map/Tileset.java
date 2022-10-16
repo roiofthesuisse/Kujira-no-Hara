@@ -115,7 +115,7 @@ public class Tileset {
 							Main.TAILLE_D_UN_CARREAU, 
 							Main.TAILLE_D_UN_CARREAU);
 				} catch (RasterFormatException rfe) {
-					LOG.error("Impossible de d�couper en carreaux de Tileset ! V�rifier que l'image et le JSON co�ncident.", rfe);
+					LOG.error("Impossible de d�couper en carreaux de Tileset ! verifier que l'image et le JSON co�ncident.", rfe);
 				}
 			}
 		}

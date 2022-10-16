@@ -6,7 +6,7 @@ import java.util.List;
 import main.Commande;
 
 /**
- * Modifier les options de la bo�te de Messages.
+ * Modifier les options de la boite de Messages.
  */
 public class ModifierOptionsMessages extends Commande implements CommandeEvent {
 	private final boolean masquer;
@@ -14,8 +14,8 @@ public class ModifierOptionsMessages extends Commande implements CommandeEvent {
 
 	/**
 	 * 
-	 * @param masquer  la bo�te de Messages ?
-	 * @param position de la bo�te de Messages a l'ecran
+	 * @param masquer  la boite de Messages ?
+	 * @param position de la boite de Messages a l'ecran
 	 */
 	public ModifierOptionsMessages(final boolean masquer, final String position) {
 		this.masquer = masquer;

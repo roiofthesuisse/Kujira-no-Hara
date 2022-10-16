@@ -22,10 +22,10 @@ public class DeplacerImage extends Commande implements CommandeEvent, Sauvegarda
 	protected static final Logger LOG = LogManager.getLogger(DeplacerImage.class);
 	/** Le deplacement d'image est instantan� */
 	private static final int INSTANTANE = 0;
-	/** Par d�faut, le deplacement n'est execut� qu'une fois */
+	/** Par defaut, le deplacement n'est execut� qu'une fois */
 	private static final boolean REPETER_LE_DEPLACEMENT_PAR_DEFAULT = false;
 	/**
-	 * Par d�faut, on n'attend pas la fin du deplacement avant de passer a la
+	 * Par defaut, on n'attend pas la fin du deplacement avant de passer a la
 	 * Commande suivante
 	 */
 	private static final boolean ATTENDRE_LA_FIN_DU_DEPLACEMENT_PAR_DEFAULT = false;

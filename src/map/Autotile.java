@@ -145,7 +145,7 @@ public class Autotile {
 	 * @param nomImage nom de l'image de l'Autotile
 	 * @param passabilite peut-on marcher sur cette case ?
 	 * @param altitude d'affichage dans le decor
-	 * @param terrain sp�cial qui peut avoir des propri�t�s particuli�res
+	 * @param terrain sp�cial qui peut avoir des proprietes particuli�res
 	 * @param cousins autres autotiles qui peuvent se lier a celui-ci
 	 * @param tileset auquel appartient cet Autotile
 	 * @throws IOException impossible de charger l'image de l'Autotile
@@ -158,7 +158,7 @@ public class Autotile {
 		try {
 			this.image = Graphismes.ouvrirImage("Autotile", this.nomImage);
 		} catch(IIOException ioe) {
-			// image manquante, on cr�e une fausse image
+			// image manquante, on cree une fausse image
 			LOG.error("Impossible de charger l'image de l'autotile "+this.nomImage, ioe);
 			this.image = new BufferedImage(LARGEUR_AUTOTILE_FIXE, HAUTEUR_AUTOTILE, Graphismes.TYPE_DES_IMAGES);
 			Graphics2D g2d = (Graphics2D) this.image.getGraphics();
@@ -209,7 +209,7 @@ public class Autotile {
 		
 		// On considere que le bord de l'ecran est liable lui aussi
 		if (y == 0) {
-			//bord sup�rieur de l'ecran
+			//bord superieur de l'ecran
 			connexionHaut = true;
 			connexionHautGauche = true;
 			connexionHautDroite = true;

@@ -21,7 +21,7 @@ public class Particule {
 	}
 	
 	/**
-	 * R�initialiser l'�tat de la particule.
+	 * reinitialiser l'�tat de la particule.
 	 * @param x0 position horizontale finale de la particule
 	 * @param y0 position verticale finale de la particule
 	 * @param resteAVivre temps qu'il reste a vivre a la particule a l'ecran (en frames)

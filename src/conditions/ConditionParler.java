@@ -14,18 +14,18 @@ import utilitaire.GestionClavier;
 public class ConditionParler extends Condition implements CommandeEvent {
 	//constantes
 	private static final Logger LOG = LogManager.getLogger(ConditionParler.class);
-	public static final int DISTANCE_MAX_PAROLE = 4; //au dela de cette distance en pixels, le dialogue ne se d�clenche pas
+	public static final int DISTANCE_MAX_PAROLE = 4; //au dela de cette distance en pixels, le dialogue ne se declenche pas
 	
 	@Override
 	public final boolean estVerifiee() {
-		//1) pour Parler, premi�rement, il faut appuyer sur la touche action :
+		//1) pour Parler, premierement, il faut appuyer sur la touche action :
 		final ConditionTouche conditionToucheAction = new ConditionTouche(-1, GestionClavier.ToucheRole.ACTION.nom, false);
 		conditionToucheAction.page = this.page;
 		if (!conditionToucheAction.estVerifiee()) {
 			return false;
 		}
 		
-		//2) deuxi�mement, il faut etre situe face a son interlocuteur :
+		//2) deuxiemement, il faut etre situe face a son interlocuteur :
 		
 		int pageActive;
 		try {
@@ -36,7 +36,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 		}
 		final int cettePage = this.page.numero;
 		//il faut d'abord que la page ne soit pas ouverte
-		if (pageActive!=cettePage) { //TODO v�rifier si cette condition est utile
+		if (pageActive!=cettePage) { //TODO verifier si cette condition est utile
 			final Event event = this.page.event;
 			final Heros heros = event.map.heros;
 			final int xmin1 = heros.x;
@@ -48,14 +48,14 @@ public class ConditionParler extends Condition implements CommandeEvent {
 			final int ymin2 = event.y;
 			final int ymax2 = event.y+event.hauteurHitbox;
 			final int dir = heros.direction;
-			//il faut etre colla a l'�v�nement et regarder vers lui
+			//il faut etre colla a l'evenement et regarder vers lui
 			switch(dir) {
 				case Event.Direction.HAUT:
 					if ( Math.abs(ymin1-ymax2) > DISTANCE_MAX_PAROLE ) {
 						return false;
 					} else {
 						if ( heros.largeurHitbox <= event.largeurHitbox ) { 
-							//la longueur de contact est sup�rieure a la moiti� de la taille du Heros
+							//la longueur de contact est superieure a la moitie de la taille du Heros
 							final boolean grandeSurfaceDeContact =
 								((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) 
 								|| ((xmin2<=xmin1 && xmin1<xmax2) && xmax2-xmin1>heros.largeurHitbox/2);
@@ -72,7 +72,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 						return false;
 					} else {
 						if ( heros.hauteurHitbox <= event.hauteurHitbox ) { 
-							//la longueur de contact est sup�rieure a la moiti� de la taille du Heros
+							//la longueur de contact est superieure a la moitie de la taille du Heros
 							final boolean grandeSurfaceDeContact =
 								((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) 
 								|| ((ymin2<=ymin1 && ymin1<ymax2) && ymax2-ymin1>heros.hauteurHitbox/2);
@@ -89,7 +89,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 						return false;
 					} else {
 						if ( heros.hauteurHitbox <= event.hauteurHitbox ) { 
-							//la longueur de contact est sup�rieure a la moiti� de la taille du Heros
+							//la longueur de contact est superieure a la moitie de la taille du Heros
 							final boolean grandeSurfaceDeContact =
 								((ymin2<ymax1 && ymax1<=ymax2) && ymax1-ymin2>heros.hauteurHitbox/2) 
 								|| ((ymin2<=ymin1 && ymin1<ymax2) && ymax2-ymin1>heros.hauteurHitbox/2);
@@ -106,7 +106,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 						return false;
 					} else {
 						if ( heros.largeurHitbox <= event.largeurHitbox ) {
-							//la longueur de contact est sup�rieure a la moiti� de la taille du Heros
+							//la longueur de contact est superieure a la moitie de la taille du Heros
 							final boolean grandeSurfaceDeContact =
 								((xmin2<xmax1 && xmax1<=xmax2) && xmax1-xmin2>heros.largeurHitbox/2) 
 								|| ((xmin2<=xmin1 && xmin1<xmax2) && xmax2-xmin1>heros.largeurHitbox/2);
@@ -125,7 +125,7 @@ public class ConditionParler extends Condition implements CommandeEvent {
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximit� avec le Heros.
+	 * C'est une Condition qui implique une proximite avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

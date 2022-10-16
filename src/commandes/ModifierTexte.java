@@ -26,7 +26,7 @@ public class ModifierTexte extends Commande implements CommandeMenu {
 	 */
 	public ModifierTexte(final ArrayList<String> nouveauTexte) {
 		this.nouveauTexte = nouveauTexte;
-		this.idElementDeMenu = null; // texte des descriptions par d�faut du Menu
+		this.idElementDeMenu = null; // texte des descriptions par defaut du Menu
 	}
 
 	/**

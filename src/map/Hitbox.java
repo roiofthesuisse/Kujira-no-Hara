@@ -207,7 +207,7 @@ public final class Hitbox {
 		}
 		
 		if (largHitbox!=largHitboxAutre) { //si deux events n'ont pas la meme largeur, ils peuvent se chevaucher par ar�te horizontale
-			//deuxi�me cas : deux cot�s de chevauchent
+			//deuxieme cas : deux cot�s de chevauchent
 			final boolean deuxCotesSeChevauchent = ((x1min<=x2min && x2max<=x1max)&&((y2min<=y1min && y1min<y2max && y2max<=y1max)||(y1min<=y2min && y2min<y1max && y1max<=y2max)))
 												|| ((x2min<=x1min && x1max<=x2max)&&((y1min<=y2min && y2min<y1max && y1max<=y2max)||(y2min<=y1min && y1min<y2max && y2max<=y1max)));
 			if (deuxCotesSeChevauchent) {
@@ -215,7 +215,7 @@ public final class Hitbox {
 			}
 		}
 		if (hautHitbox!=hautHitboxAutre) { //si deux events n'ont pas la meme hauteur, ils peuvent se chevaucher par ar�te verticale
-			//deuxi�me cas : deux cot�s de chevauchent
+			//deuxieme cas : deux cot�s de chevauchent
 			final boolean deuxCotesSeChevauchent = ((y1min<=y2min && y2max<=y1max)&&((x2min<=x1min && x1min<x2max && x2max<=x1max)||(x1min<=x2min && x2min<x1max && x1max<=x2max)))
 												|| ((y2min<=y1min && y1max<=y2max)&&((x1min<=x2min && x2min<x1max && x1max<=x2max)||(x2min<=x1min && x1min<x2max && x2max<=x1max)));
 			if (deuxCotesSeChevauchent) {

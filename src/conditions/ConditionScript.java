@@ -424,7 +424,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 		}
 
 		// ---------------------//
-		// Relations d'�galit� //
+		// Relations d'egalite //
 		// ---------------------//
 
 		// Egalit�
@@ -443,7 +443,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(INFERIORATION_LARGE, nombres.get(0) <= nombres.get(1) ? "1" : "0");
 		}
 
-		// Sup�rieur ou �gal
+		// superieur ou �gal
 		p = Pattern.compile(SUPERIORATION_LARGE);
 		m = p.matcher(expression);
 		if (m.find()) {
@@ -459,7 +459,7 @@ public class ConditionScript extends Condition implements CommandeEvent {
 			return expression.replaceFirst(INFERIORATION, nombres.get(0) < nombres.get(1) ? "1" : "0");
 		}
 
-		// Sup�rieur
+		// superieur
 		p = Pattern.compile(SUPERIORATION);
 		m = p.matcher(expression);
 		if (m.find()) {

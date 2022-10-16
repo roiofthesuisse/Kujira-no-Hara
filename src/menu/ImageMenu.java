@@ -58,7 +58,7 @@ public class ImageMenu extends ElementDeMenu {
 	 * Constructeur explicite (bas� sur un Objet).
 	 * Il faut poss�der l'Objet pour que l'Image s'affiche.
 	 * L'Image est l'ic�ne de l'Objet.
-	 * @param objet repr�sent� par cette Image dans le Menu
+	 * @param objet represente par cette Image dans le Menu
 	 * @param x position x a l'ecran
 	 * @param y position y a l'ecran
 	 * @param largeurForcee si sp�cifi�e, l'image sera affichee dans un rectangle invisible de telle largeur

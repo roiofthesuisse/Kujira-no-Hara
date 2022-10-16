@@ -36,7 +36,7 @@ public class LecteurMap extends Lecteur {
 	private int vignetteAutotileActuelle = 0;
 
 	/**
-	 * si true, les �v�nements n'avancent plus naturellement (seuls mouvements
+	 * si true, les evenements n'avancent plus naturellement (seuls mouvements
 	 * forc�s autoris�s)
 	 */
 	public boolean stopEvent = false;
@@ -47,7 +47,7 @@ public class LecteurMap extends Lecteur {
 	public boolean stopHeros = false;
 	public Event eventQuiALanceStopEvent;
 
-	/** Message a afficher dans la bo�te de dialogue */
+	/** Message a afficher dans la boite de dialogue */
 	public Message messageActuel = null;
 	public Message messagePrecedent = null;
 
@@ -110,22 +110,22 @@ public class LecteurMap extends Lecteur {
 		// lecture des commandes event
 		continuerLaLectureDesPagesDeCommandesEvent();
 
-		// deplacements des �v�nements
+		// deplacements des evenements
 		deplacerLesEvents();
 
-		// animation des �v�nements
+		// animation des evenements
 		animerLesEvents(frame);
 
 		// TODO DEBUG pour voir la hitbox de l'attaque du Heros
 		// ecran = dessinerLaHitboxDuHeros(ecran, xCamera, yCamera);
 
-		// on dessine les �v�nements et la couche m�diane
+		// on dessine les evenements et la couche m�diane
 		ecran = dessinerLesEvents(ecran, xCamera, yCamera, true, vignetteAutotileActuelle);
 
 		// ajouter imageCoucheSurHeros a l'ecran
 		ecran = dessinerDecorSuperieur(ecran, xCamera, yCamera, vignetteAutotileActuelle);
 
-		// on dessine les �v�nements au dessus de tout et la couche m�diane
+		// on dessine les evenements au dessus de tout et la couche m�diane
 		ecran = dessinerLesEventsAuDessusDeTout(ecran, xCamera, yCamera, true);
 
 		// on dessine les animations
@@ -248,7 +248,7 @@ public class LecteurMap extends Lecteur {
 	 * @param xCamera          position x de la cam�ra
 	 * @param yCamera          position y de la cam�ra
 	 * @param vignetteAutotile vignette d'animation actuelle de l'Autotile anim�
-	 * @return ecran avec le decor sup�rieur peint
+	 * @return ecran avec le decor superieur peint
 	 */
 	private BufferedImage dessinerDecorSuperieur(BufferedImage ecran, final int xCamera, final int yCamera,
 			final int vignetteAutotile) {
@@ -349,7 +349,7 @@ public class LecteurMap extends Lecteur {
 
 	/**
 	 * Activer une Page (si aucune n'est activ�e) de l'Event (s'il n'est pas
-	 * supprim� et l'executer.
+	 * supprime et l'executer.
 	 * 
 	 * @param event dont il faut activer une Page et l'executer
 	 */
@@ -441,10 +441,10 @@ public class LecteurMap extends Lecteur {
 			ecran = Graphismes.superposerImages(ecran, imageBandelette, -xCamera,
 					bandeletteActuelle * Main.TAILLE_D_UN_CARREAU - yCamera);
 
-			// Les Events au dessus de tout seront dessin�s apres le decor sup�rieur
+			// Les Events au dessus de tout seront dessin�s apres le decor superieur
 
 		} catch (Exception e) {
-			LOG.error("Erreur lors du dessin des �v�nements :", e);
+			LOG.error("Erreur lors du dessin des evenements :", e);
 		}
 		return ecran;
 	}
@@ -470,7 +470,7 @@ public class LecteurMap extends Lecteur {
 				}
 			}
 		} catch (Exception e) {
-			LOG.error("Erreur lors du dessin des �v�nements :", e);
+			LOG.error("Erreur lors du dessin des evenements :", e);
 		}
 		return ecran;
 	}
@@ -488,7 +488,7 @@ public class LecteurMap extends Lecteur {
 
 					final boolean passerALAnimationSuivante = (frame % event.frequenceActuelle.valeur == 0) // fr�quence
 																											// d'animation
-							|| (event.avance && !event.avancaitALaFramePrecedente); // la premi�re frame d'animation est
+							|| (event.avance && !event.avancaitALaFramePrecedente); // la premiere frame d'animation est
 																					// un pas
 
 					// cas Ou l'Event est anim� a l'arret
@@ -520,7 +520,7 @@ public class LecteurMap extends Lecteur {
 				}
 			}
 		} catch (Exception e) {
-			LOG.error("erreur lors de l'animation des �v�nements dans la boucle d'affichage de la map :", e);
+			LOG.error("erreur lors de l'animation des evenements dans la boucle d'affichage de la map :", e);
 		}
 	}
 
@@ -544,7 +544,7 @@ public class LecteurMap extends Lecteur {
 				}
 			}
 		} catch (Exception e) {
-			LOG.error("Erreur lors du deplacement des �v�nements :", e);
+			LOG.error("Erreur lors du deplacement des evenements :", e);
 		}
 	}
 
@@ -927,7 +927,7 @@ public class LecteurMap extends Lecteur {
 		// Normaliser l'intelocuteur
 		// L'interlocuteur arrete son animation
 		if (!event.animeALArretActuel && !event.directionFixeActuelle) {
-			event.animation = 0; // TODO attention : si la vignette par d�faut de l'event n'est pas la vignette
+			event.animation = 0; // TODO attention : si la vignette par defaut de l'event n'est pas la vignette
 									// 0, il va changer d'apparence
 		}
 		// L'interlocuteur se tourne vers le Heros
@@ -1003,7 +1003,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Transmettre a la Partie le changement d'Arme ordonn� a la Fenetre
+	 * Transmettre a la Partie le changement d'Arme ordonne a la Fenetre
 	 */
 	public final void equiperArmeSuivante() {
 		if (!this.stopEvent) { // on ne change pas d'Arme lorsqu'on lit un Message
@@ -1012,7 +1012,7 @@ public class LecteurMap extends Lecteur {
 	}
 
 	/**
-	 * Transmettre a la Partie le changement d'Arme ordonn� a la Fenetre
+	 * Transmettre a la Partie le changement d'Arme ordonne a la Fenetre
 	 */
 	public final void equiperArmePrecedente() {
 		if (!this.stopEvent) { // on ne change pas d'Arme lorsqu'on lit un Message

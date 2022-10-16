@@ -90,7 +90,7 @@ public class AfficherImage extends Commande implements CommandeEvent {
 
 	@Override
 	public final int executer(final int curseurActuel, final List<Commande> commandes) {
-		// On v�rifie si ca n'a pas deja ete fait
+		// On verifie si ca n'a pas deja ete fait
 		if (this.dejaALEcran()) {
 			// L'image est deja a l'ecran
 			// LOG.warn("Image "+this.numero+" \""+this.nomImage+"\" deja pr�sente a l'ecran

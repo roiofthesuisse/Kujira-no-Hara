@@ -16,7 +16,7 @@ import commandes.CommandeMenu;
 import main.Commande;
 
 /**
- * Une Condition peut servir a d�finir le moment de d�clenchement d'une Page, ou
+ * Une Condition peut servir a d�finir le moment de declenchement d'une Page, ou
  * faire partie du code Event.
  */
 public abstract class Condition extends Commande {
@@ -26,9 +26,9 @@ public abstract class Condition extends Commande {
 							// correspond
 
 	/**
-	 * La Condition est elle v�rifi�e ?
+	 * La Condition est elle verifi�e ?
 	 * 
-	 * @return true si v�rifi�e, false si non v�rifi�e
+	 * @return true si verifi�e, false si non verifi�e
 	 */
 	public abstract boolean estVerifiee();
 
@@ -60,11 +60,11 @@ public abstract class Condition extends Commande {
 					}
 				} catch (IndexOutOfBoundsException e) {
 					if (this instanceof CommandeEvent) {
-						LOG.error("L'�v�nement n�" + this.page.event.id + " n'a pas trouv� sa fin de condition "
+						LOG.error("L'evenement n�" + this.page.event.id + " n'a pas trouv� sa fin de condition "
 								+ this.numero + " :", e);
 					}
 					if (this instanceof CommandeMenu) {
-						LOG.error("L'�l�ment de menu n�" + this.element.id + " n'a pas trouv� sa fin de condition "
+						LOG.error("L'element de menu n�" + this.element.id + " n'a pas trouv� sa fin de condition "
 								+ this.numero + " :", e);
 					}
 				} catch (Exception e) {

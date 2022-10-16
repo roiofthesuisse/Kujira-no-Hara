@@ -37,7 +37,7 @@ public class Animation {
 	public final ArrayList<Frame> frames;
 	
 	/**
-	 * La chronologie de l'Animation est d�crite par Frame.
+	 * La chronologie de l'Animation est decrite par Frame.
 	 * Chaque Frame liste les vignettes et sons a jouer a un moment pr�cis.
 	 */
 	public class Frame {

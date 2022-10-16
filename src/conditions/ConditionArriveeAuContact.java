@@ -63,7 +63,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 		}
 		//on est a jour
 		
-		//on �tait d'embl�e sur l'Event a la premi�re frame du LecteurMap
+		//on �tait d'embl�e sur l'Event a la premiere frame du LecteurMap
 		if (frameActuelle <= 1 && event.estAuContactDuHerosMaintenant) {
 			LOG.debug("Condition ArriveeAuContact ignor�e si c'est la position initiale du Heros sur la Map.");
 			event.estAuContactDuHerosAvant = true;
@@ -73,7 +73,7 @@ public class ConditionArriveeAuContact extends Condition  implements CommandeEve
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximit� avec le Heros.
+	 * C'est une Condition qui implique une proximite avec le Heros.
 	 * @return true 
 	 */
 	public final boolean estLieeAuHeros() {

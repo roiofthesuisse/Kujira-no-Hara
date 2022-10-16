@@ -67,7 +67,7 @@ public class JouerAnimation extends Commande implements CommandeEvent {
 				lieuDeLExplosion = "cet event";
 			}
 
-			// On v�rifie qu'il n'y a pas deja une animation sur cet Event
+			// On verifie qu'il n'y a pas deja une animation sur cet Event
 			int nombreDAnimations = getPartieActuelle().animations.size();
 			JouerAnimation animation;
 			for (int i = 0; i < nombreDAnimations; i++) {

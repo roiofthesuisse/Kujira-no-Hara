@@ -6,7 +6,7 @@ import commandes.CommandeEvent;
 import commandes.CommandeMenu;
 
 /**
- * V�rifier la valeur d'un interrupteur
+ * verifier la valeur d'un interrupteur
  */
 public class ConditionInterrupteur extends Condition implements CommandeEvent, CommandeMenu {
 	int numeroInterrupteur;
@@ -41,7 +41,7 @@ public class ConditionInterrupteur extends Condition implements CommandeEvent, C
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
+	 * Ce n'est pas une Condition qui implique une proximite avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

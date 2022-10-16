@@ -42,7 +42,7 @@ public class BoucleSortir extends Commande implements CommandeEvent, CommandeMen
 			final Commande commande = commandes.get(i);
 
 			// puisqu'on sort de la Boucle, on efface le temps de d�but de boucle
-			// (ce temps sert a v�rifier que la Boucle ne dure pas trop longtemps)
+			// (ce temps sert a verifier que la Boucle ne dure pas trop longtemps)
 			if (commande instanceof Boucle) {
 				final Boucle debutDeBoucle = (Boucle) commande;
 				if (debutDeBoucle.numero == this.numero) {

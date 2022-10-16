@@ -8,7 +8,7 @@ import jeu.Partie;
 import jeu.Quete.AvancementQuete;
 
 /**
- * V�rifie si le Heros conna�t la Qu�te.
+ * verifie si le Heros conna�t la Qu�te.
  */
 public class ConditionEtatQuete extends Condition implements CommandeEvent, CommandeMenu {
 	public int idQuete;
@@ -17,7 +17,7 @@ public class ConditionEtatQuete extends Condition implements CommandeEvent, Comm
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param idQuete identifiant de la Qu�te a v�rifier
+	 * @param idQuete identifiant de la Qu�te a verifier
 	 * @param avancementVoulu Etat de completion attendu pour cette Qu�te 
 	 */
 	public ConditionEtatQuete(final int numero, final int idQuete, final AvancementQuete avancementVoulu) {
@@ -46,7 +46,7 @@ public class ConditionEtatQuete extends Condition implements CommandeEvent, Comm
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
+	 * Ce n'est pas une Condition qui implique une proximite avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

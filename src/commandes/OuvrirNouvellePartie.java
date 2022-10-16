@@ -10,7 +10,7 @@ import main.Commande;
 import main.Main;
 
 /**
- * Cr�er une nouvelle Partie vierge et y jouer
+ * creer une nouvelle Partie vierge et y jouer
  */
 public class OuvrirNouvellePartie extends Commande implements CommandeMenu {
 	private static final Logger LOG = LogManager.getLogger(OuvrirNouvellePartie.class);

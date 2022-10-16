@@ -5,7 +5,7 @@ import java.util.HashMap;
 import commandes.CommandeEvent;
 
 /**
- * Condition pour v�rifier la valeur d'un interrupteur local d'un Event
+ * Condition pour verifier la valeur d'un interrupteur local d'un Event
  */
 public class ConditionInterrupteurLocal extends Condition  implements CommandeEvent {
 	boolean valeurQuIlEstCenseAvoir;
@@ -16,9 +16,9 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	/**
 	 * Constructeur explicite
 	 * @param numero de la Condition
-	 * @param numeroMap numero de la Map Ou se trouve l'interrupteur local a v�rifier
-	 * @param idEvent id de l'Event auquel appartient l'interrupteur local a v�rifier
-	 * @param numeroInterrupteurLocal a v�rifier (0 A ; 1 B ; 2 C ; 3 D)
+	 * @param numeroMap numero de la Map Ou se trouve l'interrupteur local a verifier
+	 * @param idEvent id de l'Event auquel appartient l'interrupteur local a verifier
+	 * @param numeroInterrupteurLocal a verifier (0 A ; 1 B ; 2 C ; 3 D)
 	 * @param valeur bool�enne attendue
 	 */
 	public ConditionInterrupteurLocal(final int numero, final Integer numeroMap, final Integer idEvent, final int numeroInterrupteurLocal, final boolean valeur) {
@@ -59,7 +59,7 @@ public class ConditionInterrupteurLocal extends Condition  implements CommandeEv
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
+	 * Ce n'est pas une Condition qui implique une proximite avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

@@ -73,7 +73,7 @@ public class Carte extends ElementDeMenu {
 				this.numeroCarte = numeroCarte;
 				LOG.info("Nouvelle image de carte : "+numeroCarte);
 				
-				// R�initialisation des Coordonnees du cadrage
+				// reinitialisation des Coordonnees du cadrage
 				this.xCarteActuel = -1;
 				this.yCarteActuel = -1;
 			} catch (IOException e) {

@@ -106,7 +106,7 @@ public class MusiqueOgg extends Musique {
 	public final void modifierVolume(final float nouveauVolume) {
 		((OggClip) this.clip).setGain(nouveauVolume);
 		
-		//mettre a jour les donn�es
+		//mettre a jour les donnees
 		this.volumeActuel = nouveauVolume;
 	}
 	

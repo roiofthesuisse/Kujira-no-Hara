@@ -16,8 +16,8 @@ public interface Listable {
 	
 	/**
 	 * Construire une image qui sera l'apparence de l'ElementDeMenu dans la Liste. 
-	 * @param largeur minimale des �l�ments de la liste
-	 * @param hauteur minimale des �l�ments de la liste
+	 * @param largeur minimale des elements de la liste
+	 * @param hauteur minimale des elements de la liste
 	 * @return image d'informations sur le collectable
 	 */
 	BufferedImage construireImagePourListe(final int largeur, final int hauteur);

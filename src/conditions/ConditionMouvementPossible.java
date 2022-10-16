@@ -9,7 +9,7 @@ import commandes.Deplacement;
 import main.Commande;
 
 /**
- * V�rifie si ce Mouvement est possible.
+ * verifie si ce Mouvement est possible.
  * L'Event consid�r� est mentionn� dans l'objet Mouvement.
  */
 public class ConditionMouvementPossible extends Condition implements CommandeEvent {
@@ -43,7 +43,7 @@ public class ConditionMouvementPossible extends Condition implements CommandeEve
 	}
 
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
+	 * Ce n'est pas une Condition qui implique une proximite avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

@@ -49,7 +49,7 @@ public class LecteurMenu extends Lecteur {
 	}
 	
 	/**
-	 * Constituer l'image de l'ecran, avec tous les �l�ments du Menu
+	 * Constituer l'image de l'ecran, avec tous les elements du Menu
 	 * @param frame de l'ecran calcul�
 	 * @return ecran
 	 */
@@ -85,7 +85,7 @@ public class LecteurMenu extends Lecteur {
 			ecran = Graphismes.superposerImages(ecran, selection, selectionnable.x-ImageMenu.CONTOUR, selectionnable.y-ImageMenu.CONTOUR);
 		}
 		
-		//affichage des �l�ments de menu
+		//affichage des elements de menu
 		for (ImageMenu element : this.menu.images) {
 			if (element.ilFautAfficherCetElement()) {
 				ecran = Graphismes.superposerImages(ecran, 

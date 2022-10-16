@@ -50,8 +50,8 @@ public class InvoquerUnEvent extends Commande implements CommandeEvent {
 	@Override
 	public int executer(int curseurActuel, List<Commande> commandes) {
 		Map mapCourante = this.page.event.map;
-		// Cr�er juste un Event a partir du JSON de la Map
-		// (pas la peine de cr�er toute la Map)
+		// creer juste un Event a partir du JSON de la Map
+		// (pas la peine de creer toute la Map)
 		try {
 			// Ouvrir le fichier JSON de la Map Ou se trouve l'Event a invoquer
 			JSONObject jsonMap = InterpreteurDeJson.ouvrirJsonMap(this.idMap);

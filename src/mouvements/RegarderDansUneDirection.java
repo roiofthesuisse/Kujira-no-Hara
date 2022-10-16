@@ -5,7 +5,7 @@ import java.util.HashMap;
 import map.Event;
 
 /**
- * Fait regarder l'event dans une direction donn�e.
+ * Fait regarder l'event dans une direction donnee.
  */
 public class RegarderDansUneDirection extends Mouvement {
 	

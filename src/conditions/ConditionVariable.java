@@ -7,7 +7,7 @@ import commandes.CommandeMenu;
 import utilitaire.Maths.Inegalite;
 
 /**
- * V�rifier la valeur d'une variable
+ * verifier la valeur d'une variable
  */
 public class ConditionVariable extends Condition implements CommandeEvent, CommandeMenu {
 	private int numeroVariable;
@@ -57,7 +57,7 @@ public class ConditionVariable extends Condition implements CommandeEvent, Comma
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
+	 * Ce n'est pas une Condition qui implique une proximite avec le Heros.
 	 * @return false 
 	 */
 	public final boolean estLieeAuHeros() {

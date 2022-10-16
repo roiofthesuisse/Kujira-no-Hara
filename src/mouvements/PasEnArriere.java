@@ -8,7 +8,7 @@ import map.Event.Direction;
 import utilitaire.Maths;
 
 /**
- * Deplacer un Event d'un pas dans la direction oppos�e a la direction de l'Event.
+ * Deplacer un Event d'un pas dans la direction opposee a la direction de l'Event.
  */
 public class PasEnArriere extends Avancer {
 	
@@ -17,7 +17,7 @@ public class PasEnArriere extends Avancer {
 	 * @param nombreDePixels ditance parcourue a reculons (en pixels)
 	 */
 	public PasEnArriere(final int nombreDePixels) {
-		//le -1 est bidon, il sera remplac� par la direction de l'Event lors de la v�rification
+		//le -1 est bidon, il sera remplac� par la direction de l'Event lors de la verification
 		super(-1, nombreDePixels);
 	}
 	
@@ -41,7 +41,7 @@ public class PasEnArriere extends Avancer {
 		final Avancer mouvementFictif = new Avancer(Event.Direction.directionOpposee(event.direction), Main.TAILLE_D_UN_CARREAU);
 		mouvementFictif.deplacement = this.deplacement; //Deplacement pour �viter la NullPointerException dans Avancer
 		
-		//puis on lance la v�rification traditionnelle
+		//puis on lance la verification traditionnelle
 		return mouvementFictif.mouvementPossible();
 	}
 	

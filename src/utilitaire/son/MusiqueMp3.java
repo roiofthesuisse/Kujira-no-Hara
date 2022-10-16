@@ -28,7 +28,7 @@ public class MusiqueMp3 extends Musique {
 	public final void modifierVolume(final float nouveauVolume) {
 		((MediaPlayer) this.clip).setVolume(nouveauVolume);
 		
-		//mettre a jour les donn�es
+		//mettre a jour les donnees
 		this.volumeActuel = nouveauVolume;
 	}
 	

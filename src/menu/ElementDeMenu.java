@@ -58,7 +58,7 @@ public abstract class ElementDeMenu {
 	@SuppressWarnings("rawtypes")
 	public Liste liste = null;
 
-	/** L'�l�ment de Menu peut etre une image */
+	/** L'element de Menu peut etre une image */
 	protected BufferedImage image;
 	/** Surlignage de l'image lors de la S�lection */
 	public BufferedImage imageDeSelection = null;
@@ -216,7 +216,7 @@ public abstract class ElementDeMenu {
 	 * Commandes de Menu a executer a la confirmation de l'ElementDeMenu.
 	 */
 	public void executerLesCommandesDeConfirmation() {
-		LOG.info("Execution des commandes de confirmation de l'�l�ment de menu.");
+		LOG.info("Execution des commandes de confirmation de l'element de menu.");
 		boolean commandeInstantanee = true;
 		int nouvelleValeurDuCurseur;
 		try {
@@ -231,7 +231,7 @@ public abstract class ElementDeMenu {
 			}
 		} catch (IndexOutOfBoundsException e) {
 			// fin de la lecture des commandes
-			LOG.trace("Fin de la lecture des commandes de confirmation de l'�l�ment de menu.", e);
+			LOG.trace("Fin de la lecture des commandes de confirmation de l'element de menu.", e);
 			this.curseurComportementConfirmation = 0;
 			this.executionDesCommandesDeConfirmation = false; // ne lire qu'une seule fois
 		}
@@ -253,14 +253,14 @@ public abstract class ElementDeMenu {
 			}
 		} catch (IndexOutOfBoundsException e) {
 			// fin de la lecture des commandes
-			LOG.trace("Fin de la lecture des commandes de survol de l'�l�ment de menu.", e);
+			LOG.trace("Fin de la lecture des commandes de survol de l'element de menu.", e);
 			this.curseurComportementSurvol = 0;
 			this.executionDesCommandesDeSurvol = false;
 		}
 	}
 
 	/**
-	 * Faut-il afficher l'Element ? Ses Conditions sont-elles toutes v�rifi�es ?
+	 * Faut-il afficher l'Element ? Ses Conditions sont-elles toutes verifi�es ?
 	 * 
 	 * @return true s'il faut afficher l'Element, false sinon
 	 */
@@ -358,7 +358,7 @@ public abstract class ElementDeMenu {
 						final JSONArray jsonCommandesSurvol = jsonElement.getJSONArray("commandesSurvol");
 						Commande.recupererLesCommandes(commandesAuSurvol, jsonCommandesSurvol);
 					} catch (JSONException e) {
-						LOG.warn("[Menu " + nom + "] Pas de commandes au survol pour l'�l�ment de menu : " + id);
+						LOG.warn("[Menu " + nom + "] Pas de commandes au survol pour l'element de menu : " + id);
 					}
 
 					// CommandesMenu execut�es a la confirmation de l'El�ment de Menu
@@ -368,7 +368,7 @@ public abstract class ElementDeMenu {
 						Commande.recupererLesCommandes(commandesALaConfirmation, jsonCommandesConfirmation);
 					} catch (JSONException e) {
 						LOG.warn(
-								"[Menu " + nom + "] Pas de commandes a la confirmation pour l'�l�ment de menu : " + id);
+								"[Menu " + nom + "] Pas de commandes a la confirmation pour l'element de menu : " + id);
 					}
 
 					if ("Texte".equals(type)) {

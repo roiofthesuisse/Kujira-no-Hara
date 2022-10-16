@@ -24,7 +24,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 	 * 
 	 * @param nomMenu           du Menu
 	 * @param selectionInitiale identifiant de l'ElementDeMenu a s�lectionner au
-	 *                          d�but ; null pour la s�lection par d�faut sp�cifique
+	 *                          d�but ; null pour la s�lection par defaut sp�cifique
 	 *                          au menu
 	 */
 	public OuvrirMenu(final String nomMenu, final Integer selectionInitiale) {
@@ -45,7 +45,7 @@ public class OuvrirMenu extends Commande implements CommandeEvent, CommandeMenu 
 																												// s�lection
 																												// initiale
 																												// par
-																												// d�faut
+																												// defaut
 																												// du
 																												// menu
 		);

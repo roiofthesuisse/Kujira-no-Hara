@@ -46,7 +46,7 @@ public class MusiqueWav extends Musique {
 		final float gain = (1f-nouveauVolume)*Float.MIN_VALUE;
 		gainControl.setValue(gain);
 		
-		//mettre a jour les donn�es
+		//mettre a jour les donnees
 		this.volumeActuel = nouveauVolume;
 	}
 	

@@ -39,7 +39,7 @@ public class Attendre extends Commande implements CommandeEvent {
 			return curseurActuel;
 		} else {
 			// On a fini d'attendre
-			this.ceQuiAEteFait = 0; // r�initialisation
+			this.ceQuiAEteFait = 0; // reinitialisation
 			return curseurActuel + 1;
 		}
 	}

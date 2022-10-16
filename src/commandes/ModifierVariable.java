@@ -50,7 +50,7 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 
 	/**
 	 * Constructeur explicite Utiliser les constantes situees dans la classe pour
-	 * cr�er une telle op�ration.
+	 * creer une telle op�ration.
 	 * 
 	 * @param numeroVariable   Numero de la variable a modifier
 	 * @param operationAFaire  0:rendreEgalA 1:ajouter 2:retirer 3:multiplier
@@ -58,7 +58,7 @@ public class ModifierVariable extends Commande implements CommandeEvent, Command
 	 * @param operationAFaire2 0:valeur 1:contenuDeLaVariable 2:nombreAleatoire
 	 * @param valeurADonner    valeur brute, Numero de la variable, ou borne
 	 *                         inf�rieure al�atoire
-	 * @param valeurADonner2   �ventuelle borne sup�rieure al�atoire
+	 * @param valeurADonner2   �ventuelle borne superieure al�atoire
 	 */
 	public ModifierVariable(final int numeroVariable, final String operationAFaire, final String operationAFaire2,
 			final int valeurADonner, final int valeurADonner2) {

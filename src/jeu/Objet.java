@@ -107,7 +107,7 @@ public class Objet implements Listable {
 			
 			final Objet objet = new Objet(parametresObjet);
 			
-			// On v�rifie que les identifiants soient bien uniques
+			// On verifie que les identifiants soient bien uniques
 			boolean identifiantUnique = true;
 			for (Objet objet2 : objets) {
 				if (objet2.idObjet.equals(objet.idObjet)) {
@@ -122,7 +122,7 @@ public class Objet implements Listable {
 		
 		final Objet[] objetsDuJeu = new Objet[objets.size()];
 		objets.toArray(objetsDuJeu);
-		LOG.debug("Objets cr��s : " + objetsDuJeu.length);
+		LOG.debug("Objets crees : " + objetsDuJeu.length);
 		return objetsDuJeu;
 	}
 	
@@ -144,7 +144,7 @@ public class Objet implements Listable {
 	}
 	
 	/**
-	 * Fabriquer une liste de Conditions v�rifiant la possession de cet Objet.
+	 * Fabriquer une liste de Conditions verifiant la possession de cet Objet.
 	 * @return liste de Conditions destin�e au Menu
 	 */
 	public final ArrayList<Condition> getConditions() {

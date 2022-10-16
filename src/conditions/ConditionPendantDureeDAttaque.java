@@ -4,8 +4,8 @@ import commandes.CommandeEvent;
 import jeu.Arme;
 
 /**
- * Si l'attaque en est au moment du coup donn�.
- * En effet, toutes les images de l'animation d'attaque ne correspondent pas au coup donn�.
+ * Si l'attaque en est au moment du coup donne.
+ * En effet, toutes les images de l'animation d'attaque ne correspondent pas au coup donne.
  */
 public class ConditionPendantDureeDAttaque extends Condition implements CommandeEvent {
 	
@@ -28,8 +28,8 @@ public class ConditionPendantDureeDAttaque extends Condition implements Commande
 	}
 	
 	/**
-	 * C'est une Condition qui implique une proximit� avec le Heros.
-	 * En effet, elle sert de signal du coup donn� par le Heros a un Event avec une Arme.
+	 * C'est une Condition qui implique une proximite avec le Heros.
+	 * En effet, elle sert de signal du coup donne par le Heros a un Event avec une Arme.
 	 * @return true 
 	 */
 	public final boolean estLieeAuHeros() {

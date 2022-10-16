@@ -132,7 +132,7 @@ public enum Pinceau {
 	/**
 	 * Obtenir le pinceau correspondant a un Composite.
 	 * @param composite fa�on de peindre qu'on attend du pinceau
-	 * @return pinceau qui peint tel que d�crit par le Composite
+	 * @return pinceau qui peint tel que decrit par le Composite
 	 */
     public static Pinceau obtenirPinceauPour(final MonComposite composite) {
         switch (composite.modeDeFusion) {

@@ -22,8 +22,8 @@ import utilitaire.graphismes.Graphismes;
 import utilitaire.graphismes.ModeDeFusion;
 
 /**
- * Un Event peut avoir plusieurs comportements. Chaque comportement est d�crit par une Page de comportements.
- * La Page est d�clench�e si certaines Conditions sont v�rifi�es, ses Commandes sont alors execut�es.
+ * Un Event peut avoir plusieurs comportements. Chaque comportement est decrit par une Page de comportements.
+ * La Page est declench�e si certaines Conditions sont verifi�es, ses Commandes sont alors execut�es.
  */
 public class PageEvent {
 	private static final Logger LOG = LogManager.getLogger(PageEvent.class);
@@ -33,10 +33,10 @@ public class PageEvent {
 	/** numero de la Page */
 	public final int numero;
 	
-	/** Conditions de d�clenchement de la Page */
+	/** Conditions de declenchement de la Page */
 	public final ArrayList<Condition> conditions;
 	
-	/** liste de Commandes a executer dans l'ordre si les Conditions sont v�rifi�es */
+	/** liste de Commandes a executer dans l'ordre si les Conditions sont verifi�es */
 	public final ArrayList<Commande> commandes;
 	/**
 	 * Le curseur indique quelle Commande executer.
@@ -48,7 +48,7 @@ public class PageEvent {
 	public String nomImage;
 	public BufferedImage image;
 	public boolean apparenceEstUnTile;
-	/** par d�faut, si image < 32px, l'Event est consid�r� comme plat (au sol) */
+	/** par defaut, si image < 32px, l'Event est consid�r� comme plat (au sol) */
 	public Boolean plat; //
 	public int directionInitiale;
 	public int animationInitiale;
@@ -79,16 +79,16 @@ public class PageEvent {
 	
 	/**
 	 * Constructeur generique
-	 * La page de comportement est cr��e a partir du fichier JSON.
+	 * La page de comportement est creee a partir du fichier JSON.
 	 * @param numero de la Page
-	 * @param pageJSON objet JSON d�crivant la page de comportements
+	 * @param pageJSON objet JSON decrivant la page de comportements
 	 * @param idEvent identifiant de l'Event
 	 * @param map de l'Event
 	 */
 	public PageEvent(final int numero, final JSONObject pageJSON, final Integer idEvent, final Map map) {
 		this.numero = numero;
 		
-		// Conditions de d�clenchement de la Page
+		// Conditions de declenchement de la Page
 		this.conditions = new ArrayList<Condition>();
 		if (pageJSON.has("conditions")) {
 			Condition.recupererLesConditions(this.conditions, pageJSON.getJSONArray("conditions"));
@@ -168,7 +168,7 @@ public class PageEvent {
 			LOG.trace("Pas d'image d'apparence pour la page "+this.numero+" de l'event "+idEvent);
 		}
 	
-		// Propri�t�s de cette Page
+		// proprietes de cette Page
 		try {
 			this.frequence = pageJSON.has("frequence") 
 					? Frequence.parNom(pageJSON.getString("frequence"))
@@ -179,7 +179,7 @@ public class PageEvent {
 			this.frequence = Event.FREQUENCE_PAR_DEFAUT;
 		}
 		if (this.frequence == null) {
-			LOG.error("La fr�quence de l'event "+idEvent+" est nulle ! Cela va cr�er une erreur lors de l'animation !");
+			LOG.error("La fr�quence de l'event "+idEvent+" est nulle ! Cela va creer une erreur lors de l'animation !");
 		}
 		try {
 			this.vitesse = pageJSON.has("vitesse")
@@ -281,7 +281,7 @@ public class PageEvent {
 	
 	/**
 	 * Est-ce que l'activation de cette page fige les autres Events ?
-	 * @param pageJSON objet JSON d�crivant la page de comportements
+	 * @param pageJSON objet JSON decrivant la page de comportements
 	 * @return true si la Page fige les autres Events
 	 */
 	private boolean cettePageFigeLesAutresEvents(JSONObject pageJSON) {
@@ -340,7 +340,7 @@ public class PageEvent {
 
 	/**
 	 * Executer la Page de comportement.
-	 * C'est-�-dire que les conditions de d�clenchement ont ete r�unies.
+	 * C'est-�-dire que les conditions de declenchement ont ete r�unies.
 	 * On va donc lire les commandes une par une avec un curseur.
 	 */
 	public void executer() {

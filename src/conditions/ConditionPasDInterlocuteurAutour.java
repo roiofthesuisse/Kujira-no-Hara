@@ -7,7 +7,7 @@ import map.Event;
 import map.PageEvent;
 
 /**
- * V�rifier qu'il n'y a pas d'interlocuteur potentiel autour du Heros.
+ * verifier qu'il n'y a pas d'interlocuteur potentiel autour du Heros.
  */
 public class ConditionPasDInterlocuteurAutour extends Condition implements CommandeEvent {
 	
@@ -32,7 +32,7 @@ public class ConditionPasDInterlocuteurAutour extends Condition implements Comma
 	}
 	
 	/**
-	 * Ce n'est pas une Condition qui implique une proximit� avec le Heros.
+	 * Ce n'est pas une Condition qui implique une proximite avec le Heros.
 	 * Cette Contition s'adresse uniquement au Heros, pas aux autres Events.
 	 * @return false 
 	 */

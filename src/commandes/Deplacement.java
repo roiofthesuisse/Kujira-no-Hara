@@ -126,7 +126,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 		if (event == null) {
 			// Event introuvable
 			LOG.error("Deplacement impossible : l'Event " + this.idEventADeplacer + " n'existe pas !");
-			// on r�initialise le Deplacement (au cas Ou il est a nouveau execut� dans le
+			// on reinitialise le Deplacement (au cas Ou il est a nouveau execut� dans le
 			// futur)
 			this.aEteAjouteAuxDeplacementsForces = false;
 			// on passe a la Commande suivante
@@ -162,7 +162,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 		if (!this.attendreLaFinDuDeplacement) {
 			// on ne se soucie pas du d�roulement du Deplacement
 
-			// on r�initialise le Deplacement (au cas Ou il est a nouveau execut� dans le
+			// on reinitialise le Deplacement (au cas Ou il est a nouveau execut� dans le
 			// futur)
 			this.aEteAjouteAuxDeplacementsForces = false;
 			// on passe imm�diatement a la Commande suivante
@@ -172,7 +172,7 @@ public class Deplacement extends Commande implements CommandeEvent {
 			if (event.deplacementForce.mouvements.size() <= 0) {
 				// la liste a ete totalement consomm�e
 
-				// on r�initialise le Deplacement (au cas Ou il est a nouveau execut� dans le
+				// on reinitialise le Deplacement (au cas Ou il est a nouveau execut� dans le
 				// futur)
 				this.aEteAjouteAuxDeplacementsForces = false;
 				// on passe a la Commande suivante

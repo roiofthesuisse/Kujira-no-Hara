@@ -34,7 +34,7 @@ public class SeRapprocher extends Avancer {
 	 * @param idEventCible Event vers lequel on se rapproche
 	 */
 	public SeRapprocher(final Integer idEventARapprocher, final Integer idEventCible) {
-		//le -1 est bidon, il sera remplac� par la direction de l'Event lors de la v�rification
+		//le -1 est bidon, il sera remplac� par la direction de l'Event lors de la verification
 		super(-1, 1);
 		
 		this.idEventARapprocher = idEventARapprocher;
@@ -49,8 +49,8 @@ public class SeRapprocher extends Avancer {
 	 */
 	public SeRapprocher(final HashMap<String, Object> parametres) {
 		this(
-				parametres.containsKey("idEventARapprocher") ? (int) parametres.get("idEventARapprocher") : 0, //par d�faut, le Heros
-				parametres.containsKey("idEventCible") ? (int) parametres.get("idEventCible") : null //par d�faut, cet Event
+				parametres.containsKey("idEventARapprocher") ? (int) parametres.get("idEventARapprocher") : 0, //par defaut, le Heros
+				parametres.containsKey("idEventCible") ? (int) parametres.get("idEventCible") : null //par defaut, cet Event
 		);
 	}
 
@@ -156,7 +156,7 @@ public class SeRapprocher extends Avancer {
 					+" vers "+event.x+";"+event.y);
 		}
 		
-		// Il faudra r�initialiser le mouvement la prochaine fois
+		// Il faudra reinitialiser le mouvement la prochaine fois
 		if (this.ceQuiAEteFait >= this.etapes) {
 			LOG.debug("On s'est rapproch� de l'interlocuteur.");
 			this.initialisation = false;

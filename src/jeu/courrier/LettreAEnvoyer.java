@@ -19,7 +19,7 @@ public class LettreAEnvoyer extends Lettre implements Listable {
 		// icone
 		// TODO
 		
-		// Premi�re ligne (destinataire)
+		// premiere ligne (destinataire)
 		// TODO
 
 		// TODO

@@ -88,19 +88,19 @@ public class ModifierInterrupteurLocal extends Commande implements CommandeEvent
 	}
 
 	/**
-	 * R�initialiser les interrupteurs locaux en rapport avec cet Event.
+	 * reinitialiser les interrupteurs locaux en rapport avec cet Event.
 	 * 
-	 * @param event a r�initialiser
+	 * @param event a reinitialiser
 	 */
 	public static void reinitialiserEvent(final Event event) {
 		final String debutDuCode = "m" + event.map.numero + "e" + event.id;
-		LOG.debug("R�initialisation des interrupteurs locaux de l'event " + debutDuCode);
+		LOG.debug("reinitialisation des interrupteurs locaux de l'event " + debutDuCode);
 		int tailleListe = getPartieActuelle().interrupteursLocaux.size();
 		String code;
 		for (int i = 0; i < tailleListe; i++) {
 			code = getPartieActuelle().interrupteursLocaux.get(i);
 			if (code.startsWith(debutDuCode)) {
-				LOG.trace("R�initialisation de l'interrupteur local " + code);
+				LOG.trace("reinitialisation de l'interrupteur local " + code);
 				getPartieActuelle().interrupteursLocaux.remove(i);
 				tailleListe--;
 			}

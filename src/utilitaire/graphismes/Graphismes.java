@@ -39,7 +39,7 @@ public abstract class Graphismes {
 	public static final int PAS_DE_ROTATION = 0;
 	/** Valeur (sur 255) repr�sentant l'absence de transparence */
 	public static final int OPACITE_MAXIMALE = 255;
-	/** Ton par d�faut des images */
+	/** Ton par defaut des images */
 	public static final int[] TON_PAR_DEFAUT = new int[] { 0, 127, 127, 127 };
 	/** L'origine de l'image est son coin haut-gauche et non son centre */
 	private static final boolean ORIGINE_HAUT_GAUCHE = false;
@@ -401,7 +401,7 @@ public abstract class Graphismes {
 	/**
 	 * Comparer deux images. Sont-elles identiques ?
 	 * 
-	 * @param image1 premi�re image
+	 * @param image1 premiere image
 	 * @param image2 seconde image
 	 * @return true si les images sont identiques
 	 */

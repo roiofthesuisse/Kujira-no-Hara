@@ -20,7 +20,7 @@ public abstract class LecteurAudio {
 	
 	/**
 	 * Jouer un effet sonore.
-	 * Volume sonore maximal par d�faut.
+	 * Volume sonore maximal par defaut.
 	 * @param nom du fichier audio
 	 */
 	public static synchronized void playSe(final String nom) {
@@ -47,7 +47,7 @@ public abstract class LecteurAudio {
 		LOG.debug("SE d�marr� : " + nom);
 		musique.jouerUneSeuleFois(null);
 
-		// On met a jour les donn�es
+		// On met a jour les donnees
 		seEnCours.add(musique);
 	}
 	
@@ -157,7 +157,7 @@ public abstract class LecteurAudio {
 			LOG.debug("BGM d�marr� : "+nom);
 			musique.jouerEnBoucle();
 				
-			// On met a jour les donn�es
+			// On met a jour les donnees
 			LecteurAudio.bgmEnCours[piste] = musique;
 		}
 	}
@@ -208,7 +208,7 @@ public abstract class LecteurAudio {
 			LOG.debug("BGS d�marr� : "+nom);
 			musique.jouerEnBoucle();
 				
-			// On met a jour les donn�es
+			// On met a jour les donnees
 			LecteurAudio.bgsEnCours[piste] = musique;
 			
 		// Modification du volume uniquement

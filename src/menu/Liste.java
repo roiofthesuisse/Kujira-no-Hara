@@ -41,14 +41,14 @@ public class Liste<T extends Listable> {
 	/** hauteur (en pixels) maximale pour l'image d'un des ElementsDeMenu de la Liste */
 	public int hauteurMaximaleElement;
 	
-	/** Espacement horizontal entre les �l�ments de la liste */
+	/** Espacement horizontal entre les elements de la liste */
 	final int margeADroite;
-	/** Espacement vertical entre les �l�ments de la liste */
+	/** Espacement vertical entre les elements de la liste */
 	final int interligne;
 	
 	/** Numero de l'ElementDeMenu s�lectionn� dans la Liste */
 	private int numeroElementSelectionne;
-	/** premi�re ligne visibles a l'ecran */
+	/** premiere ligne visibles a l'ecran */
 	private int premiereLigneVisible = 0;
 	/** ElementsDeMenu de la Liste */
 	public ArrayList<ImageMenu> elements;
@@ -61,10 +61,10 @@ public class Liste<T extends Listable> {
 	 * @param y position y de la Liste dans le Menu
 	 * @param nombreDeColonnes nombre de colonnes du tableau
 	 * @param nombreDeLignesVisibles nombre de lignes visibles simultan�ment a l'ecran
-	 * @param margeADroite espacement horizontal entre les �l�ments de la liste
-	 * @param largeurMinimaleElements largeur minimale pour un �l�ment
-	 * @param hauteurMinimaleElements hauteur minimale pour un �l�ment
-	 * @param interligne espacement horizontal entre les �l�ments de la liste
+	 * @param margeADroite espacement horizontal entre les elements de la liste
+	 * @param largeurMinimaleElements largeur minimale pour un element
+	 * @param hauteurMinimaleElements hauteur minimale pour un element
+	 * @param interligne espacement horizontal entre les elements de la liste
 	 * @param provenance quel est la nature du Listable a afficher ?
 	 * @param possedes n'affiche-t-on que les Listables poss�d�s par le joueur ?
 	 * @param avec liste exhaustive des Numeros des Listables a afficher
@@ -87,7 +87,7 @@ public class Liste<T extends Listable> {
 		recenserLesListablesAConsiderer(provenance, possedes, avec, toutSauf);
 		this.elements = genererLesImagesDesElements(largeurMinimaleElements, hauteurMinimaleElements);
 		
-		// Remplir le tableau bidimensionnel des �l�ments a afficher
+		// Remplir le tableau bidimensionnel des elements a afficher
 		this.nombreDeLignesTotal = this.elements.size() / this.nombreDeColonnes + (this.elements.size() % this.nombreDeColonnes != 0 ? 1 : 0);
 		determinerLesElementsAAfficher();
 	}
@@ -136,14 +136,14 @@ public class Liste<T extends Listable> {
 	
 	/**
 	 * G�n�rer l'ElementDeMenu de chaque Listable de la Liste.
-	 * @param largeurMinimaleElement largeur minimale des �l�ments de la liste
-	 * @param hauteurMinimaleElement hauteur minimale des �l�ments de la liste
+	 * @param largeurMinimaleElement largeur minimale des elements de la liste
+	 * @param hauteurMinimaleElement hauteur minimale des elements de la liste
 	 * @return ElementsDeMenu de la Liste
 	 */
 	public ArrayList<ImageMenu> genererLesImagesDesElements(final int largeurMinimaleElement, final int hauteurMinimaleElement) {
 		final ArrayList<ImageMenu> elements = new ArrayList<ImageMenu>();
 		
-		// Cr�er un ElementDeMenu pour chaque Numero
+		// creer un ElementDeMenu pour chaque Numero
 		Listable listable;
 		BufferedImage image;
 		ImageMenu element;
@@ -168,7 +168,7 @@ public class Liste<T extends Listable> {
 	}
 	
 	/**
-	 * Remplir le tableau bidimensionnel des �l�ments a afficher a partir du contenu de la Liste.
+	 * Remplir le tableau bidimensionnel des elements a afficher a partir du contenu de la Liste.
 	 */
 	public final void determinerLesElementsAAfficher() {
 		this.elementsAffiches = new ImageMenu[this.nombreDeLignesVisibles][this.nombreDeColonnes];
@@ -334,7 +334,7 @@ public class Liste<T extends Listable> {
 				liste = new Liste(x, y, nombreDeColonnes, nombreDeLignesVisibles, largeurMinimaleElements, hauteurMinimaleElements, margeADroite, interligne,
 						provenance, possedes, avec, tousSauf);
 			} catch (Exception e) {
-				LOG.error("Impossible de cr�er la liste d'�l�ments pour le menu !", e);
+				LOG.error("Impossible de creer la liste d'elements pour le menu !", e);
 			}
 			return liste;
 		} catch (ClassNotFoundException e) {

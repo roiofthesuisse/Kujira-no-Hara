@@ -122,7 +122,7 @@ public class PasEnDiagonale extends Avancer {
 			//si l'Event regarde deja dans une des deux directions de la diagonale, on prend celle-ci
 			return this.directionVerticale;
 		} else {
-			//sinon par d�faut on prend la composante horizontale de la diagonale
+			//sinon par defaut on prend la composante horizontale de la diagonale
 			return this.directionHorizontale;
 		}
 	}

@@ -33,7 +33,7 @@ public class RetirerObjet extends Commande implements CommandeMenu, CommandeEven
 		this((int) parametres.get("idObjet"), parametres.containsKey("quantite") ? (int) parametres.get("quantite") : 1 // retirer
 																														// 1
 																														// par
-																														// d�faut
+																														// defaut
 		);
 	}
 

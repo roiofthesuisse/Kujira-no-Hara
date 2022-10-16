@@ -82,7 +82,7 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 				// Transition en cas de franchissement de porte
 				this.transition = Transition.ROND;
 			} else {
-				// Transition par d�faut
+				// Transition par defaut
 				this.transition = Transition.DEFILEMENT;
 			}
 		}
@@ -94,13 +94,13 @@ public class ChangerDeMap extends Commande implements CommandeEvent {
 			final int xDebutHerosInterprete;
 			final int yDebutHerosInterprete;
 			if (this.definiParDesVariables) {
-				// donn�es a chercher dans les variables
+				// donnees a chercher dans les variables
 				final int[] variables = getPartieActuelle().variables;
 				numeroNouvelleMapInterprete = variables[numeroNouvelleMap];
 				xDebutHerosInterprete = variables[xDebutHeros];
 				yDebutHerosInterprete = variables[yDebutHeros];
 			} else {
-				// donn�es brutes
+				// donnees brutes
 				numeroNouvelleMapInterprete = numeroNouvelleMap;
 				xDebutHerosInterprete = xDebutHeros;
 				yDebutHerosInterprete = yDebutHeros;
