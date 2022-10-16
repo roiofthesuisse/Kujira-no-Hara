@@ -23,6 +23,7 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 	private static final Logger LOG = LogManager.getLogger(AppelerUnScript.class);
 	private static final String ESPACE = "(\\s)*";
 	private static final String EVENT_ID = "@event_id";
+	private static final String ID = "id";
 	private static final String ATTENDRE_CET_EVENT = "wait_for_event(@event_id)";
 	private static final String ATTENDRE_HEROS = "wait_for_event(0)";
 	private static final String AFFICHER_UN_FACESET = "\\$game_temp.faceset = \"[0-9A-Za-z ]+\"";
@@ -474,6 +475,13 @@ public class AppelerUnScript extends Commande implements CommandeEvent, Commande
 			ArrayList<Integer> nombres = extraireLesNombres(RELATIF, aRemplacer);
 			int valeurVariable = nombres.get(0) - nombres.get(1);
 			return traiter(expression.replace(aRemplacer, Integer.toString(valeurVariable)));
+		}
+
+		// Id event (dans un Mouvement)
+		if (expression.contains(ID)) {
+			LOG.trace("Script ruby reconnu : ID");
+			String eventId = Integer.toString(this.page.event.id);
+			return traiter(expression.replace(ID, eventId));
 		}
 
 		// Retirer les parentheses
