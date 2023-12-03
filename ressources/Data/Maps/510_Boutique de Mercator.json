@@ -266,6 +266,10 @@
 				"texte": "Cette odeur..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
 				"nom": "Message",
 				"texte": "..."
 			},
@@ -549,6 +553,10 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hohoho..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Hohoho..."
 			},
@@ -558,7 +566,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "(ça sent la tune !)"
+				"texte": "(ça sent la thune !)"
 			},
 			{
 				"nom": "Commentaire",
@@ -697,11 +705,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You are in the shop of the great \\n\\c[2]Mercator\\c[1], and it's me!"
+				"texte": "(en) You are in the shop of the great \\n\\c[2]Mercator\\c[1]! \\nIt's me."
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous voici dans la boutique du grand \\n\\c[2]Mercator\\c[1], et c'est moi !"
+				"texte": "Vous voici dans la boutique du grand \\n\\c[2]Mercator\\c[1] ! \\nC'est moi."
 			},
 			{
 				"nom": "Deplacement",
@@ -735,12 +743,12 @@
 				"texte": "(en) Show me what you want!"
 			},
 			{
-				"nom": "Message",
-				"texte": "Montrez-moi donc ce qui vous ferait plaisir !"
+				"nom": "Commentaire",
+				"texte": "(en) I will look|I don't want anything"
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) Ok|No thanks"
+				"nom": "Message",
+				"texte": "Montrez-moi donc ce qui vous ferait plaisir !"
 			},
 			{
 				"nom": "Choix",
@@ -1398,12 +1406,12 @@
 				"texte": "(en) Do you want some?"
 			},
 			{
-				"nom": "Message",
-				"texte": "Vous m'en achetez ?"
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous m'en achetez ?"
 			},
 			{
 				"nom": "Choix",
@@ -1431,7 +1439,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1467,6 +1475,10 @@
 				"idObjet": 2,
 				"variable": false,
 				"quantite": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
 			},
 			{
 				"nom": "Commentaire",
@@ -1588,6 +1600,10 @@
 				"texte": "Vous avez moins de 250 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
 			},
@@ -1598,6 +1614,10 @@
 			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -1655,6 +1675,52 @@
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "notice",
+		"x": 10,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
+			},
+			{
+				"nom": "Message",
+				"texte": "La maison ne fait pas crédit !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1845,8 +1911,16 @@
 				"nombreDeFrames": 16
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is universal panacea I'm\\nbuying from the \\c[2]wizard\\nOvose\\c[0] to sell for more."
+			},
+			{
 				"nom": "Message",
-				"texte": "C'est de la panacée universelle que \\nj'achète chez le \\c[02]magicien Dose\\c[01] pour la \\nrevendre plus cher."
+				"texte": "C'est de la panacée universelle que \\nj'achète chez le \\c[2]magicien Dose\\c[1] pour la \\nrevendre plus cher."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This potion heals all wounds."
 			},
 			{
 				"nom": "Message",
@@ -1856,6 +1930,10 @@
 				"nom": "ConditionObjetPossede",
 				"idObjet": 0,
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's 550 scales a ladle."
 			},
 			{
 				"nom": "Message",
@@ -1868,8 +1946,16 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) So, you'll buy it from me?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Alors, vous m'en achetez ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -1897,7 +1983,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1935,8 +2021,16 @@
 				"quantite": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy a liter of Universal panacea!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez un litre de panacée \\nUniverselle !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Drink it at any time in the\\n\"object\" section of the menu\\nto regain your maximum\\nstrength!"
 			},
 			{
 				"nom": "Message",
@@ -1998,8 +2092,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (cheap!)"
 			},
 			{
 				"nom": "Message",
@@ -2014,20 +2116,40 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
 				"nom": "Message",
 				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 550 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 550 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Saperlipopette!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The house doesn't give credit,\\nand we don't offer anything,\\neverything is paid for here!"
+			},
+			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -2040,6 +2162,10 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hurry up and get an empty vase,\\nso I can rip you off."
 			},
 			{
 				"nom": "Message",
@@ -2138,12 +2264,12 @@
 				"texte": "(en) Do you want one?"
 			},
 			{
-				"nom": "Message",
-				"texte": "Alors, marché conclu ?"
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Alors, marché conclu ?"
 			},
 			{
 				"nom": "Choix",
@@ -2157,7 +2283,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Perfect! I've the feeling that we will get along !"
+				"texte": "(en) Perfect! \\nI've the feeling that we will get along !"
 			},
 			{
 				"nom": "Message",
@@ -2169,7 +2295,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2201,8 +2327,20 @@
 				"quantite": 350
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy an HSA ticket!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez un ticket AGV !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go to the nearest HSA station\\nand travel through Kujira!"
 			},
 			{
 				"nom": "Message",
@@ -2295,7 +2433,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Saperlipopette!"
+				"texte": "(en) Gadzooks!"
 			},
 			{
 				"nom": "Message",
@@ -2308,6 +2446,10 @@
 			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -2383,12 +2525,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) What is this place?|How to pay?|Hellozello!"
 			},
 			{
 				"nom": "Choix",
@@ -2401,20 +2539,40 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a store!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est une boutique !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There are several in Kujira,\\nespecially in the villages."
 			},
 			{
 				"nom": "Message",
 				"texte": "Il y en a plusieurs dans Kujira, notamment \\ndans les villages."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You can buy items, potions, ammunition..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu peux y acheter des objets, des potions,\\ndes munitions..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Kujira is an incredible but dangerous world."
+			},
+			{
 				"nom": "Message",
 				"texte": "Kujira est un monde incroyable \\nmais dangereux."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That's why you should always be\\nwell equipped."
 			},
 			{
 				"nom": "Message",
@@ -2426,16 +2584,32 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, maybe you have already picked up \\nsome colored scales..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Et bien, peut-être as-tu déjà ramassé des\\nécailles colorées..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) They are triangular, green or blue, \\nsometimes even red or yellow."
 			},
 			{
 				"nom": "Message",
 				"texte": "Elles sont triangulaires, vertes ou bleues, \\nparfois même rouge ou jaunes."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) As those who were swallowed by Kujira \\ndid not have the same currency..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Comme ceux qui se sont fait avaler par \\nKujira n'avaient pas la même monnaie..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...and colored scales were abundant, \\nthis currency was chosen."
 			},
 			{
 				"nom": "Message",
@@ -2448,8 +2622,16 @@
 				"operationAFaire2": "argent possede"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I see that you already have \\v[17] scales..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je vois que tu as déjà \\v[0017] écailles..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Not bad for a newcomer!"
 			},
 			{
 				"nom": "Message",
@@ -2466,92 +2648,6 @@
 			},
 			{
 				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["What is this place ?", "How to pay ?", "Hellozello !"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a shop !"
-			},
-			{
-				"nom": "Message",
-				"texte": "There are several in Kujira, \\nespecially in villages."
-			},
-			{
-				"nom": "Message",
-				"texte": "Here you can buy items, potions, \\nammunitions..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Kujira is a wonderful but dangerous world."
-			},
-			{
-				"nom": "Message",
-				"texte": "So you need to be well-appointed !"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "You may have picked up colored scales..."
-			},
-			{
-				"nom": "Message",
-				"texte": "They are triangular, green or blue, \\nsometimes red or yellow."
-			},
-			{
-				"nom": "Message",
-				"texte": "As the people swallowed by Kujira \\nwere not using the same currency..."
-			},
-			{
-				"nom": "Message",
-				"texte": "...and as colored scales were numerous, \\nthey were chosen as common currency."
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 17,
-				"operationAFaire": "rendre egal a",
-				"operationAFaire2": "argent possede"
-			},
-			{
-				"nom": "Message",
-				"texte": "You already have \\v[0017] scales..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Not bad."
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 2
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 0
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
 				"numero": 0
 			},
 			{

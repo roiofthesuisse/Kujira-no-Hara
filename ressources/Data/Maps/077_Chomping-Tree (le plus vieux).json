@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -144,6 +144,9 @@
 				"zoom": 100,
 				"nuance": 0,
 				"nomImage": "obscurité énigme fog"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -256,23 +259,15 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"You probably have never watched\\nWhere you always stepped...\""
+				"texte": "(en) \"You may have never paid attention \\nto where you put your feet in motion.\\nThey are the oldest being you've ever met, \\nmake sure their name not to forget!\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Tu n'as peut-être jamais fait\\nAttention où tu mets tes pieds...\""
+				"texte": "\"Tu n'as peut-être jamais fait\\nAttention où tu mets tes pieds.\\nIl est l'être le plus âgé\\nQu'à présent tu as rencontré.\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"But it is the most aged beeing\\nyou ever gave a meeting.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Il est l'être le plus âgé\\nQu'à présent tu as rencontré.\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Who is it?"
+				"texte": "(en) Who are they?"
 			},
 			{
 				"nom": "Message",
@@ -311,9 +306,10 @@
 				"numeroPageCommune": 88
 			},
 			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 7,
-				"avancement": "FAITE"
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -330,8 +326,16 @@
 				"script": "$game_temp.faceset = \"chomping tree\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) CHONP CHONP..."
+			},
+			{
 				"nom": "Message",
 				"texte": "CHONP CHONP CHONP..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
 			},
 			{
 				"nom": "Message",
@@ -685,49 +689,33 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) You can talk to the \\c[2]chomping tree\\c[0], \\nit won't bite you."
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous pouvez parler au \\c[2]Chomping-Tree\\c[1],\\nil ne mord pas."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Prepare your piggybank though..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Préparez votre tirelire cependant..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "You can speak to the \\c[2]Chomping-Tree\\c[1],\\nit does not bite."
-			},
-			{
-				"nom": "Message",
-				"texte": "But prepare your piggybank !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -903,36 +891,25 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "ModifierAvancementQuete",
+				"numero": 7,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get a Crystal of the Whale!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a magic piece of crystallized salt."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "You get a Crystal of the Whale !"
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a magic piece of crystallized salt."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -969,6 +946,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1069,13 +1050,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "MC_Bush.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "Sauter",
 					"x": 2,

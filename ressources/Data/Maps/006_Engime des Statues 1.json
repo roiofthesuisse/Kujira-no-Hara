@@ -189,6 +189,59 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 17,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 4,
+				"xDebutHeros": 13,
+				"yDebutHeros": 9
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 12,
 		"nom": "EV012",
 		"x": 17,
@@ -281,59 +334,6 @@
 			},
 			{
 				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 17,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 4,
-				"xDebutHeros": 13,
-				"yDebutHeros": 9
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
 			}
 			],
 			"vitesse": "moderee",
@@ -531,7 +531,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Nous autres les \\c[02]Vikings\\c[01], construisons de fières \\nstatues."
+				"texte": "Nous autres, \\c[2]Vikings\\c[1], construisons de fières \\nstatues."
 			},
 			{
 				"nom": "Commentaire",
@@ -570,17 +570,13 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"vitesse": "moderee",

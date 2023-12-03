@@ -4,7 +4,7 @@
 	"largeur": 40,
 	"hauteur": 45,
 	"musique": {
-		"nomFichierSonore": "Géant Eveillé.ogg",
+		"nomFichierSonore": "Géant Endormi.ogg",
 		"volume": 0.00,
 		"tempo": 1.00
 	},
@@ -156,29 +156,73 @@
 	],
 	"events": [
 	{
-		"id": 38,
-		"nom": "EV038",
-		"x": 39,
-		"y": 16,
+		"id": 5,
+		"nom": "Clone[341][061]",
+		"x": 18,
+		"y": 9
+	},
+	{
+		"id": 16,
+		"nom": "Pancarte",
+		"x": 22,
+		"y": 25,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 451,
-				"xDebutHeros": 2,
-				"yDebutHeros": 15
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are standing in front of the \\c[2]Ymir hill\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous vous trouvez devant la \\c[2]colline Ymir\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's said to wake up only for those \\nwho know the melody."
+			},
+			{
+				"nom": "Message",
+				"texte": "On dit qu'elle se réveille pour ceux qui \\nsavent la mélodie."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -245,135 +289,10 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Pancarte",
-		"x": 22,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous vous trouvez devant la \\c[2]colline Ymir\\c[1]."
-			},
-			{
-				"nom": "Message",
-				"texte": "On dit qu'elle se réveille pour ceux qui \\nsavent la mélodie."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][061]",
-		"x": 18,
-		"y": 9
-	},
-	{
-		"id": 44,
-		"nom": "EV044",
-		"x": 17,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 33,
-		"nom": "Clone[341][061]",
-		"x": 21,
-		"y": 9
-	},
-	{
-		"id": 22,
-		"nom": "EV022",
-		"x": 19,
-		"y": 44,
+		"id": 38,
+		"nom": "EV038",
+		"x": 39,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -385,9 +304,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 170,
-				"xDebutHeros": 11,
-				"yDebutHeros": 1
+				"numeroNouvelleMap": 451,
+				"xDebutHeros": 2,
+				"yDebutHeros": 15
 			}
 			],
 			"vitesse": "moderee",
@@ -516,8 +435,44 @@
 				"quantite": 224
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "ConditionFin",
@@ -584,11 +539,6 @@
 				"numero": 4
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "déséquiper l'arme du donjon"
 			},
@@ -629,6 +579,11 @@
 				"numero": 6
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) Kakeru's liana disappeared."
 			},
@@ -654,38 +609,6 @@
 				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -700,10 +623,10 @@
 		]
 	},
 	{
-		"id": 39,
-		"nom": "EV039",
-		"x": 39,
-		"y": 17,
+		"id": 22,
+		"nom": "EV022",
+		"x": 19,
+		"y": 44,
 		"pages": [
 		{
 			"conditions": [
@@ -715,9 +638,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 451,
-				"xDebutHeros": 2,
-				"yDebutHeros": 16
+				"numeroNouvelleMap": 170,
+				"xDebutHeros": 11,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -731,16 +654,16 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][028]",
-		"x": 20,
+		"id": 33,
+		"nom": "Clone[341][061]",
+		"x": 21,
 		"y": 9
 	},
 	{
-		"id": 28,
-		"nom": "EV028",
-		"x": 21,
-		"y": 16,
+		"id": 44,
+		"nom": "EV044",
+		"x": 17,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -750,43 +673,33 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "HAUT",
-				"numero": 1
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
 			},
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 162,
-				"xDebutHeros": 16,
-				"yDebutHeros": 41
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -876,30 +789,142 @@
 		]
 	},
 	{
-		"id": 45,
-		"nom": "blocage",
-		"x": 15,
-		"y": 25,
+		"id": 28,
+		"nom": "EV028",
+		"x": 21,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "HAUT",
+				"numero": 1
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 162,
+				"xDebutHeros": 16,
+				"yDebutHeros": 41
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
 			],
-			"image": "algues character",
-			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][028]",
+		"x": 20,
+		"y": 9
+	},
+	{
+		"id": 39,
+		"nom": "EV039",
+		"x": 39,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 451,
+				"xDebutHeros": 2,
+				"yDebutHeros": 16
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 23,
+		"nom": "EV023",
+		"x": 20,
+		"y": 44,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 170,
+				"xDebutHeros": 12,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 23,
+		"y": 7
+	},
+	{
+		"id": 34,
+		"nom": "Clone[341][061]",
+		"x": 17,
+		"y": 8
 	},
 	{
 		"id": 12,
@@ -973,22 +998,36 @@
 		]
 	},
 	{
-		"id": 34,
-		"nom": "Clone[341][061]",
-		"x": 17,
-		"y": 8
+		"id": 45,
+		"nom": "blocage",
+		"x": 15,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 23,
-		"y": 7
-	},
-	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 20,
-		"y": 44,
+		"id": 40,
+		"nom": "EV040",
+		"x": 16,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -998,16 +1037,37 @@
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 170,
-				"xDebutHeros": 12,
-				"yDebutHeros": 1
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1016,130 +1076,83 @@
 		]
 	},
 	{
-		"id": 29,
-		"nom": "Musique",
-		"x": 12,
-		"y": 34,
+		"id": 18,
+		"nom": "Luciole",
+		"x": 27,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "Contact"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 65,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 0,
 				"numero": 0
 			},
 			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Géant Eveillé.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
+				"nom": "ConditionTouche",
+				"touche": "ACTION_SECONDAIRE",
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 1
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 30,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "AjouterObjet",
+				"idObjet": 26,
+				"variable": false,
+				"quantite": 1
 			},
 			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Géant Endormi.ogg",
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Luciole attrapée.mp3",
 				"volume": 1.00,
-				"tempo": 1.00
+				"tempo": 1.25
+			},
+			{
+				"nom": "SupprimerEvent"
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 1
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 25,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Géant Endormi.ogg",
-				"volume": 0.90,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 20,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Géant Endormi.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ArreterMusique",
-				"nombreDeFrames": 60
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
+				]
+			},
+			"image": "luciole character",
+			"opacite": 200,
+			"vitesse": "lente",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -1227,7 +1240,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "flutegrave MI.mp3",
+				"nomFichierSonore": "flutegrave MI.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1397,10 +1410,296 @@
 		]
 	},
 	{
-		"id": 18,
+		"id": 29,
+		"nom": "Musique",
+		"x": 12,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 65,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Géant Endormi.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 30,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Géant Endormi.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 27,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Géant Endormi.ogg",
+				"volume": 0.90,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 25,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Géant Endormi.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 22,
+				"comparerAUneAutreVariable": false,
+				"numero": 4
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Géant Endormi.ogg",
+				"volume": 0.70,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 20,
+				"comparerAUneAutreVariable": false,
+				"numero": 5
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Géant Endormi.ogg",
+				"volume": 0.60,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 60
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 24,
+		"nom": "passerelle",
+		"x": 21,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			],
+			"image": 950,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 23,
+		"y": 8
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][028]",
+		"x": 16,
+		"y": 7
+	},
+	{
+		"id": 35,
+		"nom": "Clone[341][061]",
+		"x": 22,
+		"y": 8
+	},
+	{
+		"id": 46,
+		"nom": "blocage",
+		"x": 17,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 30,
+		"nom": "EV030",
+		"x": 22,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
 		"nom": "Luciole",
-		"x": 27,
-		"y": 24,
+		"x": 9,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -1476,130 +1775,6 @@
 			"auDessusDeTout": true
 		}
 		]
-	},
-	{
-		"id": 40,
-		"nom": "EV040",
-		"x": 16,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				},
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 46,
-		"nom": "blocage",
-		"x": 17,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 35,
-		"nom": "Clone[341][061]",
-		"x": 22,
-		"y": 8
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][028]",
-		"x": 16,
-		"y": 7
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 23,
-		"y": 8
-	},
-	{
-		"id": 24,
-		"nom": "passerelle",
-		"x": 21,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			],
-			"image": 950,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 41,
-		"nom": "Clone[341][002]",
-		"x": 32,
-		"y": 13
 	},
 	{
 		"id": 8,
@@ -1685,7 +1860,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "flutegrave SOL.mp3",
+				"nomFichierSonore": "flutegrave SOL.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1882,193 +2057,10 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Luciole",
-		"x": 9,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.mp3",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 30,
-		"nom": "EV030",
-		"x": 22,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 47,
-		"nom": "Enseigne",
-		"x": 14,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "enseignes character",
-			"animationInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 36,
-		"nom": "Clone[341][061]",
-		"x": 21,
-		"y": 6
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][028]",
-		"x": 18,
-		"y": 6
-	},
-	{
-		"id": 25,
-		"nom": "passerelle",
-		"x": 18,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			],
-			"image": 950,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"id": 41,
+		"nom": "Clone[341][002]",
+		"x": 32,
+		"y": 13
 	},
 	{
 		"id": 14,
@@ -2134,13 +2126,25 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "géantphrase1.mid",
+				"nomFichierSonore": "géantphrase1.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This melody!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Cette mélodie !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Did I just dream it?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ou bien ai-je simplement rêvé ?"
 			},
 			{
 				"nom": "Attendre",
@@ -2196,10 +2200,6 @@
 				"valeur": false
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
 			}
@@ -2252,10 +2252,122 @@
 		]
 	},
 	{
-		"id": 42,
+		"id": 25,
+		"nom": "passerelle",
+		"x": 18,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			],
+			"image": 950,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 18,
+		"y": 6
+	},
+	{
+		"id": 36,
+		"nom": "Clone[341][061]",
+		"x": 21,
+		"y": 6
+	},
+	{
+		"id": 47,
+		"nom": "Enseigne",
+		"x": 14,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "enseignes character",
+			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 31,
+		"nom": "EV031",
+		"x": 24,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
 		"nom": "Luciole",
-		"x": 33,
-		"y": 13,
+		"x": 10,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
@@ -2312,34 +2424,12 @@
 			],
 			"deplacement": {
 				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
+				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": true,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				}
+					{
+						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
 				]
 			},
 			"image": "luciole character",
@@ -2438,7 +2528,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "flutegrave LA.mp3",
+				"nomFichierSonore": "flutegrave LA.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2681,10 +2771,10 @@
 		]
 	},
 	{
-		"id": 20,
+		"id": 42,
 		"nom": "Luciole",
-		"x": 10,
-		"y": 24,
+		"x": 33,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -2741,12 +2831,34 @@
 			],
 			"deplacement": {
 				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
+				"ignorerLesMouvementsImpossibles": true,
 				"repeterLeDeplacement": true,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				}
 				]
 			},
 			"image": "luciole character",
@@ -2762,24 +2874,37 @@
 		]
 	},
 	{
-		"id": 31,
-		"nom": "EV031",
-		"x": 24,
-		"y": 15,
+		"id": 15,
+		"nom": "Oeil du géant2",
+		"x": 22,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
+				"nom": "ConditionDirection",
+				"idEventConcerne": 14,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 35,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 11,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
 			},
 			{
 				"nom": "Deplacement",
@@ -2789,25 +2914,287 @@
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
 				},
 				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 66
 				}
 				]
 			},
 			{
+				"nom": "TremblementDeTerre",
+				"intensite": 1,
+				"vitesse": 3,
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 3,
+				"nombreDeCarreaux": 5,
+				"vitesse": "moderee"
+			},
+			{
+				"nom": "ModifierOptionsMessages",
+				"position": "haut",
+				"masquer": false
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "géantphrase2.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 65,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This melody pulls me out of my sleep!\\nI breathe again!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Cette mélodie me tire de mon sommeil !\\nJe respire de nouveau !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's now time to contemplate this world \\nwith astonishment and curiosity."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il est l'heure de contempler ce monde\\navec étonnement et curiosité."
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 65,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ModifierOptionsMessages",
+				"position": "bas",
+				"masquer": false
+			},
+			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 0,
+				"nombreDeCarreaux": 5,
+				"vitesse": "moderee"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 35,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 35,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierOptionsMessages",
+				"position": "bas",
+				"masquer": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
+			"image": "oeil du géant",
+			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 15,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 65,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "oeil du géant",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 7
+	},
+	{
+		"id": 37,
+		"nom": "viking",
+		"x": 7,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Shhh don't distract me !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Chut ne me déconcentre pas !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I imitate that rock."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'imite le rocher. "
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Until it thinks I am the rock."
+			},
+			{
+				"nom": "Message",
+				"texte": "Jusqu'à ce qu'il croie que c'est moi, le rocher."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking petit character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2977,9 +3364,15 @@
 		]
 	},
 	{
-		"id": 37,
-		"nom": "viking",
-		"x": 7,
+		"id": 26,
+		"nom": "Clone[582][52]",
+		"x": 21,
+		"y": 7
+	},
+	{
+		"id": 21,
+		"nom": "Stèle",
+		"x": 29,
 		"y": 22,
 		"pages": [
 		{
@@ -2990,87 +3383,10 @@
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Chut ne me déconcentre pas !"
-			},
-			{
-				"nom": "Message",
-				"texte": "J'imite le rocher. "
-			},
-			{
-				"nom": "Message",
-				"texte": "Jusqu'à ce qu'il croie que c'est moi, le rocher."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking petit character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 7
-	},
-	{
-		"id": 15,
-		"nom": "Oeil du géant2",
-		"x": 22,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
 				"nom": "ConditionDirection",
-				"idEventConcerne": 14,
+				"idEventConcerne": 0,
 				"direction": 3,
 				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 35,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 11,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -3078,457 +3394,54 @@
 				"valeur": true
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 66
-				}
-				]
-			},
-			{
-				"nom": "TremblementDeTerre",
-				"intensite": 1,
-				"vitesse": 3,
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 3,
-				"nombreDeCarreaux": 5,
-				"vitesse": "moderee"
-			},
-			{
-				"nom": "ModifierOptionsMessages",
-				"position": "haut",
-				"masquer": false
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 0
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "géantphrase2.mid",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 65,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
+				"nom": "Commentaire",
+				"texte": "(en) \"The inside of \\c[2]Kujira\\c[0] is out of all world."
 			},
 			{
 				"nom": "Message",
-				"texte": "Cette mélodie m'éveille \\net je respire de nouveau !"
+				"texte": "\"L'interieur de \\c[2]Kujira\\c[1] est hors de tout \\nmonde."
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 65,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierOptionsMessages",
-				"position": "bas",
-				"masquer": false
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "FaireDefilerLaMap",
-				"direction": 0,
-				"nombreDeCarreaux": 5,
-				"vitesse": "moderee"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 35,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 35,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierOptionsMessages",
-				"position": "bas",
-				"masquer": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "oeil du géant",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 15,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 65,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "oeil du géant",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "Coccinelle verte",
-		"x": 18,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Epée.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 35,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "coccinelles petites character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 26,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 43,
-		"nom": "Luciole",
-		"x": 33,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.mp3",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 32,
-		"nom": "Parchemin",
-		"x": 9,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
+				"nom": "Commentaire",
+				"texte": "(en) Magic and mystery are hidden \\nin every thing."
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Le printemps est arrivé.\\nCe matin une colline sans nom\\nest plongée dans le brouillard.\""
+				"texte": "La magie et le mystère se cachent \\nen chaque chose."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The left ear makes an E.\\nThe left nostril makes a G.\\nThe right ear makes a B.\\nThe right nostril makes an A."
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
+				"texte": "L'oreille à gauche fait un Mi.\\nLa narine à gauche fait un Sol.\\nL'oreille à droite fait un Si, \\nLa narine à droite fait un La."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]music teacher\\c[0] knows these things.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Le \\c[2]Maître de Musique\\c[1] sait ces choses-là.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]poète voyageur"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
@@ -3536,7 +3449,7 @@
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -3628,7 +3541,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "flutegrave SI.mp3",
+				"nomFichierSonore": "flutegrave SI.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -3779,10 +3692,10 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "Stèle",
-		"x": 29,
-		"y": 22,
+		"id": 32,
+		"nom": "Parchemin",
+		"x": 9,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -3792,51 +3705,29 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "\"L'interieur de \\c[2]Kujira\\c[1] est en dehors de \\ntout monde."
+				"nom": "Commentaire",
+				"texte": "(en) \"Spring has arrived.\\nThis morning an unnamed hill \\nis plunged in the fog.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "La magie et le mystère se cachent dans \\nchaque objet."
+				"texte": "\"Le printemps est arrivé.\\nCe matin une colline sans nom\\nest plongée dans le brouillard.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[0]"
 			},
 			{
 				"nom": "Message",
-				"texte": "L'oreille à gauche fait un Mi, \\nla narine à gauche fait un Sol."
-			},
-			{
-				"nom": "Message",
-				"texte": "L'oreille à droite fait un Si, \\nla narine à droite fait un La."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le \\c[02]Maître de Musique\\c[01] sait ces choses-là.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -3846,11 +3737,130 @@
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 43,
+		"nom": "Luciole",
+		"x": 33,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "ACTION_SECONDAIRE",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 26,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Luciole attrapée.mp3",
+				"volume": 1.00,
+				"tempo": 1.25
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			"image": "luciole character",
+			"opacite": 200,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	}

@@ -109,5 +109,4 @@ public class MusiqueMp3 extends Musique {
 		mp3Clip.play();
 	}
 	
-	
 }

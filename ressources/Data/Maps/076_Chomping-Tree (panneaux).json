@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -126,6 +126,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 8,
+		"y": 17
+	},
+	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 20,
@@ -144,6 +150,9 @@
 				"zoom": 100,
 				"nuance": 0,
 				"nomImage": "obscurité énigme fog"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -155,12 +164,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 8,
-		"y": 17
 	},
 	{
 		"id": 11,
@@ -256,23 +259,15 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) They are here to guide you,\\nThey know all the pathes."
+				"texte": "(en) \"Here for you not to be lost,\\nWays are what it knows the most.\\nYour silent clue-giving host\\nHas no life but is no ghost!\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Ils sont là pour te guider,\\nIls connaissent les sentiers...\""
+				"texte": "\"Ils sont là pour te guider,\\nIls connaissent les sentiers.\\nIls te parlent sans un bruit,\\nCar (hélas !) ils sont sans vie.\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) They speak to you,\\nSoundless and lifeless."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"...Ils te parlent sans un bruit,\\nCar pour toi, ils sont sans vie.\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Who are they?"
+				"texte": "(en) What is it?"
 			},
 			{
 				"nom": "Message",
@@ -285,7 +280,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Ways|Walls|Signs|\\c[]Chomping trees\\c[1]"
+				"texte": "(en) Paths|Walls|Signs|\\c[2]Chomping trees\\c[0]"
 			},
 			{
 				"nom": "Choix",
@@ -323,6 +318,12 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -392,10 +393,6 @@
 					"direction": 0
 				}
 				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -564,10 +561,6 @@
 				]
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
 			},
@@ -600,12 +593,6 @@
 		"y": 10
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 9
-	},
-	{
 		"id": 12,
 		"nom": "Pancarte",
 		"x": 12,
@@ -631,7 +618,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You can talk to the \\c[2]Chomping tree\\c[1]\\nit doesn't bite."
+				"texte": "(en) You can talk to the \\c[2]chomping tree\\c[0], \\nit won't bite you."
 			},
 			{
 				"nom": "Message",
@@ -670,10 +657,22 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 9,
+		"y": 9
+	},
+	{
 		"id": 7,
 		"nom": "Clone[341][061]",
 		"x": 7,
 		"y": 14
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 7,
+		"y": 11
 	},
 	{
 		"id": 13,
@@ -820,8 +819,16 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of crystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -867,6 +874,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -919,16 +930,16 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 7,
-		"y": 11
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][061]",
 		"x": 14,
 		"y": 9
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 16,
+		"y": 10
 	},
 	{
 		"id": 14,
@@ -961,13 +972,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "MC_Bush.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "Sauter",
 					"x": 2,
@@ -1002,16 +1006,16 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][028]",
-		"x": 16,
-		"y": 10
-	},
-	{
 		"id": 9,
 		"nom": "Clone[341][061]",
 		"x": 17,
 		"y": 11
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 17,
+		"y": 14
 	},
 	{
 		"id": 15,
@@ -1043,12 +1047,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 17,
-		"y": 14
 	},
 	{
 		"id": 10,

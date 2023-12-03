@@ -4,7 +4,7 @@
 	"largeur": 21,
 	"hauteur": 15,
 	"musique": {
-		"nomFichierSonore": "Donjon 1.mp3",
+		"nomFichierSonore": "Donjon 1.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -40,7 +40,7 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,0019,0019,-001,-001,0019,0019,-001,-001,-001,0019,0019,-001,-001,0019,0019,-001,-001,-001],
 	[-001,-001,-005,-001,-001,-001,-001,-001,-001,0072,0073,0074,-001,-001,-001,-001,-001,-001,-005,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,0091,0080,0081,0082,0091,-001,-001,-001,-001,-001,-005,-001,-001],
+	[-001,-001,-001,-001,-001,0108,0108,-001,0091,0080,0081,0082,0091,-001,0108,0108,-001,-001,-005,-001,-001],
 	[0104,0105,-001,-001,-001,-001,-001,-001,0099,-001,-001,-001,0099,-001,-001,-001,-001,-001,-001,0106,0107],
 	[0112,0113,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0114,0115],
 	[0120,0121,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0122,0123],
@@ -209,7 +209,7 @@
 			},
 			{
 				"nom": "ModifierBrouillard",
-				"opacite": 60,
+				"opacite": 30,
 				"modeDeFusion": "addition",
 				"defilementX": 0,
 				"defilementY": 0,
@@ -1039,57 +1039,25 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) This block of stone has a large golden lock."
 			},
 			{
 				"nom": "Message",
 				"texte": "Ce bloc de pierre est muni d'une grosse \\nserrure dorée."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "This stone block has a big golden lock."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 8,
-				"numero": 1
+				"numero": 0
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) You use the golden key!"
 			},
 			{
 				"nom": "Message",
-				"texte": "La clé d'or peut l'ouvrir !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "The golden key can open it !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"texte": "Vous utilisez la clé d'or !"
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -1128,35 +1096,23 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 0
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"nom": "Commentaire",
+				"texte": "(en) You will need the golden key to open it."
 			},
 			{
 				"nom": "Message",
-				"texte": "Il vous faudrait une clé d'or pour l'ouvrir..."
+				"texte": "Il vous faudrait une clé d'or pour l'ouvrir."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "You will need the golden key to open it..."
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1562,7 +1518,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1575,6 +1531,22 @@
 				"nomFichierSonore": "029-Door06.ogg",
 				"volume": 1.00,
 				"tempo": 0.80
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
 			},
 			{
 				"nom": "Attendre",
@@ -1933,98 +1905,9 @@
 	},
 	{
 		"id": 2,
-		"nom": "BlocageBois HP[1] RESET",
+		"nom": "Clone[582][58]",
 		"x": 1,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
-			}
-			],
-			"image": "blocage character",
-			"directionInitiale": 2,
-			"animationInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 2,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = nil"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			}
-			],
-			"image": "blocage character",
-			"directionInitiale": 2,
-			"animationInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 11
 	},
 	{
 		"id": 35,

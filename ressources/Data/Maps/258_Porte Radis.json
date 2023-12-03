@@ -5,7 +5,7 @@
 	"hauteur": 30,
 	"musique": {
 		"nomFichierSonore": "Nouveaux Chemins.ogg",
-		"volume": 1.00,
+		"volume": 0.90,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -111,16 +111,16 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[582][37]",
-		"x": 7,
-		"y": 10
-	},
-	{
 		"id": 5,
 		"nom": "Clone[341][028]",
 		"x": 20,
 		"y": 17
+	},
+	{
+		"id": 16,
+		"nom": "Clone[582][37]",
+		"x": 7,
+		"y": 10
 	},
 	{
 		"id": 11,
@@ -164,7 +164,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Je suis \\c[02]Archibald Radis\\c[01]."
+				"texte": "Je suis \\c[2]Archibald Radis\\c[1]."
 			},
 			{
 				"nom": "Commentaire",
@@ -328,7 +328,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (c'est parti !).mid",
+				"nomFichierSonore": "fanfare (c'est parti !).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -493,6 +493,10 @@
 			{
 				"nom": "Message",
 				"texte": "Hein ? Quoi ? Déjà !?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
 			},
 			{
 				"nom": "Message",
@@ -849,14 +853,6 @@
 					"directionFixe": true
 				},
 				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
 					"nom": "RendreTraversable",
 					"traversable": true
 				}
@@ -882,22 +878,16 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[582][37]",
-		"x": 8,
-		"y": 11
-	},
-	{
 		"id": 6,
 		"nom": "Clone[341][028]",
 		"x": 18,
 		"y": 19
 	},
 	{
-		"id": 12,
-		"nom": "Clone[341][002]",
-		"x": 5,
-		"y": 15
+		"id": 17,
+		"nom": "Clone[582][37]",
+		"x": 8,
+		"y": 11
 	},
 	{
 		"id": 1,
@@ -906,16 +896,28 @@
 		"y": 13
 	},
 	{
-		"id": 18,
-		"nom": "Clone[582][37]",
-		"x": 23,
-		"y": 18
+		"id": 12,
+		"nom": "Clone[341][002]",
+		"x": 5,
+		"y": 15
 	},
 	{
 		"id": 7,
 		"nom": "Clone[341][028]",
 		"x": 9,
 		"y": 17
+	},
+	{
+		"id": 18,
+		"nom": "Clone[582][37]",
+		"x": 23,
+		"y": 18
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 16
 	},
 	{
 		"id": 13,
@@ -1021,9 +1023,9 @@
 		]
 	},
 	{
-		"id": 2,
+		"id": 8,
 		"nom": "Clone[341][028]",
-		"x": 19,
+		"x": 10,
 		"y": 16
 	},
 	{
@@ -1031,43 +1033,6 @@
 		"nom": "Clone[582][37]",
 		"x": 18,
 		"y": 17
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 16
-	},
-	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 29,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 130,
-				"xDebutHeros": 1,
-				"yDebutHeros": 25
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 14,
@@ -1189,65 +1154,24 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][028]",
-		"x": 5,
-		"y": 11
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 9,
-		"y": 8,
+		"id": 3,
+		"nom": "EV003",
+		"x": 29,
+		"y": 18,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Dans le goût mordant du radis\\nje sens \\nle vent d'automne.\""
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "\"The pungent taste of the radish \\nbites into me\\nand I feel the autumn wind.\""
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 130,
+				"xDebutHeros": 1,
+				"yDebutHeros": 25
 			}
 			],
 			"vitesse": "moderee",
@@ -1259,6 +1183,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][028]",
+		"x": 5,
+		"y": 11
 	},
 	{
 		"id": 4,
@@ -1287,8 +1217,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a..."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est une..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...radish door?"
 			},
 			{
 				"nom": "Message",
@@ -1299,8 +1237,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It seems to be a..."
+			},
+			{
 				"nom": "Message",
 				"texte": "It seems to be a..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...radish door?"
 			},
 			{
 				"nom": "Message",
@@ -1364,6 +1310,60 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 9,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"In the pungent taste of the radish \\nI feel \\nthe autumn wind.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Dans le goût mordant du radis\\nje sens \\nle vent d'automne.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},

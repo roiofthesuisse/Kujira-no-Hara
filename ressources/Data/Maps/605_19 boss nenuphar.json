@@ -15,7 +15,7 @@
 	},
 	"couche0": [
 	[0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002],
-	[0036,0037,0004,0005,0004,0005,0004,0005,0004,0005,0004,0004,0005,0038,0039,0002,0002,0002,0002,0002,0002],
+	[0036,0037,0004,0005,0004,0005,0004,0132,0004,0005,0004,0004,0005,0038,0039,0002,0002,0002,0002,0002,0002],
 	[0044,0045,0012,0013,0012,0013,0012,0013,0012,0013,0012,0012,0013,0046,0047,0002,0002,0002,0002,0002,0002],
 	[0020,0021,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0006,0007,0002,0002,0002,0002,0002,0002],
 	[0028,0029,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,-008,0014,0015,0002,0002,0002,0002,0002,0002],
@@ -538,7 +538,7 @@
 		"id": 1,
 		"nom": "Nenuphar (6)",
 		"x": 7,
-		"y": 3,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -1066,11 +1066,26 @@
 			},
 			{
 				"nom": "JouerAnimation",
-				"idAnimation": 6
+				"idAnimation": 65
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 35
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerAnimation",
@@ -1078,19 +1093,11 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 25
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 6
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Kill.wav",
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1105,16 +1112,6 @@
 					"opacite": 0
 				}
 				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
 			},
 			{
 				"nom": "Attendre",
@@ -1893,6 +1890,32 @@
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "cascade",
+		"x": 7,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 250,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": false

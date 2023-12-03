@@ -126,10 +126,29 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[341][005]",
-		"x": 20,
-		"y": 24
+		"id": 27,
+		"nom": "Poésie",
+		"x": 27,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "poesie dodo character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 5,
@@ -158,41 +177,10 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "Poésie",
-		"x": 27,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "poesie dodo character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 11,
-		"nom": "Clone[341][001]",
-		"x": 15,
-		"y": 8
-	},
-	{
-		"id": 33,
-		"nom": "Clone[341][111]",
-		"x": 24,
-		"y": 3
+		"id": 16,
+		"nom": "Clone[341][005]",
+		"x": 20,
+		"y": 24
 	},
 	{
 		"id": 22,
@@ -220,10 +208,41 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][005]",
-		"x": 22,
-		"y": 24
+		"id": 33,
+		"nom": "Clone[341][111]",
+		"x": 24,
+		"y": 3
+	},
+	{
+		"id": 11,
+		"nom": "Clone[341][001]",
+		"x": 15,
+		"y": 8
+	},
+	{
+		"id": 28,
+		"nom": "Thaumaturge noir",
+		"x": 28,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "thaumaturge noir character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 6,
@@ -252,10 +271,16 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "Thaumaturge noir",
+		"id": 17,
+		"nom": "Clone[341][005]",
+		"x": 22,
+		"y": 24
+	},
+	{
+		"id": 23,
+		"nom": "Viking",
 		"x": 28,
-		"y": 14,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
@@ -265,21 +290,22 @@
 			],
 			"commandes": [
 			],
-			"image": "thaumaturge noir character",
-			"vitesse": "normale",
-			"frequence": "haute",
+			"image": "viking petit character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 1,
+		"id": 12,
 		"nom": "Viking",
-		"x": 24,
+		"x": 28,
 		"y": 13,
 		"pages": [
 		{
@@ -295,7 +321,7 @@
 			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -328,9 +354,9 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 1,
 		"nom": "Viking",
-		"x": 28,
+		"x": 24,
 		"y": 13,
 		"pages": [
 		{
@@ -346,176 +372,11 @@
 			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "Viking",
-		"x": 28,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking petit character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 29,
-		"nom": "Annonce du Lieu",
-		"x": 31,
-		"y": 31,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 4,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 30,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AfficherImage",
-				"numero": 9,
-				"nomImage": "AnnonceLieu VikingRouge",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][005]",
-		"x": 22,
-		"y": 22
 	},
 	{
 		"id": 7,
@@ -544,10 +405,47 @@
 		]
 	},
 	{
-		"id": 35,
-		"nom": "EV035",
-		"x": 37,
-		"y": 10,
+		"id": 18,
+		"nom": "Clone[341][005]",
+		"x": 22,
+		"y": 22
+	},
+	{
+		"id": 29,
+		"nom": "Annonce du Lieu",
+		"x": 28,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 24,
+		"nom": "Viking",
+		"x": 27,
+		"y": 18,
 		"pages": [
 		{
 			"conditions": [
@@ -557,13 +455,39 @@
 			],
 			"commandes": [
 			],
-			"image": 834,
+			"image": "viking femme petit character",
+			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Viking",
+		"x": 25,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking petit character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -767,16 +691,32 @@
 				"script": "$game_temp.faceset = \"maitre des malefices\""
 			},
 			{
-				"nom": "Message",
-				"texte": "Vikings, écoutez-moi !"
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Vikings\\c[0], listen to me !"
 			},
 			{
 				"nom": "Message",
-				"texte": "Nous autres, \\c[02]thaumaturges noirs\\c[01], avons \\nbesoin que \\c[02]cette jeune fille\\c[01] soit sacrifiée."
+				"texte": "\\c[2]Vikings\\c[1], écoutez-moi !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We, \\c[2]dark thaumaturgists\\c[0], need \\c[2]this young girl\\c[0]\\nto be sacrificed."
 			},
 			{
 				"nom": "Message",
-				"texte": "Je sais qu'il s'agit de la fille du \\c[02]chef Tabula\\c[01],\\nmais croyez-moi, cela est nécessaire pour\\nun plus grand bien."
+				"texte": "Nous autres, \\c[2]thaumaturges noirs\\c[1], avons \\nbesoin que \\c[2]cette jeune fille\\c[1] soit sacrifiée."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I know this is the daughter of your chief \\c[2]Tabula\\c[1], \\nbut believe me, it's necessary for a greater good."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je sais qu'il s'agit de la fille du \\c[2]chef Tabula\\c[1],\\nmais croyez-moi, cela est nécessaire pour\\nun plus grand bien."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A higher cause you could not understand."
 			},
 			{
 				"nom": "Message",
@@ -785,6 +725,10 @@
 			{
 				"nom": "ArreterMusique",
 				"nombreDeFrames": 30
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I will aestheticize her death through ritual \\nto help you accept it."
 			},
 			{
 				"nom": "Message",
@@ -835,8 +779,16 @@
 				"script": "$game_temp.faceset = \"maitre des malefices\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Il..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...It's necessary."
 			},
 			{
 				"nom": "Message",
@@ -867,6 +819,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) BWAAAAH!"
 			},
 			{
 				"nom": "Message",
@@ -1124,8 +1080,16 @@
 				"script": "$game_temp.faceset = \"tabula\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) YOU I'M GOING TO BREAK YOUR FACE!"
+			},
+			{
 				"nom": "Message",
 				"texte": "TOI JE VAIS TE CASSER LA FIGURE !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) IS IT YOUR FACE OR IS IT PAPER?"
 			},
 			{
 				"nom": "Message",
@@ -1157,6 +1121,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"maitre des malefices\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's paper."
 			},
 			{
 				"nom": "Message",
@@ -1197,12 +1165,20 @@
 				"script": "$game_temp.faceset = \"tabula\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) THEN I WILL BREAK YOUR FACE AND YOUR PAPER!"
+			},
+			{
 				"nom": "Message",
 				"texte": "ALORS JE VAIS CASSER TA FIGURE \\nET TON PAPIER !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I AM VERY, VERY ANGRY!"
+			},
+			{
 				"nom": "Message",
-				"texte": "JE SUIS TRES TRES EN COLERE !"
+				"texte": "JE SUIS TRÈS TRÈS EN COLÈRE !"
 			},
 			{
 				"nom": "Attendre",
@@ -1414,6 +1390,10 @@
 				"script": "$game_temp.faceset = \"maitre des malefices\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Brute force cannot reach a wizard."
+			},
+			{
 				"nom": "Message",
 				"texte": "La force brute ne peut atteindre un sorcier."
 			},
@@ -1427,11 +1407,15 @@
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = nil"
+				"script": "$game_temp.faceset = \"emeline\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Spellmaster\\c[0]!"
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[02]Maître des maléfices\\c[01] !"
+				"texte": "\\c[2]Maître des maléfices\\c[1] !"
 			},
 			{
 				"nom": "JouerAnimation",
@@ -1536,12 +1520,6 @@
 				"vitesse": "normale"
 			},
 			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Obscurité et Solitude.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 4,
 				"ignorerLesMouvementsImpossibles": false,
@@ -1578,6 +1556,16 @@
 					"nombreDeCarreaux": 1
 				}
 				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Obscurité et Solitude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "AttendreLaFinDesDeplacements",
@@ -1717,12 +1705,20 @@
 				"script": "$game_temp.faceset = \"emeline\""
 			},
 			{
-				"nom": "Message",
-				"texte": "\\c[02]Hibu\\c[01] m'a dit de te dire qu'un sacrifice \\nde la fille était vain."
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Heeboo\\c[0] told me to tell you \\nthat a sacrifice of the girl was vain."
 			},
 			{
 				"nom": "Message",
-				"texte": "Cela ne changera pas le cours du temps."
+				"texte": "\\c[2]Hibu\\c[1] m'a dit de te dire qu'un sacrifice \\nde la fille était vain."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It will not change the course of time.\\nThis universe already belongs to a Berenstein \\nbundle where it cannot be otherwise."
+			},
+			{
+				"nom": "Message",
+				"texte": "Cela ne changera pas le cours du temps.\\nCet univers appartient déjà à un faisceau \\nde Berenstein où il ne peut en être autrement."
 			},
 			{
 				"nom": "Attendre",
@@ -1782,6 +1778,10 @@
 				"script": "$game_temp.faceset = \"maitre des malefices\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Vain?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vain ?..."
 			},
@@ -1824,6 +1824,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"maitre des malefices\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
 			},
 			{
 				"nom": "Message",
@@ -2080,6 +2084,10 @@
 				"script": "$game_temp.faceset = \"tabula\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) BRUTE FORCE BLAH BLAH BLAH!"
+			},
+			{
 				"nom": "Message",
 				"texte": "LA FORCE BRUTE GNAGNAGNA !"
 			},
@@ -2095,6 +2103,10 @@
 					"direction": 0
 				}
 				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) IF THOSE GUYS COME BACK TO THE VILLAGE \\nWHEN I'M AT WAR, SMASH THEIR FACES IN!"
 			},
 			{
 				"nom": "Message",
@@ -2137,10 +2149,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Viking",
-		"x": 25,
-		"y": 13,
+		"id": 35,
+		"nom": "EV035",
+		"x": 37,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -2150,70 +2162,13 @@
 			],
 			"commandes": [
 			],
-			"image": "viking petit character",
+			"image": 834,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 24,
-		"nom": "Viking",
-		"x": 27,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking femme petit character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 19,
-		"nom": "Clone[341][005]",
-		"x": 30,
-		"y": 22
-	},
-	{
-		"id": 8,
-		"nom": "Viking",
-		"x": 27,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking petit character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -2244,10 +2199,10 @@
 		]
 	},
 	{
-		"id": 36,
-		"nom": "oriflamme",
-		"x": 28,
-		"y": 21,
+		"id": 8,
+		"nom": "Viking",
+		"x": 27,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -2257,13 +2212,71 @@
 			],
 			"commandes": [
 			],
-			"image": "oriflamme character",
+			"image": "viking petit character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][005]",
+		"x": 30,
+		"y": 22
+	},
+	{
+		"id": 25,
+		"nom": "Viking",
+		"x": 25,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking petit character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Viking",
+		"x": 23,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking petit character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -2296,10 +2309,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Viking",
-		"x": 23,
-		"y": 15,
+		"id": 36,
+		"nom": "oriflamme",
+		"x": 28,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [
@@ -2309,23 +2322,22 @@
 			],
 			"commandes": [
 			],
-			"image": "viking petit character",
-			"directionInitiale": 2,
+			"image": "oriflamme character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Viking",
-		"x": 25,
-		"y": 17,
+		"id": 31,
+		"nom": "Tabula",
+		"x": 23,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -2335,17 +2347,23 @@
 			],
 			"commandes": [
 			],
-			"image": "viking petit character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"image": "tabula le terrible",
+			"opacite": 0,
+			"vitesse": "normale",
+			"frequence": "haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][001]",
+		"x": 15,
+		"y": 9
 	},
 	{
 		"id": 20,
@@ -2449,16 +2467,8 @@
 				"idGadget": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 2
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -2493,12 +2503,20 @@
 				]
 			},
 			{
-				"nom": "EffacerImage",
-				"numero": 3
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "EffacerImage",
-				"numero": 9
+				"numero": 2
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionVariable",
@@ -2571,16 +2589,10 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][001]",
-		"x": 15,
-		"y": 9
-	},
-	{
-		"id": 31,
-		"nom": "Tabula",
-		"x": 23,
-		"y": 3,
+		"id": 4,
+		"nom": "fillette",
+		"x": 25,
+		"y": 23,
 		"pages": [
 		{
 			"conditions": [
@@ -2590,10 +2602,11 @@
 			],
 			"commandes": [
 			],
-			"image": "tabula le terrible",
+			"image": "fillette character",
 			"opacite": 0,
-			"vitesse": "normale",
-			"frequence": "haute",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -2601,37 +2614,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 37,
-		"nom": "oriflamme",
-		"x": 22,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "oriflamme character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][115]",
-		"x": 20,
-		"y": 22
 	},
 	{
 		"id": 26,
@@ -2660,37 +2642,16 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "fillette",
-		"x": 25,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "fillette character",
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 15,
+		"nom": "Clone[341][115]",
+		"x": 20,
+		"y": 22
 	},
 	{
-		"id": 21,
-		"nom": "Enseigne",
-		"x": 30,
-		"y": 14,
+		"id": 37,
+		"nom": "oriflamme",
+		"x": 22,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [
@@ -2700,70 +2661,13 @@
 			],
 			"commandes": [
 			],
-			"image": "enseignes character",
-			"directionInitiale": 1,
+			"image": "oriflamme character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Pancarte",
-		"x": 27,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ Village viking rouge\\nV Mer d'Ibukuro"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -2870,6 +2774,92 @@
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Pancarte",
+		"x": 27,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 Red viking village\\n\\u2193 Ibukuro sea"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2191 Village viking rouge\\n\\u2193 Mer d'Ibukuro"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "Enseigne",
+		"x": 30,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "enseignes character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	}

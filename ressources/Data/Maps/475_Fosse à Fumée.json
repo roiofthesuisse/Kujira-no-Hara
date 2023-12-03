@@ -126,6 +126,30 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "blocage antimonstre",
+		"x": 15,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 16,
 		"nom": "Caillouteux",
 		"x": 23,
@@ -149,12 +173,28 @@
 				"numero": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tiki 1\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have the Jizo stone?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu possèdes la pierre du Jizô ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) That's why you can hear the whispers \\nof the \\c[2]stone beings\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[02]êtres de pierre\\c[01]."
+				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[2]êtres de pierre\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I suppose you want to visit our lair."
 			},
 			{
 				"nom": "Message",
@@ -170,6 +210,10 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This rock looks alive."
 			},
 			{
 				"nom": "Message",
@@ -222,16 +266,32 @@
 				"numero": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tiki 1\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have the Jizo stone?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu possèdes la pierre du Jizô ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) That's why you can hear the whispers \\nof the \\c[2]stone beings\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[02]êtres de pierre\\c[01]."
+				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[2]êtres de pierre\\c[1]."
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This rock looks alive."
 			},
 			{
 				"nom": "Message",
@@ -281,30 +341,6 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "blocage antimonstre",
-		"x": 15,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 11,
 		"nom": "teleporteur grotte",
 		"x": 15,
@@ -336,16 +372,41 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "Clone[341][159]",
+		"x": 26,
+		"y": 24
+	},
+	{
 		"id": 6,
 		"nom": "Clone[446][2]",
 		"x": 14,
 		"y": 22
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][159]",
-		"x": 26,
-		"y": 24
+		"id": 1,
+		"nom": "nuage fumée",
+		"x": 17,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "nuage fumee grotte",
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 12,
@@ -377,10 +438,16 @@
 				"nombreDeFrames": 16
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "130-Earth02.ogg",
+				"volume": 0.80,
+				"tempo": 0.50
+			},
+			{
 				"nom": "TremblementDeTerre",
-				"intensite": 2,
+				"intensite": 4,
 				"vitesse": 7,
-				"nombreDeFrames": 33
+				"nombreDeFrames": 66
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -488,6 +555,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Mr. Daruma has fallen down..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Monsieur Daruma a dégringolé..."
 			},
@@ -514,35 +585,41 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "nuage fumée",
-		"x": 17,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "nuage fumee grotte",
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 7,
 		"nom": "Clone[446][2]",
 		"x": 18,
 		"y": 20
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 25,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 230,
+				"xDebutHeros": 10,
+				"yDebutHeros": 29
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 13,
@@ -721,41 +798,16 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 25,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 230,
-				"xDebutHeros": 9,
-				"yDebutHeros": 29
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "Clone[446][2]",
 		"x": 13,
 		"y": 25
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][008]",
+		"x": 0,
+		"y": 34
 	},
 	{
 		"id": 3,
@@ -789,40 +841,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][008]",
-		"x": 0,
-		"y": 34
-	},
-	{
 		"id": 9,
 		"nom": "Clone[341][006]",
 		"x": 16,
 		"y": 18
-	},
-	{
-		"id": 4,
-		"nom": "blocage antimonstre",
-		"x": 20,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 15,
@@ -876,6 +898,30 @@
 				"nom": "ConditionFin",
 				"numero": 0
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "blocage antimonstre",
+		"x": 20,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",

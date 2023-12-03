@@ -81,12 +81,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][061]",
-		"x": 8,
-		"y": 8
-	},
-	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 13,
@@ -110,6 +104,12 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][061]",
+		"x": 8,
+		"y": 8
 	},
 	{
 		"id": 11,
@@ -143,6 +143,12 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "Clone[341][061]",
+		"x": 4,
+		"y": 10
+	},
+	{
 		"id": 17,
 		"nom": "EV017",
 		"x": 3,
@@ -174,18 +180,6 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][061]",
-		"x": 4,
-		"y": 10
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][030]",
-		"x": 3,
-		"y": 3
-	},
-	{
 		"id": 1,
 		"nom": "Arche",
 		"x": 12,
@@ -209,6 +203,18 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][030]",
+		"x": 3,
+		"y": 3
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][001]",
+		"x": 17,
+		"y": 11
 	},
 	{
 		"id": 18,
@@ -242,10 +248,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][001]",
-		"x": 17,
-		"y": 11
+		"id": 13,
+		"nom": "Clone[341][030]",
+		"x": 4,
+		"y": 3
 	},
 	{
 		"id": 2,
@@ -265,44 +271,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 460,
 				"xDebutHeros": 8,
-				"yDebutHeros": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][030]",
-		"x": 4,
-		"y": 3
-	},
-	{
-		"id": 19,
-		"nom": "EV019",
-		"x": 5,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 671,
-				"xDebutHeros": 11,
-				"yDebutHeros": 34
+				"yDebutHeros": 8
 			}
 			],
 			"vitesse": "moderee",
@@ -347,10 +316,35 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][030]",
+		"id": 19,
+		"nom": "EV019",
 		"x": 5,
-		"y": 2
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 671,
+				"xDebutHeros": 11,
+				"yDebutHeros": 34
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 3,
@@ -359,16 +353,16 @@
 		"y": 9
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][001]",
-		"x": 12,
-		"y": 15
+		"id": 14,
+		"nom": "Clone[341][030]",
+		"x": 5,
+		"y": 2
 	},
 	{
 		"id": 20,
 		"nom": "Annonce du Lieu",
 		"x": 8,
-		"y": 1,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -380,108 +374,6 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 6,
 				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AfficherImage",
-				"numero": 9,
-				"nomImage": "AnnonceLieu PlainesAquatiques",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -498,10 +390,10 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 7,
-		"y": 8
+		"id": 9,
+		"nom": "Clone[341][001]",
+		"x": 12,
+		"y": 15
 	},
 	{
 		"id": 15,
@@ -528,8 +420,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2190 Desert\\n\\u2193 Aquatic plains"
+			},
+			{
 				"nom": "Message",
-				"texte": "< Désert\\nV Plaines aquatiques"
+				"texte": "\\u2190 Désert\\n\\u2193 Plaines aquatiques"
 			},
 			{
 				"nom": "Attendre",
@@ -559,6 +455,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 7,
+		"y": 8
 	},
 	{
 		"id": 10,

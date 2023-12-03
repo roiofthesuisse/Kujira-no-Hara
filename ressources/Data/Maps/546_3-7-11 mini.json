@@ -66,6 +66,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[582][37]",
+		"x": 7,
+		"y": 4
+	},
+	{
 		"id": 16,
 		"nom": "Blocage anti-évènement",
 		"x": 12,
@@ -90,10 +96,58 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[582][37]",
-		"x": 7,
-		"y": 4
+		"id": 22,
+		"nom": "Haïku",
+		"x": 2,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Salted bream: \\ncold gums \\nat the fishmonger's.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Daurades salées :\\nfroides gencives\\nchez le poissonnier.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 11,
@@ -300,50 +354,10 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Haïku",
-		"x": 2,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Daurades salées :\\nfroides gencives\\nchez le poissonnier.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 6,
+		"nom": "Clone[582][37]",
+		"x": 12,
+		"y": 5
 	},
 	{
 		"id": 17,
@@ -352,108 +366,31 @@
 		"y": 6
 	},
 	{
-		"id": 6,
-		"nom": "Clone[582][37]",
-		"x": 12,
-		"y": 5
-	},
-	{
-		"id": 1,
-		"nom": "Lankhor",
-		"x": 8,
-		"y": 4,
+		"id": 23,
+		"nom": "EV023",
+		"x": 20,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"lankhor\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Tiens tiens..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Un visage familier !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Moi, \\c[02]Lankhor\\c[01], serrurier de Kujira,\\nveille sur le temple de Ningyo."
-			},
-			{
-				"nom": "Message",
-				"texte": "Message adressé à tous les joyeux \\nprofanateurs de sanctuaires :"
-			},
-			{
-				"nom": "Message",
-				"texte": "-La clé qui ouvre ce donjon n'est ni grise,\\nni marron"
-			},
-			{
-				"nom": "Message",
-				"texte": "-La clé qui ouvre ce donjon n'a ni 1 dent, ni \\n3 dents"
-			},
-			{
-				"nom": "Message",
-				"texte": "-La clé qui ouvre ce donjon n'a ni un bout \\nrond, ni un bout carré"
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le problème, c'est que j'ai complètement \\noublié sa taille !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Tant pis."
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 93,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"xDebutHeros": 1,
+				"yDebutHeros": 9
 			}
 			],
-			"image": "Lankhor character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -664,52 +601,9 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 20,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"xDebutHeros": 1,
-				"yDebutHeros": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][008]",
-		"x": 7,
-		"y": 6
-	},
-	{
-		"id": 7,
-		"nom": "Clone[582][37]",
-		"x": 18,
-		"y": 5
-	},
-	{
-		"id": 2,
-		"nom": "Stèle",
-		"x": 13,
+		"id": 1,
+		"nom": "Lankhor",
+		"x": 8,
 		"y": 4,
 		"pages": [
 		{
@@ -722,7 +616,11 @@
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 0,
-				"direction": 3,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
 				"numero": 0
 			},
 			{
@@ -731,40 +629,85 @@
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "\"Me voici dans le Sanctuaire de \\c[02]Ningyo\\c[01]..."
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"lankhor\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, well..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Il fut un des grands érudits de la légende."
+				"texte": "Tiens tiens..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A familiar face!"
 			},
 			{
 				"nom": "Message",
-				"texte": "J'espère que je trouverai au fond un indice\\nsur la sortie de Kujira..."
+				"texte": "Un visage familier !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I, \\c[2]Lankhor\\c[0], locksmith of Kujira, \\nwatch over the Ningyo's sanctuary."
 			},
 			{
 				"nom": "Message",
-				"texte": "Pour la clé du donjon, mieux vaut \\ndemander conseil à un spécialiste des \\nclés..."
+				"texte": "Moi, \\c[2]Lankhor\\c[1], serrurier de Kujira,\\nveille sur le temple de Ningyo."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Message to all the merry trespassers\\nabout the key yo this dungeon:"
 			},
 			{
 				"nom": "Message",
-				"texte": "Celui qui pénétrera ce lieu devra faire \\npreuve d'adresse et de réflexion.\""
+				"texte": "Message adressé à tous les joyeux \\nprofanateurs de sanctuaires à propos \\nde la clé qui ouvre ce donjon :"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) - It's neither gray nor brown\\n- It has neither 1 tooth nor 3 teeth\\n- It has neither a round end nor a square end"
 			},
 			{
 				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+				"texte": "- Elle n'est ni grise, ni marron\\n- Elle n'a ni 1 dent, ni 3 dents\\n- Elle n'a ni un bout rond, ni un bout carré"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "Commentaire",
+				"texte": "(en) ..."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The problem is that I completely forgot \\nits size!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le problème, c'est que j'ai complètement \\noublié sa taille !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Too bad."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tant pis."
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 93,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -772,15 +715,34 @@
 				"valeur": false
 			}
 			],
+			"image": "Lankhor character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[582][37]",
+		"x": 18,
+		"y": 5
+	},
+	{
+		"id": 18,
+		"nom": "Clone[341][008]",
+		"x": 7,
+		"y": 6
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][0021]",
+		"x": 7,
+		"y": 9
 	},
 	{
 		"id": 24,
@@ -799,6 +761,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
@@ -828,10 +794,132 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][0021]",
-		"x": 7,
-		"y": 9
+		"id": 2,
+		"nom": "Stèle",
+		"x": 13,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Here I am in \\c[2]Ningyo\\c[0]'s shrine..."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Me voici dans le Sanctuaire de \\c[2]Ningyo\\c[1]..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He was one of the great scholars of the legend."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il fut un des grands érudits de la légende."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I hope I can find a clue to Kujira's exit inside..."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'espère que je trouverai au fond un indice\\nsur la sortie de Kujira..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) For the dungeon key, it's better to ask \\na key specialist..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour la clé du donjon, mieux vaut \\ndemander conseil à un spécialiste des \\nclés..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Whoever enters this place will have to use \\nskill and thought.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Celui qui pénétrera ce lieu devra faire \\npreuve d'adresse et de réflexion.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                      Memoirs of the \\c[2]traveling poet\\c[1]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]poète voyageur\\c[0]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "EV008",
+		"x": 15,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "captures d'écran"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$scene = Scene_Panoramisator.new"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 19,
@@ -865,25 +953,30 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 15,
-		"y": 12,
+		"id": 14,
+		"nom": "Clone[341][0021]",
+		"x": 13,
+		"y": 9
+	},
+	{
+		"id": 25,
+		"nom": "EV025",
+		"x": 0,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "Commentaire",
-				"texte": "captures d'écran"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$scene = Scene_Panoramisator.new"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 548,
+				"xDebutHeros": 19,
+				"yDebutHeros": 9
 			}
 			],
 			"vitesse": "moderee",
@@ -1116,41 +1209,10 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "EV025",
-		"x": 0,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 548,
-				"xDebutHeros": 19,
-				"yDebutHeros": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][0021]",
-		"x": 13,
-		"y": 9
+		"id": 9,
+		"nom": "Clone[341][023]",
+		"x": 17,
+		"y": 4
 	},
 	{
 		"id": 20,
@@ -1184,10 +1246,34 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][023]",
-		"x": 17,
+		"id": 4,
+		"nom": "Clone[582][37]",
+		"x": 16,
 		"y": 4
+	},
+	{
+		"id": 15,
+		"nom": "Blocage anti-évènement",
+		"x": 8,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 26,
@@ -1212,6 +1298,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a treasure shell!"
 			},
 			{
 				"nom": "Message",
@@ -1247,7 +1337,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1379,16 +1469,32 @@
 				"idArme": 6
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You find Ningyo's fins!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous trouvez les nageoires de Ningyo !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is the legendary invisible artifact \\nof \\c[2]Ningyo the scholar\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "Il s'agit de l'artefact invisible légendaire de \\nl'\\c[02]érudit Ningyo\\c[01]."
+				"texte": "Il s'agit de l'artefact invisible légendaire de \\nl'\\c[2]érudit Ningyo\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This legendary item is very precious \\nbut invisible: only you can see it!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Cet objet de légende est très précieux mais \\ninvisible : seul vous pouvez le voir !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The fins are assigned automatically\\nwhen you go into the water."
 			},
 			{
 				"nom": "Message",
@@ -1468,10 +1574,6 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
 			},
@@ -1513,6 +1615,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est vide."
 			},
@@ -1537,36 +1643,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 15,
-		"nom": "Blocage anti-évènement",
-		"x": 8,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[582][37]",
-		"x": 16,
-		"y": 4
 	},
 	{
 		"id": 10,

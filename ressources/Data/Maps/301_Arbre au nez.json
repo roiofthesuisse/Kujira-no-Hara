@@ -5,7 +5,7 @@
 	"hauteur": 25,
 	"musique": {
 		"nomFichierSonore": "Nouveaux Chemins.ogg",
-		"volume": 1.00,
+		"volume": 0.90,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -245,8 +245,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -374,37 +382,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 24,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 64,
-				"xDebutHeros": 1,
-				"yDebutHeros": 33
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 12,
 		"nom": "boing",
 		"x": 14,
@@ -434,6 +411,37 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 24,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 64,
+				"xDebutHeros": 1,
+				"yDebutHeros": 33
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -542,12 +550,8 @@
 				"quantite": 10
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -580,6 +584,18 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ConditionEtatQuete",
@@ -691,7 +707,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) One of the curiosities of Kujira that amazed me \\nthe most is perhaps this one:"
+				"texte": "(en) \"One of the curiosities of Kujira that amazed me \\nthe most is perhaps this one:"
 			},
 			{
 				"nom": "Message",
@@ -715,7 +731,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Perhaps you can get something out of it..."
+				"texte": "(en) Perhaps you can get something out of it...\""
 			},
 			{
 				"nom": "Message",
@@ -723,7 +739,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en)                   Memoir of the \\c[2]wayfaring poet\\c[1]"
+				"texte": "(en)                      Memoirs of the \\c[2]traveling poet\\c[1]"
 			},
 			{
 				"nom": "Message",
@@ -920,7 +936,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},

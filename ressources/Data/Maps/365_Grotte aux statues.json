@@ -4,7 +4,7 @@
 	"largeur": 35,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Forêt de l'Ouest.mp3",
+		"nomFichierSonore": "Forêt de l'Ouest.ogg",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
@@ -126,18 +126,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][0021]",
-		"x": 19,
-		"y": 19
-	},
-	{
-		"id": 16,
-		"nom": "Clone[341][0021]",
-		"x": 18,
-		"y": 14
-	},
-	{
 		"id": 27,
 		"nom": "EV027",
 		"x": 18,
@@ -147,10 +135,6 @@
 			"conditions": [
 			],
 			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
 			{
 				"nom": "EffacerImage",
 				"numero": 3
@@ -215,10 +199,16 @@
 		]
 	},
 	{
-		"id": 11,
+		"id": 16,
 		"nom": "Clone[341][0021]",
-		"x": 16,
-		"y": 13
+		"x": 18,
+		"y": 14
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][0021]",
+		"x": 19,
+		"y": 19
 	},
 	{
 		"id": 22,
@@ -227,15 +217,9 @@
 		"y": 12
 	},
 	{
-		"id": 6,
+		"id": 11,
 		"nom": "Clone[341][0021]",
-		"x": 18,
-		"y": 16
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][0021]",
-		"x": 18,
+		"x": 16,
 		"y": 13
 	},
 	{
@@ -270,6 +254,24 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "Clone[341][0021]",
+		"x": 18,
+		"y": 13
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][0021]",
+		"x": 18,
+		"y": 16
+	},
+	{
+		"id": 23,
+		"nom": "Clone[341][0021]",
+		"x": 18,
+		"y": 12
+	},
+	{
 		"id": 1,
 		"nom": "Blocage anti-évènement",
 		"x": 18,
@@ -294,16 +296,10 @@
 		]
 	},
 	{
-		"id": 23,
+		"id": 18,
 		"nom": "Clone[341][0021]",
-		"x": 18,
-		"y": 12
-	},
-	{
-		"id": 29,
-		"nom": "Clone[341][002]",
-		"x": 14,
-		"y": 20
+		"x": 19,
+		"y": 14
 	},
 	{
 		"id": 7,
@@ -312,10 +308,16 @@
 		"y": 16
 	},
 	{
-		"id": 18,
+		"id": 29,
+		"nom": "Clone[341][002]",
+		"x": 14,
+		"y": 20
+	},
+	{
+		"id": 24,
 		"nom": "Clone[341][0021]",
-		"x": 19,
-		"y": 14
+		"x": 18,
+		"y": 11
 	},
 	{
 		"id": 2,
@@ -342,27 +344,15 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Clone[341][0021]",
-		"x": 18,
-		"y": 11
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][0021]",
-		"x": 17,
-		"y": 15
-	},
-	{
 		"id": 19,
 		"nom": "Clone[341][0021]",
 		"x": 20,
 		"y": 14
 	},
 	{
-		"id": 14,
+		"id": 8,
 		"nom": "Clone[341][0021]",
-		"x": 19,
+		"x": 17,
 		"y": 15
 	},
 	{
@@ -372,7 +362,13 @@
 		"y": 11
 	},
 	{
-		"id": 31,
+		"id": 14,
+		"nom": "Clone[341][0021]",
+		"x": 19,
+		"y": 15
+	},
+	{
+		"id": 3,
 		"nom": "Pancarte",
 		"x": 15,
 		"y": 20,
@@ -396,29 +392,25 @@
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "Avant de vous lancer dans un casse-tête \\nqui vous paraît compliqué, sauvegardez !"
+				"nom": "Commentaire",
+				"texte": "(en) Never forget that you can blow the whistle \\nof the clumsy anytime, especially if you get \\nstuck in a statue puzzle.\\nIt's available in the \"items\" menu."
 			},
 			{
 				"nom": "Message",
-				"texte": "Ce serait bête de rester coincé..."
+				"texte": "N'oubliez jamais que vous pouvez souffler \\nà tout moment dans le sifflet du maladroit, \\nsitué dans le menu \"objets\", si vous vous \\ncoincez dans un dédale de statues."
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
@@ -432,21 +424,15 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][0021]",
-		"x": 16,
-		"y": 15
-	},
-	{
 		"id": 20,
 		"nom": "Clone[341][0021]",
 		"x": 20,
 		"y": 13
 	},
 	{
-		"id": 15,
+		"id": 9,
 		"nom": "Clone[341][0021]",
-		"x": 18,
+		"x": 16,
 		"y": 15
 	},
 	{
@@ -599,8 +585,16 @@
 				"avancement": "FAITE"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -691,6 +685,24 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][0021]",
+		"x": 18,
+		"y": 15
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][0021]",
+		"x": 19,
+		"y": 13
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][0021]",
+		"x": 16,
+		"y": 14
 	},
 	{
 		"id": 32,
@@ -810,18 +822,6 @@
 			"auDessusDeTout": true
 		}
 		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][0021]",
-		"x": 16,
-		"y": 14
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][0021]",
-		"x": 19,
-		"y": 13
 	}
 	]
 }

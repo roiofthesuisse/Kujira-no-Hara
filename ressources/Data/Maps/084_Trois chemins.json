@@ -5,7 +5,7 @@
 	"hauteur": 30,
 	"musique": {
 		"nomFichierSonore": "Nouveaux Chemins.ogg",
-		"volume": 1.00,
+		"volume": 0.90,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -67,8 +67,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0055,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0147,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0148,0155,0156,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0893,0894,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0156,0148,-001,-001,0901,0902,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0893,0894,-001,-001,0672,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0156,0148,-001,-001,0901,0902,-001,-001,0680,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0148,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -135,6 +135,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a jizo statue."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est une statue jizo."
 			},
@@ -144,22 +148,18 @@
 				"numero": 0
 			},
 			{
-				"nom": "Message",
-				"texte": "Voulez-vous utiliser la pierre du jizo pour \\nlire ses pensées ?"
+				"nom": "ConditionDirection",
+				"idEventConcerne": 17,
+				"direction": 3,
+				"numero": 1
 			},
 			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
+				"nom": "Commentaire",
+				"texte": "(en) Here are its wise thoughts:"
 			},
 			{
 				"nom": "Message",
-				"texte": "Voici ses pensées :"
+				"texte": "Voici ses vénérables pensées :"
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -168,25 +168,58 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Tagada tsoin tsoin.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Tagada tsoin tsoin.\""
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You use the jizo stone to read its thoughts:"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous utilisez la pierre du jizo pour lire \\nses pensées :"
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (jizo2).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"To find what he wants, the wise man knows \\nwhat to do..."
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Pour trouver ce qu'il veut, le sage sait \\nquoi faire..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...3 steps down, 20 steps to the left, \\n7 steps up, 6 steps to the left, \\nand he blows!\""
 			},
 			{
 				"nom": "Message",
 				"texte": "...3 pas vers le bas, 20 pas vers la gauche,\\n7 pas vers le haut, 6 pas vers la gauche, \\net il souffle !\""
 			},
 			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It looks pensive..."
 			},
 			{
 				"nom": "Message",
@@ -292,10 +325,10 @@
 		"y": 18
 	},
 	{
-		"id": 11,
-		"nom": "Coccinelle rouge",
-		"x": 6,
-		"y": 14,
+		"id": 22,
+		"nom": "Luciole",
+		"x": 30,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
@@ -315,76 +348,90 @@
 				"numero": 1
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Epée.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 1
 			},
 			{
 				"nom": "AjouterObjet",
-				"idObjet": 33,
+				"idObjet": 26,
 				"variable": false,
 				"quantite": 1
 			},
 			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Luciole attrapée.mp3",
+				"volume": 1.00,
+				"tempo": 1.25
 			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "coccinelles petites character",
-			"opacite": 200,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 11,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
 			{
 				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			"image": "luciole character",
+			"opacite": 200,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 11,
+		"nom": "Clone[582][50]",
+		"x": 6,
+		"y": 14
 	},
 	{
 		"id": 6,
@@ -397,20 +444,9 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "ConditionInterrupteur",
@@ -516,12 +552,12 @@
 				"idArme": 6
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "AjouterGadget",
+				"idGadget": 4
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -554,6 +590,14 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "EffacerImage",
@@ -575,818 +619,59 @@
 	},
 	{
 		"id": 17,
-		"nom": "Trésor Ensablé (cristal de baleine)",
+		"nom": "Clone[582][44]",
 		"x": 5,
-		"y": 12,
+		"y": 12
+	},
+	{
+		"id": 23,
+		"nom": "Luciole",
+		"x": 30,
+		"y": 23,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 15,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 16,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Décalage théorique d'une case"
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 16,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 1,
-				"numero": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 15,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 2,
-				"numero": 2
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 15,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 3
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 16,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Souffle"
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 4
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 16,
-				"comparerAUneAutreVariable": true,
-				"numero": 5
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 19,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 19,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 1,
-				"numero": 6
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 15,
-				"comparerAUneAutreVariable": true,
-				"numero": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 19,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 19,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 2,
-				"numero": 8
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 15,
-				"comparerAUneAutreVariable": true,
-				"numero": 9
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 19,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 9
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 19,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 10
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 16,
-				"comparerAUneAutreVariable": true,
-				"numero": 11
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 19,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 11
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 19,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 11
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 19,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 12
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 15,
-				"comparerAUneAutreVariable": true,
-				"numero": 13
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 22,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 3,
-				"operationAFaire2": "contenu de la variable"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 22,
-				"operationAFaire": "retirer",
-				"valeurADonner": 16,
-				"operationAFaire2": "contenu de la variable"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 22,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": -4,
-				"comparerAUneAutreVariable": false,
-				"numero": 14
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 22,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 15
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 16
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 17
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "134-Wind03.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 5
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 17
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 17
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 16
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 16
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 15
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 15
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 14
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 14
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 16,
-				"comparerAUneAutreVariable": true,
-				"numero": 18
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 22,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 2,
-				"operationAFaire2": "contenu de la variable"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 22,
-				"operationAFaire": "retirer",
-				"valeurADonner": 15,
-				"operationAFaire2": "contenu de la variable"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 22,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": -4,
-				"comparerAUneAutreVariable": false,
-				"numero": 19
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 22,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 20
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 21
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 22
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "134-Wind03.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 5
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 22
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 22
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 21
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 21
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 20
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 20
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 19
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 19
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 18
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 18
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 12
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 12
-			}
-			],
-			"image": "trésor ensablé character",
-			"opacite": 0,
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 17,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
+				"nom": "Contact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 0,
 				"numero": 0
 			},
 			{
-				"nom": "Message",
-				"texte": "C'est un Coffrillage !"
-			},
-			{
-				"nom": "Message",
-				"texte": "L'ouvrir ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 200
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "044-Chest01.ogg",
-				"volume": 1.00,
-				"tempo": 0.50
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 15
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 15
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
-					"direction": 1,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 15
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
-					"direction": 1,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 15
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
-					"direction": 1,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 15
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Palourde coffre character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 25
-				}
-				]
+				"nom": "ConditionTouche",
+				"touche": "ACTION_SECONDAIRE",
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 141
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "AjouterObjet",
-				"idObjet": 1,
+				"idObjet": 26,
 				"variable": false,
 				"quantite": 1
 			},
 			{
-				"nom": "Message",
-				"texte": "Vous gagnez un cristal de baleine !"
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Luciole attrapée.mp3",
+				"volume": 1.00,
+				"tempo": 1.25
 			},
 			{
-				"nom": "Message",
-				"texte": "C'est un superbe morceau de sel magique \\ncristallisé !"
+				"nom": "SupprimerEvent"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nom": "ConditionSinon",
+				"numero": 1
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionSinon",
@@ -1397,74 +682,63 @@
 				"numero": 0
 			}
 			],
-			"image": "Palourde coffre character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 17,
-				"numeroInterrupteurLocal": 2,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
+			"deplacement": {
 				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
 					"direction": 0,
-					"animation": 0,
-					"teinte": 0
+					"nombreDeCarreaux": 1
 				},
 				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
+					"nom": "Avancer",
 					"direction": 0,
-					"animation": 0,
-					"teinte": 0
+					"nombreDeCarreaux": 1
 				},
 				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
 				}
 				]
 			},
-			{
-				"nom": "Message",
-				"texte": "C'est vide."
-			}
-			],
-			"image": "Palourde coffre character",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
+			"image": "luciole character",
+			"opacite": 200,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -1482,11 +756,32 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 73,
+				"etat": "FAITE",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 91,
+				"xDebutHeros": 38,
+				"yDebutHeros": 20
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 91,
 				"xDebutHeros": 24,
 				"yDebutHeros": 20
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -1567,12 +862,24 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Beware of the crabs!\\nHit their weak point to defend yourself."
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Attention aux crabes !\\nFrappez leur point faible pour vous défendre."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Those with red noses have this\\none as their weak point; those\\nwith red legs have these as\\ntheir weak point.\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Ceux au nez rouge ont celui-ci comme \\npoint faible ; ceux aux pattes rouges ont\\ncelles-ci comme point faible.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
 			},
 			{
 				"nom": "Message",
@@ -1581,10 +888,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -1620,11 +923,32 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 73,
+				"etat": "FAITE",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 91,
+				"xDebutHeros": 38,
+				"yDebutHeros": 21
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 91,
 				"xDebutHeros": 24,
 				"yDebutHeros": 20
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -1699,20 +1023,16 @@
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "LES TROIS CHEMINS"
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 Northern spring\\n\\u2190 \\c[2]Music teacher\\c[0]'s house\\n\\u2192 \\c[2]Ymir hill\\c[0]"
 			},
 			{
 				"nom": "Message",
-				"texte": "/\\ Source du Nord\\n< Maison du \\c[02]Maître de musique\\c[01]\\n> \\c[02]Colline Ymir\\c[01]"
+				"texte": "\\u2191 Source du Nord\\n\\u2190 Maison du \\c[2]Maître de musique\\c[1]\\n\\u2192 \\c[2]Colline Ymir\\c[1]"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -1833,8 +1153,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2190 Beware of giant sea urchins!"
+			},
+			{
 				"nom": "Message",
-				"texte": "< Attention aux oursins géants !"
+				"texte": "\\u2190 Attention aux oursins géants !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (If they run after you, \\nhave them roll into a hole)"
 			},
 			{
 				"nom": "Message",
@@ -1843,10 +1171,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -1867,6 +1191,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][002]",
+		"x": 29,
+		"y": 22
 	},
 	{
 		"id": 10,

@@ -10,13 +10,13 @@
 	},
 	"fondSonore": {
 		"nomFichierSonore": "",
-		"volume": 0.80,
+		"volume": 0.00,
 		"tempo": 1.00
 	},
 	"couche0": [
 	[0036,0037,0005,0004,0005,0004,0005,0004,0005,0004,0016,0017,0018,0004,0005,0004,0005,0004,0005,0038,0039],
 	[0044,0045,0013,0012,0013,0012,0013,0012,0013,0012,0024,0025,0026,0012,0013,0012,0013,0012,0013,0046,0047],
-	[0014,0015,0000,0000,0000,0000,0008,0000,0000,-004,0000,0000,0001,0150,0134,0142,0000,0000,0010,0020,0021],
+	[0014,0015,0000,0000,0000,0000,0008,0000,0000,-004,0000,0000,0001,0150,0134,0142,0000,0000,0000,0020,0021],
 	[0006,0007,0000,0000,-004,-004,-004,-004,-006,-004,-004,-004,-004,-004,-004,-004,0010,0000,0010,0028,0029],
 	[0014,0015,0000,0000,-004,0000,0000,0000,0000,0000,0000,-004,0000,0000,0009,-004,0010,0000,0010,0020,0021],
 	[0006,0007,0000,0000,-004,0000,0000,0000,0000,0000,-004,0000,0000,0000,0000,-004,0000,0000,0000,0028,0029],
@@ -32,8 +32,8 @@
 	],
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0072,0073,0074,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0080,0081,0082,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0149,0156,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0080,0081,0082,-001,-001,-001,-001,-001,0075,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0149,0156,-001,-001,-001,-001,-001,-001,0083,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0091,-001,0091,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0099,-001,0099,-001,-001],
@@ -66,16 +66,10 @@
 	],
 	"events": [
 	{
-		"id": 27,
-		"nom": "Clone[21][36]",
+		"id": 38,
+		"nom": "Clone[341][045]",
 		"x": 3,
-		"y": 2
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][0068]",
-		"x": 8,
-		"y": 4
+		"y": 5
 	},
 	{
 		"id": 16,
@@ -84,16 +78,22 @@
 		"y": 9
 	},
 	{
-		"id": 33,
-		"nom": "Clone[341][004]",
-		"x": 18,
+		"id": 5,
+		"nom": "Clone[341][0068]",
+		"x": 8,
+		"y": 4
+	},
+	{
+		"id": 27,
+		"nom": "Clone[21][36]",
+		"x": 3,
 		"y": 2
 	},
 	{
-		"id": 22,
-		"nom": "Clone[341][004]",
-		"x": 6,
-		"y": 6
+		"id": 11,
+		"nom": "Clone[341][0068]",
+		"x": 5,
+		"y": 7
 	},
 	{
 		"id": 55,
@@ -128,22 +128,96 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][0068]",
-		"x": 5,
-		"y": 7
-	},
-	{
-		"id": 28,
-		"nom": "Clone[21][36]",
-		"x": 5,
-		"y": 2
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][0068]",
+		"id": 22,
+		"nom": "Clone[341][004]",
 		"x": 6,
-		"y": 5
+		"y": 6
+	},
+	{
+		"id": 33,
+		"nom": "Stèle",
+		"x": 18,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"What was my surprise when I realized \\nthat the sanctuary of \\c[2]Kazan the scholar\\c[1] \\nwas the legendary forges of Braenshwyck!"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Quelle ne fut pas ma surprise quand \\nje m'aperçus que le sanctuaire \\nde \\c[2]Kazan' l'érudit\\c[1] était en fait\\nles légendaires forges de Braënshwyck !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"These foundries were used for a long time \\nas a soul crucible by the Wissenburg people, \\nthen by the Tiki people, led by Katchapou."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ces fonderies furent longtemps utilisées \\ncomme creuset animique par les habitants \\nde Wissenburg, puis par le peuple Tiki, \\nmené par \\c[2]Katchapou\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The extent of the prodigious powers \\nof this place still remains a mystery today, \\nexcept that souls were confined in objects.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "L'étendue des pouvoirs prodigieux de ce lieu \\nreste encore aujourd'hui un mystère, \\nsi ce n'est que des âmes ont pu être confinées\\ndans des objets.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 39,
+		"nom": "Clone[341][045]",
+		"x": 2,
+		"y": 6
 	},
 	{
 		"id": 17,
@@ -152,10 +226,28 @@
 		"y": 9
 	},
 	{
-		"id": 34,
-		"nom": "Clone[341][004]",
-		"x": 18,
-		"y": 3
+		"id": 6,
+		"nom": "Clone[341][0068]",
+		"x": 6,
+		"y": 5
+	},
+	{
+		"id": 28,
+		"nom": "Clone[21][36]",
+		"x": 5,
+		"y": 2
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][0068]",
+		"x": 9,
+		"y": 4
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][0068]",
+		"x": 5,
+		"y": 8
 	},
 	{
 		"id": 23,
@@ -182,16 +274,22 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][0068]",
-		"x": 5,
-		"y": 8
+		"id": 34,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 3
 	},
 	{
-		"id": 12,
+		"id": 18,
 		"nom": "Clone[341][0068]",
-		"x": 9,
-		"y": 4
+		"x": 11,
+		"y": 10
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][0068]",
+		"x": 7,
+		"y": 5
 	},
 	{
 		"id": 29,
@@ -218,21 +316,15 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 13,
+		"nom": "Clone[341][0068]",
+		"x": 13,
+		"y": 7
+	},
+	{
+		"id": 2,
 		"nom": "Clone[341][0068]",
 		"x": 7,
-		"y": 5
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][0068]",
-		"x": 11,
-		"y": 10
-	},
-	{
-		"id": 35,
-		"nom": "Clone[341][004]",
-		"x": 18,
 		"y": 4
 	},
 	{
@@ -260,16 +352,22 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][0068]",
-		"x": 7,
+		"id": 35,
+		"nom": "Clone[341][004]",
+		"x": 18,
 		"y": 4
 	},
 	{
-		"id": 13,
+		"id": 8,
 		"nom": "Clone[341][0068]",
-		"x": 13,
+		"x": 14,
 		"y": 7
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][004]",
+		"x": 9,
+		"y": 5
 	},
 	{
 		"id": 30,
@@ -322,22 +420,16 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][004]",
-		"x": 9,
-		"y": 5
-	},
-	{
-		"id": 8,
+		"id": 14,
 		"nom": "Clone[341][0068]",
-		"x": 14,
-		"y": 7
+		"x": 13,
+		"y": 8
 	},
 	{
-		"id": 36,
-		"nom": "Clone[341][004]",
+		"id": 3,
+		"nom": "Clone[341][0068]",
 		"x": 6,
-		"y": 12
+		"y": 7
 	},
 	{
 		"id": 25,
@@ -364,34 +456,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][0068]",
+		"id": 36,
+		"nom": "Clone[341][004]",
 		"x": 6,
-		"y": 7
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][0068]",
-		"x": 13,
-		"y": 8
-	},
-	{
-		"id": 31,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 3
-	},
-	{
-		"id": 53,
-		"nom": "Clone[341][059]",
-		"x": 17,
-		"y": 11
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][004]",
-		"x": 8,
-		"y": 7
+		"y": 12
 	},
 	{
 		"id": 9,
@@ -400,10 +468,34 @@
 		"y": 10
 	},
 	{
-		"id": 37,
+		"id": 20,
 		"nom": "Clone[341][004]",
-		"x": 5,
-		"y": 12
+		"x": 8,
+		"y": 7
+	},
+	{
+		"id": 53,
+		"nom": "Clone[341][059]",
+		"x": 17,
+		"y": 11
+	},
+	{
+		"id": 31,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 3
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][0068]",
+		"x": 12,
+		"y": 8
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][0068]",
+		"x": 9,
+		"y": 7
 	},
 	{
 		"id": 26,
@@ -437,22 +529,22 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][0068]",
-		"x": 9,
-		"y": 7
+		"id": 37,
+		"nom": "Clone[341][004]",
+		"x": 5,
+		"y": 12
 	},
 	{
-		"id": 15,
+		"id": 21,
 		"nom": "Clone[341][0068]",
 		"x": 12,
-		"y": 8
+		"y": 5
 	},
 	{
-		"id": 32,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 4
+		"id": 10,
+		"nom": "Clone[341][0068]",
+		"x": 9,
+		"y": 6
 	},
 	{
 		"id": 54,
@@ -479,44 +571,28 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) To the absent-minded and dizzy adventurers \\nwho are lost or stuck:"
 			},
 			{
 				"nom": "Message",
 				"texte": "Aux aventuriers distraits et étourdis qui \\nsont perdus ou coincés :"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Ring the return bell!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Sonnez la cloche de retour !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "To inattentive adventurers who got lost :"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ring the return bell !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -535,16 +611,10 @@
 		]
 	},
 	{
-		"id": 10,
-		"nom": "Clone[341][0068]",
-		"x": 9,
-		"y": 6
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][0068]",
-		"x": 12,
-		"y": 5
+		"id": 32,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 4
 	}
 	]
 }

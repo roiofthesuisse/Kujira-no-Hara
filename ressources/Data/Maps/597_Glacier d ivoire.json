@@ -237,8 +237,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 10
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([10, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "ConditionFin",
@@ -259,8 +259,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 41
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([41, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "ConditionFin",
@@ -284,14 +284,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -767,8 +759,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 10
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([10, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "ConditionFin",
@@ -789,8 +781,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 41
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([41, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "ConditionFin",
@@ -814,14 +806,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -1077,10 +1061,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 127,
 				"operationAFaire": "rendre egal a",
@@ -1179,11 +1159,6 @@
 				"numero": 3
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
 				"nom": "ConditionArmeEquipee",
 				"idArme": 3,
 				"numero": 4
@@ -1218,6 +1193,11 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
 			},
 			{
 				"nom": "Commentaire",
@@ -1552,8 +1532,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 10
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([10, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "ConditionFin",
@@ -1574,8 +1554,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 41
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([41, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "ConditionFin",
@@ -1599,14 +1579,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -1892,12 +1864,20 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) IVORY GLACIER"
+			},
+			{
 				"nom": "Message",
 				"texte": "GLACIER D'IVOIRE"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 \\c[2]Taiyo\\c[0]'s shrine\\n\\u2190 Hot springs\\n\\u2193 \\c[2]Yellow Vikings\\c[0]' village"
+			},
+			{
 				"nom": "Message",
-				"texte": "/\\ Sanctuaire de \\c[2]Taiyô\\c[1]\\n< Sources chaudes\\nV Village viking jaune"
+				"texte": "\\u2191 Sanctuaire de \\c[2]Taiyô\\c[1]\\n\\u2190 Sources chaudes\\n\\u2193 Village viking jaune"
 			},
 			{
 				"nom": "Attendre",
@@ -2022,8 +2002,12 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]red Vikings\\c[0] intend to enter \\n\\c[2]Taiyo\\c[0]'s shrine ?"
+			},
+			{
 				"nom": "Message",
-				"texte": "Les \\c[2]vikings rouges\\c[1] comptent profaner \\nle sanctuaire de Taiyô ?"
+				"texte": "Les \\c[2]Vikings rouges\\c[1] comptent profaner \\nle sanctuaire de Taiyô ?"
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -2036,16 +2020,28 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]yellow Vikings\\c[0] too, I think."
+			},
+			{
 				"nom": "Message",
-				"texte": "Les \\c[2]vikings jaunes\\c[1] aussi je crois."
+				"texte": "Les \\c[2]Vikings jaunes\\c[1] aussi je crois."
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Shrines are dangerous.\\nWell, after all, they are Vikings, \\nthey fear nothing..."
+			},
+			{
 				"nom": "Message",
-				"texte": "Les sanctuaires sont dangereux.\\nEnfin, tu me diras, ce sont des vikings, \\nils n'ont peur de rien..."
+				"texte": "Les sanctuaires sont dangereux.\\nEnfin, tu me diras, ce sont des Vikings, \\nils n'ont peur de rien..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) They could mess up some important stuff, \\nrelated to the prophecy."
 			},
 			{
 				"nom": "Message",
@@ -2062,6 +2058,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You and your father do go to the shrines \\nto do your shopping!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Toi et ton père, vous allez pourtant bien \\ndans les sanctuaires pour faire vos emplettes !"
 			},
@@ -2072,8 +2072,32 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 40,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, yeah, but that's in the name of science!"
 			},
 			{
 				"nom": "Message",
@@ -2084,8 +2108,12 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, here it's in the name of freedom!\\nIf the Vikings find the MacGuffin,\\nwe will finally be free like air!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Eh bien là, c'est au nom de la Liberté !\\nSi les vikings trouvent le MacGuffin, \\nnous serons enfin libres comme l'air !"
+				"texte": "Eh bien là, c'est au nom de la Liberté !\\nSi les Vikings trouvent le MacGuffin, \\nnous serons enfin libres comme l'air !"
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -2094,16 +2122,55 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 40,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Air is not free, \\c[2]Poesy\\c[0],\\nit obeys the Navier-Stokes equations."
 			},
 			{
 				"nom": "Message",
 				"texte": "L'air n'est pas libre, \\c[2]Poésie\\c[1], il obéit aux équations \\nde Navier-Stokes."
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a metaphor, \\c[2]Rebeca\\c[0]!"
 			},
 			{
 				"nom": "Message",
@@ -2114,12 +2181,24 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The two of us can't do much,\\nbecause we are \"whale-born\", \\nand as you know, the hero of the prophecy \\nwill be a \"swallowed\"."
+			},
+			{
 				"nom": "Message",
 				"texte": "Nous deux, on ne peut pas faire grand chose, \\nparce que nous sommes des \"natives\", \\net que le héros de la prophétie sera un \"avalé\"."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) But we must support them!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Mais on doit les soutenir !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I believe in them!"
 			},
 			{
 				"nom": "Message",
@@ -2132,12 +2211,40 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 40,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Okay, so we'll see."
+			},
+			{
 				"nom": "Message",
 				"texte": "Ok, soit, on verra."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) And your boyfriend, he's a \"swallowed\", right?"
 			},
 			{
 				"nom": "Message",
@@ -2152,6 +2259,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) My b-?"
 			},
 			{
 				"nom": "Message",
@@ -2182,12 +2293,20 @@
 				"script": "$game_temp.faceset = \"poesie genee\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You mean \\c[2]\\n[1]\\c[0]?!\\nHe's not my boyfriend!!!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu parles de \\c[2]\\n[1]\\c[0] ?!\\nÇa n'est pas mon petit copain !!!"
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yeah yeah, him.\\nDid you think for a moment that he might be \\nthe hero of the prophecy?"
 			},
 			{
 				"nom": "Message",
@@ -2198,12 +2317,20 @@
 				"script": "$game_temp.faceset = \"poesie surprise\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I admit it crossed my mind, but hey, \\nit could be anyone!"
+			},
+			{
 				"nom": "Message",
 				"texte": "J'avoue que ça m'a traversé l'esprit, mais bon,\\nça pourrait bien être n'importe qui !"
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Okay."
 			},
 			{
 				"nom": "Message",
@@ -2216,8 +2343,37 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 40,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come on, have a good bath!\\nI'm going home to my old man."
 			},
 			{
 				"nom": "Message",
@@ -2331,6 +2487,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) See you soon, \\c[2]Rebeca\\c[0]!"
 			},
 			{
 				"nom": "Message",
@@ -2880,8 +3040,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 10
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([10, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "ConditionFin",
@@ -2902,8 +3062,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 41
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([41, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "ConditionFin",
@@ -2927,14 +3087,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
 			},
 			{
 				"nom": "ConditionFin",

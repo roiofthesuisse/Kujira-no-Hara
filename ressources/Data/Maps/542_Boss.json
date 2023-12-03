@@ -87,8 +87,8 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 501,
-				"xDebutHeros": 12,
+				"numeroNouvelleMap": 813,
+				"xDebutHeros": 10,
 				"yDebutHeros": 1
 			}
 			],
@@ -107,37 +107,6 @@
 		"nom": "Clone[341][003]",
 		"x": 18,
 		"y": 12
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 10,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 570,
-				"xDebutHeros": 16,
-				"yDebutHeros": 46
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 1,
@@ -325,7 +294,7 @@
 			"commandes": [
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "TremblementDeTerre",
@@ -428,12 +397,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
 				"nom": "TremblementDeTerre",
 				"intensite": 2,
 				"vitesse": 9,
@@ -447,19 +410,26 @@
 			},
 			{
 				"nom": "JouerAnimation",
-				"idAnimation": 22
+				"idAnimation": 65
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 10
+				"nombreDeFrames": 35
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 22
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 10
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerAnimation",
@@ -467,7 +437,29 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 20
+				"nombreDeFrames": 25
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -475,7 +467,7 @@
 				"valeurADonner": true
 			}
 			],
-			"image": "cube demon boss character",
+			"image": "demon lave character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"figerLesAutresEvents": true,
@@ -516,6 +508,37 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 10,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 570,
+				"xDebutHeros": 16,
+				"yDebutHeros": 46
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "Clone[341][003]",
 		"x": 18,
@@ -539,7 +562,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Boss 5.mp3",
+				"nomFichierSonore": "Boss 5.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -619,7 +642,7 @@
 			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "fissure.ogg",
-				"volume": 0.80,
+				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{

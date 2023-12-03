@@ -4,7 +4,7 @@
 	"largeur": 40,
 	"hauteur": 40,
 	"musique": {
-		"nomFichierSonore": "Forêt de l'Ouest.mp3",
+		"nomFichierSonore": "Forêt de l'Ouest.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -38,8 +38,8 @@
 	[0809,0809,0809,0809,0809,0809,0808,0838,0220,0219,0219,0220,0220,0220,0220,0219,0219,0219,0862,0868,0867,0863,0219,0219,0220,0219,0220,0220,0220,0220,0219,0831,0810,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0838,0219,0220,0220,0220,0220,0220,0219,0219,0219,0862,0865,0858,0858,0859,0219,0219,0220,0219,0220,0220,0220,0220,0219,0831,0810,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0838,0220,0220,0220,0220,0220,0220,0220,0220,0219,0860,0858,0858,0858,0859,0219,0219,0220,0220,0220,0220,0220,0220,0220,0831,0810,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0808,0838,0219,0219,0220,0220,0219,0219,0220,0219,0219,0860,0858,0858,0877,0859,0219,0219,0219,0219,0219,0219,0862,0863,0220,0831,0810,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0808,0838,0219,0220,0219,0219,0219,0220,0220,0220,0219,0870,0866,0866,0866,0871,0219,0220,0219,0219,0219,0219,0870,0871,0219,0831,0810,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0838,0219,0219,0220,0220,0219,0219,0220,0219,0219,0860,0858,0858,0877,0859,0219,0219,0219,0219,0219,0219,0220,0220,0220,0831,0810,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0838,0219,0220,0219,0219,0219,0220,0220,0220,0219,0870,0866,0866,0866,0871,0219,0220,0219,0219,0219,0219,0220,0220,0219,0831,0810,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0838,0219,0220,0219,0219,0220,0220,0219,0219,0220,0219,0219,0219,0219,0219,0219,0219,0219,0219,0219,0219,0219,0056,0056,0831,0810,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0838,0219,0220,0220,0219,0220,0220,0219,0219,0219,0220,0219,0219,0219,0219,0219,0219,0219,0220,0220,0219,0056,0008,0052,0030,0021,0801,0801,0802,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0838,0219,0219,0220,0219,0220,0219,0219,0219,0220,0219,0219,0220,0219,0862,0867,0863,0220,0220,0219,0219,0056,0000,0056,0902,0830,0830,0022,0810,0809,0809,0809,0809],
@@ -141,238 +141,16 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 27,
+		"nom": "Clone[341][028]",
+		"x": 23,
+		"y": 13
 	},
 	{
-		"id": 60,
-		"nom": "Clone[582][37]",
-		"x": 36,
-		"y": 32
-	},
-	{
-		"id": 49,
-		"nom": "Gland",
-		"x": 7,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			],
-			"opacite": 0,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 61,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 3
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est un gland..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Allez savoir qui l'a fait tomber !"
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 40,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 61,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 40,
-				"operationAFaire2": "objets possedes"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "gland character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 49,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": "brillant character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 61,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est un gland..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Allez savoir qui l'a fait tomber !"
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 40,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 61,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 40,
-				"operationAFaire2": "objets possedes"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			}
-			],
-			"image": "gland character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 49,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": "brillant character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"id": 16,
+		"nom": "Clone[341][028]",
+		"x": 28,
+		"y": 17
 	},
 	{
 		"id": 38,
@@ -478,12 +256,8 @@
 				"quantite": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -518,6 +292,14 @@
 				]
 			},
 			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -532,22 +314,217 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][028]",
-		"x": 28,
-		"y": 17
+		"id": 49,
+		"nom": "Gland",
+		"x": 7,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 61,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 3
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un gland..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go figure out who dropped it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Allez savoir qui l'a fait tomber !"
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 40,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 61,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 40,
+				"operationAFaire2": "objets possedes"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "gland character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 49,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "brillant character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 61,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 14
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un gland..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go and find out who dropped it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Allez savoir qui l'a fait tomber !"
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 40,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 61,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 40,
+				"operationAFaire2": "objets possedes"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"image": "gland character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 49,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"image": "brillant character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
-		"id": 27,
-		"nom": "Clone[341][028]",
-		"x": 23,
-		"y": 13
+		"id": 60,
+		"nom": "Clone[582][37]",
+		"x": 36,
+		"y": 32
 	},
 	{
-		"id": 22,
+		"id": 5,
 		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 13,
+		"x": 19,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -568,10 +545,65 @@
 		]
 	},
 	{
+		"id": 33,
+		"nom": "Clone[021][022]",
+		"x": 15,
+		"y": 18
+	},
+	{
+		"id": 11,
+		"nom": "EV011",
+		"x": 9,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 314,
+				"xDebutHeros": 11,
+				"yDebutHeros": 14
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 55,
 		"nom": "brouillard de forêt",
-		"x": 37,
-		"y": 25,
+		"x": 39,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -630,43 +662,18 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 9,
-		"y": 22,
+		"id": 22,
+		"nom": "Blocage anti-évènement",
+		"x": 14,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 314,
-				"xDebutHeros": 11,
-				"yDebutHeros": 14
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -679,220 +686,16 @@
 		]
 	},
 	{
-		"id": 33,
-		"nom": "Clone[021][022]",
+		"id": 17,
+		"nom": "Clone[341][0080]",
 		"x": 15,
-		"y": 18
-	},
-	{
-		"id": 44,
-		"nom": "Annonce du Lieu",
-		"x": 36,
-		"y": 27,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 35,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AfficherImage",
-				"numero": 9,
-				"nomImage": "AnnonceLieu ForetOuest",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 61,
-		"nom": "Clone[582][37]",
-		"x": 24,
 		"y": 13
 	},
 	{
-		"id": 50,
-		"nom": "EV050",
-		"x": 0,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 136,
-				"xDebutHeros": 28,
-				"yDebutHeros": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 39,
-		"nom": "brouillard de forêt",
-		"x": 34,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 25,
-				"modeDeFusion": "normal",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 0,
-				"nomImage": "brouillard Feuilles"
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "ModifierMeteo",
-				"type": "rien",
-				"intensite": 5
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 28,
+		"nom": "Clone[021][022]",
+		"x": 23,
+		"y": 27
 	},
 	{
 		"id": 6,
@@ -930,48 +733,114 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "Clone[021][022]",
-		"x": 23,
-		"y": 27
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][0080]",
-		"x": 15,
-		"y": 13
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][008]",
-		"x": 15,
-		"y": 15
-	},
-	{
-		"id": 56,
-		"nom": "feuillage",
-		"x": 29,
+		"id": 39,
+		"nom": "brouillard de forêt",
+		"x": 34,
 		"y": 25,
 		"pages": [
 		{
 			"conditions": [
+			],
+			"commandes": [
 			{
-				"nom": "Parler"
+				"nom": "Commentaire",
+				"texte": "nettoyer l'obscurité de la pierre de lune :"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 85
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 25,
+				"modeDeFusion": "normal",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 200,
+				"nuance": 0,
+				"nomImage": "brouillard Feuilles"
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierMeteo",
+				"type": "rien",
+				"intensite": 5
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 50,
+		"nom": "EV050",
+		"x": 0,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 136,
+				"xDebutHeros": 28,
+				"yDebutHeros": 16
+			}
 			],
-			"image": "feuillage character",
-			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 61,
+		"nom": "Clone[582][37]",
+		"x": 24,
+		"y": 13
+	},
+	{
+		"id": 23,
+		"nom": "Clone[341][028]",
+		"x": 12,
+		"y": 12
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 33,
+		"y": 31
+	},
+	{
+		"id": 34,
+		"nom": "Clone[021][022]",
+		"x": 11,
+		"y": 16
 	},
 	{
 		"id": 45,
@@ -1077,69 +946,22 @@
 		]
 	},
 	{
-		"id": 34,
+		"id": 12,
+		"nom": "Clone[341][008]",
+		"x": 15,
+		"y": 15
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][028]",
+		"x": 17,
+		"y": 28
+	},
+	{
+		"id": 29,
 		"nom": "Clone[021][022]",
-		"x": 11,
-		"y": 16
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 33,
-		"y": 31
-	},
-	{
-		"id": 23,
-		"nom": "Clone[341][028]",
-		"x": 12,
-		"y": 12
-	},
-	{
-		"id": 62,
-		"nom": "Clone[582][37]",
-		"x": 3,
-		"y": 11
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][002]",
-		"x": 29,
-		"y": 29
-	},
-	{
-		"id": 51,
-		"nom": "EV051",
-		"x": 0,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 136,
-				"xDebutHeros": 28,
-				"yDebutHeros": 17
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"x": 28,
+		"y": 20
 	},
 	{
 		"id": 40,
@@ -1177,42 +999,75 @@
 		]
 	},
 	{
-		"id": 29,
-		"nom": "Clone[021][022]",
-		"x": 28,
-		"y": 20
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][028]",
-		"x": 17,
-		"y": 28
-	},
-	{
-		"id": 57,
-		"nom": "feuillage",
-		"x": 21,
-		"y": 15,
+		"id": 51,
+		"nom": "EV051",
+		"x": 0,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 136,
+				"xDebutHeros": 28,
+				"yDebutHeros": 17
+			}
 			],
-			"image": "feuillage character",
-			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 18,
+		"nom": "Clone[341][002]",
+		"x": 29,
+		"y": 29
+	},
+	{
+		"id": 62,
+		"nom": "Clone[582][37]",
+		"x": 3,
+		"y": 11
+	},
+	{
+		"id": 24,
+		"nom": "Clone[341][028]",
+		"x": 17,
+		"y": 34
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][028]",
+		"x": 22,
+		"y": 26
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 25,
+		"y": 32
+	},
+	{
+		"id": 35,
+		"nom": "Clone[021][022]",
+		"x": 24,
+		"y": 21
 	},
 	{
 		"id": 46,
@@ -1334,34 +1189,10 @@
 		]
 	},
 	{
-		"id": 35,
-		"nom": "Clone[021][022]",
-		"x": 24,
-		"y": 21
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 25,
-		"y": 32
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][028]",
-		"x": 22,
-		"y": 26
-	},
-	{
-		"id": 24,
-		"nom": "Clone[341][028]",
-		"x": 17,
-		"y": 34
-	},
-	{
-		"id": 19,
+		"id": 57,
 		"nom": "feuillage",
-		"x": 14,
-		"y": 14,
+		"x": 21,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -1372,7 +1203,7 @@
 			"commandes": [
 			],
 			"image": "feuillage character",
-			"directionInitiale": 2,
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1382,6 +1213,18 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][028]",
+		"x": 8,
+		"y": 28
+	},
+	{
+		"id": 30,
+		"nom": "Clone[021][022]",
+		"x": 26,
+		"y": 15
 	},
 	{
 		"id": 41,
@@ -1419,22 +1262,10 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "Clone[021][022]",
-		"x": 26,
-		"y": 15
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][028]",
-		"x": 8,
-		"y": 28
-	},
-	{
-		"id": 58,
+		"id": 19,
 		"nom": "feuillage",
-		"x": 21,
-		"y": 21,
+		"x": 14,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -1445,7 +1276,7 @@
 			"commandes": [
 			],
 			"image": "feuillage character",
-			"directionInitiale": 3,
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1457,41 +1288,21 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "feuillage",
-		"x": 21,
-		"y": 31,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "feuillage character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 47,
-		"nom": "Colibri",
-		"x": 27,
+		"id": 25,
+		"nom": "Gland",
+		"x": 16,
 		"y": 30,
 		"pages": [
 		{
 			"conditions": [
 			{
 				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 61,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
 			}
 			],
 			"commandes": [
@@ -1501,91 +1312,57 @@
 				"valeur": true
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 76
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"colibri bleu\""
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Saluzalu !"
+				"texte": "C'est un gland..."
 			},
 			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 56,
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu as une pomme pour moi ?"
+				"nom": "Commentaire",
+				"texte": "(en) Go figure out who dropped it!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Merci !"
+				"texte": "Allez savoir qui l'a fait tomber !"
 			},
 			{
-				"nom": "RetirerObjet",
-				"idObjet": 56,
+				"nom": "AjouterObjet",
+				"idObjet": 40,
 				"variable": false,
 				"quantite": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu te trouves dans la forêt de l'Ouest."
-			},
-			{
-				"nom": "Message",
-				"texte": "Quelqu'un plante des graines par ici \\ndonc une forêt a fini par pousser."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 61,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 40,
+				"operationAFaire2": "objets possedes"
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "colibri bleu character",
+			"image": "gland character",
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		},
 		{
 			"conditions": [
@@ -1594,9 +1371,32 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 47,
+				"numeroEvent": 25,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "brillant character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 61,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 16
 			}
 			],
 			"commandes": [
@@ -1606,49 +1406,93 @@
 				"valeur": true
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 76
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Saluzalu !"
+				"texte": "C'est un gland..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go figure out who dropped it!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu te trouves dans la forêt de l'Ouest."
+				"texte": "Allez savoir qui l'a fait tomber !"
 			},
 			{
-				"nom": "Message",
-				"texte": "Un animal étrange plante des graines\\npar ici et donc une forêt a fini par pousser."
+				"nom": "AjouterObjet",
+				"idObjet": 40,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 61,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 40,
+				"operationAFaire2": "objets possedes"
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "colibri bleu character",
+			"image": "gland character",
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 25,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"image": "brillant character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][028]",
+		"x": 16,
+		"y": 26
 	},
 	{
 		"id": 36,
@@ -1756,41 +1600,15 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][028]",
-		"x": 16,
-		"y": 26
-	},
-	{
-		"id": 25,
-		"nom": "Gland",
-		"x": 16,
+		"id": 47,
+		"nom": "Colibri",
+		"x": 27,
 		"y": 30,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
-			],
-			"opacite": 0,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
 			{
 				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 61,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 2
 			}
 			],
 			"commandes": [
@@ -1800,77 +1618,111 @@
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "C'est un gland..."
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 76
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri bleu\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Allez savoir qui l'a fait tomber !"
+				"texte": "Saluzalu !"
 			},
 			{
-				"nom": "AjouterObjet",
-				"idObjet": 40,
+				"nom": "ConditionObjetPossede",
+				"idObjet": 56,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you have an apple for me?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu as une pomme pour moi ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Thanks!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Merci !"
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 56,
 				"variable": false,
 				"quantite": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are in the western forest."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu te trouves dans la forêt de l'Ouest."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Someone is planting seeds around here \\nso a forest has finally grown."
+			},
+			{
+				"nom": "Message",
+				"texte": "Quelqu'un plante des graines par ici \\ndonc une forêt a fini par pousser."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 61,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 40,
-				"operationAFaire2": "objets possedes"
-			},
-			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
 			}
 			],
-			"image": "gland character",
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "colibri bleu character",
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 25,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": "brillant character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		},
 		{
 			"conditions": [
@@ -1878,10 +1730,10 @@
 				"nom": "Parler"
 			},
 			{
-				"nom": "Variable",
-				"numeroVariable": 61,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 16
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 47,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
@@ -1891,74 +1743,82 @@
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "C'est un gland..."
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 76
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Allez savoir qui l'a fait tomber !"
+				"texte": "Saluzalu !"
 			},
 			{
-				"nom": "AjouterObjet",
-				"idObjet": 40,
-				"variable": false,
-				"quantite": 1
+				"nom": "Commentaire",
+				"texte": "(en) You are in the western forest."
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "Message",
+				"texte": "Tu te trouves dans la forêt de l'Ouest."
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 61,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 40,
-				"operationAFaire2": "objets possedes"
+				"nom": "Commentaire",
+				"texte": "(en) A strange animal is planting\\nseeds around here and so a\\nforest has grown."
+			},
+			{
+				"nom": "Message",
+				"texte": "Un animal étrange plante des graines\\npar ici et donc une forêt a fini par pousser."
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
 			}
 			],
-			"image": "gland character",
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "colibri bleu character",
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": true
-		},
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "feuillage",
+		"x": 21,
+		"y": 31,
+		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 25,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
 			],
-			"image": "brillant character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"image": "feuillage character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": true,
+			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
@@ -1966,10 +1826,36 @@
 		]
 	},
 	{
-		"id": 42,
-		"nom": "EV042",
+		"id": 58,
+		"nom": "feuillage",
+		"x": 21,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "feuillage character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 31,
+		"nom": "EV031",
 		"x": 17,
-		"y": 12,
+		"y": 39,
 		"pages": [
 		{
 			"conditions": [
@@ -1979,11 +1865,15 @@
 			],
 			"commandes": [
 			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 79,
-				"xDebutHeros": 12,
-				"yDebutHeros": 24
+				"numeroNouvelleMap": 133,
+				"xDebutHeros": 20,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -1997,25 +1887,23 @@
 		]
 	},
 	{
+		"id": 20,
+		"nom": "Clone[341][028]",
+		"x": 10,
+		"y": 14
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][028]",
+		"x": 11,
+		"y": 22
+	},
+	{
 		"id": 53,
 		"nom": "Gland",
 		"x": 23,
 		"y": 15,
 		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			],
-			"opacite": 0,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
 		{
 			"conditions": [
 			{
@@ -2035,8 +1923,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un gland..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go figure out who dropped it!"
 			},
 			{
 				"nom": "Message",
@@ -2110,22 +2006,10 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][028]",
-		"x": 11,
-		"y": 22
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 14
-	},
-	{
-		"id": 31,
-		"nom": "EV031",
+		"id": 42,
+		"nom": "EV042",
 		"x": 17,
-		"y": 39,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -2135,15 +2019,11 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 133,
-				"xDebutHeros": 20,
-				"yDebutHeros": 1
+				"numeroNouvelleMap": 79,
+				"xDebutHeros": 12,
+				"yDebutHeros": 24
 			}
 			],
 			"vitesse": "moderee",
@@ -2157,16 +2037,10 @@
 		]
 	},
 	{
-		"id": 59,
-		"nom": "Clone[582][37]",
-		"x": 37,
-		"y": 31
-	},
-	{
-		"id": 4,
+		"id": 15,
 		"nom": "Clone[341][028]",
-		"x": 27,
-		"y": 23
+		"x": 24,
+		"y": 19
 	},
 	{
 		"id": 37,
@@ -2175,22 +2049,22 @@
 		"y": 29
 	},
 	{
-		"id": 15,
+		"id": 4,
 		"nom": "Clone[341][028]",
-		"x": 24,
-		"y": 19
+		"x": 27,
+		"y": 23
 	},
 	{
-		"id": 43,
-		"nom": "Clone[341][0086]",
-		"x": 19,
-		"y": 22
+		"id": 59,
+		"nom": "Clone[582][37]",
+		"x": 37,
+		"y": 31
 	},
 	{
-		"id": 32,
-		"nom": "Clone[021][022]",
+		"id": 21,
+		"nom": "Clone[341][028]",
 		"x": 11,
-		"y": 25
+		"y": 13
 	},
 	{
 		"id": 10,
@@ -2199,10 +2073,16 @@
 		"y": 20
 	},
 	{
-		"id": 21,
-		"nom": "Clone[341][028]",
+		"id": 32,
+		"nom": "Clone[021][022]",
 		"x": 11,
-		"y": 13
+		"y": 25
+	},
+	{
+		"id": 43,
+		"nom": "Clone[341][0086]",
+		"x": 19,
+		"y": 22
 	}
 	]
 }

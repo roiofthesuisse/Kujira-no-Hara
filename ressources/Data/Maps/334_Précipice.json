@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 45,
 	"musique": {
-		"nomFichierSonore": "Forêt de l'Ouest 2.mp3",
+		"nomFichierSonore": "Forêt de l'Ouest 2.ogg",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
@@ -156,6 +156,43 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "EV016",
+		"x": 0,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 303,
+				"xDebutHeros": 28,
+				"yDebutHeros": 21
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][001]",
+		"x": 11,
+		"y": 24
+	},
+	{
 		"id": 27,
 		"nom": "Luciole",
 		"x": 7,
@@ -275,16 +312,22 @@
 		]
 	},
 	{
-		"id": 5,
+		"id": 22,
 		"nom": "Clone[341][001]",
-		"x": 11,
-		"y": 24
+		"x": 7,
+		"y": 8
 	},
 	{
-		"id": 16,
-		"nom": "EV016",
+		"id": 11,
+		"nom": "Clone[341][0086]",
+		"x": 12,
+		"y": 21
+	},
+	{
+		"id": 17,
+		"nom": "EV017",
 		"x": 0,
-		"y": 6,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -298,7 +341,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 303,
 				"xDebutHeros": 28,
-				"yDebutHeros": 21
+				"yDebutHeros": 22
 			}
 			],
 			"vitesse": "moderee",
@@ -312,16 +355,10 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][0086]",
-		"x": 12,
-		"y": 21
-	},
-	{
-		"id": 22,
+		"id": 6,
 		"nom": "Clone[341][001]",
-		"x": 7,
-		"y": 8
+		"x": 11,
+		"y": 25
 	},
 	{
 		"id": 28,
@@ -355,41 +392,16 @@
 		]
 	},
 	{
-		"id": 6,
+		"id": 12,
 		"nom": "Clone[341][001]",
-		"x": 11,
-		"y": 25
+		"x": 6,
+		"y": 8
 	},
 	{
-		"id": 17,
-		"nom": "EV017",
-		"x": 0,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 303,
-				"xDebutHeros": 28,
-				"yDebutHeros": 22
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 23,
+		"nom": "Clone[341][001]",
+		"x": 14,
+		"y": 5
 	},
 	{
 		"id": 1,
@@ -541,8 +553,16 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -635,22 +655,10 @@
 		]
 	},
 	{
-		"id": 23,
+		"id": 7,
 		"nom": "Clone[341][001]",
-		"x": 14,
-		"y": 5
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][001]",
-		"x": 6,
-		"y": 8
-	},
-	{
-		"id": 29,
-		"nom": "Clone[341][111]",
-		"x": 13,
-		"y": 2
+		"x": 12,
+		"y": 25
 	},
 	{
 		"id": 18,
@@ -659,41 +667,16 @@
 		"y": 5
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][001]",
-		"x": 12,
-		"y": 25
+		"id": 29,
+		"nom": "Clone[341][111]",
+		"x": 13,
+		"y": 2
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 24,
-		"y": 36,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 333,
-				"xDebutHeros": 1,
-				"yDebutHeros": 14
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 2,
+		"nom": "Clone[341][001]",
+		"x": 13,
+		"y": 23
 	},
 	{
 		"id": 24,
@@ -764,22 +747,35 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][001]",
-		"x": 13,
-		"y": 23
-	},
-	{
-		"id": 30,
-		"nom": "Clone[341][061]",
-		"x": 13,
-		"y": 5
-	},
-	{
-		"id": 19,
-		"nom": "Clone[341][061]",
-		"x": 17,
-		"y": 5
+		"id": 13,
+		"nom": "EV013",
+		"x": 24,
+		"y": 36,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 333,
+				"xDebutHeros": 1,
+				"yDebutHeros": 14
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 8,
@@ -788,10 +784,22 @@
 		"y": 25
 	},
 	{
-		"id": 25,
-		"nom": "Clone[341][002]",
-		"x": 6,
+		"id": 19,
+		"nom": "Clone[341][061]",
+		"x": 17,
 		"y": 5
+	},
+	{
+		"id": 30,
+		"nom": "Clone[341][061]",
+		"x": 13,
+		"y": 5
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][001]",
+		"x": 12,
+		"y": 23
 	},
 	{
 		"id": 14,
@@ -825,22 +833,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][001]",
-		"x": 12,
-		"y": 23
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][028]",
-		"x": 11,
+		"id": 25,
+		"nom": "Clone[341][002]",
+		"x": 6,
 		"y": 5
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][001]",
-		"x": 13,
-		"y": 24
 	},
 	{
 		"id": 31,
@@ -861,6 +857,55 @@
 				"numeroNouvelleMap": 427,
 				"xDebutHeros": 14,
 				"yDebutHeros": 19
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][001]",
+		"x": 13,
+		"y": 24
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][028]",
+		"x": 11,
+		"y": 5
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][001]",
+		"x": 11,
+		"y": 23
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 24,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 164,
+				"xDebutHeros": 1,
+				"yDebutHeros": 25
 			}
 			],
 			"vitesse": "moderee",
@@ -977,55 +1022,6 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 24,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 164,
-				"xDebutHeros": 1,
-				"yDebutHeros": 25
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][001]",
-		"x": 11,
-		"y": 23
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][0086]",
-		"x": 12,
-		"y": 33
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][061]",
-		"x": 8,
-		"y": 8
-	},
-	{
 		"id": 32,
 		"nom": "EV032",
 		"x": 0,
@@ -1055,6 +1051,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][061]",
+		"x": 8,
+		"y": 8
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][0086]",
+		"x": 12,
+		"y": 33
 	}
 	]
 }

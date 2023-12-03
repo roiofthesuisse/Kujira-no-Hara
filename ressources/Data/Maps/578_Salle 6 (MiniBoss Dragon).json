@@ -66,31 +66,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Torche murale",
-		"x": 11,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 5,
 		"nom": "Blocage de pierre",
 		"x": 11,
@@ -157,10 +132,29 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Clone[341][003]",
-		"x": 17,
-		"y": 11
+		"id": 16,
+		"nom": "Torche murale",
+		"x": 11,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "torche murale character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 11,
@@ -280,8 +274,7 @@
 				"numero": 3
 			}
 			],
-			"image": "dragon corps character",
-			"teinte": "60",
+			"image": "dragon corps jaune character",
 			"vitesse": "rapide",
 			"frequence": "tres haute",
 			"animeEnMouvement": true,
@@ -303,8 +296,7 @@
 			],
 			"commandes": [
 			],
-			"image": "dragon corps character",
-			"teinte": "60",
+			"image": "dragon corps jaune character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -339,6 +331,12 @@
 		]
 	},
 	{
+		"id": 22,
+		"nom": "Clone[341][003]",
+		"x": 17,
+		"y": 11
+	},
+	{
 		"id": 17,
 		"nom": "EV017",
 		"x": 0,
@@ -371,543 +369,59 @@
 	},
 	{
 		"id": 6,
-		"nom": "DragonTete",
-		"x": 14,
-		"y": 9,
+		"nom": "cache",
+		"x": 20,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AvancerAleatoirement"
-				}
-				]
-			},
-			"image": "dragon chinois tête character",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 25,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 5
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Quand un ennemi est touché son interrupteur local A\\nest automatiquement activé."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On lui inflige des dégâts selon l'arme équipée."
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_player.target_in_da_zone?(@event_id, 1)",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 22,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 2
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 13,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 10,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
-				"valeurADonner2": 17,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 11,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
-				"valeurADonner2": 11,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 6,
-				"variable": true,
-				"nouveauX": 10,
-				"nouveauY": 11,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On regarde si il est mort."
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 13,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 2,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AvancerAleatoirement"
-				}
-				]
-			},
-			"image": "dragon chinois tête character",
-			"teinte": "40",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
 				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 12,
-				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
 			],
-			"image": "dragon chinois tête character",
-			"teinte": "20",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": true,
+			"image": 63,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 11,
+		"y": 14,
+		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Variable",
-				"numeroVariable": 25,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 6
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "TeleporterEvent",
+				"nom": "ChangerDeMap",
 				"variable": false,
-				"nouveauX": 11,
-				"nouveauY": 8,
-				"direction": 0
-			},
-			{
-				"nom": "ArreterMusique",
-				"nombreDeFrames": 60
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 2
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 2
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 2
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 2
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 41
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 6
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Gong.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 7,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": true
+				"numeroNouvelleMap": 575,
+				"xDebutHeros": 11,
+				"yDebutHeros": 1
 			}
 			],
-			"image": "dragon chinois tête character",
-			"teinte": "40",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"figerLesAutresEvents": true,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 6,
-				"numeroInterrupteurLocal": 3,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"teinte": "20",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 23,
-		"nom": "Clone[341][003]",
-		"x": 17,
-		"y": 6
 	},
 	{
 		"id": 12,
@@ -941,10 +455,16 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 11,
-		"y": 14,
+		"id": 23,
+		"nom": "Clone[341][003]",
+		"x": 17,
+		"y": 6
+	},
+	{
+		"id": 18,
+		"nom": "EV018",
+		"x": 0,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -956,9 +476,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 575,
-				"xDebutHeros": 11,
-				"yDebutHeros": 1
+				"numeroNouvelleMap": 576,
+				"xDebutHeros": 19,
+				"yDebutHeros": 10
 			}
 			],
 			"vitesse": "moderee",
@@ -1112,8 +632,7 @@
 				"numero": 3
 			}
 			],
-			"image": "dragon corps character",
-			"teinte": "60",
+			"image": "dragon corps jaune character",
 			"vitesse": "rapide",
 			"frequence": "tres haute",
 			"animeEnMouvement": true,
@@ -1135,8 +654,7 @@
 			],
 			"commandes": [
 			],
-			"image": "dragon corps character",
-			"teinte": "60",
+			"image": "dragon corps jaune character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -1166,184 +684,6 @@
 			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "EV018",
-		"x": 0,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 576,
-				"xDebutHeros": 19,
-				"yDebutHeros": 10
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Boule de feu1",
-		"x": 20,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 4
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"variable": false,
-				"nouveauX": 29,
-				"nouveauY": 29,
-				"direction": 0
-			}
-			],
-			"image": "flamme character",
-			"opacite": 250,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 25,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 6
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 13,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "brouillard",
-		"x": 14,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"rouge": 127,
-				"vert": 170,
-				"bleu": 220,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -1405,7 +745,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 6,
+				"idEvent": 26,
 				"variable": true,
 				"nouveauX": 10,
 				"nouveauY": 11,
@@ -1554,27 +894,188 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Torche murale",
-		"x": 16,
+		"id": 2,
+		"nom": "brouillard",
+		"x": 14,
 		"y": 14,
 		"pages": [
 		{
 			"conditions": [
+			],
+			"commandes": [
 			{
-				"nom": "Parler"
+				"nom": "ModifierBrouillard",
+				"rouge": 127,
+				"vert": 170,
+				"bleu": 220,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 13,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Boule de feu1",
+		"x": 20,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 4
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "retirer",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "TeleporterEvent",
+				"variable": false,
+				"nouveauX": 20,
+				"nouveauY": 14,
+				"direction": 0
+			}
 			],
-			"image": "torche murale character",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
+			"image": "flamme character",
+			"opacite": 250,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": true,
 			"animeALArret": true,
-			"directionFixe": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 6
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 13,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -1611,14 +1112,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 56,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
+				"valeurADonner": 26,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 57,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
+				"valeurADonner": 26,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -1758,10 +1259,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -1926,10 +1423,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
 			},
 			{
 				"nom": "ConditionFin",
@@ -2316,7 +1809,7 @@
 			"commandes": [
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 6,
+				"idEvent": 26,
 				"variable": false,
 				"nouveauX": 11,
 				"nouveauY": 8,
@@ -2356,7 +1849,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Donjon 1.mp3",
+				"nomFichierSonore": "Donjon 1.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
@@ -2372,7 +1865,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 6,
+				"idEvent": 26,
 				"variable": false,
 				"nouveauX": 11,
 				"nouveauY": 8,
@@ -2412,7 +1905,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Donjon 1.mp3",
+				"nomFichierSonore": "Donjon 1.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
@@ -2449,24 +1942,63 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 0,
-		"y": 7,
+		"id": 19,
+		"nom": "Torche murale",
+		"x": 16,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
+			],
+			"image": "torche murale character",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 25,
+		"nom": "desactiver blesse",
+		"x": 20,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 576,
-				"xDebutHeros": 19,
-				"yDebutHeros": 7
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
 			}
 			],
 			"vitesse": "moderee",
@@ -2561,14 +2093,14 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 17,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
+				"valeurADonner": 26,
 				"operationAFaire2": "coordonnee x"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 18,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
+				"valeurADonner": 26,
 				"operationAFaire2": "coordonnee y"
 			},
 			{
@@ -2864,10 +2396,6 @@
 				]
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 5
 			},
@@ -2943,18 +2471,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Donjon 1.mp3",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "013-Fire01.ogg",
-				"volume": 0.50,
-				"tempo": 1.00
-			},
-			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -2968,6 +2484,43 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 3,
+		"nom": "EV003",
+		"x": 0,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 576,
+				"xDebutHeros": 19,
+				"yDebutHeros": 7
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][003]",
+		"x": 6,
+		"y": 6
 	},
 	{
 		"id": 9,
@@ -3110,8 +2663,7 @@
 				"numero": 3
 			}
 			],
-			"image": "dragon corps character",
-			"teinte": "60",
+			"image": "dragon corps jaune character",
 			"vitesse": "rapide",
 			"frequence": "tres haute",
 			"animeEnMouvement": true,
@@ -3133,8 +2685,7 @@
 			],
 			"commandes": [
 			],
-			"image": "dragon corps character",
-			"teinte": "60",
+			"image": "dragon corps jaune character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -3169,10 +2720,70 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][003]",
-		"x": 6,
-		"y": 6
+		"id": 4,
+		"nom": "Blocage de pierre",
+		"x": 15,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 6,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 4,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 15,
@@ -3357,7 +2968,7 @@
 			},
 			{
 				"nom": "ModifierBrouillard",
-				"opacite": 60,
+				"opacite": 30,
 				"modeDeFusion": "addition",
 				"defilementX": 0,
 				"defilementY": 0,
@@ -3388,44 +2999,540 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Blocage de pierre",
-		"x": 15,
-		"y": 5,
+		"id": 26,
+		"nom": "DragonTete",
+		"x": 14,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "Contact"
+			}
+			],
+			"commandes": [
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AvancerAleatoirement"
+				}
+				]
+			},
+			"image": "dragon chinois tête character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 5
+			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 25,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 6,
-				"comparerAUneAutreVariable": false,
+				"nom": "Commentaire",
+				"texte": "Quand un ennemi est touché son interrupteur local A\\nest automatiquement activé."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "On lui inflige des dégâts selon l'arme équipée."
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id, 1)",
 				"numero": 0
 			},
 			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
+				"nom": "ConditionArmeEquipee",
+				"idArme": 0,
+				"numero": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 22,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Enemy_Hit.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				},
+				{
+					"nom": "PasEnArriere"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 13,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 10,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 6,
+				"valeurADonner2": 17,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 11,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 6,
+				"valeurADonner2": 11,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"variable": true,
+				"nouveauX": 10,
+				"nouveauY": 11,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "On regarde si il est mort."
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 13,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 2,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			}
 			],
-			"image": "rocher gris character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AvancerAleatoirement"
+				}
+				]
+			},
+			"image": "dragon chinois tête jaune character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 12,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "dragon chinois tête character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 6
+			}
+			],
+			"commandes": [
+			{
+				"nom": "TeleporterEvent",
+				"variable": false,
+				"nouveauX": 11,
+				"nouveauY": 8,
+				"direction": 0
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 60
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 41
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 65
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 35
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 6
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 25
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "déclencher le commentaire du narrateur :"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 7,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 3,
+				"valeurADonner": true
+			}
+			],
+			"image": "dragon chinois tête jaune character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		},
@@ -3433,8 +3540,8 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 4,
-				"numeroInterrupteurLocal": 0,
+				"numeroEvent": 26,
+				"numeroInterrupteurLocal": 3,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
@@ -3443,15 +3550,22 @@
 				"nom": "SupprimerEvent"
 			}
 			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
+			"teinte": "20",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][003]",
+		"x": 6,
+		"y": 11
 	},
 	{
 		"id": 10,
@@ -3594,8 +3708,7 @@
 				"numero": 3
 			}
 			],
-			"image": "dragon corps character",
-			"teinte": "60",
+			"image": "dragon corps jaune character",
 			"vitesse": "rapide",
 			"frequence": "tres haute",
 			"animeEnMouvement": true,
@@ -3617,8 +3730,7 @@
 			],
 			"commandes": [
 			],
-			"image": "dragon corps character",
-			"teinte": "60",
+			"image": "dragon corps jaune character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -3651,12 +3763,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][003]",
-		"x": 6,
-		"y": 11
 	}
 	]
 }

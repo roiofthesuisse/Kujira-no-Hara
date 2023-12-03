@@ -4,7 +4,7 @@
 	"largeur": 50,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Forêt de l'Ouest.mp3",
+		"nomFichierSonore": "Forêt de l'Ouest.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -33,7 +33,7 @@
 	[0809,0809,0809,0809,0809,0809,0808,0024,0838,0219,0219,0831,0000,0000,0057,0839,0839,0061,0000,0053,0059,0059,0059,0049,0838,-007,-007,-007,0219,0219,0219,0870,0861,0871,0219,0219,0219,0219,0219,0219,0219,0220,0219,0219,0831,0030,0810,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0024,0838,0219,0220,0831,0000,0000,0000,0000,0000,0000,0000,0030,0053,0817,0049,0032,0838,-007,-007,-007,-007,0219,0219,0219,0219,0219,0219,0220,0219,0219,0220,0219,0219,0219,0219,0219,0831,0030,0810,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0024,0838,0219,0219,0902,0830,0830,0830,0830,0830,0830,0022,0030,0810,0809,0808,0032,0838,-007,-007,-007,-007,-007,0219,0220,0219,0219,0219,0219,0219,0219,0219,0219,0219,0219,0219,0219,0831,0030,0810,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0808,0024,0838,0219,0219,0219,0219,0220,0219,0219,0219,0219,0831,0030,0810,0809,0808,0032,0838,0220,-007,-007,-007,-007,0219,0219,0219,0219,0056,0219,0219,0219,0220,0219,0219,0219,0220,0219,0831,0030,0810,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0024,0838,0219,0219,0219,0219,0220,0219,0219,0219,0219,0831,0030,0810,0809,0808,0032,0838,0056,-007,-007,-007,-007,0219,0219,0219,0219,0219,0219,0219,0219,0220,0219,0219,0219,0220,0219,0831,0030,0810,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0024,0838,0219,0220,0219,0219,0219,0219,0219,0220,0219,0831,0030,0810,0809,0808,0032,0057,0839,0839,0839,0839,0839,0895,0219,0219,0219,0220,0219,0220,0219,0219,0219,0220,0219,0894,0839,0061,0030,0810,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0024,0838,0219,0219,0219,0056,0219,0219,0219,0219,0219,0831,0030,0810,0809,0808,0057,0059,0059,0059,0059,0059,0049,0838,0219,0219,0220,0219,0219,0219,0219,0220,0219,0219,0219,0831,0053,0060,0061,0810,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0024,0057,0839,0839,0895,0219,0219,0894,0839,0839,0839,0061,0030,0810,0809,0816,0817,0817,0817,0817,0817,0049,0032,0838,0220,0219,0219,0219,0219,0219,0219,0219,0220,0219,0220,0831,0030,0053,0817,0818,0809,0809,0809],
@@ -163,6 +163,30 @@
 		]
 	},
 	{
+		"id": 85,
+		"nom": "Blocage anti-évènement",
+		"x": 32,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 28,
 		"nom": "Clone[021][022]",
 		"x": 35,
@@ -268,20 +292,6 @@
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
-			],
-			"opacite": 0,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
 			{
 				"nom": "Parler"
 			},
@@ -299,8 +309,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un gland..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go figure out who dropped it!"
 			},
 			{
 				"nom": "Message",
@@ -367,6 +385,272 @@
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 86,
+		"nom": "ballon (-8)",
+		"x": 26,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 78,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "Sound_relative.play(@event_id, \"balle\")"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 2,
+					"y": -1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 147,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 79,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "Sound_relative.play(@event_id, \"balle\")"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": -2,
+					"y": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "objet kujira 3",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 147,
+				"valeurQuIlEstCenseAvoir": true
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 86,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 79,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "balle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": -4,
+					"y": 5
+				},
+				{
+					"nom": "Sauter",
+					"x": -1,
+					"y": 1
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y < 15",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 78,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 78,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"image": "objet kujira 3",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 147,
+				"valeurQuIlEstCenseAvoir": true
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 86,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "ils ne jouent pas au ballon pendant la cinématique\\nle ballon est controllé par la cinématique"
+			}
+			],
+			"image": "objet kujira 3",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
@@ -472,6 +756,12 @@
 		]
 	},
 	{
+		"id": 87,
+		"nom": "Clone[341][028]",
+		"x": 32,
+		"y": 19
+	},
+	{
 		"id": 30,
 		"nom": "Clone[341][028]",
 		"x": 13,
@@ -515,20 +805,6 @@
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
-			],
-			"opacite": 0,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
 			{
 				"nom": "Parler"
 			},
@@ -546,8 +822,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un gland..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go figure out who dropped it!"
 			},
 			{
 				"nom": "Message",
@@ -661,8 +945,34 @@
 	{
 		"id": 40,
 		"nom": "Clone[341][006]",
-		"x": 32,
+		"x": 23,
 		"y": 13
+	},
+	{
+		"id": 78,
+		"nom": "emeline",
+		"x": 25,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "fillette character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 31,
@@ -673,7 +983,7 @@
 	{
 		"id": 69,
 		"nom": "Blocage anti-évènement",
-		"x": 32,
+		"x": 33,
 		"y": 17,
 		"pages": [
 		{
@@ -697,29 +1007,15 @@
 	{
 		"id": 12,
 		"nom": "Clone[341][028]",
-		"x": 35,
-		"y": 17
+		"x": 33,
+		"y": 18
 	},
 	{
 		"id": 50,
 		"nom": "Gland",
-		"x": 34,
+		"x": 25,
 		"y": 19,
 		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			],
-			"opacite": 0,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
 		{
 			"conditions": [
 			{
@@ -739,8 +1035,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un gland..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go figure out who dropped it!"
 			},
 			{
 				"nom": "Message",
@@ -838,12 +1142,20 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"In this garden: \\na century \\nof dead leaves!\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Dans ce jardin :\\nun siècle\\nde feuilles mortes !\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[0]"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
 			},
 			{
 				"nom": "Attendre",
@@ -861,6 +1173,31 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 79,
+		"nom": "chien (8)",
+		"x": 27,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "chien character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -929,9 +1266,157 @@
 	},
 	{
 		"id": 13,
-		"nom": "Clone[341][028]",
-		"x": 36,
-		"y": 18
+		"nom": "nettoyer scene ballon",
+		"x": 24,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 146,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Nettoyer après la scène du ballon"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 78,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 79,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 80,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 86,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Placer les personnages pour la scène du ballon\\n(si les personnages sont placés d'emblée \\nau bon endroit sur la map, on les aperçoit\\nun court instant avant la suppression)"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 78,
+				"variable": false,
+				"nouveauX": 32,
+				"nouveauY": 13,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 86,
+				"variable": false,
+				"nouveauX": 32,
+				"nouveauY": 13,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 79,
+				"variable": false,
+				"nouveauX": 34,
+				"nouveauY": 13,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 51,
@@ -975,6 +1460,896 @@
 		"nom": "Clone[341][0083]",
 		"x": 26,
 		"y": 5
+	},
+	{
+		"id": 80,
+		"nom": "poesie",
+		"x": 26,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "zones de déclenchement de la cinématique\\npar en haut ou par la droite"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.y == 12 && $game_player.x >= 28 && $game_player.x <= 30) || ($game_player.x >= 31 && $game_player.x <= 34 && $game_player.y >= 17 && $game_player.y <= 20)",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 80,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 30
+			},
+			{
+				"nom": "TeleporterEvent",
+				"variable": false,
+				"nouveauX": 26,
+				"nouveauY": 16,
+				"direction": 0
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.x >= 33",
+				"numero": 0
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y <= 15",
+				"numero": 1
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 0,
+				"nombreDeCarreaux": 5,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y >= 20",
+				"numero": 2
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 3,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 147,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Poesie theme joyeux.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y < 15",
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is this ball yours?"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est à toi ce ballon ?"
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"emeline\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes."
+			},
+			{
+				"nom": "Message",
+				"texte": "Oui."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 80,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "rapide"
+				},
+				{
+					"nom": "PasEnArriere"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "balle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 86,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 3,
+					"y": -4
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(86)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"emeline\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Thank you."
+			},
+			{
+				"nom": "Message",
+				"texte": "Merci."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I have never seen you before.\\nWere you swallowed by the whale?\\nAre you from outside?!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je ne t'ai encore jamais vue. \\nTu as été avalée par la baleine ?\\nTu viens de l'extérieur ?!"
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"emeline\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No."
+			},
+			{
+				"nom": "Message",
+				"texte": "Non."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's just that...\\n...I don't get out of the vast caves very often."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est juste que...\\n...je ne sors pas souvent des grandes grottes."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh."
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is that your dog?"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est ton chien ?"
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"emeline\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Not really."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pas vraiment."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, see you soon!\\nHope to see you again!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bon, à bientôt !\\nJ'espère qu'on se reverra !"
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 60
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y < 15",
+				"numero": 4
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 78,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.x >= 33",
+				"numero": 5
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y <= 15",
+				"numero": 6
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 3,
+				"nombreDeCarreaux": 5,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y >= 20",
+				"numero": 7
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 0,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 86,
+				"variable": false,
+				"nouveauX": 32,
+				"nouveauY": 13,
+				"direction": 0
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Forêt de l'Ouest.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 146,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 147,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "Poésie character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 80,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 23,
@@ -1091,12 +2466,8 @@
 				"quantite": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -1131,6 +2502,14 @@
 				]
 			},
 			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -1148,7 +2527,7 @@
 		"id": 14,
 		"nom": "Clone[341][028]",
 		"x": 31,
-		"y": 22
+		"y": 21
 	},
 	{
 		"id": 52,
@@ -1243,6 +2622,30 @@
 			{
 				"nom": "SupprimerEvent"
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 81,
+		"nom": "Blocage anti-évènement",
+		"x": 28,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1418,6 +2821,60 @@
 		]
 	},
 	{
+		"id": 82,
+		"nom": "Blocage anti-évènement",
+		"x": 29,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Clone[341][028]",
+		"x": 40,
+		"y": 11
+	},
+	{
+		"id": 73,
+		"nom": "Blocage anti-évènement",
+		"x": 26,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 54,
 		"nom": "EV054",
 		"x": 0,
@@ -1455,72 +2912,6 @@
 		"y": 15
 	},
 	{
-		"id": 73,
-		"nom": "Blocage anti-évènement",
-		"x": 26,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "Clone[341][028]",
-		"x": 40,
-		"y": 11
-	},
-	{
-		"id": 26,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 6
-	},
-	{
-		"id": 64,
-		"nom": "Blocage anti-évènement",
-		"x": 9,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][0080]",
-		"x": 12,
-		"y": 8
-	},
-	{
 		"id": 45,
 		"nom": "EV045",
 		"x": 38,
@@ -1552,10 +2943,16 @@
 		]
 	},
 	{
-		"id": 55,
-		"nom": "Pancarte",
-		"x": 43,
-		"y": 12,
+		"id": 7,
+		"nom": "Clone[341][0080]",
+		"x": 12,
+		"y": 8
+	},
+	{
+		"id": 64,
+		"nom": "Blocage anti-évènement",
+		"x": 9,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -1564,80 +2961,10 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "Pour se servir des tremplins convenablement \\nil faut pouvoir courir très vite."
-			},
-			{
-				"nom": "ConditionGadgetPossede",
-				"idGadget": 1,
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Equipez d'abord les bottes de 7 lieues \\navec la touche \"W\"."
-			},
-			{
-				"nom": "Message",
-				"texte": "Pour courir, marchez en pressant \\nla touche \"Z\"."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 1,
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Pour courir, marchez en pressant \\nla touche \"Z\"."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1646,16 +2973,34 @@
 		]
 	},
 	{
-		"id": 17,
+		"id": 26,
 		"nom": "Clone[341][028]",
-		"x": 33,
-		"y": 8
+		"x": 9,
+		"y": 6
 	},
 	{
-		"id": 36,
-		"nom": "Clone[021][022]",
-		"x": 35,
-		"y": 9
+		"id": 83,
+		"nom": "Blocage anti-évènement",
+		"x": 30,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 74,
@@ -1682,10 +3027,148 @@
 		]
 	},
 	{
-		"id": 27,
+		"id": 36,
+		"nom": "Clone[021][022]",
+		"x": 35,
+		"y": 9
+	},
+	{
+		"id": 17,
 		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 5
+		"x": 33,
+		"y": 8
+	},
+	{
+		"id": 55,
+		"nom": "Pancarte",
+		"x": 43,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) To use the springboards properly\\nyou have to be able to run very fast."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour se servir des tremplins convenablement \\nil faut pouvoir courir très vite."
+			},
+			{
+				"nom": "ConditionGadgetPossede",
+				"idGadget": 1,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) First equip the 7-league boots\\nwith the \"Z\" key."
+			},
+			{
+				"nom": "Message",
+				"texte": "Equipez d'abord les bottes de 7 lieues \\navec la touche \"W\"."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) To run, walk while pressing the \"W\" key."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour courir, marchez en pressant \\nla touche \"Z\"."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 1,
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) To run, walk while pressing \"W\" key."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour courir, marchez en pressant \\nla touche \"Z\"."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 65,
+		"nom": "Blocage anti-évènement",
+		"x": 9,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][0083]",
+		"x": 32,
+		"y": 15
 	},
 	{
 		"id": 46,
@@ -1719,16 +3202,16 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][0083]",
-		"x": 32,
-		"y": 15
+		"id": 27,
+		"nom": "Clone[341][028]",
+		"x": 10,
+		"y": 5
 	},
 	{
-		"id": 65,
+		"id": 84,
 		"nom": "Blocage anti-évènement",
-		"x": 9,
-		"y": 9,
+		"x": 31,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
@@ -1749,16 +3232,10 @@
 		]
 	},
 	{
-		"id": 56,
-		"nom": "Clone[21][48]",
-		"x": 37,
-		"y": 20
-	},
-	{
-		"id": 18,
-		"nom": "Enseigne",
-		"x": 28,
-		"y": 16,
+		"id": 75,
+		"nom": "Blocage anti-évènement",
+		"x": 40,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -1768,15 +3245,13 @@
 			],
 			"commandes": [
 			],
-			"image": "enseignes character",
-			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1842,10 +3317,10 @@
 		]
 	},
 	{
-		"id": 75,
-		"nom": "Blocage anti-évènement",
-		"x": 40,
-		"y": 7,
+		"id": 18,
+		"nom": "Enseigne",
+		"x": 28,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -1855,15 +3330,23 @@
 			],
 			"commandes": [
 			],
+			"image": "enseignes character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 56,
+		"nom": "Clone[21][48]",
+		"x": 37,
+		"y": 20
 	}
 	]
 }

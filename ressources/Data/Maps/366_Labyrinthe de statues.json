@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Forêt de l'Ouest 2.mp3",
+		"nomFichierSonore": "Forêt de l'Ouest 2.ogg",
 		"volume": 0.60,
 		"tempo": 1.00
 	},
@@ -63,9 +63,9 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,0678,-001,0044,-001,-001,-001,-001,-001,0678,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,0686,-001,-001,-001,-001,-001,-001,-001,0686,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,1083,1084,-001,-001,-001,-001,-001,-001,-001,-001,-001,1081,1082,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,1091,1092,1093,-001,0044,-001,-001,-001,-001,-001,1088,1089,1090,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,1100,1101,-001,-001,-001,-001,-001,-001,-001,1096,1097,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -419,8 +419,16 @@
 				"avancement": "FAITE"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -691,6 +699,18 @@
 		"y": 16
 	},
 	{
+		"id": 15,
+		"nom": "Clone[341][0021]",
+		"x": 15,
+		"y": 19
+	},
+	{
+		"id": 26,
+		"nom": "Clone[341][0021]",
+		"x": 11,
+		"y": 15
+	},
+	{
 		"id": 4,
 		"nom": "Pancarte",
 		"x": 12,
@@ -715,29 +735,25 @@
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "Avant de vous lancer dans un casse-tête \\nqui vous paraît compliqué, sauvegardez !"
+				"nom": "Commentaire",
+				"texte": "(en) Never forget that you can blow the whistle \\nof the clumsy anytime, especially if you get \\nstuck in a statue puzzle.\\nIt's available in the \"items\" menu."
 			},
 			{
 				"nom": "Message",
-				"texte": "Ce serait bête de rester coincé..."
+				"texte": "N'oubliez jamais que vous pouvez souffler \\nà tout moment dans le sifflet du maladroit, \\nsitué dans le menu \"objets\", si vous vous \\ncoincez dans un dédale de statues."
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
@@ -749,18 +765,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][0021]",
-		"x": 15,
-		"y": 19
-	},
-	{
-		"id": 26,
-		"nom": "Clone[341][0021]",
-		"x": 11,
-		"y": 15
 	},
 	{
 		"id": 10,

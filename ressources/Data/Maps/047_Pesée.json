@@ -62,7 +62,7 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0224,0225,0226,-001,-001,-001,-001,-001,0229,0230,0231,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0232,0233,0234,-001,-001,-001,-001,-001,0237,0238,0239,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,0062,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001,0179,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0284,-001,-001,-001,0284,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -121,6 +121,10 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "annonce de lieu"
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 127,
 				"operationAFaire": "rendre egal a",
@@ -128,15 +132,15 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "Nettoyer les enigmes d'interrupteurs du donjon"
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 70,
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 0,
 				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
 			},
 			{
 				"nom": "AppelerPageCommune",
@@ -570,56 +574,28 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 6
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 5
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 4
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 3
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 2
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -767,33 +743,17 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 8
+				"nom": "Commentaire",
+				"texte": "(en) Let's see the result of your weighing..."
 			},
 			{
 				"nom": "Message",
 				"texte": "Voyons voir le résultat de ta pesée..."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 8
-			},
-			{
-				"nom": "Message",
-				"texte": "Let me see the result of your weighing..."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[1].x>16",
-				"numero": 9
+				"numero": 8
 			},
 			{
 				"nom": "ModifierVariable",
@@ -804,7 +764,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 9
+				"numero": 8
 			},
 			{
 				"nom": "ModifierVariable",
@@ -815,12 +775,12 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 9
+				"numero": 8
 			},
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[37].x>16",
-				"numero": 10
+				"numero": 9
 			},
 			{
 				"nom": "ModifierVariable",
@@ -831,7 +791,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 10
+				"numero": 9
 			},
 			{
 				"nom": "ModifierVariable",
@@ -842,12 +802,12 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 10
+				"numero": 9
 			},
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[38].x>16",
-				"numero": 11
+				"numero": 10
 			},
 			{
 				"nom": "ModifierVariable",
@@ -858,7 +818,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 11
+				"numero": 10
 			},
 			{
 				"nom": "ModifierVariable",
@@ -869,12 +829,12 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 11
+				"numero": 10
 			},
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[39].x>16",
-				"numero": 12
+				"numero": 11
 			},
 			{
 				"nom": "ModifierVariable",
@@ -885,7 +845,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 12
+				"numero": 11
 			},
 			{
 				"nom": "ModifierVariable",
@@ -896,12 +856,12 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 12
+				"numero": 11
 			},
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[26].x>16",
-				"numero": 13
+				"numero": 12
 			},
 			{
 				"nom": "ModifierVariable",
@@ -912,7 +872,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 13
+				"numero": 12
 			},
 			{
 				"nom": "ModifierVariable",
@@ -923,12 +883,12 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 13
+				"numero": 12
 			},
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[25].x>16",
-				"numero": 14
+				"numero": 13
 			},
 			{
 				"nom": "ModifierVariable",
@@ -939,7 +899,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 14
+				"numero": 13
 			},
 			{
 				"nom": "ModifierVariable",
@@ -950,12 +910,12 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 14
+				"numero": 13
 			},
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[40].x>16",
-				"numero": 15
+				"numero": 14
 			},
 			{
 				"nom": "ModifierVariable",
@@ -966,7 +926,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 15
+				"numero": 14
 			},
 			{
 				"nom": "ModifierVariable",
@@ -977,7 +937,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 15
+				"numero": 14
 			},
 			{
 				"nom": "ConditionVariable",
@@ -985,7 +945,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 100,
 				"comparerAUneAutreVariable": false,
-				"numero": 16
+				"numero": 15
 			},
 			{
 				"nom": "ConditionVariable",
@@ -993,7 +953,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 17
+				"numero": 16
 			},
 			{
 				"nom": "Deplacement",
@@ -1067,7 +1027,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 17
+				"numero": 16
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1075,7 +1035,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
-				"numero": 18
+				"numero": 17
 			},
 			{
 				"nom": "Deplacement",
@@ -1149,7 +1109,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 18
+				"numero": 17
 			},
 			{
 				"nom": "Attendre",
@@ -1170,11 +1130,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 18
+				"numero": 17
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 17
+				"numero": 16
 			},
 			{
 				"nom": "Deplacement",
@@ -1353,30 +1313,14 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 19
+				"nom": "Commentaire",
+				"texte": "(en) Well done!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Bravo !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 19
-			},
-			{
-				"nom": "Message",
-				"texte": "Well done !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 19
-			},
-			{
 				"nom": "Deplacement",
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
@@ -1553,32 +1497,16 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 20
+				"nom": "Commentaire",
+				"texte": "(en) Since you won, you can enter the shrine."
 			},
 			{
 				"nom": "Message",
 				"texte": "Comme tu as gagné, tu peux entrer dans \\nle sanctuaire."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 20
-			},
-			{
-				"nom": "Message",
-				"texte": "As you won, you can enter the sanctuary."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 20
-			},
-			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1759,28 +1687,12 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 21
+				"nom": "Commentaire",
+				"texte": "(en) If you claim to be able to free Kujira's beings, \\nsolve my second riddle:"
 			},
 			{
 				"nom": "Message",
 				"texte": "Si tu prétends pouvoir libérer tous les êtres \\nde Kujira, résous ma seconde énigme :"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 21
-			},
-			{
-				"nom": "Message",
-				"texte": "If you claim to be able to free every being\\nfrom Kujira, solve my second puzzle :"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 21
 			},
 			{
 				"nom": "Deplacement",
@@ -1959,28 +1871,12 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 22
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE Inside the shrine\\nReach each brother\\n- Four in number -\\nMake their hearth shine!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Une fois à l'intérieur, rallume la flamme de \\nchacun de mes petits frères, les statues tiki."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 22
-			},
-			{
-				"nom": "Message",
-				"texte": "Once inside, rekindle the flame of each \\nof my little brothers, the tiki statues."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 22
+				"texte": "\\WAVE Dans le sanctuaire,\\nAu nombre de quatre\\nsont mes petits frères.\\nEnflamme leur âtre !"
 			},
 			{
 				"nom": "Attendre",
@@ -2004,7 +1900,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 16
+				"numero": 15
 			},
 			{
 				"nom": "ConditionVariable",
@@ -2012,7 +1908,7 @@
 				"inegalite": ">",
 				"valeurQuIlEstCenseAvoir": 100,
 				"comparerAUneAutreVariable": false,
-				"numero": 23
+				"numero": 18
 			},
 			{
 				"nom": "ConditionVariable",
@@ -2020,7 +1916,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 24
+				"numero": 19
 			},
 			{
 				"nom": "Deplacement",
@@ -2118,7 +2014,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 24
+				"numero": 19
 			},
 			{
 				"nom": "ConditionVariable",
@@ -2126,7 +2022,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 25
+				"numero": 20
 			},
 			{
 				"nom": "Deplacement",
@@ -2200,7 +2096,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 25
+				"numero": 20
 			},
 			{
 				"nom": "Attendre",
@@ -2221,15 +2117,15 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 25
+				"numero": 20
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 24
+				"numero": 19
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 23
+				"numero": 18
 			},
 			{
 				"nom": "ConditionVariable",
@@ -2237,7 +2133,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
-				"numero": 26
+				"numero": 21
 			},
 			{
 				"nom": "Deplacement",
@@ -2335,7 +2231,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 26
+				"numero": 21
 			},
 			{
 				"nom": "ConditionVariable",
@@ -2343,7 +2239,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 27
+				"numero": 22
 			},
 			{
 				"nom": "Deplacement",
@@ -2417,7 +2313,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 27
+				"numero": 22
 			},
 			{
 				"nom": "Attendre",
@@ -2438,15 +2334,15 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 27
+				"numero": 22
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 26
+				"numero": 21
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 23
+				"numero": 18
 			},
 			{
 				"nom": "Deplacement",
@@ -2625,32 +2521,16 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 28
+				"nom": "Commentaire",
+				"texte": "(en) No, It's still not good."
 			},
 			{
 				"nom": "Message",
 				"texte": "Non, ce n'est pas encore ça."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 28
-			},
-			{
-				"nom": "Message",
-				"texte": "No, it is still not good."
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 28
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 16
+				"numero": 15
 			},
 			{
 				"nom": "ConditionSinon",
@@ -2839,28 +2719,12 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 29
+				"nom": "Commentaire",
+				"texte": "(en) I am \\c[2]Gwadagapou\\c[0], the weighting statue!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Je suis \\c[02]Gwadagapou\\c[01], la statue-balance !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 29
-			},
-			{
-				"nom": "Message",
-				"texte": "I am \\c[02]Gwadagapuh\\c[01], the balance-statue !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 29
+				"texte": "Je suis \\c[2]Gwadagapou\\c[1], la statue-balance !"
 			},
 			{
 				"nom": "Deplacement",
@@ -3039,28 +2903,12 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 30
+				"nom": "Commentaire",
+				"texte": "(en) Solve my riddle and you can\\nenter the \\c[2]Kazan\\c[0]'s shrine."
 			},
 			{
 				"nom": "Message",
-				"texte": "Viens à bout de mon énigme et tu pourras \\nentrer dans le sanctuaire de \\c[02]Kazan'\\c[01]."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 30
-			},
-			{
-				"nom": "Message",
-				"texte": "Solve my puzzle and you will be allowed \\nto enter the sanctuary of \\c[02]Kazan\\c[01]."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 30
+				"texte": "Viens à bout de mon énigme et tu pourras \\nentrer dans le sanctuaire de \\c[2]Kazan'\\c[1]."
 			},
 			{
 				"nom": "Deplacement",
@@ -3239,30 +3087,14 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 31
+				"nom": "Commentaire",
+				"texte": "(en) I will give you the result of the weighing \\nwhen all the cubes are on the scales."
 			},
 			{
 				"nom": "Message",
 				"texte": "Je te donnerai le résultat de la pesée\\nlorsque que tous les cubes seront sur \\nles balances."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 31
-			},
-			{
-				"nom": "Message",
-				"texte": "I will tell you the result of the weighing \\nwhen all the cubes are on the pans \\nof the balance."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 31
-			},
-			{
 				"nom": "Deplacement",
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
@@ -3439,28 +3271,12 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 32
+				"nom": "Commentaire",
+				"texte": "(en) You guessed it: the door will only open \\nwhen the two scales are balanced."
 			},
 			{
 				"nom": "Message",
 				"texte": "Tu l'auras deviné : la porte ne s'ouvrira que \\nquand les deux balances seront équilibrées."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 32
-			},
-			{
-				"nom": "Message",
-				"texte": "You may have guessed it : the door will open\\nonly if the two pans are balanced."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 32
 			},
 			{
 				"nom": "ConditionFin",
@@ -3623,7 +3439,7 @@
 	},
 	{
 		"id": 34,
-		"nom": "EV034",
+		"nom": "triche",
 		"x": 24,
 		"y": 12,
 		"pages": [
@@ -3634,6 +3450,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) fdgf"
+			},
 			{
 				"nom": "Message",
 				"texte": "fdgf"
@@ -4477,61 +4297,41 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 \\c[2]Kazan\\c[0]'s shrine"
 			},
 			{
 				"nom": "Message",
-				"texte": "/\\ Sanctuaire de \\c[02]Kazan'\\c[01] l'érudit"
+				"texte": "\\u2191 Sanctuaire de \\c[2]Kazan'\\c[1] l'érudit"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) To enter, you must pass the test of the scales."
 			},
 			{
 				"nom": "Message",
-				"texte": "Pour entrer, il faut réussir l'épreuve de la \\nbalance..."
+				"texte": "Pour entrer, il faut réussir l'épreuve de la \\nbalance."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Address yourself to \\c[2]Gwadagapou\\c[0]\\nthe weighting statue."
 			},
 			{
 				"nom": "Message",
-				"texte": "Adressez-vous à \\c[02]Gwadagapou\\c[01] la statue."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ Sanctuary of \\c[02]Kazan\\c[01] the scholar"
-			},
-			{
-				"nom": "Message",
-				"texte": "If you want to enter, you first have to pass \\nthe trial of the balance."
-			},
-			{
-				"nom": "Message",
-				"texte": "Talk to \\c[02]Gwadagapuh\\c[01] the ancient statue."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"texte": "Adressez-vous à \\c[2]Gwadagapou\\c[1] la statue."
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"vitesse": "moderee",

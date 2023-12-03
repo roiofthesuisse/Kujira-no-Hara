@@ -58,11 +58,11 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0390,-001,-001,-001,0391,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0398,-001,-001,-001,0399,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -129,8 +129,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I am very strong."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je suis très fort."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You won't get what I have \\nunless you know the secret code."
 			},
 			{
 				"nom": "Message",
@@ -326,12 +334,20 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Lost!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Perdu !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) No one will tell you but a real \\c[2]\"windbag\"\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "Nul ne te le dira à part un vrai \\c[02]moulin à \\nparoles\\c[01]."
+				"texte": "Nul ne te le dira à part un vrai \\c[2]moulin à \\nparoles\\c[1]."
 			},
 			{
 				"nom": "ConditionFin",
@@ -377,7 +393,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -419,36 +435,20 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) You find the score of the sicilienne \\nfrom the opus 78 by Gabriel Fauré."
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous trouvez la partition de la sicilienne \\nde l'opus 78 de Gabriel Fauré."
 			},
 			{
-				"nom": "Message",
-				"texte": "Seul un pianiste averti saura la déchiffrer."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) Only an experienced musician will be able \\nto decipher it."
 			},
 			{
 				"nom": "Message",
-				"texte": "You got the score of the sicilienne from \\nthe opus 78 by Gabriel Faure."
-			},
-			{
-				"nom": "Message",
-				"texte": "Only an experienced pianist will be able \\nto read it."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"texte": "Seul un musicien averti saura la déchiffrer."
 			},
 			{
 				"nom": "Attendre",
@@ -507,15 +507,6 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
 			}
 			],
 			"image": "coffre fort character",
@@ -547,8 +538,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Well... uh..."
+			},
+			{
 				"nom": "Message",
-				"texte": "Bah euh..."
+				"texte": "Bah... euh..."
 			},
 			{
 				"nom": "Attendre",
@@ -594,7 +589,7 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		},
 		{
 			"conditions": [
@@ -645,7 +640,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 455,
 				"xDebutHeros": 12,
-				"yDebutHeros": 11
+				"yDebutHeros": 9
 			}
 			],
 			"vitesse": "moderee",

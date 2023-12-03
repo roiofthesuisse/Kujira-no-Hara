@@ -153,6 +153,43 @@
 		"y": 15
 	},
 	{
+		"id": 22,
+		"nom": "triche2",
+		"x": 14,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) hgfjdhgjg"
+			},
+			{
+				"nom": "Message",
+				"texte": "hgfjdhgjg"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 34,
+				"avancement": "FAITE"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "Clone[341][147]",
 		"x": 18,
@@ -181,8 +218,16 @@
 				"script": "$game_temp.faceset = \"beethoven\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) During my trip, I found a sixth score \\nwhich belonged to \\c[2]Kakeru the scholar\\c[0]!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Durant mon voyage, j'ai trouvé une sixième \\npartition qui a appartenu à \\c[02]Kakeru l'érudit\\c[01] !"
+				"texte": "Durant mon voyage, j'ai trouvé une sixième \\npartition qui a appartenu à \\c[2]Kakeru l'érudit\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I left it on my bed."
 			},
 			{
 				"nom": "Message",
@@ -233,8 +278,16 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) All the western learned music\\nis based on the \"fact\" that  2^19=3^12."
+			},
+			{
 				"nom": "Message",
 				"texte": "Toute la musique savante occidentale est basée \\nsur le \"fait\" que 2^19=3^12."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Which, between us, makes anyone\\nwho has heard of the fundamental\\ntheorem of arithmetic\\nchuckle..."
 			},
 			{
 				"nom": "Message",
@@ -332,24 +385,122 @@
 				"numero": 0
 			},
 			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 129,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hraaa.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE My sister has been kidnapped?"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Ma soeur s'est faite enlever ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I... there's not much I can do..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je... je ne peux pas faire grand chose..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We can't even ask for help: \\nthe two Viking villages have gone to war \\nin the country of the \\c[2]Shaman\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "On ne peut même pas demander de l'aide :\\nles deux villages vikings sont partis guerroyer\\ndans la contrée de la \\c[2]Chamane\\c[0] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am waiting for the \\c[2]music master\\c[0], \\nwho is traveling in the country of the \\c[2]Shaman\\c[0] too."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'attends le \\c[2]maître de musique\\c[0], qui est parti \\ndans la contrée de la \\c[2]Chamane\\c[0] aussi."
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin\""
 			},
 			{
-				"nom": "Message",
-				"texte": "Le \\c[02]Maître de Musique\\c[01] est parti en voyage."
+				"nom": "Commentaire",
+				"texte": "(en) You should go there...\\nHopefully, someone will listen to you."
 			},
 			{
 				"nom": "Message",
-				"texte": "Il cherche des partitions dans la contrée \\nde la \\c[02]Chamane\\c[01]."
+				"texte": "Tu devrais aller là-bas...\\nAvec un peu de chance, quelqu'un t'écoutera."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin gene ngh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I hope \\c[2]Poesy\\c[0] is going well...\\nShe usually always manage to get out of trouble."
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu sais où habite la \\c[02]Chamane\\c[01] ?"
+				"texte": "J'espère que \\c[2]Poésie\\c[0] va bien...\\nEn général, elle se tire toujours d'affaire."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ooh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = nil"
+				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]music teacher\\c[0] has gone on a trip."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le \\c[2]Maître de Musique\\c[1] est parti en voyage."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He is looking for scores in the\\nland of the \\c[2]Shaman\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il cherche des partitions dans la contrée \\nde la \\c[2]Chamane\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You know where the \\c[2]Shaman\\c[0] lives?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu sais où habite la \\c[2]Chamane\\c[1] ?"
 			},
 			{
 				"nom": "Choix",
@@ -371,12 +522,24 @@
 				"script": "$game_temp.faceset = \"fiolin\""
 			},
 			{
-				"nom": "Message",
-				"texte": "La \\c[02]Chamane\\c[01] habite à l'Ouest de la forêt,\\njuste à la lisière."
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]Shaman\\c[0]'s hut is\\non the western edge of the forest."
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu peux y aller en traversant la forêt de l'Ouest,\\nmais il existe un chemin plus rapide au Sud de \\nla clairière de \\c[02]Mathusalem\\c[01]."
+				"texte": "La hutte de la \\c[2]Chamane\\c[1] se trouve \\nà l'Ouest de la forêt, juste à la lisière."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You can go there by crossing the forest, \\nbut there is a shortcut to the South of \\n\\c[2]Methuselah\\c[0]'s clearing."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu peux y aller en traversant la forêt,\\nmais il existe raccourci au Sud de la clairière \\nde \\c[2]Mathusalem\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A springboard leads directly to\\nthe Hummingbird village."
 			},
 			{
 				"nom": "Message",
@@ -385,6 +548,10 @@
 			{
 				"nom": "ChoixFin",
 				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -454,22 +621,20 @@
 				"valeur": true
 			},
 			{
-				"nom": "Message",
-				"texte": "C'est la partition de \\c[02]Kakeru l'érudit\\c[01]."
+				"nom": "Commentaire",
+				"texte": "(en) This is the score of \\c[2]Kakeru the scholar\\c[0]."
 			},
 			{
 				"nom": "Message",
-				"texte": "L'observer ?"
+				"texte": "C'est la partition de \\c[2]Kakeru l'érudit\\c[1]."
 			},
 			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) \"This melody made by two friends \\nWhich can be played by anyone \\nThe stone hill's nap certainly ends.\\nJust find out where the winds should run!\""
 			},
 			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
+				"nom": "Message",
+				"texte": "\"La mélodie de l'amitié\\nQue tout le monde sait jouer\\nFera (pour sûr !) de la colline\\naux rêves gris votre copine.\""
 			},
 			{
 				"nom": "AfficherImage",
@@ -489,21 +654,16 @@
 				"nombreDeFrames": 100
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) What a strange notation..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Quelle étrange notation..."
 			},
 			{
 				"nom": "EffacerImage",
 				"numero": 6
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -536,7 +696,7 @@
 	},
 	{
 		"id": 14,
-		"nom": "EV014",
+		"nom": "afficher personnages",
 		"x": 25,
 		"y": 30,
 		"pages": [
@@ -630,6 +790,10 @@
 				{
 					"nom": "RegarderDansUneDirection",
 					"direction": 3
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
 				},
 				{
 					"nom": "RendreAnimeALArret",
@@ -900,6 +1064,48 @@
 		"nom": "Clone[341][004]",
 		"x": 12,
 		"y": 17
+	},
+	{
+		"id": 21,
+		"nom": "triche",
+		"x": 24,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) hgfjdhgjg"
+			},
+			{
+				"nom": "Message",
+				"texte": "hgfjdhgjg"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 63,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 34,
+				"avancement": "FAITE"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	}
 	]
 }

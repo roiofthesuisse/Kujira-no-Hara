@@ -4,8 +4,8 @@
 	"largeur": 30,
 	"hauteur": 25,
 	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
+		"nomFichierSonore": "Pozzo Manoir.ogg",
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -96,6 +96,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 15
+	},
+	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 14,
@@ -111,9 +117,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 254,
-				"xDebutHeros": 7,
-				"yDebutHeros": 7
+				"numeroNouvelleMap": 15,
+				"xDebutHeros": 5,
+				"yDebutHeros": 12
 			}
 			],
 			"vitesse": "moderee",
@@ -127,10 +133,10 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 15
+		"id": 22,
+		"nom": "Clone[582][32]",
+		"x": 13,
+		"y": 8
 	},
 	{
 		"id": 11,
@@ -159,10 +165,10 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Clone[582][32]",
-		"x": 13,
-		"y": 8
+		"id": 6,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 15
 	},
 	{
 		"id": 17,
@@ -191,16 +197,36 @@
 				"script": "$game_temp.faceset = \"colibri jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Welcome to the office of \\c[2]our great lord Pozzo\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "Bienvenue dans le bureau de notre grand \\n\\c[02]seigneur Pozzo\\c[01]."
+				"texte": "Bienvenue dans le bureau de notre grand \\n\\c[2]seigneur Pozzo\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He cannot receive you for the moment \\nbecause he is a very busy person."
 			},
 			{
 				"nom": "Message",
 				"texte": "Il ne peut pas vous recevoir pour l'instant car\\nc'est quelqu'un de très occupé."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) In the meantime, you can admire the map \\nof the Hummingbird Palace on the wall. \\nIt is one of the finest acquisitions in the collection \\nof our master, the great \\c[2]Pozzo\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "En attendant, tu peux admirer au mur la carte \\ndu palais colibri. C'est une des plus belles \\nacquisitions de la collection de notre maître, \\nle grand \\c[2]Pozzo\\c[0]."
 			},
 			{
 				"nom": "Attendre",
@@ -237,61 +263,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][004]",
-		"x": 18,
+		"id": 1,
+		"nom": "Clone[341][003]",
+		"x": 9,
 		"y": 15
-	},
-	{
-		"id": 23,
-		"nom": "livre",
-		"x": 15,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Journal du \\c[2]Grand Pozzo\\c[1]\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"25 juillet : \\nPeut-être pourrais-je racheter le marais \\nau \\c[2]roi Crapo 1er\\c[0] contre des biscuits...\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Il est si glouton qu'il ne pourra pas résister,\\net tout le marais sera enfin à moi, le \\c[2]Grand \\nPozzo\\c[1], d'origine divine !\""
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 12,
@@ -320,16 +295,67 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][003]",
-		"x": 9,
-		"y": 15
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 6
+		"id": 23,
+		"nom": "livre (autre cote de la table)",
+		"x": 15,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Diary of the \\c[2]great Pozzo\\c[0]\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Journal du \\c[2]Grand Pozzo\\c[1]\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"July 25: \\nPerhaps I could buy the swamp from \\c[2]King\\nToadlebeorth of Swampland\\c[0] for cookies...\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"25 juillet : \\nPeut-être pourrais-je racheter le marais \\nau \\c[2]roi Crapo 1er\\c[0] contre des biscuits...\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"He's so gluttonous he sure can't resist, \\nand the whole swamp will finally be mine,\\nthe \\c[2]Great Pozzo\\c[0], of divine origin!\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Il est si glouton qu'il ne pourra pas résister,\\net tout le marais sera enfin à moi, le \\c[2]Grand \\nPozzo\\c[1], d'origine divine !\""
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -411,6 +437,18 @@
 		]
 	},
 	{
+		"id": 7,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 6
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][003]",
+		"x": 19,
+		"y": 15
+	},
+	{
 		"id": 13,
 		"nom": "Plante en pot",
 		"x": 10,
@@ -437,10 +475,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][003]",
-		"x": 19,
-		"y": 15
+		"id": 8,
+		"nom": "Clone[341][004]",
+		"x": 12,
+		"y": 6
 	},
 	{
 		"id": 19,
@@ -494,9 +532,9 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][004]",
-		"x": 12,
+		"id": 3,
+		"nom": "Clone[341][003]",
+		"x": 17,
 		"y": 6
 	},
 	{
@@ -526,10 +564,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][003]",
-		"x": 17,
-		"y": 6
+		"id": 20,
+		"nom": "Clone[341][155]",
+		"x": 9,
+		"y": 7
 	},
 	{
 		"id": 9,
@@ -558,10 +596,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][155]",
-		"x": 9,
-		"y": 7
+		"id": 4,
+		"nom": "Clone[341][003]",
+		"x": 11,
+		"y": 6
 	},
 	{
 		"id": 15,
@@ -570,10 +608,30 @@
 		"y": 7
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][003]",
-		"x": 11,
-		"y": 6
+		"id": 10,
+		"nom": "Plante en pot",
+		"x": 10,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "plante en pot character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 21,
@@ -594,12 +652,24 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Diary of the \\c[2]great Pozzo\\c[0]\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Journal du \\c[2]Grand Pozzo\\c[1]\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"July 25: \\nPerhaps I could buy the swamp from \\c[2]King\\nToadlebeorth of Swampland\\c[0] for cookies...\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"25 juillet : \\nPeut-être pourrais-je racheter le marais \\nau \\c[2]roi Crapo 1er\\c[0] contre des biscuits...\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"He's so gluttonous he sure can't resist, \\nand the whole swamp will finally be mine,\\nthe \\c[2]Great Pozzo\\c[0], of divine origin!\""
 			},
 			{
 				"nom": "Message",
@@ -617,32 +687,6 @@
 			],
 			"image": "livre ouvert character",
 			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Plante en pot",
-		"x": 10,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,

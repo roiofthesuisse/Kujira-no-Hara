@@ -25,10 +25,10 @@
 	[0044,0045,0154,0155,0000,0020,0021,0001,0000,0135,0009,0158,0000,0166,0009,0001,0006,0007,0008,0050,0051],
 	[0028,0029,0010,0009,0001,0028,0029,0009,0008,0009,0000,0009,0008,0009,0000,0009,0014,0015,0000,0058,0059],
 	[0020,0021,0010,0000,0008,0020,0021,0000,0001,0000,0008,0000,0001,0000,0008,0000,0006,0007,0008,0066,0067],
-	[0028,0029,0000,0009,0001,0028,0029,0009,0008,0009,0128,0129,0023,0022,0023,0022,0054,0055,0009,0014,0015],
-	[0020,0021,0008,0000,0008,0020,0021,0000,0001,0000,0136,0137,0031,0030,0031,0030,0062,0063,0001,0006,0007],
-	[0028,0029,0009,0008,0009,0052,0053,0032,0033,0034,0054,0055,0128,0129,0023,0022,0023,0023,0022,0054,0055],
-	[0020,0021,0008,0000,0000,0060,0061,0040,0041,0042,0062,0063,0136,0137,0031,0030,0031,0031,0030,0062,0063]
+	[0028,0029,0000,0009,0001,0028,0029,0009,0008,0009,0128,0129,0023,0022,0023,0022,0054,0055,-008,0014,0015],
+	[0020,0021,0008,0000,0008,0020,0021,0000,0001,0000,0136,0137,0031,0030,0031,0030,0062,0063,-008,0006,0007],
+	[0028,0029,0009,0008,0009,0052,0053,0032,0033,0034,0054,0055,0128,0129,0023,0022,0023,0023,-008,0054,0055],
+	[0020,0021,0008,0000,0000,0060,0061,0040,0041,0042,0062,0063,0136,0137,0031,0030,0031,0031,-008,0062,0063]
 	],
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0092,-001,-001],
@@ -66,10 +66,59 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[341][078]",
-		"x": 13,
-		"y": 8
+		"id": 27,
+		"nom": "EV027",
+		"x": 18,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 30,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 53,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 21,
+				"valeur": true
+			}
+			],
+			"image": 30,
+			"directionInitiale": 2,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 5,
@@ -78,85 +127,10 @@
 		"y": 3
 	},
 	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 9,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "017-Jump03.ogg",
-				"volume": 0.80,
-				"tempo": 1.20
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 2
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 12,
-				"variable": false,
-				"nouveauX": 29,
-				"nouveauY": 29,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 13,
-				"variable": false,
-				"nouveauX": 29,
-				"nouveauY": 29,
-				"direction": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 16,
+		"nom": "Clone[341][078]",
+		"x": 13,
+		"y": 8
 	},
 	{
 		"id": 22,
@@ -254,6 +228,93 @@
 		]
 	},
 	{
+		"id": 11,
+		"nom": "EV011",
+		"x": 9,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "017-Jump03.ogg",
+				"volume": 0.80,
+				"tempo": 1.20
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 2
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 16
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 12,
+				"variable": false,
+				"nouveauX": 29,
+				"nouveauY": 29,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 13,
+				"variable": false,
+				"nouveauX": 29,
+				"nouveauY": 29,
+				"direction": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][004]",
+		"x": 13,
+		"y": 3
+	},
+	{
 		"id": 17,
 		"nom": "Réglages initiaux",
 		"x": 20,
@@ -349,6 +410,10 @@
 				"idGadget": 1
 			},
 			{
+				"nom": "AjouterGadget",
+				"idGadget": 2
+			},
+			{
 				"nom": "AjouterObjet",
 				"idObjet": 30,
 				"variable": false,
@@ -440,51 +505,59 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][004]",
-		"x": 13,
-		"y": 3
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][078]",
-		"x": 9,
-		"y": 8
-	},
-	{
-		"id": 1,
-		"nom": "Haïku",
-		"x": 18,
-		"y": 1,
+		"id": 28,
+		"nom": "EV028",
+		"x": 17,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
 			},
 			{
-				"nom": "Message",
-				"texte": "\"J'aime laver\\nla poussière de ce monde\\ndans les gouttes de rosées.\""
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
 			},
 			{
-				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 14,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 18,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 555,
+				"xDebutHeros": 18,
+				"yDebutHeros": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -527,6 +600,72 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 1,
+		"nom": "Haïku",
+		"x": 18,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"I like to wash \\nthe dust of this world \\nin the dewdrops.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"J'aime laver\\nla poussière de ce monde\\ndans les gouttes de rosées.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][078]",
+		"x": 9,
+		"y": 8
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][004]",
+		"x": 2,
+		"y": 9
 	},
 	{
 		"id": 18,
@@ -618,16 +757,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][004]",
-		"x": 2,
-		"y": 9
-	},
-	{
-		"id": 24,
-		"nom": "Clone[021][020]",
-		"x": 4,
-		"y": 2
+		"id": 2,
+		"nom": "Clone[341][003]",
+		"x": 15,
+		"y": 6
 	},
 	{
 		"id": 13,
@@ -636,10 +769,16 @@
 		"y": 8
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][003]",
-		"x": 15,
-		"y": 6
+		"id": 24,
+		"nom": "Clone[021][020]",
+		"x": 4,
+		"y": 2
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][004]",
+		"x": 7,
+		"y": 10
 	},
 	{
 		"id": 19,
@@ -723,16 +862,10 @@
 		]
 	},
 	{
-		"id": 8,
+		"id": 25,
 		"nom": "Clone[341][004]",
-		"x": 7,
+		"x": 2,
 		"y": 10
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][078]",
-		"x": 11,
-		"y": 8
 	},
 	{
 		"id": 3,
@@ -741,10 +874,41 @@
 		"y": 6
 	},
 	{
-		"id": 25,
-		"nom": "Clone[341][004]",
-		"x": 2,
-		"y": 10
+		"id": 14,
+		"nom": "Clone[341][078]",
+		"x": 11,
+		"y": 8
+	},
+	{
+		"id": 9,
+		"nom": "EV009",
+		"x": 20,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 557,
+				"xDebutHeros": 1,
+				"yDebutHeros": 9
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 20,
@@ -772,8 +936,20 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a block with a code to enter."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un bloc avec un code à entrer."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Enter a code ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -856,7 +1032,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -873,6 +1049,10 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Nothing happens."
 			},
 			{
 				"nom": "Message",
@@ -967,41 +1147,59 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "EV009",
-		"x": 20,
-		"y": 9,
+		"id": 26,
+		"nom": "EV026",
+		"x": 18,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 22,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 53,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 557,
-				"xDebutHeros": 1,
-				"yDebutHeros": 9
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 21,
+				"valeur": true
 			}
 			],
+			"image": 22,
+			"directionInitiale": 2,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][078]",
-		"x": 12,
-		"y": 8
 	},
 	{
 		"id": 4,
@@ -1010,41 +1208,16 @@
 		"y": 3
 	},
 	{
+		"id": 15,
+		"nom": "Clone[341][078]",
+		"x": 12,
+		"y": 8
+	},
+	{
 		"id": 21,
 		"nom": "Clone[021][002]",
 		"x": 13,
 		"y": 9
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 9,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 343,
-				"xDebutHeros": 12,
-				"yDebutHeros": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	}
 	]
 }

@@ -88,16 +88,32 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) A wooden board?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Une planche de bois ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Not at all!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Pas du tout ! "
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a modern work of art!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ceci est une oeuvre d'art moderne !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It costs 250 scales."
 			},
 			{
 				"nom": "Message",
@@ -108,6 +124,14 @@
 				"quantite": 250,
 				"inegalite": ">=",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So, is it a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -124,6 +148,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -133,7 +161,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -184,8 +212,20 @@
 				"quantite": 250
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy a piece of Wooden plank."
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez un bout de parquet."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But art has no price!"
 			},
 			{
 				"nom": "Message",
@@ -252,8 +292,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (stingy!)"
 			},
 			{
 				"nom": "Message",
@@ -268,20 +316,40 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
 				"nom": "Message",
 				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 250 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 250 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
+			},
+			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -336,58 +404,42 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) A green energy ball?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Une boule d'énergie verte ?"
 			},
 			{
-				"nom": "Message",
-				"texte": "Avec ça vous récupérez un point de vie d'un \\ncoup !"
+				"nom": "Commentaire",
+				"texte": "(en) With this you get one point of life back!"
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est très pratique et très accessible, je \\nvous le fait pour seulement 10 écailles !"
+				"texte": "Avec ça vous récupérez un point de vie!"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "A sphere of green energy ?"
+				"nom": "Commentaire",
+				"texte": "(en) It's very practical and very accessible, \\nI make it to you for only 10 scales !"
 			},
 			{
 				"nom": "Message",
-				"texte": "With this, you can recover a life point."
-			},
-			{
-				"nom": "Message",
-				"texte": "This is very useful and very affordable,\\nit only costs 10 scales !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"texte": "C'est très pratique et très accessible, \\nje vous le fait pour seulement 10 écailles !"
 			},
 			{
 				"nom": "ConditionArgent",
 				"quantite": 10,
 				"inegalite": ">=",
-				"numero": 1
+				"numero": 0
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) Then, do you want it ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -404,6 +456,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -413,7 +469,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -446,8 +502,20 @@
 				"quantite": 10
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are buying a ball of energy!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez une boule d'énergie !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Your HP increases by 1!"
 			},
 			{
 				"nom": "Message",
@@ -499,8 +567,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really ?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (stingy!)"
 			},
 			{
 				"nom": "Message",
@@ -512,184 +588,43 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 0
 			},
 			{
-				"nom": "Message",
-				"texte": "Then, do you want it ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Yes", "No"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Perfect ! We will get along !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 4,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 10
-			},
-			{
-				"nom": "Message",
-				"texte": "You bought a green energy sphere !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Your HP increase by 1 !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Huh ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "(skinflint !)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
 			},
 			{
 				"nom": "Message",
 				"texte": "QUOI ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 10 scales!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 10 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
 			},
 			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "WHAT ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "You have less than 10 scales !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saperlipopette !"
-			},
-			{
-				"nom": "Message",
-				"texte": "No credit !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -697,7 +632,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -724,7 +659,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "Objet évènementiel",
+		"nom": "Objet evenementiel",
 		"x": 18,
 		"y": 4,
 		"pages": [
@@ -745,12 +680,24 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The jizo stone?"
+			},
+			{
 				"nom": "Message",
 				"texte": "La pierre du jizo ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a priceless object!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un objet d'une valeur inestimable !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'll give it to you for 112 scales, \\nthat's the price!"
 			},
 			{
 				"nom": "Message",
@@ -761,6 +708,14 @@
 				"quantite": 112,
 				"inegalite": ">=",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So, it's a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -777,6 +732,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -786,7 +745,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -828,12 +787,32 @@
 				"quantite": 112
 			},
 			{
-				"nom": "Message",
-				"texte": "Vous achetez la pierre du jizo !"
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy the jizo stone!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Assignez-la dans le menu \"équipement\", \\net communiquez avec les statues jizo !"
+				"texte": "Vous achetez la pierre du jizô !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Assign it in the \"equipment\" menu \\nso you can communicate with the jizo statues!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Assignez-la dans le menu \"équipement\", \\net communiquez avec les statues jizô !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you consult the region map \\nwhile equipping the jizo stone\\nthe location of the jizo statues will appear!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Si vous consultez la carte de la région \\nen ayant équipé la pierre du jizô, \\nl'emplacement des statues jizô apparaîtra !"
 			},
 			{
 				"nom": "Attendre",
@@ -896,8 +875,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (cheap!)"
 			},
 			{
 				"nom": "Message",
@@ -912,20 +899,40 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
 				"nom": "Message",
 				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 112 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 112 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The house doesn't give credit,\\nand we don't offer anything,\\neverything is paid for here!"
+			},
+			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -959,470 +966,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Calecon",
-		"x": 14,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"mercator\""
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Le caleçon ignifugé ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Oui, c'est notre tout dernier article à la \\nmode !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Il est à 20 écailles seulement."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "The fireproof underwear ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "It is very fashionable !"
-			},
-			{
-				"nom": "Message",
-				"texte": "It costs only 20 scales."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArgent",
-				"quantite": 20,
-				"inegalite": ">=",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Alors, marché conclu ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 3
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous achetez un caleçon ignifugé !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous pouvez mettre votre arrière-train dans \\nles tas de braises sans vous brûler !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Assignez-le avec la touche \"W\"."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Ah bon ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "(radin !)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Do you want it ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Yes", "No"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Perfect ! We will get along !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 3
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "Message",
-				"texte": "You bought the fireproof underwear !"
-			},
-			{
-				"nom": "Message",
-				"texte": "You can now put your hindquarters in the \\nembers without burning them !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Assign it with the \"W\" key."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Huh ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "(skinflint !)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "QUOI ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous avez moins de 20 écailles !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saperlipopette !"
-			},
-			{
-				"nom": "Message",
-				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
-			},
-			{
-				"nom": "Message",
-				"texte": "(grmbl...)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "WHAT ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "You have less than 20 scales !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saperlipopette !"
-			},
-			{
-				"nom": "Message",
-				"texte": "No credit !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "objet kujira 1",
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 12,
 		"nom": "Objet évènementiel",
 		"x": 18,
@@ -1445,16 +988,32 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) A magic seed!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Une graine magique !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Prized by botanists, \\nit will germinate in an instant \\nif you plant it in a round of soft earth."
 			},
 			{
 				"nom": "Message",
 				"texte": "Prisée par les botanistes, elle germera \\nen un instant si on la plante dans un rond \\nde terre bien meuble."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It costs 40 scales."
+			},
+			{
 				"nom": "Message",
 				"texte": "Elle coûte 40 écailles."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) For a magic object, It's almost given !"
 			},
 			{
 				"nom": "Message",
@@ -1465,6 +1024,14 @@
 				"quantite": 40,
 				"inegalite": ">=",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So, it's a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -1481,6 +1048,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -1490,7 +1061,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1534,8 +1105,20 @@
 				"quantite": 40
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy a magic seed."
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez une graine magique."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) To you the pretty flowers!"
 			},
 			{
 				"nom": "Message",
@@ -1602,8 +1185,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (stingy!)"
 			},
 			{
 				"nom": "Message",
@@ -1618,20 +1209,40 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
 				"nom": "Message",
 				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 40 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 40 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Diantre !"
+				"texte": "Saperlipopette !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's scandalous to be so poor!"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est scandaleux d'être aussi pauvre !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -1653,6 +1264,313 @@
 			],
 			"image": "objet kujira 2",
 			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Calecon",
+		"x": 14,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Fireproof underwear?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le caleçon ignifugé ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes, this is our latest fashionable item!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oui, c'est notre tout dernier article à la \\nmode !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's only 20 scales."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il est à 20 écailles seulement."
+			},
+			{
+				"nom": "ConditionArgent",
+				"quantite": 20,
+				"inegalite": ">=",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So, is it a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Alors, marché conclu ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 3
+			},
+			{
+				"nom": "RetirerArgent",
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy fireproof underwear!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous achetez un caleçon ignifugé !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You can stick your hindquarters\\nin the coals without getting burned!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous pouvez mettre votre arrière-train dans \\nles tas de braises sans vous brûler !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Assign it with the \"Z\" key."
+			},
+			{
+				"nom": "Message",
+				"texte": "Assignez-le avec la touche \"W\"."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (stingy!)"
+			},
+			{
+				"nom": "Message",
+				"texte": "(radin !)"
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
+				"nom": "Message",
+				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 20 scales!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous avez moins de 20 écailles !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Saperlipopette !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
+			},
+			{
+				"nom": "Message",
+				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
+			},
+			{
+				"nom": "Message",
+				"texte": "(grmbl...)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "objet kujira 1",
+			"directionInitiale": 1,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -1686,19 +1604,31 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) A green ladybug?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Une coccinelle verte ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It has just been delivered to us \\nby a renowned \\c[2]hunter\\c[0]!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Elle vient de nous être livrée par un \\n\\c[02]chasseur renommé\\c[01] !"
+				"texte": "Elle vient de nous être livrée par un \\n\\c[2]chasseur renommé\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's worth at least 200 colored scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Elle vaut au moins 200 écailles colorées !"
 			},
 			{
-				"nom": "ConditionGadgetEquipe",
+				"nom": "ConditionGadgetPossede",
 				"idGadget": 0,
 				"numero": 0
 			},
@@ -1707,6 +1637,14 @@
 				"quantite": 200,
 				"inegalite": ">=",
 				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So, is it a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -1723,6 +1661,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -1732,7 +1674,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1783,8 +1725,20 @@
 				"quantite": 200
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy a green ladybug!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez une coccinelle verte !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's very pretty, so it must be useful!"
 			},
 			{
 				"nom": "Message",
@@ -1851,8 +1805,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (cheap!)"
 			},
 			{
 				"nom": "Message",
@@ -1867,20 +1829,40 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
 				"nom": "Message",
 				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 200 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 200 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
+			},
+			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout ce paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -1895,8 +1877,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You will need a bug basket to take it!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Equipez-vous donc de votre corbeille à \\nlucioles pour la prendre !"
+				"texte": "Il vous faut un panier à bestioles \\npour la prendre !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's not my job to teach you that!"
 			},
 			{
 				"nom": "Message",
@@ -1951,58 +1941,42 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) A fish hair?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Un poil de poisson ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a wonderful and very rare object!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un objet merveilleux et très rare !"
 			},
 			{
-				"nom": "Message",
-				"texte": "Pour un collectionneur tel que vous, il ne \\ncoûtera que 299 écailles au lieu de 300 !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) For a collector like you, \\nit will only cost 299 scales \\ninstead of 300!"
 			},
 			{
 				"nom": "Message",
-				"texte": "A fish hair ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "This item is marvelous and very rare !"
-			},
-			{
-				"nom": "Message",
-				"texte": "For a collector just like you, it will cost only \\n299 scales instead of 300 !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"texte": "Pour un collectionneur tel que vous, \\nil ne coûtera que 299 écailles \\nau lieu de 300 !"
 			},
 			{
 				"nom": "ConditionArgent",
 				"quantite": 299,
 				"inegalite": ">=",
-				"numero": 1
+				"numero": 0
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) So it's a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -2019,6 +1993,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -2028,7 +2006,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2072,8 +2050,20 @@
 				"quantite": 299
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You're buying a fish hair!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez un poil de poisson !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's blue, it's sticky and it stinks."
 			},
 			{
 				"nom": "Message",
@@ -2140,8 +2130,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (cheap!)"
 			},
 			{
 				"nom": "Message",
@@ -2153,218 +2151,51 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 0
 			},
 			{
-				"nom": "Message",
-				"texte": "Do you want it ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Yes", "No"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Perfect ! We will get along !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 14,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 299
-			},
-			{
-				"nom": "Message",
-				"texte": "You bought a fish hair."
-			},
-			{
-				"nom": "Message",
-				"texte": "It is blue, gluey and stinky."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Huh ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "(skinflint !)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
 			},
 			{
 				"nom": "Message",
 				"texte": "QUOI ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 299 scales!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 299 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
 			},
 			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
+			},
+			{
 				"nom": "Message",
 				"texte": "(grmbl...)"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "WHAT ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "You have less than 299 scales !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saperlipopette !"
-			},
-			{
-				"nom": "Message",
-				"texte": "No credit !"
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -2411,12 +2242,24 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The snorkel?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Le tuba ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes, it's our latest fashion item!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Oui, c'est notre tout dernier article à la \\nmode !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's only 150 scales!"
 			},
 			{
 				"nom": "Message",
@@ -2427,6 +2270,14 @@
 				"quantite": 150,
 				"inegalite": ">=",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So it's a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -2443,6 +2294,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -2452,7 +2307,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2494,12 +2349,24 @@
 				"quantite": 150
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy a snorkel!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez un tuba !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You can dive with your head under water,\\n provided you can swim!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Vous pouvez plonger la tête sous l'eau, à \\ncondition de savoir déjà nager !"
+				"texte": "Vous pouvez plonger la tête sous l'eau, \\nà condition de savoir déjà nager !"
 			},
 			{
 				"nom": "Attendre",
@@ -2562,8 +2429,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (cheap!)"
 			},
 			{
 				"nom": "Message",
@@ -2578,20 +2453,40 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
 				"nom": "Message",
 				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 150 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 150 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
+			},
+			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout ce paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -2643,24 +2538,36 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) This is a Sulfur bag."
 			},
 			{
 				"nom": "Message",
 				"texte": "Ceci est un sac à soufre."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Mercator store offers it to you generously!"
+			},
+			{
 				"nom": "Message",
 				"texte": "La boutique Mercator vous l'offre \\ngénéreusement !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) (because she's going to charge you \\na fortune for the sulfur afterwards, hehehe)"
+			},
+			{
 				"nom": "Message",
 				"texte": "(parce qu'elle va vous faire payer le soufre \\nune fortune ensuite héhéhé)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So you want it?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -2677,8 +2584,16 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Good! You are a good customer!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Bien bien ! Vous êtes un bon client !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (what a ninny!)"
 			},
 			{
 				"nom": "Message",
@@ -2690,7 +2605,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2729,8 +2644,20 @@
 				"quantite": 1
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get the Sulfur bag!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous obtenez le sac à soufre !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Put all your Piece of sulfur in it."
 			},
 			{
 				"nom": "Message",
@@ -2789,8 +2716,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) What a pity, let me tell you that \\nyou are really missing out on a quality item."
+			},
+			{
 				"nom": "Message",
 				"texte": "Quel dommage, laissez moi vous dire que vous\\nloupez vraiment un article de qualité."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (he's too suspicious)"
 			},
 			{
 				"nom": "Message",
@@ -2798,164 +2733,6 @@
 			},
 			{
 				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a sulfur bag."
-			},
-			{
-				"nom": "Message",
-				"texte": "The Mercator shop offers it generously !"
-			},
-			{
-				"nom": "Message",
-				"texte": "(because then you will buy our very \\nexpensive sulfur huhuhu)"
-			},
-			{
-				"nom": "Message",
-				"texte": "You want it ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Yes", "No"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Good customer !"
-			},
-			{
-				"nom": "Message",
-				"texte": "(what a simpleton !)"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 31,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "You bought the sulfur bag !"
-			},
-			{
-				"nom": "Message",
-				"texte": "You can now store pieces of sulfur."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "What a shame, let me tell you that you miss\\nan quality article !"
-			},
-			{
-				"nom": "Message",
-				"texte": "(that one is too much suspicious)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
 				"numero": 0
 			},
 			{
@@ -3004,12 +2781,24 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Small piggybank?"
+			},
+			{
 				"nom": "Message",
 				"texte": "La tirelire ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It allows you to carry up to\\n600 colored scales."
+			},
+			{
 				"nom": "Message",
 				"texte": "Elle permet d'avoir sur soi jusqu'à 600 écailles \\ncolorées."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'll sell it to you for 300 scales!"
 			},
 			{
 				"nom": "Message",
@@ -3020,6 +2809,14 @@
 				"quantite": 300,
 				"inegalite": ">=",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is it a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -3036,6 +2833,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -3045,7 +2846,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -3089,8 +2890,20 @@
 				"quantite": 300
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy the Small piggybank!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez la tirelire !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Your maximum number of colored\\nscales increases to 600 instead\\nof 300."
 			},
 			{
 				"nom": "Message",
@@ -3157,8 +2970,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (cheap!)"
 			},
 			{
 				"nom": "Message",
@@ -3173,20 +2994,40 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
 				"nom": "Message",
 				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 300 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 300 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
+			},
+			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",
@@ -3240,41 +3081,25 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) Ten pieces of sulfur?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Une dizaine de morceaux de Soufre ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) With that you can burn a torch ten times!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Avec ça vous pourrez faire brûler 10 fois \\nune torche !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Ten pieces of sulfur?"
-			},
-			{
-				"nom": "Message",
-				"texte": "With it, you will be able to light a torch ten times !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionArmePossedee",
 				"idArme": 1,
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "ModifierVariable",
@@ -3285,12 +3110,12 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "ConditionArmeEquipee",
 				"idArme": 1,
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "ModifierVariable",
@@ -3301,7 +3126,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "ModifierVariable",
@@ -3312,11 +3137,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "ConditionVariable",
@@ -3324,45 +3149,29 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"numero": 2
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 4
+				"nom": "Commentaire",
+				"texte": "(en) Wonderful item, very affordable\\nfor its rarity: 10 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Merveilleux article, très abordable pour sa \\nrareté : 10 écailles !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "Message",
-				"texte": "A very affordable article in comparison \\nto its rarity : 10 scales !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
 				"nom": "ConditionArgent",
 				"quantite": 10,
 				"inegalite": ">=",
-				"numero": 5
+				"numero": 3
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 6
+				"nom": "Commentaire",
+				"texte": "(en) So, is it a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -3379,6 +3188,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -3388,7 +3201,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -3420,8 +3233,20 @@
 				"quantite": 10
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy a dozen pieces of sulfur!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez une dizaine de morceaux de \\nsoufre !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You can use Kazan's torch."
 			},
 			{
 				"nom": "Message",
@@ -3473,8 +3298,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (cheap!)"
 			},
 			{
 				"nom": "Message",
@@ -3486,223 +3319,67 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 6
+				"numero": 3
 			},
 			{
-				"nom": "Message",
-				"texte": "Do you want it ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Yes", "No"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Perfect ! We will get along !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 30,
-				"variable": false,
-				"quantite": 10
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 10
-			},
-			{
-				"nom": "Message",
-				"texte": "You bought ten pieces of sulfur."
-			},
-			{
-				"nom": "Message",
-				"texte": "You can use Kazan's torch."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Ah bon ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "(radin !)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 7
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
 			},
 			{
 				"nom": "Message",
 				"texte": "QUOI ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 10 scales!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 10 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
 			},
 			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
+			},
+			{
 				"nom": "Message",
 				"texte": "(grmbl...)"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "Message",
-				"texte": "WHAT ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "You have less than 10 scales !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saperlipopette !"
-			},
-			{
-				"nom": "Message",
-				"texte": "No credit !"
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionSinon",
 				"numero": 3
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 8
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...but you need a torch before that!"
 			},
 			{
 				"nom": "Message",
 				"texte": "...mais il te faut une torche avant cela !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 8
-			},
-			{
-				"nom": "Message",
-				"texte": "...but you have to get a torch first !"
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
+				"numero": 2
 			},
 			{
 				"nom": "Attendre",
@@ -3749,12 +3426,24 @@
 				"script": "$game_temp.faceset = \"mercator\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The Enchanted piggybank?"
+			},
+			{
 				"nom": "Message",
 				"texte": "La tirelire enchantée ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It allows you to carry up to\\n999 colored scales."
+			},
+			{
 				"nom": "Message",
 				"texte": "Elle permet d'avoir sur soi jusqu'à 999 écailles \\ncolorées."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I sell it to you for 600 scales!"
 			},
 			{
 				"nom": "Message",
@@ -3765,6 +3454,14 @@
 				"quantite": 600,
 				"inegalite": ">=",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So, it's a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -3781,6 +3478,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
 			},
@@ -3790,7 +3491,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -3840,8 +3541,20 @@
 				"quantite": 600
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy the Enchanted small piggybank!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous achetez la tirelire enchantée !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Your maximum number of colored\\nscales increases to 999 instead\\nof 600."
 			},
 			{
 				"nom": "Message",
@@ -3908,8 +3621,16 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (cheap!)"
 			},
 			{
 				"nom": "Message",
@@ -3924,20 +3645,40 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
 				"nom": "Message",
 				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 600 scales!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous avez moins de 600 écailles !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saperlipopette !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
+			},
+			{
 				"nom": "Message",
 				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
 			},
 			{
 				"nom": "Message",

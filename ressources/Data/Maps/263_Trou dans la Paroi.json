@@ -261,41 +261,25 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) The ground is soft here..."
 			},
 			{
 				"nom": "Message",
 				"texte": "Le sol est meuble ici..."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "The soil is loose here..."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 18,
-				"numero": 1
+				"numero": 0
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) Do you want to plant a magic seed?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -473,195 +457,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Do you want to plant a magic seed here ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Yes", "No"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "RetirerObjet",
-				"idObjet": 18,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "001-System01.ogg",
-				"volume": 1.00,
-				"tempo": 0.50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 66
-			},
-			{
-				"nom": "TremblementDeTerre",
-				"intensite": 2,
-				"vitesse": 9,
-				"nombreDeFrames": 66
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "131-Earth03.ogg",
-				"volume": 0.80,
-				"tempo": 0.50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "OOT_Tektite_Jump.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Haricot magique character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "WW_HyoiPear.wav",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Haricot magique character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Haricot magique character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Haricot magique character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Haricot magique character",
-					"direction": 1,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Haricot magique character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 25
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -795,7 +592,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (téléportation).mid",
+				"nomFichierSonore": "fanfare (téléportation).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -886,54 +683,38 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 I'm going to look for philosophical \\ninspiration by digging a cave..."
 			},
 			{
 				"nom": "Message",
-				"texte": "/\\ Je pars chercher de l'inspiration \\nphilosophique en creusant une caverne..."
+				"texte": "\\u2191 Je pars chercher de l'inspiration \\nphilosophique en creusant une caverne..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If I don't come back, come to my rescue!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Si jamais je ne revenais pas, venez à mon \\nsecours !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Plato\\c[0]"
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Platon\\c[1]"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ I dug a cave in order to find philosophical \\ninspiration."
-			},
-			{
-				"nom": "Message",
-				"texte": "If I do not get back, come help me !"
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Plato\\c[1]"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "ConditionEtatQuete",
 				"idQuete": 8,
 				"etat": "FAITE",
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "ModifierAvancementQuete",
@@ -942,15 +723,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -1042,6 +819,34 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "effacer annonce lieu",
+		"x": 0,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 14,
 		"nom": "narrateur",
 		"x": 19,
@@ -1072,7 +877,7 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "narrateur scene02.mp3",
+				"nomFichierSonore": "narrateur scene02.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1199,15 +1004,19 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Whatever your world of origin, you probably\\nheard about the 52-hertz whale."
+				"texte": "(en) Whatever your world of origin, \\nyou probably heard about \\nthe 52-hertz whale."
 			},
 			{
 				"nom": "Message",
-				"texte": "Quelque soit le monde d'où tu viens, tu as\\nsûrement entendu la rumeur de la baleine \\n52 hertz."
+				"texte": "Quelque soit le monde d'où tu viens, \\ntu as sûrement entendu la rumeur \\nde la baleine à 52 hertz."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Never|Of course!"
+				"texte": "ATTENTION BUG\\nmettre la traduction du choix \\njuste au dessus du choix\\nsinon le choix n'est pas traduit"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Never|Of course I did!"
 			},
 			{
 				"nom": "Choix",

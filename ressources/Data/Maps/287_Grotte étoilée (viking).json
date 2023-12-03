@@ -5,7 +5,7 @@
 	"hauteur": 15,
 	"musique": {
 		"nomFichierSonore": "Grotte Etoilée.ogg",
-		"volume": 1.00,
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -34,12 +34,12 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,0062,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0036,0036,0036,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,0062,-001,-001,0004,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0070,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,0071,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,0035,0035,0071,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,0035,0033,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,0035,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0050,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -90,8 +90,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"In the darkest night, \\nstars are treasures.\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Dans la nuit la plus noire,\\nles étoiles sont des trésors.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
 			},
 			{
 				"nom": "Message",
@@ -105,10 +113,6 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -156,8 +160,17 @@
 			},
 			{
 				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
+				"touche": "ACTION",
 				"numero": 2
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id, 0)",
+				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -166,26 +179,13 @@
 				"tempo": 0.50
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionSinon",
@@ -238,9 +238,24 @@
 				"nouveauX": 5,
 				"nouveauY": 7,
 				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 7,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
-			"image": 33,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -259,265 +274,17 @@
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Contact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 26,
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)",
 				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 26,
-				"numero": 3
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 4
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 5
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 26,
-				"numero": 6
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 7
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 8
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 26,
-				"numero": 9
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 10
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 11
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 26,
-				"numero": 12
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 13
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 14
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 26,
-				"numero": 15
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 16
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 17
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 17
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 17
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 16
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 16
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 15
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 15
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 14
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 14
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 12
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 12
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 11
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 11
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -572,6 +339,11 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
 			{
 				"nom": "JouerEffetMusical",
 				"nomFichierSonore": "fanfare (important).ogg",
@@ -699,8 +471,21 @@
 				]
 			},
 			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 104,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -743,12 +528,18 @@
 				]
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
 			}
 			],
 			"image": "cristal de baleine character",
+			"opacite": 0,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -784,7 +575,7 @@
 	},
 	{
 		"id": 2,
-		"nom": "EV002",
+		"nom": "obscurite",
 		"x": 13,
 		"y": 7,
 		"pages": [
@@ -799,14 +590,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "ModifierBrouillard",
-				"opacite": 200,
-				"modeDeFusion": "normal",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 100,
-				"nuance": 0,
-				"nomImage": "brouillard noir"
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 84
 			},
 			{
 				"nom": "ConditionSinon",
@@ -819,6 +604,18 @@
 				"numero": 1
 			},
 			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 85
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "les coordonnées du fog de la map\\nont été décallée au cours du défilement\\non remet à 0 pour centrer l'effet de lumière"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.fog_ox = 0\\n$game_map.fog_oy = 0"
+			},
+			{
 				"nom": "ModifierBrouillard",
 				"opacite": 150,
 				"modeDeFusion": "normal",
@@ -827,6 +624,9 @@
 				"zoom": 100,
 				"nuance": 0,
 				"nomImage": "fog étoiles"
+			},
+			{
+				"nom": "SupprimerEvent"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -886,6 +686,7 @@
 			}
 			],
 			"image": "Ecailles colorées",
+			"opacite": 0,
 			"directionInitiale": 2,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
@@ -938,7 +739,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 152,
 				"xDebutHeros": 12,
-				"yDebutHeros": 6
+				"yDebutHeros": 8
 			}
 			],
 			"vitesse": "moderee",
@@ -959,9 +760,6 @@
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Contact"
-			}
 			],
 			"commandes": [
 			{
@@ -977,8 +775,17 @@
 			},
 			{
 				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
+				"touche": "ACTION",
 				"numero": 2
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id, 0)",
+				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -987,26 +794,13 @@
 				"tempo": 0.50
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionSinon",
@@ -1059,9 +853,24 @@
 				"nouveauX": 10,
 				"nouveauY": 4,
 				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 8,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
-			"image": 4,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1083,10 +892,29 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 103,
+				"etat": "FAITE",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 104,
+				"avancement": "CONNUE"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 1,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1183,11 +1011,11 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -1222,17 +1050,8 @@
 				]
 			},
 			{
-				"nom": "AfficherImage",
-				"numero": 3,
-				"nomImage": "décor sup terre",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
+				"nom": "EffacerImage",
+				"numero": 3
 			},
 			{
 				"nom": "SupprimerEvent"

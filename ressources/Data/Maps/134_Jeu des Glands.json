@@ -4,7 +4,7 @@
 	"largeur": 21,
 	"hauteur": 15,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -639,7 +639,7 @@
 	},
 	{
 		"id": 3,
-		"nom": "EV003",
+		"nom": "jeu des glands",
 		"x": 10,
 		"y": 5,
 		"pages": [
@@ -657,12 +657,12 @@
 				"nombreDeFrames": 50
 			},
 			{
-				"nom": "Message",
-				"texte": "C'est à vous de jouer..."
+				"nom": "Commentaire",
+				"texte": "(en) It's your turn."
 			},
 			{
 				"nom": "Message",
-				"texte": "Combien prendre de glands ?"
+				"texte": "C'est à vous de jouer."
 			},
 			{
 				"nom": "Attendre",
@@ -675,6 +675,18 @@
 				"valeurQuIlEstCenseAvoir": 3,
 				"comparerAUneAutreVariable": false,
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) How many acorns will you take?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) 1|2|3"
+			},
+			{
+				"nom": "Message",
+				"texte": "Prendre combien de glands ?"
 			},
 			{
 				"nom": "Choix",
@@ -734,6 +746,18 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) How many acorns will you take?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) 1|2"
+			},
+			{
+				"nom": "Message",
+				"texte": "Prendre combien de glands ?"
+			},
+			{
 				"nom": "Choix",
 				"alternatives": ["1", "2"],
 				"numero": 1
@@ -777,6 +801,18 @@
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
 				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) How many acorns will you take?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) 1"
+			},
+			{
+				"nom": "Message",
+				"texte": "Prendre combien de glands ?"
 			},
 			{
 				"nom": "Choix",
@@ -824,6 +860,10 @@
 				"numero": 3
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You have taken the last acorn!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous avez pris le dernier gland !"
 			},
@@ -833,9 +873,13 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (perdu !).mid",
+				"nomFichierSonore": "fanfare (perdu !).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have lost!"
 			},
 			{
 				"nom": "Message",
@@ -894,10 +938,6 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -1229,16 +1269,24 @@
 				"numero": 11
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Bunny\\c[0] removes the last acorn..."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Lapinou\\c[01] retire le dernier gland..."
+				"texte": "\\c[2]Lapinou\\c[1] retire le dernier gland..."
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 11
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Bunny\\c[0] removes \\v[63] acorns."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Lapinou\\c[01] en retire \\v[063]..."
+				"texte": "\\c[2]Lapinou\\c[1] en retire \\v[63]."
 			},
 			{
 				"nom": "ConditionFin",
@@ -1261,6 +1309,10 @@
 				"nomFichierSonore": "fanfare (important).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You won!"
 			},
 			{
 				"nom": "Message",

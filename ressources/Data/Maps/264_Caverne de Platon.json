@@ -481,36 +481,52 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"platon\""
 			},
 			{
-				"nom": "Message",
-				"texte": "Bonjour cher disciple."
+				"nom": "Commentaire",
+				"texte": "(en) Hello, dear disciple."
 			},
 			{
 				"nom": "Message",
-				"texte": "Je suis Platon."
+				"texte": "Bonjour, cher disciple."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am \\c[2]Plato\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je suis \\c[2]Platon\\c[0]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Have you come to rescue me from this cave?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Tu es venu me délivrer de cette caverne ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) That's very kind of you, but actually \\nI'm quite comfortable in my cave!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est très gentil de ta part, mais en fait, \\nje suis très bien dans ma caverne !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) But It's the intention that counts..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Mais c'est l'intention qui compte..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) To compensate you for your efforts, \\nhere is a crystal of the whale:"
 			},
 			{
 				"nom": "Message",
@@ -559,8 +575,20 @@
 				"avancement": "FAITE"
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a beautiful piece of crystallized \\nmagic salt!"
 			},
 			{
 				"nom": "Message",
@@ -611,138 +639,12 @@
 				"script": "$game_temp.faceset = \"platon\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) See you soon dear disciple."
+			},
+			{
 				"nom": "Message",
 				"texte": "A bientôt cher disciple."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"platon\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Good day, dear disciple."
-			},
-			{
-				"nom": "Message",
-				"texte": "I am Plato."
-			},
-			{
-				"nom": "Message",
-				"texte": "Did you come in order to deliver me from \\nthis cave ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "It is very nice, but actually I feel good in my \\ncave !"
-			},
-			{
-				"nom": "Message",
-				"texte": "To reward you for your efforts, I give you a\\ncrystal of the whale :"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 11
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 1,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 9,
-				"avancement": "FAITE"
-			},
-			{
-				"nom": "Message",
-				"texte": "You get a Crystal of the Whale !"
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a magic piece of crystallized salt."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"platon\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Good bye, dear disciple."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",
@@ -757,10 +659,6 @@
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -810,68 +708,48 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"platon\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) How would one explain \\nto people trapped in a cave \\nwhat daylight is like?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Comment expliquer à des gens prisonniers \\ndu fond d'une caverne à quoi ressemble la \\nlumière du jour ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) And would they even believe us?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Et nous croiraient-ils seulement ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Knowledge is as hard to discover\\nas it is to transmit..."
 			},
 			{
 				"nom": "Message",
 				"texte": "La connaissance est aussi dure à découvrir \\nqu'à transmettre..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perhaps the eyes of the mind\\nonly begin to see truly when\\nthe eyes of the body fail."
+			},
+			{
 				"nom": "Message",
 				"texte": "Peut-être aussi que les yeux de l'esprit ne \\ncommencent à vraiment voir que lorsque\\nceux du corps faiblissent."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Only then can one see the true nature \\nof things, beyond their appearance."
+			},
+			{
 				"nom": "Message",
 				"texte": "Alors seulement on peut voir la vraie nature\\ndes choses, au delà de leur apparence."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"platon\""
-			},
-			{
-				"nom": "Message",
-				"texte": "How to explain to some people at the bottom \\nof a cave what the daylight looks like ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Would they believe us ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Knowledge is hard to discover and so it is \\nto transmit."
-			},
-			{
-				"nom": "Message",
-				"texte": "Could the eyes of spirit truly see only when \\nthe eyes of the body are closed ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "The true nature of thinks might be hidden \\nby their appearance."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",

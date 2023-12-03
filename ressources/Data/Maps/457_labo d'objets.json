@@ -816,7 +816,7 @@
 			"vitesse": "normale",
 			"frequence": "haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
@@ -865,7 +865,7 @@
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
@@ -886,6 +886,19 @@
 				"nom": "ConditionScript",
 				"script": "$game_map.events[@event_id].x == $game_player.x && $game_map.events[@event_id].y == $game_player.y",
 				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 50
+				}
+				]
 			},
 			{
 				"nom": "JouerAnimation",
@@ -1421,6 +1434,19 @@
 				"nom": "ConditionScript",
 				"script": "$game_map.events[@event_id].x == $game_player.x && $game_map.events[@event_id].y == $game_player.y",
 				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 50
+				}
+				]
 			},
 			{
 				"nom": "JouerAnimation",

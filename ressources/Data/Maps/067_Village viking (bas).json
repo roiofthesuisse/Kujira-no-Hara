@@ -126,6 +126,78 @@
 	],
 	"events": [
 	{
+		"id": 27,
+		"nom": "EV027",
+		"x": 25,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 237,
+				"xDebutHeros": 16,
+				"yDebutHeros": 25
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 24,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 565,
+				"xDebutHeros": 49,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Clone[341][005]",
+		"x": 20,
+		"y": 24
+	},
+	{
 		"id": 38,
 		"nom": "poule",
 		"x": 21,
@@ -248,36 +320,556 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][005]",
-		"x": 20,
-		"y": 24
-	},
-	{
-		"id": 5,
-		"nom": "EV005",
+		"id": 44,
+		"nom": "Viking déguisé",
 		"x": 24,
-		"y": 34,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
+				"nom": "Parler"
 			},
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 565,
-				"xDebutHeros": 49,
-				"yDebutHeros": 1
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 88,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.65,
+					"tempo": 1.50
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.65,
+					"tempo": 1.50
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.65,
+					"tempo": 1.50
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No no and no!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Non non et non !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I got a lousy prize at the raffle, even though \\nI wanted the submarine model!"
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai eu un lot tout pourri à la tombola, alors \\nque je voulais la maquette de sous-marin !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I won't take off my festival costume \\nin protest!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je n'enlèverai pas mon costume du festival \\nen signe de protestation !"
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 88,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh but you're the one who won\\nthe submarine model!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh mais c'est toi qui as gagné la maquette \\nde sous-marin !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Would you trade it for my prize?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu accepterais de l'échanger contre mon lot ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, how nice!\\nThank you very much!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh, comme c'est gentil !\\nMerci beaucoup !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'll give you my prize in exchange:"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je te donne mon lot en échange :"
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 87,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 88,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 175,
+				"valeur": true
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 100
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get the Carved Diamond!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous obtenez le diamant taillé !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I can't wait to take a bath with\\nmy submarine model."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai hâte de pouvoir prendre un bain avec\\nma maquette de sous-marin."
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'll keep my festival costume on \\nuntil I get my way. \\nToo bad for you all!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je garderai mon costume du festival tant que \\nje n'aurai pas eu gain de cause.\\nTant pis pour vous tous !"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.65,
+					"tempo": 1.50
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.65,
+					"tempo": 1.50
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.65,
+					"tempo": 1.50
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "viking petit anemone character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 44,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.65,
+					"tempo": 1.50
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.65,
+					"tempo": 1.50
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.65,
+					"tempo": 1.50
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Help me get it off, I'm stuck!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Aidez-moi à l'enlever, je suis coincé !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "viking petit anemone character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -289,35 +881,16 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "EV027",
-		"x": 25,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 237,
-				"xDebutHeros": 16,
-				"yDebutHeros": 25
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 33,
+		"nom": "Clone[341][111]",
+		"x": 24,
+		"y": 3
+	},
+	{
+		"id": 11,
+		"nom": "Clone[341][001]",
+		"x": 15,
+		"y": 8
 	},
 	{
 		"id": 22,
@@ -459,16 +1032,337 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][001]",
-		"x": 15,
-		"y": 8
+		"id": 28,
+		"nom": "Garde",
+		"x": 25,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) By Shor! You shall not pass!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Par Shor ! On ne passe pas !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The Viking village is for \\c[2]Vikings\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le village viking c'est pour les \\c[2]Vikings\\c[1] !"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 78,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 20,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 16,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, you have a red Viking pass?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh ? Vous avez un passe viking rouge ?"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, you're a Viking, so..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Bah vous êtres un \\c[2]Viking\\c[1] alors..."
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionDirection",
+				"direction": 3,
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Uh, which side are we on here?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Euh, on est de quel côté là ?"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"direction": 3,
+				"numero": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Uh, which side are we on?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Euh, on est de quel côté là ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Anyway, check with \\c[2]Tabula the Terrible\\c[0], \\nour leader."
+			},
+			{
+				"nom": "Message",
+				"texte": "De toutes façons, renseignez-vous auprès \\nde \\c[2]Tabula le Terrible\\c[1], notre chef."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "viking petit character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 28,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Welcome to the Vikings, Mr. Viking."
+			},
+			{
+				"nom": "Message",
+				"texte": "Bienvenue chez les \\c[2]Vikings\\c[1], monsieur le \\n\\c[2]Viking\\c[1]."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				}
+				]
+			},
+			"image": "viking petit character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 127,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 33,
-		"nom": "Clone[341][111]",
-		"x": 24,
-		"y": 3
+		"id": 6,
+		"nom": "EV006",
+		"x": 30,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 28,
+				"xDebutHeros": 30,
+				"yDebutHeros": 27
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "Clone[341][005]",
+		"x": 22,
+		"y": 24
 	},
 	{
 		"id": 39,
@@ -592,47 +1486,10 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][005]",
-		"x": 22,
-		"y": 24
-	},
-	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 30,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 28,
-				"xDebutHeros": 30,
-				"yDebutHeros": 27
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 28,
-		"nom": "Garde",
-		"x": 25,
-		"y": 20,
+		"id": 45,
+		"nom": "triche",
+		"x": 28,
+		"y": 28,
 		"pages": [
 		{
 			"conditions": [
@@ -642,340 +1499,29 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "(en) sgfhsgf"
+			},
+			{
+				"nom": "Message",
+				"texte": "sgfhsgf"
+			},
+			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
+				"numeroInterrupteur": 88,
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Par Shor ! On ne passe pas !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Le village viking c'est pour les \\c[2]Vikings\\c[1] !"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 78,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 20,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 16,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Oh ? Vous avez un passe viking rouge ?"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Bah vous êtres un \\c[2]Viking\\c[1] alors..."
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"direction": 3,
-				"numero": 2
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Euh, on est de quel côté là ?"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"direction": 3,
-				"numero": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Euh, on est de quel côté là ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "De toutes façons, renseignez-vous auprès \\nde \\c[02]Tabula le Terrible\\c[01], notre chef."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "viking petit character",
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 28,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Bienvenue chez les \\c[2]Vikings\\c[1], monsieur le \\n\\c[2]Viking\\c[1]."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 2
-				}
-				]
-			},
-			"image": "viking petit character",
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 127,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "canoe",
-		"x": 19,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "canoe character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 34,
-		"nom": "piquet",
-		"x": 26,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "table de chevet character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 19,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
+				"nom": "AjouterObjet",
+				"idObjet": 88,
 				"variable": false,
-				"numeroNouvelleMap": 40,
-				"xDebutHeros": 13,
-				"yDebutHeros": 21
+				"quantite": 1
 			},
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 7,
-				"valeur": false
+				"nom": "AjouterObjet",
+				"idObjet": 87,
+				"variable": false,
+				"quantite": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -1022,6 +1568,10 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) We built our village with the wood recovered \\nfrom the boats swallowed by Kujira."
+			},
+			{
 				"nom": "Message",
 				"texte": "On a construit notre village avec le bois \\nrécupéré sur les bateaux avalés par Kujira."
 			},
@@ -1032,8 +1582,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Since nobody knows how to get out, \\nthe boats are not relevant right now."
+			},
+			{
 				"nom": "Message",
 				"texte": "Comme personne ne sait comment sortir,\\nles embarcations ne sont pas d'actualité."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Alas!"
 			},
 			{
 				"nom": "Message",
@@ -1044,8 +1602,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Looking for a Red viking pass?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu cherches un pass viking rouge ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I would say only one thing: \"up the ladder\"."
 			},
 			{
 				"nom": "Message",
@@ -1056,6 +1622,10 @@
 				"nomFichierSonore": "Viking2.wav",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If anyone asks, I didn't tell you!"
 			},
 			{
 				"nom": "Message",
@@ -1109,6 +1679,174 @@
 				"nomFichierSonore": "",
 				"volume": 0.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 23,
+		"nom": "EV023",
+		"x": 19,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 40,
+				"xDebutHeros": 13,
+				"yDebutHeros": 21
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 7,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 34,
+		"nom": "piquet",
+		"x": 26,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "table de chevet character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "canoe",
+		"x": 19,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "canoe character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "EV007",
+		"x": 25,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 565,
+				"xDebutHeros": 50,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "Clone[341][005]",
+		"x": 22,
+		"y": 22
+	},
+	{
+		"id": 29,
+		"nom": "Annonce du Lieu",
+		"x": 28,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -1246,119 +1984,32 @@
 		]
 	},
 	{
-		"id": 29,
-		"nom": "Annonce du Lieu",
-		"x": 29,
-		"y": 32,
+		"id": 46,
+		"nom": "effacer citrouille",
+		"x": 19,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
 			],
 			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 4,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 30,
-				"comparerAUneAutreVariable": false,
+				"nom": "ConditionScript",
+				"script": "($game_player.x-$game_map.events[@event_id].x).abs + ($game_player.y-$game_map.events[@event_id].y).abs <= 3",
 				"numero": 0
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AfficherImage",
-				"numero": 9,
-				"nomImage": "AnnonceLieu VikingRouge",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "Deplacement",
+				"idEventADeplacer": 15,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
 				"nom": "ConditionFin",
@@ -1379,51 +2030,35 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][005]",
+		"id": 24,
+		"nom": "oriflamme",
 		"x": 22,
-		"y": 22
-	},
-	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 25,
-		"y": 34,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 565,
-				"xDebutHeros": 50,
-				"yDebutHeros": 1
-			}
 			],
+			"image": "oriflamme character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 35,
-		"nom": "EV035",
-		"x": 35,
-		"y": 14,
+		"id": 2,
+		"nom": "EV002",
+		"x": 22,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -1433,41 +2068,11 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionTouche",
-				"touche": "HAUT",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 162,
-				"operationAFaire": "rendre egal a",
-				"operationAFaire2": "numero de la map"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 163,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 164,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 510,
-				"directionDebutHeros": 3,
-				"xDebutHeros": 14,
-				"yDebutHeros": 18
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"numeroNouvelleMap": 28,
+				"xDebutHeros": 22,
+				"yDebutHeros": 27
 			}
 			],
 			"vitesse": "moderee",
@@ -1526,10 +2131,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 22,
-		"y": 0,
+		"id": 35,
+		"nom": "EV035",
+		"x": 35,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -1539,11 +2144,41 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionTouche",
+				"touche": "HAUT",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 162,
+				"operationAFaire": "rendre egal a",
+				"operationAFaire2": "numero de la map"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 163,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 164,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 28,
-				"xDebutHeros": 22,
-				"yDebutHeros": 27
+				"numeroNouvelleMap": 510,
+				"directionDebutHeros": 3,
+				"xDebutHeros": 14,
+				"yDebutHeros": 18
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -1557,29 +2192,51 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "oriflamme",
-		"x": 22,
-		"y": 21,
+		"id": 8,
+		"nom": "EV008",
+		"x": 26,
+		"y": 34,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 565,
+				"xDebutHeros": 51,
+				"yDebutHeros": 1
+			}
 			],
-			"image": "oriflamme character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][005]",
+		"x": 30,
+		"y": 22
+	},
+	{
+		"id": 30,
+		"nom": "Clone[341][002]",
+		"x": 37,
+		"y": 7
 	},
 	{
 		"id": 41,
@@ -1705,6 +2362,123 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 86,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The golden goose is eating your\\npeanut butter sandwich!"
+			},
+			{
+				"nom": "Message",
+				"texte": "La poule d'or mange votre sandwich au beurre \\nde cacahuète !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 85,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 86,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 173,
+				"valeur": true
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 100
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...and lays a golden egg!"
+			},
+			{
+				"nom": "Message",
+				"texte": "...et pond un oeuf d'or !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
@@ -1785,22 +2559,62 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "Clone[341][002]",
-		"x": 37,
-		"y": 7
+		"id": 36,
+		"nom": "oriflamme",
+		"x": 28,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "oriflamme character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][005]",
+		"id": 14,
+		"nom": "Enseigne",
 		"x": 30,
-		"y": 22
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "enseignes character",
+			"directionInitiale": 1,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 26,
-		"y": 34,
+		"id": 3,
+		"nom": "EV003",
+		"x": 28,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -1810,15 +2624,11 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 565,
-				"xDebutHeros": 51,
-				"yDebutHeros": 1
+				"numeroNouvelleMap": 28,
+				"xDebutHeros": 28,
+				"yDebutHeros": 27
 			}
 			],
 			"vitesse": "moderee",
@@ -1860,6 +2670,10 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) By Grover! There's someone in that well!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Par Grover ! Il y a quelqu'un dans ce puits !"
 			},
@@ -1868,6 +2682,10 @@
 				"nomFichierSonore": "Viking2.wav",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am sure of it!"
 			},
 			{
 				"nom": "Message",
@@ -1888,8 +2706,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) But on the other hand, I think he is not \\nvery smart..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Mais par contre, je pense qu'il n'est pas \\ntrès malin..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I ask him \"How are you downstairs?\", then \\nhe answers me \"How are you downstairs?\"!"
 			},
 			{
 				"nom": "Message",
@@ -1939,219 +2765,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 28,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 28,
-				"xDebutHeros": 28,
-				"yDebutHeros": 27
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Enseigne",
-		"x": 30,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "enseignes character",
-			"directionInitiale": 1,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 36,
-		"nom": "oriflamme",
-		"x": 28,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "oriflamme character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "Viking",
-		"x": 22,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1 femme.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge femme\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Mon canoë !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Je le cherchais partout !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking femme petit character",
-			"directionInitiale": 1,
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 129,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 127,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 42,
-		"nom": "EV042",
-		"x": 21,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 28,
-				"xDebutHeros": 21,
-				"yDebutHeros": 27
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 9,
+		"nom": "Clone[341][001]",
+		"x": 15,
+		"y": 9
 	},
 	{
 		"id": 31,
@@ -2257,40 +2874,9 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][001]",
-		"x": 15,
-		"y": 9
-	},
-	{
-		"id": 37,
-		"nom": "EV037",
-		"x": 37,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 834,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 29,
+		"id": 42,
+		"nom": "EV042",
+		"x": 21,
 		"y": 0,
 		"pages": [
 		{
@@ -2304,7 +2890,7 @@
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 28,
-				"xDebutHeros": 29,
+				"xDebutHeros": 21,
 				"yDebutHeros": 27
 			}
 			],
@@ -2317,6 +2903,121 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 20,
+		"nom": "Viking",
+		"x": 22,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) My canoe!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mon canoë !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I was looking for it everywhere!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je le cherchais partout !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking femme petit character",
+			"directionInitiale": 1,
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 129,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 127,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][115]",
+		"x": 20,
+		"y": 21
 	},
 	{
 		"id": 26,
@@ -2352,8 +3053,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Tabula\\c[0] has found a way to get us all \\nout of this whale!"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Tabula\\c[01] a trouvé une solution pour \\ntous nous faire sortir de cette baleine !"
+				"texte": "\\c[2]Tabula\\c[1] a trouvé une solution pour \\ntous nous faire sortir de cette baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I think it has something to do with a clarinet, \\nbut that's top secret."
 			},
 			{
 				"nom": "Message",
@@ -2364,6 +3073,10 @@
 				"nomFichierSonore": "Viking2 femme.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) By Grover, don't repeat it!"
 			},
 			{
 				"nom": "Message",
@@ -2388,8 +3101,12 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hahaha! I'm certain you came here\\nto see the chief's \\c[2]daughter\\c[0]!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Hahaha ! Encore un qui vient pour voir la \\n\\c[2]fille du chef\\c[1] !"
+				"texte": "Hahaha ! J'en suis sûre, tu es venu ici \\npour voir la \\c[2]fille du chef\\c[1] !"
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -2398,12 +3115,20 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Where is she?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Où est ce qu'elle est ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) By Shor! \\nAt the spring in the north of the village!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Par Shor ! A la source du Nord du village !"
+				"texte": "Par Shor ! À la source au nord du village !"
 			},
 			{
 				"nom": "Attendre",
@@ -2420,8 +3145,12 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hahaha! I'm certain you came here\\nto see the chief's \\c[2]daughter\\c[0]!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Hahaha ! Encore un qui vient pour voir la \\n\\c[2]fille du chef\\c[1] !"
+				"texte": "Hahaha ! J'en suis sûre, tu es venu ici \\npour voir la \\c[2]fille du chef\\c[1] !"
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -2430,8 +3159,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Where is she?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Où est ce qu'elle est ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) By Shor! \\nI guess she's at her father's house right now!"
 			},
 			{
 				"nom": "Message",
@@ -2498,10 +3235,471 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][115]",
-		"x": 20,
-		"y": 21
+		"id": 4,
+		"nom": "EV004",
+		"x": 29,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 28,
+				"xDebutHeros": 29,
+				"yDebutHeros": 27
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 37,
+		"nom": "EV037",
+		"x": 37,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 834,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 43,
+		"nom": "init",
+		"x": 33,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 175,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 44,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 50
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 2
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 3
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 26,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 6
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 0
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 85
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 15,
+				"variable": false,
+				"nouveauX": 20,
+				"nouveauY": 22,
+				"direction": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 126,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 54,
+				"etat": "FAITE",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 54,
+				"etat": "CONNUE",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 55,
+				"avancement": "CONNUE"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 59,
+				"etat": "FAITE",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 59,
+				"etat": "CONNUE",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 6
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 60,
+				"avancement": "CONNUE"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "pas de bruit de foule \\nquand les vikings sont partis en guerre"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 127,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 7
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 0.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 0.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Pancarte",
+		"x": 27,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) RED VIKING VILLAGE"
+			},
+			{
+				"nom": "Message",
+				"texte": "VILLAGE VIKING ROUGE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2193 Ibukuro sea\\n\\u2190 Secret passage"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2193 Mer d'Ibukuro\\n\\u2190 Passage secret"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "Enseigne",
+		"x": 30,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "enseignes character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 32,
@@ -2619,368 +3817,6 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "Enseigne",
-		"x": 30,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "enseignes character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Pancarte",
-		"x": 27,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "VILLAGE VIKING ROUGE"
-			},
-			{
-				"nom": "Message",
-				"texte": "V Mer d'Ibukuro\\n< Passage secret"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 43,
-		"nom": "Réglages initiaux",
-		"x": 33,
-		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 5,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 16,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 16,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 0
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 31,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 30,
-				"variable": false,
-				"quantite": 50
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 4
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 5
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeur": true
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 0,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 2,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 3,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 2
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 3
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 30,
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 6
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 2
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 85
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 15,
-				"variable": false,
-				"nouveauX": 20,
-				"nouveauY": 22,
-				"direction": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 126,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 54,
-				"etat": "FAITE",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 54,
-				"etat": "CONNUE",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 55,
-				"avancement": "CONNUE"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 59,
-				"etat": "FAITE",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 59,
-				"etat": "CONNUE",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 60,
-				"avancement": "CONNUE"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	}

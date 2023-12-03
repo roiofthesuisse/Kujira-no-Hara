@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import map.Event;
-import map.Heros;
 import map.Vitesse;
 import utilitaire.Maths;
 

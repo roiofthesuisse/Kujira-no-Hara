@@ -126,10 +126,28 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[341][001]",
-		"x": 26,
-		"y": 25
+		"id": 38,
+		"nom": "Blocage anti-évènement",
+		"x": 17,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 5,
@@ -156,10 +174,16 @@
 		]
 	},
 	{
-		"id": 38,
+		"id": 16,
+		"nom": "Clone[341][001]",
+		"x": 26,
+		"y": 25
+	},
+	{
+		"id": 44,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 30,
+		"x": 16,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -180,10 +204,10 @@
 		]
 	},
 	{
-		"id": 11,
+		"id": 33,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 19,
+		"x": 18,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -340,9 +364,69 @@
 		]
 	},
 	{
-		"id": 33,
+		"id": 11,
 		"nom": "Blocage anti-évènement",
-		"x": 18,
+		"x": 20,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 39,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][001]",
+		"x": 8,
+		"y": 8
+	},
+	{
+		"id": 17,
+		"nom": "Clone[341][001]",
+		"x": 25,
+		"y": 26
+	},
+	{
+		"id": 45,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
 		"y": 3,
 		"pages": [
 		{
@@ -364,10 +448,10 @@
 		]
 	},
 	{
-		"id": 44,
+		"id": 34,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 4,
+		"x": 15,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -388,22 +472,152 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][001]",
-		"x": 25,
-		"y": 26
+		"id": 23,
+		"nom": "EV023",
+		"x": 32,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 33,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "terrain"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 5
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 23,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][001]",
-		"x": 8,
-		"y": 8
-	},
-	{
-		"id": 39,
+		"id": 12,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 30,
+		"x": 19,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -1404,6 +1618,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Aaaah! Nope! Not the water! I\\ndon't like water!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Aaaah ! Nan ! Pas l'eau ! J'aime pas l'eau !"
 			},
@@ -1669,7 +1887,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1866,10 +2084,10 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 40,
 		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 20,
+		"x": 18,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
@@ -1888,202 +2106,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 32,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 33,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "terrain"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 25,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 5
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 23,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 34,
-		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 45,
-		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][001]",
-		"x": 9,
-		"y": 7
 	},
 	{
 		"id": 18,
@@ -2110,58 +2132,16 @@
 		]
 	},
 	{
-		"id": 40,
-		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 7,
+		"nom": "Clone[341][001]",
+		"x": 9,
+		"y": 7
 	},
 	{
-		"id": 2,
-		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
+		"id": 35,
 		"nom": "Blocage anti-évènement",
 		"x": 18,
-		"y": 20,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -2343,10 +2323,10 @@
 		]
 	},
 	{
-		"id": 35,
+		"id": 13,
 		"nom": "Blocage anti-évènement",
 		"x": 18,
-		"y": 29,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -2367,58 +2347,10 @@
 		]
 	},
 	{
-		"id": 8,
+		"id": 2,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 19,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 30,
-		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 4,
+		"x": 15,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -2463,10 +2395,10 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 30,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 14,
+		"x": 18,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -2487,10 +2419,58 @@
 		]
 	},
 	{
-		"id": 14,
+		"id": 19,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 20,
+		"x": 14,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Blocage anti-évènement",
+		"x": 20,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 36,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -2801,82 +2781,34 @@
 		]
 	},
 	{
-		"id": 36,
-		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 31,
+		"id": 14,
 		"nom": "Blocage anti-évènement",
 		"x": 17,
-		"y": 4,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -2921,10 +2853,10 @@
 		]
 	},
 	{
-		"id": 4,
+		"id": 31,
 		"nom": "Blocage anti-évènement",
 		"x": 17,
-		"y": 14,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -2945,10 +2877,10 @@
 		]
 	},
 	{
-		"id": 15,
+		"id": 20,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 20,
+		"x": 14,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -2969,10 +2901,10 @@
 		]
 	},
 	{
-		"id": 37,
+		"id": 9,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 29,
+		"x": 20,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
@@ -3037,10 +2969,10 @@
 		]
 	},
 	{
-		"id": 10,
+		"id": 37,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 18,
+		"x": 17,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -3061,10 +2993,58 @@
 		]
 	},
 	{
-		"id": 21,
+		"id": 15,
 		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 15,
+		"x": 16,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Blocage anti-évènement",
+		"x": 17,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 43,
+		"nom": "Blocage anti-évènement",
+		"x": 19,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -3109,10 +3089,34 @@
 		]
 	},
 	{
-		"id": 43,
+		"id": 21,
 		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 4,
+		"x": 14,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Blocage anti-évènement",
+		"x": 20,
+		"y": 18,
 		"pages": [
 		{
 			"conditions": [

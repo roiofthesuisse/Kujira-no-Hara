@@ -5,7 +5,7 @@
 	"hauteur": 35,
 	"musique": {
 		"nomFichierSonore": "Vastes Dunes.ogg",
-		"volume": 1.00,
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -19,7 +19,7 @@
 	[0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0022,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0022,0038,0021,0801,0801,0801,0801,0801,0801,0801,0801,0802,0809,0809,0809,0809,0809,0809],
 	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0038,0021,0011,0011,0011,0011,0011,0011,0011,0011,0022,0810,0809,0809,0809,0809,0809,0809],
-	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0021,0011,0011,0011,0011,0011,0011,0011,0011,0022,0038,0810,0809,0809,0809,0809,0809,0809],
+	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0021,0011,0011,0011,0011,0011,0003,0011,0011,0022,0038,0810,0809,0809,0809,0809,0809,0809],
 	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0038,0038,0810,0809,0809,0809,0809,0809,0809],
 	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0038,0038,0810,0809,0809,0809,0809,0809,0809],
 	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0038,0038,0810,0809,0809,0809,0809,0809,0809],
@@ -92,8 +92,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0020,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0004,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0248,0249,0250,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0256,0257,0258,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0264,0265,0266,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -132,6 +132,37 @@
 		"y": 18
 	},
 	{
+		"id": 11,
+		"nom": "EV011",
+		"x": 23,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 816,
+				"xDebutHeros": 12,
+				"yDebutHeros": 24
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "Clone[021][44]",
 		"x": 17,
@@ -142,6 +173,60 @@
 		"nom": "Clone[341][039]",
 		"x": 23,
 		"y": 18
+	},
+	{
+		"id": 12,
+		"nom": "triche",
+		"x": 27,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) gfdshgfsd"
+			},
+			{
+				"nom": "Message",
+				"texte": "gfdshgfsd"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 71,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 72,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 96,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 7,
@@ -170,6 +255,25 @@
 				"nomImage": "006-Sandstorm02"
 			},
 			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 126,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 27,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 28,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -182,6 +286,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][184]",
+		"x": 15,
+		"y": 5
 	},
 	{
 		"id": 8,
@@ -298,12 +408,8 @@
 				"idArme": 6
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -336,6 +442,14 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "EffacerImage",
@@ -595,7 +709,7 @@
 	{
 		"id": 10,
 		"nom": "Annonce du Lieu",
-		"x": 32,
+		"x": 34,
 		"y": 17,
 		"pages": [
 		{
@@ -608,108 +722,6 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 10,
 				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 30,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AfficherImage",
-				"numero": 9,
-				"nomImage": "AnnonceLieu Desert",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "SupprimerEvent"

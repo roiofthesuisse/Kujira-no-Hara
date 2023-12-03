@@ -5,7 +5,7 @@
 	"hauteur": 45,
 	"musique": {
 		"nomFichierSonore": "Intestins.ogg",
-		"volume": 0.80,
+		"volume": 0.70,
 		"tempo": 0.75
 	},
 	"fondSonore": {
@@ -222,6 +222,14 @@
 			"conditions": [
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "nettoyer l'obscurité de la pierre de lune :"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 85
+			},
 			{
 				"nom": "EffacerImage",
 				"numero": 3
@@ -784,6 +792,47 @@
 		]
 	},
 	{
+		"id": 61,
+		"nom": "triche",
+		"x": 27,
+		"y": 35,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) vcxnbcvxnb"
+			},
+			{
+				"nom": "Message",
+				"texte": "vcxnbcvxnb"
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 4
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 54,
+				"valeur": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 50,
 		"nom": "halo",
 		"x": 17,
@@ -836,8 +885,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2192 Vast caves\\n\\u2190 Sanctuary of \\c[2]Jishin\\c[0]"
+			},
+			{
 				"nom": "Message",
-				"texte": "> Grandes grottes\\n< Sanctuaire de Jishin'"
+				"texte": "\\u2192 Grandes grottes\\n\\u2190 Sanctuaire de \\c[2]Jishin'\\c[0]"
 			},
 			{
 				"nom": "Attendre",
@@ -1178,9 +1231,18 @@
 				"valeur": true
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 54,
+				"valeur": true
+			},
+			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 74,
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You use dynamite on the diamond."
 			},
 			{
 				"nom": "Message",
@@ -1210,13 +1272,52 @@
 				"nombreDeFrames": 16
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 22,
-				"idAnimation": 6
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([65, true, $game_map.events[@event_id].x-1, $game_map.events[@event_id].y+1])"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y-2])"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x-2, $game_map.events[@event_id].y+2])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x-1, $game_map.events[@event_id].y+1])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y+3])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x-1, $game_map.events[@event_id].y-1])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 15
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([6, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y+1])"
 			},
 			{
 				"nom": "Deplacement",
@@ -1243,8 +1344,13 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 79,
+				"avancement": "FAITE"
+			},
+			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1258,6 +1364,10 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) A gigantic diamond blocks the passage."
+			},
+			{
 				"nom": "Message",
 				"texte": "Un gigantesque diamant bloque le passage."
 			},
@@ -1268,21 +1378,24 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Bringing the ingredients to the\\n\\c[2]scientist\\c[0], he should\\nmake the dynamite."
+			},
+			{
 				"nom": "Message",
-				"texte": "En apportant les ingrédients au \\c[02]scientifique\\c[02],\\ncelui-ci devrait confectionner la dynamite."
+				"texte": "En apportant les ingrédients au \\c[2]scientifique\\c[2],\\ncelui-ci devrait confectionner la dynamite."
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 1
 			},
 			{
-				"nom": "Message",
-				"texte": "Les \\c[02]mineurs\\c[01] devraient avoir une solution."
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]miners\\c[0] should have a solution."
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 54,
-				"valeur": true
+				"nom": "Message",
+				"texte": "Les \\c[2]mineurs\\c[1] devraient avoir une solution."
 			},
 			{
 				"nom": "ConditionFin",
@@ -1605,7 +1718,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 285,
 				"xDebutHeros": 9,
-				"yDebutHeros": 11
+				"yDebutHeros": 10
 			}
 			],
 			"vitesse": "moderee",
@@ -1752,6 +1865,40 @@
 		]
 	},
 	{
+		"id": 62,
+		"nom": "triche",
+		"x": 7,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 74,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Message",
+				"texte": "vxcncvx"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 13,
 		"nom": "Clone[341][028]",
 		"x": 25,
@@ -1807,9 +1954,18 @@
 				"valeur": true
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 54,
+				"valeur": true
+			},
+			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 74,
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You use the dynamite on the diamond."
 			},
 			{
 				"nom": "Message",
@@ -1839,13 +1995,52 @@
 				"nombreDeFrames": 16
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 22,
-				"idAnimation": 6
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([65, true, $game_map.events[@event_id].x-1, $game_map.events[@event_id].y+1])"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y-2])"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x-2, $game_map.events[@event_id].y+2])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x-1, $game_map.events[@event_id].y+1])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y+3])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([22, true, $game_map.events[@event_id].x-1, $game_map.events[@event_id].y-1])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 15
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([6, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y+1])"
 			},
 			{
 				"nom": "Deplacement",
@@ -1872,8 +2067,13 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 79,
+				"avancement": "FAITE"
+			},
+			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1887,6 +2087,10 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) A gigantic diamond blocks the way."
+			},
+			{
 				"nom": "Message",
 				"texte": "Un gigantesque diamant bloque le passage."
 			},
@@ -1897,21 +2101,24 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Bringing the ingredients to the \\c[2]scientist\\c[0], \\nhe should be able to make the dynamite."
+			},
+			{
 				"nom": "Message",
-				"texte": "En apportant les ingrédients au \\c[02]scientifique\\c[02],\\ncelui-ci devrait confectionner la dynamite."
+				"texte": "En apportant les ingrédients au \\c[2]scientifique\\c[0],\\ncelui-ci devrait confectionner la dynamite."
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 1
 			},
 			{
-				"nom": "Message",
-				"texte": "Les \\c[02]mineurs\\c[01] devraient avoir une solution."
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]miners\\c[0] should have a solution."
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 54,
-				"valeur": true
+				"nom": "Message",
+				"texte": "Les \\c[2]mineurs\\c[1] devraient avoir une solution."
 			},
 			{
 				"nom": "ConditionFin",
@@ -2353,8 +2560,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Humans, if you did not seek to escape time, \\nyou would persist within!\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Humains, \\nsi vous ne cherchiez pas à fuir le temps, \\nvous y perdureriez !\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
 			},
 			{
 				"nom": "Message",
@@ -2722,20 +2937,44 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]\\n[1]\\c[0]! \\nSit down with us!"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]\\n[1]\\c[1] ! Assieds-toi avec nous !"
+				"texte": "\\c[2]\\n[1]\\c[1] ! \\nAssieds-toi avec nous !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We're camping in the caves!"
 			},
 			{
 				"nom": "Message",
 				"texte": "On fait du camping dans les grottes !"
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ooh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come on, we're fine!"
 			},
 			{
 				"nom": "Message",
@@ -2882,8 +3121,161 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Rebeca\\c[0], do you have the marshmallows?"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Rebeca\\c[0] ! C'est ton tour de raconter une histoire \\nqui fait peur !"
+				"texte": "\\c[2]Rebeca\\c[0], tu as les marshmallows ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 58,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum gonfle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The marshmallows? What marshmallows?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Les marshmallows ? Quels marshmallows ?"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp2.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie genee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You forgot them?!\\nI told you about them yesterday!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu les as oubliés ?!\\nJe t'en ai parlé hier pourtant !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I don't know anything about it."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ça ne me dit rien du tout."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 58,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum eclate.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You've slipped into a Berenstein universe \\nin which you never told me about it. Or maybe \\nI'm the one who came from a Berenstein \\nuniverse where you didn't tell me about it."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu as glissé dans un univers de Berenstein\\ndans lequel tu ne m'en as jamais parlé.\\nOu bien c'est moi qui proviens d'un univers \\nde Berenstein où tu ne m'en as pas parlé."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You know, when two parallel universes \\nare very close, they exchange homologous \\nelements between them.\\nIt happens more often than you'd think."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu sais, il suffit que deux univers parallèles \\nsoient très proches pour qu'ils échangent \\ndes éléments homologues entre eux.\\nÇa arrive plus souvent qu'on ne le croit."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Again this excuse of the Berenstein universes!\\nQuantum physics is a convenient scapegoat!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Encore cette excuse des univers de Berenstein !\\nLa physique quantique a bon dos !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Rebeca\\c[0], to make it up to you, \\nit's your turn to tell a scary story!"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Rebeca\\c[0], pour te faire pardonner, c'est ton tour \\nde raconter une histoire qui fait peur !"
 			},
 			{
 				"nom": "JouerMusique",
@@ -2896,22 +3288,54 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
-				"nom": "Message",
-				"texte": "Bon d'accord."
+				"nom": "Commentaire",
+				"texte": "(en) Okay, that's fine with me."
 			},
 			{
 				"nom": "Message",
-				"texte": "Ecoutez bien."
+				"texte": "Ok, ça me va."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Listen carefully..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Écoutez bien..."
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 58,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "bubble gum gonfle.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) As a scientist, I strive for impeccable \\nepistemological rigor."
 			},
 			{
 				"nom": "Message",
@@ -2922,14 +3346,43 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 58,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "bubble gum eclate.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE So I'm going to tell a scary story \\nthat is totally true."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\WAVE Je vais donc raconter une histoire d'épouvante\\ntotalement véridique."
+				"texte": "\\WAVE Je vais donc raconter une histoire \\nd'épouvante totalement véridique."
 			},
 			{
 				"nom": "JouerAnimation",
@@ -2939,6 +3392,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ?"
 			},
 			{
 				"nom": "Message",
@@ -2955,6 +3412,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Nice!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Chouette !"
 			},
@@ -2963,13 +3424,18 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I have it on good authority that there are invisible \\nskeletons walking around in these caves."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je sais de source sûre qu'il y a des squelettes\\ninvisibles qui déambulent dans ces grottes."
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 60,
-				"idAnimation": 2
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hah.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "Deplacement",
@@ -2988,6 +3454,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Invisible skeletons? \\nWhat are you talking about?"
 			},
 			{
 				"nom": "Message",
@@ -2998,20 +3468,42 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I'm just telling the truth, \\c[2]Fiolin\\c[0]."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je n'énonce que la stricte vérité, \\c[2]Fiolin\\c[0]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) They are indeed invisible skeletons.\\nIndeed, they often pass very close to us, \\nand we cannot see their bones."
 			},
 			{
 				"nom": "Message",
 				"texte": "Ce sont bel et bien des squelettes invisibles.\\nEn effet, ils passent souvent tout près de nous \\nsans qu'on puisse apercevoir leurs os."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) If you've been paying attention,\\nyou've already felt the subtle rush of cool air \\nthey cause when they brush against you."
+			},
+			{
 				"nom": "Message",
 				"texte": "Si vous avez fait attention, vous avez déjà \\nsenti sur votre peau le subtil courant d'air \\nfrais qu'ils provoquent en vous frôlant."
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris eeeh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Now that you mention it..."
 			},
 			{
 				"nom": "Message",
@@ -3022,20 +3514,42 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, you know what?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Eh bien vous savez quoi ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There are such skeletons in the part of the caves \\nwhere we are now."
 			},
 			{
 				"nom": "Message",
 				"texte": "Il y a de tels squelettes dans la partie \\ndes grottes où nous nous trouvons \\nactuellement."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) But don't worry, they are harmless."
+			},
+			{
 				"nom": "Message",
 				"texte": "Mais rassurez-vous, ils sont inoffensifs."
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Are you sure, \\c[2]Rebeca\\c[0]?!"
 			},
 			{
 				"nom": "Message",
@@ -3046,12 +3560,26 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I think so."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je crois."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) To be more precise, there are actually a few here, \\nvery close to us."
+			},
+			{
 				"nom": "Message",
 				"texte": "Pour être plus précise, il y en a en fait \\nquelques uns ici, tout près de nous."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hah.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "JouerAnimation",
@@ -3063,6 +3591,10 @@
 				"script": "$game_temp.faceset = \"fiolin peur\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Stop it, \\c[2]Rebeca\\c[0]! It's not funny!"
+			},
+			{
 				"nom": "Message",
 				"texte": "\\SHAKE Arrête, \\c[2]Rebeca\\c[1] ! C'est pas drôle !"
 			},
@@ -3071,17 +3603,26 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I can even say with certainty that right now \\nthere's one really close to you, \\c[2]Fiolin\\c[0]."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je peux même affirmer avec certitude \\nqu'en ce moment même, il y en a un \\nvraiment tout près de toi, \\c[2]Fiolin\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's almost motionless..."
 			},
 			{
 				"nom": "Message",
 				"texte": "Il est quasiment immobile..."
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 60,
-				"idAnimation": 2
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hraaa.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "Deplacement",
@@ -3102,6 +3643,10 @@
 				"script": "$game_temp.faceset = \"fiolin peur\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Aaaaah! Where?!"
+			},
+			{
 				"nom": "Message",
 				"texte": "\\SHAKE Aaaaaah ! Où ça ?!"
 			},
@@ -3110,12 +3655,22 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) He's inside you!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Il est à l'intérieur de toi !"
 			},
 			{
 				"nom": "ArreterMusique",
 				"nombreDeFrames": 90
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hraaa.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "JouerAnimation",
@@ -3127,8 +3682,22 @@
 				"script": "$game_temp.faceset = \"fiolin peur\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE AAAAAH..."
+			},
+			{
 				"nom": "Message",
 				"texte": "\\SHAKE AAAAAH..."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris eeeh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Huh?!"
 			},
 			{
 				"nom": "Message",
@@ -3141,16 +3710,36 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Rire.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hahaha! That's your skeleton, silly!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Hahaha ! C'est ton squelette, idiot !"
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin gene ugh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) My skeleton?"
 			},
 			{
 				"nom": "Message",
@@ -3161,6 +3750,10 @@
 				"script": "$game_temp.faceset = \"fiolin\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You got me, \\c[2]Rebeca\\c[0]!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu m'as bien eu, \\c[2]Rebeca\\c[1] !"
 			},
@@ -3169,10 +3762,34 @@
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 58,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "bubble gum gonfle.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
 			},
 			{
 				"nom": "Message",
@@ -3183,12 +3800,20 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Come on, everybody to bed!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Allez, tout le monde au lit !"
 			},
 			{
 				"nom": "Message",
 				"texte": "\\c[2]\\n[1]\\c[1], tu restes avec nous ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Rebeca\\c[0] brought an extra sleeping bag."
 			},
 			{
 				"nom": "Message",
@@ -3199,6 +3824,10 @@
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) He has nothing better to do anyway: \\nhe's stuck with us in a whale."
+			},
+			{
 				"nom": "Message",
 				"texte": "Il n'a rien d'autre à faire de mieux \\nde toutes façons : il est coincé avec nous\\ndans une baleine."
 			},
@@ -3207,18 +3836,57 @@
 				"script": "$game_temp.faceset = \"rebeca\""
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 58,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "bubble gum eclate.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE \\c[2]Fiolin\\c[0], can I talk to you in private \\nfor 5 minutes?"
+			},
+			{
 				"nom": "Message",
 				"texte": "\\WAVE \\c[2]Fiolin\\c[1], je peux te parler en privé 5 minutes ?"
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ooh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE Yes, of course..."
 			},
 			{
 				"nom": "Message",
@@ -3345,8 +4013,18 @@
 				"idEvent": -1
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Bah?"
 			},
 			{
 				"nom": "Message",
@@ -3357,6 +4035,10 @@
 				"script": "$game_temp.faceset = \"poesie vexee\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
 				"nom": "Message",
 				"texte": "..."
 			},
@@ -3365,8 +4047,16 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]\\n[1]\\c[0], are you looking for anything \\nin particular in the caves?"
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]\\n[1]\\c[1], tu cherches quelque chose \\nen particulier dans les grottes ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We come regularly to tell scary stories in the dark!"
 			},
 			{
 				"nom": "Message",
@@ -3442,10 +4132,6 @@
 				"script": "wait_for_event(60)"
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie vexee\""
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 33
 			},
@@ -3463,6 +4149,20 @@
 				]
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is that good? Are you two done scheming?"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est bon ? Vous avez fini de manigancer \\ntous les deux ?"
 			},
@@ -3471,14 +4171,38 @@
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 58,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "bubble gum gonfle.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Yeah."
+			},
+			{
 				"nom": "Message",
-				"texte": "Oui."
+				"texte": "Ouais."
 			},
 			{
 				"nom": "ArreterMusique",
@@ -3685,7 +4409,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Mathusalem theme 2.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -3693,16 +4417,32 @@
 				"script": "$game_temp.faceset = \"mathusalem\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Nothing interesting about the weapons \\nof the \\c[2]scholars\\c[0] unfortunately."
+			},
+			{
 				"nom": "Message",
-				"texte": "Rien d'intéressant concernant les armes des \\n\\c[02]érudits\\c[01] malheureusement."
+				"texte": "Rien d'intéressant concernant les armes des \\n\\c[2]érudits\\c[1] malheureusement."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Access to the desert is blocked."
 			},
 			{
 				"nom": "Message",
 				"texte": "L'accès au désert est bloqué."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The shrine of \\c[2]Jishin the scholar\\c[0] \\nis on the other side!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Le sanctuaire de \\c[02]Jishin'\\c[01] l'érudit se trouve \\nde l'autre côté !"
+				"texte": "Le sanctuaire de \\c[2]Jishin'\\c[1] l'érudit se trouve \\nde l'autre côté !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) North of saint Steven's church, the \\c[2]miners\\c[0] \\nwill be able to help us."
 			},
 			{
 				"nom": "Message",
@@ -4367,12 +5107,8 @@
 				"idGadget": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -4405,6 +5141,14 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "SupprimerEvent"

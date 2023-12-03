@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -126,6 +126,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 8,
+		"y": 17
+	},
+	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 20,
@@ -144,6 +150,9 @@
 				"zoom": 100,
 				"nuance": 0,
 				"nomImage": "obscurité énigme fog"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -155,12 +164,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 8,
-		"y": 17
 	},
 	{
 		"id": 11,
@@ -255,21 +258,29 @@
 				"numeroPageCommune": 21
 			},
 			{
-				"nom": "Message",
-				"texte": "\"Chose qui flotte au dessus de l'eau,\\nQue se développe sur les flots...\""
+				"nom": "Commentaire",
+				"texte": "(en) \"It spreads out with no sound,\\nnever lies on the ground,\\nIn waters can be found.\\nEmerald is this round.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"...cercle d'émeraude assoupi,\\nqui sûrement attend la pluie.\""
+				"texte": "\"On le voit sur l'étang.\\nSur les eaux, il s'étend.\\nÉmeraude est son cercle,\\nDu lagon le couvercle.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What is it?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Qu'est-ce ?"
+				"texte": "Qu'est-ce que c'est ?"
 			},
 			{
 				"nom": "ModifierAvancementQuete",
 				"numero": 46,
 				"avancement": "CONNUE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A water lily|A fish|A tree|A seaweed"
 			},
 			{
 				"nom": "Choix",
@@ -289,6 +300,12 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -376,10 +393,6 @@
 					"direction": 0
 				}
 				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -584,6 +597,12 @@
 		"y": 10
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 9,
+		"y": 9
+	},
+	{
 		"id": 12,
 		"nom": "Pancarte",
 		"x": 12,
@@ -609,7 +628,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You can talk to the \\c[2]Chomping tree\\c[1]\\nit doesn't bite."
+				"texte": "(en) You can talk to the \\c[2]chomping tree\\c[0], \\nit won't bite you."
 			},
 			{
 				"nom": "Message",
@@ -648,16 +667,16 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 9
-	},
-	{
 		"id": 7,
 		"nom": "Clone[341][061]",
 		"x": 7,
 		"y": 14
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 7,
+		"y": 11
 	},
 	{
 		"id": 13,
@@ -804,17 +823,25 @@
 				]
 			},
 			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 46,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get a Crystal of the Whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
 			},
 			{
-				"nom": "Message",
-				"texte": "C'est un superbe morceau de sel magique \\ncristallisé !"
+				"nom": "Commentaire",
+				"texte": "(en) This is a magic piece of crystallized salt."
 			},
 			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 46,
-				"avancement": "FAITE"
+				"nom": "Message",
+				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
 			},
 			{
 				"nom": "Attendre",
@@ -851,6 +878,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -903,16 +934,16 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 7,
-		"y": 11
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][061]",
 		"x": 14,
 		"y": 9
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 17,
+		"y": 14
 	},
 	{
 		"id": 14,
@@ -945,13 +976,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "MC_Bush.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "Sauter",
 					"x": 2,
@@ -986,16 +1010,16 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][028]",
-		"x": 17,
-		"y": 14
-	},
-	{
 		"id": 9,
 		"nom": "Clone[341][061]",
 		"x": 17,
 		"y": 11
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 16,
+		"y": 10
 	},
 	{
 		"id": 15,
@@ -1027,12 +1051,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 16,
-		"y": 10
 	},
 	{
 		"id": 10,

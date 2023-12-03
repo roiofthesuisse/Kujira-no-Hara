@@ -5,7 +5,7 @@
 	"hauteur": 25,
 	"musique": {
 		"nomFichierSonore": "Nouveaux Chemins.ogg",
-		"volume": 1.00,
+		"volume": 0.90,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -96,6 +96,30 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "rebeca",
+		"x": 18,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "EV005",
 		"x": 0,
@@ -127,65 +151,10 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "rebeca",
-		"x": 18,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 11,
 		"nom": "Clone[021][002]",
 		"x": 13,
 		"y": 12
-	},
-	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 0,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 567,
-				"xDebutHeros": 98,
-				"yDebutHeros": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 17,
@@ -269,7 +238,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You come to meet my father, \\c[2]doctor Wuerrenz\\c[1]?"
+				"texte": "(en) You come to meet my father, the \\c[2]professor \\nWuerrenz\\c[1]?"
 			},
 			{
 				"nom": "Message",
@@ -282,12 +251,32 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 16,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You know, science can only solve well-posed problems."
+				"texte": "(en) You know, science can only solve well-posed \\nproblems."
 			},
 			{
 				"nom": "Message",
@@ -298,6 +287,31 @@
 				"nomFichierSonore": "bubble gum eclate.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 16,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -598,10 +612,35 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][002]",
-		"x": 8,
-		"y": 12
+		"id": 6,
+		"nom": "EV006",
+		"x": 0,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 567,
+				"xDebutHeros": 98,
+				"yDebutHeros": 16
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 12,
@@ -629,7 +668,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Paradoxes will be our theorems!"
+				"texte": "(en) \"Paradoxes will be our theorems!\""
 			},
 			{
 				"nom": "Message",
@@ -637,7 +676,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en)                   Memoir of the \\c[2]wayfaring poet\\c[1]"
+				"texte": "(en)                      Memoirs of the \\c[2]traveling poet\\c[1]"
 			},
 			{
 				"nom": "Message",
@@ -668,35 +707,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 9,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 127,
-				"xDebutHeros": 5,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 1,
+		"nom": "Clone[341][002]",
+		"x": 8,
+		"y": 12
 	},
 	{
 		"id": 18,
@@ -726,21 +740,24 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 3,
-		"y": 5,
+		"id": 7,
+		"nom": "EV007",
+		"x": 9,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 127,
+				"xDebutHeros": 5,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -873,6 +890,34 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 3,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 10,
@@ -900,31 +945,6 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 20,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 860,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
 		}
 		]
 	},
@@ -1032,6 +1052,31 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 20,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 860,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 18,
@@ -1063,12 +1108,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][005]",
-		"x": 13,
-		"y": 15
-	},
-	{
 		"id": 15,
 		"nom": "Blocage anti-évènement",
 		"x": 21,
@@ -1091,6 +1130,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][005]",
+		"x": 13,
+		"y": 15
 	},
 	{
 		"id": 10,

@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -126,12 +126,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 8,
-		"y": 17
-	},
-	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 20,
@@ -161,6 +155,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 8,
+		"y": 17
 	},
 	{
 		"id": 11,
@@ -255,20 +255,16 @@
 				"numeroPageCommune": 21
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) \"They always come in twos or threes\\nsprinkling sparkles in the cool breeze.\\nThey dance around lost in their dreams.\\nThey follow you or so it seems...\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"On les voit par deux, par trois,\\nScintiller de 1000 éclats...\""
+				"texte": "\"On les voit par deux, par trois,\\nScintiller de mille éclats.\\nElles virevoltent très rêveuses,\\nElles te suivent trop curieuses.\""
 			},
 			{
-				"nom": "Message",
-				"texte": "\"...Elles virevoltent trés rêveuses,\\nElles te suivent trop curieuses.\""
+				"nom": "Commentaire",
+				"texte": "(en) Who are they?"
 			},
 			{
 				"nom": "Message",
@@ -278,6 +274,10 @@
 				"nom": "ModifierAvancementQuete",
 				"numero": 11,
 				"avancement": "CONNUE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The colored scales|The shrimps|The torches|The fireflies"
 			},
 			{
 				"nom": "Choix",
@@ -321,204 +321,8 @@
 				"numeroPageCommune": 88
 			},
 			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 11,
-				"avancement": "FAITE"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Of these places, they have the run,\\nThey sparkle with the brightness of a sun"
-			},
-			{
-				"nom": "Message",
-				"texte": "\"They twirl and dream happily\\nAnd follow you, how nosy !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Who are they ?"
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 11,
-				"avancement": "CONNUE"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Colored scales", "Shrimps", "Torches", "Fireflies"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "CHONP CHONP CHONP..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "058-Wrong02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Your answer is wrong !"
-			},
-			{
-				"nom": "Message",
-				"texte": "To punish you, I take you 100 scales !"
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 100
-			},
-			{
-				"nom": "Message",
-				"texte": "Nuh !"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "CHONP CHONP CHONP..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "058-Wrong02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Your answer is wrong !"
-			},
-			{
-				"nom": "Message",
-				"texte": "To punish you, I take you 100 scales !"
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 100
-			},
-			{
-				"nom": "Message",
-				"texte": "Nuh !"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "CHONP CHONP CHONP..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "058-Wrong02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Your answer is wrong !"
-			},
-			{
-				"nom": "Message",
-				"texte": "To punish you, I take you 100 scales !"
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 100
-			},
-			{
-				"nom": "Message",
-				"texte": "Nuh !"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "CHONP CHONP CHONP..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "056-Right02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Exactly !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Thus I offer you this :"
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 11,
-				"avancement": "FAITE"
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "MC_Bush.wav",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -529,11 +333,7 @@
 			},
 			{
 				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Deplacement",
@@ -585,10 +385,6 @@
 					"direction": 0
 				}
 				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -787,16 +583,22 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "Clone[582][1]",
+		"x": 14,
+		"y": 13
+	},
+	{
 		"id": 6,
 		"nom": "Clone[341][061]",
 		"x": 8,
 		"y": 10
 	},
 	{
-		"id": 17,
-		"nom": "Clone[582][1]",
-		"x": 14,
-		"y": 13
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 7,
+		"y": 11
 	},
 	{
 		"id": 12,
@@ -823,53 +625,33 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) You can talk to the \\c[2]chomping tree\\c[0], \\nit won't bite you."
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous pouvez parler au \\c[2]Chomping-Tree\\c[1],\\nil ne mord pas."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Prepare your piggybank though..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Préparez votre tirelire cependant..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "You can speak to the \\c[2]Chomping-Tree\\c[1],\\nit does not bite."
-			},
-			{
-				"nom": "Message",
-				"texte": "But prepare your piggybank !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -883,28 +665,16 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 7,
-		"y": 11
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][061]",
-		"x": 7,
-		"y": 14
-	},
-	{
 		"id": 18,
 		"nom": "Clone[582][1]",
 		"x": 10,
 		"y": 12
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 9
+		"id": 7,
+		"nom": "Clone[341][061]",
+		"x": 7,
+		"y": 14
 	},
 	{
 		"id": 13,
@@ -1051,36 +821,25 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "ModifierAvancementQuete",
+				"numero": 11,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get a Crystal of the Whale!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a magic piece of crystallized salt."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "You get a Crystal of the Whale !"
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a magic piece of crystallized salt."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -1117,6 +876,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1169,16 +932,44 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 9,
+		"y": 9
+	},
+	{
 		"id": 8,
 		"nom": "Clone[341][061]",
 		"x": 14,
 		"y": 9
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][028]",
-		"x": 16,
-		"y": 10
+		"id": 19,
+		"nom": "effacer annonce lieu",
+		"x": 13,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 14,
@@ -1211,13 +1002,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "MC_Bush.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "Sauter",
 					"x": 2,
@@ -1252,16 +1036,16 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 16,
+		"y": 10
+	},
+	{
 		"id": 9,
 		"nom": "Clone[341][061]",
 		"x": 17,
 		"y": 11
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 17,
-		"y": 14
 	},
 	{
 		"id": 15,
@@ -1293,6 +1077,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 17,
+		"y": 14
 	},
 	{
 		"id": 10,

@@ -62,7 +62,7 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0023,0023,-001,0023,0023,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0056,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -223,7 +223,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -837,28 +837,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) It's a treasure shell !"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est un coffrillage !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "It is a treasure shell !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -886,7 +870,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -985,7 +969,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1022,36 +1006,20 @@
 				"avancement": "CONNUE"
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) You find the score of the third impromptu \\nfrom the opus 90 by Franz Schubert."
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous trouvez la partition du troisième \\nimpromptu de l'opus 90 de Franz Schubert."
 			},
 			{
-				"nom": "Message",
-				"texte": "Seul un pianiste averti saura la déchiffrer."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) Only an experienced pianist will be able \\nto decypher it."
 			},
 			{
 				"nom": "Message",
-				"texte": "You got the score of the third impromptu from \\nthe opus 90 by Franz Schubert."
-			},
-			{
-				"nom": "Message",
-				"texte": "Only an experienced pianist will be able \\nto read it."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"texte": "Seul un musicien averti saura la déchiffrer."
 			},
 			{
 				"nom": "Attendre",
@@ -1108,21 +1076,13 @@
 				"valeur": false
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"image": "Palourde coffre character",
@@ -1153,60 +1113,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est vide."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "It is empty."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
 			},
 			{
 				"nom": "Attendre",

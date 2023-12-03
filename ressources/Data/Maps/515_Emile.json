@@ -81,6 +81,170 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Réglages initiaux",
+		"x": 16,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 2
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 0
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 5,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 6
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "Clone[341][028]",
 		"x": 10,
@@ -174,6 +338,106 @@
 		"y": 5
 	},
 	{
+		"id": 1,
+		"nom": "Emile",
+		"x": 9,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "afficher le triakitetraedre qui tourne"
+			},
+			{
+				"nom": "AfficherImage",
+				"numero": 1,
+				"nomImage": "ecran noir",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 125,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 259,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 9,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Here lie the remains of \\c[2]Emile, the copper child\\c[0], \\nso beloved by the people of Wissenburg.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Ci-gisent les restes d'\\c[2]Émile, l'enfant de \\ncuivre\\c[1], tant aimé des habitants de Wissenburg.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "effacer le triakitetraedre qui tourne"
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 259,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "Tetra_Sprite.vider_toutes_les_faces()"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "emile character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 12,
 		"nom": "Luciole",
 		"x": 11,
@@ -255,63 +519,49 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Emile",
-		"x": 9,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Ci-gisent les restes d'\\c[02]Emile, l'enfant de cuivre\\c[01],\\ntant aimé des habitants de Wissenburg.\""
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "emile character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 7,
 		"nom": "Clone[341][028]",
 		"x": 13,
 		"y": 12
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 9,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 230,
+				"xDebutHeros": 26,
+				"yDebutHeros": 17
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 13,
@@ -395,32 +645,41 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 9,
-		"y": 16,
+		"id": 8,
+		"nom": "Clone[341][157]",
+		"x": 5,
+		"y": 4
+	},
+	{
+		"id": 14,
+		"nom": "Poésie",
+		"x": 10,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 2
+				"nom": "ConditionObjetPossede",
+				"idObjet": 17,
+				"numero": 0
 			},
 			{
-				"nom": "EffacerImage",
-				"numero": 3
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
 			},
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 230,
-				"xDebutHeros": 26,
-				"yDebutHeros": 17
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -430,14 +689,343 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 14,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, \\n[1]!\\nWhat are you doing here?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh, \\n[1] ! \\nQu'est-ce que tu fais ici ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you know the story of \\c[2]Emile, the copper \\nchild\\c[0]?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu connais l'histoire d'\\c[2]Émile, l'enfant de \\ncuivre\\c[1] ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Rire.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's one of my favorite stories!"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est une de mes histoires préférées !"
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'll tell you:"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je te la raconte :"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"The \\c[2]inhabitants of Wissenburg\\c[0] were fed up \\nwith the herds of wild beasts, which regularly \\ntrampled their children."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Les \\c[2]habitants de Wissenburg\\c[1] étaient excédés \\npar les troupeaux de bêtes sauvages, \\nqui piétinaient régulièrement leurs enfants."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No one dared to let their child go out to play \\nin the street anymore."
+			},
+			{
+				"nom": "Message",
+				"texte": "Plus personne n'osait laisser son enfant sortir \\njouer dans la rue."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) One day, when another child was trampled \\nby a herd of wild beasts, \\c[2]the people\\c[0] gathered \\nin front of the town hall in a rage."
+			},
+			{
+				"nom": "Message",
+				"texte": "Un jour, lorsqu'un énième enfant fut \\nécrabouillé par un troupeau de bêtes sauvages, \\nles \\c[2]habitants\\c[1], fous de rage, se rassemblèrent\\ndevant l'hôtel de ville."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) They demanded a solution from \\c[2]Don Flatus \\nthe burgomaster\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ils réclamèrent une solution au bourgmestre \\n\\c[2]Don Flatus\\c[1]."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Don Flatus\\c[0] promised to solve the problem, \\nand the villagers returned home."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le bourgmestre \\c[2]Don Flatus\\c[1] leur promit\\nde régler le problème, et les \\c[2]villageois\\c[1] \\nrentrèrent chez eux."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Don Flatus\\c[0] had the following idea: \\nto have a child of metal forged in the fire \\nof the Braenshwyck forges, which would be \\nresistant to the herds of wild beasts."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Don Flatus\\c[1] eût l'idée suivante : faire forger \\ndans le feu des forges de Braënshwyck \\nun enfant de métal, qui serait résistant \\naux troupeaux de bêtes sauvages."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Rire.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Thus was forged \\c[2]Emile, the child of copper\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ainsi fut forgé \\c[2]Émile, l'enfant de cuivre\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) At first dubious about this solution, \\nthe villagers eventually became attached \\nto Emile, who was very kind and helpful."
+			},
+			{
+				"nom": "Message",
+				"texte": "Au début dubitatifs quant à cette solution, \\nles \\c[2]villageois\\c[1] finirent par s'attacher à \\c[2]Émile\\c[1], \\nqui était très gentil et très serviable."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's even said that he was the best of children."
+			},
+			{
+				"nom": "Message",
+				"texte": "On dit même qu'il était le meilleur des enfants."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie genee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Unfortunately, one day, a herd of wild animals \\ncrossed Wissenburg, and trampled on Emile, \\nwho was leaving the bakery with a pastry box."
+			},
+			{
+				"nom": "Message",
+				"texte": "Hélas, un jour, un troupeau de bêtes sauvages \\ntraversa Wissenburg, et piétina \\c[2]Émile\\c[1], \\nqui sortait de la boulangerie avec une boîte de \\npâtisseries."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie triste\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) In the main street lay the trampled pastries \\nand copper debris."
+			},
+			{
+				"nom": "Message",
+				"texte": "Dans la grand rue gisaient les pâtisseries \\npiétinées et des débris de cuivre."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]The villagers\\c[0] were very sad, \\nthen very angry."
+			},
+			{
+				"nom": "Message",
+				"texte": "Les \\c[2]villageois\\c[1] furent très tristes, puis très \\nen colère."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) They went to the town hall to call \\nthe burgomaster \\c[2]Don Flatus\\c[0] to account \\nfor lying to them."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ils se rendirent à l'hôtel de ville pour \\ndemander des comptes au bourgmestre \\n\\c[2]Don Flatus\\c[1], qui leur avait menti."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Don Flatus\\c[0] nonchalantly spread beautiful \\npromises and beautiful words to them again,\\nbut the inhabitants of Wissenburg did not hear \\nthis nonsense anymore."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Don Flatus\\c[1] leur étala nonchalamment \\nà nouveau des belles promesses et des belles \\nparoles, mais les \\c[2]habitants\\c[1] de Wissenburg\\nn'entendaient plus ces fadaises."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Don Flatus\\c[0] was thrown into the flames \\nof the Braenshwyck forges."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Don Flatus\\c[1] fut jeté dans les flammes \\ndes forges de Braënshwyck."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's said that his turpid soul still wanders \\nin the foundries...\""
+			},
+			{
+				"nom": "Message",
+				"texte": "On raconte que son âme turpide erre toujours\\ndans les fonderies...\""
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Rire.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There you go!\\nYou know the whole story!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Voilà ! \\nTu connais toute l'histoire !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is what I managed to reconstruct \\nfrom the fragments found here and there."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est ce que j'ai réussi à reconstituer à partir \\ndes fragments trouvés çà et là."
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "Poésie character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][157]",
-		"x": 5,
-		"y": 4
 	},
 	{
 		"id": 3,
@@ -452,6 +1040,44 @@
 		"y": 11
 	},
 	{
+		"id": 15,
+		"nom": "triche",
+		"x": 12,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) bvxnxbvx"
+			},
+			{
+				"nom": "Message",
+				"texte": "bvxnxbvx"
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 17,
+				"variable": false,
+				"quantite": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 4,
 		"nom": "Clone[341][028]",
 		"x": 7,
@@ -460,8 +1086,8 @@
 	{
 		"id": 10,
 		"nom": "EV010",
-		"x": 2,
-		"y": 1,
+		"x": 0,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [

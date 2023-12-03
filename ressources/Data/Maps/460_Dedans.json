@@ -17,14 +17,14 @@
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0800,0801,0801,0801,0801,0802,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0808,-007,-007,-007,-007,0810,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0808,-007,-007,-007,-007,0810,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0808,-007,-007,-007,-007,0810,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0808,0541,0000,0053,0817,0818,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0816,0711,0817,0818,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0800,0801,0801,0801,0801,0801,0801,0802,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0016,0010,0010,0010,0010,0022,0810,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0024,-007,-007,-007,-007,0030,0810,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0024,-007,-007,-007,-007,0030,0810,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0024,-007,-007,-007,-007,0030,0810,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0024,0541,0000,0053,0058,0054,0810,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0057,0711,0058,0054,0053,0817,0818,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0816,0817,0817,0817,0817,0818,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
@@ -90,28 +90,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) It's a treasure shell!"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est un coffrillage !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "It is a treasure shell !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -139,7 +123,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -238,7 +222,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -275,36 +259,20 @@
 				"avancement": "CONNUE"
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) You find the score of the piano concerto in G \\nby Maurice Ravel."
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous trouvez la partition du concerto \\npour piano en sol de Maurice Ravel."
 			},
 			{
-				"nom": "Message",
-				"texte": "Seul un pianiste averti saura la déchiffrer."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) Only an experienced musician will be able \\nto decipher it."
 			},
 			{
 				"nom": "Message",
-				"texte": "You got the score of the piano concerto in G\\nby Maurice Ravel."
-			},
-			{
-				"nom": "Message",
-				"texte": "Only an experienced pianist will be able \\nto read it."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"texte": "Seul un musicien averti saura la déchiffrer."
 			},
 			{
 				"nom": "Attendre",
@@ -361,21 +329,13 @@
 				"valeur": false
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"image": "Palourde coffre character",
@@ -406,60 +366,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est vide."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "It is empty."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
 			},
 			{
 				"nom": "Attendre",
@@ -501,7 +413,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 409,
 				"xDebutHeros": 13,
-				"yDebutHeros": 7
+				"yDebutHeros": 8
 			}
 			],
 			"vitesse": "moderee",

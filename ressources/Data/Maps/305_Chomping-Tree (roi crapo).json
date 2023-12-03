@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -144,6 +144,9 @@
 				"zoom": 100,
 				"nuance": 0,
 				"nomImage": "obscurité énigme fog"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -256,19 +259,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"He's so noble and so great,\\nBut he begs you, his subject."
+				"texte": "(en) \"Despite his high rank he becked\\nToward you, a mere subject.\\nAlways in rhymes unsparing,\\nOf the bog he is the king.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Aussi noble et grand soit-il,\\nIl te supplie, toi, son sujet.\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) In his rhymes unsparing,\\nOf the bog he's the king.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"La strophe grasse, le vers fertile,\\nLe font souverain des marais.\""
+				"texte": "\"Aussi noble et grand soit-il,\\nIl te supplie, toi, sujet !\\nStrophe grasse et vers fertile,\\nEn font le roi des marais.\""
 			},
 			{
 				"nom": "Commentaire",
@@ -285,11 +280,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\c[2]King Flivouille\\c[1]|\\c[2]Tabula the Terrible\\c[1]|The great \\c[2]Pozzo\\c[1]|\\c[2]Toadlebeorth of Swampland\\c[1]"
+				"texte": "(en) \\c[2]King Flivouille\\c[1]|A \\c[2]chomping tree\\c[1]|The great \\c[2]Pozzo\\c[1]|\\c[2]King Toadlebeorth of Swampland\\c[1]"
 			},
 			{
 				"nom": "Choix",
-				"alternatives": ["Le \\c[02]roi Flivouille\\c[01]", "\\c[02]Tabula le Terrible\\c[01]", "Le grand \\c[02]Pozzo\\c[01]", "Le \\c[02]roi Crapo 1er\\c[01]"],
+				"alternatives": ["Le \\c[2]roi Flivouille\\c[1]", "Un \\c[2]chomping tree\\c[1]", "Le grand \\c[2]Pozzo\\c[1]", "Le \\c[2]roi Crapo 1er\\c[1]"],
 				"numero": 0
 			},
 			{
@@ -332,6 +327,12 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -392,10 +393,6 @@
 					"direction": 0
 				}
 				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -600,12 +597,6 @@
 		"y": 10
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 9
-	},
-	{
 		"id": 12,
 		"nom": "Pancarte",
 		"x": 12,
@@ -631,7 +622,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You can talk to the \\c[2]Chomping tree\\c[1]\\nit doesn't bite."
+				"texte": "(en) You can talk to the \\c[2]chomping tree\\c[0], \\nit won't bite you."
 			},
 			{
 				"nom": "Message",
@@ -668,6 +659,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 9,
+		"y": 9
 	},
 	{
 		"id": 7,
@@ -820,17 +817,25 @@
 				]
 			},
 			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 53,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get a Crystal of the Whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
 			},
 			{
-				"nom": "Message",
-				"texte": "C'est un superbe morceau de sel magique \\ncristallisé !"
+				"nom": "Commentaire",
+				"texte": "(en) This is a magic piece of crystallized salt."
 			},
 			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 53,
-				"avancement": "FAITE"
+				"nom": "Message",
+				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
 			},
 			{
 				"nom": "Attendre",
@@ -867,6 +872,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -961,13 +970,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "MC_Bush.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "Sauter",
 					"x": 2,

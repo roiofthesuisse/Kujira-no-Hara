@@ -111,26 +111,56 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 0,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 2,
+				"xDebutHeros": 33,
+				"yDebutHeros": 14
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Clone[341][001]",
+		"x": 13,
+		"y": 25
+	},
+	{
 		"id": 27,
-		"nom": "EV027",
-		"x": 24,
-		"y": 18,
+		"nom": "placer pancarte sirene",
+		"x": 20,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
 			],
 			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
@@ -185,6 +215,38 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 28,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "panneau pub character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 29,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "panneau pub character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
 				"nom": "ConditionFin",
 				"numero": 1
 			},
@@ -207,16 +269,10 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][001]",
-		"x": 13,
-		"y": 25
-	},
-	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 0,
-		"y": 14,
+		"id": 11,
+		"nom": "EV011",
+		"x": 24,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -226,15 +282,11 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 2,
-				"xDebutHeros": 33,
-				"yDebutHeros": 14
+				"numeroNouvelleMap": 260,
+				"xDebutHeros": 1,
+				"yDebutHeros": 18
 			}
 			],
 			"vitesse": "moderee",
@@ -285,43 +337,6 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 24,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 260,
-				"xDebutHeros": 1,
-				"yDebutHeros": 18
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][001]",
-		"x": 10,
-		"y": 20
-	},
-	{
 		"id": 6,
 		"nom": "EV006",
 		"x": 0,
@@ -357,25 +372,24 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 24,
-		"y": 4,
+		"id": 17,
+		"nom": "Clone[341][001]",
+		"x": 10,
+		"y": 20
+	},
+	{
+		"id": 28,
+		"nom": "panneau sirene",
+		"x": 16,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 260,
-				"xDebutHeros": 1,
-				"yDebutHeros": 19
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -386,12 +400,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][043]",
-		"x": 17,
-		"y": 19
 	},
 	{
 		"id": 23,
@@ -418,28 +426,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) This is a treasure shell!"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est un coffrillage !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "It is a treasure shell !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -467,7 +459,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -566,7 +558,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -598,36 +590,20 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) You got the clam of the deep!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous trouvez une palourde !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) To a geographer it means that there is \\na sea in this area..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Cela prouverait à tout bon géographe \\nla présence d'une mer pas très loin..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "You got the clam of the deep !"
-			},
-			{
-				"nom": "Message",
-				"texte": "To a geographer it means that there is \\na sea in the area..."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
 			},
 			{
 				"nom": "Attendre",
@@ -675,17 +651,8 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -725,28 +692,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est vide."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "It's empty."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -771,96 +722,38 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Coccinelle rouge",
-		"x": 18,
-		"y": 8,
+		"id": 1,
+		"nom": "Clone[341][043]",
+		"x": 17,
+		"y": 19
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 24,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Epée.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 33,
+				"nom": "ChangerDeMap",
 				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "coccinelles petites character",
-			"opacite": 200,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 18,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
+				"numeroNouvelleMap": 260,
+				"xDebutHeros": 1,
+				"yDebutHeros": 19
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -901,10 +794,40 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[21][3]",
-		"x": 14,
-		"y": 17
+		"id": 29,
+		"nom": "panneau sirene",
+		"x": 10,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "Clone[582][50]",
+		"x": 18,
+		"y": 8
+	},
+	{
+		"id": 24,
+		"nom": "Clone[341][002]",
+		"x": 11,
+		"y": 10
 	},
 	{
 		"id": 2,
@@ -938,16 +861,16 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Clone[341][002]",
-		"x": 11,
-		"y": 10
+		"id": 13,
+		"nom": "Clone[21][3]",
+		"x": 14,
+		"y": 17
 	},
 	{
-		"id": 30,
-		"nom": "Pancarte PUB",
-		"x": 24,
-		"y": 15,
+		"id": 8,
+		"nom": "Pancarte",
+		"x": 11,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -968,12 +891,114 @@
 				"valeur": true
 			},
 			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 Source of the \\c[2]mermaid\\c[0]\\n\\u2190 House of the \\c[2]wizard Ovose\\c[0]\\n\\u2193 Ibukuro sea"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2191 Source de la \\c[2]sirène\\c[1]\\n\\u2190 Maison du \\c[2]magicien Dose\\c[1]\\n\\u2193 Mer d'Ibukuro"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 Spring of the \\c[2]mermaid\\c[0]\\n\\u2190 \\c[2]Wizard Ovose\\c[0]'s house\\n\\u2193 Ibukuro sea"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2191 Spring of the \\c[2]mermaid\\c[1]\\n\\u2190 \\c[2]Wizard Ovose\\c[1]'s house\\n\\u2193 Ibukuro sea"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][008]",
+		"x": 18,
+		"y": 24
+	},
+	{
+		"id": 30,
+		"nom": "Pancarte PUB",
+		"x": 19,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You don't know what to do with\\nall your money?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous ne savez pas quoi faire de tout \\nvotre argent ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Come and donate at the \\c[2]mermaid\\c[0]'s spring!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Venez faire un don à la source de la \\c[02]sirène\\c[01] !"
+				"texte": "Venez faire un don à la source de la \\c[2]sirène\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The most generous will be rewarded."
 			},
 			{
 				"nom": "Message",
@@ -1010,100 +1035,6 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][008]",
-		"x": 18,
-		"y": 24
-	},
-	{
-		"id": 8,
-		"nom": "Pancarte",
-		"x": 11,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ Source de la \\c[02]sirène\\c[01]\\n< Maison du \\c[02]magicien Dose\\c[01]\\nV Mer d'Ibukuro"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ Spring of the \\c[02]mermaid\\c[01]\\n< \\c[02]Wizard Ovose\\c[01]'s house\\nV Ibukuro sea"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[21][3]",
-		"x": 12,
-		"y": 19
-	},
-	{
-		"id": 25,
-		"nom": "Clone[1][29]",
-		"x": 12,
-		"y": 10
-	},
-	{
 		"id": 3,
 		"nom": "EV003",
 		"x": 24,
@@ -1135,24 +1066,36 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "EV020",
-		"x": 6,
-		"y": 22,
+		"id": 25,
+		"nom": "Clone[1][29]",
+		"x": 12,
+		"y": 10
+	},
+	{
+		"id": 14,
+		"nom": "Clone[21][3]",
+		"x": 12,
+		"y": 19
+	},
+	{
+		"id": 31,
+		"nom": "Annonce du Lieu",
+		"x": 24,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 611,
-				"xDebutHeros": 9,
-				"yDebutHeros": 4
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -1201,126 +1144,24 @@
 		]
 	},
 	{
-		"id": 31,
-		"nom": "Annonce du Lieu",
-		"x": 19,
-		"y": 15,
+		"id": 20,
+		"nom": "EV020",
+		"x": 6,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 20,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AfficherImage",
-				"numero": 9,
-				"nomImage": "AnnonceLieu Dose",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 611,
+				"xDebutHeros": 9,
+				"yDebutHeros": 4
 			}
 			],
 			"vitesse": "moderee",
@@ -1334,10 +1175,10 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "Clone[1][28]",
+		"id": 15,
+		"nom": "Clone[341][001]",
 		"x": 12,
-		"y": 11
+		"y": 25
 	},
 	{
 		"id": 4,
@@ -1371,16 +1212,10 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][001]",
+		"id": 26,
+		"nom": "Clone[1][28]",
 		"x": 12,
-		"y": 25
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][043]",
-		"x": 21,
-		"y": 7
+		"y": 11
 	},
 	{
 		"id": 21,
@@ -1405,6 +1240,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][043]",
+		"x": 21,
+		"y": 7
 	}
 	]
 }

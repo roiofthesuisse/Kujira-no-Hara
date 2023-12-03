@@ -4,8 +4,8 @@
 	"largeur": 45,
 	"hauteur": 36,
 	"musique": {
-		"nomFichierSonore": "Village des Colibris.mp3",
-		"volume": 1.00,
+		"nomFichierSonore": "Village des Colibris.ogg",
+		"volume": 0.90,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -428,7 +428,7 @@
 	{
 		"id": 11,
 		"nom": "EV011",
-		"x": 43,
+		"x": 44,
 		"y": 23,
 		"pages": [
 		{
@@ -489,16 +489,32 @@
 				"script": "$game_temp.faceset = \"colibri vert\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I have the honor of guarding the palace \\nof \\c[2]King Flivouille\\c[0]!"
+			},
+			{
 				"nom": "Message",
-				"texte": "J'ai l'honneur de garder le palais du \\c[02]roi \\nFlivouille\\c[01] !"
+				"texte": "J'ai l'honneur de garder le palais du \\c[2]roi \\nFlivouille\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you go in there, you'll have trouble \\nfinding your way around because it's so big!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Si tu entres dedans, tu vas avoir du mal à \\nte repérer tellement il est grand !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There is a map, but it has been sold \\nto the \\c[2]great Pozzo\\c[0], a swamp nobleman."
 			},
 			{
 				"nom": "Message",
@@ -609,7 +625,7 @@
 	{
 		"id": 17,
 		"nom": "Réglages initiaux",
-		"x": 42,
+		"x": 41,
 		"y": 21,
 		"pages": [
 		{
@@ -695,6 +711,10 @@
 			},
 			{
 				"nom": "AjouterGadget",
+				"idGadget": 2
+			},
+			{
+				"nom": "AjouterGadget",
 				"idGadget": 1
 			},
 			{
@@ -710,12 +730,8 @@
 				"quantite": 10
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -748,6 +764,14 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -954,12 +978,24 @@
 				"script": "$game_temp.faceset = \"colibri vert\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]Hummingbirds\\c[0] are very grateful \\nto \\c[2]King Flivouille\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "Les Colibris sont très reconnaissants au \\n\\c[02]roi Flivouille\\c[01]..."
+				"texte": "Les Colibris sont très reconnaissants au \\n\\c[2]roi Flivouille\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This grandiose palace built for him \\nis the proof!"
 			},
 			{
 				"nom": "Message",
@@ -1091,7 +1127,7 @@
 	},
 	{
 		"id": 24,
-		"nom": "Colibri",
+		"nom": "Colibri gouverneurs",
 		"x": 29,
 		"y": 26,
 		"pages": [
@@ -1116,8 +1152,20 @@
 				"script": "$game_temp.faceset = \"colibri bleu\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello !"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you know the governors of Kujira?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -1134,6 +1182,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, you already know everything!\\nI thought I would impress you by reciting them \\nto you."
+			},
+			{
 				"nom": "Message",
 				"texte": "Oh, tu sais déjà tout !\\nJe pensais t'impressionner en te les récitant."
 			},
@@ -1143,24 +1195,52 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The governor of Ovose country is \\c[2]Methuselah\\c[0].\\nThe governor of the red Vikings' country is \\n\\c[2]Tabula the terrible\\c[0]."
+			},
+			{
 				"nom": "Message",
 				"texte": "Le gouverneur de la contrée Dose est \\n\\c[2]Mathusalem\\c[0].\\nLe gouverneur de la contrée viking rouge est \\n\\c[2]Tabula le terrible\\c[0]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The governor of the western forest is \\nour beloved \\c[2]King Flivouille\\c[0].\\nThe Governor of the yellow Vikings' country \\nis \\c[2]Grunthild the fearless\\c[0]."
 			},
 			{
 				"nom": "Message",
 				"texte": "Le gouverneur de la forêt de l'Ouest est \\nnotre \\c[2]bienaimé roi Flivouille\\c[0].\\nLe gouverneur de la contrée viking jaune est \\n\\c[2]Groniass l'Intrépide\\c[0]."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The governor of the aquatic plains is \\nthe \\c[2]Shaman\\c[0].\\nThe governor of the vast caves is \\c[2]Katchapou\\c[0] \\nthe stone being."
+			},
+			{
 				"nom": "Message",
 				"texte": "Le gouverneur des plaines aquatiques est\\nla \\c[2]chamane de l'Ouest\\c[0].\\nLe gouverneur des grandes grottes est\\n\\c[2]Katchapou le caillouteux\\c[0]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I don't think the Ibukuro sea or the desert \\nhas a governor..."
 			},
 			{
 				"nom": "Message",
 				"texte": "Je ne crois pas que la mer d'Ibukuro \\nni le désert n'aient de gouverneur..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Our beloved \\c[2]king Flivouille\\c[0] is governor \\nof governors!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Notre bienaimé \\c[2]roi Flivouille\\c[1] est gouverneur \\ndes gouverneurs !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (Even if the constitution gives him some powers\\nonly in case of a major crisis.)"
+			},
+			{
+				"nom": "Message",
+				"texte": "(Même si la constitution ne lui donne \\ndes pouvoirs qu'en cas de crise majeure.)"
 			},
 			{
 				"nom": "ChoixFin",
@@ -1249,12 +1329,20 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Old village: \\nno house \\nwithout its persimmon.\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Vieux village :\\npas une maison\\nsans son kaki.\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[0]"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
 			},
 			{
 				"nom": "Attendre",
@@ -1301,8 +1389,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) TAMAGO: VILLAGE OF THE \\c[2]HUMMINGBIRDS\\c[0]\\n\\u2192 Glade of \\c[2]Methuselah\\c[0]"
+			},
+			{
 				"nom": "Message",
-				"texte": "TAMAGO : VILLAGE DES COLIBRIS\\n> Clairière de \\c[02]Mathusalem\\c[01]"
+				"texte": "TAMAGO : VILLAGE DES COLIBRIS\\n\\u2192 Clairière de \\c[2]Mathusalem\\c[1]"
 			},
 			{
 				"nom": "Attendre",
@@ -1703,7 +1795,7 @@
 	},
 	{
 		"id": 31,
-		"nom": "Colibri",
+		"nom": "Colibri democratie",
 		"x": 17,
 		"y": 27,
 		"pages": [
@@ -1728,20 +1820,40 @@
 				"script": "$game_temp.faceset = \"colibri jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]King Flivouille\\c[0], fearing a repeat \\nof the tragedy of the \\c[2]Frog people\\c[0],\\nhas ceded all his power to \\c[2]his people\\c[0]."
 			},
 			{
 				"nom": "Message",
 				"texte": "Le \\c[2]roi Flivouille\\c[0], de peur que se reproduise\\nla tragédie du \\c[2]peuple Grenouille\\c[0], a cédé \\ntout son pouvoir au \\c[2]peuple Colibri\\c[0]."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]Hummingbirds\\c[0] now send their ideas \\nfor laws to the palace by mail."
+			},
+			{
 				"nom": "Message",
 				"texte": "Les \\c[2]Colibris\\c[0] envoient dorénavant par courrier \\nleurs idées de lois au palais."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The civil servants write them, \\nthen they are voted by all by mail."
+			},
+			{
 				"nom": "Message",
 				"texte": "Les fonctionnaires les rédigent, puis elles sont \\nvotées par tous par courrier."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]King Flivouille\\c[0] is convinced that \\nconcentrating all the power of a nation \\non one person would be a great risk."
 			},
 			{
 				"nom": "Message",
@@ -1999,6 +2111,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 32,
+		"nom": "Clone[582][53]",
+		"x": 14,
+		"y": 23
 	}
 	]
 }

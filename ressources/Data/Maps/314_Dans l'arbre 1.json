@@ -112,6 +112,34 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "effacer annonce lieu",
+		"x": 13,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 1,
 		"nom": "Clone[341][006]",
 		"x": 11,
@@ -127,10 +155,6 @@
 			"conditions": [
 			],
 			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 1,
@@ -231,12 +255,8 @@
 				"quantite": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -269,6 +289,14 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "EffacerImage",

@@ -66,6 +66,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][172]",
+		"x": 14,
+		"y": 3
+	},
+	{
 		"id": 16,
 		"nom": "neige",
 		"x": 2,
@@ -91,16 +97,16 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][172]",
-		"x": 14,
-		"y": 3
-	},
-	{
 		"id": 11,
 		"nom": "Clone[341][023]",
 		"x": 8,
 		"y": 13
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][171]",
+		"x": 14,
+		"y": 9
 	},
 	{
 		"id": 17,
@@ -124,79 +130,6 @@
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][171]",
-		"x": 14,
-		"y": 9
-	},
-	{
-		"id": 1,
-		"nom": "eternuement",
-		"x": 3,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "TremblementDeTerre",
-				"intensite": 3,
-				"vitesse": 7,
-				"nombreDeFrames": 166
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "yeti eternue.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 166
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 1,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	},
@@ -495,6 +428,104 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "eternuement",
+		"x": 3,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "TremblementDeTerre",
+				"intensite": 3,
+				"vitesse": 7,
+				"nombreDeFrames": 166
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "yeti eternue.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 166
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 1,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "EV007",
+		"x": 13,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 594,
+				"xDebutHeros": 13,
+				"yDebutHeros": 2
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 18,
 		"nom": "neige",
 		"x": 3,
@@ -527,9 +558,9 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 13,
+		"id": 2,
+		"nom": "EV002",
+		"x": 3,
 		"y": 14,
 		"pages": [
 		{
@@ -543,8 +574,8 @@
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 594,
-				"xDebutHeros": 13,
-				"yDebutHeros": 2
+				"xDebutHeros": 3,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -583,37 +614,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 3,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 594,
-				"xDebutHeros": 3,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 14,
@@ -639,31 +639,6 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "neige",
-		"x": 3,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 13,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -724,6 +699,31 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "neige",
+		"x": 3,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 13,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "Stèle",
 		"x": 18,
@@ -746,6 +746,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The mirrors swivel."
 			},
 			{
 				"nom": "Message",
@@ -776,6 +780,12 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "Clone[572][13]",
+		"x": 8,
+		"y": 9
+	},
+	{
 		"id": 15,
 		"nom": "neige",
 		"x": 4,
@@ -799,12 +809,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[572][13]",
-		"x": 8,
-		"y": 9
 	},
 	{
 		"id": 10,

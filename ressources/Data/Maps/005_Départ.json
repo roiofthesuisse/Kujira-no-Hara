@@ -111,10 +111,570 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "conteneur (12)",
+		"x": 14,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "pierre du jizo possédée = la scène du sacrifice a été vue\\nle diamant a été vu = poésie sort de sa convalescence"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 54,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionGadgetPossede",
+				"idGadget": 4,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y >= 14",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "conteneur character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Poésie theme 4.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 0,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 21,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So, \\c[2]Rebeca\\c[1], what is it this time?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Alors, \\c[2]Rebeca\\c[1], qu'est-ce que c'est cette fois-ci ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Let me see..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Voyons voir..."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum gonfle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That's just a bunch of magazines \\nwith naked ladies."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est que des magazines avec des madames \\ntoutes nues."
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 21,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 22,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie genee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Eh!\\nBut what for?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Hein ! \\nMais pour quoi faire ?"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ricane khuhu.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Well!\\nTo look at!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bah ! \\nPour regarder !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) One day, \\c[2]Poesy\\c[1], we'll need to have \\na big conversation alone and I will explain \\nall these things to you."
+			},
+			{
+				"nom": "Message",
+				"texte": "Un jour, \\c[2]Poésie\\c[1], il faudra qu'on ait \\nune grande conversation seule à seule \\net je t'expliquerai toutes ces choses-là."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No, but I mean, \\nwhy did \\c[2]Kujira\\c[1] eat that?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Non, mais je veux dire, pourquoi est-ce que \\n\\c[2]Kujira\\c[1] a avalé ça ?"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum eclate.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'm kidding: actually these are just volumes\\nof \\c[2]Wann Piss the pirate\\c[1]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je plaisante : en fait, c'est juste des tomes \\nde \\c[2]Wann Piss le pirate\\c[1]."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 21,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 22,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Wann Piss the pirate\\c[1]?!\\nNice!\\nWhich volume?"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Wann Piss le pirate\\c[1] ?!\\nSuper !\\nQuel tome ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Volume 58."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le tome 58."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hah.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Volume 58?\\nBut... we already have this one..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le tome 58 ?\\nMais... on l'a déjà..."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Volume 58?\\nAre you sure that there is no volume 26\\nor volume 57?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le tome 58 ?\\nTu es sûre qu'il n'y a pas le tome 26 \\nou bien le tome 57 ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Nope.\\nThese are only volumes 58.\\nHundreds of volumes 58."
+			},
+			{
+				"nom": "Message",
+				"texte": "Nan.\\nC'est que des tomes 58. \\nDes centaines de tomes 58."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie triste\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Too bad..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tant pis..."
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 60
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We'll wait for the next container."
+			},
+			{
+				"nom": "Message",
+				"texte": "On attendra le prochain conteneur."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 3,
+				"nombreDeCarreaux": 3,
+				"vitesse": "normale"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 158,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "conteneur character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "conteneur character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "Clone[341][001]",
 		"x": 11,
 		"y": 11
+	},
+	{
+		"id": 22,
+		"nom": "fiolin",
+		"x": 18,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Last time there were some scores at least."
+			},
+			{
+				"nom": "Message",
+				"texte": "La dernière fois, il y avait quelques partitions \\nau moins."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "Fiolin character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 11,
@@ -123,10 +683,183 @@
 		"y": 0
 	},
 	{
+		"id": 17,
+		"nom": "rebeca",
+		"x": 16,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum gonfle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Kujira\\c[1] really swallows anything."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Kujira\\c[1] avale vraiment n'importe quoi."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 21,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's not nice to say that to \\c[2]\\n[1]\\c[1],\\n\\c[2]Rebeca\\c[1]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ça n'est pas gentil de dire ça à \\c[2]\\n[1]\\c[1],\\n\\c[2]Rebeca\\c[1] !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oops, not on purpose!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oups, pas fait exprès !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) With your high IQ, it's not possible \\nthat you haven't thought of it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Avec ton gros QI, ça n'est pas possible \\nque tu n'y aies pas pensé !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum eclate.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "rebeca character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "Clone[341][006]",
 		"x": 19,
 		"y": 14
+	},
+	{
+		"id": 12,
+		"nom": "Clone[5][10]",
+		"x": 12,
+		"y": 0
 	},
 	{
 		"id": 1,
@@ -135,9 +868,257 @@
 		"y": 18
 	},
 	{
-		"id": 12,
+		"id": 23,
+		"nom": "couvercle",
+		"x": 14,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "pierre du jizo possédée = la scène du sacrifice a été vue\\nle diamant a été vu = poésie sort de sa convalescence"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 54,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionGadgetPossede",
+				"idGadget": 4,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 2
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 16,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 24,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 21,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 22,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 23,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 16,
+				"idAnimation": 6
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": -5,
+					"y": 2
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"image": "conteneur character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 23,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "TeleporterEvent",
+				"variable": false,
+				"nouveauX": 9,
+				"nouveauY": 17,
+				"direction": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 166
+			}
+			],
+			"image": "conteneur character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 18,
 		"nom": "Clone[5][10]",
-		"x": 12,
+		"x": 11,
 		"y": 0
 	},
 	{
@@ -147,9 +1128,9 @@
 		"y": 15
 	},
 	{
-		"id": 18,
+		"id": 13,
 		"nom": "Clone[5][10]",
-		"x": 11,
+		"x": 13,
 		"y": 0
 	},
 	{
@@ -185,9 +1166,35 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 24,
+		"nom": "blocage",
+		"x": 15,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "conteneur character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
 		"nom": "Clone[5][10]",
-		"x": 13,
+		"x": 14,
 		"y": 0
 	},
 	{
@@ -211,6 +1218,14 @@
 				"nombreDeFrames": 30
 			},
 			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
 				"nom": "AfficherImage",
 				"numero": 12,
 				"nomImage": "chargement picture",
@@ -222,6 +1237,27 @@
 				"zoomY": 100,
 				"opacite": 255,
 				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "AfficherImage",
+				"numero": 12,
+				"nomImage": "chargement picture EN",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 255,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -265,7 +1301,7 @@
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 1,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ModifierVariable",
@@ -287,12 +1323,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -305,18 +1337,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
 				{
 					"nom": "ModifierApparence",
 					"image": "Jiyounasu character",
@@ -385,9 +1405,138 @@
 		]
 	},
 	{
-		"id": 19,
+		"id": 25,
+		"nom": "effacer scene conteneur",
+		"x": 15,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 158,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 23,
+				"variable": false,
+				"nouveauX": 9,
+				"nouveauY": 17,
+				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 16,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "conteneur character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 21,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 22,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
 		"nom": "Clone[5][10]",
-		"x": 14,
+		"x": 15,
 		"y": 0
 	},
 	{
@@ -397,9 +1546,9 @@
 		"y": 15
 	},
 	{
-		"id": 14,
+		"id": 20,
 		"nom": "Clone[5][10]",
-		"x": 15,
+		"x": 17,
 		"y": 0
 	},
 	{
@@ -449,9 +1598,9 @@
 		]
 	},
 	{
-		"id": 20,
+		"id": 15,
 		"nom": "Clone[5][10]",
-		"x": 17,
+		"x": 16,
 		"y": 0
 	},
 	{
@@ -461,10 +1610,143 @@
 		"y": 14
 	},
 	{
-		"id": 15,
-		"nom": "Clone[5][10]",
-		"x": 16,
-		"y": 0
+		"id": 21,
+		"nom": "poesie",
+		"x": 17,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Rire.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you read the adventures of Wann Piss \\nthe pirate, come to our secret base, \\nin the middle of the Ibukuro Sea, \\nwe have almost all the volumes!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Si tu lis les aventures de Wann Piss le pirate, \\npasse à notre base secrète, \\nau milieu de la mer d'Ibukuro, \\non a presque tous les tomes !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum gonfle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you tell everyone where our secret base is, \\nit won't be secret for much longer..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si tu dis à tout le monde où se trouve \\nnotre base secrète, elle ne sera plus secrète \\ntrès longtemps..."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's okay, \\c[2]Rebeca\\c[1], it's \\c[2]\\n[1]\\c[1], \\nwe can integrate him into our group, right?"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est bon, \\c[2]Rebeca\\c[1], c'est \\c[2]\\n[1]\\c[1],\\non peut l'intégrer à notre bande, non ?"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum eclate.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "Poésie character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 10,

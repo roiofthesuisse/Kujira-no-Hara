@@ -5,7 +5,7 @@
 	"hauteur": 30,
 	"musique": {
 		"nomFichierSonore": "Nouveaux Chemins.ogg",
-		"volume": 1.00,
+		"volume": 0.90,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -1534,6 +1534,37 @@
 		"y": 13
 	},
 	{
+		"id": 47,
+		"nom": "Annonce du Lieu",
+		"x": 0,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 36,
 		"nom": "Clone[341][061]",
 		"x": 11,
@@ -2237,6 +2268,10 @@
 				"texte": "Ah ! Tu m'as trouvé !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
 				"nom": "Message",
 				"texte": "..."
 			},
@@ -2333,7 +2368,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (c'est parti !).mid",
+				"nomFichierSonore": "fanfare (c'est parti !).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},

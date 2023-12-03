@@ -126,6 +126,12 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[341][061]",
+		"x": 21,
+		"y": 18
+	},
+	{
 		"id": 5,
 		"nom": "Blocage3",
 		"x": 8,
@@ -153,10 +159,10 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][061]",
-		"x": 21,
-		"y": 18
+		"id": 11,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 11
 	},
 	{
 		"id": 22,
@@ -187,10 +193,10 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 11
+		"id": 17,
+		"nom": "Clone[341][001]",
+		"x": 14,
+		"y": 10
 	},
 	{
 		"id": 6,
@@ -220,10 +226,10 @@
 		]
 	},
 	{
-		"id": 17,
+		"id": 12,
 		"nom": "Clone[341][001]",
-		"x": 14,
-		"y": 10
+		"x": 20,
+		"y": 13
 	},
 	{
 		"id": 1,
@@ -274,14 +280,6 @@
 				"numero": 2
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "effacer annonce lieu"
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "ConditionEtatQuete",
 				"idQuete": 26,
 				"etat": "FAITE",
@@ -315,10 +313,10 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 18,
 		"nom": "Clone[341][001]",
-		"x": 20,
-		"y": 13
+		"x": 8,
+		"y": 21
 	},
 	{
 		"id": 7,
@@ -352,10 +350,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][001]",
+		"id": 13,
+		"nom": "Clone[341][028]",
 		"x": 8,
-		"y": 21
+		"y": 11
 	},
 	{
 		"id": 2,
@@ -1502,67 +1500,26 @@
 			},
 			{
 				"nom": "JouerAnimation",
-				"idAnimation": 1
+				"idAnimation": 65
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 10
+				"nombreDeFrames": 35
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 10
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 10
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerAnimation",
@@ -1570,13 +1527,25 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 25
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
-				"volume": 0.80,
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
 			},
 			{
 				"nom": "Attendre",
@@ -1584,7 +1553,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Forêt de l'Ouest 2.mp3",
+				"nomFichierSonore": "Forêt de l'Ouest 2.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1774,43 +1743,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][028]",
-		"x": 8,
-		"y": 11
-	},
-	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 8,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 90,
-				"xDebutHeros": 14,
-				"yDebutHeros": 23
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 19,
 		"nom": "Cristal de baleine",
 		"x": 0,
@@ -1960,8 +1892,16 @@
 				"avancement": "FAITE"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of crystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -2054,6 +1994,43 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "EV008",
+		"x": 8,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 90,
+				"xDebutHeros": 14,
+				"yDebutHeros": 23
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][028]",
+		"x": 8,
+		"y": 16
+	},
+	{
 		"id": 3,
 		"nom": "Blocage1",
 		"x": 22,
@@ -2076,43 +2053,6 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][028]",
-		"x": 8,
-		"y": 16
-	},
-	{
-		"id": 9,
-		"nom": "EV009",
-		"x": 29,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 334,
-				"xDebutHeros": 1,
-				"yDebutHeros": 6
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -2176,6 +2116,43 @@
 		]
 	},
 	{
+		"id": 9,
+		"nom": "EV009",
+		"x": 29,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 334,
+				"xDebutHeros": 1,
+				"yDebutHeros": 6
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][028]",
+		"x": 14,
+		"y": 24
+	},
+	{
 		"id": 4,
 		"nom": "Blocage2",
 		"x": 22,
@@ -2203,10 +2180,35 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][028]",
-		"x": 14,
-		"y": 24
+		"id": 10,
+		"nom": "EV010",
+		"x": 29,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 334,
+				"xDebutHeros": 1,
+				"yDebutHeros": 7
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 21,
@@ -3100,7 +3102,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
@@ -3110,7 +3112,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Forêt de l'Ouest 2.mp3",
+				"nomFichierSonore": "Forêt de l'Ouest 2.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -3278,37 +3280,6 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 29,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 334,
-				"xDebutHeros": 1,
-				"yDebutHeros": 7
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

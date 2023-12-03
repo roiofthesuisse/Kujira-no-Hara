@@ -238,7 +238,8 @@ public class Event implements Comparable<Event> {
 		this.deplacementForce = new Deplacement(null, new ArrayList<Mouvement>(), true, false, false);
 		initialiserLesPages();
 		if (pages != null && pages.size() >= 1) {
-			attribuerLesProprietesActuelles(pages.get(0)); // par defaut, proprietes de la premiere page
+			boolean changerLaDirectionDeLEvent = true;
+			attribuerLesProprietesActuelles(pages.get(0), changerLaDirectionDeLEvent); // par defaut, proprietes de la premiere page
 		}
 	}
 
@@ -426,7 +427,8 @@ public class Event implements Comparable<Event> {
 			} else {
 				this.ilYAEuChangementDePageDApparence = false;
 			}
-			attribuerLesProprietesActuelles(this.pageDApparence);
+			boolean changerLaDirectionDeLEvent = false;
+			attribuerLesProprietesActuelles(this.pageDApparence, changerLaDirectionDeLEvent);
 
 			if (onATrouveLaPageActive) {
 				// meme les Conditions li�es au Heros correspondent, on execute la Page
@@ -438,17 +440,20 @@ public class Event implements Comparable<Event> {
 	/**
 	 * On assigne les proprietes actuelles en utilisant celles d'une Page donnee.
 	 * 
-	 * @param page dont on recupere les proprietes pour les donner a l'Event
+	 * @param page                       dont on recupere les proprietes pour les
+	 *                                   donner a l'Event
+	 * @param changerLaDirectionDeLEvent doit-on forcer la direction issue de la
+	 *                                   Page sur l'Event ?
 	 */
-	private void attribuerLesProprietesActuelles(final PageEvent page) {
+	private void attribuerLesProprietesActuelles(final PageEvent page, final boolean changerLaDirectionDeLEvent) {
 		// apparence
 		this.imageActuelle = page.image;
 		this.apparenceActuelleEstUnTile = page.apparenceEstUnTile;
 
 		if (ilYAEuChangementDePageDApparence) { // on ne reinitialise pas les proprietes sans vrai changement de Page
 			
-			// Ne pas changer la direction de l'Event lors du changement de page
-			if (page.directionFixe) {
+			// Ne pas forcement changer la direction de l'Event lors du changement de page
+			if (changerLaDirectionDeLEvent || page.directionFixe) {
 				this.direction = page.directionInitiale;
 			}
 

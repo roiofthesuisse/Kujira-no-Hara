@@ -66,6 +66,12 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[582][37]",
+		"x": 9,
+		"y": 2
+	},
+	{
 		"id": 5,
 		"nom": "cascade",
 		"x": 13,
@@ -92,12 +98,6 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[582][37]",
-		"x": 9,
-		"y": 2
-	},
-	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 10,
@@ -105,40 +105,11 @@
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "Parler"
+			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 2,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
 			],
 			"image": 22,
 			"vitesse": "moderee",
@@ -152,69 +123,25 @@
 		{
 			"conditions": [
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 11,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
+				"nom": "Contact"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 53,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 2,
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 21,
+				"valeur": true
 			}
 			],
 			"image": 22,
+			"directionInitiale": 2,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -224,6 +151,12 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 17,
+		"nom": "Clone[582][37]",
+		"x": 4,
+		"y": 3
 	},
 	{
 		"id": 6,
@@ -257,12 +190,6 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[582][37]",
-		"x": 4,
-		"y": 3
-	},
-	{
 		"id": 12,
 		"nom": "Clone[341][27]",
 		"x": 3,
@@ -276,40 +203,11 @@
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "Parler"
+			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 2,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
 			],
 			"image": 30,
 			"vitesse": "moderee",
@@ -323,69 +221,25 @@
 		{
 			"conditions": [
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 1,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
+				"nom": "Contact"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 53,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 2,
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 21,
+				"valeur": true
 			}
 			],
 			"image": 30,
+			"directionInitiale": 2,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -403,6 +257,196 @@
 		"y": 8
 	},
 	{
+		"id": 18,
+		"nom": "Réglages initiaux",
+		"x": 20,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 6
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 2
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 3
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 2
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 0
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 5,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 13,
 		"nom": "Clone[341][27]",
 		"x": 2,
@@ -416,40 +460,11 @@
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "Parler"
+			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 2,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
 			],
 			"image": 4,
 			"vitesse": "moderee",
@@ -463,69 +478,25 @@
 		{
 			"conditions": [
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 2,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
+				"nom": "Contact"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 53,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 2,
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 21,
+				"valeur": true
 			}
 			],
 			"image": 4,
+			"directionInitiale": 2,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -537,16 +508,16 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][27]",
-		"x": 13,
-		"y": 7
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][023]",
 		"x": 2,
 		"y": 2
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][27]",
+		"x": 13,
+		"y": 7
 	},
 	{
 		"id": 14,
@@ -562,40 +533,11 @@
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "Parler"
+			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 2,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
 			],
 			"image": 12,
 			"vitesse": "moderee",
@@ -609,69 +551,25 @@
 		{
 			"conditions": [
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 3,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
+				"nom": "Contact"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 53,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 2,
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 21,
+				"valeur": true
 			}
 			],
 			"image": 12,
+			"directionInitiale": 2,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -713,8 +611,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) To distracted or thoughtless adventurers\\nwho are lost or stuck:"
+			},
+			{
 				"nom": "Message",
 				"texte": "Aux aventuriers distraits et étourdis qui \\nsont perdus ou coincés :"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Ring the return bell!"
 			},
 			{
 				"nom": "Message",
@@ -723,10 +629,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -747,12 +649,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][161]",
-		"x": 16,
-		"y": 12
 	},
 	{
 		"id": 4,
@@ -779,80 +675,60 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) \"\\c[2]Ningyo\\c[0] was amazed at the devotion \\nof the frogs to their king."
 			},
 			{
 				"nom": "Message",
-				"texte": "\"\\c[02]Ningyo\\c[01] fut stupéfait du dévouement \\ndes grenouilles pour leur roi."
+				"texte": "\"\\c[2]Ningyo\\c[1] fut stupéfait du dévouement \\ndes grenouilles pour leur roi."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]His majesty Toadlebeorth of Swampland\\c[0] \\nspent his time in rhymes and gluttony, \\nshirking his duties as monarch."
 			},
 			{
 				"nom": "Message",
-				"texte": "Sa majesté \\c[02]Crapo 1er\\c[01] employait\\nson temps aux rimes et à la gourmandise,\\nse soustrayant à ses devoirs de monarque."
+				"texte": "Sa majesté \\c[2]Crapo 1er\\c[1] employait\\nson temps aux rimes et à la gourmandise,\\nse soustrayant à ses devoirs de monarque."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Despite this, \\nhe was fed opulently in golden plates, \\nand his verses were applauded."
 			},
 			{
 				"nom": "Message",
 				"texte": "Malgré cela, il était nourri opulemment\\ndans des marmites d'or, et ses vers \\ndemerèrent applaudis."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The frogs died out of exhaustion\\nand the monarch realized his foolishness."
+			},
+			{
 				"nom": "Message",
 				"texte": "Les grenouilles s'éteignirent par épuisement\\net le monarque se rendit compte de sa bêtise."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He tried to drown his sadness in rhymes \\nand gluttony."
 			},
 			{
 				"nom": "Message",
 				"texte": "Il tenta de noyer sa tristesse dans les rimes et \\nla gourmandise."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) But without his counselors, \\nhis rhymes became bad, \\nand without his cooks, \\nhe was forced to eat anything.\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Mais sans ses conseillers, ses rimes \\ndevinrent mauvaises, et sans ses cuisiniers,\\nil fut contraint de manger n'importe quoi.\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
+			},
+			{
 				"nom": "Message",
 				"texte": "                        Mémoires du \\c[2]Poète voyageur"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "\"\\c[02]Ningyo\\c[01] was astonished by the frogs' \\ndevotion to their king."
-			},
-			{
-				"nom": "Message",
-				"texte": "His majesty \\c[02]Toadelbeorht I of Swampland\\c[01] \\nwas spending his time indulging \\nin rimes and gluttony, while shirking \\nhis monarch duties."
-			},
-			{
-				"nom": "Message",
-				"texte": "Yet he was opulently fed in golden pots,\\n and his verses were still applauded."
-			},
-			{
-				"nom": "Message",
-				"texte": "Frogs got extinct by exhaustion and \\nthe monarch realized his foolishness."
-			},
-			{
-				"nom": "Message",
-				"texte": "He tried to bury his grief by indulging \\nin rimes and gluttony."
-			},
-			{
-				"nom": "Message",
-				"texte": "However, without his valuable councilors \\nhis rimes became bad, and without his cooks\\nhe was forced to eat anything he could find.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Memoirs of the \\c[2]wayfaring poet\\c[1]"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -877,6 +753,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][161]",
+		"x": 16,
+		"y": 12
 	},
 	{
 		"id": 10,

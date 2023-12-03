@@ -111,10 +111,10 @@
 	],
 	"events": [
 	{
-		"id": 49,
-		"nom": "fleurs",
-		"x": 10,
-		"y": 20,
+		"id": 38,
+		"nom": "Papy",
+		"x": 4,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -123,57 +123,64 @@
 			}
 			],
 			"commandes": [
-			],
-			"image": 26,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 27,
-		"nom": "Pancarte",
-		"x": 10,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "viking2 vieux.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking vieux\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I know what you all think!"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Gerhard Grötkrötsen\\c[1]\\ngrand guerrier, andouille notoire\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "Je sais ce que vous pensez tous !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What a shame to be old!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Quel déshonneur d'être vieux !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He didn't die young like the others \\nin a heroic battle."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il n'est pas mort jeune comme les autres \\nlors d'un combat héroïque."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He is probably a coward!"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est probablement un lâche !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That is what you think! I know it well."
+			},
+			{
+				"nom": "Message",
+				"texte": "Voilà ce que vous pensez ! Je le sais bien."
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -181,15 +188,34 @@
 				"valeur": false
 			}
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "viking vieux character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 6,
+		"y": 9
 	},
 	{
 		"id": 16,
@@ -319,6 +345,16 @@
 				"quantite": 50
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 88,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 89,
+				"valeur": true
+			},
+			{
 				"nom": "ConditionSinon",
 				"numero": 0
 			},
@@ -377,97 +413,10 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 6,
-		"y": 9
-	},
-	{
-		"id": 38,
-		"nom": "Papy",
-		"x": 4,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "viking2 vieux.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking vieux\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Je sais ce que vous pensez tous !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Quel déshonneur d'être vieux !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Il n'est pas mort jeune comme les autres \\nlors d'un combat héroïque."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est probablement un lâche !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Voilà ce que vous pensez ! Je le sais bien."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "viking vieux character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 33,
+		"id": 27,
 		"nom": "Pancarte",
-		"x": 16,
-		"y": 14,
+		"x": 10,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
@@ -492,8 +441,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Gerhard Grötkrötsen\\c[0]\\ngreat warrior, notorious idiot\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Olaf Friedsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "\\c[2]Gerhard Grötkrötsen\\c[1]\\ngrand guerrier, andouille notoire\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
@@ -520,10 +473,10 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Pancarte",
-		"x": 20,
-		"y": 14,
+		"id": 49,
+		"nom": "fleurs",
+		"x": 10,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -535,11 +488,7 @@
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
+				"direction": 3,
 				"numero": 0
 			},
 			{
@@ -548,8 +497,69 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Gerhard Grötkrötsen\\c[0]\\ngreat warrior, notorious\\nandouille Let him join\\n\\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Olaf Olafsen\\c[1]\\ninventeur du bonbon goût topinambour\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "\\c[2]Gerhard Grötkrötsen\\c[1]\\ngrand guerrier, andouille notoire\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": 26,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 60,
+		"nom": "Pancarte",
+		"x": 12,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Groetsen\\c[0] inventor\\nof the accordion for dogs Let\\nhim join \\c[2]Shor\\c[0] and\\n\\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Groetsen\\c[1]\\ninventeur de l'accordéon pour chien\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
@@ -574,12 +584,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 11,
-		"nom": "Clone[341][061]",
-		"x": 8,
-		"y": 22
 	},
 	{
 		"id": 44,
@@ -614,6 +618,14 @@
 				"nom": "ConditionDirection",
 				"direction": 0,
 				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There is a switch on the back of the stele."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Press it|Do nothing"
 			},
 			{
 				"nom": "Message",
@@ -700,7 +712,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -817,6 +829,10 @@
 				"numero": 2
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The switch is activated."
+			},
+			{
 				"nom": "Message",
 				"texte": "L'interrupteur est activé."
 			},
@@ -855,9 +871,15 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "Pancarte",
+		"id": 11,
+		"nom": "Clone[341][061]",
 		"x": 8,
+		"y": 22
+	},
+	{
+		"id": 22,
+		"nom": "Pancarte",
+		"x": 20,
 		"y": 14,
 		"pages": [
 		{
@@ -883,8 +905,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Olafsen\\c[0] \\ninventor of the jerusalem artichoke flavoured candy\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Olaf Svensen\\c[1]\\ninventeur du tricycle pour huitre\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "\\c[2]Olaf Olafsen\\c[1]\\ninventeur du bonbon goût topinambour\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
@@ -911,16 +937,120 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][005]",
-		"x": 21,
-		"y": 12
+		"id": 33,
+		"nom": "Pancarte",
+		"x": 16,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Friedsen\\c[0] \\ngreat warrior\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Friedsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][028]",
-		"x": 7,
-		"y": 22
+		"id": 55,
+		"nom": "Pancarte",
+		"x": 20,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Olafsen\\c[0] inventor\\nof the candy taste Jerusalem\\nLet him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Olafsen\\c[1]\\ninventeur du bonbon goût topinambour\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 39,
@@ -949,6 +1079,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is the skull of \\c[2]Grötkrötsen\\c[0]\\nthe one that is planted on a stake in front \\nof the house of our chief \\c[2]Tabula the Terrible\\c[0]?"
 			},
 			{
 				"nom": "Message",
@@ -998,9 +1132,21 @@
 		]
 	},
 	{
-		"id": 34,
+		"id": 6,
+		"nom": "Clone[341][028]",
+		"x": 7,
+		"y": 22
+	},
+	{
+		"id": 17,
+		"nom": "Clone[341][005]",
+		"x": 21,
+		"y": 12
+	},
+	{
+		"id": 28,
 		"nom": "Pancarte",
-		"x": 22,
+		"x": 8,
 		"y": 14,
 		"pages": [
 		{
@@ -1026,8 +1172,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Svensen\\c[0] \\ninventor of the tricycle for oysters\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Olaf Birtsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "\\c[2]Olaf Svensen\\c[1]\\ninventeur du tricycle pour huitre\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
@@ -1054,10 +1204,10 @@
 		]
 	},
 	{
-		"id": 23,
+		"id": 50,
 		"nom": "Pancarte",
-		"x": 12,
-		"y": 9,
+		"x": 8,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -1069,11 +1219,7 @@
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
+				"direction": 3,
 				"numero": 0
 			},
 			{
@@ -1082,8 +1228,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Svensen\\c[0] inventor\\nof the oyster tricycle Let him\\njoin \\c[2]Shor\\c[0] and\\n\\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Olaf Groetsen\\c[1]\\ninventeur de l'accordéon pour chien\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "\\c[2]Olaf Svensen\\c[1]\\ninventeur du tricycle pour huitre\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
@@ -1110,10 +1260,124 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Clone[341][061]",
-		"x": 12,
-		"y": 8
+		"id": 61,
+		"nom": "Pancarte",
+		"x": 10,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Preutsen\\c[0] great\\nwarrior Let him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Preutsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 45,
+		"nom": "EV045",
+		"x": 4,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) gfhdfg"
+			},
+			{
+				"nom": "Message",
+				"texte": "gfhdfg"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 88,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 2,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 3,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 60,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 61,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -1147,43 +1411,16 @@
 		]
 	},
 	{
-		"id": 45,
-		"nom": "EV045",
-		"x": 4,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Message",
-				"texte": "gfhdfg"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 88,
-				"valeur": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 12,
+		"nom": "Clone[341][061]",
+		"x": 12,
+		"y": 8
 	},
 	{
-		"id": 29,
+		"id": 23,
 		"nom": "Pancarte",
-		"x": 10,
-		"y": 14,
+		"x": 12,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -1208,8 +1445,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Groetsen\\c[0] \\ninventor of the accordion for dogs\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Olaf Rabsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "\\c[2]Olaf Groetsen\\c[1]\\ninventeur de l'accordéon pour chien\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
@@ -1236,16 +1477,120 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][005]",
-		"x": 13,
-		"y": 17
+		"id": 34,
+		"nom": "Pancarte",
+		"x": 22,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Birtsen\\c[0] \\ngreat warrior \\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Birtsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][028]",
-		"x": 6,
-		"y": 20
+		"id": 56,
+		"nom": "Pancarte",
+		"x": 22,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Birtsen\\c[0] great\\nwarrior Let him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Birtsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 40,
@@ -1276,8 +1621,16 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Would \\c[2]Poesy\\c[0], the granddaughter \\nof \\c[2]Blutrik Obsten\\c[0], have inherited\\nhis passion for literature?"
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Poésie\\c[1] la petite fille de \\c[2]Blutrik Obsten\\c[1] aurait-elle \\nhérité de sa passion pour la littérature ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) And would \\c[2]Fiolin\\c[0], his grandson, \\nhave inherited his talent for music ?"
 			},
 			{
 				"nom": "Message",
@@ -1339,10 +1692,22 @@
 		]
 	},
 	{
-		"id": 46,
-		"nom": "Poesie",
+		"id": 7,
+		"nom": "Clone[341][028]",
+		"x": 6,
+		"y": 20
+	},
+	{
+		"id": 18,
+		"nom": "Clone[341][005]",
+		"x": 13,
+		"y": 17
+	},
+	{
+		"id": 29,
+		"nom": "Pancarte",
 		"x": 10,
-		"y": 21,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -1352,27 +1717,35 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Gasp.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie\""
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Rabsen\\c[0] \\ngreat warrior \\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu trouves quelque chose ?"
+				"texte": "\\c[2]Olaf Rabsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1380,11 +1753,218 @@
 				"valeur": false
 			}
 			],
-			"image": "poesie yukata character",
-			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 51,
+		"nom": "Pancarte",
+		"x": 10,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Rabsen\\c[0] great\\nwarrior Let him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Rabsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 62,
+		"nom": "Pancarte",
+		"x": 16,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Günther Keksen\\c[0] dit\\n\"Olaf\", great warrior Let him\\njoin \\c[2]Shor\\c[0] and\\n\\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Günther Keksen\\c[1]\\ndit \"Olaf\", grand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 0,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 28,
+				"xDebutHeros": 48,
+				"yDebutHeros": 17
+			}
+			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][061]",
+		"x": 15,
+		"y": 17
+	},
+	{
+		"id": 24,
+		"nom": "Pancarte",
+		"x": 14,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Vrootsen\\c[0] \\nauthor of the book \"How to read\" in 5 volumes\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Vrootsen\\c[1]\\nauteur du livre \"Apprendre à lire\" en 5 tomes\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1421,6 +2001,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Krantsen\\c[0] \\ngreat warrior\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Olaf Krantsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
@@ -1449,10 +2033,10 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Pancarte",
-		"x": 14,
-		"y": 14,
+		"id": 46,
+		"nom": "Poesie",
+		"x": 10,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [
@@ -1462,31 +2046,31 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Can you find anything?"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Olaf Vrootsen\\c[1]\\nauteur du livre \"Apprendre à lire\" en 5 tomes\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "Tu trouves quelque chose ?"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1494,43 +2078,8 @@
 				"valeur": false
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][061]",
-		"x": 15,
-		"y": 17
-	},
-	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 0,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 28,
-				"xDebutHeros": 48,
-				"yDebutHeros": 17
-			}
-			],
+			"image": "poesie yukata character",
+			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -1542,10 +2091,10 @@
 		]
 	},
 	{
-		"id": 30,
+		"id": 57,
 		"nom": "Pancarte",
-		"x": 12,
-		"y": 14,
+		"x": 20,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -1557,11 +2106,7 @@
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
+				"direction": 3,
 				"numero": 0
 			},
 			{
@@ -1570,8 +2115,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Kratsen\\c[0] great\\nwarrior Let him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Olaf Troutsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "\\c[2]Olaf Kratsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
@@ -1596,68 +2145,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 19,
-		"nom": "Pancarte",
-		"x": 10,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Olaf Preutsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][028]",
-		"x": 23,
-		"y": 19
 	},
 	{
 		"id": 41,
@@ -1688,8 +2175,16 @@
 				"script": "$game_temp.faceset = \"viking rouge femme\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) We are not afraid of cemeteries, \\nbecause we do not believe in ghosts."
+			},
+			{
 				"nom": "Message",
 				"texte": "Les cimetières ne nous font pas peur, \\ncar nous ne croyons pas aux fantômes."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The spirits of our ancestors are at the side \\nof \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0], in Valhalla."
 			},
 			{
 				"nom": "Message",
@@ -1740,6 +2235,546 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][028]",
+		"x": 23,
+		"y": 19
+	},
+	{
+		"id": 19,
+		"nom": "Pancarte",
+		"x": 10,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Preutsen\\c[0] \\ngreat warrior \\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Preutsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 30,
+		"nom": "Pancarte",
+		"x": 12,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Troutsen\\c[0] \\ngreat warrior \\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Troutsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 52,
+		"nom": "Pancarte",
+		"x": 12,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Troutsen\\c[0] great\\nwarrior Let him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Troutsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 63,
+		"nom": "Pancarte",
+		"x": 14,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Knutsen\\c[0] inventor\\nof the liquid shoe Let him join\\n\\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Knutsen\\c[1]\\ninventeur du soulier liquide\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][008]",
+		"x": 18,
+		"y": 21
+	},
+	{
+		"id": 14,
+		"nom": "Daruma",
+		"x": 11,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "ACTION",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "($game_player.x-$game_map.events[@event_id].x)**2 + ($game_player.y-$game_map.events[@event_id].y)**2 <= 9",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "130-Earth02.ogg",
+				"volume": 0.80,
+				"tempo": 0.50
+			},
+			{
+				"nom": "TremblementDeTerre",
+				"intensite": 4,
+				"vitesse": 7,
+				"nombreDeFrames": 66
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "daruma character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 14,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "daruma cri.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 4,
+					"y": 4
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "daruma chute.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 35
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"image": "daruma character",
+			"directionInitiale": 1,
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 14,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Mr. Daruma has fallen down..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Monsieur Daruma a dégringolé..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "daruma character",
+			"directionInitiale": 3,
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 25,
+		"nom": "Pancarte",
+		"x": 14,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Knutsen\\c[0] \\ninventor of the liquid shoes\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Knutsen\\c[1]\\ninventeur du soulier liquide\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 36,
+		"nom": "Pancarte",
+		"x": 16,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Leudsen\\c[0] \\ngreat warrior \\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Leudsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1922,10 +2957,10 @@
 		]
 	},
 	{
-		"id": 36,
+		"id": 58,
 		"nom": "Pancarte",
 		"x": 16,
-		"y": 9,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -1937,17 +2972,17 @@
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
+				"direction": 3,
 				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Leudsen\\c[0] great\\nwarrior Let him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
 			},
 			{
 				"nom": "Message",
@@ -1978,257 +3013,16 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Pancarte",
-		"x": 14,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Olaf Knutsen\\c[1]\\ninventeur du soulier liquide\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 9,
+		"nom": "Clone[341][028]",
+		"x": 21,
+		"y": 10
 	},
 	{
-		"id": 14,
-		"nom": "Daruma",
-		"x": 11,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "($game_player.x-$game_map.events[@event_id].x)**2 + ($game_player.y-$game_map.events[@event_id].y)**2 <= 9",
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "TremblementDeTerre",
-				"intensite": 2,
-				"vitesse": 7,
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "daruma character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 14,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "daruma cri.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 4,
-					"y": 4
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "daruma chute.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 35
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			}
-			],
-			"image": "daruma character",
-			"directionInitiale": 1,
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"figerLesAutresEvents": true,
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 14,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "Monsieur Daruma a dégringolé..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "daruma character",
-			"directionInitiale": 3,
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][008]",
-		"x": 18,
-		"y": 21
-	},
-	{
-		"id": 42,
-		"nom": "oriflamme",
-		"x": 3,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "oriflamme character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 20,
+		"nom": "Clone[582][1]",
+		"x": 9,
+		"y": 10
 	},
 	{
 		"id": 31,
@@ -2259,6 +3053,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Schmutsen\\c[0] \\ngreat warrior \\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Olaf Schmutsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
@@ -2287,22 +3085,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[582][1]",
-		"x": 10,
-		"y": 10
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][028]",
-		"x": 21,
-		"y": 10
-	},
-	{
-		"id": 48,
-		"nom": "fleurs",
-		"x": 18,
-		"y": 10,
+		"id": 42,
+		"nom": "oriflamme",
+		"x": 3,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -2312,78 +3098,22 @@
 			],
 			"commandes": [
 			],
-			"image": 26,
+			"image": "oriflamme character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 37,
+		"id": 53,
 		"nom": "Pancarte",
-		"x": 16,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Günther Keksen\\c[1]\\ndit \"Olaf\", grand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "Pancarte",
-		"x": 18,
-		"y": 9,
+		"x": 14,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -2399,17 +3129,17 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Vrootsen\\c[0] author\\nof the book \"Learn to read\" in\\n5 volumes Let him join\\n\\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Blutrik Obsten\\c[1] \\nmeneur des vikings, musicien, poète\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "\\c[2]Olaf Vrootsen\\c[1]\\nauteur du livre \"Apprendre à lire\" en 5 tomes\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
@@ -2434,6 +3164,68 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 64,
+		"nom": "Pancarte",
+		"x": 12,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Krantsen\\c[0] great\\nwarrior Let him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Krantsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][006]",
+		"x": 23,
+		"y": 6
 	},
 	{
 		"id": 15,
@@ -2491,15 +3283,9 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][006]",
-		"x": 23,
-		"y": 6
-	},
-	{
-		"id": 32,
+		"id": 26,
 		"nom": "Pancarte",
-		"x": 20,
+		"x": 18,
 		"y": 9,
 		"pages": [
 		{
@@ -2525,8 +3311,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Blutrik Obsten\\c[0] \\nleader of the Vikings, musician, poet\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[2]Olaf Kratsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+				"texte": "\\c[2]Blutrik Obsten\\c[1] \\nmeneur des vikings, musicien, poète\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
 			},
 			{
 				"nom": "Attendre",
@@ -2553,16 +3343,177 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "Clone[582][1]",
-		"x": 20,
-		"y": 18
+		"id": 37,
+		"nom": "Pancarte",
+		"x": 16,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Günther Keksen\\c[0] \\nbetter known as \"Olaf\", great warrior \\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Günther Keksen\\c[1]\\ndit \"Olaf\", grand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 10,
-		"nom": "Clone[341][028]",
-		"x": 11,
-		"y": 7
+		"id": 48,
+		"nom": "fleurs",
+		"x": 18,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Blutrik Obsten\\c[0] leader\\nof the Vikings, musician, poet\\nLet him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Blutrik Obsten\\c[1] \\nmeneur des vikings, musicien, poète\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": 26,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 59,
+		"nom": "Pancarte",
+		"x": 14,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Schmutsen\\c[0] great\\nwarrior Let him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Schmutsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 43,
@@ -2645,6 +3596,134 @@
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][028]",
+		"x": 11,
+		"y": 7
+	},
+	{
+		"id": 21,
+		"nom": "Clone[582][1]",
+		"x": 20,
+		"y": 18
+	},
+	{
+		"id": 32,
+		"nom": "Pancarte",
+		"x": 20,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Kratsen\\c[0] \\ngreat warrior\\nMay he join \\c[2]Shor\\c[0] and \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Kratsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 54,
+		"nom": "Pancarte",
+		"x": 16,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Olaf Friedsen\\c[0] great\\nwarrior Let him join \\c[2]Shor\\c[0]\\nand \\c[2]Grover\\c[0] in Valhalla."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Olaf Friedsen\\c[1]\\ngrand guerrier\\nQu'il rejoigne \\c[2]Shor\\c[1] et \\c[2]Grover\\c[1] au Valhalla."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	}

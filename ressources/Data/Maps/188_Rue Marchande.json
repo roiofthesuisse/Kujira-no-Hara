@@ -253,20 +253,40 @@
 				"script": "$game_temp.faceset = \"poincare\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You know, \\c[2]Rebeca\\c[0], every time I made mistakes \\nin my life, it was because I wanted the truth \\nto be simple and beautiful."
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu sais, \\c[2]Rebeca\\c[1], à chaque fois que j'ai fait \\ndes erreurs dans ma vie, c'était parce que \\nje voulais que la vérité soit simple et belle."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But the world does not care about being simple \\nand beautiful!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Mais le monde n'a que faire d'être simple \\net beau !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Simplicity is only an illusion!\\nAt best it is a tool, whose limits must never be \\nlost sight of."
+			},
+			{
 				"nom": "Message",
 				"texte": "La simplicité n'est qu'une illusion !\\nAu mieux c'est un outil, dont il ne faut jamais \\nperdre de vue les limites."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Great minds have the capacity\\n(and therefore the duty!) to embrace \\nall the complexity of the world."
+			},
+			{
 				"nom": "Message",
 				"texte": "Les grands esprits ont la capacité (et donc \\nle devoir !) d'embrasser toute la complexité \\ndu monde."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Let us leave the simple and beautiful truths \\nto the simple minds."
 			},
 			{
 				"nom": "Message",
@@ -279,8 +299,32 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 39,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Are you trying to flatter me in a devious way \\nso that I adhere to your thesis?"
 			},
 			{
 				"nom": "Message",
@@ -291,24 +335,40 @@
 				"script": "$game_temp.faceset = \"poincare\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe, but I believe in what I say."
+			},
+			{
 				"nom": "Message",
 				"texte": "Peut-être, mais je crois en ce que je dis."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) In any case, it is the sincere love of the truth \\nthat must lead you to consider every truth, \\nhowever complex it may be."
+			},
+			{
 				"nom": "Message",
-				"texte": "De toute façon, c'est l'amour sincère de la vérité \\nqui doit t'amener à considérer toutes les vérités,\\nmême complexes."
+				"texte": "En tout cas, c'est l'amour sincère de la vérité \\nqui doit t'amener à considérer chaque vérité,\\naussi complexe soit-elle."
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The older I get, the more people I meet, \\nthe more I realize that I am becoming like you."
+			},
+			{
 				"nom": "Message",
-				"texte": "Plus je vieillis, et plus je rencontre d'autres \\npersonnes, plus je me rends compte que \\nje deviens comme toi."
+				"texte": "Plus je vieillis, plus je rencontre d'autres \\npersonnes, et plus je me rends compte que \\nje deviens comme toi."
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poincare\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There are genetic and cultural factors.\\nWe should not minimize the effect of either."
 			},
 			{
 				"nom": "Message",
@@ -319,8 +379,37 @@
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I know, I know..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je sais, je sais..."
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 39,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -375,8 +464,16 @@
 				"script": "$game_temp.faceset = \"poincare\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I sell electronic items to the\\npeople of Kujira."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je vends des objets électroniques aux habitants \\nde Kujira."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It makes their lives more\\ncomfortable, and it funds my\\nscientific research."
 			},
 			{
 				"nom": "Message",
@@ -433,7 +530,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 696,
 				"xDebutHeros": 7,
-				"yDebutHeros": 10
+				"yDebutHeros": 11
 			}
 			],
 			"vitesse": "moderee",
@@ -473,12 +570,24 @@
 				"script": "$game_temp.faceset = \"colibri jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Our good king \\c[2]Flivouille\\c[0]\\nhas made the market a neutral\\nzone."
+			},
+			{
 				"nom": "Message",
 				"texte": "Notre bon roi \\c[2]Flivouille\\c[1] a fait du marché \\nune zone neutre."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The red Vikings and the yellow\\nVikings are not allowed to\\nfight there."
 			},
 			{
 				"nom": "Message",
@@ -680,20 +789,40 @@
 				"script": "$game_temp.faceset = \"poincare\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You know, \\c[2]Rebeca\\c[0], every time I made mistakes \\nin my life, it was because I wanted the truth \\nto be simple and beautiful."
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu sais, \\c[2]Rebeca\\c[1], à chaque fois que j'ai fait \\ndes erreurs dans ma vie, c'était parce que \\nje voulais que la vérité soit simple et belle."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But the world does not care about being simple \\nand beautiful!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Mais le monde n'a que faire d'être simple \\net beau !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Simplicity is only an illusion!\\nAt best it is a tool, whose limits must never be \\nlost sight of."
+			},
+			{
 				"nom": "Message",
 				"texte": "La simplicité n'est qu'une illusion !\\nAu mieux c'est un outil, dont il ne faut jamais \\nperdre de vue les limites."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Great minds have the capacity\\n(and therefore the duty!) to embrace \\nall the complexity of the world."
+			},
+			{
 				"nom": "Message",
 				"texte": "Les grands esprits ont la capacité (et donc \\nle devoir !) d'embrasser toute la complexité \\ndu monde."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Let us leave the simple and beautiful truths \\nto the simple minds."
 			},
 			{
 				"nom": "Message",
@@ -706,8 +835,32 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 39,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Are you trying to flatter me in a devious way \\nso that I adhere to your thesis?"
 			},
 			{
 				"nom": "Message",
@@ -718,8 +871,16 @@
 				"script": "$game_temp.faceset = \"poincare\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe, but I believe in what I say."
+			},
+			{
 				"nom": "Message",
 				"texte": "Peut-être, mais je crois en ce que je dis."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) In any case, it is the sincere love of the truth \\nthat must lead you to consider every truth, \\nhowever complex it may be."
 			},
 			{
 				"nom": "Message",
@@ -730,12 +891,20 @@
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The older I get, the more people I meet, \\nthe more I realize that I am becoming like you."
+			},
+			{
 				"nom": "Message",
 				"texte": "Plus je vieillis, plus je rencontre d'autres \\npersonnes, et plus je me rends compte que \\nje deviens comme toi."
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poincare\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There are genetic and cultural factors.\\nWe should not minimize the effect of either."
 			},
 			{
 				"nom": "Message",
@@ -746,8 +915,37 @@
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I know, I know..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je sais, je sais..."
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 39,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -804,12 +1002,65 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 39,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"rebeca bubblegum\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I drink coffee to sleep badly,\\nbecause it's when I don't sleep\\nat night that I have my brightest\\nideas."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je bois du café pour mal dormir, \\ncar c'est quand je ne dors pas la nuit \\nque j'ai mes plus brillantes idées."
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 39,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -832,7 +1083,7 @@
 			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -908,12 +1159,24 @@
 				"script": "$game_temp.faceset = \"colibri vert\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) We could not survive in Kujira\\nwithout the help of the different\\nvillages."
+			},
+			{
 				"nom": "Message",
 				"texte": "On ne pourrait pas survivre dans Kujira \\nsans l'entraide entre les différents villages."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This market is a symbol of all this."
 			},
 			{
 				"nom": "Message",
@@ -1150,8 +1413,20 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"sorciere\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Dead rat! Who wants my beautiful dead rat?!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Rat mort ! Qui veut mon beau rat mort ?!"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's delicious in stew."
 			},
 			{
 				"nom": "Message",
@@ -1198,12 +1473,20 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) SHOPPING STREET"
+			},
+			{
 				"nom": "Message",
 				"texte": "RUE MARCHANDE"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 Ibukuro sea\\n\\u2193 Desert"
+			},
+			{
 				"nom": "Message",
-				"texte": "/\\ Mer d'Ibukuro\\nV Désert"
+				"texte": "\\u2191 Mer d'Ibukuro\\n\\u2193 Désert"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -1742,12 +2025,24 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I am on errands."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je suis de corvée de courses."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE I hate this."
+			},
+			{
 				"nom": "Message",
 				"texte": "\\SHAKE J'ai horreur de ça."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'm going to try to get this\\ndone in 15 minutes and then\\nhead back to the village."
 			},
 			{
 				"nom": "Message",
@@ -1926,12 +2221,24 @@
 				"script": "$game_temp.faceset = \"viking rouge femme\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I'm on errand."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je suis de corvée de courses."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) But I like it."
+			},
+			{
 				"nom": "Message",
 				"texte": "Mais j'aime bien ça."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE I'm going to spend hours on this!"
 			},
 			{
 				"nom": "Message",
@@ -2197,12 +2504,20 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) SHOPPING STREET"
+			},
+			{
 				"nom": "Message",
 				"texte": "RUE MARCHANDE"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 Ibukuro sea\\n\\u2192 HSA station\\n\\u2193 Desert"
+			},
+			{
 				"nom": "Message",
-				"texte": "/\\ Mer d'Ibukuro\\n> Station AGV\\nV Désert"
+				"texte": "\\u2191 Mer d'Ibukuro\\n\\u2192 Station AGV\\n\\u2193 Désert"
 			},
 			{
 				"nom": "ConditionSinon",
@@ -2222,6 +2537,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[582][51]",
+		"x": 15,
+		"y": 37
 	}
 	]
 }

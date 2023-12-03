@@ -18,11 +18,11 @@
 	[0904,0905,0906,0907,0908,0909,0910,0911,1024,1025,1026,1027,1028,1029,1030,1031,1148,1149,1150,1151],
 	[0912,0913,0914,0915,0916,0917,0918,0919,1032,1033,1034,1035,1036,1037,1038,1039,1156,1157,1158,1159],
 	[0920,0921,0922,0923,0924,0925,0926,0927,1040,1041,1042,1043,1044,1045,1046,1047,1164,1165,1166,1167],
-	[0928,0929,0930,0931,0932,0933,0934,0935,1048,1049,1050,1051,1052,1053,1054,1055,1172,1173,1174,1175],
-	[0936,0937,0938,0939,0940,0941,0942,0943,1056,1057,1058,1059,1060,1061,1062,1063,1180,1181,1182,1183],
-	[0944,0945,0946,0947,0948,0949,0950,0951,1064,1065,1066,1067,1068,1069,1070,1071,1188,1189,1190,1191],
-	[0952,0953,0954,0955,0956,0957,0958,0959,1072,1073,1074,1075,1076,1077,1078,1079,1196,1197,1198,1199],
-	[0960,0961,0962,0963,0964,0965,0966,0967,1080,1081,1082,1083,1084,1085,1086,1087,1204,1205,1206,1207],
+	[0928,0929,0930,0931,0932,0933,0934,0935,1048,1049,1050,1051,1052,1169,1170,1171,1172,1173,1174,1175],
+	[0936,0937,0938,0939,0940,0941,0942,0943,1056,1057,1058,1059,1060,1177,1178,1179,1180,1181,1182,1183],
+	[0944,0945,0946,0947,0948,0949,0950,0951,1064,1065,1066,1067,1068,1185,1186,1187,1188,1189,1190,1191],
+	[0952,0953,0954,0955,0956,0957,0958,0959,1072,1073,1074,1075,1076,1193,1194,1195,1196,1197,1198,1199],
+	[0960,0961,0962,0963,0964,0965,0966,0967,1080,1081,1082,1083,1084,1201,1202,1203,1204,1205,1206,1207],
 	[0968,0969,0970,0971,0972,0973,0974,0975,1088,1089,1090,1091,1092,1093,1094,1095,1212,1213,1214,1215],
 	[0976,0977,0978,0979,0980,0981,0982,0983,1096,1097,1098,1099,1100,1101,1102,1103,1220,1221,1222,1223],
 	[0984,0985,0986,0987,0988,0989,0990,0991,1104,1105,1106,1107,1108,1109,1110,1111,1228,1229,1230,1231],
@@ -158,10 +158,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 1,
 				"valeurQuIlEstCenseAvoir": false,
@@ -266,12 +262,8 @@
 				"quantite": 224
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -304,6 +296,14 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "EffacerImage",
@@ -387,9 +387,9 @@
 	},
 	{
 		"id": 1,
-		"nom": "EV001",
+		"nom": "gros oiseau",
 		"x": 12,
-		"y": 7,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -399,11 +399,27 @@
 			],
 			"commandes": [
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_map.events[id].offset_y(2*Math.sin(Graphics.frame_count/10))"
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_map.events[id].offset_x(4*Math.cos(Graphics.frame_count/10))"
+				}
+				]
+			},
 			"image": "gros oiseau character",
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": true,
+			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
@@ -603,7 +619,7 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "narrateur scene05.mp3",
+				"nomFichierSonore": "narrateur scene05.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -745,101 +761,6 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Coccinelle rouge",
-		"x": 7,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Epée.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 33,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "coccinelles petites character",
-			"opacite": 200,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 15,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 4,
 		"nom": "Viking",
 		"x": 6,
@@ -878,8 +799,12 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hush! You're going to scare \\c[2]Kitty\\c[0]!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Chut ! Tu vas faire peur à \\c[02]Minou\\c[01] !"
+				"texte": "Chut ! Tu vas faire peur à \\c[2]Minou\\c[1] !"
 			},
 			{
 				"nom": "Attendre",
@@ -923,8 +848,12 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Kitty Kitty Kitty\\c[0]!\\nCome and eat the su-sugar!"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Minou Minou\\c[01] ! Viens manger le sussucre !"
+				"texte": "\\c[2]Minou Minou\\c[1] ! Viens manger le sussucre !"
 			},
 			{
 				"nom": "Attendre",
@@ -998,8 +927,12 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]\"Kitty Kitty\"\\c[0]! Come and eat the sugar!"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Minou Minou\\c[01] ! Viens manger le sussucre !"
+				"texte": "\\c[2]Minou Minou\\c[1] ! Viens manger le sussucre !"
 			},
 			{
 				"nom": "ConditionDirection",
@@ -1046,6 +979,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[582][50]",
+		"x": 7,
+		"y": 4
 	},
 	{
 		"id": 10,

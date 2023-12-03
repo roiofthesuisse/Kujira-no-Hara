@@ -4,7 +4,7 @@
 	"largeur": 50,
 	"hauteur": 50,
 	"musique": {
-		"nomFichierSonore": "Grandiose.mp3",
+		"nomFichierSonore": "Grandiose.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -170,94 +170,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 16,
-		"nom": "Stèle",
-		"x": 17,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Cette salle était là où \\c[02]Kazan' l'érudit\\c[01] se\\nretirait pour méditer.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Une énergie si intense y est concentrée\\nqu'elle semble attirer les lucioles.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]Poète voyageur"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "\"\\c[02]Kazan\\c[01] the scholar used to meditate \\nin this very room.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"The energy concentrated here is so \\npowerful that she seems to attract fireflies.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Memoirs of the \\c[2]wayfaring poet"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
 	{
 		"id": 5,
 		"nom": "Luciole",
@@ -686,6 +598,78 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Stèle",
+		"x": 17,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"This room was where \\c[2]Kazan\\nthe scholar\\c[0] would retire to meditate.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Cette salle était là où \\c[2]Kazan' l'érudit\\c[1] se\\nretirait pour méditer.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Such intense energy is concentrated here \\nthat it seems to attract fireflies.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Une énergie si intense y est concentrée\\nqu'elle semble attirer les lucioles.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                         Memoirs of the \\c[2]traveling poet\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1121,31 +1105,6 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "blocage",
-		"x": 25,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 10,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 6,
 		"nom": "Luciole",
 		"x": 33,
@@ -1577,6 +1536,104 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "blocage",
+		"x": 25,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 10,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 29,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 75,
+				"modeDeFusion": "normal",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "essai lumière tourbillon géant"
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 142,
+				"vert": 132,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 2,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 3,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 4,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 5,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 1,
 		"nom": "Luciole",
 		"x": 31,
@@ -1832,73 +1889,46 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 29,
-		"y": 34,
+		"id": 18,
+		"nom": "perle",
+		"x": 25,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ModifierBrouillard",
-				"opacite": 75,
-				"modeDeFusion": "normal",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 100,
-				"nuance": 0,
-				"nomImage": "essai lumière tourbillon géant"
-			},
-			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 142,
-				"vert": 132,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 2,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 3,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 4,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 5,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
+			"commandes": [
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			"image": "perle character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2160,46 +2190,31 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "perle",
+		"id": 13,
+		"nom": "EV013",
 		"x": 25,
-		"y": 24,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 196,
+				"xDebutHeros": 16,
+				"yDebutHeros": 13
+			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			"image": "perle character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2549,37 +2564,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 25,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 196,
-				"xDebutHeros": 16,
-				"yDebutHeros": 13
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "Luciole",
 		"x": 21,
@@ -2767,6 +2751,37 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 24,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 56,
+				"xDebutHeros": 15,
+				"yDebutHeros": 12
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -3026,37 +3041,6 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 24,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 56,
-				"xDebutHeros": 15,
-				"yDebutHeros": 12
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 9,
 		"nom": "Luciole",
 		"x": 28,
@@ -3244,6 +3228,339 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Kazan' l'érudit",
+		"x": 25,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Who wakes up my spirit sealed for ages?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Qui réveille ainsi mon esprit scellé depuis des \\nlustres ?"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "erudits character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am \\c[2]Kazan the scholar\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je suis \\c[2]Kazan' l'érudit\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You who have a pure heart and a valiant soul, \\nyou have crossed my shrine and solved \\nmy riddles."
+			},
+			{
+				"nom": "Message",
+				"texte": "Toi qui as le coeur pur et l'âme vaillante, \\ntu as traversé mon sanctuaire et résolu \\nmes énigmes."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So I will give you my power:"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je vais donc te donner mon pouvoir :"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 7
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 2,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 5,
+				"operationAFaire2": "contenu de la variable"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are now stronger, \\nand I shall allow you to use my torch\\noutside this shrine."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu es désormais plus fort, et je t'autorise \\nà utiliser ma torche hors du sanctuaire."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I also entrust you the pearl of the embers, \\nwhich is the treasure of the shrine."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je te confie aussi la perle des braises,\\nqui est le trésor du sanctuaire."
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (important).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 18,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 48,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 93,
+				"valeur": false
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Kazan the scholar\\c[0] offers you the pearl of embers."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Kazan' l'érudit\\c[1] vous offre la perle des braises."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have awakened the first spirit \\nof the scholars."
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous avez éveillé le premier des esprits \\ndes érudits."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Use the power I have given you to revive \\nthe hope of the people of Kujira."
+			},
+			{
+				"nom": "Message",
+				"texte": "Use du pouvoir que je t'ai donné afin de \\nraviver l'espoir du peuple de Kujira."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 126,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "vide mais pas invisible",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 15,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 18,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -3587,419 +3904,6 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "Kazan' l'érudit",
-		"x": 25,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Qui réveille ainsi mon esprit scellé depuis des \\nlustres ?"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Who dare awaken my spirit sealed for ages ?"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "erudits character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Je suis \\c[02]Kazan' l'érudit\\c[01]."
-			},
-			{
-				"nom": "Message",
-				"texte": "Toi qui as le coeur pur et l'âme vaillante, \\ntu as traversé mon sanctuaire et résolu \\nmes énigmes."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je vais donc te donner mon pouvoir :"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "I am \\c[02]Kazan\\c[01] the scholar."
-			},
-			{
-				"nom": "Message",
-				"texte": "You who have a pure heart and a brave soul,\\nyou've been through my sanctuary and \\nsolved my puzzles."
-			},
-			{
-				"nom": "Message",
-				"texte": "I shall give you my power :"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 5,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 2,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 5,
-				"operationAFaire2": "contenu de la variable"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu es désormais plus fort, et je t'autorise \\nà utiliser ma torche hors du sanctuaire."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je te confie aussi la perle des braises,\\nqui est le trésor du sanctuaire."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "You are now stronger, and I allow you \\nto use my torch outside the sanctuary."
-			},
-			{
-				"nom": "Message",
-				"texte": "I also entrust you the pearl of embers,\\nwhich is the treasure of the sanctuary."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 18,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 48,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 93,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Kazan' l'érudit\\c[01] vous offre la perle des braises."
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous avez libéré le premier esprit des érudits."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Kazan\\c[01] the scholar gives you \\nthe pearl of embers."
-			},
-			{
-				"nom": "Message",
-				"texte": "You freed the first spirit of the scholars."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 4
-			},
-			{
-				"nom": "Message",
-				"texte": "Use du pouvoir que je t'ai donné afin de \\nraviver l'espoir du peuple de Kujira."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "Message",
-				"texte": "Use the power I entrusted you to restore \\nthe hope of the people of Kujira."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 126,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 5
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 4,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "vide mais pas invisible",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 15,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 18,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 17,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
 		}
 		]
 	},

@@ -1841,16 +1841,27 @@
 			],
 			"commandes": [
 			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
+				"nom": "JouerAnimation",
+				"idAnimation": 65
 			},
 			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Donjon 6.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
+				"nom": "Attendre",
+				"nombreDeFrames": 35
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerAnimation",
@@ -1858,7 +1869,29 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 20
+				"nombreDeFrames": 25
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "Deplacement",
@@ -1900,19 +1933,6 @@
 				"valeurADonner": true
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				}
-				]
-			},
 			"image": "statue grrr glace character",
 			"vitesse": "normale",
 			"frequence": "haute",

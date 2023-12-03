@@ -5,7 +5,7 @@
 	"hauteur": 40,
 	"musique": {
 		"nomFichierSonore": "Intestins.ogg",
-		"volume": 0.50,
+		"volume": 0.70,
 		"tempo": 0.75
 	},
 	"fondSonore": {
@@ -200,7 +200,7 @@
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 191,
-				"xDebutHeros": 27,
+				"xDebutHeros": 26,
 				"yDebutHeros": 18
 			}
 			],
@@ -250,7 +250,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 215,
 				"xDebutHeros": 13,
-				"yDebutHeros": 22
+				"yDebutHeros": 21
 			}
 			],
 			"vitesse": "moderee",
@@ -380,7 +380,7 @@
 	},
 	{
 		"id": 23,
-		"nom": "EV023",
+		"nom": "rayons de lumiere",
 		"x": 29,
 		"y": 17,
 		"pages": [
@@ -410,8 +410,7 @@
 				"dureeTransition": 0
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -666,6 +665,111 @@
 		"y": 17
 	},
 	{
+		"id": 25,
+		"nom": "Viking jaune",
+		"x": 23,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 88,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking jaune femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Without ever really having thought about it, \\nI thought that the surname \"Churchill\" meant: \\n\"hill of the church\"..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Sans jamais vraiment y avoir réfléchi, \\nje pensais que le patronyme \"Churchill\" \\nsignifiait : \"colline de l'église\"..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But then it would have been spelled \\n\"Churchhill\", with two H's."
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais alors, ça se serait épelé \"Churchhill\", \\navec deux H."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I then realized that \"Churchill\" actually meant: \\n\"church ill\"!"
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai alors réalisé que \"Churchill\" signifiait \\nen réalité : \"malade de l'église\" !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Which must look like a crisis of faith I guess."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ce qui doit ressembler à la crise de foi, \\nje suppose."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "viking2 femme petit character",
+			"directionInitiale": 1,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "Clone[021][43]",
 		"x": 13,
@@ -690,12 +794,20 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"In the morning, \\nswirls in the mist \\nthe sound of the bell.\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Au matin,\\ntournoie dans la brume\\nle son de la cloche.\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[0]"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
+				"texte": "\\c[2]Matsuo Bashô\\c[0]"
 			},
 			{
 				"nom": "Attendre",
@@ -742,8 +854,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Saint Steven's agnostic church\\nSaint Steven Parish"
+			},
+			{
 				"nom": "Message",
-				"texte": "Eglise agnostique saint Steeven \\nde la paroisse saint Steeven"
+				"texte": "Église agnostique saint Steeven \\nde la paroisse saint Steeven"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come many to repent!"
 			},
 			{
 				"nom": "Message",
@@ -852,6 +972,39 @@
 		"nom": "Clone[341][028]",
 		"x": 23,
 		"y": 15
+	},
+	{
+		"id": 32,
+		"nom": "triche",
+		"x": 29,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Message",
+				"texte": "vbxnxbv"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 88,
+				"valeur": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	}
 	]
 }

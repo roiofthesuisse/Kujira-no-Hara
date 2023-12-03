@@ -5,12 +5,12 @@
 	"hauteur": 30,
 	"musique": {
 		"nomFichierSonore": "Maison.ogg",
-		"volume": 1.00,
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
 		"nomFichierSonore": "013-Fire01.ogg",
-		"volume": 0.50,
+		"volume": 0.25,
 		"tempo": 1.00
 	},
 	"couche0": [
@@ -57,8 +57,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0053,0054,0055,-001,-001,-001,0028,0029,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0061,0062,0063,-001,-001,-001,0036,0037,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0053,0054,0055,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0061,0062,0063,-001,-001,-001,0008,0009,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0005,0006,0007,-001,-001,0044,0045,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0013,0107,0015,-001,-001,-001,-001,0030,0031,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0082,0083,-001,-001,-001,0002,-001,-001,-001,-001,-001,0038,0039,0080,0081,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -117,6 +117,31 @@
 		"y": 13
 	},
 	{
+		"id": 16,
+		"nom": "pot (-16)",
+		"x": 17,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 43,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "Parchemin",
 		"x": 15,
@@ -135,8 +160,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Entering the intestines by the Ibukuro sea, \\nwe meet a boat stuck in the mud..."
+			},
+			{
 				"nom": "Message",
 				"texte": "En entrant dans les intestins par la mer \\nd'Ibukuro, on rencontre un bâteau coincé \\ndans la boue..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Its square sail hides a hole in the wall!"
 			},
 			{
 				"nom": "Message",
@@ -169,16 +202,16 @@
 		"y": 17
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][039]",
-		"x": 17,
-		"y": 20
-	},
-	{
 		"id": 12,
 		"nom": "Clone[341][003]",
 		"x": 15,
 		"y": 13
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][039]",
+		"x": 17,
+		"y": 20
 	},
 	{
 		"id": 7,
@@ -214,6 +247,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][039]",
+		"x": 11,
+		"y": 20
 	},
 	{
 		"id": 13,
@@ -272,6 +311,119 @@
 				"script": "$game_temp.faceset = \"emeline\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) When the \\c[2]beings of stone\\c[0] adopted me, \\nthey made for me the jizo stone,\\nso that I could communicate with them."
+			},
+			{
+				"nom": "Message",
+				"texte": "Quand les \\c[2]êtres de pierre\\c[1] m'ont recueillie,\\nils ont fabriqué pour moi la pierre du Jizô\\nafin que je puisse communiquer avec eux."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I thought I was their daughter for a long time.\\nBut the \\c[2]beings of stone\\c[0] cannot have children: \\nthey exchanged this ability for immortality."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai longtemps cru que j'étais leur fille.\\nMais les \\c[2]êtres de pierre\\c[1] ne peuvent pas \\navoir d'enfants : ils ont échangé ce pouvoir \\ncontre l'immortalité."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe that's why they took me away?"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est peut-être pour ça qu'ils m'ont enlevée ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) When I realized that I had been taken\\nfrom my real parents, I left the village \\nand sold the Jizo Stone to \\c[2]Mercator\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Quand j'ai réalisé que j'avais été dérobée \\nà mes véritables parents, j'ai quitté le village \\net j'ai vendu la pierre du Jizô à \\c[2]Mercator\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Did I do right ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ai-je bien fait ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Should I be angry with them?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Est-ce que je devrais leur en vouloir ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Basically, all they wanted was a child to love."
+			},
+			{
+				"nom": "Message",
+				"texte": "Au fond, tout ce qu'ils voulaient, \\nc'était un enfant à aimer."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				]
+			},
+			"image": "fillette character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 13,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"emeline\""
+			},
+			{
 				"nom": "ConditionObjetPossede",
 				"idObjet": 52,
 				"numero": 0
@@ -281,16 +433,44 @@
 				"texte": "Après le sanctuaire de Jishin'"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You have to do what \\c[2]Heeboo\\c[0] asks of you."
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu dois faire ce qu'\\c[2]Hibu\\c[1] te demandera."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He will know how to reward your efforts \\nwhen its plan has been completed."
 			},
 			{
 				"nom": "Message",
 				"texte": "Il saura récompenser tes efforts lorsque \\nson plan aura été parachevé."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I too will..."
+			},
+			{
 				"nom": "Message",
-				"texte": "Moi aussi il... non rien."
+				"texte": "Moi aussi il..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No, nothing."
+			},
+			{
+				"nom": "Message",
+				"texte": "Non, rien."
 			},
 			{
 				"nom": "ConditionSinon",
@@ -301,24 +481,44 @@
 				"texte": "Avant le sanctuaire de Jishin'"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) In the vast caves you may have the chance \\nto meet some remarkable people."
+			},
+			{
 				"nom": "Message",
 				"texte": "Dans les grandes grottes, tu auras peut-être \\nla chance de rencontrer des personnalités\\nremarquables."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Coffe\\c[0] the cook, the \\c[2]miners\\c[0] of the depths,\\n\\c[2]Heeboo\\c[0] the omniscient, the \\c[2]stone beings\\c[0],\\nthe \\c[2]priests\\c[0] of saint Steven..."
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Coffe\\c[01] le cuistot, les \\c[02]mineurs du fin-fond\\c[01], \\n\\c[02]Hibu\\c[01] l'omniscient, les \\c[02]êtres de pierre\\c[01], les\\n\\c[02]prêtres de saint Steeven\\c[01]..."
+				"texte": "\\c[2]Coffe\\c[1] le cuistot, les \\c[2]mineurs du fin-fond\\c[1], \\n\\c[2]Hibu\\c[1] l'omniscient, les \\c[2]êtres de pierre\\c[1], les\\n\\c[2]prêtres de saint Steeven\\c[1]..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do not judge them too harshly."
 			},
 			{
 				"nom": "Message",
 				"texte": "Ne les juge pas trop sévèrement."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) They are good people."
+			},
+			{
 				"nom": "Message",
 				"texte": "Ce sont des gens bien."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) In their own way..."
+			},
+			{
 				"nom": "Message",
-				"texte": "A leur façon..."
+				"texte": "À leur façon..."
 			},
 			{
 				"nom": "ConditionFin",
@@ -357,28 +557,22 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][039]",
-		"x": 11,
-		"y": 20
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][004]",
 		"x": 9,
 		"y": 16
 	},
 	{
-		"id": 14,
-		"nom": "Clone[582][40]",
-		"x": 14,
-		"y": 12
-	},
-	{
 		"id": 3,
 		"nom": "Clone[341][004]",
 		"x": 9,
 		"y": 18
+	},
+	{
+		"id": 14,
+		"nom": "Clone[582][40]",
+		"x": 14,
+		"y": 12
 	},
 	{
 		"id": 9,
@@ -391,6 +585,45 @@
 		"nom": "Clone[341][008]",
 		"x": 17,
 		"y": 14
+	},
+	{
+		"id": 15,
+		"nom": "Triche",
+		"x": 19,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 161,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) hgjk,cb"
+			},
+			{
+				"nom": "Message",
+				"texte": "hgjk,cb"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 10,

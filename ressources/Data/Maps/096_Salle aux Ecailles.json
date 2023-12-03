@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 25,
 	"musique": {
-		"nomFichierSonore": "Forêt de l'Ouest.mp3",
+		"nomFichierSonore": "Forêt de l'Ouest.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -96,75 +96,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Ecaille Bleue",
-		"x": 9,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "Ecailles colorées",
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 16,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 5,
 		"nom": "Ecaille Verte",
 		"x": 13,
@@ -213,6 +144,75 @@
 			{
 				"nom": "InterrupteurLocal",
 				"numeroEvent": 5,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Ecaille Bleue",
+		"x": 9,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "monnaie.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Ecailles colorées",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -303,75 +303,6 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Ecaille Bleue",
-		"x": 10,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "Ecailles colorées",
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 17,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 6,
 		"nom": "Ecaille Verte",
 		"x": 11,
@@ -441,10 +372,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Ecaille Verte",
-		"x": 12,
-		"y": 11,
+		"id": 17,
+		"nom": "Ecaille Bleue",
+		"x": 10,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -462,7 +393,7 @@
 			{
 				"nom": "AjouterArgent",
 				"variable": false,
-				"quantite": 5
+				"quantite": 1
 			},
 			{
 				"nom": "Attendre",
@@ -475,7 +406,7 @@
 			}
 			],
 			"image": "Ecailles colorées",
-			"directionInitiale": 2,
+			"directionInitiale": 1,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -488,7 +419,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 1,
+				"numeroEvent": 17,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -579,10 +510,10 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 1,
 		"nom": "Ecaille Verte",
-		"x": 10,
-		"y": 13,
+		"x": 12,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -626,7 +557,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
+				"numeroEvent": 1,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -717,9 +648,9 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 7,
 		"nom": "Ecaille Verte",
-		"x": 12,
+		"x": 10,
 		"y": 13,
 		"pages": [
 		{
@@ -764,7 +695,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 13,
+				"numeroEvent": 7,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -855,6 +786,75 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Ecaille Verte",
+		"x": 12,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "monnaie.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 5
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Ecailles colorées",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 13,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 8,
 		"nom": "Ecaille Verte",
 		"x": 11,
@@ -922,12 +922,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][039]",
-		"x": 15,
-		"y": 10
 	},
 	{
 		"id": 3,
@@ -999,6 +993,12 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Clone[341][039]",
+		"x": 15,
+		"y": 10
+	},
+	{
 		"id": 9,
 		"nom": "Ecaille Bleue",
 		"x": 12,
@@ -1068,37 +1068,6 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 17,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 78,
-				"xDebutHeros": 7,
-				"yDebutHeros": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 4,
 		"nom": "Ecaille Bleue",
 		"x": 10,
@@ -1163,6 +1132,37 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 17,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 78,
+				"xDebutHeros": 7,
+				"yDebutHeros": 16
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

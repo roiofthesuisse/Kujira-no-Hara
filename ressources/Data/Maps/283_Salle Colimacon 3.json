@@ -171,82 +171,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Stèle",
-		"x": 17,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"\\c[2]Kaze the scholar\\c[1] used to retire in this room \\nto meditate."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Cette salle était là où \\c[02]Kaze l'érudit\\c[01] se\\nretirait pour méditer.\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The energy concentrated here is so strong\\nthat it seems to attract the fireflies...\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Une énergie si intense y est concentrée\\nqu'elle semble attirer les lucioles...\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en)                   Memoir of the \\c[2]wayfaring poet\\c[1]"
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]Poète voyageur"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 5,
 		"nom": "Luciole",
 		"x": 25,
@@ -674,6 +598,82 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Stèle",
+		"x": 17,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"\\c[2]Kaze the scholar\\c[1] used to retire in this room \\nto meditate."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Cette salle était là où \\c[2]Kaze l'érudit\\c[1] se\\nretirait pour méditer.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The energy concentrated here is so strong\\nthat it seems to attract the fireflies...\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Une énergie si intense y est concentrée\\nqu'elle semble attirer les lucioles...\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en)                      Memoirs of the \\c[2]traveling poet\\c[1]"
+			},
+			{
+				"nom": "Message",
+				"texte": "                        Mémoires du \\c[2]Poète voyageur"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1109,6 +1109,31 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "blocage",
+		"x": 25,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 10,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "Luciole",
 		"x": 33,
@@ -1540,70 +1565,6 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "blocage",
-		"x": 25,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 10,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 29,
-		"y": 34,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 75,
-				"modeDeFusion": "normal",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 100,
-				"nuance": 0,
-				"nomImage": "essai lumière tourbillon géant"
-			},
-			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 142,
-				"vert": 132,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 1,
 		"nom": "Luciole",
 		"x": 31,
@@ -1859,47 +1820,42 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "perle",
-		"x": 25,
-		"y": 24,
+		"id": 12,
+		"nom": "EV012",
+		"x": 29,
+		"y": 34,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 75,
+				"modeDeFusion": "normal",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "essai lumière tourbillon géant"
 			},
-			"image": "perle character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 142,
+				"vert": 132,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2157,6 +2113,84 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "perle",
+		"x": 25,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			"image": "perle character",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 25,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 284,
+				"xDebutHeros": 16,
+				"yDebutHeros": 12
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -2504,37 +2538,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 25,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 284,
-				"xDebutHeros": 16,
-				"yDebutHeros": 12
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "Luciole",
 		"x": 21,
@@ -2722,6 +2725,37 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 24,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 64,
+				"xDebutHeros": 22,
+				"yDebutHeros": 37
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -2981,37 +3015,6 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 24,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 64,
-				"xDebutHeros": 22,
-				"yDebutHeros": 37
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 9,
 		"nom": "Luciole",
 		"x": 28,
@@ -3199,343 +3202,6 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "Kaze l'érudit",
-		"x": 25,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Your presence in this place awakens \\nmy dormant soul."
-			},
-			{
-				"nom": "Message",
-				"texte": "Par ta présence en ces lieux s'éveille \\nmon âme endormie."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "erudits character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I am \\c[2]Kaze the scholar\\c[1]."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je suis \\c[02]Kaze l'érudit\\c[01]."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You bravery and your intelligence triumphed \\nover my sanctuary."
-			},
-			{
-				"nom": "Message",
-				"texte": "Ta bravoure et ton intelligence sont venues\\nà bout de mon sanctuaire."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) My power is yours."
-			},
-			{
-				"nom": "Message",
-				"texte": "Mon pouvoir est tien."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 5,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 2,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 5,
-				"operationAFaire2": "contenu de la variable"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You are more resistant and you can now bring \\nmy fan out of here."
-			},
-			{
-				"nom": "Message",
-				"texte": "Te voilà plus résistant et tu peux désormais\\nemporter mon éventail en dehors d'ici."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I give you the pearl of sands.\\nYou are the new guardian of the time \\nelapsing in Kujira."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je te confie aussi la perle des sables, \\ntu es le nouveau gardien du temps qui \\ns'écoule en \\c[02]Kujira\\c[01]."
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 18,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 50,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 93,
-				"valeur": false
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Kaze the scholar\\c[1] offers you the pearl of sands."
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Kaze l'érudit\\c[01] vous offre la perle des sables."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You freed the third spirit of the \\c[2]scholars\\c[1]."
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous avez libéré le troisième esprit des \\c[02]érudits\\c[01]."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Kujira is a unique place in the universe.\\nKnow that its preservation is necessary \\nto a higher purpose."
-			},
-			{
-				"nom": "Message",
-				"texte": "Kujira est un lieu unique dans l'univers.\\nSache que sa préservation est nécessaire \\nà un ordre supérieur."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 126,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 13,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 13,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "vide mais pas invisible",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 15,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 18,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 17,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
 		}
 		]
 	},
@@ -3879,6 +3545,343 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Kaze l'érudit",
+		"x": 25,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Your presence in this place awakens \\nmy dormant soul."
+			},
+			{
+				"nom": "Message",
+				"texte": "Par ta présence en ces lieux s'éveille \\nmon âme endormie."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "erudits character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am \\c[2]Kaze the scholar\\c[1]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je suis \\c[2]Kaze l'érudit\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You bravery and your intelligence triumphed \\nover my sanctuary."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ta bravoure et ton intelligence sont venues\\nà bout de mon sanctuaire."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) My power is yours."
+			},
+			{
+				"nom": "Message",
+				"texte": "Mon pouvoir est tien."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 7
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 2,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 5,
+				"operationAFaire2": "contenu de la variable"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are more resistant and you can now bring \\nmy fan out of here."
+			},
+			{
+				"nom": "Message",
+				"texte": "Te voilà plus résistant et tu peux désormais\\nemporter mon éventail en dehors d'ici."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I give you the pearl of sands.\\nYou are the new guardian of the time \\nelapsing in Kujira."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je te confie aussi la perle des sables, \\ntu es le nouveau gardien du temps qui \\ns'écoule en \\c[2]Kujira\\c[1]."
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (important).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 18,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 50,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 93,
+				"valeur": false
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Kaze the scholar\\c[1] offers you the pearl of sands."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Kaze l'érudit\\c[1] vous offre la perle des sables."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You freed the third spirit of the \\c[2]scholars\\c[1]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous avez libéré le troisième esprit des \\c[2]érudits\\c[1]."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Kujira is a unique place in the universe.\\nKnow that its preservation is necessary \\nto a higher purpose."
+			},
+			{
+				"nom": "Message",
+				"texte": "Kujira est un lieu unique dans l'univers.\\nSache que sa préservation est nécessaire \\nà un ordre supérieur."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 126,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 13,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 13,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "vide mais pas invisible",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 15,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 18,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	},

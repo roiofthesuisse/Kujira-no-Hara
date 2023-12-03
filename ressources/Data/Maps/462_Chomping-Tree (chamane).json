@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -126,6 +126,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 8,
+		"y": 17
+	},
+	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 20,
@@ -144,6 +150,9 @@
 				"zoom": 100,
 				"nuance": 0,
 				"nomImage": "obscurité énigme fog"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -155,12 +164,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 8,
-		"y": 17
 	},
 	{
 		"id": 11,
@@ -255,12 +258,16 @@
 				"numeroPageCommune": 21
 			},
 			{
-				"nom": "Message",
-				"texte": "\"En son dessus : trois masques à pendre\\nEn son dessous : la terre de cendres.\""
+				"nom": "Commentaire",
+				"texte": "(en) \"Above you see: three masks that hang.\\nAhead you find: a pile of ash.\\nOutside you track: what insects sang.\\nBy them was told: the omen flash.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"En son dehors : l'appel d'insectes.\\nEn son dedans, sage intellect."
+				"texte": "\"Dessus, contemple : un masque à pendre.\\nDevant, constate : un tas de cendres.\\nAu loin, entends : les chants d'insectes.\\nDedans, devine : un intellect.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Who is it?"
 			},
 			{
 				"nom": "Message",
@@ -272,8 +279,12 @@
 				"avancement": "CONNUE"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]wizard Ovose\\c[0]|The \\c[2]professor Wuerrenz\\c[0]|\\c[2]Methuselah\\c[0]|The \\c[2]Shaman\\c[0]"
+			},
+			{
 				"nom": "Choix",
-				"alternatives": ["Le \\c[2]magicien Dose\\c[1]", "\\c[2]Tabula\\c[1]", "\\c[2]Mathusalem\\c[1]", "La \\c[2]chamane\\c[1]"],
+				"alternatives": ["Le \\c[2]magicien Dose\\c[1]", "Le \\c[2]professeur Wuerrenz\\c[1]", "\\c[2]Mathusalem\\c[1]", "La \\c[2]chamane\\c[1]"],
 				"numero": 0
 			},
 			{
@@ -313,9 +324,10 @@
 				"numeroPageCommune": 88
 			},
 			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 69,
-				"avancement": "FAITE"
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -376,10 +388,6 @@
 					"direction": 0
 				}
 				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -608,53 +616,33 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) You can talk to the \\c[2]chomping tree\\c[0], \\nit won't bite you."
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous pouvez parler au \\c[2]Chomping-Tree\\c[1],\\nil ne mord pas."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Prepare your piggybank though..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Préparez votre tirelire cependant..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "You can speak to the \\c[2]Chomping-Tree\\c[1],\\nit does not bite."
-			},
-			{
-				"nom": "Message",
-				"texte": "But prepare your piggybank !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -678,6 +666,12 @@
 		"nom": "Clone[341][061]",
 		"x": 7,
 		"y": 14
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 9,
+		"y": 9
 	},
 	{
 		"id": 13,
@@ -824,36 +818,25 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "ModifierAvancementQuete",
+				"numero": 69,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get a Crystal of the Whale!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a magic piece of crystallized salt."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "You get a Crystal of the Whale !"
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a magic piece of crystallized salt."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -890,6 +873,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -942,16 +929,16 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 9
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][061]",
 		"x": 14,
 		"y": 9
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 16,
+		"y": 10
 	},
 	{
 		"id": 14,
@@ -984,13 +971,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "MC_Bush.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "Sauter",
 					"x": 2,
@@ -1025,16 +1005,16 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][028]",
-		"x": 16,
-		"y": 10
-	},
-	{
 		"id": 9,
 		"nom": "Clone[341][061]",
 		"x": 17,
 		"y": 11
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 17,
+		"y": 14
 	},
 	{
 		"id": 15,
@@ -1066,12 +1046,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 17,
-		"y": 14
 	},
 	{
 		"id": 10,

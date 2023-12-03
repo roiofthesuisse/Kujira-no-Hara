@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "",
+		"nomFichierSonore": "Zone enneigée.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -62,7 +62,7 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0212,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -186,12 +186,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][050]",
-		"x": 23,
-		"y": 16
-	},
-	{
 		"id": 56,
 		"nom": "EV056",
 		"x": 0,
@@ -223,50 +217,10 @@
 		]
 	},
 	{
-		"id": 62,
-		"nom": "Parchemin",
-		"x": 11,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Minuit de givre,\\nj'ai emprunté pour dormir\\nla manche d'un épouvantail !\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 1,
+		"nom": "Clone[572][5]",
+		"x": 23,
+		"y": 16
 	},
 	{
 		"id": 7,
@@ -300,6 +254,66 @@
 		]
 	},
 	{
+		"id": 62,
+		"nom": "Parchemin",
+		"x": 11,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Midnight frost, I borrowed to\\nsleep the sleeve of a\\nscarecrow!\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Minuit de givre,\\nj'ai emprunté pour dormir\\nla manche d'un épouvantail !\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][006]",
+		"x": 22,
+		"y": 12
+	},
+	{
 		"id": 57,
 		"nom": "EV057",
 		"x": 12,
@@ -329,12 +343,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][006]",
-		"x": 22,
-		"y": 12
 	},
 	{
 		"id": 8,
@@ -394,7 +402,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -493,7 +501,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -644,12 +652,20 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est vide."
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
@@ -711,6 +727,12 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "Clone[341][039]",
+		"x": 8,
+		"y": 18
+	},
+	{
 		"id": 59,
 		"nom": "Pancarte",
 		"x": 13,
@@ -735,8 +757,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 \\c[2]Yellow Vikings\\c[0]' village\\n\\u2190 HSA station"
+			},
+			{
 				"nom": "Message",
-				"texte": "/\\ Village viking jaune\\n< Station AGV"
+				"texte": "\\u2191 Village viking jaune\\n\\u2190 Station AGV"
 			},
 			{
 				"nom": "Attendre",
@@ -761,12 +787,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][039]",
-		"x": 8,
-		"y": 18
 	}
 	]
 }

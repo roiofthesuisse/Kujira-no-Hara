@@ -66,76 +66,10 @@
 	],
 	"events": [
 	{
-		"id": 60,
-		"nom": "Carte du Donjon",
-		"x": 3,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 18,
-				"avancement": "FAITE"
-			},
-			{
-				"nom": "Message",
-				"texte": "La carte de ce sanctuaire est à présent \\ndisponible dans le menu \"carte\" !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 6
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "plan donjon character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
+		"id": 49,
 		"nom": "Interrupteur 3pas",
-		"x": 12,
-		"y": 3,
+		"x": 17,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -184,335 +118,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 5,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "Interrupteur 3pas",
-		"x": 15,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 16,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 27,
-		"nom": "Interrupteur 3pas",
-		"x": 14,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 27,
+				"numeroEvent": 49,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -788,9 +394,567 @@
 		]
 	},
 	{
-		"id": 49,
+		"id": 27,
 		"nom": "Interrupteur 3pas",
-		"x": 17,
+		"x": 14,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 27,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Interrupteur 3pas",
+		"x": 15,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "Interrupteur 3pas",
+		"x": 12,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 5,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 60,
+		"nom": "Carte du Donjon",
+		"x": 3,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 18,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The map of this shrine is now available \\nin the \"map\" menu !"
+			},
+			{
+				"nom": "Message",
+				"texte": "La carte de ce sanctuaire est à présent \\ndisponible dans le menu \"carte\" !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 6
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "plan donjon character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 44,
+		"nom": "Interrupteur 3pas",
+		"x": 14,
 		"y": 8,
 		"pages": [
 		{
@@ -840,366 +1004,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 49,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 55,
-		"nom": "EV055",
-		"x": 14,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 538,
-				"xDebutHeros": 14,
-				"yDebutHeros": 13
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 11,
-		"nom": "Interrupteur 3pas",
-		"x": 11,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 11,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 22,
-		"nom": "Interrupteur 3pas",
-		"x": 17,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 22,
+				"numeroEvent": 44,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -1475,368 +1280,9 @@
 		]
 	},
 	{
-		"id": 44,
+		"id": 22,
 		"nom": "Interrupteur 3pas",
-		"x": 14,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 44,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 61,
-		"nom": "EV061",
-		"x": 7,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 545,
-				"xDebutHeros": 7,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Interrupteur 3pas",
-		"x": 11,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 6,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 17,
-		"nom": "Interrupteur 3pas",
-		"x": 15,
+		"x": 17,
 		"y": 2,
 		"pages": [
 		{
@@ -1886,7 +1332,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 17,
+				"numeroEvent": 22,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -1998,10 +1444,10 @@
 		]
 	},
 	{
-		"id": 28,
+		"id": 11,
 		"nom": "Interrupteur 3pas",
-		"x": 14,
-		"y": 6,
+		"x": 11,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -2050,7 +1496,202 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 28,
+				"numeroEvent": 11,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 55,
+		"nom": "EV055",
+		"x": 14,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 538,
+				"xDebutHeros": 14,
+				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 50,
+		"nom": "Interrupteur 3pas",
+		"x": 17,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 50,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -2326,10 +1967,10 @@
 		]
 	},
 	{
-		"id": 50,
+		"id": 28,
 		"nom": "Interrupteur 3pas",
-		"x": 17,
-		"y": 7,
+		"x": 14,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -2378,7 +2019,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 50,
+				"numeroEvent": 28,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -2490,118 +2131,9 @@
 		]
 	},
 	{
-		"id": 56,
-		"nom": "Blocage de pierre",
-		"x": 9,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 15,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 70,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 54,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "blocage character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
+		"id": 17,
 		"nom": "Interrupteur 3pas",
-		"x": 11,
+		"x": 15,
 		"y": 2,
 		"pages": [
 		{
@@ -2651,7 +2183,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 1,
+				"numeroEvent": 17,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -2763,10 +2295,10 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 6,
 		"nom": "Interrupteur 3pas",
-		"x": 12,
-		"y": 4,
+		"x": 11,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -2815,7 +2347,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 12,
+				"numeroEvent": 6,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -2927,10 +2459,41 @@
 		]
 	},
 	{
-		"id": 23,
+		"id": 61,
+		"nom": "EV061",
+		"x": 7,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 545,
+				"xDebutHeros": 7,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 45,
 		"nom": "Interrupteur 3pas",
-		"x": 17,
-		"y": 4,
+		"x": 15,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -2979,7 +2542,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 23,
+				"numeroEvent": 45,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -3255,10 +2818,10 @@
 		]
 	},
 	{
-		"id": 45,
+		"id": 23,
 		"nom": "Interrupteur 3pas",
-		"x": 15,
-		"y": 8,
+		"x": 17,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -3307,7 +2870,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 45,
+				"numeroEvent": 23,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -3419,41 +2982,10 @@
 		]
 	},
 	{
-		"id": 62,
-		"nom": "EV062",
-		"x": 3,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 545,
-				"xDebutHeros": 3,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
+		"id": 12,
 		"nom": "Interrupteur 3pas",
-		"x": 10,
-		"y": 3,
+		"x": 12,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -3502,7 +3034,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
+				"numeroEvent": 12,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -3614,9 +3146,9 @@
 		]
 	},
 	{
-		"id": 18,
+		"id": 1,
 		"nom": "Interrupteur 3pas",
-		"x": 16,
+		"x": 11,
 		"y": 2,
 		"pages": [
 		{
@@ -3666,7 +3198,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 18,
+				"numeroEvent": 1,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -3778,10 +3310,119 @@
 		]
 	},
 	{
-		"id": 29,
-		"nom": "Interrupteur 3pas",
-		"x": 13,
+		"id": 56,
+		"nom": "Blocage de pierre",
+		"x": 9,
 		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 15,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 70,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 54,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "blocage character",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 51,
+		"nom": "Interrupteur 3pas",
+		"x": 16,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -3830,7 +3471,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 29,
+				"numeroEvent": 51,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -4106,10 +3747,10 @@
 		]
 	},
 	{
-		"id": 51,
+		"id": 29,
 		"nom": "Interrupteur 3pas",
-		"x": 16,
-		"y": 7,
+		"x": 13,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -4158,7 +3799,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 51,
+				"numeroEvent": 29,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -4270,40 +3911,9 @@
 		]
 	},
 	{
-		"id": 57,
-		"nom": "EV057",
-		"x": 0,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 546,
-				"xDebutHeros": 19,
-				"yDebutHeros": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
+		"id": 18,
 		"nom": "Interrupteur 3pas",
-		"x": 12,
+		"x": 16,
 		"y": 2,
 		"pages": [
 		{
@@ -4353,7 +3963,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 2,
+				"numeroEvent": 18,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -4465,10 +4075,10 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 7,
 		"nom": "Interrupteur 3pas",
-		"x": 13,
-		"y": 4,
+		"x": 10,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -4517,7 +4127,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 13,
+				"numeroEvent": 7,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -4629,10 +4239,41 @@
 		]
 	},
 	{
-		"id": 24,
+		"id": 62,
+		"nom": "EV062",
+		"x": 3,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 545,
+				"xDebutHeros": 3,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 46,
 		"nom": "Interrupteur 3pas",
-		"x": 17,
-		"y": 5,
+		"x": 15,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -4681,7 +4322,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 24,
+				"numeroEvent": 46,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -4957,10 +4598,10 @@
 		]
 	},
 	{
-		"id": 46,
+		"id": 24,
 		"nom": "Interrupteur 3pas",
-		"x": 15,
-		"y": 9,
+		"x": 17,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -5009,7 +4650,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 46,
+				"numeroEvent": 24,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -5121,179 +4762,9 @@
 		]
 	},
 	{
-		"id": 19,
+		"id": 13,
 		"nom": "Interrupteur 3pas",
-		"x": 10,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 19,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 63,
-		"nom": "Clone[582][37]",
-		"x": 5,
-		"y": 5
-	},
-	{
-		"id": 8,
-		"nom": "Interrupteur 3pas",
-		"x": 10,
+		"x": 13,
 		"y": 4,
 		"pages": [
 		{
@@ -5343,7 +4814,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 8,
+				"numeroEvent": 13,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -5455,9 +4926,204 @@
 		]
 	},
 	{
-		"id": 30,
+		"id": 2,
 		"nom": "Interrupteur 3pas",
 		"x": 12,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 2,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 57,
+		"nom": "EV057",
+		"x": 0,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 546,
+				"xDebutHeros": 19,
+				"yDebutHeros": 9
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 52,
+		"nom": "Interrupteur 3pas",
+		"x": 16,
 		"y": 6,
 		"pages": [
 		{
@@ -5507,7 +5173,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 30,
+				"numeroEvent": 52,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -5783,9 +5449,9 @@
 		]
 	},
 	{
-		"id": 52,
+		"id": 30,
 		"nom": "Interrupteur 3pas",
-		"x": 16,
+		"x": 12,
 		"y": 6,
 		"pages": [
 		{
@@ -5835,7 +5501,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 52,
+				"numeroEvent": 30,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -5947,179 +5613,9 @@
 		]
 	},
 	{
-		"id": 58,
-		"nom": "Clone[341][003]",
-		"x": 8,
-		"y": 10
-	},
-	{
-		"id": 3,
+		"id": 8,
 		"nom": "Interrupteur 3pas",
-		"x": 13,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 3,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Interrupteur 3pas",
-		"x": 14,
+		"x": 10,
 		"y": 4,
 		"pages": [
 		{
@@ -6169,7 +5665,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 14,
+				"numeroEvent": 8,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -6281,174 +5777,16 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Interrupteur 3pas",
-		"x": 16,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 25,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 63,
+		"nom": "Clone[582][37]",
+		"x": 5,
+		"y": 5
 	},
 	{
-		"id": 36,
+		"id": 19,
 		"nom": "Interrupteur 3pas",
 		"x": 10,
-		"y": 9,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
@@ -6497,7 +5835,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 36,
+				"numeroEvent": 19,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -6773,16 +6111,10 @@
 		]
 	},
 	{
-		"id": 64,
-		"nom": "Clone[582][37]",
-		"x": 2,
-		"y": 6
-	},
-	{
-		"id": 9,
+		"id": 36,
 		"nom": "Interrupteur 3pas",
 		"x": 10,
-		"y": 5,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -6831,7 +6163,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 9,
+				"numeroEvent": 36,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -6943,10 +6275,10 @@
 		]
 	},
 	{
-		"id": 20,
+		"id": 25,
 		"nom": "Interrupteur 3pas",
 		"x": 16,
-		"y": 3,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -6995,7 +6327,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 20,
+				"numeroEvent": 25,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -7107,10 +6439,10 @@
 		]
 	},
 	{
-		"id": 31,
+		"id": 14,
 		"nom": "Interrupteur 3pas",
-		"x": 12,
-		"y": 5,
+		"x": 14,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -7159,7 +6491,341 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 31,
+				"numeroEvent": 14,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Interrupteur 3pas",
+		"x": 13,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 3,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 58,
+		"nom": "Clone[341][003]",
+		"x": 8,
+		"y": 10
+	},
+	{
+		"id": 53,
+		"nom": "Interrupteur 3pas",
+		"x": 15,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 53,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -7435,580 +7101,9 @@
 		]
 	},
 	{
-		"id": 53,
+		"id": 31,
 		"nom": "Interrupteur 3pas",
-		"x": 15,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 53,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 59,
-		"nom": "EV059",
-		"x": 10,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 70,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 54,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 70
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 59,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Interrupteur 3pas",
-		"x": 13,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 4,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "Interrupteur 3pas",
-		"x": 15,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 15,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "Interrupteur 3pas",
-		"x": 15,
+		"x": 12,
 		"y": 5,
 		"pages": [
 		{
@@ -8058,7 +7153,505 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 26,
+				"numeroEvent": 31,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Interrupteur 3pas",
+		"x": 16,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 20,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Interrupteur 3pas",
+		"x": 10,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 9,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 64,
+		"nom": "Clone[582][37]",
+		"x": 2,
+		"y": 6
+	},
+	{
+		"id": 48,
+		"nom": "Interrupteur 3pas",
+		"x": 17,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 48,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -8334,173 +7927,9 @@
 		]
 	},
 	{
-		"id": 48,
+		"id": 26,
 		"nom": "Interrupteur 3pas",
-		"x": 17,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "033-Switch02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 48,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "057-Wrong01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			}
-			],
-			"image": "bouton character",
-			"teinte": "360",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 56,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 14,
-				"yDebutHeros": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 70,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": false
-			}
-			],
-			"image": "bouton character",
-			"teinte": "210",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Interrupteur 3pas",
-		"x": 11,
+		"x": 15,
 		"y": 5,
 		"pages": [
 		{
@@ -8550,7 +7979,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 10,
+				"numeroEvent": 26,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -8662,9 +8091,173 @@
 		]
 	},
 	{
-		"id": 21,
+		"id": 15,
 		"nom": "Interrupteur 3pas",
-		"x": 17,
+		"x": 15,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 15,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Interrupteur 3pas",
+		"x": 13,
 		"y": 3,
 		"pages": [
 		{
@@ -8714,7 +8307,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 21,
+				"numeroEvent": 4,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -8826,9 +8419,88 @@
 		]
 	},
 	{
-		"id": 32,
+		"id": 59,
+		"nom": "EV059",
+		"x": 10,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 70,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 54,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 59,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 54,
 		"nom": "Interrupteur 3pas",
-		"x": 12,
+		"x": 15,
 		"y": 7,
 		"pages": [
 		{
@@ -8878,7 +8550,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 32,
+				"numeroEvent": 54,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -9154,9 +8826,9 @@
 		]
 	},
 	{
-		"id": 54,
+		"id": 32,
 		"nom": "Interrupteur 3pas",
-		"x": 15,
+		"x": 12,
 		"y": 7,
 		"pages": [
 		{
@@ -9206,7 +8878,335 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 54,
+				"numeroEvent": 32,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "Interrupteur 3pas",
+		"x": 17,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 21,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "057-Wrong01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 56,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 14,
+				"yDebutHeros": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": false
+			}
+			],
+			"image": "bouton character",
+			"teinte": "210",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Interrupteur 3pas",
+		"x": 11,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 70,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "bouton character",
+			"teinte": "360",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 10,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}

@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -126,6 +126,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 8,
+		"y": 17
+	},
+	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 20,
@@ -148,6 +154,9 @@
 			{
 				"nom": "EffacerImage",
 				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -159,12 +168,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 8,
-		"y": 17
 	},
 	{
 		"id": 11,
@@ -259,37 +262,53 @@
 				"numeroPageCommune": 21
 			},
 			{
-				"nom": "Message",
-				"texte": "\"Il ne peut s'empécher,\\nd'avaler un objet...\""
+				"nom": "Commentaire",
+				"texte": "(en) \"It sure cannot stop itself\\nFrom stealing things from the shelf.\\nIt then slakes its gluttony\\nTo conceal its larceny.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"...Quand personne ne le voit,\\nqu'on ne le regarde pas...\""
+				"texte": "\"Il ne peut s'empécher,\\nD'avaler un objet.\\nQuand personne n'est là,\\nQu'on ne l'observe pas...\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
 			},
 			{
 				"nom": "Message",
 				"texte": "..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Uh... ah yes :"
+			},
+			{
 				"nom": "Message",
 				"texte": "Euh... ah oui :"
 			},
 			{
-				"nom": "Message",
-				"texte": "\"...Indiscret, impatient,\\nsi jamais tu l'entrouvres...\""
+				"nom": "Commentaire",
+				"texte": "(en) \"Out of mere curiosity\\nYou may look with no pity\\nInside it to discover\\nAn admirable treasure!\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"...Il se peut que dedans,\\nune merveille tu découvres !\""
+				"texte": "\"...Indiscret, impatient,\\nSi jamais tu l'entrouvres,\\nIl se peut que dedans\\nUn trésor tu découvres !\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What is it?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Qu'est-ce ?"
+				"texte": "Qu'est-ce que c'est ?"
 			},
 			{
 				"nom": "ModifierAvancementQuete",
 				"numero": 16,
 				"avancement": "CONNUE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A pumpkin|A crate|A treasure shell|\\c[2]Tabula the Terrible\\c[0]"
 			},
 			{
 				"nom": "Choix",
@@ -324,9 +343,10 @@
 				"numeroPageCommune": 88
 			},
 			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 16,
-				"avancement": "FAITE"
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -396,10 +416,6 @@
 					"direction": 0
 				}
 				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -628,8 +644,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You can talk to the \\c[2]chomping tree\\c[0], \\nit won't bite you."
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous pouvez parler au \\c[2]Chomping-Tree\\c[1],\\nil ne mord pas."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Prepare your piggybank though..."
 			},
 			{
 				"nom": "Message",
@@ -638,10 +662,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -674,6 +694,12 @@
 		"nom": "Clone[341][061]",
 		"x": 7,
 		"y": 14
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 9,
+		"y": 9
 	},
 	{
 		"id": 13,
@@ -820,12 +846,25 @@
 				]
 			},
 			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 16,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get a Crystal of the Whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a magic piece of crystallized salt."
+			},
+			{
 				"nom": "Message",
-				"texte": "C'est un superbe morceau de sel magique \\ncristallisé !"
+				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
 			},
 			{
 				"nom": "Attendre",
@@ -862,6 +901,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -914,16 +957,16 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 9
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][061]",
 		"x": 14,
 		"y": 9
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 16,
+		"y": 10
 	},
 	{
 		"id": 14,
@@ -956,13 +999,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "MC_Bush.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "Sauter",
 					"x": 2,
@@ -997,16 +1033,16 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][028]",
-		"x": 16,
-		"y": 10
-	},
-	{
 		"id": 9,
 		"nom": "Clone[341][061]",
 		"x": 17,
 		"y": 11
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 17,
+		"y": 14
 	},
 	{
 		"id": 15,
@@ -1038,12 +1074,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 17,
-		"y": 14
 	},
 	{
 		"id": 10,

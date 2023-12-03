@@ -57,9 +57,9 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0660,0661,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0668,0669,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0404,0405,-001,-001,0686,-001,-001,0678,-001,0686,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0412,0708,-001,-001,-001,-001,0686,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0048,0668,0669,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0404,0405,-001,-001,0686,-001,-001,0678,-001,0686,-001,0056,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0412,0413,-001,-001,-001,-001,0686,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0420,0421,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0656,0657,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0664,0665,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -202,7 +202,7 @@
 	},
 	{
 		"id": 1,
-		"nom": "Curé",
+		"nom": "Chuiche donation",
 		"x": 15,
 		"y": 10,
 		"pages": [
@@ -234,22 +234,42 @@
 				"avancement": "CONNUE"
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Since we have used up all the baptismal funds, \\nwe have no more money for the restoration\\nof the crypt."
+			},
+			{
 				"nom": "Message",
 				"texte": "Comme nous avons liquidé tous les fonds\\nbatismaux, nous n'avons plus d'argent\\npour la restauration de la crypte."
 			},
 			{
-				"nom": "Message",
-				"texte": "Nous faisons donc une collecte."
+				"nom": "Commentaire",
+				"texte": "(en) So we organize a collection."
 			},
 			{
 				"nom": "Message",
-				"texte": "Faites un don de 200 écailles colorées\\npour la restauration de la crypte."
+				"texte": "Nous organisons donc une collecte."
 			},
 			{
 				"nom": "ConditionArgent",
 				"quantite": 200,
 				"inegalite": ">=",
 				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Donate 200 colored scales for the restoration \\nof the crypt."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Faites un don de 200 écailles colorées\\npour la restauration de la crypte."
 			},
 			{
 				"nom": "Choix",
@@ -267,8 +287,32 @@
 				"quantite": 200
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) God may return it to you."
+			},
+			{
 				"nom": "Message",
 				"texte": "Dieu vous le rendra peut-être."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If he exists, if he is nice and if this donation \\nwas the right thing to do according to him."
+			},
+			{
+				"nom": "Message",
+				"texte": "S'il existe, s'il est sympa et si cette donation \\nétait la bonne chose à faire selon lui."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come back later to see the progress!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Revenez plus tard pour constater l'avancée \\ndes travaux !"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -281,6 +325,14 @@
 				"nom": "ChoixAlternative",
 				"numero": 0,
 				"alternative": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Did you also go broke after a massive \\norder of cookies?"
 			},
 			{
 				"nom": "Message",
@@ -351,22 +403,42 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Since we have used up all the baptismal funds, \\nwe have no more money for the restoration\\nof the crypt."
+			},
+			{
 				"nom": "Message",
 				"texte": "Comme nous avons liquidé tous les fonds\\nbatismaux, nous n'avons plus d'argent\\npour la restauration de la crypte."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So we make a collection."
 			},
 			{
 				"nom": "Message",
 				"texte": "Nous faisons donc une collecte."
 			},
 			{
-				"nom": "Message",
-				"texte": "Faites un don de 200 écailles colorées\\npour la restauration de la crypte."
-			},
-			{
 				"nom": "ConditionArgent",
 				"quantite": 200,
 				"inegalite": ">=",
 				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Donate 200 colored scales for the restoration \\nof the crypt."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Faites un don de 200 écailles colorées\\npour la restauration de la crypte."
 			},
 			{
 				"nom": "Choix",
@@ -384,8 +456,32 @@
 				"quantite": 200
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) God may return it to you."
+			},
+			{
 				"nom": "Message",
 				"texte": "Dieu vous le rendra peut-être."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If he exists, if he is nice and if this donation \\nwas the right thing to do according to him."
+			},
+			{
+				"nom": "Message",
+				"texte": "S'il existe, s'il est sympa et si cette donation \\nétait la bonne chose à faire selon lui."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come back later to see the progress!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Revenez plus tard pour constater l'avancée \\ndes travaux !"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -398,6 +494,14 @@
 				"nom": "ChoixAlternative",
 				"numero": 0,
 				"alternative": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Did you also go broke after a massive \\norder of cookies?"
 			},
 			{
 				"nom": "Message",
@@ -468,22 +572,42 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Since we have used up all the baptismal funds, \\nwe have no more money for the restoration\\nof the crypt."
+			},
+			{
 				"nom": "Message",
 				"texte": "Comme nous avons liquidé tous les fonds\\nbatismaux, nous n'avons plus d'argent\\npour la restauration de la crypte."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So we take up a collection."
 			},
 			{
 				"nom": "Message",
 				"texte": "Nous faisons donc une collecte."
 			},
 			{
-				"nom": "Message",
-				"texte": "Faites un don de 200 écailles colorées\\npour la restauration de la crypte."
-			},
-			{
 				"nom": "ConditionArgent",
 				"quantite": 200,
 				"inegalite": ">=",
 				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Donate 200 colored scales for the restoration\\nof the crypt."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Faites un don de 200 écailles colorées\\npour la restauration de la crypte."
 			},
 			{
 				"nom": "Choix",
@@ -501,8 +625,32 @@
 				"quantite": 200
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe God will give it back to you."
+			},
+			{
 				"nom": "Message",
 				"texte": "Dieu vous le rendra peut-être."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If he exists, if he is nice and if this donation \\nwas the right thing to do according to him."
+			},
+			{
+				"nom": "Message",
+				"texte": "S'il existe, s'il est sympa et si cette donation \\nétait la bonne chose à faire selon lui."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come back later to see the progress!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Revenez plus tard pour constater l'avancée \\ndes travaux !"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -515,6 +663,14 @@
 				"nom": "ChoixAlternative",
 				"numero": 0,
 				"alternative": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Did you also go broke after a massive \\norder of cookies?"
 			},
 			{
 				"nom": "Message",
@@ -585,8 +741,20 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Thanks to your donations, the saint Steven \\ncrypt is restored."
+			},
+			{
 				"nom": "Message",
 				"texte": "Grâce à vos dons, la crypte saint Steeven\\nest restaurée."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I thank you for your generosity."
 			},
 			{
 				"nom": "Message",
@@ -928,6 +1096,186 @@
 		]
 	},
 	{
+		"id": 15,
+		"nom": "Réglages initiaux",
+		"x": 21,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 2
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 3
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 4
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 0
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 28,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 999
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 4,
 		"nom": "faux mur 3",
 		"x": 13,
@@ -1110,8 +1458,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt."
 			},
 			{
 				"nom": "Message",
@@ -1122,8 +1478,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You get a Crystal of the Whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "You get a Crystal of the Whale !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a magic piece of crystallized salt."
 			},
 			{
 				"nom": "Message",

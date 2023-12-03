@@ -19,9 +19,9 @@
 	[0809,0809,0809,0809,0809,0808,0016,0011,0011,0011,0011,0011,0011,0011,0011,0011,0022,0810,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0808,-003,-003,-003,-003,-003,-003,-003,-003,-003,-003,-003,0810,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0808,0048,0059,0059,0059,0049,0000,0053,0059,0059,0059,0054,0810,0809,0809,0809],
-	[0809,0809,0809,0800,0801,0017,0016,0011,0011,0011,0017,0000,0021,0011,0011,0011,0022,0810,0809,0809,0809],
-	[0801,0801,0801,0017,0016,0011,0017,0000,0000,0000,-007,-007,-007,0005,0052,0008,0038,0810,0809,0809,0809],
-	[0011,0011,0011,0011,0017,0000,0000,0000,0000,0000,-007,-007,-007,0000,0000,0000,0038,0810,0809,0809,0809],
+	[0800,0801,0801,0801,0801,0017,0016,0011,0011,0011,0017,0000,0021,0011,0011,0011,0022,0810,0809,0809,0809],
+	[0017,0016,0011,0011,0011,0011,0017,0000,0000,0000,-007,-007,-007,0005,0052,0008,0038,0810,0809,0809,0809],
+	[0011,0017,0000,0000,0000,0000,0000,0000,0000,0000,-007,-007,-007,0000,0000,0000,0038,0810,0809,0809,0809],
 	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0000,0000,0000,0038,0810,0809,0809,0809],
 	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0008,0000,0000,0038,0810,0809,0809,0809],
 	[0059,0060,0060,0060,0060,0060,0060,0060,0060,0060,0060,0060,0060,0060,0060,0060,0054,0810,0809,0809,0809],
@@ -37,9 +37,9 @@
 	[-001,-001,-001,-001,-001,-001,0033,-001,-001,-001,-001,-001,-001,-001,-001,-001,0045,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,0925,0926,0927,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,0933,0932,0935,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,0070,0071,-001,-001,0925,0926,0927,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,0078,0079,-001,-001,0933,0932,0935,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,0086,0087,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -135,12 +135,6 @@
 		"y": 7
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][001]",
-		"x": 10,
-		"y": 6
-	},
-	{
 		"id": 12,
 		"nom": "Pancarte",
 		"x": 13,
@@ -165,12 +159,24 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) HSA station \"Market\""
+			},
+			{
 				"nom": "Message",
-				"texte": "Station AGV"
+				"texte": "Station AGV \"marché\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (High speed artery)"
 			},
 			{
 				"nom": "Message",
 				"texte": "(Artère à Grande Vitesse)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Obliterate your ticket and get propelled \\ninto the Kujirian network."
 			},
 			{
 				"nom": "Message",
@@ -201,9 +207,21 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][001]",
+		"x": 10,
+		"y": 6
+	},
+	{
 		"id": 7,
 		"nom": "Clone[341][007]",
-		"x": 5,
+		"x": 4,
+		"y": 7
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][007]",
+		"x": 3,
 		"y": 7
 	},
 	{
@@ -275,6 +293,105 @@
 		"y": 3
 	},
 	{
+		"id": 14,
+		"nom": "triche",
+		"x": 17,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) fdshsfgd"
+			},
+			{
+				"nom": "Message",
+				"texte": "fdshsfgd"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 69,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 70,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 71,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 72,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 73,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 74,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 75,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 76,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 77,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 78,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 79,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 5,
+				"variable": false,
+				"quantite": 10
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 56,
+				"variable": false,
+				"quantite": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 9,
 		"nom": "Clone[582][6]",
 		"x": 11,
@@ -285,6 +402,215 @@
 		"nom": "Clone[16][18]",
 		"x": 9,
 		"y": 3
+	},
+	{
+		"id": 15,
+		"nom": "Réglages initiaux",
+		"x": 20,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 2
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 3
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 6
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 0
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 2
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 5,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 50
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 48,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 49,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 50,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 51,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 10,

@@ -72,106 +72,57 @@
 		"y": 9
 	},
 	{
-		"id": 16,
-		"nom": "Coccinelle jaune",
+		"id": 11,
+		"nom": "Clone[582][51]",
 		"x": 10,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Epée.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 34,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "coccinelles petites character",
-			"opacite": 200,
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 16,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 4
 	},
 	{
 		"id": 6,
 		"nom": "Clone[341][004]",
 		"x": 7,
 		"y": 8
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 11,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -261,8 +212,8 @@
 	{
 		"id": 14,
 		"nom": "Réglages initiaux",
-		"x": 15,
-		"y": 2,
+		"x": 17,
+		"y": 1,
 		"pages": [
 		{
 			"conditions": [
@@ -424,7 +375,7 @@
 	},
 	{
 		"id": 9,
-		"nom": "Colibri",
+		"nom": "Colibri potier",
 		"x": 12,
 		"y": 6,
 		"pages": [
@@ -449,16 +400,32 @@
 				"script": "$game_temp.faceset = \"colibri vert\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Saluzalu !"
 			},
 			{
-				"nom": "Message",
-				"texte": "Je suis le \\c[02]potier de Kujira\\c[01] !"
+				"nom": "Commentaire",
+				"texte": "(en) I am the potter of \\c[2]Kujira\\c[0]!"
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est moi qui ai fait toutes les poteries que \\ntu as pu voir jusqu'à maintenant !"
+				"texte": "Je suis le \\c[2]potier de Kujira\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am the one who made most of the pottery \\nyou have seen so far!"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est moi qui ai fait la plupart des poteries \\nque tu as pu voir jusqu'à maintenant !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I can turn mud into a pot for\\nyou if you want..."
 			},
 			{
 				"nom": "Message",
@@ -470,8 +437,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You always need your own vase\\nto put things in!"
+			},
+			{
 				"nom": "Message",
 				"texte": "On a toujours besoin d'un vase rien qu'à \\nsoi pour y mettre des trucs !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'll model your Mud ball for\\nonly 50 colored scales."
 			},
 			{
 				"nom": "Message",
@@ -484,12 +459,20 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you want me to make you a vase?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Why not|No way!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ça te dit ?"
 			},
 			{
 				"nom": "Choix",
-				"alternatives": ["Oui", "Nan, hors de question !"],
+				"alternatives": ["Pourquoi pas", "Hors de question !"],
 				"numero": 0
 			},
 			{
@@ -548,6 +531,10 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Here you go!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Voilà !"
 			},
@@ -580,8 +567,16 @@
 				"quantite": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You get a vase!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous obtenez un vase !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You can carry potions and other\\nthings in it!"
 			},
 			{
 				"nom": "Message",
@@ -629,12 +624,24 @@
 				"alternative": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) ?"
+			},
+			{
 				"nom": "Message",
 				"texte": "?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
 				"nom": "Message",
 				"texte": "..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come back when you've decided."
 			},
 			{
 				"nom": "Message",
@@ -649,8 +656,12 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Come back when you have 50 scales."
+			},
+			{
 				"nom": "Message",
-				"texte": "Reviens quand tu auras 100 écailles."
+				"texte": "Reviens quand tu auras 50 écailles."
 			},
 			{
 				"nom": "ConditionFin",
@@ -666,20 +677,40 @@
 				"numero": 2
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You can fill your vase with one of the potions \\nof the \\c[2]wizard Ovose\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "Tu peux remplir ton vase avec l'une des \\npotions du \\c[02]magicien Dose\\c[01]."
+				"texte": "Tu peux remplir ton vase avec l'une des \\npotions du \\c[2]magicien Dose\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Drinking your potions when you're injured \\nwill help youregenerate."
 			},
 			{
 				"nom": "Message",
 				"texte": "Consommer ses potions lorsque l'on est \\nblessé permet de se régénérer."
 			},
 			{
-				"nom": "Message",
-				"texte": "Les panacées sont également en vente \\nchez \\c[02]Mercator le marchand\\c[01], mais les prix \\nsont moins avantageux."
+				"nom": "Commentaire",
+				"texte": "(en) Panaceas are also available from \\c[2]Mercator\\c[0]\\nstore too, but the prices are not as good."
 			},
 			{
 				"nom": "Message",
-				"texte": "Le vase peut également contenir un chant \\nde la \\c[02]sirène\\c[01] qui vit au Nord-Est de la \\ncontrée Dose."
+				"texte": "Les panacées sont également en vente \\nchez \\c[2]Mercator le marchand\\c[1], mais les prix \\nsont moins avantageux."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The vase may also contain a mermaid song, \\nwhich lives in the northeast of Ovose country."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le vase peut également contenir un chant \\nde la \\c[2]sirène\\c[1] qui vit au Nord-Est de la \\ncontrée Dose."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Its life-saving song can resurrect\\nanyone who is in agony."
 			},
 			{
 				"nom": "Message",
@@ -690,8 +721,16 @@
 				"numero": 2
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Bring me some mud and I'll sell you my services."
+			},
+			{
 				"nom": "Message",
 				"texte": "Apporte moi de la boue et je te vendrais \\nmes services."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You always need your own vase\\nto put things in!"
 			},
 			{
 				"nom": "Message",
@@ -743,6 +782,55 @@
 		"nom": "Clone[341][004]",
 		"x": 13,
 		"y": 9
+	},
+	{
+		"id": 15,
+		"nom": "bruit du feu",
+		"x": 15,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 10,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ArreterFondSonore",
+				"nombreDeFrames": 30
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "013-Fire01.ogg",
+				"volume": 0.50,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 10,

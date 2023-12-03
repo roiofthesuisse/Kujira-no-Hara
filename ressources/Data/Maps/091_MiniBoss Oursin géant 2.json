@@ -830,8 +830,16 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -1627,32 +1635,27 @@
 				]
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
 				"nom": "JouerAnimation",
-				"idAnimation": 6
+				"idAnimation": 65
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 11
+				"nombreDeFrames": 35
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 6
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 11
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 6
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 11
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerAnimation",
@@ -1661,6 +1664,12 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 25
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "Deplacement",
@@ -1673,12 +1682,6 @@
 					"opacite": 0
 				}
 				]
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
 			},
 			{
 				"nom": "Attendre",
@@ -1742,7 +1745,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Nouveaux Chemins.ogg",
-				"volume": 1.00,
+				"volume": 0.90,
 				"tempo": 1.00
 			},
 			{
@@ -1792,7 +1795,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Nouveaux Chemins.ogg",
-				"volume": 1.00,
+				"volume": 0.90,
 				"tempo": 1.00
 			},
 			{

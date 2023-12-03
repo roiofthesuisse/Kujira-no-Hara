@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Fiolin theme 1.mp3",
+		"nomFichierSonore": "Fiolin theme 1.ogg",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
@@ -224,12 +224,8 @@
 				"quantite": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -264,15 +260,16 @@
 				]
 			},
 			{
-				"nom": "EffacerImage",
-				"numero": 3
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
-				"operationAFaire2": "valeur brute"
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -345,20 +342,56 @@
 				]
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ooh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hey thanks for helping me!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Hep merci de m'avoir aidé !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I am \\c[2]Fiolin\\c[0]."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je suis \\c[2]Fiolin\\c[1]."
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hah.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I don't understand why these \\c[2]dark imps\\c[0]\\nare after my mandolin..."
+			},
+			{
 				"nom": "Message",
-				"texte": "Je ne comprends pas pourquoi les \\n\\c[2]thaumaturges noirs\\c[1] en ont après ma \\nmandoline..."
+				"texte": "Je ne comprends pas pourquoi ces \\c[2]sombres \\nlutins\\c[1] en ont après ma mandoline..."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here is something to thank you:"
 			},
 			{
 				"nom": "Message",
@@ -407,8 +440,20 @@
 				"quantite": 1
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of crystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -451,9 +496,133 @@
 				]
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris eeeh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]My sister Poesy\\c[0] finally didn't come \\nto our secret appointment!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ma soeur, \\c[2]Poésie\\c[0], n'est finallement pas venue \\nà notre rendez-vous secret !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) She must have encountered a encountered \\na problem along the way again..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Elle a sans doute encore rencontré\\n un problème en chemin."
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 129,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hraaa.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE My sister has been kidnapped?"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Ma soeur s'est faite enlever ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I... there's not much I can do..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je... je ne peux pas faire grand chose..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We can't even ask for help: \\nthe two Viking villages have gone to war \\nin the country of the \\c[2]Shaman\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "On ne peut même pas demander de l'aide :\\nles deux villages vikings sont partis guerroyer\\ndans la contrée de la \\c[2]Chamane\\c[0] !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You should go there...\\nHopefully, someone will listen to you."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu devrais aller là-bas...\\nAvec un peu de chance, quelqu'un t'écoutera."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin gene ngh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I hope \\c[2]Poesy\\c[0] is going well...\\nShe usually always manage to get out of trouble."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'espère que \\c[2]Poésie\\c[0] va bien...\\nEn général, elle se tire toujours d'affaire."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ricane hehe.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Anyway, she's a daredevil, so maybe \\nI shouldn't worry too much about her..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Enfin, c'est une casse-cou, je ne devrais \\npeut-être pas me faire trop de souci pour elle..."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionDirection",
 				"direction": 1,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -533,7 +702,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -613,7 +782,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "AttendreLaFinDesDeplacements",
@@ -1562,8 +1731,16 @@
 				"script": "$game_temp.faceset = \"thaumaturge noir\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Will you listen to me at the end?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Mais vas-tu m'écouter à la fin ?!"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Our master the spellmaster\\c[0] told me \\nto confiscate this instrument of misfortune!"
 			},
 			{
 				"nom": "Message",
@@ -1584,16 +1761,30 @@
 				"nombreDeFrames": 33
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ricane khuhu.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE Nope nope nope!"
 			},
 			{
 				"nom": "Message",
 				"texte": "\\WAVE Nian nian nian !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE I can't hear you! Tra-la-la! \\u266A \\u266B \\nMy instrument of misfortune is making \\ntoo much noise! Tra-la-la! \\u266A \\u266B "
+			},
+			{
 				"nom": "Message",
-				"texte": "\\WAVE Je n'entends rien ! Lalalère !"
+				"texte": "\\WAVE Je n'entends rien ! Lalalère ! \\u266A \\u266B \\nMon instrument de malheur fait trop de bruit !\\nLala lalalère ! \\u266A \\u266B "
 			},
 			{
 				"nom": "Attendre",
@@ -1619,8 +1810,16 @@
 				"script": "$game_temp.faceset = \"thaumaturge noir\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You'll get what's coming to you\\nmiserable little vermin!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu ne perds rien pour attendre misérable \\npetite vermine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You will taste the wrath \\nof the \\c[2]dark thaumaturgists\\c[0]!"
 			},
 			{
 				"nom": "Message",
@@ -1663,8 +1862,16 @@
 				"script": "$game_temp.faceset = \"thaumaturge noir\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You again!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Han ! Encore toi !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Both of you, disappear all!"
 			},
 			{
 				"nom": "Message",
@@ -1921,13 +2128,13 @@
 			"commandes": [
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Fiolin theme 1.mp3",
+				"nomFichierSonore": "Fiolin theme 1.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
@@ -1966,7 +2173,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Fiolin theme 1.mp3",
+				"nomFichierSonore": "Fiolin theme 1.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
@@ -3100,6 +3307,37 @@
 		"y": 10
 	},
 	{
+		"id": 25,
+		"nom": "Annonce du Lieu",
+		"x": 24,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 6,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 3,
 		"nom": "Clone[341][061]",
 		"x": 6,
@@ -3267,13 +3505,6 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
-				"operationAFaire2": "valeur brute"
 			}
 			],
 			"vitesse": "moderee",

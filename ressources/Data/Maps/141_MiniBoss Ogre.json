@@ -53,8 +53,8 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0028,0029,0072,0050,-001,0053,0054,0055,0028,0029,0028,0029,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0036,0037,0072,0058,-001,0061,0062,0063,0036,0037,0036,0037,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0028,0029,0072,0050,-001,0053,0054,0055,-001,-001,0028,0029,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0036,0037,0072,0058,-001,0061,0062,0063,0008,0009,0036,0037,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,0082,0083,0083,0044,0045,0519,-001,-001,-001,-001,-001,0044,0045,0044,0045,0080,0081,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,0090,0091,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0527,0088,0089,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,0098,0099,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0096,0097,-001,-001,-001,-001,-001,-001,-001],
@@ -110,6 +110,32 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
+	{
+		"id": 16,
+		"nom": "Bloquage",
+		"x": 15,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
 	{
 		"id": 5,
 		"nom": "Champignon explosif",
@@ -814,32 +840,6 @@
 			"directionInitiale": 3,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "Bloquage",
-		"x": 15,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "rocher gris character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
@@ -1751,43 +1751,26 @@
 			},
 			{
 				"nom": "JouerAnimation",
-				"idAnimation": 1
+				"idAnimation": 65
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 35
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerAnimation",
@@ -1799,9 +1782,21 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
-				"volume": 0.80,
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -1823,10 +1818,10 @@
 				]
 			},
 			"image": "ogre character",
-			"vitesse": "normale",
-			"frequence": "haute",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -2642,6 +2637,59 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Obscurité",
+		"x": 18,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 20,
+				"modeDeFusion": "addition",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 200,
+				"nuance": 0,
+				"nomImage": "001-Fog01"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 16,
+				"variable": false,
+				"nouveauX": 15,
+				"nouveauY": 21,
+				"direction": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 2,
 		"nom": "Champignon explosif",
 		"x": 20,
@@ -3348,59 +3396,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Obscurité",
-		"x": 18,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 20,
-				"modeDeFusion": "addition",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 0,
-				"nomImage": "001-Fog01"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 16,
-				"variable": false,
-				"nouveauX": 15,
-				"nouveauY": 21,
-				"direction": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

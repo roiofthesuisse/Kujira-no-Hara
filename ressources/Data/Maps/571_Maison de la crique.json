@@ -4,8 +4,8 @@
 	"largeur": 21,
 	"hauteur": 15,
 	"musique": {
-		"nomFichierSonore": "Maison 2.ogg",
-		"volume": 1.00,
+		"nomFichierSonore": "",
+		"volume": 0.00,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -19,11 +19,11 @@
 	[0017,0017,0017,0340,0341,0308,0309,0308,0309,0308,0309,0308,0309,0308,0309,0342,0343,0017,0017,0017,0017],
 	[0017,0017,0017,0348,0349,0316,0317,0316,0317,0316,0317,0316,0317,0316,0317,0350,0351,0017,0017,0017,0017],
 	[0017,0017,0017,0324,0325,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0310,0311,0017,0017,0017,0017],
+	[0017,0017,0017,0332,0333,0000,0000,0000,0000,-008,-008,-008,-008,0000,0000,0318,0319,0017,0017,0017,0017],
+	[0017,0017,0017,0324,0325,0000,0000,0000,0000,-008,-008,-008,-008,0000,0000,0310,0311,0017,0017,0017,0017],
+	[0017,0017,0017,0332,0333,0000,0000,0000,0000,-008,-008,-008,-008,0000,0000,0318,0319,0017,0017,0017,0017],
+	[0017,0017,0017,0324,0325,0000,0000,0000,0000,-008,-008,-008,-008,0000,0000,0310,0311,0017,0017,0017,0017],
 	[0017,0017,0017,0332,0333,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0318,0319,0017,0017,0017,0017],
-	[0017,0017,0017,0324,0325,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0310,0311,0017,0017,0017,0017],
-	[0017,0017,0017,0332,0333,0000,0000,0000,0000,0000,-008,-008,-008,-008,0000,0318,0319,0017,0017,0017,0017],
-	[0017,0017,0017,0324,0325,0000,0000,0000,0000,0000,-008,-008,-008,-008,0000,0310,0311,0017,0017,0017,0017],
-	[0017,0017,0017,0332,0333,0000,0000,0000,0000,0000,-008,-008,-008,-008,0000,0318,0319,0017,0017,0017,0017],
 	[0017,0017,0017,0324,0325,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0310,0311,0017,0017,0017,0017],
 	[0017,0017,0017,0356,0357,0326,0327,0326,0327,0326,0327,0023,0327,0326,0327,0358,0359,0017,0017,0017,0017],
 	[0017,0017,0017,0364,0365,0334,0335,0334,0335,0334,0335,0000,0335,0334,0335,0366,0367,0017,0017,0017,0017],
@@ -33,9 +33,9 @@
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0028,0029,0512,0513,0514,0050,0003,0004,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0036,0037,0520,0521,0522,0058,0011,0012,0030,0031,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0044,0045,0528,0529,0530,-001,0019,0020,0038,0039,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0028,0029,0512,0513,0514,0003,0004,0050,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0036,0037,0520,0521,0522,0011,0012,0058,0030,0031,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0044,0045,0528,0529,0530,0019,0020,-001,0038,0039,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0046,0047,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,0082,0083,-001,0005,0006,0007,-001,-001,-001,-001,-001,-001,0080,0081,-001,-001,-001,-001],
 	[-001,-001,-001,0090,0091,-001,0013,0014,0015,-001,-001,-001,-001,-001,-001,0088,0089,-001,-001,-001,-001],
@@ -97,6 +97,150 @@
 		]
 	},
 	{
+		"id": 11,
+		"nom": "EV011",
+		"x": 18,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 54,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionGadgetPossede",
+				"idGadget": 4,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 2
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Fiolin theme 2.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "",
+				"volume": 0.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 7,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 9,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 8,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "feu (8)",
 		"x": 8,
@@ -128,16 +272,363 @@
 		"y": 10
 	},
 	{
+		"id": 7,
+		"nom": "rebeca",
+		"x": 13,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum gonfle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'm thinking about theme ideas to send \\nto Radio Kujira..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je réfléchis à des idées de thèmes à envoyer \\nà Radio Kujira..."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Are these weird themes again?"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est encore des thèmes bizarres ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'm having fun as much as I can."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je m'amuse comme je peux."
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 0,
+					"animation": 2,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum eclate.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "rebeca character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 2,
 		"nom": "Clone[341][004]",
 		"x": 5,
 		"y": 10
 	},
 	{
+		"id": 8,
+		"nom": "fiolin (-4)",
+		"x": 7,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ooh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Welcome to our secret base!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bienvenue dans notre base secrète !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Fiolin + mandoline character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 8,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hah.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I played music for the great \\c[2]Pozzo\\c[1],\\nbut I won't play for him anymore!"
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai joué de la musique pour le grand \\c[2]Pozzo\\c[1], \\nmais je ne jouerai plus pour lui !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He's a conservative, and conservatives \\nare a century behind in art."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un conservateur, et les conservateurs \\nont un siècle de retard en art."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) They do not like art for the emotions, \\nbut for the prestige associated with it, \\nbecause it is part of an elitist culture, \\nor to distinguish themselves from the plebs."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ils n'aiment pas l'art pour les émotions, \\nmais pour le prestige qui y est associé, \\nparce qu'il fait partie d'une culture élitiste,\\nou encore pour se distinguer de l'inculte."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) They wait for a work of art to be seen as noble \\nbefore appreciating it. \\nThat's why they're 100 years behind!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ils attendent qu'une oeuvre gagne \\nses lettres de noblesse pour l'apprécier.\\nC'est pour ça qu'ils ont 100 ans de retard !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ricane hehe.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) As long as an artistic genre is not recognized, \\nwe are free, we can make true art.\\nAfterwards, it's just about imitating the classics."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tant qu'un genre artistique n'a pas gagné \\nses lettres de noblesse, c'est là qu'on est libre, \\nqu'on peut faire de l'art véritable.\\nAprès, tout n'est qu'imitation des classiques."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "Fiolin + mandoline character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 3,
 		"nom": "Clone[341][004]",
 		"x": 14,
 		"y": 6
+	},
+	{
+		"id": 9,
+		"nom": "blocage livre",
+		"x": 10,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "livre ouvert character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 4,
@@ -160,6 +651,453 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "poesie (32)",
+		"x": 10,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You finally came!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu es venu finalement !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Welcome to our secret base!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bienvenue dans notre base secrète, \\c[2]\\n[1]\\c[1] !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "poesie lecture character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 10,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Rire.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Wann Piss the pirate\\c[1] is a real adventurer:\\nhe's never scared by anything!"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Wann Piss le pirate\\c[1] est un vrai aventurier :\\nil n'a jamais peur de rien !"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 1
+				}
+				]
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 8,
+				"idAnimation": 42
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 8,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin gene ugh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He always takes ill-considered risks, \\nit stresses me out just reading his adventures!\\nEither he is very courageous or very stupid:\\nhe doesn't seem afraid of dying."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il prend toujours des risques inconsidérés, \\nça me stresse rien que de lire ses histoires !\\nSoit il est très courageux, soit il est très bête : \\nil n'a pas l'air d'avoir peur de mourir."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris eeeh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hey, that reminds me of a certain person \\nwho goes to the Braënschwyck forges \\nin fireproof underwear! \\nAnd who asks for directions to an ogre!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tiens, ça me rappelle une certaine personne \\nqui va en caleçon ignifugé dans les forges \\nde Braënschwyck ! \\nEt qui demande son chemin chez un ogre !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Cut it out!"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est bon, on a compris."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ricane khuhu.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Finally, you have a lot in common \\nwith \\c[2]Wann Piss the pirate\\c[1]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Finallement, tu as beaucoup en commun\\navec \\c[2]Wann Piss le pirate\\c[1]."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We can not fear death without necessarily \\nbeing courageous or stupid, \\c[2]Fiolin\\c[1]."
+			},
+			{
+				"nom": "Message",
+				"texte": "On peut ne pas craindre la mort \\nsans forcément être courageux ou bête, \\c[2]Fiolin\\c[1]."
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 2
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Hu.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Don't you fear death, \\c[2]Rebeca\\c[1]?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu ne crains pas la mort, toi, \\c[2]Rebeca\\c[1] ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Space and time are not uncorrelated, \\nphysics unites them into a single object: \\nspace-time."
+			},
+			{
+				"nom": "Message",
+				"texte": "L'espace et le temps ne sont pas décorrélés,\\nla physique les unit en un unique objet : \\nl'espace-temps. "
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Being limited in time is as harmless \\nas being limited in space.\\nDying is as bad as having skin."
+			},
+			{
+				"nom": "Message",
+				"texte": "Être limité dans le temps, c'est aussi anodin \\nqu'être limité dans l'espace.\\nMourir, c'est aussi grave qu'avoir de la peau."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum gonfle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 7,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We are not a three-dimensional object \\nthat dies...\\nWe are a four-dimensional object."
+			},
+			{
+				"nom": "Message",
+				"texte": "On n'est pas un objet tridimensionnel \\nqui meurt...\\nOn est un objet quadridimensionnel."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What a strange reasoning!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Quel drôle de raisonnement !"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 8,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hah.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is that really good enough for you?!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ça te suffit vraiment ?!"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 7,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 0,
+					"animation": 2,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum eclate.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "poesie lecture character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

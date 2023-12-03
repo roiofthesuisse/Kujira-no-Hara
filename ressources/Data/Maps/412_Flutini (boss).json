@@ -592,34 +592,27 @@
 				"nombreDeFrames": 30
 			},
 			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
 				"nom": "JouerAnimation",
-				"idAnimation": 22
+				"idAnimation": 65
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 11
+				"nombreDeFrames": 35
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 22
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 11
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 22
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 11
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "JouerAnimation",
@@ -627,7 +620,13 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 23
+				"nombreDeFrames": 25
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "Deplacement",
@@ -736,6 +735,11 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 0,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 149,
+				"valeur": true
 			},
 			{
 				"nom": "ModifierVariable",

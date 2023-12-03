@@ -126,6 +126,79 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "init sifflet",
+		"x": 5,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "si le joueur ne parle jamais à la première lanterne\\nquand il soufflera dans le sifflet\\nil sera téléporté sur la map 0\\nqui n'existe pas (bug)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 260,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 8,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 261,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 6,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 262,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 13,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "Clone[341][001]",
 		"x": 18,
@@ -142,6 +215,47 @@
 		"nom": "Clone[341][001]",
 		"x": 9,
 		"y": 18
+	},
+	{
+		"id": 17,
+		"nom": "triche",
+		"x": 9,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Message",
+				"texte": "xvcnbxcvnh"
+			},
+			{
+				"nom": "OuvrirMenu",
+				"nomMenu": "MotDePasse"
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 4
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 54,
+				"valeur": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -456,28 +570,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) This is a treasure shell!"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est un coffrillage !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "It is a treasure shell !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -505,7 +603,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -604,7 +702,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -636,36 +734,20 @@
 				"quantite": 1
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) You find a Hoover pestle!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous trouvez un Pilon d'Aspirateur !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This... tool (?) is often used in the process \\nof ramming a vacuum cleaner."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un... outil très utilisé dans le pilonnage \\ndes aspirateurs."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "You got a hoover pestle !"
-			},
-			{
-				"nom": "Message",
-				"texte": "This tool is widely used for... \\npounding vacuum cleaners."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
 			},
 			{
 				"nom": "Attendre",
@@ -726,17 +808,13 @@
 				"nombreDeFrames": 3
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"image": "Palourde coffre character",
@@ -799,28 +877,12 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est vide."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "It's empty."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",

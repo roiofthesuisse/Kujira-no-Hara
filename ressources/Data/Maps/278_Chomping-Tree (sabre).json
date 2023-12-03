@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -255,20 +255,16 @@
 				"numeroPageCommune": 21
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) \"Its purpose is to fight.\\nIt cuts well! It cuts quick!\\nThe sage used a nice trick\\nTo make it out of sight.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Frappant d'estoc et de taille,\\ntout sur sa route il cisaille...\""
+				"texte": "\"Frappant d'estoc et de taille,\\nTout, sur sa route, il cisaille.\\nUn vieux sage aux grands pouvoirs\\nFit que nul ne peut le voir.\""
 			},
 			{
-				"nom": "Message",
-				"texte": "\"...enchanté d'un vieux pouvoir,\\nnul ne peut l'apercevoir.\""
+				"nom": "Commentaire",
+				"texte": "(en) What is it?"
 			},
 			{
 				"nom": "Message",
@@ -278,6 +274,10 @@
 				"nom": "ModifierAvancementQuete",
 				"numero": 15,
 				"avancement": "CONNUE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The sword of Krâkatram|The giant sea urchin|The wind|The bottom of the water"
 			},
 			{
 				"nom": "Choix",
@@ -294,9 +294,10 @@
 				"numeroPageCommune": 88
 			},
 			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 15,
-				"avancement": "FAITE"
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -333,207 +334,6 @@
 			{
 				"nom": "ChoixFin",
 				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "\"It powerfully cuts everything in its path.\\nIt cannot be found by those blinded by wrath...\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"...because an ancient scholar cast a spell\\nthat prevented people from seeing it well !\""
-			},
-			{
-				"nom": "Message",
-				"texte": "What is it ?"
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 15,
-				"avancement": "CONNUE"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Krakatram's blade", "The giant urchin", "Wind", "Jishin's Mallet"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "CHONP CHONP CHONP..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "056-Right02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Exactly !"
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 15,
-				"avancement": "FAITE"
-			},
-			{
-				"nom": "Message",
-				"texte": "Thus I offer you this :"
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "CHONP CHONP CHONP..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "058-Wrong02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Your answer is wrong !"
-			},
-			{
-				"nom": "Message",
-				"texte": "To punish you, I take you 100 scales !"
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 100
-			},
-			{
-				"nom": "Message",
-				"texte": "Nuh !"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "CHONP CHONP CHONP..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "058-Wrong02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Your answer is wrong !"
-			},
-			{
-				"nom": "Message",
-				"texte": "To punish you, I take you 100 scales !"
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 100
-			},
-			{
-				"nom": "Message",
-				"texte": "Nuh !"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 3
-			},
-			{
-				"nom": "Message",
-				"texte": "CHONP CHONP CHONP..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "058-Wrong02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Your answer is wrong !"
-			},
-			{
-				"nom": "Message",
-				"texte": "To punish you, I take you 100 scales !"
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 100
-			},
-			{
-				"nom": "Message",
-				"texte": "Nuh !"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -585,10 +385,6 @@
 					"direction": 0
 				}
 				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -799,12 +595,6 @@
 		"y": 10
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 7,
-		"y": 11
-	},
-	{
 		"id": 12,
 		"nom": "Pancarte",
 		"x": 12,
@@ -829,53 +619,33 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) You can talk to the \\c[2]chomping tree\\c[0], \\nit won't bite you."
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous pouvez parler au \\c[2]Chomping-Tree\\c[1],\\nil ne mord pas."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Prepare your piggybank though..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Préparez votre tirelire cependant..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "You can speak to the \\c[2]Chomping-Tree\\c[1],\\nit does not bite."
-			},
-			{
-				"nom": "Message",
-				"texte": "But prepare your piggybank !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -887,6 +657,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 7,
+		"y": 11
 	},
 	{
 		"id": 18,
@@ -1045,12 +821,25 @@
 				]
 			},
 			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 15,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get a Crystal of the Whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a magic piece of crystallized salt."
+			},
+			{
 				"nom": "Message",
-				"texte": "C'est un superbe morceau de sel magique \\ncristallisé !"
+				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
 			},
 			{
 				"nom": "Attendre",
@@ -1087,6 +876,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1181,13 +974,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "MC_Bush.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "Sauter",
 					"x": 2,

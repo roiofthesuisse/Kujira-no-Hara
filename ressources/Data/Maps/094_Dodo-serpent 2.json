@@ -4,7 +4,7 @@
 	"largeur": 61,
 	"hauteur": 20,
 	"musique": {
-		"nomFichierSonore": "Forêt de l'Ouest 2.mp3",
+		"nomFichierSonore": "Forêt de l'Ouest 2.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -184,12 +184,8 @@
 				"quantite": 10
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -222,6 +218,14 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -303,34 +307,6 @@
 		"nom": "Clone[341][061]",
 		"x": 3,
 		"y": 12
-	},
-	{
-		"id": 28,
-		"nom": "effacer annonce lieu",
-		"x": 1,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 23,
@@ -564,8 +540,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 Tamago: village of the \\c[2]Hummingbirds\\c[0]\\n\\u2190 Hut of the \\c[2]Shaman\\c[0]\\n\\u2192 Swamp"
+			},
+			{
 				"nom": "Message",
-				"texte": "/\\ Tamago : village des \\c[2]Colibris\\c[1]\\n< Hutte de la \\c[2]Chamane\\c[1]\\n> Marais"
+				"texte": "\\u2191 Tamago : village des \\c[2]Colibris\\c[1]\\n\\u2190 Hutte de la \\c[2]Chamane\\c[1]\\n\\u2192 Marais"
 			},
 			{
 				"nom": "Attendre",
@@ -1069,8 +1049,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) When the napsnake sleeps, \\nonly one thing can wake it up!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Lorsque le Dodo-serpent dort, une seule \\nchose peut le réveiller !"
+				"texte": "Lorsque le dodo-serpent dort, \\nune seule chose peut le réveiller !"
 			},
 			{
 				"nom": "Attendre",

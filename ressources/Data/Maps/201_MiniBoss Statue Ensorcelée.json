@@ -96,9 +96,9 @@
 	],
 	"events": [
 	{
-		"id": 27,
+		"id": 5,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
+		"x": 16,
 		"y": 12,
 		"pages": [
 		{
@@ -229,12 +229,8 @@
 				"quantite": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -269,6 +265,14 @@
 				]
 			},
 			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "EffacerImage",
 				"numero": 3
 			},
@@ -294,9 +298,9 @@
 		]
 	},
 	{
-		"id": 5,
+		"id": 27,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
+		"x": 17,
 		"y": 12,
 		"pages": [
 		{
@@ -361,9 +365,9 @@
 		]
 	},
 	{
-		"id": 28,
+		"id": 6,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
+		"x": 16,
 		"y": 10,
 		"pages": [
 		{
@@ -411,10 +415,34 @@
 		]
 	},
 	{
-		"id": 6,
+		"id": 28,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
+		"x": 17,
 		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Blocage anti-évènement",
+		"x": 12,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -466,10 +494,10 @@
 		]
 	},
 	{
-		"id": 1,
+		"id": 7,
 		"nom": "Blocage anti-évènement",
-		"x": 12,
-		"y": 12,
+		"x": 15,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -516,10 +544,10 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 2,
 		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 10,
+		"x": 13,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -571,10 +599,41 @@
 		]
 	},
 	{
-		"id": 2,
+		"id": 30,
+		"nom": "EV030",
+		"x": 0,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 252,
+				"xDebutHeros": 48,
+				"yDebutHeros": 22
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
 		"nom": "Blocage anti-évènement",
-		"x": 13,
-		"y": 12,
+		"x": 14,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -615,109 +674,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 30,
-		"nom": "EV030",
-		"x": 0,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 252,
-				"xDebutHeros": 48,
-				"yDebutHeros": 22
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 25,
-		"nom": "Blocage anti-évènement",
-		"x": 11,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1209,10 +1165,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Blocage",
-		"x": 9,
-		"y": 7,
+		"id": 3,
+		"nom": "Blocage anti-évènement",
+		"x": 14,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -1222,22 +1178,20 @@
 			],
 			"commandes": [
 			],
-			"image": "rocher gris character",
-			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 9,
+		"id": 25,
 		"nom": "Blocage anti-évènement",
-		"x": 13,
+		"x": 11,
 		"y": 10,
 		"pages": [
 		{
@@ -1290,10 +1244,10 @@
 		]
 	},
 	{
-		"id": 26,
+		"id": 9,
 		"nom": "Blocage anti-évènement",
-		"x": 11,
-		"y": 12,
+		"x": 13,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -1314,10 +1268,10 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 12,
+		"id": 20,
+		"nom": "Blocage",
+		"x": 9,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -1327,11 +1281,13 @@
 			],
 			"commandes": [
 			],
+			"image": "rocher gris character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1487,8 +1443,16 @@
 				"avancement": "FAITE"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of crystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -1581,10 +1545,34 @@
 		]
 	},
 	{
-		"id": 10,
+		"id": 4,
 		"nom": "Blocage anti-évènement",
-		"x": 12,
-		"y": 10,
+		"x": 15,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 26,
+		"nom": "Blocage anti-évènement",
+		"x": 11,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -1776,7 +1764,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1824,7 +1812,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Vers chez la Chamane.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -1936,6 +1924,30 @@
 			{
 				"nom": "SupprimerEvent"
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Blocage anti-évènement",
+		"x": 12,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",

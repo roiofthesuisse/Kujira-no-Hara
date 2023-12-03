@@ -41,10 +41,10 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0062,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0079,-001,-001,-001,-001,-001],
-	[-001,0062,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0087,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0095,-001,-001,-001,-001,0079],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0062,-001,-001,-001,0087],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,0062,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0095,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0062,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0095]
 	],
 	"couche2": [
@@ -119,6 +119,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do like the bird."
 			},
 			{
 				"nom": "Message",
@@ -440,6 +444,10 @@
 				"script": "$game_map.events[18].transform(348, 18)"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Case reset!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Caisse réinitialisé !"
 			},
@@ -518,7 +526,7 @@
 		"id": 39,
 		"nom": "Clone[348][9]",
 		"x": 15,
-		"y": 8
+		"y": 9
 	},
 	{
 		"id": 23,
@@ -659,40 +667,80 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "(en) So I redid some of your systems\\nand there are a few things I\\ndidn't understand."
+			},
+			{
 				"nom": "Message",
 				"texte": "Bon j'ai refait quelques de tes systèmes\\net y'a quelques trucs que j'ai pas compris."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Why is the firefly basket an\\narmor and not an item like the\\nSulfur bag?\\nWhat is the purpose of the \"waterfront\" terrain?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Pourquoi la corbeille à luciole est une armure\\net non pas un objet comme le sac de soufre ?\\nA quoi sert le terrain \"bord de l'eau\" ?\\nPourquoi 4 terrains différents pour le saut ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Otherwise there are some things\\nthat could be improved, display\\nthe number of sulphur/ firefly,\\nthe accessory equipped..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Sinon y'a quelques trucs qui mériteraient\\nd'être améliorés, afficher le nombre de\\nsoufre/luciole, l'accessoire équipé..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The changes I made : - all common\\nevents redone in better - some\\nscripts (marked with a star)\\n- the C key to attack"
 			},
 			{
 				"nom": "Message",
 				"texte": "Les modifs que j'ai faites :\\n- tous les events communs refaits en mieuxe\\n- quelques scripts (marqués d'une étoile)\\n- la touche C pour attaquer"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) - I added 3, 4 variables and\\nswitches - the menu to change\\nweapon is in script - each\\nenemy has his own hp"
+			},
+			{
 				"nom": "Message",
 				"texte": "- j'ai rajouté 3, 4 variables et interrupteurs\\n- le menu pour changer d'arme est en script\\n- chaque ennemi a ses propres hp"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The combat system is much less\\nwobbly now, it works this way:\\nIn the name of the events we\\ncan put a command that will"
 			},
 			{
 				"nom": "Message",
 				"texte": "Le système de combat est beaucoup moins\\nbancal maintenant, il marche de cette façon:\\nDans le nom des events on peut mettre une\\ncommande qui va leur donner des HP."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) When we make an attack there is\\na script that checks the events\\nand if they have HP, activates\\nthe local switch A (if they"
+			},
+			{
 				"nom": "Message",
 				"texte": "Quand on fait une attaque y'a un script qui\\nchecke les events et s'ils ont des HP, leur active\\nl'interrupteur local A (s'ils sont in da zone).\\nEt c'est dans la page A de l'event qu'on gère"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) damage, animations, etc...\\nBesides that there is also a\\nscript that activates the local\\nswitch D of the enemies when"
 			},
 			{
 				"nom": "Message",
 				"texte": "les dégâts, animations, etc...\\nA côté de ça y'a aussi un script qui active\\nl'interrupteur local D des ennemis quand ils\\nchangent de terrain (pour les faire tomber"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) in the holes). Everything else\\nis almost entirely done in\\nevents.\\nAnyway, I don't know if my"
+			},
+			{
 				"nom": "Message",
 				"texte": "dans les trous). Tout le reste est quasiment\\nentièrement fait en event.\\nM'enfin je sais pas si mes explications sont très\\ncompréhensibles mais de toute façon t'as qu'à"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) look in the events there are\\ncomments everywhere and it's\\nnot really very complicated in\\nthe end."
 			},
 			{
 				"nom": "Message",
@@ -1610,7 +1658,7 @@
 		"id": 40,
 		"nom": "Clone[348][8]",
 		"x": 15,
-		"y": 9
+		"y": 8
 	},
 	{
 		"id": 35,
@@ -1641,6 +1689,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Use the liana."
 			},
 			{
 				"nom": "Message",
@@ -1681,8 +1733,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You can use the snorkel to go\\nunder the things.\\n(I guess that's what it's supposed\\nto do, right?)"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu peux utiliser le tuba pour passer dessous\\nles machins.\\n(J'imagine que c'est à ça qu'il est censé\\nservir, non ?)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Speaking of the snorkel, is it\\nreally necessary to equip it?\\nI mean, it's not like you can\\ndo anything else in the water"
 			},
 			{
 				"nom": "Message",
@@ -1888,6 +1948,78 @@
 		]
 	},
 	{
+		"id": 41,
+		"nom": "Flouze HP[1] RESET",
+		"x": 19,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Ecailles colorées",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 41,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "monnaie.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 25,
 		"nom": "Clone[341][045]",
 		"x": 6,
@@ -1910,6 +2042,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go go hammer"
 			},
 			{
 				"nom": "Message",
@@ -1959,6 +2095,10 @@
 				"idArme": 6
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Lost fins."
+			},
+			{
 				"nom": "Message",
 				"texte": "Nageoires perdues."
 			},
@@ -1969,6 +2109,10 @@
 			{
 				"nom": "AjouterArme",
 				"idArme": 6
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) fins obtained."
 			},
 			{
 				"nom": "Message",
@@ -2014,6 +2158,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) 100 :"
+			},
+			{
 				"nom": "Message",
 				"texte": "100 :"
 			},
@@ -2026,6 +2174,10 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 83
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) 200 :"
 			},
 			{
 				"nom": "Message",
@@ -2084,6 +2236,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_map.events[19].transform(348, 19)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Algae reset!\\nDestructible only with sword or fire."
 			},
 			{
 				"nom": "Message",
@@ -2182,6 +2338,12 @@
 		"nom": "Clone[341][043]",
 		"x": 7,
 		"y": 6
+	},
+	{
+		"id": 42,
+		"nom": "Clone[348][41]",
+		"x": 15,
+		"y": 10
 	},
 	{
 		"id": 37,
@@ -2437,6 +2599,10 @@
 				"direction": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Monster reset!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Monstre réinitialisé !"
 			},
@@ -2460,7 +2626,7 @@
 		"id": 21,
 		"nom": "Soufre HP[1] RESET",
 		"x": 19,
-		"y": 7,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [

@@ -10,7 +10,7 @@
 	},
 	"fondSonore": {
 		"nomFichierSonore": "",
-		"volume": 0.80,
+		"volume": 0.00,
 		"tempo": 1.00
 	},
 	"couche0": [
@@ -278,6 +278,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
@@ -892,6 +896,12 @@
 		]
 	},
 	{
+		"id": 46,
+		"nom": "Clone[341][045]",
+		"x": 6,
+		"y": 7
+	},
+	{
 		"id": 35,
 		"nom": "toit",
 		"x": 3,
@@ -1027,40 +1037,20 @@
 				"avancement": "FAITE"
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) The map of this shrine is now available \\nin the map menu!"
 			},
 			{
 				"nom": "Message",
 				"texte": "La carte de ce sanctuaire est à présent \\ndisponible dans le menu \"carte\" !"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "The map of this sanctuary is now available\\nin the \"map\" section of the menu !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "EffacerImage",
@@ -1166,7 +1156,7 @@
 	{
 		"id": 8,
 		"nom": "Clone[341][045]",
-		"x": 6,
+		"x": 7,
 		"y": 7
 	},
 	{
@@ -1407,8 +1397,18 @@
 				"idEvent": -1
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Rire.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's good now, \\c[2]Fiolin\\c[0], I got changed!"
 			},
 			{
 				"nom": "Message",
@@ -1479,8 +1479,18 @@
 				"idAnimation": 42
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hah.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Poesy\\c[0], it's too dangerous! Don't go there!"
 			},
 			{
 				"nom": "Message",
@@ -1504,12 +1514,26 @@
 				]
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie vexee\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) What a coward, \\c[2]Fiolin\\c[0]!\\nYou don't look like the son of \\c[2]Tabula \\nthe Terrible\\c[0] and \\c[2]Grunthild the Fearless\\c[0]!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Mais quel trouillard, \\c[2]Fiolin\\c[1] ! \\nOn ne dirait pas que tu es le fils de \\c[2]Tabula \\nle terrible\\c[1] et de \\c[2]Groniass l'intrépide\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am ashamed of my little brother."
 			},
 			{
 				"nom": "Message",
@@ -1533,8 +1557,12 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) These are the remains of the forges of\\nBraenshwyck! The same as in the tales: \\n\"\\c[2]Don Flatus\\c[0], you crook!\" \\nand \"\\c[2]Emile\\c[0], the copper child\"."
+			},
+			{
 				"nom": "Message",
-				"texte": "Ce sont les restes des forges de Braënshwyck,\\nles mêmes que dans les contes \"\\c[2]Don Flatus\\c[1], \\nsac à vent\" et \"\\c[2]Emile\\c[1], l'enfant de cuivre\" !"
+				"texte": "Ce sont les restes des forges de Braënshwyck !\\nLes mêmes que dans les contes :\\n\"\\c[2]Don Flatus\\c[1], espèce de sac à vent !\" \\net \"\\c[2]Emile\\c[1], l'enfant de cuivre\"."
 			},
 			{
 				"nom": "Deplacement",
@@ -1550,16 +1578,35 @@
 				]
 			},
 			{
-				"nom": "Message",
-				"texte": "On va peut-être y trouver des textes originaux."
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Rire.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Don't you think it's great and mysterious \\nthat the forges ended up here in Kujira?\\nHow do you explain that?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Maintenant, je suis curieuse !"
+				"texte": "Tu ne trouves pas ça génial et mystérieux \\nque les forges aient terminé ici, dans Kujira ?\\nComment tu expliques ça ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This place is full of stories!\\nBesides, it's as easy as can be: \\nyou just have to read the steles \\n(and not fall into the lava)."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ce lieu est rempli d'histoires !\\nEn plus, c'est facile comme tout : \\nil y a juste à lire les stèles\\n(et ne pas tomber dans la lave)."
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 24,
+				"idAnimation": 42
 			},
 			{
 				"nom": "Deplacement",
@@ -1576,16 +1623,34 @@
 				]
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin gene ugh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE You're completely crazy!"
 			},
 			{
 				"nom": "Message",
 				"texte": "\\SHAKE Tu es complètement cinglée !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Just because we are the children of \\c[2]Tabula \\nthe Terrible\\c[0] and \\c[2]Grunthild the Fearless\\c[0] \\ndoesn't mean we have to do stupid things!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Être les enfants de \\c[2]Tabula le terrible\\c[1]\\net de \\c[2]Groniass l'intrépide\\c[1] ne veut pas dire \\nqu'on doit faire n'importe quoi !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) These ruins were built as a dungeon by \\c[2]Kazan\\c[0] \\nto protect the secret of the scholars!"
 			},
 			{
 				"nom": "Message",
@@ -1606,8 +1671,22 @@
 				]
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ooh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You're going to die here!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu vas y laisser ta peau !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) All this is just for stories!"
 			},
 			{
 				"nom": "Message",
@@ -1633,6 +1712,54 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I need to collect these stories\\nso that one day I can write my own!"
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai besoin de collecter ces histoires \\npour un jour espérer écrire la mienne !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No way I'm one of those uninspired authors, \\nwho know nothing but their life as an author, \\nand whose novel tells the life of a writer."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je ne veux pas faire partie de ces auteurs \\npeu inspirés, qui ne connaissent rien d'autre \\nque leur vie d'auteur, et dont le roman raconte \\nla vie d'un écrivain."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie genee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE What a horror!"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Quelle horreur !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You would do the same if they were pieces \\nof music!"
 			},
 			{
 				"nom": "Message",
@@ -1670,12 +1797,22 @@
 				]
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris eeeh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin peur\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) No way!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Tu dis n'importe quoi !"
+				"texte": "Jamais de la vie !"
 			},
 			{
 				"nom": "Attendre",
@@ -1699,6 +1836,10 @@
 				"script": "$game_temp.faceset = \"poesie vexee\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe, but \\c[2]your piano teacher\\c[0], \\nwhom you admire so much, \\nwould have done the same \\nfor pieces of music."
+			},
+			{
 				"nom": "Message",
 				"texte": "Peut-être, mais ton \\c[2]professeur de piano\\c[1], \\nque tu admires tant, aurait fait pareil\\npour des morceaux de musiques, lui."
 			},
@@ -1707,16 +1848,34 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
-				"nom": "Message",
-				"texte": "Celui qui se vautre dans la routine se réveille \\nun matin, il a 90 ans, il n'a rien fait de sa vie, \\net se lamente : \"comme le temps passe vite !\""
+				"nom": "Commentaire",
+				"texte": "(en) The one who wallows in routine, that one \\nwakes up one morning, he's 90 years old, \\nhe hasn't done anything in his life, \\nand laments : \"how time flies !\""
 			},
 			{
 				"nom": "Message",
-				"texte": "L'aventure, c'est ça qui ralentit le temps !"
+				"texte": "Celui qui se vautre dans la routine, \\ncelui-là se réveille un matin, il a 90 ans, \\nil n'a rien fait de sa vie, et se lamente : \\n\"comme le temps passe vite !\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Adventure is what slows down time!"
+			},
+			{
+				"nom": "Message",
+				"texte": "L'aventure. C'est ça qui ralentit le temps !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) And also these fireproof underwear cost me \\n20 colored scales at the \\c[2]Mercator\\c[0] store!\\nThere is no turning back now."
 			},
 			{
 				"nom": "Message",
@@ -1795,8 +1954,18 @@
 				"idEvent": -1
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin surpris hraaa.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin peur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Poesy\\c[0], wait!"
 			},
 			{
 				"nom": "Message",
@@ -1816,12 +1985,24 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You forgot your panties!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu as oublié ta culotte !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh no, it's getting ridiculous..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah non mais ça devient n'importe quoi..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am ashamed of my big sister."
 			},
 			{
 				"nom": "Message",
@@ -1841,8 +2022,18 @@
 				]
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ooh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Poesy\\c[0], I warn you, it's not me who's going \\nto pick up your panties!"
 			},
 			{
 				"nom": "Message",
@@ -1853,8 +2044,17 @@
 				"script": "$game_temp.faceset = \"fiolin peur\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
 				"nom": "Message",
 				"texte": "..."
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 24,
+				"idAnimation": 42
 			},
 			{
 				"nom": "Deplacement",
@@ -1869,6 +2069,16 @@
 					"y": 0
 				}
 				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin gene ugh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE \\c[2]Poesy\\c[0]!"
 			},
 			{
 				"nom": "Message",
@@ -1926,7 +2136,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Donjon 1.mp3",
+				"nomFichierSonore": "Donjon 1.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2233,7 +2443,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2259,16 +2469,6 @@
 				]
 			},
 			{
-				"nom": "AjouterObjet",
-				"idObjet": 89,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous obtenez la culotte de \\c[2]Poésie\\c[1] !"
-			},
-			{
 				"nom": "Deplacement",
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
@@ -2285,20 +2485,54 @@
 				]
 			},
 			{
+				"nom": "AjouterObjet",
+				"idObjet": 89,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You get \\c[2]Poesy\\c[0]'s Panties!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous obtenez la culotte de \\c[2]Poésie\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Without thinking, moved by benevolence, \\nyou picked it up to try to return it to its owner."
+			},
+			{
 				"nom": "Message",
 				"texte": "Sans réfléchir, mu par la bienveillance, vous \\nl'avez ramassée pour tenter de la rendre \\nà sa propriétaire."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But finally you say to yourself that \\nit's a bit strange to pick up panties..."
 			},
 			{
 				"nom": "Message",
 				"texte": "Mais finalement vous vous dites que \\nc'est un peu bizarre de ramasser une culotte..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Whatever!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Qu'importe !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The amount of courage required to do \\na good deed is the same as that required \\nto dare to pick up panties."
+			},
+			{
 				"nom": "Message",
 				"texte": "La dose de courage requise pour réaliser\\nune bonne action est la même que celle \\nnécessaire pour oser ramasser une culotte."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Such is the way of probity!"
 			},
 			{
 				"nom": "Message",
@@ -2422,28 +2656,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) This is a treasure shell!"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est un coffrillage !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a treasure shell !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2480,7 +2698,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2612,68 +2830,52 @@
 				"idArme": 1
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) You find the torch of Kazan!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous trouvez la Torche de Kazan' !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The second legendary invisible weapon, \\nthat of the scholar \\c[2]Kazan\\c[0]!"
+			},
+			{
 				"nom": "Message",
-				"texte": "La seconde légendaire arme invisible,\\ncelle de l'\\c[02]érudit Kazan'\\c[01] !"
+				"texte": "La seconde légendaire arme invisible,\\ncelle de l'\\c[2]érudit Kazan'\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This legendary item is very precious \\nbut invisible: only you can see it."
 			},
 			{
 				"nom": "Message",
 				"texte": "Cet objet de légende est très précieux mais \\ninvisible : seul vous pouvez le voir."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) To burn anything flammable, hold down \\nthe \"SPACE\" key.\\nThe torch is fed with sulfur."
+			},
+			{
 				"nom": "Message",
 				"texte": "Pour brûler tout ce qui est inflammable, \\nmaintenez la touche \"ESPACE\" pressée.\\nLa torche s'alimente avec du soufre."
 			},
 			{
-				"nom": "Message",
-				"texte": "Pour vous l'équiper au lieu du sabre de \\nKrâkatram, pressez \"Q\". \\nPour rééquiper le sabre de Krâkatram, \\nrepressez \"Q\"."
+				"nom": "Commentaire",
+				"texte": "(en) To equip it instead of the blade of \\nKrâkatram, press \"A\".\\nTo re-equip the sword of Krâkatram, \\npress \"A\" again."
 			},
 			{
 				"nom": "Message",
-				"texte": "Attention à ne pas tomber à cours de soufre."
+				"texte": "Pour vous l'équiper au lieu du sabre de \\nKrâkatram, pressez \"Q\". \\nPour rééquiper le sabre de Krâkatram, \\npressez \"Q\" à nouveau."
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Message",
-				"texte": "You get Kazan's torch !"
+				"nom": "Commentaire",
+				"texte": "(en) Be careful not to run out of sulfur!"
 			},
 			{
 				"nom": "Message",
-				"texte": "This is the second invisible weapon !\\nIt belonged to \\c[02]Kazan\\c[01] the scholar."
-			},
-			{
-				"nom": "Message",
-				"texte": "This legendary item is very precious \\nbut invisible : only you can see it."
-			},
-			{
-				"nom": "Message",
-				"texte": "To burn all that is flammable, \\nhold down the \"SPACE\" bar.\\nYou must feed it with sulfur."
-			},
-			{
-				"nom": "Message",
-				"texte": "To equip the torch instead of the sword, \\npress \"A\". \\nTo reequip Krakatram's blade, \\npress \"A\" again."
-			},
-			{
-				"nom": "Message",
-				"texte": "Be careful not to run out of sulfur."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"texte": "Attention à ne pas tomber à cours de soufre!"
 			},
 			{
 				"nom": "Attendre",
@@ -2730,10 +2932,6 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
 			},
@@ -2771,28 +2969,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est vide."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "It is empty."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",

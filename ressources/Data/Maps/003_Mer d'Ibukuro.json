@@ -621,87 +621,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 0,
-		"y": 50,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 174,
-				"xDebutHeros": 33,
-				"yDebutHeros": 17
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 27,
-		"nom": "Parchemin",
-		"x": 15,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Comme la mer est agitée !\\nAu dessus de l'île de Sado :\\nla voix lactée.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 5,
 		"nom": "EV005",
 		"x": 220,
@@ -776,10 +695,10 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Jizo",
-		"x": 221,
-		"y": 172,
+		"id": 27,
+		"nom": "Parchemin",
+		"x": 15,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -794,80 +713,24 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (jizo1).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
+				"nom": "Commentaire",
+				"texte": "(en) \"How rough the sea is!\\nOver the island of Sado: the milky voice.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est une statue jizo."
+				"texte": "\"Comme la mer est agitée !\\nAu dessus de l'île de Sado :\\nla voix lactée.\""
 			},
 			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 4,
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Voulez-vous utiliser la pierre du jizo pour \\nlire ses pensées ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[0]"
 			},
 			{
 				"nom": "Message",
-				"texte": "Voici ses pensées :"
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (jizo2).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Pour trouver ce qu'il veut, le sage sait \\nquoi faire..."
-			},
-			{
-				"nom": "Message",
-				"texte": "...aller entre les 3 palmiers, et il souffle !\""
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "Elle a l'air pensive..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -875,80 +738,46 @@
 				"valeur": false
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "jizo character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "jizo character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "jizo character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "jizo character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "jizo character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			"image": "jizo character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "EV016",
+		"x": 0,
+		"y": 50,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 174,
+				"xDebutHeros": 33,
+				"yDebutHeros": 17
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -979,8 +808,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2190 Ibukuro sea\\n\\u2191 \\c[2]Red Vikings\\c[0]' village\\n\\u2192 Vast caves"
+			},
+			{
 				"nom": "Message",
-				"texte": "< Mer d'Ibukuro\\n/\\ Village Viking rouge\\n> Grandes grottes"
+				"texte": "\\u2190 Mer d'Ibukuro\\n\\u2191 Village Viking rouge\\n\\u2192 Grandes grottes"
 			},
 			{
 				"nom": "Attendre",
@@ -1011,66 +844,10 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "Pancarte",
-		"x": 217,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ Village Viking rouge\\n< Maison du \\c[02]Magicien Dose\\c[01]\\nV Intestins"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 17,
+		"id": 22,
 		"nom": "Jizo",
-		"x": 162,
-		"y": 7,
+		"x": 221,
+		"y": 172,
 		"pages": [
 		{
 			"conditions": [
@@ -1091,6 +868,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a jizo statue."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est une statue jizo."
 			},
@@ -1100,8 +881,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you want to use the jizo\\nstone to read its thoughts?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Voulez-vous utiliser la pierre du jizo pour \\nlire ses pensées ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -1114,6 +903,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) These are its thoughts:"
+			},
+			{
 				"nom": "Message",
 				"texte": "Voici ses pensées :"
 			},
@@ -1124,12 +917,20 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"To find what he wants, the wise\\nman knows what to do...."
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Pour trouver ce qu'il veut, le sage sait \\nquoi faire..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) ...go between the three palm\\ntrees, and he blows!\""
+			},
+			{
 				"nom": "Message",
-				"texte": "...100 pas vers le sud, et il souffle !\""
+				"texte": "...aller entre les 3 palmiers, et il souffle !\""
 			},
 			{
 				"nom": "ChoixAlternative",
@@ -1147,6 +948,10 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) She looks pensive..."
 			},
 			{
 				"nom": "Message",
@@ -1307,6 +1112,355 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "Jizo",
+		"x": 162,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (jizo1).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a jizo statue."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est une statue jizo."
+			},
+			{
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 4,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you want to use the jizo\\nstone to read its thoughts?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Voulez-vous utiliser la pierre du jizo pour \\nlire ses pensées ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) These are its thoughts:"
+			},
+			{
+				"nom": "Message",
+				"texte": "Voici ses pensées :"
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (jizo2).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"To find what he wants, the wise\\nman knows what to do...."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Pour trouver ce qu'il veut, le sage sait \\nquoi faire..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...100 steps south, and he blows!\""
+			},
+			{
+				"nom": "Message",
+				"texte": "...100 pas vers le sud, et il souffle !\""
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) She looks pensive..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Elle a l'air pensive..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 50
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "jizo character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			"image": "jizo character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 28,
+		"nom": "Pancarte",
+		"x": 217,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 \\c[2]Red Vikings\\c[0]' village\\n\\u2190 House of the \\c[2]wizard Ovose\\c[0]\\n\\u2193 Intestines"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2191 Village Viking rouge\\n\\u2190 Maison du \\c[2]Magicien Dose\\c[1]\\n\\u2193 Intestins"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 0,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 86,
+				"xDebutHeros": 23,
+				"yDebutHeros": 22
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 246,
+		"y": 90,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 124,
+				"xDebutHeros": 16,
+				"yDebutHeros": 19
 			}
 			],
 			"vitesse": "moderee",
@@ -1903,12 +2057,24 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a treasure shell!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un Coffrillage !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Open it?"
+			},
+			{
 				"nom": "Message",
 				"texte": "L'ouvrir ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -1946,7 +2112,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2072,8 +2238,16 @@
 				"quantite": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -2198,6 +2372,10 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est vide."
 			}
@@ -2215,10 +2393,10 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 246,
-		"y": 90,
+		"id": 7,
+		"nom": "EV007",
+		"x": 218,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -2228,62 +2406,54 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 2
+				"nom": "ConditionObjetPossede",
+				"idObjet": 51,
+				"numero": 0
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 2
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
+				"nom": "ConditionVariable",
+				"numeroVariable": 161,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
 			},
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 124,
-				"xDebutHeros": 16,
-				"yDebutHeros": 19
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 0,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
+				"numeroNouvelleMap": 509,
+				"xDebutHeros": 24,
+				"yDebutHeros": 33
+			},
 			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
+				"nom": "ConditionSinon",
+				"numero": 1
 			},
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 86,
-				"xDebutHeros": 23,
-				"yDebutHeros": 22
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 24,
+				"yDebutHeros": 33
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 67,
+				"xDebutHeros": 24,
+				"yDebutHeros": 33
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -2880,12 +3050,24 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a treasure shell!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un Coffrillage !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Opening it?"
+			},
+			{
 				"nom": "Message",
 				"texte": "L'ouvrir ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -2923,7 +3105,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -3049,8 +3231,16 @@
 				"quantite": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -3175,6 +3365,10 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est vide."
 			}
@@ -3192,10 +3386,70 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 218,
-		"y": 0,
+		"id": 13,
+		"nom": "Pancarte",
+		"x": 111,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 Sacred river: the Moldo\\n\\u2193 Ibukuro sea"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2191 Fleuve sacré : le Moldo\\n\\u2193 Mer d'Ibukuro"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 0,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -3205,54 +3459,15 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 51,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 161,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "EffacerImage",
+				"numero": 9
 			},
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 509,
-				"xDebutHeros": 24,
-				"yDebutHeros": 33
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 24,
-				"yDebutHeros": 33
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 67,
-				"xDebutHeros": 24,
-				"yDebutHeros": 33
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"numeroNouvelleMap": 86,
+				"xDebutHeros": 23,
+				"yDebutHeros": 23
 			}
 			],
 			"vitesse": "moderee",
@@ -3290,6 +3505,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a jizo statue."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est une statue jizo."
 			},
@@ -3299,8 +3518,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you want to use the jizo\\nstone to read its thoughts?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Voulez-vous utiliser la pierre du jizo pour \\nlire ses pensées ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -3313,6 +3540,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) These are its thoughts:"
+			},
+			{
 				"nom": "Message",
 				"texte": "Voici ses pensées :"
 			},
@@ -3323,8 +3554,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"To find what he wants, the wise\\nman knows what to do...."
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Pour trouver ce qu'il veut, le sage sait \\nquoi faire..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...56 steps down, and he blows!\""
 			},
 			{
 				"nom": "Message",
@@ -3346,6 +3585,10 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) She looks pensive..."
 			},
 			{
 				"nom": "Message",
@@ -3439,132 +3682,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 0,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 86,
-				"xDebutHeros": 23,
-				"yDebutHeros": 23
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Pancarte",
-		"x": 111,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ Fleuve sacré : le Moldo\\n\\/ Mer d'Ibukuro"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 0,
-		"y": 88,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 276,
-				"xDebutHeros": 28,
-				"yDebutHeros": 10
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -4154,12 +4271,24 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a treasure shell!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un Coffrillage !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Open it?"
+			},
+			{
 				"nom": "Message",
 				"texte": "L'ouvrir ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -4197,7 +4326,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -4323,8 +4452,16 @@
 				"quantite": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -4449,6 +4586,10 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est vide."
 			}
@@ -4466,10 +4607,10 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "EV025",
-		"x": 111,
-		"y": 0,
+		"id": 8,
+		"nom": "EV008",
+		"x": 0,
+		"y": 88,
 		"pages": [
 		{
 			"conditions": [
@@ -4479,15 +4620,46 @@
 			],
 			"commandes": [
 			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 276,
+				"xDebutHeros": 28,
+				"yDebutHeros": 10
+			},
+			{
 				"nom": "EffacerImage",
 				"numero": 9
-			},
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 222,
+		"y": 199,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 151,
-				"xDebutHeros": 20,
-				"yDebutHeros": 58
+				"numeroNouvelleMap": 208,
+				"xDebutHeros": 19,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -4536,10 +4708,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 222,
-		"y": 199,
+		"id": 25,
+		"nom": "EV025",
+		"x": 111,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -4548,47 +4720,16 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 208,
-				"xDebutHeros": 19,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "EV009",
-		"x": 0,
-		"y": 89,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 276,
-				"xDebutHeros": 28,
-				"yDebutHeros": 11
-			},
 			{
 				"nom": "EffacerImage",
 				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 151,
+				"xDebutHeros": 20,
+				"yDebutHeros": 58
 			}
 			],
 			"vitesse": "moderee",
@@ -4626,6 +4767,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a jizo statue."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est une statue jizo."
 			},
@@ -4635,8 +4780,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you want to use the jizo\\nstone to read its thoughts?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Voulez-vous utiliser la pierre du jizo pour \\nlire ses pensées ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -4649,6 +4802,10 @@
 				"alternative": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) These are its thoughts:"
+			},
+			{
 				"nom": "Message",
 				"texte": "Voici ses pensées :"
 			},
@@ -4659,8 +4816,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"To find what he wants, the wise\\nman knows what to do...."
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Pour trouver ce qu'il veut, le sage sait \\nquoi faire..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...87 steps north, 3 steps west,\\nand he blows!\""
 			},
 			{
 				"nom": "Message",
@@ -4682,6 +4847,10 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) She looks pensive..."
 			},
 			{
 				"nom": "Message",
@@ -4781,75 +4950,64 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Pancarte",
-		"x": 10,
-		"y": 20,
+		"id": 9,
+		"nom": "EV009",
+		"x": 0,
+		"y": 89,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 276,
+				"xDebutHeros": 28,
+				"yDebutHeros": 11
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "> Mer d'Ibukuro\\n< Maison du \\c[2]Magicien Dose"
-			},
-			{
-				"nom": "ConditionArmePossedee",
-				"idArme": 6,
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Si vous savez nager, n'hésitez pas à faire \\ntrempette, l'estomac de \\c[02]Kujira\\c[01] ne digère \\nque le plancton !\""
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "\"N'allez pas dans l'eau si vous ne savez \\npas nager !\""
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "EffacerImage",
+				"numero": 9
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 223,
+		"y": 199,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 208,
+				"xDebutHeros": 20,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -4967,29 +5125,147 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 223,
-		"y": 199,
+		"id": 4,
+		"nom": "Pancarte",
+		"x": 10,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 208,
-				"xDebutHeros": 20,
-				"yDebutHeros": 1
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2192 Ibukuro sea\\n\\u2190 House of the \\c[2]wizard Ovose\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2192 Mer d'Ibukuro\\n\\u2190 Maison du \\c[2]Magicien Dose"
+			},
+			{
+				"nom": "ConditionArmePossedee",
+				"idArme": 6,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"If you can swim, feel free to\\ntake a dip, the stomach of\\n\\c[2]Kujira\\c[0] only digests\\nplankton!\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Si vous savez nager, n'hésitez pas à faire \\ntrempette, l'estomac de \\c[2]Kujira\\c[1] ne digère \\nque le plancton !\""
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Don't go into the water if you\\ndon't know how to swim!\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"N'allez pas dans l'eau si vous ne savez \\npas nager !\""
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Pancarte",
+		"x": 7,
+		"y": 87,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 House of the \\c[2]wizard Ovose\\c[0]\\n\\u2192 Ibukuro sea\\n\\u2190 Tent of the \\c[2]key master\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2191 Maison du \\c[2]Magicien Dose\\c[1]\\n\\u2192 Mer d'Ibukuro\\n\\u2190 Maison du \\c[2]Maître-Clé\\c[1]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -5581,12 +5857,24 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a treasure shell!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un Coffrillage !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Open it?"
+			},
+			{
 				"nom": "Message",
 				"texte": "L'ouvrir ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Choix",
@@ -5624,7 +5912,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -5750,8 +6038,16 @@
 				"quantite": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -5876,6 +6172,10 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est vide."
 			}
@@ -5887,62 +6187,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Pancarte",
-		"x": 7,
-		"y": 87,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Message",
-				"texte": "/\\ Maison du \\c[02]Magicien Dose\\c[01]\\n> Mer d'Ibukuro\\n< Maison du \\c[2]Maître-Clé\\c[01]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

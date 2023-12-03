@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javafx.scene.media.MediaException;
+
 /**
  * Classe utilitaire charg�e de lire les fichiers audio du jeu.
  */
@@ -65,8 +67,11 @@ public abstract class LecteurAudio {
 		} else if (nom.endsWith(".mp3")) {
 			try {
 				musique = new MusiqueMp3(nom, Musique.TypeMusique.ME, volume);
-			} catch(java.lang.UnsatisfiedLinkError e) {
-				LOG.error("Une librairie a la con manque pour lire les fichiers MP3",e);
+			} catch (java.lang.UnsatisfiedLinkError e1) {
+				LOG.error("Une librairie a la con manque pour lire les fichiers MP3", e1);
+				return;
+			} catch (MediaException e2) {
+				LOG.error("Impossible d'ouvrir le fichier MP3", e2);
 				return;
 			}
 		} else {

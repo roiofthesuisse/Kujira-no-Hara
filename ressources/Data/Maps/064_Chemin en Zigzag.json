@@ -5,7 +5,7 @@
 	"hauteur": 45,
 	"musique": {
 		"nomFichierSonore": "Nouveaux Chemins.ogg",
-		"volume": 1.00,
+		"volume": 0.90,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -156,6 +156,43 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 33
+	},
+	{
+		"id": 16,
+		"nom": "EV016",
+		"x": 15,
+		"y": 44,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 168,
+				"xDebutHeros": 12,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 27,
 		"nom": "Mathusalem",
 		"x": 20,
@@ -206,15 +243,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ArreterMusique",
-				"nombreDeFrames": 60
-			},
-			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 2,
 				"operationAFaire": "rendre egal a",
@@ -227,10 +255,6 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 0,
 				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
 			},
 			{
 				"nom": "ConditionVariable",
@@ -247,6 +271,49 @@
 				"valeurQuIlEstCenseAvoir": 34,
 				"comparerAUneAutreVariable": false,
 				"numero": 1
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 60
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "Mathusalem character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 27,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
 			},
 			{
 				"nom": "Deplacement",
@@ -276,7 +343,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Rencontre avec Mathusalem.mp3",
+				"nomFichierSonore": "Rencontre avec Mathusalem.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -289,6 +356,11 @@
 				{
 					"nom": "RegarderDansUneDirection",
 					"direction": 2
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
 				}
 				]
 			},
@@ -310,81 +382,73 @@
 				"script": "$game_temp.faceset = \"mathusalem\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Aaah! You scared me!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Aaah ! Tu m'as fait peur !"
+				"texte": "\\SHAKE Aaah ! Tu m'as fait peur !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's not reasonable to scare me like that \\nat my age!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Ce n'est pas raisonnable de me faire peur \\ncomme ça à mon âge !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Still no legendary weapon of the \\c[2]scholars\\c[0] \\nif my eyes are to be believed..."
+			},
+			{
 				"nom": "Message",
-				"texte": "Toujours pas d'arme légendaire des \\c[02]érudits\\c[01]\\nsi j'en crois mes yeux..."
+				"texte": "Toujours pas d'arme légendaire des \\c[2]érudits\\c[1]\\nsi j'en crois mes yeux..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Don't be discouraged, kid!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Ne te décourage pas petit !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I've been scanning every corner for 800 years \\ntrying to see them. \\nBut I'm not discouraged!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Moi ça fait 800 ans que je scrute partout pour \\nessayer de les apercevoir, certes en vain, mais \\nje ne me décourage pas pour autant !"
+				"texte": "Ça fait 800 ans que je scrute chaque recoin \\npour tenter de les apercevoir. Certes en vain, \\nmais je ne me décourage pas pour autant !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I want to get out of this prison of flesh! \\nAnd I want to free all those who are trapped \\nin it at the same time!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Je veux sortir de cette prison de chair ! Et je \\nveux libérer tous ceux qui sont prisonniers \\ndedans par la même occasion !"
 			},
 			{
-				"nom": "Message",
-				"texte": "Tant qu'on continuera à explorer Kujira, il y \\naura une lueur d'espoir pour ses habitants."
+				"nom": "Commentaire",
+				"texte": "(en) As long as we continue to explore Kujira, \\nthere will be a glimmer of hope \\nfor its inhabitants."
 			},
 			{
 				"nom": "Message",
-				"texte": "J'ai trouvé quelque chose qui va grandement \\nnous avancer :\\nLe quatrième parchemin du \\c[02]poète voyageur\\c[01] !"
+				"texte": "Tant qu'on continuera à explorer Kujira, \\nil y aura une lueur d'espoir pour ses habitants."
 			},
 			{
-				"nom": "Message",
-				"texte": "Jettes-y un coup d'oeil !"
+				"nom": "ConditionObjetPossede",
+				"idObjet": 49,
+				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 100
-				}
-				]
+				"nom": "Commentaire",
+				"texte": "on a fait le donjon 2\\npuis le donjon 3\\nMathusalem nous donne le parchemin 4"
 			},
 			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 22,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[02]Mathusalem\\c[01] vous confie le \\nquatrième parchemin du \\c[02]poète voyageur\\c[01] !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ce rouleau raconte l'histoire de Kujira."
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 123
 			},
 			{
 				"nom": "Attendre",
@@ -405,18 +469,6 @@
 					"teinte": 0
 				},
 				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
 					"nom": "RendreDirectionFixe",
 					"directionFixe": false
 				}
@@ -427,12 +479,44 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on a fait le donjon 3\\nmais pas encore le donjon 2\\n(on a déjà obtenu le parchemin 2 après le donjon 1)\\nMathusalem nous dit d'y retourner"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If the third scroll led you to a scholar's shrine, \\nthat should also be the case for the second one, \\nwhich I gave you earlier."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si le troisième parchemin t'a conduit \\nà un sanctuaire des érudits, cela devrait être \\négalement le cas pour le second parchemin, \\nque je t'avais donné plus tôt."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I think you should go back \\nto the western forest, just in case."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je pense que tu devrais retourner \\nà la forêt de l'Ouest, juste au cas où."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"mathusalem\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Don't forget, \\n[1]!\\nHope! It's very important."
+			},
+			{
 				"nom": "Message",
-				"texte": "N'oublie pas ! L'espoir !"
+				"texte": "N'oublie pas, \\n[1] ! \\nL'espoir ! C'est super important."
 			},
 			{
 				"nom": "Attendre",
@@ -452,11 +536,6 @@
 				{
 					"nom": "RegarderDansUneDirection",
 					"direction": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 200
 				}
 				]
 			},
@@ -556,33 +635,8 @@
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
+				"numeroInterrupteurLocal": 2,
 				"valeurADonner": true
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -594,6 +648,7 @@
 			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -605,7 +660,7 @@
 			{
 				"nom": "InterrupteurLocal",
 				"numeroEvent": 27,
-				"numeroInterrupteurLocal": 1,
+				"numeroInterrupteurLocal": 2,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
@@ -636,80 +691,6 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 15,
-		"y": 44,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 168,
-				"xDebutHeros": 12,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 33
-	},
-	{
-		"id": 33,
-		"nom": "EV033",
-		"x": 25,
-		"y": 40,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 4,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 11,
-		"nom": "Clone[021][004]",
-		"x": 15,
-		"y": 23
-	},
-	{
 		"id": 22,
 		"nom": "Jizo",
 		"x": 8,
@@ -734,6 +715,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a jizo statue"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est une statue jizo."
 			},
@@ -741,6 +726,42 @@
 				"nom": "ConditionGadgetEquipe",
 				"idGadget": 4,
 				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 23,
+				"direction": 3,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here are its wise thoughts:"
+			},
+			{
+				"nom": "Message",
+				"texte": "Voici ses vénérables pensées :"
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (jizo2).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Tagada tsoin tsoin.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Tagada tsoin tsoin.\""
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You read its thoughts through\\nthe jizo stone."
 			},
 			{
 				"nom": "Message",
@@ -753,12 +774,24 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"To find what he wants, the wise man knows \\nwhat to do: 13 steps down, 2 steps to the right,\\nand he blows!\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Pour trouver ce qu'il veut, le sage sait \\nquoi faire :\\n13 pas vers le bas, 2 pas vers la droite,\\net il souffle  !\""
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It looks pensive..."
 			},
 			{
 				"nom": "Message",
@@ -858,10 +891,51 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "Clone[341][002]",
+		"id": 11,
+		"nom": "Clone[021][004]",
 		"x": 15,
-		"y": 7
+		"y": 23
+	},
+	{
+		"id": 33,
+		"nom": "Annonce du Lieu",
+		"x": 23,
+		"y": 37,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "annonce du lieu\\n(sortie de donjon)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][028]",
+		"x": 20,
+		"y": 9
 	},
 	{
 		"id": 17,
@@ -895,22 +969,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][028]",
-		"x": 20,
-		"y": 9
-	},
-	{
-		"id": 23,
-		"nom": "Clone[582][44]",
-		"x": 11,
-		"y": 26
-	},
-	{
-		"id": 12,
-		"nom": "Clone[021][004]",
-		"x": 17,
-		"y": 25
+		"id": 28,
+		"nom": "Clone[341][002]",
+		"x": 15,
+		"y": 7
 	},
 	{
 		"id": 1,
@@ -919,10 +981,160 @@
 		"y": 19
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][006]",
-		"x": 13,
-		"y": 19
+		"id": 12,
+		"nom": "Clone[021][004]",
+		"x": 17,
+		"y": 25
+	},
+	{
+		"id": 23,
+		"nom": "Clone[582][44]",
+		"x": 11,
+		"y": 26
+	},
+	{
+		"id": 34,
+		"nom": "Réglages initiaux",
+		"x": 14,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 5,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 6
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 3
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 4
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 50,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][028]",
+		"x": 15,
+		"y": 13
 	},
 	{
 		"id": 29,
@@ -1028,16 +1240,16 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][028]",
-		"x": 15,
-		"y": 13
+		"id": 18,
+		"nom": "Clone[341][006]",
+		"x": 13,
+		"y": 19
 	},
 	{
-		"id": 13,
-		"nom": "Clone[021][004]",
-		"x": 20,
-		"y": 13
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 9,
+		"y": 20
 	},
 	{
 		"id": 24,
@@ -1589,10 +1801,47 @@
 		]
 	},
 	{
-		"id": 2,
+		"id": 13,
+		"nom": "Clone[021][004]",
+		"x": 20,
+		"y": 13
+	},
+	{
+		"id": 8,
 		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 20
+		"x": 14,
+		"y": 17
+	},
+	{
+		"id": 19,
+		"nom": "EV019",
+		"x": 12,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 76,
+				"xDebutHeros": 12,
+				"yDebutHeros": 25
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 30,
@@ -1714,10 +1963,16 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "EV019",
-		"x": 12,
-		"y": 14,
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 10,
+		"y": 19
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 10,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -1729,9 +1984,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 76,
-				"xDebutHeros": 12,
-				"yDebutHeros": 25
+				"numeroNouvelleMap": 52,
+				"xDebutHeros": 20,
+				"yDebutHeros": 29
 			}
 			],
 			"vitesse": "moderee",
@@ -1743,12 +1998,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][028]",
-		"x": 14,
-		"y": 17
 	},
 	{
 		"id": 25,
@@ -2300,49 +2549,6 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 10,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 52,
-				"xDebutHeros": 20,
-				"yDebutHeros": 28
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 19
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][061]",
-		"x": 16,
-		"y": 14
-	},
-	{
 		"id": 31,
 		"nom": "EV031",
 		"x": 12,
@@ -2368,137 +2574,16 @@
 		]
 	},
 	{
+		"id": 9,
+		"nom": "Clone[341][061]",
+		"x": 16,
+		"y": 14
+	},
+	{
 		"id": 20,
-		"nom": "Coccinelle jaune",
+		"nom": "Clone[582][51]",
 		"x": 8,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Epée.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 34,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "coccinelles petites character",
-			"opacite": 200,
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 20,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 11,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 52,
-				"xDebutHeros": 21,
-				"yDebutHeros": 28
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 18,
-		"y": 34
+		"y": 21
 	},
 	{
 		"id": 26,
@@ -2530,7 +2615,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Il n'y a qu'avec les \\c[02]érudits\\c[01] \\nque l'on peut parler\\nune fois qu'ils sont partis."
+				"texte": "\"Il n'y a qu'avec les \\c[2]érudits\\c[1] \\nque l'on peut parler\\nune fois qu'ils sont partis."
 			},
 			{
 				"nom": "Commentaire",
@@ -2542,7 +2627,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en)                   Memoir of the \\c[2]wayfaring poet\\c[1]"
+				"texte": "(en)                      Memoirs of the \\c[2]traveling poet\\c[1]"
 			},
 			{
 				"nom": "Message",
@@ -2577,36 +2662,41 @@
 		]
 	},
 	{
-		"id": 32,
-		"nom": "arche",
-		"x": 10,
-		"y": 23,
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 18,
+		"y": 34
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 11,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 52,
+				"xDebutHeros": 21,
+				"yDebutHeros": 29
+			}
 			],
-			"image": "arches kujira character",
-			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][061]",
-		"x": 10,
-		"y": 37
 	},
 	{
 		"id": 21,
@@ -2636,6 +2726,38 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][061]",
+		"x": 10,
+		"y": 37
+	},
+	{
+		"id": 32,
+		"nom": "arche",
+		"x": 10,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "arches kujira character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	}

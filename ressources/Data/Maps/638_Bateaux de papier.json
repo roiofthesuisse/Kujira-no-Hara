@@ -75,6 +75,154 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "toc bois",
+		"x": 15,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "toc bois",
+		"x": 4,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 27,
 		"nom": "bateau",
 		"x": 14,
@@ -456,179 +604,6 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "toc bois",
-		"x": 4,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "toc bois",
-		"x": 15,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 33,
-		"nom": "heros (14)",
-		"x": 10,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "Jiyounasu character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 11,
 		"nom": "toc bois",
 		"x": 10,
@@ -693,6 +668,181 @@
 			}
 			],
 			"image": 186,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 33,
+		"nom": "heros (14)",
+		"x": 10,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "Jiyounasu character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "toc bois",
+		"x": 16,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"image": 304,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "toc bois",
+		"x": 5,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"image": 69,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1063,181 +1213,6 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "toc bois",
-		"x": 5,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"image": 69,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 17,
-		"nom": "toc bois",
-		"x": 16,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"image": 304,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "feu",
-		"x": 3,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "flamme character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 12,
 		"nom": "toc bois",
 		"x": 11,
@@ -1309,6 +1284,180 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "feu",
+		"x": 3,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "flamme character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "toc bois",
+		"x": 17,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"image": 305,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "toc bois",
+		"x": 6,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -1671,9 +1820,9 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 13,
 		"nom": "toc bois",
-		"x": 6,
+		"x": 12,
 		"y": 9,
 		"pages": [
 		{
@@ -1734,85 +1883,37 @@
 				"numero": 1
 			}
 			],
+			"image": 188,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
 	},
 	{
-		"id": 18,
-		"nom": "toc bois",
-		"x": 17,
-		"y": 9,
+		"id": 2,
+		"nom": "feu",
+		"x": 14,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
 			],
-			"image": 305,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"image": "flamme character",
+			"opacite": 220,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
@@ -2201,10 +2302,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "feu",
-		"x": 14,
-		"y": 4,
+		"id": 19,
+		"nom": "poesie (14)",
+		"x": 9,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -2214,22 +2315,21 @@
 			],
 			"commandes": [
 			],
-			"image": "flamme character",
-			"opacite": 220,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"image": "poesie yukata assise character",
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": true
 		}
 		]
 	},
 	{
-		"id": 13,
+		"id": 8,
 		"nom": "toc bois",
-		"x": 12,
+		"x": 7,
 		"y": 9,
 		"pages": [
 		{
@@ -2290,14 +2390,13 @@
 				"numero": 1
 			}
 			],
-			"image": 188,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -2661,9 +2760,9 @@
 		]
 	},
 	{
-		"id": 8,
+		"id": 14,
 		"nom": "toc bois",
-		"x": 7,
+		"x": 13,
 		"y": 9,
 		"pages": [
 		{
@@ -2735,27 +2834,76 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "poesie (14)",
-		"x": 9,
-		"y": 7,
+		"id": 3,
+		"nom": "toc bois",
+		"x": 2,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
 			],
-			"image": "poesie yukata assise character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": true
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -3161,9 +3309,9 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 9,
 		"nom": "toc bois",
-		"x": 2,
+		"x": 8,
 		"y": 9,
 		"pages": [
 		{
@@ -3224,36 +3372,61 @@
 				"numero": 1
 			}
 			],
+			"image": 184,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
 	},
 	{
-		"id": 14,
-		"nom": "toc bois",
-		"x": 13,
-		"y": 9,
+		"id": 20,
+		"nom": "discussion",
+		"x": 10,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "AfficherImage",
+				"numero": 6,
+				"nomImage": "ecran noir",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 255,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "figer les bateaux"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 6,
+				"valeur": true
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "ils marchent sur le pont de bois"
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -3262,23 +3435,8 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -3287,23 +3445,771 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
+				"nom": "Attendre",
+				"nombreDeFrames": 3
 			},
 			{
-				"nom": "ConditionFin",
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's here."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est ici."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You'll see, they'll be here soon!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu vas voir, ils vont bientôt arriver !"
+			},
+			{
+				"nom": "DeplacerImage",
+				"numero": 6,
+				"nombreDeFrames": 100,
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 0,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "positionnement des personnages"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 19,
+				"variable": false,
+				"nouveauX": 9,
+				"nouveauY": 9,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 33,
+				"variable": false,
+				"nouveauX": 10,
+				"nouveauY": 9,
+				"direction": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 638,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 10,
+				"yDebutHeros": 9
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 100
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "lacher les bateaux"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 6,
+				"valeur": false
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Poésie theme 3.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 66
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "discussion"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Every year after the fall festival, the \\c[2]Vikings\\c[0] \\nput paper boats on the water..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Chaque année après le festival d'automne,\\nles \\c[2]vikings\\c[1] déposent sur l'eau des bateaux \\nen papier..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...as a symbol of the day when they will be \\nfreed from the whale and will be able to sail\\non the ocean again."
+			},
+			{
+				"nom": "Message",
+				"texte": "...en symbole du jour où ils seront libérés \\nde la baleine et où ils pourront de nouveau \\nnaviguer sur l'océan."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Perhaps also this ceremony reminds the adults \\nof the time when they were still sailing."
+			},
+			{
+				"nom": "Message",
+				"texte": "Peut-être aussi que cette cérémonie rappelle \\naux adultes l'époque à laquelle ils naviguaient \\nencore."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie triste\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I did not experience that time."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je n'ai pas connu cette époque."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I was born in the whale.\\nI am a \"native\"."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je suis née dans la baleine.\\nJe suis une \"native\"."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a silly example, but I have never \\nseen the moon."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un exemple bête, mais je n'ai jamais vu \\nla Lune."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) My father, \\c[2]Tabula\\c[0], told me that a moon crescent \\nin the night sky looked like a big toenail \\nleft on the bathroom floor."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That's true|Not at all!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mon père, \\c[2]Tabula\\c[1], m'a dit qu'un croissant \\nde Lune ressemblait à un gros ongle de pied \\noublié sur le sol de la salle de bain."
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["C'est vrai", "Pas du tout !"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is that so?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah oui ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's still hard to imagine..."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai du mal à imaginer quand même..."
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is that so?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah oui ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie triste\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie yukata assise character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you miss your old life, before you were \\nswallowed by the whale?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Est-ce que tu regrettes ton ancienne vie,\\navant d'avoir été avalé la baleine ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
 				"numero": 1
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 1,
+				"alternative": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 1,
+				"alternative": 1
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 19,
+				"idAnimation": 3
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You don't?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah oui ?"
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie yukata assise character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) How I envy you."
+			},
+			{
+				"nom": "Message",
+				"texte": "Comme je t'envie."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) At least you've been outside."
+			},
+			{
+				"nom": "Message",
+				"texte": "Au moins, toi, tu as connu l'extérieur."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I have some images of the old Viking times \\nfrom the stories I've read."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai quelques images de l'ancien temps viking\\ngrâce aux histoires que j'ai lues."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Like the day when \\c[2]Grötkrötsen\\c[0] was defeated \\nby my grandfather, \\c[2]Blutric Obsten\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Comme le jour où \\c[2]Grötkrötsen\\c[1] a été vaincu \\npar mon grand-père, \\c[2]Blutric Obsten\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Or the day when \\c[2]Blutric Obsten\\c[0] led \\nthe whole Viking fleet into the whale."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ou le jour où \\c[2]Blutric Obsten\\c[1] a conduit \\ntoute la flotte viking dans la baleine."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 19,
+				"idAnimation": 2
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I just thought of something!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je viens de penser à quelque chose !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) In the graveyard of the Viking village \\nyou can see the grave of \\c[2]Grötkrötsen\\c[0]..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Au cimetière du village viking, on peut voir\\nla tombe de \\c[2]Grötkrötsen\\c[1]..."
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie yukata assise character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Except that \\c[2]Grötkrötsen\\c[0] died \\ncompeting with \\c[2]Blutrik Obsten\\c[0], \\nwhile trying to become the Viking leader..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Sauf que \\c[2]Grötkrötsen\\c[1] est mort face à \\c[2]Blutrik \\nObsten\\c[1], en voulant devenir chef des Vikings..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That is to say, before the Viking people \\nwere swallowed by \\c[2]Kujira\\c[0] !"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est-à-dire avant que le peuple viking soit \\navalé par \\c[2]Kujira\\c[0] !"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie yukata assise character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Either they took the corpse of \\c[2]Grötkrötsen\\c[0] \\nto sea, but in which goal ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Soit ils ont emporté le cadavre de \\c[2]Grötkrötsen\\c[1] \\nen mer, mais dans quel but ?"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Rire.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) To serve as bait for the fishes ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour servir d'appât aux poissons ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Either this grave is fake."
+			},
+			{
+				"nom": "Message",
+				"texte": "Soit cette tombe est factice."
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "poesie yukata assise character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Now I am curious!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Maintenant, je suis curieuse !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is all very suspicious, isn't it?\\nI want to know what really happened!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tout ça est super suspicieux, non ?\\nJe veux savoir ce qui s'est vraiment passé !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Gasp.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Would you meet me there to investigate?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu me rejoindrais là-bas pour enquêter ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'd ask my little brother \\c[2]Fiolin\\c[0], \\nbut he'll still say I'm paranoid \\nand that these adventures are too dangerous!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je proposerais bien à mon petit frère \\c[2]Fiolin\\c[1], \\nmais il va encore dire que je suis parano \\net que ces aventures sont trop dangereuses !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You're often in trouble, right ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu es souvent dans les coups foireux, non ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) See you at the village cemetery!\\nI count on you!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Rendez-vous au cimetière du village ! \\nJe compte sur toi !"
+			},
+			{
+				"nom": "DeplacerImage",
+				"numero": 6,
+				"nombreDeFrames": 100,
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 255,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 100
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 6
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 207,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 10,
+				"yDebutHeros": 8
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -3667,629 +4573,9 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "discussion",
-		"x": 10,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "AfficherImage",
-				"numero": 6,
-				"nomImage": "ecran noir",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "figer les bateaux"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 6,
-				"valeur": true
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "ils marchent sur le pont de bois"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Gasp.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie surprise\""
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est ici."
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu vas voir, ils vont bientôt arriver !"
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 6,
-				"nombreDeFrames": 100,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "positionnement des personnages"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 19,
-				"variable": false,
-				"nouveauX": 9,
-				"nouveauY": 9,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 33,
-				"variable": false,
-				"nouveauX": 10,
-				"nouveauY": 9,
-				"direction": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 638,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 10,
-				"yDebutHeros": 9
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 100
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "lacher les bateaux"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 6,
-				"valeur": false
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Poésie theme 3.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 66
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "discussion"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Chaque année après le festival d'automne,\\nles \\c[2]vikings\\c[1] déposent sur l'eau des bateaux \\nen papier..."
-			},
-			{
-				"nom": "Message",
-				"texte": "...en symbole du jour où ils seront libérés \\nde la baleine et où ils pourront de nouveau \\nnaviguer sur l'océan."
-			},
-			{
-				"nom": "Message",
-				"texte": "Peut-être aussi que cette cérémonie rappelle \\naux adultes l'époque à laquelle ils naviguaient \\nencore."
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie triste\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Je n'ai pas connu cette époque."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je suis née dans la baleine.\\nJe suis une \"native\"."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est un exemple bête, mais je n'ai jamais vu \\nla Lune."
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie vexee\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Mon père, \\c[2]Tabula\\c[1], m'a dit qu'un croissant \\nde Lune ressemblait à un gros ongle de pied \\noublié sur le sol de la salle de bain."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 19,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie yukata assise character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie surprise\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Est-ce que tu regrettes ton ancienne vie,\\navant d'avoir été avalé la baleine ?"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = nil"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 19,
-				"idAnimation": 3
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie surprise\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Ah oui ?"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 19,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie yukata assise character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Comme je t'envie."
-			},
-			{
-				"nom": "Message",
-				"texte": "Au moins, toi, tu as connu l'extérieur."
-			},
-			{
-				"nom": "Message",
-				"texte": "J'ai quelques images de l'ancien temps viking\\ngrâce aux histoires que j'ai lues."
-			},
-			{
-				"nom": "Message",
-				"texte": "Comme le jour où \\c[2]Grötkrötsen\\c[1] a été vaincu \\npar mon grand-père, \\c[2]Blutric Obsten\\c[1]."
-			},
-			{
-				"nom": "Message",
-				"texte": "Ou le jour où \\c[2]Blutric Obsten\\c[1] a conduit \\ntoute la flotte viking dans la baleine."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Gasp.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 19,
-				"idAnimation": 2
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie surprise\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Je viens de penser à quelque chose !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Au cimetière du village viking, on peut voir\\nla tombe de \\c[2]Grötkrötsen\\c[1]..."
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 19,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie yukata assise character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie vexee\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Sauf que \\c[2]Grötkrötsen\\c[1] est mort face à \\c[2]Blutrik \\nObsten\\c[1], en voulant devenir chef des Vikings..."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est-à-dire avant que le peuple viking soit \\navalé par \\c[2]Kujira\\c[0] !"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 19,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie yukata assise character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Message",
-				"texte": "Soit ils ont emporté le cadavre de \\c[2]Grötkrötsen\\c[1] \\nen mer, mais dans quel but ?"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Rire.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Pour servir d'appât aux poissons ?"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie vexee\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Soit cette tombe est factice."
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 19,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "poesie yukata assise character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poesie\""
-			},
-			{
-				"nom": "Message",
-				"texte": "Maintenant, je suis curieuse !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Tout ça est super suspicieux, non ?\\nJe veux savoir ce qui s'est vraiment passé !"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Gasp.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu me rejoindrais là-bas pour enquêter ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Je proposerais bien à mon petit frère \\c[2]Fiolin\\c[1], \\nmais il va encore dire que je suis parano \\net que ces aventures sont trop dangereuses !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu es souvent dans les coups foireux, non ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Rendez-vous au cimetière du village ! \\nJe compte sur toi !"
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 6,
-				"nombreDeFrames": 100,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 100
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 6
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 207,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 10,
-				"yDebutHeros": 8
-			}
-			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"figerLesAutresEvents": true,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
+		"id": 15,
 		"nom": "toc bois",
-		"x": 8,
+		"x": 14,
 		"y": 9,
 		"pages": [
 		{
@@ -4350,7 +4636,82 @@
 				"numero": 1
 			}
 			],
-			"image": 184,
+			"image": 190,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "toc bois",
+		"x": 3,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "toc bois2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"image": 67,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -4738,70 +5099,20 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "toc bois",
-		"x": 3,
-		"y": 9,
+		"id": 21,
+		"nom": "cache heros",
+		"x": 10,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
 			],
-			"image": 67,
+			"image": 178,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -4813,9 +5124,9 @@
 		]
 	},
 	{
-		"id": 15,
+		"id": 10,
 		"nom": "toc bois",
-		"x": 14,
+		"x": 9,
 		"y": 9,
 		"pages": [
 		{
@@ -4876,14 +5187,14 @@
 				"numero": 1
 			}
 			],
-			"image": 190,
+			"image": 185,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -5241,106 +5552,6 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "toc bois",
-		"x": 9,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "toc bois2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"image": 185,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "cache heros",
-		"x": 10,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 178,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
 		}
 		]
 	}

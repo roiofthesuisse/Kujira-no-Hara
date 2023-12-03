@@ -4,7 +4,7 @@
 	"largeur": 21,
 	"hauteur": 15,
 	"musique": {
-		"nomFichierSonore": "Donjon 1.mp3",
+		"nomFichierSonore": "Donjon 1.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -66,12 +66,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 9
-	},
-	{
 		"id": 16,
 		"nom": "Torche murale",
 		"x": 2,
@@ -98,10 +92,10 @@
 		]
 	},
 	{
-		"id": 11,
+		"id": 5,
 		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 10
+		"x": 16,
+		"y": 9
 	},
 	{
 		"id": 22,
@@ -135,6 +129,12 @@
 		]
 	},
 	{
+		"id": 11,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 10
+	},
+	{
 		"id": 6,
 		"nom": "fontaine (4)",
 		"x": 15,
@@ -158,12 +158,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 9
 	},
 	{
 		"id": 1,
@@ -385,6 +379,12 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 9
+	},
+	{
 		"id": 18,
 		"nom": "Torche murale",
 		"x": 18,
@@ -411,12 +411,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 10
-	},
-	{
 		"id": 13,
 		"nom": "Stèle",
 		"x": 15,
@@ -441,80 +435,60 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) \"I am now in \\c[2]Kazan\\c[1]'s sanctuary."
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Me voici dans le sanctuaire de \\c[02]Kazan'\\c[01]."
+				"texte": "\"Me voici dans le sanctuaire de \\c[2]Kazan'\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He is one of the scholars from that legend."
 			},
 			{
 				"nom": "Message",
 				"texte": "Il fut un des grands érudits de la légende."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I hope I will find a hint about the exit \\nfrom Kujira."
+			},
+			{
 				"nom": "Message",
 				"texte": "J'espère que j'y trouverai un indice \\nsur la sortie de Kujira."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I borrowed the key of this dungeon \\nto a key specialist."
 			},
 			{
 				"nom": "Message",
 				"texte": "Pour la clé du donjon, mieux vaut demander \\nconseil à un spécialiste des clés !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The one that will enter this very place \\nwill have to be dexterous and ingenious...\""
+			},
+			{
 				"nom": "Message",
 				"texte": "Celui qui pénétrera ce lieu devra faire \\npreuve d'adresse et de réflexion...\""
 			},
 			{
-				"nom": "Message",
-				"texte": "                        Mémoires du \\c[2]Poète voyageur"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en)                      Memoirs of the \\c[2]traveling poet\\c[1]"
 			},
 			{
 				"nom": "Message",
-				"texte": "\"I am now in the sanctuaire of \\c[02]Kazan\\c[01]."
-			},
-			{
-				"nom": "Message",
-				"texte": "He is one of the scholars from that legend."
-			},
-			{
-				"nom": "Message",
-				"texte": "I hope I will find a hint about the exit from \\nKujira."
-			},
-			{
-				"nom": "Message",
-				"texte": "I borrowed the key of this dungeon \\nto a specialist of keys."
-			},
-			{
-				"nom": "Message",
-				"texte": "The one that will enter this very place \\nwill have to be dexterous and ingenious...\""
-			},
-			{
-				"nom": "Message",
-				"texte": "                        Memoirs of the \\c[2]wayfaring poet\\c[1]"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"texte": "                        Mémoires du \\c[2]poète voyageur"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -531,6 +505,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 10
 	},
 	{
 		"id": 19,
@@ -627,7 +607,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Je suis \\c[02]Lankhor\\c[01], le serrurier."
+				"texte": "Je suis \\c[2]Lankhor\\c[1], le serrurier."
 			},
 			{
 				"nom": "Commentaire",
@@ -639,19 +619,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) - The key of this dungeon has two teeth.\\n- The key of this dungeon is gray."
+				"texte": "(en) - The key to this dungeon has two teeth.\\n- The key to this dungeon is gray.\\n- The key to this dungeon has a round handle.\\n- The key to this dungeon is big."
 			},
 			{
 				"nom": "Message",
-				"texte": "- La clé qui ouvre ce donjon a deux dents.\\n- La clé qui ouvre ce donjon est grise."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) - The key of this dungeon has a round handle.\\n- The key of this dungeon is big."
-			},
-			{
-				"nom": "Message",
-				"texte": "- La clé qui ouvre ce donjon a le bout rond.\\n- La clé qui ouvre ce donjon est grande."
+				"texte": "- La clé qui ouvre ce donjon a deux dents.\\n- La clé qui ouvre ce donjon est grise.\\n- La clé qui ouvre ce donjon a le bout rond.\\n- La clé qui ouvre ce donjon est grande."
 			},
 			{
 				"nom": "Commentaire",
@@ -659,11 +631,11 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Mais une de ces 4 phrases est fausse !\\nCependant je ne me souviens plus laquelle."
+				"texte": "Mais une de ces 4 phrases est fausse !\\nCependant, je ne me souviens plus laquelle."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Too bad for you."
+				"texte": "(en) Never mind."
 			},
 			{
 				"nom": "Message",
@@ -700,6 +672,31 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "fontaine (4)",
+		"x": 5,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tiki lave character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 15,
 		"nom": "Torche murale",
 		"x": 2,
@@ -726,31 +723,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "fontaine (4)",
-		"x": 5,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "tiki lave character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 10,
 		"nom": "EV010",
 		"x": 14,
@@ -762,7 +734,7 @@
 			"commandes": [
 			{
 				"nom": "ModifierBrouillard",
-				"opacite": 60,
+				"opacite": 30,
 				"modeDeFusion": "addition",
 				"defilementX": 0,
 				"defilementY": 0,

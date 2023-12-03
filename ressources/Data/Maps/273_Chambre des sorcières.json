@@ -33,8 +33,8 @@
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,0028,0029,-001,-001,-001,0028,0029,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,0030,0031,-001,0036,0037,0030,0031,-001,0036,0037,-001,0030,0031,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,0030,0031,-001,0008,0009,0030,0031,-001,0008,0009,-001,0030,0031,-001,-001,-001,-001],
 	[-001,-001,-001,-001,0038,0039,0002,0044,0045,0038,0039,0002,0044,0045,-001,0038,0039,-001,-001,-001,-001],
 	[-001,-001,-001,-001,0046,0047,-001,-001,-001,0046,0047,-001,-001,-001,-001,0046,0047,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0002,-001,-001,-001,-001],
@@ -116,16 +116,32 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"My beautiful Bruce Willis,"
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Mon beau Bruce Willis,"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) One day you'll come and pick me\\nlike a swamp flower and take me away\\nwith you on your white horse.\""
 			},
 			{
 				"nom": "Message",
 				"texte": "un jour, tu viendras me cueillir\\ntelle une fleur des marais\\net tu m'emmèneras avec toi\\nsur ton cheval blanc.\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
 				"nom": "Message",
 				"texte": "..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You must not go through people's things!"
 			},
 			{
 				"nom": "Message",
@@ -174,6 +190,31 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "pot (-16)",
+		"x": 7,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 43,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

@@ -5,7 +5,7 @@
 	"hauteur": 30,
 	"musique": {
 		"nomFichierSonore": "Sorcière des Marais.ogg",
-		"volume": 1.00,
+		"volume": 0.90,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -112,7 +112,7 @@
 	"events": [
 	{
 		"id": 5,
-		"nom": "Livre",
+		"nom": "Livre des comptes",
 		"x": 15,
 		"y": 11,
 		"pages": [
@@ -135,46 +135,28 @@
 				"numero": 0
 			},
 			{
-				"nom": "Message",
-				"texte": "\"Livre des Comptes\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"0054   0515   0545   0458   0154\\n 5416   2151   1843   9766   6498\\n 2145   3345   9736   4491   0354\""
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) \"Book of Accounts\""
 			},
 			{
 				"nom": "Message",
 				"texte": "\"Livre des Comptes\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"0054 0515 0545 0458 0154 \\n5416  2151 1843 9766 6498 \\n2145 3345 9736 4491 0354\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"0054   0515   0545   0458   0154\\n 5416   2151   1843   9766   6498\\n 2145   3345   9736   4491   0354\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
 				"nom": "Message",
 				"texte": "..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -231,7 +213,7 @@
 	{
 		"id": 11,
 		"nom": "EV011",
-		"x": 14,
+		"x": 12,
 		"y": 25,
 		"pages": [
 		{
@@ -325,14 +307,20 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "sorciere rire.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"sorciere\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What a misfortune!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Quel malheur !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A piece of the magic mirror is missing."
 			},
 			{
 				"nom": "Message",
@@ -344,12 +332,56 @@
 				"numero": 0
 			},
 			{
-				"nom": "Message",
-				"texte": "Mais tu l'as retrouvé !"
+				"nom": "JouerAnimation",
+				"idAnimation": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, you have a piece of mirror!\\nWould you give it to me?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est merveilleux ! Merci beaucoup !"
+				"texte": "Oh tu as un morceau de miroir !\\nTu me le donnerais ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It fits perfectly in my magic mirror!\\nAnd what a shine!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Il s'insère parfaitement dans mon miroir \\nmagique !\\nEt quel éclat !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "sorciere rire.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Nyahaha!\\nIt's wonderful!\\nThank you so much!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Nyahaha ! \\nC'est merveilleux ! \\nMerci beaucoup !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here is your reward, as promised:"
 			},
 			{
 				"nom": "Message",
@@ -387,6 +419,12 @@
 				]
 			},
 			{
+				"nom": "RetirerObjet",
+				"idObjet": 57,
+				"variable": false,
+				"quantite": 1
+			},
+			{
 				"nom": "AjouterObjet",
 				"idObjet": 1,
 				"variable": false,
@@ -398,8 +436,20 @@
 				"avancement": "FAITE"
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -446,28 +496,71 @@
 				"nombreDeFrames": 16
 			},
 			{
-				"nom": "RetirerObjet",
-				"idObjet": 57,
-				"variable": false,
-				"quantite": 1
-			},
-			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"sorciere\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, be turned into pesto soup\\nby the next full moon!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Eh bien, sois changé en soupe au pistou\\nà la prochaine pleine Lune !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "sorciere rire.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Nyahaha!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Nyahaha !"
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I'm offering a reward for finding\\nthe missing piece."
+			},
+			{
 				"nom": "Message",
-				"texte": "J'offre une récompense à qui trouvera le \\nmorceau manquant."
+				"texte": "J'offre une récompense à qui trouvera \\nle morceau manquant."
 			},
 			{
 				"nom": "ModifierAvancementQuete",
 				"numero": 31,
 				"avancement": "CONNUE"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "sorciere rire.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Nyahaha!"
 			},
 			{
 				"nom": "Message",
@@ -516,17 +609,6 @@
 				"valeur": true
 			},
 			{
-				"nom": "RetirerObjet",
-				"idObjet": 57,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 31,
-				"avancement": "FAITE"
-			},
-			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "sorciere rire.ogg",
 				"volume": 1.00,
@@ -537,12 +619,20 @@
 				"script": "$game_temp.faceset = \"sorciere\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Nyahaha!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Nyahaha !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I will contemplate my beauty all day."
+			},
+			{
 				"nom": "Message",
-				"texte": "Je vais me contempler toute la journée \\ndorénavant."
+				"texte": "Je vais contempler ma beauté toute la journée."
 			},
 			{
 				"nom": "Attendre",
@@ -674,7 +764,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 166,
 				"xDebutHeros": 9,
-				"yDebutHeros": 8
+				"yDebutHeros": 10
 			}
 			],
 			"vitesse": "moderee",
@@ -700,6 +790,44 @@
 		"y": 17
 	},
 	{
+		"id": 20,
+		"nom": "triche",
+		"x": 13,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) gfdjhdgfjfg"
+			},
+			{
+				"nom": "Message",
+				"texte": "gfdjhdgfjfg"
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 57,
+				"variable": false,
+				"quantite": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 4,
 		"nom": "Clone[341][004]",
 		"x": 19,
@@ -716,6 +844,79 @@
 		"nom": "Clone[341][004]",
 		"x": 20,
 		"y": 17
+	},
+	{
+		"id": 21,
+		"nom": "Livre des comptes",
+		"x": 15,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Book of Accounts\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Livre des Comptes\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"0054 0515 0545 0458 0154 \\n5416  2151 1843 9766 6498 \\n2145 3345 9736 4491 0354\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"0054   0515   0545   0458   0154\\n 5416   2151   1843   9766   6498\\n 2145   3345   9736   4491   0354\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	}
 	]
 }

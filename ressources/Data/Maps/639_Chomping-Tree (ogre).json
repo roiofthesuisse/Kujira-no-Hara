@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 35,
 	"musique": {
-		"nomFichierSonore": "Enigme.mp3",
+		"nomFichierSonore": "Enigme.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -128,8 +128,8 @@
 	{
 		"id": 16,
 		"nom": "EV016",
-		"x": 20,
-		"y": 6,
+		"x": 17,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -144,6 +144,9 @@
 				"zoom": 100,
 				"nuance": 0,
 				"nomImage": "obscurité énigme fog"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -255,12 +258,24 @@
 				"numeroPageCommune": 21
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"A cousin of Edward \\nNot as smart so I heard.\""
+			},
+			{
 				"nom": "Message",
-				"texte": "\"Il est cousin d'Edouard,\\nmais n'a pas son savoir.\""
+				"texte": "\"Il est cousin d'Édouard,\\nmais n'a pas son savoir.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"His name is Grushamuch.\\nHe doesn't read that much.\\nIn his backyard he begs\\nhis hen for golden eggs.\""
 			},
 			{
 				"nom": "Message",
 				"texte": "\"Son nom est Gruchemuche,\\nmais ses grosses paluches\\npréfèrent les oeufs d'or\\naux livres de folklore.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Who is he?"
 			},
 			{
 				"nom": "Message",
@@ -270,6 +285,10 @@
 				"nom": "ModifierAvancementQuete",
 				"numero": 87,
 				"avancement": "CONNUE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Bü\\c[0]|\\c[2]Dü\\c[0]|\\c[2]Gü\\c[0]|\\c[2]Rü\\c[0]"
 			},
 			{
 				"nom": "Choix",
@@ -295,9 +314,10 @@
 				"numeroPageCommune": 88
 			},
 			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 87,
-				"avancement": "FAITE"
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Bush.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -376,10 +396,6 @@
 					"direction": 0
 				}
 				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -608,7 +624,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "Clone[341][061]",
+		"nom": "Clone[341][028]",
 		"x": 8,
 		"y": 10
 	},
@@ -637,49 +653,33 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) You can talk to the \\c[2]chomping tree\\c[0], \\nit won't bite you."
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous pouvez parler au \\c[2]Chomping-Tree\\c[1],\\nil ne mord pas."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Prepare your piggybank though..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Préparez votre tirelire cependant..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "You can speak to the \\c[2]Chomping-Tree\\c[1],\\nit does not bite."
-			},
-			{
-				"nom": "Message",
-				"texte": "But prepare your piggybank !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -694,7 +694,7 @@
 	},
 	{
 		"id": 1,
-		"nom": "Clone[341][028]",
+		"nom": "Clone[341][061]",
 		"x": 7,
 		"y": 11
 	},
@@ -849,6 +849,11 @@
 				]
 			},
 			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 87,
+				"avancement": "FAITE"
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) You get a Crystal of the Whale!"
 			},
@@ -899,6 +904,10 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 70
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -952,7 +961,7 @@
 	},
 	{
 		"id": 2,
-		"nom": "Clone[341][028]",
+		"nom": "Clone[341][061]",
 		"x": 9,
 		"y": 9
 	},
@@ -993,13 +1002,6 @@
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "MC_Bush.wav",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
 				{
 					"nom": "Sauter",
 					"x": 2,

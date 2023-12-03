@@ -126,10 +126,28 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][001]",
-		"x": 25,
-		"y": 26
+		"id": 16,
+		"nom": "Blocage anti-évènement",
+		"x": 15,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 38,
@@ -156,10 +174,16 @@
 		]
 	},
 	{
-		"id": 16,
+		"id": 5,
+		"nom": "Clone[341][001]",
+		"x": 25,
+		"y": 26
+	},
+	{
+		"id": 44,
 		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 15,
+		"x": 18,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -180,10 +204,10 @@
 		]
 	},
 	{
-		"id": 33,
+		"id": 11,
 		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 3,
+		"x": 15,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
@@ -340,58 +364,10 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 44,
+		"id": 33,
 		"nom": "Blocage anti-évènement",
 		"x": 18,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 39,
-		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 30,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -436,34 +412,1317 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 32,
-		"y": 12,
+		"id": 39,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 45,
+		"nom": "Blocage anti-évènement",
+		"x": 20,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 34,
+		"nom": "Marmite-woman",
+		"x": 12,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			}
 			],
 			"commandes": [
 			{
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 1,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "ACTION_SECONDAIRE",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "BAS",
+				"numero": 2
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 3
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "GAUCHE",
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "Sauter",
+					"x": -3,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "DROITE",
+				"numero": 4
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "Sauter",
+					"x": 3,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "HAUT",
+				"numero": 5
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": -3
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
 				"nom": "ModifierVariable",
-				"numeroVariable": 33,
+				"numeroVariable": 10,
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 1,
-				"operationAFaire2": "terrain"
+				"valeurADonner2": 3,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "retirer",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Enemy_Kill.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 10,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 6
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Zaaaaa!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Zaaaaa !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 10,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"valeurADonner2": 3,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "retirer",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Enemy_Kill.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 10,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 7
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Zaaaaa!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Zaaaaa !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 33
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 10,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"valeurADonner2": 3,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "retirer",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Enemy_Kill.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 10,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 8
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Zaaaaa!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Zaaaaa !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.25
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.25
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 0.50
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "040-Knock01.ogg",
+					"volume": 1.00,
+					"tempo": 1.25
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			"image": "marmite-man character",
+			"teinte": "270",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 77,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 5
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			"image": "marmite-man character",
+			"teinte": "270",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 34,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Zaaaaa!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Zaaaaa !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 11,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"valeurADonner2": 4,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "MC_Enemy_Kill.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 6,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": -6,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 3,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 6
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": -6
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 83
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 77,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 34,
-				"operationAFaire2": "terrain"
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
 			}
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			"image": "marmite-man character",
+			"teinte": "270",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -482,6 +1741,69 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 76,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 30,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Vastes Dunes.ogg",
+				"volume": 0.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "022-Dive02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 6
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "023-Dive03.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "022-Dive02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 6
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "022-Dive02.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
@@ -550,25 +1872,66 @@
 				}
 				]
 			},
-			"opacite": 0,
+			"image": "marmite-man character",
+			"teinte": "270",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		},
 		{
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 23,
+				"numeroEvent": 34,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 50
+				}
+				]
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 76,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 30,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 50
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 76,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 30,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 235,
+				"directionDebutHeros": 0,
+				"xDebutHeros": 18,
+				"yDebutHeros": 15
+			},
 			{
 				"nom": "SupprimerEvent"
 			}
@@ -861,6 +2224,10 @@
 				"numero": 6
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Run, kid! Run!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Cours petit ! Cours ! "
 			},
@@ -875,6 +2242,10 @@
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
 				"numero": 7
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What are you waiting for? Hahaha!"
 			},
 			{
 				"nom": "Message",
@@ -893,6 +2264,10 @@
 				"numero": 8
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Tsam!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tsam !"
 			},
@@ -907,6 +2282,10 @@
 				"valeurQuIlEstCenseAvoir": 4,
 				"comparerAUneAutreVariable": false,
 				"numero": 9
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Maaaaarmiiiite-maaaaan powaaaa!"
 			},
 			{
 				"nom": "Message",
@@ -1026,6 +2405,10 @@
 				"numero": 10
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Ha! you had it coming!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ha ! Tu l'avais bien cherché !"
 			},
@@ -1040,6 +2423,10 @@
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
 				"numero": 11
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am invincible!"
 			},
 			{
 				"nom": "Message",
@@ -1058,6 +2445,10 @@
 				"numero": 12
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) And paf!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Et paf !"
 			},
@@ -1072,6 +2463,10 @@
 				"valeurQuIlEstCenseAvoir": 4,
 				"comparerAUneAutreVariable": false,
 				"numero": 13
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Maaaaarmiiiite-maaaaan powaaaa!"
 			},
 			{
 				"nom": "Message",
@@ -1179,6 +2574,10 @@
 				"numero": 14
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Vlan! Hahaha!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vlan ! Hahaha !"
 			},
@@ -1193,6 +2592,10 @@
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
 				"numero": 15
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You can't do anything against me! Hahaha!"
 			},
 			{
 				"nom": "Message",
@@ -1211,6 +2614,10 @@
 				"numero": 16
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I am Marmite-man!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Je suis Marmite-man !"
 			},
@@ -1225,6 +2632,10 @@
 				"valeurQuIlEstCenseAvoir": 4,
 				"comparerAUneAutreVariable": false,
 				"numero": 17
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are too slow and too light to move me!"
 			},
 			{
 				"nom": "Message",
@@ -1776,6 +3187,10 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Aaaah! Nah! I never learned to fly!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Aaaah ! Nan ! J'ai jamais appris à voler !"
 			},
@@ -2036,7 +3451,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
+				"nomFichierSonore": "fanfare (combatréussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2233,1253 +3648,34 @@
 		]
 	},
 	{
-		"id": 34,
-		"nom": "Marmite-woman",
-		"x": 12,
-		"y": 10,
+		"id": 23,
+		"nom": "EV023",
+		"x": 32,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Contact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 1,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "BAS",
-				"numero": 2
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "052-Cannon01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 3
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "GAUCHE",
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "052-Cannon01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Sauter",
-					"x": -3,
-					"y": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "DROITE",
-				"numero": 4
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "052-Cannon01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Sauter",
-					"x": 3,
-					"y": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "HAUT",
-				"numero": 5
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "052-Cannon01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": -3
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
 				"nom": "ModifierVariable",
-				"numeroVariable": 10,
+				"numeroVariable": 33,
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 1,
-				"valeurADonner2": 3,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Kill.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 10,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 6
-			},
-			{
-				"nom": "Message",
-				"texte": "Zaaaaa !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 10,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 3,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Kill.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 10,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 7
-			},
-			{
-				"nom": "Message",
-				"texte": "Zaaaaa !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 10,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 3,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Kill.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 10,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 8
-			},
-			{
-				"nom": "Message",
-				"texte": "Zaaaaa !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.25
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.25
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "040-Knock01.ogg",
-					"volume": 1.00,
-					"tempo": 1.25
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				},
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			"image": "marmite-man character",
-			"teinte": "270",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 77,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 5
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			"image": "marmite-man character",
-			"teinte": "270",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 34,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "Message",
-				"texte": "Zaaaaa !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 11,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 4,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Kill.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 6,
-					"y": 0
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": -6,
-					"y": 0
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 3,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 6
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": -6
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
+				"operationAFaire2": "terrain"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 77,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
+				"valeurADonner": 34,
+				"operationAFaire2": "terrain"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
+				"nombreDeFrames": 8
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			"image": "marmite-man character",
-			"teinte": "270",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -3499,69 +3695,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 76,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 30,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Vastes Dunes.ogg",
-				"volume": 0.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "022-Dive02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 6
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "023-Dive03.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "022-Dive02.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 6
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "022-Dive02.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
@@ -3629,66 +3762,25 @@
 				}
 				]
 			},
-			"image": "marmite-man character",
-			"teinte": "270",
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		},
 		{
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 34,
+				"numeroEvent": 23,
 				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 50
-				}
-				]
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 76,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 30,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 50
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 76,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 30,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 235,
-				"directionDebutHeros": 0,
-				"xDebutHeros": 18,
-				"yDebutHeros": 15
-			},
 			{
 				"nom": "SupprimerEvent"
 			}
@@ -3705,10 +3797,10 @@
 		]
 	},
 	{
-		"id": 45,
+		"id": 18,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 17,
+		"x": 14,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -4019,10 +4111,10 @@
 		]
 	},
 	{
-		"id": 18,
+		"id": 46,
 		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 16,
+		"x": 17,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -4038,181 +4130,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][001]",
-		"x": 9,
-		"y": 26
-	},
-	{
-		"id": 24,
-		"nom": "Casserole",
-		"x": 22,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			}
-			],
-			"image": "casserole character",
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 25,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 15
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 24,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -4387,34 +4304,185 @@
 		]
 	},
 	{
-		"id": 46,
-		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 14,
+		"id": 24,
+		"nom": "Casserole",
+		"x": 22,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "Contact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "retirer",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			}
 			],
+			"image": "casserole character",
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 15
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 24,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 30,
+		"id": 2,
+		"nom": "Clone[341][001]",
+		"x": 9,
+		"y": 26
+	},
+	{
+		"id": 41,
 		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 4,
+		"x": 20,
+		"y": 18,
 		"pages": [
 		{
 			"conditions": [
@@ -4459,10 +4527,10 @@
 		]
 	},
 	{
-		"id": 41,
+		"id": 30,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 18,
+		"x": 18,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -4483,16 +4551,34 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][001]",
-		"x": 9,
-		"y": 7
-	},
-	{
-		"id": 36,
+		"id": 47,
 		"nom": "Blocage anti-évènement",
 		"x": 16,
-		"y": 29,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -4803,10 +4889,10 @@
 		]
 	},
 	{
-		"id": 14,
+		"id": 36,
 		"nom": "Blocage anti-évènement",
 		"x": 16,
-		"y": 20,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -4827,58 +4913,16 @@
 		]
 	},
 	{
-		"id": 47,
-		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 3,
+		"nom": "Clone[341][001]",
+		"x": 9,
+		"y": 7
 	},
 	{
-		"id": 31,
+		"id": 42,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 17,
+		"x": 20,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -4923,10 +4967,10 @@
 		]
 	},
 	{
-		"id": 42,
+		"id": 9,
 		"nom": "Blocage anti-évènement",
-		"x": 20,
-		"y": 16,
+		"x": 14,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
@@ -4947,10 +4991,28 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][001]",
-		"x": 25,
-		"y": 7
+		"id": 31,
+		"nom": "Blocage anti-évènement",
+		"x": 17,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 37,
@@ -4977,10 +5039,16 @@
 		]
 	},
 	{
-		"id": 32,
+		"id": 4,
+		"nom": "Clone[341][001]",
+		"x": 25,
+		"y": 7
+	},
+	{
+		"id": 43,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 3,
+		"x": 19,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -5025,10 +5093,10 @@
 		]
 	},
 	{
-		"id": 43,
+		"id": 32,
 		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 15,
+		"x": 17,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [

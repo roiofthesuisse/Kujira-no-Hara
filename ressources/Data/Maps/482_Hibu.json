@@ -9,8 +9,8 @@
 		"tempo": 1.00
 	},
 	"fondSonore": {
-		"nomFichierSonore": "013-Fire01.ogg",
-		"volume": 0.10,
+		"nomFichierSonore": "",
+		"volume": 0.00,
 		"tempo": 1.00
 	},
 	"couche0": [
@@ -24,7 +24,7 @@
 	[0032,0032,0032,0032,-007,-007,-007,0038,0000,0000,0000,0000,0000,0024,-007,-007,-007,0038,0038,0038,0038],
 	[0032,0032,0032,0032,-007,-007,0000,0021,0013,0000,0000,0000,0009,0017,0008,-007,-007,0038,0038,0038,0038],
 	[0032,0032,0032,0041,-007,-007,0000,0000,0038,0000,0000,0000,0024,0000,0000,-007,-007,0038,0038,0038,0038],
-	[0032,0032,0032,0032,-007,-007,0000,0000,0021,0011,0011,0011,0017,0000,0000,-007,-007,0038,0038,0038,0038],
+	[0032,0032,0032,0032,-007,-007,0000,0000,0021,0240,0241,0242,0017,0000,0000,-007,-007,0038,0038,0038,0038],
 	[0032,0032,0032,0032,-007,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,-007,0038,0038,0038,0038],
 	[0032,0032,0032,0032,-007,0008,0000,0000,0000,-007,-007,-007,0000,0000,0000,0000,-007,0038,0038,0038,0038],
 	[0032,0032,0032,0032,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0038,0038,0038,0038],
@@ -39,15 +39,15 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0036,-001,-001,-001,-001,-001,-001,-001,-001,-001,0036,-001,-001,0362,0363,-001],
 	[-001,-001,-001,-001,-001,0004,-001,-001,-001,-001,-001,-001,-001,-001,-001,0004,-001,-001,0370,0371,-001],
-	[-001,-001,-001,-001,-001,-001,0014,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,0035,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,0033,-001,-001,-001,0052,-001,-001,-001,-001,-001,0014,-001,-001,-001,-001,-001,-001,-001],
-	[-001,0360,0361,-001,-001,-001,-001,-001,-001,-005,-005,-005,-001,-001,-001,0052,-001,-001,-001,-001,-001],
+	[-001,-001,-001,0033,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,0360,0361,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,0368,0369,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,0014,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0050,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -75,6 +75,12 @@
 	],
 	"events": [
 	{
+		"id": 27,
+		"nom": "Clone[582][80]",
+		"x": 6,
+		"y": 8
+	},
+	{
 		"id": 5,
 		"nom": "blocage",
 		"x": 11,
@@ -101,16 +107,66 @@
 		]
 	},
 	{
+		"id": 16,
+		"nom": "triche",
+		"x": 18,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) hgjgdhjkdg"
+			},
+			{
+				"nom": "Message",
+				"texte": "hgjgdhjkdg"
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 53,
+				"variable": false,
+				"quantite": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 11,
+		"nom": "Clone[582][77]",
+		"x": 7,
+		"y": 9
+	},
+	{
 		"id": 22,
 		"nom": "Clone[341][003]",
 		"x": 16,
 		"y": 5
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][039]",
+		"id": 28,
+		"nom": "Clone[582][80]",
+		"x": 14,
+		"y": 9
+	},
+	{
+		"id": 17,
+		"nom": "Clone[582][77]",
 		"x": 6,
-		"y": 11
+		"y": 7
 	},
 	{
 		"id": 6,
@@ -139,16 +195,10 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "Clone[341][003]",
-		"x": 16,
-		"y": 6
-	},
-	{
 		"id": 12,
-		"nom": "Clone[341][039]",
-		"x": 14,
-		"y": 11
+		"nom": "Clone[582][77]",
+		"x": 13,
+		"y": 9
 	},
 	{
 		"id": 1,
@@ -202,12 +252,20 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I knew you would come!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Je savais que tu allais venir !"
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Who am I?"
 			},
 			{
 				"nom": "Message",
@@ -218,12 +276,20 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) My name is \\c[2]Heeboo\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "Je me nomme \\c[02]Hibu\\c[01]."
+				"texte": "Je me nomme \\c[2]Hibu\\c[1]."
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I know everything."
 			},
 			{
 				"nom": "Message",
@@ -234,12 +300,20 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) All that is, \\nall that was \\nand all that will be."
+			},
+			{
 				"nom": "Message",
-				"texte": "Tout ce qui est, tout ce qui a été et tout ce qui \\nsera."
+				"texte": "Tout ce qui est, \\ntout ce qui a été \\net tout ce qui sera."
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Your scientists call what I am:\\na Maxwell demon."
 			},
 			{
 				"nom": "Message",
@@ -250,12 +324,20 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I am not God, because I am not\\nthe author of this world."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je ne suis pas Dieu, parce que je ne suis pas \\nl'auteur de ce monde."
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am content to know everything."
 			},
 			{
 				"nom": "Message",
@@ -266,12 +348,20 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I know that the \\c[2]coachman\\c[1] fears me.\\nHe knows that I know. I know that he knows \\nthat I know. Also, he knows that I know \\nthat he knows that I know."
+			},
+			{
 				"nom": "Message",
-				"texte": "Je sais que Dieu me craint. \\nIl sait que je le sais.\\nJe sais qu'Il sait que je le sais.\\nIl sait que je sais qu'Il sait que je le sais."
+				"texte": "Je sais que le \\c[2]cocher\\c[1] me craint. \\nIl sait que je le sais.\\nJe sais qu'il sait que je le sais.\\nIl sait que je sais qu'il sait que je le sais."
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I know that we will meet again."
 			},
 			{
 				"nom": "Message",
@@ -282,12 +372,20 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Then I will grant your wish."
+			},
+			{
 				"nom": "Message",
 				"texte": "Alors j'exaucerai ton souhait."
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But for now, I am trapped in a Faraday cage \\nthat limits my powers."
 			},
 			{
 				"nom": "Message",
@@ -298,12 +396,20 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I know that you will free me from it."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je sais que tu m'en libèreras."
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Gather the 6 pearls of the \\c[2]scholars\\c[0]!"
 			},
 			{
 				"nom": "Message",
@@ -314,12 +420,20 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) These impostors only got \\ntheir legendary knowledge \\nfrom the fragments of omniscience \\nthey stole from me!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ces imposteurs ne tirent leur connaissance\\nlégendaire que des fragments d'omniscience\\nqu'ils m'ont dérobés !"
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The legend of the \\c[2]scholars\\c[0] prescribes \\nto bring the pearls to the temple of Kujira \\nin the desert."
 			},
 			{
 				"nom": "Message",
@@ -330,16 +444,41 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You mustn't do that! \\nIt's only nonsense!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Il ne faut surtout pas le faire ! Ce ne sont que \\ndes balivernes !"
+				"texte": "Il ne faut surtout pas le faire ! \\nCe ne sont que des balivernes !"
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The pearls must be returned to me, \\c[2]Heeboo\\c[0],\\nfor they belonged to me in the first place!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Les perles doivent m'être rendues, à moi, \\c[2]Hibu\\c[1] !"
+				"texte": "Les perles doivent m'être rendues, à moi, \\c[2]Hibu\\c[1],\\ncar elles m'appartenaient en premier lieu !"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I will tell to the \\c[2]spellmaster\\c[0] \\nand his \\c[2]dark thaumaturgists\\c[0] to let you do, \\nsince you will work for me from now on."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je dirai au \\c[2]maître des maléfices\\c[0] et à ses \\n\\c[2]thaumaturges noirs\\c[0] de te laisser tranquille,\\npuisque tu oeuvreras pour moi désormais."
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 161,
+				"valeur": true
 			},
 			{
 				"nom": "Attendre",
@@ -403,16 +542,41 @@
 				"script": "$game_temp.faceset = \"hibu\""
 			},
 			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 53,
+				"numero": 1
+			},
+			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]The Vikings\\c[0] have taken the pearl \\nof the sixth shrine with them!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Apporte-moi les 6 perles des \\c[2]érudits\\c[1] !"
+				"texte": "Les \\c[2]Vikings\\c[1] ont emporté la perle du sixième \\nsanctuaire avec eux ?!"
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We must absolutely go and take it back \\nfrom the great pyramid!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Il faut absolument aller leur reprendre \\nà la grande pyramide !"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If I miss even one pearl, \\nthe restoration process will fail."
 			},
 			{
 				"nom": "Message",
@@ -423,12 +587,72 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Only they can free me and give me back \\nall my powers."
+			},
+			{
 				"nom": "Message",
 				"texte": "Elles seules peuvent me libérer et me rendre\\ntous mes pouvoirs."
 			},
 			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I told to the \\c[2]spellmaster\\c[0] \\nand his \\c[2]dark thaumaturgists\\c[0] to let you do, \\nsince you work for me now."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai dit au \\c[2]maître des maléfices\\c[0] et à ses \\n\\c[2]thaumaturges noirs\\c[0] de te laisser tranquille,\\npuisque tu oeuvres pour moi."
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Bring me the 6 pearls of the \\c[2]scholars\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Apporte-moi les 6 perles des \\c[2]érudits\\c[1] !"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If I miss even one pearl, \\nthe restoration process will fail."
+			},
+			{
+				"nom": "Message",
+				"texte": "S'il ne me manque ne serait-ce qu'une perle, \\nle processus de restauration échouera."
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Only they can free me and give me back \\nall my powers."
+			},
+			{
+				"nom": "Message",
+				"texte": "Elles seules peuvent me libérer et me rendre\\ntous mes pouvoirs."
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Then I will grant your wish."
 			},
 			{
 				"nom": "Message",
@@ -439,17 +663,37 @@
 				"numeroPageCommune": 89
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Do not bring the pearls to the great pyramid, \\nthe \\c[2]scholars\\c[0] are impostors."
+			},
+			{
 				"nom": "Message",
-				"texte": "Surtout n'apporte pas les perles au temple,\\nles \\c[2]érudits\\c[1] ne sont que des imposteurs."
+				"texte": "Surtout n'apporte pas les perles à la grande \\npyramide, les \\c[2]érudits\\c[1] sont des imposteurs."
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 89
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I will tell to the \\c[2]spellmaster\\c[0] \\nand his \\c[2]dark thaumaturgists\\c[0] to let you do, \\nsince you will work for me from now on."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je dirai au \\c[2]maître des maléfices\\c[0] et à ses \\n\\c[2]thaumaturges noirs\\c[0] de te laisser tranquille,\\npuisque tu oeuvreras pour moi désormais."
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 161,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
 			},
 			{
 				"nom": "ConditionFin",
@@ -473,6 +717,18 @@
 		]
 	},
 	{
+		"id": 29,
+		"nom": "Clone[582][80]",
+		"x": 13,
+		"y": 10
+	},
+	{
+		"id": 18,
+		"nom": "Clone[582][77]",
+		"x": 14,
+		"y": 6
+	},
+	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 5,
@@ -489,8 +745,8 @@
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 372,
-				"xDebutHeros": 69,
-				"yDebutHeros": 66
+				"xDebutHeros": 71,
+				"yDebutHeros": 12
 			}
 			],
 			"vitesse": "moderee",
@@ -504,9 +760,9 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][003]",
-		"x": 4,
+		"id": 24,
+		"nom": "Clone[582][80]",
+		"x": 14,
 		"y": 5
 	},
 	{
@@ -534,6 +790,24 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][003]",
+		"x": 4,
+		"y": 5
+	},
+	{
+		"id": 19,
+		"nom": "Clone[582][80]",
+		"x": 6,
+		"y": 6
+	},
+	{
+		"id": 30,
+		"nom": "Clone[582][81]",
+		"x": 14,
+		"y": 7
 	},
 	{
 		"id": 8,
@@ -567,10 +841,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][003]",
-		"x": 4,
-		"y": 6
+		"id": 25,
+		"nom": "Clone[582][81]",
+		"x": 6,
+		"y": 5
 	},
 	{
 		"id": 3,
@@ -599,35 +873,10 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "EV009",
-		"x": 3,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 372,
-				"xDebutHeros": 89,
-				"yDebutHeros": 47
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 31,
+		"nom": "Clone[582][81]",
+		"x": 6,
+		"y": 9
 	},
 	{
 		"id": 20,
@@ -665,44 +914,41 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "blocage",
-		"x": 10,
-		"y": 4,
+		"id": 9,
+		"nom": "EV009",
+		"x": 3,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 50,
-				"modeDeFusion": "addition",
-				"defilementX": 1,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 180,
-				"nomImage": "006-Sandstorm02"
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 372,
+				"xDebutHeros": 89,
+				"yDebutHeros": 47
 			}
 			],
-			"image": 8,
-			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 26,
+		"nom": "Clone[582][81]",
+		"x": 7,
+		"y": 10
 	},
 	{
 		"id": 15,
@@ -714,10 +960,6 @@
 			"conditions": [
 			],
 			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
@@ -832,12 +1074,8 @@
 				"quantite": 174
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -872,6 +1110,14 @@
 				]
 			},
 			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "EffacerImage",
 				"numero": 3
 			},
@@ -882,6 +1128,83 @@
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "blocage",
+		"x": 10,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 50,
+				"modeDeFusion": "addition",
+				"defilementX": 1,
+				"defilementY": 0,
+				"zoom": 200,
+				"nuance": 180,
+				"nomImage": "006-Sandstorm02"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"image": 8,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 32,
+		"nom": "Clone[582][81]",
+		"x": 14,
+		"y": 10
+	},
+	{
+		"id": 10,
+		"nom": "EV010",
+		"x": 10,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 372,
+				"xDebutHeros": 17,
+				"yDebutHeros": 15
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1064,37 +1387,6 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 10,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 372,
-				"xDebutHeros": 84,
-				"yDebutHeros": 8
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

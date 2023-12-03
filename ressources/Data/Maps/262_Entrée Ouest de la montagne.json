@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Ascension Mouvementée.mp3",
+		"nomFichierSonore": "Ascension Mouvementée.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -209,32 +209,64 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) My young friend!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Mon jeune ami !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I, \\c[2]Astrophilius Wuerrenz\\c[0],\\ngreat scientist, will teach\\nyou something!"
+			},
+			{
 				"nom": "Message",
-				"texte": "Moi, \\c[02]Astrophilius Wuerrenz\\c[01], grand scientifique,\\nvais t'apprendre quelque chose !"
+				"texte": "Moi, \\c[2]Astrophilius Wuerrenz\\c[1], grand scientifique,\\nvais t'apprendre quelque chose !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE In the name of science !"
 			},
 			{
 				"nom": "Message",
 				"texte": "\\WAVE Au nom de la science !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The trajectory of fireflies\\nfollows roughly the rotational\\nof the entropic field."
+			},
+			{
 				"nom": "Message",
 				"texte": "La trajectoire des lucioles suit grosso modo\\nle rotationnel du champ entropique."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's not necessary to have made\\nlong studies to realize it !"
 			},
 			{
 				"nom": "Message",
 				"texte": "Il n'est pas nécessaire d'avoir fait de longues \\nétudes pour s'en apercevoir !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) However, the third entropy field\\nequation of \\c[2]MacTweepness\\nSmith\\c[0] indicates the presence\\nof a second term:"
+			},
+			{
 				"nom": "Message",
-				"texte": "Cependant, la troisième équation du champ \\nentropique de \\c[02]MacTweepness Smith\\c[01] indique\\nla présence d'un second terme :"
+				"texte": "Cependant, la troisième équation du champ \\nentropique de \\c[2]MacTweepness Smith\\c[1] indique\\nla présence d'un second terme :"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A second term that attracts\\nfireflies to the poles of the\\nentropic field!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Un second terme qui attire les lucioles \\nvers les pôles du champ entropique !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am talking about the equation\\nof motion, you follow?"
 			},
 			{
 				"nom": "Message",
@@ -311,8 +343,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I am cold."
+			},
+			{
 				"nom": "Message",
 				"texte": "J'ai froid."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) In the name of science!"
 			},
 			{
 				"nom": "Message",
@@ -470,108 +510,6 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 12,
 				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 12,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AfficherImage",
-				"numero": 9,
-				"nomImage": "AnnonceLieu VikingJaune",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 255,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "DeplacerImage",
-				"numero": 9,
-				"nombreDeFrames": 16,
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 0,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "SupprimerEvent"

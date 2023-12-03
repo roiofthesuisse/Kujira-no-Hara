@@ -54,9 +54,9 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0064,0065,0066,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0072,0073,0074,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0003,0004,-001,-001,-001,-001,-001,0003,0004,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0011,0012,-001,0005,0006,0007,-001,0011,0012,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,0082,0083,0019,0020,-001,0013,0014,0015,-001,0019,0020,0080,0081,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0003,0004,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0011,0012,-001,0005,0006,0007,-001,0008,0009,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,0082,0083,0019,0020,-001,0013,0014,0015,-001,0044,0045,0080,0081,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,0090,0091,-001,-001,-001,-001,-001,-001,-001,-001,-001,0088,0089,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,0098,0099,-001,-001,-001,-001,-001,-001,-001,-001,-001,0096,0097,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0003,0004,-001,-001,-001,-001,-001,0003,0004,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -158,6 +158,31 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Geographe",
+		"x": 14,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "géographe chraratcer",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 12,
 		"nom": "parler au geographe",
 		"x": 14,
@@ -202,15 +227,15 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I am a \\c[02]geographer\\c[01], but I am\\nincapable of telling where rivers \\nand moutains are..."
+				"texte": "(en) I am a \\c[2]geographer\\c[1], but I am incapable of telling \\nwhere rivers and moutains are..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Je suis \\c[02]géographe\\c[01], mais je suis incapable\\nde dire où sont les fleuves et les montagnes..."
+				"texte": "Je suis \\c[2]géographe\\c[1], mais je suis incapable\\nde dire où sont les fleuves et les montagnes..."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) My maps of Kujira are empty, because \\nI don't have any explorer!"
+				"texte": "(en) My maps of Kujira are empty\\nbecause I don't have any explorer!"
 			},
 			{
 				"nom": "Message",
@@ -221,12 +246,12 @@
 				"texte": "(en) Would you like to become my explorer?"
 			},
 			{
-				"nom": "Message",
-				"texte": "Voudrais-tu devenir mon explorateur ?"
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Voudrais-tu devenir mon explorateur ?"
 			},
 			{
 				"nom": "Choix",
@@ -244,7 +269,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).mp3",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -270,11 +295,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) The \\c[02]geographer\\c[01] hire you as \\nan explorer!"
+				"texte": "(en) The \\c[02]geographer\\c[01] hires you as an explorer!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous devenez l'explorateur personnel du \\n\\c[02]géographe\\c[01] !"
+				"texte": "Vous devenez l'explorateur personnel du \\n\\c[2]géographe\\c[1] !"
 			},
 			{
 				"nom": "Attendre",
@@ -359,7 +384,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) So bring me back evidence from the Kujirian \\nlands you will travel across, explorer number 1!"
+				"texte": "(en) So bring me back evidence from the Kujirian \\nlands you will travel across, explorer \\nnumber 1!"
 			},
 			{
 				"nom": "Message",
@@ -888,20 +913,40 @@
 				"numero": 2
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, a red hair!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Oh ! Un poil roux !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Did you find it east of here?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Tu l'as trouvée à l'Est d'ici ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) There must be a Viking village there!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Il y a sûrement un village viking là-bas !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Thanks a lot, explorer number 1!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Merci beaucoup, explorateur numéro 1 !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here's a crystal of the whale\\nto pay for your explorations."
 			},
 			{
 				"nom": "Message",
@@ -1054,20 +1099,40 @@
 				"numero": 3
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, a pebble!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Oh ! Un galet !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You found it west of the forest?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Tu l'as trouvé à l'Ouest de la forêt ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) There must be springs there!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Il y a sûrement des sources là-bas !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Thanks a lot, explorer number 1!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Merci beaucoup, explorateur numéro 1 !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here is a crystal of the whale\\nto pay for your explorations."
 			},
 			{
 				"nom": "Message",
@@ -1143,7 +1208,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You have unlocked the map of the aquatic plains."
+				"texte": "(en) You have unlocked the map of the aquatic \\nplains."
 			},
 			{
 				"nom": "Message",
@@ -1220,12 +1285,24 @@
 				"numero": 4
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, a piece of stalagtite!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Oh ! Une pointe de stalagtite !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You found it southwest of the \\c[2]Vikings\\c[1]' village, \\ndidn't you?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu l'as trouvée au Sud-Ouest du village \\nviking n'est-ce pas ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There must be caves there!"
 			},
 			{
 				"nom": "Message",
@@ -1240,8 +1317,16 @@
 				"texte": "Avec ça, je pourrais déduire la topologie \\nde toute la zone !"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Thanks a lot, explorer number 1!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Merci beaucoup, explorateur numéro 1 !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here is a crystal of the whale\\nto pay for your explorations."
 			},
 			{
 				"nom": "Message",
@@ -1403,7 +1488,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You found it at the south-west of the caves,\\ndidn't you?"
+				"texte": "(en) You found it southwest of the caves,\\ndidn't you?"
 			},
 			{
 				"nom": "Message",
@@ -1697,7 +1782,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You have unlocked the map of the yellow\\nVikings country."
+				"texte": "(en) You have unlocked the map of the \\c[2]yellow\\nVikings\\c[1]' country."
 			},
 			{
 				"nom": "Message",
@@ -1793,31 +1878,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Geographe",
-		"x": 14,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "géographe chraratcer",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 7,
 		"nom": "scientifique",
 		"x": 12,
@@ -1893,68 +1953,52 @@
 				"script": "$game_temp.faceset = \"poincare\""
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]geographer\\c[0] is very talented."
 			},
 			{
 				"nom": "Message",
-				"texte": "Le \\c[02]géographe\\c[01] est très talentueux."
+				"texte": "Le \\c[2]géographe\\c[1] est très talentueux."
 			},
 			{
-				"nom": "Message",
-				"texte": "S'il parvient à cartographier tout Kujira, \\nnous saurons enfin sa nature topologique."
-			},
-			{
-				"nom": "Message",
-				"texte": "Peut-être est-ce le produit cartésien \\nd'une bouteille de Klein et d'un cercle ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Peut-être est-ce le produit cartésien \\nd'un tore et d'un segment ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Peut-être est-ce le produit cartésien \\nd'une sphère et d'un carré ?"
-			},
-			{
-				"nom": "Message",
-				"texte": "J'ai hâte de savoir !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "The \\c[02]geographer\\c[01] is very talented."
+				"nom": "Commentaire",
+				"texte": "(en) If he manages to map all of Kujira, \\nwe will finally know its topological nature."
 			},
 			{
 				"nom": "Message",
 				"texte": "S'il parvient à cartographier tout Kujira, \\nnous saurons enfin sa nature topologique."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perhaps it is the cartesian product \\nof a Klein bottle with a circle?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Peut-être est-ce le produit cartésien \\nd'une bouteille de Klein et d'un cercle ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe it is the cartesian product of a torus \\nwith a segment ?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Peut-être est-ce le produit cartésien \\nd'un tore et d'un segment ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Perhaps it is the cartesian product of a sphere \\nwith a square?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Peut-être est-ce le produit cartésien \\nd'une sphère et d'un carré ?"
 			},
 			{
-				"nom": "Message",
-				"texte": "J'ai hâte de savoir !"
+				"nom": "Commentaire",
+				"texte": "(en) I can't wait to find out!"
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "Message",
+				"texte": "J'ai hâte de savoir !"
 			},
 			{
 				"nom": "Attendre",
@@ -2000,10 +2044,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "TeleporterEvent",
 				"variable": false,
 				"nouveauX": 14,
@@ -2041,10 +2081,108 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "effacer annonce lieu",
+		"x": 16,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 8,
 		"nom": "Clone[341][165]",
 		"x": 17,
 		"y": 17
+	},
+	{
+		"id": 14,
+		"nom": "triche",
+		"x": 8,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Message",
+				"texte": "gfhjgfshsfdg"
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 46,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 47,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 68,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 69,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 70,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 75,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 76,
+				"variable": false,
+				"quantite": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 3,
@@ -2071,44 +2209,24 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) \"Out of all maps, the world of Kujira \\nstretches majestically in the middle of \\nnowhere...\""
 			},
 			{
 				"nom": "Message",
 				"texte": "\"Hors de toute carte, le monde de Kujira \\ns'étend majestueusement au milieu de \\nnulle-part...\""
 			},
 			{
-				"nom": "Message",
-				"texte": "\"Etant \\c[02]géographe\\c[01], j'immortaliserai\\nces fabuleuses contrées dans mes atlas.\""
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) \"As a \\c[2]geographer\\c[0], I will immortalize \\nthese fabulous lands in my atlases.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Beyond all map, the world of Kujira \\nextends majestically in the middle of \\nnowhere...\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"As a \\c[02]geographer\\c[01], I will immortalise \\nthese fabulous lands in my atlas. \""
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"texte": "\"Etant \\c[2]géographe\\c[1], j'immortaliserai\\nces fabuleuses contrées dans mes atlas.\""
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",

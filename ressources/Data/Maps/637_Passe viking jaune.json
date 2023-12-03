@@ -4,13 +4,13 @@
 	"largeur": 21,
 	"hauteur": 15,
 	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
+		"nomFichierSonore": "Etroits Tunnels.ogg",
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
+		"nomFichierSonore": "016-Drips01.ogg",
+		"volume": 0.50,
 		"tempo": 1.00
 	},
 	"couche0": [
@@ -99,8 +99,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) A yellow viking pass?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Un passe viking jaune ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I already have one! Just keep it."
 			},
 			{
 				"nom": "Message",
@@ -115,6 +123,10 @@
 				"nomFichierSonore": "Hu.wav",
 				"volume": 0.80,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) a treasure shell?"
 			},
 			{
 				"nom": "Message",
@@ -221,22 +233,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a treasure shell!"
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un Coffrillage !"
-			},
-			{
-				"nom": "Message",
-				"texte": "L'ouvrir ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
 			},
 			{
 				"nom": "Deplacement",
@@ -264,7 +266,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -498,8 +500,16 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) A Yellow viking pass ?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Un passe viking jaune ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I already have one! Just keep it."
 			},
 			{
 				"nom": "Message",
@@ -523,12 +533,26 @@
 				"script": "$game_temp.faceset = \"poesie surprise\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Who built this secret passage, and why?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Qui a bâti ce passage secret, et pourquoi ?"
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "poesie boude.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie vexee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We don't know much more about it..."
 			},
 			{
 				"nom": "Message",
@@ -558,16 +582,28 @@
 				"script": "$game_temp.faceset = \"poesie\""
 			},
 			{
-				"nom": "Message",
-				"texte": "Ça me donne envie d'écrire un poème..."
+				"nom": "Commentaire",
+				"texte": "(en) Oh, I have a new idea for a poem!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Merci d'être venu !"
+				"texte": "Oh ! J'ai une nouvelle idée pour un poème !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Anyway, thanks for coming with me!"
 			},
 			{
 				"nom": "Message",
-				"texte": "À plus tard !"
+				"texte": "En tout cas, merci de m'avoir accompagnée !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) See you soon, I hope!"
+			},
+			{
+				"nom": "Message",
+				"texte": "À bientôt, j'espère !"
 			},
 			{
 				"nom": "Deplacement",
@@ -655,15 +691,6 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
@@ -703,6 +730,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
@@ -767,16 +798,94 @@
 		]
 	},
 	{
+		"id": 7,
+		"nom": "Clone[582][37]",
+		"x": 9,
+		"y": 6
+	},
+	{
 		"id": 2,
 		"nom": "Clone[341][040]",
 		"x": 11,
 		"y": 3
 	},
 	{
+		"id": 8,
+		"nom": "Clone[582][37]",
+		"x": 7,
+		"y": 8
+	},
+	{
 		"id": 3,
 		"nom": "Clone[341][040]",
 		"x": 13,
 		"y": 3
+	},
+	{
+		"id": 9,
+		"nom": "EV009",
+		"x": 0,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "on efface les réglages liés au tunnel"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 30,
+				"valeur": false
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_player.offset_y(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 4,
@@ -794,9 +903,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 636,
-				"xDebutHeros": 14,
-				"yDebutHeros": 5
+				"numeroNouvelleMap": 791,
+				"xDebutHeros": 38,
+				"yDebutHeros": 7
 			}
 			],
 			"vitesse": "moderee",

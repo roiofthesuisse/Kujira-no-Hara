@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Etroits Tunnels.mp3",
+		"nomFichierSonore": "Etroits Tunnels.ogg",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
@@ -134,7 +134,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 191,
 				"xDebutHeros": 15,
-				"yDebutHeros": 9
+				"yDebutHeros": 10
 			}
 			],
 			"vitesse": "moderee",
@@ -261,12 +261,28 @@
 				"numero": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tiki 1\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you have the Jizo stone?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu possèdes la pierre du Jizô ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) That's why you can hear the whispers \\nof the \\c[2]stone beings\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[02]êtres de pierre\\c[01]."
+				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[2]êtres de pierre\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I suppose you want to visit our cave."
 			},
 			{
 				"nom": "Message",
@@ -282,6 +298,10 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This rock looks alive."
 			},
 			{
 				"nom": "Message",
@@ -334,16 +354,32 @@
 				"numero": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tiki 1\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have the Jizo stone?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu possèdes la pierre du Jizô ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) That's why you can hear the whispers \\nof the \\c[2]stone beings\\c[0]."
+			},
+			{
 				"nom": "Message",
-				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[02]êtres de pierre\\c[01]."
+				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[2]êtres de pierre\\c[1]."
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This rock looks alive."
 			},
 			{
 				"nom": "Message",
@@ -421,7 +457,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 230,
 				"xDebutHeros": 29,
-				"yDebutHeros": 45
+				"yDebutHeros": 44
 			}
 			],
 			"vitesse": "moderee",

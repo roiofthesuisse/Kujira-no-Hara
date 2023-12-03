@@ -180,6 +180,7 @@
 			"commandes": [
 			],
 			"image": "tarte character",
+			"animationInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -203,6 +204,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) bvhngbcdfjhg"
+			},
 			{
 				"nom": "Message",
 				"texte": "bvhngbcdfjhg"
@@ -345,8 +350,16 @@
 				"script": "$game_temp.faceset = \"viking jaune femme\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The autumn festival was dedicated\\nto the Moon, but the young\\npeople today have never seen\\nthe Moon!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Le festival d'automne était dédié à la Lune, \\nmais les jeunes aujourd'hui n'ont jamais vu \\nla Lune !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe they will never see it..."
 			},
 			{
 				"nom": "Message",
@@ -445,6 +458,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking jaune\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Still, killing your brother for\\na little money..."
 			},
 			{
 				"nom": "Message",
@@ -780,6 +797,33 @@
 		]
 	},
 	{
+		"id": 95,
+		"nom": "gateau",
+		"x": 47,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 38,
 		"nom": "une autre tarte",
 		"x": 23,
@@ -794,6 +838,7 @@
 			"commandes": [
 			],
 			"image": "tarte character",
+			"animationInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -858,8 +903,16 @@
 				"script": "$game_temp.faceset = \"viking rouge femme\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Finally the best time of the year !"
+			},
+			{
 				"nom": "Message",
 				"texte": "Enfin le meilleur moment de l'année !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Everyone dresses up for the big\\nfall festival."
 			},
 			{
 				"nom": "Message",
@@ -1208,6 +1261,10 @@
 				"script": "$game_temp.faceset = \"groniass chomping tree\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Clovis\\c[0]? The one who did the ignoble\\nthat is to say killed his brother Dagobert\\nfor a little money?"
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Clovis\\c[1] ? Celui qui a tué son frère \\c[2]Dagobert\\c[1]\\npour un peu d'argent ?"
 			},
@@ -1231,12 +1288,20 @@
 				"script": "$game_temp.faceset = \"clovis clown vexe\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It is grammatically possible to say \"the ignoble\", \\nbut \"did the ignoble\" doesn't strike me \\nas idiomatic wording."
+			},
+			{
 				"nom": "Message",
 				"texte": "Oh vous savez, on est tous un peu le \\c[2]Clovis\\c[1] \\nqui tue son frère \\c[2]Dagobert\\c[1] pour un peu \\nd'argent."
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) And what is society if not killing each other \\nfor a little money?"
 			},
 			{
 				"nom": "Message",
@@ -1286,6 +1351,10 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) We Vikings kill each other for free."
+			},
+			{
 				"nom": "Message",
 				"texte": "Nous autres vikings, on s'entretue \\ngratuitement."
 			},
@@ -1307,6 +1376,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That's what makes you a noble race I guess."
 			},
 			{
 				"nom": "Message",
@@ -1687,6 +1760,33 @@
 		]
 	},
 	{
+		"id": 96,
+		"nom": "une autre tarte",
+		"x": 23,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 3,
+			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 1,
 		"nom": "fiolin",
 		"x": 19,
@@ -1705,28 +1805,60 @@
 				"valeur": true
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ricane hehe.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So what?"
 			},
 			{
 				"nom": "Message",
 				"texte": "Ben quoi ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I am disguised as \\c[2]Pozzo\\c[0]."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je suis déguisé en \\c[2]Pozzo\\c[0]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Ok, I just made the hat..."
 			},
 			{
 				"nom": "Message",
 				"texte": "Bon ok, j'ai juste fait le chapeau..."
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) But I can do an imitation:"
+			},
+			{
 				"nom": "Message",
 				"texte": "Mais je peux faire une imitation :"
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "fiolin ooh.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"fiolin moqueur\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE Whooo daaares come on the\\nlands of the great \\c[2]Pozzo\\c[0],\\nof lunar origin?!"
 			},
 			{
 				"nom": "Message",
@@ -1831,6 +1963,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking jaune femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I lost everything at the cachalottery!"
 			},
 			{
 				"nom": "Message",
@@ -1948,6 +2084,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'd love to go get a piece of\\npie, but I'm stuck here."
 			},
 			{
 				"nom": "Message",
@@ -2111,6 +2251,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What a delicious pie!"
 			},
 			{
 				"nom": "Message",
@@ -2446,6 +2590,32 @@
 		]
 	},
 	{
+		"id": 97,
+		"nom": "une autre tarte",
+		"x": 35,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 2,
 		"nom": "EV002",
 		"x": 13,
@@ -2621,6 +2791,10 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I am very proud of my costume."
+			},
+			{
 				"nom": "Message",
 				"texte": "Je suis très fier de mon costume."
 			},
@@ -2715,6 +2889,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) A marble bust."
+			},
+			{
 				"nom": "Message",
 				"texte": "Un buste en marbre."
 			},
@@ -2738,6 +2916,33 @@
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 98,
+		"nom": "gateau",
+		"x": 32,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 1,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -3801,8 +4006,16 @@
 				"script": "$game_temp.faceset = \"viking jaune femme\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The yellow Vikings and the red\\nVikings make a truce on the\\nday of the equinox."
+			},
+			{
 				"nom": "Message",
 				"texte": "Les vikings jaunes et les vikings rouges \\nfont une trêve le jour de l'équinoxe."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We dress up and eat cakes."
 			},
 			{
 				"nom": "Message",
@@ -3902,6 +4115,10 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The results of the raffle will be announced \\nat the end of the festival."
+			},
+			{
 				"nom": "Message",
 				"texte": "Les résultats de la tombola seront annoncés \\nà la fin du festival."
 			},
@@ -3910,18 +4127,22 @@
 				"numero": 0
 			},
 			{
-				"nom": "Message",
-				"texte": "Tu veux participer à la tombola ?\\nC'est 10 écailles colorées !"
-			},
-			{
 				"nom": "ConditionArgent",
 				"quantite": 10,
 				"inegalite": ">=",
 				"numero": 1
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = nil"
+				"nom": "Commentaire",
+				"texte": "(en) Do you want to participate in the raffle?\\nIt's 10 colorful scales!"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu veux participer à la tombola ?\\nC'est 10 écailles colorées !"
 			},
 			{
 				"nom": "Choix",
@@ -3949,8 +4170,16 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Here's a ticket for you!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Voilà un ticket pour toi !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe it's a winner!"
 			},
 			{
 				"nom": "Message",
@@ -3972,6 +4201,10 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) What?\\nDon't you want all these wonders?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Quoi ? \\nToutes ces merveilles ne te font pas envie ?"
 			},
@@ -3984,10 +4217,22 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you want to enter the raffle?\\nIt's 10 colorful scales!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu veux participer à la tombola ?\\nC'est 10 écailles colorées !"
+			},
+			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "Viking2.wav",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Ah but you don't have enough!\\nToo bad."
 			},
 			{
 				"nom": "Message",
@@ -4060,8 +4305,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2192 the depths"
+			},
+			{
 				"nom": "Message",
-				"texte": "> le fin-fond"
+				"texte": "\\u2192 le fin-fond"
 			},
 			{
 				"nom": "Attendre",
@@ -4147,8 +4396,16 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) One of these boxes contains 50 scales!"
+			},
+			{
 				"nom": "Message",
 				"texte": "L'un de ces coffrillage contient 50 écailles !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That's 20 scales a piece only."
 			},
 			{
 				"nom": "Message",
@@ -4159,6 +4416,14 @@
 				"nomFichierSonore": "Viking2.wav",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you want to play to the cachalottery?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
@@ -4367,6 +4632,10 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Go and open one of the 3 chests!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Va vite ouvrir un des 3 coffres !"
 			},
@@ -4386,6 +4655,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You don't have enough money!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu n'as pas assez d'argent !"
 			},
@@ -4397,6 +4670,10 @@
 				"nom": "ChoixAlternative",
 				"numero": 0,
 				"alternative": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come back to me if you want to play."
 			},
 			{
 				"nom": "Message",
@@ -4472,6 +4749,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) So, did you win?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Alors, tu as gagné ?"
 			},
@@ -4484,6 +4765,10 @@
 				"nomFichierSonore": "Viking1.wav",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go and open one of the 3 chests!"
 			},
 			{
 				"nom": "Message",
@@ -4559,6 +4844,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What a delicious pie!"
 			},
 			{
 				"nom": "Message",
@@ -4894,6 +5183,33 @@
 		]
 	},
 	{
+		"id": 99,
+		"nom": "gateau",
+		"x": 37,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 14,
 		"nom": "Viking",
 		"x": 22,
@@ -4920,6 +5236,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hello sir, what do you want?"
 			},
 			{
 				"nom": "Message",
@@ -4974,6 +5294,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking jaune\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come and try our headbands!"
 			},
 			{
 				"nom": "Message",
@@ -5047,12 +5371,24 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You bought a raffle ticket?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tu as acheté un ticket de tombola ?"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) What have you done, you wretch!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Qu'as-tu fait, malheureux !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) At least it lessens my chances\\nof winning that ugly bust."
 			},
 			{
 				"nom": "Message",
@@ -5063,6 +5399,10 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I shouldn't have played the raffle!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Je n'aurais pas dû jouer à la tombola !"
 			},
@@ -5071,8 +5411,16 @@
 				"numero": 0
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It would still upset me to win\\nthat marble bust in the\\nraffle."
+			},
+			{
 				"nom": "Message",
 				"texte": "Ça me contrarierait quand même de gagner \\nce buste en marbre à la tombola."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What would I do with a marble bust?\\nIt takes up space and is useless."
 			},
 			{
 				"nom": "Message",
@@ -5088,6 +5436,10 @@
 				"nom": "JouerAnimation",
 				"idEvent": 90,
 				"idAnimation": 42
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'm stressing!"
 			},
 			{
 				"nom": "Message",
@@ -5144,8 +5496,16 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Who wants to taste my pie?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Qui veut goûter ma tarte ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a \"sugar taste\" pie."
 			},
 			{
 				"nom": "Message",
@@ -5352,12 +5712,24 @@
 				"numero": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tiki 1\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Every year, the \\c[2]Vikings\\c[0] celebrate\\nautumn with their big cosplay festival."
+			},
+			{
 				"nom": "Message",
 				"texte": "Tous les ans, les \\c[2]Vikings\\c[0] fêtent l'automne\\navec leur grand festival de cosplay."
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This rock looks alive."
 			},
 			{
 				"nom": "Message",
@@ -5692,6 +6064,33 @@
 		]
 	},
 	{
+		"id": 100,
+		"nom": "gateau",
+		"x": 9,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 1,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "EV005",
 		"x": 9,
@@ -5787,10 +6186,102 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Viking",
-		"x": 22,
-		"y": 27,
+		"id": 72,
+		"nom": "blocage invisible",
+		"x": 46,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 34,
+		"nom": "dose",
+		"x": 39,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 37,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 34,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose perruque\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I... I have the same hair as my mother!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je... j'ai les mêmes cheveux que ma mère !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "Magicien dose character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 91,
+		"nom": "sousmarin",
+		"x": 16,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -5805,18 +6296,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
+				"nom": "Commentaire",
+				"texte": "(en) A model of a submarine."
 			},
 			{
 				"nom": "Message",
-				"texte": "Bonjour monsieur, que voulez-vous ?"
+				"texte": "Une maquette de sous-marin."
 			},
 			{
 				"nom": "Attendre",
@@ -5828,10 +6313,11 @@
 				"valeur": false
 			}
 			],
-			"image": "viking petit anemone character",
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
+			"image": "objet kujira 3",
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
@@ -5868,12 +6354,20 @@
 				"script": "$game_temp.faceset = \"poesie surprise\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, you've come to the big fall festival!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Oh ! Tu es venu au grand festival d'automne !"
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is this your first time here?"
 			},
 			{
 				"nom": "Message",
@@ -5886,8 +6380,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I can show you the different stands!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Je peux te présenter les différents stands !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you have a question, ask me !"
 			},
 			{
 				"nom": "Message",
@@ -6027,6 +6529,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The Viking tradition is to dress\\nup and bring a cake."
+			},
+			{
 				"nom": "Message",
 				"texte": "La tradition viking consiste à se déguiser \\net à apporter un gâteau."
 			},
@@ -6039,6 +6545,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Friends of the clans are invited too."
 			},
 			{
 				"nom": "Message",
@@ -6108,6 +6618,10 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Each of the two clans has\\nrehearsed hard the traditional\\nViking dances."
+			},
+			{
 				"nom": "Message",
 				"texte": "Chacun des deux clans a durement répété \\nles danses vikings traditionnelles."
 			},
@@ -6120,6 +6634,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie genee\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Me? No, I can't dance !"
 			},
 			{
 				"nom": "Message",
@@ -6193,6 +6711,10 @@
 				"script": "$game_temp.faceset = \"poesie surprise\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) We have installed headbands!"
+			},
+			{
 				"nom": "Message",
 				"texte": "On a installé des passe-têtes !"
 			},
@@ -6205,6 +6727,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Get in the back! Hihi!"
 			},
 			{
 				"nom": "Message",
@@ -6274,8 +6800,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Tabula the terrible\\c[0] is my father."
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Tabula le terrible\\c[0] est mon père."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He dedicates all his energy to\\nfind how to free his people\\nfrom the whale."
 			},
 			{
 				"nom": "Message",
@@ -6290,6 +6824,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I think he should forget his\\nrivalries with the yellow\\nVikings and work together."
 			},
 			{
 				"nom": "Message",
@@ -6359,8 +6897,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Grunthild the fearless is my mother."
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Groniass l'intrépide\\c[0] est ma mère."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) She sends spies to the red\\nVikings' village, and\\n\\c[2]Tabula\\c[0] sends them to\\nthe yellow Vikings village."
 			},
 			{
 				"nom": "Message",
@@ -6375,6 +6921,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But neither village knows how\\nto get out of the whale..."
 			},
 			{
 				"nom": "Message",
@@ -6448,8 +6998,16 @@
 				"script": "$game_temp.faceset = \"poesie surprise\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) For one month, we have been\\npreparing the autumn festival  !"
+			},
+			{
 				"nom": "Message",
 				"texte": "Depuis un mois, nous préparons le festival \\nd'automne !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The costumes take a lot of time."
 			},
 			{
 				"nom": "Message",
@@ -6514,7 +7072,7 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Hu.wav",
+				"nomFichierSonore": "poesie boude.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -6523,8 +7081,16 @@
 				"script": "$game_temp.faceset = \"poesie vexee\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) They work instead of enjoying the festival!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ils travaillent au lieu de profiter du festival !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is typically the profile\\nof people that routine\\nreassures..."
 			},
 			{
 				"nom": "Message",
@@ -6594,8 +7160,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The very existence of negative\\nexpectation games proves that\\nyou should not play them !"
+			},
+			{
 				"nom": "Message",
 				"texte": "L'existence même des jeux à espérance \\nnégative prouve qu'il ne faut pas y jouer !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I heard it from \\c[2]Rebeca\\c[0]."
 			},
 			{
 				"nom": "Message",
@@ -6610,6 +7184,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, if you play just a little\\nbit and stop as soon as you\\nwin, I guess you can win..."
 			},
 			{
 				"nom": "Message",
@@ -6679,8 +7257,16 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The most beautiful cosplay will\\nwin the contest, it's a very\\nprestigious prize!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Le plus beau cosplay gagnera le concours, \\nc'est un prix très prestigieux !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) All these colors make me want\\nto write a poem about the\\nfestival !"
 			},
 			{
 				"nom": "Message",
@@ -6723,12 +7309,20 @@
 				"script": "$game_temp.faceset = \"poesie surprise\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) We haven't seen all the stands yet."
+			},
+			{
 				"nom": "Message",
 				"texte": "On n'a pas encore vu tous les stands."
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you have a question, ask me !"
 			},
 			{
 				"nom": "Message",
@@ -6817,12 +7411,20 @@
 				"script": "$game_temp.faceset = \"poesie surprise\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The autumn festival will soon end."
+			},
+			{
 				"nom": "Message",
 				"texte": "Le festival d'automne va bientôt se terminer."
 			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) After the festival I'll have\\nsomething to show you!"
 			},
 			{
 				"nom": "Message",
@@ -6846,6 +7448,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poesie surprise\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you have a question, ask me!"
 			},
 			{
 				"nom": "Message",
@@ -6881,10 +7487,10 @@
 		]
 	},
 	{
-		"id": 34,
-		"nom": "dose",
-		"x": 39,
-		"y": 22,
+		"id": 15,
+		"nom": "Viking",
+		"x": 22,
+		"y": 27,
 		"pages": [
 		{
 			"conditions": [
@@ -6894,28 +7500,27 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 37,
-				"direction": 3,
-				"numero": 0
-			},
-			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 34,
-				"idAnimation": 42
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"magicien dose perruque\""
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hello sir, what do you want?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Je... j'ai les mêmes cheveux que ma mère !"
+				"texte": "Bonjour monsieur, que voulez-vous ?"
 			},
 			{
 				"nom": "Attendre",
@@ -6925,42 +7530,12 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
-			"image": "Magicien dose character",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 72,
-		"nom": "blocage invisible",
-		"x": 46,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
+			"image": "viking petit anemone character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
@@ -7112,8 +7687,16 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) What a delicious pie!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Quelle délicieuse tarte !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What is his secret?"
 			},
 			{
 				"nom": "Message",
@@ -7154,6 +7737,10 @@
 				"script": "$game_temp.faceset = \"viking rouge inverse\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) He told me that it was because \\nhe made it with his uncle's fresh eggs."
+			},
+			{
 				"nom": "Message",
 				"texte": "Il m'a dit que c'est parce qu'il l'avait faite \\navec les oeufs frais de son oncle."
 			},
@@ -7192,6 +7779,10 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) He lied to you!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Il t'a menti !"
 			},
@@ -7216,6 +7807,10 @@
 				"script": "$game_temp.faceset = \"viking rouge inverse\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Why is that?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Pourquoi ça ?"
 			},
@@ -7238,6 +7833,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Uncles don't lay eggs."
 			},
 			{
 				"nom": "Message",
@@ -7278,6 +7877,10 @@
 				"script": "$game_temp.faceset = \"viking rouge inverse\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh yes, you are right."
+			},
+			{
 				"nom": "Message",
 				"texte": "Ah oui tu as raison."
 			},
@@ -7302,6 +7905,10 @@
 				"script": "$game_temp.faceset = \"viking rouge\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's more likely to be his aunt."
+			},
+			{
 				"nom": "Message",
 				"texte": "Il s'agit plus vraisemblablement de sa tante."
 			},
@@ -7324,6 +7931,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking rouge inverse\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Right."
 			},
 			{
 				"nom": "Message",
@@ -7525,6 +8136,33 @@
 		]
 	},
 	{
+		"id": 101,
+		"nom": "gateau",
+		"x": 11,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 16,
 		"nom": "groniass",
 		"x": 25,
@@ -7557,6 +8195,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"groniass chomping tree\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Still, to kill your brother for\\na little money..."
 			},
 			{
 				"nom": "Message",
@@ -7615,6 +8257,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking jaune femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I heard that \\c[2]Tabula the\\nTerrible\\c[0] and \\c[2]Grunthild\\nthe Fearless\\c[0] met at a fall\\nfestival."
 			},
 			{
 				"nom": "Message",
@@ -8304,6 +8950,10 @@
 				"script": "$game_temp.faceset = \"tabula baleine\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) SAY, IS THIS YOUR REAL HAIR?"
+			},
+			{
 				"nom": "Message",
 				"texte": "DITES, CE SONT VOS VRAIS CHEVEUX ?"
 			},
@@ -8323,6 +8973,54 @@
 			],
 			"image": "tabula le terrible",
 			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 92,
+		"nom": "confiture",
+		"x": 16,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Strawberry jam."
+			},
+			{
+				"nom": "Message",
+				"texte": "De la confiture de fraise."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "objet kujira 3",
+			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -8378,8 +9076,70 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mineur\""
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "modulo",
+				"valeurADonner": 2,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Safety is no joke.\\nIt's important to wear a helmet."
+			},
+			{
 				"nom": "Message",
-				"texte": "On pioche tic tac tic tac tic tac, \\ndu matin jusqu'au soir !"
+				"texte": "On ne rigole pas avec la sécurité.\\nC'est important de porter le casque."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) One bad move and you get a pickaxe \\nin the head!\\nWithout my helmet, I would have died 16 times."
+			},
+			{
+				"nom": "Message",
+				"texte": "Un mauvais geste et on reçoit la pioche \\ndans la tête !\\nSans mon casque, je serais mort déjà 16 fois."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Every 3 seconds, a workplace accident occurs.\\nYou would know it if you were \\na union member!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Toutes les 3 secondes, un accident du travail\\nse produit.\\nTu le saurais si tu étais syndiqué !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\WAVE \\u266A \\u266B We dig dig dig \\ndig dig dig dig \\nin our mine \\nthe whole day through! \\u266A \\u266B"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\WAVE \\u266A \\u266B On pioche tic tac \\ntic tac tic tac\\ndu matin jusqu'au soir !  \\u266A \\u266B"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -8558,6 +9318,54 @@
 		]
 	},
 	{
+		"id": 93,
+		"nom": "diamant",
+		"x": 16,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A diamond."
+			},
+			{
+				"nom": "Message",
+				"texte": "Un diamant."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "objet kujira 3",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 74,
 		"nom": "blocage invisible",
 		"x": 42,
@@ -8635,6 +9443,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"clovis clown vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Rho lala pfff."
 			},
 			{
 				"nom": "Message",
@@ -9454,6 +10266,10 @@
 				"script": "$game_temp.faceset = \"magicien dose perruque\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Uh... your feet are better?"
+			},
+			{
 				"nom": "Message",
 				"texte": "\\SHAKE Euh... vos pieds vont mieux ?"
 			},
@@ -9487,6 +10303,10 @@
 				"script": "$game_temp.faceset = \"tabula baleine\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) BOF BOF."
+			},
+			{
 				"nom": "Message",
 				"texte": "BOF BOF."
 			},
@@ -9508,6 +10328,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"magicien dose perruque\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE You know, you have to\\nchange your shoes every day."
 			},
 			{
 				"nom": "Message",
@@ -9571,6 +10395,10 @@
 				"script": "$game_temp.faceset = \"tabula baleine\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) IT WOULD TAKE AN INCREDIBLE\\nAMOUNT OF SHOES !"
+			},
+			{
 				"nom": "Message",
 				"texte": "IL FAUDRAIT UNE QUANTITÉ INCROYABLE \\nDE CHAUSSURES !"
 			},
@@ -9592,6 +10420,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"magicien dose perruque\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE But no! Two pairs are enough."
 			},
 			{
 				"nom": "Message",
@@ -9625,6 +10457,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"tabula baleine\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) YOU FORGET THAT I AM NOT A MAGICIAN."
 			},
 			{
 				"nom": "Message",
@@ -9699,7 +10535,7 @@
 		"id": 18,
 		"nom": "EV018",
 		"x": 29,
-		"y": 22,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [
@@ -9709,11 +10545,21 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 478,
 				"xDebutHeros": 14,
 				"yDebutHeros": 17
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -9731,6 +10577,32 @@
 		"nom": "Clone[582][29]",
 		"x": 13,
 		"y": 8
+	},
+	{
+		"id": 94,
+		"nom": "une autre tarte",
+		"x": 21,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tarte character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
 	}
 	]
 }

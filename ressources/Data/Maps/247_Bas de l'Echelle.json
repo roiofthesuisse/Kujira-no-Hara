@@ -4,7 +4,7 @@
 	"largeur": 25,
 	"hauteur": 25,
 	"musique": {
-		"nomFichierSonore": "Ascension Mouvementée.mp3",
+		"nomFichierSonore": "Ascension Mouvementée.ogg",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
@@ -96,6 +96,60 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Annonce du Lieu",
+		"x": 24,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierMeteo",
+				"type": "rien",
+				"intensite": 9
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 6,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 11,
+		"nom": "Clone[582][74]",
+		"x": 9,
+		"y": 0
+	},
+	{
+		"id": 6,
+		"nom": "Clone[582][70]",
+		"x": 13,
+		"y": 0
+	},
+	{
+		"id": 12,
+		"nom": "Clone[582][74]",
+		"x": 8,
+		"y": 0
+	},
+	{
 		"id": 1,
 		"nom": "EV001",
 		"x": 12,
@@ -127,6 +181,18 @@
 		]
 	},
 	{
+		"id": 7,
+		"nom": "Clone[582][70]",
+		"x": 15,
+		"y": 0
+	},
+	{
+		"id": 13,
+		"nom": "Clone[582][70]",
+		"x": 16,
+		"y": 0
+	},
+	{
 		"id": 2,
 		"nom": "Parchemin",
 		"x": 14,
@@ -145,12 +211,20 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Come!\\nLet's walk to see the snow,\\nuntil we fall from exhaustion!\""
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Viens !\\nMarchons pour voir la neige,\\njusqu'à tomber d'épuisement !\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[02]"
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
 			},
 			{
 				"nom": "Attendre",
@@ -173,9 +247,15 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "Clone[582][70]",
+		"x": 14,
+		"y": 0
+	},
+	{
 		"id": 3,
 		"nom": "EV003",
-		"x": 19,
+		"x": 24,
 		"y": 5,
 		"pages": [
 		{
@@ -254,6 +334,12 @@
 		]
 	},
 	{
+		"id": 9,
+		"nom": "Clone[582][74]",
+		"x": 11,
+		"y": 0
+	},
+	{
 		"id": 4,
 		"nom": "EV004",
 		"x": 12,
@@ -283,6 +369,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[582][74]",
+		"x": 10,
+		"y": 0
 	}
 	]
 }

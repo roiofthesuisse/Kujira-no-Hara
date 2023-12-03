@@ -5,7 +5,7 @@
 	"hauteur": 40,
 	"musique": {
 		"nomFichierSonore": "Intestins.ogg",
-		"volume": 0.80,
+		"volume": 0.70,
 		"tempo": 0.75
 	},
 	"fondSonore": {
@@ -122,9 +122,9 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0437,0438,0439,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0445,0446,0447,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0453,0454,0455,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -156,7 +156,7 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "narrateur scene01.mp3",
+				"nomFichierSonore": "narrateur scene01.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -375,12 +375,8 @@
 				"quantite": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
 			},
 			{
 				"nom": "Deplacement",
@@ -413,6 +409,14 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "EffacerImage",
@@ -579,28 +583,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "(en) It's a treasure shell!"
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est un coffrillage !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Message",
-				"texte": "It is a treasure shell !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -628,7 +616,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (coffre).mp3",
+				"nomFichierSonore": "fanfare (coffre).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -727,7 +715,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).mp3",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -759,36 +747,20 @@
 				]
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) You find a stalagtite point!"
 			},
 			{
 				"nom": "Message",
 				"texte": "Vous trouvez une pointe de stalagtite !"
 			},
 			{
-				"nom": "Message",
-				"texte": "Cela prouverait à tout bon géographe \\nla présence de grottes pas très loin..."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
+				"nom": "Commentaire",
+				"texte": "(en) That would prove to any good geographer \\nthe presence of caves in the area..."
 			},
 			{
 				"nom": "Message",
-				"texte": "You got the stalagtite peak !"
-			},
-			{
-				"nom": "Message",
-				"texte": "To a geograph it means that there are\\ncaves in the area..."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"texte": "Cela prouverait à tout bon géographe \\nla présence de grottes dans le coin..."
 			},
 			{
 				"nom": "Attendre",
@@ -836,19 +808,6 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
 			},
@@ -886,28 +845,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
 			},
 			{
 				"nom": "Message",
 				"texte": "C'est vide."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Message",
-				"texte": "It's empty."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -950,12 +893,20 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \"This path \\nis not used by anyone\\non an autumn evening\"."
+			},
+			{
 				"nom": "Message",
 				"texte": "\"Ce chemin-ci\\nn'est emprunté par personne\\nun soir d'automne\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[0]"
+			},
+			{
 				"nom": "Message",
-				"texte": "\\c[02]Matsuo Bashô\\c[01]"
+				"texte": "\\c[2]Matsuo Bashô\\c[1]"
 			},
 			{
 				"nom": "Attendre",
@@ -1116,8 +1067,12 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 Vast caves\\n\\u2192 \\c[2]Heeboo\\c[0]'s den\\n\\u2193 Ibukuro sea"
+			},
+			{
 				"nom": "Message",
-				"texte": "/\\ Grandes grottes\\n> Antre de \\c[02]Hibu\\c[01]\\nV Mer d'Ibukuro"
+				"texte": "\\u2191 Grandes grottes\\n\\u2192 Antre de \\c[2]Hibu\\c[1]\\n\\u2193 Mer d'Ibukuro"
 			},
 			{
 				"nom": "Attendre",

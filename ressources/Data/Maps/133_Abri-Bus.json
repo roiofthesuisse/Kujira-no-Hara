@@ -4,13 +4,13 @@
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Forêt de l'Ouest.mp3",
+		"nomFichierSonore": "Forêt de l'Ouest.ogg",
 		"volume": 0.50,
 		"tempo": 1.00
 	},
 	"fondSonore": {
 		"nomFichierSonore": "Forêt rayman 1.mp3",
-		"volume": 0.80,
+		"volume": 0.70,
 		"tempo": 1.00
 	},
 	"couche0": [
@@ -153,20 +153,24 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Bus stop:"
+			},
+			{
 				"nom": "Message",
 				"texte": "Arrêt de bus :"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) TIMETABLE: \\nThe bus comes at 8:35 am and 4:45 pm.\\nIt is invisible, so you will probably miss it."
+			},
+			{
 				"nom": "Message",
-				"texte": "HORAIRES : le bus passe à 8h35 \\net à 16h45, mais il est invisible, alors vous \\nle raterez sûrement."
+				"texte": "HORAIRES : \\nle bus passe à 8h35 et à 16h45, \\nmais il est invisible, \\nalors vous le raterez sûrement."
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -221,6 +225,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking jaune femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I've had enough, I want to go back \\nto the village."
 			},
 			{
 				"nom": "Message",
@@ -285,6 +293,10 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un gland..."
 			},
@@ -292,6 +304,10 @@
 				"nom": "ModifierAvancementQuete",
 				"numero": 19,
 				"avancement": "CONNUE"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go figure out who dropped it!"
 			},
 			{
 				"nom": "Message",
@@ -405,6 +421,10 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Where are we going to throw this away?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Où est-ce qu'on va balancer ça ?"
 			},
@@ -450,6 +470,10 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "(en) fdsgfsdg"
+			},
+			{
 				"nom": "Message",
 				"texte": "fdsgfsdg"
 			},
@@ -485,20 +509,6 @@
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
-			],
-			"opacite": 0,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
 			{
 				"nom": "Parler"
 			},
@@ -516,8 +526,16 @@
 				"valeur": true
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a mysterious acorn..."
+			},
+			{
 				"nom": "Message",
 				"texte": "C'est un gland..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Go figure out who dropped it!"
 			},
 			{
 				"nom": "Message",
@@ -631,8 +649,16 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) I thought it was cool though..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Moi je trouvais ça cool pourtant..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There are lots of grapes in it!"
 			},
 			{
 				"nom": "Message",
@@ -927,8 +953,16 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Grunthild\\c[0] our leader !"
+			},
+			{
 				"nom": "Message",
 				"texte": "\\c[2]Groniass\\c[1] notre cheffe !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We finally found it!"
 			},
 			{
 				"nom": "Message",
@@ -957,7 +991,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Groniass l Intrepide.ogg",
-				"volume": 0.80,
+				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
@@ -969,6 +1003,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"groniass\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh yes? Let me see it!"
 			},
 			{
 				"nom": "Message",
@@ -1081,8 +1119,16 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Tadaaa!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Tadaaa !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Are you proud of us?"
 			},
 			{
 				"nom": "Message",
@@ -1103,6 +1149,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"groniass\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What is that thing?"
 			},
 			{
 				"nom": "Message",
@@ -1173,6 +1223,10 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, it's the horn of plenty!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Ben, c'est la corne d'abondance !"
 			},
@@ -1193,8 +1247,16 @@
 				"script": "$game_temp.faceset = \"groniass\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) The horn of plenty?"
+			},
+			{
 				"nom": "Message",
 				"texte": "La corne d'abondance ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) And in what way that stuff will allow us \\nto get out of the whale?"
 			},
 			{
 				"nom": "Message",
@@ -1265,6 +1327,10 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Uh... none but..."
+			},
+			{
 				"nom": "Message",
 				"texte": "Euh... à rien mais..."
 			},
@@ -1281,6 +1347,10 @@
 					"y": 0
 				}
 				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We thought it would fit into the category \\nof ultimate artifacts..."
 			},
 			{
 				"nom": "Message",
@@ -1317,12 +1387,34 @@
 				]
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Are you kidding me?!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous vous moquez de moi ?!"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Get rid of that ridiculous thing\\nand resume the search!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Débarrassez-vous de cette chose ridicule\\net reprenez les recherches !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "groniass graah.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Your stupidity is visible from the cosmos."
+			},
+			{
+				"nom": "Message",
+				"texte": "Votre bêtise est visible depuis le cosmos."
 			},
 			{
 				"nom": "FaireDefilerLaMap",
@@ -1393,6 +1485,10 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Understood, \\c[2]Grunthild\\c[0] our leader."
+			},
+			{
 				"nom": "Message",
 				"texte": "Bien, \\c[2]Groniass\\c[1] notre cheffe."
 			},
@@ -1441,7 +1537,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Forêt de l'Ouest.mp3",
+				"nomFichierSonore": "Forêt de l'Ouest.ogg",
 				"volume": 0.50,
 				"tempo": 1.00
 			},
@@ -1505,6 +1601,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"groniass\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are the shame of the yellow\\nviking village!"
 			},
 			{
 				"nom": "Message",
@@ -1860,12 +1960,12 @@
 				"texte": "(en) Play with \\c[2]Bunny\\c[1]?"
 			},
 			{
-				"nom": "Message",
-				"texte": "Jouer avec \\c[2]Lapinou\\c[1] ?"
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Jouer avec \\c[2]Lapinou\\c[1] ?"
 			},
 			{
 				"nom": "Choix",
@@ -2043,6 +2143,10 @@
 				"idQuete": 93,
 				"etat": "FAITE",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (This must be his way of\\ncongratulating you...)"
 			},
 			{
 				"nom": "Message",
@@ -2309,6 +2413,10 @@
 				"script": "$game_temp.faceset = \"viking jaune\""
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) Does this ultimate artifact really exist?"
+			},
+			{
 				"nom": "Message",
 				"texte": "Est-ce que cet artefact ultime existe vraiment ?"
 			},
@@ -2484,8 +2592,16 @@
 				"avancement": "FAITE"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
 				"nom": "Message",
 				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a beautiful piece of\\ncrystallized magic salt!"
 			},
 			{
 				"nom": "Message",
@@ -2799,6 +2915,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"viking jaune\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We've searched the whole forest\\nand found nothing!"
 			},
 			{
 				"nom": "Message",
