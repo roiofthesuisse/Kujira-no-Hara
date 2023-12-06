@@ -3,8 +3,6 @@ package utilitaire.graphismes;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import utilitaire.Maths;
-
 /**
  * Le Pinceau va peindre un pixel de l'image a superposer sur l'image support.
  * La fa�on dont le pixel sera peint d�pend du Composite utilis�.
@@ -13,54 +11,47 @@ public enum Pinceau {
 	PINCEAU_ADDITION {
 		@Override
         public void peindre(final int[] src, final int[] dst, final int[] result) {
-        	final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
-        	result[ROUGE] = Math.min(VALEUR_MAXIMALE, (int) (src[ROUGE]*opaciteLocale) + dst[ROUGE]);
-            result[VERT] = Math.min(VALEUR_MAXIMALE, (int) (src[VERT]*opaciteLocale) + dst[VERT]);
-            result[BLEU] = Math.min(VALEUR_MAXIMALE, (int) (src[BLEU]*opaciteLocale) + dst[BLEU]);
+			result[ROUGE] = Math.min(VALEUR_MAXIMALE, diviserPar256(src[ROUGE] * src[ALPHA]) + dst[ROUGE]);
+			result[VERT] = Math.min(VALEUR_MAXIMALE, diviserPar256(src[VERT] * src[ALPHA]) + dst[VERT]);
+			result[BLEU] = Math.min(VALEUR_MAXIMALE, diviserPar256(src[BLEU] * src[ALPHA]) + dst[BLEU]);
             result[ALPHA] = dst[ALPHA];
         }
 	},
 	PINCEAU_ADDITION_NEGATIF {
 		@Override
         public void peindre(final int[] src, final int[] dst, final int[] result) {
-        	final float opaciteLocale = (float) src[ALPHA] / VALEUR_MAXIMALE;
-        	result[ROUGE] = Math.min(VALEUR_MAXIMALE, (int) ((VALEUR_MAXIMALE-src[ROUGE])*opaciteLocale) + dst[ROUGE]);
-            result[VERT] = Math.min(VALEUR_MAXIMALE, (int) ((VALEUR_MAXIMALE-src[VERT])*opaciteLocale) + dst[VERT]);
-            result[BLEU] = Math.min(VALEUR_MAXIMALE, (int) ((VALEUR_MAXIMALE-src[BLEU])*opaciteLocale) + dst[BLEU]);
+			result[ROUGE] = Math.min(VALEUR_MAXIMALE, diviserPar256((VALEUR_MAXIMALE - src[ROUGE]) * src[ALPHA]) + dst[ROUGE]);
+			result[VERT] = Math.min(VALEUR_MAXIMALE, diviserPar256((VALEUR_MAXIMALE - src[VERT]) * src[ALPHA]) + dst[VERT]);
+			result[BLEU] = Math.min(VALEUR_MAXIMALE, diviserPar256((VALEUR_MAXIMALE - src[BLEU]) * src[ALPHA]) + dst[BLEU]);
             result[ALPHA] = dst[ALPHA];
         }
 	},
 	PINCEAU_SOUSTRACTION {
 		@Override
         public void peindre(final int[] src, final int[] dst, final int[] result) {
-        	final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
-        	result[ROUGE] = Math.max(0, (int) (dst[ROUGE] - src[ROUGE]*opaciteLocale));
-            result[VERT] = Math.max(0, (int) (dst[VERT] - src[VERT]*opaciteLocale));
-            result[BLEU] = Math.max(0, (int) (dst[BLEU] - src[BLEU]*opaciteLocale));
+			result[ROUGE] = Math.max(0, dst[ROUGE] - diviserPar256(src[ROUGE] * src[ALPHA]));
+			result[VERT] = Math.max(0, dst[VERT] - diviserPar256(src[VERT] * src[ALPHA]));
+			result[BLEU] = Math.max(0, dst[BLEU] - diviserPar256(src[BLEU] * src[ALPHA]));
             result[ALPHA] = dst[ALPHA];
         }
 	},
 	PINCEAU_SOUSTRACTION_NEGATIF {
 		@Override
         public void peindre(final int[] src, final int[] dst, final int[] result) {
-        	final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
-        	result[ROUGE] = Math.max(0, (int) (dst[ROUGE] - (VALEUR_MAXIMALE-src[ROUGE])*opaciteLocale));
-            result[VERT] = Math.max(0, (int) (dst[VERT] - (VALEUR_MAXIMALE-src[VERT])*opaciteLocale));
-            result[BLEU] = Math.max(0, (int) (dst[BLEU] - (VALEUR_MAXIMALE-src[BLEU])*opaciteLocale));
+			result[ROUGE] = Math.max(0, dst[ROUGE] - diviserPar256((VALEUR_MAXIMALE - src[ROUGE]) * src[ALPHA]));
+			result[VERT] = Math.max(0, dst[VERT] - diviserPar256((VALEUR_MAXIMALE - src[VERT]) * src[ALPHA]));
+			result[BLEU] = Math.max(0, dst[BLEU] - diviserPar256((VALEUR_MAXIMALE - src[BLEU]) * src[ALPHA]));
             result[ALPHA] = dst[ALPHA];
         }
 	},
 	PINCEAU_TOPKEK {
 		private static final float ECLAIRCISSEMENT = 0.4f;
 		private static final float ASSOMBRISSEMENT = 0.6f;
-		private static final double VIVIFICATION = 0.75;
-		private static final double FADIFICATION = 1.25;
 		private static final float JAUNISSEMENT = 0.06f;
 		private static final float BLEUISSEMENT = 0.2f;
 		
 		@Override
 		public void peindre(final int[] src, final int[] dst, final int[] result) {
-			final float opaciteLocale = (float) src[ALPHA] / (float) VALEUR_MAXIMALE;
 			final int luminositeFiltre = (src[ROUGE] + src[VERT] + src[BLEU])/3;
 			
 			// Le filtre impose sa luminosit� a l'ecran
@@ -69,9 +60,7 @@ public enum Pinceau {
 			final float coefficientLuminosite = l>=0 ? ECLAIRCISSEMENT : ASSOMBRISSEMENT;
 			
 			// Dans la lumi�re, les couleurs sont plus vives ; dans l'obscurit�, plus fades.
-			float saturation = 2.0f*luminositeFiltre / VALEUR_MAXIMALE;
-			final double coefficientSaturation = l>=0 ? VIVIFICATION : FADIFICATION;
-			saturation = (float) Maths.pow(saturation, coefficientSaturation);
+			int saturationInt = 2 * luminositeFiltre;
 			final int deltaRouge = dst[ROUGE] - luminositeEcran;
 			final int deltaVert = dst[VERT] - luminositeEcran;
 			final int deltaBleu = dst[BLEU] - luminositeEcran;
@@ -80,42 +69,49 @@ public enum Pinceau {
 			final float coefficientJaune = l>=0 ? JAUNISSEMENT : 0;
 			final float coefficientBleu = l>=0 ? 0 : -BLEUISSEMENT;
 			
-			final float resultatRouge = luminositeEcran + l*coefficientLuminosite + deltaRouge*saturation + l*coefficientJaune;
-			final float resultatVert = luminositeEcran + l*coefficientLuminosite + deltaVert*saturation + l*coefficientJaune;
-			final float resultatBleu = luminositeEcran + l*coefficientLuminosite + deltaBleu*saturation + l*coefficientBleu;
+			// C'est peut-etre plus performant si on n'utilise pas de floats dans le calcul
+			int coefficientLuminositeInt = (int) (coefficientLuminosite * VALEUR_MAXIMALE);
+			int coefficientJauneInt = (int) (coefficientJaune * VALEUR_MAXIMALE);
+			int coefficientBleuInt = (int) (coefficientBleu * VALEUR_MAXIMALE);
+			final int resultatRouge = luminositeEcran + diviserPar256(l * coefficientLuminositeInt + deltaRouge * saturationInt + l * coefficientJauneInt);
+			final int resultatVert = luminositeEcran + diviserPar256(l * coefficientLuminositeInt + deltaVert * saturationInt + l * coefficientJauneInt);
+			final int resultatBleu = luminositeEcran + diviserPar256(l * coefficientLuminositeInt + deltaBleu * saturationInt + l * coefficientBleuInt);
 			
-        	result[ROUGE] = seuiller(dst[ROUGE]*(1.0f-opaciteLocale) + resultatRouge*opaciteLocale);
-            result[VERT] = seuiller(dst[VERT]*(1.0f-opaciteLocale) + resultatVert*opaciteLocale);
-            result[BLEU] = seuiller(dst[BLEU]*(1.0f-opaciteLocale) + resultatBleu*opaciteLocale);
+			result[ROUGE] = seuiller(diviserPar256(dst[ROUGE] * (VALEUR_MAXIMALE - src[ALPHA]) + resultatRouge * src[ALPHA]));
+			result[VERT] = seuiller(diviserPar256(dst[VERT] * (VALEUR_MAXIMALE - src[ALPHA]) + resultatVert * src[ALPHA]));
+			result[BLEU] = seuiller(diviserPar256(dst[BLEU] * (VALEUR_MAXIMALE - src[ALPHA]) + resultatBleu * src[ALPHA]));
             result[ALPHA] = dst[ALPHA];
 		}
 	},
 	PINCEAU_TON_DE_L_ECRAN {
 		@Override
         public void peindre(final int[] ton, final int[] dst, final int[] result) {
-        	final float desaturation = (float) ton[ALPHA] / (float) VALEUR_MAXIMALE;
-        	final float saturation = 1.0f - desaturation;
+			final int desaturationInt = ton[ALPHA];
+			final int saturationInt = VALEUR_MAXIMALE - desaturationInt;
         	
-        	final float mediane = VALEUR_MAXIMALE/2;
-        	final float tauxRouge = (float) dst[ROUGE] / mediane - 1.0f;
-        	final float tauxVert = (float) dst[VERT] / mediane - 1.0f;
-        	final float tauxBleu = (float) dst[BLEU] / mediane - 1.0f;
+			final int tauxRouge = 2 * dst[ROUGE] - VALEUR_MAXIMALE; // entre -256 et +256
+			final int tauxVert = 2 * dst[VERT] - VALEUR_MAXIMALE; // entre -256 et +256
+			final int tauxBleu = 2 * dst[BLEU] - VALEUR_MAXIMALE; // entre -256 et +256
 
         	final int luminosite = (dst[ROUGE] + dst[VERT] + dst[BLEU])/3;
-        	final int baseRouge =  (int) (ton[ROUGE]*saturation + luminosite*desaturation);
-        	final int baseVert =  (int) (ton[VERT]*saturation + luminosite*desaturation);
-        	final int baseBleu =  (int) (ton[BLEU]*saturation + luminosite*desaturation);
+			final int baseRouge = diviserPar256(ton[ROUGE] * saturationInt + luminosite * desaturationInt);
+			final int baseVert = diviserPar256(ton[VERT] * saturationInt + luminosite * desaturationInt);
+			final int baseBleu = diviserPar256(ton[BLEU] * saturationInt + luminosite * desaturationInt);
         	
-        	result[ROUGE] = seuiller(baseRouge + (int) ((VALEUR_MAXIMALE - baseRouge)*tauxRouge*saturation));
-            result[VERT] = seuiller(baseVert + (int) ((VALEUR_MAXIMALE - baseVert)*tauxVert*saturation));
-            result[BLEU] = seuiller(baseBleu + (int) ((VALEUR_MAXIMALE - baseBleu)*tauxBleu*saturation));
+			// tauxRouge/256 est entre -1 et +1
+			// (VALEUR_MAXIMALE - baseRouge)*saturationInt /256 est entre 0 et 256
+			// donc il faut diviser deux fois par 256
+			result[ROUGE] = seuiller(baseRouge + diviserPar256(diviserPar256((VALEUR_MAXIMALE - baseRouge) * tauxRouge * saturationInt)));
+			result[VERT] = seuiller(baseVert + diviserPar256(diviserPar256((VALEUR_MAXIMALE - baseVert) * tauxVert * saturationInt)));
+			result[BLEU] = seuiller(baseBleu + diviserPar256(diviserPar256((VALEUR_MAXIMALE - baseBleu) * tauxBleu * saturationInt)));
             result[ALPHA] = dst[ALPHA];
         }
 	};
 	
 	
 	private static final Logger LOG = LogManager.getLogger(Pinceau.class);
-	public static final int VALEUR_MAXIMALE = 255;
+	/** veritable valeur maximale des couleurs */
+	private static final int VALEUR_MAXIMALE = 255; 
 	private static final int ALPHA = 0;
 	private static final int ROUGE = 1;
 	private static final int VERT = 2;
@@ -153,13 +149,17 @@ public enum Pinceau {
             	return null;
         }
     }
-    
-    /**
-     * Ne pas d�passer les valeurs limites d'un couleur.
-     * @param valeur a tronquer
-     * @return troncature
-     */
-    private static int seuiller(final float valeur) {
-    	return Math.max(0, Math.min(VALEUR_MAXIMALE, (int) valeur));
+	/**
+	 * Ne pas depasser les valeurs limites d'un couleur.
+	 * 
+	 * @param valeur a tronquer
+	 * @return troncature
+	 */
+	private static int seuiller(final int valeur) {
+		return Math.max(0, Math.min(VALEUR_MAXIMALE, valeur));
+	}
+
+	private static int diviserPar256(final int valeur) {
+		return valeur / 2 / 2 / 2 / 2 / 2 / 2 / 2 / 2;
     }
 }
