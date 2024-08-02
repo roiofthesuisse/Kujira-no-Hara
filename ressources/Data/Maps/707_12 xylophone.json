@@ -3,11 +3,6 @@
 	"tileset": "Sanctuaire de Ningyo",
 	"largeur": 21,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
 	"fondSonore": {
 		"nomFichierSonore": "010-River01.ogg",
 		"volume": 0.50,
@@ -65,6 +60,30 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
+	{
+		"id": 5,
+		"nom": "Blocage anti-évènement",
+		"x": 10,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
 	{
 		"id": 16,
 		"nom": "Interrupteur",
@@ -146,9 +165,9 @@
 		]
 	},
 	{
-		"id": 5,
+		"id": 11,
 		"nom": "Blocage anti-évènement",
-		"x": 10,
+		"x": 5,
 		"y": 6,
 		"pages": [
 		{
@@ -176,9 +195,9 @@
 		"y": 6
 	},
 	{
-		"id": 11,
+		"id": 6,
 		"nom": "Blocage anti-évènement",
-		"x": 5,
+		"x": 15,
 		"y": 6,
 		"pages": [
 		{
@@ -226,34 +245,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "Clone[341][004]",
-		"x": 18,
-		"y": 8
+		"id": 1,
+		"nom": "Clone[021][018]",
+		"x": 0,
+		"y": 0
 	},
 	{
 		"id": 12,
@@ -280,10 +275,34 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[021][018]",
-		"x": 0,
-		"y": 0
+		"id": 23,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 8
+	},
+	{
+		"id": 7,
+		"nom": "Blocage anti-évènement",
+		"x": 14,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -317,34 +336,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 24,
-		"nom": "Clone[341][004]",
-		"x": 2,
-		"y": 8
+		"id": 2,
+		"nom": "Clone[021][018]",
+		"x": 0,
+		"y": 1
 	},
 	{
 		"id": 13,
@@ -371,10 +366,34 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[021][018]",
-		"x": 0,
-		"y": 1
+		"id": 24,
+		"nom": "Clone[341][004]",
+		"x": 2,
+		"y": 8
+	},
+	{
+		"id": 8,
+		"nom": "Blocage anti-évènement",
+		"x": 15,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 19,
@@ -403,119 +422,6 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Interrupteur",
-		"x": 0,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "bouton character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				}
-				]
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 15,
-				"idAnimation": 7
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 15,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "bouton character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -725,6 +631,119 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Interrupteur",
+		"x": 0,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "bouton character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				}
+				]
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 15,
+				"idAnimation": 7
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 15,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "bouton character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Blocage anti-évènement",
+		"x": 14,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 20,
 		"nom": "EV020",
 		"x": 20,
@@ -759,9 +778,9 @@
 		]
 	},
 	{
-		"id": 9,
+		"id": 4,
 		"nom": "Blocage anti-évènement",
-		"x": 14,
+		"x": 10,
 		"y": 8,
 		"pages": [
 		{
@@ -809,10 +828,10 @@
 		]
 	},
 	{
-		"id": 4,
+		"id": 10,
 		"nom": "Blocage anti-évènement",
-		"x": 10,
-		"y": 8,
+		"x": 6,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -837,30 +856,6 @@
 		"nom": "Clone[341][004]",
 		"x": 18,
 		"y": 6
-	},
-	{
-		"id": 10,
-		"nom": "Blocage anti-évènement",
-		"x": 6,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	}
 	]
 }

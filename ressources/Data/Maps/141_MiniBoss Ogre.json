@@ -111,32 +111,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Bloquage",
-		"x": 15,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "rocher gris character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 5,
 		"nom": "Champignon explosif",
 		"x": 9,
@@ -840,6 +814,32 @@
 			"directionInitiale": 3,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Bloquage",
+		"x": 15,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
@@ -2637,59 +2637,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Obscurité",
-		"x": 18,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 20,
-				"modeDeFusion": "addition",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 0,
-				"nomImage": "001-Fog01"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 16,
-				"variable": false,
-				"nouveauX": 15,
-				"nouveauY": 21,
-				"direction": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 2,
 		"nom": "Champignon explosif",
 		"x": 20,
@@ -3396,6 +3343,59 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Obscurité",
+		"x": 18,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 20,
+				"modeDeFusion": "addition",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 200,
+				"nuance": 0,
+				"nomImage": "001-Fog01"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 16,
+				"variable": false,
+				"nouveauX": 15,
+				"nouveauY": 21,
+				"direction": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

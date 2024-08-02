@@ -66,82 +66,6 @@
 	],
 	"events": [
 	{
-		"id": 38,
-		"nom": "Clone[582][19]",
-		"x": 10,
-		"y": 11
-	},
-	{
-		"id": 27,
-		"nom": "Clone[582][18]",
-		"x": 11,
-		"y": 4
-	},
-	{
-		"id": 16,
-		"nom": "Clone[582][18]",
-		"x": 5,
-		"y": 4
-	},
-	{
-		"id": 5,
-		"nom": "Clone[582][19]",
-		"x": 6,
-		"y": 5
-	},
-	{
-		"id": 49,
-		"nom": "compteur",
-		"x": 16,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant eteint",
-			"directionInitiale": 1,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 206,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant allume",
-			"directionInitiale": 1,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 60,
 		"nom": "blocage",
 		"x": 17,
@@ -474,28 +398,10 @@
 		]
 	},
 	{
-		"id": 33,
-		"nom": "Clone[582][18]",
-		"x": 5,
-		"y": 10
-	},
-	{
-		"id": 22,
-		"nom": "Clone[582][18]",
-		"x": 9,
-		"y": 4
-	},
-	{
-		"id": 11,
-		"nom": "Clone[582][19]",
-		"x": 6,
-		"y": 9
-	},
-	{
-		"id": 44,
+		"id": 49,
 		"nom": "compteur",
-		"x": 15,
-		"y": 2,
+		"x": 16,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -506,6 +412,8 @@
 			"commandes": [
 			],
 			"image": "lune voyant eteint",
+			"directionInitiale": 1,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -521,7 +429,7 @@
 			},
 			{
 				"nom": "Variable",
-				"numeroVariable": 201,
+				"numeroVariable": 206,
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 1
 			}
@@ -529,6 +437,8 @@
 			"commandes": [
 			],
 			"image": "lune voyant allume",
+			"directionInitiale": 1,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -538,6 +448,30 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[582][19]",
+		"x": 6,
+		"y": 5
+	},
+	{
+		"id": 16,
+		"nom": "Clone[582][18]",
+		"x": 5,
+		"y": 4
+	},
+	{
+		"id": 27,
+		"nom": "Clone[582][18]",
+		"x": 11,
+		"y": 4
+	},
+	{
+		"id": 38,
+		"nom": "Clone[582][19]",
+		"x": 10,
+		"y": 11
 	},
 	{
 		"id": 55,
@@ -592,28 +526,101 @@
 		]
 	},
 	{
-		"id": 39,
+		"id": 44,
+		"nom": "compteur",
+		"x": 15,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant eteint",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 201,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant allume",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 11,
 		"nom": "Clone[582][19]",
-		"x": 10,
-		"y": 5
+		"x": 6,
+		"y": 9
 	},
 	{
-		"id": 28,
+		"id": 22,
 		"nom": "Clone[582][18]",
-		"x": 11,
-		"y": 6
+		"x": 9,
+		"y": 4
 	},
 	{
-		"id": 17,
+		"id": 33,
 		"nom": "Clone[582][18]",
 		"x": 5,
-		"y": 6
+		"y": 10
 	},
 	{
-		"id": 6,
-		"nom": "Clone[582][19]",
+		"id": 61,
+		"nom": "EV061",
 		"x": 8,
-		"y": 5
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 589,
+				"xDebutHeros": 20,
+				"yDebutHeros": 4
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 50,
@@ -668,109 +675,28 @@
 		]
 	},
 	{
-		"id": 61,
-		"nom": "EV061",
+		"id": 6,
+		"nom": "Clone[582][19]",
 		"x": 8,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 589,
-				"xDebutHeros": 20,
-				"yDebutHeros": 4
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 5
 	},
 	{
-		"id": 34,
+		"id": 17,
 		"nom": "Clone[582][18]",
-		"x": 3,
-		"y": 10
-	},
-	{
-		"id": 23,
-		"nom": "Clone[582][18]",
-		"x": 9,
+		"x": 5,
 		"y": 6
 	},
 	{
-		"id": 12,
-		"nom": "Clone[582][19]",
-		"x": 8,
-		"y": 9
+		"id": 28,
+		"nom": "Clone[582][18]",
+		"x": 11,
+		"y": 6
 	},
 	{
-		"id": 1,
+		"id": 39,
 		"nom": "Clone[582][19]",
-		"x": 4,
-		"y": 3
-	},
-	{
-		"id": 45,
-		"nom": "compteur",
-		"x": 16,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant eteint",
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 202,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant allume",
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"x": 10,
+		"y": 5
 	},
 	{
 		"id": 56,
@@ -823,28 +749,78 @@
 		]
 	},
 	{
-		"id": 40,
-		"nom": "Clone[582][19]",
-		"x": 10,
-		"y": 7
+		"id": 45,
+		"nom": "compteur",
+		"x": 16,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant eteint",
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 202,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant allume",
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 29,
-		"nom": "Clone[582][18]",
-		"x": 11,
-		"y": 8
-	},
-	{
-		"id": 18,
-		"nom": "Clone[582][18]",
-		"x": 5,
-		"y": 8
-	},
-	{
-		"id": 7,
+		"id": 1,
 		"nom": "Clone[582][19]",
 		"x": 4,
-		"y": 7
+		"y": 3
+	},
+	{
+		"id": 12,
+		"nom": "Clone[582][19]",
+		"x": 8,
+		"y": 9
+	},
+	{
+		"id": 23,
+		"nom": "Clone[582][18]",
+		"x": 9,
+		"y": 6
+	},
+	{
+		"id": 34,
+		"nom": "Clone[582][18]",
+		"x": 3,
+		"y": 10
 	},
 	{
 		"id": 51,
@@ -899,78 +875,28 @@
 		]
 	},
 	{
-		"id": 35,
+		"id": 7,
 		"nom": "Clone[582][19]",
 		"x": 4,
-		"y": 11
+		"y": 7
 	},
 	{
-		"id": 24,
+		"id": 18,
 		"nom": "Clone[582][18]",
-		"x": 9,
+		"x": 5,
 		"y": 8
 	},
 	{
-		"id": 13,
+		"id": 29,
 		"nom": "Clone[582][18]",
-		"x": 3,
-		"y": 4
+		"x": 11,
+		"y": 8
 	},
 	{
-		"id": 2,
+		"id": 40,
 		"nom": "Clone[582][19]",
-		"x": 6,
-		"y": 3
-	},
-	{
-		"id": 46,
-		"nom": "compteur",
-		"x": 17,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant eteint",
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 203,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant allume",
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"x": 10,
+		"y": 7
 	},
 	{
 		"id": 57,
@@ -1025,28 +951,78 @@
 		]
 	},
 	{
-		"id": 41,
+		"id": 46,
+		"nom": "compteur",
+		"x": 17,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant eteint",
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 203,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant allume",
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
 		"nom": "Clone[582][19]",
-		"x": 10,
-		"y": 9
+		"x": 6,
+		"y": 3
 	},
 	{
-		"id": 30,
+		"id": 13,
 		"nom": "Clone[582][18]",
-		"x": 11,
-		"y": 10
-	},
-	{
-		"id": 19,
-		"nom": "Clone[582][18]",
-		"x": 7,
+		"x": 3,
 		"y": 4
 	},
 	{
-		"id": 8,
+		"id": 24,
+		"nom": "Clone[582][18]",
+		"x": 9,
+		"y": 8
+	},
+	{
+		"id": 35,
 		"nom": "Clone[582][19]",
-		"x": 6,
-		"y": 7
+		"x": 4,
+		"y": 11
 	},
 	{
 		"id": 52,
@@ -1099,10 +1075,142 @@
 		]
 	},
 	{
-		"id": 36,
+		"id": 8,
 		"nom": "Clone[582][19]",
 		"x": 6,
-		"y": 11
+		"y": 7
+	},
+	{
+		"id": 19,
+		"nom": "Clone[582][18]",
+		"x": 7,
+		"y": 4
+	},
+	{
+		"id": 30,
+		"nom": "Clone[582][18]",
+		"x": 11,
+		"y": 10
+	},
+	{
+		"id": 41,
+		"nom": "Clone[582][19]",
+		"x": 10,
+		"y": 9
+	},
+	{
+		"id": 58,
+		"nom": "compteur",
+		"x": 17,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant eteint",
+			"directionInitiale": 3,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 215,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant allume",
+			"directionInitiale": 3,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 47,
+		"nom": "compteur",
+		"x": 18,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant eteint",
+			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 204,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant allume",
+			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[582][19]",
+		"x": 8,
+		"y": 3
+	},
+	{
+		"id": 14,
+		"nom": "Clone[582][18]",
+		"x": 3,
+		"y": 6
 	},
 	{
 		"id": 25,
@@ -1290,188 +1398,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[582][18]",
-		"x": 3,
-		"y": 6
-	},
-	{
-		"id": 3,
+		"id": 36,
 		"nom": "Clone[582][19]",
-		"x": 8,
-		"y": 3
-	},
-	{
-		"id": 47,
-		"nom": "compteur",
-		"x": 18,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant eteint",
-			"animationInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 204,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant allume",
-			"animationInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 58,
-		"nom": "compteur",
-		"x": 17,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant eteint",
-			"directionInitiale": 3,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 215,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant allume",
-			"directionInitiale": 3,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 31,
-		"nom": "Clone[582][18]",
-		"x": 9,
-		"y": 10
-	},
-	{
-		"id": 20,
-		"nom": "Clone[582][18]",
-		"x": 7,
-		"y": 6
-	},
-	{
-		"id": 9,
-		"nom": "Clone[582][19]",
-		"x": 8,
-		"y": 7
-	},
-	{
-		"id": 53,
-		"nom": "compteur",
-		"x": 16,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant eteint",
-			"directionInitiale": 2,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 210,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant allume",
-			"directionInitiale": 2,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"x": 6,
+		"y": 11
 	},
 	{
 		"id": 42,
@@ -1789,34 +1719,10 @@
 		]
 	},
 	{
-		"id": 37,
-		"nom": "Clone[582][19]",
-		"x": 8,
-		"y": 11
-	},
-	{
-		"id": 26,
-		"nom": "Clone[582][19]",
-		"x": 10,
-		"y": 3
-	},
-	{
-		"id": 15,
-		"nom": "Clone[582][18]",
-		"x": 3,
-		"y": 8
-	},
-	{
-		"id": 4,
-		"nom": "Clone[582][19]",
-		"x": 4,
-		"y": 5
-	},
-	{
-		"id": 48,
+		"id": 53,
 		"nom": "compteur",
-		"x": 15,
-		"y": 3,
+		"x": 16,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -1827,7 +1733,8 @@
 			"commandes": [
 			],
 			"image": "lune voyant eteint",
-			"directionInitiale": 1,
+			"directionInitiale": 2,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1843,7 +1750,7 @@
 			},
 			{
 				"nom": "Variable",
-				"numeroVariable": 205,
+				"numeroVariable": 210,
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 1
 			}
@@ -1851,7 +1758,8 @@
 			"commandes": [
 			],
 			"image": "lune voyant allume",
-			"directionInitiale": 1,
+			"directionInitiale": 2,
+			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1861,6 +1769,24 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[582][19]",
+		"x": 8,
+		"y": 7
+	},
+	{
+		"id": 20,
+		"nom": "Clone[582][18]",
+		"x": 7,
+		"y": 6
+	},
+	{
+		"id": 31,
+		"nom": "Clone[582][18]",
+		"x": 9,
+		"y": 10
 	},
 	{
 		"id": 59,
@@ -1915,22 +1841,130 @@
 		]
 	},
 	{
-		"id": 32,
-		"nom": "Clone[582][18]",
-		"x": 7,
-		"y": 10
+		"id": 48,
+		"nom": "compteur",
+		"x": 15,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant eteint",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 205,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant allume",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 21,
+		"id": 4,
+		"nom": "Clone[582][19]",
+		"x": 4,
+		"y": 5
+	},
+	{
+		"id": 15,
 		"nom": "Clone[582][18]",
-		"x": 7,
+		"x": 3,
 		"y": 8
 	},
 	{
-		"id": 10,
+		"id": 26,
 		"nom": "Clone[582][19]",
-		"x": 4,
-		"y": 9
+		"x": 10,
+		"y": 3
+	},
+	{
+		"id": 37,
+		"nom": "Clone[582][19]",
+		"x": 8,
+		"y": 11
+	},
+	{
+		"id": 54,
+		"nom": "compteur",
+		"x": 17,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant eteint",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 211,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": "lune voyant allume",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 43,
@@ -1985,56 +2019,22 @@
 		]
 	},
 	{
-		"id": 54,
-		"nom": "compteur",
-		"x": 17,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant eteint",
-			"directionInitiale": 2,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 211,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": "lune voyant allume",
-			"directionInitiale": 2,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 10,
+		"nom": "Clone[582][19]",
+		"x": 4,
+		"y": 9
+	},
+	{
+		"id": 21,
+		"nom": "Clone[582][18]",
+		"x": 7,
+		"y": 8
+	},
+	{
+		"id": 32,
+		"nom": "Clone[582][18]",
+		"x": 7,
+		"y": 10
 	}
 	]
 }

@@ -4,7 +4,7 @@
 	"largeur": 100,
 	"hauteur": 75,
 	"musique": {
-		"nomFichierSonore": "Obscurité et Solitude.ogg",
+		"nomFichierSonore": "Obscurite et solitude.ogg",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
@@ -335,6 +335,87 @@
 		"y": 54
 	},
 	{
+		"id": 148,
+		"nom": "fillette",
+		"x": 16,
+		"y": 37,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 153,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"emeline\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I sell candles to people who want to make \\na wish to \\c[2]Heeboo\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je vends des chandelles aux gens \\nqui veulent faire un voeu à \\c[2]Hibu\\c[0]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) These are \"magic\" relighting birthday candles: \\nthey light up by themselves."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ce sont des bougies \"magiques\" d'anniversaire.\\nElles se rallument toutes seules."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This annoys the priests of Saint Steeven, \\nwho cannot extinguish them."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ça agace les prêtres de l'église Saint Steeven, \\nqui ne peuvent pas les éteindre."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This cult is prohibited by the rationalists, \\nbut don't listen to them: \\n\\c[2]Heeboo\\c[0] will keep his word, \\nhe will grant all wishes !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ce culte est prohibé par les rationnalistes,\\nmais ne les écoute pas : \\c[2]Hibu\\c[0] tiendra sa parole,\\nil exaucera tous les voeux !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "fillette character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 56,
 		"nom": "Clone[582][81]",
 		"x": 58,
@@ -419,6 +500,41 @@
 		"nom": "Clone[582][81]",
 		"x": 49,
 		"y": 11
+	},
+	{
+		"id": 149,
+		"nom": "triche",
+		"x": 22,
+		"y": 42,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 153,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Message",
+				"texte": "gjhgfjn"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -533,7 +649,7 @@
 	},
 	{
 		"id": 2,
-		"nom": "Réglages initiaux",
+		"nom": "brouillard",
 		"x": 7,
 		"y": 33,
 		"pages": [
@@ -696,6 +812,20 @@
 			{
 				"nom": "EffacerImage",
 				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "brouillard"
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 175,
+				"modeDeFusion": "addition",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "hibu fog"
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -1285,6 +1415,31 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 161,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Hibu a été rencontré\\non n'a plus besoin du torii\\nil faut utiliser les petites grottes latérales"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -2334,6 +2489,160 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "la vente de bougies illégale n'est pas toujours présente"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"valeurADonner2": 3,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 141,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 140,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 142,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 143,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 144,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 148,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -2807,40 +3116,6 @@
 		"y": 66
 	},
 	{
-		"id": 139,
-		"nom": "brouillard",
-		"x": 7,
-		"y": 34,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 175,
-				"modeDeFusion": "addition",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 100,
-				"nuance": 0,
-				"nomImage": "hibu fog"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 28,
 		"nom": "Clone[582][77]",
 		"x": 27,
@@ -3102,7 +3377,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) However, we put up lots of signs \\nsaying not to make a wish on the demon!"
+				"texte": "(en) However, we put up lots of signs \\nsaying not to make a wish to the demon!"
 			},
 			{
 				"nom": "Message",
@@ -3660,6 +3935,38 @@
 		"y": 7
 	},
 	{
+		"id": 142,
+		"nom": "caisse de bougies",
+		"x": 14,
+		"y": 37,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 153,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			],
+			"image": "caisses remplies character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 13,
 		"nom": "Clone[582][80]",
 		"x": 81,
@@ -3855,16 +4162,16 @@
 		]
 	},
 	{
-		"id": 32,
-		"nom": "Clone[582][80]",
-		"x": 79,
-		"y": 57
-	},
-	{
 		"id": 69,
 		"nom": "Clone[582][81]",
 		"x": 14,
 		"y": 20
+	},
+	{
+		"id": 32,
+		"nom": "Clone[582][80]",
+		"x": 79,
+		"y": 57
 	},
 	{
 		"id": 106,
@@ -3873,22 +4180,36 @@
 		"y": 48
 	},
 	{
-		"id": 14,
-		"nom": "Clone[582][80]",
-		"x": 74,
-		"y": 7
-	},
-	{
-		"id": 51,
-		"nom": "Clone[582][77]",
-		"x": 59,
-		"y": 29
-	},
-	{
-		"id": 88,
-		"nom": "Clone[582][80]",
-		"x": 21,
-		"y": 13
+		"id": 143,
+		"nom": "caisse de bougies",
+		"x": 15,
+		"y": 37,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 153,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			],
+			"image": "caisses remplies character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 125,
@@ -4068,16 +4389,22 @@
 		]
 	},
 	{
-		"id": 107,
-		"nom": "Clone[582][81]",
-		"x": 73,
-		"y": 49
+		"id": 88,
+		"nom": "Clone[582][80]",
+		"x": 21,
+		"y": 13
 	},
 	{
-		"id": 70,
+		"id": 51,
+		"nom": "Clone[582][77]",
+		"x": 59,
+		"y": 29
+	},
+	{
+		"id": 14,
 		"nom": "Clone[582][80]",
-		"x": 15,
-		"y": 19
+		"x": 74,
+		"y": 7
 	},
 	{
 		"id": 33,
@@ -4086,22 +4413,48 @@
 		"y": 47
 	},
 	{
-		"id": 89,
-		"nom": "Clone[582][81]",
-		"x": 22,
-		"y": 16
-	},
-	{
-		"id": 52,
-		"nom": "Clone[582][77]",
-		"x": 60,
-		"y": 30
-	},
-	{
-		"id": 15,
+		"id": 70,
 		"nom": "Clone[582][80]",
-		"x": 77,
-		"y": 7
+		"x": 15,
+		"y": 19
+	},
+	{
+		"id": 107,
+		"nom": "Clone[582][81]",
+		"x": 73,
+		"y": 49
+	},
+	{
+		"id": 144,
+		"nom": "caisse de bougies",
+		"x": 17,
+		"y": 37,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 153,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			],
+			"image": "caisses remplies character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 126,
@@ -4281,16 +4634,22 @@
 		]
 	},
 	{
-		"id": 108,
-		"nom": "Clone[582][81]",
-		"x": 71,
-		"y": 48
+		"id": 15,
+		"nom": "Clone[582][80]",
+		"x": 77,
+		"y": 7
 	},
 	{
-		"id": 71,
+		"id": 52,
+		"nom": "Clone[582][77]",
+		"x": 60,
+		"y": 30
+	},
+	{
+		"id": 89,
 		"nom": "Clone[582][81]",
-		"x": 85,
-		"y": 17
+		"x": 22,
+		"y": 16
 	},
 	{
 		"id": 34,
@@ -4299,22 +4658,16 @@
 		"y": 47
 	},
 	{
-		"id": 90,
+		"id": 71,
 		"nom": "Clone[582][81]",
-		"x": 23,
-		"y": 13
+		"x": 85,
+		"y": 17
 	},
 	{
-		"id": 53,
-		"nom": "Clone[582][80]",
-		"x": 60,
-		"y": 29
-	},
-	{
-		"id": 16,
-		"nom": "Clone[582][80]",
-		"x": 77,
-		"y": 9
+		"id": 108,
+		"nom": "Clone[582][81]",
+		"x": 71,
+		"y": 48
 	},
 	{
 		"id": 127,
@@ -4494,16 +4847,22 @@
 		]
 	},
 	{
-		"id": 109,
-		"nom": "Clone[582][81]",
-		"x": 84,
-		"y": 46
+		"id": 16,
+		"nom": "Clone[582][80]",
+		"x": 77,
+		"y": 9
 	},
 	{
-		"id": 72,
+		"id": 53,
 		"nom": "Clone[582][80]",
-		"x": 85,
-		"y": 16
+		"x": 60,
+		"y": 29
+	},
+	{
+		"id": 90,
+		"nom": "Clone[582][81]",
+		"x": 23,
+		"y": 13
 	},
 	{
 		"id": 35,
@@ -4512,22 +4871,16 @@
 		"y": 48
 	},
 	{
-		"id": 91,
-		"nom": "Clone[582][77]",
-		"x": 74,
-		"y": 12
-	},
-	{
-		"id": 54,
+		"id": 72,
 		"nom": "Clone[582][80]",
-		"x": 59,
-		"y": 30
+		"x": 85,
+		"y": 16
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][004]",
-		"x": 73,
-		"y": 7
+		"id": 109,
+		"nom": "Clone[582][81]",
+		"x": 84,
+		"y": 46
 	},
 	{
 		"id": 128,
@@ -4583,10 +4936,28 @@
 		]
 	},
 	{
-		"id": 110,
-		"nom": "Clone[582][81]",
-		"x": 36,
-		"y": 27
+		"id": 17,
+		"nom": "Clone[341][004]",
+		"x": 73,
+		"y": 7
+	},
+	{
+		"id": 54,
+		"nom": "Clone[582][80]",
+		"x": 59,
+		"y": 30
+	},
+	{
+		"id": 91,
+		"nom": "Clone[582][77]",
+		"x": 74,
+		"y": 12
+	},
+	{
+		"id": 36,
+		"nom": "Clone[341][004]",
+		"x": 52,
+		"y": 48
 	},
 	{
 		"id": 73,
@@ -4595,10 +4966,10 @@
 		"y": 15
 	},
 	{
-		"id": 36,
-		"nom": "Clone[341][004]",
-		"x": 52,
-		"y": 48
+		"id": 110,
+		"nom": "Clone[582][81]",
+		"x": 36,
+		"y": 27
 	}
 	]
 }

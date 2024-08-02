@@ -5,7 +5,7 @@
 	"hauteur": 30,
 	"musique": {
 		"nomFichierSonore": "Maison.ogg",
-		"volume": 1.00,
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -154,31 +154,6 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Geographe",
-		"x": 14,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "géographe chraratcer",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
 		}
 		]
 	},
@@ -380,7 +355,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Un gros rocher pour une montagne, \\nune poignée de sable pour un desert, \\nou bien de l'eau claire pour une rivière..."
+				"texte": "Un gros rocher pour une montagne, \\nune poignée de sable pour un désert, \\nou bien de l'eau claire pour une rivière..."
 			},
 			{
 				"nom": "Commentaire",
@@ -534,11 +509,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Did you find it to the east of this place?"
+				"texte": "(en) So you found it northeast of my house?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu l'as trouvée à l'Est d'ici ?"
+				"texte": "Tu l'as trouvée au Nord-Est de ma maison ?"
 			},
 			{
 				"nom": "Commentaire",
@@ -1878,6 +1853,31 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Geographe",
+		"x": 14,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "géographe chraratcer",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "scientifique",
 		"x": 12,
@@ -2034,6 +2034,34 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "effacer annonce lieu",
+		"x": 16,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 2,
 		"nom": "EV002",
 		"x": 19,
@@ -2081,38 +2109,75 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "effacer annonce lieu",
-		"x": 16,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][165]",
 		"x": 17,
 		"y": 17
+	},
+	{
+		"id": 3,
+		"nom": "Livre",
+		"x": 11,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Out of all maps, the world of Kujira \\nstretches majestically in the middle of \\nnowhere...\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Hors de toute carte, le monde de Kujira \\ns'étend majestueusement au milieu de \\nnulle-part...\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"As a \\c[2]geographer\\c[0], I will immortalize \\nthese fabulous lands in my atlases.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Etant \\c[2]géographe\\c[1], j'immortaliserai\\nces fabuleuses contrées dans mes atlas.\""
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "livre ouvert character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 14,
@@ -2179,71 +2244,6 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Livre",
-		"x": 11,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Out of all maps, the world of Kujira \\nstretches majestically in the middle of \\nnowhere...\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Hors de toute carte, le monde de Kujira \\ns'étend majestueusement au milieu de \\nnulle-part...\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"As a \\c[2]geographer\\c[0], I will immortalize \\nthese fabulous lands in my atlases.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Etant \\c[2]géographe\\c[1], j'immortaliserai\\nces fabuleuses contrées dans mes atlas.\""
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "livre ouvert character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

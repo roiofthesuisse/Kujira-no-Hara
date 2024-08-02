@@ -75,34 +75,80 @@
 	],
 	"events": [
 	{
-		"id": 27,
-		"nom": "animation perles",
-		"x": 10,
-		"y": 3,
+		"id": 60,
+		"nom": "thaumaturge 47",
+		"x": 4,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 137,
-				"valeurQuIlEstCenseAvoir": true
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 50
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			}
 			],
-			"image": "vide mais pas invisible",
+			"image": "thaumaturge noir character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 49,
+		"nom": "Clone[582][77]",
+		"x": 13,
+		"y": 9
+	},
+	{
+		"id": 38,
+		"nom": "thaumaturge 38",
+		"x": 5,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "thaumaturge noir character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "thaumaturge 5",
+		"x": 6,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "thaumaturge noir character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -137,11 +183,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) He played... the Ranz des vaches?!"
+				"texte": "(en) \\c[2]Fiolin\\c[0] played... the Ranz des vaches?!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Il a joué... le Ranz des vaches ?!"
+				"texte": "\\c[2]Fiolin\\c[0] a joué... le Ranz des vaches ?!"
 			},
 			{
 				"nom": "Commentaire",
@@ -178,118 +224,51 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "thaumaturge 5",
-		"x": 6,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "thaumaturge noir character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 38,
-		"nom": "thaumaturge 38",
-		"x": 5,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "thaumaturge noir character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 49,
-		"nom": "Clone[582][77]",
-		"x": 13,
-		"y": 9
-	},
-	{
-		"id": 60,
-		"nom": "thaumaturge 47",
-		"x": 4,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "thaumaturge noir character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][003]",
-		"x": 16,
-		"y": 5
-	},
-	{
-		"id": 33,
-		"nom": "perle verte",
+		"id": 27,
+		"nom": "animation perles",
 		"x": 10,
-		"y": 0,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 137,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 50
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			}
 			],
-			"image": "perle character",
-			"opacite": 0,
-			"directionInitiale": 1,
+			"image": "vide mais pas invisible",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 55,
+		"nom": "Clone[582][80]",
+		"x": 13,
+		"y": 10
+	},
+	{
+		"id": 11,
+		"nom": "Clone[582][81]",
+		"x": 6,
+		"y": 5
 	},
 	{
 		"id": 44,
@@ -481,22 +460,10 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[582][81]",
-		"x": 6,
-		"y": 5
-	},
-	{
-		"id": 55,
-		"nom": "Clone[582][80]",
-		"x": 13,
-		"y": 10
-	},
-	{
-		"id": 28,
-		"nom": "fillette 28",
-		"x": 12,
-		"y": 5,
+		"id": 33,
+		"nom": "perle verte",
+		"x": 10,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -505,65 +472,37 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"emeline\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The Key of time allows a person\\nto travel to the distant\\npast."
-			},
-			{
-				"nom": "Message",
-				"texte": "La clé des temps permet à une personne \\nde voyager dans le passé lointain."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The Key of space is the only\\nway to get out of \\c[2]Kujira\\c[0]\\nthe whale."
-			},
-			{
-				"nom": "Message",
-				"texte": "La clé des lieux est le seul moyen de sortir \\nde \\c[2]Kujira\\c[1] la baleine."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Heeboo\\c[0] knew how to distinguish them."
-			},
-			{
-				"nom": "Message",
-				"texte": "Hibu savait les distinguer."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
 			],
-			"image": "fillette character",
+			"image": "perle character",
+			"opacite": 0,
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 17,
-		"nom": "viking rouge 17",
-		"x": 12,
-		"y": 13,
+		"id": 22,
+		"nom": "Clone[341][003]",
+		"x": 16,
+		"y": 5
+	},
+	{
+		"id": 50,
+		"nom": "Clone[582][77]",
+		"x": 14,
+		"y": 6
+	},
+	{
+		"id": 39,
+		"nom": "thaumaturge 39",
+		"x": 4,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -573,12 +512,11 @@
 			],
 			"commandes": [
 			],
-			"image": "viking femme petit character",
-			"directionInitiale": 3,
+			"image": "thaumaturge noir character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -1623,10 +1561,10 @@
 		]
 	},
 	{
-		"id": 39,
-		"nom": "thaumaturge 39",
-		"x": 4,
-		"y": 12,
+		"id": 17,
+		"nom": "viking rouge 17",
+		"x": 12,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -1636,11 +1574,12 @@
 			],
 			"commandes": [
 			],
-			"image": "thaumaturge noir character",
+			"image": "viking femme petit character",
+			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": true,
+			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -1648,10 +1587,116 @@
 		]
 	},
 	{
-		"id": 50,
-		"nom": "Clone[582][77]",
-		"x": 14,
+		"id": 28,
+		"nom": "fillette 28",
+		"x": 12,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"emeline\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The key of time allows a person to travel \\nto the distant past."
+			},
+			{
+				"nom": "Message",
+				"texte": "La clé des temps permet à une personne \\nde voyager dans le passé lointain."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The key of space is the only way \\nto get out of \\c[2]Kujira\\c[0] the whale."
+			},
+			{
+				"nom": "Message",
+				"texte": "La clé des lieux est le seul moyen de sortir \\nde \\c[2]Kujira\\c[1] la baleine."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Heeboo\\c[0] knew how to distinguish them."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Hibu\\c[0] savait les distinguer."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "fillette character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 45,
+		"nom": "Clone[582][80]",
+		"x": 6,
 		"y": 6
+	},
+	{
+		"id": 56,
+		"nom": "Clone[582][81]",
+		"x": 7,
+		"y": 10
+	},
+	{
+		"id": 12,
+		"nom": "Clone[582][81]",
+		"x": 6,
+		"y": 9
+	},
+	{
+		"id": 34,
+		"nom": "perle jaune",
+		"x": 14,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "perle character",
+			"opacite": 0,
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -1676,6 +1721,10 @@
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				},
+				{
 					"nom": "RegarderDansUneDirection",
 					"direction": 3
 				},
@@ -1698,7 +1747,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Hibu et son keikaku.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -2171,7 +2220,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\SHAKE Without the sixth pearl,\\nthey couldn't have opened the key room.\\nI don't understand!"
+				"texte": "(en) \\SHAKE Without the sixth pearl, they couldn't have \\nopened the room of the keys.\\nI don't understand!"
 			},
 			{
 				"nom": "Message",
@@ -2294,7 +2343,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Fiolin theme 2.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -2848,7 +2897,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Mathusalem flashback.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -3053,10 +3102,16 @@
 		]
 	},
 	{
-		"id": 34,
-		"nom": "perle jaune",
-		"x": 14,
-		"y": 3,
+		"id": 51,
+		"nom": "Clone[582][80]",
+		"x": 6,
+		"y": 8
+	},
+	{
+		"id": 40,
+		"nom": "thaumaturge 40",
+		"x": 15,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -3066,42 +3121,22 @@
 			],
 			"commandes": [
 			],
-			"image": "perle character",
-			"opacite": 0,
-			"directionInitiale": 2,
+			"image": "thaumaturge noir character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Clone[582][81]",
-		"x": 6,
-		"y": 9
-	},
-	{
-		"id": 56,
-		"nom": "Clone[582][81]",
-		"x": 7,
-		"y": 10
-	},
-	{
-		"id": 45,
-		"nom": "Clone[582][80]",
-		"x": 6,
-		"y": 6
-	},
-	{
-		"id": 29,
-		"nom": "platon 29",
-		"x": 5,
-		"y": 4,
+		"id": 7,
+		"nom": "tabula 7",
+		"x": 11,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -3110,7 +3145,59 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 64
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) THE RANZ DES VACHES..."
+			},
+			{
+				"nom": "Message",
+				"texte": "LE RANZ DES VACHES..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) IT REMINDS ME... MY NATIVE COUNTRY..."
+			},
+			{
+				"nom": "Message",
+				"texte": "IL ME RAPPELLE... MON PAYS NATAL..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I... I'M CRYING!"
+			},
+			{
+				"nom": "Message",
+				"texte": "JE... JE PLEURE !"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 65
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
+			"image": "tabula le terrible",
+			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -3182,10 +3269,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "tabula 7",
-		"x": 11,
-		"y": 12,
+		"id": 29,
+		"nom": "platon 29",
+		"x": 5,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -3194,59 +3281,7 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 64
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"tabula\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) THE RANZ DES VACHES..."
-			},
-			{
-				"nom": "Message",
-				"texte": "LE RANZ DES VACHES..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) IT REMINDS ME... MY NATIVE COUNTRY..."
-			},
-			{
-				"nom": "Message",
-				"texte": "IL ME RAPPELLE... MON PAYS NATAL..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I... I CRIED!"
-			},
-			{
-				"nom": "Message",
-				"texte": "JE... JE PLEURE !"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 65
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
 			],
-			"image": "tabula le terrible",
-			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -3258,9 +3293,9 @@
 		]
 	},
 	{
-		"id": 40,
-		"nom": "thaumaturge 40",
-		"x": 15,
+		"id": 57,
+		"nom": "thaumaturge 44",
+		"x": 16,
 		"y": 11,
 		"pages": [
 		{
@@ -3283,16 +3318,16 @@
 		]
 	},
 	{
-		"id": 51,
-		"nom": "Clone[582][80]",
+		"id": 46,
+		"nom": "Clone[582][77]",
 		"x": 6,
-		"y": 8
+		"y": 7
 	},
 	{
-		"id": 24,
-		"nom": "viking jaune 24",
-		"x": 8,
-		"y": 13,
+		"id": 35,
+		"nom": "perle violette",
+		"x": 12,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -3302,23 +3337,18 @@
 			],
 			"commandes": [
 			],
-			"image": "viking2 petit character",
+			"image": "perle character",
+			"opacite": 0,
 			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][003]",
-		"x": 4,
-		"y": 5
 	},
 	{
 		"id": 2,
@@ -4358,10 +4388,16 @@
 		]
 	},
 	{
-		"id": 35,
-		"nom": "perle violette",
-		"x": 12,
-		"y": 7,
+		"id": 13,
+		"nom": "Clone[341][003]",
+		"x": 4,
+		"y": 5
+	},
+	{
+		"id": 24,
+		"nom": "viking jaune 24",
+		"x": 8,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -4371,29 +4407,28 @@
 			],
 			"commandes": [
 			],
-			"image": "perle character",
-			"opacite": 0,
+			"image": "viking2 petit character",
 			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 46,
-		"nom": "Clone[582][77]",
-		"x": 6,
-		"y": 7
+		"id": 52,
+		"nom": "Clone[582][81]",
+		"x": 14,
+		"y": 10
 	},
 	{
-		"id": 57,
-		"nom": "thaumaturge 44",
-		"x": 16,
+		"id": 41,
+		"nom": "thaumaturge 41",
+		"x": 14,
 		"y": 11,
 		"pages": [
 		{
@@ -4416,10 +4451,10 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "Wuerrenz 30",
-		"x": 15,
-		"y": 4,
+		"id": 8,
+		"nom": "maitre des malefices 8",
+		"x": 10,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -4428,11 +4463,62 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"maitre des malefices\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) One of them is the key of time...\\nThe other is the key of space..."
+			},
+			{
+				"nom": "Message",
+				"texte": "L'une des deux est la clé des temps...\\nL'autre est la clé des lieux..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What do I really want?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Qu'est-ce que je veux vraiment au juste ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) My heart is torn."
+			},
+			{
+				"nom": "Message",
+				"texte": "Mon coeur est tiraillé."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is there any point in hesitating,\\nif I don't even know which is which?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Est-ce que ça sert à quelque chose d'hésiter, \\nsi je ne sais même pas laquelle est laquelle ?"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
+			"image": "maitre des malefices character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -4500,10 +4586,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "maitre des malefices 8",
-		"x": 10,
-		"y": 9,
+		"id": 30,
+		"nom": "Wuerrenz 30",
+		"x": 15,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -4512,62 +4598,11 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"maitre des malefices\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) One of them is the Key of time...\\nThe other is the Key of space..."
-			},
-			{
-				"nom": "Message",
-				"texte": "L'une des deux est la clé des temps...\\nL'autre est la clé des lieux..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) What do I really want?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Qu'est-ce que je veux vraiment au juste ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) My heart is torn."
-			},
-			{
-				"nom": "Message",
-				"texte": "Mon coeur est tiraillé."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Is there any point in hesitating,\\nif I don't even know which is which?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Est-ce que ça sert à quelque chose d'hésiter, \\nsi je ne sais même pas laquelle est laquelle ?"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
 			],
-			"image": "maitre des malefices character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": true,
+			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -4575,10 +4610,10 @@
 		]
 	},
 	{
-		"id": 41,
-		"nom": "thaumaturge 41",
-		"x": 14,
-		"y": 11,
+		"id": 58,
+		"nom": "thaumaturge 45",
+		"x": 15,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -4600,10 +4635,80 @@
 		]
 	},
 	{
-		"id": 52,
-		"nom": "Clone[582][81]",
-		"x": 14,
-		"y": 10
+		"id": 47,
+		"nom": "Clone[582][77]",
+		"x": 7,
+		"y": 9
+	},
+	{
+		"id": 36,
+		"nom": "perle orange",
+		"x": 8,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "perle bis character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "brouillard",
+		"x": 0,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "brouillard"
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 125,
+				"modeDeFusion": "addition",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "hibu fog2"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"image": 8,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 25,
@@ -4666,82 +4771,16 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "brouillard",
-		"x": 0,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 50,
-				"modeDeFusion": "addition",
-				"defilementX": 1,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 180,
-				"nomImage": "006-Sandstorm02"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": 8,
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 53,
+		"nom": "Clone[582][81]",
+		"x": 14,
+		"y": 7
 	},
 	{
-		"id": 36,
-		"nom": "perle orange",
-		"x": 8,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "perle bis character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 47,
-		"nom": "Clone[582][77]",
-		"x": 7,
-		"y": 9
-	},
-	{
-		"id": 58,
-		"nom": "thaumaturge 45",
+		"id": 42,
+		"nom": "thaumaturge 42",
 		"x": 15,
-		"y": 10,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -4763,9 +4802,9 @@
 		]
 	},
 	{
-		"id": 31,
-		"nom": "Fiolin 31",
-		"x": 3,
+		"id": 9,
+		"nom": "thaumaturge 9",
+		"x": 9,
 		"y": 9,
 		"pages": [
 		{
@@ -4775,11 +4814,38 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"thaumaturge noir\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We \\c[2]dark thaumaturgists\\c[0] can't see colors."
+			},
+			{
+				"nom": "Message",
+				"texte": "Nous, \\c[2]thaumaturges noirs\\c[1], ne voyons pas \\nles couleurs."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
+			"image": "thaumaturge noir character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -4855,9 +4921,9 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "thaumaturge 9",
-		"x": 9,
+		"id": 31,
+		"nom": "Fiolin 31",
+		"x": 3,
 		"y": 9,
 		"pages": [
 		{
@@ -4867,130 +4933,94 @@
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"thaumaturge noir\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) We \\c[2]dark thaumaturgists\\c[0] can't see colors."
-			},
-			{
-				"nom": "Message",
-				"texte": "Nous, \\c[2]thaumaturges noirs\\c[1], ne voyons pas \\nles couleurs."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
 			],
-			"image": "thaumaturge noir character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 42,
-		"nom": "thaumaturge 42",
-		"x": 15,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "thaumaturge noir character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 53,
-		"nom": "Clone[582][81]",
-		"x": 14,
-		"y": 7
-	},
-	{
-		"id": 26,
-		"nom": "dobreniev 26",
-		"x": 8,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 64
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"dobreniev\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) *sob*"
-			},
-			{
-				"nom": "Message",
-				"texte": "*snif*"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 65
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "dobreniev character",
-			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 59,
+		"nom": "thaumaturge 46",
+		"x": 5,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "thaumaturge noir character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 48,
+		"nom": "Clone[582][80]",
+		"x": 14,
+		"y": 5
+	},
+	{
+		"id": 37,
+		"nom": "thaumaturge 37",
+		"x": 6,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "thaumaturge noir character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "explosion sur Hibu",
+		"x": 10,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 8,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -5057,92 +5087,10 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "explosion sur Hibu",
-		"x": 10,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 8,
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 37,
-		"nom": "thaumaturge 37",
-		"x": 6,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "thaumaturge noir character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 48,
-		"nom": "Clone[582][80]",
-		"x": 14,
-		"y": 5
-	},
-	{
-		"id": 59,
-		"nom": "thaumaturge 46",
-		"x": 5,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "thaumaturge noir character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "thaumaturge 10",
-		"x": 11,
-		"y": 9,
+		"id": 26,
+		"nom": "dobreniev 26",
+		"x": 8,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -5157,16 +5105,24 @@
 				"valeur": true
 			},
 			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 64
+			},
+			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"thaumaturge noir\""
+				"script": "$game_temp.faceset = \"dobreniev\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) The Key of space is the one on the right...\\nuh no! The one on the left!"
+				"texte": "(en) *sob*"
 			},
 			{
 				"nom": "Message",
-				"texte": "La clé des lieux est celle de droite...\\neuh non ! Celle de gauche !"
+				"texte": "*snif*"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 65
 			},
 			{
 				"nom": "Attendre",
@@ -5178,6 +5134,38 @@
 				"valeur": false
 			}
 			],
+			"image": "dobreniev character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 54,
+		"nom": "Clone[582][80]",
+		"x": 14,
+		"y": 9
+	},
+	{
+		"id": 43,
+		"nom": "thaumaturge 43",
+		"x": 16,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
 			"image": "thaumaturge noir character",
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -5185,6 +5173,32 @@
 			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 32,
+		"nom": "perle rouge",
+		"x": 6,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "perle character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -5369,10 +5383,10 @@
 		]
 	},
 	{
-		"id": 32,
-		"nom": "perle rouge",
-		"x": 6,
-		"y": 3,
+		"id": 10,
+		"nom": "thaumaturge 10",
+		"x": 11,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -5381,32 +5395,32 @@
 			}
 			],
 			"commandes": [
-			],
-			"image": "perle character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 43,
-		"nom": "thaumaturge 43",
-		"x": 16,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"thaumaturge noir\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The Key of space is the one on the right...\\nuh no! The one on the left!"
+			},
+			{
+				"nom": "Message",
+				"texte": "La clé des lieux est celle de droite...\\neuh non ! Celle de gauche !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
-			],
-			"commandes": [
 			],
 			"image": "thaumaturge noir character",
 			"vitesse": "moderee",
@@ -5418,12 +5432,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 54,
-		"nom": "Clone[582][80]",
-		"x": 14,
-		"y": 9
 	}
 	]
 }

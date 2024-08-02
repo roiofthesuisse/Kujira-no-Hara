@@ -4,8 +4,8 @@
 	"largeur": 30,
 	"hauteur": 30,
 	"musique": {
-		"nomFichierSonore": "Zone enneigée.ogg",
-		"volume": 1.00,
+		"nomFichierSonore": "Zone enneigee.ogg",
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -186,6 +186,12 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[572][5]",
+		"x": 23,
+		"y": 16
+	},
+	{
 		"id": 56,
 		"nom": "EV056",
 		"x": 0,
@@ -204,43 +210,6 @@
 				"numeroNouvelleMap": 245,
 				"xDebutHeros": 28,
 				"yDebutHeros": 13
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[572][5]",
-		"x": 23,
-		"y": 16
-	},
-	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 23,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 639,
-				"xDebutHeros": 12,
-				"yDebutHeros": 24
 			}
 			],
 			"vitesse": "moderee",
@@ -273,7 +242,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Midnight frost, I borrowed to\\nsleep the sleeve of a\\nscarecrow!\""
+				"texte": "(en) \"Midnight frost, \\nI borrowed to sleep \\nthe sleeve of a scarecrow!\""
 			},
 			{
 				"nom": "Message",
@@ -308,10 +277,35 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][006]",
-		"x": 22,
-		"y": 12
+		"id": 7,
+		"nom": "EV007",
+		"x": 23,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 639,
+				"xDebutHeros": 12,
+				"yDebutHeros": 24
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 57,
@@ -343,6 +337,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][006]",
+		"x": 22,
+		"y": 12
 	},
 	{
 		"id": 8,
@@ -727,12 +727,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][039]",
-		"x": 8,
-		"y": 18
-	},
-	{
 		"id": 59,
 		"nom": "Pancarte",
 		"x": 13,
@@ -758,11 +752,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\u2191 \\c[2]Yellow Vikings\\c[0]' village\\n\\u2190 HSA station"
+				"texte": "(en) \\u2191 \\c[2]Yellow Vikings\\c[0]' village\\n\\u2190 HSA station\\n\\u2190 Aquatic plains"
 			},
 			{
 				"nom": "Message",
-				"texte": "\\u2191 Village viking jaune\\n\\u2190 Station AGV"
+				"texte": "\\u2191 Village viking jaune\\n\\u2190 Station AGV\\n\\u2190 Plaines aquatiques"
 			},
 			{
 				"nom": "Attendre",
@@ -787,6 +781,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][039]",
+		"x": 8,
+		"y": 18
 	}
 	]
 }

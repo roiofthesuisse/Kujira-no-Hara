@@ -135,10 +135,238 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[537][22]",
-		"x": 12,
-		"y": 23
+		"id": 49,
+		"nom": "lumiere (160)",
+		"x": 9,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "lumiere clocher character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 10,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 58,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 171,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 172,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 173,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 174,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 175,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 176,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 177,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 178,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 178,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 59,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 57,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 27,
+		"nom": "cloche (8)",
+		"x": 8,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cloche la.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "cloches character",
+					"direction": 1,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "cloches character",
+					"direction": 1,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "cloches character",
+					"direction": 1,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "cloches character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "cloches character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 38,
@@ -645,256 +873,10 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "cloche (8)",
-		"x": 8,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "cloche la.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "cloches character",
-					"direction": 1,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "cloches character",
-					"direction": 1,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "cloches character",
-					"direction": 1,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "cloches character",
-					"direction": 1,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "cloches character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 10,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 58,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 171,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 172,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 173,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 174,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 175,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 176,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 177,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 178,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 178,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 59,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 57,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 49,
-		"nom": "lumiere (160)",
-		"x": 9,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "lumiere clocher character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 44,
-		"nom": "Clone[537][38]",
-		"x": 11,
-		"y": 12
-	},
-	{
-		"id": 33,
-		"nom": "Clone[537][38]",
-		"x": 8,
-		"y": 21
-	},
-	{
-		"id": 11,
-		"nom": "Clone[537][38]",
-		"x": 8,
-		"y": 27
+		"id": 16,
+		"nom": "Clone[537][22]",
+		"x": 12,
+		"y": 23
 	},
 	{
 		"id": 22,
@@ -994,22 +976,22 @@
 		]
 	},
 	{
-		"id": 39,
+		"id": 11,
+		"nom": "Clone[537][38]",
+		"x": 8,
+		"y": 27
+	},
+	{
+		"id": 33,
+		"nom": "Clone[537][38]",
+		"x": 8,
+		"y": 21
+	},
+	{
+		"id": 44,
 		"nom": "Clone[537][38]",
 		"x": 11,
-		"y": 14
-	},
-	{
-		"id": 28,
-		"nom": "Clone[537][14]",
-		"x": 8,
-		"y": 13
-	},
-	{
-		"id": 17,
-		"nom": "Clone[537][22]",
-		"x": 12,
-		"y": 17
+		"y": 12
 	},
 	{
 		"id": 6,
@@ -1063,22 +1045,28 @@
 		]
 	},
 	{
-		"id": 34,
-		"nom": "Clone[537][38]",
-		"x": 9,
-		"y": 20
+		"id": 17,
+		"nom": "Clone[537][22]",
+		"x": 12,
+		"y": 17
 	},
 	{
-		"id": 12,
-		"nom": "Clone[537][38]",
-		"x": 9,
-		"y": 26
-	},
-	{
-		"id": 23,
+		"id": 28,
 		"nom": "Clone[537][14]",
 		"x": 8,
-		"y": 19
+		"y": 13
+	},
+	{
+		"id": 39,
+		"nom": "Clone[537][38]",
+		"x": 11,
+		"y": 14
+	},
+	{
+		"id": 45,
+		"nom": "Clone[537][14]",
+		"x": 12,
+		"y": 10
 	},
 	{
 		"id": 1,
@@ -1863,27 +1851,21 @@
 		]
 	},
 	{
-		"id": 45,
+		"id": 23,
 		"nom": "Clone[537][14]",
-		"x": 12,
-		"y": 10
-	},
-	{
-		"id": 40,
-		"nom": "Clone[537][38]",
-		"x": 10,
-		"y": 13
-	},
-	{
-		"id": 29,
-		"nom": "Clone[537][14]",
-		"x": 12,
-		"y": 16
-	},
-	{
-		"id": 18,
-		"nom": "Clone[537][22]",
 		"x": 8,
+		"y": 19
+	},
+	{
+		"id": 12,
+		"nom": "Clone[537][38]",
+		"x": 9,
+		"y": 26
+	},
+	{
+		"id": 34,
+		"nom": "Clone[537][38]",
+		"x": 9,
 		"y": 20
 	},
 	{
@@ -1928,264 +1910,81 @@
 		]
 	},
 	{
-		"id": 35,
-		"nom": "Clone[537][38]",
-		"x": 9,
-		"y": 18
+		"id": 18,
+		"nom": "Clone[537][22]",
+		"x": 8,
+		"y": 20
 	},
 	{
-		"id": 13,
-		"nom": "Clone[537][38]",
-		"x": 11,
-		"y": 24
+		"id": 29,
+		"nom": "Clone[537][14]",
+		"x": 12,
+		"y": 16
 	},
 	{
-		"id": 24,
-		"nom": "Curé",
+		"id": 40,
+		"nom": "Clone[537][38]",
 		"x": 10,
-		"y": 28,
+		"y": 13
+	},
+	{
+		"id": 46,
+		"nom": "offset cloches",
+		"x": 5,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 178,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 4,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"nom": "Commentaire",
+				"texte": "un genre d'équation différentielle du second ordre\\navec l'offset comme position et la variable comme vitesse\\nles deux s'influencent l'un l'autre"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "quête réussie"
+				"texte": "moyenne cloche (à gauche)"
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"pretre\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Thank you for your help."
-			},
-			{
-				"nom": "Message",
-				"texte": "Merci de ton aide."
-			},
-			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 81,
-				"etat": "FAITE",
-				"numero": 2
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "récompense déjà obtenue"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "récompense pas encore obtenue"
+				"script": "$game_map.events[3].offset_x((-$game_map.events[3].get_offset_x*0.5 + $game_variables[271]).to_i)"
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"pretre\""
+				"script": "$game_variables[271] -= $game_map.events[3].get_offset_x*0.5"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Here is your reward:"
-			},
-			{
-				"nom": "Message",
-				"texte": "Voici ta récompense :"
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (important).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 11
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 1,
-				"variable": false,
-				"quantite": 1
+				"texte": "grosse cloche (en bas)"
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = nil"
+				"script": "$game_map.events[4].offset_y((8-($game_map.events[4].get_offset_y-8)*0.5 + $game_variables[272]).to_i)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_variables[272] -= ($game_map.events[4].get_offset_y-8)*0.5"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You win a crystal of the whale!"
+				"texte": "petite cloche (à droite)"
 			},
 			{
-				"nom": "Message",
-				"texte": "Vous gagnez un cristal de baleine !"
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[2].offset_x((-$game_map.events[2].get_offset_x*0.5 + $game_variables[273]).to_i)"
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) This is a magic piece of crystallized salt."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
+				"nom": "AppelerUnScript",
+				"script": "$game_variables[273] -= $game_map.events[2].get_offset_x*0.5"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 82,
-				"avancement": "FAITE"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "quête pas encore réussie"
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 82,
-				"avancement": "CONNUE"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"pretre\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The vicar is sick today.\\nI need help ringing the bells."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le vicaire est malade aujourd'hui.\\nJ'ai besoin d'aide pour sonner les cloches."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Can you climb and play the same as me?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Peux-tu grimper et jouer la même chose\\nque moi ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Be very careful with the rhythm!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Fais très attention au rythme !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nombreDeFrames": 1
 			}
 			],
-			"image": "cure character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -2453,390 +2252,10 @@
 		]
 	},
 	{
-		"id": 46,
-		"nom": "offset cloches",
-		"x": 5,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "un genre d'équation différentielle du second ordre\\navec l'offset comme position et la variable comme vitesse\\nles deux s'influencent l'un l'autre"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "moyenne cloche (à gauche)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[3].offset_x((-$game_map.events[3].get_offset_x*0.5 + $game_variables[271]).to_i)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_variables[271] -= $game_map.events[3].get_offset_x*0.5"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "grosse cloche (en bas)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[4].offset_y((8-($game_map.events[4].get_offset_y-8)*0.5 + $game_variables[272]).to_i)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_variables[272] -= ($game_map.events[4].get_offset_y-8)*0.5"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "petite cloche (à droite)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[2].offset_x((-$game_map.events[2].get_offset_x*0.5 + $game_variables[273]).to_i)"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_variables[273] -= $game_map.events[2].get_offset_x*0.5"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 41,
-		"nom": "Clone[537][38]",
-		"x": 9,
-		"y": 12
-	},
-	{
-		"id": 30,
-		"nom": "Clone[537][38]",
-		"x": 12,
-		"y": 21
-	},
-	{
-		"id": 8,
-		"nom": "Clone[537][38]",
-		"x": 11,
-		"y": 26
-	},
-	{
-		"id": 19,
-		"nom": "Clone[537][22]",
-		"x": 8,
-		"y": 14
-	},
-	{
-		"id": 47,
-		"nom": "vent",
-		"x": 16,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 22,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 32,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
-				"volume": 0.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
-				"volume": 0.25,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 16,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 32,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
-				"volume": 0.50,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
-				"volume": 0.60,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 4
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 32,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 5
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
-				"volume": 0.70,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 32,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 6
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
-				"volume": 0.90,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 36,
-		"nom": "Clone[537][38]",
-		"x": 11,
-		"y": 18
-	},
-	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 12,
+		"id": 24,
+		"nom": "Curé",
+		"x": 10,
 		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 2
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 25,
-		"nom": "cloche (8)",
-		"x": 9,
-		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -2846,61 +2265,95 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "cloche mi.ogg",
-				"volume": 0.80,
+				"nom": "ConditionVariable",
+				"numeroVariable": 178,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "quête réussie"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"pretre\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Thank you for your help."
+			},
+			{
+				"nom": "Message",
+				"texte": "Merci de ton aide."
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 81,
+				"etat": "FAITE",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "récompense déjà obtenue"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "récompense pas encore obtenue"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"pretre\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here is your reward:"
+			},
+			{
+				"nom": "Message",
+				"texte": "Voici ta récompense :"
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (important).ogg",
+				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 11
+			},
+			{
 				"nom": "Deplacement",
+				"idEventADeplacer": 0,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "cloches character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "cloches character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "cloches character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "cloches character",
+					"image": "Jiyounasu content character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -2908,8 +2361,132 @@
 				]
 			},
 			{
+				"nom": "AjouterObjet",
+				"idObjet": 1,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You win a crystal of the whale!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous gagnez un cristal de baleine !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a magic piece of crystallized salt."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un superbe morceau de sel magique \\ncristallisé."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 82,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "quête pas encore réussie"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 82,
+				"avancement": "CONNUE"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"pretre\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The vicar is sick today.\\nI need help ringing the bells."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le vicaire est malade aujourd'hui.\\nJ'ai besoin d'aide pour sonner les cloches."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Can you climb and play the same as me?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Peux-tu grimper et jouer la même chose\\nque moi ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Be very careful with the rhythm!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Fais très attention au rythme !"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2917,16 +2494,52 @@
 				"valeur": false
 			}
 			],
-			"image": "cloches character",
+			"image": "cure character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[537][38]",
+		"x": 11,
+		"y": 24
+	},
+	{
+		"id": 35,
+		"nom": "Clone[537][38]",
+		"x": 9,
+		"y": 18
+	},
+	{
+		"id": 19,
+		"nom": "Clone[537][22]",
+		"x": 8,
+		"y": 14
+	},
+	{
+		"id": 8,
+		"nom": "Clone[537][38]",
+		"x": 11,
+		"y": 26
+	},
+	{
+		"id": 30,
+		"nom": "Clone[537][38]",
+		"x": 12,
+		"y": 21
+	},
+	{
+		"id": 41,
+		"nom": "Clone[537][38]",
+		"x": 9,
+		"y": 12
 	},
 	{
 		"id": 3,
@@ -3188,46 +2801,10 @@
 		]
 	},
 	{
-		"id": 42,
-		"nom": "Clone[537][38]",
-		"x": 8,
-		"y": 15
-	},
-	{
-		"id": 31,
-		"nom": "Clone[537][38]",
-		"x": 11,
-		"y": 20
-	},
-	{
-		"id": 9,
-		"nom": "Clone[537][38]",
-		"x": 10,
-		"y": 25
-	},
-	{
-		"id": 20,
-		"nom": "Clone[537][22]",
-		"x": 12,
-		"y": 11
-	},
-	{
-		"id": 37,
-		"nom": "Clone[537][38]",
-		"x": 12,
-		"y": 15
-	},
-	{
-		"id": 15,
-		"nom": "Clone[537][14]",
-		"x": 8,
-		"y": 25
-	},
-	{
-		"id": 26,
+		"id": 25,
 		"nom": "cloche (8)",
-		"x": 12,
-		"y": 30,
+		"x": 9,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -3243,7 +2820,7 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "cloche do.ogg",
+				"nomFichierSonore": "cloche mi.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
@@ -3256,7 +2833,7 @@
 				{
 					"nom": "ModifierApparence",
 					"image": "cloches character",
-					"direction": 2,
+					"direction": 0,
 					"animation": 1,
 					"teinte": 0
 				},
@@ -3268,7 +2845,7 @@
 				{
 					"nom": "ModifierApparence",
 					"image": "cloches character",
-					"direction": 2,
+					"direction": 0,
 					"animation": 2,
 					"teinte": 0
 				},
@@ -3280,7 +2857,7 @@
 				{
 					"nom": "ModifierApparence",
 					"image": "cloches character",
-					"direction": 2,
+					"direction": 0,
 					"animation": 3,
 					"teinte": 0
 				},
@@ -3292,7 +2869,7 @@
 				{
 					"nom": "ModifierApparence",
 					"image": "cloches character",
-					"direction": 2,
+					"direction": 0,
 					"animation": 0,
 					"teinte": 0
 				}
@@ -3309,7 +2886,6 @@
 			}
 			],
 			"image": "cloches character",
-			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -3317,6 +2893,346 @@
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 12,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 2
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 36,
+		"nom": "Clone[537][38]",
+		"x": 11,
+		"y": 18
+	},
+	{
+		"id": 47,
+		"nom": "vent",
+		"x": 16,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 22,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 32,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 0.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 0.25,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 16,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 32,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 0.50,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 0.60,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 4
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 32,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 5
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 0.70,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 32,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 6
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 0.90,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 6
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "001-Wind01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[537][22]",
+		"x": 12,
+		"y": 11
+	},
+	{
+		"id": 9,
+		"nom": "Clone[537][38]",
+		"x": 10,
+		"y": 25
+	},
+	{
+		"id": 31,
+		"nom": "Clone[537][38]",
+		"x": 11,
+		"y": 20
+	},
+	{
+		"id": 42,
+		"nom": "Clone[537][38]",
+		"x": 8,
+		"y": 15
+	},
+	{
+		"id": 48,
+		"nom": "lumiere (160)",
+		"x": 11,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "lumiere clocher character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -3578,10 +3494,10 @@
 		]
 	},
 	{
-		"id": 48,
-		"nom": "lumiere (160)",
-		"x": 11,
-		"y": 7,
+		"id": 26,
+		"nom": "cloche (8)",
+		"x": 12,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
@@ -3590,29 +3506,107 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cloche do.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "cloches character",
+					"direction": 2,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "cloches character",
+					"direction": 2,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "cloches character",
+					"direction": 2,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "cloches character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
-			"image": "lumiere clocher character",
+			"image": "cloches character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": true,
+			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 43,
-		"nom": "Clone[537][38]",
-		"x": 9,
-		"y": 14
+		"id": 15,
+		"nom": "Clone[537][14]",
+		"x": 8,
+		"y": 25
 	},
 	{
-		"id": 32,
+		"id": 37,
 		"nom": "Clone[537][38]",
-		"x": 10,
-		"y": 19
+		"x": 12,
+		"y": 15
+	},
+	{
+		"id": 21,
+		"nom": "Clone[537][14]",
+		"x": 12,
+		"y": 22
 	},
 	{
 		"id": 10,
@@ -3621,10 +3615,16 @@
 		"y": 24
 	},
 	{
-		"id": 21,
-		"nom": "Clone[537][14]",
-		"x": 12,
-		"y": 22
+		"id": 32,
+		"nom": "Clone[537][38]",
+		"x": 10,
+		"y": 19
+	},
+	{
+		"id": 43,
+		"nom": "Clone[537][38]",
+		"x": 9,
+		"y": 14
 	}
 	]
 }

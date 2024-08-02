@@ -111,6 +111,31 @@
 	],
 	"events": [
 	{
+		"id": 38,
+		"nom": "EV038",
+		"x": 10,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 457,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
 		"id": 27,
 		"nom": "Curé",
 		"x": 14,
@@ -245,10 +270,10 @@
 		]
 	},
 	{
-		"id": 38,
-		"nom": "EV038",
-		"x": 10,
-		"y": 1,
+		"id": 33,
+		"nom": "Livre",
+		"x": 14,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -258,37 +283,12 @@
 			],
 			"commandes": [
 			],
-			"image": 457,
+			"image": "livre ouvert character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 11,
-		"nom": "Torche murale",
-		"x": 1,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "torche murale character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -382,10 +382,10 @@
 		]
 	},
 	{
-		"id": 33,
-		"nom": "Livre",
-		"x": 14,
-		"y": 8,
+		"id": 11,
+		"nom": "Torche murale",
+		"x": 1,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -395,12 +395,12 @@
 			],
 			"commandes": [
 			],
-			"image": "livre ouvert character",
+			"image": "torche murale character",
 			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -408,10 +408,10 @@
 		]
 	},
 	{
-		"id": 39,
-		"nom": "Clone[341][165]",
-		"x": 16,
-		"y": 20
+		"id": 17,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 25
 	},
 	{
 		"id": 28,
@@ -445,130 +445,10 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 25
-	},
-	{
-		"id": 23,
-		"nom": "Curé",
-		"x": 6,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"pretre\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I managed to prove the existence of God \\nby using Fermat's big theorem!"
-			},
-			{
-				"nom": "Message",
-				"texte": "J'ai réussi à démontrer l'existence de Dieu \\nen utilisant le grand théorème de Fermat !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) There is a unique point in the universe \\nwhere knowledge and power diverge!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Il existe un unique point de l'univers où \\nle savoir et le pouvoir divergent !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The problem is that I can't prove Fermat's \\nbig theorem."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le problème, c'est que je n'arrive pas \\nà démontrer le grand théorème de Fermat."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) My proof is lost!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ma démonstration tombe à l'eau !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "cure character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 34,
-		"nom": "Livre",
-		"x": 14,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "livre ouvert character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 39,
+		"nom": "Clone[341][165]",
+		"x": 16,
+		"y": 20
 	},
 	{
 		"id": 1,
@@ -773,10 +653,36 @@
 		]
 	},
 	{
-		"id": 40,
+		"id": 34,
+		"nom": "Livre",
+		"x": 14,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "livre ouvert character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 23,
 		"nom": "Curé",
-		"x": 16,
-		"y": 13,
+		"x": 6,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -806,67 +712,35 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Saint Steven\\c[0] was brilliant, \\nbut it is said that \\c[2]Taiyo the scholar\\c[0]\\nwas even more brilliant."
+				"texte": "(en) I managed to prove the existence of God \\nby using Fermat's big theorem!"
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[2]Saint Steeven\\c[1] était brillant, mais on dit\\nque \\c[2]Taiyô l'érudite\\c[1] était encore plus géniale."
+				"texte": "J'ai réussi à démontrer l'existence de Dieu \\nen utilisant le grand théorème de Fermat !"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) She is said to have left behind a book \\nentitled \"The End of Mathematics\"."
+				"texte": "(en) There is a unique point in the universe \\nwhere knowledge and power diverge!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Elle aurait laissé derrière elle un livre intitulé \\n\"La Fin des mathématiques\"."
+				"texte": "Il existe un unique point de l'univers où \\nle savoir et le pouvoir divergent !"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) In it she presents the Taiyo formula, \\nwhich gives for each formal proposition \\na truth value."
+				"texte": "(en) The problem is that I can't prove Fermat's \\nbig theorem."
 			},
 			{
 				"nom": "Message",
-				"texte": "Elle y présente la formule de Taiyô, qui fournit\\npour chaque proposition formelle une valeur \\nde vérité."
+				"texte": "Le problème, c'est que je n'arrive pas \\nà démontrer le grand théorème de Fermat."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) We just have to enter any conjecture \\n(with its axioms), and the formula tells us \\nif it is true, false, or unprovable."
+				"texte": "(en) My proof is lost!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Il suffit d'entrer n'importe quelle conjecture \\n(avec ses axiomes), et la formule nous dit \\nsi elle est vraie, fausse, ou indémontrable."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The calculation is based on the theory of nodes: \\nfor example, the Pythagorean theorem \\ncorresponds to the Thistlethwaite non-node."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le calcul est basé sur la théorie des noeuds :\\npar exemple, le théorème de Pythagore \\ncorrespond au non-noeud de Thistlethwaite."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) What a mathematical revolution !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Quelle révolution mathématique !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Taiyo the scholar\\c[0] then proved \\nthe Collatz conjecture using her formula."
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Taiyô l'érudite\\c[1] a ensuite démontré à l'aide \\nde sa formule la conjecture de Syracuse."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's at this moment that she would have \\nunderstood something even more important.\\nThen she disappeared with the other scholars."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est à ce moment qu'elle aurait compris\\nquelque chose d'encore plus important,\\net qu'elle a disparu avec les autres érudits."
+				"texte": "Ma démonstration tombe à l'eau !"
 			},
 			{
 				"nom": "Attendre",
@@ -897,12 +771,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 25
 	},
 	{
 		"id": 29,
@@ -1015,16 +883,16 @@
 		]
 	},
 	{
-		"id": 2,
+		"id": 18,
 		"nom": "Clone[341][004]",
-		"x": 14,
-		"y": 4
+		"x": 16,
+		"y": 25
 	},
 	{
-		"id": 24,
+		"id": 40,
 		"nom": "Curé",
-		"x": 11,
-		"y": 5,
+		"x": 16,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -1054,27 +922,67 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Saint Steven's church is our laboratory \\nfor theology and quantum metaphysics."
+				"texte": "(en) \\c[2]Saint Steven\\c[0] was brilliant, \\nbut it is said that \\c[2]Taiyo the scholar\\c[0]\\nwas even more brilliant."
 			},
 			{
 				"nom": "Message",
-				"texte": "L'église saint Steeven est notre laboratoire \\nde théologie et de métaphysique quantique."
+				"texte": "\\c[2]Saint Steeven\\c[1] était brillant, mais on dit\\nque \\c[2]Taiyô l'érudite\\c[1] était encore plus géniale."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) This cross that we carry to the neck \\nsymbolizes the zeroth axiom of Euclid, \\nfoundation of the geometry:"
+				"texte": "(en) She is said to have left behind a book \\nentitled \"The End of Mathematics\"."
 			},
 			{
 				"nom": "Message",
-				"texte": "Cette croix que nous portons au cou \\nsymbolise le zéroième axiome d'Euclide, \\nfondement de la géométrie :"
+				"texte": "Elle aurait laissé derrière elle un livre intitulé \\n\"La Fin des mathématiques\"."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Two non-parallel lines intersect at a single \\npoint\"."
+				"texte": "(en) In it she presents the Taiyo formula, \\nwhich gives for each formal proposition \\na truth value."
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Deux droites non parallèles se coupent en\\nun unique point\"."
+				"texte": "Elle y présente la formule de Taiyô, qui fournit\\npour chaque proposition formelle une valeur \\nde vérité."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We just have to enter any conjecture \\n(with its axioms), and the formula tells us \\nif it is true, false, or unprovable."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il suffit d'entrer n'importe quelle conjecture \\n(avec ses axiomes), et la formule nous dit \\nsi elle est vraie, fausse, ou indémontrable."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The calculation is based on the theory of nodes: \\nfor example, the Pythagorean theorem \\ncorresponds to the Thistlethwaite non-node."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le calcul est basé sur la théorie des noeuds :\\npar exemple, le théorème de Pythagore \\ncorrespond au non-noeud de Thistlethwaite."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What a mathematical revolution !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Quelle révolution mathématique !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Taiyo the scholar\\c[0] then proved \\nthe Collatz conjecture using her formula."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Taiyô l'érudite\\c[1] a ensuite démontré à l'aide \\nde sa formule la conjecture de Syracuse."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's at this moment that she would have \\nunderstood something even more important.\\nThen she disappeared with the other scholars."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est à ce moment qu'elle aurait compris\\nquelque chose d'encore plus important,\\net qu'elle a disparu avec les autres érudits."
 			},
 			{
 				"nom": "Attendre",
@@ -1492,6 +1400,216 @@
 		]
 	},
 	{
+		"id": 24,
+		"nom": "Curé",
+		"x": 11,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"pretre\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Saint Steven's church is our laboratory \\nfor theology and quantum metaphysics."
+			},
+			{
+				"nom": "Message",
+				"texte": "L'église saint Steeven est notre laboratoire \\nde théologie et de métaphysique quantique."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This cross that we carry to the neck \\nsymbolizes the zeroth axiom of Euclid, \\nfoundation of the geometry:"
+			},
+			{
+				"nom": "Message",
+				"texte": "Cette croix que nous portons au cou \\nsymbolise le zéroième axiome d'Euclide, \\nfondement de la géométrie :"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Two non-parallel lines intersect at a single \\npoint\"."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Deux droites non parallèles se coupent en\\nun unique point\"."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "cure character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 14,
+		"y": 4
+	},
+	{
+		"id": 41,
+		"nom": "Chuiche",
+		"x": 13,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chuiche\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am not entitled to practice science."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je ne suis pas habilité à pratiquer la science."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Not that I am not interested, far from it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Non pas que je ne m'y intéresse pas, \\nloin de là !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am not a priest: I am just a humble chuiche."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je ne suis pas prêtre : je ne suis qu'un humble\\nchuiche."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I failed the exam to be a scientist."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai échoué à l'examen pour être scientifique."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I made a mistake in calculating the p-value, \\nand then I forgot a confusion factor."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai fait une erreur en calculant la p-value, \\net puis j'ai oublié un facteur de confusion."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I am unfit to think."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je suis inapte à la pensée."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But since I know the importance of science, \\nI guard the church."
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais comme je sais l'importance de la science, \\nje garde l'église."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "chuiche character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 30,
 		"nom": "Curé",
 		"x": 14,
@@ -1650,161 +1768,6 @@
 		]
 	},
 	{
-		"id": 41,
-		"nom": "Chuiche",
-		"x": 13,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"chuiche\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I am not entitled to practice science."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je ne suis pas habilité à pratiquer la science."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Not that I am not interested, far from it!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Non pas que je ne m'y intéresse pas, \\nloin de là !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I am not a priest: I am just a humble chuiche."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je ne suis pas prêtre : je ne suis qu'un humble\\nchuiche."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I failed the exam to be a scientist."
-			},
-			{
-				"nom": "Message",
-				"texte": "J'ai échoué à l'examen pour être scientifique."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I made a mistake in calculating the p-value, \\nand then I forgot a confusion factor."
-			},
-			{
-				"nom": "Message",
-				"texte": "J'ai fait une erreur en calculant la p-value, \\net puis j'ai oublié un facteur de confusion."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I am unfit to think."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je suis inapte à la pensée."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) But since I know the importance of science, \\nI guard the church."
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais comme je sais l'importance de la science, \\nje garde l'église."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "chuiche character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[582][53]",
-		"x": 7,
-		"y": 5
-	},
-	{
-		"id": 36,
-		"nom": "EV036",
-		"x": 18,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 512,
-				"xDebutHeros": 6,
-				"yDebutHeros": 8
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 25,
 		"nom": "EV025",
 		"x": 4,
@@ -1885,10 +1848,41 @@
 		]
 	},
 	{
-		"id": 42,
-		"nom": "Clone[582][33]",
-		"x": 15,
-		"y": 8
+		"id": 36,
+		"nom": "EV036",
+		"x": 18,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 512,
+				"xDebutHeros": 6,
+				"yDebutHeros": 8
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[582][53]",
+		"x": 7,
+		"y": 5
 	},
 	{
 		"id": 31,
@@ -1938,57 +1932,10 @@
 		]
 	},
 	{
-		"id": 37,
-		"nom": "EV037",
-		"x": 10,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 30,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "au cas où le héros entre en courant :"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "normale"
-				}
-				]
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 537,
-				"xDebutHeros": 10,
-				"yDebutHeros": 30
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 42,
+		"nom": "Clone[582][33]",
+		"x": 15,
+		"y": 8
 	},
 	{
 		"id": 26,
@@ -2109,35 +2056,46 @@
 		]
 	},
 	{
-		"id": 43,
-		"nom": "Clone[582][33]",
-		"x": 13,
-		"y": 19
-	},
-	{
-		"id": 21,
-		"nom": "EV021",
-		"x": 11,
-		"y": 29,
+		"id": 37,
+		"nom": "EV037",
+		"x": 10,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 3
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 30,
+				"valeur": true
 			},
 			{
-				"nom": "ModifierTonDeLEcran",
-				"rouge": 127,
-				"vert": 127,
-				"bleu": 127,
-				"gris": 0,
-				"dureeTransition": 0
+				"nom": "Commentaire",
+				"texte": "au cas où le héros entre en courant :"
 			},
 			{
-				"nom": "SupprimerEvent"
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				}
+				]
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 537,
+				"xDebutHeros": 10,
+				"yDebutHeros": 30
 			}
 			],
 			"vitesse": "moderee",
@@ -2197,6 +2155,48 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "EV021",
+		"x": 11,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 43,
+		"nom": "Clone[582][33]",
+		"x": 13,
+		"y": 19
 	}
 	]
 }

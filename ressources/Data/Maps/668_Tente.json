@@ -3,16 +3,6 @@
 	"tileset": "Reve",
 	"largeur": 21,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0031,0023,0015,0023,0007,0015,0007,0023,0007,0007,0007,0015,0007,0007,0031,0031,0007,0007,0007,0015,0007],
 	[0007,0031,0007,0007,0015,0023,0031,0031,0007,0007,0015,0007,0023,0015,0023,0015,0007,0007,0015,0007,0023],
@@ -199,6 +189,31 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Fiolin (10)",
+		"x": 10,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "Fiolin character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 3,
 		"nom": "cinematique",
 		"x": 14,
@@ -252,7 +267,7 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Poésie theme 4.ogg",
+				"nomFichierSonore": "Poesie theme 4.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
 			},
@@ -435,7 +450,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\WAVE I want to be near the edge\\nof the tent."
+				"texte": "(en) \\WAVE I want to be near the edge of the tent."
 			},
 			{
 				"nom": "Message",
@@ -459,7 +474,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) It's too hot in the middle, near\\nthe edge it's cooler."
+				"texte": "(en) It's too hot in the middle.\\nIt's cooler near the edge."
 			},
 			{
 				"nom": "Message",
@@ -555,7 +570,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\WAVE There is no way I'm giving\\nup my place to you."
+				"texte": "(en) \\WAVE There is no way I'm giving up my place \\nto you."
 			},
 			{
 				"nom": "Message",
@@ -616,7 +631,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\c[2]\\n[1]\\c[0], do you mind if\\nwe switch places?"
+				"texte": "(en) \\c[2]\\n[1]\\c[0], do you mind if we switch places?"
 			},
 			{
 				"nom": "Message",
@@ -695,7 +710,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Well, \\c[2]Fiolin\\c[0], you've\\ndisturbed everyone, are you\\nhappy now?"
+				"texte": "(en) Well, \\c[2]Fiolin\\c[0], you've disturbed everyone, \\nare you happy now?"
 			},
 			{
 				"nom": "Message",
@@ -1241,31 +1256,6 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"figerLesAutresEvents": true,
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Fiolin (10)",
-		"x": 10,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "Fiolin character",
-			"vitesse": "moderee",
-			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,

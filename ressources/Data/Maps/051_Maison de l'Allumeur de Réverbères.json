@@ -4,7 +4,7 @@
 	"largeur": 30,
 	"hauteur": 25,
 	"musique": {
-		"nomFichierSonore": "Feu l'Allumeur de Réverbères.ogg",
+		"nomFichierSonore": "Feu l allumeur de reverberes.ogg",
 		"volume": 1.00,
 		"tempo": 1.00
 	},
@@ -95,12 +95,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 16,
-		"nom": "Clone[582][40]",
-		"x": 9,
-		"y": 2
-	},
 	{
 		"id": 5,
 		"nom": "Obscurité",
@@ -209,6 +203,12 @@
 		]
 	},
 	{
+		"id": 16,
+		"nom": "Clone[582][40]",
+		"x": 9,
+		"y": 2
+	},
+	{
 		"id": 11,
 		"nom": "Clone[341][155]",
 		"x": 19,
@@ -246,6 +246,12 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 20,
+		"y": 19
+	},
+	{
 		"id": 12,
 		"nom": "Plante en pot",
 		"x": 9,
@@ -272,10 +278,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 20,
-		"y": 19
+		"id": 18,
+		"nom": "Clone[341][165]",
+		"x": 19,
+		"y": 4
 	},
 	{
 		"id": 7,
@@ -284,10 +290,10 @@
 		"y": 6
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][165]",
-		"x": 19,
-		"y": 4
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 20,
+		"y": 18
 	},
 	{
 		"id": 13,
@@ -296,10 +302,10 @@
 		"y": 17
 	},
 	{
-		"id": 2,
+		"id": 19,
 		"nom": "Clone[341][004]",
-		"x": 20,
-		"y": 18
+		"x": 19,
+		"y": 19
 	},
 	{
 		"id": 8,
@@ -499,68 +505,6 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][004]",
-		"x": 19,
-		"y": 19
-	},
-	{
-		"id": 14,
-		"nom": "fin quete plancher",
-		"x": 19,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 85,
-				"avancement": "FAITE"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 14,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 3,
 		"nom": "lire le livre",
 		"x": 10,
@@ -663,6 +607,68 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 14,
+		"nom": "fin quete plancher",
+		"x": 19,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 85,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 14,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][004]",
+		"x": 19,
+		"y": 17
 	},
 	{
 		"id": 9,
@@ -862,10 +868,30 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][004]",
-		"x": 19,
-		"y": 17
+		"id": 4,
+		"nom": "Livre",
+		"x": 10,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "livre ouvert character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 15,
@@ -893,30 +919,10 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Livre",
-		"x": 10,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "livre ouvert character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 21,
+		"nom": "Clone[341][004]",
+		"x": 19,
+		"y": 18
 	},
 	{
 		"id": 10,
@@ -1114,12 +1120,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][004]",
-		"x": 19,
-		"y": 18
 	}
 	]
 }

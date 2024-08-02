@@ -96,6 +96,31 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "pot (-16)",
+		"x": 7,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 43,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "Plante en pot",
 		"x": 20,
@@ -116,31 +141,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "pot (-16)",
-		"x": 7,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 43,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -232,6 +232,37 @@
 		"nom": "Clone[341][004]",
 		"x": 11,
 		"y": 8
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 19,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 535,
+				"xDebutHeros": 23,
+				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 12,
@@ -452,41 +483,36 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 19,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 535,
-				"xDebutHeros": 23,
-				"yDebutHeros": 11
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 7,
 		"nom": "Clone[341][004]",
 		"x": 16,
 		"y": 8
+	},
+	{
+		"id": 2,
+		"nom": "Plante en pot",
+		"x": 18,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "plante en pot character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 13,
@@ -549,62 +575,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Plante en pot",
-		"x": 18,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][008]",
 		"x": 19,
 		"y": 7
-	},
-	{
-		"id": 3,
-		"nom": "Plante en pot",
-		"x": 20,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 14,
@@ -636,674 +610,6 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][006]",
-		"x": 8,
-		"y": 7
-	},
-	{
-		"id": 4,
-		"nom": "Plante en pot",
-		"x": 18,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "pot (-16)",
-		"x": 20,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 43,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "micro (-2)",
-		"x": 9,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "objet kujira 3",
-			"directionInitiale": 1,
-			"animationInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	}
-	]
-}
-{
-	"nom": "Station FM (intérieur)",
-	"tileset": "Maison",
-	"largeur": 28,
-	"hauteur": 25,
-	"musique": {
-		"nomFichierSonore": "Radio Kujira.ogg",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
-	"couche0": [
-	[0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0340,0341,0308,0308,0308,0309,0308,0342,0343,0340,0341,0309,0309,0309,0308,0308,0342,0343,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0348,0349,0316,0316,0316,0317,0316,0350,0351,0348,0349,0317,0317,0317,0316,0316,0350,0351,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0332,0333,0000,0000,0000,0000,0000,0318,0319,0332,0333,0000,0000,0000,0000,0000,0318,0319,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0324,0325,0301,0000,0000,0000,0000,0310,0311,0324,0325,0000,0000,0000,0000,0301,0310,0311,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0332,0333,0000,0000,0000,0000,0000,0318,0319,0332,0333,0000,0000,0000,0000,0000,0318,0319,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0356,0357,0384,0103,0386,0327,0326,0358,0359,0356,0357,0326,0326,0384,0103,0386,0358,0359,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0364,0365,0392,0393,0394,0335,0334,0366,0367,0364,0365,0334,0334,0392,0393,0394,0366,0367,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0340,0341,0368,0369,0370,0308,0309,0308,0308,0342,0343,0340,0341,0368,0369,0370,0342,0343,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0348,0349,0376,0094,0378,0316,0317,0316,0316,0350,0351,0348,0349,0376,0094,0378,0350,0351,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0324,0325,0000,0000,0000,0000,0000,0000,0000,0318,0319,0332,0333,-008,-008,-008,0310,0311,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0332,0333,0000,0000,0000,0000,0000,0000,0000,0310,0311,0324,0325,-008,-008,-008,0318,0319,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0324,0325,0000,0000,0000,0000,0000,0000,0000,0402,0403,0400,0401,-008,-008,-008,0310,0311,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0332,0333,0000,0000,0000,0000,0000,0000,0000,0102,0411,0408,0095,-008,-008,-008,0318,0319,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0324,0325,0301,0000,0000,0000,0000,0000,0000,0418,0419,0416,0417,-008,-008,-008,0310,0311,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0332,0333,0000,0000,0000,0301,0000,0000,0000,0310,0311,0324,0325,-008,-008,-008,0318,0319,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0356,0357,0326,0326,0326,0326,0327,0326,0326,0358,0359,0356,0357,0384,0023,0386,0358,0359,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0364,0365,0334,0334,0334,0334,0335,0334,0334,0366,0367,0364,0365,0392,0393,0394,0366,0367,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017],
-	[0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017,0017]
-	],
-	"couche1": [
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,0008,0009,-001,0030,0031,-001,-001,-001,-001,0030,0031,-001,0008,0009,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0555,0556,0044,0045,0002,0038,0039,-001,-001,-001,-001,0038,0039,0002,0044,0045,0557,0558,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0563,0564,-001,-001,-001,0046,0047,-001,-001,-001,-001,0046,0047,-001,-001,-001,0565,0566,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0571,0572,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0573,0574,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0050,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0058,0559,0559,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0567,0567,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0002,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,0002,0005,0006,0006,0007,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0555,0556,-001,-001,0013,0014,0014,0015,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0563,0564,-001,-001,0002,-001,0002,-001,0559,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,0571,0572,-001,-001,-001,-001,-001,-001,0567,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0552,0553,0554,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0560,0561,0562,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
-	],
-	"couche2": [
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0051,0052,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0059,0060,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
-	],
-	"events": [
-	{
-		"id": 5,
-		"nom": "Plante en pot",
-		"x": 20,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "pot (-16)",
-		"x": 7,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 43,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 11,
-		"nom": "gramophone",
-		"x": 12,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "gramophone character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "gramophone character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "gramophone character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "gramophone character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				}
-				]
-			},
-			"image": "gramophone character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][004]",
-		"x": 11,
-		"y": 8
-	},
-	{
-		"id": 12,
-		"nom": "magistrat (32)",
-		"x": 10,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "marteau.wav",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "magistrat character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "magistrat character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "marteau.wav",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "magistrat character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "magistrat character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "marteau.wav",
-					"volume": 1.00,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "magistrat character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "magistrat character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"magistrat\""
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "modulo",
-				"valeurADonner": 3,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Silence!\\nOr I make evacuate the room !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Silence !\\nOu je fais évacuer la salle !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I appeal to the court of cassation!"
-			},
-			{
-				"nom": "Message",
-				"texte": "J'interjecte en appel à la cour de cassation !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 9,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The dancefloor is open to the public prosecutor!"
-			},
-			{
-				"nom": "Message",
-				"texte": "La parole est aux planches du parquet !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "magistrat character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 19,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 535,
-				"xDebutHeros": 23,
-				"yDebutHeros": 11
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 8
-	},
-	{
-		"id": 13,
-		"nom": "croque-mort (32)",
-		"x": 8,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"croque-mort\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Oh, don't mind him..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Oh, ne fais pas attention à lui..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) He's revising his magistrate's lines \\nwhile we play a record."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il révise ses répliques de magistrat pendant \\nqu'on passe un disque."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "magistrat character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Plante en pot",
-		"x": 18,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][008]",
-		"x": 19,
-		"y": 7
-	},
-	{
 		"id": 3,
 		"nom": "Plante en pot",
 		"x": 20,
@@ -1330,24 +636,26 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 21,
-		"y": 20,
+		"id": 9,
+		"nom": "Clone[341][006]",
+		"x": 8,
+		"y": 7
+	},
+	{
+		"id": 15,
+		"nom": "pot (-16)",
+		"x": 20,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 157,
-				"valeur": true
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
+			"commandes": [
+			],
+			"image": 43,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -1357,12 +665,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][006]",
-		"x": 8,
-		"y": 7
 	},
 	{
 		"id": 4,
@@ -1385,31 +687,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "pot (-16)",
-		"x": 20,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 43,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

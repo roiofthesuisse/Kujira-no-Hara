@@ -3,16 +3,6 @@
 	"tileset": "Pyramide",
 	"largeur": 21,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0036,0037,0004,0005,0004,0005,0004,0005,0004,0005,0004,0005,0004,0005,0004,0005,0004,0005,0004,0038,0039],
 	[0044,0045,0012,0013,0012,0013,0012,0013,0012,0013,0012,0013,0012,0013,0012,0013,0012,0013,0012,0046,0047],
@@ -88,13 +78,86 @@
 				"numero": 0
 			},
 			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "ne pas venir de la gauche"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 7,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 8,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 9,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
 				"nom": "ConditionSinon",
 				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "enigme des symboles par encore résolue"
 			},
 			{
 				"nom": "Deplacement",
@@ -171,7 +234,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Tabula le Terrible.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -265,7 +328,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) HERE WE ARE IN THE ROOM KNOWN\\nAS THE THEOREM."
+				"texte": "(en) HERE WE ARE IN THE ROOM KNOWN AS \\nTHE ROOM OF THE THEOREM."
 			},
 			{
 				"nom": "Message",
@@ -313,7 +376,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Uh, chief, sorry for the silly\\nquestion, but, what is a\\ntheorem?"
+				"texte": "(en) Uh, chief, sorry for the silly question, \\nbut, what is a theorem?"
 			},
 			{
 				"nom": "Message",
@@ -338,7 +401,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) It's AN ASSERTION ESTABLISHED\\nAS TRUE THROUGH A LOGICAL\\nREASONING FROM AXIOMS !"
+				"texte": "(en) IT'S AN ASSERTION ESTABLISHED AS TRUE \\nTHROUGH A LOGICAL REASONING FROM AXIOMS!"
 			},
 			{
 				"nom": "Message",
@@ -443,7 +506,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) And what does it look like?\\nI mean, how will we know if we've found him?"
+				"texte": "(en) And what does it look like?\\nI mean, how will we know if we've found it?"
 			},
 			{
 				"nom": "Message",
@@ -656,7 +719,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) OH NO ! IT'S NOT TRUE!\\nWHAT A MESS!"
+				"texte": "(en) OH NO! IT CAN'T BE TRUE!\\nWHAT A PAIN!"
 			},
 			{
 				"nom": "Message",
@@ -1083,7 +1146,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Temple de Kujira.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -1190,7 +1253,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 682,
 				"xDebutHeros": 19,
-				"yDebutHeros": 10
+				"yDebutHeros": 7
 			}
 			],
 			"vitesse": "moderee",
@@ -1309,7 +1372,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Temple de Kujira 2.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -1319,7 +1382,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Temple de Kujira.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{

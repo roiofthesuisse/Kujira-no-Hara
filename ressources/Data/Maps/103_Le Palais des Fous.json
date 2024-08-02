@@ -5,7 +5,7 @@
 	"hauteur": 31,
 	"musique": {
 		"nomFichierSonore": "Le Palais des Fous.ogg",
-		"volume": 1.00,
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -127,11 +127,16 @@
 			],
 			"commandes": [
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 126,
+				"valeur": false
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 102,
 				"xDebutHeros": 23,
-				"yDebutHeros": 24
+				"yDebutHeros": 23
 			}
 			],
 			"vitesse": "moderee",
@@ -207,12 +212,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][039]",
-		"x": 9,
-		"y": 10
-	},
-	{
 		"id": 12,
 		"nom": "EV012",
 		"x": 24,
@@ -242,6 +241,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][039]",
+		"x": 9,
+		"y": 10
 	},
 	{
 		"id": 7,
@@ -343,6 +348,12 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "Clone[341][039]",
+		"x": 12,
+		"y": 23
+	},
+	{
 		"id": 13,
 		"nom": "Statue",
 		"x": 15,
@@ -401,12 +412,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][039]",
-		"x": 12,
-		"y": 23
-	},
-	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 15,
@@ -420,11 +425,52 @@
 			],
 			"commandes": [
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 126,
+				"valeur": false
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 102,
 				"xDebutHeros": 23,
-				"yDebutHeros": 24
+				"yDebutHeros": 23
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 14,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 126,
+				"valeur": false
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 102,
+				"xDebutHeros": 22,
+				"yDebutHeros": 23
 			}
 			],
 			"vitesse": "moderee",
@@ -442,37 +488,6 @@
 		"nom": "Clone[341][039]",
 		"x": 18,
 		"y": 23
-	},
-	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 14,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 102,
-				"xDebutHeros": 22,
-				"yDebutHeros": 24
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 9,

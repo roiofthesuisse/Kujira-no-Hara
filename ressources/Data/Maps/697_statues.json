@@ -3,16 +3,6 @@
 	"tileset": "Ventre",
 	"largeur": 20,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0000,0000,0000,0000,0000,0000,0000,0000,0000],
 	[0008,0000,0008,0000,0008,0000,0008,0000,0008,0000,0008,0000,0000,0000,0000,0000,0000,0000,0000,0008],
@@ -26,9 +16,9 @@
 	[-008,-008,0000,0000,0029,0000,0000,0000,0000,0000,0000,0000,0000,0000,0008,0000,-007,-007,-007,0000],
 	[0000,0000,0000,0000,0029,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,-007,-007,-007,0000],
 	[0000,0000,0000,0000,0029,0000,0000,0000,0008,0008,0008,0008,0000,0000,0000,0000,-007,-007,-007,0000],
-	[0000,0000,0000,0000,0029,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
-	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
-	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000]
+	[0000,0000,0000,0000,-007,-007,-007,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
+	[0000,0000,0000,0000,-007,-007,-007,-007,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
+	[0000,0000,0000,0000,-007,-007,-007,-007,-007,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000]
 	],
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -65,6 +55,73 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
+	{
+		"id": 16,
+		"nom": "EV016",
+		"x": 6,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 21,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "ballon brique character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "blocage character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
 	{
 		"id": 5,
 		"nom": "Statue poussable-tirable (v3)",
@@ -1283,64 +1340,21 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 6,
-		"y": 7,
+		"id": 22,
+		"nom": "Blocage anti-évènement",
+		"x": 0,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 21,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "ballon brique character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "blocage character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "Parler"
 			}
 			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -1489,10 +1503,10 @@
 		]
 	},
 	{
-		"id": 22,
+		"id": 17,
 		"nom": "Blocage anti-évènement",
-		"x": 0,
-		"y": 6,
+		"x": 6,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -2730,10 +2744,10 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 23,
 		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 10,
+		"x": 4,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -2894,6 +2908,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 27,
 				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_player.changerApparence(\"Jiyounasu tirer\")"
 			},
 			{
 				"nom": "ConditionFin",
@@ -4738,16 +4756,24 @@
 				"nomEtiquette": "pre-fin"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "--------------------------------------------------\\nQuitter\\n--------------------------------------------------"
 			},
 			{
 				"nom": "Etiquette",
 				"nomEtiquette": "fin"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "remettre l'apparence normale du héros"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 57
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -4763,6 +4789,54 @@
 			"image": "viking statue character",
 			"vitesse": "normale",
 			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Blocage anti-évènement",
+		"x": 18,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "Blocage anti-évènement",
+		"x": 5,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -4790,6 +4864,1123 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Blocage anti-évènement",
+		"x": 18,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Statue Poussable-Tirable (v2)",
+		"x": 3,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 6,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id, 0)",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Input.trigger?(Input::C)",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "002-System02.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 3
+			},
+			{
+				"nom": "Boucle",
+				"numero": 0
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 14
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "BAS",
+				"numero": 4
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "HAUT",
+				"numero": 5
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Input.trigger?(Input::C)",
+				"numero": 6
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Input.trigger?(Input::X)",
+				"numero": 7
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "GAUCHE",
+				"numero": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "DROITE",
+				"numero": 9
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "BoucleFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 1,
+				"numero": 10
+			},
+			{
+				"nom": "Boucle",
+				"numero": 1
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 13
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "GAUCHE",
+				"numero": 11
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 11
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "DROITE",
+				"numero": 12
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 12
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Input.trigger?(Input::C)",
+				"numero": 13
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 13
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Input.trigger?(Input::X)",
+				"numero": 14
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 14
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "BAS",
+				"numero": 15
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 15
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "HAUT",
+				"numero": 16
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 16
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 16
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 15
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 14
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 13
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 12
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 11
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "BoucleFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 2,
+				"numero": 17
+			},
+			{
+				"nom": "Boucle",
+				"numero": 2
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 15
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "GAUCHE",
+				"numero": 18
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 18
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "DROITE",
+				"numero": 19
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 19
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Input.trigger?(Input::C)",
+				"numero": 20
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 20
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Input.trigger?(Input::X)",
+				"numero": 21
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 21
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "BAS",
+				"numero": 22
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 22
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "HAUT",
+				"numero": 23
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 23
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 23
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 22
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 21
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 20
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 19
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 18
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "BoucleFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 17
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 24
+			},
+			{
+				"nom": "Boucle",
+				"numero": 3
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 12
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "BAS",
+				"numero": 25
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 25
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "HAUT",
+				"numero": 26
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 26
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Input.trigger?(Input::C)",
+				"numero": 27
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 27
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Input.trigger?(Input::X)",
+				"numero": 28
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 28
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "GAUCHE",
+				"numero": 29
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 29
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "DROITE",
+				"numero": 30
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "003-System03.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 30
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 30
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 29
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 28
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 27
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 26
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 25
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "BoucleFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 24
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 24
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 17
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "viking statue character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -6772,1103 +7963,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Statue Poussable-Tirable (v2)",
-		"x": 3,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_player.target_in_da_zone?(@event_id, 0)",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Input.trigger?(Input::C)",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "002-System02.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 3
-			},
-			{
-				"nom": "Boucle",
-				"numero": 0
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 14
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "BAS",
-				"numero": 4
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "HAUT",
-				"numero": 5
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Input.trigger?(Input::C)",
-				"numero": 6
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Input.trigger?(Input::X)",
-				"numero": 7
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "GAUCHE",
-				"numero": 8
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "DROITE",
-				"numero": 9
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "BoucleFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 1,
-				"numero": 10
-			},
-			{
-				"nom": "Boucle",
-				"numero": 1
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 13
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "GAUCHE",
-				"numero": 11
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 11
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "DROITE",
-				"numero": 12
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 12
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Input.trigger?(Input::C)",
-				"numero": 13
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Input.trigger?(Input::X)",
-				"numero": 14
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 14
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "BAS",
-				"numero": 15
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 15
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "HAUT",
-				"numero": 16
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 16
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 16
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 15
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 14
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 12
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 11
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "BoucleFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 2,
-				"numero": 17
-			},
-			{
-				"nom": "Boucle",
-				"numero": 2
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 15
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "GAUCHE",
-				"numero": 18
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 18
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "DROITE",
-				"numero": 19
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 19
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Input.trigger?(Input::C)",
-				"numero": 20
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 20
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Input.trigger?(Input::X)",
-				"numero": 21
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 21
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "BAS",
-				"numero": 22
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 22
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "HAUT",
-				"numero": 23
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 23
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 23
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 22
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 21
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 20
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 19
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 18
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "BoucleFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 17
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 24
-			},
-			{
-				"nom": "Boucle",
-				"numero": 3
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 12
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "BAS",
-				"numero": 25
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 25
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "HAUT",
-				"numero": 26
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 26
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Input.trigger?(Input::C)",
-				"numero": 27
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 27
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "Input.trigger?(Input::X)",
-				"numero": 28
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 28
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "GAUCHE",
-				"numero": 29
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 29
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "DROITE",
-				"numero": 30
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "003-System03.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 30
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 30
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 29
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 28
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 27
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 26
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 25
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "BoucleFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 24
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 24
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 17
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "viking statue character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
+		"id": 19,
 		"nom": "Blocage anti-évènement",
-		"x": 18,
-		"y": 11,
+		"x": 7,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -7907,6 +8005,492 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "Blocage anti-évènement",
+		"x": 17,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Statue Poussable-Tirable (v1)",
+		"x": 1,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 6,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Pull|Push"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Tirer", "Pousser"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 4
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 1,
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Pull|Push"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Tirer", "Pousser"],
+				"numero": 1
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 1,
+				"alternative": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 1,
+				"alternative": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 1,
+				"alternative": 4
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 2,
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Pull|Push"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Tirer", "Pousser"],
+				"numero": 2
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 2,
+				"alternative": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 2,
+				"alternative": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 2,
+				"alternative": 4
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 4
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Pull|Push"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Tirer", "Pousser"],
+				"numero": 3
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 3,
+				"alternative": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 3,
+				"alternative": 1
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "045-Push01.ogg",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 3,
+				"alternative": 4
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "viking statue character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -8053,6 +8637,22 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 27,
 				"valeur": true
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu tirer",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
 				"nom": "ConditionFin",
@@ -9897,16 +10497,24 @@
 				"nomEtiquette": "pre-fin"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "--------------------------------------------------\\nQuitter\\n--------------------------------------------------"
 			},
 			{
 				"nom": "Etiquette",
 				"nomEtiquette": "fin"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "remettre l'apparence normale du héros"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 57
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -9931,472 +10539,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Statue Poussable-Tirable (v1)",
-		"x": 1,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 6,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Pull|Push"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Tirer", "Pousser"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 4
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 1,
-				"numero": 2
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Pull|Push"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Tirer", "Pousser"],
-				"numero": 1
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 1,
-				"alternative": 4
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 2,
-				"numero": 3
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Pull|Push"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Tirer", "Pousser"],
-				"numero": 2
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 2,
-				"alternative": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 2,
-				"alternative": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 2,
-				"alternative": 4
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 4
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Pull|Push"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Tirer", "Pousser"],
-				"numero": 3
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 3,
-				"alternative": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 3,
-				"alternative": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 3,
-				"alternative": 4
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "viking statue character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
+		"id": 20,
 		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 11,
+		"x": 8,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -10421,6 +10567,54 @@
 		"nom": "Blocage anti-évènement",
 		"x": 16,
 		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 26,
+		"nom": "Blocage anti-évènement",
+		"x": 4,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -12417,10 +12611,10 @@
 		]
 	},
 	{
-		"id": 15,
+		"id": 21,
 		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 11,
+		"x": 4,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [

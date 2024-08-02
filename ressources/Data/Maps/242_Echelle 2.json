@@ -4,8 +4,8 @@
 	"largeur": 21,
 	"hauteur": 60,
 	"musique": {
-		"nomFichierSonore": "Ascension Mouvementée.ogg",
-		"volume": 1.00,
+		"nomFichierSonore": "Ascension mouvementee.ogg",
+		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -225,6 +225,21 @@
 			},
 			{
 				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
 				"numeroVariable": 9,
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 1,
@@ -237,7 +252,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -249,7 +264,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionVariable",
@@ -257,7 +272,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -269,7 +284,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ConditionVariable",
@@ -277,7 +292,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 3,
 				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"numero": 3
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -289,7 +304,11 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -298,10 +317,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Deplacement",
@@ -593,6 +608,10 @@
 				"direction": 0
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 41
 			}
@@ -636,6 +655,21 @@
 			},
 			{
 				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
 				"numeroVariable": 9,
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 1,
@@ -648,7 +682,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -660,7 +694,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionVariable",
@@ -668,7 +702,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -680,7 +714,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ConditionVariable",
@@ -688,7 +722,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 3,
 				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"numero": 3
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -700,7 +734,11 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -709,10 +747,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Deplacement",
@@ -1002,6 +1036,10 @@
 				"nouveauX": 16,
 				"nouveauY": 2,
 				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -1199,6 +1237,21 @@
 			},
 			{
 				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
 				"numeroVariable": 9,
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 1,
@@ -1211,7 +1264,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1223,7 +1276,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1231,7 +1284,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1243,7 +1296,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1251,7 +1304,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 3,
 				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"numero": 3
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1263,7 +1316,11 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 2
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -1272,10 +1329,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "Deplacement",
@@ -1565,6 +1618,10 @@
 				"nouveauX": 16,
 				"nouveauY": 2,
 				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",

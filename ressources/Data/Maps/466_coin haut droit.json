@@ -66,6 +66,33 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 11,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "dalles plan donjon5 character",
+			"directionInitiale": 1,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 0,
@@ -183,33 +210,6 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 11,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "dalles plan donjon5 character",
-			"directionInitiale": 1,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -558,6 +558,33 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "EV006",
+		"x": 9,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "dalles plan donjon5 character",
+			"directionInitiale": 2,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 17,
 		"nom": "EV017",
 		"x": 10,
@@ -681,27 +708,31 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 9,
-		"y": 8,
+		"id": 1,
+		"nom": "EV001",
+		"x": 10,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 487,
+				"xDebutHeros": 10,
+				"yDebutHeros": 11
+			}
 			],
-			"image": "dalles plan donjon5 character",
-			"directionInitiale": 2,
-			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -783,37 +814,6 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 10,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 487,
-				"xDebutHeros": 10,
-				"yDebutHeros": 11
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -983,116 +983,6 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "apparition de Poesie",
-		"x": 14,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 52,
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "donjon terminé"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "maillet trouvé"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmePossedee",
-				"idArme": 2,
-				"numero": 2
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "maillet trouvé"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 3
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "effacer poésie"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 11,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 2,
 		"nom": "EV002",
 		"x": 10,
@@ -1246,6 +1136,116 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "apparition de Poesie",
+		"x": 14,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 52,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "donjon terminé"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 2,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionArmePossedee",
+				"idArme": 2,
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "maillet trouvé"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "effacer poésie"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -1415,12 +1415,6 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][059]",
-		"x": 18,
-		"y": 2
-	},
-	{
 		"id": 3,
 		"nom": "EV003",
 		"x": 9,
@@ -1444,6 +1438,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][059]",
+		"x": 18,
+		"y": 2
 	},
 	{
 		"id": 9,
@@ -1607,6 +1607,33 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "EV004",
+		"x": 11,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "dalles plan donjon5 character",
+			"directionInitiale": 2,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 15,
 		"nom": "Pancarte",
 		"x": 17,
@@ -1631,60 +1658,20 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
 				"nom": "Commentaire",
-				"texte": "(en) Feel free to ring the return\\nbell to go save at the beginning\\nof the keep."
+				"texte": "(en) Here's a Return Bell! \\nThere are several in this dungeon. \\nIf you ring it, you'll be transported \\nto another Return Bell!"
 			},
 			{
 				"nom": "Message",
-				"texte": "N'hésitez pas à sonner la cloche de retour \\npour aller sauvegarder en début de donjon."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) By ringing the return bell of\\nthe entrance, you will reappear\\nhere."
-			},
-			{
-				"nom": "Message",
-				"texte": "En sonnant la cloche de retour de l'entrée, \\nvous réapparaîtrez ici-même."
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Do not hesitate to ring the\\nreturn bell in order to save\\nthe game at the entrance of\\nthe dungeon."
-			},
-			{
-				"nom": "Message",
-				"texte": "Do not hesitate to ring the return bell \\nin order to save the game \\nat the entrance of the dungeon."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) If you ring the return bell of\\nthe entrance, you will reappear\\nright here."
-			},
-			{
-				"nom": "Message",
-				"texte": "If you ring the return bell of the entrance,\\nyou will reappear right here."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"texte": "Voici une cloche de retour !\\nIl y en a plusieurs dans ce donjon.\\nSi vous la sonnez, vous serez transporté \\nvers une autre cloche de retour !"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1697,33 +1684,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 11,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "dalles plan donjon5 character",
-			"directionInitiale": 2,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

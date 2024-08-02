@@ -5,7 +5,7 @@
 	"hauteur": 18,
 	"musique": {
 		"nomFichierSonore": "Hibu.ogg",
-		"volume": 1.00,
+		"volume": 0.90,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -945,6 +945,32 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "blocage",
+		"x": 10,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 8,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 26,
 		"nom": "Clone[582][81]",
 		"x": 7,
@@ -952,7 +978,7 @@
 	},
 	{
 		"id": 15,
-		"nom": "Réglages initiaux",
+		"nom": "brouillard",
 		"x": 0,
 		"y": 0,
 		"pages": [
@@ -1119,7 +1145,25 @@
 			},
 			{
 				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "EffacerImage",
 				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "brouillard"
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 125,
+				"modeDeFusion": "addition",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "hibu fog2"
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -1130,46 +1174,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "blocage",
-		"x": 10,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 50,
-				"modeDeFusion": "addition",
-				"defilementX": 1,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 180,
-				"nomImage": "006-Sandstorm02"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"image": 8,
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

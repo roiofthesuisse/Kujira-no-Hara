@@ -3,16 +3,6 @@
 	"tileset": "Ventre",
 	"largeur": 20,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
 	[0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
@@ -170,6 +160,10 @@
 			{
 				"nom": "Commentaire",
 				"texte": "herbe coupee"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -562,6 +556,10 @@
 				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "la boule est detruite"
 			},
@@ -756,6 +754,10 @@
 			{
 				"nom": "Commentaire",
 				"texte": "herbe coupee"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1091,6 +1093,10 @@
 				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "la boule est detruite"
 			},
@@ -1403,6 +1409,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
 			},
 			{
 				"nom": "Commentaire",
@@ -2282,6 +2292,10 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.animations.push([40, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
 			},
 			{
 				"nom": "Commentaire",

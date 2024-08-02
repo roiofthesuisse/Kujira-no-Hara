@@ -4,8 +4,8 @@
 	"largeur": 40,
 	"hauteur": 40,
 	"musique": {
-		"nomFichierSonore": "Maître de Musique - Absent.ogg",
-		"volume": 0.80,
+		"nomFichierSonore": "",
+		"volume": 0.00,
 		"tempo": 1.00
 	},
 	"fondSonore": {
@@ -141,16 +141,22 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[341][165]",
+		"x": 15,
+		"y": 15
+	},
+	{
 		"id": 5,
 		"nom": "Clone[341][004]",
 		"x": 26,
 		"y": 22
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][165]",
-		"x": 15,
-		"y": 15
+		"id": 11,
+		"nom": "Clone[341][147]",
+		"x": 18,
+		"y": 14
 	},
 	{
 		"id": 22,
@@ -179,72 +185,6 @@
 				"avancement": "FAITE"
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 11,
-		"nom": "Clone[341][147]",
-		"x": 18,
-		"y": 14
-	},
-	{
-		"id": 17,
-		"nom": "Maitre de Musique",
-		"x": 17,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"beethoven\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) During my trip, I found a sixth score \\nwhich belonged to \\c[2]Kakeru the scholar\\c[0]!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Durant mon voyage, j'ai trouvé une sixième \\npartition qui a appartenu à \\c[2]Kakeru l'érudit\\c[1] !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I left it on my bed."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je l'ai déposée sur mon lit."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "beethoven",
-			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -316,6 +256,72 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "Maitre de Musique",
+		"x": 17,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"beethoven\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) During my trip, I found a sixth score \\nwhich belonged to \\c[2]Kakeru the scholar\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Durant mon voyage, j'ai trouvé une sixième \\npartition qui a appartenu à \\c[2]Kakeru l'érudit\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I left it on my bed."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je l'ai déposée sur mon lit."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "beethoven",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][039]",
+		"x": 17,
+		"y": 26
+	},
+	{
 		"id": 12,
 		"nom": "EV012",
 		"x": 19,
@@ -351,10 +357,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][039]",
-		"x": 17,
-		"y": 26
+		"id": 7,
+		"nom": "Clone[582][32]",
+		"x": 14,
+		"y": 14
 	},
 	{
 		"id": 18,
@@ -579,9 +585,9 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[582][32]",
-		"x": 14,
+		"id": 13,
+		"nom": "Clone[341][001]",
+		"x": 22,
 		"y": 14
 	},
 	{
@@ -589,18 +595,6 @@
 		"nom": "Clone[341][039]",
 		"x": 21,
 		"y": 26
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][001]",
-		"x": 22,
-		"y": 14
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][004]",
-		"x": 26,
-		"y": 21
 	},
 	{
 		"id": 19,
@@ -689,10 +683,10 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 8,
 		"nom": "Clone[341][004]",
-		"x": 12,
-		"y": 16
+		"x": 26,
+		"y": 21
 	},
 	{
 		"id": 14,
@@ -807,18 +801,8 @@
 			},
 			{
 				"nom": "JouerMusique",
-				"nomFichierSonore": "Maître de Musique - Interieur.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Maître de Musique - Interieur.ogg",
-				"volume": 1.00,
+				"nomFichierSonore": "Maitre de musique (interieur).ogg",
+				"volume": 0.90,
 				"tempo": 1.00
 			},
 			{
@@ -843,6 +827,12 @@
 			{
 				"nom": "ConditionSinon",
 				"numero": 1
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Maitre de musique (absent).ogg",
+				"volume": 0.80,
+				"tempo": 1.00
 			},
 			{
 				"nom": "Deplacement",
@@ -932,6 +922,18 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 12,
+		"y": 16
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][004]",
+		"x": 12,
+		"y": 21
+	},
+	{
 		"id": 20,
 		"nom": "piano",
 		"x": 19,
@@ -1013,18 +1015,6 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][004]",
-		"x": 12,
-		"y": 21
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][004]",
-		"x": 12,
-		"y": 22
-	},
-	{
 		"id": 15,
 		"nom": "EV015",
 		"x": 21,
@@ -1060,10 +1050,10 @@
 		]
 	},
 	{
-		"id": 10,
+		"id": 4,
 		"nom": "Clone[341][004]",
 		"x": 12,
-		"y": 17
+		"y": 22
 	},
 	{
 		"id": 21,
@@ -1106,6 +1096,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][004]",
+		"x": 12,
+		"y": 17
 	}
 	]
 }

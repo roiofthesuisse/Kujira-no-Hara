@@ -3,11 +3,6 @@
 	"tileset": "Sanctuaire de Kaze",
 	"largeur": 21,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
 	"fondSonore": {
 		"nomFichierSonore": "ventilateur.ogg",
 		"volume": 1.00,
@@ -19,14 +14,14 @@
 	[0028,0029,-006,-006,-006,0006,0007,0000,0000,0000,0000,0000,0000,0000,0028,0029,-006,-006,-006,0014,0015],
 	[0020,0021,-006,-006,-006,0144,0145,0004,0005,0004,0005,0004,0005,0004,0146,0147,-006,-006,-006,0006,0007],
 	[0028,0029,-004,-006,-004,0152,0153,0012,0013,0012,0013,0012,0013,0012,0154,0155,-006,-006,-006,0014,0015],
-	[0020,0021,-004,-006,-004,-006,-006,-006,0001,0000,0001,0000,-004,-006,-006,-006,-006,-006,-006,0006,0007],
-	[0028,0029,-004,-006,-004,-006,-006,-004,0009,-004,0009,0008,-004,-006,-006,-006,-006,-006,-006,0014,0015],
-	[0020,0021,-004,-006,-004,-006,-006,-004,0001,-004,0001,0000,-004,-006,-006,-006,-006,-004,-004,0006,0007],
-	[0028,0029,-004,-006,-004,-004,-004,-004,0009,-004,0009,0008,-004,-006,-006,-006,-006,-006,-006,0014,0015],
-	[0020,0021,-004,-006,-006,-006,-006,-006,0001,-004,0008,0128,0129,0023,0022,0023,0022,0023,0022,0054,0055],
-	[0028,0029,-004,-006,-004,-004,-004,-004,0009,0008,0009,0136,0137,0031,0030,0031,0030,0031,0030,0062,0063],
-	[0020,0021,-006,-006,-004,0000,0001,0000,0001,0000,0001,0006,0007,0002,0002,0002,0002,0002,0002,0002,0002],
-	[0028,0029,-006,-006,-004,0008,-004,-004,0009,0008,0009,0014,0015,0002,0002,0002,0002,0002,0002,0002,0002],
+	[0020,0021,-004,-006,-004,-006,-006,-006,0001,0001,0001,0001,-004,-006,-006,-006,-006,-006,-006,0006,0007],
+	[0028,0029,-004,-006,-004,-006,-006,-004,0001,-004,0001,0001,-004,-006,-006,-006,-006,-006,-006,0014,0015],
+	[0020,0021,-004,-006,-004,-006,-006,-004,0001,-004,0001,0001,-004,-006,-006,-006,-006,-004,-004,0006,0007],
+	[0028,0029,-004,-006,-004,-004,-004,-004,0001,-004,0001,0001,-004,-006,-006,-006,-006,-006,-006,0014,0015],
+	[0020,0021,-004,-006,-006,-006,-006,-006,0001,-004,0001,0128,0129,0023,0022,0023,0022,0023,0022,0054,0055],
+	[0028,0029,-004,-006,-004,-004,-004,-004,0001,0001,0001,0136,0137,0031,0030,0031,0030,0031,0030,0062,0063],
+	[0020,0021,-006,-006,-004,0001,0001,0001,0001,0001,0001,0006,0007,0002,0002,0002,0002,0002,0002,0002,0002],
+	[0028,0029,-006,-006,-004,0008,-004,-004,0001,0001,0001,0014,0015,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0052,0053,0022,0023,0032,0033,0034,0022,0023,0022,0023,0054,0055,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0060,0061,0030,0031,0040,0041,0042,0030,0031,0030,0031,0062,0063,0002,0002,0002,0002,0002,0002,0002,0002]
 	],
@@ -65,63 +60,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 2
-	},
-	{
-		"id": 27,
-		"nom": "EV027",
-		"x": 7,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
 	{
 		"id": 16,
 		"nom": "deplacer cubes",
@@ -344,6 +282,99 @@
 		]
 	},
 	{
+		"id": 27,
+		"nom": "EV027",
+		"x": 7,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 2
+	},
+	{
+		"id": 22,
+		"nom": "animation",
+		"x": 8,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 18
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 25
+			}
+			],
+			"image": "vide mais pas invisible",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 11,
+		"nom": "Clone[341][055]",
+		"x": 6,
+		"y": 11
+	},
+	{
 		"id": 33,
 		"nom": "Réglages initiaux",
 		"x": 20,
@@ -520,54 +551,6 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][055]",
-		"x": 6,
-		"y": 11
-	},
-	{
-		"id": 22,
-		"nom": "animation",
-		"x": 8,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 18
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 25
-			}
-			],
-			"image": "vide mais pas invisible",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 28,
-		"nom": "Clone[341][004]",
-		"x": 2,
-		"y": 3
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 3
-	},
-	{
 		"id": 17,
 		"nom": "Blocage",
 		"x": 17,
@@ -727,6 +710,80 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 3
+	},
+	{
+		"id": 28,
+		"nom": "Clone[341][004]",
+		"x": 2,
+		"y": 3
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][0067]",
+		"x": 9,
+		"y": 10
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 8
+	},
+	{
+		"id": 23,
+		"nom": "tube",
+		"x": 3,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 131,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "tubes de sable character",
+			"directionInitiale": 1,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 34,
 		"nom": "Pancarte",
 		"x": 10,
@@ -781,215 +838,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 23,
-		"nom": "tube",
-		"x": 3,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "tubes de sable character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 131,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"image": "tubes de sable character",
-			"directionInitiale": 1,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 8
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][0067]",
-		"x": 9,
-		"y": 10
-	},
-	{
-		"id": 29,
-		"nom": "sortir du ventilateur",
-		"x": 11,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 8,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": "!=",
-				"valeurQuIlEstCenseAvoir": 8,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "le heros vient de sortir de la zone ventilateur"
-			},
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 1,
-				"numero": 2
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "rapide"
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "normale"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "normale"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 10
 	},
 	{
 		"id": 18,
@@ -1257,6 +1105,196 @@
 		]
 	},
 	{
+		"id": 7,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 10
+	},
+	{
+		"id": 29,
+		"nom": "sortir du ventilateur",
+		"x": 11,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 8,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 2,
+				"inegalite": "!=",
+				"valeurQuIlEstCenseAvoir": 8,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le heros vient de sortir de la zone ventilateur"
+			},
+			{
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 1,
+				"numero": 2
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "ACTION_SECONDAIRE",
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "rapide"
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][0067]",
+		"x": 10,
+		"y": 7
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 5,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 718,
+				"xDebutHeros": 5,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 24,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 2
+	},
+	{
 		"id": 35,
 		"nom": "Pancarte",
 		"x": 2,
@@ -1313,31 +1351,18 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "Clone[341][004]",
-		"x": 18,
-		"y": 2
-	},
-	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 5,
-		"y": 14,
+		"id": 19,
+		"nom": "Blocage anti-évènement",
+		"x": 7,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 718,
-				"xDebutHeros": 5,
-				"yDebutHeros": 1
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1350,10 +1375,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][0067]",
-		"x": 10,
-		"y": 7
+		"id": 8,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 2
 	},
 	{
 		"id": 30,
@@ -1407,65 +1432,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 2
-	},
-	{
-		"id": 19,
-		"nom": "Blocage anti-évènement",
-		"x": 7,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 17,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 722,
-				"xDebutHeros": 17,
-				"yDebutHeros": 13
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 14,
+		"nom": "Clone[582][48]",
+		"x": 8,
+		"y": 11
 	},
 	{
 		"id": 25,
@@ -1519,16 +1489,41 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[582][48]",
-		"x": 8,
-		"y": 11
+		"id": 3,
+		"nom": "EV003",
+		"x": 17,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 722,
+				"xDebutHeros": 17,
+				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 31,
-		"nom": "Clone[341][059]",
-		"x": 18,
-		"y": 8
+		"id": 9,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 11
 	},
 	{
 		"id": 20,
@@ -1555,16 +1550,16 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 11
+		"id": 31,
+		"nom": "Clone[341][059]",
+		"x": 18,
+		"y": 8
 	},
 	{
-		"id": 26,
+		"id": 4,
 		"nom": "Clone[341][004]",
-		"x": 2,
-		"y": 2
+		"x": 10,
+		"y": 6
 	},
 	{
 		"id": 15,
@@ -1598,66 +1593,16 @@
 		]
 	},
 	{
-		"id": 4,
+		"id": 26,
 		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 6
+		"x": 2,
+		"y": 2
 	},
 	{
-		"id": 32,
-		"nom": "Pancarte",
-		"x": 16,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Do not hesitate to ring the return bell\\nto come back to the entrance of the dungeon."
-			},
-			{
-				"nom": "Message",
-				"texte": "N'hésitez pas à sonner la cloche de retour \\npour revenir au début du donjon."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 10,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 12
 	},
 	{
 		"id": 21,
@@ -1708,10 +1653,60 @@
 		]
 	},
 	{
-		"id": 10,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 12
+		"id": 32,
+		"nom": "Pancarte",
+		"x": 16,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here's a Return Bell! \\nThere are several in this dungeon. \\nIf you ring it, you'll be transported \\nto another Return Bell!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Voici une cloche de retour !\\nIl y en a plusieurs dans ce donjon.\\nSi vous la sonnez, vous serez transporté \\nvers une autre cloche de retour !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	}
 	]
 }

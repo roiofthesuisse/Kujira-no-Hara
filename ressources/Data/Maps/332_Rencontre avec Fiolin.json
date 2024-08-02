@@ -9,7 +9,7 @@
 		"tempo": 1.00
 	},
 	"fondSonore": {
-		"nomFichierSonore": "Forêt rayman 1.mp3",
+		"nomFichierSonore": "Foret.ogg",
 		"volume": 0.50,
 		"tempo": 1.00
 	},
@@ -21,12 +21,12 @@
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0802,0809],
 	[0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0018,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0022,0810,0809],
-	[0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0022,0038,0021,0801],
+	[0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0011,0022,0038,0193,0801],
 	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0000,0000,0052,0008,0000,0000,0000,0000,0052,0038,0021,0011,0011],
 	[-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,0000,0000,0000,0008,0021,0011,0011,0011],
 	[0058,0058,0058,0058,0049,0000,0000,0000,0000,0000,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007],
 	[0058,0058,0058,0049,0032,0052,0008,0000,0000,0000,0000,0000,0000,0000,0000,-007,-007,-007,-007,-007,-007,-007,-007,-007,-007],
-	[0817,0817,0049,0032,0057,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059],
+	[0817,0817,0186,0032,0057,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059],
 	[0809,0809,0808,0057,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059],
 	[0809,0809,0816,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
@@ -110,6 +110,32 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
+	{
+		"id": 16,
+		"nom": "blocage4",
+		"x": 15,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
 	{
 		"id": 5,
 		"nom": "Réglages initiaux",
@@ -286,30 +312,10 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "blocage4",
-		"x": 15,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "rocher gris character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 22,
+		"nom": "Clone[341][045]",
+		"x": 21,
+		"y": 28
 	},
 	{
 		"id": 11,
@@ -838,43 +844,6 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][045]",
-		"x": 21,
-		"y": 28
-	},
-	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 24,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 90,
-				"xDebutHeros": 1,
-				"yDebutHeros": 11
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -1662,10 +1631,41 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][028]",
+		"id": 6,
+		"nom": "EV006",
+		"x": 24,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 90,
+				"xDebutHeros": 1,
+				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 23,
+		"nom": "Clone[341][045]",
 		"x": 21,
-		"y": 11
+		"y": 29
 	},
 	{
 		"id": 12,
@@ -1904,7 +1904,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Thaumaturges Noirs.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -2355,41 +2355,10 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "Clone[341][045]",
+		"id": 1,
+		"nom": "Clone[341][028]",
 		"x": 21,
-		"y": 29
-	},
-	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 24,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 90,
-				"xDebutHeros": 1,
-				"yDebutHeros": 12
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 11
 	},
 	{
 		"id": 18,
@@ -3174,32 +3143,31 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 13,
-		"y": 8
-	},
-	{
-		"id": 13,
-		"nom": "blocage2",
-		"x": 12,
-		"y": 29,
+		"id": 7,
+		"nom": "EV007",
+		"x": 24,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 90,
+				"xDebutHeros": 1,
+				"yDebutHeros": 12
+			}
 			],
-			"image": "rocher gris character",
-			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -3270,6 +3238,44 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "blocage2",
+		"x": 12,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 13,
+		"y": 8
+	},
+	{
+		"id": 19,
+		"nom": "Clone[332][12]",
+		"x": 15,
+		"y": 10
+	},
+	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 0,
@@ -3301,10 +3307,36 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[332][12]",
-		"x": 15,
-		"y": 10
+		"id": 14,
+		"nom": "blocage1",
+		"x": 12,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][061]",
+		"x": 6,
+		"y": 8
 	},
 	{
 		"id": 25,
@@ -3338,36 +3370,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][061]",
-		"x": 6,
-		"y": 8
-	},
-	{
-		"id": 14,
-		"nom": "blocage1",
-		"x": 12,
-		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "rocher gris character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 20,
+		"nom": "Clone[332][12]",
+		"x": 15,
+		"y": 11
 	},
 	{
 		"id": 9,
@@ -3401,18 +3407,6 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[332][12]",
-		"x": 15,
-		"y": 11
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][061]",
-		"x": 9,
-		"y": 11
-	},
-	{
 		"id": 15,
 		"nom": "blocage3",
 		"x": 15,
@@ -3439,29 +3433,10 @@
 		]
 	},
 	{
-		"id": 10,
-		"nom": "Thaumaturge noir",
-		"x": 11,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "thaumaturge noir character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 4,
+		"nom": "Clone[341][061]",
+		"x": 9,
+		"y": 11
 	},
 	{
 		"id": 21,
@@ -3511,6 +3486,31 @@
 			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Thaumaturge noir",
+		"x": 11,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "thaumaturge noir character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false

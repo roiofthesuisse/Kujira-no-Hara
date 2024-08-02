@@ -3,16 +3,6 @@
 	"tileset": "Ventre",
 	"largeur": 20,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0000,0000,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0008,0000,0000,0000],
 	[0000,0000,0008,0000,0008,0000,0008,0000,0008,0000,0008,0000,0008,0000,0008,0000,0008,0000,0000,0000],
@@ -538,6 +528,14 @@
 				"numero": 6
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "On invoque un butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 582, 17)"
+			},
+			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 58
 			},
@@ -582,12 +580,7 @@
 				"numeroPageCommune": 71
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "On transforme le monstre en butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(582, 17)"
+				"nom": "SupprimerEvent"
 			},
 			{
 				"nom": "ConditionFin",
@@ -1130,6 +1123,14 @@
 				"numero": 6
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "On invoque un butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 582, 17)"
+			},
+			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 58
 			},
@@ -1170,12 +1171,7 @@
 				"numero": 7
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "On transforme le monstre en butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(582, 17)"
+				"nom": "SupprimerEvent"
 			},
 			{
 				"nom": "ConditionFin",
@@ -1710,6 +1706,14 @@
 				"numero": 6
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "On invoque un butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 582, 17)"
+			},
+			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 58
 			},
@@ -1750,12 +1754,7 @@
 				"numero": 7
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "On transforme le monstre en butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(582, 17)"
+				"nom": "SupprimerEvent"
 			},
 			{
 				"nom": "ConditionFin",
@@ -2289,6 +2288,14 @@
 				"numero": 6
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "On invoque un butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer($game_map.events[@event_id].x, $game_map.events[@event_id].y, 582, 17)"
+			},
+			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 58
 			},
@@ -2329,12 +2336,7 @@
 				"numero": 7
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "On transforme le monstre en butin :\\n(582,11) petit butin\\n(582,14) moyen butin\\n(582,17) gros butin"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(582, 17)"
+				"nom": "SupprimerEvent"
 			},
 			{
 				"nom": "ConditionFin",

@@ -3,11 +3,6 @@
 	"tileset": "Sanctuaire de Kaze",
 	"largeur": 21,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
 	"fondSonore": {
 		"nomFichierSonore": "001-Wind01.ogg",
 		"volume": 1.00,
@@ -21,10 +16,10 @@
 	[0064,0065,0009,0008,0009,-004,0009,0008,0009,0006,0007,0002,0002,0002,0002,0002,0002,0002,0002,0002,0002],
 	[0052,0053,0032,0033,0034,0023,0032,0033,0034,0054,0055,0036,0037,0004,0005,0004,0005,0004,0005,0038,0039],
 	[0060,0061,0040,0000,0042,0031,0040,0000,0042,0062,0063,0044,0045,0012,0013,0012,0013,0012,0013,0046,0047],
-	[0036,0037,0016,0008,0018,0004,0016,0008,0018,0004,0005,0146,0147,-006,-006,-006,-006,-006,-006,0014,0015],
-	[0044,0045,0024,0025,0026,0012,0024,0025,0026,0012,0013,0154,0155,-004,-004,-006,-006,-006,-006,0006,0007],
-	[0028,0029,0009,0008,0009,0008,0009,0008,0009,-004,0000,0001,0000,0001,0000,0001,0000,-006,-006,0014,0015],
-	[0048,0049,-004,-004,-004,0000,0001,0000,0001,-004,-004,-006,-004,-004,-006,-006,-006,-006,-006,0006,0007],
+	[0036,0037,0016,0008,0018,0004,0016,0008,0018,0004,0005,0146,0147,-004,-004,-004,-004,-006,-006,0014,0015],
+	[0044,0045,0024,0025,0026,0012,0024,0025,0026,0012,0013,0154,0155,-004,0001,0000,-004,-004,-006,0006,0007],
+	[0028,0029,0009,0008,0009,0008,0009,0008,0009,-004,0000,0001,0000,0001,0000,0001,0000,-004,-006,0014,0015],
+	[0048,0049,-004,-004,-004,0000,0001,0000,0001,-004,-004,-004,-006,-004,-004,-004,-006,-004,-006,0006,0007],
 	[0056,0057,0009,0008,-004,0008,0009,0008,0009,0001,-006,-006,-006,-004,-006,-006,-006,-006,-006,0014,0015],
 	[0064,0065,0001,0000,-004,0000,0001,0000,0001,0000,-006,-006,-006,-004,-006,-006,-006,-006,-006,0006,0007],
 	[0052,0053,0032,0033,0034,0022,0023,0022,0023,0022,0023,0022,0023,0022,0023,0022,0023,0022,0023,0054,0055],
@@ -38,8 +33,8 @@
 	[0120,0121,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,0088,0089,0090,-001,0088,0089,0090,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,0096,0097,0098,-001,0096,0097,0098,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,0072,0073,0074,-001,0072,0073,0074,-001,-001,-001,-001,-001,-001,-001,-001,-001,0011,-001,-001],
-	[-001,-001,0080,0081,0082,-001,0080,0081,0082,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,0072,0073,0074,-001,0072,0073,0074,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,0080,0081,0082,-001,0080,0081,0082,-001,-001,-001,-001,-001,0011,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[0104,0105,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[0112,0113,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -65,94 +60,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 5,
-		"nom": "Blocage anti-évènement",
-		"x": 17,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "Pancarte",
-		"x": 18,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Do not hesitate to ring the return bell\\nto come back to the entrance of the dungeon."
-			},
-			{
-				"nom": "Message",
-				"texte": "N'hésitez pas à sonner la cloche de retour \\npour revenir au début du donjon."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) A golden statue always stays where it was placed."
-			},
-			{
-				"nom": "Message",
-				"texte": "Une statue dorée reste là où on la met."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
 	{
 		"id": 27,
 		"nom": "Clone[341][023]",
@@ -191,64 +98,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 17,
 		"nom": "Clone[21][36]",
 		"x": 11,
 		"y": 11
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][059]",
-		"x": 13,
-		"y": 7
-	},
-	{
-		"id": 1,
-		"nom": "Blocage anti-évènement",
-		"x": 11,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 23,
@@ -257,96 +110,9 @@
 		"y": 2
 	},
 	{
-		"id": 7,
+		"id": 1,
 		"nom": "Blocage anti-évènement",
-		"x": 15,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "Clone[21][36]",
 		"x": 12,
-		"y": 11
-	},
-	{
-		"id": 24,
-		"nom": "fanfare",
-		"x": 7,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 24,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
 		"y": 10,
 		"pages": [
 		{
@@ -366,6 +132,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][059]",
+		"x": 15,
+		"y": 8
+	},
+	{
+		"id": 18,
+		"nom": "Clone[21][36]",
+		"x": 12,
+		"y": 11
 	},
 	{
 		"id": 13,
@@ -440,21 +218,9 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][004]",
-		"x": 2,
-		"y": 9
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][143]",
-		"x": 16,
-		"y": 9
-	},
-	{
-		"id": 3,
+		"id": 2,
 		"nom": "Blocage anti-évènement",
-		"x": 15,
+		"x": 14,
 		"y": 10,
 		"pages": [
 		{
@@ -474,6 +240,81 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 24,
+		"nom": "fanfare",
+		"x": 7,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 24,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][0021]",
+		"x": 13,
+		"y": 9
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][004]",
+		"x": 2,
+		"y": 9
+	},
+	{
+		"id": 25,
+		"nom": "Clone[341][078]",
+		"x": 18,
+		"y": 8
 	},
 	{
 		"id": 14,
@@ -647,20 +488,64 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Clone[341][078]",
-		"x": 18,
-		"y": 12
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 3
+		"id": 3,
+		"nom": "Pancarte",
+		"x": 14,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here's a Return Bell! \\nThere are several in this dungeon. \\nIf you ring it, you'll be transported \\nto another Return Bell!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Voici une cloche de retour !\\nIl y en a plusieurs dans ce donjon.\\nSi vous la sonnez, vous serez transporté \\nvers une autre cloche de retour !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 9,
-		"nom": "placer la statue doree",
+		"nom": "bruit de porte",
 		"x": 16,
 		"y": 5,
 		"pages": [
@@ -668,26 +553,6 @@
 			"conditions": [
 			],
 			"commandes": [
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 109,
-				"inegalite": "!=",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 8,
-				"variable": true,
-				"nouveauX": 109,
-				"nouveauY": 110,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 16
@@ -725,28 +590,16 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 20,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 3
+	},
+	{
+		"id": 26,
+		"nom": "Clone[341][006]",
+		"x": 18,
+		"y": 7
 	},
 	{
 		"id": 15,
@@ -780,31 +633,18 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "Clone[341][006]",
-		"x": 18,
-		"y": 11
-	},
-	{
-		"id": 21,
-		"nom": "EV021",
-		"x": 0,
-		"y": 11,
+		"id": 4,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 712,
-				"xDebutHeros": 19,
-				"yDebutHeros": 11
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1031,6 +871,37 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "EV021",
+		"x": 0,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 712,
+				"xDebutHeros": 19,
+				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

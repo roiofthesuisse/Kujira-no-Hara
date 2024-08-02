@@ -3,16 +3,6 @@
 	"tileset": "Sanctuaire de Jishin",
 	"largeur": 20,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161],
 	[0161,-007,-007,-007,0161,-007,-007,0161,0161,0161,0161,0161,0161,0161,0161,-007,-007,0161,0161,0161],
@@ -302,8 +292,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -312,13 +302,13 @@
 			}
 			],
 			"image": "flamme character",
-			"vitesse": "normale",
-			"frequence": "haute",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		},
 		{
 			"conditions": [
@@ -381,13 +371,13 @@
 				]
 			},
 			"image": "flamme character",
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": true
+			"auDessusDeTout": false
 		}
 		]
 	}

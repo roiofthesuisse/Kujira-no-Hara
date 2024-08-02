@@ -4,8 +4,8 @@
 	"largeur": 35,
 	"hauteur": 32,
 	"musique": {
-		"nomFichierSonore": "Premières Galeries.ogg",
-		"volume": 1.00,
+		"nomFichierSonore": "Premieres galeries.ogg",
+		"volume": 0.80,
 		"tempo": 0.50
 	},
 	"fondSonore": {
@@ -32,7 +32,7 @@
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0040,0008,0016,0011,0011,0003,0011,0011,0013,0052,0046,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0040,0000,0032,0008,0000,0000,0000,0052,0038,0008,0046,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0048,0049,0032,0000,0000,0000,0000,0000,0038,0053,0061,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0816,0049,0032,0032,0000,0052,0000,0000,0000,0038,0046,0053,0818,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0816,0186,0032,0032,0000,0052,0000,0000,0000,0038,0046,0185,0818,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0032,0032,0000,0000,0000,0008,0000,0038,0046,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0032,0032,0000,0000,0000,0000,0000,0038,0046,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0032,0057,0059,0059,0051,0059,0059,0061,0046,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
@@ -166,7 +166,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "Blocage anti-évènement1",
+		"nom": "Blocage anti-évènement",
 		"x": 16,
 		"y": 11,
 		"pages": [
@@ -177,59 +177,6 @@
 			}
 			],
 			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 17,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 4,
-				"xDebutHeros": 13,
-				"yDebutHeros": 9
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -263,8 +210,12 @@
 				"nombreDeFrames": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "empecher la statue d'entrer dans le tunnel"
+			},
+			{
 				"nom": "TeleporterEvent",
-				"idEvent": 6,
+				"idEvent": 13,
 				"variable": false,
 				"nouveauX": 17,
 				"nouveauY": 8,
@@ -347,6 +298,59 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 17,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 4,
+				"xDebutHeros": 13,
+				"yDebutHeros": 9
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "Blocage anti-évènement",
 		"x": 17,
@@ -412,6 +416,30 @@
 				"nom": "AppelerUnScript",
 				"script": "wait_for_event(0)"
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Blocage anti-évènement",
+		"x": 18,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",

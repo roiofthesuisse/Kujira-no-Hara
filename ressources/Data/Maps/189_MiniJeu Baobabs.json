@@ -40,7 +40,7 @@
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0024,0001,0001,0001,0001,0001,0001,-007,-007,-007,0001,0001,0001,0001,0001,0001,0046,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0057,0059,0059,0059,0059,0059,0049,-007,-007,-007,0053,0059,0059,0059,0059,0059,0054,0046,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0057,0059,0059,0059,0059,0059,0049,0024,-007,-007,-007,0046,0053,0059,0059,0059,0059,0059,0054,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0816,0817,0817,0817,0817,0817,0049,0024,0024,-007,-007,-007,0046,0046,0053,0817,0817,0817,0817,0817,0818,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0816,0817,0817,0817,0817,0817,0186,0024,0024,-007,-007,-007,0046,0046,0185,0817,0817,0817,0817,0817,0818,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0024,-007,-007,-007,0046,0046,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,-007,-007,-007,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,-007,-007,-007,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
@@ -113,336 +113,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0859,-001,-001,-001,-001,-001,-001,-001,-001,-001,0860,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 5,
-		"nom": "Courge",
-		"x": 14,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 6,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 7,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Armes efficaces"
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 14,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Effet"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 14,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 3
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			}
-			],
-			"image": "courge character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 5,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (perdu !).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 27,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Lost: you burned a gourd!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Perdu : vous avez calciné une courge !"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				}
-				]
-			},
-			{
-				"nom": "ArreterChronometre"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 7,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 40,
-				"directionDebutHeros": 3,
-				"xDebutHeros": 13,
-				"yDebutHeros": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 7,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			}
-			],
-			"image": "courge character",
-			"teinte": "160",
-			"modeDeFusion": "negatif",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 27,
-		"nom": "girouette",
-		"x": 39,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
 	{
 		"id": 16,
 		"nom": "Baobab",
@@ -1056,9 +726,35 @@
 		]
 	},
 	{
-		"id": 11,
+		"id": 27,
+		"nom": "girouette",
+		"x": 39,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
 		"nom": "Courge",
-		"x": 22,
+		"x": 14,
 		"y": 17,
 		"pages": [
 		{
@@ -1206,7 +902,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 11,
+				"numeroEvent": 5,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -1403,9 +1099,9 @@
 		]
 	},
 	{
-		"id": 6,
+		"id": 11,
 		"nom": "Courge",
-		"x": 16,
+		"x": 22,
 		"y": 17,
 		"pages": [
 		{
@@ -1553,7 +1249,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 6,
+				"numeroEvent": 11,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -2319,9 +2015,9 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 6,
 		"nom": "Courge",
-		"x": 24,
+		"x": 16,
 		"y": 17,
 		"pages": [
 		{
@@ -2469,7 +2165,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 12,
+				"numeroEvent": 6,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -2623,55 +2319,6 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "Viking",
-		"x": 19,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 69,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 2
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Aaaaaaah! Baobabs!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Aaaaaaah ! Des Baobabs !"
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerAleatoirement"			}
-				]
-			},
-			"image": "viking petit character",
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 1,
 		"nom": "Chrono (début)",
 		"x": 24,
@@ -2733,10 +2380,59 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 23,
+		"nom": "Viking",
+		"x": 19,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 69,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Aaaaaaah! Baobabs!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Aaaaaaah ! Des Baobabs !"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				]
+			},
+			"image": "viking petit character",
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
 		"nom": "Courge",
-		"x": 14,
-		"y": 22,
+		"x": 24,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
@@ -2883,7 +2579,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
+				"numeroEvent": 12,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -3649,9 +3345,9 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 7,
 		"nom": "Courge",
-		"x": 22,
+		"x": 14,
 		"y": 22,
 		"pages": [
 		{
@@ -3799,7 +3495,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 13,
+				"numeroEvent": 7,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -3947,6 +3643,321 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Chrono (fin)",
+		"x": 25,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionArmePossedee",
+				"idArme": 1,
+				"numero": 0
+			},
+			{
+				"nom": "EquiperArme",
+				"idArme": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 31,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 49,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 30,
+				"operationAFaire2": "objets possedes"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 49,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 10
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "ConditionChronometre",
+				"nombreDeSecondes": 0,
+				"inegalite": "<=",
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 83
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (perdu !).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 83
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's over!"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est fini !"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 83
+				}
+				]
+			},
+			{
+				"nom": "ArreterChronometre"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 7,
+				"valeur": true
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 40,
+				"directionDebutHeros": 3,
+				"xDebutHeros": 13,
+				"yDebutHeros": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 7,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 4
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 83
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (perdu !).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 27,
+				"direction": 0,
+				"numero": 5
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Lost: a baobab tree has sprouted completely!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Perdu : un baobab a germé totalement !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 83
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 83
+				}
+				]
+			},
+			{
+				"nom": "ArreterChronometre"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 7,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 40,
+				"directionDebutHeros": 3,
+				"xDebutHeros": 13,
+				"yDebutHeros": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 7,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -4583,324 +4594,9 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Chrono (fin)",
-		"x": 25,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionArmePossedee",
-				"idArme": 1,
-				"numero": 0
-			},
-			{
-				"nom": "EquiperArme",
-				"idArme": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 31,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 31,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 49,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 30,
-				"operationAFaire2": "objets possedes"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 49,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 30,
-				"variable": false,
-				"quantite": 10
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ConditionChronometre",
-				"nombreDeSecondes": 0,
-				"inegalite": "<=",
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (perdu !).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				}
-				]
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's over!"
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est fini !"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				}
-				]
-			},
-			{
-				"nom": "ArreterChronometre"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 7,
-				"valeur": true
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 40,
-				"directionDebutHeros": 3,
-				"xDebutHeros": 13,
-				"yDebutHeros": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 7,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 4
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (perdu !).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 27,
-				"direction": 0,
-				"numero": 5
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Lost: a baobab tree has sprouted completely!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Perdu : un baobab a germé totalement !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 83
-				}
-				]
-			},
-			{
-				"nom": "ArreterChronometre"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 7,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 40,
-				"directionDebutHeros": 3,
-				"xDebutHeros": 13,
-				"yDebutHeros": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 7,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 9,
-				"valeur": true
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			}
-			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
+		"id": 13,
 		"nom": "Courge",
-		"x": 16,
+		"x": 22,
 		"y": 22,
 		"pages": [
 		{
@@ -5048,7 +4744,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 8,
+				"numeroEvent": 13,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -5814,9 +5510,9 @@
 		]
 	},
 	{
-		"id": 14,
+		"id": 8,
 		"nom": "Courge",
-		"x": 24,
+		"x": 16,
 		"y": 22,
 		"pages": [
 		{
@@ -5964,7 +5660,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 14,
+				"numeroEvent": 8,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -6112,49 +5808,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 25,
-		"nom": "Viking",
-		"x": 23,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Aaaaaaah! Baobabs!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Aaaaaaah ! Des Baobabs !"
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerAleatoirement"			}
-				]
-			},
-			"image": "viking petit character",
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -6465,10 +6118,53 @@
 		]
 	},
 	{
-		"id": 9,
+		"id": 25,
+		"nom": "Viking",
+		"x": 23,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Aaaaaaah! Baobabs!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Aaaaaaah ! Des Baobabs !"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				]
+			},
+			"image": "viking petit character",
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
 		"nom": "Courge",
-		"x": 22,
-		"y": 12,
+		"x": 24,
+		"y": 22,
 		"pages": [
 		{
 			"conditions": [
@@ -6615,7 +6311,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 9,
+				"numeroEvent": 14,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -7381,9 +7077,9 @@
 		]
 	},
 	{
-		"id": 4,
+		"id": 9,
 		"nom": "Courge",
-		"x": 16,
+		"x": 22,
 		"y": 12,
 		"pages": [
 		{
@@ -7531,7 +7227,7 @@
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 4,
+				"numeroEvent": 9,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -7679,49 +7375,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "Viking",
-		"x": 15,
-		"y": 21,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Aaaaaaah! Baobabs!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Aaaaaaah ! Des Baobabs !"
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerAleatoirement"			}
-				]
-			},
-			"image": "viking petit character",
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -8340,6 +7993,396 @@
 		]
 	},
 	{
+		"id": 26,
+		"nom": "Viking",
+		"x": 15,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Aaaaaaah! Baobabs!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Aaaaaaah ! Des Baobabs !"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				]
+			},
+			"image": "viking petit character",
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Courge",
+		"x": 16,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 14,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 6,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 7,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": -1,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Armes efficaces"
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 1,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 14,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Effet"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 14,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "ARME_SUIVANTE",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 1,
+				"numero": 3
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 4
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "117-Fire01.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"image": "courge character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 4,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 83
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (perdu !).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 83
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 27,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Lost: you burned a gourd!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Perdu : vous avez calciné une courge !"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 83
+				}
+				]
+			},
+			{
+				"nom": "ArreterChronometre"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 7,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 40,
+				"directionDebutHeros": 3,
+				"xDebutHeros": 13,
+				"yDebutHeros": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 7,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 9,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"image": "courge character",
+			"teinte": "160",
+			"modeDeFusion": "negatif",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "Viking",
+		"x": 15,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Aaaaaah! Baobabs!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Aaaaaaah ! Des Baobabs !"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				]
+			},
+			"image": "viking petit character",
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 10,
 		"nom": "Courge",
 		"x": 24,
@@ -8638,49 +8681,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "Viking",
-		"x": 15,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Aaaaaah! Baobabs!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Aaaaaaah ! Des Baobabs !"
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerAleatoirement"			}
-				]
-			},
-			"image": "viking petit character",
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

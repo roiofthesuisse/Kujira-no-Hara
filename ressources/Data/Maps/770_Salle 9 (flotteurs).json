@@ -3,16 +3,6 @@
 	"tileset": "Sanctuaire de Kakeru",
 	"largeur": 21,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0036,0037,0016,0017,0018,0004,0005,0004,0005,0004,0005,0004,0005,0004,0005,0004,0005,0004,0038,0039,0002],
 	[0044,0045,0024,0025,0026,0012,0013,0012,0013,0012,0013,0012,0013,0012,0013,0012,0013,0012,0046,0047,0002],
@@ -97,19 +87,19 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Feel free to ring the return bell \\nto return to the beginning of the dungeon."
+				"texte": "(en) Here's a Return Bell! \\nThere are several in this dungeon. \\nIf you ring it, you'll be transported \\nto another Return Bell!"
 			},
 			{
 				"nom": "Message",
-				"texte": "N'hésitez pas à sonner la cloche de retour \\npour revenir au début du donjon."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"texte": "Voici une cloche de retour !\\nIl y en a plusieurs dans ce donjon.\\nSi vous la sonnez, vous serez transporté \\nvers une autre cloche de retour !"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -132,37 +122,6 @@
 		"nom": "Clone[341][023]",
 		"x": 14,
 		"y": 2
-	},
-	{
-		"id": 17,
-		"nom": "EV017",
-		"x": 3,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 783,
-				"xDebutHeros": 3,
-				"yDebutHeros": 13
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 6,
@@ -346,10 +305,35 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][138]",
-		"x": 12,
-		"y": 8
+		"id": 17,
+		"nom": "EV017",
+		"x": 3,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 783,
+				"xDebutHeros": 3,
+				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 12,
@@ -376,6 +360,12 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][138]",
+		"x": 12,
+		"y": 8
+	},
+	{
 		"id": 7,
 		"nom": "Blocage anti-évènement",
 		"x": 10,
@@ -400,12 +390,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][137]",
-		"x": 9,
-		"y": 7
-	},
-	{
 		"id": 13,
 		"nom": "Blocage anti-évènement",
 		"x": 7,
@@ -428,6 +412,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][137]",
+		"x": 9,
+		"y": 7
 	},
 	{
 		"id": 8,
@@ -461,12 +451,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][138]",
-		"x": 10,
-		"y": 5
-	},
-	{
 		"id": 14,
 		"nom": "Blocage anti-évènement",
 		"x": 8,
@@ -489,6 +473,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][138]",
+		"x": 10,
+		"y": 5
 	},
 	{
 		"id": 9,
@@ -515,12 +505,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][137]",
-		"x": 11,
-		"y": 8
-	},
-	{
 		"id": 15,
 		"nom": "Blocage anti-évènement",
 		"x": 12,
@@ -543,6 +527,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][137]",
+		"x": 11,
+		"y": 8
 	},
 	{
 		"id": 10,

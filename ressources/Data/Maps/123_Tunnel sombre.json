@@ -5,7 +5,7 @@
 	"hauteur": 60,
 	"musique": {
 		"nomFichierSonore": "Etroits Tunnels.ogg",
-		"volume": 1.00,
+		"volume": 0.80,
 		"tempo": 0.75
 	},
 	"fondSonore": {
@@ -201,22 +201,28 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[021][43]",
-		"x": 13,
-		"y": 24
-	},
-	{
 		"id": 5,
 		"nom": "Clone[341][008]",
 		"x": 12,
 		"y": 13
 	},
 	{
+		"id": 16,
+		"nom": "Clone[021][43]",
+		"x": 13,
+		"y": 24
+	},
+	{
 		"id": 11,
 		"nom": "Clone[021][014]",
 		"x": 22,
 		"y": 18
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][008]",
+		"x": 14,
+		"y": 12
 	},
 	{
 		"id": 17,
@@ -309,10 +315,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][008]",
-		"x": 14,
-		"y": 12
+		"id": 1,
+		"nom": "Clone[341][043]",
+		"x": 29,
+		"y": 40
 	},
 	{
 		"id": 12,
@@ -321,117 +327,16 @@
 		"y": 14
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][043]",
-		"x": 29,
-		"y": 40
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][043]",
-		"x": 25,
-		"y": 29
-	},
-	{
 		"id": 7,
 		"nom": "Clone[341][006]",
 		"x": 13,
 		"y": 12
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 43,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				},
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 2
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				},
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 127,
-				"xDebutHeros": 14,
-				"yDebutHeros": 35
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 18,
+		"nom": "Clone[341][043]",
+		"x": 25,
+		"y": 29
 	},
 	{
 		"id": 2,
@@ -529,6 +434,101 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 43,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 127,
+				"xDebutHeros": 14,
+				"yDebutHeros": 35
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 8,
 		"nom": "Pancarte",
 		"x": 44,
@@ -588,12 +588,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[021][43]",
-		"x": 20,
-		"y": 36
 	},
 	{
 		"id": 3,
@@ -657,6 +651,18 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "Clone[021][43]",
+		"x": 20,
+		"y": 36
+	},
+	{
+		"id": 9,
+		"nom": "Clone[021][014]",
+		"x": 39,
+		"y": 33
+	},
+	{
 		"id": 20,
 		"nom": "EV020",
 		"x": 29,
@@ -694,18 +700,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 9,
-		"nom": "Clone[021][014]",
-		"x": 39,
-		"y": 33
-	},
-	{
-		"id": 15,
-		"nom": "Clone[021][43]",
-		"x": 32,
-		"y": 27
 	},
 	{
 		"id": 4,
@@ -769,10 +763,10 @@
 		]
 	},
 	{
-		"id": 10,
-		"nom": "Clone[021][014]",
-		"x": 28,
-		"y": 30
+		"id": 15,
+		"nom": "Clone[021][43]",
+		"x": 32,
+		"y": 27
 	},
 	{
 		"id": 21,
@@ -804,6 +798,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[021][014]",
+		"x": 28,
+		"y": 30
 	}
 	]
 }

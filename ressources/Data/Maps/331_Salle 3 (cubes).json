@@ -3,16 +3,6 @@
 	"tileset": "Sanctuaire de Taiyou",
 	"largeur": 21,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0146,0147,0000,0014,0015,0001,0036,0037,0016,0017,0018,0038,0039,0001,0001,0001,0001,0001,0001,0001,0001],
 	[0154,0155,0000,0144,0145,0004,0146,0045,0024,0025,0026,0046,0145,0005,0004,0005,0004,0005,0004,0038,0039],
@@ -66,6 +56,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][0025]",
+		"x": 9,
+		"y": 1
+	},
+	{
 		"id": 16,
 		"nom": "Blocage anti-évènement",
 		"x": 2,
@@ -88,12 +84,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][0025]",
-		"x": 9,
-		"y": 1
 	},
 	{
 		"id": 11,
@@ -127,12 +117,6 @@
 		"y": 3
 	},
 	{
-		"id": 1,
-		"nom": "Clone[572][9]",
-		"x": 13,
-		"y": 4
-	},
-	{
 		"id": 12,
 		"nom": "EV012",
 		"x": 20,
@@ -162,6 +146,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[572][9]",
+		"x": 13,
+		"y": 4
 	},
 	{
 		"id": 7,
@@ -195,12 +185,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[572][9]",
-		"x": 14,
-		"y": 7
-	},
-	{
 		"id": 13,
 		"nom": "Blocage anti-évènement",
 		"x": 3,
@@ -223,6 +207,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[572][9]",
+		"x": 14,
+		"y": 7
 	},
 	{
 		"id": 8,
@@ -256,12 +246,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[572][9]",
-		"x": 4,
-		"y": 8
-	},
-	{
 		"id": 14,
 		"nom": "Blocage anti-évènement",
 		"x": 3,
@@ -286,6 +270,12 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "Clone[572][9]",
+		"x": 4,
+		"y": 8
+	},
+	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 9,
@@ -305,30 +295,6 @@
 				"xDebutHeros": 9,
 				"yDebutHeros": 13
 			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -369,6 +335,30 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "Blocage anti-évènement",
+		"x": 19,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

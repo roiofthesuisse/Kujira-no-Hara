@@ -3,16 +3,6 @@
 	"tileset": "Sanctuaire de Kaze",
 	"largeur": 21,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0036,0037,0004,0016,0017,0018,0016,0017,0018,0016,0017,0018,0016,0017,0018,0016,0017,0018,0005,0038,0039],
 	[0044,0045,0012,0024,0025,0026,0024,0025,0026,0024,0025,0026,0024,0025,0026,0024,0025,0026,0013,0046,0047],
@@ -66,6 +56,12 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[341][004]",
+		"x": 7,
+		"y": 12
+	},
+	{
 		"id": 5,
 		"nom": "EV005",
 		"x": 13,
@@ -104,28 +100,16 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][004]",
-		"x": 7,
-		"y": 12
-	},
-	{
-		"id": 11,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 4
-	},
-	{
 		"id": 22,
 		"nom": "Clone[341][078]",
 		"x": 9,
 		"y": 2
 	},
 	{
-		"id": 17,
-		"nom": "Clone[21][26]",
-		"x": 11,
-		"y": 8
+		"id": 11,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 4
 	},
 	{
 		"id": 6,
@@ -153,6 +137,49 @@
 				"numeroNouvelleMap": 708,
 				"xDebutHeros": 16,
 				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "Clone[21][26]",
+		"x": 11,
+		"y": 8
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][004]",
+		"x": 5,
+		"y": 3
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 10,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 730,
+				"xDebutHeros": 10,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -268,49 +295,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 10,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 730,
-				"xDebutHeros": 10,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][004]",
-		"x": 5,
-		"y": 3
-	},
-	{
-		"id": 18,
-		"nom": "Clone[21][26]",
-		"x": 9,
-		"y": 5
-	},
-	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 0,
@@ -340,6 +324,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 18,
+		"nom": "Clone[21][26]",
+		"x": 9,
+		"y": 5
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 4
 	},
 	{
 		"id": 2,
@@ -380,10 +376,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 4
+		"id": 19,
+		"nom": "Clone[341][078]",
+		"x": 9,
+		"y": 9
 	},
 	{
 		"id": 8,
@@ -417,10 +413,10 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][078]",
-		"x": 9,
-		"y": 9
+		"id": 14,
+		"nom": "Clone[341][004]",
+		"x": 15,
+		"y": 3
 	},
 	{
 		"id": 3,
@@ -461,10 +457,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][004]",
-		"x": 15,
-		"y": 3
+		"id": 20,
+		"nom": "Clone[341][078]",
+		"x": 11,
+		"y": 5
 	},
 	{
 		"id": 9,
@@ -498,10 +494,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][078]",
-		"x": 11,
-		"y": 5
+		"id": 15,
+		"nom": "Clone[341][004]",
+		"x": 13,
+		"y": 12
 	},
 	{
 		"id": 4,
@@ -542,10 +538,10 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][004]",
-		"x": 13,
-		"y": 12
+		"id": 21,
+		"nom": "Clone[341][078]",
+		"x": 11,
+		"y": 11
 	},
 	{
 		"id": 10,
@@ -577,12 +573,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][078]",
-		"x": 11,
-		"y": 11
 	}
 	]
 }

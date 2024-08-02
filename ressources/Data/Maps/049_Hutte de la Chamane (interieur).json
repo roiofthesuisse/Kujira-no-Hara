@@ -2248,7 +2248,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "Here is your horoscope:\\n(SILVER) Jizo statues ruin you \\nbut you will feel lighter!"
+				"texte": "(en) Here is your horoscope:\\n(MONEY) Jizo statues ruin you \\nbut you will feel lighter!"
 			},
 			{
 				"nom": "Message",
@@ -2270,7 +2270,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "Here is your horoscope: \\n(MONEY) A mustachioed dishonest merchant \\nwill swindle you."
+				"texte": "(en) Here is your horoscope: \\n(MONEY) A mustachioed dishonest merchant \\nwill swindle you."
 			},
 			{
 				"nom": "Message",
@@ -2463,7 +2463,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "Here is your horoscope:\\n(HEALTH) A meal rich in pumpkins \\nwill give you strength and vigor."
+				"texte": "(en) Here is your horoscope:\\n(HEALTH) A meal rich in pumpkins \\nwill give you strength and vigor."
 			},
 			{
 				"nom": "Message",
@@ -2485,7 +2485,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "Here is your horoscope:\\n(HEALTH) Why do we always find sulfur in pots \\nwhen looking for an energy ball?"
+				"texte": "(en) Here is your horoscope:\\n(HEALTH) Why do we always find sulfur in pots \\nwhen looking for an energy ball?"
 			},
 			{
 				"nom": "Message",
@@ -2678,7 +2678,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "Here is your horoscope:\\n(WORK) Loot \\c[2]scholar\\c[0] shrines\\nand a miracle will happen."
+				"texte": "(en) Here is your horoscope:\\n(WORK) Loot \\c[2]scholar\\c[0] shrines\\nand a miracle will happen."
 			},
 			{
 				"nom": "Message",
@@ -2700,7 +2700,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "Here is your horoscope:\\n(WORK) Loot \\c[2]scholar\\c[0] shrines\\nand a miracle will happen."
+				"texte": "(en) Here is your horoscope:\\n(WORK) Loot \\c[2]scholar\\c[0] shrines\\nand a miracle will happen."
 			},
 			{
 				"nom": "Message",
@@ -2737,7 +2737,7 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 9,
 				"operationAFaire": "modulo",
-				"valeurADonner": 4,
+				"valeurADonner": 5,
 				"operationAFaire2": "valeur brute"
 			},
 			{
@@ -2871,6 +2871,57 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 10
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 9,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 11
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chamane\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you are equipped with the bug basket,\\nyou will see the lanterns on your map."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si tu es équipé de la corbeille à bestioles,\\ntu verras les lanternes sur ta carte."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "éééeuh sorcière.mp3",
+				"volume": 1.00,
+				"tempo": 1.10
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 11,
+				"idAnimation": 42
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What do you mean \"why\"?!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Comment ça \"pourquoi\" ?!"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is the power of fireflies, obviously!\\nCan't you feel their magic in everything?"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est le pouvoir des lucioles, évidemment !\\nNe sens-tu pas leur magie en toute chose ?"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 11
 			},
 			{
 				"nom": "Commentaire",
@@ -3080,7 +3131,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Tabula le Terrible.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{

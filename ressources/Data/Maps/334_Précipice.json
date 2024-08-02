@@ -4,12 +4,12 @@
 	"largeur": 25,
 	"hauteur": 45,
 	"musique": {
-		"nomFichierSonore": "Forêt de l'Ouest 2.ogg",
+		"nomFichierSonore": "Foret de l Ouest 2.ogg",
 		"volume": 0.80,
 		"tempo": 1.00
 	},
 	"fondSonore": {
-		"nomFichierSonore": "Forêt rayman 1.mp3",
+		"nomFichierSonore": "Foret.ogg",
 		"volume": 0.50,
 		"tempo": 1.00
 	},
@@ -27,8 +27,8 @@
 	[0059,0059,0059,0049,0057,0058,0058,0058,0058,0058,0049,0052,0000,0008,0053,0058,0058,0058,0058,0058,0061,0053,0058,0058,0058],
 	[0059,0059,0049,0057,0058,0058,0058,0058,0058,0049,0032,0008,0000,0000,0046,0053,0058,0058,0058,0058,0058,0061,0053,0058,0058],
 	[0059,0049,0057,0058,0058,0058,0058,0058,0049,0032,0032,0000,0000,0000,0046,0046,0053,0058,0058,0058,0058,0058,0061,0053,0058],
-	[0049,0057,0058,0058,0058,0058,0058,0049,0032,0032,0032,0000,0000,0000,0046,0046,0046,0053,0058,0058,0058,0058,0058,0061,0053],
-	[0816,0817,0817,0817,0817,0817,0049,0032,0032,0032,0032,0000,0000,0008,0046,0046,0046,0046,0053,0817,0817,0817,0817,0817,0818],
+	[0186,0057,0058,0058,0058,0058,0058,0049,0032,0032,0032,0000,0000,0000,0046,0046,0046,0053,0058,0058,0058,0058,0058,0061,0185],
+	[0816,0817,0817,0817,0817,0817,0186,0032,0032,0032,0032,0000,0000,0008,0046,0046,0046,0046,0185,0817,0817,0817,0817,0817,0818],
 	[0809,0809,0809,0809,0809,0809,0808,0032,0032,0032,0032,-006,-006,-006,0046,0046,0046,0046,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0032,0032,0032,0032,-006,-006,-006,0046,0046,0046,0046,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0032,0032,0032,0032,-006,-006,-006,0046,0046,0046,0046,0810,0809,0809,0809,0809,0809,0809],
@@ -45,7 +45,7 @@
 	[0809,0809,0809,0809,0809,0809,0808,0032,0032,0032,0032,-006,-006,-006,0046,0046,0046,0046,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0032,0032,0032,0032,-006,-006,-006,0046,0046,0046,0046,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0032,0032,0032,0032,-006,-006,-006,0046,0046,0046,0046,0810,0809,0809,0809,0809,0809,0809],
-	[0801,0801,0801,0801,0801,0801,0017,0032,0032,0032,0032,-006,-006,-006,0046,0046,0046,0046,0021,0801,0801,0801,0801,0801,0801],
+	[0801,0801,0801,0801,0801,0801,0194,0032,0032,0032,0032,-006,-006,-006,0046,0046,0046,0046,0193,0801,0801,0801,0801,0801,0801],
 	[0011,0011,0011,0011,0011,0011,0011,0017,0032,0032,0032,0000,0000,0000,0046,0046,0046,0021,0011,0011,0011,0011,0011,0011,0011],
 	[0011,0011,0011,0011,0011,0011,0011,0011,0017,0032,0032,0000,0000,0000,0046,0046,0021,0011,0011,0011,0011,0011,0011,0011,0011],
 	[0011,0011,0011,0011,0011,0011,0011,0011,0011,0017,0032,0000,0000,0000,0046,0021,0011,0011,0011,0011,0011,0011,0011,0011,0011],
@@ -156,43 +156,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 0,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 303,
-				"xDebutHeros": 28,
-				"yDebutHeros": 21
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][001]",
-		"x": 11,
-		"y": 24
-	},
-	{
 		"id": 27,
 		"nom": "Luciole",
 		"x": 7,
@@ -227,7 +190,7 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.mp3",
+				"nomFichierSonore": "Luciole attrapée.ogg",
 				"volume": 1.00,
 				"tempo": 1.25
 			},
@@ -312,22 +275,16 @@
 		]
 	},
 	{
-		"id": 22,
+		"id": 5,
 		"nom": "Clone[341][001]",
-		"x": 7,
-		"y": 8
+		"x": 11,
+		"y": 24
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][0086]",
-		"x": 12,
-		"y": 21
-	},
-	{
-		"id": 17,
-		"nom": "EV017",
+		"id": 16,
+		"nom": "EV016",
 		"x": 0,
-		"y": 7,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -341,7 +298,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 303,
 				"xDebutHeros": 28,
-				"yDebutHeros": 22
+				"yDebutHeros": 21
 			}
 			],
 			"vitesse": "moderee",
@@ -355,10 +312,16 @@
 		]
 	},
 	{
-		"id": 6,
+		"id": 11,
+		"nom": "Clone[341][0086]",
+		"x": 12,
+		"y": 21
+	},
+	{
+		"id": 22,
 		"nom": "Clone[341][001]",
-		"x": 11,
-		"y": 25
+		"x": 7,
+		"y": 8
 	},
 	{
 		"id": 28,
@@ -392,16 +355,41 @@
 		]
 	},
 	{
-		"id": 12,
+		"id": 6,
 		"nom": "Clone[341][001]",
-		"x": 6,
-		"y": 8
+		"x": 11,
+		"y": 25
 	},
 	{
-		"id": 23,
-		"nom": "Clone[341][001]",
-		"x": 14,
-		"y": 5
+		"id": 17,
+		"nom": "EV017",
+		"x": 0,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 303,
+				"xDebutHeros": 28,
+				"yDebutHeros": 22
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -655,16 +643,16 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 23,
 		"nom": "Clone[341][001]",
-		"x": 12,
-		"y": 25
+		"x": 14,
+		"y": 5
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][028]",
-		"x": 18,
-		"y": 5
+		"id": 12,
+		"nom": "Clone[341][001]",
+		"x": 6,
+		"y": 8
 	},
 	{
 		"id": 29,
@@ -673,10 +661,47 @@
 		"y": 2
 	},
 	{
-		"id": 2,
+		"id": 18,
+		"nom": "Clone[341][028]",
+		"x": 18,
+		"y": 5
+	},
+	{
+		"id": 7,
 		"nom": "Clone[341][001]",
-		"x": 13,
-		"y": 23
+		"x": 12,
+		"y": 25
+	},
+	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 24,
+		"y": 36,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 333,
+				"xDebutHeros": 1,
+				"yDebutHeros": 14
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 24,
@@ -747,47 +772,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 24,
-		"y": 36,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 333,
-				"xDebutHeros": 1,
-				"yDebutHeros": 14
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
+		"id": 2,
 		"nom": "Clone[341][001]",
 		"x": 13,
-		"y": 25
-	},
-	{
-		"id": 19,
-		"nom": "Clone[341][061]",
-		"x": 17,
-		"y": 5
+		"y": 23
 	},
 	{
 		"id": 30,
@@ -796,10 +784,22 @@
 		"y": 5
 	},
 	{
-		"id": 3,
+		"id": 19,
+		"nom": "Clone[341][061]",
+		"x": 17,
+		"y": 5
+	},
+	{
+		"id": 8,
 		"nom": "Clone[341][001]",
-		"x": 12,
-		"y": 23
+		"x": 13,
+		"y": 25
+	},
+	{
+		"id": 25,
+		"nom": "Clone[341][002]",
+		"x": 6,
+		"y": 5
 	},
 	{
 		"id": 14,
@@ -833,10 +833,22 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Clone[341][002]",
-		"x": 6,
+		"id": 3,
+		"nom": "Clone[341][001]",
+		"x": 12,
+		"y": 23
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][028]",
+		"x": 11,
 		"y": 5
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][001]",
+		"x": 13,
+		"y": 24
 	},
 	{
 		"id": 31,
@@ -857,55 +869,6 @@
 				"numeroNouvelleMap": 427,
 				"xDebutHeros": 14,
 				"yDebutHeros": 19
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][001]",
-		"x": 13,
-		"y": 24
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][028]",
-		"x": 11,
-		"y": 5
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][001]",
-		"x": 11,
-		"y": 23
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 24,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 164,
-				"xDebutHeros": 1,
-				"yDebutHeros": 25
 			}
 			],
 			"vitesse": "moderee",
@@ -953,7 +916,7 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.mp3",
+				"nomFichierSonore": "Luciole attrapée.ogg",
 				"volume": 1.00,
 				"tempo": 1.25
 			},
@@ -1022,6 +985,55 @@
 		]
 	},
 	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 24,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 164,
+				"xDebutHeros": 1,
+				"yDebutHeros": 25
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][001]",
+		"x": 11,
+		"y": 23
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][0086]",
+		"x": 12,
+		"y": 33
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][061]",
+		"x": 8,
+		"y": 8
+	},
+	{
 		"id": 32,
 		"nom": "EV032",
 		"x": 0,
@@ -1051,18 +1063,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][061]",
-		"x": 8,
-		"y": 8
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][0086]",
-		"x": 12,
-		"y": 33
 	}
 	]
 }

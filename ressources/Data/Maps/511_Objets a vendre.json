@@ -3,16 +3,6 @@
 	"tileset": "Ventre",
 	"largeur": 20,
 	"hauteur": 15,
-	"musique": {
-		"nomFichierSonore": "",
-		"volume": 1.00,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0000,0000,0000,0000,0000,0000,0008,0000,0000,0000,0000,0000,0008,0000,0000,0000,0000,0000,0000,0000],
 	[0000,0000,0000,0000,0000,0000,0008,0000,0000,0000,0000,0000,0008,0000,0000,0000,0000,0000,0000,0000],
@@ -966,6 +956,313 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Calecon",
+		"x": 14,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Fireproof underwear?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le caleçon ignifugé ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes, this is our latest fashionable item!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oui, c'est notre tout dernier article à la \\nmode !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's only 20 scales."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il est à 20 écailles seulement."
+			},
+			{
+				"nom": "ConditionArgent",
+				"quantite": 20,
+				"inegalite": ">=",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So, is it a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Alors, marché conclu ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 3
+			},
+			{
+				"nom": "RetirerArgent",
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy fireproof underwear!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous achetez un caleçon ignifugé !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You can stick your hindquarters\\nin the coals without getting burned!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous pouvez mettre votre arrière-train dans \\nles tas de braises sans vous brûler !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Assign it with the \"Z\" key."
+			},
+			{
+				"nom": "Message",
+				"texte": "Assignez-le avec la touche \"W\"."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (stingy!)"
+			},
+			{
+				"nom": "Message",
+				"texte": "(radin !)"
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
+				"nom": "Message",
+				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 20 scales!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous avez moins de 20 écailles !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Saperlipopette !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
+			},
+			{
+				"nom": "Message",
+				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
+			},
+			{
+				"nom": "Message",
+				"texte": "(grmbl...)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "objet kujira 1",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 12,
 		"nom": "Objet évènementiel",
 		"x": 18,
@@ -1264,313 +1561,6 @@
 			],
 			"image": "objet kujira 2",
 			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Calecon",
-		"x": 14,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"mercator\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Fireproof underwear?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Le caleçon ignifugé ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Yes, this is our latest fashionable item!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Oui, c'est notre tout dernier article à la \\nmode !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's only 20 scales."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il est à 20 écailles seulement."
-			},
-			{
-				"nom": "ConditionArgent",
-				"quantite": 20,
-				"inegalite": ">=",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) So, is it a deal?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Yes|No"
-			},
-			{
-				"nom": "Message",
-				"texte": "Alors, marché conclu ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 3
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = nil"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You buy fireproof underwear!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous achetez un caleçon ignifugé !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You can stick your hindquarters\\nin the coals without getting burned!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous pouvez mettre votre arrière-train dans \\nles tas de braises sans vous brûler !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Assign it with the \"Z\" key."
-			},
-			{
-				"nom": "Message",
-				"texte": "Assignez-le avec la touche \"W\"."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Really?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ah bon ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) (stingy!)"
-			},
-			{
-				"nom": "Message",
-				"texte": "(radin !)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) WHAT?"
-			},
-			{
-				"nom": "Message",
-				"texte": "QUOI ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You have less than 20 scales!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous avez moins de 20 écailles !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Gadzooks!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saperlipopette !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) No credit!"
-			},
-			{
-				"nom": "Message",
-				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) (grmbl...)"
-			},
-			{
-				"nom": "Message",
-				"texte": "(grmbl...)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "objet kujira 1",
-			"directionInitiale": 1,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -2903,7 +2893,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Your maximum number of colored\\nscales increases to 600 instead\\nof 300."
+				"texte": "(en) Your maximum number of colored scales \\nincreases to 600 instead of 300."
 			},
 			{
 				"nom": "Message",
@@ -3554,7 +3544,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Your maximum number of colored\\nscales increases to 999 instead\\nof 600."
+				"texte": "(en) Your maximum number of colored scales \\nincreases to 999 instead of 600."
 			},
 			{
 				"nom": "Message",

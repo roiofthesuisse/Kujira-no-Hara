@@ -221,6 +221,30 @@
 		]
 	},
 	{
+		"id": 33,
+		"nom": "vaisseau eclaire le sol",
+		"x": 23,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 6,
 		"nom": "Tabula",
 		"x": 9,
@@ -316,7 +340,7 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": false
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -1019,7 +1043,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) IS THAT YOU, GOD ?"
+				"texte": "(en) IS THAT YOU, GOD?"
 			},
 			{
 				"nom": "Message",
@@ -1039,7 +1063,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Already, I have hierarchical superiors, \\nsuch as the illustrious \\c[2]Metatron\\c[0].\\nThen, I am only an aggregate of wills."
+				"texte": "(en) First of all, I have hierarchical superiors, \\nsuch as the illustrious \\c[2]Metatron\\c[0].\\nThen, I am only an aggregate of wills."
 			},
 			{
 				"nom": "Message",
@@ -1051,7 +1075,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) EH ?\\nLIKE TARTAR AT THE BOTTOM OF A KETTLE ?"
+				"texte": "(en) UH?\\nLIKE TARTAR AT THE BOTTOM OF A KETTLE?"
 			},
 			{
 				"nom": "Message",
@@ -1757,7 +1781,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Kujira theme 2.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -1902,7 +1926,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\c[2]New scholars\\c[0] !\\nYou feel it inside!"
+				"texte": "(en) \\c[2]New scholars\\c[0]!\\nYou feel it inside!"
 			},
 			{
 				"nom": "Message",
@@ -2047,6 +2071,84 @@
 				]
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 33,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "vaisseau spatial character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 25
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 50
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 75
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 100
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 125
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				}
+				]
+			},
+			{
 				"nom": "AttendreLaFinDesDeplacements",
 				"idEvent": -1
 			},
@@ -2059,7 +2161,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Kujira theme 2.ogg",
-				"volume": 0.80,
+				"volume": 0.50,
 				"tempo": 1.00
 			},
 			{
@@ -2198,13 +2300,26 @@
 				"nombreDeFrames": 100
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 33,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "EffacerImage",
 				"numero": 5
 			},
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Kujira theme 2.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -2335,7 +2450,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Tabula the Terrible\\c[0], leader of the red Vikings, \\nI have a request to make."
+				"texte": "(en) \\c[2]Tabula the Terrible\\c[0], leader of the \\c[2]red Vikings\\c[0], \\nI have a request to make."
 			},
 			{
 				"nom": "Message",
@@ -2598,11 +2713,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) FROM NOW ON, MY WIFE, \\c[2]GRUNTHILD\\c[0], \\nWILL REPLACE ME AS CHIEF OF THE RED VIKINGS."
+				"texte": "(en) FROM NOW ON, MY WIFE, \\c[2]GRUNTHILD\\c[0], \\nWILL REPLACE ME AS CHIEF OF THE \\c[2]RED VIKINGS\\c[0]."
 			},
 			{
 				"nom": "Message",
-				"texte": "DORÉNAVANT, MA FEMME, \\c[2]GRONIASS\\c[1], ME REMPLACERA \\nCOMME CHEFFE DES VIKINGS ROUGES."
+				"texte": "DORÉNAVANT, MA FEMME, \\c[2]GRONIASS\\c[1], ME REMPLACERA \\nCOMME CHEFFE DES \\c[2]VIKINGS ROUGES\\c[0]."
 			},
 			{
 				"nom": "Deplacement",
@@ -2678,6 +2793,12 @@
 				"texte": "Je vais donc être obligée de mettre fin \\nà votre contrat. \\nMerci pour tout votre travail."
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "da3.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"dobreniev\""
 			},
@@ -2741,7 +2862,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) ...a spy from the Red Viking Village.\\nSorry."
+				"texte": "(en) ...a spy from the \\c[2]red Vikings\\c[0]' village.\\nSorry."
 			},
 			{
 				"nom": "Message",
@@ -2826,7 +2947,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Tabula\\c[0]!\\nYou dirty individual !\\nYou got me!"
+				"texte": "(en) \\c[2]Tabula\\c[0]!\\nYou dirty individual!\\nYou got me!"
 			},
 			{
 				"nom": "Message",
@@ -2847,11 +2968,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Red Vikings... Yellow Vikings...\\nIt's all the same now."
+				"texte": "(en) \\c[2]Red Vikings\\c[0]... \\c[2]Yellow Vikings\\c[0]...\\nIt's all the same now."
 			},
 			{
 				"nom": "Message",
-				"texte": "Vikings rouges... Vikings jaunes... \\nTout ça c'est pareil maintenant."
+				"texte": "\\c[2]Vikings rouges\\c[0]... \\c[2]Vikings jaunes\\c[0]... \\nTout ça c'est pareil maintenant."
 			},
 			{
 				"nom": "Commentaire",
@@ -2965,7 +3086,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Coachman\\c[0], I have a question too !"
+				"texte": "(en) \\c[2]Coachman\\c[0], I have a question too!"
 			},
 			{
 				"nom": "Message",
@@ -2973,7 +3094,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Why did \\c[2]Kujira\\c[0] swallow people \\nlike \\c[2]Pozzo\\c[0] or \\c[2]Clovis\\c[0] ?"
+				"texte": "(en) Why did \\c[2]Kujira\\c[0] swallow people \\nlike \\c[2]Pozzo\\c[0] or \\c[2]Clovis\\c[0]?"
 			},
 			{
 				"nom": "Message",
@@ -3429,7 +3550,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Kujira theme 2.ogg",
-				"volume": 0.80,
+				"volume": 0.50,
 				"tempo": 1.00
 			},
 			{
@@ -3446,12 +3567,6 @@
 				"nom": "JouerFondSonore",
 				"nomFichierSonore": "014-Fire02.ogg",
 				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Kujira theme 2.ogg",
-				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -3563,7 +3678,7 @@
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Kujira theme 2.ogg",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -3616,6 +3731,84 @@
 					"nom": "Avancer",
 					"direction": 3,
 					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 33,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vaisseau spatial character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 125
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 100
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 75
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 50
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 25
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
 				}
 				]
 			},
@@ -3676,7 +3869,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Safe journey, \\c[2]new scholars\\c[0]."
+				"texte": "(en) Farewell, \\c[2]new scholars\\c[0]."
 			},
 			{
 				"nom": "Message",
@@ -5227,7 +5420,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Then you'll go back to Viking country."
+				"texte": "(en) Then you'll go back to the Viking country."
 			},
 			{
 				"nom": "Message",
@@ -5305,7 +5498,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) (I get dizzy there.\\nI feel like it could tumble into its sun, \\nor leave its orbit to go freeze \\nin a straight line across the universe)."
+				"texte": "(en) (I suffer from vertigo over there.\\nI feel like it could tumble into its sun, \\nor leave its orbit to go freeze \\nin a straight line across the universe)."
 			},
 			{
 				"nom": "Message",
@@ -5313,7 +5506,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) (I am much better off on my whale.)"
+				"texte": "(en) (I'm much better on my whale.)"
 			},
 			{
 				"nom": "Message",
