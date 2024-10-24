@@ -127,30 +127,6 @@
 				"valeurADonner": true
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "tangram character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
 			}
@@ -497,6 +473,10 @@
 				"numeroVariable": 20,
 				"operationAFaire": "rendre egal a",
 				"operationAFaire2": "numero de la map"
+			},
+			{
+				"nom": "AutoriserMenu",
+				"autoriser": false
 			},
 			{
 				"nom": "ConditionVariable",
@@ -4181,10 +4161,20 @@
 				"numero": 0
 			},
 			{
+				"nom": "ConditionInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true,
+				"numero": 171
+			},
+			{
 				"nom": "JouerEffetMusical",
 				"nomFichierSonore": "Fanfare (paquerette).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 171
 			},
 			{
 				"nom": "Attendre",
@@ -4235,11 +4225,27 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "AutoriserMenu",
+				"autoriser": true
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
 			}
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "Tangram::regler_apparence(id)"
+				}
+				]
+			},
 			"image": "tangram character",
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",

@@ -392,7 +392,7 @@
 		"id": 24,
 		"nom": "Clone[341][141]",
 		"x": 11,
-		"y": 6
+		"y": 9
 	},
 	{
 		"id": 13,
@@ -690,13 +690,68 @@
 				"numero": 5
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 25,
-				"idAnimation": 4
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-1, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-2, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-3, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-4, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-5, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-6, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-7, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ConditionFin",
@@ -706,6 +761,10 @@
 				"nom": "ConditionArmeEquipee",
 				"idArme": 0,
 				"numero": 6
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([39, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "Attendre",

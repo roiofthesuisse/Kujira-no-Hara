@@ -225,6 +225,101 @@
 		"y": 12
 	},
 	{
+		"id": 18,
+		"nom": "livre",
+		"x": 15,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Diary of an \\c[2]Old Fart\\c[0]\"\\nDo you want to read that?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Journal d'un vieux con\"\\nVoulez-vous lire ça ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"90% of everything that exists is mediocre.\\nWhether it's people, days, works of art..."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"90% de tout ce qui existe est médiocre.\\nQue ce soient les gens, les journées, \\nles oeuvres d'art..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So much the better! \\nThat way, we only need\\nto read 10% of the books\\nand listen to 10% of the CDs.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "Tant mieux ! \\nComme ça, on n'a plus besoin \\nde lire que 10% des livres \\net d'écouter que 10% des CD.\""
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) And you are absolutely right."
+			},
+			{
+				"nom": "Message",
+				"texte": "Et vous avez bien raison."
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "livre ouvert character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 2,
 		"nom": "Clone[341][004]",
 		"x": 21,

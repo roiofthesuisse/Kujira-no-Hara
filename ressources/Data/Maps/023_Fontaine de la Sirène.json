@@ -31,16 +31,16 @@
 	[0809,0809,0809,0809,0808,0024,-002,-002,0008,0001,0001,0001,0001,0001,0052,-002,-002,0038,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0808,0024,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0038,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0808,0024,0001,0001,0001,0001,0001,0005,0001,0001,0001,0001,0052,0038,0810,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0808,0024,0052,0001,0001,0001,0001,0001,0001,0001,0001,0001,0008,0038,0810,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0808,0048,0059,0049,0008,0001,0001,0001,0001,0001,0001,0053,0059,0054,0810,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0808,0024,0052,0001,0001,0001,0001,0001,0001,0001,0001,1111,0008,0038,0810,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0808,0048,0059,0049,0008,1127,0001,0001,0001,0001,1111,0053,0059,0054,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0816,0817,0186,0048,0059,0059,0049,0001,0053,0059,0059,0054,0185,0817,0818,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0816,0817,0817,0186,0024,0001,0038,0185,0817,0817,0818,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,1127,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0002,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,1119,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0808,0024,0001,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809],
@@ -449,94 +449,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Pancarte",
-		"x": 11,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Spring of the \\c[2]mermaid\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "Source de la \\c[2]sirène\\c[1]"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Make an offering: throw money in the water."
-			},
-			{
-				"nom": "Message",
-				"texte": "Faites une offrande : jetez de l'argent à l'eau."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Who knows?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Qui sait ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Maybe it will bring you luck!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Cela vous portera peut-être bonheur !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) (We don't accept donations below\\n100 colored scales.)"
-			},
-			{
-				"nom": "Message",
-				"texte": "(Nous n'acceptons pas les dons en dessous \\nde 100 écailles colorées.)"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 12,
 		"nom": "Sirène (-32)",
 		"x": 11,
@@ -693,7 +605,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -705,7 +617,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 0,
 					"animation": 1,
 					"teinte": 0
@@ -724,7 +636,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 0,
 					"animation": 2,
 					"teinte": 0
@@ -736,7 +648,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 0,
 					"animation": 3,
 					"teinte": 0
@@ -748,7 +660,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 1,
 					"animation": 0,
 					"teinte": 0
@@ -780,7 +692,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 1,
 					"animation": 1,
 					"teinte": 0
@@ -792,7 +704,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 1,
 					"animation": 2,
 					"teinte": 0
@@ -804,7 +716,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 1,
 					"animation": 3,
 					"teinte": 0
@@ -816,7 +728,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 2,
 					"animation": 0,
 					"teinte": 0
@@ -980,7 +892,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 3,
 					"animation": 3,
 					"teinte": 0
@@ -1009,7 +921,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 3,
 					"animation": 0,
 					"teinte": 0
@@ -1028,7 +940,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 3,
 					"animation": 1,
 					"teinte": 0
@@ -1040,7 +952,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 3,
 					"animation": 2,
 					"teinte": 0
@@ -1052,7 +964,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 3,
 					"animation": 3,
 					"teinte": 0
@@ -1070,7 +982,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1110,7 +1022,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 3,
 					"animation": 3,
 					"teinte": 0
@@ -1167,7 +1079,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 2,
 					"animation": 0,
 					"teinte": 0
@@ -1259,7 +1171,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "sirène character",
+					"image": "sirene character",
 					"direction": 3,
 					"animation": 0,
 					"teinte": 0
@@ -1314,7 +1226,7 @@
 				"valeur": false
 			}
 			],
-			"image": "sirène character",
+			"image": "sirene character",
 			"directionInitiale": 2,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
@@ -1389,6 +1301,94 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Pancarte",
+		"x": 11,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Spring of the \\c[2]mermaid\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "Source de la \\c[2]sirène\\c[1]"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Make an offering: throw money in the water."
+			},
+			{
+				"nom": "Message",
+				"texte": "Faites une offrande : jetez de l'argent à l'eau."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Who knows?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Qui sait ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Maybe it will bring you luck!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Cela vous portera peut-être bonheur !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (We don't accept donations below\\n100 colored scales.)"
+			},
+			{
+				"nom": "Message",
+				"texte": "(Nous n'acceptons pas les dons en dessous \\nde 100 écailles colorées.)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 14,
@@ -1452,6 +1452,12 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "Clone[341][039]",
+		"x": 16,
+		"y": 12
+	},
+	{
 		"id": 14,
 		"nom": "EV014",
 		"x": 11,
@@ -1481,12 +1487,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][039]",
-		"x": 16,
-		"y": 12
 	},
 	{
 		"id": 9,

@@ -110,7 +110,7 @@
 	},
 	{
 		"id": 5,
-		"nom": "Goutte d'eau2",
+		"nom": "Goutte d'eau2 SHADOW[24]",
 		"x": 20,
 		"y": 10,
 		"pages": [
@@ -122,9 +122,14 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionDirection",
 				"direction": 3,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -161,7 +166,7 @@
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -169,19 +174,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -192,7 +186,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -200,6 +194,10 @@
 				"nouveauX": 0,
 				"nouveauY": 0,
 				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -1148,7 +1146,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "Goutte d'eau3",
+		"nom": "Goutte d'eau3 SHADOW[24]",
 		"x": 20,
 		"y": 11,
 		"pages": [
@@ -1160,9 +1158,14 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionDirection",
 				"direction": 3,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -1199,7 +1202,7 @@
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1207,19 +1210,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1230,7 +1222,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1238,6 +1230,10 @@
 				"nouveauX": 0,
 				"nouveauY": 0,
 				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -1588,19 +1584,13 @@
 				"numero": 2
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1608,11 +1598,6 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
@@ -1931,7 +1916,7 @@
 				"defilementY": 0,
 				"zoom": 100,
 				"nuance": 0,
-				"nomImage": "brouillard toxique nénuphar 2"
+				"nomImage": "brouillard toxique nenuphar 2"
 			},
 			{
 				"nom": "EffacerImage",
@@ -2861,7 +2846,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -3945,21 +3930,23 @@
 	},
 	{
 		"id": 2,
-		"nom": "Goutte d'eau1",
+		"nom": "Goutte d'eau1 SHADOW[24]",
 		"x": 20,
 		"y": 9,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Contact"
-			}
 			],
 			"commandes": [
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionDirection",
 				"direction": 3,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -3996,7 +3983,7 @@
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -4004,19 +3991,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -4027,7 +4003,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -4035,6 +4011,10 @@
 				"nouveauX": 0,
 				"nouveauY": 0,
 				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -5417,35 +5397,19 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 11,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 2,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -6971,7 +6935,7 @@
 	},
 	{
 		"id": 10,
-		"nom": "Goutte d'eau4",
+		"nom": "Goutte d'eau4 SHADOW[24]",
 		"x": 20,
 		"y": 12,
 		"pages": [
@@ -6983,9 +6947,14 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionDirection",
 				"direction": 3,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -7022,7 +6991,7 @@
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -7030,19 +6999,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -7053,7 +7011,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -7061,6 +7019,10 @@
 				"nouveauX": 0,
 				"nouveauY": 0,
 				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",

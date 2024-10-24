@@ -623,7 +623,7 @@
 				"defilementY": 0,
 				"zoom": 100,
 				"nuance": 0,
-				"nomImage": "fog étoiles"
+				"nomImage": "fog etoiles"
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -653,73 +653,9 @@
 	},
 	{
 		"id": 8,
-		"nom": "Ecaille Verte",
+		"nom": "Clone[341][161]",
 		"x": 18,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 5
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "Ecailles colorées",
-			"opacite": 0,
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 8,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 14
 	},
 	{
 		"id": 3,
@@ -853,6 +789,10 @@
 				"nouveauX": 10,
 				"nouveauY": 4,
 				"direction": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
 			},
 			{
 				"nom": "Deplacement",
@@ -1010,14 +950,6 @@
 				"quantite": 10
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 0,
 				"ignorerLesMouvementsImpossibles": false,
@@ -1050,8 +982,33 @@
 				]
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
 				"nom": "EffacerImage",
 				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "masquer l'écaille\\n(attendre une frame avant pour que ça marche)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 8,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
 			},
 			{
 				"nom": "SupprimerEvent"

@@ -134,6 +134,12 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[100][31]",
+		"x": 2,
+		"y": 6
+	},
+	{
 		"id": 12,
 		"nom": "poesie dans l equipe",
 		"x": 16,
@@ -202,14 +208,8 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[100][31]",
-		"x": 2,
-		"y": 6
-	},
-	{
 		"id": 7,
-		"nom": "rebeca",
+		"nom": "rebeca SHADOW[20,4]",
 		"x": 2,
 		"y": 11,
 		"pages": [
@@ -621,6 +621,12 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Clone[341][059]",
+		"x": 2,
+		"y": 2
+	},
+	{
 		"id": 2,
 		"nom": "Chamane (-16)",
 		"x": 5,
@@ -644,7 +650,7 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "éééeuh sorcière.mp3",
+				"nomFichierSonore": "eeeeuh sorciere.mp3",
 				"volume": 1.00,
 				"tempo": 1.10
 			},
@@ -678,14 +684,8 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][059]",
-		"x": 2,
-		"y": 2
-	},
-	{
 		"id": 8,
-		"nom": "Wuerrenz",
+		"nom": "Wuerrenz SHADOW[28] (-2)",
 		"x": 8,
 		"y": 8,
 		"pages": [
@@ -707,19 +707,19 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) So this is how \\c[2]the scholars\\c[0] succeeded\\nto get out of the whale?!"
+				"texte": "(en) \\c[2]The scholars\\c[0] did not have time \\nto finish it before their great departure:\\nthe key to time seems to be only a prototype."
 			},
 			{
 				"nom": "Message",
-				"texte": "Alors c'est comme ça que \\c[2]les érudits\\c[0] ont réussi \\nà sortir de la baleine ?!"
+				"texte": "\\c[2]Les érudits\\c[0] n'ont pas eu le temps \\nde la terminer avant leur grand départ : \\nla clé des temps semble n'être qu'un prototype."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Fascinating!"
+				"texte": "(en) If someone uses it, they will no longer have \\nthe same Berenstein phase as the others...\\nThis discontinuity will probably locally \\ndisrupt the entropic field equations."
 			},
 			{
 				"nom": "Message",
-				"texte": "Fascinant !"
+				"texte": "Si quelqu'un l'utilise, il n'aura plus la même \\nphase de Berenstein que les autres...\\nCette discontinuité va probablement détraquer \\nlocalement les équations du champ entropique."
 			},
 			{
 				"nom": "Attendre",
@@ -736,65 +736,6 @@
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Platon",
-		"x": 8,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"platon\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) If I understood correctly, they managed to build\\na Hadamard gate."
-			},
-			{
-				"nom": "Message",
-				"texte": "Si j'ai bien compris, ils ont réussi à construire \\nune porte de Hadamard."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) That's how they went out."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est par là qu'ils sont sortis."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "platon character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -852,6 +793,81 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Platon SHADOW[28] (-2)",
+		"x": 8,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"platon\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So this is how \\c[2]the scholars\\c[0] succeeded\\nto get out of the whale?!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Alors c'est comme ça que \\c[2]les érudits\\c[0] ont réussi \\nà sortir de la baleine ?!"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Fascinating!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Fascinant !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If I understood correctly, they managed to build\\na Hadamard gate."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si j'ai bien compris, ils ont réussi à construire \\nune porte de Hadamard."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) That's how they went out."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est par là qu'ils sont sortis."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "platon character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

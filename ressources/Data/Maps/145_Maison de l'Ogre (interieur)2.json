@@ -602,8 +602,82 @@
 		"y": 20
 	},
 	{
+		"id": 13,
+		"nom": "Obscurité",
+		"x": 18,
+		"y": 24,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 20,
+				"modeDeFusion": "addition",
+				"defilementX": 0,
+				"defilementY": 0,
+				"zoom": 200,
+				"nuance": 0,
+				"nomImage": "001-Fog01"
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "la radio n'apparait que lorsqu'on a rencontré clovis"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 169,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 2,
-		"nom": "Poésie",
+		"nom": "Poésie SHADOW[20,4]",
 		"x": 8,
 		"y": 9,
 		"pages": [
@@ -693,7 +767,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Je recontre des nouvelles têtes aujourd'hui !"
+				"texte": "Je rencontre des nouvelles têtes aujourd'hui !"
 			},
 			{
 				"nom": "Attendre",
@@ -1026,23 +1100,11 @@
 				"valeur": false
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 126,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 6,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 126,
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 6,
 				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -1277,84 +1339,16 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Obscurité",
-		"x": 18,
-		"y": 24,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 20,
-				"modeDeFusion": "addition",
-				"defilementX": 0,
-				"defilementY": 0,
-				"zoom": 200,
-				"nuance": 0,
-				"nomImage": "001-Fog01"
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "la radio n'apparait que lorsqu'on a rencontré clovis"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 169,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 10,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUnScript",
-					"script": "erase"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][004]",
 		"x": 20,
 		"y": 19
+	},
+	{
+		"id": 14,
+		"nom": "Clone[582][37]",
+		"x": 18,
+		"y": 11
 	},
 	{
 		"id": 3,
@@ -1386,12 +1380,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[582][37]",
-		"x": 18,
-		"y": 11
 	},
 	{
 		"id": 9,

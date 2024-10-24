@@ -5,7 +5,7 @@
 	"hauteur": 15,
 	"couche0": [
 	[0873,0856,0872,0872,0872,0872,0872,0872,0872,0872,0872,0872,0872,0872,0872,0872,0872,0872,0857,0875],
-	[0873,0873,0858,0877,0856,0866,0866,0866,0866,0866,0866,0866,0866,0866,0866,0857,0858,0858,0875,0875],
+	[0873,0873,0858,0877,0846,0866,0866,0866,0866,0866,0866,0866,0866,0866,0866,0847,0858,0858,0875,0875],
 	[0873,0873,0858,0858,0859,0219,0219,0219,0219,0219,0219,0219,0219,0219,0219,0860,0858,0858,0875,0875],
 	[0873,0873,0858,0858,0859,0219,0219,0885,0885,0885,0885,0885,0885,0219,0219,0860,0858,0877,0875,0875],
 	[0873,0873,0858,0858,0859,0219,0219,0885,0885,0885,0885,0885,0885,0219,0219,0860,0858,0858,0875,0875],
@@ -15,9 +15,9 @@
 	[0873,0873,0877,0858,0859,0219,0219,0893,0893,0893,0893,0893,0893,0219,0219,0860,0858,0858,0875,0875],
 	[0873,0873,0858,0858,0859,0219,0219,0219,0219,0219,0219,0219,0219,0219,0219,0860,0858,0858,0875,0875],
 	[0873,0873,0858,0858,0859,0219,0219,0219,0219,0219,0219,0219,0219,0219,0219,0860,0858,0858,0875,0875],
-	[0873,0873,0858,0858,0859,0219,0219,0219,0862,0867,0867,0863,0219,0219,0219,0860,0858,0858,0875,0875],
+	[0873,0873,0858,0858,0859,0219,0219,0219,0862,0910,0910,0863,0219,0219,0219,0860,0858,0858,0875,0875],
 	[0873,0873,0858,0858,0859,0219,0219,0219,0860,0858,0858,0859,0219,0219,0219,0860,0877,0858,0875,0875],
-	[0873,0873,0858,0858,0864,0867,0867,0867,0865,0858,0858,0864,0867,0867,0867,0865,0858,0858,0875,0875],
+	[0873,0873,0858,0858,0854,0910,0910,0910,0855,0858,0858,0854,0910,0910,0910,0855,0858,0858,0875,0875],
 	[0873,0864,0874,0874,0874,0874,0874,0874,0874,0879,0858,0878,0874,0874,0874,0874,0874,0874,0865,0875]
 	],
 	"couche1": [
@@ -109,7 +109,7 @@
 	},
 	{
 		"id": 16,
-		"nom": "viking rouge",
+		"nom": "viking rouge SHADOW[32] (-4)",
 		"x": 3,
 		"y": 5,
 		"pages": [
@@ -382,7 +382,7 @@
 	},
 	{
 		"id": 27,
-		"nom": "viking jaune",
+		"nom": "viking jaune SHADOW[32] (-4)",
 		"x": 16,
 		"y": 4,
 		"pages": [
@@ -680,7 +680,7 @@
 	},
 	{
 		"id": 11,
-		"nom": "Colibri",
+		"nom": "Colibri SHADOW[24]",
 		"x": 10,
 		"y": 10,
 		"pages": [
@@ -1061,7 +1061,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "curseur character",
+					"image": "curseur2 character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -7623,11 +7623,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) All your pawns have been eaten.\\nThe red player wins.\\nThe yellow player loses.\\nYou lose!"
+				"texte": "(en) All your pawns have been eaten.\\nThe square player wins.\\nThe circle player loses.\\nYou lose!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Tous vos pions ont été mangés.\\nLe joueur rouge a gagné.\\nLe joueur jaune a perdu.\\nVous avez perdu !"
+				"texte": "Tous vos pions ont été mangés.\\nLe joueur carré a gagné.\\nLe joueur rond a perdu.\\nVous avez perdu !"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -7678,17 +7678,17 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) All circles have been eaten.\\nThe red player loses.\\nThe yellow player loses.\\nYou win!"
+				"texte": "(en) All circles have been eaten.\\nThe circle player loses.\\nThe square player loses.\\nYou win!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Tous les ronds ont été mangés.\\nLe joueur jaune a perdu.\\nLe joueur rouge a perdu.\\nVous avez gagné !"
+				"texte": "Tous les ronds ont été mangés.\\nLe joueur rond a perdu.\\nLe joueur carré a perdu.\\nVous avez gagné !"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -7768,11 +7768,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) All squares have been eaten.\\nThe yellow player wins.\\nThe red player loses.\\nYou lose!"
+				"texte": "(en) All squares have been eaten.\\nThe circle player wins.\\nThe square player loses.\\nYou lose!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Tous les carrés ont été mangés.\\nLe joueur jaune a gagné.\\nLe joueur rouge a perdu.\\nVous avez perdu !"
+				"texte": "Tous les carrés ont été mangés.\\nLe joueur rond a gagné.\\nLe joueur carré a perdu.\\nVous avez perdu !"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -8931,7 +8931,7 @@
 	},
 	{
 		"id": 33,
-		"nom": "viking jaune",
+		"nom": "viking jaune SHADOW[32] (-4)",
 		"x": 17,
 		"y": 10,
 		"pages": [
@@ -9258,35 +9258,27 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Gojlipo is a 3-player boardgame.\\nOne player plays with triangles, another with \\nsquares, and the last one with circles."
+				"texte": "(en) Gojlipo is a 3-player boardgame:\\n- one player plays with triangle pawns\\n- one player with square pawns\\n- one player with circle pawns"
 			},
 			{
 				"nom": "Message",
-				"texte": "Le gojlipo se joue à 3 joueurs.\\nUn joueur a les triangles, un joueur \\na les carrés, un joueur a les ronds."
+				"texte": "Le gojlipo se joue à 3 joueurs :\\n- un joueur a les pions triangles\\n- un joueur a les pions carrés\\n- un joueur a les pions ronds"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Each player has a \"prey\" opponent\\nand a \"predator\" opponent."
+				"texte": "(en) Each player has a \"prey\" opponent\\nand a \"predator\" opponent..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Chaque joueur a un adversaire \"proie\" \\net un adversaire \"prédateur\"."
+				"texte": "Chaque joueur a un adversaire \"proie\" \\net un adversaire \"prédateur\"..."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) The green player must eat the circle pawns \\nof the yellow player.\\nThe yellow player must eat the square pawns \\nof the red player."
+				"texte": "(en) The triangle player must eat the circle pawns.\\nThe circle player must eat the square pawns.\\nThe square player must eat the triangle pawns."
 			},
 			{
 				"nom": "Message",
-				"texte": "Le joueur vert doit manger les pions ronds \\ndu joueur jaune.\\nLe joueur jaune doit manger les pions carrés\\ndu joueur rouge."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The red player must eat the triangle pawns \\nof the green player."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le joueur rouge doit manger les pions triangles\\ndu joueur vert."
+				"texte": "Le joueur triangle doit manger les pions ronds.\\nLe joueur rond doit manger les pions carrés.\\nLe joueur carré doit manger les pions triangles."
 			},
 			{
 				"nom": "Commentaire",
@@ -9322,7 +9314,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) If the two pawns have the same letter:\\n- triangle eats circle\\n- circle eats square\\n-square eats triangle"
+				"texte": "(en) If the two pawns have the same letter:\\n- triangle eats circle\\n- circle eats square\\n- square eats triangle"
 			},
 			{
 				"nom": "Message",
@@ -9456,7 +9448,7 @@
 	},
 	{
 		"id": 17,
-		"nom": "viking rouge",
+		"nom": "viking rouge SHADOW[32] (-4)",
 		"x": 3,
 		"y": 6,
 		"pages": [
@@ -9729,7 +9721,7 @@
 	},
 	{
 		"id": 28,
-		"nom": "viking jaune",
+		"nom": "viking jaune SHADOW[32] (-4)",
 		"x": 16,
 		"y": 10,
 		"pages": [
@@ -10083,7 +10075,7 @@
 	},
 	{
 		"id": 12,
-		"nom": "viking rouge",
+		"nom": "viking rouge SHADOW[32] (-4)",
 		"x": 3,
 		"y": 2,
 		"pages": [
@@ -10682,7 +10674,7 @@
 	},
 	{
 		"id": 18,
-		"nom": "viking rouge",
+		"nom": "viking rouge SHADOW[32] (-4)",
 		"x": 2,
 		"y": 2,
 		"pages": [
@@ -10955,7 +10947,7 @@
 	},
 	{
 		"id": 29,
-		"nom": "viking jaune",
+		"nom": "viking jaune SHADOW[32] (-4)",
 		"x": 16,
 		"y": 1,
 		"pages": [
@@ -11279,7 +11271,7 @@
 	},
 	{
 		"id": 13,
-		"nom": "viking rouge",
+		"nom": "viking rouge SHADOW[32] (-4)",
 		"x": 3,
 		"y": 11,
 		"pages": [
@@ -11578,7 +11570,7 @@
 	},
 	{
 		"id": 24,
-		"nom": "viking jaune",
+		"nom": "viking jaune SHADOW[32] (-4)",
 		"x": 17,
 		"y": 7,
 		"pages": [
@@ -11928,7 +11920,7 @@
 	},
 	{
 		"id": 19,
-		"nom": "viking rouge",
+		"nom": "viking rouge SHADOW[32] (-4)",
 		"x": 2,
 		"y": 3,
 		"pages": [
@@ -12201,7 +12193,7 @@
 	},
 	{
 		"id": 30,
-		"nom": "viking jaune",
+		"nom": "viking jaune SHADOW[32] (-4)",
 		"x": 16,
 		"y": 5,
 		"pages": [
@@ -12551,7 +12543,7 @@
 	},
 	{
 		"id": 14,
-		"nom": "viking rouge",
+		"nom": "viking rouge SHADOW[32] (-4)",
 		"x": 3,
 		"y": 10,
 		"pages": [
@@ -12824,7 +12816,7 @@
 	},
 	{
 		"id": 25,
-		"nom": "viking jaune",
+		"nom": "viking jaune SHADOW[32] (-4)",
 		"x": 17,
 		"y": 9,
 		"pages": [
@@ -13176,7 +13168,7 @@
 	},
 	{
 		"id": 20,
-		"nom": "viking rouge",
+		"nom": "viking rouge SHADOW[32] (-4)",
 		"x": 3,
 		"y": 9,
 		"pages": [
@@ -14047,7 +14039,7 @@
 	},
 	{
 		"id": 26,
-		"nom": "viking jaune",
+		"nom": "viking jaune SHADOW[32] (-4)",
 		"x": 16,
 		"y": 3,
 		"pages": [
@@ -14399,7 +14391,7 @@
 	},
 	{
 		"id": 21,
-		"nom": "viking rouge",
+		"nom": "viking rouge SHADOW[32] (-4)",
 		"x": 2,
 		"y": 5,
 		"pages": [
@@ -14672,7 +14664,7 @@
 	},
 	{
 		"id": 32,
-		"nom": "viking jaune",
+		"nom": "viking jaune SHADOW[32] (-4)",
 		"x": 16,
 		"y": 8,
 		"pages": [

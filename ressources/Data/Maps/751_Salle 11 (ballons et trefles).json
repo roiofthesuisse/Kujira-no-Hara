@@ -79,7 +79,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 157,
 				"xDebutHeros": 17,
-				"yDebutHeros": 4
+				"yDebutHeros": 3
 			}
 			],
 			"vitesse": "moderee",
@@ -94,15 +94,9 @@
 	},
 	{
 		"id": 6,
-		"nom": "Clone[341][055]",
+		"nom": "Clone[341][55]",
 		"x": 15,
 		"y": 8
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][059]",
-		"x": 2,
-		"y": 11
 	},
 	{
 		"id": 1,
@@ -133,179 +127,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "rocher",
-		"x": 4,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 18,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 19,
-				"direction": 3,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 20,
-				"direction": 3,
-				"numero": 2
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			}
-			],
-			"image": "rocher gris character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "rocher gris character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "rocher gris character",
-					"direction": 3,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "rocher gris character",
-					"direction": 3,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "rocher gris character",
-					"direction": 3,
-					"animation": 3,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			}
-			],
-			"image": "rocher gris character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"figerLesAutresEvents": true,
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"image": "rocher gris character",
-			"directionInitiale": 3,
-			"animationInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 12,
+		"nom": "Clone[341][059]",
+		"x": 2,
+		"y": 11
 	},
 	{
 		"id": 18,
@@ -506,7 +331,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "bouton character",
+					"image": "bouton rond character",
 					"direction": 3,
 					"animation": 0,
 					"teinte": 0
@@ -540,7 +365,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "bouton character",
+					"image": "bouton rond character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -552,12 +377,187 @@
 				"numero": 6
 			}
 			],
-			"image": "bouton character",
+			"image": "bouton rond character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "rocher",
+		"x": 4,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 18,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 19,
+				"direction": 3,
+				"numero": 1
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 20,
+				"direction": 3,
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			}
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 7,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rocher gris character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rocher gris character",
+					"direction": 3,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rocher gris character",
+					"direction": 3,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rocher gris character",
+					"direction": 3,
+					"animation": 3,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			}
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 7,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "rocher gris character",
+			"directionInitiale": 3,
+			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": false
 		}
@@ -618,6 +618,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][55]",
+		"x": 15,
+		"y": 9
 	},
 	{
 		"id": 19,
@@ -818,7 +824,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "bouton character",
+					"image": "bouton rond character",
 					"direction": 3,
 					"animation": 0,
 					"teinte": 0
@@ -852,7 +858,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "bouton character",
+					"image": "bouton rond character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -864,7 +870,7 @@
 				"numero": 6
 			}
 			],
-			"image": "bouton character",
+			"image": "bouton rond character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -876,16 +882,16 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][055]",
-		"x": 15,
-		"y": 9
-	},
-	{
 		"id": 3,
 		"nom": "Clone[341][183]",
 		"x": 4,
 		"y": 4
+	},
+	{
+		"id": 9,
+		"nom": "Clone[572][5]",
+		"x": 15,
+		"y": 3
 	},
 	{
 		"id": 20,
@@ -1086,7 +1092,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "bouton character",
+					"image": "bouton rond character",
 					"direction": 3,
 					"animation": 0,
 					"teinte": 0
@@ -1120,7 +1126,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "bouton character",
+					"image": "bouton rond character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -1132,7 +1138,7 @@
 				"numero": 6
 			}
 			],
-			"image": "bouton character",
+			"image": "bouton rond character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1144,59 +1150,10 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[572][5]",
-		"x": 15,
-		"y": 3
-	},
-	{
 		"id": 4,
-		"nom": "Clone[341][055]",
+		"nom": "Clone[341][55]",
 		"x": 15,
 		"y": 7
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 5,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 3,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 140,
-				"valeur": true
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 21,
@@ -1376,6 +1333,49 @@
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "EV010",
+		"x": 5,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 3,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 140,
+				"valeur": true
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,

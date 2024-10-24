@@ -67,85 +67,9 @@
 	"events": [
 	{
 		"id": 5,
-		"nom": "Luciole",
+		"nom": "Clone[582][99]",
 		"x": 4,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"animationInitiale": 1,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"y": 10
 	},
 	{
 		"id": 11,
@@ -355,37 +279,6 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 0,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 239,
-				"xDebutHeros": 48,
-				"yDebutHeros": 19
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 1,
 		"nom": "gros oiseau",
 		"x": 12,
@@ -427,6 +320,37 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 0,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 239,
+				"xDebutHeros": 48,
+				"yDebutHeros": 19
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 19,
@@ -445,37 +369,6 @@
 				"numeroNouvelleMap": 12,
 				"xDebutHeros": 1,
 				"yDebutHeros": 15
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 0,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 239,
-				"xDebutHeros": 48,
-				"yDebutHeros": 20
 			}
 			],
 			"vitesse": "moderee",
@@ -514,86 +407,47 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Luciole",
-		"x": 9,
-		"y": 12,
+		"id": 13,
+		"nom": "EV013",
+		"x": 0,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
+				"nom": "ChangerDeMap",
 				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"numeroNouvelleMap": 239,
+				"xDebutHeros": 48,
+				"yDebutHeros": 20
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"animationInitiale": 2,
-			"vitesse": "lente",
-			"frequence": "tres basse",
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": true,
+			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[582][99]",
+		"x": 9,
+		"y": 12
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][008]",
+		"x": 12,
+		"y": 11
 	},
 	{
 		"id": 14,
@@ -674,95 +528,20 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][008]",
-		"x": 12,
-		"y": 11
+		"id": 9,
+		"nom": "Clone[582][99]",
+		"x": 5,
+		"y": 9
 	},
 	{
-		"id": 9,
-		"nom": "Luciole",
-		"x": 5,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"id": 15,
+		"nom": "Clone[582][50]",
+		"x": 7,
+		"y": 4
 	},
 	{
 		"id": 4,
-		"nom": "Viking",
+		"nom": "Viking SHADOW[32] (-4)",
 		"x": 6,
 		"y": 6,
 		"pages": [
@@ -987,92 +766,10 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[582][50]",
-		"x": 7,
-		"y": 4
-	},
-	{
 		"id": 10,
-		"nom": "Luciole",
+		"nom": "Clone[582][99]",
 		"x": 16,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"animationInitiale": 1,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"y": 7
 	}
 	]
 }

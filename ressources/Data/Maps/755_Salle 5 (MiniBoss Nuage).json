@@ -22,7 +22,7 @@
 	],
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,0165,0156,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -31,7 +31,7 @@
 	[-001,-001,0112,0113,-001,-001,-001,-001,-001,-001,-001,0132,0133,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,0120,0121,-001,-001,-001,-001,-001,-001,0069,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0077,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0157,0173,0165,-001,-001,-001,-001,-001,-005,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -59,7 +59,7 @@
 		"id": 16,
 		"nom": "phases du boss",
 		"x": 17,
-		"y": 3,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
@@ -155,6 +155,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "cinématique avant le combat"
+			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
@@ -268,9 +272,9 @@
 				"valeur": false
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 5,
-				"valeur": true
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 2,
+				"valeurADonner": true
 			}
 			],
 			"vitesse": "moderee",
@@ -285,12 +289,22 @@
 		{
 			"conditions": [
 			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 5,
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
+				"numeroInterrupteurLocal": 2,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "le combat démarre"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 5,
+				"valeur": true
+			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 333
@@ -365,6 +379,12 @@
 				"nom": "Interrupteur",
 				"numeroInterrupteur": 2,
 				"valeurQuIlEstCenseAvoir": true
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
+				"numeroInterrupteurLocal": 2,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
@@ -417,6 +437,12 @@
 				"numeroVariable": 25,
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 3
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
+				"numeroInterrupteurLocal": 2,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
@@ -863,7 +889,7 @@
 	},
 	{
 		"id": 17,
-		"nom": "gros nuage",
+		"nom": "gros nuage SHADOW[64]",
 		"x": 10,
 		"y": 6,
 		"pages": [
@@ -1910,7 +1936,7 @@
 	},
 	{
 		"id": 12,
-		"nom": "blocage",
+		"nom": "cache echelle",
 		"x": 19,
 		"y": 11,
 		"pages": [
@@ -1999,7 +2025,7 @@
 		"id": 18,
 		"nom": "on pousse le nuage",
 		"x": 17,
-		"y": 4,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -2149,7 +2175,7 @@
 	},
 	{
 		"id": 13,
-		"nom": "blocage",
+		"nom": "cache echelle",
 		"x": 19,
 		"y": 10,
 		"pages": [
@@ -3217,7 +3243,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -3822,92 +3848,6 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "blessé",
-		"x": 17,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 25,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 3
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 15,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 4,
 		"nom": "EV004",
 		"x": 20,
@@ -3957,6 +3897,221 @@
 				"numeroNouvelleMap": 760,
 				"xDebutHeros": 2,
 				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "nettoyage",
+		"x": 17,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 5,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "si on n'est pas dans la zone de combat,\\nle combat ne doit pas être actif"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.x < 3",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y != 7",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.x > 17",
+				"numero": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 14,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 17,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 18,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 16,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 20,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 21,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 22,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 23,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 24,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -4213,7 +4368,7 @@
 	},
 	{
 		"id": 10,
-		"nom": "EV010",
+		"nom": "init meteo",
 		"x": 20,
 		"y": 0,
 		"pages": [

@@ -186,12 +186,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[572][5]",
-		"x": 23,
-		"y": 16
-	},
-	{
 		"id": 56,
 		"nom": "EV056",
 		"x": 0,
@@ -210,6 +204,43 @@
 				"numeroNouvelleMap": 245,
 				"xDebutHeros": 28,
 				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[572][5]",
+		"x": 23,
+		"y": 16
+	},
+	{
+		"id": 7,
+		"nom": "EV007",
+		"x": 23,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 639,
+				"xDebutHeros": 12,
+				"yDebutHeros": 24
 			}
 			],
 			"vitesse": "moderee",
@@ -277,35 +308,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "EV007",
-		"x": 23,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 639,
-				"xDebutHeros": 12,
-				"yDebutHeros": 24
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 2,
+		"nom": "Clone[341][006]",
+		"x": 22,
+		"y": 12
 	},
 	{
 		"id": 57,
@@ -339,14 +345,8 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][006]",
-		"x": 22,
-		"y": 12
-	},
-	{
 		"id": 8,
-		"nom": "Coffrillage (flocon)",
+		"nom": "Coffrillage flocon SHADOW[36] (-2)",
 		"x": 10,
 		"y": 19,
 		"pages": [
@@ -501,7 +501,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -727,6 +727,37 @@
 		]
 	},
 	{
+		"id": 9,
+		"nom": "haut du parchemin",
+		"x": 11,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 39,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][039]",
+		"x": 8,
+		"y": 18
+	},
+	{
 		"id": 59,
 		"nom": "Pancarte",
 		"x": 13,
@@ -781,12 +812,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][039]",
-		"x": 8,
-		"y": 18
 	}
 	]
 }

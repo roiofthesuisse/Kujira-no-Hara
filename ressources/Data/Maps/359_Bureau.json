@@ -96,6 +96,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 15
+	},
+	{
 		"id": 16,
 		"nom": "EV016",
 		"x": 14,
@@ -127,10 +133,10 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 15
+		"id": 22,
+		"nom": "Clone[582][32]",
+		"x": 13,
+		"y": 8
 	},
 	{
 		"id": 11,
@@ -159,14 +165,14 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Clone[582][32]",
-		"x": 13,
-		"y": 8
+		"id": 6,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 15
 	},
 	{
 		"id": 17,
-		"nom": "Colibri",
+		"nom": "Colibri SHADOW[24]",
 		"x": 15,
 		"y": 14,
 		"pages": [
@@ -257,10 +263,36 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][004]",
-		"x": 18,
+		"id": 1,
+		"nom": "Clone[341][003]",
+		"x": 9,
 		"y": 15
+	},
+	{
+		"id": 12,
+		"nom": "Plante en pot",
+		"x": 18,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "plante en pot character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 23,
@@ -326,44 +358,6 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Plante en pot",
-		"x": 18,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][003]",
-		"x": 9,
-		"y": 15
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 6
-	},
-	{
 		"id": 18,
 		"nom": "Plan",
 		"x": 14,
@@ -426,6 +420,25 @@
 				"masquer": false
 			},
 			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 125,
+				"etat": "FAITE",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 126,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
@@ -441,6 +454,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 6
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][003]",
+		"x": 19,
+		"y": 15
 	},
 	{
 		"id": 13,
@@ -469,10 +494,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][003]",
-		"x": 19,
-		"y": 15
+		"id": 8,
+		"nom": "Clone[341][004]",
+		"x": 12,
+		"y": 6
 	},
 	{
 		"id": 19,
@@ -526,9 +551,9 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][004]",
-		"x": 12,
+		"id": 3,
+		"nom": "Clone[341][003]",
+		"x": 17,
 		"y": 6
 	},
 	{
@@ -558,10 +583,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][003]",
-		"x": 17,
-		"y": 6
+		"id": 20,
+		"nom": "Clone[341][155]",
+		"x": 9,
+		"y": 7
 	},
 	{
 		"id": 9,
@@ -590,10 +615,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][155]",
-		"x": 9,
-		"y": 7
+		"id": 4,
+		"nom": "Clone[341][003]",
+		"x": 11,
+		"y": 6
 	},
 	{
 		"id": 15,
@@ -602,10 +627,30 @@
 		"y": 7
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][003]",
-		"x": 11,
-		"y": 6
+		"id": 10,
+		"nom": "Plante en pot",
+		"x": 10,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "plante en pot character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 21,
@@ -661,32 +706,6 @@
 			],
 			"image": "livre ouvert character",
 			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Plante en pot",
-		"x": 10,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,

@@ -112,7 +112,7 @@
 	"events": [
 	{
 		"id": 5,
-		"nom": "mammouth",
+		"nom": "mammouth SHADOW[32]",
 		"x": 1,
 		"y": 11,
 		"pages": [
@@ -611,7 +611,7 @@
 			},
 			{
 				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 93,
+				"numeroInterrupteur": 207,
 				"valeurQuIlEstCenseAvoir": false,
 				"numero": 1
 			},
@@ -752,7 +752,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "mammouth",
+		"nom": "mammouth SHADOW[32]",
 		"x": 19,
 		"y": 11,
 		"pages": [
@@ -1026,7 +1026,7 @@
 	},
 	{
 		"id": 39,
-		"nom": "Poesie",
+		"nom": "Poesie SHADOW[20,4]",
 		"x": 6,
 		"y": 21,
 		"pages": [
@@ -1038,7 +1038,7 @@
 			],
 			"commandes": [
 			],
-			"image": "Poésie character",
+			"image": "Poesie character",
 			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1344,7 +1344,7 @@
 	},
 	{
 		"id": 7,
-		"nom": "mammouth",
+		"nom": "mammouth SHADOW[32]",
 		"x": 16,
 		"y": 5,
 		"pages": [
@@ -1742,7 +1742,7 @@
 	},
 	{
 		"id": 40,
-		"nom": "Rebeca",
+		"nom": "Rebeca SHADOW[20,4]",
 		"x": 7,
 		"y": 21,
 		"pages": [
@@ -2290,7 +2290,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Nous deux, on ne peut pas faire grand chose, \\nparce que nous sommes des \"natives\", \\net que le héros de la prophétie sera un \"avalé\"."
+				"texte": "Nous deux, on ne peut pas faire grand-chose, \\nparce que nous sommes des \"natives\", \\net que le héros de la prophétie sera un \"avalé\"."
 			},
 			{
 				"nom": "Commentaire",
@@ -2669,6 +2669,11 @@
 				"script": "wait_for_event(40)"
 			},
 			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 26,
+				"avancement": "CONNUE"
+			},
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
@@ -2861,6 +2866,65 @@
 		]
 	},
 	{
+		"id": 42,
+		"nom": "Avancement",
+		"x": 12,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 34,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 42,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 20,
 		"nom": "EV020",
 		"x": 17,
@@ -2970,7 +3034,7 @@
 	},
 	{
 		"id": 4,
-		"nom": "mammouth",
+		"nom": "mammouth SHADOW[32]",
 		"x": 4,
 		"y": 5,
 		"pages": [
@@ -3510,6 +3574,62 @@
 			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 43,
+		"nom": "quete mammouths terminee",
+		"x": 10,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 26,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 43,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
 	}

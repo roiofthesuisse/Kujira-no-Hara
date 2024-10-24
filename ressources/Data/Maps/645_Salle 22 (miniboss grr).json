@@ -23,17 +23,17 @@
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,0161,0166,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0162,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0160,0162,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
@@ -495,6 +495,21 @@
 				"numero": 6
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 7
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 4,
 				"operationAFaire": "retirer",
@@ -502,8 +517,8 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 56
+				"nom": "ConditionFin",
+				"numero": 7
 			},
 			{
 				"nom": "ConditionFin",
@@ -963,6 +978,21 @@
 				"numero": 10
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 11
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 4,
 				"operationAFaire": "retirer",
@@ -970,8 +1000,8 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 56
+				"nom": "ConditionFin",
+				"numero": 11
 			},
 			{
 				"nom": "Commentaire",
@@ -1006,7 +1036,7 @@
 				"nom": "ConditionDirection",
 				"idEventConcerne": 3,
 				"direction": 0,
-				"numero": 11
+				"numero": 12
 			},
 			{
 				"nom": "Deplacement",
@@ -1024,13 +1054,13 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 11
+				"numero": 12
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 3,
 				"direction": 1,
-				"numero": 12
+				"numero": 13
 			},
 			{
 				"nom": "Deplacement",
@@ -1048,13 +1078,13 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 12
+				"numero": 13
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 3,
 				"direction": 2,
-				"numero": 13
+				"numero": 14
 			},
 			{
 				"nom": "Deplacement",
@@ -1072,13 +1102,13 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 13
+				"numero": 14
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 3,
 				"direction": 3,
-				"numero": 14
+				"numero": 15
 			},
 			{
 				"nom": "Deplacement",
@@ -1096,7 +1126,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 14
+				"numero": 15
 			},
 			{
 				"nom": "Commentaire",
@@ -1127,7 +1157,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 17,
 				"comparerAUneAutreVariable": true,
-				"numero": 15
+				"numero": 16
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1135,7 +1165,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 18,
 				"comparerAUneAutreVariable": true,
-				"numero": 16
+				"numero": 17
 			},
 			{
 				"nom": "Commentaire",
@@ -1148,17 +1178,17 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 16
+				"numero": 17
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 15
+				"numero": 16
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 56,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 17
+				"numero": 18
 			},
 			{
 				"nom": "Commentaire",
@@ -1196,7 +1226,7 @@
 				"nom": "ConditionDirection",
 				"idEventConcerne": 3,
 				"direction": 0,
-				"numero": 18
+				"numero": 19
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1204,7 +1234,7 @@
 				"inegalite": "<",
 				"valeurQuIlEstCenseAvoir": 56,
 				"comparerAUneAutreVariable": true,
-				"numero": 19
+				"numero": 20
 			},
 			{
 				"nom": "Deplacement",
@@ -1221,7 +1251,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 19
+				"numero": 20
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1229,7 +1259,7 @@
 				"inegalite": ">",
 				"valeurQuIlEstCenseAvoir": 56,
 				"comparerAUneAutreVariable": true,
-				"numero": 20
+				"numero": 21
 			},
 			{
 				"nom": "Deplacement",
@@ -1246,7 +1276,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 20
+				"numero": 21
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1254,7 +1284,7 @@
 				"inegalite": "<=",
 				"valeurQuIlEstCenseAvoir": 57,
 				"comparerAUneAutreVariable": true,
-				"numero": 21
+				"numero": 22
 			},
 			{
 				"nom": "Deplacement",
@@ -1271,7 +1301,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 21
+				"numero": 22
 			},
 			{
 				"nom": "Deplacement",
@@ -1288,6 +1318,10 @@
 			},
 			{
 				"nom": "ConditionFin",
+				"numero": 22
+			},
+			{
+				"nom": "ConditionFin",
 				"numero": 21
 			},
 			{
@@ -1295,18 +1329,14 @@
 				"numero": 20
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 19
-			},
-			{
 				"nom": "ConditionSinon",
-				"numero": 18
+				"numero": 19
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 3,
 				"direction": 1,
-				"numero": 22
+				"numero": 23
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1314,7 +1344,7 @@
 				"inegalite": "<",
 				"valeurQuIlEstCenseAvoir": 57,
 				"comparerAUneAutreVariable": true,
-				"numero": 23
+				"numero": 24
 			},
 			{
 				"nom": "Deplacement",
@@ -1331,7 +1361,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 23
+				"numero": 24
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1339,7 +1369,7 @@
 				"inegalite": ">",
 				"valeurQuIlEstCenseAvoir": 57,
 				"comparerAUneAutreVariable": true,
-				"numero": 24
+				"numero": 25
 			},
 			{
 				"nom": "Deplacement",
@@ -1356,7 +1386,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 24
+				"numero": 25
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1364,7 +1394,7 @@
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 56,
 				"comparerAUneAutreVariable": true,
-				"numero": 25
+				"numero": 26
 			},
 			{
 				"nom": "Deplacement",
@@ -1381,7 +1411,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 25
+				"numero": 26
 			},
 			{
 				"nom": "Deplacement",
@@ -1395,6 +1425,10 @@
 					"angle": -90
 				}
 				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 26
 			},
 			{
 				"nom": "ConditionFin",
@@ -1405,18 +1439,14 @@
 				"numero": 24
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 23
-			},
-			{
 				"nom": "ConditionSinon",
-				"numero": 22
+				"numero": 23
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 3,
 				"direction": 2,
-				"numero": 26
+				"numero": 27
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1424,7 +1454,7 @@
 				"inegalite": "<",
 				"valeurQuIlEstCenseAvoir": 57,
 				"comparerAUneAutreVariable": true,
-				"numero": 27
+				"numero": 28
 			},
 			{
 				"nom": "Deplacement",
@@ -1441,7 +1471,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 27
+				"numero": 28
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1449,7 +1479,7 @@
 				"inegalite": ">",
 				"valeurQuIlEstCenseAvoir": 57,
 				"comparerAUneAutreVariable": true,
-				"numero": 28
+				"numero": 29
 			},
 			{
 				"nom": "Deplacement",
@@ -1466,7 +1496,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 28
+				"numero": 29
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1474,7 +1504,7 @@
 				"inegalite": "<=",
 				"valeurQuIlEstCenseAvoir": 56,
 				"comparerAUneAutreVariable": true,
-				"numero": 29
+				"numero": 30
 			},
 			{
 				"nom": "Deplacement",
@@ -1491,7 +1521,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 29
+				"numero": 30
 			},
 			{
 				"nom": "Deplacement",
@@ -1505,6 +1535,10 @@
 					"angle": -90
 				}
 				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 30
 			},
 			{
 				"nom": "ConditionFin",
@@ -1515,18 +1549,14 @@
 				"numero": 28
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 27
-			},
-			{
 				"nom": "ConditionSinon",
-				"numero": 26
+				"numero": 27
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 3,
 				"direction": 3,
-				"numero": 30
+				"numero": 31
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1534,7 +1564,7 @@
 				"inegalite": "<",
 				"valeurQuIlEstCenseAvoir": 56,
 				"comparerAUneAutreVariable": true,
-				"numero": 31
+				"numero": 32
 			},
 			{
 				"nom": "Deplacement",
@@ -1551,7 +1581,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 31
+				"numero": 32
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1559,7 +1589,7 @@
 				"inegalite": ">",
 				"valeurQuIlEstCenseAvoir": 56,
 				"comparerAUneAutreVariable": true,
-				"numero": 32
+				"numero": 33
 			},
 			{
 				"nom": "Deplacement",
@@ -1576,7 +1606,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 32
+				"numero": 33
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1584,7 +1614,7 @@
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 57,
 				"comparerAUneAutreVariable": true,
-				"numero": 33
+				"numero": 34
 			},
 			{
 				"nom": "Deplacement",
@@ -1601,7 +1631,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 33
+				"numero": 34
 			},
 			{
 				"nom": "Deplacement",
@@ -1618,6 +1648,10 @@
 			},
 			{
 				"nom": "ConditionFin",
+				"numero": 34
+			},
+			{
+				"nom": "ConditionFin",
 				"numero": 33
 			},
 			{
@@ -1630,19 +1664,15 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 30
+				"numero": 27
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 26
+				"numero": 23
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 22
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 18
+				"numero": 19
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1650,7 +1680,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 17
+				"numero": 18
 			},
 			{
 				"nom": "Commentaire",
@@ -1668,7 +1698,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 17
+				"numero": 18
 			},
 			{
 				"nom": "Deplacement",
@@ -1755,7 +1785,7 @@
 	},
 	{
 		"id": 3,
-		"nom": "grrr",
+		"nom": "grrr SHADOW[44]",
 		"x": 10,
 		"y": 7,
 		"pages": [
@@ -1867,7 +1897,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},

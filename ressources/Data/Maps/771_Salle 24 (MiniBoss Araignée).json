@@ -29,15 +29,15 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-004,-004,-004,-004,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0165,0173,-001,-004,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-004,-004,-004,-004,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-004,-004,-004,-004,-001,-001,-001,-001,-001,-004,-004,-004,-004,-001,-001,-001,-001],
-	[-001,-001,0104,0105,-001,-001,-001,-004,-001,-001,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,0104,0105,-001,-001,-001,-004,-001,-001,-001,-001,-001,-004,0157,0165,-001,-001,-001,-001,-001],
 	[-001,-001,0112,0113,-001,-001,-001,-004,-001,-001,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,0120,0121,-001,-001,-001,-004,-001,-001,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-004,-004,-004,-004,-001,-001,-001,-001,-001,-004,-004,-004,-004,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-004,-004,-004,-004,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-001,-001,0165,-004,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-001,-001,-001,-004,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-004,-004,-004,-004,-004,-001,-001,-001,-001,-001,-001,-001,-001]
@@ -294,7 +294,7 @@
 	},
 	{
 		"id": 19,
-		"nom": "Araignée",
+		"nom": "Araignée SHADOW[96]",
 		"x": 10,
 		"y": 3,
 		"pages": [
@@ -862,13 +862,34 @@
 				"numero": 2
 			},
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[19].x==$game_map.events[20].x && $game_map.events[19].y==$game_map.events[20].y",
+				"numero": 6
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[20].offset_y(-32)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 6
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[20].offset_y(0)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "brûle si feu allumé"
 			},
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[@event_id].araignee_brulee?()",
-				"numero": 6
+				"numero": 7
 			},
 			{
 				"nom": "JouerAnimation",
@@ -911,7 +932,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 6
+				"numero": 7
 			},
 			{
 				"nom": "Commentaire",
@@ -935,7 +956,7 @@
 				"inegalite": "<",
 				"valeurQuIlEstCenseAvoir": 25,
 				"comparerAUneAutreVariable": true,
-				"numero": 7
+				"numero": 8
 			},
 			{
 				"nom": "ModifierVariable",
@@ -954,7 +975,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 7
+				"numero": 8
 			},
 			{
 				"nom": "ModifierVariable",
@@ -969,7 +990,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 7
+				"numero": 8
 			},
 			{
 				"nom": "ConditionVariable",
@@ -977,7 +998,7 @@
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 5,
 				"comparerAUneAutreVariable": false,
-				"numero": 8
+				"numero": 9
 			},
 			{
 				"nom": "ModifierVariable",
@@ -992,7 +1013,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 8
+				"numero": 9
 			},
 			{
 				"nom": "BoucleFin",
@@ -1000,7 +1021,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 6
+				"numero": 7
 			},
 			{
 				"nom": "Attendre",
@@ -1013,13 +1034,13 @@
 			{
 				"nom": "ConditionScript",
 				"script": "($game_map.events[@event_id].x - $game_player.x)**2 < 5 && ($game_map.events[@event_id].y - $game_player.y)**2 < 5",
-				"numero": 9
+				"numero": 10
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 10
+				"numero": 11
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1039,11 +1060,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 10
+				"numero": 11
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 9
+				"numero": 10
 			},
 			{
 				"nom": "Attendre",
@@ -1071,6 +1092,12 @@
 			"commandes": [
 			{
 				"nom": "JouerAnimation",
+				"idEvent": 19,
+				"idAnimation": 65
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 20,
 				"idAnimation": 65
 			},
 			{
@@ -1079,6 +1106,23 @@
 			},
 			{
 				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 20,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
@@ -1094,6 +1138,12 @@
 			},
 			{
 				"nom": "JouerAnimation",
+				"idEvent": 19,
+				"idAnimation": 6
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 20,
 				"idAnimation": 6
 			},
 			{
@@ -1102,12 +1152,26 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
 				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 20,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
@@ -1174,6 +1238,7 @@
 			"directionInitiale": 3,
 			"vitesse": "normale",
 			"frequence": "haute",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
@@ -1274,7 +1339,7 @@
 	},
 	{
 		"id": 20,
-		"nom": "Araignée",
+		"nom": "Araignée SHADOW[96]",
 		"x": 15,
 		"y": 13,
 		"pages": [
@@ -1836,13 +1901,34 @@
 				"numero": 2
 			},
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[19].x==$game_map.events[20].x && $game_map.events[19].y==$game_map.events[20].y",
+				"numero": 6
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[20].offset_y(-32)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 6
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[20].offset_y(0)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "brûle si feu allumé"
 			},
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[@event_id].araignee_brulee?()",
-				"numero": 6
+				"numero": 7
 			},
 			{
 				"nom": "JouerAnimation",
@@ -1885,7 +1971,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 6
+				"numero": 7
 			},
 			{
 				"nom": "Commentaire",
@@ -1909,7 +1995,7 @@
 				"inegalite": "<",
 				"valeurQuIlEstCenseAvoir": 25,
 				"comparerAUneAutreVariable": true,
-				"numero": 7
+				"numero": 8
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1928,7 +2014,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 7
+				"numero": 8
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1943,7 +2029,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 7
+				"numero": 8
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1951,7 +2037,7 @@
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 5,
 				"comparerAUneAutreVariable": false,
-				"numero": 8
+				"numero": 9
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1966,7 +2052,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 8
+				"numero": 9
 			},
 			{
 				"nom": "BoucleFin",
@@ -1974,7 +2060,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 6
+				"numero": 7
 			},
 			{
 				"nom": "Attendre",
@@ -1987,13 +2073,13 @@
 			{
 				"nom": "ConditionScript",
 				"script": "($game_map.events[@event_id].x - $game_player.x)**2 < 5 && ($game_map.events[@event_id].y - $game_player.y)**2 < 5",
-				"numero": 9
+				"numero": 10
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 10
+				"numero": 11
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2013,11 +2099,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 10
+				"numero": 11
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 9
+				"numero": 10
 			}
 			],
 			"image": "araignee character",
@@ -2040,57 +2126,8 @@
 			],
 			"commandes": [
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 65
-			},
-			{
 				"nom": "Attendre",
-				"nombreDeFrames": 35
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "vide mais pas invisible",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 6
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 25
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 83
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",

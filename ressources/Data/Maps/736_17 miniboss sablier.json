@@ -25,15 +25,15 @@
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
+	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0095,0094,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
-	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
-	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
-	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
+	[0232,-001,-001,0093,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
+	[0232,-001,-001,0108,0095,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
 	[0232,0104,0105,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
 	[0232,0112,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
-	[0232,0120,0121,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
-	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
+	[0232,0120,0121,-001,-001,-001,-001,-001,0094,0108,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
+	[0232,-001,-001,-001,-001,-001,-001,-001,-001,0095,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0088,0089,0090,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0096,0097,0098,-001,-001,0232]
 	],
@@ -120,19 +120,19 @@
 				]
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -140,6 +140,14 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "Deplacement",
@@ -218,19 +226,19 @@
 				]
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -238,6 +246,14 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "Deplacement",
@@ -313,7 +329,7 @@
 	},
 	{
 		"id": 7,
-		"nom": "Sablier",
+		"nom": "Sablier SHADOW[40]",
 		"x": 9,
 		"y": 2,
 		"pages": [
@@ -1822,19 +1838,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1844,17 +1849,12 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			}
 			],
 			"image": "sablier boss character",
@@ -2449,19 +2449,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2471,17 +2460,12 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			}
 			],
 			"deplacement": {
@@ -2545,7 +2529,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -4224,19 +4208,19 @@
 				]
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -4244,6 +4228,14 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "Deplacement",
@@ -4492,19 +4484,19 @@
 				]
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -4512,6 +4504,14 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "Deplacement",
@@ -4610,19 +4610,19 @@
 				]
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -4630,6 +4630,14 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "Deplacement",

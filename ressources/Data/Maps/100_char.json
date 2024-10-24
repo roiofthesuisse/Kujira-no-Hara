@@ -206,7 +206,7 @@
 	},
 	{
 		"id": 11,
-		"nom": "boulet RESET",
+		"nom": "boulet RESET SHADOW[32] (-4)",
 		"x": 3,
 		"y": 6,
 		"pages": [
@@ -260,6 +260,17 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "AppelerPageCommune",
 				"numeroPageCommune": 56
 			},
@@ -269,6 +280,10 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -389,6 +404,266 @@
 		"nom": "Clone[100][1]",
 		"x": 7,
 		"y": 13
+	},
+	{
+		"id": 33,
+		"nom": "interrupteur soleil lune (ancien)",
+		"x": 17,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "ANCIEN BOUTON SOLEIL LUNE"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "jonas sur l'interrupteur"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x == $game_player.x && $game_map.events[@event_id].y == $game_player.y",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "poesie sur l'interrupteur"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x == $game_map.events[1].x && $game_map.events[@event_id].y == $game_map.events[1].y",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "bouton character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 166,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "les soleils sont sortis"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on sort les blocs lunes"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 166,
+				"valeur": false
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on chasse le pion des blocs lunes"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[1].event_arround?(\"bloc lune\", 0)",
+				"numero": 4
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 125
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "les lunes sont sorties"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on sort les blocs soleils"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 166,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on chasse le pion des blocs soleils"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[1].event_arround?(\"bloc soleil\", 0)",
+				"numero": 5
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 125
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "bouton character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 0
+				}
+				]
+			},
+			"image": "bouton character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 33,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "jonas encore sur l'interrupteur"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x == $game_player.x && $game_map.events[@event_id].y == $game_player.y",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "poesie encore sur l'interrupteur"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x == $game_map.events[1].x && $game_map.events[@event_id].y == $game_map.events[1].y",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "bouton character",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 6,
@@ -703,7 +978,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "bouton character",
+					"image": "bouton soleil lune character",
 					"direction": 3,
 					"animation": 0,
 					"teinte": 0
@@ -715,44 +990,8 @@
 				]
 			},
 			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 166,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 3
-			},
-			{
 				"nom": "Commentaire",
-				"texte": "les soleils sont sortis"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "on sort les blocs lunes"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 166,
-				"valeur": false
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "on chasse le pion des blocs lunes"
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[1].event_arround?(\"bloc lune\", 0)",
-				"numero": 4
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 125
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
+				"texte": "--------------------------------------------------"
 			},
 			{
 				"nom": "Commentaire",
@@ -774,7 +1013,7 @@
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[1].event_arround?(\"bloc soleil\", 0)",
-				"numero": 5
+				"numero": 3
 			},
 			{
 				"nom": "AppelerPageCommune",
@@ -782,11 +1021,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 5
+				"numero": 3
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 3
+				"nom": "Commentaire",
+				"texte": "--------------------------------------------------"
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -806,7 +1045,165 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "bouton character",
+					"image": "bouton soleil lune character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 1
+				}
+				]
+			},
+			"image": "bouton soleil lune character",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 166,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "jonas sur l'interrupteur"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x == $game_player.x && $game_map.events[@event_id].y == $game_player.y",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "poesie sur l'interrupteur"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x == $game_map.events[1].x && $game_map.events[@event_id].y == $game_map.events[1].y",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 2
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "033-Switch02.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "bouton soleil lune character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "--------------------------------------------------"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "les soleils sont sortis"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on sort les blocs lunes"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 166,
+				"valeur": false
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "on chasse le pion des blocs lunes"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[1].event_arround?(\"bloc lune\", 0)",
+				"numero": 3
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 125
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "--------------------------------------------------"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "bouton soleil lune character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -817,7 +1214,7 @@
 				}
 				]
 			},
-			"image": "bouton character",
+			"image": "bouton soleil lune character",
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -876,13 +1273,13 @@
 				"numero": 0
 			}
 			],
-			"image": "bouton character",
+			"image": "bouton soleil lune character",
 			"directionInitiale": 3,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": false
 		}
@@ -1953,7 +2350,7 @@
 	},
 	{
 		"id": 31,
-		"nom": "Pion",
+		"nom": "Pion SHADOW[20,4]",
 		"x": 16,
 		"y": 5,
 		"pages": [
@@ -3393,7 +3790,7 @@
 				"numeroPageCommune": 65
 			}
 			],
-			"image": "Poésie character",
+			"image": "Poesie character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,

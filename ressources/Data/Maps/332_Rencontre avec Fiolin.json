@@ -42,8 +42,8 @@
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[0008,0008,0008,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
-	[-006,-006,0008,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809]
+	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809]
 	],
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -110,6 +110,30 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
+	{
+		"id": 27,
+		"nom": "titi",
+		"x": 1,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
 	{
 		"id": 16,
 		"nom": "blocage4",
@@ -319,7 +343,7 @@
 	},
 	{
 		"id": 11,
-		"nom": "Fiolin",
+		"nom": "Fiolin SHADOW[20,4]",
 		"x": 11,
 		"y": 6,
 		"pages": [
@@ -517,7 +541,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Ma soeur, \\c[2]Poésie\\c[0], n'est finallement pas venue \\nà notre rendez-vous secret !"
+				"texte": "Ma soeur, \\c[2]Poésie\\c[0], n'est finalement pas venue \\nà notre rendez-vous secret !"
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -529,7 +553,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Elle a sans doute encore rencontré\\n un problème en chemin."
+				"texte": "Elle a sans doute encore rencontré\\nun problème en chemin."
 			},
 			{
 				"nom": "ConditionVariable",
@@ -563,7 +587,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Je... je ne peux pas faire grand chose..."
+				"texte": "Je... je ne peux pas faire grand-chose..."
 			},
 			{
 				"nom": "Commentaire",
@@ -849,788 +873,6 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Oursin de glace HP[12] RESET",
-		"x": 0,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "On initialise la vie du monstre dans le nom en haut.\\nComme ça chaque monstre a sa propre vie."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Cette page c'est l'ia du monstre.\\nTu peux le mettre en processus parallèle si tu veux faire\\nquelque chose de compliqué ou juste mettre au contact\\npour un monstre minable comme celui-ci."
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": true
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "moderee"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "normale"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "rapide"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "normale"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "moderee"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 17,
-				"numeroInterrupteurLocal": 2,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Comportement de l'ennemi qui donne un coup.\\nJe l'ai mis dans une nouvelle page pour avoir un proc parallèle\\net pouvoir attendre qu'il finisse son déplacement avant\\nd'attaquer, sinon il nous touche alors qu'il n'est même pas"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].target_in_da_zone?(0, 0)",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].target_in_da_zone?(0, 0)",
-				"numero": 1
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 56
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			}
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 17,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "L'interrupteur local B est activé après que l'ennemi ait reçu\\nun coup.\\nOn met ça dans une autre page comme ça on peut le\\nre-attaquer à n'importe quel moment."
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 2
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 66
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 4
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 5
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": false
-			}
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 17,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Quand un ennemi est touché son interrupteur local A\\nest automatiquement activé."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On lui inflige des dégâts selon l'arme équipée."
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 1"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 3"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 2
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 4"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 3
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 3"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 4
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 1"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "132-Wind01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On regarde si il est mort."
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].life <= 0",
-				"numero": 6
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 58
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 48,
-				"numero": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 97,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 56,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 97,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 28,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 48,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 71
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On le transforme en butin avec la commande\\ntransform(map_id, event_id)"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 8,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 20,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 8
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 9
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 10
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(348, 21)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 10
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(348, 9)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 9
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(341, 34)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 8
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			}
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 17,
-				"numeroInterrupteurLocal": 3,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "L'interrupteur local D est automatiquement activé quand\\nl'ennemi chage de terrain.\\nComme ça on peut le faire tomber dans les trous, l'eau, etc..."
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 92,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "terrain"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 59
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 6,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 60
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": false
-			}
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 12,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 6,
 		"nom": "EV006",
 		"x": 24,
@@ -1649,6 +891,118 @@
 				"numeroNouvelleMap": 90,
 				"xDebutHeros": 1,
 				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "tata",
+		"x": 0,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 28,
+		"nom": "deuxieme salve",
+		"x": 12,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 48,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 17,
+				"variable": false,
+				"nouveauX": 10,
+				"nouveauY": 8,
+				"direction": 0
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 17,
+				"idAnimation": 7
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[18].transform(21, 19)"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 18,
+				"variable": false,
+				"nouveauX": 11,
+				"nouveauY": 11,
+				"direction": 0
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 18,
+				"idAnimation": 7
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 28,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -1978,8 +1332,12 @@
 				"nombreDeFrames": 11
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[26].transform(21, 19)"
+			},
+			{
 				"nom": "TeleporterEvent",
-				"idEvent": 17,
+				"idEvent": 26,
 				"variable": false,
 				"nouveauX": 10,
 				"nouveauY": 8,
@@ -1987,12 +1345,16 @@
 			},
 			{
 				"nom": "JouerAnimation",
-				"idEvent": 17,
+				"idEvent": 26,
 				"idAnimation": 7
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[27].transform(21, 19)"
+			},
+			{
 				"nom": "TeleporterEvent",
-				"idEvent": 18,
+				"idEvent": 27,
 				"variable": false,
 				"nouveauX": 11,
 				"nouveauY": 11,
@@ -2000,8 +1362,12 @@
 			},
 			{
 				"nom": "JouerAnimation",
-				"idEvent": 18,
+				"idEvent": 27,
 				"idAnimation": 7
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[17].transform(21, 19)"
 			},
 			{
 				"nom": "Attendre",
@@ -2116,7 +1482,7 @@
 				"nom": "Variable",
 				"numeroVariable": 48,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 2
+				"valeurQuIlEstCenseAvoir": 4
 			},
 			{
 				"nom": "InterrupteurLocal",
@@ -2128,7 +1494,7 @@
 			"commandes": [
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -2361,788 +1727,6 @@
 		"y": 11
 	},
 	{
-		"id": 18,
-		"nom": "Oursin de glace HP[12] RESET",
-		"x": 1,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "On initialise la vie du monstre dans le nom en haut.\\nComme ça chaque monstre a sa propre vie."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Cette page c'est l'ia du monstre.\\nTu peux le mettre en processus parallèle si tu veux faire\\nquelque chose de compliqué ou juste mettre au contact\\npour un monstre minable comme celui-ci."
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": true
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "moderee"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "normale"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "rapide"
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "normale"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "moderee"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 18,
-				"numeroInterrupteurLocal": 2,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Comportement de l'ennemi qui donne un coup.\\nJe l'ai mis dans une nouvelle page pour avoir un proc parallèle\\net pouvoir attendre qu'il finisse son déplacement avant\\nd'attaquer, sinon il nous touche alors qu'il n'est même pas"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].target_in_da_zone?(0, 0)",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].target_in_da_zone?(0, 0)",
-				"numero": 1
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 56
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			}
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 18,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "L'interrupteur local B est activé après que l'ennemi ait reçu\\nun coup.\\nOn met ça dans une autre page comme ça on peut le\\nre-attaquer à n'importe quel moment."
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 2
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 66
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 4
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 5
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": false
-			}
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 18,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Quand un ennemi est touché son interrupteur local A\\nest automatiquement activé."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On lui inflige des dégâts selon l'arme équipée."
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 1"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 3"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 2
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 4"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 3
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 3"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 4
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 1"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "132-Wind01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On regarde si il est mort."
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].life <= 0",
-				"numero": 6
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 58
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 48,
-				"numero": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 97,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 56,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 97,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 28,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 48,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 71
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On le transforme en butin avec la commande\\ntransform(map_id, event_id)"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 8,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 20,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 8
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 9
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 10
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(348, 21)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 10
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(348, 9)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 9
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(341, 34)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 8
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			}
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 18,
-				"numeroInterrupteurLocal": 3,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "L'interrupteur local D est automatiquement activé quand\\nl'ennemi chage de terrain.\\nComme ça on peut le faire tomber dans les trous, l'eau, etc..."
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 92,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "terrain"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 59
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 6,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 60
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": false
-			}
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 12,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"image": "oursin cristal character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 24,
@@ -3162,6 +1746,30 @@
 				"xDebutHeros": 1,
 				"yDebutHeros": 12
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "tutu",
+		"x": 1,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -3395,6 +2003,30 @@
 				"xDebutHeros": 39,
 				"yDebutHeros": 19
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 26,
+		"nom": "toto",
+		"x": 0,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",

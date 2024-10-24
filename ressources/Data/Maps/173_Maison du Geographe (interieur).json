@@ -500,6 +500,10 @@
 				"numero": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"geographe\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) The clam of the deep!"
 			},
@@ -692,6 +696,10 @@
 				"nom": "ConditionObjetPossede",
 				"idObjet": 47,
 				"numero": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"geographe\""
 			},
 			{
 				"nom": "Commentaire",
@@ -888,6 +896,10 @@
 				"numero": 2
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"geographe\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) Oh, a red hair!"
 			},
@@ -1074,6 +1086,10 @@
 				"numero": 3
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"geographe\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) Oh, a pebble!"
 			},
@@ -1258,6 +1274,10 @@
 				"nom": "ConditionObjetPossede",
 				"idObjet": 70,
 				"numero": 4
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"geographe\""
 			},
 			{
 				"nom": "Commentaire",
@@ -1454,6 +1474,10 @@
 				"numero": 5
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"geographe\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) Oh! A handful of sand!"
 			},
@@ -1648,6 +1672,10 @@
 				"numero": 6
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"geographe\""
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) An eternal snowflake!"
 			},
@@ -1826,7 +1854,183 @@
 			},
 			{
 				"nom": "Commentaire",
+				"texte": "--------------------------------------------------\\ndebut atlas complet\\n--------------------------------------------------"
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 1,
+				"etat": "FAITE",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 2,
+				"etat": "FAITE",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 59,
+				"etat": "FAITE",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 60,
+				"etat": "FAITE",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 70,
+				"etat": "FAITE",
+				"numero": 11
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 71,
+				"etat": "FAITE",
+				"numero": 12
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 95,
+				"etat": "FAITE",
+				"numero": 13
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"geographe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 1,
+				"idAnimation": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Explorer number 1! \\nI believe that thanks to your efforts, \\nthe entire whale has been mapped!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Explorateur n°1 ! \\nJe crois que grâce à tes efforts, toute la baleine \\na été cartographiée !"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 13
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 12
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 11
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "fin atlas complet"
+			},
+			{
+				"nom": "Commentaire",
 				"texte": "\\n---------------------------------------------------------------------------\\n   "
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 12,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"geographe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A very good day, explorer number 1!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Bien le bonjour, explorateur numéro 1 !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I believe that thanks to your efforts, \\nthe entire whale has been mapped!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je crois que grâce à tes efforts, toute la baleine \\na été cartographiée !"
 			},
 			{
 				"nom": "Attendre",
@@ -1866,7 +2070,7 @@
 			],
 			"commandes": [
 			],
-			"image": "géographe chraratcer",
+			"image": "geographe chraratcer",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1879,7 +2083,7 @@
 	},
 	{
 		"id": 7,
-		"nom": "scientifique",
+		"nom": "scientifique SHADOW[28] (-2)",
 		"x": 12,
 		"y": 14,
 		"pages": [
@@ -1949,8 +2153,94 @@
 				"valeur": true
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 1,
+				"etat": "FAITE",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 2,
+				"etat": "FAITE",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 59,
+				"etat": "FAITE",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 60,
+				"etat": "FAITE",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 70,
+				"etat": "FAITE",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 71,
+				"etat": "FAITE",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 95,
+				"etat": "FAITE",
+				"numero": 6
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"poincare\""
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 7
 			},
 			{
 				"nom": "Commentaire",
@@ -1999,6 +2289,30 @@
 			{
 				"nom": "Message",
 				"texte": "J'ai hâte de savoir !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 7
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The whole whale has finally been mapped!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Toute la baleine a enfin été cartographiée !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a great day for geometry!"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un grand jour pour la géométrie !"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
 			},
 			{
 				"nom": "Attendre",
@@ -2144,7 +2458,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Hors de toute carte, le monde de Kujira \\ns'étend majestueusement au milieu de \\nnulle-part...\""
+				"texte": "\"Hors de toute carte, le monde de Kujira \\ns'étend majestueusement au milieu de \\nnulle part...\""
 			},
 			{
 				"nom": "Commentaire",

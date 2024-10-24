@@ -110,10 +110,15 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].opacity == 255",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -130,6 +135,10 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",

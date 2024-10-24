@@ -260,6 +260,10 @@
 				"direction": 0
 			},
 			{
+				"nom": "Attendre",
+				"nombreDeFrames": 3
+			},
+			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 7,
 				"ignorerLesMouvementsImpossibles": false,
@@ -373,73 +377,9 @@
 	},
 	{
 		"id": 7,
-		"nom": "Ecaille Rouge",
+		"nom": "Clone[582][12]",
 		"x": 19,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "Ecailles colorées",
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 14
 	},
 	{
 		"id": 2,
@@ -491,7 +431,7 @@
 				"defilementY": 0,
 				"zoom": 100,
 				"nuance": 0,
-				"nomImage": "fog étoiles"
+				"nomImage": "fog etoiles"
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -1102,6 +1042,27 @@
 			{
 				"nom": "EffacerImage",
 				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "masquer l'écaille\\n(attendre 1 frame avant pour que ça marche)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 7,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
 			},
 			{
 				"nom": "SupprimerEvent"

@@ -30,8 +30,8 @@
 	[0232,-001,-001,-001,-001,0080,0081,0082,-001,-001,-001,-001,-001,0080,0081,0082,-001,-001,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,0232],
-	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
-	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
+	[0232,-001,-001,-001,-001,0124,-001,-001,0126,0127,-001,-001,-001,-001,-001,0125,-001,-001,-001,-001,0232],
+	[0232,-001,-001,-001,-001,0126,-001,-001,-001,-001,-001,-001,-001,-001,-001,0127,-001,-001,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
 	[0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0232],
@@ -129,6 +129,10 @@
 				"direction": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(4)"
+			},
+			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 4,
 				"ignorerLesMouvementsImpossibles": false,
@@ -141,22 +145,17 @@
 					"direction": 0,
 					"animation": 1,
 					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 4,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
+				},
 				{
 					"nom": "Sauter",
 					"x": 3,
 					"y": 2
 				}
 				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(4)"
 			},
 			{
 				"nom": "Deplacement",
@@ -227,8 +226,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(4)"
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -237,10 +236,6 @@
 				"nouveauX": 20,
 				"nouveauY": 14,
 				"direction": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -265,7 +260,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"valeurQuIlEstCenseAvoir": 12
 			}
 			],
 			"commandes": [
@@ -309,71 +304,6 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 22,
-		"nom": "anti-bug transparent",
-		"x": 20,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 21,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "terrain"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 21,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -550,7 +480,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "Goutte",
+		"nom": "Goutte SHADOW[24]",
 		"x": 19,
 		"y": 13,
 		"pages": [
@@ -568,27 +498,19 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[4].lolilol(nil, 8, 3) || $game_map.events[4].lolilol(nil, 8, 2)",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].lolilol(nil, 8, 3) || $game_map.events[@event_id].lolilol(nil, 8, 2)",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -596,39 +518,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
 				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -643,7 +534,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -653,8 +544,8 @@
 				"direction": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -676,7 +567,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"valeurQuIlEstCenseAvoir": 12
 			}
 			],
 			"commandes": [
@@ -725,46 +616,6 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "blessé",
-		"x": 20,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 66
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 12,
 		"nom": "Blocage",
 		"x": 6,
@@ -791,7 +642,7 @@
 	},
 	{
 		"id": 1,
-		"nom": "Nenuphar MiniBoss",
+		"nom": "Nenuphar MiniBoss SHADOW[36]",
 		"x": 10,
 		"y": 8,
 		"pages": [
@@ -812,7 +663,7 @@
 			},
 			{
 				"nom": "ConditionScript",
-				"script": "Math.hypot($game_player.x-$game_map.events[1].x, $game_player.y-$game_map.events[1].y) <=1",
+				"script": "$game_player.x==$game_map.events[1].x && $game_player.y==$game_map.events[1].y",
 				"numero": 0
 			},
 			{
@@ -821,19 +672,19 @@
 				"numero": 1
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 2
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -843,128 +694,22 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 16
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 2,
+				"valeur": false
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[1].lolilol(nil, nil, 3) || $game_map.events[1].lolilol(nil, nil, 3)",
-				"numero": 2
-			},
-			{
-				"nom": "BoucleSortir",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 4,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
@@ -994,12 +739,6 @@
 			],
 			"commandes": [
 			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Miniboss 4.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
 				"nom": "ConditionTouche",
 				"touche": "ACTION",
 				"numero": 0
@@ -1026,14 +765,6 @@
 				"numero": 3
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 56,
 				"valeur": true
@@ -1046,10 +777,6 @@
 				"nom": "ConditionArmeEquipee",
 				"idArme": 1,
 				"numero": 4
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1067,6 +794,36 @@
 				"numero": 5
 			},
 			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 0,
+				"numero": 6
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 1,
+				"numero": 7
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 4
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
@@ -1078,42 +835,41 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 3,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 3,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 13,
 				"operationAFaire": "ajouter",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 3,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 8
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].changerDirection(8)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].changerPattern(1)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].changerPattern(0)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
 			},
 			{
 				"nom": "ConditionFin",
@@ -1145,13 +901,216 @@
 		{
 			"conditions": [
 			{
-				"nom": "Variable",
-				"numeroVariable": 13,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 4,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 2,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 3,
+				"valeur": false
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[1].changerPattern(0)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[1].changerPattern(1)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "boing1.mp3",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[1].changerPattern(2)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "017-Jump03.ogg",
+				"volume": 0.50,
+				"tempo": 0.50
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le nénuphar s'enfuit par en haut ou par en bas\\nselon ce qui est possible\\n(le héros peut lui barrer la route)"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y<$game_map.events[1].y",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[1].changerPattern(3)"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y<$game_map.events[1].y",
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cube.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].changerPattern(0)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 2,
+				"valeur": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 3,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 4,
+				"valeur": false
+			}
+			],
+			"image": "nenuphar miniboss character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 13,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 12
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 2,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 3,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 4,
+				"valeur": false
+			},
 			{
 				"nom": "ArreterMusique",
 				"nombreDeFrames": 30
@@ -1189,7 +1148,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1249,10 +1208,6 @@
 					"traversable": true
 				}
 				]
-			},
-			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
 			},
 			{
 				"nom": "Attendre",
@@ -1384,6 +1339,7 @@
 			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -1484,15 +1440,12 @@
 	},
 	{
 		"id": 7,
-		"nom": "Goutte",
+		"nom": "Goutte SHADOW[24]",
 		"x": 18,
 		"y": 13,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Contact"
-			},
 			{
 				"nom": "Interrupteur",
 				"numeroInterrupteur": 2,
@@ -1502,27 +1455,19 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[4].lolilol(nil, 8, 3) || $game_map.events[4].lolilol(nil, 8, 2)",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].lolilol(nil, 8, 3) || $game_map.events[@event_id].lolilol(nil, 8, 2)",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1530,39 +1475,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
 				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1577,7 +1491,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1587,8 +1501,8 @@
 				"direction": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -1610,7 +1524,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"valeurQuIlEstCenseAvoir": 12
 			}
 			],
 			"commandes": [
@@ -1699,20 +1613,12 @@
 			],
 			"commandes": [
 			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Miniboss 4.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Miniboss 4.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
+				"nom": "Commentaire",
+				"texte": "le nénuphar saute vers le héros"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1759,758 +1665,32 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "0 bas\\n1 bas droite\\n2 droite"
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 11,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 3,
+				"valeurADonner": 0,
+				"valeurADonner2": 2,
 				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 3,
-				"comparerAUneAutreVariable": false,
-				"numero": 4
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
 			},
 			{
 				"nom": "ConditionSinon",
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "2 droite\\n3 haut droite\\n4 haut"
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 11,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 3,
+				"valeurADonner": 2,
+				"valeurADonner2": 4,
 				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 5
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 5
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 6
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 3,
-				"comparerAUneAutreVariable": false,
-				"numero": 7
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
 			},
 			{
 				"nom": "ConditionFin",
@@ -2526,769 +1706,528 @@
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 16,
 				"comparerAUneAutreVariable": true,
-				"numero": 8
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "6 gauche\\n7 bas gauche\\n8=0 bas"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 11,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 3,
+				"valeurADonner": 6,
+				"valeurADonner2": 8,
 				"operationAFaire2": "nombre aleatoire"
 			},
 			{
-				"nom": "ConditionVariable",
+				"nom": "ModifierVariable",
 				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 9
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
+				"operationAFaire": "modulo",
+				"valeurADonner": 8,
+				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 9
+				"numero": 2
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 10
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 3,
-				"comparerAUneAutreVariable": false,
-				"numero": 11
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 11
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 8
+				"nom": "Commentaire",
+				"texte": "4 haut\\n5 haut gauche\\n6 gauche"
 			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 11,
 				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 3,
+				"valeurADonner": 4,
+				"valeurADonner2": 6,
 				"operationAFaire2": "nombre aleatoire"
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 12
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 12
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 2,
-				"comparerAUneAutreVariable": false,
-				"numero": 13
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 11,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 3,
-				"comparerAUneAutreVariable": false,
-				"numero": 14
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(1)"
-			},
-			{
 				"nom": "ConditionFin",
-				"numero": 14
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 13
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 12
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
+				"numero": 2
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[1].changerPattern(0)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[1].changerPattern(1)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "boing1.mp3",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[1].changerPattern(2)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "017-Jump03.ogg",
+				"volume": 0.50,
+				"tempo": 0.50
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 4
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 4
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 5
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 5
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 3,
+				"comparerAUneAutreVariable": false,
+				"numero": 6
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 6
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 7
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 8
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 6,
+				"comparerAUneAutreVariable": false,
+				"numero": 9
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 7,
+				"comparerAUneAutreVariable": false,
+				"numero": 10
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 10
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[1].changerPattern(3)"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 11
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 11
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 1,
+				"comparerAUneAutreVariable": false,
+				"numero": 12
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 12
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 13
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 13
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 3,
+				"comparerAUneAutreVariable": false,
+				"numero": 14
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 14
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 4,
+				"comparerAUneAutreVariable": false,
+				"numero": 15
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 15
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 3,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 16
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 6,
+				"comparerAUneAutreVariable": false,
+				"numero": 17
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 17
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 11,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 7,
+				"comparerAUneAutreVariable": false,
+				"numero": 18
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnDiagonale",
+					"directionVerticale": 0,
+					"directionHorizontale": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 18
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(1)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cube.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[1].changerPattern(0)"
 			}
 			],
 			"vitesse": "moderee",
@@ -3326,7 +2265,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"valeurQuIlEstCenseAvoir": 12
 			}
 			],
 			"commandes": [
@@ -3452,6 +2391,10 @@
 				"direction": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(6)"
+			},
+			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 6,
 				"ignorerLesMouvementsImpossibles": false,
@@ -3464,22 +2407,17 @@
 					"direction": 0,
 					"animation": 1,
 					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 6,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
+				},
 				{
 					"nom": "Sauter",
 					"x": -3,
 					"y": 2
 				}
 				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(6)"
 			},
 			{
 				"nom": "Deplacement",
@@ -3550,8 +2488,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(6)"
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -3560,10 +2498,6 @@
 				"nouveauX": 20,
 				"nouveauY": 14,
 				"direction": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -3588,7 +2522,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"valeurQuIlEstCenseAvoir": 12
 			}
 			],
 			"commandes": [
@@ -3644,20 +2578,14 @@
 	},
 	{
 		"id": 3,
-		"nom": "EV003",
-		"x": 18,
-		"y": 0,
+		"nom": "init vies",
+		"x": 20,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
 			],
 			"commandes": [
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "120.mid",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
 			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 13,
@@ -3692,7 +2620,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"valeurQuIlEstCenseAvoir": 12
 			}
 			],
 			"commandes": [
@@ -3859,6 +2787,10 @@
 				"direction": 0
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(7)"
+			},
+			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 7,
 				"ignorerLesMouvementsImpossibles": false,
@@ -3871,22 +2803,17 @@
 					"direction": 0,
 					"animation": 1,
 					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 7,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
+				},
 				{
 					"nom": "Sauter",
 					"x": 0,
 					"y": -2
 				}
 				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(7)"
 			},
 			{
 				"nom": "Deplacement",
@@ -3957,8 +2884,8 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(7)"
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -3967,10 +2894,6 @@
 				"nouveauX": 20,
 				"nouveauY": 14,
 				"direction": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -3995,7 +2918,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"valeurQuIlEstCenseAvoir": 12
 			}
 			],
 			"commandes": [
@@ -4051,7 +2974,7 @@
 	},
 	{
 		"id": 4,
-		"nom": "Goutte",
+		"nom": "Goutte SHADOW[24]",
 		"x": 20,
 		"y": 13,
 		"pages": [
@@ -4069,27 +2992,19 @@
 			"commandes": [
 			{
 				"nom": "ConditionScript",
-				"script": "$game_map.events[4].lolilol(nil, 8, 3) || $game_map.events[4].lolilol(nil, 8, 2)",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
 				"numero": 0
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].lolilol(nil, 8, 3) || $game_map.events[@event_id].lolilol(nil, 8, 2)",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -4097,39 +3012,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
 				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -4144,7 +3028,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -4154,8 +3038,8 @@
 				"direction": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -4177,7 +3061,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"valeurQuIlEstCenseAvoir": 12
 			}
 			],
 			"commandes": [
@@ -4258,7 +3142,7 @@
 	},
 	{
 		"id": 10,
-		"nom": "EV010",
+		"nom": "nenuphar dans l eau",
 		"x": 20,
 		"y": 9,
 		"pages": [
@@ -4272,6 +3156,19 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "il doit avoir fini son déplacement"
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "!$game_map.events[1].moving?",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "est-il dans l'eau ?"
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 33,
 				"operationAFaire": "rendre egal a",
@@ -4281,7 +3178,7 @@
 			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[1].lolilol(nil, 2, 0)",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionVariable",
@@ -4289,7 +3186,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 5,
 				"comparerAUneAutreVariable": false,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "JouerAnimation",
@@ -4321,16 +3218,12 @@
 				"nombreDeFrames": 1
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
+				"nom": "ConditionFin",
+				"numero": 2
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -4359,8 +3252,12 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "vulnérabilité pendant quelques secondes"
+			},
+			{
 				"nom": "Attendre",
-				"nombreDeFrames": 83
+				"nombreDeFrames": 100
 			},
 			{
 				"nom": "TremblementDeTerre",
@@ -4369,129 +3266,9 @@
 				"nombreDeFrames": 33
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "boing1.mp3",
-					"volume": 0.80,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 2,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "017-Jump03.ogg",
-					"volume": 0.50,
-					"tempo": 0.50
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 1,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 3,
-					"teinte": 0
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "022-Dive02.ogg",
-					"volume": 0.50,
-					"tempo": 1.50
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "nenuphar miniboss character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
-			},
-			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 2,
+				"numeroInterrupteur": 4,
 				"valeur": true
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 3,
-				"valeur": false
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -4508,7 +3285,7 @@
 				"nom": "Variable",
 				"numeroVariable": 13,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 10
+				"valeurQuIlEstCenseAvoir": 12
 			}
 			],
 			"commandes": [

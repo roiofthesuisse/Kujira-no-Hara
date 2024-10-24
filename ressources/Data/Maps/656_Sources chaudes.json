@@ -96,58 +96,6 @@
 	],
 	"events": [
 	{
-		"id": 27,
-		"nom": "serviette (-12)",
-		"x": 9,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 199,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "Geyser",
-		"x": 8,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 16,
 		"nom": "Pancarte",
 		"x": 20,
@@ -208,193 +156,52 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 24,
-		"y": 12,
+		"id": 5,
+		"nom": "Geyser",
+		"x": 8,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 654,
-				"xDebutHeros": 1,
-				"yDebutHeros": 11
-			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Réglages initiaux",
-		"x": 24,
-		"y": 7,
+		"id": 27,
+		"nom": "serviette (-12)",
+		"x": 9,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 5,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 16,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 16,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 0
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 1
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 4
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 5
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 6
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 4
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 2
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeur": true
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 278
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 0,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 2,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 3,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 4,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 2
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 3
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 30,
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 31,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 0
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 5,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 5
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"commandes": [
+			],
+			"image": 199,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -631,53 +438,194 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "serviette de poesie",
-		"x": 10,
+		"id": 22,
+		"nom": "Réglages initiaux",
+		"x": 24,
 		"y": 7,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 6
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 4
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 2
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 278
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 2
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 3
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 0
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 5,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 26,
+				"variable": false,
+				"quantite": 5
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
 			],
-			"image": 199,
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Geyser",
-		"x": 6,
-		"y": 8,
+		"id": 11,
+		"nom": "EV011",
+		"x": 24,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 654,
+				"xDebutHeros": 1,
+				"yDebutHeros": 11
+			}
 			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -741,6 +689,157 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 6,
+		"nom": "Geyser",
+		"x": 6,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 28,
+		"nom": "serviette de poesie",
+		"x": 10,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 199,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 23,
+		"nom": "viking SHADOW[32] (-4)",
+		"x": 3,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking jaune femme\""
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 64
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]red Vikings\\c[0] envy us \\nthese natural hot springs!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Les \\c[2]Vikings rouges\\c[1] nous envient ces sources \\nchaudes naturelles !"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 65
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking nage character",
+			"directionInitiale": 2,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "cascade",
+		"x": 7,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 250,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][169]",
+		"x": 18,
+		"y": 19
 	},
 	{
 		"id": 34,
@@ -814,201 +913,6 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][169]",
-		"x": 18,
-		"y": 19
-	},
-	{
-		"id": 12,
-		"nom": "cascade",
-		"x": 7,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 250,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "viking",
-		"x": 3,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking jaune femme\""
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2 femme.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 64
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The \\c[2]red Vikings\\c[0] envy us \\nthese natural hot springs!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Les \\c[2]Vikings rouges\\c[1] nous envient ces sources \\nchaudes naturelles !"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 65
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking nage character",
-			"directionInitiale": 2,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 7,
-		"nom": "Geyser",
-		"x": 5,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "viking",
-		"x": 5,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 64
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "viking2 vieux.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The hot bath is for experts!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Le bain chaud est celui des experts !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's thanks to the hot bath that\\nI am still in great shape despite my 93 years!"
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est grâce au bain chaud que je suis encore \\nen pleine forme malgré mes 93 ans !"
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 65
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking nage character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -1191,16 +1095,79 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][161]",
-		"x": 20,
-		"y": 18
+		"id": 18,
+		"nom": "viking SHADOW[32] (-4)",
+		"x": 5,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 64
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "viking2 vieux.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The hot bath is for experts!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le bain chaud est celui des experts !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's thanks to the hot bath that\\nI am still in great shape despite my 93 years!"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est grâce au bain chaud que je suis encore \\nen pleine forme malgré mes 93 ans !"
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 65
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking nage character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 13,
-		"nom": "cascade",
-		"x": 18,
-		"y": 2,
+		"id": 7,
+		"nom": "Geyser",
+		"x": 5,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
@@ -1210,10 +1177,11 @@
 			],
 			"commandes": [
 			],
-			"image": "cascade character",
-			"opacite": 250,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -1224,7 +1192,7 @@
 	},
 	{
 		"id": 24,
-		"nom": "viking",
+		"nom": "viking SHADOW[32] (-4)",
 		"x": 20,
 		"y": 3,
 		"pages": [
@@ -1290,10 +1258,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Geyser",
-		"x": 4,
-		"y": 21,
+		"id": 13,
+		"nom": "cascade",
+		"x": 18,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
@@ -1303,11 +1271,10 @@
 			],
 			"commandes": [
 			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"image": "cascade character",
+			"opacite": 250,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -1317,8 +1284,52 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "Clone[341][161]",
+		"x": 20,
+		"y": 18
+	},
+	{
+		"id": 30,
+		"nom": "EV030",
+		"x": 24,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierMeteo",
+				"type": "neige",
+				"intensite": 4
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 36,
+				"valeur": false
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 19,
-		"nom": "viking",
+		"nom": "viking SHADOW[32] (-4)",
 		"x": 3,
 		"y": 20,
 		"pages": [
@@ -1384,46 +1395,88 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "EV030",
-		"x": 24,
-		"y": 8,
+		"id": 8,
+		"nom": "Geyser",
+		"x": 4,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ModifierMeteo",
-				"type": "neige",
-				"intensite": 4
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 36,
-				"valeur": false
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "cascade",
+		"x": 3,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 250,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Geyser",
+		"x": 17,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
 		"id": 25,
-		"nom": "Poesie",
+		"nom": "Poesie SHADOW[20,4]",
 		"x": 6,
 		"y": 6,
 		"pages": [
@@ -1692,94 +1745,8 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Geyser",
-		"x": 17,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "cascade",
-		"x": 3,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 250,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 31,
-		"nom": "Clone[341][163]",
-		"x": 20,
-		"y": 19
-	},
-	{
-		"id": 9,
-		"nom": "Geyser",
-		"x": 6,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "geyser character",
-			"opacite": 200,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 20,
-		"nom": "viking",
+		"nom": "viking SHADOW[32] (-4)",
 		"x": 6,
 		"y": 21,
 		"pages": [
@@ -1845,35 +1812,10 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "serviette (-12)",
-		"x": 7,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 199,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
+		"id": 9,
 		"nom": "Geyser",
-		"x": 19,
-		"y": 4,
+		"x": 6,
+		"y": 18,
 		"pages": [
 		{
 			"conditions": [
@@ -1895,6 +1837,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 31,
+		"nom": "Clone[341][163]",
+		"x": 20,
+		"y": 19
 	},
 	{
 		"id": 15,
@@ -1965,37 +1913,52 @@
 		]
 	},
 	{
-		"id": 32,
-		"nom": "Clone[341][163]",
+		"id": 4,
+		"nom": "Geyser",
 		"x": 19,
-		"y": 17
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 24,
-		"y": 11,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
+			],
+			"image": "geyser character",
+			"opacite": 200,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 26,
+		"nom": "serviette (-12)",
+		"x": 7,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 654,
-				"xDebutHeros": 1,
-				"yDebutHeros": 10
+				"nom": "Parler"
 			}
 			],
+			"commandes": [
+			],
+			"image": 199,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2003,7 +1966,7 @@
 	},
 	{
 		"id": 21,
-		"nom": "viking",
+		"nom": "viking SHADOW[32] (-4)",
 		"x": 7,
 		"y": 20,
 		"pages": [
@@ -2084,6 +2047,43 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 10,
+		"nom": "EV010",
+		"x": 24,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 654,
+				"xDebutHeros": 1,
+				"yDebutHeros": 10
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 32,
+		"nom": "Clone[341][163]",
+		"x": 19,
+		"y": 17
 	}
 	]
 }

@@ -62,7 +62,7 @@
 	"events": [
 	{
 		"id": 16,
-		"nom": "viking jaune 16",
+		"nom": "viking jaune 16 SHADOW[32] (-4)",
 		"x": 11,
 		"y": 10,
 		"pages": [
@@ -141,10 +141,22 @@
 		"y": 7
 	},
 	{
+		"id": 22,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 12
+	},
+	{
 		"id": 11,
 		"nom": "Clone[341][004]",
 		"x": 11,
 		"y": 6
+	},
+	{
+		"id": 6,
+		"nom": "Clone[582][101]",
+		"x": 6,
+		"y": 7
 	},
 	{
 		"id": 17,
@@ -179,105 +191,35 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Luciole",
-		"x": 6,
-		"y": 7,
+		"id": 23,
+		"nom": "triche",
+		"x": 7,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
+				"nom": "AjouterArgent",
 				"variable": false,
-				"quantite": 1
+				"quantite": 500
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "Message",
+				"texte": "gxfhgsfh"
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": true,
+			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
@@ -319,123 +261,69 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Luciole",
-		"x": 6,
-		"y": 8,
+		"id": 18,
+		"nom": "Avancement",
+		"x": 13,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
+			],
+			"commandes": [
 			{
-				"nom": "Contact"
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 30,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 18,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
 				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[582][103]",
+		"x": 6,
+		"y": 8
 	},
 	{
 		"id": 2,
@@ -473,6 +361,12 @@
 		"nom": "Clone[341][004]",
 		"x": 9,
 		"y": 4
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 11
 	},
 	{
 		"id": 8,
@@ -726,6 +620,12 @@
 		]
 	},
 	{
+		"id": 20,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 12
+	},
+	{
 		"id": 9,
 		"nom": "Clone[341][004]",
 		"x": 9,
@@ -787,25 +687,6 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 126,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 30,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 30,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "--------------------------------------------------\\njouer la bonne musique\\n--------------------------------------------------"
 			},
@@ -813,7 +694,7 @@
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 134,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "JouerMusique",
@@ -823,7 +704,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "JouerMusique",
@@ -833,7 +714,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 0
 			},
 			{
 				"nom": "Commentaire",
@@ -843,7 +724,7 @@
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 135,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "Deplacement",
@@ -860,7 +741,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 2
+				"numero": 1
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -875,6 +756,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 11
 	},
 	{
 		"id": 10,

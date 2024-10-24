@@ -558,6 +558,43 @@
 				"numero": 2
 			},
 			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "mur character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 13,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
@@ -608,25 +645,14 @@
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
+				"numeroInterrupteurLocal": 1,
 				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"image": "mur character",
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
@@ -641,7 +667,7 @@
 			{
 				"nom": "InterrupteurLocal",
 				"numeroEvent": 13,
-				"numeroInterrupteurLocal": 0,
+				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],

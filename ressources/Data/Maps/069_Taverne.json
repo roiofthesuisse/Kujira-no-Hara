@@ -111,8 +111,14 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 27,
+		"y": 11
+	},
+	{
 		"id": 16,
-		"nom": "Viking",
+		"nom": "Viking SHADOW[32] (-4)",
 		"x": 26,
 		"y": 13,
 		"pages": [
@@ -245,9 +251,9 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 27,
+		"id": 22,
+		"nom": "Clone[341][008]",
+		"x": 30,
 		"y": 11
 	},
 	{
@@ -280,18 +286,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][008]",
-		"x": 30,
-		"y": 11
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][039]",
-		"x": 32,
-		"y": 21
 	},
 	{
 		"id": 17,
@@ -376,6 +370,91 @@
 			"commandes": [
 			{
 				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][039]",
+		"x": 32,
+		"y": 21
+	},
+	{
+		"id": 23,
+		"nom": "dessus tonneau",
+		"x": 7,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 284,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "Parchemin",
+		"x": 12,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Let's drink all night \\nto make a flowerpot \\nout of the barrel!\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Buvons toute la nuit\\npour faire un pot à fleur\\ndu tonneau !\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
@@ -474,83 +553,10 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Parchemin",
-		"x": 12,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Let's drink all night \\nto make a flowerpot \\nout of the barrel!\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Buvons toute la nuit\\npour faire un pot à fleur\\ndu tonneau !\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Matsuo Bashô\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Matsuo Bashô\\c[2]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "dessus tonneau",
-		"x": 7,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 284,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 7,
+		"nom": "Clone[341][039]",
+		"x": 19,
+		"y": 16
 	},
 	{
 		"id": 18,
@@ -587,26 +593,8 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][039]",
-		"x": 19,
-		"y": 16
-	},
-	{
-		"id": 24,
-		"nom": "Clone[582][51]",
-		"x": 29,
-		"y": 14
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][005]",
-		"x": 14,
-		"y": 18
-	},
-	{
 		"id": 13,
-		"nom": "Viking",
+		"nom": "Viking SHADOW[32] (-4)",
 		"x": 18,
 		"y": 10,
 		"pages": [
@@ -701,9 +689,15 @@
 		]
 	},
 	{
-		"id": 19,
+		"id": 2,
 		"nom": "Clone[341][005]",
-		"x": 27,
+		"x": 14,
+		"y": 18
+	},
+	{
+		"id": 24,
+		"nom": "Clone[582][51]",
+		"x": 29,
 		"y": 14
 	},
 	{
@@ -711,6 +705,98 @@
 		"nom": "Clone[341][039]",
 		"x": 6,
 		"y": 21
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][005]",
+		"x": 27,
+		"y": 14
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 32,
+		"y": 16
+	},
+	{
+		"id": 14,
+		"nom": "Viking vieux SHADOW[32] (-4)",
+		"x": 27,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "viking1 vieux.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking vieux\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) There is a beautiful spring\\nnorth of the \\c[2]red Vikings\\c[0]' village."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il y a une très belle source au nord du village \\nviking rouge."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We draw water from it to water\\nour secret squashes."
+			},
+			{
+				"nom": "Message",
+				"texte": "On en puise l'eau pour arroser nos courges \\nsecrètes."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "chut.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Shhh, don't tell anyone!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Chut, ne le répète à personne !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking vieux character",
+			"directionInitiale": 3,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 25,
@@ -754,94 +840,14 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Viking vieux",
-		"x": 27,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "viking1 vieux.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking vieux\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) There is a beautiful spring\\nnorth of the \\c[2]red Vikings\\c[0]' village."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il y a une très belle source au nord du village \\nviking rouge."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) We draw water from it to water\\nour secret pumpkins."
-			},
-			{
-				"nom": "Message",
-				"texte": "On en puise l'eau pour arroser nos \\ncitrouilles secrètes."
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "chut.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Shhh, don't tell anyone!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Chut, ne le répète à personne !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking vieux character",
-			"directionInitiale": 3,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][004]",
-		"x": 32,
-		"y": 16
+		"id": 20,
+		"nom": "Clone[341][165]",
+		"x": 30,
+		"y": 18
 	},
 	{
 		"id": 9,
-		"nom": "Viking",
+		"nom": "Viking SHADOW[32] (-4)",
 		"x": 26,
 		"y": 20,
 		"pages": [
@@ -927,170 +933,8 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][165]",
-		"x": 30,
-		"y": 18
-	},
-	{
-		"id": 15,
-		"nom": "Viking",
-		"x": 9,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I've seen at the village store a piece \\nof carved wood that is very expensive."
-			},
-			{
-				"nom": "Message",
-				"texte": "J'ai vu, à la boutique du village, un morceau \\nde bois sculpté qui coûte très cher."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It has become art because the one \\nwho made it is an artist."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est devenu de l'art car celui qui l'a fait \\nest un artiste."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It means that he blessed it with his hands \\nor something like that."
-			},
-			{
-				"nom": "Message",
-				"texte": "Cela signifie qu'il l'a bénit avec ses mains \\nou quelque chose comme ça."
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) But listen, anybody can't turn anything \\ninto art!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais attention, n'importe qui ne peut pas \\ntransformer n'importe quoi en art !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) A thing can become art only if it is first \\nacknowledged by the art world,\\nwhich is a very closed community."
-			},
-			{
-				"nom": "Message",
-				"texte": "Pour qu'une chose devienne de l'art, elle doit \\nd'abord être reconnue par le monde de l'art, \\nqui est une communauté très fermée."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Normal people, like you and me, \\ndon't have this power."
-			},
-			{
-				"nom": "Message",
-				"texte": "Les gens normaux, comme toi et moi, \\nn'ont pas ce pouvoir-là."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's a bit magical I think..."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est un peu magique je crois..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			"image": "viking petit character",
-			"directionInitiale": 2,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 127,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][004]",
-		"x": 26,
-		"y": 11
-	},
-	{
 		"id": 26,
-		"nom": "Viking",
+		"nom": "Viking SHADOW[32] (-4)",
 		"x": 24,
 		"y": 13,
 		"pages": [
@@ -1199,8 +1043,189 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "Clone[341][004]",
+		"x": 26,
+		"y": 11
+	},
+	{
+		"id": 15,
+		"nom": "Viking SHADOW[32] (-4)",
+		"x": 9,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I've seen at the village store a piece \\nof carved wood that is very expensive."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai vu, à la boutique du village, un morceau \\nde bois sculpté qui coûte très cher."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It has become art because the one \\nwho made it is an artist."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est devenu de l'art car celui qui l'a fait \\nest un artiste."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It means that he blessed it with his hands \\nor something like that."
+			},
+			{
+				"nom": "Message",
+				"texte": "Cela signifie qu'il l'a béni avec ses mains \\nou quelque chose comme ça."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But listen, anybody can't turn anything \\ninto art!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais attention, n'importe qui ne peut pas \\ntransformer n'importe quoi en art !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A thing can become art only if it is first \\nacknowledged by the art world,\\nwhich is a very closed community."
+			},
+			{
+				"nom": "Message",
+				"texte": "Pour qu'une chose devienne de l'art, elle doit \\nd'abord être reconnue par le monde de l'art, \\nqui est une communauté très fermée."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Normal people, like you and me, \\ndon't have this power."
+			},
+			{
+				"nom": "Message",
+				"texte": "Les gens normaux, comme toi et moi, \\nn'ont pas ce pouvoir-là."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's a bit magical I think..."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un peu magique je crois..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				}
+				]
+			},
+			"image": "viking petit character",
+			"directionInitiale": 2,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 127,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "dessus tonneau",
+		"x": 7,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 284,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 10,
-		"nom": "Viking",
+		"nom": "Viking SHADOW[32] (-4)",
 		"x": 15,
 		"y": 16,
 		"pages": [
@@ -1283,31 +1308,6 @@
 				"nom": "SupprimerEvent"
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "dessus tonneau",
-		"x": 7,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 284,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,

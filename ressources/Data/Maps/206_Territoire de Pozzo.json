@@ -329,9 +329,9 @@
 			},
 			{
 				"nom": "ModifierTonDeLEcran",
-				"rouge": 115,
-				"vert": 140,
-				"bleu": 127,
+				"rouge": 120,
+				"vert": 135,
+				"bleu": 135,
 				"gris": 0,
 				"dureeTransition": 0
 			},
@@ -467,7 +467,7 @@
 	},
 	{
 		"id": 2,
-		"nom": "Pozzo",
+		"nom": "Pozzo SHADOW[48] (-4)",
 		"x": 21,
 		"y": 19,
 		"pages": [
@@ -1044,30 +1044,6 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I am very great, am I not?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Je suis très grand n'est-ce pas ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) That is because I am very rich!"
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est parce que je suis très riche !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Commentaire",
 				"texte": "(en) I am the master of this place."
 			},
 			{
@@ -1076,11 +1052,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Everything you see here is mine!"
+				"texte": "(en) Everything you see here is mine!\\n(Well, it's just a matter of time.)"
 			},
 			{
 				"nom": "Message",
-				"texte": "Tout ce que tu peux voir ici m'appartient !"
+				"texte": "Tout ce que tu peux voir ici m'appartient !\\n(Enfin, ça n'est plus qu'une question de temps.)"
 			},
 			{
 				"nom": "ConditionEtatQuete",
@@ -2223,113 +2199,22 @@
 		"y": 32
 	},
 	{
+		"id": 35,
+		"nom": "Clone[582][93]",
+		"x": 28,
+		"y": 21
+	},
+	{
+		"id": 19,
+		"nom": "Clone[582][101]",
+		"x": 15,
+		"y": 17
+	},
+	{
 		"id": 41,
 		"nom": "Clone[582][46]",
 		"x": 39,
 		"y": 5
-	},
-	{
-		"id": 19,
-		"nom": "Luciole",
-		"x": 15,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 0,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "PasEnDiagonale",
-					"directionVerticale": 3,
-					"directionHorizontale": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
 	},
 	{
 		"id": 8,
@@ -2453,129 +2338,16 @@
 		"y": 5
 	},
 	{
-		"id": 20,
-		"nom": "Luciole",
-		"x": 15,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 9,
 		"nom": "Clone[021][002]",
 		"x": 32,
 		"y": 21
+	},
+	{
+		"id": 20,
+		"nom": "Clone[582][103]",
+		"x": 15,
+		"y": 18
 	},
 	{
 		"id": 37,
@@ -2597,7 +2369,7 @@
 	},
 	{
 		"id": 26,
-		"nom": "lucky",
+		"nom": "lucky SHADOW[24]",
 		"x": 23,
 		"y": 19,
 		"pages": [

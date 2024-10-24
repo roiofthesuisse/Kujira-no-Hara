@@ -56,133 +56,91 @@
 	],
 	"events": [
 	{
-		"id": 38,
-		"nom": "Clochette",
-		"x": 9,
-		"y": 12,
+		"id": 27,
+		"nom": "Blocage magique",
+		"x": 11,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 17,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 17,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 11,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 18,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 18,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 11,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 18,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 18,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 11,
-				"comparerAUneAutreVariable": false,
-				"numero": 2
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 38,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAnimeALArret",
-					"animeALArret": true
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "clochette.mp3",
-					"volume": 1.00,
-					"tempo": 1.00
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "tres rapide"
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				},
-				{
-					"nom": "RendreAnimeALArret",
-					"animeALArret": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "Parler"
 			}
 			],
-			"image": "Clochette character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 27,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 16,
+		"nom": "Blocage magique",
+		"x": 7,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 27,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -371,131 +329,197 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Blocage magique",
-		"x": 7,
-		"y": 3,
+		"id": 38,
+		"nom": "Clochette",
+		"x": 9,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[1].x==9 && $game_map.events[1].y==12",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 38,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "clochette.mp3",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "tres rapide"
+				},
+				{
+					"nom": "ModifierFrequence",
+					"frequence": "la plus haute"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 33
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[2].x==9 && $game_map.events[2].y==12",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 38,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "clochette.mp3",
+					"volume": 1.00,
+					"tempo": 1.00
+				},
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "tres rapide"
+				},
+				{
+					"nom": "ModifierFrequence",
+					"frequence": "la plus haute"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 33
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
+			"image": "Clochette character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": false
 		},
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 27,
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 38,
+				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 27,
-		"nom": "Blocage magique",
-		"x": 11,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[1].x!=9 || $game_map.events[1].y!=12",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[2].x!=9 || $game_map.events[2].y!=12",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
+			"image": "Clochette character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": true,
 			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 27,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 44,
-		"nom": "EV044",
-		"x": 15,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 729,
-				"xDebutHeros": 15,
-				"yDebutHeros": 5
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 11,
+		"id": 33,
 		"nom": "Blocage magique",
-		"x": 4,
-		"y": 6,
+		"x": 14,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -582,10 +606,10 @@
 		]
 	},
 	{
-		"id": 33,
+		"id": 11,
 		"nom": "Blocage magique",
-		"x": 14,
-		"y": 7,
+		"x": 4,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -627,16 +651,41 @@
 		]
 	},
 	{
-		"id": 39,
-		"nom": "Clone[341][004]",
-		"x": 2,
-		"y": 6
+		"id": 44,
+		"nom": "EV044",
+		"x": 15,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 729,
+				"xDebutHeros": 15,
+				"yDebutHeros": 5
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 6,
+		"id": 28,
 		"nom": "Blocage magique",
-		"x": 7,
-		"y": 9,
+		"x": 12,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -723,10 +772,10 @@
 		]
 	},
 	{
-		"id": 28,
+		"id": 6,
 		"nom": "Blocage magique",
-		"x": 12,
-		"y": 3,
+		"x": 7,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -768,22 +817,16 @@
 		]
 	},
 	{
-		"id": 45,
-		"nom": "Clone[341][078]",
-		"x": 16,
-		"y": 9
+		"id": 39,
+		"nom": "Clone[341][004]",
+		"x": 2,
+		"y": 6
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][055]",
-		"x": 10,
-		"y": 3
-	},
-	{
-		"id": 12,
+		"id": 34,
 		"nom": "Blocage magique",
-		"x": 4,
-		"y": 5,
+		"x": 14,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -870,10 +913,10 @@
 		]
 	},
 	{
-		"id": 34,
+		"id": 12,
 		"nom": "Blocage magique",
-		"x": 14,
-		"y": 8,
+		"x": 4,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -915,41 +958,22 @@
 		]
 	},
 	{
-		"id": 40,
-		"nom": "EV040",
-		"x": 0,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 731,
-				"xDebutHeros": 17,
-				"yDebutHeros": 20
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 1,
+		"nom": "Clone[341][055]",
+		"x": 10,
+		"y": 3
 	},
 	{
-		"id": 7,
+		"id": 45,
+		"nom": "Clone[341][078]",
+		"x": 16,
+		"y": 9
+	},
+	{
+		"id": 29,
 		"nom": "Blocage magique",
-		"x": 6,
-		"y": 9,
+		"x": 13,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -1036,10 +1060,10 @@
 		]
 	},
 	{
-		"id": 29,
+		"id": 7,
 		"nom": "Blocage magique",
-		"x": 13,
-		"y": 3,
+		"x": 6,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -1081,22 +1105,41 @@
 		]
 	},
 	{
-		"id": 46,
-		"nom": "Clone[341][078]",
-		"x": 2,
-		"y": 9
+		"id": 40,
+		"nom": "EV040",
+		"x": 0,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 731,
+				"xDebutHeros": 17,
+				"yDebutHeros": 20
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][055]",
-		"x": 8,
-		"y": 3
-	},
-	{
-		"id": 13,
+		"id": 35,
 		"nom": "Blocage magique",
-		"x": 4,
-		"y": 4,
+		"x": 13,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -1183,144 +1226,9 @@
 		]
 	},
 	{
-		"id": 35,
+		"id": 13,
 		"nom": "Blocage magique",
-		"x": 13,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 27,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Blocage magique",
-		"x": 5,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 27,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 19,
-		"nom": "Blocage magique",
-		"x": 8,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 27,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 30,
-		"nom": "Blocage magique",
-		"x": 14,
+		"x": 4,
 		"y": 4,
 		"pages": [
 		{
@@ -1361,6 +1269,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][055]",
+		"x": 8,
+		"y": 3
+	},
+	{
+		"id": 46,
+		"nom": "Clone[341][078]",
+		"x": 2,
+		"y": 9
 	},
 	{
 		"id": 41,
@@ -1518,16 +1438,10 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][0021]",
-		"x": 6,
-		"y": 6
-	},
-	{
-		"id": 14,
+		"id": 30,
 		"nom": "Blocage magique",
-		"x": 5,
-		"y": 3,
+		"x": 14,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -1569,10 +1483,55 @@
 		]
 	},
 	{
-		"id": 25,
+		"id": 19,
 		"nom": "Blocage magique",
-		"x": 10,
-		"y": 5,
+		"x": 8,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 27,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Blocage magique",
+		"x": 5,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -1659,10 +1618,112 @@
 		]
 	},
 	{
-		"id": 9,
+		"id": 25,
 		"nom": "Blocage magique",
-		"x": 4,
-		"y": 8,
+		"x": 10,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 27,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "Blocage magique",
+		"x": 5,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 27,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][0021]",
+		"x": 6,
+		"y": 6
+	},
+	{
+		"id": 42,
+		"nom": "Clone[341][004]",
+		"x": 2,
+		"y": 4
+	},
+	{
+		"id": 31,
+		"nom": "Blocage magique",
+		"x": 14,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -1749,112 +1810,10 @@
 		]
 	},
 	{
-		"id": 31,
+		"id": 9,
 		"nom": "Blocage magique",
-		"x": 14,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 27,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 42,
-		"nom": "Clone[341][004]",
-		"x": 2,
-		"y": 4
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][0021]",
-		"x": 12,
-		"y": 6
-	},
-	{
-		"id": 15,
-		"nom": "Blocage magique",
-		"x": 6,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 27,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "Blocage magique",
-		"x": 10,
-		"y": 4,
+		"x": 4,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -1941,10 +1900,10 @@
 		]
 	},
 	{
-		"id": 10,
+		"id": 26,
 		"nom": "Blocage magique",
-		"x": 4,
-		"y": 7,
+		"x": 10,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -1986,10 +1945,10 @@
 		]
 	},
 	{
-		"id": 21,
+		"id": 15,
 		"nom": "Blocage magique",
-		"x": 8,
-		"y": 8,
+		"x": 6,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
@@ -2031,49 +1990,10 @@
 		]
 	},
 	{
-		"id": 32,
-		"nom": "Blocage magique",
-		"x": 14,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 27,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 4,
+		"nom": "Clone[341][0021]",
+		"x": 12,
+		"y": 6
 	},
 	{
 		"id": 43,
@@ -2198,6 +2118,141 @@
 			],
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 32,
+		"nom": "Blocage magique",
+		"x": 14,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 27,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "Blocage magique",
+		"x": 8,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 27,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Blocage magique",
+		"x": 4,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 27,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,

@@ -96,8 +96,33 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "feu (8)",
+		"x": 16,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "feu character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
-		"nom": "Viking jaune",
+		"nom": "Viking jaune SHADOW[32] (-4)",
 		"x": 15,
 		"y": 11,
 		"pages": [
@@ -154,31 +179,6 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "feu (8)",
-		"x": 16,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "feu character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 11,
 		"nom": "bruit du feu",
 		"x": 27,
@@ -224,8 +224,14 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "Clone[341][006]",
+		"x": 14,
+		"y": 6
+	},
+	{
 		"id": 17,
-		"nom": "Viking",
+		"nom": "Viking SHADOW[32] (-4)",
 		"x": 21,
 		"y": 15,
 		"pages": [
@@ -313,18 +319,6 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][006]",
-		"x": 14,
-		"y": 6
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][039]",
-		"x": 26,
-		"y": 12
-	},
-	{
 		"id": 12,
 		"nom": "dessus tonneau",
 		"x": 21,
@@ -350,14 +344,45 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][039]",
+		"x": 26,
+		"y": 12
+	},
+	{
 		"id": 7,
 		"nom": "Clone[341][155]",
 		"x": 13,
 		"y": 6
 	},
 	{
+		"id": 13,
+		"nom": "dessus tonneau",
+		"x": 22,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 284,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 2,
-		"nom": "Viking jaune",
+		"nom": "Viking jaune SHADOW[32] (-4)",
 		"x": 17,
 		"y": 17,
 		"pages": [
@@ -440,10 +465,16 @@
 		]
 	},
 	{
-		"id": 13,
+		"id": 8,
+		"nom": "Clone[341][004]",
+		"x": 26,
+		"y": 8
+	},
+	{
+		"id": 14,
 		"nom": "dessus tonneau",
-		"x": 22,
-		"y": 6,
+		"x": 10,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -465,14 +496,8 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][004]",
-		"x": 26,
-		"y": 8
-	},
-	{
 		"id": 3,
-		"nom": "Viking jaune",
+		"nom": "Viking jaune SHADOW[32] (-4)",
 		"x": 11,
 		"y": 7,
 		"pages": [
@@ -547,31 +572,6 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "dessus tonneau",
-		"x": 10,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 284,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 12,
@@ -588,6 +588,37 @@
 			},
 			{
 				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "EV004",
+		"x": 11,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 289,
+				"xDebutHeros": 20,
+				"yDebutHeros": 20
 			}
 			],
 			"vitesse": "moderee",
@@ -621,37 +652,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 11,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 289,
-				"xDebutHeros": 20,
-				"yDebutHeros": 20
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

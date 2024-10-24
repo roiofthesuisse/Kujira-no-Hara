@@ -899,14 +899,42 @@
 				"numero": 2
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
-				"numero": 3
+				"nom": "ConditionFin",
+				"numero": 2
 			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": 6,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 24,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
@@ -975,24 +1003,8 @@
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
+				"numeroInterrupteurLocal": 1,
 				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"image": 6,
@@ -1009,7 +1021,7 @@
 			{
 				"nom": "InterrupteurLocal",
 				"numeroEvent": 24,
-				"numeroInterrupteurLocal": 0,
+				"numeroInterrupteurLocal": 1,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
@@ -1265,7 +1277,7 @@
 	},
 	{
 		"id": 25,
-		"nom": "Yeti",
+		"nom": "Yeti SHADOW[40] (-8)",
 		"x": 3,
 		"y": 13,
 		"pages": [

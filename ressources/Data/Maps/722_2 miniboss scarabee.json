@@ -31,14 +31,14 @@
 	[-001,-001,0101,0102,0103,-001,0118,0119,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001],
 	[-001,-001,0109,0110,0111,-001,0126,0127,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0106,0107,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0114,0115,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0122,0123,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,0094,-001,-001,-001,-001,-001,-001,-001,-001,0114,0115,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,0095,-001,-001,-001,-001,-001,-001,-001,-001,0122,0123,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0095,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0094,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0106,0107],
 	[-001,-001,-001,-001,-001,0101,0102,0103,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0114,0115],
 	[-001,-001,-001,-001,-001,0109,0110,0111,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0122,0123],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,0093,0108,0095,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,0088,0089,0090,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0088,0089,0090,-001,-001],
 	[-001,-001,0096,0097,0098,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0096,0097,0098,-001,-001]
 	],
@@ -268,7 +268,7 @@
 			"commandes": [
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 50
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -497,7 +497,7 @@
 			"commandes": [
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 50
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -911,12 +911,13 @@
 				"numero": 9
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 56
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -924,11 +925,6 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
@@ -1395,12 +1391,13 @@
 				"numero": 9
 			},
 			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 56
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1408,11 +1405,6 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": true
 			},
 			{
 				"nom": "ConditionFin",
@@ -1858,7 +1850,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1880,7 +1872,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1931,6 +1923,7 @@
 			"directionInitiale": 1,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,

@@ -23,10 +23,10 @@
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0203,0237,0203,0237,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,0075,-001,0076,-001,-001,0211,0236,0211,0236,-001,0075,-001,0076,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0219,-001,0219,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0210,-001,-001,-001,0219,-001,0219,-001,-001,-001,0210,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,0208,0210,0209,-001,-001,-001,-001,-001,-001,-001,0209,-001,0210,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,0208,-001,0209,-001,-001,-001,-001,-001,-001,-001,0209,-001,0210,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,0210,-001,-001,-001,-001,-001,-001,-001,-001,-001,0218,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -252,6 +252,32 @@
 				"nom": "247",
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 12,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "Groniass l Intrepide.ogg",
 				"volume": 0.90,
@@ -306,6 +332,14 @@
 			{
 				"nom": "AppelerUnScript",
 				"script": "wait_for_event(23)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[25].offset_x(4)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[26].offset_x(-4)"
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -380,7 +414,7 @@
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_map.events[24].offset_y(-16)"
+				"script": "$game_map.events[24].offset_y(-20)"
 			},
 			{
 				"nom": "Deplacement",
@@ -691,6 +725,14 @@
 			},
 			{
 				"nom": "AppelerUnScript",
+				"script": "$game_map.events[24].offset_y(-18)"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
 				"script": "$game_map.events[24].offset_y(-14)"
 			},
 			{
@@ -699,15 +741,7 @@
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_map.events[24].offset_y(-10)"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[24].offset_y(-4)"
+				"script": "$game_map.events[24].offset_y(-8)"
 			},
 			{
 				"nom": "Attendre",
@@ -825,7 +859,7 @@
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_map.events[24].offset_y(-16)"
+				"script": "$game_map.events[24].offset_y(-20)"
 			},
 			{
 				"nom": "Deplacement",
@@ -1331,6 +1365,32 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 12,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
 				"nom": "248",
 			},
 			{
@@ -1591,7 +1651,7 @@
 	},
 	{
 		"id": 23,
-		"nom": "groniass 23",
+		"nom": "groniass 23 SHADOW[36] (-8)",
 		"x": 9,
 		"y": 4,
 		"pages": [
@@ -1727,7 +1787,7 @@
 	},
 	{
 		"id": 24,
-		"nom": "prisme 24",
+		"nom": "prisme 24 (-4)",
 		"x": 10,
 		"y": 4,
 		"pages": [
@@ -1794,7 +1854,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "Poésie character",
+					"image": "Poesie character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -2102,7 +2162,7 @@
 	},
 	{
 		"id": 25,
-		"nom": "viking1 25",
+		"nom": "viking1 25 SHADOW[32] (-4)",
 		"x": 11,
 		"y": 4,
 		"pages": [
@@ -2337,7 +2397,7 @@
 	},
 	{
 		"id": 26,
-		"nom": "viking2 26",
+		"nom": "viking2 26 SHADOW[32] (-4)",
 		"x": 11,
 		"y": 5,
 		"pages": [

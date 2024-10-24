@@ -57,7 +57,7 @@
 	"events": [
 	{
 		"id": 5,
-		"nom": "Graine de pluie bullet HP[1] RESET",
+		"nom": "Graine de pluie bullet HP[1] RESET SHADOW[24]",
 		"x": 7,
 		"y": 1,
 		"pages": [
@@ -65,11 +65,6 @@
 			"conditions": [
 			],
 			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 33
@@ -703,7 +698,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "Graine de pluie nuage HP[1] RESET",
+		"nom": "Graine de pluie nuage HP[1] RESET SHADOW[24]",
 		"x": 11,
 		"y": 1,
 		"pages": [
@@ -1474,7 +1469,7 @@
 	},
 	{
 		"id": 7,
-		"nom": "Graine de pluie enterre",
+		"nom": "Graine de pluie enterre SHADOW[24]",
 		"x": 13,
 		"y": 1,
 		"pages": [
@@ -2068,7 +2063,7 @@
 	},
 	{
 		"id": 3,
-		"nom": "Graine de pluie attend HP[1] RESET",
+		"nom": "Graine de pluie attend HP[1] RESET SHADOW[24]",
 		"x": 5,
 		"y": 1,
 		"pages": [
@@ -2482,32 +2477,8 @@
 				"valeur": true
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",

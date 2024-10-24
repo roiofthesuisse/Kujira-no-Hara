@@ -34,7 +34,7 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0091,0091,0091,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0099,0099,0099,-001,-001],
-	[-001,-001,-001,0011,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0099,-001,-001,-001,-001],
+	[-001,-001,-001,0011,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0099,0164,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0099,0156,0149,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -68,47 +68,22 @@
 		"y": 10
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][045]",
-		"x": 3,
-		"y": 9
-	},
-	{
 		"id": 22,
 		"nom": "Clone[341][045]",
 		"x": 5,
 		"y": 3
 	},
 	{
+		"id": 11,
+		"nom": "Clone[341][045]",
+		"x": 3,
+		"y": 9
+	},
+	{
 		"id": 17,
 		"nom": "Clone[341][045]",
 		"x": 16,
 		"y": 7
-	},
-	{
-		"id": 12,
-		"nom": "Obscurité",
-		"x": 20,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 84
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 1,
@@ -142,66 +117,35 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][045]",
-		"x": 16,
-		"y": 3
-	},
-	{
-		"id": 13,
-		"nom": "Pancarte",
-		"x": 3,
-		"y": 11,
+		"id": 12,
+		"nom": "Obscurité",
+		"x": 20,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The bright torch repels darkness\\nand consumes inflammable obstacles."
-			},
-			{
-				"nom": "Message",
-				"texte": "La torche vive repousse l'obscurité et \\nconsume les obstacles inflammables."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 84
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 18,
+		"nom": "Clone[341][045]",
+		"x": 16,
+		"y": 3
 	},
 	{
 		"id": 2,
@@ -235,10 +179,76 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[021][015]",
-		"x": 12,
-		"y": 8
+		"id": 13,
+		"nom": "Pancarte",
+		"x": 3,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You must not use the torch of \\c[2]Kazan'\\c[0] \\nthe same way you use the blade of \\c[2]Krâkatram\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "La torche de \\c[2]Kazan'\\c[0] ne s'utilise pas \\ncomme le sabre de \\c[2]Krâkatram\\c[0] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have to hold down the \"SPACE\" key \\nand walk at the same time."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il faut maintenir la touche \"ESPACE\" appuyée\\net marcher en même temps."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Thus less sulfur is consumed."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ainsi, moins de soufre sera consumé."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 19,
@@ -247,10 +257,10 @@
 		"y": 5
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][045]",
-		"x": 7,
-		"y": 11
+		"id": 8,
+		"nom": "Clone[021][015]",
+		"x": 12,
+		"y": 8
 	},
 	{
 		"id": 3,
@@ -284,9 +294,9 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[021][015]",
-		"x": 11,
+		"id": 14,
+		"nom": "Clone[341][045]",
+		"x": 7,
 		"y": 11
 	},
 	{
@@ -294,6 +304,12 @@
 		"nom": "Clone[341][045]",
 		"x": 9,
 		"y": 2
+	},
+	{
+		"id": 9,
+		"nom": "Clone[021][015]",
+		"x": 11,
+		"y": 11
 	},
 	{
 		"id": 4,

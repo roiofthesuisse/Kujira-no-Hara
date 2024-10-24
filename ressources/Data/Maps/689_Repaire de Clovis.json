@@ -27,9 +27,9 @@
 	[0264,0264,0264,0264,0264,0264,0264,0024,0024,0024,0000,0064,0065,0065,0066,0000,0000,0000,0038,0053,0054,0000,0038,0264,0264,0264,0264,0264,0264,0264],
 	[0264,0264,0264,0264,0264,0264,0264,0024,0024,0024,0000,0000,0000,0000,0000,0000,0000,0000,0038,0038,0008,0000,0038,0264,0264,0264,0264,0264,0264,0264],
 	[0264,0264,0264,0264,0264,0264,0264,0024,0024,0024,0000,0000,0000,0000,0000,0000,0000,0000,0038,0038,0008,0000,0038,0264,0264,0264,0264,0264,0264,0264],
-	[0264,0264,0264,0264,0264,0264,0264,0024,0024,0024,0000,0000,0000,0000,0000,0000,0053,0059,0054,0038,0008,0000,0038,0264,0264,0264,0264,0264,0264,0264],
-	[0264,0264,0264,0264,0264,0264,0264,0024,0024,0024,0000,0000,0000,0000,0000,0000,0038,0053,0059,0054,0018,0019,0038,0264,0264,0264,0264,0264,0264,0264],
-	[0264,0264,0264,0264,0264,0264,0264,0024,0024,0057,0059,0059,0059,0059,0059,0059,0054,0038,0053,0059,0059,0059,0054,0264,0264,0264,0264,0264,0264,0264],
+	[0264,0264,0264,0264,0264,0264,0264,0024,0024,0024,0000,0000,0000,0000,0000,0000,0053,0059,0054,0038,0018,0019,0038,0264,0264,0264,0264,0264,0264,0264],
+	[0264,0264,0264,0264,0264,0264,0264,0024,0024,0024,0000,0000,0000,0000,0000,0000,0038,0053,0059,0054,0053,0059,0054,0264,0264,0264,0264,0264,0264,0264],
+	[0264,0264,0264,0264,0264,0264,0264,0024,0024,0057,0059,0059,0059,0059,0059,0059,0054,0038,0053,0059,0054,0264,0264,0264,0264,0264,0264,0264,0264,0264],
 	[0264,0264,0264,0264,0264,0264,0264,0024,0057,0059,0059,0059,0059,0059,0059,0059,0059,0054,0038,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264],
 	[0264,0264,0264,0264,0264,0264,0264,0057,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0054,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264],
 	[0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264,0264],
@@ -100,7 +100,7 @@
 	},
 	{
 		"id": 1,
-		"nom": "Dagobert",
+		"nom": "Dagobert SHADOW[24] (-8)",
 		"x": 11,
 		"y": 12,
 		"pages": [
@@ -131,7 +131,7 @@
 	},
 	{
 		"id": 2,
-		"nom": "Clovis",
+		"nom": "Clovis SHADOW[24] (-8)",
 		"x": 13,
 		"y": 12,
 		"pages": [
@@ -208,6 +208,255 @@
 			"conditions": [
 			{
 				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "modulo",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 0
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 4,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 5,
+				"vitesse": "moderee"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Say, \\c[2]Clovis\\c[0]..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Dis, \\c[2]Clovis\\c[1]..."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What's the matter, \\c[2]Dagobert\\c[0] ?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Qu'est-ce qu'il y a, \\c[2]Dagobert\\c[1] ?"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 1,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You always talk about racking our brains \\nto interest the public, \\nand making art from a recipe..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu parles toujours de se creuser la tête \\npour intéresser le public, et de faire de l'art \\nà partir d'une recette..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...but couldn't art be something more... \\npersonal?"
+			},
+			{
+				"nom": "Message",
+				"texte": "...mais est-ce que l'art ne pourrait pas être \\nquelque chose de plus... personnel ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Artworks designed to appeal to the masses, \\nthat sounds like something a creep like Mercator \\nmight sell in his shop!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Des oeuvres d'art conçues pour plaire \\nau plus grand nombre, ça ressemble à un truc \\nqu'un sale type comme Mercator \\npourrait vendre dans sa boutique !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come on, don't talk nonsense, \\c[2]Dagobert\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Allons, ne dis pas de bêtises, \\c[2]Dagobert\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Personal art, I call that selfish art."
+			},
+			{
+				"nom": "Message",
+				"texte": "L'art personnel, j'appelle ça l'art égoïste."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's elitist\\nand elitism is incompatible with love."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est élitiste \\net l'élitisme est incompatible avec l'amour."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Already, almost no one will be interested \\nin such a work..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Déjà, quasiment personne ne va s'intéresser \\nà une telle oeuvre..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...and those who will be interested in it \\nwill be aesthetes who know \\nhow to appreciate otherness..."
+			},
+			{
+				"nom": "Message",
+				"texte": "...et ceux qui s'y intéresseront \\nseront des esthètes \\nqui savent apprécier l'altérité..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ...that is to say people \\nwho have the soul of a true artist, \\nas I described previously.\\nWhich proves my point."
+			},
+			{
+				"nom": "Message",
+				"texte": "...c'est à dire des gens \\nqui ont l'âme d'un véritable artiste, \\ntel que je le décrivais précédemment.\\nCe qui prouve ma thèse."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) With selfish art, the spirit of art \\nresides on the side of a brilliant spectator, \\nnot on the side of the would-be artist."
+			},
+			{
+				"nom": "Message",
+				"texte": "Avec l'art égoïste, l'esprit de l'art réside \\ndu côté du spectateur brillant, \\npas du prétendu artiste."
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 1,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you say so, \\c[2]Clovis\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si tu le dis, \\c[2]Clovis\\c[1]."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 5,
+				"vitesse": "moderee"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 4,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
@@ -362,16 +611,14 @@
 				"valeur": false
 			},
 			{
-				"nom": "SupprimerEvent"
-			},
-			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
+				"valeurADonner": false
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -381,7 +628,10 @@
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Variable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
 			},
 			{
 				"nom": "InterrupteurLocal",
@@ -624,16 +874,14 @@
 				"valeur": false
 			},
 			{
-				"nom": "SupprimerEvent"
-			},
-			{
 				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -643,13 +891,30 @@
 		{
 			"conditions": [
 			{
+				"nom": "Variable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 3
+			},
+			{
 				"nom": "InterrupteurLocal",
 				"numeroEvent": 4,
-				"numeroInterrupteurLocal": 1,
+				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 5,
+				"vitesse": "moderee"
+			},
 			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 1,
@@ -658,30 +923,230 @@
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
 				}
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Is virtuosity enough to be a good artist, \\n\\c[2]Clovis\\c[1]?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Est-ce que la virtuosité suffit pour être \\nun bon artiste, \\c[2]Clovis\\c[1] ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Listen to me, \\c[2]Dagobert\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Écoute-moi bien, \\c[2]Dagobert\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Your show can consist of taking a quiz \\non German grammar: a very difficult quiz, \\nin which you proudly display your knowledge \\nof this guttural language."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ton spectacle peut consister à faire un quiz \\nsur la grammaire allemande : un quiz \\ntrès difficile, dans lequel tu étales fièrement\\nta connaissance de cette langue guturale."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A quiz so difficult it makes your audience \\nfeel inferior!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Un quiz si difficile qu'il fait ressentir \\nà ton auditoire un sentiment d'infériorité !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It would be a very bad show."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ce serait un très mauvais spectacle."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I agree, \\c[2]Clovis\\c[1], I agree, \\nbut I don't really see the connection."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'en conviens, \\c[2]Clovis\\c[1], j'en conviens,\\nmais je ne vois pas bien le rapport."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'm coming there, \\c[2]Dagobert\\c[0], I'm coming there."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'y viens, \\c[2]Dagobert\\c[0], j'y viens."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The first quality that an artist must have \\nis not virtuosity, it is love."
+			},
+			{
+				"nom": "Message",
+				"texte": "La première qualité qu'un artiste doit avoir, \\nça n'est pas la virtuosité, c'est l'amour."
+			},
+			{
 				"nom": "Deplacement",
-				"idEventADeplacer": 2,
+				"idEventADeplacer": 1,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
 				}
 				]
 			},
 			{
-				"nom": "SupprimerEvent"
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) L... love???"
+			},
+			{
+				"nom": "Message",
+				"texte": "L'a... l'amour ???"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes, \\c[2]Dagobert\\c[0], to love men."
+			},
+			{
+				"nom": "Message",
+				"texte": "Oui, \\c[2]Dagobert\\c[0], aimer les hommes."
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 1,
+				"idAnimation": 42
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) To love men???\\nYou mean... homosexuality, \\c[2]Clovis\\c[0]?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Aimer les hommes ???\\nTu veux parler... de l'homosexualité, \\c[2]Clovis\\c[0] ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But no, my clumsy brother, I'm talking to you \\nabout the people, humanity, mankind!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais non, mon empoté de frère, je te parle \\nde l'Homme avec un grand H !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have to love humans!\\nYou have to love your audience!\\nWe must love the Other!\\nYou have to love to please!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Il faut aimer les humains !\\nIl faut aimer son public !\\nIl faut aimer l'Autre !\\nIl faut aimer faire plaisir !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Love is the secret of a good show.\\nThe artist who is only interested in himself, \\nno matter how virtuosic he may be, \\nwill always be an incomplete artist."
+			},
+			{
+				"nom": "Message",
+				"texte": "L'amour est le secret d'un bon spectacle.\\nL'artiste qui ne s'intéresse qu'à lui-même, \\naussi virtuose soit-il, \\nsera toujours un artiste incomplet."
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 1,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you say so, \\c[2]Clovis\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si tu le dis, \\c[2]Clovis\\c[1]."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 5,
+				"vitesse": "moderee"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,

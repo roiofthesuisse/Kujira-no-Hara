@@ -111,8 +111,14 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 19,
+		"y": 15
+	},
+	{
 		"id": 16,
-		"nom": "scientifique",
+		"nom": "scientifique SHADOW[28] (-2)",
 		"x": 10,
 		"y": 11,
 		"pages": [
@@ -359,7 +365,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -806,10 +812,10 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 19,
-		"y": 15
+		"id": 11,
+		"nom": "Clone[341][039]",
+		"x": 8,
+		"y": 18
 	},
 	{
 		"id": 22,
@@ -818,10 +824,10 @@
 		"y": 6
 	},
 	{
-		"id": 11,
+		"id": 6,
 		"nom": "Clone[341][039]",
-		"x": 8,
-		"y": 18
+		"x": 21,
+		"y": 11
 	},
 	{
 		"id": 17,
@@ -855,84 +861,6 @@
 				"idObjet": 85,
 				"variable": false,
 				"quantite": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][039]",
-		"x": 21,
-		"y": 11
-	},
-	{
-		"id": 1,
-		"nom": "dodecaedre",
-		"x": 8,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "solidesplaton character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 19,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"The Lie group E8 is the smallest graph which, \\ngiven a correlation function, can fall in love.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Le groupe de Lie E8 est le plus petit graphe \\nqui, muni d'une fonction de corrélation, peut \\ntomber amoureux.\""
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
@@ -1039,10 +967,76 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[582][32]",
-		"x": 10,
-		"y": 9
+		"id": 12,
+		"nom": "EV012",
+		"x": 19,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"The Lie group E8 is the smallest graph which, \\ngiven a correlation function, can fall in love.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Le groupe de Lie E8 est le plus petit graphe \\nqui, muni d'une fonction de corrélation, peut \\ntomber amoureux.\""
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "dodecaedre SHADOW[40] (-4)",
+		"x": 8,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "solidesplaton character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 7,
@@ -1125,6 +1119,131 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "Clone[582][32]",
+		"x": 10,
+		"y": 9
+	},
+	{
+		"id": 24,
+		"nom": "parler au tetraedre",
+		"x": 20,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AfficherImage",
+				"numero": 1,
+				"nomImage": "ecran noir",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 100,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 259,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poincare\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The regular tetrahedron has 4 triangular \\nfaces."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le tétraèdre régulier possède 4 faces \\ntriangulaires."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's the highest dimensional\\nsimplex that is a planar graph."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est le simplexe de plus haute dimension \\nqui soit un graphe planaire."
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 259,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "Tetra_Sprite.vider_toutes_les_faces()"
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "tetraedre",
+		"x": 21,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "objet kujira 1",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1226,123 +1345,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 21,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "objet kujira 1",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 24,
-		"nom": "parler au tetraedre",
-		"x": 20,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AfficherImage",
-				"numero": 1,
-				"nomImage": "ecran noir",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 100,
-				"modeDeFusion": "normal"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 259,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 4,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poincare\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The regular tetrahedron has 4 triangular \\nfaces."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le tétraèdre régulier possède 4 faces \\ntriangulaires."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's the highest dimensional\\nsimplex that is a planar graph."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est le simplexe de plus haute dimension \\nqui soit un graphe planaire."
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 259,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "Tetra_Sprite.vider_toutes_les_faces()"
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 19,
+		"nom": "Clone[341][004]",
+		"x": 12,
+		"y": 19
 	},
 	{
 		"id": 8,
@@ -1351,100 +1357,86 @@
 		"y": 20
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][004]",
-		"x": 12,
-		"y": 19
-	},
-	{
-		"id": 3,
-		"nom": "octaedre",
-		"x": 20,
-		"y": 9,
+		"id": 25,
+		"nom": "crépitement",
+		"x": 7,
+		"y": 18,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
 			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
+				"numeroInterrupteur": 56,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 6,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
 				"valeur": true
 			},
 			{
-				"nom": "AfficherImage",
-				"numero": 1,
-				"nomImage": "ecran noir",
-				"centre": false,
-				"variables": false,
-				"x": 0,
-				"y": 0,
-				"zoomX": 100,
-				"zoomY": 100,
-				"opacite": 100,
-				"modeDeFusion": "normal"
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 259,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 6,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"poincare\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The regular octahedron has 8 triangular \\nfaces."
-			},
-			{
-				"nom": "Message",
-				"texte": "L'octaèdre régulier possède 8 faces \\ntriangulaires."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Those are a bit bulky.\\nI'll have to tell \\c[2]Plato\\c[0] to come take home \\nall his solids one day."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est un peu encombrant.\\nIl faudra que je dise à \\c[2]Platon\\c[1] de venir \\nrécupérer tous ses solides un jour."
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 259,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "Tetra_Sprite.vider_toutes_les_faces()"
-			},
-			{
-				"nom": "EffacerImage",
+				"nom": "ConditionDirection",
+				"idEventConcerne": 11,
+				"direction": 0,
 				"numero": 1
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeur": true
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 56,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 2
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "013-Fire01.ogg",
+				"volume": 0.50,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "",
+				"volume": 0.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
 			}
 			],
-			"image": "solidesplaton character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1553,10 +1545,98 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][004]",
-		"x": 12,
-		"y": 20
+		"id": 3,
+		"nom": "octaedre",
+		"x": 20,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AfficherImage",
+				"numero": 1,
+				"nomImage": "ecran noir",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 100,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 259,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 6,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"poincare\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The regular octahedron has 8 triangular \\nfaces."
+			},
+			{
+				"nom": "Message",
+				"texte": "L'octaèdre régulier possède 8 faces \\ntriangulaires."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Those are a bit bulky.\\nI'll have to tell \\c[2]Plato\\c[0] to come take home \\nall his solids one day."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un peu encombrant.\\nIl faudra que je dise à \\c[2]Platon\\c[1] de venir \\nrécupérer tous ses solides un jour."
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 259,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "Tetra_Sprite.vider_toutes_les_faces()"
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "solidesplaton character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 20,
@@ -1590,8 +1670,60 @@
 		]
 	},
 	{
+		"id": 9,
+		"nom": "Clone[341][004]",
+		"x": 12,
+		"y": 20
+	},
+	{
+		"id": 15,
+		"nom": "EV015",
+		"x": 20,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Not all monsters are nice, contrary to what \\nthe Casimir effect predicts.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Tous les monstres ne sont pas gentils, \\ncontrairement à ce que prédit l'effet Casimir.\""
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 4,
-		"nom": "icosaedre",
+		"nom": "icosaedre SHADOW[40] (-4)",
 		"x": 17,
 		"y": 10,
 		"pages": [
@@ -1679,83 +1811,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
-		"x": 20,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Not all monsters are nice, contrary to what \\nthe Casimir effect predicts.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Tous les monstres ne sont pas gentils, \\ncontrairement à ce que prédit l'effet Casimir.\""
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 10,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 308,
-				"xDebutHeros": 18,
-				"yDebutHeros": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1936,6 +1991,37 @@
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "EV010",
+		"x": 10,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 308,
+				"xDebutHeros": 18,
+				"yDebutHeros": 9
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,

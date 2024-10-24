@@ -122,12 +122,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 5,
-		"y": 13
-	},
-	{
 		"id": 12,
 		"nom": "Marmite de Panacée",
 		"x": 10,
@@ -285,7 +279,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -522,7 +516,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -711,31 +705,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Tabula le Terrible",
-		"x": 8,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "tabula le terrible",
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 5,
+		"y": 13
 	},
 	{
 		"id": 7,
@@ -891,7 +864,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -1107,10 +1080,31 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 14
+		"id": 18,
+		"nom": "Tabula le Terrible SHADOW[40] (-8)",
+		"x": 8,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tabula le terrible",
+			"opacite": 0,
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 13,
@@ -1144,8 +1138,14 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 14
+	},
+	{
 		"id": 19,
-		"nom": "Colibri",
+		"nom": "Colibri SHADOW[24]",
 		"x": 12,
 		"y": 12,
 		"pages": [
@@ -1236,122 +1236,6 @@
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
 			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "parler au livre",
-		"x": 14,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) This is a very serious alchemy book."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est un livre d'alchimie très sérieux."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Abracadabra hocus pocus\"."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Abracadabra \\nhocus pocus\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Turlututu pointed hat\"."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Turlututu \\nchapeau pointu\""
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) This is a very serious book about alchemy."
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a very serious book about alchemy."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Abracadabra hocus pocus"
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Abracadabra \\nhocus pocus\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Liquefied rat and pointed hat"
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Liquefied rat\\nand pointed hat\""
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -1479,7 +1363,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Toi des cheveux, t'en a plein !"
+				"texte": "Toi des cheveux, t'en as plein !"
 			},
 			{
 				"nom": "Commentaire",
@@ -1736,7 +1620,7 @@
 			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "tabula graaah2.mp3",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -1770,7 +1654,7 @@
 			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "tabula graaah1.mp3",
-				"volume": 1.00,
+				"volume": 0.90,
 				"tempo": 1.00
 			},
 			{
@@ -1907,7 +1791,7 @@
 			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "tabula bwaaah.mp3",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -1928,7 +1812,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "OÙ EST MA CREME POUR LES PIEDS ?!"
+				"texte": "OÙ EST MA CRÈME POUR LES PIEDS ?!"
 			},
 			{
 				"nom": "Deplacement",
@@ -1967,7 +1851,7 @@
 			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "tabula hahaha1.mp3",
-				"volume": 1.00,
+				"volume": 0.90,
 				"tempo": 1.00
 			},
 			{
@@ -2006,7 +1890,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "ALORS MAGICIEN !?"
+				"texte": "ALORS, MAGICIEN !?"
 			},
 			{
 				"nom": "Commentaire",
@@ -2248,7 +2132,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "VOUS LES MAGICIENS VOUS ÊTES DES MARRANTS \\nHEIN ?"
+				"texte": "VOUS, LES MAGICIENS, VOUS ÊTES DES MARRANTS, \\nHEIN ?"
 			},
 			{
 				"nom": "Commentaire",
@@ -2339,7 +2223,7 @@
 			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "tabula yaaah.mp3",
-				"volume": 1.00,
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -2631,6 +2515,13 @@
 					"directionFixe": false
 				}
 				]
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 31,
+				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -3168,7 +3059,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I'll buy it back from you for 300 scales!"
+				"texte": "(en) I'll buy it back from you for 100 scales!"
 			},
 			{
 				"nom": "Commentaire",
@@ -3176,7 +3067,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Je te le rachète pour 300 écailles !"
+				"texte": "Je te le rachète pour 100 écailles !"
 			},
 			{
 				"nom": "Choix",
@@ -3204,14 +3095,14 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
 				"nom": "AjouterArgent",
 				"variable": false,
-				"quantite": 300
+				"quantite": 100
 			},
 			{
 				"nom": "RetirerObjet",
@@ -3241,11 +3132,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You sell your fish hair for 300 scales!"
+				"texte": "(en) You sell your fish hair for 100 scales!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous revendez votre poil de poisson pour \\n300 écailles !"
+				"texte": "Vous revendez votre poil de poisson pour \\n100 écailles !"
 			},
 			{
 				"nom": "Commentaire",
@@ -3551,7 +3442,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I'll buy it back from you for 300 scales!"
+				"texte": "(en) I'll buy it back from you for 100 scales!"
 			},
 			{
 				"nom": "Commentaire",
@@ -3559,7 +3450,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Je te le rachète pour 300 écailles !"
+				"texte": "Je te le rachète pour 100 écailles !"
 			},
 			{
 				"nom": "Choix",
@@ -3587,14 +3478,14 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouvé).ogg",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
 				"nom": "AjouterArgent",
 				"variable": false,
-				"quantite": 300
+				"quantite": 100
 			},
 			{
 				"nom": "RetirerObjet",
@@ -3624,11 +3515,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You sell your fish hair for 300 scales!"
+				"texte": "(en) You sell your fish hair for 100 scales!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous revendez votre poil de poisson pour \\n300 écailles !"
+				"texte": "Vous revendez votre poil de poisson pour \\n100 écailles !"
 			},
 			{
 				"nom": "Commentaire",
@@ -3815,6 +3706,122 @@
 			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "parler au livre",
+		"x": 14,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a very serious alchemy book."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un livre d'alchimie très sérieux."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Abracadabra hocus pocus\"."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Abracadabra \\nhocus pocus\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Turlututu pointed hat\"."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Turlututu \\nchapeau pointu\""
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a very serious book about alchemy."
+			},
+			{
+				"nom": "Message",
+				"texte": "This is a very serious book about alchemy."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Abracadabra hocus pocus"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Abracadabra \\nhocus pocus\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Liquefied rat and pointed hat"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Liquefied rat\\nand pointed hat\""
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false

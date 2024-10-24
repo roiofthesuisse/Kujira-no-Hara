@@ -26,11 +26,11 @@
 	[0020,0021,0020,0021,0001,0001,0001,0001,0152,0153,0013,0154,0155,0001,0001,0001,0001,0006,0007,0006,0007]
 	],
 	"couche1": [
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0071,0070,0069,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0079,0078,0077,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0134,0135],
+	[0232,0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[0232,0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[0232,0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0071,0070,0069,-001,-001],
+	[0232,0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0079,0078,0077,-001,-001],
+	[0232,0232,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0134,0135],
 	[-001,-001,0069,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0150,-001],
 	[-001,-001,0077,0079,-001,-001,-001,-001,0079,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0134,0135],
 	[0104,0105,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0106,0107],
@@ -146,7 +146,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 8,
+				"idEvent": 10,
 				"variable": false,
 				"nouveauX": 0,
 				"nouveauY": 0,
@@ -154,7 +154,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 9,
+				"idEvent": 11,
 				"variable": false,
 				"nouveauX": 0,
 				"nouveauY": 0,
@@ -250,7 +250,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 8,
+				"idEvent": 10,
 				"variable": false,
 				"nouveauX": 14,
 				"nouveauY": 7,
@@ -258,7 +258,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 9,
+				"idEvent": 11,
 				"variable": false,
 				"nouveauX": 14,
 				"nouveauY": 8,
@@ -266,7 +266,7 @@
 			},
 			{
 				"nom": "Deplacement",
-				"idEventADeplacer": 8,
+				"idEventADeplacer": 10,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
@@ -281,12 +281,20 @@
 				{
 					"nom": "RegarderDansUneDirection",
 					"direction": 3
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
 				}
 				]
 			},
 			{
 				"nom": "Deplacement",
-				"idEventADeplacer": 9,
+				"idEventADeplacer": 11,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
@@ -301,6 +309,14 @@
 				{
 					"nom": "RegarderDansUneDirection",
 					"direction": 3
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
 				}
 				]
 			},
@@ -701,7 +717,7 @@
 	},
 	{
 		"id": 11,
-		"nom": "feu fixe",
+		"nom": "feu fixe2",
 		"x": 14,
 		"y": 8,
 		"pages": [
@@ -766,6 +782,17 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 4,
 				"operationAFaire": "retirer",
@@ -773,14 +800,15 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
 			}
 			],
+			"image": "flamme character",
 			"opacite": 0,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
@@ -843,7 +871,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 10,
+				"idEvent": 8,
 				"variable": false,
 				"nouveauX": 0,
 				"nouveauY": 0,
@@ -851,7 +879,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 11,
+				"idEvent": 9,
 				"variable": false,
 				"nouveauX": 0,
 				"nouveauY": 0,
@@ -924,7 +952,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 10,
+				"idEvent": 8,
 				"variable": false,
 				"nouveauX": 6,
 				"nouveauY": 7,
@@ -932,7 +960,7 @@
 			},
 			{
 				"nom": "TeleporterEvent",
-				"idEvent": 11,
+				"idEvent": 9,
 				"variable": false,
 				"nouveauX": 6,
 				"nouveauY": 8,
@@ -940,7 +968,7 @@
 			},
 			{
 				"nom": "Deplacement",
-				"idEventADeplacer": 10,
+				"idEventADeplacer": 8,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
@@ -955,12 +983,20 @@
 				{
 					"nom": "RegarderDansUneDirection",
 					"direction": 3
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
 				}
 				]
 			},
 			{
 				"nom": "Deplacement",
-				"idEventADeplacer": 11,
+				"idEventADeplacer": 9,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
@@ -975,6 +1011,14 @@
 				{
 					"nom": "RegarderDansUneDirection",
 					"direction": 3
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
 				}
 				]
 			},
@@ -1597,7 +1641,7 @@
 	},
 	{
 		"id": 8,
-		"nom": "feu fixe",
+		"nom": "feu fixe3",
 		"x": 6,
 		"y": 7,
 		"pages": [
@@ -1662,6 +1706,17 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 4,
 				"operationAFaire": "retirer",
@@ -1669,8 +1724,8 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -1873,7 +1928,7 @@
 	},
 	{
 		"id": 9,
-		"nom": "feu fixe",
+		"nom": "feu fixe4",
 		"x": 6,
 		"y": 8,
 		"pages": [
@@ -1938,6 +1993,17 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 4,
 				"operationAFaire": "retirer",
@@ -1945,8 +2011,8 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -1959,7 +2025,7 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -2079,7 +2145,7 @@
 	},
 	{
 		"id": 10,
-		"nom": "feu fixe",
+		"nom": "feu fixe1",
 		"x": 14,
 		"y": 7,
 		"pages": [
@@ -2144,6 +2210,17 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 4,
 				"operationAFaire": "retirer",
@@ -2151,14 +2228,15 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
 			}
 			],
+			"image": "flamme character",
 			"opacite": 0,
 			"vitesse": "rapide",
 			"frequence": "tres haute",

@@ -144,31 +144,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "feu (8)",
-		"x": 18,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "feu character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 12,
 		"nom": "muskox",
 		"x": 6,
@@ -194,8 +169,33 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "feu (8)",
+		"x": 18,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "feu character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
-		"nom": "Viking jaune lait",
+		"nom": "Viking jaune lait SHADOW[32] (-4)",
 		"x": 21,
 		"y": 6,
 		"pages": [
@@ -251,20 +251,20 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][165]",
-		"x": 22,
-		"y": 7
-	},
-	{
 		"id": 2,
 		"nom": "Clone[341][045]",
 		"x": 8,
 		"y": 7
 	},
 	{
+		"id": 13,
+		"nom": "Clone[341][165]",
+		"x": 22,
+		"y": 7
+	},
+	{
 		"id": 8,
-		"nom": "Viking jaune muskox",
+		"nom": "Viking jaune muskox SHADOW[32] (-4)",
 		"x": 9,
 		"y": 10,
 		"pages": [
@@ -455,6 +455,10 @@
 				"texte": "Tu peux le faire sauter avec la touche espace."
 			},
 			{
+				"nom": "AutoriserMenu",
+				"autoriser": false
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 658,
@@ -522,6 +526,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "AutoriserMenu",
+				"autoriser": true
+			},
 			{
 				"nom": "EffacerImage",
 				"numero": 1
@@ -1045,6 +1053,12 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "Clone[341][045]",
+		"x": 5,
+		"y": 10
+	},
+	{
 		"id": 14,
 		"nom": "pot (-16)",
 		"x": 24,
@@ -1068,12 +1082,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][045]",
-		"x": 5,
-		"y": 10
 	},
 	{
 		"id": 9,

@@ -61,6 +61,37 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "EV016",
+		"x": 3,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 687,
+				"xDebutHeros": 3,
+				"yDebutHeros": 3
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "etoile",
 		"x": 8,
@@ -355,37 +386,6 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 3,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 687,
-				"xDebutHeros": 3,
-				"yDebutHeros": 3
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 11,
 		"nom": "blocage",
 		"x": 10,
@@ -409,12 +409,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[688][5]",
-		"x": 9,
-		"y": 0
 	},
 	{
 		"id": 17,
@@ -448,8 +442,20 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "Clone[688][5]",
+		"x": 9,
+		"y": 0
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][039]",
+		"x": 3,
+		"y": 10
+	},
+	{
 		"id": 12,
-		"nom": "viking 1",
+		"nom": "viking 1 SHADOW[32] (-4)",
 		"x": 11,
 		"y": 8,
 		"pages": [
@@ -506,18 +512,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][039]",
-		"x": 3,
-		"y": 10
-	},
-	{
-		"id": 7,
-		"nom": "Clone[688][5]",
-		"x": 10,
-		"y": 0
-	},
-	{
 		"id": 18,
 		"nom": "EV018",
 		"x": 10,
@@ -549,8 +543,20 @@
 		]
 	},
 	{
+		"id": 7,
+		"nom": "Clone[688][5]",
+		"x": 10,
+		"y": 0
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][039]",
+		"x": 17,
+		"y": 10
+	},
+	{
 		"id": 13,
-		"nom": "viking 3",
+		"nom": "viking 3 SHADOW[32] (-4)",
 		"x": 12,
 		"y": 7,
 		"pages": [
@@ -575,10 +581,10 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][039]",
-		"x": 17,
-		"y": 10
+		"id": 8,
+		"nom": "Clone[688][5]",
+		"x": 11,
+		"y": 0
 	},
 	{
 		"id": 19,
@@ -637,72 +643,8 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[688][5]",
-		"x": 11,
-		"y": 0
-	},
-	{
-		"id": 14,
-		"nom": "viking 4",
-		"x": 8,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1 femme.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge femme\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's the beginning of the end, I feel it !"
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est le début de la fin, je le sens !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking femme petit character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 3,
-		"nom": "Tabula",
+		"nom": "Tabula SHADOW[40] (-8)",
 		"x": 10,
 		"y": 6,
 		"pages": [
@@ -810,7 +752,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\\u266A \\u266B Ô toi qui a pénétré dans le sanctuaire, \\nréponds à l'énigme des \\c[2]sept érudits\\c[0] \\npour prouver ta valeur ! \\u266A \\u266B"
+				"texte": "\\u266A \\u266B Ô toi qui as pénétré dans le sanctuaire, \\nréponds à l'énigme des \\c[2]sept érudits\\c[0] \\npour prouver ta valeur ! \\u266A \\u266B"
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -1596,6 +1538,70 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "viking 4 SHADOW[32] (-4)",
+		"x": 8,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's the beginning of the end, I feel it !"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est le début de la fin, je le sens !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking femme petit character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[688][5]",
+		"x": 12,
+		"y": 0
+	},
+	{
 		"id": 20,
 		"nom": "Pancarte",
 		"x": 13,
@@ -1652,38 +1658,6 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[688][5]",
-		"x": 12,
-		"y": 0
-	},
-	{
-		"id": 15,
-		"nom": "viking 2",
-		"x": 12,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking femme petit character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 4,
 		"nom": "lumiere",
 		"x": 19,
@@ -1715,6 +1689,32 @@
 				"modeDeFusion": "soustraction"
 			}
 			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 15,
+		"nom": "viking 2 SHADOW[32] (-4)",
+		"x": 12,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking femme petit character",
+			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,

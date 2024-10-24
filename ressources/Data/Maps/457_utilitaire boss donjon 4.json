@@ -1,5 +1,5 @@
 {
-	"nom": "labo d'objets",
+	"nom": "utilitaire boss donjon 4",
 	"tileset": "Sanctuaire de Kakeru",
 	"largeur": 20,
 	"hauteur": 15,
@@ -213,7 +213,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "pepin",
+		"nom": "pepin SHADOW[24]",
 		"x": 8,
 		"y": 9,
 		"pages": [
@@ -333,7 +333,7 @@
 	},
 	{
 		"id": 1,
-		"nom": "goutte",
+		"nom": "goutte SHADOW[28]",
 		"x": 4,
 		"y": 5,
 		"pages": [
@@ -584,7 +584,7 @@
 	},
 	{
 		"id": 7,
-		"nom": "bombe RESET",
+		"nom": "bombe RESET SHADOW[28] (-2)",
 		"x": 9,
 		"y": 9,
 		"pages": [
@@ -608,11 +608,19 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 50
+				"nombreDeFrames": 15
 			},
 			{
 				"nom": "JouerAnimation",
-				"idAnimation": 22
+				"idAnimation": 65
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 35
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 6
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -705,7 +713,7 @@
 	},
 	{
 		"id": 2,
-		"nom": "nuage",
+		"nom": "nuage SHADOW[36]",
 		"x": 3,
 		"y": 5,
 		"pages": [
@@ -884,15 +892,17 @@
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 50
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
 				}
 				]
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 6
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([6, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y+1])"
 			},
 			{
 				"nom": "ConditionInterrupteur",
@@ -919,25 +929,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "vide mais pas invisible",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -1415,9 +1406,6 @@
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
 			],
 			"commandes": [
 			{
@@ -1432,15 +1420,17 @@
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 50
+					"nom": "ModifierApparence",
+					"image": "vide mais pas invisible",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
 				}
 				]
 			},
 			{
-				"nom": "JouerAnimation",
-				"idAnimation": 6
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([6, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y+1])"
 			},
 			{
 				"nom": "ConditionInterrupteur",
@@ -1467,25 +1457,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "vide mais pas invisible",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -1800,7 +1771,7 @@
 				"mouvements": [
 				{
 					"nom": "Sauter",
-					"x": -3,
+					"x": -4,
 					"y": 3
 				}
 				]
@@ -1825,7 +1796,7 @@
 				"mouvements": [
 				{
 					"nom": "Sauter",
-					"x": 3,
+					"x": 4,
 					"y": 3
 				}
 				]
@@ -1850,7 +1821,7 @@
 				"mouvements": [
 				{
 					"nom": "Sauter",
-					"x": -3,
+					"x": -4,
 					"y": -3
 				}
 				]
@@ -1875,7 +1846,7 @@
 				"mouvements": [
 				{
 					"nom": "Sauter",
-					"x": 3,
+					"x": 4,
 					"y": -3
 				}
 				]

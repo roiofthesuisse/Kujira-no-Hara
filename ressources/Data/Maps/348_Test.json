@@ -24,7 +24,7 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,0062,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0062,-001,-001,-001,0062,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0062,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,0062,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0062,-001,-001,-001,-001],
@@ -56,41 +56,59 @@
 	],
 	"events": [
 	{
-		"id": 38,
-		"nom": "EV038",
-		"x": 0,
-		"y": 9,
+		"id": 5,
+		"nom": "Tuba",
+		"x": 5,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 408,
-				"xDebutHeros": 19,
-				"yDebutHeros": 8
-			}
 			],
+			"image": "statue grrr character",
+			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 53,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 21,
+				"valeur": true
+			}
+			],
+			"image": "statue grrr character",
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 27,
-		"nom": "Clone[341][045]",
-		"x": 8,
-		"y": 5
 	},
 	{
 		"id": 16,
@@ -176,56 +194,138 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Tuba",
-		"x": 5,
-		"y": 10,
+		"id": 27,
+		"nom": "Clone[341][045]",
+		"x": 8,
+		"y": 5
+	},
+	{
+		"id": 38,
+		"nom": "EV038",
+		"x": 0,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 408,
+				"xDebutHeros": 19,
+				"yDebutHeros": 8
+			}
 			],
-			"image": "statue grrr character",
-			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 33,
+		"nom": "Clone[341][043]",
+		"x": 5,
+		"y": 4
+	},
+	{
+		"id": 22,
+		"nom": "Vie HP[1] RESET",
+		"x": 18,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Ecailles colorees",
+			"opacite": 225,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 22,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "111-Heal07.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 4,
+				"inegalite": "<",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": true,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 53,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 2
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 21,
-				"valeur": true
-			}
-			],
-			"image": "statue grrr character",
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -306,156 +406,10 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Vie HP[1] RESET",
-		"x": 18,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "Ecailles colorées",
-			"opacite": 225,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 22,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "111-Heal07.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 4,
-				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": true,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "ajouter",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 33,
-		"nom": "Clone[341][043]",
-		"x": 5,
-		"y": 4
-	},
-	{
-		"id": 28,
-		"nom": "Clone[341][045]",
-		"x": 8,
-		"y": 6
-	},
-	{
-		"id": 17,
-		"nom": "EV017",
-		"x": 4,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[18].transform(348, 18)"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Case reset!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Caisse réinitialisé !"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 39,
+		"nom": "Clone[348][9]",
+		"x": 15,
+		"y": 9
 	},
 	{
 		"id": 6,
@@ -513,16 +467,137 @@
 		]
 	},
 	{
-		"id": 39,
-		"nom": "Clone[348][9]",
-		"x": 15,
-		"y": 9
+		"id": 17,
+		"nom": "EV017",
+		"x": 4,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[18].transform(348, 18)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Case reset!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Caisse réinitialisé !"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 23,
+		"id": 28,
 		"nom": "Clone[341][045]",
-		"x": 5,
+		"x": 8,
+		"y": 6
+	},
+	{
+		"id": 34,
+		"nom": "Clone[341][043]",
+		"x": 9,
 		"y": 5
+	},
+	{
+		"id": 12,
+		"nom": "Liane HP[1]",
+		"x": 14,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "On met des HP à tous les éléments avec qui on veut pouvoir\\navoir des interractions via les armes."
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 12,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 4,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "Je le fais en script parce que c'est mille fois plus simple."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "x = y = 0\\ncase $game_player.direction\\nwhen 2; y = $game_map.events[@event_id].y - $game_player.y - 1\\nwhen 4; x = $game_map.events[@event_id].x - $game_player.x + 1\\nwhen 6; x = $game_map.events[@event_id].x - $game_player.x - 1\\nwhen 8; y = $game_map.events[@event_id].y - $game_player.y + 1\\nend\\n$game_player.jump(x, y)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
+				"volume": 1.00,
+				"tempo": 1.50
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -748,730 +823,16 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "Liane HP[1]",
-		"x": 14,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "On met des HP à tous les éléments avec qui on veut pouvoir\\navoir des interractions via les armes."
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 12,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Je le fais en script parce que c'est mille fois plus simple."
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "x = y = 0\\ncase $game_player.direction\\nwhen 2; y = $game_map.events[@event_id].y - $game_player.y - 1\\nwhen 4; x = $game_map.events[@event_id].x - $game_player.x + 1\\nwhen 6; x = $game_map.events[@event_id].x - $game_player.x - 1\\nwhen 8; y = $game_map.events[@event_id].y - $game_player.y + 1\\nend\\n$game_player.jump(x, y)"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 34,
-		"nom": "Clone[341][043]",
-		"x": 9,
-		"y": 5
-	},
-	{
-		"id": 29,
+		"id": 23,
 		"nom": "Clone[341][045]",
-		"x": 10,
+		"x": 5,
 		"y": 5
 	},
 	{
-		"id": 7,
-		"nom": "Anémone HP[3] RESET",
-		"x": 11,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "On initialise la vie du monstre dans le nom en haut.\\nComme ça chaque monstre a sa propre vie."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "Cette page c'est l'ia du monstre.\\nTu peux le mettre en processus parallèle si tu veux faire\\nquelque chose de compliqué ou juste mettre au contact\\npour un monstre minable comme celui-ci."
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": true
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "Anémone bleue character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 2,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Comportement de l'ennemi qui donne un coup.\\nJe l'ai mis dans une nouvelle page pour avoir un proc parallèle\\net pouvoir attendre qu'il finisse son déplacement avant\\nd'attaquer, sinon il nous touche alors qu'il n'est même pas"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].target_in_da_zone?(0, 0)",
-				"numero": 0
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 56
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			}
-			],
-			"image": "Anémone bleue character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "L'interrupteur local B est activé après que l'ennemi ait reçu\\nun coup.\\nOn met ça dans une autre page comme ça on peut le\\nre-attaquer à n'importe quel moment."
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 2
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 66
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 3
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 4
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 5
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "PasEnArriere"
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": false
-			}
-			],
-			"image": "Anémone bleue character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Quand un ennemi est touché son interrupteur local A\\nest automatiquement activé."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On lui inflige des dégâts selon l'arme équipée."
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 1"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 2"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 2,
-				"numero": 2
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 3"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 3
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 1"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "MC_Enemy_Hit.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 4,
-				"numero": 4
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life -= 1"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "TP_Slingshot_Shoot.wav",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 4
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 5
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "132-Wind01.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On regarde si il est mort."
-			},
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].life <= 0",
-				"numero": 6
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 58
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "On le transforme en butin avec la commande\\ntransform(map_id, event_id)"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 8,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 1,
-				"valeurADonner2": 5,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 8,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 1,
-				"comparerAUneAutreVariable": false,
-				"numero": 7
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(348, 8)"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 7
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].transform(348, 9)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 6
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": false
-			}
-			],
-			"image": "Anémone bleue character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 7,
-				"numeroInterrupteurLocal": 3,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "L'interrupteur local D est automatiquement activé quand\\nl'ennemi chage de terrain.\\nComme ça on peut le faire tomber dans les trous, l'eau, etc..."
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 92,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": -1,
-				"operationAFaire2": "terrain"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 59
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 92,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 6,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 60
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
-				"valeurADonner": false
-			}
-			],
-			"image": "Anémone bleue character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 12,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"image": "Anémone bleue character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 40,
+		"nom": "Clone[348][8]",
+		"x": 15,
+		"y": 8
 	},
 	{
 		"id": 18,
@@ -1645,64 +1006,10 @@
 		]
 	},
 	{
-		"id": 40,
-		"nom": "Clone[348][8]",
-		"x": 15,
-		"y": 8
-	},
-	{
-		"id": 35,
+		"id": 29,
 		"nom": "Clone[341][045]",
-		"x": 6,
-		"y": 6
-	},
-	{
-		"id": 24,
-		"nom": "Clone[341][045]",
-		"x": 6,
+		"x": 10,
 		"y": 5
-	},
-	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 15,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Use the liana."
-			},
-			{
-				"nom": "Message",
-				"texte": "Utilise la liane."
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 2,
@@ -1755,10 +1062,202 @@
 		]
 	},
 	{
-		"id": 30,
+		"id": 13,
+		"nom": "EV013",
+		"x": 15,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Use the liana."
+			},
+			{
+				"nom": "Message",
+				"texte": "Utilise la liane."
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 24,
 		"nom": "Clone[341][045]",
-		"x": 7,
-		"y": 7
+		"x": 6,
+		"y": 5
+	},
+	{
+		"id": 35,
+		"nom": "Clone[341][045]",
+		"x": 6,
+		"y": 6
+	},
+	{
+		"id": 41,
+		"nom": "Flouze HP[1] RESET SHADOW[16]",
+		"x": 19,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Ecailles colorees",
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 41,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "monnaie3.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Flouze HP[1] RESET SHADOW[16]",
+		"x": 19,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Ecailles colorees",
+			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 8,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "monnaie2.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 5
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 19,
@@ -1866,160 +1365,16 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Flouze HP[1] RESET",
-		"x": 19,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "Ecailles colorées",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 8,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie2.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 5
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 41,
-		"nom": "Flouze HP[1] RESET",
-		"x": 19,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"image": "Ecailles colorées",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 41,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie3.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 25,
+		"id": 30,
 		"nom": "Clone[341][045]",
-		"x": 6,
-		"y": 4
+		"x": 7,
+		"y": 7
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 1,
-		"y": 11,
+		"id": 36,
+		"nom": "EV036",
+		"x": 15,
+		"y": 6,
 		"pages": [
 		{
 			"conditions": [
@@ -2035,11 +1390,45 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Go go hammer"
+				"texte": "(en) 100 :"
 			},
 			{
 				"nom": "Message",
-				"texte": "Go go marteau"
+				"texte": "100 :"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "narrateur enigme01b.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 83
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) 200 :"
+			},
+			{
+				"nom": "Message",
+				"texte": "200 :"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "narrateur enigme01b.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "narrateur enigme01b.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 83
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2130,10 +1519,10 @@
 		]
 	},
 	{
-		"id": 36,
-		"nom": "EV036",
-		"x": 15,
-		"y": 6,
+		"id": 14,
+		"nom": "EV014",
+		"x": 1,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -2149,45 +1538,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) 100 :"
+				"texte": "(en) Go go hammer"
 			},
 			{
 				"nom": "Message",
-				"texte": "100 :"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "narrateur enigme01b.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) 200 :"
-			},
-			{
-				"nom": "Message",
-				"texte": "200 :"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "narrateur enigme01b.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "narrateur enigme01b.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
+				"texte": "Go go marteau"
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2198,6 +1553,96 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 25,
+		"nom": "Clone[341][045]",
+		"x": 6,
+		"y": 4
+	},
+	{
+		"id": 42,
+		"nom": "Clone[348][41]",
+		"x": 15,
+		"y": 10
+	},
+	{
+		"id": 31,
+		"nom": "Clone[341][043]",
+		"x": 7,
+		"y": 6
+	},
+	{
+		"id": 9,
+		"nom": "Flouze HP[1] RESET SHADOW[16]",
+		"x": 19,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"image": "Ecailles colorees",
+			"directionInitiale": 1,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 9,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "monnaie.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AjouterArgent",
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = 0"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -2252,67 +1697,21 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Flouze HP[1] RESET",
-		"x": 19,
-		"y": 6,
+		"id": 4,
+		"nom": "Tuba",
+		"x": 6,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Ca c'est un modèle de flouze.\\nComme pour les ennemis, plutôt que de copier mille fois\\nla même chose partout on va cloner l'event.\\nMaintenant pourquoi je lui mets 1 HP et pourquoi j'active"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
 			],
-			"image": "Ecailles colorées",
-			"directionInitiale": 1,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 9,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "monnaie.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AjouterArgent",
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = 0"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
+			"image": "statue grrr character",
+			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -2320,32 +1719,37 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 53,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 21,
+				"valeur": true
+			}
+			],
+			"image": "statue grrr character",
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 31,
-		"nom": "Clone[341][043]",
-		"x": 7,
-		"y": 6
-	},
-	{
-		"id": 42,
-		"nom": "Clone[348][41]",
-		"x": 15,
-		"y": 10
-	},
-	{
-		"id": 37,
-		"nom": "Clone[341][0107]",
-		"x": 1,
-		"y": 13
-	},
-	{
-		"id": 26,
-		"nom": "Clone[341][045]",
-		"x": 7,
-		"y": 5
 	},
 	{
 		"id": 15,
@@ -2504,113 +1908,22 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Tuba",
-		"x": 6,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "statue grrr character",
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 53,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 2
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 21,
-				"valeur": true
-			}
-			],
-			"image": "statue grrr character",
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 26,
+		"nom": "Clone[341][045]",
+		"x": 7,
+		"y": 5
 	},
 	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 10,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[7].transform(348, 7)"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 7,
-				"variable": false,
-				"nouveauX": 11,
-				"nouveauY": 3,
-				"direction": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Monster reset!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Monstre réinitialisé !"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 37,
+		"nom": "Clone[341][0107]",
+		"x": 1,
+		"y": 13
+	},
+	{
+		"id": 32,
+		"nom": "Clone[341][043]",
+		"x": 7,
+		"y": 4
 	},
 	{
 		"id": 21,
@@ -2664,6 +1977,11 @@
 				"quantite": 3
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 194,
+				"valeur": true
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_map.events[@event_id].life = 0"
 			},
@@ -2680,12 +1998,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 32,
-		"nom": "Clone[341][043]",
-		"x": 7,
-		"y": 4
 	}
 	]
 }

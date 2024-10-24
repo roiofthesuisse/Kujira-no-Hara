@@ -57,16 +57,16 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0148,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0156,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0156,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0156,0164,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,0164,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,0156,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,0149,0156,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,0149,0164,0156,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-003,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-003,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,0088,0089,0090,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -106,8 +106,489 @@
 	],
 	"events": [
 	{
+		"id": 27,
+		"nom": "Clone[341][004]",
+		"x": 8,
+		"y": 18
+	},
+	{
+		"id": 38,
+		"nom": "Clone[341][181]",
+		"x": 9,
+		"y": 8
+	},
+	{
+		"id": 16,
+		"nom": "Déplacement des Boules de feu",
+		"x": 3,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 2,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 166
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 5,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 33
+				}
+				]
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "déplacer les boules de feu au niveau du boss"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 56,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 5,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 57,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 5,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 57,
+				"operationAFaire": "retirer",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 13,
+				"variable": true,
+				"nouveauX": 56,
+				"nouveauY": 57,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 14,
+				"variable": true,
+				"nouveauX": 56,
+				"nouveauY": 57,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 15,
+				"variable": true,
+				"nouveauX": 56,
+				"nouveauY": 57,
+				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 13,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 14,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 15,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Monstre1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 5,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PasEnArriere"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 13,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 100
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 14,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 100
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 15,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "AvancerEnFonctionDUnEvent",
+					"idEventObserve": 0,
+					"sens": "suivre"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 100
+				},
+				{
+					"nom": "PasEnAvant"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 83
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "cacher les boules de feu"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 13,
+				"variable": false,
+				"nouveauX": 0,
+				"nouveauY": 1,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 14,
+				"variable": false,
+				"nouveauX": 0,
+				"nouveauY": 1,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 15,
+				"variable": false,
+				"nouveauX": 0,
+				"nouveauY": 1,
+				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 13,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 14,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 15,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 25,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 6
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 16,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
-		"nom": "Poisson rouge Boss",
+		"nom": "Poisson rouge Boss SHADOW[48]",
 		"x": 10,
 		"y": 11,
 		"pages": [
@@ -598,7 +1079,7 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (combatréussi).ogg",
+				"nomFichierSonore": "fanfare (combatreussi).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -835,466 +1316,40 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Déplacement des Boules de feu",
-		"x": 3,
-		"y": 1,
+		"id": 44,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 22
+	},
+	{
+		"id": 33,
+		"nom": "Clone[341][181]",
+		"x": 18,
+		"y": 15
+	},
+	{
+		"id": 22,
+		"nom": "EV022",
+		"x": 4,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 2,
-				"valeurQuIlEstCenseAvoir": true
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 166
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "déplacer les boules de feu au niveau du boss"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 56,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 5,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 57,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 5,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 57,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 13,
-				"variable": true,
-				"nouveauX": 56,
-				"nouveauY": 57,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 14,
-				"variable": true,
-				"nouveauX": 56,
-				"nouveauY": 57,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 15,
-				"variable": true,
-				"nouveauX": 56,
-				"nouveauY": 57,
-				"direction": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 13,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 14,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 15,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Monstre1.wav",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PasEnArriere"
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 13,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 200
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 150
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 100
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 14,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 200
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 150
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 100
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 15,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				},
-				{
-					"nom": "AvancerEnFonctionDUnEvent",
-					"idEventObserve": 0,
-					"sens": "suivre"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 200
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 150
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 100
-				},
-				{
-					"nom": "PasEnAvant"
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "cacher les boules de feu"
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 13,
+				"nom": "ChangerDeMap",
 				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 1,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 14,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 1,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 15,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 1,
-				"direction": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 13,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 14,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 15,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
+				"numeroNouvelleMap": 574,
+				"xDebutHeros": 4,
+				"yDebutHeros": 1
 			}
 			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 25,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 6
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 16,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -1302,18 +1357,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 38,
-		"nom": "Clone[341][181]",
-		"x": 9,
-		"y": 8
-	},
-	{
-		"id": 27,
-		"nom": "Clone[341][004]",
-		"x": 8,
-		"y": 18
 	},
 	{
 		"id": 11,
@@ -1700,53 +1743,16 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "EV022",
-		"x": 4,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 574,
-				"xDebutHeros": 4,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 33,
-		"nom": "Clone[341][181]",
-		"x": 18,
-		"y": 15
-	},
-	{
-		"id": 44,
+		"id": 28,
 		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 22
+		"x": 4,
+		"y": 8
 	},
 	{
-		"id": 39,
-		"nom": "Clone[341][181]",
-		"x": 2,
-		"y": 16
+		"id": 6,
+		"nom": "Clone[341][076]",
+		"x": 10,
+		"y": 14
 	},
 	{
 		"id": 17,
@@ -1878,16 +1884,34 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][076]",
-		"x": 10,
-		"y": 14
+		"id": 39,
+		"nom": "Clone[341][181]",
+		"x": 2,
+		"y": 16
 	},
 	{
-		"id": 28,
+		"id": 23,
 		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 8
+		"x": 5,
+		"y": 7
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 12,
+		"y": 11
+	},
+	{
+		"id": 45,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 21
+	},
+	{
+		"id": 34,
+		"nom": "Clone[341][181]",
+		"x": 16,
+		"y": 14
 	},
 	{
 		"id": 12,
@@ -2086,27 +2110,9 @@
 		]
 	},
 	{
-		"id": 34,
-		"nom": "Clone[341][181]",
-		"x": 16,
-		"y": 14
-	},
-	{
-		"id": 45,
+		"id": 18,
 		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 21
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 12,
-		"y": 11
-	},
-	{
-		"id": 23,
-		"nom": "Clone[341][004]",
-		"x": 5,
+		"x": 4,
 		"y": 7
 	},
 	{
@@ -2116,10 +2122,115 @@
 		"y": 24
 	},
 	{
-		"id": 18,
+		"id": 46,
 		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 7
+		"x": 15,
+		"y": 22
+	},
+	{
+		"id": 35,
+		"nom": "Clone[341][181]",
+		"x": 8,
+		"y": 10
+	},
+	{
+		"id": 13,
+		"nom": "Boule de feu1",
+		"x": 0,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 2,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": true
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
+				"volume": 1.00,
+				"tempo": 0.80
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 4
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "retirer",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"variable": false,
+				"nouveauX": 0,
+				"nouveauY": 1,
+				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			}
+			],
+			"image": "flamme character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 24,
@@ -2321,9 +2432,6 @@
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
-			},
-			{
 				"nom": "Variable",
 				"numeroVariable": 25,
 				"inegalite": ">=",
@@ -2338,30 +2446,24 @@
 			],
 			"commandes": [
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
+				"numero": 0
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2372,7 +2474,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
@@ -2382,6 +2484,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 4,
 				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"deplacement": {
@@ -2505,9 +2611,58 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Boule de feu1",
-		"x": 0,
+		"id": 41,
+		"nom": "Clone[341][004]",
+		"x": 8,
+		"y": 19
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][076]",
+		"x": 17,
+		"y": 24
+	},
+	{
+		"id": 19,
+		"nom": "Blocage de pierre",
+		"x": 10,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "blocage character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 13,
+		"y": 11
+	},
+	{
+		"id": 36,
+		"nom": "Clone[341][181]",
+		"x": 11,
+		"y": 25
+	},
+	{
+		"id": 14,
+		"nom": "Boule de feu2",
+		"x": 1,
 		"y": 1,
 		"pages": [
 		{
@@ -2569,10 +2724,6 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
 			},
@@ -2606,55 +2757,6 @@
 			"auDessusDeTout": true
 		}
 		]
-	},
-	{
-		"id": 35,
-		"nom": "Clone[341][181]",
-		"x": 8,
-		"y": 10
-	},
-	{
-		"id": 46,
-		"nom": "Clone[341][004]",
-		"x": 15,
-		"y": 22
-	},
-	{
-		"id": 19,
-		"nom": "Blocage de pierre",
-		"x": 10,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "blocage character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][076]",
-		"x": 17,
-		"y": 24
-	},
-	{
-		"id": 41,
-		"nom": "Clone[341][004]",
-		"x": 8,
-		"y": 19
 	},
 	{
 		"id": 25,
@@ -2856,9 +2958,6 @@
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
-			},
-			{
 				"nom": "Variable",
 				"numeroVariable": 25,
 				"inegalite": ">=",
@@ -2873,30 +2972,24 @@
 			],
 			"commandes": [
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
+				"numero": 0
 			},
 			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 56
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2907,7 +3000,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
@@ -2917,6 +3010,10 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 5,
 				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"deplacement": {
@@ -3040,119 +3137,16 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Boule de feu2",
-		"x": 1,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			},
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 2,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": true
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "OOT_YoungLink_Hurt3.wav",
-				"volume": 1.00,
-				"tempo": 0.80
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 0,
-				"idAnimation": 4
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "retirer",
-				"valeurADonner": 1,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 1,
-				"direction": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			}
-			],
-			"image": "flamme character",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 36,
-		"nom": "Clone[341][181]",
-		"x": 11,
-		"y": 25
-	},
-	{
-		"id": 3,
+		"id": 42,
 		"nom": "Clone[341][004]",
-		"x": 13,
-		"y": 11
+		"x": 7,
+		"y": 18
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][076]",
+		"x": 17,
+		"y": 5
 	},
 	{
 		"id": 20,
@@ -3181,60 +3175,16 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][076]",
-		"x": 17,
-		"y": 5
-	},
-	{
-		"id": 42,
+		"id": 4,
 		"nom": "Clone[341][004]",
-		"x": 7,
-		"y": 18
+		"x": 12,
+		"y": 10
 	},
 	{
-		"id": 26,
-		"nom": "desactiver blesse",
-		"x": 20,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 37,
+		"nom": "Clone[341][181]",
+		"x": 12,
+		"y": 25
 	},
 	{
 		"id": 15,
@@ -3301,10 +3251,6 @@
 				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 0
 			},
@@ -3340,16 +3286,54 @@
 		]
 	},
 	{
-		"id": 37,
-		"nom": "Clone[341][181]",
-		"x": 12,
-		"y": 25
+		"id": 26,
+		"nom": "desactiver blesse",
+		"x": 20,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 15,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][004]",
-		"x": 12,
-		"y": 10
+		"id": 10,
+		"nom": "Clone[341][076]",
+		"x": 3,
+		"y": 5
 	},
 	{
 		"id": 21,
@@ -3381,12 +3365,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][076]",
-		"x": 3,
-		"y": 5
 	}
 	]
 }

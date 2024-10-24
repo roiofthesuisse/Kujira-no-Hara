@@ -18,13 +18,13 @@
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0800,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0801,0802,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0009,0010,0010,0010,0010,0010,0010,0010,0010,0010,0010,0010,0022,0810,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0808,0040,0001,0001,0052,-002,-002,-008,-008,-008,-008,-008,-008,0030,0810,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0808,0040,0001,0001,0008,-002,-002,-008,-008,-008,-008,-008,-008,0030,0810,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0040,0002,1135,0052,-002,-002,-008,-008,-008,-008,-008,-008,0030,0810,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0040,1135,0001,0008,-002,-002,-008,-008,-008,-008,-008,-008,0030,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0040,0001,0001,-002,-002,-002,-008,-008,-008,-002,-002,-002,0030,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0041,0001,0001,-002,-002,-002,-008,-008,-008,-002,-002,-002,0030,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0040,0001,0001,-002,-002,-002,-008,-008,-008,-002,-002,-002,0030,0810,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0808,0040,0001,0001,-002,-002,-002,-008,-008,-008,-008,-008,-008,0030,0810,0809,0809,0809,0809,0809,0809],
-	[0809,0809,0809,0809,0809,0809,0808,0040,0001,0001,0052,0008,-002,-008,-008,-008,-008,-008,-008,0030,0810,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0040,1127,0001,-002,-002,-002,-008,-008,-008,-008,-008,-008,0030,0810,0809,0809,0809,0809,0809,0809],
+	[0809,0809,0809,0809,0809,0809,0808,0040,0002,1127,0052,0008,-002,-008,-008,-008,-008,-008,-008,0030,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0048,0060,0060,0060,0060,0060,0060,0060,0060,0060,0060,0060,0061,0810,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0816,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0818,0809,0809,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
@@ -98,84 +98,9 @@
 	},
 	{
 		"id": 6,
-		"nom": "Luciole",
+		"nom": "Clone[582][99]",
 		"x": 11,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"y": 11
 	},
 	{
 		"id": 1,
@@ -185,84 +110,9 @@
 	},
 	{
 		"id": 7,
-		"nom": "Luciole",
+		"nom": "Clone[582][99]",
 		"x": 15,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"y": 15
 	},
 	{
 		"id": 2,
@@ -272,84 +122,9 @@
 	},
 	{
 		"id": 8,
-		"nom": "Luciole",
+		"nom": "Clone[582][99]",
 		"x": 18,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapée.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-					{
-						"nom": "AvancerEnFonctionDUnEvent",						"idEventObserve": 0					}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"y": 9
 	},
 	{
 		"id": 3,
@@ -362,12 +137,6 @@
 		"nom": "Clone[582][37]",
 		"x": 13,
 		"y": 11
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][001]",
-		"x": 9,
-		"y": 9
 	},
 	{
 		"id": 15,
@@ -400,6 +169,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][001]",
+		"x": 9,
+		"y": 9
 	},
 	{
 		"id": 10,

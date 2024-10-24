@@ -81,29 +81,6 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 18,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 30,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 18,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 5,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
@@ -144,24 +121,65 @@
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
+			}
+			],
+			"image": "Clochette character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 38,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 18,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 30,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 18,
+				"inegalite": ">",
+				"valeurQuIlEstCenseAvoir": 5,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"image": "Clochette character",

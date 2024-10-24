@@ -38,7 +38,7 @@
 	[-001,0259,0260,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0262,0263,-001],
 	[-001,-001,0071,-001,-001,-001,-001,-001,-001,-001,-001,0228,0229,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,0079,-001,-001,-001,0011,-001,-001,-001,-001,0234,0236,0237,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0234,0234,-001,-001,-001,-001,0165,0157,0165,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0234,0234,-001,-001,-001,-001,0173,0157,0165,-001],
 	[-001,-001,-001,-001,0088,0089,0090,-001,-001,0085,0087,0086,0087,0085,0087,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,0096,0097,0098,-001,-001,-001,-001,0094,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
@@ -240,13 +240,68 @@
 				"numero": 5
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 31,
-				"idAnimation": 4
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-1, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-2, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-3, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-4, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-5, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-6, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x-7, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ConditionFin",
@@ -256,6 +311,10 @@
 				"nom": "ConditionArmeEquipee",
 				"idArme": 0,
 				"numero": 6
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([39, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "Attendre",
@@ -1513,13 +1572,68 @@
 				"numero": 5
 			},
 			{
-				"nom": "JouerAnimation",
-				"idEvent": 30,
-				"idAnimation": 4
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 16
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x+1, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x+2, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x+3, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x+4, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x+5, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x+6, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([4, true, $game_map.events[@event_id].x+7, $game_map.events[@event_id].y])"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
 			},
 			{
 				"nom": "ConditionFin",
@@ -1529,6 +1643,10 @@
 				"nom": "ConditionArmeEquipee",
 				"idArme": 0,
 				"numero": 6
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([39, true, $game_map.events[@event_id].x, $game_map.events[@event_id].y])"
 			},
 			{
 				"nom": "Attendre",

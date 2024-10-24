@@ -56,16 +56,10 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[74][48]",
-		"x": 10,
-		"y": 5
-	},
-	{
-		"id": 16,
-		"nom": "Clone[74][48]",
-		"x": 10,
-		"y": 8
+		"id": 38,
+		"nom": "Clone[74][36]",
+		"x": 9,
+		"y": 6
 	},
 	{
 		"id": 27,
@@ -74,9 +68,33 @@
 		"y": 10
 	},
 	{
-		"id": 38,
+		"id": 16,
+		"nom": "Clone[74][48]",
+		"x": 10,
+		"y": 8
+	},
+	{
+		"id": 5,
+		"nom": "Clone[74][48]",
+		"x": 10,
+		"y": 5
+	},
+	{
+		"id": 44,
 		"nom": "Clone[74][36]",
 		"x": 9,
+		"y": 8
+	},
+	{
+		"id": 22,
+		"nom": "Clone[74][48]",
+		"x": 10,
+		"y": 9
+	},
+	{
+		"id": 11,
+		"nom": "Clone[74][48]",
+		"x": 12,
 		"y": 6
 	},
 	{
@@ -116,21 +134,21 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[74][48]",
-		"x": 12,
+		"id": 39,
+		"nom": "Clone[74][36]",
+		"x": 8,
+		"y": 7
+	},
+	{
+		"id": 28,
+		"nom": "Clone[74][36]",
+		"x": 7,
 		"y": 6
 	},
 	{
-		"id": 22,
+		"id": 17,
 		"nom": "Clone[74][48]",
-		"x": 10,
-		"y": 9
-	},
-	{
-		"id": 44,
-		"nom": "Clone[74][36]",
-		"x": 9,
+		"x": 11,
 		"y": 8
 	},
 	{
@@ -208,22 +226,22 @@
 		]
 	},
 	{
-		"id": 17,
+		"id": 23,
 		"nom": "Clone[74][48]",
 		"x": 11,
-		"y": 8
+		"y": 9
 	},
 	{
-		"id": 28,
-		"nom": "Clone[74][36]",
-		"x": 7,
+		"id": 12,
+		"nom": "Clone[74][48]",
+		"x": 13,
 		"y": 6
 	},
 	{
-		"id": 39,
-		"nom": "Clone[74][36]",
-		"x": 8,
-		"y": 7
+		"id": 1,
+		"nom": "Clone[74][48]",
+		"x": 10,
+		"y": 4
 	},
 	{
 		"id": 34,
@@ -262,22 +280,22 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[74][48]",
-		"x": 10,
-		"y": 4
+		"id": 40,
+		"nom": "Clone[74][36]",
+		"x": 9,
+		"y": 7
 	},
 	{
-		"id": 12,
+		"id": 18,
 		"nom": "Clone[74][48]",
-		"x": 13,
-		"y": 6
+		"x": 12,
+		"y": 8
 	},
 	{
-		"id": 23,
+		"id": 7,
 		"nom": "Clone[74][48]",
 		"x": 11,
-		"y": 9
+		"y": 5
 	},
 	{
 		"id": 29,
@@ -339,22 +357,78 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[74][48]",
-		"x": 11,
-		"y": 5
-	},
-	{
-		"id": 18,
+		"id": 24,
 		"nom": "Clone[74][48]",
 		"x": 12,
-		"y": 8
+		"y": 9
 	},
 	{
-		"id": 40,
-		"nom": "Clone[74][36]",
-		"x": 9,
+		"id": 13,
+		"nom": "Clone[74][48]",
+		"x": 11,
 		"y": 7
+	},
+	{
+		"id": 2,
+		"nom": "Clone[74][48]",
+		"x": 11,
+		"y": 4
+	},
+	{
+		"id": 35,
+		"nom": "Pancarte",
+		"x": 3,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The map of this floor\\nreveals the contour\\nwhich opens the door."
+			},
+			{
+				"nom": "Message",
+				"texte": "La carte t'informe :\\nil faut qu'à sa forme,\\nprompt, tu te conformes."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 46,
@@ -546,78 +620,22 @@
 		]
 	},
 	{
-		"id": 35,
-		"nom": "Pancarte",
-		"x": 3,
-		"y": 1,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The map of this floor\\nreveals the contour\\nwhich opens the door."
-			},
-			{
-				"nom": "Message",
-				"texte": "La carte t'informe :\\nil faut qu'à sa forme,\\nprompt, tu te conformes."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[74][48]",
-		"x": 11,
-		"y": 4
-	},
-	{
-		"id": 13,
-		"nom": "Clone[74][48]",
-		"x": 11,
+		"id": 41,
+		"nom": "Clone[74][36]",
+		"x": 10,
 		"y": 7
 	},
 	{
-		"id": 24,
+		"id": 19,
+		"nom": "Clone[74][48]",
+		"x": 13,
+		"y": 8
+	},
+	{
+		"id": 8,
 		"nom": "Clone[74][48]",
 		"x": 12,
-		"y": 9
+		"y": 5
 	},
 	{
 		"id": 30,
@@ -691,51 +709,22 @@
 		]
 	},
 	{
-		"id": 8,
+		"id": 25,
+		"nom": "Clone[74][48]",
+		"x": 9,
+		"y": 10
+	},
+	{
+		"id": 14,
 		"nom": "Clone[74][48]",
 		"x": 12,
-		"y": 5
-	},
-	{
-		"id": 19,
-		"nom": "Clone[74][48]",
-		"x": 13,
-		"y": 8
-	},
-	{
-		"id": 41,
-		"nom": "Clone[74][36]",
-		"x": 10,
 		"y": 7
 	},
 	{
-		"id": 47,
-		"nom": "reinit dalles",
-		"x": 10,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 171,
-				"valeur": true
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 3,
+		"nom": "Clone[74][48]",
+		"x": 8,
+		"y": 5
 	},
 	{
 		"id": 36,
@@ -829,22 +818,51 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 47,
+		"nom": "reinit dalles",
+		"x": 10,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 171,
+				"valeur": true
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 42,
+		"nom": "Clone[74][36]",
+		"x": 7,
+		"y": 8
+	},
+	{
+		"id": 20,
 		"nom": "Clone[74][48]",
 		"x": 8,
-		"y": 5
+		"y": 9
 	},
 	{
-		"id": 14,
+		"id": 9,
 		"nom": "Clone[74][48]",
-		"x": 12,
-		"y": 7
-	},
-	{
-		"id": 25,
-		"nom": "Clone[74][48]",
-		"x": 9,
-		"y": 10
+		"x": 10,
+		"y": 6
 	},
 	{
 		"id": 31,
@@ -878,22 +896,28 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[74][48]",
-		"x": 10,
+		"id": 37,
+		"nom": "Clone[74][36]",
+		"x": 8,
 		"y": 6
 	},
 	{
-		"id": 20,
+		"id": 26,
 		"nom": "Clone[74][48]",
-		"x": 8,
-		"y": 9
+		"x": 10,
+		"y": 10
 	},
 	{
-		"id": 42,
-		"nom": "Clone[74][36]",
-		"x": 7,
-		"y": 8
+		"id": 15,
+		"nom": "Clone[74][48]",
+		"x": 13,
+		"y": 7
+	},
+	{
+		"id": 4,
+		"nom": "Clone[74][48]",
+		"x": 9,
+		"y": 5
 	},
 	{
 		"id": 48,
@@ -1074,27 +1098,21 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[74][48]",
-		"x": 9,
-		"y": 5
-	},
-	{
-		"id": 15,
-		"nom": "Clone[74][48]",
-		"x": 13,
-		"y": 7
-	},
-	{
-		"id": 26,
-		"nom": "Clone[74][48]",
-		"x": 10,
-		"y": 10
-	},
-	{
-		"id": 37,
+		"id": 43,
 		"nom": "Clone[74][36]",
 		"x": 8,
+		"y": 8
+	},
+	{
+		"id": 21,
+		"nom": "Clone[74][48]",
+		"x": 9,
+		"y": 9
+	},
+	{
+		"id": 10,
+		"nom": "Clone[74][48]",
+		"x": 11,
 		"y": 6
 	},
 	{
@@ -1170,24 +1188,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[74][48]",
-		"x": 11,
-		"y": 6
-	},
-	{
-		"id": 21,
-		"nom": "Clone[74][48]",
-		"x": 9,
-		"y": 9
-	},
-	{
-		"id": 43,
-		"nom": "Clone[74][36]",
-		"x": 8,
-		"y": 8
 	}
 	]
 }
