@@ -6,7 +6,7 @@
 	"couche0": [
 	[0140,0141,0108,0109,0108,0109,0108,0109,0108,0168,0169,0170,0108,0109,0108,0109,0108,0109,0108,0142,0143],
 	[0148,0149,0116,0117,0116,0117,0116,0117,0116,0176,0177,0178,0116,0117,0116,0117,0116,0117,0116,0150,0151],
-	[0110,0111,-008,-008,-008,-008,-008,-008,-008,0161,0161,0161,-008,-008,-008,-008,-008,-008,-008,0132,0133],
+	[0110,0111,-008,-008,-008,-008,-008,-008,-008,0160,0160,0160,-008,-008,-008,-008,-008,-008,-008,0132,0133],
 	[0118,0119,-008,-008,-008,-008,-008,-008,-008,0161,0161,0161,-008,-008,-008,-008,-008,-008,-008,0124,0125],
 	[0110,0111,-008,-008,-008,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,0161,-008,-008,-008,0132,0133],
 	[0118,0119,-008,-008,-008,0161,-008,-008,-008,-008,-008,-008,-008,-008,-008,0161,-008,-008,-008,0124,0125],
@@ -228,80 +228,61 @@
 				"texte": "le miniboss tombe"
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "017-Jump03.ogg",
-				"volume": 0.50,
-				"tempo": 0.50
-			},
-			{
 				"nom": "Deplacement",
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "017-Jump03.ogg",
+					"volume": 0.50,
+					"tempo": 0.50
+				},
 				{
 					"nom": "ModifierApparence",
 					"image": "cube volant boss character",
 					"direction": 1,
 					"animation": 0,
 					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 6
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 6
+				},
 				{
 					"nom": "ModifierApparence",
 					"image": "cube volant boss character",
 					"direction": 1,
 					"animation": 1,
 					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
 				{
 					"nom": "ModifierApparence",
 					"image": "cube volant boss character",
 					"direction": 1,
 					"animation": 2,
 					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "052-Cannon01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.80,
+					"tempo": 1.00
+				},
 				{
 					"nom": "ModifierApparence",
 					"image": "cube volant boss character",
@@ -312,10 +293,18 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
 				"nom": "TremblementDeTerre",
-				"intensite": 2,
-				"vitesse": 8,
-				"nombreDeFrames": 16
+				"intensite": 5,
+				"vitesse": 5,
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le héros perd une vie \\nsi le bloc tombe dessus"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -380,7 +369,7 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 4,
 				"operationAFaire": "retirer",
-				"valeurADonner": 1,
+				"valeurADonner": 2,
 				"operationAFaire2": "valeur brute"
 			},
 			{
@@ -551,6 +540,12 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "129-Earth01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "JouerAnimation",

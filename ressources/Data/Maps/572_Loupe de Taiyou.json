@@ -56,12 +56,6 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[572][12]",
-		"x": 16,
-		"y": 10
-	},
-	{
 		"id": 5,
 		"nom": "Trefle",
 		"x": 6,
@@ -203,12 +197,12 @@
 				"numero": 6
 			},
 			{
-				"nom": "Etiquette",
-				"nomEtiquette": "flamme"
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "flamme"
+			},
+			{
+				"nom": "Etiquette",
+				"nomEtiquette": "flamme"
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -246,16 +240,16 @@
 				"numero": 8
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "herbe coupee"
+			},
+			{
 				"nom": "Etiquette",
 				"nomEtiquette": "herbe coupee"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 5
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "herbe coupee"
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -283,16 +277,39 @@
 				"numero": 1
 			}
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_temp.animations.push([75, true, x, y])"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 18
+				}
+				]
+			},
 			"image": "trefle fleuri character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 16,
+		"nom": "Clone[572][12]",
+		"x": 16,
+		"y": 10
 	},
 	{
 		"id": 11,
@@ -361,84 +378,16 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[572][13]",
-		"x": 17,
-		"y": 10
-	},
-	{
 		"id": 6,
 		"nom": "Clone[572][5]",
 		"x": 6,
 		"y": 12
 	},
 	{
-		"id": 12,
-		"nom": "oeil",
-		"x": 16,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)",
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "cristal.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "oeil mural character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 12,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"image": "oeil mural character",
-			"directionInitiale": 1,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 17,
+		"nom": "Clone[572][13]",
+		"x": 17,
+		"y": 10
 	},
 	{
 		"id": 1,
@@ -685,10 +634,72 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[572][14]",
-		"x": 18,
-		"y": 10
+		"id": 12,
+		"nom": "oeil",
+		"x": 16,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cristal.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 12,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 1,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 7,
@@ -861,11 +872,28 @@
 				"numero": 1
 			}
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_temp.animations.push([75, true, x, y])"
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 18
+				}
+				]
+			},
 			"image": "trefle fleuri character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
@@ -924,72 +952,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "oeil",
-		"x": 17,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)",
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "cristal.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "oeil mural character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 13,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			],
-			"image": "oeil mural character",
-			"directionInitiale": 2,
-			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 18,
+		"nom": "Clone[572][14]",
+		"x": 18,
+		"y": 10
 	},
 	{
 		"id": 2,
@@ -1236,15 +1202,9 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[572][7]",
-		"x": 7,
-		"y": 12
-	},
-	{
-		"id": 14,
+		"id": 13,
 		"nom": "oeil",
-		"x": 18,
+		"x": 17,
 		"y": 3,
 		"pages": [
 		{
@@ -1273,7 +1233,7 @@
 			}
 			],
 			"image": "oeil mural character",
-			"directionInitiale": 3,
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1289,7 +1249,7 @@
 			},
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 14,
+				"numeroEvent": 13,
 				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
@@ -1297,7 +1257,7 @@
 			"commandes": [
 			],
 			"image": "oeil mural character",
-			"directionInitiale": 3,
+			"directionInitiale": 2,
 			"animationInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -1308,6 +1268,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[572][7]",
+		"x": 7,
+		"y": 12
 	},
 	{
 		"id": 3,
@@ -1548,6 +1514,74 @@
 			"animeEnMouvement": true,
 			"animeALArret": true,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "oeil",
+		"x": 18,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].event_arround?(\"boule de lumiere\", 0)",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cristal.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 14,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "oeil mural character",
+			"directionInitiale": 3,
+			"animationInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2125,12 +2159,6 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[572][11]",
-		"x": 15,
-		"y": 10
-	},
-	{
 		"id": 4,
 		"nom": "boule de lumiere",
 		"x": 9,
@@ -2373,6 +2401,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[572][11]",
+		"x": 15,
+		"y": 10
 	},
 	{
 		"id": 10,

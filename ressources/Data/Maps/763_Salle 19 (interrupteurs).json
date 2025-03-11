@@ -1,6 +1,6 @@
 {
 	"nom": "Salle 19 (interrupteurs)",
-	"tileset": "Sanctuaire de Kakeru",
+	"tileset": "Sanctuaire de Ringo",
 	"largeur": 21,
 	"hauteur": 15,
 	"couche0": [
@@ -653,7 +653,7 @@
 	},
 	{
 		"id": 13,
-		"nom": "blocage",
+		"nom": "marmite SHADOW[40]",
 		"x": 16,
 		"y": 11,
 		"pages": [
@@ -689,8 +689,32 @@
 			],
 			"commandes": [
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_temp.animations.push([73, true, x, y])"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				}
+				]
+			},
 			"image": "jarre geante character",
-			"opacite": 150,
 			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -714,8 +738,33 @@
 			],
 			"commandes": [
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_temp.animations.push([73, true, x, y])"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				}
+				]
+			},
 			"image": "jarre geante character",
-			"opacite": 100,
+			"opacite": 200,
 			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -739,8 +788,33 @@
 			],
 			"commandes": [
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_temp.animations.push([73, true, x, y])"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
 			"image": "jarre geante character",
-			"opacite": 0,
+			"opacite": 150,
 			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",

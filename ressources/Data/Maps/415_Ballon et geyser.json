@@ -314,6 +314,34 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "brouillard",
+		"x": 23,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 132
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "Clone[341][055]",
 		"x": 11,
@@ -344,16 +372,6 @@
 			{
 				"nom": "EffacerImage",
 				"numero": 9
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 175,
-				"modeDeFusion": "addition",
-				"defilementX": 5,
-				"defilementY": 5,
-				"zoom": 200,
-				"nuance": 180,
-				"nomImage": "006-Sandstorm02"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -521,16 +539,6 @@
 			{
 				"nom": "EffacerImage",
 				"numero": 9
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 175,
-				"modeDeFusion": "addition",
-				"defilementX": 5,
-				"defilementY": 5,
-				"zoom": 200,
-				"nuance": 180,
-				"nomImage": "006-Sandstorm02"
 			},
 			{
 				"nom": "ModifierVariable",

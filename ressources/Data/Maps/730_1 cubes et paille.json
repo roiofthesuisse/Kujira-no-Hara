@@ -56,6 +56,55 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][0067]",
+		"x": 5,
+		"y": 9
+	},
+	{
+		"id": 16,
+		"nom": "Clone[341][023]",
+		"x": 6,
+		"y": 4
+	},
+	{
+		"id": 27,
+		"nom": "EV027",
+		"x": 10,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 712,
+				"xDebutHeros": 10,
+				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 38,
+		"nom": "Clone[341][040]",
+		"x": 13,
+		"y": 10
+	},
+	{
 		"id": 49,
 		"nom": "Réglages initiaux",
 		"x": 20,
@@ -189,65 +238,10 @@
 		]
 	},
 	{
-		"id": 38,
-		"nom": "Clone[341][040]",
-		"x": 13,
-		"y": 10
-	},
-	{
-		"id": 27,
-		"nom": "EV027",
-		"x": 10,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 712,
-				"xDebutHeros": 10,
-				"yDebutHeros": 13
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "Clone[341][023]",
+		"id": 11,
+		"nom": "Clone[341][004]",
 		"x": 6,
-		"y": 4
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][0067]",
-		"x": 5,
-		"y": 9
-	},
-	{
-		"id": 44,
-		"nom": "Clone[341][045]",
-		"x": 16,
-		"y": 7
-	},
-	{
-		"id": 33,
-		"nom": "Clone[341][181]",
-		"x": 14,
-		"y": 8
+		"y": 6
 	},
 	{
 		"id": 22,
@@ -256,52 +250,16 @@
 		"y": 4
 	},
 	{
-		"id": 11,
-		"nom": "Clone[341][004]",
-		"x": 6,
-		"y": 6
-	},
-	{
-		"id": 50,
-		"nom": "Blocage anti-évènement",
-		"x": 12,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 39,
-		"nom": "Clone[341][045]",
+		"id": 33,
+		"nom": "Clone[341][181]",
 		"x": 14,
-		"y": 10
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][045]",
-		"x": 7,
-		"y": 4
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][0067]",
-		"x": 4,
 		"y": 8
+	},
+	{
+		"id": 44,
+		"nom": "Clone[341][045]",
+		"x": 16,
+		"y": 7
 	},
 	{
 		"id": 28,
@@ -333,7 +291,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Me voici dans le Sanctuaire de \\c[2]Kaze\\c[1],\\ntout de verre et de sable."
+				"texte": "\"Me voici dans le Sanctuaire de \\c[2]Kazé\\c[1],\\ntout de verre et de sable."
 			},
 			{
 				"nom": "Commentaire",
@@ -349,7 +307,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[2]Kaze\\c[1] fut un des grands érudits de la légende."
+				"texte": "\\c[2]Kazé\\c[1] fut un des grands érudits de la légende."
 			},
 			{
 				"nom": "Commentaire",
@@ -396,10 +354,64 @@
 		]
 	},
 	{
-		"id": 45,
+		"id": 6,
+		"nom": "Clone[341][0067]",
+		"x": 4,
+		"y": 8
+	},
+	{
+		"id": 17,
 		"nom": "Clone[341][045]",
-		"x": 16,
-		"y": 6
+		"x": 7,
+		"y": 4
+	},
+	{
+		"id": 39,
+		"nom": "Clone[341][045]",
+		"x": 14,
+		"y": 10
+	},
+	{
+		"id": 50,
+		"nom": "Blocage anti-évènement",
+		"x": 12,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][0067]",
+		"x": 7,
+		"y": 7
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][004]",
+		"x": 5,
+		"y": 7
+	},
+	{
+		"id": 23,
+		"nom": "Clone[341][004]",
+		"x": 11,
+		"y": 4
 	},
 	{
 		"id": 34,
@@ -426,28 +438,22 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "Clone[341][004]",
-		"x": 11,
-		"y": 4
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][004]",
-		"x": 5,
-		"y": 7
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][0067]",
-		"x": 7,
-		"y": 7
-	},
-	{
-		"id": 40,
+		"id": 45,
 		"nom": "Clone[341][045]",
-		"x": 15,
-		"y": 10
+		"x": 16,
+		"y": 6
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][0067]",
+		"x": 5,
+		"y": 6
+	},
+	{
+		"id": 18,
+		"nom": "Clone[341][040]",
+		"x": 8,
+		"y": 4
 	},
 	{
 		"id": 29,
@@ -488,46 +494,22 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][040]",
-		"x": 8,
-		"y": 4
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][0067]",
-		"x": 5,
-		"y": 6
-	},
-	{
-		"id": 46,
+		"id": 40,
 		"nom": "Clone[341][045]",
 		"x": 15,
+		"y": 10
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][0067]",
+		"x": 7,
 		"y": 6
 	},
 	{
-		"id": 35,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 13,
+		"nom": "Clone[341][004]",
+		"x": 4,
+		"y": 7
 	},
 	{
 		"id": 24,
@@ -554,22 +536,40 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 7
+		"id": 35,
+		"nom": "Blocage anti-évènement",
+		"x": 14,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][0067]",
-		"x": 7,
+		"id": 46,
+		"nom": "Clone[341][045]",
+		"x": 15,
 		"y": 6
 	},
 	{
-		"id": 41,
-		"nom": "Clone[341][045]",
-		"x": 16,
-		"y": 10
+		"id": 8,
+		"nom": "Clone[341][0067]",
+		"x": 5,
+		"y": 5
 	},
 	{
 		"id": 30,
@@ -638,15 +638,21 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][0067]",
-		"x": 5,
-		"y": 5
+		"id": 41,
+		"nom": "Clone[341][045]",
+		"x": 16,
+		"y": 10
 	},
 	{
-		"id": 47,
-		"nom": "Clone[341][045]",
-		"x": 14,
+		"id": 3,
+		"nom": "Clone[341][0067]",
+		"x": 7,
+		"y": 8
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][004]",
+		"x": 4,
 		"y": 6
 	},
 	{
@@ -674,15 +680,27 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][004]",
-		"x": 4,
+		"id": 47,
+		"nom": "Clone[341][045]",
+		"x": 14,
 		"y": 6
 	},
 	{
-		"id": 3,
+		"id": 9,
 		"nom": "Clone[341][0067]",
-		"x": 7,
+		"x": 6,
+		"y": 5
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][0025]",
+		"x": 10,
+		"y": 1
+	},
+	{
+		"id": 31,
+		"nom": "Clone[341][181]",
+		"x": 12,
 		"y": 8
 	},
 	{
@@ -692,52 +710,16 @@
 		"y": 9
 	},
 	{
-		"id": 31,
-		"nom": "Clone[341][181]",
-		"x": 11,
-		"y": 7
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][0025]",
-		"x": 10,
-		"y": 1
-	},
-	{
-		"id": 9,
+		"id": 4,
 		"nom": "Clone[341][0067]",
 		"x": 6,
-		"y": 5
+		"y": 8
 	},
 	{
-		"id": 48,
-		"nom": "Clone[341][0067]",
-		"x": 13,
-		"y": 6
-	},
-	{
-		"id": 37,
-		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 15,
+		"nom": "Clone[341][004]",
+		"x": 6,
+		"y": 9
 	},
 	{
 		"id": 26,
@@ -771,28 +753,40 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[341][004]",
-		"x": 6,
-		"y": 9
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][0067]",
-		"x": 6,
-		"y": 8
-	},
-	{
-		"id": 43,
-		"nom": "Clone[341][045]",
+		"id": 37,
+		"nom": "Blocage anti-évènement",
 		"x": 16,
-		"y": 8
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 32,
-		"nom": "Clone[341][181]",
-		"x": 12,
-		"y": 8
+		"id": 48,
+		"nom": "Clone[341][0067]",
+		"x": 13,
+		"y": 6
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][0067]",
+		"x": 4,
+		"y": 5
 	},
 	{
 		"id": 21,
@@ -819,10 +813,16 @@
 		]
 	},
 	{
-		"id": 10,
-		"nom": "Clone[341][0067]",
-		"x": 4,
-		"y": 5
+		"id": 32,
+		"nom": "Clone[341][181]",
+		"x": 13,
+		"y": 8
+	},
+	{
+		"id": 43,
+		"nom": "Clone[341][045]",
+		"x": 16,
+		"y": 8
 	}
 	]
 }

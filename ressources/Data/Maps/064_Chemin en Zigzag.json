@@ -50,7 +50,7 @@
 	[0001,0001,0001,0002,1135,0001,0001,0001,0032,1127,0001,-007,-007,0001,0001,0001,1119,1135,0001,0001,0001,1111,0030,0030,0053,0061,0810,0809,0809,0809],
 	[0059,0059,0059,0059,0059,0049,1127,0001,0025,0002,1127,-007,-007,-007,-007,-007,-007,0001,0001,0001,1111,0002,0030,0030,0030,0185,0818,0809,0809,0809],
 	[0059,0059,0059,0059,0049,0057,0059,0049,0057,0049,1135,-007,-007,-007,-007,-007,-007,0001,0001,0001,0053,0042,0061,0030,0030,0810,0809,0809,0809,0809],
-	[0817,0817,0817,0186,0057,0059,0049,0057,0049,0032,0001,0001,0001,0052,0008,-007,-007,0001,0001,1111,0030,0001,0001,0030,0030,0810,0809,0809,0809,0809],
+	[0817,0817,0817,0186,0057,0059,0049,0057,0049,0032,0001,0001,0052,0008,0005,-007,-007,0001,0001,1111,0030,0001,0001,0030,0030,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0816,0817,0186,0057,0049,0032,0032,1127,0001,0001,0001,0001,-007,-007,0001,1111,0002,0030,0053,0051,0061,0030,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0816,0186,0032,0032,0057,0058,0059,0059,0059,0049,-007,-007,0053,0059,0059,0061,0030,0053,0059,0061,0810,0809,0809,0809,0809],
 	[0809,0809,0809,0809,0809,0809,0808,0032,0057,0058,0059,0059,0059,0049,0032,-007,-007,0030,0053,0059,0059,0061,0030,0185,0817,0818,0809,0809,0809,0809],
@@ -96,7 +96,7 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0164,-001,-001,0164,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0172,0171,-001,0172,0171,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0171,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,0171,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,-001,-001,-001,-001,-001,-001,0171,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0050,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -155,43 +155,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 33
-	},
-	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 15,
-		"y": 44,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 168,
-				"xDebutHeros": 12,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
 	{
 		"id": 27,
 		"nom": "Mathusalem",
@@ -691,6 +654,84 @@
 		]
 	},
 	{
+		"id": 16,
+		"nom": "EV016",
+		"x": 15,
+		"y": 44,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 168,
+				"xDebutHeros": 12,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 33
+	},
+	{
+		"id": 33,
+		"nom": "Annonce du Lieu",
+		"x": 23,
+		"y": 37,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "annonce du lieu\\n(sortie de donjon)"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 11,
+		"nom": "Clone[021][004]",
+		"x": 15,
+		"y": 23
+	},
+	{
 		"id": 22,
 		"nom": "Jizo SHADOW[40] (-4)",
 		"x": 8,
@@ -715,6 +756,25 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 134,
+				"etat": "FAITE",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 135,
+				"avancement": "CONNUE"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) It's a jizo statue"
 			},
@@ -725,13 +785,13 @@
 			{
 				"nom": "ConditionGadgetEquipe",
 				"idGadget": 4,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 23,
 				"direction": 3,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "Commentaire",
@@ -749,15 +809,15 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Tagada tsoin tsoin.\""
+				"texte": "(en) \"Toot toot grapefruit.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Tagada tsoin tsoin.\""
+				"texte": "\"Pouêt pouêt cacahuète.\""
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "Commentaire",
@@ -783,11 +843,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Commentaire",
@@ -799,7 +859,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
@@ -891,51 +951,10 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Clone[021][004]",
+		"id": 28,
+		"nom": "Clone[341][002]",
 		"x": 15,
-		"y": 23
-	},
-	{
-		"id": 33,
-		"nom": "Annonce du Lieu",
-		"x": 23,
-		"y": 37,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "annonce du lieu\\n(sortie de donjon)"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 4,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][028]",
-		"x": 20,
-		"y": 9
+		"y": 7
 	},
 	{
 		"id": 17,
@@ -969,28 +988,34 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "Clone[341][002]",
-		"x": 15,
-		"y": 7
+		"id": 6,
+		"nom": "Clone[341][028]",
+		"x": 20,
+		"y": 9
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][061]",
-		"x": 11,
-		"y": 19
-	},
-	{
-		"id": 12,
-		"nom": "Clone[021][004]",
-		"x": 17,
-		"y": 25
-	},
-	{
-		"id": 23,
-		"nom": "Clone[582][44]",
-		"x": 11,
-		"y": 26
+		"id": 39,
+		"nom": "Blocage anti-évènement",
+		"x": 22,
+		"y": 20,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 34,
@@ -1131,15 +1156,21 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][028]",
-		"x": 15,
-		"y": 13
+		"id": 23,
+		"nom": "Clone[582][44]",
+		"x": 11,
+		"y": 26
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][006]",
-		"x": 13,
+		"id": 12,
+		"nom": "Clone[021][004]",
+		"x": 17,
+		"y": 25
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][061]",
+		"x": 11,
 		"y": 19
 	},
 	{
@@ -1149,16 +1180,22 @@
 		"y": 7
 	},
 	{
-		"id": 35,
-		"nom": "Clone[341][055]",
-		"x": 6,
-		"y": 33
+		"id": 7,
+		"nom": "Clone[341][028]",
+		"x": 15,
+		"y": 13
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 20
+		"id": 18,
+		"nom": "Clone[341][102]",
+		"x": 13,
+		"y": 19
+	},
+	{
+		"id": 13,
+		"nom": "Clone[021][004]",
+		"x": 20,
+		"y": 13
 	},
 	{
 		"id": 24,
@@ -1710,22 +1747,16 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[021][004]",
-		"x": 20,
-		"y": 13
-	},
-	{
-		"id": 30,
-		"nom": "Clone[582][103]",
-		"x": 16,
-		"y": 8
-	},
-	{
-		"id": 8,
+		"id": 2,
 		"nom": "Clone[341][028]",
-		"x": 14,
-		"y": 17
+		"x": 9,
+		"y": 20
+	},
+	{
+		"id": 35,
+		"nom": "Clone[341][055]",
+		"x": 6,
+		"y": 33
 	},
 	{
 		"id": 19,
@@ -1759,41 +1790,16 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 8,
 		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 19
+		"x": 14,
+		"y": 17
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 10,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 52,
-				"xDebutHeros": 20,
-				"yDebutHeros": 29
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 30,
+		"nom": "Clone[582][103]",
+		"x": 16,
+		"y": 8
 	},
 	{
 		"id": 25,
@@ -2345,6 +2351,111 @@
 		]
 	},
 	{
+		"id": 14,
+		"nom": "EV014",
+		"x": 10,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 52,
+				"xDebutHeros": 20,
+				"yDebutHeros": 29
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 10,
+		"y": 19
+	},
+	{
+		"id": 36,
+		"nom": "Pancarte",
+		"x": 14,
+		"y": 36,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\u2191 House of the late \\c[2]lamplighter\\c[0]\\n\\u2191 \\c[2]Red Vikings\\c[0]' village\\n\\u2193 Shrine of \\c[2]Kaze the scholar\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\u2191 Maison de feu l'\\c[2]allumeur de réverbères\\c[1]\\n\\u2191 Village viking rouge\\n\\u2193 Sanctuaire de \\c[2]Kazé l'érudit\\c[1]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[582][51]",
+		"x": 8,
+		"y": 21
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][061]",
+		"x": 16,
+		"y": 14
+	},
+	{
 		"id": 31,
 		"nom": "EV031",
 		"x": 12,
@@ -2370,16 +2481,41 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][061]",
-		"x": 16,
-		"y": 14
+		"id": 15,
+		"nom": "EV015",
+		"x": 11,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 52,
+				"xDebutHeros": 21,
+				"yDebutHeros": 29
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[582][51]",
-		"x": 8,
-		"y": 21
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 18,
+		"y": 34
 	},
 	{
 		"id": 26,
@@ -2458,31 +2594,18 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 18,
-		"y": 34
-	},
-	{
-		"id": 15,
-		"nom": "EV015",
+		"id": 37,
+		"nom": "Blocage anti-évènement",
 		"x": 11,
-		"y": 0,
+		"y": 30,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 52,
-				"xDebutHeros": 21,
-				"yDebutHeros": 29
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -2493,6 +2616,38 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 32,
+		"nom": "arche",
+		"x": 10,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "arches kujira character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[341][061]",
+		"x": 10,
+		"y": 37
 	},
 	{
 		"id": 21,
@@ -2522,38 +2677,6 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "Clone[341][061]",
-		"x": 10,
-		"y": 37
-	},
-	{
-		"id": 32,
-		"nom": "arche",
-		"x": 10,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "arches kujira character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
 		}
 		]
 	}

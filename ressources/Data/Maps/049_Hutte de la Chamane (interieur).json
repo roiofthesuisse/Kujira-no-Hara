@@ -73,163 +73,9 @@
 	"events": [
 	{
 		"id": 5,
-		"nom": "Torche",
+		"nom": "Clone[582][115]",
 		"x": 10,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "134-Wind03.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "feu character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 5,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "118-Fire02.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 3,
-				"numero": 2
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ARME_SUIVANTE",
-				"numero": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "118-Fire02.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"image": "torche character",
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 8
 	},
 	{
 		"id": 11,
@@ -3019,6 +2865,12 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "Clone[582][120]",
+		"x": 17,
+		"y": 4
+	},
+	{
 		"id": 7,
 		"nom": "cinematique vikings",
 		"x": 10,
@@ -4121,7 +3973,7 @@
 	},
 	{
 		"id": 2,
-		"nom": "viking rouge 1 SHADOW[32] (-4)",
+		"nom": "viking rouge 1 SHADOW[30] (-4)",
 		"x": 11,
 		"y": 9,
 		"pages": [
@@ -4147,7 +3999,7 @@
 	},
 	{
 		"id": 8,
-		"nom": "viking rouge 2 SHADOW[32] (-4)",
+		"nom": "viking rouge 2 SHADOW[30] (-4)",
 		"x": 8,
 		"y": 8,
 		"pages": [
@@ -4173,7 +4025,7 @@
 	},
 	{
 		"id": 3,
-		"nom": "viking rouge femme SHADOW[32] (-4)",
+		"nom": "viking rouge femme SHADOW[30] (-4)",
 		"x": 12,
 		"y": 8,
 		"pages": [
@@ -4187,6 +4039,48 @@
 			],
 			"image": "viking femme petit character",
 			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "centrer le feu",
+		"x": 17,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 5,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "offset_y(0)"
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,

@@ -388,6 +388,70 @@
 		"y": 18
 	},
 	{
+		"id": 23,
+		"nom": "cristaux de baleine",
+		"x": 15,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 2)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 2)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 2)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 3)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 3)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 3)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(15, 11, 223, 4)"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 34,
 		"nom": "Clone[582][46]",
 		"x": 24,
@@ -570,11 +634,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Under the summer rain \\nshorten\\nthe legs of the heron.\""
+				"texte": "(en) \"Rain comes and goes.\\nSo no need to worry\\nabout rice seedlings.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Sous la pluie d'été\\nraccourcissent\\nles pattes du héron.\""
+				"texte": "\"La pluie va et vient.\\nPas besoin de s'inquiéter\\npour les plants de riz.\""
 			},
 			{
 				"nom": "Commentaire",
@@ -1131,67 +1195,6 @@
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "EV009",
-		"x": 0,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 9,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 98,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,

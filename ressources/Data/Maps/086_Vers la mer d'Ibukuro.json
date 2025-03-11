@@ -117,47 +117,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 0,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 2,
-				"xDebutHeros": 33,
-				"yDebutHeros": 14
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "Clone[341][001]",
-		"x": 13,
-		"y": 25
-	},
-	{
 		"id": 27,
 		"nom": "placer pancarte sirene",
 		"x": 20,
@@ -171,6 +130,14 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
 			},
 			{
 				"nom": "ConditionObjetPossede",
@@ -275,10 +242,16 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 24,
-		"y": 3,
+		"id": 16,
+		"nom": "Clone[341][001]",
+		"x": 13,
+		"y": 25
+	},
+	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 0,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -288,12 +261,40 @@
 			],
 			"commandes": [
 			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 260,
-				"xDebutHeros": 1,
-				"yDebutHeros": 18
+				"numeroNouvelleMap": 2,
+				"xDebutHeros": 33,
+				"yDebutHeros": 14
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 33,
+		"nom": "Blocage anti-évènement",
+		"x": 7,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -343,10 +344,66 @@
 		]
 	},
 	{
-		"id": 33,
-		"nom": "Blocage anti-évènement",
-		"x": 7,
-		"y": 21,
+		"id": 11,
+		"nom": "EV011",
+		"x": 24,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 260,
+				"xDebutHeros": 1,
+				"yDebutHeros": 18
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 17,
+		"nom": "noir",
+		"x": 6,
+		"y": 25,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 7,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 28,
+		"nom": "panneau sirene",
+		"x": 16,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -402,18 +459,25 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "panneau sirene",
-		"x": 16,
-		"y": 7,
+		"id": 12,
+		"nom": "EV012",
+		"x": 24,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 260,
+				"xDebutHeros": 1,
+				"yDebutHeros": 19
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -426,29 +490,10 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "noir",
-		"x": 6,
-		"y": 25,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 7,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"id": 1,
+		"nom": "Clone[341][043]",
+		"x": 17,
+		"y": 19
 	},
 	{
 		"id": 23,
@@ -771,31 +816,24 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][043]",
-		"x": 17,
-		"y": 19
+		"id": 18,
+		"nom": "Clone[582][50]",
+		"x": 18,
+		"y": 8
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 24,
-		"y": 4,
+		"id": 29,
+		"nom": "panneau sirene",
+		"x": 10,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 260,
-				"xDebutHeros": 1,
-				"yDebutHeros": 19
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -843,40 +881,10 @@
 		]
 	},
 	{
-		"id": 29,
-		"nom": "panneau sirene",
-		"x": 10,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "Clone[582][50]",
-		"x": 18,
-		"y": 8
-	},
-	{
-		"id": 24,
-		"nom": "Clone[341][002]",
-		"x": 11,
-		"y": 10
+		"id": 13,
+		"nom": "Clone[21][3]",
+		"x": 14,
+		"y": 17
 	},
 	{
 		"id": 2,
@@ -910,10 +918,94 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "Clone[21][3]",
-		"x": 14,
-		"y": 17
+		"id": 24,
+		"nom": "Clone[341][002]",
+		"x": 11,
+		"y": 10
+	},
+	{
+		"id": 30,
+		"nom": "Pancarte PUB",
+		"x": 19,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You don't know what to do with\\nall your money?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous ne savez pas quoi faire de tout \\nvotre argent ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Come and donate at the \\c[2]mermaid\\c[0]'s spring!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Venez faire un don à la source de la \\c[2]sirène\\c[1] !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The most generous will be rewarded."
+			},
+			{
+				"nom": "Message",
+				"texte": "Les plus généreux seront récompensés."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "panneau pub character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][008]",
+		"x": 18,
+		"y": 24
 	},
 	{
 		"id": 8,
@@ -1000,88 +1092,16 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][008]",
-		"x": 18,
-		"y": 24
+		"id": 25,
+		"nom": "Clone[582][101]",
+		"x": 12,
+		"y": 10
 	},
 	{
-		"id": 30,
-		"nom": "Pancarte PUB",
-		"x": 19,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You don't know what to do with\\nall your money?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous ne savez pas quoi faire de tout \\nvotre argent ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Come and donate at the \\c[2]mermaid\\c[0]'s spring!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Venez faire un don à la source de la \\c[2]sirène\\c[1] !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The most generous will be rewarded."
-			},
-			{
-				"nom": "Message",
-				"texte": "Les plus généreux seront récompensés."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "panneau pub character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 14,
+		"nom": "Clone[21][3]",
+		"x": 12,
+		"y": 19
 	},
 	{
 		"id": 3,
@@ -1115,36 +1135,24 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[21][3]",
-		"x": 12,
-		"y": 19
-	},
-	{
-		"id": 25,
-		"nom": "Clone[582][101]",
-		"x": 12,
-		"y": 10
-	},
-	{
-		"id": 31,
-		"nom": "Annonce du Lieu",
-		"x": 24,
-		"y": 19,
+		"id": 20,
+		"nom": "EV020",
+		"x": 6,
+		"y": 24,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 32,
+				"xDebutHeros": 19,
+				"yDebutHeros": 12
 			}
 			],
 			"vitesse": "moderee",
@@ -1193,24 +1201,24 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "EV020",
-		"x": 6,
-		"y": 24,
+		"id": 31,
+		"nom": "Annonce du Lieu",
+		"x": 24,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 32,
-				"xDebutHeros": 19,
-				"yDebutHeros": 12
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -1222,18 +1230,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 26,
-		"nom": "Clone[582][103]",
-		"x": 12,
-		"y": 11
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][001]",
-		"x": 12,
-		"y": 25
 	},
 	{
 		"id": 4,
@@ -1267,10 +1263,22 @@
 		]
 	},
 	{
-		"id": 21,
+		"id": 15,
+		"nom": "Clone[341][001]",
+		"x": 12,
+		"y": 25
+	},
+	{
+		"id": 26,
+		"nom": "Clone[582][103]",
+		"x": 12,
+		"y": 11
+	},
+	{
+		"id": 32,
 		"nom": "Blocage anti-évènement",
-		"x": 10,
-		"y": 21,
+		"x": 8,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
@@ -1297,10 +1305,10 @@
 		"y": 7
 	},
 	{
-		"id": 32,
+		"id": 21,
 		"nom": "Blocage anti-évènement",
-		"x": 8,
-		"y": 19,
+		"x": 10,
+		"y": 21,
 		"pages": [
 		{
 			"conditions": [

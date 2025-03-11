@@ -64,9 +64,9 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,0376,0377,0378,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0064,0065,0066,0368,0369,0370,0028,0029,-001,-001,0064,0065,0066,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0048,0073,0074,0376,0377,0378,0036,0037,-001,-001,0072,0073,0074,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0056,-001,-001,-001,-001,-001,0044,0045,0002,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0512,0513,0514,0368,0369,0370,0028,0029,-001,-001,0064,0065,0066,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0048,0520,0521,0522,0376,0377,0378,0036,0037,-001,-001,0072,0073,0074,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0056,0528,0529,0530,-001,-001,-001,0044,0045,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0099,0099,-001,-001,0140,-001,0140,-001,-001,-001,-001,-001,-001,0140,-001,0140,-001,-001,-001,-001,0140,-001,0140,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0099,0099,-001,0005,0108,0006,0108,0006,0007,-001,-001,0005,0006,0108,0006,0108,0007,-001,-001,0005,0108,0006,0108,0006,0007,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,0082,0083,-001,0013,0014,0107,0014,0107,0015,-001,-001,0013,0107,0014,0107,0014,0015,-001,-001,0013,0014,0107,0014,0107,0015,-001,0080,0081,-001,-001,-001,-001,-001,-001,-001],
@@ -208,6 +208,31 @@
 		]
 	},
 	{
+		"id": 22,
+		"nom": "biere (-12)",
+		"x": 11,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 41,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "Clone[341][003]",
 		"x": 7,
@@ -328,6 +353,126 @@
 		"y": 13
 	},
 	{
+		"id": 23,
+		"nom": "Viking SHADOW[30] (-4)",
+		"x": 13,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "viking1 vieux.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking vieux\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The kingdom of the \\c[2]Frogs\\c[0] was once \\nflourishing. \\nIt was a charming swamp."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le royaume des \\c[2]Grenouilles\\c[0] était florissant \\nautrefois. \\nC'était un marais charmant."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I tell you:\\nany people that is disinterested in virtues \\nis doomed to ruin."
+			},
+			{
+				"nom": "Message",
+				"texte": "Moi je vous le dis moi : \\ntout peuple qui se désintéresse des vertus \\nest voué à la ruine."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Stop drinking, \\c[2]Grandpa\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Arrête de boire, \\c[2]Papy\\c[0]."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "viking2 vieux.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking vieux\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But look! Come on!\\nLook what the swamp has become!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais regardez, enfin ! \\nRegardez ce que le marais est devenu !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking vieux character",
+			"directionInitiale": 3,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 18,
 		"nom": "EV018",
 		"x": 19,
@@ -438,7 +583,7 @@
 	},
 	{
 		"id": 8,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 14,
 		"y": 21,
 		"pages": [
@@ -636,7 +781,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Nyahaha !"
+				"texte": "(en) Nyahaha!"
 			},
 			{
 				"nom": "Message",
@@ -649,95 +794,6 @@
 			{
 				"nom": "Message",
 				"texte": "Bienvenue à l'auberge du champignon \\nvénéneux, mon petit !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) One day the music teacher stopped at the inn\\nand played this melody on our old out of tune \\npiano."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le \\c[2]maître de musique\\c[0] s'est un jour arrêté ici\\nà l'auberge et a joué cette mélodie sur notre \\nvieux piano désaccordé."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) With a spell I recorded the movements \\nof the keys and since then the piano plays \\nall alone."
-			},
-			{
-				"nom": "Message",
-				"texte": "Par un sort, j'ai enregistré les mouvements \\ndes touches et, depuis, le piano joue tout seul."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) This entertains customers!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ça amuse les clients !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "sociere character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 3,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "sorciere rire.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"sorciere\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Nyahaha!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Nyahaha !"
 			},
 			{
 				"nom": "Commentaire",
@@ -806,7 +862,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Le \\c[2]viking\\c[1] de la mare, le grand \\c[2]Pozzo\\c[1], \\nle \\c[2]colibri bleu\\c[1] de l'orée de la forêt, \\nle \\c[2]colibri jaune\\c[1] au Sud du village, \\net le \\c[2]magicien Dose\\c[1]."
+				"texte": "Le \\c[2]Viking\\c[1] de la mare, le grand \\c[2]Pozzo\\c[1], \\nle \\c[2]colibri bleu\\c[1] de l'orée de la forêt, \\nle \\c[2]colibri jaune\\c[1] au sud du village, \\net le \\c[2]magicien Dose\\c[1]."
 			},
 			{
 				"nom": "Commentaire",
@@ -1336,7 +1392,7 @@
 	{
 		"id": 4,
 		"nom": "Sorcière 2 balais SHADOW[32] (-4)",
-		"x": 14,
+		"x": 13,
 		"y": 15,
 		"pages": [
 		{
@@ -1865,9 +1921,15 @@
 	},
 	{
 		"id": 10,
-		"nom": "Plante en pot",
-		"x": 17,
-		"y": 15,
+		"nom": "Clone[582][115]",
+		"x": 16,
+		"y": 14
+	},
+	{
+		"id": 21,
+		"nom": "Viking SHADOW[30] (-4)",
+		"x": 11,
+		"y": 23,
 		"pages": [
 		{
 			"conditions": [
@@ -1876,14 +1938,62 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The \\c[2]music teacher\\c[0] stopped here at the inn \\none day and played this melody on that old, \\nout-of-tune piano."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le \\c[2]maître de musique\\c[0] s'est un jour arrêté ici\\nà l'auberge et a joué cette mélodie sur leur \\nvieux piano désaccordé."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) With a spell, \\c[2]the witches\\c[0] recorded \\nthe movements of the keys and, since then, \\nthe piano plays by itself."
+			},
+			{
+				"nom": "Message",
+				"texte": "Avec un sort, \\c[2]les sorcières\\c[0] ont enregistré \\nles mouvements des touches et, depuis, \\nle piano joue tout seul."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's really great!"
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est vraiment fortiche !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
-			"image": "plante en pot character",
+			"image": "viking femme petit character",
 			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

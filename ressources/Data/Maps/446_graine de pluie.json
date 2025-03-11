@@ -745,10 +745,8 @@
 				"texte": "Fais un nuage"
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Pschit.mp3",
-				"volume": 0.80,
-				"tempo": 1.00
+				"nom": "AppelerUnScript",
+				"script": "Sound_relative::play(@event_id, \"Pschit\")"
 			},
 			{
 				"nom": "Boucle",
@@ -1478,10 +1476,8 @@
 			],
 			"commandes": [
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "WW_HyoiPear INVERSE.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
+				"nom": "AppelerUnScript",
+				"script": "Sound_relative::play(@event_id, \"WW_HyoiPear INVERSE\")"
 			},
 			{
 				"nom": "Deplacement",
@@ -2005,10 +2001,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "WW_HyoiPear.wav",
-				"volume": 1.00,
-				"tempo": 1.00
+				"nom": "AppelerUnScript",
+				"script": "Sound_relative::play(@event_id, \"WW_HyoiPear\")"
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -2506,11 +2500,8 @@
 					"idEvent": 0
 				},
 				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "JouerEffetSonore",
-					"nomFichierSonore": "001-System01.ogg",
-					"volume": 1.00,
-					"tempo": 0.50
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative::play(id, \"001-System01\")"
 				},
 				{
 					"nom": "PasEnAvant"

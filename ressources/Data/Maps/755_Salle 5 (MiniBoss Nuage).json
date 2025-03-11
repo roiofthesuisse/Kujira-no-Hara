@@ -1,8 +1,13 @@
 {
 	"nom": "Salle 5 (MiniBoss Nuage)",
-	"tileset": "Sanctuaire de Kakeru",
+	"tileset": "Sanctuaire de Ringo",
 	"largeur": 21,
 	"hauteur": 15,
+	"fondSonore": {
+		"nomFichierSonore": "",
+		"volume": 0.00,
+		"tempo": 1.00
+	},
 	"couche0": [
 	[0146,0147,0010,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,-004,0010,0006,0007],
 	[0154,0155,0010,-004,0010,0010,-003,-003,0010,0010,0010,0010,0010,0010,0010,0010,0010,-004,0010,0014,0015],
@@ -55,6 +60,12 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
+	{
+		"id": 38,
+		"nom": "Clone[582][111]",
+		"x": 9,
+		"y": 9
+	},
 	{
 		"id": 16,
 		"nom": "phases du boss",
@@ -227,6 +238,12 @@
 				"nombreDeFrames": 33
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "thaumaturge haha.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "$game_temp.faceset = \"thaumaturge noir\""
 			},
@@ -253,6 +270,12 @@
 			{
 				"nom": "Message",
 				"texte": "Nul ne doit mettre la main dessus ! \\nLa prophétie ne doit pas s'accomplir !"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "thaumaturge hahaha.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "Commentaire",
@@ -545,6 +568,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 33,
+		"nom": "Clone[582][112]",
+		"x": 9,
+		"y": 5
 	},
 	{
 		"id": 22,
@@ -924,37 +953,8 @@
 			],
 			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 2,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 45,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 17,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 46,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 17,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 42,
-				"valeur": false
+				"nom": "Commentaire",
+				"texte": "on peut pousser le nuage\\navec l'éventail"
 			},
 			{
 				"nom": "ConditionArmeEquipee",
@@ -962,42 +962,26 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 1
 			},
 			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 43,
-				"valeurQuIlEstCenseAvoir": false,
+				"nom": "ConditionScript",
+				"script": "($game_map.events[@event_id].x - $game_player.x).abs <= 1",
 				"numero": 2
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 43,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 45,
-				"comparerAUneAutreVariable": true,
+				"nom": "ConditionScript",
+				"script": "$game_player.y >= $game_map.events[@event_id].y",
 				"numero": 3
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 46,
-				"comparerAUneAutreVariable": true,
-				"numero": 4
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 0,
 				"direction": 3,
-				"numero": 5
+				"numero": 4
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1025,28 +1009,25 @@
 					"nombreDeCarreaux": 1
 				}
 				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 5
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 4
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 46,
-				"comparerAUneAutreVariable": true,
-				"numero": 6
+				"nom": "ConditionFin",
+				"numero": 3
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.y <= $game_map.events[@event_id].y",
+				"numero": 5
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 0,
 				"direction": 0,
-				"numero": 7
+				"numero": 6
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1074,10 +1055,6 @@
 					"nombreDeCarreaux": 1
 				}
 				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 7
 			},
 			{
 				"nom": "ConditionFin",
@@ -1085,130 +1062,112 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 3
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 46,
-				"comparerAUneAutreVariable": true,
-				"numero": 8
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 45,
-				"comparerAUneAutreVariable": true,
-				"numero": 9
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 1,
-				"numero": 10
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 44,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 10
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 2,
-				"inegalite": "<=",
-				"valeurQuIlEstCenseAvoir": 45,
-				"comparerAUneAutreVariable": true,
-				"numero": 11
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 2,
-				"numero": 12
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 44,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 12
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 11
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 8
+				"numero": 5
 			},
 			{
 				"nom": "ConditionFin",
 				"numero": 2
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
+				"nom": "ConditionScript",
+				"script": "($game_map.events[@event_id].y-2 - $game_player.y).abs <= 2",
+				"numero": 7
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.x >= $game_map.events[@event_id].x",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 1,
+				"numero": 9
 			},
 			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 43,
-				"valeur": false
+				"numeroInterrupteur": 44,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.x <= $game_map.events[@event_id].x",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 2,
+				"numero": 11
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 44,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 11
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 7
 			},
 			{
 				"nom": "ConditionFin",
@@ -1238,6 +1197,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "le nuage lance un éclair"
+			},
 			{
 				"nom": "AppelerUnScript",
 				"script": "wait_for_event(@event_id)"
@@ -1323,7 +1286,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "héros touché par le nuage de foudre"
+				"texte": "héros touché par la foudre"
 			},
 			{
 				"nom": "ConditionScript",
@@ -1362,12 +1325,48 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "boss touché par le nuage de foudre"
+				"texte": "boss touché par la foudre"
 			},
 			{
 				"nom": "ConditionScript",
 				"script": "($game_map.events[14].x-$game_map.events[17].x)**2 + ($game_map.events[14].y-$game_map.events[17].y)**2 <= 4",
 				"numero": 2
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 8,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"valeurADonner2": 1,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 8,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "thaumaturge woahaow.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 3
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "thaumaturge woaw.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "Deplacement",
@@ -1433,7 +1432,7 @@
 				"inegalite": ">=",
 				"valeurQuIlEstCenseAvoir": 3,
 				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1449,7 +1448,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "Attendre",
@@ -1657,6 +1656,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 34,
+		"nom": "Clone[582][112]",
+		"x": 12,
+		"y": 6
 	},
 	{
 		"id": 23,
@@ -2172,6 +2177,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 35,
+		"nom": "Clone[582][112]",
+		"x": 10,
+		"y": 9
 	},
 	{
 		"id": 13,
@@ -2865,6 +2876,12 @@
 		]
 	},
 	{
+		"id": 36,
+		"nom": "Clone[582][111]",
+		"x": 12,
+		"y": 7
+	},
+	{
 		"id": 14,
 		"nom": "Thaumaturge noir",
 		"x": 10,
@@ -2989,24 +3006,17 @@
 			],
 			"commandes": [
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 66
+				"nom": "Commentaire",
+				"texte": "invocation du gros nuage"
 			},
 			{
 				"nom": "JouerAnimation",
 				"idAnimation": 7
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "TeleporterEvent",
+				"nom": "JouerAnimation",
 				"idEvent": 17,
-				"variable": false,
-				"nouveauX": 10,
-				"nouveauY": 6,
-				"direction": 0
+				"idAnimation": 7
 			},
 			{
 				"nom": "Deplacement",
@@ -3031,7 +3041,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "si le héros pousse le nuage, celui-ci n'avance pas"
+				"texte": "si le héros est en train de pousser le nuage, \\nle nuage ne se promène pas"
 			},
 			{
 				"nom": "ConditionInterrupteur",
@@ -3207,6 +3217,10 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "mort du boss"
+			},
+			{
 				"nom": "ArreterMusique",
 				"nombreDeFrames": 30
 			},
@@ -3236,6 +3250,11 @@
 			{
 				"nom": "JouerAnimation",
 				"idAnimation": 6
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 233,
+				"valeur": true
 			},
 			{
 				"nom": "Attendre",
@@ -3336,6 +3355,11 @@
 				"nombreDeFrames": 13
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 233,
+				"valeur": false
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
@@ -3344,6 +3368,7 @@
 			"image": "thaumaturge noir character",
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
@@ -3387,6 +3412,11 @@
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 0,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 233,
+				"valeur": false
 			},
 			{
 				"nom": "Deplacement",
@@ -3846,6 +3876,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 37,
+		"nom": "Clone[582][111]",
+		"x": 8,
+		"y": 6
 	},
 	{
 		"id": 4,

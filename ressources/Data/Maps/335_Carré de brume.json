@@ -183,6 +183,12 @@
 		"y": 29
 	},
 	{
+		"id": 22,
+		"nom": "Clone[582][111]",
+		"x": 29,
+		"y": 21
+	},
+	{
 		"id": 11,
 		"nom": "Clone[582][46]",
 		"x": 32,
@@ -199,6 +205,12 @@
 		"nom": "Clone[341][028]",
 		"x": 31,
 		"y": 26
+	},
+	{
+		"id": 23,
+		"nom": "Clone[582][112]",
+		"x": 28,
+		"y": 22
 	},
 	{
 		"id": 12,
@@ -225,6 +237,12 @@
 		"y": 17
 	},
 	{
+		"id": 24,
+		"nom": "Clone[582][111]",
+		"x": 23,
+		"y": 23
+	},
+	{
 		"id": 13,
 		"nom": "Clone[582][46]",
 		"x": 34,
@@ -235,6 +253,12 @@
 		"nom": "Clone[341][028]",
 		"x": 31,
 		"y": 19
+	},
+	{
+		"id": 19,
+		"nom": "Clone[582][112]",
+		"x": 27,
+		"y": 18
 	},
 	{
 		"id": 8,
@@ -262,7 +286,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) ATTENTION ALL DAREDEVILS"
+				"texte": "(en) NOTICE TO THE RECKLESS"
 			},
 			{
 				"nom": "Message",
@@ -270,27 +294,27 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Wandering is vain\\nIn this mud and rain.\\nYou should say farewell\\nIf a magic spell"
+				"texte": "(en) \"Wandering is vain\\nIn this mud and rain.\\nBetter say farewell\\nIf a magic spell..."
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Ne vous égarez pas\\nDans ce marais pluvieux !\\nRetournez sur vos pas\\nSi un charme ennuyeux"
+				"texte": "\"Ne vous égarez pas\\nDans ce marais pluvieux !\\nRetournez sur vos pas\\nSi un charme ennuyeux..."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Makes you tread water.\\nCurse from their jotter\\nDark thaumaturgists\\nCast and the space twists."
+				"texte": "(en) ...makes you tread water.\\nCurse from their jotter\\nDark thaumaturgists\\nCast and the space twists!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous fait tourner en rond.\\nUn \\c[2]thaumaturge noir\\c[1]\\nMaudit les environs\\nEt cet épais brouillard"
+				"texte": "...vous fait tourner en rond.\\nUn \\c[2]thaumaturge noir\\c[1]\\nMaudit les environs\\nEt cet épais brouillard..."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Valiant heart, seek, strive!\\nBring here twenty five\\nCrystals of the whale.\\nRemove that fog veil!"
+				"texte": "(en) Valiant invitee!\\nBring along thirty\\nCrystals of the whale\\nTo lift that fog veil!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Ne s'évaporera\\nQue quand un noble zèle\\nIci apportera\\n25 cristaux de sel."
+				"texte": "...ne s'évaporera\\nQue lorsqu'un noble zèle\\nIci apportera\\n30 cristaux de sel."
 			},
 			{
 				"nom": "Commentaire",
@@ -342,8 +366,182 @@
 		"y": 19
 	},
 	{
+		"id": 25,
+		"nom": "Miracle",
+		"x": 25,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 54,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "objets possedes"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 54,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 30,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 10,
+				"variable": false,
+				"nouveauX": 0,
+				"nouveauY": 0,
+				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 30
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "130-Earth02.ogg",
+				"volume": 0.50,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "015-Quake01.ogg",
+				"volume": 0.80,
+				"tempo": 1.50
+			},
+			{
+				"nom": "TremblementDeTerre",
+				"intensite": 4,
+				"vitesse": 8,
+				"nombreDeFrames": 100
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 41
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (lieu gueri).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 233,
+				"valeur": true
+			},
+			{
+				"nom": "ArreterFondSonore",
+				"nombreDeFrames": 90
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 50
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 6,
+				"avancement": "FAITE"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 233,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 237,
+				"valeur": true
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 336,
+				"xDebutHeros": 15,
+				"yDebutHeros": 11
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 26,
+				"variable": false,
+				"nouveauX": 12,
+				"nouveauY": 13,
+				"direction": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[582][112]",
+		"x": 22,
+		"y": 19
+	},
+	{
 		"id": 9,
-		"nom": "EV009",
+		"nom": "brouillard maudit",
 		"x": 31,
 		"y": 6,
 		"pages": [
@@ -470,7 +668,7 @@
 			},
 			{
 				"nom": "ConditionScript",
-				"script": "Math.hypot($game_player.x-25, $game_player.y-25).round >= 10",
+				"script": "Math.hypot($game_player.x-25, $game_player.y-21).round >= 14",
 				"numero": 4
 			},
 			{
@@ -489,7 +687,7 @@
 			},
 			{
 				"nom": "ConditionScript",
-				"script": "Math.hypot($game_player.x-25, $game_player.y-25).round >= 7",
+				"script": "Math.hypot($game_player.x-25, $game_player.y-21).round >= 12",
 				"numero": 5
 			},
 			{
@@ -508,7 +706,7 @@
 			},
 			{
 				"nom": "ConditionScript",
-				"script": "Math.hypot($game_player.x-25, $game_player.y-25).round >= 5",
+				"script": "Math.hypot($game_player.x-25, $game_player.y-21).round >= 10",
 				"numero": 6
 			},
 			{
@@ -527,7 +725,7 @@
 			},
 			{
 				"nom": "ConditionScript",
-				"script": "Math.hypot($game_player.x-25, $game_player.y-25).round >= 2",
+				"script": "Math.hypot($game_player.x-25, $game_player.y-21).round >= 8",
 				"numero": 7
 			},
 			{
@@ -545,6 +743,11 @@
 				"numero": 7
 			},
 			{
+				"nom": "ConditionScript",
+				"script": "Math.hypot($game_player.x-25, $game_player.y-21).round >= 6",
+				"numero": 8
+			},
+			{
 				"nom": "ModifierBrouillard",
 				"opacite": 100,
 				"modeDeFusion": "normal",
@@ -553,6 +756,70 @@
 				"zoom": 100,
 				"nuance": 0,
 				"nomImage": "brouillard bleu clair2"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 8
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Math.hypot($game_player.x-25, $game_player.y-21).round >= 4",
+				"numero": 9
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 75,
+				"modeDeFusion": "normal",
+				"defilementX": 5,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "brouillard bleu clair2"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionScript",
+				"script": "Math.hypot($game_player.x-25, $game_player.y-21).round >= 2",
+				"numero": 10
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 50,
+				"modeDeFusion": "normal",
+				"defilementX": 5,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "brouillard bleu clair2"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 10
+			},
+			{
+				"nom": "ModifierBrouillard",
+				"opacite": 25,
+				"modeDeFusion": "normal",
+				"defilementX": 5,
+				"defilementY": 0,
+				"zoom": 100,
+				"nuance": 0,
+				"nomImage": "brouillard bleu clair2"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 10
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 8
 			},
 			{
 				"nom": "ConditionFin",
@@ -596,6 +863,12 @@
 		"nom": "Clone[341][061]",
 		"x": 18,
 		"y": 25
+	},
+	{
+		"id": 21,
+		"nom": "Clone[582][111]",
+		"x": 21,
+		"y": 20
 	},
 	{
 		"id": 10,

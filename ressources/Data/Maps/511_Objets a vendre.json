@@ -679,23 +679,31 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) This is a priceless object!"
+				"texte": "(en) It's a unique object in the world!\\nIt allows you to communicate telepathically \\nwith \\c[2]stone beings\\c[0]!"
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est un objet d'une valeur inestimable !"
+				"texte": "C'est un objet unique au monde !\\nIl permet de communiquer télépathiquement \\navec les \\c[2]êtres de pierre\\c[0] !"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I'll give it to you for 112 scales, \\nthat's the price!"
+				"texte": "(en) If you ask me, the \\c[2]young girl\\c[0] \\nwho sold it to me made a huge mistake\\nin getting rid of it."
 			},
 			{
 				"nom": "Message",
-				"texte": "Je vous la fais à 112 écailles, c'est le prix !"
+				"texte": "Si vous voulez mon avis, la \\c[2]jeune fille\\c[0]\\nqui me l'a vendue a fait une énorme bêtise \\nen s'en débarrassant."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I'll give it to you for 125 scales.\\nThat's the price! (plus a margin, obviously)"
+			},
+			{
+				"nom": "Message",
+				"texte": "Je vous la fais à 125 écailles.\\nC'est le prix ! (plus une marge, évidemment)"
 			},
 			{
 				"nom": "ConditionArgent",
-				"quantite": 112,
+				"quantite": 125,
 				"inegalite": ">=",
 				"numero": 0
 			},
@@ -774,7 +782,7 @@
 			{
 				"nom": "RetirerArgent",
 				"variable": false,
-				"quantite": 112
+				"quantite": 125
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -795,14 +803,6 @@
 			{
 				"nom": "Message",
 				"texte": "Assignez-la dans le menu \"équipement\", \\net communiquez avec les statues jizô !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) If you consult the region map \\nwhile equipping the jizo stone\\nthe location of the jizo statues will appear!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Si vous consultez la carte de la région \\nen ayant équipé la pierre du jizô, \\nl'emplacement des statues jizô apparaîtra !"
 			},
 			{
 				"nom": "Attendre",
@@ -866,15 +866,15 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Really?"
+				"texte": "(en) Really?\\nI think you don't understand how precious \\nthis trinket... I mean... this wonder is."
 			},
 			{
 				"nom": "Message",
-				"texte": "Ah bon ?"
+				"texte": "Ah bon ?\\nJe crois que vous n'avez pas saisi à quel point \\ncette breloque... je veux dire... cette merveille \\nest précieuse."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) (cheap!)"
+				"texte": "(en) (cheapskate!)"
 			},
 			{
 				"nom": "Message",
@@ -898,11 +898,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You have less than 112 scales!"
+				"texte": "(en) You have less than 125 scales!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous avez moins de 112 écailles !"
+				"texte": "Vous avez moins de 125 écailles !"
 			},
 			{
 				"nom": "Commentaire",
@@ -945,313 +945,6 @@
 			"image": "objet kujira 1",
 			"directionInitiale": 1,
 			"animationInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Calecon",
-		"x": 14,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"mercator\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Fireproof underwear?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Le caleçon ignifugé ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Yes, this is our latest fashionable item!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Oui, c'est notre tout dernier article à la \\nmode !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's only 20 scales."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il est à 20 écailles seulement."
-			},
-			{
-				"nom": "ConditionArgent",
-				"quantite": 20,
-				"inegalite": ">=",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) So, is it a deal?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Yes|No"
-			},
-			{
-				"nom": "Message",
-				"texte": "Alors, marché conclu ?"
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Non"],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (objet trouve).ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu content character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				}
-				]
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 3
-			},
-			{
-				"nom": "RetirerArgent",
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = nil"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You buy fireproof underwear!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous achetez un caleçon ignifugé !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You can stick your hindquarters\\nin the coals without getting burned!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous pouvez mettre votre arrière-train dans \\nles tas de braises sans vous brûler !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Assign it with the \"Z\" key."
-			},
-			{
-				"nom": "Message",
-				"texte": "Assignez-le avec la touche \"W\"."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 16
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				},
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Really?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ah bon ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) (stingy!)"
-			},
-			{
-				"nom": "Message",
-				"texte": "(radin !)"
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) WHAT?"
-			},
-			{
-				"nom": "Message",
-				"texte": "QUOI ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You have less than 20 scales!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Vous avez moins de 20 écailles !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Gadzooks!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saperlipopette !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) No credit!"
-			},
-			{
-				"nom": "Message",
-				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) (grmbl...)"
-			},
-			{
-				"nom": "Message",
-				"texte": "(grmbl...)"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "objet kujira 1",
-			"directionInitiale": 1,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -1561,6 +1254,313 @@
 			],
 			"image": "objet kujira 2",
 			"directionInitiale": 2,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Calecon",
+		"x": 14,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"mercator\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Fireproof underwear?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le caleçon ignifugé ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes, this is our latest fashionable item!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oui, c'est notre tout dernier article à la \\nmode !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's only 20 scales."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il est à 20 écailles seulement."
+			},
+			{
+				"nom": "ConditionArgent",
+				"quantite": 20,
+				"inegalite": ">=",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) So, is it a deal?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|No"
+			},
+			{
+				"nom": "Message",
+				"texte": "Alors, marché conclu ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Perfect! \\nI have a feeling we're going to get along!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Parfait parfait ! Je sens qu'on va s'entendre !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 3
+			},
+			{
+				"nom": "RetirerArgent",
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = nil"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You buy fireproof underwear!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous achetez un caleçon ignifugé !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You can stick your hindquarters\\nin the coals without getting burned!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous pouvez mettre votre arrière-train dans \\nles tas de braises sans vous brûler !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Assign it with the \"Z\" key."
+			},
+			{
+				"nom": "Message",
+				"texte": "Assignez-le avec la touche \"W\"."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Really?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah bon ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (stingy!)"
+			},
+			{
+				"nom": "Message",
+				"texte": "(radin !)"
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) WHAT?"
+			},
+			{
+				"nom": "Message",
+				"texte": "QUOI ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You have less than 20 scales!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous avez moins de 20 écailles !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Gadzooks!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Saperlipopette !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No credit!"
+			},
+			{
+				"nom": "Message",
+				"texte": "La maison ne fait pas crédit, et on n'offre rien, \\ntout se paye ici !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) (grmbl...)"
+			},
+			{
+				"nom": "Message",
+				"texte": "(grmbl...)"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "objet kujira 1",
+			"directionInitiale": 1,
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
 			"animeEnMouvement": false,
@@ -3076,7 +3076,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Une dizaine de morceaux de Soufre ?"
+				"texte": "Une dizaine de morceaux de soufre ?"
 			},
 			{
 				"nom": "Commentaire",
@@ -3245,7 +3245,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous pouvez utiliser la Torche de Kazan'."
+				"texte": "Vous pouvez utiliser la torche de Kazan'."
 			},
 			{
 				"nom": "Attendre",
@@ -3422,7 +3422,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) The Enchanted piggybank?"
+				"texte": "(en) The enchanted piggybank?"
 			},
 			{
 				"nom": "Message",

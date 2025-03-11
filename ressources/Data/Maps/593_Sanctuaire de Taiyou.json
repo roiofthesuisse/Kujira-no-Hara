@@ -117,8 +117,9 @@
 				"numero": 1
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 2
 			},
 			{
@@ -185,8 +186,11 @@
 					"traversable": true
 				},
 				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
+					"nom": "ModifierApparence",
+					"image": "",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
 				}
 				]
 			},
@@ -687,6 +691,10 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
@@ -695,24 +703,6 @@
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
 			},
 			{
 				"nom": "ConditionSinon",

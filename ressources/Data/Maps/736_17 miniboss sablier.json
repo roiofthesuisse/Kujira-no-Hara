@@ -56,6 +56,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][004]",
+		"x": 17,
+		"y": 9
+	},
+	{
 		"id": 16,
 		"nom": "blocage",
 		"x": 16,
@@ -82,20 +88,8 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 17,
-		"y": 9
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][078]",
-		"x": 12,
-		"y": 12
-	},
-	{
 		"id": 11,
-		"nom": "rocher",
+		"nom": "rocher11",
 		"x": 20,
 		"y": 11,
 		"pages": [
@@ -170,6 +164,7 @@
 			}
 			],
 			"image": "rocher gris character",
+			"opacite": 0,
 			"directionInitiale": 2,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
@@ -182,10 +177,10 @@
 		]
 	},
 	{
-		"id": 17,
+		"id": 22,
 		"nom": "Clone[341][078]",
-		"x": 4,
-		"y": 4
+		"x": 12,
+		"y": 12
 	},
 	{
 		"id": 6,
@@ -194,14 +189,48 @@
 		"y": 12
 	},
 	{
-		"id": 23,
+		"id": 17,
 		"nom": "Clone[341][078]",
-		"x": 16,
-		"y": 9
+		"x": 4,
+		"y": 4
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 1,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ArreterChronometre"
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 714,
+				"xDebutHeros": 19,
+				"yDebutHeros": 10
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 12,
-		"nom": "rocher",
+		"nom": "rocher12",
 		"x": 20,
 		"y": 10,
 		"pages": [
@@ -276,6 +305,7 @@
 			}
 			],
 			"image": "rocher gris character",
+			"opacite": 0,
 			"directionInitiale": 2,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
@@ -288,44 +318,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 1,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ArreterChronometre"
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 714,
-				"xDebutHeros": 19,
-				"yDebutHeros": 10
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
+		"id": 23,
 		"nom": "Clone[341][078]",
-		"x": 15,
-		"y": 5
+		"x": 16,
+		"y": 9
 	},
 	{
 		"id": 7,
@@ -337,6 +333,10 @@
 			"conditions": [
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "le sablier crache des rochers vers le héros"
+			},
 			{
 				"nom": "JouerMusique",
 				"nomFichierSonore": "MiniBoss 3.ogg",
@@ -352,6 +352,10 @@
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": false
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "alterner les rochers"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -970,10 +974,6 @@
 				]
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 4
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 4
 			},
@@ -1018,6 +1018,10 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "le sablier a atteint le bout de la ligne\\n(de gauche à droite)"
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 1,
 				"valeurADonner": false
@@ -1052,6 +1056,14 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "le sablier a atteint le bout de la ligne\\n(de droite à gauche)"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "incrémenter le compteur \\nà chaque fois que le sablier a terminé un cycle\\nde crachat de rochers"
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 1,
 				"valeurADonner": false
@@ -1066,11 +1078,69 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 25,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "au début du combat\\nle sablier ne lance qu'une salve"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 13,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 4,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 25,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 20,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "au milieu du combat\\nle sablier ne lance que deux salves"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 13,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 2,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "à la fin du combat\\nle sablier lance quatre salves"
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 13,
 				"operationAFaire": "ajouter",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1102,6 +1172,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "le sablier crache des rochers vers le héros\\nde droite à gauche cette fois"
+			},
 			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 1,
@@ -1773,6 +1847,119 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "le sablier a fini ses crachats de rochers\\nil sort de sa muraille pour piétiner le héros"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "ne pas laisser trainer les rochers sur le terrain \\nau changement de phase"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 8,
+				"variable": false,
+				"nouveauX": 20,
+				"nouveauY": 14,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 9,
+				"variable": false,
+				"nouveauX": 20,
+				"nouveauY": 14,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 10,
+				"variable": false,
+				"nouveauX": 20,
+				"nouveauY": 14,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 11,
+				"variable": false,
+				"nouveauX": 20,
+				"nouveauY": 14,
+				"direction": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 12,
+				"variable": false,
+				"nouveauX": 20,
+				"nouveauY": 14,
+				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 8,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 9,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 12,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 1,
 				"valeurADonner": false
@@ -1816,6 +2003,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "le sablier piétine le héros au contact"
+			},
 			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 1,
@@ -1882,6 +2073,10 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "souffler dans le sablier \\npour faire monter le sable"
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 1,
 				"valeurADonner": false
@@ -1909,7 +2104,7 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 6
+				"nombreDeFrames": 1
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -2802,33 +2997,49 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "rien",
-		"x": 20,
-		"y": 3,
+		"id": 18,
+		"nom": "Clone[341][078]",
+		"x": 15,
+		"y": 5
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 16,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ArreterChronometre"
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 716,
+				"xDebutHeros": 16,
+				"yDebutHeros": 1
+			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
 		"id": 13,
-		"nom": "EV013",
-		"x": 19,
+		"nom": "gestion du boss",
+		"x": 20,
 		"y": 2,
 		"pages": [
 		{
@@ -2840,6 +3051,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "le sablier saute pour écraser le héros"
+			},
 			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
@@ -3350,14 +3565,24 @@
 				"numero": 0
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(7)"
+			},
+			{
+				"nom": "TremblementDeTerre",
+				"intensite": 5,
+				"vitesse": 5,
+				"nombreDeFrames": 8
 			},
 			{
 				"nom": "JouerEffetSonore",
 				"nomFichierSonore": "052-Cannon01.ogg",
 				"volume": 0.80,
 				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([70, true, $game_map.events[7].x, $game_map.events[7].y])"
 			},
 			{
 				"nom": "Attendre",
@@ -3398,6 +3623,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "le sablier reprend ses esprits"
+			},
 			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
@@ -3506,6 +3735,10 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "le chrono est terminé\\nle sablier reprend sa première phase"
+			},
+			{
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": false
@@ -3583,6 +3816,10 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "plus le combat avance,\\nplus de petits ennemis sont invoqués \\nlorsque le sablier complète un cycle"
+			},
+			{
 				"nom": "AppelerUnScript",
 				"script": "invoquer($game_variables[56], $game_variables[57], 21, 4)"
 			},
@@ -3651,6 +3888,10 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "le sablier regagne sa place\\nen haut à gauche"
+			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 1
@@ -4142,48 +4383,32 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 16,
-		"y": 14,
+		"id": 24,
+		"nom": "rien",
+		"x": 20,
+		"y": 3,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ArreterChronometre"
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 716,
-				"xDebutHeros": 16,
-				"yDebutHeros": 1
-			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][078]",
-		"x": 12,
-		"y": 7
-	},
-	{
 		"id": 8,
-		"nom": "rocher",
+		"nom": "rocher8",
 		"x": 20,
 		"y": 14,
 		"pages": [
@@ -4258,6 +4483,7 @@
 			}
 			],
 			"image": "rocher gris character",
+			"opacite": 0,
 			"directionInitiale": 2,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
@@ -4268,6 +4494,18 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][078]",
+		"x": 12,
+		"y": 7
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 3,
+		"y": 12
 	},
 	{
 		"id": 14,
@@ -4446,20 +4684,8 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][004]",
-		"x": 3,
-		"y": 12
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][078]",
-		"x": 7,
-		"y": 6
-	},
-	{
 		"id": 9,
-		"nom": "rocher",
+		"nom": "rocher9",
 		"x": 20,
 		"y": 13,
 		"pages": [
@@ -4534,6 +4760,7 @@
 			}
 			],
 			"image": "rocher gris character",
+			"opacite": 0,
 			"directionInitiale": 2,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
@@ -4544,6 +4771,18 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][078]",
+		"x": 7,
+		"y": 6
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][004]",
+		"x": 17,
+		"y": 10
 	},
 	{
 		"id": 15,
@@ -4572,20 +4811,8 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][004]",
-		"x": 17,
-		"y": 10
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][078]",
-		"x": 6,
-		"y": 12
-	},
-	{
 		"id": 10,
-		"nom": "rocher",
+		"nom": "rocher10",
 		"x": 20,
 		"y": 12,
 		"pages": [
@@ -4660,6 +4887,7 @@
 			}
 			],
 			"image": "rocher gris character",
+			"opacite": 0,
 			"directionInitiale": 2,
 			"vitesse": "rapide",
 			"frequence": "tres haute",
@@ -4670,6 +4898,12 @@
 			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][078]",
+		"x": 6,
+		"y": 12
 	}
 	]
 }

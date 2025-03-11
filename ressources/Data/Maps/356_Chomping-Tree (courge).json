@@ -10,7 +10,7 @@
 	},
 	"fondSonore": {
 		"nomFichierSonore": "006-Rain02.ogg",
-		"volume": 1.00,
+		"volume": 0.30,
 		"tempo": 1.00
 	},
 	"couche0": [
@@ -126,8 +126,33 @@
 	],
 	"events": [
 	{
+		"id": 27,
+		"nom": "caustiques",
+		"x": 22,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 133
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 16,
-		"nom": "EV016",
+		"nom": "pas de pluie",
 		"x": 21,
 		"y": 9,
 		"pages": [
@@ -137,7 +162,7 @@
 			"commandes": [
 			{
 				"nom": "ModifierMeteo",
-				"type": "pluie",
+				"type": "rien",
 				"intensite": 5
 			},
 			{
@@ -145,20 +170,10 @@
 				"numero": 3
 			},
 			{
-				"nom": "ModifierBrouillard",
-				"opacite": 50,
-				"modeDeFusion": "normal",
-				"defilementX": -20,
-				"defilementY": 105,
-				"zoom": 200,
-				"nuance": 0,
-				"nomImage": "essai pluie brouillard"
-			},
-			{
 				"nom": "ModifierTonDeLEcran",
-				"rouge": 120,
-				"vert": 135,
-				"bleu": 135,
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
 				"gris": 0,
 				"dureeTransition": 0
 			},
@@ -181,12 +196,6 @@
 		"nom": "Clone[341][028]",
 		"x": 8,
 		"y": 17
-	},
-	{
-		"id": 22,
-		"nom": "Clone[582][46]",
-		"x": 20,
-		"y": 5
 	},
 	{
 		"id": 11,
@@ -669,18 +678,6 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "Clone[582][46]",
-		"x": 21,
-		"y": 5
-	},
-	{
-		"id": 1,
-		"nom": "Clone[582][46]",
-		"x": 19,
-		"y": 4
-	},
-	{
 		"id": 12,
 		"nom": "Pancarte",
 		"x": 12,
@@ -745,22 +742,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[582][46]",
-		"x": 20,
-		"y": 4
-	},
-	{
 		"id": 7,
 		"nom": "Clone[341][061]",
 		"x": 7,
 		"y": 14
-	},
-	{
-		"id": 24,
-		"nom": "Clone[582][46]",
-		"x": 22,
-		"y": 5
 	},
 	{
 		"id": 13,
@@ -1024,12 +1009,6 @@
 		"y": 9
 	},
 	{
-		"id": 19,
-		"nom": "Clone[582][46]",
-		"x": 21,
-		"y": 4
-	},
-	{
 		"id": 8,
 		"nom": "Clone[341][061]",
 		"x": 14,
@@ -1112,12 +1091,6 @@
 		"y": 12
 	},
 	{
-		"id": 20,
-		"nom": "Clone[582][46]",
-		"x": 22,
-		"y": 4
-	},
-	{
 		"id": 9,
 		"nom": "Clone[341][061]",
 		"x": 17,
@@ -1165,12 +1138,6 @@
 		"nom": "Clone[582][1]",
 		"x": 14,
 		"y": 13
-	},
-	{
-		"id": 21,
-		"nom": "Clone[582][46]",
-		"x": 19,
-		"y": 5
 	},
 	{
 		"id": 10,

@@ -122,8 +122,14 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 5,
+		"y": 13
+	},
+	{
 		"id": 12,
-		"nom": "Marmite de Panacée",
+		"nom": "Marmite de Panacée SHADOW[48,-4]",
 		"x": 10,
 		"y": 14,
 		"pages": [
@@ -326,11 +332,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Drink it at any time in the\\n\"object\" section of the menu\\nto recover your strength!"
+				"texte": "(en) Drink it at any time in the\\n\"ITEM\" section of the menu\\nto recover your strength!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Buvez-la à tout moment dans la rubrique \\n\"objet\" du menu pour retrouver vos forces !"
+				"texte": "Buvez-la à tout moment dans la rubrique \\n\"OBJET\" du menu pour retrouver vos forces !"
 			},
 			{
 				"nom": "Attendre",
@@ -417,7 +423,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Reviens m'en acheter dés que tu auras \\nassez d'écailles !"
+				"texte": "Reviens m'en acheter dès que tu auras \\nassez d'écailles !"
 			},
 			{
 				"nom": "ConditionFin",
@@ -705,14 +711,35 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 5,
-		"y": 13
+		"id": 18,
+		"nom": "Tabula le Terrible SHADOW[40] (-8)",
+		"x": 8,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "tabula le terrible",
+			"opacite": 0,
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 7,
-		"nom": "Marmite de Panacée",
+		"nom": "Marmite de Panacée SHADOW[48,-4]",
 		"x": 6,
 		"y": 14,
 		"pages": [
@@ -911,11 +938,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Drink it at any time in the menu\\nitem to regain your strength!"
+				"texte": "(en) Drink it at any time in the \"ITEM\" menu\\nto regain your strength!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Buvez-la à tout moment dans la rubrique \\n\"objet\" du menu pour retrouver vos forces !"
+				"texte": "Buvez-la à tout moment dans la rubrique \\n\"OBJET\" du menu pour retrouver vos forces !"
 			},
 			{
 				"nom": "Attendre",
@@ -1010,7 +1037,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Reviens m'en acheter dés que tu auras \\nassez d'écailles !"
+				"texte": "Reviens m'en acheter dès que tu auras \\nassez d'écailles !"
 			},
 			{
 				"nom": "ConditionFin",
@@ -1080,31 +1107,10 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Tabula le Terrible SHADOW[40] (-8)",
-		"x": 8,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "tabula le terrible",
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 14
 	},
 	{
 		"id": 13,
@@ -1136,12 +1142,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 14
 	},
 	{
 		"id": 19,
@@ -1243,8 +1243,124 @@
 		]
 	},
 	{
+		"id": 3,
+		"nom": "parler au livre",
+		"x": 14,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 121,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a very serious alchemy book."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un livre d'alchimie très sérieux."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Abracadabra hocus pocus\"."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Abracadabra \\nhocus pocus\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Turlututu pointed hat\"."
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Turlututu \\nchapeau pointu\""
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a very serious book about alchemy."
+			},
+			{
+				"nom": "Message",
+				"texte": "This is a very serious book about alchemy."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Abracadabra hocus pocus"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Abracadabra \\nhocus pocus\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Liquefied rat and pointed hat"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Liquefied rat\\nand pointed hat\""
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 14,
-		"nom": "Magicien Dose",
+		"nom": "Magicien Dose SHADOW[48,-6]",
 		"x": 8,
 		"y": 12,
 		"pages": [
@@ -3330,7 +3446,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Si tu comptes explorer Kujira plus en \\nprofondeur, la panacée sera ta meilleure \\naliée !"
+				"texte": "Si tu comptes explorer Kujira plus en \\nprofondeur, la panacée sera ta meilleure \\nalliée !"
 			},
 			{
 				"nom": "ChoixFin",
@@ -3706,122 +3822,6 @@
 			"frequence": "la plus haute",
 			"animeEnMouvement": true,
 			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "parler au livre",
-		"x": 14,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) This is a very serious alchemy book."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est un livre d'alchimie très sérieux."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Abracadabra hocus pocus\"."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Abracadabra \\nhocus pocus\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Turlututu pointed hat\"."
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Turlututu \\nchapeau pointu\""
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) This is a very serious book about alchemy."
-			},
-			{
-				"nom": "Message",
-				"texte": "This is a very serious book about alchemy."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Abracadabra hocus pocus"
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Abracadabra \\nhocus pocus\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Liquefied rat and pointed hat"
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Liquefied rat\\nand pointed hat\""
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false

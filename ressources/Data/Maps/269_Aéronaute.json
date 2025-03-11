@@ -23,7 +23,7 @@
 	[-001,-001,-001,0040,0040,0040,0040,0009,0017,0040,0009,0011,0017,-007,-007,-008,-008,-008,-007,-007,0038,0038,0038,0038,0038,0038,0038,-001,-001,-001],
 	[-001,-001,-001,0040,0040,0040,0040,0040,0009,0017,0040,0018,0019,-007,-007,-007,-007,-007,-007,-007,0038,0038,0038,0038,0038,0038,0038,-001,-001,-001],
 	[-001,-001,-001,0040,0040,0040,0040,0040,0040,0009,0017,-007,-007,-007,-007,0000,0000,0000,-007,-007,0038,0038,0038,0038,0038,0038,0038,-001,-001,-001],
-	[-001,-001,-001,0040,0040,0040,0040,0040,0040,0040,-007,-007,-008,-007,0000,0000,0000,0000,-007,-007,0038,0038,0038,0038,0038,0038,0038,-001,-001,-001],
+	[-001,-001,-001,0040,0040,0040,0040,0040,0040,0040,-007,-007,-007,-007,0000,0000,0000,0000,-007,-007,0038,0038,0038,0038,0038,0038,0038,-001,-001,-001],
 	[-001,-001,-001,0040,0040,0040,0040,0040,0040,0040,-007,-007,-007,-007,0000,0000,0000,-007,-007,0008,0038,0038,0038,0038,0038,0038,0038,-001,-001,-001],
 	[-001,-001,-001,0040,0040,0040,0040,0040,0040,0040,0008,0000,-007,-007,-007,-007,-007,-007,-007,-007,0038,0038,0038,0038,0038,0038,0038,-001,-001,-001],
 	[-001,-001,-001,0040,0040,0040,0040,0040,0040,0041,0000,0000,-007,-007,-008,-008,-008,-008,-008,-007,0038,0038,0038,0038,0038,0038,0038,-001,-001,-001],
@@ -140,6 +140,31 @@
 		"id": 1,
 		"nom": "Aéronaute",
 		"x": 15,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "aeronaute character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "carton",
+		"x": 12,
 		"y": 14,
 		"pages": [
 		{
@@ -156,6 +181,7 @@
 			},
 			{
 				"nom": "Deplacement",
+				"idEventADeplacer": 1,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
@@ -212,7 +238,16 @@
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nombreDeFrames": 3
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 8,
+				"idAnimation": 2
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
 			},
 			{
 				"nom": "JouerMusique",
@@ -221,608 +256,220 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"aeronaute\""
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Hey! Kid!"
+				"texte": "(en) Hey! Kid!\\nYou wonder what's in this box?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Hep ! Petit !"
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"texte": "Hé ! Petit !\\nTu te demandes ce qu'il y a dans ce carton ?"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I am \\c[2]Jean-Claude\\c[0] the baloon driver."
+				"texte": "(en) It is filled with butterflies."
 			},
 			{
 				"nom": "Message",
-				"texte": "Je suis Jean-Claude l'\\c[2]aéronaute\\c[1]."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"texte": "Il est rempli de papillons."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) And I try to escape from Kujira by the air."
+				"texte": "(en) I'm going to use it to make \\nmy hot air balloon fly.\\nIt's an idea of mine.\\nI'll explain the plan to you:"
 			},
 			{
 				"nom": "Message",
-				"texte": "Et je cherche à m'évader de Kujira par la \\nvoie des airs."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"texte": "Je vais m'en servir pour faire décoller \\nma montgolfière.\\nC'est une idée à moi. \\nJe t'explique le plan :"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I made a wrong maneuver, and crashed here..."
+				"texte": "(en) 1) You open the box.\\n2) You catch all the butterflies.\\n3) We put them in the balloon.\\n4) The hot air balloon takes off."
 			},
 			{
 				"nom": "Message",
-				"texte": "J'ai fait une fausse manoeuvre, et je me \\nsuis crashé ici..."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"texte": "1) Tu ouvres le carton.\\n2) Tu attrapes tous les papillons.\\n3) On les met dans le ballon.\\n4) La montgolfière décolle."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) But now my balloon is fixed and ready to go."
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais maintenant mon ballon est réparé et \\nprêt à partir."
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 3
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 1,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 5
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "aeronaute character",
-					"direction": 2,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 1
-				}
-				]
+				"texte": "(en) So, will you help me gather them?"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Could you cut the rope please?"
+				"texte": "(en) Yes|No"
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu pourrais pas couper la corde s'te plait ?"
+				"texte": "Alors, tu veux bien m'aider à les réunir ?"
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Non"],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (c'est parti !).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Okay, let's go!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ok, c'est parti !"
+			},
+			{
+				"nom": "DemarrerChronometre",
+				"depart": 61
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 333,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 15,
+				"operationAFaire2": "objets possedes"
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 15,
+				"variable": false,
+				"quantite": 99
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 235,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 236,
+				"valeur": false
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "--------------------------------------------------"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 332,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 2,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 66,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 222,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": true,
+				"numeroNouvelleMap": 66,
+				"xDebutHeros": 2,
+				"yDebutHeros": 3
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, too bad.\\nI'll ask someone else."
+			},
+			{
+				"nom": "Message",
+				"texte": "Arf, dommage.\\nBon, tant pis.\\nJe demanderai à quelqu'un d'autre."
 			},
 			{
 				"nom": "ArreterMusique",
-				"nombreDeFrames": 30
+				"nombreDeFrames": 60
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 1,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 1,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 1,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
 			},
 			{
 				"nom": "Attendre",
@@ -832,14 +479,9 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
 			}
 			],
-			"image": "aeronaute character",
+			"image": "carton character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -851,54 +493,183 @@
 		{
 			"conditions": [
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 1,
-				"numeroInterrupteurLocal": 1,
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 235,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionScript",
-				"script": "$game_player.target_in_da_zone?(@event_id, 0)",
-				"numero": 0
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
 			},
 			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 1
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				}
+				]
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
-				"numero": 2
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Jean-Claude l aeronaute.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"aeronaute\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Too late!\\nThey flew away."
+			},
+			{
+				"nom": "Message",
+				"texte": "Trop tard !\\nIls se sont enfuis."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) No, but it's not necessarily your fault: \\nthe hitbox of these butterflies is terrible, \\nI got them at a discount."
+			},
+			{
+				"nom": "Message",
+				"texte": "Nan mais c'est pas forcément ta faute :\\nla hitbox de ces papillons est complètement \\naux fraises, je les ai eus au rabais."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I ordered a new box if you ever want \\nto try again."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'ai commandé un nouveau carton si jamais \\ntu veux réessayer."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rendre les papillons qu'on avait avant de jouer"
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 15,
+				"variable": false,
+				"quantite": 99
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 15,
+				"variable": true,
+				"quantite": 333
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 333,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 2,
-				"valeurADonner": true
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 60
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 2
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 1,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 1,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 1,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				}
+				]
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			},
 			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 235,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 236,
+				"valeur": false
 			}
 			],
-			"image": "aeronaute character",
-			"directionInitiale": 2,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"image": "carton character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
@@ -908,39 +679,58 @@
 		{
 			"conditions": [
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 1,
-				"numeroInterrupteurLocal": 2,
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 236,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Jean-Claude l aeronaute.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Jean-Claude l aeronaute.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"aeronaute\""
+			},
+			{
 				"nom": "Commentaire",
-				"texte": "(en) Thanks son!"
+				"texte": "(en) Well done!\\nYou caught them all!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Merci fiston !"
+				"texte": "Bravo !\\nTu les as tous eus !"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Catch this! This is to reward you!"
+				"texte": "(en) Thank you, kid.\\nCatch this! This is to reward you!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Attrape ça ! C'est pour te récompenser !"
+				"texte": "Merci petit.\\nAttrape ça ! C'est pour te récompenser !"
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -972,23 +762,110 @@
 				]
 			},
 			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"aeronaute\""
+			},
+			{
 				"nom": "Commentaire",
-				"texte": "(en) I will repay you one day!"
+				"texte": "(en) ..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Je te revaudrai ça un jour !"
+				"texte": "..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I just thought of something..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je viens de penser à un truc..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I could have simply opened the box \\ndirectly into the balloon.\\nThat way, there would have been no need \\nto catch them."
+			},
+			{
+				"nom": "Message",
+				"texte": "J'aurais pu tout simplement ouvrir le carton\\ndirectement dans le ballon.\\nComme ça, il n'y aurait pas eu besoin \\nde les attraper."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, anyway. Your only memory of me \\nwill be that of a big idiot."
+			},
+			{
+				"nom": "Message",
+				"texte": "Bon, tant pis. Ton seul souvenir de moi sera \\ncelui d'un idiot."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Goodbye, kid!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Adieu, petit !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "rendre les papillons qu'on avait avant de jouer"
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 15,
+				"variable": false,
+				"quantite": 99
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 15,
+				"variable": true,
+				"quantite": 333
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 333,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 150
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 83,
+				"avancement": "FAITE"
 			},
 			{
 				"nom": "Deplacement",
+				"idEventADeplacer": 1,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "Avancer",
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "aeronaute character",
 					"direction": 3,
-					"nombreDeCarreaux": 1
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
 				},
 				{
 					"nom": "Avancer",
@@ -1036,12 +913,8 @@
 				]
 			},
 			{
-				"nom": "ArreterMusique",
-				"nombreDeFrames": 150
-			},
-			{
 				"nom": "AppelerUnScript",
-				"script": "wait_for_event(@event_id)"
+				"script": "wait_for_event(1)"
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1050,44 +923,45 @@
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 3,
+				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
 			}
 			],
-			"image": "aeronaute character",
-			"directionInitiale": 3,
+			"image": "carton character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"figerLesAutresEvents": true,
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		},
 		{
 			"conditions": [
 			{
 				"nom": "InterrupteurLocal",
-				"numeroEvent": 1,
-				"numeroInterrupteurLocal": 3,
+				"numeroEvent": 7,
+				"numeroInterrupteurLocal": 0,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
 			{
 				"nom": "Deplacement",
+				"idEventADeplacer": 1,
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
 				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
 					"nom": "ModifierOpacite",
 					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
 				}
 				]
 			},
@@ -1100,27 +974,18 @@
 				"direction": 0
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ModifierAvancementQuete",
-				"numero": 83,
-				"avancement": "FAITE"
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Attendre",
+				"nombreDeFrames": 166
 			}
 			],
-			"opacite": 0,
-			"directionInitiale": 3,
+			"image": "carton character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -1138,12 +1003,15 @@
 			{
 				"nom": "ModifierBrouillard",
 				"opacite": 175,
-				"modeDeFusion": "normal",
+				"modeDeFusion": "addition",
 				"defilementX": 0,
 				"defilementY": 0,
 				"zoom": 100,
 				"nuance": 0,
-				"nomImage": "brouillard lanterne"
+				"nomImage": "aeronaute"
+			},
+			{
+				"nom": "ArreterChronometre"
 			},
 			{
 				"nom": "ConditionEtatQuete",
@@ -1322,10 +1190,123 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "tronche",
+		"x": 15,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 3,
 		"nom": "Clone[341][145]",
 		"x": 29,
 		"y": 29
+	},
+	{
+		"id": 9,
+		"nom": "EV009",
+		"x": 17,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 50
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 6
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 40
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 35
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 40
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 50
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 6
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 40
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 5
+				}
+				]
+			},
+			"image": "halo lumiere",
+			"opacite": 50,
+			"modeDeFusion": "addition",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 4,

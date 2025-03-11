@@ -1,11 +1,11 @@
 {
 	"nom": "Salle 1 (cruche brisée)",
-	"tileset": "Sanctuaire de Kakeru",
+	"tileset": "Sanctuaire de Ringo",
 	"largeur": 21,
 	"hauteur": 15,
 	"couche0": [
-	[0036,0037,0016,0017,0018,0004,0146,0147,-004,-004,-004,-004,-004,0144,0145,0004,0005,0004,0005,0004,0005],
-	[0044,0045,0024,0025,0026,0012,0154,0155,0000,-004,0000,-004,0000,0152,0153,0012,0013,0012,0013,0012,0013],
+	[0036,0037,0016,0017,0018,0146,0147,-004,-004,-004,-004,-004,-004,-004,0144,0145,0005,0004,0005,0004,0005],
+	[0044,0045,0024,0025,0026,0154,0155,-004,0000,-004,0000,-004,0000,-004,0152,0153,0013,0012,0013,0012,0013],
 	[0028,0029,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000],
 	[0052,0053,0130,0131,-004,-004,-004,-004,-004,-004,0000,-004,-004,-004,-004,-004,-004,0128,0129,0022,0023],
 	[0060,0061,0138,0139,0000,0000,0233,0233,0233,0000,0000,0000,0233,0233,0233,0000,0000,0136,0137,0030,0031],
@@ -62,6 +62,41 @@
 		"y": 4
 	},
 	{
+		"id": 16,
+		"nom": "reinitialiser code",
+		"x": 17,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 96,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 999,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 18,
@@ -93,8 +128,14 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "Clone[582][120]",
+		"x": 11,
+		"y": 5
+	},
+	{
 		"id": 6,
-		"nom": "EV006",
+		"nom": "cruche brisée",
 		"x": 11,
 		"y": 3,
 		"pages": [
@@ -182,16 +223,8 @@
 				"nom": "SupprimerEvent"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "ConditionFin",
 				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -559,7 +592,7 @@
 	},
 	{
 		"id": 14,
-		"nom": "EV014",
+		"nom": "brouillard",
 		"x": 10,
 		"y": 5,
 		"pages": [
@@ -819,13 +852,6 @@
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": true
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 96,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 999,
-				"operationAFaire2": "valeur brute"
 			},
 			{
 				"nom": "Commentaire",

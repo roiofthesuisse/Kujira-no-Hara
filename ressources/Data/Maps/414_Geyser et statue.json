@@ -318,6 +318,34 @@
 		]
 	},
 	{
+		"id": 18,
+		"nom": "brouillard",
+		"x": 4,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 132
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "Blocage anti-évènement",
 		"x": 15,
@@ -450,16 +478,6 @@
 			{
 				"nom": "EffacerImage",
 				"numero": 9
-			},
-			{
-				"nom": "ModifierBrouillard",
-				"opacite": 175,
-				"modeDeFusion": "addition",
-				"defilementX": 5,
-				"defilementY": 5,
-				"zoom": 200,
-				"nuance": 180,
-				"nomImage": "006-Sandstorm02"
 			},
 			{
 				"nom": "ModifierVariable",

@@ -126,10 +126,10 @@
 	],
 	"events": [
 	{
-		"id": 27,
-		"nom": "Clone[582][46]",
-		"x": 29,
-		"y": 1
+		"id": 5,
+		"nom": "Clone[341][061]",
+		"x": 13,
+		"y": 15
 	},
 	{
 		"id": 16,
@@ -163,16 +163,149 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[341][061]",
-		"x": 13,
-		"y": 15
+		"id": 27,
+		"nom": "Clone[582][46]",
+		"x": 29,
+		"y": 1
 	},
 	{
-		"id": 33,
-		"nom": "Clone[582][46]",
-		"x": 31,
-		"y": 2
+		"id": 22,
+		"nom": "Colibri SHADOW[24]",
+		"x": 21,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri jaune\""
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 76
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Saluzalu !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) From the \\c[2]frogs\\c[1] civilisation remain only ruins."
+			},
+			{
+				"nom": "Message",
+				"texte": "De la civilisation des \\c[2]grenouilles\\c[1] il ne reste \\nque des ruines."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you want to listen to the story \\nof the \\c[2]Lotophagi\\c[1]?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu veux entendre l'histoire des \\c[2]Lotophages\\c[1] ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes|I already know it."
+			},
+			{
+				"nom": "Choix",
+				"alternatives": ["Oui", "Je la connais déjà."],
+				"numero": 0
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri jaune\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) During his trip, \\c[2]Odysseus\\c[1] came to the island\\ninhabited by the \\c[2]Lotophagi\\c[1]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Lors de son voyage, \\c[2]Ulysse\\c[1] arriva sur l'île \\npeuplée par les \\c[2]Lotophages\\c[1]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) They were lotus eaters."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ils étaient des mangeurs de lotus."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The lotus fruit was so sweet that it made \\nthe foreigners forget their homeland."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le lotus était un fruit si doux qu'il faisait \\noublier aux étrangers leur patrie."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) After having tasted the lotus, \\c[2]Odysseus' crew\\c[1]\\nrefused to quit the island."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ayant goûté aux lotus, l'\\c[2]équipage d'Ulysse\\c[1]\\nrefusa de quitter l'île."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) He had to bring them back onto the ship \\nby force."
+			},
+			{
+				"nom": "Message",
+				"texte": "Il dut les ramener de force sur le bateau."
+			},
+			{
+				"nom": "ChoixAlternative",
+				"numero": 0,
+				"alternative": 1
+			},
+			{
+				"nom": "ChoixFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "colibri jaune character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 11,
@@ -263,149 +396,16 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Colibri SHADOW[24]",
-		"x": 21,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"colibri jaune\""
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 76
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Hellozello!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saluzalu !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) From the \\c[2]frogs\\c[1] civilisation remain only ruins."
-			},
-			{
-				"nom": "Message",
-				"texte": "De la civilisation des \\c[2]grenouilles\\c[1] il ne reste \\nque des ruines."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Do you want to listen to the story \\nof the \\c[2]Lotophagi\\c[1]?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu veux entendre l'histoire des \\c[2]lotophages\\c[1] ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Yes|I already know it."
-			},
-			{
-				"nom": "Choix",
-				"alternatives": ["Oui", "Je la connais déjà."],
-				"numero": 0
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"colibri jaune\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) During his trip, \\c[2]Odysseus\\c[1] came to the island\\ninhabited by the \\c[2]Lotophagi\\c[1]."
-			},
-			{
-				"nom": "Message",
-				"texte": "Lors de son voyage, \\c[2]Ulysse\\c[1] arriva sur l'île \\npeuplée par les \\c[2]Lotophages\\c[1]."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) They were lotus eaters."
-			},
-			{
-				"nom": "Message",
-				"texte": "Ils étaient des mangeurs de lotus."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The lotus fruit was so sweet that it made \\nthe foreigners forget their homeland."
-			},
-			{
-				"nom": "Message",
-				"texte": "Le lotus était un fruit si doux qu'il faisait \\noublier aux étrangers leur patrie."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) After having tasted the lotus, \\c[2]Odysseus' crew\\c[1]\\nrefused to quit the island."
-			},
-			{
-				"nom": "Message",
-				"texte": "Ayant gouté aux lotus, l'\\c[2]équipage d'Ulysse\\c[1]\\nrefusa de quitter l'île."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) He had to bring them back onto the ship \\nby force."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il dut les ramener de force sur le bateau."
-			},
-			{
-				"nom": "ChoixAlternative",
-				"numero": 0,
-				"alternative": 1
-			},
-			{
-				"nom": "ChoixFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "colibri jaune character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 33,
+		"nom": "Clone[582][46]",
+		"x": 31,
+		"y": 2
 	},
 	{
-		"id": 28,
-		"nom": "Clone[582][46]",
-		"x": 30,
-		"y": 1
+		"id": 6,
+		"nom": "Clone[341][028]",
+		"x": 14,
+		"y": 14
 	},
 	{
 		"id": 17,
@@ -434,22 +434,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][028]",
-		"x": 14,
-		"y": 14
-	},
-	{
-		"id": 12,
-		"nom": "Clone[582][93]",
-		"x": 10,
-		"y": 20
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 21,
-		"y": 17
+		"id": 28,
+		"nom": "Clone[582][46]",
+		"x": 30,
+		"y": 1
 	},
 	{
 		"id": 23,
@@ -478,6 +466,50 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 21,
+		"y": 17
+	},
+	{
+		"id": 12,
+		"nom": "Clone[582][93]",
+		"x": 10,
+		"y": 20
+	},
+	{
+		"id": 29,
+		"nom": "Clone[582][46]",
+		"x": 31,
+		"y": 1
+	},
+	{
+		"id": 7,
+		"nom": "cascade",
+		"x": 13,
+		"y": 23,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cascade character",
+			"opacite": 250,
+			"vitesse": "rapide",
+			"frequence": "tres haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -515,36 +547,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "cascade",
+		"id": 2,
+		"nom": "Clone[582][42]",
 		"x": 13,
-		"y": 23,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cascade character",
-			"opacite": 250,
-			"vitesse": "rapide",
-			"frequence": "tres haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 29,
-		"nom": "Clone[582][46]",
-		"x": 31,
-		"y": 1
+		"y": 13
 	},
 	{
 		"id": 24,
@@ -573,10 +579,35 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[582][42]",
-		"x": 13,
-		"y": 13
+		"id": 30,
+		"nom": "Clone[582][46]",
+		"x": 28,
+		"y": 2
+	},
+	{
+		"id": 19,
+		"nom": "EV019",
+		"x": 8,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 897,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
 	},
 	{
 		"id": 8,
@@ -633,35 +664,10 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "EV019",
-		"x": 8,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 897,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 30,
-		"nom": "Clone[582][46]",
-		"x": 28,
-		"y": 2
+		"id": 3,
+		"nom": "Clone[341][061]",
+		"x": 16,
+		"y": 20
 	},
 	{
 		"id": 25,
@@ -670,16 +676,10 @@
 		"y": 13
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][061]",
-		"x": 16,
-		"y": 20
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][028]",
-		"x": 11,
-		"y": 13
+		"id": 31,
+		"nom": "Clone[582][46]",
+		"x": 29,
+		"y": 2
 	},
 	{
 		"id": 9,
@@ -688,16 +688,16 @@
 		"y": 7
 	},
 	{
-		"id": 31,
-		"nom": "Clone[582][46]",
-		"x": 29,
-		"y": 2
+		"id": 20,
+		"nom": "Clone[341][028]",
+		"x": 11,
+		"y": 13
 	},
 	{
-		"id": 26,
-		"nom": "Clone[582][46]",
-		"x": 28,
-		"y": 1
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 23
 	},
 	{
 		"id": 15,
@@ -731,16 +731,56 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 23
+		"id": 26,
+		"nom": "Clone[582][46]",
+		"x": 28,
+		"y": 1
 	},
 	{
-		"id": 32,
-		"nom": "Clone[582][46]",
-		"x": 30,
-		"y": 2
+		"id": 21,
+		"nom": "Panneau",
+		"x": 23,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Don't eat the waterlilies!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ne mangez pas les nénuphars !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 10,
@@ -794,50 +834,10 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "Panneau",
-		"x": 23,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Don't eat the waterlilies!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ne mangez pas les nénuphars !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 32,
+		"nom": "Clone[582][46]",
+		"x": 30,
+		"y": 2
 	}
 	]
 }

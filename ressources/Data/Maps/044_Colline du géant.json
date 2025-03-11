@@ -3,11 +3,6 @@
 	"tileset": "Ventre",
 	"largeur": 40,
 	"hauteur": 45,
-	"musique": {
-		"nomFichierSonore": "Geant eveille.ogg",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"fondSonore": {
 		"nomFichierSonore": "InterieurDeLaBaleine.ogg",
 		"volume": 0.50,
@@ -206,9 +201,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "HAUT",
-				"numero": 1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
 			},
 			{
 				"nom": "ChangerDeMap",
@@ -216,18 +210,6 @@
 				"numeroNouvelleMap": 162,
 				"xDebutHeros": 10,
 				"yDebutHeros": 41
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -686,11 +668,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Kakeru's liana disappeared."
+				"texte": "(en) Ringo's liana disappeared."
 			},
 			{
 				"nom": "Message",
-				"texte": "La liane de Kakeru disparaît."
+				"texte": "La liane de Ringo disparaît."
 			},
 			{
 				"nom": "Attendre",
@@ -775,7 +757,7 @@
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Contact"
 			}
 			],
 			"commandes": [
@@ -786,9 +768,8 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "HAUT",
-				"numero": 1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
 			},
 			{
 				"nom": "ChangerDeMap",
@@ -796,18 +777,6 @@
 				"numeroNouvelleMap": 162,
 				"xDebutHeros": 16,
 				"yDebutHeros": 41
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
 			},
 			{
 				"nom": "ConditionFin",
@@ -984,9 +953,6 @@
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Contact"
-			}
 			],
 			"commandes": [
 			{
@@ -996,15 +962,20 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id,3)",
 				"numero": 1
 			},
 			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 22,
-				"valeurQuIlEstCenseAvoir": false,
+				"nom": "ConditionArmeEquipee",
+				"idArme": 5,
 				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -1018,7 +989,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 3,
 				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1029,7 +1000,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1040,12 +1011,16 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 45,
 				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -1172,7 +1147,7 @@
 	},
 	{
 		"id": 29,
-		"nom": "pas de musique",
+		"nom": "musique",
 		"x": 12,
 		"y": 35,
 		"pages": [
@@ -1192,6 +1167,16 @@
 				"nom": "JouerMusique",
 				"nomFichierSonore": "",
 				"volume": 0.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Geant eveille.ogg",
+				"volume": 0.80,
 				"tempo": 1.00
 			},
 			{
@@ -1298,9 +1283,6 @@
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Contact"
-			}
 			],
 			"commandes": [
 			{
@@ -1310,15 +1292,20 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id,3)",
 				"numero": 1
 			},
 			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 22,
-				"valeurQuIlEstCenseAvoir": false,
+				"nom": "ConditionArmeEquipee",
+				"idArme": 5,
 				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -1332,7 +1319,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1343,7 +1330,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1351,7 +1338,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 5,
 				"comparerAUneAutreVariable": false,
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1362,7 +1349,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ModifierVariable",
@@ -1373,16 +1360,20 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 45,
 				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -1745,11 +1736,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Kakeru\\c[0], is that you? You came back ?"
+				"texte": "(en) \\c[2]Ringo\\c[0], my friend, is that you? \\nDid you come back ?"
 			},
 			{
 				"nom": "Message",
-				"texte": "\\c[2]Kakeru\\c[0], c'est toi ? Tu es revenu ?"
+				"texte": "\\c[2]Ringo\\c[0], mon ami, c'est toi ? \\nTu es revenu ?"
 			},
 			{
 				"nom": "Attendre",
@@ -1867,11 +1858,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Uh?\\nYou're not \\c[2]Kakeru\\c[0]!"
+				"texte": "(en) Uh?\\nYou're not \\c[2]Ringo\\c[0]!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Mais...\\nTu n'es pas \\c[2]Kakeru\\c[0] !"
+				"texte": "Mais...\\nTu n'es pas \\c[2]Ringo\\c[0] !"
 			},
 			{
 				"nom": "Commentaire",
@@ -1883,11 +1874,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) It doesn't matter.\\nDo you want to be my friend?"
+				"texte": "(en) It doesn't matter.\\nDo you want to be my friend too?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Ça ne fait rien.\\nTu veux être mon ami ?"
+				"texte": "Ça ne fait rien.\\nTu veux être mon ami aussi ?"
 			},
 			{
 				"nom": "Commentaire",
@@ -1997,9 +1988,6 @@
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Contact"
-			}
 			],
 			"commandes": [
 			{
@@ -2009,15 +1997,20 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id,3)",
 				"numero": 1
 			},
 			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 22,
-				"valeurQuIlEstCenseAvoir": false,
+				"nom": "ConditionArmeEquipee",
+				"idArme": 5,
 				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -2031,7 +2024,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 0,
 				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2042,7 +2035,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ConditionVariable",
@@ -2050,7 +2043,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 4,
 				"comparerAUneAutreVariable": false,
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2061,7 +2054,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2072,16 +2065,20 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 45,
 				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -2383,7 +2380,7 @@
 	},
 	{
 		"id": 37,
-		"nom": "viking SHADOW[32] (-4)",
+		"nom": "viking SHADOW[30] (-4)",
 		"x": 7,
 		"y": 22,
 		"pages": [
@@ -2536,9 +2533,6 @@
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Contact"
-			}
 			],
 			"commandes": [
 			{
@@ -2548,15 +2542,20 @@
 				"numero": 0
 			},
 			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 5,
+				"nom": "ConditionScript",
+				"script": "$game_player.target_in_da_zone?(@event_id,3)",
 				"numero": 1
 			},
 			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 22,
-				"valeurQuIlEstCenseAvoir": false,
+				"nom": "ConditionArmeEquipee",
+				"idArme": 5,
 				"numero": 2
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 3
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -2570,7 +2569,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 2,
 				"comparerAUneAutreVariable": false,
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2581,7 +2580,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ConditionVariable",
@@ -2589,7 +2588,7 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 6,
 				"comparerAUneAutreVariable": false,
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2600,7 +2599,7 @@
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ModifierVariable",
@@ -2611,16 +2610,20 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 4
+				"numero": 5
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 3
+				"numero": 4
 			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 45,
 				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 3
 			},
 			{
 				"nom": "ConditionFin",
@@ -2717,7 +2720,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Le printemps est arrivé.\\nCe matin une colline sans nom\\nest plongée dans le brouillard.\""
+				"texte": "\"Le printemps est arrivé.\\nCe matin, une colline sans nom\\nest plongée dans le brouillard.\""
 			},
 			{
 				"nom": "Commentaire",
@@ -2777,7 +2780,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"L'interieur de \\c[2]Kujira\\c[1] est hors de tout \\nmonde."
+				"texte": "\"L'intérieur de \\c[2]Kujira\\c[1] est hors de tout \\nmonde."
 			},
 			{
 				"nom": "Commentaire",

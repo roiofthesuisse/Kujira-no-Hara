@@ -104,12 +104,6 @@
 		"y": 6
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][0105]",
-		"x": 15,
-		"y": 6
-	},
-	{
 		"id": 6,
 		"nom": "EV006",
 		"x": 5,
@@ -147,6 +141,38 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "barre",
+		"x": 15,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "carillons de bois character",
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][055]",
+		"x": 8,
+		"y": 4
+	},
+	{
 		"id": 12,
 		"nom": "Blocage anti-évènement",
 		"x": 9,
@@ -171,16 +197,16 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][055]",
-		"x": 8,
-		"y": 4
-	},
-	{
 		"id": 7,
 		"nom": "Clone[341][055]",
 		"x": 11,
 		"y": 2
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][055]",
+		"x": 7,
+		"y": 6
 	},
 	{
 		"id": 13,
@@ -220,10 +246,30 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][055]",
-		"x": 7,
-		"y": 6
+		"id": 8,
+		"nom": "barre",
+		"x": 15,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "carillons de bois character",
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 19,
@@ -266,10 +312,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "Clone[341][0105]",
-		"x": 15,
-		"y": 7
+		"id": 3,
+		"nom": "Clone[341][055]",
+		"x": 8,
+		"y": 8
 	},
 	{
 		"id": 14,
@@ -294,215 +340,6 @@
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][055]",
-		"x": 8,
-		"y": 8
-	},
-	{
-		"id": 20,
-		"nom": "Réglages initiaux",
-		"x": 14,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 5,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 0
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 1
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 5
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeur": true
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 0,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 2,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 3,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 4,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 30,
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 31,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 5,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 3,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 3,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 18,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 10,
-				"variable": false,
-				"nouveauX": 13,
-				"nouveauY": 19,
-				"direction": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "ballon doit être affché au dessus de la porte nord"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 7,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -618,6 +455,10 @@
 				"tempo": 0.50
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.animations.push([74, true, $game_map.events[10].x, $game_map.events[10].y])"
+			},
+			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 10,
 				"ignorerLesMouvementsImpossibles": false,
@@ -645,6 +486,15 @@
 				{
 					"nom": "ModifierOpacite",
 					"opacite": 100
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 50
 				},
 				{
 					"nom": "RendreAuDessusDeTout",
@@ -905,6 +755,215 @@
 		]
 	},
 	{
+		"id": 20,
+		"nom": "Réglages initiaux",
+		"x": 14,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 5,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 3,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 3,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 18,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 10,
+				"variable": false,
+				"nouveauX": 13,
+				"nouveauY": 19,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "ballon doit être affché au dessus de la porte nord"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 7,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][055]",
+		"x": 7,
+		"y": 10
+	},
+	{
 		"id": 15,
 		"nom": "Blocage anti-évènement",
 		"x": 9,
@@ -929,14 +988,8 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][055]",
-		"x": 7,
-		"y": 10
-	},
-	{
 		"id": 10,
-		"nom": "jarre",
+		"nom": "jarre SHADOW[40]",
 		"x": 12,
 		"y": 9,
 		"pages": [

@@ -1,6 +1,6 @@
 {
 	"nom": "Boss Pomme",
-	"tileset": "Sanctuaire de Kakeru",
+	"tileset": "Sanctuaire de Ringo",
 	"largeur": 30,
 	"hauteur": 30,
 	"fondSonore": {
@@ -106,16 +106,22 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 21
+	},
+	{
 		"id": 5,
 		"nom": "Clone[341][004]",
 		"x": 9,
 		"y": 21
 	},
 	{
-		"id": 16,
+		"id": 22,
 		"nom": "Clone[341][004]",
-		"x": 10,
-		"y": 21
+		"x": 21,
+		"y": 18
 	},
 	{
 		"id": 11,
@@ -210,10 +216,10 @@
 		]
 	},
 	{
-		"id": 22,
+		"id": 17,
 		"nom": "Clone[341][004]",
-		"x": 21,
-		"y": 18
+		"x": 18,
+		"y": 21
 	},
 	{
 		"id": 6,
@@ -222,16 +228,10 @@
 		"y": 19
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][004]",
-		"x": 18,
-		"y": 21
-	},
-	{
-		"id": 12,
+		"id": 23,
 		"nom": "Clone[341][004]",
 		"x": 21,
-		"y": 11
+		"y": 12
 	},
 	{
 		"id": 1,
@@ -391,16 +391,10 @@
 		]
 	},
 	{
-		"id": 23,
+		"id": 12,
 		"nom": "Clone[341][004]",
 		"x": 21,
-		"y": 12
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][004]",
-		"x": 21,
-		"y": 19
+		"y": 11
 	},
 	{
 		"id": 18,
@@ -409,10 +403,10 @@
 		"y": 9
 	},
 	{
-		"id": 13,
+		"id": 7,
 		"nom": "Clone[341][004]",
-		"x": 19,
-		"y": 9
+		"x": 21,
+		"y": 19
 	},
 	{
 		"id": 2,
@@ -854,6 +848,10 @@
 				"numero": 13
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "début du combat :\\npeu d'attaques\\navant la phase vulnérable"
+			},
+			{
 				"nom": "ConditionVariable",
 				"numeroVariable": 88,
 				"inegalite": "==",
@@ -885,7 +883,7 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 88,
 				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 5,
+				"valeurQuIlEstCenseAvoir": 4,
 				"comparerAUneAutreVariable": false,
 				"numero": 16
 			},
@@ -913,7 +911,7 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 88,
 				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 7,
+				"valeurQuIlEstCenseAvoir": 5,
 				"comparerAUneAutreVariable": false,
 				"numero": 18
 			},
@@ -931,15 +929,51 @@
 			},
 			{
 				"nom": "ConditionVariable",
-				"numeroVariable": 88,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 9,
+				"numeroVariable": 25,
+				"inegalite": "<=",
+				"valeurQuIlEstCenseAvoir": 10,
 				"comparerAUneAutreVariable": false,
 				"numero": 19
 			},
 			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 88,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 6,
+				"comparerAUneAutreVariable": false,
+				"numero": 20
+			},
+			{
 				"nom": "BoucleSortir",
 				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 20
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 19
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "fin du combat\\nbeaucoup d'attaques\\navant la phase vulnérable"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 88,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 7,
+				"comparerAUneAutreVariable": false,
+				"numero": 21
+			},
+			{
+				"nom": "BoucleSortir",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 21
 			},
 			{
 				"nom": "ConditionFin",
@@ -1052,15 +1086,27 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Clone[341][004]",
+		"x": 19,
+		"y": 9
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][004]",
+		"x": 10,
+		"y": 9
+	},
+	{
 		"id": 8,
 		"nom": "Clone[341][004]",
 		"x": 19,
 		"y": 21
 	},
 	{
-		"id": 19,
+		"id": 14,
 		"nom": "Clone[341][004]",
-		"x": 10,
+		"x": 9,
 		"y": 9
 	},
 	{
@@ -1108,14 +1154,14 @@
 		]
 	},
 	{
-		"id": 14,
+		"id": 20,
 		"nom": "Clone[341][004]",
-		"x": 9,
-		"y": 9
+		"x": 7,
+		"y": 12
 	},
 	{
 		"id": 9,
-		"nom": "EV009",
+		"nom": "lancer les fusées",
 		"x": 27,
 		"y": 8,
 		"pages": [
@@ -1155,7 +1201,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "choix du pattern"
+				"texte": "choix du pattern\\nplus le combat avance, plus il y a de fusées"
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1425,7 +1471,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "attente si debut"
+				"texte": "attente si debut du combat\\npour démarrer en douceur"
 			},
 			{
 				"nom": "ConditionVariable",
@@ -1501,106 +1547,16 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][004]",
-		"x": 7,
-		"y": 12
-	},
-	{
 		"id": 15,
 		"nom": "Clone[341][004]",
 		"x": 7,
 		"y": 11
 	},
 	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 25,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Variable",
-				"numeroVariable": 25,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 12
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 1,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 4,
-				"numeroInterrupteurLocal": 1,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 21,
+		"nom": "Clone[341][004]",
+		"x": 7,
+		"y": 18
 	},
 	{
 		"id": 10,
@@ -1626,12 +1582,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][004]",
-		"x": 7,
-		"y": 18
 	}
 	]
 }
