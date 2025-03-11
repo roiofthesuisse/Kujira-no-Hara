@@ -66,6 +66,83 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "EV005",
+		"x": 10,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "EV006",
+		"x": 10,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_player.changerDirectionFixe(false)"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 1,
 		"nom": "Cristal de baleine",
 		"x": 11,
@@ -349,7 +426,7 @@
 	},
 	{
 		"id": 3,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 9,
 		"y": 10,
 		"pages": [

@@ -56,47 +56,6 @@
 	],
 	"events": [
 	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 12,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 22,
 		"nom": "EV022",
 		"x": 12,
@@ -123,6 +82,47 @@
 				{
 					"nom": "RendreAuDessusDeTout",
 					"auDessusDeTout": true
+				}
+				]
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 11,
+		"nom": "EV011",
+		"x": 12,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
 				}
 				]
 			}
@@ -169,7 +169,7 @@
 				"mouvements": [
 				{
 					"nom": "ModifierApparence",
-					"image": "cloches character",
+					"image": "cloche shinto character",
 					"direction": 0,
 					"animation": 1,
 					"teinte": 0
@@ -181,7 +181,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "cloches character",
+					"image": "cloche shinto character",
 					"direction": 0,
 					"animation": 2,
 					"teinte": 0
@@ -193,7 +193,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "cloches character",
+					"image": "cloche shinto character",
 					"direction": 0,
 					"animation": 3,
 					"teinte": 0
@@ -205,7 +205,7 @@
 				},
 				{
 					"nom": "ModifierApparence",
-					"image": "cloches character",
+					"image": "cloche shinto character",
 					"direction": 0,
 					"animation": 0,
 					"teinte": 0
@@ -222,7 +222,7 @@
 				"valeur": false
 			}
 			],
-			"image": "cloches character",
+			"image": "cloche shinto character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -313,7 +313,7 @@
 		"id": 4,
 		"nom": "Cristal de baleine",
 		"x": 10,
-		"y": 8,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [

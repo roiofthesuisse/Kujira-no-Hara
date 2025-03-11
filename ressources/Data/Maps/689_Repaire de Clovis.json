@@ -222,7 +222,7 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 9,
 				"operationAFaire": "modulo",
-				"valeurADonner": 4,
+				"valeurADonner": 5,
 				"operationAFaire2": "valeur brute"
 			},
 			{
@@ -564,11 +564,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) That glint of amazement in people's eyes \\nis what makes our hearts beat."
+				"texte": "(en) That glint of amazement in people's eyes \\nis what makes our hearts beat.\\nThis makes the world more beautiful."
 			},
 			{
 				"nom": "Message",
-				"texte": "Cette lueur de stupéfaction dans le regard \\ndes gens, c'est ce qui fait battre nos coeurs."
+				"texte": "Cette lueur de stupéfaction dans le regard \\ndes gens, c'est ce qui fait battre nos coeurs.\\nC'est ce qui rend le monde plus beau."
 			},
 			{
 				"nom": "Commentaire",
@@ -751,7 +751,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"A A B\" ?"
+				"texte": "\"A A B\" ? "
 			},
 			{
 				"nom": "AppelerUnScript",
@@ -1092,7 +1092,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You have to love humans!\\nYou have to love your audience!\\nWe must love the Other!\\nYou have to love to please!"
+				"texte": "(en) You have to love humans!\\nYou have to love your audience!\\nYou have to love the Other!\\nYou have to love to please!"
 			},
 			{
 				"nom": "Message",
@@ -1105,6 +1105,246 @@
 			{
 				"nom": "Message",
 				"texte": "L'amour est le secret d'un bon spectacle.\\nL'artiste qui ne s'intéresse qu'à lui-même, \\naussi virtuose soit-il, \\nsera toujours un artiste incomplet."
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 1,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If you say so, \\c[2]Clovis\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si tu le dis, \\c[2]Clovis\\c[1]."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 5,
+				"vitesse": "moderee"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 9,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 4
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 4,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 5,
+				"vitesse": "moderee"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 1,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) What is Laughter, \\c[2]Clovis\\c[1]?\\nWhy do we laugh?\\nWhat should we do to make the audience laugh?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Qu'est-ce que le Rire, \\c[2]Clovis\\c[1] ?\\nPourquoi rit-on ?\\nQue doit-on faire pour faire rire le public ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Listen to me, \\c[2]Dagobert\\c[0].\\nIt so happens, by the greatest of coincidences,\\nthat I have just elucidated this age-old mystery."
+			},
+			{
+				"nom": "Message",
+				"texte": "Écoute-moi bien, \\c[2]Dagobert\\c[1].\\nIl se trouve, par le plus grand des hasards, \\nque j'ai justement élucidé ce mystère séculaire."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh yeah?\\nHow lucky I am to have you as a brother then,\\n\\c[2]Clovis\\c[0]!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah oui ?\\nQuelle chance j'ai de t'avoir comme frère alors, \\n\\c[2]Clovis\\c[0] !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Very much so."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tout à fait."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) To laugh is to legislate."
+			},
+			{
+				"nom": "Message",
+				"texte": "Rire, c'est légiférer."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Huh? What? Legislate?\\nI don't understand, \\c[2]Clovis\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Hein ? Quoi ? Légiférer ?\\nJe ne comprends pas, \\c[2]Clovis\\c[0]."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Laughter is a fundamental activity \\nfor the social animal that is Man, \\nbecause he must agree on the laws \\nthat govern the group."
+			},
+			{
+				"nom": "Message",
+				"texte": "Rire est une activité fondamentale \\npour l'animal social qu'est l'Homme, \\ncar il doit s'accorder sur les lois \\nqui régissent le groupe."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If an act is very serious, one does not laugh:\\none becomes angry.\\nIf an act is just on the border between\\nthe acceptable and the unacceptable, one laughs."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si un acte est très grave, l'Homme ne rit pas :\\nil entre en colère.\\nSi un acte se situe juste à la frontière entre \\nl'acceptable et l'inacceptable selon lui, il rit."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We laugh at something that is unacceptable \\nbut which is not serious.\\nLaughter therefore sets very precisely the limit \\nbetween the acceptable and the unacceptable."
+			},
+			{
+				"nom": "Message",
+				"texte": "On rit d'une chose qui est inacceptable \\nmais qui pour autant n'est pas grave.\\nLe Rire positionne donc de façon très précise \\nla limite entre l'acceptable et l'inacceptable."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) If the interlocutor agrees with this boundary \\nas a social convention, \\nhe will also laugh to signal his agreement."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si l'interlocuteur est d'accord avec cette limite \\nen tant que convention sociale, \\nil rira également pour signaler son agrément."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is what I mean when I say that\\nlaughing is legislating."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est ce que je veux dire quand je dis que\\nrire, c'est légiférer."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Social animals (humans, chimpanzees, etc.) \\nlaugh to regulate life in society\\non which their life depends.\\nThis is the secret of Laughter."
+			},
+			{
+				"nom": "Message",
+				"texte": "Les animaux sociaux (hommes, chimpanzés...) \\nrient pour réguler la vie en société\\ndont leur vie dépend.\\nVoilà le secret du Rire."
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis vexe\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh, how smart you are, \\c[2]Clovis\\c[0]!\\nBut... had no other philosopher considered \\nthe question before you?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh, comme tu es malin, \\c[2]Clovis\\c[0] !\\nMais... aucun autre philosophe n'avait réfléchi\\nà la question avant toi ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"clovis clown\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes, \\c[2]Henri Bergson\\c[0] claimed that Laughter \\nserved to denounce the shameful transition \\nfrom Life to Automaton."
+			},
+			{
+				"nom": "Message",
+				"texte": "Si, \\c[2]Henri Bergson\\c[0] a affirmé que le rire servait \\nà dénoncer le honteux passage de la Vie \\nà l'Automate."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) His theory therefore covers only a special case \\nof mine.\\nI, \\c[2]Clovis\\c[0], have surpassed the great philosopher \\n\\c[2]Henri Bergson\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Sa théorie ne couvre donc qu'un cas particulier \\nde la mienne.\\nMoi, \\c[2]Clovis\\c[0], j'ai surpassé le grand philosophe\\n\\c[2]Henri Bergson\\c[0]."
 			},
 			{
 				"nom": "JouerAnimation",

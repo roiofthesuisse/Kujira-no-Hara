@@ -242,9 +242,15 @@
 	},
 	{
 		"id": 6,
-		"nom": "feu (8)",
+		"nom": "Clone[582][115]",
 		"x": 8,
-		"y": 3,
+		"y": 3
+	},
+	{
+		"id": 12,
+		"nom": "livre",
+		"x": 10,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
@@ -253,13 +259,35 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"The Adventures of Wann Piss the Pirate\"\\nby \\c[2]Yuichiro Takeda\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Les Aventures de Wann Piss le Pirate\"\\npar \\c[2]Yuichiro Takeda\\c[0]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
-			"image": "feu character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -428,6 +456,53 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "livre",
+		"x": 11,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"The Adventures of Wann Piss the Pirate\"\\nby \\c[2]Yuichiro Takeda\\c[0]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Les Aventures de Wann Piss le Pirate\"\\npar \\c[2]Yuichiro Takeda\\c[0]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

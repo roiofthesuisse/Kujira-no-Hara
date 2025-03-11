@@ -66,12 +66,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[582][37]",
-		"x": 7,
-		"y": 4
-	},
-	{
 		"id": 16,
 		"nom": "Blocage anti-évènement",
 		"x": 12,
@@ -96,58 +90,10 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Haïku",
-		"x": 2,
-		"y": 3,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \"Salted bream: \\ncold gums \\nat the fishmonger's.\""
-			},
-			{
-				"nom": "Message",
-				"texte": "\"Daurades salées :\\nfroides gencives\\nchez le poissonnier.\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) \\c[2]Matsuo Bashô\\c[2]"
-			},
-			{
-				"nom": "Message",
-				"texte": "\\c[2]Matsuo Bashô\\c[2]"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 5,
+		"nom": "Clone[582][37]",
+		"x": 7,
+		"y": 4
 	},
 	{
 		"id": 11,
@@ -354,10 +300,58 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[582][37]",
-		"x": 12,
-		"y": 5
+		"id": 22,
+		"nom": "Haïku",
+		"x": 2,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \"Salted bream: \\ncold gums \\nat the fishmonger's.\""
+			},
+			{
+				"nom": "Message",
+				"texte": "\"Daurades salées :\\nfroides gencives\\nchez le poissonnier.\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\c[2]Matsuo Bashô\\c[2]"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 17,
@@ -366,31 +360,132 @@
 		"y": 6
 	},
 	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 20,
-		"y": 9,
+		"id": 6,
+		"nom": "Clone[582][37]",
+		"x": 12,
+		"y": 5
+	},
+	{
+		"id": 1,
+		"nom": "Lankhor",
+		"x": 8,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 544,
-				"xDebutHeros": 1,
-				"yDebutHeros": 9
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"lankhor\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Well, well..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tiens tiens..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A familiar face!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Un visage familier !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I, \\c[2]Lankhor\\c[0], locksmith of Kujira, \\nwatch over the Ningyo's sanctuary."
+			},
+			{
+				"nom": "Message",
+				"texte": "Moi, \\c[2]Lankhor\\c[1], serrurier de Kujira,\\nveille sur le temple de Ningyo."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Message to all the merry trespassers\\nabout the key yo this dungeon:"
+			},
+			{
+				"nom": "Message",
+				"texte": "Message adressé à tous les joyeux \\nprofanateurs de sanctuaires à propos \\nde la clé qui ouvre ce donjon :"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) - It's neither gray nor brown\\n- It has neither 1 tooth nor 3 teeth\\n- It has neither a round end nor a square end"
+			},
+			{
+				"nom": "Message",
+				"texte": "- Elle n'est ni grise, ni marron\\n- Elle n'a ni 1 dent, ni 3 dents\\n- Elle n'a ni un bout rond, ni un bout carré"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The problem is that I completely forgot \\nits size!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Le problème, c'est que j'ai complètement \\noublié sa taille !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Too bad."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tant pis."
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 203,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
+			"image": "Lankhor character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -601,136 +696,35 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Lankhor",
-		"x": 8,
-		"y": 4,
+		"id": 23,
+		"nom": "EV023",
+		"x": 20,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"lankhor\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Well, well..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Tiens tiens..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) A familiar face!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Un visage familier !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I, \\c[2]Lankhor\\c[0], locksmith of Kujira, \\nwatch over the Ningyo's sanctuary."
-			},
-			{
-				"nom": "Message",
-				"texte": "Moi, \\c[2]Lankhor\\c[1], serrurier de Kujira,\\nveille sur le temple de Ningyo."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Message to all the merry trespassers\\nabout the key yo this dungeon:"
-			},
-			{
-				"nom": "Message",
-				"texte": "Message adressé à tous les joyeux \\nprofanateurs de sanctuaires à propos \\nde la clé qui ouvre ce donjon :"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) - It's neither gray nor brown\\n- It has neither 1 tooth nor 3 teeth\\n- It has neither a round end nor a square end"
-			},
-			{
-				"nom": "Message",
-				"texte": "- Elle n'est ni grise, ni marron\\n- Elle n'a ni 1 dent, ni 3 dents\\n- Elle n'a ni un bout rond, ni un bout carré"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) The problem is that I completely forgot \\nits size!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Le problème, c'est que j'ai complètement \\noublié sa taille !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Too bad."
-			},
-			{
-				"nom": "Message",
-				"texte": "Tant pis."
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 203,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 544,
+				"xDebutHeros": 1,
+				"yDebutHeros": 9
 			}
 			],
-			"image": "Lankhor character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 7,
-		"nom": "Clone[582][37]",
-		"x": 18,
-		"y": 5
 	},
 	{
 		"id": 18,
@@ -739,59 +733,10 @@
 		"y": 6
 	},
 	{
-		"id": 13,
-		"nom": "Clone[341][0021]",
-		"x": 7,
-		"y": 9
-	},
-	{
-		"id": 24,
-		"nom": "CoffrillageVide SHADOW[48] (-4)",
-		"x": 1,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's empty."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est vide."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "Palourde doree coffre character",
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 7,
+		"nom": "Clone[582][37]",
+		"x": 18,
+		"y": 5
 	},
 	{
 		"id": 2,
@@ -890,10 +835,10 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 15,
-		"y": 12,
+		"id": 24,
+		"nom": "CoffrillageVide SHADOW[48] (-4)",
+		"x": 1,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -903,23 +848,46 @@
 			],
 			"commandes": [
 			{
-				"nom": "Commentaire",
-				"texte": "captures d'écran"
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "$scene = Scene_Panoramisator.new"
+				"nom": "Commentaire",
+				"texte": "(en) It's empty."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est vide."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
+			"image": "Palourde doree coffre character",
+			"opacite": 0,
+			"directionInitiale": 3,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][0021]",
+		"x": 7,
+		"y": 9
 	},
 	{
 		"id": 19,
@@ -953,30 +921,25 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Clone[341][0021]",
-		"x": 13,
-		"y": 9
-	},
-	{
-		"id": 25,
-		"nom": "EV025",
-		"x": 0,
-		"y": 9,
+		"id": 8,
+		"nom": "EV008",
+		"x": 15,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 548,
-				"xDebutHeros": 19,
-				"yDebutHeros": 9
+				"nom": "Commentaire",
+				"texte": "captures d'écran"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$scene = Scene_Panoramisator.new"
 			}
 			],
 			"vitesse": "moderee",
@@ -1085,6 +1048,10 @@
 				"nombreDeFrames": 8
 			},
 			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
@@ -1093,24 +1060,6 @@
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 33
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
 			},
 			{
 				"nom": "ConditionSinon",
@@ -1209,10 +1158,41 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][023]",
-		"x": 17,
-		"y": 4
+		"id": 25,
+		"nom": "EV025",
+		"x": 0,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 548,
+				"xDebutHeros": 19,
+				"yDebutHeros": 9
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][0021]",
+		"x": 13,
+		"y": 9
 	},
 	{
 		"id": 20,
@@ -1246,34 +1226,10 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[582][37]",
-		"x": 16,
+		"id": 9,
+		"nom": "Clone[341][023]",
+		"x": 17,
 		"y": 4
-	},
-	{
-		"id": 15,
-		"nom": "Blocage anti-évènement",
-		"x": 8,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 26,
@@ -1643,6 +1599,36 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 15,
+		"nom": "Blocage anti-évènement",
+		"x": 8,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[582][37]",
+		"x": 16,
+		"y": 4
 	},
 	{
 		"id": 10,

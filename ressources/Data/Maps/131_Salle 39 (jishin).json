@@ -66,12 +66,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][149]",
-		"x": 7,
-		"y": 9
-	},
-	{
 		"id": 16,
 		"nom": "Mur",
 		"x": 4,
@@ -105,8 +99,9 @@
 				"numero": 2
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 3
 			},
 			{
@@ -241,6 +236,118 @@
 		]
 	},
 	{
+		"id": 5,
+		"nom": "Clone[341][149]",
+		"x": 7,
+		"y": 9
+	},
+	{
+		"id": 22,
+		"nom": "saut",
+		"x": 13,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 2
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "cristal.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 2,
+				"idAnimation": 36
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 151,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 13,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 152,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 9,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 52,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 1
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 11,
 		"nom": "blocage",
 		"x": 10,
@@ -368,118 +475,6 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "saut",
-		"x": 13,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 2
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "cristal.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idEvent": 2,
-				"idAnimation": 36
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 151,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 13,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 152,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 9,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 52,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 1
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][149]",
-		"x": 9,
-		"y": 11
-	},
-	{
 		"id": 17,
 		"nom": "EV017",
 		"x": 4,
@@ -498,6 +493,49 @@
 				"numeroNouvelleMap": 142,
 				"xDebutHeros": 4,
 				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][149]",
+		"x": 9,
+		"y": 11
+	},
+	{
+		"id": 1,
+		"nom": "Clone[100][31]",
+		"x": 18,
+		"y": 9
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 5,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 129,
+				"xDebutHeros": 5,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -700,90 +738,16 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 5,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 129,
-				"xDebutHeros": 5,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "Clone[100][31]",
-		"x": 18,
-		"y": 9
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][0057]",
-		"x": 19,
-		"y": 11
-	},
-	{
 		"id": 7,
 		"nom": "Clone[341][149]",
 		"x": 7,
 		"y": 11
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][149]",
-		"x": 13,
-		"y": 9
-	},
-	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 17,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 129,
-				"xDebutHeros": 17,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 18,
+		"nom": "Clone[341][0057]",
+		"x": 19,
+		"y": 11
 	},
 	{
 		"id": 24,
@@ -921,6 +885,49 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "EV013",
+		"x": 17,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 129,
+				"xDebutHeros": 17,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][149]",
+		"x": 13,
+		"y": 9
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][149]",
+		"x": 5,
+		"y": 11
+	},
+	{
 		"id": 19,
 		"nom": "EV019",
 		"x": 0,
@@ -950,47 +957,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][149]",
-		"x": 5,
-		"y": 11
-	},
-	{
-		"id": 25,
-		"nom": "verglas",
-		"x": 20,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 36,
-				"valeur": false
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][149]",
-		"x": 11,
-		"y": 9
 	},
 	{
 		"id": 14,
@@ -1024,10 +990,39 @@
 		]
 	},
 	{
-		"id": 9,
+		"id": 3,
 		"nom": "Clone[341][149]",
-		"x": 5,
+		"x": 11,
 		"y": 9
+	},
+	{
+		"id": 25,
+		"nom": "verglas",
+		"x": 20,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 36,
+				"valeur": false
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 20,
@@ -1061,9 +1056,9 @@
 		]
 	},
 	{
-		"id": 4,
+		"id": 9,
 		"nom": "Clone[341][149]",
-		"x": 9,
+		"x": 5,
 		"y": 9
 	},
 	{
@@ -1096,6 +1091,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][149]",
+		"x": 9,
+		"y": 9
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][023]",
+		"x": 4,
+		"y": 3
 	},
 	{
 		"id": 10,
@@ -1152,12 +1159,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][023]",
-		"x": 4,
-		"y": 3
 	}
 	]
 }

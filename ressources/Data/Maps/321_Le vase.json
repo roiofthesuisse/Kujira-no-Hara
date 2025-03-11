@@ -325,13 +325,14 @@
 				"numero": 1
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 2
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nombreDeFrames": 6
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -340,12 +341,27 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "bouchon character",
+					"direction": 1,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -395,13 +411,14 @@
 				"numero": 1
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 2
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nombreDeFrames": 6
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -410,12 +427,27 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "bouchon character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -466,13 +498,14 @@
 				"numero": 1
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 2
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nombreDeFrames": 6
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -481,8 +514,27 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "bouchon character",
+					"direction": 3,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -533,13 +585,14 @@
 				"numero": 1
 			},
 			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION",
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 16,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 2
 			},
 			{
 				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nombreDeFrames": 6
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -548,8 +601,20 @@
 				"tempo": 1.00
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
 			},
 			{
 				"nom": "ModifierInterrupteurLocal",
@@ -592,6 +657,31 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
@@ -741,6 +831,19 @@
 				"numero": 0
 			},
 			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -796,6 +899,38 @@
 		"nom": "Clone[341][028]",
 		"x": 20,
 		"y": 15
+	},
+	{
+		"id": 20,
+		"nom": "EV020",
+		"x": 20,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 4,

@@ -282,16 +282,6 @@
 				"numero": 9
 			},
 			{
-				"nom": "ModifierBrouillard",
-				"opacite": 175,
-				"modeDeFusion": "addition",
-				"defilementX": 5,
-				"defilementY": 5,
-				"zoom": 200,
-				"nuance": 180,
-				"nomImage": "006-Sandstorm02"
-			},
-			{
 				"nom": "ConditionScript",
 				"script": "$game_map.events[1].x==$game_map.events[@event_id].x && $game_map.events[1].y==$game_map.events[@event_id].y",
 				"numero": 0
@@ -402,6 +392,34 @@
 		]
 	},
 	{
+		"id": 8,
+		"nom": "brouillard",
+		"x": 23,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 132
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 3,
 		"nom": "Clone[341][055]",
 		"x": 11,
@@ -411,7 +429,7 @@
 		"id": 4,
 		"nom": "Réglages initiaux",
 		"x": 23,
-		"y": 6,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [

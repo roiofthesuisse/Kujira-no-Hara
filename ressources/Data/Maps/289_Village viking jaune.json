@@ -565,7 +565,7 @@
 	},
 	{
 		"id": 66,
-		"nom": "Viking jaune tombola SHADOW[32] (-4)",
+		"nom": "Viking jaune tombola SHADOW[30] (-4)",
 		"x": 13,
 		"y": 22,
 		"pages": [
@@ -1044,7 +1044,7 @@
 	},
 	{
 		"id": 38,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 22,
 		"y": 12,
 		"pages": [
@@ -2046,7 +2046,7 @@
 	},
 	{
 		"id": 58,
-		"nom": "Viking jaune SHADOW[32] (-4)",
+		"nom": "Viking jaune SHADOW[30] (-4)",
 		"x": 28,
 		"y": 15,
 		"pages": [
@@ -2177,7 +2177,7 @@
 	},
 	{
 		"id": 39,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 19,
 		"y": 13,
 		"pages": [
@@ -2235,7 +2235,7 @@
 	},
 	{
 		"id": 30,
-		"nom": "Dobreniev SHADOW[32] (-4)",
+		"nom": "Dobreniev SHADOW[30] (-4)",
 		"x": 23,
 		"y": 10,
 		"pages": [
@@ -2382,7 +2382,7 @@
 	},
 	{
 		"id": 59,
-		"nom": "Viking jaune SHADOW[32] (-4)",
+		"nom": "Viking jaune SHADOW[30] (-4)",
 		"x": 12,
 		"y": 14,
 		"pages": [
@@ -2503,7 +2503,7 @@
 	},
 	{
 		"id": 40,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 21,
 		"y": 13,
 		"pages": [
@@ -2713,7 +2713,7 @@
 	},
 	{
 		"id": 41,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 23,
 		"y": 14,
 		"pages": [
@@ -2869,7 +2869,7 @@
 	},
 	{
 		"id": 32,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 21,
 		"y": 12,
 		"pages": [
@@ -2927,7 +2927,7 @@
 	},
 	{
 		"id": 70,
-		"nom": "Viking jaune SHADOW[32] (-4)",
+		"nom": "Viking jaune SHADOW[30] (-4)",
 		"x": 18,
 		"y": 24,
 		"pages": [
@@ -3076,7 +3076,7 @@
 	},
 	{
 		"id": 42,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 24,
 		"y": 14,
 		"pages": [
@@ -3134,7 +3134,7 @@
 	},
 	{
 		"id": 23,
-		"nom": "Garde SHADOW[32] (-4)",
+		"nom": "Garde SHADOW[30] (-4)",
 		"x": 14,
 		"y": 27,
 		"pages": [
@@ -3216,9 +3216,9 @@
 				"texte": "Bah vous êtes un Viking jaune alors..."
 			},
 			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 223,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionSinon",
@@ -3326,9 +3326,8 @@
 				"nom": "Parler"
 			},
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 23,
-				"numeroInterrupteurLocal": 0,
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 223,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
@@ -3495,6 +3494,10 @@
 					"nombreDeFrames": 68
 				},
 				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(4)+2).to_s)"
+				},
+				{
 					"nom": "Sauter",
 					"x": 0,
 					"y": 0
@@ -3573,7 +3576,7 @@
 	},
 	{
 		"id": 33,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 20,
 		"y": 12,
 		"pages": [
@@ -3630,8 +3633,32 @@
 		]
 	},
 	{
+		"id": 71,
+		"nom": "Blocage anti-évènement",
+		"x": 13,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 43,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 23,
 		"y": 15,
 		"pages": [
@@ -3807,6 +3834,10 @@
 					"nombreDeFrames": 51
 				},
 				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(4)+2).to_s)"
+				},
+				{
 					"nom": "Sauter",
 					"x": 0,
 					"y": 0
@@ -3909,7 +3940,7 @@
 	},
 	{
 		"id": 15,
-		"nom": "Viking jaune SHADOW[32] (-4)",
+		"nom": "Viking jaune SHADOW[30] (-4)",
 		"x": 29,
 		"y": 7,
 		"pages": [
@@ -4011,7 +4042,7 @@
 	},
 	{
 		"id": 34,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 22,
 		"y": 13,
 		"pages": [
@@ -4057,6 +4088,30 @@
 			],
 			"image": "viking2 petit character",
 			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 72,
+		"nom": "Blocage anti-évènement",
+		"x": 21,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -4176,6 +4231,10 @@
 					"nombreDeFrames": 58
 				},
 				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(4)+2).to_s)"
+				},
+				{
 					"nom": "Sauter",
 					"x": 0,
 					"y": 0
@@ -4223,7 +4282,7 @@
 	},
 	{
 		"id": 44,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 20,
 		"y": 14,
 		"pages": [
@@ -4356,7 +4415,7 @@
 	},
 	{
 		"id": 35,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 23,
 		"y": 12,
 		"pages": [
@@ -4402,6 +4461,30 @@
 			],
 			"image": "viking2 petit character",
 			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 73,
+		"nom": "Blocage anti-évènement",
+		"x": 11,
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -4480,7 +4563,7 @@
 	},
 	{
 		"id": 45,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 21,
 		"y": 14,
 		"pages": [
@@ -4537,8 +4620,14 @@
 		]
 	},
 	{
+		"id": 17,
+		"nom": "Clone[341][001]",
+		"x": 33,
+		"y": 12
+	},
+	{
 		"id": 36,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
 		"x": 25,
 		"y": 13,
 		"pages": [
@@ -4595,10 +4684,28 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][001]",
-		"x": 33,
-		"y": 12
+		"id": 74,
+		"nom": "Blocage anti-évènement",
+		"x": 8,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 55,
@@ -4628,10 +4735,10 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "fumee",
-		"x": 6,
-		"y": 21,
+		"id": 46,
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
+		"x": 22,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -4640,23 +4747,54 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking jaune\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hush! One should listen!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Chut, il faut écouter !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
-			"image": "fumee chara",
-			"opacite": 200,
-			"modeDeFusion": "addition",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
+			"image": "viking2 petit character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
 		}
 		]
 	},
 	{
 		"id": 65,
-		"nom": "viking reunion SHADOW[32] (-4)",
+		"nom": "viking reunion SHADOW[30] (-4)",
 		"x": 27,
 		"y": 4,
 		"pages": [
@@ -4726,10 +4864,92 @@
 		"y": 7
 	},
 	{
-		"id": 46,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
-		"x": 22,
-		"y": 15,
+		"id": 27,
+		"nom": "fumee",
+		"x": 6,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "fumee chara",
+			"opacite": 200,
+			"modeDeFusion": "addition",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 75,
+		"nom": "Blocage anti-évènement",
+		"x": 20,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 56,
+		"nom": "EV056",
+		"x": 7,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 653,
+				"xDebutHeros": 12,
+				"yDebutHeros": 14
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 37,
+		"nom": "viking jaune attentif SHADOW[30] (-4)",
+		"x": 24,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -4745,13 +4965,13 @@
 			},
 			{
 				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2.wav",
+				"nomFichierSonore": "Viking2 femme.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
 				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking jaune\""
+				"script": "$game_temp.faceset = \"viking jaune femme\""
 			},
 			{
 				"nom": "Commentaire",
@@ -4771,7 +4991,7 @@
 				"valeur": false
 			}
 			],
-			"image": "viking2 petit character",
+			"image": "viking2 femme petit character",
 			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -4785,7 +5005,7 @@
 	},
 	{
 		"id": 18,
-		"nom": "Garde SHADOW[32] (-4)",
+		"nom": "Garde SHADOW[30] (-4)",
 		"x": 34,
 		"y": 8,
 		"pages": [
@@ -4867,9 +5087,9 @@
 				"texte": "Bah vous êtes un Viking jaune alors..."
 			},
 			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 223,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionSinon",
@@ -4978,9 +5198,8 @@
 				"nom": "Parler"
 			},
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 18,
-				"numeroInterrupteurLocal": 0,
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 223,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
@@ -5057,95 +5276,6 @@
 			"image": "viking2 petit character",
 			"vitesse": "lente",
 			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 37,
-		"nom": "viking jaune attentif SHADOW[32] (-4)",
-		"x": 24,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2 femme.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking jaune femme\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Hush! One should listen!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Chut, il faut écouter !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "viking2 femme petit character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 56,
-		"nom": "EV056",
-		"x": 7,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 653,
-				"xDebutHeros": 12,
-				"yDebutHeros": 14
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,

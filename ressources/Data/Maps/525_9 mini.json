@@ -3,6 +3,11 @@
 	"tileset": "Sanctuaire de Kazan",
 	"largeur": 21,
 	"hauteur": 15,
+	"fondSonore": {
+		"nomFichierSonore": "",
+		"volume": 0.00,
+		"tempo": 1.00
+	},
 	"couche0": [
 	[0002,0002,0002,0002,0002,0036,0037,0016,0017,0018,0146,0147,-007,-007,-007,-007,-007,-007,-007,0020,0021],
 	[0002,0002,0002,0002,0002,0044,0045,0024,0025,0026,0154,0155,-007,-007,-007,-007,-007,-007,-007,0028,0029],
@@ -55,6 +60,12 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
+	{
+		"id": 5,
+		"nom": "Clone[341][063]",
+		"x": 13,
+		"y": 8
+	},
 	{
 		"id": 27,
 		"nom": "Réglages initiaux",
@@ -237,10 +248,34 @@
 		]
 	},
 	{
-		"id": 5,
+		"id": 22,
 		"nom": "Clone[341][063]",
-		"x": 13,
+		"x": 10,
 		"y": 8
+	},
+	{
+		"id": 11,
+		"nom": "Blocage anti-évènement",
+		"x": 16,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 33,
@@ -274,52 +309,16 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "Blocage anti-évènement",
-		"x": 16,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][063]",
-		"x": 10,
-		"y": 8
-	},
-	{
-		"id": 28,
-		"nom": "Clone[341][063]",
-		"x": 7,
-		"y": 8
-	},
-	{
 		"id": 6,
 		"nom": "Clone[341][023]",
 		"x": 18,
 		"y": 9
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 18,
-		"y": 2
+		"id": 28,
+		"nom": "Clone[341][063]",
+		"x": 7,
+		"y": 8
 	},
 	{
 		"id": 12,
@@ -346,34 +345,16 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 18,
+		"y": 2
+	},
+	{
 		"id": 7,
 		"nom": "Clone[341][0025]",
 		"x": 8,
 		"y": 1
-	},
-	{
-		"id": 13,
-		"nom": "Blocage anti-évènement",
-		"x": 13,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 2,
@@ -382,10 +363,10 @@
 		"y": 5
 	},
 	{
-		"id": 19,
+		"id": 13,
 		"nom": "Blocage anti-évènement",
-		"x": 9,
-		"y": 2,
+		"x": 13,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -437,6 +418,30 @@
 		]
 	},
 	{
+		"id": 19,
+		"nom": "Blocage anti-évènement",
+		"x": 9,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 14,
 		"nom": "Blocage anti-évènement",
 		"x": 10,
@@ -461,12 +466,6 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][0021]",
-		"x": 10,
-		"y": 2
-	},
-	{
 		"id": 20,
 		"nom": "Blocage anti-évènement",
 		"x": 11,
@@ -489,6 +488,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][0021]",
+		"x": 10,
+		"y": 2
 	},
 	{
 		"id": 4,

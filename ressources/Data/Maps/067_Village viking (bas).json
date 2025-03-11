@@ -3,16 +3,6 @@
 	"tileset": "Ventre",
 	"largeur": 50,
 	"hauteur": 35,
-	"musique": {
-		"nomFichierSonore": "Village viking rouge.ogg",
-		"volume": 0.90,
-		"tempo": 1.00
-	},
-	"fondSonore": {
-		"nomFichierSonore": "019-People01.ogg",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"couche0": [
 	[0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0059,0049,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
 	[0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0817,0186,0032,0000,0000,0000,0000,0000,0000,0000,0000,0064,0065,0065,0065,0066,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0038,0810,0809,0809,0809,0809,0809,0809,0809,0809,0809,0809],
@@ -207,6 +197,10 @@
 					"nombreDeFrames": 51
 				},
 				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(4)+2).to_s)"
+				},
+				{
 					"nom": "Sauter",
 					"x": 0,
 					"y": 0
@@ -314,6 +308,157 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 49,
+		"nom": "dose49 convalescence SHADOW[48,-6]",
+		"x": 24,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 51,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Why do you have a pot on your head?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Pourquoi vous avez une marmite sur la tête ?"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 49,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Oh, it's s... stuck there.\\nThese are the risks of the p... profession."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Oh, elle est c... coincée là.\\nCe s... sont les risques du m... métier."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 50,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Want us to help you unstuck it?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous voulez qu'on vous aide à la décoincer ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE N... no thanks!\\nI... I'm used to it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE N... non merci !\\nJ... j'ai l'habitude !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Ok."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "Magicien dose character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -472,7 +617,7 @@
 	},
 	{
 		"id": 44,
-		"nom": "Viking déguisé SHADOW[32] (-4)",
+		"nom": "Viking déguisé SHADOW[30] (-4)",
 		"x": 24,
 		"y": 11,
 		"pages": [
@@ -1032,6 +1177,30 @@
 		]
 	},
 	{
+		"id": 55,
+		"nom": "Blocage anti-évènement",
+		"x": 25,
+		"y": 3,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 39,
 		"nom": "poule SHADOW[24]",
 		"x": 24,
@@ -1113,6 +1282,10 @@
 					"nombreDeFrames": 58
 				},
 				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(4)+2).to_s)"
+				},
+				{
 					"nom": "Sauter",
 					"x": 0,
 					"y": 0
@@ -1191,7 +1364,7 @@
 	},
 	{
 		"id": 28,
-		"nom": "Garde SHADOW[32] (-4)",
+		"nom": "Garde SHADOW[30] (-4)",
 		"x": 25,
 		"y": 20,
 		"pages": [
@@ -1275,9 +1448,9 @@
 				"texte": "Bah vous êtes un \\c[2]Viking\\c[1] alors..."
 			},
 			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 224,
+				"valeur": true
 			},
 			{
 				"nom": "ConditionSinon",
@@ -1386,9 +1559,8 @@
 				"nom": "Parler"
 			},
 			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 28,
-				"numeroInterrupteurLocal": 0,
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 224,
 				"valeurQuIlEstCenseAvoir": true
 			}
 			],
@@ -1480,6 +1652,157 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 50,
+		"nom": "viking50 convalescence SHADOW[30] (-4)",
+		"x": 27,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 51,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Why do you have a pot on your head?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Pourquoi vous avez une marmite sur la tête ?"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 49,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Oh, it's s... stuck there.\\nThese are the risks of the p... profession."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Oh, elle est c... coincée là.\\nCe s... sont les risques du m... métier."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 50,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Want us to help you unstuck it?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous voulez qu'on vous aide à la décoincer ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE N... no thanks!\\nI... I'm used to it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE N... non merci !\\nJ... j'ai l'habitude !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Ok."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1583,7 +1906,7 @@
 	},
 	{
 		"id": 12,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 28,
 		"y": 14,
 		"pages": [
@@ -1791,6 +2114,170 @@
 		]
 	},
 	{
+		"id": 56,
+		"nom": "effacer cinematique",
+		"x": 25,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "effacer les personnage de la cinématique \\nde la convalescence"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 222,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 48,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 49,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 50,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 51,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 52,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 53,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 40,
 		"nom": "poule SHADOW[24]",
 		"x": 23,
@@ -1870,6 +2357,10 @@
 					"nom": "AppelerUneCommande",
 					"nomCommande": "Attendre",
 					"nombreDeFrames": 68
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(4)+2).to_s)"
 				},
 				{
 					"nom": "Sauter",
@@ -1978,6 +2469,157 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 51,
+		"nom": "viking51 convalescence SHADOW[30] (-4)",
+		"x": 23,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 51,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Why do you have a pot on your head?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Pourquoi vous avez une marmite sur la tête ?"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 49,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Oh, it's s... stuck there.\\nThese are the risks of the p... profession."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Oh, elle est c... coincée là.\\nCe s... sont les risques du m... métier."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 50,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Want us to help you unstuck it?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous voulez qu'on vous aide à la décoincer ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE N... no thanks!\\nI... I'm used to it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE N... non merci !\\nJ... j'ai l'habitude !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Ok."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking femme petit character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -2190,6 +2832,30 @@
 			{
 				"nom": "SupprimerEvent"
 			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 57,
+		"nom": "Blocage anti-évènement",
+		"x": 19,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -2499,6 +3165,10 @@
 					"nombreDeFrames": 78
 				},
 				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(3)+2).to_s)"
+				},
+				{
 					"nom": "Sauter",
 					"x": 0,
 					"y": 0
@@ -2569,6 +3239,157 @@
 		]
 	},
 	{
+		"id": 52,
+		"nom": "viking52 convalescence SHADOW[30] (-4)",
+		"x": 23,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 51,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Why do you have a pot on your head?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Pourquoi vous avez une marmite sur la tête ?"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 49,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Oh, it's s... stuck there.\\nThese are the risks of the p... profession."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Oh, elle est c... coincée là.\\nCe s... sont les risques du m... métier."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 50,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Want us to help you unstuck it?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous voulez qu'on vous aide à la décoincer ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE N... no thanks!\\nI... I'm used to it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE N... non merci !\\nJ... j'ai l'habitude !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Ok."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking petit character",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 47,
 		"nom": "Avancement",
 		"x": 33,
@@ -2629,7 +3450,7 @@
 	},
 	{
 		"id": 25,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 27,
 		"y": 8,
 		"pages": [
@@ -2834,8 +3655,32 @@
 		]
 	},
 	{
+		"id": 58,
+		"nom": "Blocage anti-évènement",
+		"x": 32,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 20,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 22,
 		"y": 15,
 		"pages": [
@@ -2986,6 +3831,157 @@
 		"y": 7
 	},
 	{
+		"id": 53,
+		"nom": "viking53 convalescence SHADOW[30] (-4)",
+		"x": 27,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 51,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Why do you have a pot on your head?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Pourquoi vous avez une marmite sur la tête ?"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 49,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE Oh, it's s... stuck there.\\nThese are the risks of the p... profession."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Oh, elle est c... coincée là.\\nCe s... sont les risques du m... métier."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 50,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Want us to help you unstuck it?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Vous voulez qu'on vous aide à la décoincer ?"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE N... no thanks!\\nI... I'm used to it!"
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE N... non merci !\\nJ... j'ai l'habitude !"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Ok."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "viking femme petit character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 37,
 		"nom": "EV037",
 		"x": 37,
@@ -3043,9 +4039,9 @@
 	},
 	{
 		"id": 26,
-		"nom": "Viking SHADOW[32] (-4)",
-		"x": 24,
-		"y": 6,
+		"nom": "Viking SHADOW[30] (-4)",
+		"x": 23,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -3261,6 +4257,62 @@
 		"nom": "Clone[341][115]",
 		"x": 20,
 		"y": 21
+	},
+	{
+		"id": 48,
+		"nom": "tabula48 convalescence SHADOW[40] (-8)",
+		"x": 26,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			],
+			"image": "tabula le terrible",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 59,
+		"nom": "Blocage anti-évènement",
+		"x": 35,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 32,
@@ -3627,20 +4679,32 @@
 				"numero": 6
 			},
 			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Village viking rouge vide.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
 				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
+				"nomFichierSonore": "",
 				"volume": 0.00,
 				"tempo": 1.50
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "ConditionSinon",
+				"numero": 6
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Village viking rouge.ogg",
+				"volume": 0.90,
+				"tempo": 1.00
 			},
 			{
 				"nom": "JouerFondSonore",
-				"nomFichierSonore": "001-Wind01.ogg",
-				"volume": 0.00,
-				"tempo": 1.50
+				"nomFichierSonore": "019-People01.ogg",
+				"volume": 0.75,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ConditionFin",
@@ -3652,6 +4716,527 @@
 			],
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 54,
+		"nom": "cinematique convalescence",
+		"x": 25,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Variable",
+				"numeroVariable": 161,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_player.x>=22 && $game_player.y>=3 && $game_player.x<=28 && $game_player.y<=6",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "si on a déjà la pierre du Jizô, \\non supprime la cinématique"
+			},
+			{
+				"nom": "ConditionGadgetPossede",
+				"idGadget": 4,
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 222,
+				"valeur": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 54,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "247",
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 1,
+				"vitesse": "rapide"
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Tabula le Terrible.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tabula bwaaah.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 48,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) BWAAAAAAH!"
+			},
+			{
+				"nom": "Message",
+				"texte": "BWAAAAAAH !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) SO, \\c[2]MAGICIAN\\c[0], HOW IS \\c[2]MY DAUGHTER\\c[0]?"
+			},
+			{
+				"nom": "Message",
+				"texte": "ALORS, \\c[2]MAGICIEN\\c[0], COMMENT VA \\c[2]MA FILLE\\c[0] ?"
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 2,
+				"vitesse": "rapide"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 49,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE She... she's f... fine!\\nShe has no ph... physical injuries \\nand no t... trace of a s... spell."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Elle... elle va b... bien ! \\nElle n'a aucune b... blessure physique\\nni aucune t... trace de s... sortilège."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE She's j... just t... tired from the stress \\nof her c... captivity.\\nShe needs to rest n... now."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Elle est j... juste f... fatiguée suite au stress \\ninduit par sa c... captivité.\\nIl faut qu'elle se repose m... maintenant."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE She can take one Glavisconax tablet \\nin the morning and evening \\nif she still feels weak."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Elle peut prendre un comprimé de Glavisconax \\nle matin et le soir si elle se sent encore faible."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 2,
+				"vitesse": "rapide"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tabula graaah1.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 48,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) HUH?! GLAVISCONAX!\\nISN'T THAT WHAT YOU PRESCRIBED ME \\nWHEN I CAUGHT A COLD LAST JANUARY?"
+			},
+			{
+				"nom": "Message",
+				"texte": "HEIN ?! DU GLAVISCONAX !\\nC'EST PAS CE QUE VOUS M'AVIEZ PRESCRIT \\nQUAND J'AI ATTRAPÉ UN RHUME EN JANVIER ?"
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 2,
+				"vitesse": "rapide"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 51,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) When I had my arm in a cast, \\nyou also prescribed Glavisconax for me!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Quand j'avais le bras dans le plâtre, \\nvous m'aviez aussi prescrit du Glavisconax !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 49,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE A... actually, G... Glavisconax contains \\nuniversal p... panacea, so it c... cures everything."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE En... en fait, le G... Glavisconax contient de la \\np... panacée universelle, donc il g... guérit tout."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 51,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh yeah, that makes sense."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ah bah oui, ça fait sens."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 2,
+				"vitesse": "rapide"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 48,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) TELL ME, \\c[2]MAGICIAN\\c[0], COULDN'T YOU \\nCAST A SPELL ON THE \\c[2]SPELLMASTER\\c[0]?"
+			},
+			{
+				"nom": "Message",
+				"texte": "DITES-MOI, \\c[2]MAGICIEN\\c[0], EST-CE QUE \\nVOUS NE POURRIEZ PAS JETER UN SORT \\nAU \\c[2]MAÎTRE DES MALÉFICES\\c[0] ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) FOR EXAMPLE, STRIKE LIGHTNING ON HIM?\\nOR TURN HIM INTO A POTATO?"
+			},
+			{
+				"nom": "Message",
+				"texte": "PAR EXEMPLE, LE FOUDROYER ?\\nOU LE TRANSFORMER EN PATATE ?"
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 1,
+				"nombreDeCarreaux": 2,
+				"vitesse": "rapide"
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 49,
+				"idAnimation": 42
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"magicien dose marmite\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE I... I'm just an al... alchemist, \\nnot a m... magician."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE J... je ne suis qu'un al... alchimiste, \\npas un m... magicien."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) \\SHAKE I specialize in healing p.. potions."
+			},
+			{
+				"nom": "Message",
+				"texte": "\\SHAKE Je suis spécialisé dans les p.. potions de soin."
+			},
+			{
+				"nom": "FaireDefilerLaMap",
+				"direction": 2,
+				"nombreDeCarreaux": 2,
+				"vitesse": "rapide"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tabula graaah1.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) OH REALLY?\\nDAMMIT.\\nTHAT'S STILL NOT BAD."
+			},
+			{
+				"nom": "Message",
+				"texte": "AH BON ? \\nTANT PIS.\\nC'EST DÉJÀ BIEN."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) WELL, THANKS FOR YOUR HELP, \\c[2]MAGICIAN\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "BON, MERCI POUR VOTRE AIDE, \\c[2]MAGICIEN\\c[0]."
+			},
+			{
+				"nom": "ArreterMusique",
+				"nombreDeFrames": 30
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 48,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "RendreAnimeEnMouvement",
+					"animeEnMouvement": true
+				},
+				{
+					"nom": "ModifierVitesse",
+					"vitesse": "normale"
+				},
+				{
+					"nom": "ModifierFrequence",
+					"frequence": "la plus haute"
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "053-Cannon02.ogg",
+					"volume": 1.00,
+					"tempo": 1.50
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(48)"
+			},
+			{
+				"nom": "TremblementDeTerre",
+				"intensite": 2,
+				"vitesse": 8,
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "248",
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 222,
+				"valeur": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 222,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,

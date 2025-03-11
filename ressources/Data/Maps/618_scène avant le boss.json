@@ -42,7 +42,7 @@
 	],
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0072,0073,0074,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0080,0081,0082,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[0226,0226,0226,-001,-001,-001,-001,-001,-001,0080,0081,0082,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0156,0149,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -283,13 +283,19 @@
 				"vitesse": "normale"
 			},
 			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Thaumaturges Noirs.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
 				"nom": "Attendre",
 				"nombreDeFrames": 16
 			},
 			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Thaumaturges Noirs.ogg",
-				"volume": 0.80,
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "thaumaturge haha.ogg",
+				"volume": 1.00,
 				"tempo": 1.00
 			},
 			{
@@ -302,15 +308,15 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Le \\c[2]maître\\c[1] sera content en apprenant\\nnotre réussite."
+				"texte": "Le \\c[2]maître des maléfices\\c[1] sera ravi \\nd'apprendre notre réussite."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) The treasure of the sanctuary must lie\\njust behind that door."
+				"texte": "(en) The treasure of the sanctuary - the pearl of \\c[2]Kazan\\c[0] - \\nmust lie just behind that door."
 			},
 			{
 				"nom": "Message",
-				"texte": "Le trésor du sanctuaire devrait se trouver \\njuste derrière cette porte."
+				"texte": "Le trésor du sanctuaire, la perle de \\c[2]Kazan'\\c[0],\\ndevrait se trouver juste derrière cette porte."
 			},
 			{
 				"nom": "Attendre",
@@ -340,11 +346,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) We will have the power to destroy \\c[02]Kujira\\c[01]\\nas in the \\c[02]master\\c[01]'s plan."
+				"texte": "(en) We will have the power to destroy \\c[02]Kujira\\c[01]\\nas in the \\c[2]spellmaster\\c[1]'s plan."
 			},
 			{
 				"nom": "Message",
-				"texte": "Nous aurons le pouvoir de détruire \\c[2]Kujira\\c[1],\\ncomme selon les plans du \\c[2]maître\\c[1]."
+				"texte": "Nous aurons le pouvoir de détruire \\c[2]Kujira\\c[1],\\ncomme le \\c[2]maître des maléfices\\c[1] l'a planifié."
 			},
 			{
 				"nom": "Attendre",
@@ -446,11 +452,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \\WAVE The treasure of \\c[02]Kazan\\c[01] are belong to us!\\nFor great justice!"
+				"texte": "(en) Fear our power, human, \\nbecause we will invoke the \\c[2]hole-fish\\c[1]!"
 			},
 			{
 				"nom": "Message",
-				"texte": "\\WAVE Le trésor du sanctuaire de \\c[2]Kazan' l'érudit\\c[1]\\nest à nous !\\nPour la grande justice !"
+				"texte": "Crains notre puissance, humain, \\ncar nous allons invoquer le \\c[2]poisson-trou\\c[1] !"
 			},
 			{
 				"nom": "Attendre",
@@ -472,19 +478,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Fear our power, human, \\nbecause we will invoke the \\c[2]hole-fish\\c[1]!"
+				"texte": "(en) \\WAVE Oh \\c[2]Don Flatus\\c[0]!\\nCursed burgomaster!\\nYou whose damned soul roams these places,\\ncome to us!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Crains notre puissance, humain, \\ncar nous allons invoquer le \\c[2]poisson-trou\\c[1] !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Damned soul of the mayor,\\nyou who wander in this place,\\ncome to us!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Âme damnée du bourgmestre,\\nToi qui erres en ces lieux,\\nviens à nous !"
+				"texte": "\\WAVE Ô \\c[2]Don Flatus\\c[0] !\\nbourgmestre maudit !\\nToi dont l'âme damnée erre en ces lieux,\\nviens à nous !"
 			},
 			{
 				"nom": "ArreterMusique",
@@ -514,8 +512,8 @@
 				"nombreDeFrames": 8
 			},
 			{
-				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "fanfare (erreur).ogg",
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "thaumaturge hahaha.ogg",
 				"volume": 1.00,
 				"tempo": 1.00
 			},
@@ -666,14 +664,14 @@
 	{
 		"id": 28,
 		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 21
+		"x": 13,
+		"y": 18
 	},
 	{
 		"id": 39,
 		"nom": "Clone[341][004]",
-		"x": 5,
-		"y": 7
+		"x": 8,
+		"y": 11
 	},
 	{
 		"id": 6,
@@ -743,8 +741,8 @@
 	{
 		"id": 40,
 		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 8
+		"x": 8,
+		"y": 10
 	},
 	{
 		"id": 7,
@@ -805,8 +803,8 @@
 	{
 		"id": 41,
 		"nom": "Clone[341][004]",
-		"x": 15,
-		"y": 22
+		"x": 12,
+		"y": 19
 	},
 	{
 		"id": 8,
@@ -843,8 +841,8 @@
 	{
 		"id": 3,
 		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 22
+		"x": 12,
+		"y": 18
 	},
 	{
 		"id": 36,
@@ -952,7 +950,7 @@
 		"id": 37,
 		"nom": "Clone[341][181]",
 		"x": 8,
-		"y": 10
+		"y": 6
 	},
 	{
 		"id": 4,
@@ -1046,8 +1044,8 @@
 	{
 		"id": 32,
 		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 7
+		"x": 7,
+		"y": 11
 	},
 	{
 		"id": 10,

@@ -106,14 +106,8 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][061]",
-		"x": 8,
-		"y": 10
-	},
-	{
 		"id": 16,
-		"nom": "viking rouge1 SHADOW[32] (-4)",
+		"nom": "viking rouge1 SHADOW[30] (-4)",
 		"x": 1,
 		"y": 29,
 		"pages": [
@@ -136,6 +130,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 5,
+		"nom": "Clone[341][061]",
+		"x": 8,
+		"y": 10
 	},
 	{
 		"id": 11,
@@ -173,14 +173,8 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][061]",
-		"x": 13,
-		"y": 16
-	},
-	{
 		"id": 17,
-		"nom": "viking rouge2 SHADOW[32] (-4)",
+		"nom": "viking rouge2 SHADOW[30] (-4)",
 		"x": 2,
 		"y": 29,
 		"pages": [
@@ -196,6 +190,47 @@
 			"directionInitiale": 1,
 			"vitesse": "normale",
 			"frequence": "haute",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][061]",
+		"x": 13,
+		"y": 16
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 29,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 66,
+				"xDebutHeros": 1,
+				"yDebutHeros": 16
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -285,28 +320,35 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 29,
-		"y": 11,
+		"id": 18,
+		"nom": "triche (mission secrete)",
+		"x": 18,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
+				"nom": "ModifierVariable",
+				"numeroVariable": 78,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 20,
+				"operationAFaire2": "valeur brute"
 			},
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 66,
-				"xDebutHeros": 1,
-				"yDebutHeros": 16
+				"nom": "Commentaire",
+				"texte": "(en) bhnjbgj"
+			},
+			{
+				"nom": "Message",
+				"texte": "bhnjbgj"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -321,7 +363,7 @@
 	},
 	{
 		"id": 7,
-		"nom": "Dose",
+		"nom": "Dose SHADOW[48,-6]",
 		"x": 0,
 		"y": 29,
 		"pages": [
@@ -408,11 +450,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) My purple berry potion needs \\nfreshly picked purple berries."
+				"texte": "(en) My universal panacea needs\\nfreshly picked purple berries."
 			},
 			{
 				"nom": "Message",
-				"texte": "Ma potion aux baies violettes nécessite \\nqu'elles soient fraichement cueillies."
+				"texte": "Ma panacée universelle nécessite \\nqu'elles soient fraîchement cueillies."
 			},
 			{
 				"nom": "Commentaire",
@@ -549,54 +591,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 18,
-		"nom": "triche (mission secrete)",
-		"x": 18,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 78,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 20,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) bhnjbgj"
-			},
-			{
-				"nom": "Message",
-				"texte": "bhnjbgj"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 9
 	},
 	{
 		"id": 13,
@@ -1004,10 +998,10 @@
 		]
 	},
 	{
-		"id": 8,
+		"id": 2,
 		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 7
+		"x": 9,
+		"y": 9
 	},
 	{
 		"id": 19,
@@ -1048,14 +1042,14 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 8,
 		"nom": "Clone[341][028]",
-		"x": 7,
-		"y": 10
+		"x": 10,
+		"y": 7
 	},
 	{
 		"id": 14,
-		"nom": "Viking jaune1 SHADOW[32] (-4)",
+		"nom": "Viking jaune1 SHADOW[30] (-4)",
 		"x": 10,
 		"y": 16,
 		"pages": [
@@ -1201,9 +1195,9 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[582][52]",
-		"x": 10,
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 7,
 		"y": 10
 	},
 	{
@@ -1238,14 +1232,14 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 11,
-		"y": 13
+		"id": 20,
+		"nom": "Clone[582][52]",
+		"x": 10,
+		"y": 10
 	},
 	{
 		"id": 15,
-		"nom": "Viking jaune2 SHADOW[32] (-4)",
+		"nom": "Viking jaune2 SHADOW[30] (-4)",
 		"x": 12,
 		"y": 16,
 		"pages": [
@@ -1694,7 +1688,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Dépèche-toi !"
+				"texte": "Dépêche-toi !"
 			},
 			{
 				"nom": "Commentaire",
@@ -1702,7 +1696,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Il ne faut pas que les \\c[2]Vikings jaunes\\c[1] \\nne trouvent avant nous la... euh... la..."
+				"texte": "Les \\c[2]Vikings jaunes\\c[1] ne doivent pas trouver\\navant nous la... euh... la..."
 			},
 			{
 				"nom": "Attendre",
@@ -2620,6 +2614,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 11,
+		"y": 13
 	},
 	{
 		"id": 10,

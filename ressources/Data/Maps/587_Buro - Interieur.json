@@ -128,7 +128,7 @@
 	},
 	{
 		"id": 16,
-		"nom": "vendeur SHADOW[32] (-4)",
+		"nom": "vendeur SHADOW[30] (-4)",
 		"x": 10,
 		"y": 18,
 		"pages": [
@@ -242,6 +242,73 @@
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 33,
+		"nom": "Viking SHADOW[30] (-4)",
+		"x": 25,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Bürø is very practical, but as a result \\neveryone has the same furniture..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Bürø, c'est bien pratique, mais du coup \\ntout le monde a un peu les mêmes meubles..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+					{
+						"nom": "AvancerAleatoirement"			}
+				]
+			},
+			"image": "viking femme petit character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,

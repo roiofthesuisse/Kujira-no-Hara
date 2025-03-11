@@ -107,9 +107,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 399,
-				"xDebutHeros": 16,
-				"yDebutHeros": 18
+				"numeroNouvelleMap": 160,
+				"xDebutHeros": 18,
+				"yDebutHeros": 29
 			}
 			],
 			"vitesse": "moderee",
@@ -206,6 +206,34 @@
 		"nom": "Clone[341][0065]",
 		"x": 11,
 		"y": 11
+	},
+	{
+		"id": 10,
+		"nom": "brouillard",
+		"x": 19,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 132
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	}
 	]
 }

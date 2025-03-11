@@ -3,11 +3,6 @@
 	"tileset": "Maison",
 	"largeur": 30,
 	"hauteur": 40,
-	"musique": {
-		"nomFichierSonore": "Maison viking.ogg",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"fondSonore": {
 		"nomFichierSonore": "013-Fire01.ogg",
 		"volume": 0.50,
@@ -141,46 +136,20 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[341][008]",
-		"x": 23,
-		"y": 7
-	},
-	{
 		"id": 5,
 		"nom": "Clone[341][004]",
 		"x": 17,
 		"y": 26
 	},
 	{
-		"id": 22,
-		"nom": "Plante en pot",
-		"x": 17,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 16,
+		"nom": "Clone[341][008]",
+		"x": 23,
+		"y": 7
 	},
 	{
 		"id": 11,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 22,
 		"y": 24,
 		"pages": [
@@ -301,16 +270,54 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[341][039]",
-		"x": 18,
-		"y": 30
+		"id": 22,
+		"nom": "Plante en pot",
+		"x": 17,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "plante en pot character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 6,
 		"nom": "Clone[341][004]",
 		"x": 16,
 		"y": 26
+	},
+	{
+		"id": 17,
+		"nom": "Clone[341][039]",
+		"x": 18,
+		"y": 30
+	},
+	{
+		"id": 23,
+		"nom": "Clone[341][008]",
+		"x": 16,
+		"y": 25
+	},
+	{
+		"id": 1,
+		"nom": "Clone[582][40]",
+		"x": 16,
+		"y": 6
 	},
 	{
 		"id": 12,
@@ -458,15 +465,9 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[582][40]",
-		"x": 16,
-		"y": 6
-	},
-	{
-		"id": 23,
-		"nom": "Clone[341][008]",
-		"x": 16,
+		"id": 7,
+		"nom": "Clone[341][004]",
+		"x": 17,
 		"y": 25
 	},
 	{
@@ -496,10 +497,36 @@
 		]
 	},
 	{
-		"id": 7,
+		"id": 24,
+		"nom": "gojlipo",
+		"x": 22,
+		"y": 28,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "gojlipo regles character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
 		"nom": "Clone[341][004]",
-		"x": 17,
-		"y": 25
+		"x": 4,
+		"y": 8
 	},
 	{
 		"id": 13,
@@ -533,44 +560,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 8
-	},
-	{
-		"id": 24,
-		"nom": "gojlipo",
-		"x": 22,
-		"y": 28,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "gojlipo regles character",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][039]",
-		"x": 6,
-		"y": 16
-	},
-	{
 		"id": 19,
 		"nom": "Blocage anti-évènement",
 		"x": 19,
@@ -595,29 +584,16 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "pot (-16)",
-		"x": 8,
-		"y": 7,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 43,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 8,
+		"nom": "Clone[341][039]",
+		"x": 6,
+		"y": 16
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 16,
+		"y": 17
 	},
 	{
 		"id": 14,
@@ -683,16 +659,29 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 17
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][039]",
-		"x": 10,
-		"y": 16
+		"id": 25,
+		"nom": "pot (-16)",
+		"x": 8,
+		"y": 7,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 43,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 20,
@@ -719,16 +708,22 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[582][50]",
-		"x": 21,
-		"y": 11
+		"id": 9,
+		"nom": "Clone[341][039]",
+		"x": 10,
+		"y": 16
+	},
+	{
+		"id": 26,
+		"nom": "Clone[582][120]",
+		"x": 11,
+		"y": 19
 	},
 	{
 		"id": 15,
-		"nom": "EV015",
-		"x": 26,
-		"y": 27,
+		"nom": "init",
+		"x": 10,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
@@ -753,6 +748,36 @@
 				"nomImage": "001-Fog01"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "musique différente\\nquand les vikings sont partis en guerre"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 127,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Village viking rouge vide.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Maison viking.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -767,29 +792,10 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "feu (8)",
-		"x": 22,
-		"y": 6,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "feu character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 4,
+		"nom": "Clone[582][50]",
+		"x": 21,
+		"y": 11
 	},
 	{
 		"id": 10,
@@ -890,6 +896,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[582][115]",
+		"x": 22,
+		"y": 6
 	}
 	]
 }

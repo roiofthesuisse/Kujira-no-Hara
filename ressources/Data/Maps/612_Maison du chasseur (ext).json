@@ -818,7 +818,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "La forêt de l'Ouest ne t'a pas semblé être\\nun endroit pertinent tes recherches ?"
+				"texte": "La forêt de l'Ouest ne t'a pas semblé être\\nun endroit pertinent pour tes recherches ?"
 			},
 			{
 				"nom": "Commentaire",
@@ -1472,33 +1472,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "fumee",
-		"x": 29,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "fumee chara",
-			"opacite": 225,
-			"modeDeFusion": "addition",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 41,
 		"nom": "Passerelle",
 		"x": 25,
@@ -2094,6 +2067,18 @@
 				"valeur": false
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "corriger le ton de l'écran\\nau sortir de la maison du chasseur"
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 1,
 				"valeurQuIlEstCenseAvoir": false,
@@ -2399,12 +2384,6 @@
 		]
 	},
 	{
-		"id": 82,
-		"nom": "Clone[582][37]",
-		"x": 3,
-		"y": 35
-	},
-	{
 		"id": 44,
 		"nom": "Blocage",
 		"x": 21,
@@ -2553,6 +2532,118 @@
 		]
 	},
 	{
+		"id": 82,
+		"nom": "Clone[582][37]",
+		"x": 3,
+		"y": 35
+	},
+	{
+		"id": 16,
+		"nom": "Clone[341][008]",
+		"x": 15,
+		"y": 9
+	},
+	{
+		"id": 35,
+		"nom": "Passerelle",
+		"x": 8,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 23,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 32,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": 23,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 54,
+		"nom": "EV054",
+		"x": 19,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 73,
 		"nom": "Jizo",
 		"x": 13,
@@ -2577,6 +2668,25 @@
 				"tempo": 1.00
 			},
 			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 130,
+				"etat": "FAITE",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierAvancementQuete",
+				"numero": 131,
+				"avancement": "CONNUE"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "Commentaire",
 				"texte": "(en) It's a jizo statue."
 			},
@@ -2587,13 +2697,13 @@
 			{
 				"nom": "ConditionGadgetEquipe",
 				"idGadget": 4,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ConditionDirection",
 				"idEventConcerne": 77,
 				"direction": 3,
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "Commentaire",
@@ -2611,15 +2721,15 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Tagada tsoin tsoin.\""
+				"texte": "(en) \"Pouêt pouêt cacahuète.\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Tagada tsoin tsoin.\""
+				"texte": "\"Toot toot grapefruit.\""
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "Commentaire",
@@ -2645,11 +2755,11 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 1
+				"numero": 2
 			},
 			{
 				"nom": "ConditionSinon",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Commentaire",
@@ -2661,7 +2771,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
@@ -2753,10 +2863,22 @@
 		]
 	},
 	{
-		"id": 54,
-		"nom": "EV054",
-		"x": 19,
-		"y": 5,
+		"id": 7,
+		"nom": "Clone[341][155]",
+		"x": 16,
+		"y": 24
+	},
+	{
+		"id": 26,
+		"nom": "Clone[341][028]",
+		"x": 35,
+		"y": 14
+	},
+	{
+		"id": 64,
+		"nom": "EV064",
+		"x": 0,
+		"y": 36,
 		"pages": [
 		{
 			"conditions": [
@@ -2766,103 +2888,22 @@
 			],
 			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 32,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				},
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 85,
+				"xDebutHeros": 58,
+				"yDebutHeros": 10
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 35,
-		"nom": "Passerelle",
-		"x": 8,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 23,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 32,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": 23,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 16,
-		"nom": "Clone[341][008]",
-		"x": 15,
-		"y": 9
-	},
-	{
-		"id": 83,
-		"nom": "Clone[341][061]",
-		"x": 33,
-		"y": 35
 	},
 	{
 		"id": 45,
@@ -2913,107 +2954,10 @@
 		]
 	},
 	{
-		"id": 64,
-		"nom": "EV064",
-		"x": 0,
-		"y": 36,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 85,
-				"xDebutHeros": 58,
-				"yDebutHeros": 10
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "Clone[341][028]",
-		"x": 35,
-		"y": 14
-	},
-	{
-		"id": 7,
-		"nom": "Clone[341][155]",
-		"x": 16,
-		"y": 24
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][0065]",
-		"x": 17,
-		"y": 25
-	},
-	{
-		"id": 74,
-		"nom": "Clone[582][42]",
-		"x": 34,
-		"y": 24
-	},
-	{
-		"id": 36,
-		"nom": "Passerelle",
-		"x": 9,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 23,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 32,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": 23,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 83,
+		"nom": "Clone[341][061]",
+		"x": 33,
+		"y": 35
 	},
 	{
 		"id": 55,
@@ -3068,10 +3012,126 @@
 		]
 	},
 	{
-		"id": 84,
-		"nom": "Clone[341][0083]",
-		"x": 33,
-		"y": 31
+		"id": 36,
+		"nom": "Passerelle",
+		"x": 9,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 23,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 32,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
+			}
+			],
+			"commandes": [
+			],
+			"image": 23,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 74,
+		"nom": "Clone[582][42]",
+		"x": 34,
+		"y": 24
+	},
+	{
+		"id": 17,
+		"nom": "Clone[341][0065]",
+		"x": 17,
+		"y": 25
+	},
+	{
+		"id": 27,
+		"nom": "Clone[341][028]",
+		"x": 34,
+		"y": 12
+	},
+	{
+		"id": 65,
+		"nom": "EV065",
+		"x": 41,
+		"y": 35,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 146,
+				"xDebutHeros": 1,
+				"yDebutHeros": 17
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "fleur",
+		"x": 27,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 920,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 46,
@@ -3126,10 +3186,22 @@
 		]
 	},
 	{
-		"id": 8,
-		"nom": "fleur",
-		"x": 27,
-		"y": 16,
+		"id": 84,
+		"nom": "Clone[341][0083]",
+		"x": 33,
+		"y": 31
+	},
+	{
+		"id": 18,
+		"nom": "Clone[341][0065]",
+		"x": 17,
+		"y": 26
+	},
+	{
+		"id": 37,
+		"nom": "Passerelle",
+		"x": 10,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
@@ -3139,59 +3211,39 @@
 			],
 			"commandes": [
 			],
-			"image": 920,
+			"image": 23,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 65,
-		"nom": "EV065",
-		"x": 41,
-		"y": 35,
-		"pages": [
+			"auDessusDeTout": true
+		},
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 32,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 1
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 146,
-				"xDebutHeros": 1,
-				"yDebutHeros": 17
-			}
 			],
+			"image": 23,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 27,
-		"nom": "Clone[341][028]",
-		"x": 34,
-		"y": 12
-	},
-	{
-		"id": 75,
-		"nom": "Clone[582][42]",
-		"x": 33,
-		"y": 24
 	},
 	{
 		"id": 56,
@@ -3246,58 +3298,10 @@
 		]
 	},
 	{
-		"id": 37,
-		"nom": "Passerelle",
-		"x": 10,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 23,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 32,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 1
-			}
-			],
-			"commandes": [
-			],
-			"image": 23,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][0065]",
-		"x": 17,
-		"y": 26
+		"id": 75,
+		"nom": "Clone[582][42]",
+		"x": 33,
+		"y": 24
 	}
 	]
 }

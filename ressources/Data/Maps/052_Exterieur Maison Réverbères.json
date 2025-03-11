@@ -731,36 +731,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Ovose country\\n\\u2192 \\c[2]Red Vikings\\c[0]' village\\n\\u2193 \\c[2]Kaze\\c[0]'s shrine"
-			},
-			{
-				"nom": "Message",
-				"texte": "\\u2190 Contrée Dose\\n\\u2192 Village viking rouge\\n\\u2193 Sanctuaire de \\c[2]Kaze l'érudit\\c[1]"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "(en) \\u2190 Ovose country\\n\\u2192 \\c[2]Red Vikings\\c[0]' village\\n\\u2193 Shrine of \\c[2]Kaze the scholar\\c[0]"
 			},
 			{
 				"nom": "Message",
-				"texte": "\\u2190 Ovose country\\n\\u2192 Red viking village\\n\\u2193 Sanctuary of \\c[2]Kaze the scholar\\c[1]"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
+				"texte": "\\u2190 Contrée Dose\\n\\u2192 Village viking rouge\\n\\u2193 Sanctuaire de \\c[2]Kazé l'érudit\\c[1]"
 			},
 			{
 				"nom": "Attendre",
@@ -1106,36 +1082,12 @@
 				"valeur": true
 			},
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 121,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 0,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "(en) House of the late \\c[2]lamplighter\\c[0]"
 			},
 			{
 				"nom": "Message",
 				"texte": "Maison de feu l'\\c[2]allumeur de réverbères\\c[1]"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) House of the late \\c[2]lamplighter\\c[0]"
-			},
-			{
-				"nom": "Message",
-				"texte": "House of the late \\c[2]lamplighter\\c[1]"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",
@@ -1717,6 +1669,18 @@
 			],
 			"commandes": [
 			{
+				"nom": "Commentaire",
+				"texte": "corriger le ton de l'écran\\nau sortir de la maison de l'allumeur de réverbères"
+			},
+			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 1,
 				"valeurQuIlEstCenseAvoir": false,
@@ -1973,10 +1937,16 @@
 		"y": 17
 	},
 	{
-		"id": 69,
-		"nom": "Clone[582][64]",
-		"x": 28,
-		"y": 20
+		"id": 143,
+		"nom": "Clone[582][62]",
+		"x": 30,
+		"y": 21
+	},
+	{
+		"id": 106,
+		"nom": "Clone[582][62]",
+		"x": 17,
+		"y": 24
 	},
 	{
 		"id": 32,
@@ -2018,34 +1988,16 @@
 		]
 	},
 	{
-		"id": 106,
+		"id": 69,
+		"nom": "Clone[582][64]",
+		"x": 28,
+		"y": 20
+	},
+	{
+		"id": 125,
 		"nom": "Clone[582][62]",
-		"x": 17,
+		"x": 26,
 		"y": 24
-	},
-	{
-		"id": 143,
-		"nom": "Clone[582][62]",
-		"x": 30,
-		"y": 21
-	},
-	{
-		"id": 162,
-		"nom": "Clone[582][62]",
-		"x": 38,
-		"y": 17
-	},
-	{
-		"id": 88,
-		"nom": "Clone[582][62]",
-		"x": 12,
-		"y": 19
-	},
-	{
-		"id": 51,
-		"nom": "Clone[582][62]",
-		"x": 9,
-		"y": 17
 	},
 	{
 		"id": 14,
@@ -2100,22 +2052,28 @@
 		]
 	},
 	{
-		"id": 125,
-		"nom": "Clone[582][62]",
-		"x": 26,
-		"y": 24
-	},
-	{
-		"id": 107,
-		"nom": "Clone[582][62]",
-		"x": 18,
-		"y": 24
-	},
-	{
-		"id": 70,
+		"id": 51,
 		"nom": "Clone[582][62]",
 		"x": 9,
-		"y": 20
+		"y": 17
+	},
+	{
+		"id": 88,
+		"nom": "Clone[582][62]",
+		"x": 12,
+		"y": 19
+	},
+	{
+		"id": 162,
+		"nom": "Clone[582][62]",
+		"x": 38,
+		"y": 17
+	},
+	{
+		"id": 144,
+		"nom": "Clone[582][62]",
+		"x": 30,
+		"y": 22
 	},
 	{
 		"id": 33,
@@ -2153,28 +2111,22 @@
 		]
 	},
 	{
-		"id": 144,
+		"id": 70,
 		"nom": "Clone[582][62]",
-		"x": 30,
+		"x": 9,
+		"y": 20
+	},
+	{
+		"id": 107,
+		"nom": "Clone[582][62]",
+		"x": 18,
+		"y": 24
+	},
+	{
+		"id": 126,
+		"nom": "Clone[582][62]",
+		"x": 26,
 		"y": 22
-	},
-	{
-		"id": 163,
-		"nom": "Clone[582][62]",
-		"x": 38,
-		"y": 18
-	},
-	{
-		"id": 89,
-		"nom": "Clone[582][62]",
-		"x": 12,
-		"y": 18
-	},
-	{
-		"id": 52,
-		"nom": "Clone[582][62]",
-		"x": 10,
-		"y": 17
 	},
 	{
 		"id": 15,
@@ -2229,22 +2181,28 @@
 		]
 	},
 	{
-		"id": 126,
+		"id": 52,
 		"nom": "Clone[582][62]",
-		"x": 26,
+		"x": 10,
+		"y": 17
+	},
+	{
+		"id": 89,
+		"nom": "Clone[582][62]",
+		"x": 12,
+		"y": 18
+	},
+	{
+		"id": 163,
+		"nom": "Clone[582][62]",
+		"x": 38,
+		"y": 18
+	},
+	{
+		"id": 145,
+		"nom": "Clone[582][62]",
+		"x": 31,
 		"y": 22
-	},
-	{
-		"id": 108,
-		"nom": "Clone[582][62]",
-		"x": 18,
-		"y": 23
-	},
-	{
-		"id": 71,
-		"nom": "Clone[582][62]",
-		"x": 9,
-		"y": 21
 	},
 	{
 		"id": 34,
@@ -2299,22 +2257,22 @@
 		]
 	},
 	{
-		"id": 145,
+		"id": 71,
 		"nom": "Clone[582][62]",
-		"x": 31,
+		"x": 9,
+		"y": 21
+	},
+	{
+		"id": 108,
+		"nom": "Clone[582][62]",
+		"x": 18,
+		"y": 23
+	},
+	{
+		"id": 127,
+		"nom": "Clone[582][62]",
+		"x": 27,
 		"y": 22
-	},
-	{
-		"id": 90,
-		"nom": "Clone[582][62]",
-		"x": 13,
-		"y": 19
-	},
-	{
-		"id": 53,
-		"nom": "Clone[582][62]",
-		"x": 11,
-		"y": 17
 	},
 	{
 		"id": 16,
@@ -2373,16 +2331,28 @@
 		]
 	},
 	{
-		"id": 127,
+		"id": 53,
 		"nom": "Clone[582][62]",
-		"x": 27,
-		"y": 22
+		"x": 11,
+		"y": 17
 	},
 	{
-		"id": 72,
+		"id": 90,
 		"nom": "Clone[582][62]",
-		"x": 9,
-		"y": 22
+		"x": 13,
+		"y": 19
+	},
+	{
+		"id": 109,
+		"nom": "Clone[582][62]",
+		"x": 29,
+		"y": 19
+	},
+	{
+		"id": 146,
+		"nom": "Clone[582][62]",
+		"x": 31,
+		"y": 21
 	},
 	{
 		"id": 35,
@@ -2420,28 +2390,16 @@
 		]
 	},
 	{
-		"id": 146,
+		"id": 72,
 		"nom": "Clone[582][62]",
-		"x": 31,
+		"x": 9,
+		"y": 22
+	},
+	{
+		"id": 128,
+		"nom": "Clone[582][62]",
+		"x": 27,
 		"y": 21
-	},
-	{
-		"id": 109,
-		"nom": "Clone[582][62]",
-		"x": 29,
-		"y": 19
-	},
-	{
-		"id": 91,
-		"nom": "Clone[582][62]",
-		"x": 13,
-		"y": 20
-	},
-	{
-		"id": 54,
-		"nom": "Clone[582][62]",
-		"x": 11,
-		"y": 18
 	},
 	{
 		"id": 17,
@@ -2496,16 +2454,22 @@
 		]
 	},
 	{
-		"id": 128,
+		"id": 54,
 		"nom": "Clone[582][62]",
-		"x": 27,
-		"y": 21
+		"x": 11,
+		"y": 18
 	},
 	{
-		"id": 73,
+		"id": 91,
 		"nom": "Clone[582][62]",
-		"x": 9,
-		"y": 23
+		"x": 13,
+		"y": 20
+	},
+	{
+		"id": 110,
+		"nom": "Clone[582][62]",
+		"x": 31,
+		"y": 20
 	},
 	{
 		"id": 36,
@@ -2543,10 +2507,10 @@
 		]
 	},
 	{
-		"id": 110,
+		"id": 73,
 		"nom": "Clone[582][62]",
-		"x": 31,
-		"y": 20
+		"x": 9,
+		"y": 23
 	}
 	]
 }

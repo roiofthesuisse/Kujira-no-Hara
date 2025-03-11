@@ -42,7 +42,7 @@
 	],
 	"couche1": [
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0072,0073,0074,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,0080,0081,0082,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[0226,0226,0226,-001,-001,-001,-001,-001,-001,0080,0081,0082,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-005,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0156,0149,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -455,32 +455,16 @@
 				]
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 83
-			},
-			{
 				"nom": "Commentaire",
 				"texte": "cacher les boules de feu"
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(13)"
+			},
+			{
 				"nom": "TeleporterEvent",
 				"idEvent": 13,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 1,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 14,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 1,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 15,
 				"variable": false,
 				"nouveauX": 0,
 				"nouveauY": 1,
@@ -500,6 +484,18 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(14)"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 14,
+				"variable": false,
+				"nouveauX": 0,
+				"nouveauY": 1,
+				"direction": 0
+			},
+			{
 				"nom": "Deplacement",
 				"idEventADeplacer": 14,
 				"ignorerLesMouvementsImpossibles": false,
@@ -511,6 +507,18 @@
 					"opacite": 0
 				}
 				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(15)"
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 15,
+				"variable": false,
+				"nouveauX": 0,
+				"nouveauY": 1,
+				"direction": 0
 			},
 			{
 				"nom": "Deplacement",
@@ -1318,8 +1326,8 @@
 	{
 		"id": 44,
 		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 22
+		"x": 12,
+		"y": 18
 	},
 	{
 		"id": 33,
@@ -1745,8 +1753,8 @@
 	{
 		"id": 28,
 		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 8
+		"x": 8,
+		"y": 11
 	},
 	{
 		"id": 6,
@@ -1892,8 +1900,8 @@
 	{
 		"id": 23,
 		"nom": "Clone[341][004]",
-		"x": 5,
-		"y": 7
+		"x": 8,
+		"y": 10
 	},
 	{
 		"id": 1,
@@ -1904,8 +1912,8 @@
 	{
 		"id": 45,
 		"nom": "Clone[341][004]",
-		"x": 16,
-		"y": 21
+		"x": 13,
+		"y": 18
 	},
 	{
 		"id": 34,
@@ -2112,8 +2120,8 @@
 	{
 		"id": 18,
 		"nom": "Clone[341][004]",
-		"x": 4,
-		"y": 7
+		"x": 7,
+		"y": 11
 	},
 	{
 		"id": 7,
@@ -2124,14 +2132,14 @@
 	{
 		"id": 46,
 		"nom": "Clone[341][004]",
-		"x": 15,
-		"y": 22
+		"x": 12,
+		"y": 19
 	},
 	{
 		"id": 35,
 		"nom": "Clone[341][181]",
 		"x": 8,
-		"y": 10
+		"y": 6
 	},
 	{
 		"id": 13,
@@ -2222,6 +2230,7 @@
 			}
 			],
 			"image": "flamme character",
+			"opacite": 0,
 			"vitesse": "normale",
 			"frequence": "haute",
 			"animeEnMouvement": true,
@@ -2748,6 +2757,7 @@
 			}
 			],
 			"image": "flamme character",
+			"opacite": 0,
 			"vitesse": "normale",
 			"frequence": "haute",
 			"animeEnMouvement": true,
@@ -3275,6 +3285,7 @@
 			}
 			],
 			"image": "flamme character",
+			"opacite": 0,
 			"vitesse": "normale",
 			"frequence": "haute",
 			"animeEnMouvement": true,
@@ -3282,50 +3293,6 @@
 			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 26,
-		"nom": "desactiver blesse",
-		"x": 20,
-		"y": 4,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
 		}
 		]
 	},

@@ -204,7 +204,7 @@
 	},
 	{
 		"id": 1,
-		"nom": "blocage",
+		"nom": "marmite SHADOW[40]",
 		"x": 14,
 		"y": 8,
 		"pages": [
@@ -240,8 +240,32 @@
 			],
 			"commandes": [
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 255
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_temp.animations.push([73, true, x, y])"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				}
+				]
+			},
 			"image": "jarre geante character",
-			"opacite": 150,
 			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -265,8 +289,33 @@
 			],
 			"commandes": [
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 200
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_temp.animations.push([73, true, x, y])"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				}
+				]
+			},
 			"image": "jarre geante character",
-			"opacite": 100,
+			"opacite": 200,
 			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -290,8 +339,33 @@
 			],
 			"commandes": [
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 150
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "$game_temp.animations.push([73, true, x, y])"
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
 			"image": "jarre geante character",
-			"opacite": 0,
+			"opacite": 150,
 			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -590,7 +664,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Pour défendre son sanctuaire, et protéger \\nl'immense pouvoir qu'il renfermait, \\c[2]Taiyô\\c[0] \\nconstruisit avec \\c[2]Kaze\\c[0] un éléphant mécanique."
+				"texte": "\"Pour défendre son sanctuaire, et protéger \\nl'immense pouvoir qu'il renfermait, \\c[2]Taiyô\\c[0] \\nconstruisit avec \\c[2]Kazé\\c[0] un éléphant mécanique."
 			},
 			{
 				"nom": "Commentaire",
@@ -606,7 +680,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Affronter le mastodonte est un passage obligé \\npour quiconque convoite le pouvoir des érudits.\""
+				"texte": "Affronter le mastodonte est un passage obligé \\npour qui convoite le pouvoir des érudits.\""
 			},
 			{
 				"nom": "Commentaire",

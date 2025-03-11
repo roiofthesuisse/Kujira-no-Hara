@@ -3,11 +3,6 @@
 	"tileset": "Maison",
 	"largeur": 40,
 	"hauteur": 30,
-	"musique": {
-		"nomFichierSonore": "Maison viking.ogg",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"fondSonore": {
 		"nomFichierSonore": "013-Fire01.ogg",
 		"volume": 0.80,
@@ -55,9 +50,9 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0028,0029,0032,0033,0032,0028,0029,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0036,0037,-001,-001,-001,0036,0037,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,0045,-001,-001,-001,0044,0045,-001,-001,0034,0128,0129,0130,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,0082,0083,0292,0292,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0048,-001,0136,0137,0138,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001],
-	[-001,-001,-001,-001,0090,0091,0292,0292,-001,-001,-001,-001,0070,-001,-001,0005,0006,0006,0006,0006,0006,0006,0007,0056,0518,-001,-001,-001,-001,-001,-001,-001,-001,0080,0081,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0044,0045,-001,-001,-001,0044,0045,-001,-001,0034,0512,0513,0514,0128,0129,0130,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,0082,0083,0292,0292,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0048,-001,0520,0521,0522,0136,0137,0138,-001,-001,-001,-001,-001,-001,-001,-001,-001],
+	[-001,-001,-001,-001,0090,0091,0292,0292,-001,-001,-001,-001,0070,-001,-001,0005,0006,0006,0006,0006,0006,0006,0007,0056,0518,0528,0529,0530,-001,-001,-001,-001,-001,0080,0081,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,0098,0099,0292,-001,-001,-001,-001,-001,0078,-001,-001,0013,0014,0014,0014,0014,0014,0014,0015,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0088,0089,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,0140,-001,-001,0140,-001,-001,0140,-001,-001,-001,-001,-001,-001,0140,-001,0002,-001,-001,-001,-001,-001,-001,-001,0096,0097,-001,-001,-001,-001,-001],
 	[-001,-001,-001,-001,-001,-001,-001,0002,0005,0006,0108,0006,0006,0108,0006,0006,0108,0007,-001,-001,-001,0005,0006,0108,0006,0006,0108,0006,0006,0006,0007,-001,-001,-001,-001,-001,-001,-001,-001,-001],
@@ -111,14 +106,8 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][004]",
-		"x": 27,
-		"y": 11
-	},
-	{
 		"id": 16,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 26,
 		"y": 13,
 		"pages": [
@@ -251,12 +240,6 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Clone[341][008]",
-		"x": 30,
-		"y": 11
-	},
-	{
 		"id": 11,
 		"nom": "EV011",
 		"x": 13,
@@ -286,6 +269,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 22,
+		"nom": "Clone[341][008]",
+		"x": 30,
+		"y": 11
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][039]",
+		"x": 32,
+		"y": 21
 	},
 	{
 		"id": 17,
@@ -383,35 +378,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][039]",
-		"x": 32,
-		"y": 21
-	},
-	{
-		"id": 23,
-		"nom": "dessus tonneau",
-		"x": 7,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 284,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 1,
+		"nom": "Clone[582][120]",
+		"x": 16,
+		"y": 27
 	},
 	{
 		"id": 12,
@@ -468,83 +438,23 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "bruit du feu",
-		"x": 33,
-		"y": 21,
+		"id": 23,
+		"nom": "dessus tonneau",
+		"x": 7,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 6,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 7,
-				"direction": 3,
-				"numero": 1
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 8,
-				"direction": 3,
-				"numero": 2
-			},
-			{
-				"nom": "ArreterFondSonore",
-				"nombreDeFrames": 30
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "013-Fire01.ogg",
-				"volume": 0.50,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "013-Fire01.ogg",
-				"volume": 0.50,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "013-Fire01.ogg",
-				"volume": 0.50,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "Parler"
 			}
 			],
+			"commandes": [
+			],
+			"image": 284,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -553,16 +463,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][039]",
-		"x": 19,
-		"y": 16
-	},
-	{
 		"id": 18,
-		"nom": "EV018",
-		"x": 19,
-		"y": 25,
+		"nom": "init",
+		"x": 15,
+		"y": 27,
 		"pages": [
 		{
 			"conditions": [
@@ -579,6 +483,36 @@
 				"nomImage": "001-Fog01"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "musique différente\\nquand les vikings sont partis en guerre"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 127,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Village viking rouge vide.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Maison viking.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -593,8 +527,26 @@
 		]
 	},
 	{
+		"id": 7,
+		"nom": "Clone[341][039]",
+		"x": 19,
+		"y": 16
+	},
+	{
+		"id": 24,
+		"nom": "Clone[582][51]",
+		"x": 29,
+		"y": 14
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][005]",
+		"x": 14,
+		"y": 18
+	},
+	{
 		"id": 13,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 18,
 		"y": 10,
 		"pages": [
@@ -689,15 +641,9 @@
 		]
 	},
 	{
-		"id": 2,
+		"id": 19,
 		"nom": "Clone[341][005]",
-		"x": 14,
-		"y": 18
-	},
-	{
-		"id": 24,
-		"nom": "Clone[582][51]",
-		"x": 29,
+		"x": 27,
 		"y": 14
 	},
 	{
@@ -707,20 +653,49 @@
 		"y": 21
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][005]",
-		"x": 27,
-		"y": 14
-	},
-	{
-		"id": 3,
-		"nom": "Clone[341][004]",
-		"x": 32,
-		"y": 16
+		"id": 25,
+		"nom": "EV025",
+		"x": 30,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 24,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 14,
-		"nom": "Viking vieux SHADOW[32] (-4)",
+		"nom": "Viking vieux SHADOW[30] (-4)",
 		"x": 27,
 		"y": 16,
 		"pages": [
@@ -799,55 +774,14 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "EV025",
-		"x": 30,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 24,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][165]",
-		"x": 30,
-		"y": 18
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 32,
+		"y": 16
 	},
 	{
 		"id": 9,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 26,
 		"y": 20,
 		"pages": [
@@ -933,124 +867,20 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "Viking SHADOW[32] (-4)",
-		"x": 24,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking rouge femme\""
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1 femme.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) We didn't want a \\c[2]Mercator\\c[0] store\\nin our village at the beginning."
-			},
-			{
-				"nom": "Message",
-				"texte": "On ne voulait pas d'une boutique de \\c[2]Mercator\\c[0]\\ndans notre village au début."
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking2 femme.ogg",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) But he told us that he had a shop \\nin the \\c[2]yellow Viking's\\c[0] village, \\nand that if we didn't have one, \\nour village would be not as good as theirs!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Mais il nous a dit qu'il avait une boutique \\ndans le village viking jaune, et que \\nsi on n'en avait pas, notre village serait \\nmoins bien que le leur !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 16
-				}
-				]
-			},
-			"image": "viking femme petit character",
-			"directionInitiale": 1,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Interrupteur",
-				"numeroInterrupteur": 127,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 20,
+		"nom": "Clone[341][165]",
+		"x": 30,
+		"y": 18
 	},
 	{
 		"id": 4,
-		"nom": "Clone[341][004]",
+		"nom": "Clone[582][115]",
 		"x": 26,
-		"y": 11
+		"y": 10
 	},
 	{
 		"id": 15,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 9,
 		"y": 17,
 		"pages": [
@@ -1199,10 +1029,10 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "dessus tonneau",
-		"x": 7,
-		"y": 10,
+		"id": 26,
+		"nom": "Viking SHADOW[30] (-4)",
+		"x": 24,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
@@ -1211,8 +1041,93 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking rouge femme\""
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We didn't want a \\c[2]Mercator\\c[0] store\\nin our village at the beginning."
+			},
+			{
+				"nom": "Message",
+				"texte": "On ne voulait pas d'une boutique de \\c[2]Mercator\\c[0]\\ndans notre village au début."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking2 femme.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) But he told us that he had a shop \\nin the \\c[2]yellow Viking's\\c[0] village, \\nand that if we didn't have one, \\nour village would be not as good as theirs!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Mais il nous a dit qu'il avait une boutique \\ndans le village viking jaune, et que \\nsi on n'en avait pas, notre village serait \\nmoins bien que le leur !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
-			"image": 284,
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 16
+				}
+				]
+			},
+			"image": "viking femme petit character",
+			"directionInitiale": 1,
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 127,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -1225,7 +1140,7 @@
 	},
 	{
 		"id": 10,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 15,
 		"y": 16,
 		"pages": [
@@ -1308,6 +1223,31 @@
 				"nom": "SupprimerEvent"
 			}
 			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "dessus tonneau",
+		"x": 7,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 284,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,

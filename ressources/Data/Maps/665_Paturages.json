@@ -87,6 +87,32 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "muskox",
+		"x": 15,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "muskox character",
+			"directionInitiale": 3,
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 16,
 		"nom": "triche",
 		"x": 2,
@@ -120,34 +146,8 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "muskox",
-		"x": 15,
-		"y": 15,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "muskox character",
-			"directionInitiale": 3,
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 11,
-		"nom": "Viking jaune SHADOW[32] (-4)",
+		"nom": "Viking jaune SHADOW[30] (-4)",
 		"x": 9,
 		"y": 8,
 		"pages": [
@@ -206,32 +206,6 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "muskox",
-		"x": 23,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "muskox character",
-			"directionInitiale": 3,
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -388,10 +362,10 @@
 		]
 	},
 	{
-		"id": 1,
+		"id": 6,
 		"nom": "muskox",
-		"x": 10,
-		"y": 5,
+		"x": 23,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -402,6 +376,7 @@
 			"commandes": [
 			],
 			"image": "muskox character",
+			"directionInitiale": 3,
 			"vitesse": "tres lente",
 			"frequence": "la plus basse",
 			"animeEnMouvement": false,
@@ -438,6 +413,31 @@
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "muskox",
+		"x": 10,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "muskox character",
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -485,6 +485,58 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "fumee",
+		"x": 19,
+		"y": 1,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "fumee chara",
+			"opacite": 200,
+			"modeDeFusion": "addition",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "muskox",
+		"x": 25,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "muskox character",
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -908,31 +960,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "muskox",
-		"x": 25,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "muskox character",
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 20,
@@ -951,6 +978,37 @@
 				"numeroNouvelleMap": 666,
 				"xDebutHeros": 10,
 				"yDebutHeros": 10
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "Annonce du Lieu",
+		"x": 2,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 12,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -990,37 +1048,6 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "Annonce du Lieu",
-		"x": 2,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 12,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 9,
 		"nom": "EV009",
 		"x": 0,
@@ -1052,12 +1079,6 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[582][52]",
-		"x": 11,
-		"y": 11
-	},
-	{
 		"id": 4,
 		"nom": "muskox",
 		"x": 18,
@@ -1082,6 +1103,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 15,
+		"nom": "Clone[582][52]",
+		"x": 11,
+		"y": 11
 	},
 	{
 		"id": 10,

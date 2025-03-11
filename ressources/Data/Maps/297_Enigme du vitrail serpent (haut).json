@@ -127,6 +127,34 @@
 		]
 	},
 	{
+		"id": 12,
+		"nom": "EV012",
+		"x": 21,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 1,
 		"nom": "Receptacle",
 		"x": 12,
@@ -212,6 +240,12 @@
 				"texte": "Vous déposez le vitrail serpent \\ndans le réceptacle."
 			},
 			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tangram forme lachee.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
 				"nom": "ConditionSinon",
 				"numero": 2
 			},
@@ -289,34 +323,6 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 21,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}

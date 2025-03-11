@@ -186,11 +186,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) The enchanted treasure of the wood \\c[2]ogre\\c[1]\\nwill allow you to run faster than wind!"
+				"texte": "(en) \"The \\c[2]ogre\\c[0] of the wood\\nRan faster than he should,\\nWay faster than wind's gales!\\nSteal his trick! Outrun snails!\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Le trésor enchanté de l'\\c[2]ogre\\c[1] des bois\\npermet de courir plus vite que le vent !\""
+				"texte": "\"Quand il était vivant,\\nL'\\c[2]ogre\\c[0] des bois courait\\nPlus vite que le vent !\\nQuel était son secret ?\""
 			},
 			{
 				"nom": "Attendre",
@@ -254,6 +254,13 @@
 			"commandes": [
 			{
 				"nom": "ModifierVariable",
+				"numeroVariable": 17,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 1,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
 				"numeroVariable": 18,
 				"operationAFaire": "rendre egal a",
 				"valeurADonner": 1,
@@ -261,11 +268,19 @@
 			},
 			{
 				"nom": "ConditionVariable",
+				"numeroVariable": 17,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 6,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
 				"numeroVariable": 18,
 				"inegalite": "<=",
 				"valeurQuIlEstCenseAvoir": 7,
 				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "Attendre",
@@ -315,6 +330,10 @@
 				"nom": "ModifierInterrupteurLocal",
 				"numeroInterrupteurLocal": 0,
 				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",

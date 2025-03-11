@@ -111,10 +111,10 @@
 	],
 	"events": [
 	{
-		"id": 38,
-		"nom": "oriflamme",
-		"x": 12,
-		"y": 10,
+		"id": 27,
+		"nom": "viking jaune2 SHADOW[30] (-4)",
+		"x": 14,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -124,39 +124,7 @@
 			],
 			"commandes": [
 			],
-			"image": "oriflamme character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 5,
-		"nom": "EV005",
-		"x": 14,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 184,
-				"xDebutHeros": 18,
-				"yDebutHeros": 1
-			}
-			],
+			"image": "viking2 femme petit character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -222,35 +190,10 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "viking jaune3 SHADOW[32] (-4)",
+		"id": 5,
+		"nom": "EV005",
 		"x": 14,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking2 femme petit character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 15,
-		"y": 0,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -262,9 +205,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 280,
-				"xDebutHeros": 14,
-				"yDebutHeros": 23
+				"numeroNouvelleMap": 184,
+				"xDebutHeros": 18,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -278,9 +221,9 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "viking rouge3 SHADOW[32] (-4)",
-		"x": 20,
+		"id": 38,
+		"nom": "oriflamme",
+		"x": 12,
 		"y": 10,
 		"pages": [
 		{
@@ -291,14 +234,14 @@
 			],
 			"commandes": [
 			],
-			"image": "viking femme petit character",
+			"image": "oriflamme character",
 			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
+			"animeEnMouvement": false,
+			"animeALArret": true,
 			"directionFixe": true,
-			"traversable": false,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -345,10 +288,9 @@
 				"nom": "Parler"
 			},
 			{
-				"nom": "Variable",
-				"numeroVariable": 126,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 225,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
@@ -413,9 +355,9 @@
 		]
 	},
 	{
-		"id": 39,
-		"nom": "oriflamme",
-		"x": 21,
+		"id": 22,
+		"nom": "viking rouge3 SHADOW[30] (-4)",
+		"x": 20,
 		"y": 10,
 		"pages": [
 		{
@@ -426,22 +368,23 @@
 			],
 			"commandes": [
 			],
-			"image": "oriflamme character",
+			"image": "viking femme petit character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
+			"animeEnMouvement": true,
+			"animeALArret": false,
 			"directionFixe": true,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 6,
-		"nom": "EV006",
+		"id": 11,
+		"nom": "EV011",
 		"x": 15,
-		"y": 29,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -453,9 +396,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 184,
-				"xDebutHeros": 19,
-				"yDebutHeros": 1
+				"numeroNouvelleMap": 280,
+				"xDebutHeros": 14,
+				"yDebutHeros": 23
 			}
 			],
 			"vitesse": "moderee",
@@ -469,8 +412,33 @@
 		]
 	},
 	{
+		"id": 28,
+		"nom": "viking jaune3 SHADOW[30] (-4)",
+		"x": 17,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking2 femme petit character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 17,
-		"nom": "EV017",
+		"nom": "effacer foule",
 		"x": 27,
 		"y": 3,
 		"pages": [
@@ -479,184 +447,300 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 126,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14,
-				"comparerAUneAutreVariable": false,
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 225,
+				"valeurQuIlEstCenseAvoir": false,
 				"numero": 0
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 18,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 18,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 19,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 19,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 20,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 20,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 21,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 21,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 22,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 22,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 23,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 23,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 24,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 24,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 25,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 25,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 26,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 26,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 27,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 27,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 28,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 28,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 29,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 29,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 30,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 30,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 31,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 31,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 32,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 32,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 33,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 33,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 34,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 34,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 35,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 35,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 36,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
+				"nom": "Deplacement",
+				"idEventADeplacer": 36,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 38,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 39,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 37,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
 				"nom": "TeleporterEvent",
 				"idEvent": 37,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 38,
-				"variable": false,
-				"nouveauX": 0,
-				"nouveauY": 0,
-				"direction": 0
-			},
-			{
-				"nom": "TeleporterEvent",
-				"idEvent": 39,
 				"variable": false,
 				"nouveauX": 0,
 				"nouveauY": 0,
@@ -730,35 +814,10 @@
 		]
 	},
 	{
-		"id": 28,
-		"nom": "viking jaune2 SHADOW[32] (-4)",
-		"x": 17,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking2 femme petit character",
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 16,
-		"y": 0,
+		"id": 6,
+		"nom": "EV006",
+		"x": 15,
+		"y": 29,
 		"pages": [
 		{
 			"conditions": [
@@ -770,9 +829,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 280,
-				"xDebutHeros": 15,
-				"yDebutHeros": 23
+				"numeroNouvelleMap": 184,
+				"xDebutHeros": 19,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -786,10 +845,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Horloge SHADOW[48]",
-		"x": 15,
-		"y": 15,
+		"id": 39,
+		"nom": "oriflamme",
+		"x": 21,
+		"y": 10,
 		"pages": [
 		{
 			"conditions": [
@@ -799,132 +858,13 @@
 			],
 			"commandes": [
 			],
-			"image": "Horloge character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 126,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Tic tac tic"
-			},
-			{
-				"nom": "Message",
-				"texte": "Tic tac tic              tac tac                            tic"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Ding dong, pouêt pouêt !"
-			},
-			{
-				"nom": "Message",
-				"texte": "Ding dong, pouêt pouêt !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Yes, yes, yes, yes!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Oui, oui, ouiiiiiiiiiiiiiiiiiiiii !"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 9,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"valeurADonner2": 23,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 10,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"valeurADonner2": 59,
-				"operationAFaire2": "nombre aleatoire"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It's \\v[9] hours and \\v[10]\\nminutes to the seventh top!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Il est \\v[009] heures et \\v[010] minutes au\\nseptième top !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Top top top top top top top top\\ntop top top top!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Top top top top top top top top top top top !"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "Horloge character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
+			"image": "oriflamme character",
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": true,
 			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 23,
-		"nom": "viking rouge4 SHADOW[32] (-4)",
-		"x": 20,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -959,10 +899,9 @@
 				"nom": "Parler"
 			},
 			{
-				"nom": "Variable",
-				"numeroVariable": 126,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 225,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
@@ -1026,10 +965,153 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "EV007",
+		"id": 23,
+		"nom": "viking rouge4 SHADOW[30] (-4)",
+		"x": 20,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "Horloge SHADOW[48]",
+		"x": 15,
+		"y": 15,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "Horloge character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 225,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Tic tac tic          tac tac              tic"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tic tac tic             tac tac                          tic"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Dingadong, toot toot !"
+			},
+			{
+				"nom": "Message",
+				"texte": "Ding dong, pouêt pouêt !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Yes, yes, yes, yes!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oui, oui, ouiiiiiiiiiiiiiiiiiiiii !"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 9,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"valeurADonner2": 23,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 10,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"valeurADonner2": 59,
+				"operationAFaire2": "nombre aleatoire"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It's \\v[9] hours and \\v[10] minutes \\nat the seventh top!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Il est \\v[009] heures et \\v[010] minutes au\\nseptième top !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Top top top top top top top top\\ntop top top top!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Top top top top top top top top top top top !"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "Horloge character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 12,
+		"nom": "EV012",
 		"x": 16,
-		"y": 29,
+		"y": 0,
 		"pages": [
 		{
 			"conditions": [
@@ -1041,11 +1123,36 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 184,
-				"xDebutHeros": 20,
-				"yDebutHeros": 1
+				"numeroNouvelleMap": 280,
+				"xDebutHeros": 15,
+				"yDebutHeros": 23
 			}
 			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 29,
+		"nom": "viking jaune4 SHADOW[30] (-4)",
+		"x": 13,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking2 petit character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -1082,10 +1189,47 @@
 		]
 	},
 	{
-		"id": 29,
-		"nom": "viking jaune4 SHADOW[32] (-4)",
-		"x": 13,
-		"y": 11,
+		"id": 7,
+		"nom": "EV007",
+		"x": 16,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 184,
+				"xDebutHeros": 20,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][002]",
+		"x": 10,
+		"y": 8
+	},
+	{
+		"id": 35,
+		"nom": "platon SHADOW[28] (-2)",
+		"x": 17,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -1095,12 +1239,94 @@
 			],
 			"commandes": [
 			],
-			"image": "viking2 petit character",
+			"image": "platon character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 225,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"platon\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) All's well that ends well."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tout est bien qui finit bien."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) I can go back to my cave."
+			},
+			{
+				"nom": "Message",
+				"texte": "Je vais pouvoir retourner à ma caverne."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "platon character",
+			"vitesse": "normale",
+			"frequence": "haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 24,
+		"nom": "viking rouge5 SHADOW[30] (-4)",
+		"x": 20,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking femme petit character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1256,35 +1482,9 @@
 		]
 	},
 	{
-		"id": 24,
-		"nom": "viking rouge5 SHADOW[32] (-4)",
-		"x": 20,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking femme petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 35,
-		"nom": "platon SHADOW[28] (-2)",
-		"x": 17,
+		"id": 30,
+		"nom": "viking jaune5 SHADOW[30] (-4)",
+		"x": 12,
 		"y": 12,
 		"pages": [
 		{
@@ -1295,101 +1495,8 @@
 			],
 			"commandes": [
 			],
-			"image": "platon character",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 126,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"platon\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) All's well that ends well."
-			},
-			{
-				"nom": "Message",
-				"texte": "Tout est bien qui finit bien."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) I can go back to my cave."
-			},
-			{
-				"nom": "Message",
-				"texte": "Je vais pouvoir retourner à ma caverne."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "platon character",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][002]",
-		"x": 10,
-		"y": 8
-	},
-	{
-		"id": 8,
-		"nom": "EV008",
-		"x": 0,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 240,
-				"xDebutHeros": 18,
-				"yDebutHeros": 8
-			}
-			],
+			"image": "viking2 petit character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -1427,41 +1534,9 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "viking jaune5 SHADOW[32] (-4)",
-		"x": 12,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking2 petit character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 14,
-		"nom": "Clone[582][101]",
-		"x": 11,
-		"y": 8
-	},
-	{
-		"id": 3,
-		"nom": "EV003",
-		"x": 30,
+		"id": 8,
+		"nom": "EV008",
+		"x": 0,
 		"y": 14,
 		"pages": [
 		{
@@ -1474,13 +1549,76 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 161,
-				"xDebutHeros": 1,
-				"yDebutHeros": 10
+				"numeroNouvelleMap": 240,
+				"xDebutHeros": 18,
+				"yDebutHeros": 8
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 25,
+		"nom": "Chien SHADOW[28] (4)",
+		"x": 22,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"chien\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) ..."
+			},
+			{
+				"nom": "Message",
+				"texte": "..."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "chien character",
+			"vitesse": "normale",
+			"frequence": "haute",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -1519,10 +1657,9 @@
 				"nom": "Parler"
 			},
 			{
-				"nom": "Variable",
-				"numeroVariable": 126,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 225,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
@@ -1597,73 +1734,10 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Chien SHADOW[28] (4)",
-		"x": 22,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"chien\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "chien character",
-			"vitesse": "normale",
-			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "EV009",
-		"x": 0,
-		"y": 15,
+		"id": 3,
+		"nom": "EV003",
+		"x": 30,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -1675,9 +1749,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 240,
-				"xDebutHeros": 18,
-				"yDebutHeros": 9
+				"numeroNouvelleMap": 161,
+				"xDebutHeros": 1,
+				"yDebutHeros": 10
 			}
 			],
 			"vitesse": "moderee",
@@ -1691,30 +1765,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "viking rouge1 SHADOW[32] (-4)",
-		"x": 19,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "viking petit character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 14,
+		"nom": "Clone[582][101]",
+		"x": 11,
+		"y": 8
 	},
 	{
 		"id": 31,
@@ -1746,10 +1800,9 @@
 				"nom": "Parler"
 			},
 			{
-				"nom": "Variable",
-				"numeroVariable": 126,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 225,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
@@ -1814,9 +1867,35 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 30,
+		"id": 20,
+		"nom": "viking rouge1 SHADOW[30] (-4)",
+		"x": 19,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "EV009",
+		"x": 0,
 		"y": 15,
 		"pages": [
 		{
@@ -1829,9 +1908,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 161,
-				"xDebutHeros": 1,
-				"yDebutHeros": 11
+				"numeroNouvelleMap": 240,
+				"xDebutHeros": 18,
+				"yDebutHeros": 9
 			}
 			],
 			"vitesse": "moderee",
@@ -1845,27 +1924,121 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "viking jaune1 SHADOW[32] (-4)",
-		"x": 16,
-		"y": 11,
+		"id": 15,
+		"nom": "Luciole",
+		"x": 11,
+		"y": 9,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "Contact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionGadgetEquipe",
+				"idGadget": 0,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionTouche",
+				"touche": "ACTION_SECONDAIRE",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 26,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Luciole attrapee.ogg",
+				"volume": 1.00,
+				"tempo": 1.25
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
 			],
-			"image": "viking2 petit character",
-			"vitesse": "moderee",
-			"frequence": "basse",
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			"image": "luciole character",
+			"opacite": 200,
+			"vitesse": "lente",
+			"frequence": "tres basse",
 			"animeEnMouvement": true,
-			"animeALArret": false,
+			"animeALArret": true,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -5279,6 +5452,11 @@
 				"vitesse": "normale"
 			},
 			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 225,
+				"valeur": true
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 126,
 				"operationAFaire": "rendre egal a",
@@ -5328,145 +5506,20 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Luciole",
-		"x": 11,
-		"y": 9,
+		"id": 26,
+		"nom": "viking jaune1 SHADOW[30] (-4)",
+		"x": 16,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 0,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionTouche",
-				"touche": "ACTION_SECONDAIRE",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 26,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Luciole attrapee.ogg",
-				"volume": 1.00,
-				"tempo": 1.25
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			"image": "luciole character",
-			"opacite": 200,
-			"vitesse": "lente",
-			"frequence": "tres basse",
-			"animeEnMouvement": true,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 14,
-		"y": 0,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 280,
-				"xDebutHeros": 13,
-				"yDebutHeros": 23
-			}
-			],
+			"image": "viking2 petit character",
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
@@ -5478,26 +5531,31 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "viking rouge2 SHADOW[32] (-4)",
-		"x": 19,
-		"y": 16,
+		"id": 4,
+		"nom": "EV004",
+		"x": 30,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 161,
+				"xDebutHeros": 1,
+				"yDebutHeros": 11
+			}
 			],
-			"image": "viking petit character",
-			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -5533,10 +5591,9 @@
 				"nom": "Parler"
 			},
 			{
-				"nom": "Variable",
-				"numeroVariable": 126,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 14
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 225,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
@@ -5567,7 +5624,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Il y a eu du grabuge dans le sanctuaire \\nde \\c[2]Kaze\\c[0] ?"
+				"texte": "Il y a eu du grabuge dans le sanctuaire \\nde \\c[2]Kazé\\c[0] ?"
 			},
 			{
 				"nom": "Attendre",
@@ -5607,6 +5664,63 @@
 			"frequence": "haute",
 			"animeEnMouvement": true,
 			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "viking rouge2 SHADOW[30] (-4)",
+		"x": 19,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "viking petit character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "EV010",
+		"x": 14,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 280,
+				"xDebutHeros": 13,
+				"yDebutHeros": 23
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false

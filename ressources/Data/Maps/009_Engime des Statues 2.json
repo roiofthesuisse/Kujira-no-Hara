@@ -169,7 +169,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 6,
 				"xDebutHeros": 17,
-				"yDebutHeros": 8
+				"yDebutHeros": 9
 			}
 			],
 			"vitesse": "moderee",
@@ -200,29 +200,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 7,
 				"xDebutHeros": 17,
-				"yDebutHeros": 22
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
+				"yDebutHeros": 21
 			}
 			],
 			"vitesse": "moderee",
@@ -237,7 +215,7 @@
 	},
 	{
 		"id": 8,
-		"nom": "EV008",
+		"nom": "déplacer statue",
 		"x": 18,
 		"y": 2,
 		"pages": [
@@ -253,10 +231,6 @@
 				"operationAFaire2": "coordonnee y"
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
 				"nom": "ConditionVariable",
 				"numeroVariable": 3,
 				"inegalite": "<=",
@@ -265,50 +239,12 @@
 				"numero": 0
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "045-Push01.ogg",
-				"volume": 1.00,
-				"tempo": 1.50
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 3,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
+				"nom": "TeleporterEvent",
+				"idEvent": 3,
+				"variable": false,
+				"nouveauX": 18,
+				"nouveauY": 7,
+				"direction": 0
 			},
 			{
 				"nom": "ConditionFin",

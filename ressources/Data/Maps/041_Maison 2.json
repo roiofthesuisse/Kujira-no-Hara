@@ -3,11 +3,6 @@
 	"tileset": "Maison",
 	"largeur": 41,
 	"hauteur": 25,
-	"musique": {
-		"nomFichierSonore": "Maison viking.ogg",
-		"volume": 0.80,
-		"tempo": 1.00
-	},
 	"fondSonore": {
 		"nomFichierSonore": "013-Fire01.ogg",
 		"volume": 0.50,
@@ -134,28 +129,9 @@
 	},
 	{
 		"id": 27,
-		"nom": "feu (8)",
+		"nom": "Clone[582][115]",
 		"x": 26,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "feu character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 8
 	},
 	{
 		"id": 11,
@@ -165,7 +141,7 @@
 	},
 	{
 		"id": 22,
-		"nom": "Viking SHADOW[32] (-4)",
+		"nom": "Viking SHADOW[30] (-4)",
 		"x": 26,
 		"y": 11,
 		"pages": [
@@ -523,9 +499,9 @@
 	},
 	{
 		"id": 19,
-		"nom": "EV019",
-		"x": 32,
-		"y": 15,
+		"nom": "init",
+		"x": 28,
+		"y": 19,
 		"pages": [
 		{
 			"conditions": [
@@ -542,6 +518,36 @@
 				"nomImage": "001-Fog01"
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "musique différente\\nquand les vikings sont partis en guerre"
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 127,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Village viking rouge vide.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Maison viking.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -554,6 +560,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 30,
+		"nom": "Clone[582][120]",
+		"x": 29,
+		"y": 19
 	},
 	{
 		"id": 14,

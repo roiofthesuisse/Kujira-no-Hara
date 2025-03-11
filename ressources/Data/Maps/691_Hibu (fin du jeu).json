@@ -96,6 +96,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -127,6 +168,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -152,12 +234,53 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
 	{
 		"id": 16,
-		"nom": "viking rouge 16 SHADOW[32] (-4)",
+		"nom": "viking rouge 16 SHADOW[30] (-4)",
 		"x": 11,
 		"y": 13,
 		"pages": [
@@ -520,6 +643,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -737,496 +901,6 @@
 				]
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 9,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 10,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 37,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 38,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 39,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 40,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 41,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 42,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 43,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 57,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 58,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 59,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 60,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
 				"nom": "ModifierTonDeLEcran",
 				"rouge": 140,
 				"vert": 140,
@@ -1235,218 +909,13 @@
 				"dureeTransition": 0
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "Commentaire",
+				"texte": "les thumaturges noirs deviennent des lucioles"
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 9,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 10,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 37,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 38,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 39,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 40,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 41,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 42,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 43,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 57,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 58,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 59,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 60,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 218,
+				"valeur": true
 			},
 			{
 				"nom": "Attendre",
@@ -1562,7 +1031,7 @@
 	},
 	{
 		"id": 17,
-		"nom": "viking rouge 17 SHADOW[32] (-4)",
+		"nom": "viking rouge 17 SHADOW[30] (-4)",
 		"x": 12,
 		"y": 13,
 		"pages": [
@@ -1588,7 +1057,7 @@
 	},
 	{
 		"id": 28,
-		"nom": "fillette 28 SHADOW[24]",
+		"nom": "fillette 28 SHADOW[20,4]",
 		"x": 12,
 		"y": 5,
 		"pages": [
@@ -3133,6 +2602,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -3214,7 +2724,7 @@
 	},
 	{
 		"id": 18,
-		"nom": "viking rouge 18 SHADOW[32] (-4)",
+		"nom": "viking rouge 18 SHADOW[30] (-4)",
 		"x": 13,
 		"y": 13,
 		"pages": [
@@ -3318,6 +2828,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -3568,496 +3119,6 @@
 				]
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 9,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 10,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 37,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 38,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 39,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 40,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 41,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 42,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 43,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 57,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 58,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 59,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 60,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "luciole character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreAnimeEnMouvement",
-					"animeEnMouvement": true
-				},
-				{
-					"nom": "ModifierFrequence",
-					"frequence": "la plus haute"
-				},
-				{
-					"nom": "ModifierVitesse",
-					"vitesse": "lente"
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
-				},
-				{
-					"nom": "RegarderDansUneDirectionAleatoire"
-				}
-				]
-			},
-			{
 				"nom": "ModifierTonDeLEcran",
 				"rouge": 140,
 				"vert": 140,
@@ -4066,218 +3127,13 @@
 				"dureeTransition": 0
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
+				"nom": "Commentaire",
+				"texte": "les thumaturges noirs deviennent des lucioles"
 			},
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 5,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 9,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 10,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 37,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 38,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 39,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 40,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 41,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 42,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 43,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 57,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 58,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 59,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 60,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "PivoterAleatoirement"
-				},
-				{
-					"nom": "PasEnAvant"
-				}
-				]
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 218,
+				"valeur": true
 			},
 			{
 				"nom": "Attendre",
@@ -4399,7 +3255,7 @@
 	},
 	{
 		"id": 24,
-		"nom": "viking jaune 24 SHADOW[32] (-4)",
+		"nom": "viking jaune 24 SHADOW[30] (-4)",
 		"x": 8,
 		"y": 13,
 		"pages": [
@@ -4451,6 +3307,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -4507,6 +3404,14 @@
 			{
 				"nom": "Message",
 				"texte": "Est-ce que ça sert à quelque chose d'hésiter, \\nsi je ne sais même pas laquelle est laquelle ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Should I leave the most important \\nchoice of my life to chance?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Faudrait-il que je m'en remette au hasard\\npour le choix le plus important de ma vie ?"
 			},
 			{
 				"nom": "Attendre",
@@ -4635,6 +3540,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -4716,7 +3662,7 @@
 	},
 	{
 		"id": 25,
-		"nom": "viking jaune 25 SHADOW[32] (-4)",
+		"nom": "viking jaune 25 SHADOW[30] (-4)",
 		"x": 7,
 		"y": 13,
 		"pages": [
@@ -4802,6 +3748,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -4853,12 +3840,53 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
 	{
 		"id": 20,
-		"nom": "viking jaune 20 SHADOW[32] (-4)",
+		"nom": "viking jaune 20 SHADOW[30] (-4)",
 		"x": 9,
 		"y": 13,
 		"pages": [
@@ -4970,6 +3998,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -5001,6 +4070,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -5032,7 +4142,7 @@
 	},
 	{
 		"id": 15,
-		"nom": "viking rouge 15 SHADOW[32] (-4)",
+		"nom": "viking rouge 15 SHADOW[30] (-4)",
 		"x": 12,
 		"y": 12,
 		"pages": [
@@ -5092,7 +4202,7 @@
 	},
 	{
 		"id": 26,
-		"nom": "dobreniev 26 SHADOW[32] (-4)",
+		"nom": "dobreniev 26 SHADOW[30] (-4)",
 		"x": 8,
 		"y": 12,
 		"pages": [
@@ -5178,6 +4288,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	},
@@ -5434,6 +4585,47 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 218,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_x(16*Math.cos(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].offset_y(16*Math.sin(Graphics.frame_count.to_f/10.0 + @event_id) )"
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "PivoterAleatoirement"
+				},
+				{
+					"nom": "PasEnAvant"
+				}
+				]
+			},
+			"image": "luciole character",
+			"vitesse": "lente",
+			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
 	}

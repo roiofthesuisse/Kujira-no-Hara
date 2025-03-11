@@ -545,7 +545,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu veux m'emprunter une ?"
+				"texte": "Tu veux m'en emprunter une ?"
 			},
 			{
 				"nom": "Choix",
@@ -653,7 +653,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu veux la clé n° \\v[047] ?"
+				"texte": "Tu veux la clé n°\\v[047] ?"
 			},
 			{
 				"nom": "Choix",
@@ -788,7 +788,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Ah désolé, mais je n'ai pas de clé n° 0..."
+				"texte": "Ah désolé, mais je n'ai pas de clé n°0..."
 			},
 			{
 				"nom": "ConditionFin",
@@ -834,18 +834,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"maitre cle\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Good bye, my young friend."
-			},
-			{
-				"nom": "Message",
-				"texte": "Au revoir, mon jeune ami."
 			},
 			{
 				"nom": "Attendre",
@@ -1033,80 +1021,9 @@
 	},
 	{
 		"id": 30,
-		"nom": "bruit du feu",
+		"nom": "Clone[582][120]",
 		"x": 15,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 27,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 28,
-				"direction": 3,
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeur": true
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 56,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 2
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "",
-				"volume": 0.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "JouerFondSonore",
-				"nomFichierSonore": "013-Fire01.ogg",
-				"volume": 0.60,
-				"tempo": 1.00
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 2
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 11
 	},
 	{
 		"id": 8,

@@ -590,14 +590,39 @@
 					"nombreDeCarreaux": 1
 				},
 				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
 					"nom": "ModifierOpacite",
 					"opacite": 0
 				}
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(2)"
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1020,14 +1045,39 @@
 					"nombreDeCarreaux": 1
 				},
 				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
 					"nom": "ModifierOpacite",
 					"opacite": 0
 				}
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(3)"
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1586,14 +1636,39 @@
 					"nombreDeCarreaux": 1
 				},
 				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				},
+				{
 					"nom": "ModifierOpacite",
 					"opacite": 0
 				}
 				]
 			},
 			{
-				"nom": "AttendreLaFinDesDeplacements",
-				"idEvent": -1
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(4)"
 			},
 			{
 				"nom": "TeleporterEvent",
@@ -1636,10 +1711,15 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].opacity == 255",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1656,6 +1736,10 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -1719,10 +1803,15 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].opacity == 255",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1739,6 +1828,10 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",
@@ -1802,10 +1895,15 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].opacity == 255",
+				"numero": 0
+			},
+			{
 				"nom": "ConditionInterrupteur",
 				"numeroInterrupteur": 15,
 				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
+				"numero": 1
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -1822,6 +1920,10 @@
 				"operationAFaire": "retirer",
 				"valeurADonner": 1,
 				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
 			},
 			{
 				"nom": "ConditionFin",

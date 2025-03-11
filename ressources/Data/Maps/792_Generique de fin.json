@@ -81,8 +81,33 @@
 			],
 			"commandes": [
 			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 258,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 0,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
 				"nom": "Commentaire",
-				"texte": "fin 1 : les enfants dans le vaisseau spatial\\nsinon (fins 0 et 2) : les adultes"
+				"texte": "fin 0 : mathusalem a pris la clé des lieux\\ntout les habitants restant dans la baleine\\n=> les érudits dans le vaisseau spatial"
+			},
+			{
+				"nom": "AfficherImage",
+				"numero": 5,
+				"nomImage": "ormoune langui volant erudits",
+				"centre": false,
+				"variables": false,
+				"x": 0,
+				"y": 0,
+				"zoomX": 100,
+				"zoomY": 100,
+				"opacite": 255,
+				"modeDeFusion": "normal"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			},
 			{
 				"nom": "ConditionVariable",
@@ -90,7 +115,11 @@
 				"inegalite": "==",
 				"valeurQuIlEstCenseAvoir": 1,
 				"comparerAUneAutreVariable": false,
-				"numero": 0
+				"numero": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "fin 1 : mathusalem a pris la clé des temps\\nles enfants choisissent de partir dans l'espace\\n=> les enfants dans le vaisseau spatial"
 			},
 			{
 				"nom": "AfficherImage",
@@ -106,8 +135,20 @@
 				"modeDeFusion": "normal"
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 258,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 2,
+				"comparerAUneAutreVariable": false,
+				"numero": 2
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "fin 2 : mathusalem a pris la clé des temps\\nles enfants choisissent de retourner au pays viking\\n=> les adultes dans le vaisseau spatial"
 			},
 			{
 				"nom": "AfficherImage",
@@ -124,7 +165,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 0
+				"numero": 2
 			},
 			{
 				"nom": "DeplacerImage",

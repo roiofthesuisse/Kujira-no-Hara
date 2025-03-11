@@ -311,27 +311,81 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Do you have the Jizo stone?"
+				"texte": "(en) Uh? You can hear the whispers \\nof the \\c[2]stone beings\\c[0]?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu possèdes la pierre du Jizô ?"
+				"texte": "Hein ? Tu peux entendre les murmures \\ndes \\c[2]êtres de pierre\\c[1] ?!"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) That's why you can hear the whispers \\nof the \\c[2]stone beings\\c[0]."
+				"texte": "(en) I see... You own the Jizo stone...\\nSo \\c[2]Emeline\\c[0] really left the village."
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[2]êtres de pierre\\c[1]."
+				"texte": "Je vois... Tu possèdes la pierre du Jizô...\\nAinsi \\c[2]Émeline\\c[0] a vraiment quitté le village."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I suppose you want to visit our cave."
+				"texte": "(en) I suppose you want to visit our den."
 			},
 			{
 				"nom": "Message",
 				"texte": "Je suppose que tu veux visiter notre antre."
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "045-Push01.ogg",
+					"volume": 0.80,
+					"tempo": 1.00
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "045-Push01.ogg",
+					"volume": 0.80,
+					"tempo": 1.00
+				},
+				{
+					"nom": "Avancer",
+					"direction": 1,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "045-Push01.ogg",
+					"volume": 0.80,
+					"tempo": 1.00
+				},
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "Fanfare (paquerette).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierVariable",
@@ -404,19 +458,19 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You have the Jizo stone?"
+				"texte": "(en) Uh? You can hear the whispers \\nof the \\c[2]stone beings\\c[0]?"
 			},
 			{
 				"nom": "Message",
-				"texte": "Tu possèdes la pierre du Jizô ?"
+				"texte": "Hein ? Tu peux entendre les murmures \\ndes \\c[2]êtres de pierre\\c[1] ?!"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) That's why you can hear the whispers \\nof the \\c[2]stone beings\\c[0]."
+				"texte": "(en) I see... You own the Jizo stone...\\nSo \\c[2]Emeline\\c[0] really left the village."
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est pour cela que tu peux entendre\\nles murmures des \\c[2]êtres de pierre\\c[1]."
+				"texte": "Je vois... Tu possèdes la pierre du Jizô...\\nAinsi \\c[2]Émeline\\c[0] a vraiment quitté le village."
 			},
 			{
 				"nom": "ConditionSinon",
@@ -444,29 +498,6 @@
 				"valeur": false
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 1,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
 			"image": "caillouteux character",
 			"vitesse": "moderee",
 			"frequence": "basse",
@@ -520,6 +551,50 @@
 		"nom": "Clone[021][43]",
 		"x": 17,
 		"y": 26
+	},
+	{
+		"id": 9,
+		"nom": "déplacer tiki",
+		"x": 24,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 148,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 7,
+				"variable": false,
+				"nouveauX": 22,
+				"nouveauY": 14,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 4,

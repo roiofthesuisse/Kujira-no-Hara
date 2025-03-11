@@ -119,7 +119,7 @@
 	},
 	{
 		"id": 6,
-		"nom": "EV006",
+		"nom": "sortie",
 		"x": 20,
 		"y": 3,
 		"pages": [
@@ -131,6 +131,11 @@
 			],
 			"commandes": [
 			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 553,
@@ -138,27 +143,61 @@
 				"yDebutHeros": 3
 			}
 			],
+			"image": "algues character",
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 6,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 553,
+				"xDebutHeros": 1,
+				"yDebutHeros": 3
+			}
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 12,
-		"nom": "Clone[582][37]",
-		"x": 3,
-		"y": 3
 	},
 	{
 		"id": 1,
 		"nom": "Clone[341][0021]",
 		"x": 11,
 		"y": 11
+	},
+	{
+		"id": 12,
+		"nom": "Clone[582][37]",
+		"x": 3,
+		"y": 3
 	},
 	{
 		"id": 7,
@@ -183,12 +222,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[582][37]",
-		"x": 12,
-		"y": 3
 	},
 	{
 		"id": 2,
@@ -790,6 +823,12 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "Clone[582][37]",
+		"x": 12,
+		"y": 3
+	},
+	{
 		"id": 8,
 		"nom": "Blocage anti-évènement",
 		"x": 18,
@@ -834,6 +873,48 @@
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "resolution definitive",
+		"x": 17,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 6,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 1,
+				"variable": false,
+				"nouveauX": 17,
+				"nouveauY": 3,
+				"direction": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

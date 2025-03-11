@@ -10,9 +10,9 @@
 	[0002,0002,0002,0110,0111,-008,-008,-008,0161,0161,0161,0161,0161,-008,-008,-008,0124,0125,0002,0002,0002],
 	[0002,0002,0002,0118,0119,-008,-008,0161,0161,0161,-008,0161,0161,0161,-008,-008,0132,0133,0002,0002,0002],
 	[0002,0002,0002,0110,0111,-008,0161,0161,0161,-008,-008,-008,0161,0161,0161,-008,0124,0125,0002,0002,0002],
-	[0002,0002,0002,0200,0201,0161,0161,0161,-008,-008,-008,-008,-008,0161,0161,0161,0132,0133,0002,0002,0002],
-	[0002,0002,0002,0208,0209,0161,0161,-008,-008,-008,-008,-008,-008,-008,0161,0161,0124,0125,0002,0002,0002],
-	[0002,0002,0002,0216,0217,0161,0161,0161,-008,-008,-008,-008,-008,0161,0161,0161,0132,0133,0002,0002,0002],
+	[0002,0002,0002,0200,0201,0160,0161,0161,-008,-008,-008,-008,-008,0161,0161,0161,0132,0133,0002,0002,0002],
+	[0002,0002,0002,0208,0209,0160,0161,-008,-008,-008,-008,-008,-008,-008,0161,0161,0124,0125,0002,0002,0002],
+	[0002,0002,0002,0216,0217,0160,0161,0161,-008,-008,-008,-008,-008,0161,0161,0161,0132,0133,0002,0002,0002],
 	[0002,0002,0002,0110,0111,-008,0161,0161,0161,-008,-008,-008,0161,0161,0161,-008,0124,0125,0002,0002,0002],
 	[0002,0002,0002,0118,0119,-008,-008,0161,0161,0161,-008,0161,0161,0161,-008,-008,0132,0133,0002,0002,0002],
 	[0002,0002,0002,0110,0111,-008,-008,-008,0161,0161,0161,0161,0161,-008,-008,-008,0124,0125,0002,0002,0002],
@@ -60,6 +60,193 @@
 		"nom": "Clone[341][023]",
 		"x": 10,
 		"y": 0
+	},
+	{
+		"id": 6,
+		"nom": "Réglages initiaux",
+		"x": 20,
+		"y": 0,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 16,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 2
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 0
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 5,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 6
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 137,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -228,80 +415,61 @@
 				"texte": "le miniboss tombe"
 			},
 			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "017-Jump03.ogg",
-				"volume": 0.50,
-				"tempo": 0.50
-			},
-			{
 				"nom": "Deplacement",
 				"ignorerLesMouvementsImpossibles": false,
 				"repeterLeDeplacement": false,
 				"attendreLaFinDuDeplacement": false,
 				"mouvements": [
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "017-Jump03.ogg",
+					"volume": 0.50,
+					"tempo": 0.50
+				},
 				{
 					"nom": "ModifierApparence",
 					"image": "cube volant boss character",
 					"direction": 1,
 					"animation": 0,
 					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 6
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 6
+				},
 				{
 					"nom": "ModifierApparence",
 					"image": "cube volant boss character",
 					"direction": 1,
 					"animation": 1,
 					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
 				{
 					"nom": "ModifierApparence",
 					"image": "cube volant boss character",
 					"direction": 1,
 					"animation": 2,
 					"teinte": 0
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 3
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "052-Cannon01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "JouerEffetSonore",
+					"nomFichierSonore": "052-Cannon01.ogg",
+					"volume": 0.80,
+					"tempo": 1.00
+				},
 				{
 					"nom": "ModifierApparence",
 					"image": "cube volant boss character",
@@ -312,10 +480,18 @@
 				]
 			},
 			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(@event_id)"
+			},
+			{
 				"nom": "TremblementDeTerre",
-				"intensite": 2,
-				"vitesse": 8,
-				"nombreDeFrames": 16
+				"intensite": 5,
+				"vitesse": 5,
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "le héros perd une vie \\nsi le bloc tombe dessus"
 			},
 			{
 				"nom": "ModifierVariable",
@@ -380,7 +556,7 @@
 				"nom": "ModifierVariable",
 				"numeroVariable": 4,
 				"operationAFaire": "retirer",
-				"valeurADonner": 1,
+				"valeurADonner": 2,
 				"operationAFaire2": "valeur brute"
 			},
 			{
@@ -551,6 +727,12 @@
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "129-Earth01.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
 			},
 			{
 				"nom": "JouerAnimation",
@@ -997,42 +1179,6 @@
 			{
 				"nom": "ConditionFin",
 				"numero": 0
-			},
-			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 15,
-				"valeur": false
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 255
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
 			},
 			{
 				"nom": "Attendre",

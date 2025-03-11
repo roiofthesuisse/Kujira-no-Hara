@@ -195,7 +195,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Si on peut récupérer quelques inventions \\nde \\c[2]Kaze\\c[1] l'érudit, on aura fait le plein \\nde matériel électronique pour l'année."
+				"texte": "Si on peut récupérer quelques inventions \\nde \\c[2]Kazé\\c[1] l'érudit, on aura fait le plein \\nde matériel électronique pour l'année."
 			},
 			{
 				"nom": "JouerEffetSonore",
@@ -404,12 +404,6 @@
 		"y": 3
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][0071]",
-		"x": 15,
-		"y": 7
-	},
-	{
 		"id": 12,
 		"nom": "EV012",
 		"x": 0,
@@ -439,6 +433,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][0071]",
+		"x": 15,
+		"y": 7
 	},
 	{
 		"id": 7,
@@ -477,6 +477,12 @@
 		]
 	},
 	{
+		"id": 2,
+		"nom": "Clone[341][0071]",
+		"x": 8,
+		"y": 7
+	},
+	{
 		"id": 13,
 		"nom": "EV013",
 		"x": 2,
@@ -506,12 +512,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][0071]",
-		"x": 8,
-		"y": 7
 	},
 	{
 		"id": 8,
@@ -578,6 +578,194 @@
 		"nom": "Clone[341][0025]",
 		"x": 3,
 		"y": 5
+	},
+	{
+		"id": 14,
+		"nom": "sifflet du maladroit",
+		"x": 17,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 80,
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 14,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 64
+			},
+			{
+				"nom": "JouerEffetMusical",
+				"nomFichierSonore": "fanfare (objet trouve).ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu content character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				}
+				]
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 80,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Oh! \\nYou had lost your whistle of the clumsy!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Oh !\\nVous aviez perdu votre sifflet du maladroit !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) How clumsy you are!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Quel maladroit vous faites !"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 65
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 1,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "objet kujira 3",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 14,
+				"numeroInterrupteurLocal": 1,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 9,

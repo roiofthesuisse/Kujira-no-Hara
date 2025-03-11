@@ -270,6 +270,12 @@
 		"y": 22
 	},
 	{
+		"id": 38,
+		"nom": "Clone[582][112]",
+		"x": 8,
+		"y": 44
+	},
+	{
 		"id": 11,
 		"nom": "Stèle",
 		"x": 10,
@@ -297,17 +303,17 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 54,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 40,
+				"valeurQuIlEstCenseAvoir": 50,
 				"comparerAUneAutreVariable": false,
 				"numero": 1
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Come closer and you can hear\\nthe silent cries of the petrified giant...\""
+				"texte": "(en) \"Come closer!\\nSo you can hear the silent cries \\nof the petrified giant...\""
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Approchez et vous pourrez entendre les\\npleurs silencieux du géant pétrifié...\""
+				"texte": "\"Approchez !\\nEt vous pourrez entendre les pleurs silencieux \\ndu géant pétrifié.\""
 			},
 			{
 				"nom": "Commentaire",
@@ -323,11 +329,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) It's too dark to read the stele..."
+				"texte": "(en) It's too dark here to read the stele..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Il fait trop sombre pour lire la stèle..."
+				"texte": "Il fait trop sombre ici pour lire la stèle..."
 			},
 			{
 				"nom": "ConditionFin",
@@ -356,6 +362,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 22,
+		"nom": "Clone[582][111]",
+		"x": 16,
+		"y": 50
+	},
+	{
+		"id": 33,
+		"nom": "Clone[582][111]",
+		"x": 4,
+		"y": 52
 	},
 	{
 		"id": 6,
@@ -458,10 +476,16 @@
 		"y": 5
 	},
 	{
+		"id": 39,
+		"nom": "Clone[582][112]",
+		"x": 17,
+		"y": 51
+	},
+	{
 		"id": 1,
 		"nom": "Malédiction",
-		"x": 17,
-		"y": 54,
+		"x": 19,
+		"y": 47,
 		"pages": [
 		{
 			"conditions": [
@@ -501,6 +525,84 @@
 				"numero": 0
 			},
 			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 10,
+				"direction": 3,
+				"numero": 2
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Nouveaux Chemins.ogg",
+				"volume": 0.90,
+				"tempo": 1.00
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 25,
+				"variable": false,
+				"nouveauX": 10,
+				"nouveauY": 38,
+				"direction": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "afficher les cristaux définitivement"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 2)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 2)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 2)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 3)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 3)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 3)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 4)"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 2
+			},
+			{
+				"nom": "JouerMusique",
+				"nomFichierSonore": "Malediction.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 2
+			},
+			{
 				"nom": "ModifierVariable",
 				"numeroVariable": 54,
 				"operationAFaire": "rendre egal a",
@@ -511,19 +613,13 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 54,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 40,
+				"valeurQuIlEstCenseAvoir": 50,
 				"comparerAUneAutreVariable": false,
-				"numero": 2
+				"numero": 3
 			},
 			{
 				"nom": "Attendre",
 				"nombreDeFrames": 50
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Nouveaux Chemins.ogg",
-				"volume": 0.90,
-				"tempo": 1.00
 			},
 			{
 				"nom": "ModifierBrouillard",
@@ -544,22 +640,8 @@
 				"dureeTransition": 33
 			},
 			{
-				"nom": "TeleporterEvent",
-				"idEvent": 25,
-				"variable": false,
-				"nouveauX": 10,
-				"nouveauY": 38,
-				"direction": 0
-			},
-			{
 				"nom": "ConditionSinon",
-				"numero": 2
-			},
-			{
-				"nom": "JouerMusique",
-				"nomFichierSonore": "Malediction.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
+				"numero": 3
 			},
 			{
 				"nom": "ModifierBrouillard",
@@ -750,7 +832,7 @@
 			},
 			{
 				"nom": "ConditionFin",
-				"numero": 2
+				"numero": 3
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -777,6 +859,12 @@
 		"nom": "Clone[341][028]",
 		"x": 13,
 		"y": 47
+	},
+	{
+		"id": 34,
+		"nom": "Clone[582][111]",
+		"x": 7,
+		"y": 58
 	},
 	{
 		"id": 7,
@@ -832,6 +920,18 @@
 		"y": 4
 	},
 	{
+		"id": 29,
+		"nom": "Clone[582][111]",
+		"x": 7,
+		"y": 46
+	},
+	{
+		"id": 40,
+		"nom": "Clone[582][112]",
+		"x": 4,
+		"y": 53
+	},
+	{
 		"id": 2,
 		"nom": "Malédiction",
 		"x": 11,
@@ -855,7 +955,7 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 54,
 				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 40,
+				"valeurQuIlEstCenseAvoir": 50,
 				"comparerAUneAutreVariable": false,
 				"numero": 0
 			},
@@ -983,6 +1083,12 @@
 		"y": 42
 	},
 	{
+		"id": 35,
+		"nom": "Clone[582][112]",
+		"x": 16,
+		"y": 57
+	},
+	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 12,
@@ -1036,6 +1142,18 @@
 		"y": 12
 	},
 	{
+		"id": 30,
+		"nom": "Clone[582][111]",
+		"x": 8,
+		"y": 43
+	},
+	{
+		"id": 41,
+		"nom": "Clone[582][112]",
+		"x": 5,
+		"y": 50
+	},
+	{
 		"id": 25,
 		"nom": "Clone[341][006]",
 		"x": 24,
@@ -1065,7 +1183,7 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 54,
 				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 40,
+				"valeurQuIlEstCenseAvoir": 50,
 				"comparerAUneAutreVariable": false,
 				"numero": 0
 			},
@@ -1187,6 +1305,12 @@
 		"y": 20
 	},
 	{
+		"id": 36,
+		"nom": "Clone[582][112]",
+		"x": 6,
+		"y": 57
+	},
+	{
 		"id": 9,
 		"nom": "Colibri SHADOW[24]",
 		"x": 10,
@@ -1216,7 +1340,7 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 54,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 40,
+				"valeurQuIlEstCenseAvoir": 50,
 				"comparerAUneAutreVariable": false,
 				"numero": 0
 			},
@@ -1333,8 +1457,14 @@
 		"y": 35
 	},
 	{
+		"id": 31,
+		"nom": "Clone[582][111]",
+		"x": 17,
+		"y": 56
+	},
+	{
 		"id": 4,
-		"nom": "EV004",
+		"nom": "brouillard",
 		"x": 18,
 		"y": 45,
 		"pages": [
@@ -1346,7 +1476,7 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 54,
 				"inegalite": "<",
-				"valeurQuIlEstCenseAvoir": 40,
+				"valeurQuIlEstCenseAvoir": 50,
 				"comparerAUneAutreVariable": false,
 				"numero": 0
 			},
@@ -1569,6 +1699,13 @@
 				"numero": 1
 			},
 			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
 				"nom": "ConditionFin",
 				"numero": 0
 			}
@@ -1613,7 +1750,7 @@
 				"nom": "Variable",
 				"numeroVariable": 54,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 40
+				"valeurQuIlEstCenseAvoir": 50
 			}
 			],
 			"commandes": [
@@ -1652,19 +1789,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) The steles of this \\c[2]traveling poet\\c[0]."
+				"texte": "(en) This enigmatic \\c[2]traveling poet\\c[0]..."
 			},
 			{
 				"nom": "Message",
-				"texte": "Les stèles de ce \\c[2]poète voyageur\\c[1]..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) ..."
-			},
-			{
-				"nom": "Message",
-				"texte": "..."
+				"texte": "Cet énigmatique \\c[2]poète voyageur\\c[1]..."
 			},
 			{
 				"nom": "Commentaire",
@@ -1672,39 +1801,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Elles donnent l'air d'en savoir long sur\\n \\c[2]Kujira\\c[1]."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) In addition to giving this information \\nin the form of riddles..."
-			},
-			{
-				"nom": "Message",
-				"texte": "En plus de donner ces informations sous \\nforme d'énigmes..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) This is the proof that this poet knows more \\nthan he wants to say."
-			},
-			{
-				"nom": "Message",
-				"texte": "C'est bien la preuve que ce \\c[2]poète\\c[1]\\nen connaît plus qu'il ne veut en dire."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) He also regularly refers to the\\n\\c[2]scholars\\c[0] of the legend..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Il fait de plus régulièrement référence aux \\n\\c[2]érudits\\c[1] de la légende..."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Mmmh..."
-			},
-			{
-				"nom": "Message",
-				"texte": "Mmmh..."
+				"texte": "Il donne l'impression d'en savoir long \\nsur  \\c[2]Kujira\\c[1]."
 			},
 			{
 				"nom": "Commentaire",
@@ -1712,15 +1809,15 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Et bien que personne ne l'ait vu, il ne \\ndoit pas rester caché dans un trou, étant \\ndonné son statut de voyageur !"
+				"texte": "Bien que personne ne l'ait jamais vu, \\nil ne doit pas rester caché dans un trou, \\nétant donné son statut de voyageur !"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) So he must have found a way to escape, \\nand left this prison of flesh."
+				"texte": "(en) He must have found a way to escape, \\nand left this prison of flesh."
 			},
 			{
 				"nom": "Message",
-				"texte": "Il a donc dû trouver comment s'échapper, \\net a quitté cette prison de chair."
+				"texte": "Il a dû trouver comment s'échapper, \\net a quitté cette prison de chair."
 			},
 			{
 				"nom": "Commentaire",
@@ -1728,7 +1825,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Je suis personnellement convaincu que \\nles rébus de ce \\c[2]poète voyageur\\c[1] mènent à \\nla sortie."
+				"texte": "Je suis personnellement convaincu que \\nles rébus de ce \\c[2]poète voyageur\\c[1] mènent \\nà la sortie."
 			},
 			{
 				"nom": "Commentaire",
@@ -1740,19 +1837,19 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I will think more about it, and you, \\ndo not do less:"
+				"texte": "(en) I will deeply think about it, \\nand you, do not do less:"
 			},
 			{
 				"nom": "Message",
-				"texte": "Je vais réfléchir plus longuement sur le \\nsujet, et toi, n'en fais pas moins :"
+				"texte": "Je vais longuement réfléchir au sujet, \\net toi, n'en fais pas moins :"
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Search diligently for these precious testimonies, \\nyou who explore this world!"
+				"texte": "(en) Search diligently for his testimonies\\nwhile you explore this world!"
 			},
 			{
 				"nom": "Message",
-				"texte": "Recherche assidûment ces précieux \\ntémoignages, toi qui explores ce monde !"
+				"texte": "Recherche assidûment ses témoignages\\nlorsque tu explores ce monde !"
 			},
 			{
 				"nom": "Commentaire",
@@ -1760,7 +1857,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Comme je suis immortel dans Kujira, \\nje sortirai d'ici avant ma mort !\\nMais est-ce ton cas ?"
+				"texte": "Comme je suis immortel dans Kujira, \\nje sortirai d'ici avant ma mort !\\nMais qu'en est-il de toi ?"
 			},
 			{
 				"nom": "Attendre",
@@ -1967,8 +2064,14 @@
 		"y": 19
 	},
 	{
+		"id": 37,
+		"nom": "Clone[582][112]",
+		"x": 17,
+		"y": 47
+	},
+	{
 		"id": 10,
-		"nom": "fanfare",
+		"nom": "Miracle",
 		"x": 19,
 		"y": 46,
 		"pages": [
@@ -1980,25 +2083,78 @@
 				"nom": "ConditionVariable",
 				"numeroVariable": 54,
 				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 40,
+				"valeurQuIlEstCenseAvoir": 50,
 				"comparerAUneAutreVariable": false,
 				"numero": 0
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "Deplacement",
+				"idEventADeplacer": 27,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "JouerFondSonore",
+				"nomFichierSonore": "015-Quake01.ogg",
+				"volume": 0.80,
+				"tempo": 1.50
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "TremblementDeTerre",
+				"intensite": 4,
+				"vitesse": 8,
+				"nombreDeFrames": 100
 			},
 			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 1)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 2)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 2)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 2)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 3)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 3)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 3)"
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "invoquer(12, 50, 223, 4)"
 			},
 			{
 				"nom": "Attendre",
@@ -2006,9 +2162,35 @@
 			},
 			{
 				"nom": "JouerEffetMusical",
-				"nomFichierSonore": "Fanfare (paquerette).ogg",
+				"nomFichierSonore": "fanfare (lieu gueri).ogg",
 				"volume": 1.00,
 				"tempo": 1.00
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 233,
+				"valeur": true
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 50
+			},
+			{
+				"nom": "ArreterFondSonore",
+				"nombreDeFrames": 90
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 25,
+				"idAnimation": 7
+			},
+			{
+				"nom": "TeleporterEvent",
+				"idEvent": 25,
+				"variable": false,
+				"nouveauX": 10,
+				"nouveauY": 38,
+				"direction": 0
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2021,16 +2203,13 @@
 				"avancement": "FAITE"
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) This area of Kujira has been healed \\nby the magic of the crystals of the whale!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Cette zone de Kujira a été guérie par la \\nmagie des cristaux de sel de baleine !"
-			},
-			{
 				"nom": "Attendre",
 				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 233,
+				"valeur": false
 			},
 			{
 				"nom": "ModifierInterrupteur",
@@ -2043,16 +2222,26 @@
 				"valeurADonner": true
 			},
 			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
 				"nom": "ConditionFin",
 				"numero": 0
 			}
 			],
+			"image": "algues character",
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"figerLesAutresEvents": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		},
 		{
@@ -2083,6 +2272,14 @@
 				]
 			},
 			{
+				"nom": "TeleporterEvent",
+				"idEvent": 25,
+				"variable": false,
+				"nouveauX": 10,
+				"nouveauY": 38,
+				"direction": 0
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 12,
 				"valeur": false
@@ -2091,12 +2288,15 @@
 				"nom": "SupprimerEvent"
 			}
 			],
+			"image": "algues character",
+			"opacite": 0,
+			"directionInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -2106,6 +2306,12 @@
 		"nom": "Clone[341][028]",
 		"x": 14,
 		"y": 34
+	},
+	{
+		"id": 32,
+		"nom": "Clone[582][111]",
+		"x": 19,
+		"y": 54
 	}
 	]
 }

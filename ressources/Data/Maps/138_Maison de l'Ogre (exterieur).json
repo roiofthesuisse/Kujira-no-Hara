@@ -217,6 +217,10 @@
 					"nombreDeFrames": 100
 				},
 				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(4)+2).to_s)"
+				},
+				{
 					"nom": "Sauter",
 					"x": 0,
 					"y": 0
@@ -227,6 +231,10 @@
 					"nombreDeFrames": 66
 				},
 				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(4)+2).to_s)"
+				},
+				{
 					"nom": "Sauter",
 					"x": 0,
 					"y": 0
@@ -235,6 +243,10 @@
 					"nom": "AppelerUneCommande",
 					"nomCommande": "Attendre",
 					"nombreDeFrames": 1
+				},
+				{
+					"nom": "AppelerUnScript",
+					"script": "Sound_relative.play(id, 'poule'+(rand(4)+2).to_s)"
 				},
 				{
 					"nom": "Sauter",
@@ -270,7 +282,7 @@
 		"id": 22,
 		"nom": "EV022",
 		"x": 23,
-		"y": 8,
+		"y": 7,
 		"pages": [
 		{
 			"conditions": [
@@ -280,51 +292,11 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionGadgetEquipe",
-				"idGadget": 1,
-				"numero": 0
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 145,
 				"xDebutHeros": 15,
 				"yDebutHeros": 21
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionGadgetPossede",
-				"idGadget": 1,
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 145,
-				"xDebutHeros": 15,
-				"yDebutHeros": 21
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 140,
-				"xDebutHeros": 15,
-				"yDebutHeros": 20
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -606,6 +578,14 @@
 				"numero": 3
 			},
 			{
+				"nom": "ModifierTonDeLEcran",
+				"rouge": 127,
+				"vert": 127,
+				"bleu": 127,
+				"gris": 0,
+				"dureeTransition": 0
+			},
+			{
 				"nom": "SupprimerEvent"
 			}
 			],
@@ -834,6 +814,12 @@
 				"idArme": 1
 			},
 			{
+				"nom": "AjouterObjet",
+				"idObjet": 48,
+				"variable": false,
+				"quantite": 1
+			},
+			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 1,
 				"valeur": true
@@ -879,6 +865,10 @@
 				"idObjet": 18,
 				"variable": false,
 				"quantite": 1
+			},
+			{
+				"nom": "OuvrirMenu",
+				"nomMenu": "MotDePasse"
 			},
 			{
 				"nom": "AppelerPageCommune",
@@ -937,12 +927,29 @@
 				"numero": 1
 			},
 			{
+				"nom": "Commentaire",
+				"texte": "la poule s'est échappée"
+			},
+			{
 				"nom": "TeleporterEvent",
 				"idEvent": 27,
 				"variable": false,
 				"nouveauX": 39,
 				"nouveauY": 39,
 				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 27,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "erase"
+				}
+				]
 			},
 			{
 				"nom": "ConditionFin",
@@ -1111,6 +1118,192 @@
 		"x": 23,
 		"y": 9,
 		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "ogre pas encore vaincu\\nle héros tombe dans le piège"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "131-Earth03.ogg",
+				"volume": 0.60,
+				"tempo": 0.50
+			},
+			{
+				"nom": "TremblementDeTerre",
+				"intensite": 3,
+				"vitesse": 7,
+				"nombreDeFrames": 66
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerAnimation",
+				"idEvent": 0,
+				"idAnimation": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "porte qui grince.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 16
+			},
+			{
+				"nom": "TeleporterEvent",
+				"variable": false,
+				"nouveauX": 23,
+				"nouveauY": 8,
+				"direction": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "AppelerUnScript",
+					"script": "offset_y(48)"
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "piege character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 1
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "piege character",
+					"direction": 0,
+					"animation": 1,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "piege character",
+					"direction": 0,
+					"animation": 2,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "piege character",
+					"direction": 0,
+					"animation": 3,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 3
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "piege character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 52
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "ajouter",
+				"valeurADonner": 1,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "052-Cannon01.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 221,
+				"xDebutHeros": 12,
+				"yDebutHeros": 13
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 220,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "l'ogre Dü a été vaincu\\nle cousin Edouard n'a pas encore emménagé\\npas de paillasson ni de piège"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		},
 		{
 			"conditions": [
 			{
