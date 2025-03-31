@@ -126,36 +126,10 @@
 	],
 	"events": [
 	{
-		"id": 38,
-		"nom": "Clone[582][46]",
-		"x": 25,
+		"id": 27,
+		"nom": "Clone[582][99]",
+		"x": 17,
 		"y": 10
-	},
-	{
-		"id": 16,
-		"nom": "Blocage",
-		"x": 15,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
 	},
 	{
 		"id": 5,
@@ -184,126 +158,36 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "Clone[582][99]",
-		"x": 17,
-		"y": 10
-	},
-	{
-		"id": 22,
-		"nom": "Clone[341][028]",
-		"x": 16,
-		"y": 17
-	},
-	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 13,
-		"y": 13,
+		"id": 16,
+		"nom": "Blocage",
+		"x": 15,
+		"y": 8,
 		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 33,
-		"nom": "corne d abondance",
-		"x": 18,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 49,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
 		{
 			"conditions": [
 			{
 				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 33,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
 			],
-			"image": "corne d abondance character",
+			"image": "algues character",
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 38,
+		"nom": "Clone[582][46]",
+		"x": 25,
+		"y": 10
 	},
 	{
 		"id": 44,
@@ -752,7 +636,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Il n'y a pas grand chose à faire, \\nmon royaume n'est que poussière."
+				"texte": "Il n'y a pas grand-chose à faire, \\nmon royaume n'est que poussière."
 			},
 			{
 				"nom": "FaireDefilerLaMap",
@@ -899,10 +783,152 @@
 		]
 	},
 	{
-		"id": 39,
-		"nom": "Clone[582][46]",
-		"x": 26,
-		"y": 10
+		"id": 33,
+		"nom": "corne d abondance",
+		"x": 18,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 49,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 33,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			],
+			"image": "corne d abondance character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 11,
+		"nom": "EV011",
+		"x": 13,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 22,
+		"nom": "Clone[341][028]",
+		"x": 16,
+		"y": 17
+	},
+	{
+		"id": 28,
+		"nom": "Clone[582][99]",
+		"x": 20,
+		"y": 11
+	},
+	{
+		"id": 6,
+		"nom": "Blocage",
+		"x": 15,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 17,
@@ -979,10 +1005,16 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Blocage",
-		"x": 15,
-		"y": 11,
+		"id": 39,
+		"nom": "Clone[582][46]",
+		"x": 26,
+		"y": 10
+	},
+	{
+		"id": 45,
+		"nom": "triche",
+		"x": 17,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
@@ -991,36 +1023,71 @@
 			}
 			],
 			"commandes": [
+			{
+				"nom": "Message",
+				"texte": "yuyuiytijkgyfd"
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 49,
+				"variable": false,
+				"quantite": 1
+			}
 			],
-			"image": "algues character",
-			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 28,
-		"nom": "Clone[582][99]",
-		"x": 20,
-		"y": 11
-	},
-	{
-		"id": 34,
-		"nom": "Clone[582][46]",
-		"x": 25,
-		"y": 9
-	},
-	{
-		"id": 23,
-		"nom": "Clone[341][028]",
-		"x": 15,
-		"y": 23
+		"id": 12,
+		"nom": "EV012",
+		"x": 13,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 1,
@@ -1927,7 +1994,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Croâ Croâ, toi qui es si minuscule, \\npeux-tu tuer le nénuphar qui me turbule ?"
+				"texte": "Croâ Croâ, toi qui es si minuscule, \\npeux-tu tuer le nénufar qui me turbule ?"
 			},
 			{
 				"nom": "Deplacement",
@@ -2283,7 +2350,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Croâ Croâ, si tu ne tues pas le nénuphar \\nque j'ai bouffé, \\nil va grossir et je vais m'étouffer !"
+				"texte": "Croâ Croâ, si tu ne tues pas le nénufar \\nque j'ai bouffé, \\nil va grossir et je vais m'étouffer !"
 			},
 			{
 				"nom": "Deplacement",
@@ -2643,7 +2710,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Croâ Croâ, j'ouvre la bouche tout grand\\net tu t'engouffres dedans ?"
+				"texte": "Croâ Croâ, j'ouvre mon gosier tout grand\\net tu t'engouffres dedans ?"
 			},
 			{
 				"nom": "Choix",
@@ -3701,10 +3768,22 @@
 		]
 	},
 	{
-		"id": 12,
-		"nom": "EV012",
+		"id": 23,
+		"nom": "Clone[341][028]",
+		"x": 15,
+		"y": 23
+	},
+	{
+		"id": 34,
+		"nom": "Clone[582][46]",
+		"x": 25,
+		"y": 9
+	},
+	{
+		"id": 29,
+		"nom": "EV029",
 		"x": 13,
-		"y": 12,
+		"y": 34,
 		"pages": [
 		{
 			"conditions": [
@@ -3714,59 +3793,11 @@
 			],
 			"commandes": [
 			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 45,
-		"nom": "triche",
-		"x": 17,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Message",
-				"texte": "yuyuiytijkgyfd"
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 49,
+				"nom": "ChangerDeMap",
 				"variable": false,
-				"quantite": 1
+				"numeroNouvelleMap": 336,
+				"xDebutHeros": 13,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -3780,10 +3811,30 @@
 		]
 	},
 	{
-		"id": 40,
-		"nom": "Clone[582][46]",
-		"x": 27,
-		"y": 10
+		"id": 7,
+		"nom": "Blocage",
+		"x": 13,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -3864,99 +3915,10 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Blocage",
-		"x": 13,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 29,
-		"nom": "EV029",
-		"x": 13,
-		"y": 34,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 336,
-				"xDebutHeros": 13,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 35,
+		"id": 40,
 		"nom": "Clone[582][46]",
-		"x": 26,
-		"y": 9
-	},
-	{
-		"id": 24,
-		"nom": "Clone[341][028]",
-		"x": 13,
-		"y": 25
-	},
-	{
-		"id": 2,
-		"nom": "Blocage",
-		"x": 13,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"x": 27,
+		"y": 10
 	},
 	{
 		"id": 13,
@@ -4004,16 +3966,73 @@
 		]
 	},
 	{
-		"id": 41,
-		"nom": "Clone[582][46]",
-		"x": 28,
-		"y": 10
+		"id": 2,
+		"nom": "Blocage",
+		"x": 13,
+		"y": 11,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 19,
+		"id": 24,
 		"nom": "Clone[341][028]",
-		"x": 17,
+		"x": 13,
+		"y": 25
+	},
+	{
+		"id": 35,
+		"nom": "Clone[582][46]",
+		"x": 26,
 		"y": 9
+	},
+	{
+		"id": 30,
+		"nom": "EV030",
+		"x": 14,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 336,
+				"xDebutHeros": 14,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 8,
@@ -4068,67 +4087,22 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "EV030",
-		"x": 14,
-		"y": 34,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 336,
-				"xDebutHeros": 14,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 36,
-		"nom": "Clone[582][46]",
-		"x": 27,
+		"id": 19,
+		"nom": "Clone[341][028]",
+		"x": 17,
 		"y": 9
 	},
 	{
-		"id": 3,
-		"nom": "Blocage",
-		"x": 13,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 41,
+		"nom": "Clone[582][46]",
+		"x": 28,
+		"y": 10
+	},
+	{
+		"id": 25,
+		"nom": "Clone[582][99]",
+		"x": 11,
+		"y": 18
 	},
 	{
 		"id": 14,
@@ -4176,10 +4150,99 @@
 		]
 	},
 	{
-		"id": 25,
-		"nom": "Clone[582][99]",
-		"x": 11,
-		"y": 18
+		"id": 3,
+		"nom": "Blocage",
+		"x": 13,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 36,
+		"nom": "Clone[582][46]",
+		"x": 27,
+		"y": 9
+	},
+	{
+		"id": 31,
+		"nom": "EV031",
+		"x": 15,
+		"y": 34,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 336,
+				"xDebutHeros": 15,
+				"yDebutHeros": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 9,
+		"nom": "Blocage",
+		"x": 15,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][028]",
+		"x": 10,
+		"y": 14
 	},
 	{
 		"id": 42,
@@ -4214,99 +4277,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][028]",
+		"id": 26,
+		"nom": "Clone[582][99]",
 		"x": 10,
-		"y": 14
-	},
-	{
-		"id": 9,
-		"nom": "Blocage",
-		"x": 15,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 31,
-		"nom": "EV031",
-		"x": 15,
-		"y": 34,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 336,
-				"xDebutHeros": 15,
-				"yDebutHeros": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 37,
-		"nom": "Clone[582][46]",
-		"x": 28,
-		"y": 9
-	},
-	{
-		"id": 15,
-		"nom": "Blocage",
-		"x": 13,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "algues character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"y": 13
 	},
 	{
 		"id": 4,
@@ -4383,10 +4357,146 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "Clone[582][99]",
-		"x": 10,
-		"y": 13
+		"id": 15,
+		"nom": "Blocage",
+		"x": 13,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "algues character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 37,
+		"nom": "Clone[582][46]",
+		"x": 28,
+		"y": 9
+	},
+	{
+		"id": 43,
+		"nom": "Avancement",
+		"x": 23,
+		"y": 26,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 126,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 8,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 43,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 10,
+		"nom": "EV010",
+		"x": 14,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreTraversable",
+					"traversable": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][028]",
+		"x": 19,
+		"y": 12
 	},
 	{
 		"id": 32,
@@ -4488,11 +4598,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) Ningyô's fins disappeared."
+				"texte": "(en) Ningyo's fins disappeared."
 			},
 			{
 				"nom": "Message",
-				"texte": "Les nageoires de Ningyô disparaissent."
+				"texte": "Les nageoires de Ningyo disparaissent."
 			},
 			{
 				"nom": "Attendre",
@@ -4549,116 +4659,6 @@
 			],
 			"vitesse": "tres rapide",
 			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][028]",
-		"x": 19,
-		"y": 12
-	},
-	{
-		"id": 10,
-		"nom": "EV010",
-		"x": 14,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreTraversable",
-					"traversable": false
-				},
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 43,
-		"nom": "Avancement",
-		"x": 23,
-		"y": 26,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 126,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 8,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 43,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,

@@ -106,6 +106,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[341][061]",
+		"x": 8,
+		"y": 10
+	},
+	{
 		"id": 16,
 		"nom": "viking rouge1 SHADOW[30] (-4)",
 		"x": 1,
@@ -130,12 +136,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 5,
-		"nom": "Clone[341][061]",
-		"x": 8,
-		"y": 10
 	},
 	{
 		"id": 11,
@@ -173,6 +173,12 @@
 		]
 	},
 	{
+		"id": 6,
+		"nom": "Clone[341][061]",
+		"x": 13,
+		"y": 16
+	},
+	{
 		"id": 17,
 		"nom": "viking rouge2 SHADOW[30] (-4)",
 		"x": 2,
@@ -190,47 +196,6 @@
 			"directionInitiale": 1,
 			"vitesse": "normale",
 			"frequence": "haute",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][061]",
-		"x": 13,
-		"y": 16
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 29,
-		"y": 11,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 66,
-				"xDebutHeros": 1,
-				"yDebutHeros": 16
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -320,35 +285,28 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "triche (mission secrete)",
-		"x": 18,
-		"y": 10,
+		"id": 12,
+		"nom": "EV012",
+		"x": 29,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 78,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 20,
-				"operationAFaire2": "valeur brute"
+				"nom": "EffacerImage",
+				"numero": 9
 			},
 			{
-				"nom": "Commentaire",
-				"texte": "(en) bhnjbgj"
-			},
-			{
-				"nom": "Message",
-				"texte": "bhnjbgj"
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 66,
+				"xDebutHeros": 1,
+				"yDebutHeros": 16
 			}
 			],
 			"vitesse": "moderee",
@@ -486,11 +444,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) I would have to go through the western forest \\nand reach the absolute time clock, \\nwhich is located in the \\c[02]Shaman\\c[01]'s country."
+				"texte": "(en) I would have to go through the western forest \\nand reach the absolute time clock, \\nwhich is located in the \\c[02]shaman\\c[01]'s country."
 			},
 			{
 				"nom": "Message",
-				"texte": "Il faut traverser la forêt de l'Ouest, et dans la \\ncontrée de la \\c[2]Chamane\\c[1], c'est au carrefour \\nde l'horloge à temps absolu."
+				"texte": "Il faut traverser la forêt de l'Ouest, et dans la \\ncontrée de la \\c[2]chamane\\c[1], c'est au carrefour \\nde l'horloge à temps absolu."
 			},
 			{
 				"nom": "Commentaire",
@@ -591,6 +549,54 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 18,
+		"nom": "triche (mission secrete)",
+		"x": 18,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 78,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 20,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) bhnjbgj"
+			},
+			{
+				"nom": "Message",
+				"texte": "bhnjbgj"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][028]",
+		"x": 9,
+		"y": 9
 	},
 	{
 		"id": 13,
@@ -998,10 +1004,10 @@
 		]
 	},
 	{
-		"id": 2,
+		"id": 8,
 		"nom": "Clone[341][028]",
-		"x": 9,
-		"y": 9
+		"x": 10,
+		"y": 7
 	},
 	{
 		"id": 19,
@@ -1042,10 +1048,10 @@
 		]
 	},
 	{
-		"id": 8,
+		"id": 3,
 		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 7
+		"x": 7,
+		"y": 10
 	},
 	{
 		"id": 14,
@@ -1195,9 +1201,9 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][028]",
-		"x": 7,
+		"id": 20,
+		"nom": "Clone[582][52]",
+		"x": 10,
 		"y": 10
 	},
 	{
@@ -1232,10 +1238,10 @@
 		]
 	},
 	{
-		"id": 20,
-		"nom": "Clone[582][52]",
-		"x": 10,
-		"y": 10
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 11,
+		"y": 13
 	},
 	{
 		"id": 15,
@@ -2614,12 +2620,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 11,
-		"y": 13
 	},
 	{
 		"id": 10,

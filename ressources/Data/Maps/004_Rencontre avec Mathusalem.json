@@ -111,22 +111,16 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "Clone[582][37]",
-		"x": 17,
-		"y": 11
-	},
-	{
 		"id": 5,
 		"nom": "Clone[341][001]",
 		"x": 20,
 		"y": 13
 	},
 	{
-		"id": 22,
-		"nom": "Clone[341][001]",
-		"x": 4,
-		"y": 14
+		"id": 16,
+		"nom": "Clone[582][37]",
+		"x": 17,
+		"y": 11
 	},
 	{
 		"id": 11,
@@ -155,6 +149,58 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 22,
+		"nom": "Clone[341][001]",
+		"x": 4,
+		"y": 14
+	},
+	{
+		"id": 6,
+		"nom": "grotte",
+		"x": 13,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 6,
+				"xDebutHeros": 17,
+				"yDebutHeros": 20
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": true,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 3,
+					"nombreDeCarreaux": 1
+				}
+				]
+			}
+			],
+			"image": "porte kujira character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
@@ -238,10 +284,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "grotte",
-		"x": 13,
-		"y": 9,
+		"id": 12,
+		"nom": "EV012",
+		"x": 0,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -253,32 +299,48 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 6,
-				"xDebutHeros": 17,
-				"yDebutHeros": 20
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": true,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 3,
-					"nombreDeCarreaux": 1
-				}
-				]
+				"numeroNouvelleMap": 37,
+				"xDebutHeros": 27,
+				"yDebutHeros": 12
 			}
 			],
-			"image": "porte kujira character",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
+		"x": 13,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 8,
+				"xDebutHeros": 15,
+				"yDebutHeros": 7
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -329,74 +391,6 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 13,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 8,
-				"xDebutHeros": 15,
-				"yDebutHeros": 7
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 12,
-		"nom": "EV012",
-		"x": 0,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 37,
-				"xDebutHeros": 27,
-				"yDebutHeros": 12
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][001]",
-		"x": 5,
-		"y": 13
-	},
-	{
 		"id": 7,
 		"nom": "EV007",
 		"x": 29,
@@ -428,122 +422,10 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "grotte au dessus de tout",
-		"x": 13,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 17,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 2,
-				"operationAFaire2": "coordonnee x"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 18,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 2,
-				"operationAFaire2": "coordonnee y"
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 18,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 10,
-				"comparerAUneAutreVariable": false,
-				"numero": 0
-			},
-			{
-				"nom": "ConditionVariable",
-				"numeroVariable": 17,
-				"inegalite": "==",
-				"valeurQuIlEstCenseAvoir": 13,
-				"comparerAUneAutreVariable": false,
-				"numero": 1
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 6,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 6,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 5
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 6,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
-				}
-				]
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 18,
+		"nom": "Clone[341][001]",
+		"x": 5,
+		"y": 13
 	},
 	{
 		"id": 2,
@@ -744,7 +626,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Et bien, je suis le doyen de Kujira : "
+				"texte": "Eh bien, je suis le doyen de Kujira : "
 			},
 			{
 				"nom": "Commentaire",
@@ -760,7 +642,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Ca fait maintenant 853 ans que Kujira m'a \\navalé, tout comme toi !"
+				"texte": "Ça fait maintenant 853 ans que Kujira m'a \\navalé, tout comme toi !"
 			},
 			{
 				"nom": "Commentaire",
@@ -785,7 +667,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Et bien je suis à la recherche d'un objet \\nimportant, et je pense qu'il est ici..."
+				"texte": "Eh bien, je suis à la recherche d'un objet \\nimportant, et je pense qu'il est ici..."
 			},
 			{
 				"nom": "Commentaire",
@@ -842,7 +724,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Comme tu es plus petit, ça te dirait d'aller \\nvoir là dedans pour moi ?"
+				"texte": "Comme tu es plus petit, ça te dirait d'aller \\nvoir là-dedans pour moi ?"
 			},
 			{
 				"nom": "Choix",
@@ -1213,7 +1095,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Pourtant ma carte indiquait qu'il y avait un \\nobjet magique très précieux là dedans..."
+				"texte": "Pourtant ma carte indiquait qu'il y avait un \\nobjet magique très précieux là-dedans..."
 			},
 			{
 				"nom": "Commentaire",
@@ -1531,7 +1413,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Cherche mieux, je suis sûr qu'il y a quelque \\nchose là dedans !"
+				"texte": "Cherche mieux, je suis sûr qu'il y a quelque \\nchose là-dedans !"
 			},
 			{
 				"nom": "ConditionFin",
@@ -1660,6 +1542,130 @@
 		]
 	},
 	{
+		"id": 13,
+		"nom": "grotte au dessus de tout",
+		"x": 13,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 17,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 2,
+				"operationAFaire2": "coordonnee x"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 18,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 2,
+				"operationAFaire2": "coordonnee y"
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 18,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 10,
+				"comparerAUneAutreVariable": false,
+				"numero": 0
+			},
+			{
+				"nom": "ConditionVariable",
+				"numeroVariable": 17,
+				"inegalite": "==",
+				"valeurQuIlEstCenseAvoir": 13,
+				"comparerAUneAutreVariable": false,
+				"numero": 1
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 6,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 6,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 5
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 6,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[341][001]",
+		"x": 6,
+		"y": 13
+	},
+	{
 		"id": 8,
 		"nom": "EV008",
 		"x": 29,
@@ -1691,28 +1697,16 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][001]",
-		"x": 6,
-		"y": 13
-	},
-	{
-		"id": 14,
-		"nom": "Clone[582][37]",
-		"x": 18,
-		"y": 12
-	},
-	{
 		"id": 3,
 		"nom": "Clone[341][001]",
 		"x": 18,
 		"y": 11
 	},
 	{
-		"id": 20,
-		"nom": "Clone[341][001]",
-		"x": 6,
-		"y": 14
+		"id": 14,
+		"nom": "Clone[582][37]",
+		"x": 18,
+		"y": 12
 	},
 	{
 		"id": 9,
@@ -1807,10 +1801,10 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "Clone[582][37]",
-		"x": 12,
-		"y": 10
+		"id": 20,
+		"nom": "Clone[341][001]",
+		"x": 6,
+		"y": 14
 	},
 	{
 		"id": 4,
@@ -1819,10 +1813,10 @@
 		"y": 12
 	},
 	{
-		"id": 21,
-		"nom": "Clone[341][001]",
-		"x": 7,
-		"y": 13
+		"id": 15,
+		"nom": "Clone[582][37]",
+		"x": 12,
+		"y": 10
 	},
 	{
 		"id": 10,
@@ -2108,6 +2102,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][001]",
+		"x": 7,
+		"y": 13
 	}
 	]
 }

@@ -549,7 +549,7 @@
 				"nom": "ChangerDeMap",
 				"variable": false,
 				"numeroNouvelleMap": 13,
-				"xDebutHeros": 19,
+				"xDebutHeros": 18,
 				"yDebutHeros": 7
 			}
 			],
@@ -568,6 +568,58 @@
 		"nom": "Clone[582][6]",
 		"x": 14,
 		"y": 9
+	},
+	{
+		"id": 40,
+		"nom": "EV040",
+		"x": 16,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 32,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				},
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": false
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 7,
@@ -1053,7 +1105,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Oblitérez votre ticket et faites vous propulser \\ndans le réseau kujirien."
+				"texte": "Oblitérez votre ticket et faites-vous propulser \\ndans le réseau kujirien."
 			},
 			{
 				"nom": "Attendre",

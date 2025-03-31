@@ -66,12 +66,6 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][003]",
-		"x": 13,
-		"y": 4
-	},
-	{
 		"id": 16,
 		"nom": "Serrure Donjon",
 		"x": 10,
@@ -277,16 +271,16 @@
 		]
 	},
 	{
+		"id": 5,
+		"nom": "Clone[341][003]",
+		"x": 13,
+		"y": 4
+	},
+	{
 		"id": 11,
 		"nom": "Clone[582][103]",
 		"x": 17,
 		"y": 11
-	},
-	{
-		"id": 6,
-		"nom": "Clone[341][003]",
-		"x": 7,
-		"y": 4
 	},
 	{
 		"id": 17,
@@ -392,35 +386,10 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 10,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 224,
-				"xDebutHeros": 12,
-				"yDebutHeros": 11
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 6,
+		"nom": "Clone[341][003]",
+		"x": 7,
+		"y": 4
 	},
 	{
 		"id": 12,
@@ -454,10 +423,35 @@
 		]
 	},
 	{
-		"id": 7,
-		"nom": "Clone[341][003]",
-		"x": 5,
-		"y": 4
+		"id": 1,
+		"nom": "EV001",
+		"x": 10,
+		"y": 14,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 224,
+				"xDebutHeros": 12,
+				"yDebutHeros": 11
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 18,
@@ -544,6 +538,38 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][003]",
+		"x": 5,
+		"y": 4
+	},
+	{
+		"id": 2,
+		"nom": "buisson",
+		"x": 3,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "buisson fixe",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -797,38 +823,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "buisson",
-		"x": 3,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "buisson fixe",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][003]",
-		"x": 15,
-		"y": 4
-	},
-	{
 		"id": 19,
 		"nom": "Avancement",
 		"x": 13,
@@ -882,6 +876,38 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][003]",
+		"x": 15,
+		"y": 4
+	},
+	{
+		"id": 3,
+		"nom": "buisson",
+		"x": 5,
+		"y": 2,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "buisson fixe",
+			"directionInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -998,38 +1024,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "buisson",
-		"x": 5,
-		"y": 2,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "buisson fixe",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 9,
-		"nom": "Clone[341][002]",
-		"x": 16,
-		"y": 10
-	},
-	{
 		"id": 20,
 		"nom": "EV020",
 		"x": 12,
@@ -1081,6 +1075,18 @@
 		]
 	},
 	{
+		"id": 9,
+		"nom": "Clone[341][002]",
+		"x": 16,
+		"y": 10
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][059]",
+		"x": 4,
+		"y": 10
+	},
+	{
 		"id": 15,
 		"nom": "Stèle",
 		"x": 1,
@@ -1106,19 +1112,19 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"Here I am in the shrine of \\c[2]Jishin\\c[0]..."
+				"texte": "(en) \"Here I am in the shrine of \\c[2]Jishin\\c[0],\\nstill inhabited by his mad golems."
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Me voici dans le Sanctuaire de \\c[2]Jishin'\\c[1]..."
+				"texte": "\"Me voici dans le sanctuaire de \\c[2]Jishin'\\c[1],\\nencore habité par ses golems fous."
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) He is the second to last scholar of the legend."
+				"texte": "(en) He was the second to last scholar of the legend."
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est l'avant-dernier érudit de la légende."
+				"texte": "Il fut l'avant-dernier érudit de la légende."
 			},
 			{
 				"nom": "Commentaire",
@@ -1181,18 +1187,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "Clone[341][059]",
-		"x": 4,
-		"y": 10
-	},
-	{
-		"id": 10,
-		"nom": "Clone[582][101]",
-		"x": 17,
-		"y": 10
-	},
-	{
 		"id": 21,
 		"nom": "EV021",
 		"x": 20,
@@ -1223,6 +1217,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 10,
+		"nom": "Clone[582][101]",
+		"x": 17,
+		"y": 10
 	}
 	]
 }

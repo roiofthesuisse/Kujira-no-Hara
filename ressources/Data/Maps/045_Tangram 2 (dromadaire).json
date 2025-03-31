@@ -1,5 +1,5 @@
 {
-	"nom": "Tangram 2 (chameau)",
+	"nom": "Tangram 2 (dromadaire)",
 	"tileset": "Patio",
 	"largeur": 21,
 	"hauteur": 15,
@@ -55,47 +55,6 @@
 	[-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001,-001]
 	],
 	"events": [
-	{
-		"id": 16,
-		"nom": "EV016",
-		"x": 7,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": false
-				}
-				]
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": false
-		}
-		]
-	},
 	{
 		"id": 5,
 		"nom": "escalier",
@@ -172,9 +131,9 @@
 		]
 	},
 	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 12,
+		"id": 16,
+		"nom": "EV016",
+		"x": 7,
 		"y": 5,
 		"pages": [
 		{
@@ -254,10 +213,10 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "EV017",
-		"x": 7,
-		"y": 4,
+		"id": 11,
+		"nom": "EV011",
+		"x": 12,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
@@ -279,7 +238,7 @@
 				"mouvements": [
 				{
 					"nom": "RendreAuDessusDeTout",
-					"auDessusDeTout": true
+					"auDessusDeTout": false
 				}
 				]
 			}
@@ -365,9 +324,9 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "EV023",
-		"x": 13,
+		"id": 17,
+		"nom": "EV017",
+		"x": 7,
 		"y": 4,
 		"pages": [
 		{
@@ -412,9 +371,9 @@
 		"y": 7
 	},
 	{
-		"id": 18,
-		"nom": "EV018",
-		"x": 8,
+		"id": 23,
+		"nom": "EV023",
+		"x": 13,
 		"y": 4,
 		"pages": [
 		{
@@ -517,6 +476,47 @@
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 18,
+		"nom": "EV018",
+		"x": 8,
+		"y": 4,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAuDessusDeTout",
+					"auDessusDeTout": true
+				}
+				]
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
 			"traversable": true,
 			"auDessusDeTout": false
 		}
@@ -841,34 +841,6 @@
 		]
 	},
 	{
-		"id": 4,
-		"nom": "EV004",
-		"x": 15,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Message",
-				"texte": "\\v[323]"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 15,
 		"nom": "EV015",
 		"x": 8,
@@ -905,6 +877,34 @@
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 4,
+		"nom": "EV004",
+		"x": 15,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Message",
+				"texte": "\\v[323]"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]

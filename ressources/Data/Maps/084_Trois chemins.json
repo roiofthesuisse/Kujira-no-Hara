@@ -111,6 +111,12 @@
 	],
 	"events": [
 	{
+		"id": 5,
+		"nom": "Clone[021][45]",
+		"x": 40,
+		"y": 18
+	},
+	{
 		"id": 16,
 		"nom": "Jizo SHADOW[40] (-4)",
 		"x": 32,
@@ -155,11 +161,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) This is a jizo statue."
+				"texte": "(en) This is a Jizo statue."
 			},
 			{
 				"nom": "Message",
-				"texte": "C'est une statue jizo."
+				"texte": "C'est une statue Jizô."
 			},
 			{
 				"nom": "ConditionGadgetEquipe",
@@ -200,11 +206,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) You use the jizo stone to read its thoughts:"
+				"texte": "(en) You read its thoughts \\nusing the Jizo stone."
 			},
 			{
 				"nom": "Message",
-				"texte": "Vous utilisez la pierre du jizo pour lire \\nses pensées :"
+				"texte": "Vous lisez ses pensées \\ngrâce à la pierre du Jizô."
 			},
 			{
 				"nom": "JouerEffetMusical",
@@ -214,11 +220,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) \"To find what he wants, the wise man knows \\nwhat to do..."
+				"texte": "(en) \"To find what he wants, \\nthe wise man knows what to do..."
 			},
 			{
 				"nom": "Message",
-				"texte": "\"Pour trouver ce qu'il veut, le sage sait \\nquoi faire..."
+				"texte": "\"Pour trouver ce qu'il veut, \\nle sage sait quoi faire..."
 			},
 			{
 				"nom": "Commentaire",
@@ -338,10 +344,10 @@
 		]
 	},
 	{
-		"id": 5,
-		"nom": "Clone[021][45]",
-		"x": 40,
-		"y": 18
+		"id": 22,
+		"nom": "Clone[582][101]",
+		"x": 30,
+		"y": 22
 	},
 	{
 		"id": 11,
@@ -350,10 +356,10 @@
 		"y": 14
 	},
 	{
-		"id": 22,
-		"nom": "Clone[582][101]",
-		"x": 30,
-		"y": 22
+		"id": 17,
+		"nom": "Clone[582][44]",
+		"x": 5,
+		"y": 12
 	},
 	{
 		"id": 6,
@@ -540,16 +546,10 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "Clone[582][44]",
-		"x": 5,
-		"y": 12
-	},
-	{
-		"id": 23,
-		"nom": "Clone[582][103]",
-		"x": 30,
-		"y": 23
+		"id": 1,
+		"nom": "Clone[021][45]",
+		"x": 15,
+		"y": 17
 	},
 	{
 		"id": 12,
@@ -604,10 +604,16 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[021][45]",
-		"x": 15,
-		"y": 17
+		"id": 23,
+		"nom": "Clone[582][103]",
+		"x": 30,
+		"y": 23
+	},
+	{
+		"id": 18,
+		"nom": "Clone[582][37]",
+		"x": 29,
+		"y": 5
 	},
 	{
 		"id": 7,
@@ -641,33 +647,45 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[582][37]",
-		"x": 29,
-		"y": 5
-	},
-	{
-		"id": 24,
-		"nom": "triche",
-		"x": 50,
-		"y": 2,
+		"id": 13,
+		"nom": "EV013",
+		"x": 0,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "AjouterObjet",
-				"idObjet": 1,
-				"variable": false,
-				"quantite": 50
+				"nom": "ConditionEtatQuete",
+				"idQuete": 73,
+				"etat": "FAITE",
+				"numero": 0
 			},
 			{
-				"nom": "Message",
-				"texte": "ghkjchv"
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 91,
+				"xDebutHeros": 38,
+				"yDebutHeros": 21
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 91,
+				"xDebutHeros": 24,
+				"yDebutHeros": 20
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
 			"vitesse": "moderee",
@@ -753,45 +771,27 @@
 		]
 	},
 	{
-		"id": 13,
-		"nom": "EV013",
-		"x": 0,
-		"y": 13,
+		"id": 24,
+		"nom": "triche",
+		"x": 50,
+		"y": 2,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
 			}
 			],
 			"commandes": [
 			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 73,
-				"etat": "FAITE",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
+				"nom": "AjouterObjet",
+				"idObjet": 1,
 				"variable": false,
-				"numeroNouvelleMap": 91,
-				"xDebutHeros": 38,
-				"yDebutHeros": 21
+				"quantite": 50
 			},
 			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 91,
-				"xDebutHeros": 24,
-				"yDebutHeros": 20
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"nom": "Message",
+				"texte": "ghkjchv"
 			}
 			],
 			"vitesse": "moderee",
@@ -803,6 +803,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 19,
+		"nom": "Clone[582][37]",
+		"x": 26,
+		"y": 5
 	},
 	{
 		"id": 8,
@@ -836,10 +842,35 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[582][37]",
-		"x": 26,
-		"y": 5
+		"id": 14,
+		"nom": "EV014",
+		"x": 1,
+		"y": 17,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 25,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 0,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 3,
@@ -898,35 +929,10 @@
 		]
 	},
 	{
-		"id": 14,
-		"nom": "EV014",
-		"x": 1,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 25,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 0,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 20,
+		"nom": "Clone[582][37]",
+		"x": 25,
+		"y": 6
 	},
 	{
 		"id": 9,
@@ -958,18 +964,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 20,
-		"nom": "Clone[582][37]",
-		"x": 25,
-		"y": 6
-	},
-	{
-		"id": 4,
-		"nom": "Clone[021][44]",
-		"x": 27,
-		"y": 9
 	},
 	{
 		"id": 15,
@@ -1009,7 +1003,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "(S'ils vous courent après, faites les rouler \\nvers un trou)"
+				"texte": "(S'ils vous courent après, faites-les rouler \\nvers un trou)"
 			},
 			{
 				"nom": "Attendre",
@@ -1036,10 +1030,10 @@
 		]
 	},
 	{
-		"id": 21,
-		"nom": "Clone[341][002]",
-		"x": 29,
-		"y": 22
+		"id": 4,
+		"nom": "Clone[021][44]",
+		"x": 27,
+		"y": 9
 	},
 	{
 		"id": 10,
@@ -1071,6 +1065,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][002]",
+		"x": 29,
+		"y": 22
 	}
 	]
 }

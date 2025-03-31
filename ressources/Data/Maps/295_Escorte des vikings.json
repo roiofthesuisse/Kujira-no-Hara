@@ -81,10 +81,10 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Clone[341][028]",
-		"x": 7,
-		"y": 12
+		"id": 27,
+		"nom": "Clone[582][37]",
+		"x": 17,
+		"y": 8
 	},
 	{
 		"id": 16,
@@ -93,10 +93,41 @@
 		"y": 11
 	},
 	{
-		"id": 27,
-		"nom": "Clone[582][37]",
-		"x": 17,
-		"y": 8
+		"id": 5,
+		"nom": "Clone[341][028]",
+		"x": 7,
+		"y": 12
+	},
+	{
+		"id": 33,
+		"nom": "corail",
+		"x": 25,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "corail character",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 22,
+		"nom": "Clone[341][028]",
+		"x": 30,
+		"y": 14
 	},
 	{
 		"id": 11,
@@ -280,16 +311,28 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Clone[341][028]",
-		"x": 30,
-		"y": 14
+		"id": 28,
+		"nom": "Clone[582][37]",
+		"x": 9,
+		"y": 8
 	},
 	{
-		"id": 33,
+		"id": 17,
+		"nom": "Clone[341][028]",
+		"x": 57,
+		"y": 12
+	},
+	{
+		"id": 6,
+		"nom": "Clone[341][061]",
+		"x": 8,
+		"y": 7
+	},
+	{
+		"id": 34,
 		"nom": "corail",
-		"x": 25,
-		"y": 5,
+		"x": 23,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
@@ -300,6 +343,7 @@
 			"commandes": [
 			],
 			"image": "corail character",
+			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -311,58 +355,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "Clone[341][061]",
-		"x": 8,
-		"y": 7
-	},
-	{
-		"id": 17,
+		"id": 23,
 		"nom": "Clone[341][028]",
-		"x": 57,
-		"y": 12
-	},
-	{
-		"id": 28,
-		"nom": "Clone[582][37]",
-		"x": 9,
-		"y": 8
-	},
-	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 99,
-		"y": 12,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 46,
-				"valeur": false
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 255,
-				"xDebutHeros": 1,
-				"yDebutHeros": 24
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"x": 30,
+		"y": 15
 	},
 	{
 		"id": 12,
@@ -450,42 +446,46 @@
 		]
 	},
 	{
-		"id": 23,
-		"nom": "Clone[341][028]",
-		"x": 30,
-		"y": 15
-	},
-	{
-		"id": 34,
-		"nom": "corail",
-		"x": 23,
-		"y": 15,
+		"id": 1,
+		"nom": "EV001",
+		"x": 99,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 46,
+				"valeur": false
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 255,
+				"xDebutHeros": 1,
+				"yDebutHeros": 24
+			}
 			],
-			"image": "corail character",
-			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
 	},
 	{
-		"id": 18,
-		"nom": "Clone[341][145]",
-		"x": 99,
-		"y": 0
+		"id": 29,
+		"nom": "Clone[582][42]",
+		"x": 77,
+		"y": 7
 	},
 	{
 		"id": 7,
@@ -524,33 +524,30 @@
 		]
 	},
 	{
-		"id": 29,
-		"nom": "Clone[582][42]",
-		"x": 77,
-		"y": 7
+		"id": 18,
+		"nom": "Clone[341][145]",
+		"x": 99,
+		"y": 0
 	},
 	{
-		"id": 35,
-		"nom": "EV035",
-		"x": 16,
-		"y": 4,
+		"id": 13,
+		"nom": "Clone[341][028]",
+		"x": 77,
+		"y": 12
+	},
+	{
+		"id": 2,
+		"nom": "EV002",
+		"x": 99,
+		"y": 13,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Contact"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
-			{
-				"nom": "ConditionScript",
-				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
-				"numero": 0
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "wait_for_event(0)"
-			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 46,
@@ -559,34 +556,17 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 246,
-				"xDebutHeros": 18,
-				"yDebutHeros": 22
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"numeroNouvelleMap": 255,
+				"xDebutHeros": 1,
+				"yDebutHeros": 25
 			}
 			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "Avancer",
-					"direction": 0,
-					"nombreDeCarreaux": 1
-				}
-				]
-			},
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
@@ -735,18 +715,27 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "EV002",
-		"x": 99,
-		"y": 13,
+		"id": 35,
+		"nom": "EV035",
+		"x": 16,
+		"y": 4,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Contact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionScript",
+				"script": "$game_map.events[@event_id].x==$game_player.x && $game_map.events[@event_id].y==$game_player.y",
+				"numero": 0
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(0)"
+			},
 			{
 				"nom": "ModifierInterrupteur",
 				"numeroInterrupteur": 46,
@@ -755,38 +744,37 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 255,
-				"xDebutHeros": 1,
-				"yDebutHeros": 25
+				"numeroNouvelleMap": 246,
+				"xDebutHeros": 18,
+				"yDebutHeros": 22
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
 			}
 			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 0,
+					"nombreDeCarreaux": 1
+				}
+				]
+			},
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
+			"traversable": true,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][028]",
-		"x": 77,
-		"y": 12
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][061]",
-		"x": 11,
-		"y": 14
-	},
-	{
-		"id": 19,
-		"nom": "Clone[341][028]",
-		"x": 65,
-		"y": 5
 	},
 	{
 		"id": 30,
@@ -795,59 +783,28 @@
 		"y": 5
 	},
 	{
-		"id": 36,
-		"nom": "Tuba",
-		"x": 16,
-		"y": 5,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 10,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Contact"
-			},
-			{
-				"nom": "Variable",
-				"numeroVariable": 53,
-				"inegalite": ">=",
-				"valeurQuIlEstCenseAvoir": 2
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 21,
-				"valeur": true
-			}
-			],
-			"image": 10,
-			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"id": 19,
+		"nom": "Clone[341][028]",
+		"x": 65,
+		"y": 5
+	},
+	{
+		"id": 8,
+		"nom": "Clone[341][061]",
+		"x": 11,
+		"y": 14
+	},
+	{
+		"id": 14,
+		"nom": "Clone[341][028]",
+		"x": 77,
+		"y": 11
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][028]",
+		"x": 10,
+		"y": 6
 	},
 	{
 		"id": 25,
@@ -938,52 +895,65 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 6
-	},
-	{
-		"id": 14,
-		"nom": "Clone[341][028]",
-		"x": 77,
-		"y": 11
-	},
-	{
-		"id": 20,
-		"nom": "EV020",
-		"x": 7,
-		"y": 6,
+		"id": 36,
+		"nom": "Tuba",
+		"x": 16,
+		"y": 5,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "ArriveeAuContact"
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 10,
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Contact"
+			},
+			{
+				"nom": "Variable",
+				"numeroVariable": 53,
+				"inegalite": ">=",
+				"valeurQuIlEstCenseAvoir": 2
 			}
 			],
 			"commandes": [
 			{
 				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 46,
-				"valeur": false
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 462,
-				"xDebutHeros": 12,
-				"yDebutHeros": 24
+				"numeroInterrupteur": 21,
+				"valeur": true
 			}
 			],
+			"image": 10,
+			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
+			"traversable": true,
+			"auDessusDeTout": true
 		}
 		]
+	},
+	{
+		"id": 31,
+		"nom": "Clone[582][42]",
+		"x": 89,
+		"y": 5
 	},
 	{
 		"id": 9,
@@ -11863,49 +11833,6 @@
 					"nom": "Avancer",
 					"direction": 2,
 					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "Avancer",
-					"direction": 2,
-					"nombreDeCarreaux": 1
-				},
-				{
-					"nom": "ModifierOpacite",
-					"opacite": 0
-				},
-				{
-					"nom": "RendreTraversable",
-					"traversable": true
 				}
 				]
 			},
@@ -11975,7 +11902,89 @@
 					"nom": "Avancer",
 					"direction": 2,
 					"nombreDeCarreaux": 1
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "wait_for_event(10)"
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 22,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
 				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 11,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "Avancer",
+					"direction": 2,
+					"nombreDeCarreaux": 1
+				},
+				{
+					"nom": "ModifierOpacite",
+					"opacite": 0
+				},
+				{
+					"nom": "RendreTraversable",
+					"traversable": true
+				}
+				]
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 10,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
 				{
 					"nom": "Avancer",
 					"direction": 2,
@@ -12153,28 +12162,40 @@
 		]
 	},
 	{
-		"id": 31,
-		"nom": "Clone[582][42]",
-		"x": 89,
-		"y": 5
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
+		"id": 20,
+		"nom": "EV020",
 		"x": 7,
-		"y": 7
-	},
-	{
-		"id": 15,
-		"nom": "Clone[341][028]",
-		"x": 80,
-		"y": 5
-	},
-	{
-		"id": 26,
-		"nom": "Clone[582][37]",
-		"x": 16,
-		"y": 7
+		"y": 6,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 46,
+				"valeur": false
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 462,
+				"xDebutHeros": 12,
+				"yDebutHeros": 24
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 37,
@@ -12207,6 +12228,36 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 26,
+		"nom": "Clone[582][37]",
+		"x": 16,
+		"y": 7
+	},
+	{
+		"id": 15,
+		"nom": "Clone[341][028]",
+		"x": 80,
+		"y": 5
+	},
+	{
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 7,
+		"y": 7
+	},
+	{
+		"id": 32,
+		"nom": "Clone[582][42]",
+		"x": 88,
+		"y": 4
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][028]",
+		"x": 31,
+		"y": 5
 	},
 	{
 		"id": 10,
@@ -12389,18 +12440,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[341][028]",
-		"x": 31,
-		"y": 5
-	},
-	{
-		"id": 32,
-		"nom": "Clone[582][42]",
-		"x": 88,
-		"y": 4
 	}
 	]
 }

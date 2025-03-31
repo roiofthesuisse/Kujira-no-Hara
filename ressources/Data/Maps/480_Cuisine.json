@@ -96,6 +96,32 @@
 	],
 	"events": [
 	{
+		"id": 16,
+		"nom": "blocage",
+		"x": 12,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 2,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 5,
 		"nom": "Coffe SHADOW[32] (-4)",
 		"x": 17,
@@ -275,7 +301,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Ca te dit d'apprendre à préparer la fameuse \\nconfiture de \\c[2]Coffe\\c[1] le cuistot ?"
+				"texte": "Ça te dit d'apprendre à préparer la fameuse \\nconfiture de \\c[2]Coffe\\c[1] le cuistot ?"
 			},
 			{
 				"nom": "Choix",
@@ -464,7 +490,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "Reviens me voir si tu veux réésayer."
+				"texte": "Reviens me voir si tu veux réessayer."
 			},
 			{
 				"nom": "ConditionFin",
@@ -507,10 +533,10 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "blocage",
-		"x": 12,
-		"y": 10,
+		"id": 22,
+		"nom": "confiture",
+		"x": 19,
+		"y": 8,
 		"pages": [
 		{
 			"conditions": [
@@ -520,8 +546,8 @@
 			],
 			"commandes": [
 			],
-			"image": 2,
-			"opacite": 0,
+			"image": "objet kujira 3",
+			"animationInitiale": 3,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -588,38 +614,6 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "confiture",
-		"x": 19,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "objet kujira 3",
-			"animationInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 6,
-		"nom": "Clone[582][115]",
-		"x": 14,
-		"y": 7
-	},
-	{
 		"id": 17,
 		"nom": "blocage",
 		"x": 13,
@@ -644,6 +638,24 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 6,
+		"nom": "Clone[582][115]",
+		"x": 14,
+		"y": 7
+	},
+	{
+		"id": 23,
+		"nom": "Clone[582][120]",
+		"x": 29,
+		"y": 18
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][004]",
+		"x": 24,
+		"y": 15
 	},
 	{
 		"id": 12,
@@ -701,16 +713,30 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "Clone[341][004]",
-		"x": 24,
-		"y": 15
-	},
-	{
-		"id": 23,
-		"nom": "Clone[582][120]",
-		"x": 29,
-		"y": 18
+		"id": 18,
+		"nom": "blocage",
+		"x": 14,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 2,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 7,
@@ -744,38 +770,6 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "blocage",
-		"x": 14,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 2,
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 24,
-		"y": 14
-	},
-	{
 		"id": 13,
 		"nom": "marmite",
 		"x": 13,
@@ -802,10 +796,10 @@
 		]
 	},
 	{
-		"id": 19,
-		"nom": "Clone[341][165]",
-		"x": 26,
-		"y": 8
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 24,
+		"y": 14
 	},
 	{
 		"id": 8,
@@ -852,6 +846,32 @@
 			"image": "objet kujira 1",
 			"directionInitiale": 3,
 			"animationInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "blocage",
+		"x": 14,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 2,
+			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1172,9 +1192,9 @@
 		]
 	},
 	{
-		"id": 3,
+		"id": 20,
 		"nom": "blocage",
-		"x": 14,
+		"x": 13,
 		"y": 9,
 		"pages": [
 		{
@@ -1242,58 +1262,6 @@
 			"image": "objet kujira 1",
 			"directionInitiale": 3,
 			"animationInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 20,
-		"nom": "blocage",
-		"x": 13,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 2,
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 4,
-		"nom": "blocage",
-		"x": 12,
-		"y": 9,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": 2,
-			"opacite": 0,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
@@ -1714,6 +1682,58 @@
 		]
 	},
 	{
+		"id": 4,
+		"nom": "blocage",
+		"x": 12,
+		"y": 9,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": 2,
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "confiture",
+		"x": 18,
+		"y": 8,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "objet kujira 3",
+			"animationInitiale": 2,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 10,
 		"nom": "fraise",
 		"x": 13,
@@ -1758,32 +1778,6 @@
 			"image": "objet kujira 1",
 			"directionInitiale": 3,
 			"animationInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 21,
-		"nom": "confiture",
-		"x": 18,
-		"y": 8,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "objet kujira 3",
-			"animationInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,

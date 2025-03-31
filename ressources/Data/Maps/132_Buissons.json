@@ -141,34 +141,177 @@
 	],
 	"events": [
 	{
-		"id": 5,
-		"nom": "Blocage anti-évènement",
-		"x": 19,
-		"y": 20,
+		"id": 27,
+		"nom": "Clone[341][028]",
+		"x": 23,
+		"y": 13
+	},
+	{
+		"id": 16,
+		"nom": "Clone[341][028]",
+		"x": 28,
+		"y": 17
+	},
+	{
+		"id": 38,
+		"nom": "Réglages initiaux",
+		"x": 38,
+		"y": 25,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "Parler"
-			}
 			],
 			"commandes": [
+			{
+				"nom": "ConditionInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeurQuIlEstCenseAvoir": false,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 5,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 8,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 4,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 8,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 0
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 4
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 5
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 1,
+				"valeur": true
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 0,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 2,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 3,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 4,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 2
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 3
+			},
+			{
+				"nom": "AjouterGadget",
+				"idGadget": 1
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 30,
+				"variable": false,
+				"quantite": 20
+			},
+			{
+				"nom": "AjouterArme",
+				"idArme": 6
+			},
+			{
+				"nom": "AjouterObjet",
+				"idObjet": 31,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 0,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "Jiyounasu character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": false
+				}
+				]
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 55
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
 			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 60,
-		"nom": "Clone[582][37]",
-		"x": 36,
-		"y": 32
 	},
 	{
 		"id": 49,
@@ -370,159 +513,28 @@
 		]
 	},
 	{
-		"id": 38,
-		"nom": "Réglages initiaux",
-		"x": 38,
-		"y": 25,
+		"id": 60,
+		"nom": "Clone[582][37]",
+		"x": 36,
+		"y": 32
+	},
+	{
+		"id": 5,
+		"nom": "Blocage anti-évènement",
+		"x": 19,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
-			],
-			"commandes": [
 			{
-				"nom": "ConditionInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeurQuIlEstCenseAvoir": false,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 5,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 8,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 4,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 8,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 0
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 1
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 4
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 5
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 1,
-				"valeur": true
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 0,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 2,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 3,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 4,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 2
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 3
-			},
-			{
-				"nom": "AjouterGadget",
-				"idGadget": 1
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 30,
-				"variable": false,
-				"quantite": 20
-			},
-			{
-				"nom": "AjouterArme",
-				"idArme": 6
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 31,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "Deplacement",
-				"idEventADeplacer": 0,
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "AppelerUneCommande",
-					"nomCommande": "Attendre",
-					"nombreDeFrames": 8
-				},
-				{
-					"nom": "ModifierApparence",
-					"image": "Jiyounasu character",
-					"direction": 0,
-					"animation": 0,
-					"teinte": 0
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": false
-				}
-				]
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 55
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
+				"nom": "Parler"
 			}
 			],
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
@@ -531,16 +543,126 @@
 		]
 	},
 	{
-		"id": 16,
-		"nom": "Clone[341][028]",
-		"x": 28,
-		"y": 17
+		"id": 33,
+		"nom": "Clone[021][022]",
+		"x": 15,
+		"y": 18
 	},
 	{
-		"id": 27,
-		"nom": "Clone[341][028]",
-		"x": 23,
-		"y": 13
+		"id": 11,
+		"nom": "EV011",
+		"x": 9,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 314,
+				"xDebutHeros": 11,
+				"yDebutHeros": 14
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 55,
+		"nom": "Annonce région",
+		"x": 39,
+		"y": 29,
+		"pages": [
+		{
+			"conditions": [
+			],
+			"commandes": [
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 2,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "EffacerImage",
+				"numero": 3
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "SupprimerEvent"
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 22,
+		"nom": "Blocage anti-évènement",
+		"x": 14,
+		"y": 13,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 44,
@@ -602,138 +724,22 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Blocage anti-évènement",
-		"x": 14,
-		"y": 13,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 55,
-		"nom": "Annonce région",
-		"x": 39,
-		"y": 29,
-		"pages": [
-		{
-			"conditions": [
-			],
-			"commandes": [
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 2,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 3
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "SupprimerEvent"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 11,
-		"nom": "EV011",
-		"x": 9,
-		"y": 22,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 314,
-				"xDebutHeros": 11,
-				"yDebutHeros": 14
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 33,
-		"nom": "Clone[021][022]",
+		"id": 17,
+		"nom": "Clone[341][0080]",
 		"x": 15,
-		"y": 18
-	},
-	{
-		"id": 61,
-		"nom": "Clone[582][37]",
-		"x": 24,
 		"y": 13
 	},
 	{
-		"id": 50,
-		"nom": "EV050",
-		"x": 0,
-		"y": 11,
+		"id": 28,
+		"nom": "Clone[021][022]",
+		"x": 23,
+		"y": 27
+	},
+	{
+		"id": 6,
+		"nom": "EV006",
+		"x": 29,
+		"y": 16,
 		"pages": [
 		{
 			"conditions": [
@@ -749,9 +755,9 @@
 			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 136,
-				"xDebutHeros": 28,
-				"yDebutHeros": 16
+				"numeroNouvelleMap": 286,
+				"xDebutHeros": 6,
+				"yDebutHeros": 9
 			}
 			],
 			"vitesse": "moderee",
@@ -816,93 +822,10 @@
 		]
 	},
 	{
-		"id": 6,
-		"nom": "EV006",
-		"x": 29,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 286,
-				"xDebutHeros": 6,
-				"yDebutHeros": 9
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 28,
-		"nom": "Clone[021][022]",
-		"x": 23,
-		"y": 27
-	},
-	{
-		"id": 17,
-		"nom": "Clone[341][0080]",
-		"x": 15,
-		"y": 13
-	},
-	{
-		"id": 12,
-		"nom": "Clone[341][008]",
-		"x": 15,
-		"y": 15
-	},
-	{
-		"id": 34,
-		"nom": "Clone[021][022]",
-		"x": 11,
-		"y": 16
-	},
-	{
-		"id": 1,
-		"nom": "Clone[341][028]",
-		"x": 33,
-		"y": 31
-	},
-	{
-		"id": 23,
-		"nom": "Clone[341][028]",
-		"x": 12,
-		"y": 12
-	},
-	{
-		"id": 62,
-		"nom": "Clone[582][37]",
-		"x": 3,
-		"y": 11
-	},
-	{
-		"id": 18,
-		"nom": "Clone[341][002]",
-		"x": 29,
-		"y": 29
-	},
-	{
-		"id": 51,
-		"nom": "EV051",
+		"id": 50,
+		"nom": "EV050",
 		"x": 0,
-		"y": 12,
+		"y": 11,
 		"pages": [
 		{
 			"conditions": [
@@ -920,7 +843,7 @@
 				"variable": false,
 				"numeroNouvelleMap": 136,
 				"xDebutHeros": 28,
-				"yDebutHeros": 17
+				"yDebutHeros": 16
 			}
 			],
 			"vitesse": "moderee",
@@ -932,6 +855,48 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 61,
+		"nom": "Clone[582][37]",
+		"x": 24,
+		"y": 13
+	},
+	{
+		"id": 23,
+		"nom": "Clone[341][028]",
+		"x": 12,
+		"y": 12
+	},
+	{
+		"id": 1,
+		"nom": "Clone[341][028]",
+		"x": 33,
+		"y": 31
+	},
+	{
+		"id": 34,
+		"nom": "Clone[021][022]",
+		"x": 11,
+		"y": 16
+	},
+	{
+		"id": 12,
+		"nom": "Clone[341][008]",
+		"x": 15,
+		"y": 15
+	},
+	{
+		"id": 7,
+		"nom": "Clone[341][028]",
+		"x": 17,
+		"y": 28
+	},
+	{
+		"id": 29,
+		"nom": "Clone[021][022]",
+		"x": 28,
+		"y": 20
 	},
 	{
 		"id": 40,
@@ -969,16 +934,75 @@
 		]
 	},
 	{
-		"id": 29,
-		"nom": "Clone[021][022]",
-		"x": 28,
-		"y": 20
+		"id": 51,
+		"nom": "EV051",
+		"x": 0,
+		"y": 12,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "ArriveeAuContact"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 136,
+				"xDebutHeros": 28,
+				"yDebutHeros": 17
+			}
+			],
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
-		"id": 7,
+		"id": 18,
+		"nom": "Clone[341][002]",
+		"x": 29,
+		"y": 29
+	},
+	{
+		"id": 62,
+		"nom": "Clone[582][37]",
+		"x": 3,
+		"y": 11
+	},
+	{
+		"id": 2,
+		"nom": "Clone[582][101]",
+		"x": 30,
+		"y": 29
+	},
+	{
+		"id": 24,
 		"nom": "Clone[341][028]",
 		"x": 17,
-		"y": 28
+		"y": 34
+	},
+	{
+		"id": 13,
+		"nom": "Clone[341][028]",
+		"x": 22,
+		"y": 26
+	},
+	{
+		"id": 35,
+		"nom": "Clone[021][022]",
+		"x": 24,
+		"y": 21
 	},
 	{
 		"id": 57,
@@ -1007,54 +1031,16 @@
 		]
 	},
 	{
-		"id": 35,
+		"id": 8,
+		"nom": "Clone[341][028]",
+		"x": 8,
+		"y": 28
+	},
+	{
+		"id": 30,
 		"nom": "Clone[021][022]",
-		"x": 24,
-		"y": 21
-	},
-	{
-		"id": 13,
-		"nom": "Clone[341][028]",
-		"x": 22,
-		"y": 26
-	},
-	{
-		"id": 24,
-		"nom": "Clone[341][028]",
-		"x": 17,
-		"y": 34
-	},
-	{
-		"id": 2,
-		"nom": "Clone[582][101]",
-		"x": 30,
-		"y": 29
-	},
-	{
-		"id": 19,
-		"nom": "feuillage",
-		"x": 14,
-		"y": 14,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "feuillage character",
-			"directionInitiale": 2,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
+		"x": 26,
+		"y": 15
 	},
 	{
 		"id": 41,
@@ -1092,28 +1078,10 @@
 		]
 	},
 	{
-		"id": 30,
-		"nom": "Clone[021][022]",
-		"x": 26,
-		"y": 15
-	},
-	{
-		"id": 8,
-		"nom": "Clone[341][028]",
-		"x": 8,
-		"y": 28
-	},
-	{
-		"id": 14,
-		"nom": "Clone[582][103]",
-		"x": 30,
-		"y": 30
-	},
-	{
-		"id": 58,
+		"id": 19,
 		"nom": "feuillage",
-		"x": 21,
-		"y": 21,
+		"x": 14,
+		"y": 14,
 		"pages": [
 		{
 			"conditions": [
@@ -1124,352 +1092,13 @@
 			"commandes": [
 			],
 			"image": "feuillage character",
-			"directionInitiale": 3,
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": true,
 			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 3,
-		"nom": "feuillage",
-		"x": 21,
-		"y": 31,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "feuillage character",
-			"directionInitiale": 1,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
-		"id": 47,
-		"nom": "Colibri SHADOW[24]",
-		"x": 27,
-		"y": 30,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 76
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"colibri bleu\""
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Hellozello!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saluzalu !"
-			},
-			{
-				"nom": "ConditionObjetPossede",
-				"idObjet": 56,
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Do you have an apple for me?"
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu as une pomme pour moi ?"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Thanks!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Merci !"
-			},
-			{
-				"nom": "RetirerObjet",
-				"idObjet": 56,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": true
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You are in the western forest."
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu te trouves dans la forêt de l'Ouest."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) This forest is maintained by us \\c[2]hummingbirds\\c[0]."
-			},
-			{
-				"nom": "Message",
-				"texte": "Cette forêt est entretenue par nous, les \\c[2]colibris\\c[0]."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) However, someone leaves acorns lying \\naround here, but it's not our doing."
-			},
-			{
-				"nom": "Message",
-				"texte": "Par contre, quelqu'un laisse trainer des glands \\npar ici, mais ça n'est pas de notre fait."
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "colibri bleu character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		},
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			},
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 47,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerPageCommune",
-				"numeroPageCommune": 76
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Hellozello!"
-			},
-			{
-				"nom": "Message",
-				"texte": "Saluzalu !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) You are in the western forest."
-			},
-			{
-				"nom": "Message",
-				"texte": "Tu te trouves dans la forêt de l'Ouest."
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) A strange animal is planting\\nseeds around here and so a\\nforest has grown."
-			},
-			{
-				"nom": "Message",
-				"texte": "Un animal étrange plante des graines\\npar ici et donc une forêt a fini par pousser."
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"deplacement": {
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": true,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderUnEvent",
-					"idEvent": 0
-				}
-				]
-			},
-			"image": "colibri bleu character",
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 36,
-		"nom": "Algue HP[1] RESET",
-		"x": 29,
-		"y": 18,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "Commentaire",
-				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
-			}
-			],
-			"image": "algues character",
-			"opacite": 200,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
-			"auDessusDeTout": true
-		},
-		{
-			"conditions": [
-			{
-				"nom": "InterrupteurLocal",
-				"numeroEvent": 36,
-				"numeroInterrupteurLocal": 0,
-				"valeurQuIlEstCenseAvoir": true
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_map.events[@event_id].life = nil"
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 0,
-				"numero": 0
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ConditionArmeEquipee",
-				"idArme": 1,
-				"numero": 1
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "117-Fire01.ogg",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "JouerAnimation",
-				"idAnimation": 4
-			},
-			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 90,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 33
-			},
-			{
-				"nom": "SupprimerEvent"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 1
-			},
-			{
-				"nom": "ModifierInterrupteurLocal",
-				"numeroInterrupteurLocal": 0,
-				"valeurADonner": false
-			}
-			],
-			"image": "algues character",
-			"opacite": 200,
-			"vitesse": "tres rapide",
-			"frequence": "la plus haute",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": false,
 			"auDessusDeTout": true
 		}
 		]
@@ -1674,10 +1303,381 @@
 		]
 	},
 	{
-		"id": 42,
-		"nom": "EV042",
+		"id": 36,
+		"nom": "Algue HP[1] RESET",
+		"x": 29,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "Commentaire",
+				"texte": "Pour tous les objets détruisibles maintenant il suffit de leur\\ndonner 1 HP et c'est bon."
+			}
+			],
+			"image": "algues character",
+			"opacite": 200,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		},
+		{
+			"conditions": [
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 36,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_map.events[@event_id].life = nil"
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 0,
+				"numero": 0
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ConditionArmeEquipee",
+				"idArme": 1,
+				"numero": 1
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "117-Fire01.ogg",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "JouerAnimation",
+				"idAnimation": 4
+			},
+			{
+				"nom": "ModifierVariable",
+				"numeroVariable": 90,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 33
+			},
+			{
+				"nom": "SupprimerEvent"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": false
+			}
+			],
+			"image": "algues character",
+			"opacite": 200,
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 47,
+		"nom": "Colibri SHADOW[24]",
+		"x": 27,
+		"y": 30,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 76
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"colibri bleu\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Saluzalu !"
+			},
+			{
+				"nom": "ConditionObjetPossede",
+				"idObjet": 56,
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do you have an apple for me?"
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu as une pomme pour moi ?"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Thanks!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Merci !"
+			},
+			{
+				"nom": "RetirerObjet",
+				"idObjet": 56,
+				"variable": false,
+				"quantite": 1
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 1
+			},
+			{
+				"nom": "ModifierInterrupteurLocal",
+				"numeroInterrupteurLocal": 0,
+				"valeurADonner": true
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are in the western forest."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu te trouves dans la forêt de l'Ouest."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This forest is maintained by us \\c[2]Hummingbirds\\c[0]."
+			},
+			{
+				"nom": "Message",
+				"texte": "Cette forêt est entretenue par nous, les \\c[2]Colibris\\c[0]."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) However, someone leaves acorns lying \\naround here, but it's not our doing."
+			},
+			{
+				"nom": "Message",
+				"texte": "Par contre, quelqu'un laisse trainer des glands \\npar ici, mais ça n'est pas de notre fait."
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "colibri bleu character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		},
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			},
+			{
+				"nom": "InterrupteurLocal",
+				"numeroEvent": 47,
+				"numeroInterrupteurLocal": 0,
+				"valeurQuIlEstCenseAvoir": true
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerPageCommune",
+				"numeroPageCommune": 76
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Hellozello!"
+			},
+			{
+				"nom": "Message",
+				"texte": "Saluzalu !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) You are in the western forest."
+			},
+			{
+				"nom": "Message",
+				"texte": "Tu te trouves dans la forêt de l'Ouest."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) A strange animal is planting acorns here \\nso oak trees inevitably grew."
+			},
+			{
+				"nom": "Message",
+				"texte": "Un animal étrange plante des graines ici \\net donc des chênes ont fini par pousser."
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"deplacement": {
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": true,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderUnEvent",
+					"idEvent": 0
+				}
+				]
+			},
+			"image": "colibri bleu character",
+			"vitesse": "tres rapide",
+			"frequence": "la plus haute",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 3,
+		"nom": "feuillage",
+		"x": 21,
+		"y": 31,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "feuillage character",
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 58,
+		"nom": "feuillage",
+		"x": 21,
+		"y": 21,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "feuillage character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 14,
+		"nom": "Clone[582][103]",
+		"x": 30,
+		"y": 30
+	},
+	{
+		"id": 31,
+		"nom": "EV031",
 		"x": 17,
-		"y": 12,
+		"y": 39,
 		"pages": [
 		{
 			"conditions": [
@@ -1687,11 +1687,15 @@
 			],
 			"commandes": [
 			{
+				"nom": "EffacerImage",
+				"numero": 9
+			},
+			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 79,
-				"xDebutHeros": 12,
-				"yDebutHeros": 24
+				"numeroNouvelleMap": 133,
+				"xDebutHeros": 20,
+				"yDebutHeros": 1
 			}
 			],
 			"vitesse": "moderee",
@@ -1703,6 +1707,18 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 20,
+		"nom": "Clone[341][028]",
+		"x": 10,
+		"y": 14
+	},
+	{
+		"id": 9,
+		"nom": "Clone[341][028]",
+		"x": 11,
+		"y": 22
 	},
 	{
 		"id": 53,
@@ -1811,22 +1827,10 @@
 		]
 	},
 	{
-		"id": 9,
-		"nom": "Clone[341][028]",
-		"x": 11,
-		"y": 22
-	},
-	{
-		"id": 20,
-		"nom": "Clone[341][028]",
-		"x": 10,
-		"y": 14
-	},
-	{
-		"id": 31,
-		"nom": "EV031",
+		"id": 42,
+		"nom": "EV042",
 		"x": 17,
-		"y": 39,
+		"y": 12,
 		"pages": [
 		{
 			"conditions": [
@@ -1836,15 +1840,11 @@
 			],
 			"commandes": [
 			{
-				"nom": "EffacerImage",
-				"numero": 9
-			},
-			{
 				"nom": "ChangerDeMap",
 				"variable": false,
-				"numeroNouvelleMap": 133,
-				"xDebutHeros": 20,
-				"yDebutHeros": 1
+				"numeroNouvelleMap": 79,
+				"xDebutHeros": 12,
+				"yDebutHeros": 24
 			}
 			],
 			"vitesse": "moderee",
@@ -1856,24 +1856,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 59,
-		"nom": "Clone[582][37]",
-		"x": 37,
-		"y": 31
-	},
-	{
-		"id": 4,
-		"nom": "Clone[341][028]",
-		"x": 27,
-		"y": 23
-	},
-	{
-		"id": 37,
-		"nom": "Clone[341][036]",
-		"x": 12,
-		"y": 29
 	},
 	{
 		"id": 26,
@@ -1900,16 +1882,28 @@
 		]
 	},
 	{
-		"id": 43,
-		"nom": "Clone[341][0086]",
-		"x": 19,
-		"y": 22
+		"id": 37,
+		"nom": "Clone[341][036]",
+		"x": 12,
+		"y": 29
 	},
 	{
-		"id": 32,
-		"nom": "Clone[021][022]",
+		"id": 4,
+		"nom": "Clone[341][028]",
+		"x": 27,
+		"y": 23
+	},
+	{
+		"id": 59,
+		"nom": "Clone[582][37]",
+		"x": 37,
+		"y": 31
+	},
+	{
+		"id": 21,
+		"nom": "Clone[341][028]",
 		"x": 11,
-		"y": 25
+		"y": 13
 	},
 	{
 		"id": 10,
@@ -1918,10 +1912,16 @@
 		"y": 20
 	},
 	{
-		"id": 21,
-		"nom": "Clone[341][028]",
+		"id": 32,
+		"nom": "Clone[021][022]",
 		"x": 11,
-		"y": 13
+		"y": 25
+	},
+	{
+		"id": 43,
+		"nom": "Clone[341][0086]",
+		"x": 19,
+		"y": 22
 	}
 	]
 }

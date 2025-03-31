@@ -126,30 +126,10 @@
 	],
 	"events": [
 	{
-		"id": 16,
-		"nom": "maitre des tenebres",
-		"x": 17,
-		"y": 10,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "maitre des malefices character",
-			"opacite": 0,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
+		"id": 27,
+		"nom": "Clone[582][111]",
+		"x": 11,
+		"y": 11
 	},
 	{
 		"id": 5,
@@ -210,10 +190,36 @@
 		]
 	},
 	{
-		"id": 27,
-		"nom": "Clone[582][111]",
-		"x": 11,
-		"y": 11
+		"id": 16,
+		"nom": "maitre des tenebres",
+		"x": 17,
+		"y": 10,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "maitre des malefices character",
+			"opacite": 0,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 22,
+		"nom": "Clone[582][112]",
+		"x": 22,
+		"y": 9
 	},
 	{
 		"id": 11,
@@ -293,10 +299,37 @@
 		]
 	},
 	{
-		"id": 22,
-		"nom": "Clone[582][112]",
-		"x": 22,
-		"y": 9
+		"id": 28,
+		"nom": "Clone[582][111]",
+		"x": 21,
+		"y": 12
+	},
+	{
+		"id": 17,
+		"nom": "malediction",
+		"x": 17,
+		"y": 18,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "pyramide maudite character",
+			"opacite": 0,
+			"modeDeFusion": "addition",
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
 	},
 	{
 		"id": 6,
@@ -357,37 +390,41 @@
 		]
 	},
 	{
-		"id": 17,
-		"nom": "malediction",
+		"id": 23,
+		"nom": "Clone[582][112]",
+		"x": 18,
+		"y": 6
+	},
+	{
+		"id": 1,
+		"nom": "EV001",
 		"x": 17,
-		"y": 18,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
 			{
-				"nom": "Parler"
+				"nom": "ArriveeAuContact"
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ChangerDeMap",
+				"variable": false,
+				"numeroNouvelleMap": 674,
+				"xDebutHeros": 10,
+				"yDebutHeros": 13
+			}
 			],
-			"image": "pyramide maudite character",
-			"opacite": 0,
-			"modeDeFusion": "addition",
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 28,
-		"nom": "Clone[582][111]",
-		"x": 21,
-		"y": 12
 	},
 	{
 		"id": 12,
@@ -467,24 +504,30 @@
 		]
 	},
 	{
-		"id": 1,
-		"nom": "EV001",
-		"x": 17,
-		"y": 17,
+		"id": 29,
+		"nom": "Clone[582][112]",
+		"x": 12,
+		"y": 12
+	},
+	{
+		"id": 18,
+		"nom": "zone",
+		"x": 15,
+		"y": 15,
 		"pages": [
 		{
 			"conditions": [
-			{
-				"nom": "ArriveeAuContact"
-			}
 			],
 			"commandes": [
 			{
-				"nom": "ChangerDeMap",
-				"variable": false,
-				"numeroNouvelleMap": 674,
-				"xDebutHeros": 10,
-				"yDebutHeros": 13
+				"nom": "ModifierVariable",
+				"numeroVariable": 127,
+				"operationAFaire": "rendre egal a",
+				"valeurADonner": 10,
+				"operationAFaire2": "valeur brute"
+			},
+			{
+				"nom": "SupprimerEvent"
 			}
 			],
 			"vitesse": "moderee",
@@ -496,12 +539,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 23,
-		"nom": "Clone[582][112]",
-		"x": 18,
-		"y": 6
 	},
 	{
 		"id": 7,
@@ -535,11 +572,11 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) All the other universes (there is almost \\nan infinity of them) have been each created \\nby a god."
+				"texte": "(en) All the other universes \\n(there is about an infinity of them) \\nhave been each created by a god."
 			},
 			{
 				"nom": "Message",
-				"texte": "Et tous les autres univers, qui sont quasiment \\nune infinité, ont été créés chacun par un dieu."
+				"texte": "Et tous les autres univers, \\nqui sont environ une infinité, \\nont été créés chacun par un dieu."
 			},
 			{
 				"nom": "Commentaire",
@@ -579,41 +616,74 @@
 		]
 	},
 	{
-		"id": 18,
-		"nom": "zone",
+		"id": 24,
+		"nom": "Clone[582][112]",
+		"x": 12,
+		"y": 9
+	},
+	{
+		"id": 2,
+		"nom": "Pancarte",
 		"x": 15,
-		"y": 15,
+		"y": 20,
 		"pages": [
 		{
 			"conditions": [
+			{
+				"nom": "Parler"
+			}
 			],
 			"commandes": [
 			{
-				"nom": "ModifierVariable",
-				"numeroVariable": 127,
-				"operationAFaire": "rendre egal a",
-				"valeurADonner": 10,
-				"operationAFaire2": "valeur brute"
+				"nom": "ConditionDirection",
+				"idEventConcerne": 0,
+				"direction": 3,
+				"numero": 0
 			},
 			{
-				"nom": "SupprimerEvent"
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) PYRAMID OF THE PROPHECY"
+			},
+			{
+				"nom": "Message",
+				"texte": "TEMPLE DE KUJIRA"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Here the legend will end."
+			},
+			{
+				"nom": "Message",
+				"texte": "Ici s'achèvera la légende."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
 			}
 			],
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": true,
+			"animeEnMouvement": false,
 			"animeALArret": false,
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 29,
-		"nom": "Clone[582][112]",
-		"x": 12,
-		"y": 12
 	},
 	{
 		"id": 13,
@@ -748,103 +818,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"nom": "Pancarte",
-		"x": 15,
-		"y": 20,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 0,
-				"direction": 3,
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) PYRAMID OF THE PROPHECY"
-			},
-			{
-				"nom": "Message",
-				"texte": "TEMPLE DE KUJIRA"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) Here the legend will end."
-			},
-			{
-				"nom": "Message",
-				"texte": "Ici s'achèvera la légende."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": false,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 24,
-		"nom": "Clone[582][112]",
-		"x": 12,
-		"y": 9
-	},
-	{
-		"id": 19,
-		"nom": "compteur de cristaux",
-		"x": 19,
-		"y": 16,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			],
-			"image": "cristaux compteur",
-			"opacite": 0,
-			"directionInitiale": 3,
-			"vitesse": "tres lente",
-			"frequence": "la plus basse",
-			"animeEnMouvement": false,
-			"animeALArret": true,
-			"directionFixe": true,
-			"traversable": true,
-			"auDessusDeTout": true
-		}
-		]
-	},
-	{
 		"id": 8,
 		"nom": "Viking 8 SHADOW[30] (-4)",
 		"x": 19,
@@ -894,6 +867,146 @@
 			"directionInitiale": 2,
 			"vitesse": "lente",
 			"frequence": "tres basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 19,
+		"nom": "compteur de cristaux",
+		"x": 19,
+		"y": 16,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "cristaux compteur",
+			"opacite": 0,
+			"directionInitiale": 3,
+			"vitesse": "tres lente",
+			"frequence": "la plus basse",
+			"animeEnMouvement": false,
+			"animeALArret": true,
+			"directionFixe": true,
+			"traversable": true,
+			"auDessusDeTout": true
+		}
+		]
+	},
+	{
+		"id": 25,
+		"nom": "Clone[582][111]",
+		"x": 21,
+		"y": 8
+	},
+	{
+		"id": 3,
+		"nom": "tabula SHADOW[40] (-8)",
+		"x": 17,
+		"y": 19,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"tabula\""
+			},
+			{
+				"nom": "ConditionEtatQuete",
+				"idQuete": 40,
+				"etat": "CONNUE",
+				"numero": 0
+			},
+			{
+				"nom": "Deplacement",
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RegarderDansUneDirection",
+					"direction": 3
+				},
+				{
+					"nom": "RendreDirectionFixe",
+					"directionFixe": true
+				},
+				{
+					"nom": "Sauter",
+					"x": 0,
+					"y": 0
+				}
+				]
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tabula graaah2.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) 99!\\nHE'S GOING TOO FAR!"
+			},
+			{
+				"nom": "Message",
+				"texte": "99 ! \\nIL ABUSE LÀ !"
+			},
+			{
+				"nom": "ConditionSinon",
+				"numero": 0
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "tabula hahaha1.mp3",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) IT LOOKS LIKE A BIG PIGGY BANK!"
+			},
+			{
+				"nom": "Message",
+				"texte": "ON DIRAIT UNE GROSSE TIRELIRE !"
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
+			],
+			"image": "tabula le terrible",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
@@ -1040,7 +1153,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "on a trouvé le pass viking jaune \\ndans le cimetière avec poésie\\ndonc le festival a eu lieu"
+				"texte": "on a trouvé le passe viking jaune \\ndans le cimetière avec poésie\\ndonc le festival a eu lieu"
 			},
 			{
 				"nom": "ConditionScript",
@@ -1070,7 +1183,7 @@
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "on n'a pas encore trouvé le pass viking jaune\\nle festival n'a peut-être pas encore eu lieu"
+				"texte": "on n'a pas encore trouvé le passe viking jaune\\nle festival n'a peut-être pas encore eu lieu"
 			},
 			{
 				"nom": "SupprimerEvent"
@@ -1671,7 +1784,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "VOUS, QU'EST CE QUE VOUS FAITES LÀ ?!"
+				"texte": "VOUS, QU'EST-CE QUE VOUS FAITES LÀ ?!"
 			},
 			{
 				"nom": "FaireDefilerLaMap",
@@ -1695,7 +1808,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "C'EST PAS VOS OIGNONS."
+				"texte": "C'EST PAS VOS OGNONS."
 			},
 			{
 				"nom": "FaireDefilerLaMap",
@@ -1902,7 +2015,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "VOUS L'AVEZ TROUVÉE PAR HASARD,\\nALORS QUE NOUS L'AVONS TROUVÉE \\nGRÂCE À NOTRE TALENT!"
+				"texte": "VOUS L'AVEZ TROUVÉE PAR HASARD,\\nALORS QUE NOUS L'AVONS TROUVÉE \\nGRÂCE À NOTRE TALENT !"
 			},
 			{
 				"nom": "FaireDefilerLaMap",
@@ -1926,7 +2039,7 @@
 			},
 			{
 				"nom": "Message",
-				"texte": "VOTRE SEUL TALENT C'EST DE PUER DES PIEDS!"
+				"texte": "VOTRE SEUL TALENT C'EST DE PUER DES PIEDS !"
 			},
 			{
 				"nom": "JouerMusique",
@@ -4228,163 +4341,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "tabula SHADOW[40] (-8)",
-		"x": 17,
-		"y": 19,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"tabula\""
-			},
-			{
-				"nom": "ConditionEtatQuete",
-				"idQuete": 40,
-				"etat": "CONNUE",
-				"numero": 0
-			},
-			{
-				"nom": "Deplacement",
-				"ignorerLesMouvementsImpossibles": false,
-				"repeterLeDeplacement": false,
-				"attendreLaFinDuDeplacement": false,
-				"mouvements": [
-				{
-					"nom": "RegarderDansUneDirection",
-					"direction": 3
-				},
-				{
-					"nom": "RendreDirectionFixe",
-					"directionFixe": true
-				},
-				{
-					"nom": "Sauter",
-					"x": 0,
-					"y": 0
-				}
-				]
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "tabula graaah2.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) 99!\\nHE'S GOING TOO FAR!"
-			},
-			{
-				"nom": "Message",
-				"texte": "99 ! \\nIL ABUSE LÀ !"
-			},
-			{
-				"nom": "ConditionSinon",
-				"numero": 0
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "tabula hahaha1.mp3",
-				"volume": 1.00,
-				"tempo": 1.00
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) IT LOOKS LIKE A BIG PIGGY BANK!"
-			},
-			{
-				"nom": "Message",
-				"texte": "ON DIRAIT UNE GROSSE TIRELIRE !"
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			}
-			],
-			"image": "tabula le terrible",
-			"directionInitiale": 3,
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 25,
-		"nom": "Clone[582][111]",
-		"x": 21,
-		"y": 8
-	},
-	{
-		"id": 20,
-		"nom": "triche",
-		"x": 24,
-		"y": 17,
-		"pages": [
-		{
-			"conditions": [
-			{
-				"nom": "Parler"
-			}
-			],
-			"commandes": [
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 1,
-				"variable": false,
-				"quantite": 62
-			},
-			{
-				"nom": "AjouterObjet",
-				"idObjet": 17,
-				"variable": false,
-				"quantite": 1
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) bgjnhgf"
-			},
-			{
-				"nom": "Message",
-				"texte": "bgjnhgf"
-			}
-			],
-			"vitesse": "moderee",
-			"frequence": "basse",
-			"animeEnMouvement": true,
-			"animeALArret": false,
-			"directionFixe": false,
-			"traversable": false,
-			"auDessusDeTout": false
-		}
-		]
-	},
-	{
 		"id": 9,
 		"nom": "Groniass SHADOW[36] (-8)",
 		"x": 34,
@@ -4517,10 +4473,10 @@
 		]
 	},
 	{
-		"id": 15,
-		"nom": "viking jaune 4 SHADOW[30] (-4)",
-		"x": 34,
-		"y": 22,
+		"id": 20,
+		"nom": "triche",
+		"x": 24,
+		"y": 17,
 		"pages": [
 		{
 			"conditions": [
@@ -4530,68 +4486,41 @@
 			],
 			"commandes": [
 			{
-				"nom": "ConditionDirection",
-				"idEventConcerne": 14,
-				"direction": 3,
-				"numero": 0
+				"nom": "AjouterObjet",
+				"idObjet": 1,
+				"variable": false,
+				"quantite": 62
 			},
 			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": true
-			},
-			{
-				"nom": "JouerEffetSonore",
-				"nomFichierSonore": "Viking1.wav",
-				"volume": 0.80,
-				"tempo": 1.00
-			},
-			{
-				"nom": "AppelerUnScript",
-				"script": "$game_temp.faceset = \"viking jaune\""
+				"nom": "AjouterObjet",
+				"idObjet": 17,
+				"variable": false,
+				"quantite": 1
 			},
 			{
 				"nom": "Commentaire",
-				"texte": "(en) We will finally know if the prophecy is true!"
+				"texte": "(en) bgjnhgf"
 			},
 			{
 				"nom": "Message",
-				"texte": "On va enfin savoir si la prophétie est vraie !"
-			},
-			{
-				"nom": "Commentaire",
-				"texte": "(en) It states quite clearly that \\nthe \\c[2]hero of the whale\\c[0] will place \\nthe ultimate artifact of the scholars \\non its pedestal."
-			},
-			{
-				"nom": "Message",
-				"texte": "Elle stipule très clairement que \\c[2]le héros \\nde la baleine\\c[1] déposera l'ultime artefact \\ndes érudits sur son piédestal."
-			},
-			{
-				"nom": "Attendre",
-				"nombreDeFrames": 8
-			},
-			{
-				"nom": "ModifierInterrupteur",
-				"numeroInterrupteur": 12,
-				"valeur": false
-			},
-			{
-				"nom": "ConditionFin",
-				"numero": 0
+				"texte": "bgjnhgf"
 			}
 			],
-			"image": "viking2 petit character",
-			"opacite": 0,
-			"directionInitiale": 1,
 			"vitesse": "moderee",
 			"frequence": "basse",
 			"animeEnMouvement": true,
 			"animeALArret": false,
 			"directionFixe": false,
-			"traversable": true,
+			"traversable": false,
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 26,
+		"nom": "Clone[582][111]",
+		"x": 16,
+		"y": 6
 	},
 	{
 		"id": 4,
@@ -4755,10 +4684,87 @@
 		]
 	},
 	{
-		"id": 26,
-		"nom": "Clone[582][111]",
-		"x": 16,
-		"y": 6
+		"id": 15,
+		"nom": "viking jaune 4 SHADOW[30] (-4)",
+		"x": 34,
+		"y": 22,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			{
+				"nom": "ConditionDirection",
+				"idEventConcerne": 14,
+				"direction": 3,
+				"numero": 0
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "Viking1.wav",
+				"volume": 0.80,
+				"tempo": 1.00
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"viking jaune\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) We will finally know if the prophecy is true!"
+			},
+			{
+				"nom": "Message",
+				"texte": "On va enfin savoir si la prophétie est vraie !"
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) It states quite clearly that \\nthe \\c[2]hero of the whale\\c[0] will place \\nthe ultimate artifact of the scholars \\non its pedestal."
+			},
+			{
+				"nom": "Message",
+				"texte": "Elle stipule très clairement que \\c[2]le héros \\nde la baleine\\c[1] déposera l'ultime artefact \\ndes érudits sur son piédestal."
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			},
+			{
+				"nom": "ConditionFin",
+				"numero": 0
+			}
+			],
+			"image": "viking2 petit character",
+			"opacite": 0,
+			"directionInitiale": 1,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": true,
+			"animeALArret": false,
+			"directionFixe": false,
+			"traversable": true,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
+		"id": 21,
+		"nom": "Clone[582][112]",
+		"x": 19,
+		"y": 13
 	},
 	{
 		"id": 10,
@@ -4836,12 +4842,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 21,
-		"nom": "Clone[582][112]",
-		"x": 19,
-		"y": 13
 	}
 	]
 }

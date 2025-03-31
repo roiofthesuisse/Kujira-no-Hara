@@ -1067,30 +1067,130 @@
 			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
-		}
-		]
-	},
-	{
-		"id": 1,
-		"nom": "plante (-16)",
-		"x": 10,
-		"y": 5,
-		"pages": [
+		},
 		{
 			"conditions": [
 			{
 				"nom": "Parler"
+			},
+			{
+				"nom": "Interrupteur",
+				"numeroInterrupteur": 172,
+				"valeurQuIlEstCenseAvoir": true
 			}
 			],
 			"commandes": [
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": true
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) The mirror piece I gave you..."
+			},
+			{
+				"nom": "Message",
+				"texte": "Le morceau de miroir que je t'ai passé..."
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) This is a Bragg mirror, it reflects 99.9% \\nof the incident light. \\nThis is much more than the 90% rate \\nof conventional mirrors."
+			},
+			{
+				"nom": "Message",
+				"texte": "C'est un miroir de Bragg, il réfléchit 99,9% \\nde la lumière incidente. C'est bien plus que \\nles 90% des miroirs classiques."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum gonfle.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 6,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca bubblegum character",
+					"direction": 0,
+					"animation": 0,
+					"teinte": 0
+				},
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": true
+				}
+				]
+			},
+			{
+				"nom": "AppelerUnScript",
+				"script": "$game_temp.faceset = \"rebeca bubblegum\""
+			},
+			{
+				"nom": "Commentaire",
+				"texte": "(en) Do with it what you will."
+			},
+			{
+				"nom": "Message",
+				"texte": "Fais-en ce que tu veux."
+			},
+			{
+				"nom": "JouerEffetSonore",
+				"nomFichierSonore": "bubble gum eclate.ogg",
+				"volume": 1.00,
+				"tempo": 1.00
+			},
+			{
+				"nom": "Deplacement",
+				"idEventADeplacer": 6,
+				"ignorerLesMouvementsImpossibles": false,
+				"repeterLeDeplacement": false,
+				"attendreLaFinDuDeplacement": false,
+				"mouvements": [
+				{
+					"nom": "RendreAnimeALArret",
+					"animeALArret": false
+				},
+				{
+					"nom": "AppelerUneCommande",
+					"nomCommande": "Attendre",
+					"nombreDeFrames": 8
+				},
+				{
+					"nom": "ModifierApparence",
+					"image": "rebeca character",
+					"direction": 2,
+					"animation": 0,
+					"teinte": 0
+				}
+				]
+			},
+			{
+				"nom": "Attendre",
+				"nombreDeFrames": 8
+			},
+			{
+				"nom": "ModifierInterrupteur",
+				"numeroInterrupteur": 12,
+				"valeur": false
+			}
 			],
-			"image": "plante en pot character",
-			"directionInitiale": 3,
+			"image": "rebeca character",
+			"directionInitiale": 2,
 			"vitesse": "moderee",
 			"frequence": "basse",
-			"animeEnMouvement": false,
+			"animeEnMouvement": true,
 			"animeALArret": false,
-			"directionFixe": true,
+			"directionFixe": false,
 			"traversable": false,
 			"auDessusDeTout": false
 		}
@@ -1144,6 +1244,32 @@
 		]
 	},
 	{
+		"id": 1,
+		"nom": "plante (-16)",
+		"x": 10,
+		"y": 5,
+		"pages": [
+		{
+			"conditions": [
+			{
+				"nom": "Parler"
+			}
+			],
+			"commandes": [
+			],
+			"image": "plante en pot character",
+			"directionInitiale": 3,
+			"vitesse": "moderee",
+			"frequence": "basse",
+			"animeEnMouvement": false,
+			"animeALArret": false,
+			"directionFixe": true,
+			"traversable": false,
+			"auDessusDeTout": false
+		}
+		]
+	},
+	{
 		"id": 7,
 		"nom": "deplacer rebeca",
 		"x": 7,
@@ -1184,12 +1310,6 @@
 			"auDessusDeTout": false
 		}
 		]
-	},
-	{
-		"id": 2,
-		"nom": "Clone[341][004]",
-		"x": 14,
-		"y": 9
 	},
 	{
 		"id": 13,
@@ -1237,6 +1357,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 2,
+		"nom": "Clone[341][004]",
+		"x": 14,
+		"y": 9
 	},
 	{
 		"id": 8,
@@ -1321,12 +1447,6 @@
 		]
 	},
 	{
-		"id": 3,
-		"nom": "Clone[341][004]",
-		"x": 13,
-		"y": 9
-	},
-	{
 		"id": 14,
 		"nom": "livre",
 		"x": 11,
@@ -1372,6 +1492,12 @@
 			"auDessusDeTout": false
 		}
 		]
+	},
+	{
+		"id": 3,
+		"nom": "Clone[341][004]",
+		"x": 13,
+		"y": 9
 	},
 	{
 		"id": 9,
